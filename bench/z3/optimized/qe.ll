@@ -4942,7 +4942,7 @@ _ZNK7obj_mapI4exprPS0_E8containsES1_.exit:        ; preds = %86, %94
 .backedge:                                        ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, %378, %_ZNK7obj_mapI4exprPS0_E8containsES1_.exit
   %101 = load ptr, ptr %6, align 8, !tbaa !8
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !246
+  br i1 %102, label %.backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread_crit_edge, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !246
 
 103:                                              ; preds = %30
   %104 = landingpad { ptr, i32 }
@@ -5632,8 +5632,11 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; pr
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
           to label %.backedge unwind label %.loopexit152
 
-_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %.backedge, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph
-  %.0.lcssa.ph = phi ptr [ null, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %74, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %74, %.backedge ]
+.backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread_crit_edge: ; preds = %.backedge
+  br label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, !llvm.loop !246
+
+_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %.backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread_crit_edge, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph
+  %.0.lcssa.ph = phi ptr [ %74, %.backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread_crit_edge ], [ null, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %74, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ]
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %380 = load ptr, ptr %1, align 8, !tbaa !35
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 12
@@ -29436,7 +29439,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN2qe11search_tree
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit..critedge52.loopexit_crit_edge: ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %.pre98.pre = load ptr, ptr %12, align 8, !tbaa !507
-  br label %.critedge52
+  br label %.critedge52, !llvm.loop !606
 
 237:                                              ; preds = %165, %138
   %.pn41 = phi { ptr, i32 } [ %139, %138 ], [ %.pn.pn, %165 ]

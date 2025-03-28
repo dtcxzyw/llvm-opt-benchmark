@@ -1938,7 +1938,10 @@ st_mult.exit.us:                                  ; preds = %40
   %.val.val = load ptr, ptr %55, align 8, !tbaa !26
   %56 = call fastcc i32 @yield_log_record(ptr %.val.val, ptr noundef %54, ptr noundef %2, ptr noundef %3)
   %.not65 = icmp eq i32 %56, 0
-  br i1 %.not65, label %51, label %.loopexit, !llvm.loop !125
+  br i1 %.not65, label %51, label %..loopexit_crit_edge, !llvm.loop !125
+
+..loopexit_crit_edge:                             ; preds = %52
+  br label %.loopexit, !llvm.loop !125
 
 .loopexit.thread:                                 ; preds = %20, %22, %.loopexit77, %27
   %.046.ph = phi ptr [ %.14793.us108, %.loopexit77 ], [ null, %22 ], [ null, %20 ], [ null, %27 ]
@@ -1946,10 +1949,10 @@ st_mult.exit.us:                                  ; preds = %40
   call void @reftable_iterator_destroy(ptr noundef nonnull %6) #20
   br label %._crit_edge
 
-.loopexit:                                        ; preds = %52, %51, %.thread71
-  %.046 = phi ptr [ %.us-phi99, %.thread71 ], [ %.14793.us108, %51 ], [ %.14793.us108, %52 ]
-  %.038 = phi i64 [ %.us-phi100, %.thread71 ], [ %.13995.us106, %51 ], [ %.13995.us106, %52 ]
-  %.035 = phi i32 [ %.us-phi, %.thread71 ], [ %56, %52 ], [ 0, %51 ]
+.loopexit:                                        ; preds = %51, %..loopexit_crit_edge, %.thread71
+  %.046 = phi ptr [ %.us-phi99, %.thread71 ], [ %.14793.us108, %..loopexit_crit_edge ], [ %.14793.us108, %51 ]
+  %.038 = phi i64 [ %.us-phi100, %.thread71 ], [ %.13995.us106, %..loopexit_crit_edge ], [ %.13995.us106, %51 ]
+  %.035 = phi i32 [ %.us-phi, %.thread71 ], [ %56, %..loopexit_crit_edge ], [ 0, %51 ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %6) #20
   %.not121 = icmp eq i64 %.038, 0
   br i1 %.not121, label %._crit_edge, label %.lr.ph120
@@ -1963,13 +1966,13 @@ st_mult.exit.us:                                  ; preds = %40
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph120, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %.lr.ph120, %.loopexit.thread, %.loopexit
-  %.035140 = phi i32 [ %.035.ph, %.loopexit.thread ], [ %.035, %.loopexit ], [ %.035, %.lr.ph120 ]
-  %.046139 = phi ptr [ %.046.ph, %.loopexit.thread ], [ %.046, %.loopexit ], [ %.046, %.lr.ph120 ]
-  call void @free(ptr noundef %.046139) #20
+  %.035142 = phi i32 [ %.035.ph, %.loopexit.thread ], [ %.035, %.loopexit ], [ %.035, %.lr.ph120 ]
+  %.046141 = phi ptr [ %.046.ph, %.loopexit.thread ], [ %.046, %.loopexit ], [ %.046, %.lr.ph120 ]
+  call void @free(ptr noundef %.046141) #20
   br label %59
 
 59:                                               ; preds = %reftable_be_downcast.exit, %._crit_edge
-  %.051 = phi i32 [ %.035140, %._crit_edge ], [ %18, %reftable_be_downcast.exit ]
+  %.051 = phi i32 [ %.035142, %._crit_edge ], [ %18, %reftable_be_downcast.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
   ret i32 %.051
@@ -5129,7 +5132,7 @@ oidclr.exit99:                                    ; preds = %136, %.split.loop.e
 
 ._crit_edge:                                      ; preds = %147
   %.pre = load i32, ptr %2, align 4, !tbaa !54
-  br label %split
+  br label %split, !llvm.loop !196
 
 split:                                            ; preds = %145, %._crit_edge
   %151 = phi i32 [ %.pre, %._crit_edge ], [ %.pre150.pre, %145 ]

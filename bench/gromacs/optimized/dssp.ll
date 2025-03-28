@@ -3967,7 +3967,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_1
   %.pre429.i.i = ptrtoint ptr %.val84.pre.i.i to i64
   %.pre431.i.i = sub i64 %.pre427.i.i, %.pre429.i.i
   %.pre433.i.i = sdiv exact i64 %.pre431.i.i, 112
-  br label %.critedge.i.i
+  br label %.critedge.i.i, !llvm.loop !272
 
 787:                                              ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetweenEmm.exit.i.i, %782
   %.074.idx368.i.i = phi i64 [ 0, %782 ], [ %.074.add.i.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetweenEmm.exit.i.i ]

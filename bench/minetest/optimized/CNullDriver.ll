@@ -11739,10 +11739,10 @@ if.end.i.i27.split:                               ; preds = %while.body, %while.
   %add.ptr.i.i.i1 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %div2627.i.i
   %__value.sroa.0.0.copyload.i.i2 = load ptr, ptr %add.ptr.i.i.i1, align 8, !tbaa !118
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr %__first.coerce, i64 noundef %div2627.i.i, i64 noundef %sub.ptr.div.i43.lcssa, ptr %__value.sroa.0.0.copyload.i.i2)
-  br label %while.cond.i.i.split
+  br label %while.cond.i.i.split, !llvm.loop !295
 
 while.cond.i.i.split:                             ; preds = %if.end.i.i27.split, %while.cond.i.i.split
-  %__parent.0.i.i11 = phi i64 [ %dec.i.i, %while.cond.i.i.split ], [ %div2627.i.i, %if.end.i.i27.split ]
+  %__parent.0.i.i11 = phi i64 [ %div2627.i.i, %if.end.i.i27.split ], [ %dec.i.i, %while.cond.i.i.split ]
   %dec.i.i = add nsw i64 %__parent.0.i.i11, -1
   %add.ptr.i.i.i3 = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %dec.i.i
   %__value.sroa.0.0.copyload.i.i4 = load ptr, ptr %add.ptr.i.i.i3, align 8, !tbaa !118

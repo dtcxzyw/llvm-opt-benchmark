@@ -450,7 +450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %87 = sub i64 %85, %86
   %88 = ashr exact i64 %87, 5
   %89 = icmp ult i64 %82, %88
-  br i1 %89, label %22, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %89, label %22, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge.loopexit_crit_edge, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.noexc.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -479,11 +479,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %.lo
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br label %common.resume
 
-._crit_edge.loopexit:                             ; preds = %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.lr.ph109, %.lr.ph
-  %.pre88 = phi ptr [ %.pre88.pre104, %.lr.ph ], [ %.pre88.pre, %22 ], [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pre88.pre108, %.lr.ph109 ]
-  %.pre = phi ptr [ %.pre.pre103, %.lr.ph ], [ %.pre.pre, %22 ], [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pre.pre107, %.lr.ph109 ]
-  %.021.lcssa.ph = phi i64 [ 1, %.lr.ph ], [ %82, %22 ], [ %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.02168106, %.lr.ph109 ]
-  %.0.lcssa.ph = phi i32 [ 0, %.lr.ph ], [ %75, %22 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.069105, %.lr.ph109 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge.loopexit_crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %._crit_edge.loopexit, !llvm.loop !13
+
+._crit_edge.loopexit:                             ; preds = %22, %.lr.ph109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge.loopexit_crit_edge, %.lr.ph
+  %.pre88 = phi ptr [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge.loopexit_crit_edge ], [ %.pre88.pre104, %.lr.ph ], [ %.pre88.pre, %22 ], [ %.pre88.pre108, %.lr.ph109 ]
+  %.pre = phi ptr [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge.loopexit_crit_edge ], [ %.pre.pre103, %.lr.ph ], [ %.pre.pre, %22 ], [ %.pre.pre107, %.lr.ph109 ]
+  %.021.lcssa.ph = phi i64 [ %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge.loopexit_crit_edge ], [ 1, %.lr.ph ], [ %82, %22 ], [ %.02168106, %.lr.ph109 ]
+  %.0.lcssa.ph = phi i32 [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %75, %22 ], [ %.069105, %.lr.ph109 ]
   %.pre92 = ptrtoint ptr %.pre to i64
   %.pre93 = ptrtoint ptr %.pre88 to i64
   %.pre95 = sub i64 %.pre92, %.pre93

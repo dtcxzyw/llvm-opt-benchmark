@@ -64600,175 +64600,175 @@ define noundef zeroext i1 @"_ZN64_$LT$vim..command..WithRange$u20$as$u20$gpui..a
   %17 = load i8, ptr %16, align 8, !range !9, !noalias !13582, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load i8, ptr %18, align 8, !range !9, !alias.scope !13582, !noundef !5
-  %.not.i.i = icmp eq i8 %17, %19
-  br i1 %.not.i.i, label %20, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+  %20 = icmp eq i8 %17, %19
+  br i1 %20, label %21, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-20:                                               ; preds = %15
+21:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13583)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13586)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13588)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13591)
-  %21 = load i32, ptr %0, align 8, !range !11672, !alias.scope !13593, !noalias !13594, !noundef !5
-  %22 = load i32, ptr %7, align 4, !range !11672, !alias.scope !13594, !noalias !13593, !noundef !5
-  %23 = icmp eq i32 %21, %22
-  br i1 %23, label %24, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+  %22 = load i32, ptr %0, align 8, !range !11672, !alias.scope !13593, !noalias !13594, !noundef !5
+  %23 = load i32, ptr %7, align 4, !range !11672, !alias.scope !13594, !noalias !13593, !noundef !5
+  %24 = icmp eq i32 %22, %23
+  br i1 %24, label %25, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-24:                                               ; preds = %20
-  switch i32 %21, label %default.unreachable [
-    i32 0, label %25
-    i32 1, label %31
-    i32 2, label %37
-    i32 3, label %43
+25:                                               ; preds = %21
+  switch i32 %22, label %default.unreachable [
+    i32 0, label %26
+    i32 1, label %32
+    i32 2, label %38
+    i32 3, label %44
   ]
 
-default.unreachable:                              ; preds = %24
+default.unreachable:                              ; preds = %25
   unreachable
 
-25:                                               ; preds = %24
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %27 = load i32, ptr %26, align 4, !alias.scope !13593, !noalias !13594, !noundef !5
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !alias.scope !13594, !noalias !13593, !noundef !5
-  %30 = icmp eq i32 %27, %29
-  br i1 %30, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %28 = load i32, ptr %27, align 4, !alias.scope !13593, !noalias !13594, !noundef !5
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %30 = load i32, ptr %29, align 4, !alias.scope !13594, !noalias !13593, !noundef !5
+  %31 = icmp eq i32 %28, %30
+  br i1 %31, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i32, ptr %32, align 8, !range !5594, !alias.scope !13593, !noalias !13594, !noundef !5
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %35 = load i32, ptr %34, align 4, !range !5594, !alias.scope !13594, !noalias !13593, !noundef !5
-  %36 = icmp eq i32 %33, %35
-  br i1 %36, label %49, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load i32, ptr %33, align 8, !range !5594, !alias.scope !13593, !noalias !13594, !noundef !5
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %36 = load i32, ptr %35, align 4, !range !5594, !alias.scope !13594, !noalias !13593, !noundef !5
+  %37 = icmp eq i32 %34, %36
+  br i1 %37, label %50, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-37:                                               ; preds = %24
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %39 = load i32, ptr %38, align 4, !alias.scope !13593, !noalias !13594, !noundef !5
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %41 = load i32, ptr %40, align 4, !alias.scope !13594, !noalias !13593, !noundef !5
-  %42 = icmp eq i32 %39, %41
-  br i1 %42, label %60, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+38:                                               ; preds = %25
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %40 = load i32, ptr %39, align 4, !alias.scope !13593, !noalias !13594, !noundef !5
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %42 = load i32, ptr %41, align 4, !alias.scope !13594, !noalias !13593, !noundef !5
+  %43 = icmp eq i32 %40, %42
+  br i1 %43, label %61, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-43:                                               ; preds = %24
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %45 = load i32, ptr %44, align 4, !alias.scope !13593, !noalias !13594, !noundef !5
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %47 = load i32, ptr %46, align 4, !alias.scope !13594, !noalias !13593, !noundef !5
-  %48 = icmp eq i32 %45, %47
-  br i1 %48, label %60, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+44:                                               ; preds = %25
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %46 = load i32, ptr %45, align 4, !alias.scope !13593, !noalias !13594, !noundef !5
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %48 = load i32, ptr %47, align 4, !alias.scope !13594, !noalias !13593, !noundef !5
+  %49 = icmp eq i32 %46, %48
+  br i1 %49, label %61, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-49:                                               ; preds = %31
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %51 = load i32, ptr %50, align 4, !alias.scope !13593, !noalias !13594, !noundef !5
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %53 = load i32, ptr %52, align 4, !alias.scope !13594, !noalias !13593, !noundef !5
-  %54 = icmp eq i32 %51, %53
-  br i1 %54, label %60, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+50:                                               ; preds = %32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %52 = load i32, ptr %51, align 4, !alias.scope !13593, !noalias !13594, !noundef !5
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %54 = load i32, ptr %53, align 4, !alias.scope !13594, !noalias !13593, !noundef !5
+  %55 = icmp eq i32 %52, %54
+  br i1 %55, label %61, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i": ; preds = %25
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load i32, ptr %55, align 8, !alias.scope !13593, !noalias !13594, !noundef !5
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %58 = load i32, ptr %57, align 4, !alias.scope !13594, !noalias !13593, !noundef !5
-  %59 = icmp eq i32 %56, %58
-  br i1 %59, label %60, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i": ; preds = %26
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load i32, ptr %56, align 8, !alias.scope !13593, !noalias !13594, !noundef !5
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = load i32, ptr %58, align 4, !alias.scope !13594, !noalias !13593, !noundef !5
+  %60 = icmp eq i32 %57, %59
+  br i1 %60, label %61, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-60:                                               ; preds = %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", %49, %43, %37
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %62 = load i32, ptr %61, align 4, !range !11646, !alias.scope !13583, !noalias !13595, !noundef !5
-  %63 = icmp eq i32 %62, 4
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %65 = load i32, ptr %64, align 4, !range !11646, !alias.scope !13595, !noalias !13583, !noundef !5
-  %66 = icmp eq i32 %65, 4
-  %brmerge.i.i.i = or i1 %63, %66
-  br i1 %brmerge.i.i.i, label %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i", label %67
+61:                                               ; preds = %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", %50, %44, %38
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %63 = load i32, ptr %62, align 4, !range !11646, !alias.scope !13583, !noalias !13595, !noundef !5
+  %64 = icmp eq i32 %63, 4
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %66 = load i32, ptr %65, align 4, !range !11646, !alias.scope !13595, !noalias !13583, !noundef !5
+  %67 = icmp eq i32 %66, 4
+  %brmerge.i.i.i = or i1 %64, %67
+  br i1 %brmerge.i.i.i, label %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i", label %68
 
-67:                                               ; preds = %60
+68:                                               ; preds = %61
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13596)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13599)
-  %68 = icmp eq i32 %62, %65
-  br i1 %68, label %69, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+  %69 = icmp eq i32 %63, %66
+  br i1 %69, label %70, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-69:                                               ; preds = %67
-  switch i32 %62, label %default.unreachable2.i2.i.i.i [
-    i32 0, label %70
-    i32 1, label %76
-    i32 2, label %82
-    i32 3, label %88
+70:                                               ; preds = %68
+  switch i32 %63, label %default.unreachable2.i2.i.i.i [
+    i32 0, label %71
+    i32 1, label %77
+    i32 2, label %83
+    i32 3, label %89
   ]
 
-default.unreachable2.i2.i.i.i:                    ; preds = %69
+default.unreachable2.i2.i.i.i:                    ; preds = %70
   unreachable
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %72 = load i32, ptr %71, align 8, !alias.scope !13601, !noalias !13602, !noundef !5
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %74 = load i32, ptr %73, align 4, !alias.scope !13602, !noalias !13601, !noundef !5
-  %75 = icmp eq i32 %72, %74
-  br i1 %75, label %94, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+71:                                               ; preds = %70
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %73 = load i32, ptr %72, align 8, !alias.scope !13601, !noalias !13602, !noundef !5
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %75 = load i32, ptr %74, align 4, !alias.scope !13602, !noalias !13601, !noundef !5
+  %76 = icmp eq i32 %73, %75
+  br i1 %76, label %95, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-76:                                               ; preds = %69
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %78 = load i32, ptr %77, align 4, !range !5594, !alias.scope !13601, !noalias !13602, !noundef !5
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %80 = load i32, ptr %79, align 4, !range !5594, !alias.scope !13602, !noalias !13601, !noundef !5
-  %81 = icmp eq i32 %78, %80
-  br i1 %81, label %100, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+77:                                               ; preds = %70
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %79 = load i32, ptr %78, align 4, !range !5594, !alias.scope !13601, !noalias !13602, !noundef !5
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %81 = load i32, ptr %80, align 4, !range !5594, !alias.scope !13602, !noalias !13601, !noundef !5
+  %82 = icmp eq i32 %79, %81
+  br i1 %82, label %101, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-82:                                               ; preds = %69
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %84 = load i32, ptr %83, align 8, !alias.scope !13601, !noalias !13602, !noundef !5
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %86 = load i32, ptr %85, align 4, !alias.scope !13602, !noalias !13601, !noundef !5
-  %87 = icmp eq i32 %84, %86
-  br i1 %87, label %106, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+83:                                               ; preds = %70
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %85 = load i32, ptr %84, align 8, !alias.scope !13601, !noalias !13602, !noundef !5
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %87 = load i32, ptr %86, align 4, !alias.scope !13602, !noalias !13601, !noundef !5
+  %88 = icmp eq i32 %85, %87
+  br i1 %88, label %107, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-88:                                               ; preds = %69
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %90 = load i32, ptr %89, align 8, !alias.scope !13601, !noalias !13602, !noundef !5
-  %91 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %92 = load i32, ptr %91, align 4, !alias.scope !13602, !noalias !13601, !noundef !5
-  %93 = icmp eq i32 %90, %92
-  br i1 %93, label %106, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+89:                                               ; preds = %70
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %91 = load i32, ptr %90, align 8, !alias.scope !13601, !noalias !13602, !noundef !5
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %93 = load i32, ptr %92, align 4, !alias.scope !13602, !noalias !13601, !noundef !5
+  %94 = icmp eq i32 %91, %93
+  br i1 %94, label %107, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-94:                                               ; preds = %70
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %96 = load i32, ptr %95, align 4, !alias.scope !13601, !noalias !13602, !noundef !5
-  %97 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %98 = load i32, ptr %97, align 4, !alias.scope !13602, !noalias !13601, !noundef !5
-  %99 = icmp eq i32 %96, %98
-  br i1 %99, label %106, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+95:                                               ; preds = %71
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %97 = load i32, ptr %96, align 4, !alias.scope !13601, !noalias !13602, !noundef !5
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %99 = load i32, ptr %98, align 4, !alias.scope !13602, !noalias !13601, !noundef !5
+  %100 = icmp eq i32 %97, %99
+  br i1 %100, label %107, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-100:                                              ; preds = %76
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %102 = load i32, ptr %101, align 8, !alias.scope !13601, !noalias !13602, !noundef !5
-  %103 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %104 = load i32, ptr %103, align 4, !alias.scope !13602, !noalias !13601, !noundef !5
-  %105 = icmp eq i32 %102, %104
-  br i1 %105, label %106, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+101:                                              ; preds = %77
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %103 = load i32, ptr %102, align 8, !alias.scope !13601, !noalias !13602, !noundef !5
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %105 = load i32, ptr %104, align 4, !alias.scope !13602, !noalias !13601, !noundef !5
+  %106 = icmp eq i32 %103, %105
+  br i1 %106, label %107, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i": ; preds = %60
-  %.mux.i.i.i = and i1 %63, %66
-  br i1 %.mux.i.i.i, label %106, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i": ; preds = %61
+  %.mux.i.i.i = and i1 %64, %67
+  br i1 %.mux.i.i.i, label %107, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-106:                                              ; preds = %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i", %100, %94, %88, %82
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %108 = getelementptr inbounds nuw i8, ptr %7, i64 24
+107:                                              ; preds = %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i", %101, %95, %89, %83
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13603)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13606)
-  %109 = load ptr, ptr %107, align 8, !alias.scope !13603, !noalias !13608, !nonnull !5, !align !4494, !noundef !5
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %111 = load ptr, ptr %110, align 8, !alias.scope !13603, !noalias !13608, !nonnull !5, !align !97, !noundef !5
-  %112 = load ptr, ptr %108, align 8, !alias.scope !13608, !noalias !13603, !nonnull !5, !align !4494, !noundef !5
-  %113 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %114 = load ptr, ptr %113, align 8, !alias.scope !13608, !noalias !13603, !nonnull !5, !align !97, !noundef !5
-  %115 = getelementptr inbounds nuw i8, ptr %111, i64 40
-  %116 = load ptr, ptr %115, align 8, !invariant.load !5, !noalias !13609, !nonnull !5
-  %117 = tail call noundef zeroext i1 %116(ptr noundef nonnull align 1 %109, ptr noundef nonnull align 1 %112, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %114), !noalias !13609
+  %110 = load ptr, ptr %108, align 8, !alias.scope !13603, !noalias !13608, !nonnull !5, !align !4494, !noundef !5
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %112 = load ptr, ptr %111, align 8, !alias.scope !13603, !noalias !13608, !nonnull !5, !align !97, !noundef !5
+  %113 = load ptr, ptr %109, align 8, !alias.scope !13608, !noalias !13603, !nonnull !5, !align !4494, !noundef !5
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %115 = load ptr, ptr %114, align 8, !alias.scope !13608, !noalias !13603, !nonnull !5, !align !97, !noundef !5
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 40
+  %117 = load ptr, ptr %116, align 8, !invariant.load !5, !noalias !13609, !nonnull !5
+  %118 = tail call noundef zeroext i1 %117(ptr noundef nonnull align 1 %110, ptr noundef nonnull align 1 %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %115), !noalias !13609
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit": ; preds = %3, %15, %20, %25, %31, %37, %43, %49, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", %67, %70, %76, %82, %88, %94, %100, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i", %106
-  %.sroa.02.0.i = phi i1 [ false, %3 ], [ %117, %106 ], [ false, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i" ], [ false, %15 ], [ false, %88 ], [ false, %82 ], [ false, %100 ], [ false, %94 ], [ false, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i" ], [ false, %43 ], [ false, %37 ], [ false, %49 ], [ false, %67 ], [ false, %70 ], [ false, %76 ], [ false, %20 ], [ false, %25 ], [ false, %31 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit": ; preds = %3, %15, %21, %26, %32, %38, %44, %50, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", %68, %71, %77, %83, %89, %95, %101, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i", %107
+  %.sroa.02.0.i = phi i1 [ false, %3 ], [ %118, %107 ], [ false, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i" ], [ false, %15 ], [ false, %89 ], [ false, %83 ], [ false, %101 ], [ false, %95 ], [ false, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i" ], [ false, %44 ], [ false, %38 ], [ false, %50 ], [ false, %68 ], [ false, %71 ], [ false, %77 ], [ false, %21 ], [ false, %26 ], [ false, %32 ]
   ret i1 %.sroa.02.0.i
 }
 

@@ -259,9 +259,12 @@ define noundef zeroext i1 @_ZN3g2o11EdgePointXY4readERSi(ptr noundef nonnull ali
 
 11:                                               ; preds = %4
   %12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %indvars.iv.i.sroa.phi)
-  br i1 %5, label %4, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !61
+  br i1 %5, label %4, label %..critedge_crit_edge.i, !llvm.loop !61
 
-_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %11, %4
+..critedge_crit_edge.i:                           ; preds = %11
+  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !61
+
+_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %4, %..critedge_crit_edge.i
   %13 = load ptr, ptr %0, align 16, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %15 = load ptr, ptr %14, align 8
@@ -297,7 +300,10 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   br i1 %30, label %31, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %36, %25
-  br i1 %18, label %17, label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit, !llvm.loop !63
+  br i1 %18, label %17, label %.critedge2..critedge_crit_edge.i, !llvm.loop !63
+
+.critedge2..critedge_crit_edge.i:                 ; preds = %.critedge2.i
+  br label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit, !llvm.loop !63
 
 31:                                               ; preds = %25
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv32.i, 4
@@ -316,7 +322,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   %37 = icmp eq i64 %indvars.iv32.i, 0
   br i1 %37, label %25, label %.critedge2.i, !llvm.loop !64
 
-_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %.critedge2.i, %17
+_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %17, %.critedge2..critedge_crit_edge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
   ret i1 true
 }

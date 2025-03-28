@@ -38550,7 +38550,7 @@ _ZNK8uint_set8containsEj.exit.thread.i.i:         ; preds = %_ZNK6vectorIjLb0EjE
 
 ._ZN8uint_set8iterator8scan_idxEv.exit.i.thread_crit_edge: ; preds = %242
   %.pre237 = lshr i32 %.sroa.5.12.extract.trunc, 5
-  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i
+  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i, !llvm.loop !546
 
 _ZN8uint_set8iterator8scan_idxEv.exit.i:          ; preds = %229, %_ZNK8uint_set8containsEj.exit.thread.us.i.i, %.loopexit184
   %.sroa.5.2 = phi i64 [ %.sroa.5.8.insert.insert, %.loopexit184 ], [ %.sroa.5.8.insert.insert155, %229 ], [ %.sroa.5.10, %_ZNK8uint_set8containsEj.exit.thread.us.i.i ]

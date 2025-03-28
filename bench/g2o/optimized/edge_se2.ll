@@ -304,9 +304,12 @@ define noundef zeroext i1 @_ZN3g2o7EdgeSE24readERSi(ptr noundef nonnull align 16
   %13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, label %5, !llvm.loop !62
+  br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %5, !llvm.loop !62
 
-_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %11, %5
+..critedge_crit_edge.i:                           ; preds = %11
+  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !62
+
+_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %5, %..critedge_crit_edge.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load double, ptr %14, align 8, !tbaa !64
@@ -386,13 +389,13 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
 .critedge2.i:                                     ; preds = %66, %55
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next.i7, 3
-  br i1 %exitcond36.not.i, label %.critedge2.i._ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit_crit_edge, label %48, !llvm.loop !82
+  br i1 %exitcond36.not.i, label %.critedge2..critedge_crit_edge.i, label %48, !llvm.loop !82
 
-.critedge2.i._ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit_crit_edge: ; preds = %.critedge2.i
+.critedge2..critedge_crit_edge.i:                 ; preds = %.critedge2.i
   %.pre = load ptr, ptr %1, align 8, !tbaa !38
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 -24
   %.pre12 = load i64, ptr %.phi.trans.insert, align 8
-  br label %_ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit
+  br label %_ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit, !llvm.loop !82
 
 61:                                               ; preds = %55
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv32.i, 24
@@ -412,8 +415,8 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next33.i, 3
   br i1 %exitcond.not.i10, label %.critedge2.i, label %55, !llvm.loop !83
 
-_ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit: ; preds = %48, %.critedge2.i._ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit_crit_edge
-  %67 = phi i64 [ %.pre12, %.critedge2.i._ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit_crit_edge ], [ %51, %48 ]
+_ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit: ; preds = %48, %.critedge2..critedge_crit_edge.i
+  %67 = phi i64 [ %.pre12, %.critedge2..critedge_crit_edge.i ], [ %51, %48 ]
   %68 = getelementptr inbounds i8, ptr %1, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = load i32, ptr %69, align 8, !tbaa !52

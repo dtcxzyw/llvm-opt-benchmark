@@ -207,9 +207,12 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %94 = getelementptr inbounds i8, ptr %.141.i82137, i64 %93
   %95 = load i8, ptr %94, align 1
   %.not33.i88 = icmp eq i8 %95, 0
-  br i1 %.not33.i88, label %.critedge2.i84, label %.lr.ph43.i80, !llvm.loop !6
+  br i1 %.not33.i88, label %.critedge.i87..critedge2.i84_crit_edge, label %.lr.ph43.i80, !llvm.loop !6
 
-.critedge2.i84:                                   ; preds = %.lr.ph43.i80, %.critedge.i87
+.critedge.i87..critedge2.i84_crit_edge:           ; preds = %.critedge.i87
+  br label %.critedge2.i84, !llvm.loop !6
+
+.critedge2.i84:                                   ; preds = %.lr.ph43.i80, %.critedge.i87..critedge2.i84_crit_edge
   %96 = icmp eq i32 %92, 1
   br i1 %96, label %97, label %100
 
@@ -276,18 +279,18 @@ findwrd.exit89:                                   ; preds = %100, %97
   br label %127
 
 127:                                              ; preds = %119, %113
-  %.sink173 = phi i64 [ %123, %119 ], [ %116, %113 ]
-  %.sink170 = phi ptr [ %126, %119 ], [ %118, %113 ]
+  %.sink180 = phi i64 [ %123, %119 ], [ %116, %113 ]
+  %.sink177 = phi ptr [ %126, %119 ], [ %118, %113 ]
   %128 = load ptr, ptr %47, align 8
-  %129 = getelementptr inbounds %struct.Syn, ptr %128, i64 %.sink173, i32 1
-  store ptr %.sink170, ptr %129, align 8
+  %129 = getelementptr inbounds %struct.Syn, ptr %128, i64 %.sink180, i32 1
+  store ptr %.sink177, ptr %129, align 8
   %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i75) #9
   %131 = trunc i64 %130 to i32
   %132 = load ptr, ptr %47, align 8
-  %133 = getelementptr inbounds %struct.Syn, ptr %132, i64 %.sink173, i32 2
+  %133 = getelementptr inbounds %struct.Syn, ptr %132, i64 %.sink180, i32 2
   store i32 %131, ptr %133, align 8
   %134 = load ptr, ptr %47, align 8
-  %135 = getelementptr inbounds %struct.Syn, ptr %134, i64 %.sink173, i32 3
+  %135 = getelementptr inbounds %struct.Syn, ptr %134, i64 %.sink180, i32 3
   store i16 %.2, ptr %135, align 4
   %136 = add i32 %.060143, 1
   br label %findwrd.exit.thread

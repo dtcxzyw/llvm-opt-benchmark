@@ -746,10 +746,13 @@ adjust.exit.thread50.i:                           ; preds = %413, %378
   %415 = add nuw nsw i32 %.02960.i34, 1
   %416 = load i32, ptr @xParams.4, align 8, !tbaa !50
   %417 = icmp slt i32 %415, %416
-  br i1 %417, label %.lr.ph.i, label %.thread.i, !llvm.loop !52
+  br i1 %417, label %.lr.ph.i, label %adjust.exit.thread50.i..thread.i.loopexit_crit_edge, !llvm.loop !52
 
-.thread.i:                                        ; preds = %.lr.ph.i, %adjust.exit.thread50.i, %.lr.ph.i.preheader, %xinit_params.exit.i
-  %.2.i = phi i32 [ %.03067.i, %xinit_params.exit.i ], [ %.03067.i, %.lr.ph.i.preheader ], [ %.1.lcssa.i41.i, %adjust.exit.thread50.i ], [ %.1.lcssa.i41.i, %.lr.ph.i ]
+adjust.exit.thread50.i..thread.i.loopexit_crit_edge: ; preds = %adjust.exit.thread50.i
+  br label %.thread.i, !llvm.loop !52
+
+.thread.i:                                        ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %adjust.exit.thread50.i..thread.i.loopexit_crit_edge, %xinit_params.exit.i
+  %.2.i = phi i32 [ %.03067.i, %xinit_params.exit.i ], [ %.1.lcssa.i41.i, %adjust.exit.thread50.i..thread.i.loopexit_crit_edge ], [ %.03067.i, %.lr.ph.i.preheader ], [ %.1.lcssa.i41.i, %.lr.ph.i ]
   %418 = fadd double %.sroa.5.0.copyload.i, %.sroa.5.065.i
   %419 = add nuw nsw i32 %.03266.i, 1
   %420 = icmp ne i32 %.2.i, 0

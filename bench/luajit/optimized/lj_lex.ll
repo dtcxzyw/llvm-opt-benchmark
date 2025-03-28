@@ -431,7 +431,7 @@ lex_savenext.exit:                                ; preds = %37, %41
 
 62:                                               ; preds = %.lr.ph, %lex_newline.exit.backedge
   %63 = phi i32 [ %7, %.lr.ph ], [ %106, %lex_newline.exit.backedge ]
-  switch i32 %63, label %821 [
+  switch i32 %63, label %822 [
     i32 10, label %64
     i32 13, label %64
     i32 32, label %95
@@ -447,7 +447,7 @@ lex_savenext.exit:                                ; preds = %37, %41
     i32 58, label %293
     i32 34, label %315
     i32 39, label %315
-    i32 46, label %770
+    i32 46, label %771
     i32 -1, label %.loopexit
   ]
 
@@ -1018,7 +1018,7 @@ lex_savenext.exit102.i:                           ; preds = %334, %330
 
 .lr.ph138.i:                                      ; preds = %lex_savenext.exit102.i, %.backedge.i
   %337 = phi i32 [ %.be.i, %.backedge.i ], [ %336, %lex_savenext.exit102.i ]
-  switch i32 %337, label %718 [
+  switch i32 %337, label %719 [
     i32 -1, label %338
     i32 10, label %339
     i32 13, label %339
@@ -1053,7 +1053,7 @@ lex_savenext.exit102.i:                           ; preds = %334, %330
 lex_next.exit100.i:                               ; preds = %348, %344
   %350 = phi i32 [ %347, %344 ], [ %349, %348 ]
   store i32 %350, ptr %6, align 8, !tbaa !26
-  switch i32 %350, label %629 [
+  switch i32 %350, label %630 [
     i32 97, label %351
     i32 98, label %352
     i32 102, label %353
@@ -1064,34 +1064,34 @@ lex_next.exit100.i:                               ; preds = %348, %344
     i32 120, label %358
     i32 117, label %402
     i32 122, label %527
-    i32 10, label %588
-    i32 13, label %588
-    i32 92, label %696
-    i32 34, label %696
-    i32 39, label %696
+    i32 10, label %589
+    i32 13, label %589
+    i32 92, label %697
+    i32 34, label %697
+    i32 39, label %697
     i32 -1, label %.backedge.i
   ], !llvm.loop !62
 
 351:                                              ; preds = %lex_next.exit100.i
-  br label %696
+  br label %697
 
 352:                                              ; preds = %lex_next.exit100.i
-  br label %696
+  br label %697
 
 353:                                              ; preds = %lex_next.exit100.i
-  br label %696
+  br label %697
 
 354:                                              ; preds = %lex_next.exit100.i
-  br label %696
+  br label %697
 
 355:                                              ; preds = %lex_next.exit100.i
-  br label %696
+  br label %697
 
 356:                                              ; preds = %lex_next.exit100.i
-  br label %696
+  br label %697
 
 357:                                              ; preds = %lex_next.exit100.i
-  br label %696
+  br label %697
 
 358:                                              ; preds = %lex_next.exit100.i
   %359 = load ptr, ptr %11, align 8, !tbaa !27
@@ -1161,7 +1161,7 @@ lex_next.exit98.i:                                ; preds = %388, %384
   %396 = zext i8 %395 to i32
   %397 = and i32 %396, 8
   %.not85.i = icmp eq i32 %397, 0
-  br i1 %.not85.i, label %398, label %696
+  br i1 %.not85.i, label %398, label %697
 
 398:                                              ; preds = %lex_next.exit98.i
   %399 = and i32 %396, 16
@@ -1170,7 +1170,7 @@ lex_next.exit98.i:                                ; preds = %388, %384
 
 400:                                              ; preds = %398
   %401 = add nuw nsw i32 %392, 9
-  br label %696
+  br label %697
 
 402:                                              ; preds = %lex_next.exit100.i
   %403 = load ptr, ptr %11, align 8, !tbaa !27
@@ -1274,7 +1274,7 @@ lex_next.exit95.i:                                ; preds = %448, %444
 
 453:                                              ; preds = %451
   %454 = icmp slt i32 %.3.i, 128
-  br i1 %454, label %696, label %455
+  br i1 %454, label %697, label %455
 
 455:                                              ; preds = %453
   %456 = lshr i32 %.3.i, 6
@@ -1403,7 +1403,7 @@ lj_buf_more.exit108.i:                            ; preds = %519, %511
   store ptr %storemerge128.i, ptr %3, align 8, !tbaa !53
   %525 = and i32 %.3.i, 63
   %526 = or disjoint i32 %525, 128
-  br label %696
+  br label %697
 
 527:                                              ; preds = %lex_next.exit100.i
   %528 = load ptr, ptr %11, align 8, !tbaa !27
@@ -1432,579 +1432,585 @@ lex_next.exit94.i:                                ; preds = %535, %531
   %.not78136.i = icmp eq i8 %541, 0
   br i1 %.not78136.i, label %.backedge.i, label %.lr.ph.i, !llvm.loop !62
 
-.lr.ph.i:                                         ; preds = %lex_next.exit94.i, %lex_newline.exit.i
-  %542 = phi i32 [ %.pr127.i, %lex_newline.exit.i ], [ %537, %lex_next.exit94.i ]
-  switch i32 %542, label %573 [
-    i32 10, label %543
-    i32 13, label %543
+.lr.ph.i:                                         ; preds = %lex_next.exit94.i
+  br label %542, !llvm.loop !62
+
+542:                                              ; preds = %lex_newline.exit.i, %.lr.ph.i
+  %543 = phi i32 [ %537, %.lr.ph.i ], [ %.pr127.i, %lex_newline.exit.i ]
+  switch i32 %543, label %574 [
+    i32 10, label %544
+    i32 13, label %544
   ]
 
-543:                                              ; preds = %.lr.ph.i, %.lr.ph.i
-  %544 = load ptr, ptr %11, align 8, !tbaa !27
-  %545 = load ptr, ptr %12, align 8, !tbaa !28
-  %546 = icmp ult ptr %544, %545
-  br i1 %546, label %547, label %551
+544:                                              ; preds = %542, %542
+  %545 = load ptr, ptr %11, align 8, !tbaa !27
+  %546 = load ptr, ptr %12, align 8, !tbaa !28
+  %547 = icmp ult ptr %545, %546
+  br i1 %547, label %548, label %552
 
-547:                                              ; preds = %543
-  %548 = getelementptr inbounds nuw i8, ptr %544, i64 1
-  store ptr %548, ptr %11, align 8, !tbaa !27
-  %549 = load i8, ptr %544, align 1, !tbaa !29
-  %550 = zext i8 %549 to i32
+548:                                              ; preds = %544
+  %549 = getelementptr inbounds nuw i8, ptr %545, i64 1
+  store ptr %549, ptr %11, align 8, !tbaa !27
+  %550 = load i8, ptr %545, align 1, !tbaa !29
+  %551 = zext i8 %550 to i32
   br label %lex_next.exit9.i.i
 
-551:                                              ; preds = %543
-  %552 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+552:                                              ; preds = %544
+  %553 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit9.i.i
 
-lex_next.exit9.i.i:                               ; preds = %551, %547
-  %553 = phi i32 [ %550, %547 ], [ %552, %551 ]
-  store i32 %553, ptr %6, align 8, !tbaa !26
-  switch i32 %553, label %566 [
-    i32 10, label %554
-    i32 13, label %554
+lex_next.exit9.i.i:                               ; preds = %552, %548
+  %554 = phi i32 [ %551, %548 ], [ %553, %552 ]
+  store i32 %554, ptr %6, align 8, !tbaa !26
+  switch i32 %554, label %567 [
+    i32 10, label %555
+    i32 13, label %555
   ]
 
-554:                                              ; preds = %lex_next.exit9.i.i, %lex_next.exit9.i.i
-  %.not.i.i = icmp eq i32 %553, %542
-  br i1 %.not.i.i, label %566, label %555
+555:                                              ; preds = %lex_next.exit9.i.i, %lex_next.exit9.i.i
+  %.not.i.i = icmp eq i32 %554, %543
+  br i1 %.not.i.i, label %567, label %556
 
-555:                                              ; preds = %554
-  %556 = load ptr, ptr %11, align 8, !tbaa !27
-  %557 = load ptr, ptr %12, align 8, !tbaa !28
-  %558 = icmp ult ptr %556, %557
-  br i1 %558, label %559, label %563
+556:                                              ; preds = %555
+  %557 = load ptr, ptr %11, align 8, !tbaa !27
+  %558 = load ptr, ptr %12, align 8, !tbaa !28
+  %559 = icmp ult ptr %557, %558
+  br i1 %559, label %560, label %564
 
-559:                                              ; preds = %555
-  %560 = getelementptr inbounds nuw i8, ptr %556, i64 1
-  store ptr %560, ptr %11, align 8, !tbaa !27
-  %561 = load i8, ptr %556, align 1, !tbaa !29
-  %562 = zext i8 %561 to i32
+560:                                              ; preds = %556
+  %561 = getelementptr inbounds nuw i8, ptr %557, i64 1
+  store ptr %561, ptr %11, align 8, !tbaa !27
+  %562 = load i8, ptr %557, align 1, !tbaa !29
+  %563 = zext i8 %562 to i32
   br label %lex_next.exit.i.i
 
-563:                                              ; preds = %555
-  %564 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+564:                                              ; preds = %556
+  %565 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit.i.i
 
-lex_next.exit.i.i:                                ; preds = %563, %559
-  %565 = phi i32 [ %562, %559 ], [ %564, %563 ]
-  store i32 %565, ptr %6, align 8, !tbaa !26
-  br label %566
+lex_next.exit.i.i:                                ; preds = %564, %560
+  %566 = phi i32 [ %563, %560 ], [ %565, %564 ]
+  store i32 %566, ptr %6, align 8, !tbaa !26
+  br label %567
 
-566:                                              ; preds = %lex_next.exit.i.i, %554, %lex_next.exit9.i.i
-  %.pr127141.i = phi i32 [ %565, %lex_next.exit.i.i ], [ %542, %554 ], [ %553, %lex_next.exit9.i.i ]
-  %567 = load i32, ptr %14, align 8, !tbaa !22
-  %568 = add nsw i32 %567, 1
-  store i32 %568, ptr %14, align 8, !tbaa !22
-  %569 = icmp sgt i32 %567, 2147483390
-  br i1 %569, label %570, label %lex_newline.exit.i
+567:                                              ; preds = %lex_next.exit.i.i, %555, %lex_next.exit9.i.i
+  %.pr127141.i = phi i32 [ %566, %lex_next.exit.i.i ], [ %543, %555 ], [ %554, %lex_next.exit9.i.i ]
+  %568 = load i32, ptr %14, align 8, !tbaa !22
+  %569 = add nsw i32 %568, 1
+  store i32 %569, ptr %14, align 8, !tbaa !22
+  %570 = icmp sgt i32 %568, 2147483390
+  br i1 %570, label %571, label %lex_newline.exit.i
 
-570:                                              ; preds = %566
-  %571 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %572 = load i32, ptr %571, align 4, !tbaa !20
-  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef %572, i32 noundef 2191) #10
+571:                                              ; preds = %567
+  %572 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %573 = load i32, ptr %572, align 4, !tbaa !20
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef %573, i32 noundef 2191) #10
   unreachable
 
-573:                                              ; preds = %.lr.ph.i
-  %574 = load ptr, ptr %11, align 8, !tbaa !27
-  %575 = load ptr, ptr %12, align 8, !tbaa !28
-  %576 = icmp ult ptr %574, %575
-  br i1 %576, label %577, label %581
+574:                                              ; preds = %542
+  %575 = load ptr, ptr %11, align 8, !tbaa !27
+  %576 = load ptr, ptr %12, align 8, !tbaa !28
+  %577 = icmp ult ptr %575, %576
+  br i1 %577, label %578, label %582
 
-577:                                              ; preds = %573
-  %578 = getelementptr inbounds nuw i8, ptr %574, i64 1
-  store ptr %578, ptr %11, align 8, !tbaa !27
-  %579 = load i8, ptr %574, align 1, !tbaa !29
-  %580 = zext i8 %579 to i32
+578:                                              ; preds = %574
+  %579 = getelementptr inbounds nuw i8, ptr %575, i64 1
+  store ptr %579, ptr %11, align 8, !tbaa !27
+  %580 = load i8, ptr %575, align 1, !tbaa !29
+  %581 = zext i8 %580 to i32
   br label %lex_next.exit93.i
 
-581:                                              ; preds = %573
-  %582 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+582:                                              ; preds = %574
+  %583 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit93.i
 
-lex_next.exit93.i:                                ; preds = %581, %577
-  %583 = phi i32 [ %580, %577 ], [ %582, %581 ]
-  store i32 %583, ptr %6, align 8, !tbaa !26
+lex_next.exit93.i:                                ; preds = %582, %578
+  %584 = phi i32 [ %581, %578 ], [ %583, %582 ]
+  store i32 %584, ptr %6, align 8, !tbaa !26
   br label %lex_newline.exit.i
 
-lex_newline.exit.i:                               ; preds = %lex_next.exit93.i, %566
-  %.pr127.i = phi i32 [ %.pr127141.i, %566 ], [ %583, %lex_next.exit93.i ]
-  %584 = sext i32 %.pr127.i to i64
-  %585 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %584
-  %586 = load i8, ptr %585, align 1, !tbaa !29
-  %587 = and i8 %586, 2
-  %.not78.i = icmp eq i8 %587, 0
-  br i1 %.not78.i, label %.backedge.i, label %.lr.ph.i, !llvm.loop !64
+lex_newline.exit.i:                               ; preds = %lex_next.exit93.i, %567
+  %.pr127.i = phi i32 [ %.pr127141.i, %567 ], [ %584, %lex_next.exit93.i ]
+  %585 = sext i32 %.pr127.i to i64
+  %586 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %585
+  %587 = load i8, ptr %586, align 1, !tbaa !29
+  %588 = and i8 %587, 2
+  %.not78.i = icmp eq i8 %588, 0
+  br i1 %.not78.i, label %.lex_newline.exit126.loopexit_crit_edge.i, label %542, !llvm.loop !64
 
-588:                                              ; preds = %lex_next.exit100.i, %lex_next.exit100.i
-  %589 = load ptr, ptr %13, align 8, !tbaa !51
-  %590 = load ptr, ptr %3, align 8, !tbaa !53
-  %591 = ptrtoint ptr %589 to i64
+589:                                              ; preds = %lex_next.exit100.i, %lex_next.exit100.i
+  %590 = load ptr, ptr %13, align 8, !tbaa !51
+  %591 = load ptr, ptr %3, align 8, !tbaa !53
   %592 = ptrtoint ptr %590 to i64
-  %593 = sub i64 %591, %592
-  %594 = and i64 %593, 4294967295
-  %595 = icmp eq i64 %594, 0
-  br i1 %595, label %596, label %lj_buf_more.exit106.i, !prof !54
+  %593 = ptrtoint ptr %591 to i64
+  %594 = sub i64 %592, %593
+  %595 = and i64 %594, 4294967295
+  %596 = icmp eq i64 %595, 0
+  br i1 %596, label %597, label %lj_buf_more.exit106.i, !prof !54
 
-596:                                              ; preds = %588
-  %597 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+597:                                              ; preds = %589
+  %598 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %lj_buf_more.exit106.i
 
-lj_buf_more.exit106.i:                            ; preds = %596, %588
-  %.0.i105.i = phi ptr [ %597, %596 ], [ %590, %588 ]
-  %598 = getelementptr inbounds nuw i8, ptr %.0.i105.i, i64 1
+lj_buf_more.exit106.i:                            ; preds = %597, %589
+  %.0.i105.i = phi ptr [ %598, %597 ], [ %591, %589 ]
+  %599 = getelementptr inbounds nuw i8, ptr %.0.i105.i, i64 1
   store i8 10, ptr %.0.i105.i, align 1, !tbaa !29
-  store ptr %598, ptr %3, align 8, !tbaa !53
-  %599 = load i32, ptr %6, align 8, !tbaa !26
-  %600 = load ptr, ptr %11, align 8, !tbaa !27
-  %601 = load ptr, ptr %12, align 8, !tbaa !28
-  %602 = icmp ult ptr %600, %601
-  br i1 %602, label %603, label %607
+  store ptr %599, ptr %3, align 8, !tbaa !53
+  %600 = load i32, ptr %6, align 8, !tbaa !26
+  %601 = load ptr, ptr %11, align 8, !tbaa !27
+  %602 = load ptr, ptr %12, align 8, !tbaa !28
+  %603 = icmp ult ptr %601, %602
+  br i1 %603, label %604, label %608
 
-603:                                              ; preds = %lj_buf_more.exit106.i
-  %604 = getelementptr inbounds nuw i8, ptr %600, i64 1
-  store ptr %604, ptr %11, align 8, !tbaa !27
-  %605 = load i8, ptr %600, align 1, !tbaa !29
-  %606 = zext i8 %605 to i32
+604:                                              ; preds = %lj_buf_more.exit106.i
+  %605 = getelementptr inbounds nuw i8, ptr %601, i64 1
+  store ptr %605, ptr %11, align 8, !tbaa !27
+  %606 = load i8, ptr %601, align 1, !tbaa !29
+  %607 = zext i8 %606 to i32
   br label %lex_next.exit9.i123.i
 
-607:                                              ; preds = %lj_buf_more.exit106.i
-  %608 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+608:                                              ; preds = %lj_buf_more.exit106.i
+  %609 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit9.i123.i
 
-lex_next.exit9.i123.i:                            ; preds = %607, %603
-  %609 = phi i32 [ %606, %603 ], [ %608, %607 ]
-  store i32 %609, ptr %6, align 8, !tbaa !26
-  switch i32 %609, label %622 [
-    i32 10, label %610
-    i32 13, label %610
+lex_next.exit9.i123.i:                            ; preds = %608, %604
+  %610 = phi i32 [ %607, %604 ], [ %609, %608 ]
+  store i32 %610, ptr %6, align 8, !tbaa !26
+  switch i32 %610, label %623 [
+    i32 10, label %611
+    i32 13, label %611
   ]
 
-610:                                              ; preds = %lex_next.exit9.i123.i, %lex_next.exit9.i123.i
-  %.not.i124.i = icmp eq i32 %609, %599
-  br i1 %.not.i124.i, label %622, label %611
+611:                                              ; preds = %lex_next.exit9.i123.i, %lex_next.exit9.i123.i
+  %.not.i124.i = icmp eq i32 %610, %600
+  br i1 %.not.i124.i, label %623, label %612
 
-611:                                              ; preds = %610
-  %612 = load ptr, ptr %11, align 8, !tbaa !27
-  %613 = load ptr, ptr %12, align 8, !tbaa !28
-  %614 = icmp ult ptr %612, %613
-  br i1 %614, label %615, label %619
+612:                                              ; preds = %611
+  %613 = load ptr, ptr %11, align 8, !tbaa !27
+  %614 = load ptr, ptr %12, align 8, !tbaa !28
+  %615 = icmp ult ptr %613, %614
+  br i1 %615, label %616, label %620
 
-615:                                              ; preds = %611
-  %616 = getelementptr inbounds nuw i8, ptr %612, i64 1
-  store ptr %616, ptr %11, align 8, !tbaa !27
-  %617 = load i8, ptr %612, align 1, !tbaa !29
-  %618 = zext i8 %617 to i32
+616:                                              ; preds = %612
+  %617 = getelementptr inbounds nuw i8, ptr %613, i64 1
+  store ptr %617, ptr %11, align 8, !tbaa !27
+  %618 = load i8, ptr %613, align 1, !tbaa !29
+  %619 = zext i8 %618 to i32
   br label %lex_next.exit.i125.i
 
-619:                                              ; preds = %611
-  %620 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+620:                                              ; preds = %612
+  %621 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit.i125.i
 
-lex_next.exit.i125.i:                             ; preds = %619, %615
-  %621 = phi i32 [ %618, %615 ], [ %620, %619 ]
-  store i32 %621, ptr %6, align 8, !tbaa !26
-  br label %622
+lex_next.exit.i125.i:                             ; preds = %620, %616
+  %622 = phi i32 [ %619, %616 ], [ %621, %620 ]
+  store i32 %622, ptr %6, align 8, !tbaa !26
+  br label %623
 
-622:                                              ; preds = %lex_next.exit.i125.i, %610, %lex_next.exit9.i123.i
-  %.pr143.i = phi i32 [ %621, %lex_next.exit.i125.i ], [ %599, %610 ], [ %609, %lex_next.exit9.i123.i ]
-  %623 = load i32, ptr %14, align 8, !tbaa !22
-  %624 = add nsw i32 %623, 1
-  store i32 %624, ptr %14, align 8, !tbaa !22
-  %625 = icmp sgt i32 %623, 2147483390
-  br i1 %625, label %626, label %.backedge.i, !llvm.loop !62
+623:                                              ; preds = %lex_next.exit.i125.i, %611, %lex_next.exit9.i123.i
+  %.pr143.i = phi i32 [ %622, %lex_next.exit.i125.i ], [ %600, %611 ], [ %610, %lex_next.exit9.i123.i ]
+  %624 = load i32, ptr %14, align 8, !tbaa !22
+  %625 = add nsw i32 %624, 1
+  store i32 %625, ptr %14, align 8, !tbaa !22
+  %626 = icmp sgt i32 %624, 2147483390
+  br i1 %626, label %627, label %.backedge.i, !llvm.loop !62
 
-626:                                              ; preds = %622
-  %627 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %628 = load i32, ptr %627, align 4, !tbaa !20
-  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef %628, i32 noundef 2191) #10
+627:                                              ; preds = %623
+  %628 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %629 = load i32, ptr %628, align 4, !tbaa !20
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef %629, i32 noundef 2191) #10
   unreachable
 
-629:                                              ; preds = %lex_next.exit100.i
-  %630 = sext i32 %350 to i64
-  %631 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %630
-  %632 = load i8, ptr %631, align 1, !tbaa !29
-  %633 = and i8 %632, 8
-  %.not87.i = icmp eq i8 %633, 0
-  br i1 %.not87.i, label %.loopexit.i, label %634
+630:                                              ; preds = %lex_next.exit100.i
+  %631 = sext i32 %350 to i64
+  %632 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %631
+  %633 = load i8, ptr %632, align 1, !tbaa !29
+  %634 = and i8 %633, 8
+  %.not87.i = icmp eq i8 %634, 0
+  br i1 %.not87.i, label %.loopexit.i, label %635
 
-634:                                              ; preds = %629
-  %635 = add nsw i32 %350, -48
-  %636 = load ptr, ptr %11, align 8, !tbaa !27
-  %637 = load ptr, ptr %12, align 8, !tbaa !28
-  %638 = icmp ult ptr %636, %637
-  br i1 %638, label %639, label %643
+635:                                              ; preds = %630
+  %636 = add nsw i32 %350, -48
+  %637 = load ptr, ptr %11, align 8, !tbaa !27
+  %638 = load ptr, ptr %12, align 8, !tbaa !28
+  %639 = icmp ult ptr %637, %638
+  br i1 %639, label %640, label %644
 
-639:                                              ; preds = %634
-  %640 = getelementptr inbounds nuw i8, ptr %636, i64 1
-  store ptr %640, ptr %11, align 8, !tbaa !27
-  %641 = load i8, ptr %636, align 1, !tbaa !29
-  %642 = zext i8 %641 to i32
+640:                                              ; preds = %635
+  %641 = getelementptr inbounds nuw i8, ptr %637, i64 1
+  store ptr %641, ptr %11, align 8, !tbaa !27
+  %642 = load i8, ptr %637, align 1, !tbaa !29
+  %643 = zext i8 %642 to i32
   br label %lex_next.exit92.i
 
-643:                                              ; preds = %634
-  %644 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+644:                                              ; preds = %635
+  %645 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit92.i
 
-lex_next.exit92.i:                                ; preds = %643, %639
-  %645 = phi i32 [ %642, %639 ], [ %644, %643 ]
-  store i32 %645, ptr %6, align 8, !tbaa !26
-  %646 = sext i32 %645 to i64
-  %647 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %646
-  %648 = load i8, ptr %647, align 1, !tbaa !29
-  %649 = and i8 %648, 8
-  %.not88.i = icmp eq i8 %649, 0
-  br i1 %.not88.i, label %684, label %650
+lex_next.exit92.i:                                ; preds = %644, %640
+  %646 = phi i32 [ %643, %640 ], [ %645, %644 ]
+  store i32 %646, ptr %6, align 8, !tbaa !26
+  %647 = sext i32 %646 to i64
+  %648 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %647
+  %649 = load i8, ptr %648, align 1, !tbaa !29
+  %650 = and i8 %649, 8
+  %.not88.i = icmp eq i8 %650, 0
+  br i1 %.not88.i, label %685, label %651
 
-650:                                              ; preds = %lex_next.exit92.i
-  %651 = mul nsw i32 %635, 10
-  %652 = add nsw i32 %651, -48
-  %653 = add nsw i32 %652, %645
-  %654 = load ptr, ptr %11, align 8, !tbaa !27
-  %655 = load ptr, ptr %12, align 8, !tbaa !28
-  %656 = icmp ult ptr %654, %655
-  br i1 %656, label %657, label %661
+651:                                              ; preds = %lex_next.exit92.i
+  %652 = mul nsw i32 %636, 10
+  %653 = add nsw i32 %652, -48
+  %654 = add nsw i32 %653, %646
+  %655 = load ptr, ptr %11, align 8, !tbaa !27
+  %656 = load ptr, ptr %12, align 8, !tbaa !28
+  %657 = icmp ult ptr %655, %656
+  br i1 %657, label %658, label %662
 
-657:                                              ; preds = %650
-  %658 = getelementptr inbounds nuw i8, ptr %654, i64 1
-  store ptr %658, ptr %11, align 8, !tbaa !27
-  %659 = load i8, ptr %654, align 1, !tbaa !29
-  %660 = zext i8 %659 to i32
+658:                                              ; preds = %651
+  %659 = getelementptr inbounds nuw i8, ptr %655, i64 1
+  store ptr %659, ptr %11, align 8, !tbaa !27
+  %660 = load i8, ptr %655, align 1, !tbaa !29
+  %661 = zext i8 %660 to i32
   br label %lex_next.exit91.i
 
-661:                                              ; preds = %650
-  %662 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+662:                                              ; preds = %651
+  %663 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit91.i
 
-lex_next.exit91.i:                                ; preds = %661, %657
-  %663 = phi i32 [ %660, %657 ], [ %662, %661 ]
-  store i32 %663, ptr %6, align 8, !tbaa !26
-  %664 = sext i32 %663 to i64
-  %665 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %664
-  %666 = load i8, ptr %665, align 1, !tbaa !29
-  %667 = and i8 %666, 8
-  %.not89.i = icmp eq i8 %667, 0
-  br i1 %.not89.i, label %684, label %668
+lex_next.exit91.i:                                ; preds = %662, %658
+  %664 = phi i32 [ %661, %658 ], [ %663, %662 ]
+  store i32 %664, ptr %6, align 8, !tbaa !26
+  %665 = sext i32 %664 to i64
+  %666 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %665
+  %667 = load i8, ptr %666, align 1, !tbaa !29
+  %668 = and i8 %667, 8
+  %.not89.i = icmp eq i8 %668, 0
+  br i1 %.not89.i, label %685, label %669
 
-668:                                              ; preds = %lex_next.exit91.i
-  %669 = mul nsw i32 %653, 10
-  %670 = add nsw i32 %669, -48
-  %671 = add nsw i32 %670, %663
-  %672 = icmp sgt i32 %671, 255
-  br i1 %672, label %.loopexit.i, label %673
+669:                                              ; preds = %lex_next.exit91.i
+  %670 = mul nsw i32 %654, 10
+  %671 = add nsw i32 %670, -48
+  %672 = add nsw i32 %671, %664
+  %673 = icmp sgt i32 %672, 255
+  br i1 %673, label %.loopexit.i, label %674
 
-.loopexit.i:                                      ; preds = %668, %629, %496, %lex_next.exit97.i, %398, %376, %438, %434
+.loopexit.i:                                      ; preds = %669, %630, %496, %lex_next.exit97.i, %398, %376, %438, %434
   tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef 288, i32 noundef 2331) #10
   unreachable
 
-673:                                              ; preds = %668
-  %674 = load ptr, ptr %11, align 8, !tbaa !27
-  %675 = load ptr, ptr %12, align 8, !tbaa !28
-  %676 = icmp ult ptr %674, %675
-  br i1 %676, label %677, label %681
+674:                                              ; preds = %669
+  %675 = load ptr, ptr %11, align 8, !tbaa !27
+  %676 = load ptr, ptr %12, align 8, !tbaa !28
+  %677 = icmp ult ptr %675, %676
+  br i1 %677, label %678, label %682
 
-677:                                              ; preds = %673
-  %678 = getelementptr inbounds nuw i8, ptr %674, i64 1
-  store ptr %678, ptr %11, align 8, !tbaa !27
-  %679 = load i8, ptr %674, align 1, !tbaa !29
-  %680 = zext i8 %679 to i32
+678:                                              ; preds = %674
+  %679 = getelementptr inbounds nuw i8, ptr %675, i64 1
+  store ptr %679, ptr %11, align 8, !tbaa !27
+  %680 = load i8, ptr %675, align 1, !tbaa !29
+  %681 = zext i8 %680 to i32
   br label %lex_next.exit90.i
 
-681:                                              ; preds = %673
-  %682 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+682:                                              ; preds = %674
+  %683 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit90.i
 
-lex_next.exit90.i:                                ; preds = %681, %677
-  %683 = phi i32 [ %680, %677 ], [ %682, %681 ]
-  store i32 %683, ptr %6, align 8, !tbaa !26
-  br label %684
+lex_next.exit90.i:                                ; preds = %682, %678
+  %684 = phi i32 [ %681, %678 ], [ %683, %682 ]
+  store i32 %684, ptr %6, align 8, !tbaa !26
+  br label %685
 
-684:                                              ; preds = %lex_next.exit90.i, %lex_next.exit91.i, %lex_next.exit92.i
-  %.4.i = phi i32 [ %671, %lex_next.exit90.i ], [ %653, %lex_next.exit91.i ], [ %635, %lex_next.exit92.i ]
-  %685 = load ptr, ptr %13, align 8, !tbaa !51
-  %686 = load ptr, ptr %3, align 8, !tbaa !53
-  %687 = ptrtoint ptr %685 to i64
+685:                                              ; preds = %lex_next.exit90.i, %lex_next.exit91.i, %lex_next.exit92.i
+  %.4.i = phi i32 [ %672, %lex_next.exit90.i ], [ %654, %lex_next.exit91.i ], [ %636, %lex_next.exit92.i ]
+  %686 = load ptr, ptr %13, align 8, !tbaa !51
+  %687 = load ptr, ptr %3, align 8, !tbaa !53
   %688 = ptrtoint ptr %686 to i64
-  %689 = sub i64 %687, %688
-  %690 = and i64 %689, 4294967295
-  %691 = icmp eq i64 %690, 0
-  br i1 %691, label %692, label %lj_buf_more.exit104.i, !prof !54
+  %689 = ptrtoint ptr %687 to i64
+  %690 = sub i64 %688, %689
+  %691 = and i64 %690, 4294967295
+  %692 = icmp eq i64 %691, 0
+  br i1 %692, label %693, label %lj_buf_more.exit104.i, !prof !54
 
-692:                                              ; preds = %684
-  %693 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+693:                                              ; preds = %685
+  %694 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %lj_buf_more.exit104.i
 
-lj_buf_more.exit104.i:                            ; preds = %692, %684
-  %.0.i103.i = phi ptr [ %693, %692 ], [ %686, %684 ]
-  %694 = trunc i32 %.4.i to i8
-  %695 = getelementptr inbounds nuw i8, ptr %.0.i103.i, i64 1
-  store i8 %694, ptr %.0.i103.i, align 1, !tbaa !29
-  store ptr %695, ptr %3, align 8, !tbaa !53
+lj_buf_more.exit104.i:                            ; preds = %693, %685
+  %.0.i103.i = phi ptr [ %694, %693 ], [ %687, %685 ]
+  %695 = trunc i32 %.4.i to i8
+  %696 = getelementptr inbounds nuw i8, ptr %.0.i103.i, i64 1
+  store i8 %695, ptr %.0.i103.i, align 1, !tbaa !29
+  store ptr %696, ptr %3, align 8, !tbaa !53
   %.pr.pre.i = load i32, ptr %6, align 8, !tbaa !26
   br label %.backedge.i, !llvm.loop !62
 
-696:                                              ; preds = %524, %453, %400, %lex_next.exit98.i, %357, %356, %355, %354, %353, %352, %351, %lex_next.exit100.i, %lex_next.exit100.i, %lex_next.exit100.i
+697:                                              ; preds = %524, %453, %400, %lex_next.exit98.i, %357, %356, %355, %354, %353, %352, %351, %lex_next.exit100.i, %lex_next.exit100.i, %lex_next.exit100.i
   %.0.i112 = phi i32 [ %350, %lex_next.exit100.i ], [ %350, %lex_next.exit100.i ], [ %350, %lex_next.exit100.i ], [ %.3.i, %453 ], [ %526, %524 ], [ %392, %lex_next.exit98.i ], [ %401, %400 ], [ 11, %357 ], [ 9, %356 ], [ 13, %355 ], [ 10, %354 ], [ 12, %353 ], [ 8, %352 ], [ 7, %351 ]
-  %697 = load ptr, ptr %13, align 8, !tbaa !51
-  %698 = load ptr, ptr %3, align 8, !tbaa !53
-  %699 = ptrtoint ptr %697 to i64
+  %698 = load ptr, ptr %13, align 8, !tbaa !51
+  %699 = load ptr, ptr %3, align 8, !tbaa !53
   %700 = ptrtoint ptr %698 to i64
-  %701 = sub i64 %699, %700
-  %702 = and i64 %701, 4294967295
-  %703 = icmp eq i64 %702, 0
-  br i1 %703, label %704, label %lj_buf_more.exit.i113, !prof !54
+  %701 = ptrtoint ptr %699 to i64
+  %702 = sub i64 %700, %701
+  %703 = and i64 %702, 4294967295
+  %704 = icmp eq i64 %703, 0
+  br i1 %704, label %705, label %lj_buf_more.exit.i113, !prof !54
 
-704:                                              ; preds = %696
-  %705 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+705:                                              ; preds = %697
+  %706 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %lj_buf_more.exit.i113
 
-lj_buf_more.exit.i113:                            ; preds = %704, %696
-  %.0.i.i114 = phi ptr [ %705, %704 ], [ %698, %696 ]
-  %706 = trunc i32 %.0.i112 to i8
-  %707 = getelementptr inbounds nuw i8, ptr %.0.i.i114, i64 1
-  store i8 %706, ptr %.0.i.i114, align 1, !tbaa !29
-  store ptr %707, ptr %3, align 8, !tbaa !53
-  %708 = load ptr, ptr %11, align 8, !tbaa !27
-  %709 = load ptr, ptr %12, align 8, !tbaa !28
-  %710 = icmp ult ptr %708, %709
-  br i1 %710, label %711, label %715
+lj_buf_more.exit.i113:                            ; preds = %705, %697
+  %.0.i.i114 = phi ptr [ %706, %705 ], [ %699, %697 ]
+  %707 = trunc i32 %.0.i112 to i8
+  %708 = getelementptr inbounds nuw i8, ptr %.0.i.i114, i64 1
+  store i8 %707, ptr %.0.i.i114, align 1, !tbaa !29
+  store ptr %708, ptr %3, align 8, !tbaa !53
+  %709 = load ptr, ptr %11, align 8, !tbaa !27
+  %710 = load ptr, ptr %12, align 8, !tbaa !28
+  %711 = icmp ult ptr %709, %710
+  br i1 %711, label %712, label %716
 
-711:                                              ; preds = %lj_buf_more.exit.i113
-  %712 = getelementptr inbounds nuw i8, ptr %708, i64 1
-  store ptr %712, ptr %11, align 8, !tbaa !27
-  %713 = load i8, ptr %708, align 1, !tbaa !29
-  %714 = zext i8 %713 to i32
+712:                                              ; preds = %lj_buf_more.exit.i113
+  %713 = getelementptr inbounds nuw i8, ptr %709, i64 1
+  store ptr %713, ptr %11, align 8, !tbaa !27
+  %714 = load i8, ptr %709, align 1, !tbaa !29
+  %715 = zext i8 %714 to i32
   br label %lex_next.exit.i115
 
-715:                                              ; preds = %lj_buf_more.exit.i113
-  %716 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+716:                                              ; preds = %lj_buf_more.exit.i113
+  %717 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit.i115
 
-lex_next.exit.i115:                               ; preds = %715, %711
-  %717 = phi i32 [ %714, %711 ], [ %716, %715 ]
-  store i32 %717, ptr %6, align 8, !tbaa !26
+lex_next.exit.i115:                               ; preds = %716, %712
+  %718 = phi i32 [ %715, %712 ], [ %717, %716 ]
+  store i32 %718, ptr %6, align 8, !tbaa !26
   br label %.backedge.i, !llvm.loop !62
 
-.backedge.i:                                      ; preds = %lex_newline.exit.i, %lex_savenext.exit101.i, %lex_next.exit.i115, %lj_buf_more.exit104.i, %622, %lex_next.exit94.i, %lex_next.exit100.i
-  %.be.i = phi i32 [ %739, %lex_savenext.exit101.i ], [ %537, %lex_next.exit94.i ], [ %.pr143.i, %622 ], [ %350, %lex_next.exit100.i ], [ %717, %lex_next.exit.i115 ], [ %.pr.pre.i, %lj_buf_more.exit104.i ], [ %.pr127.i, %lex_newline.exit.i ]
+.lex_newline.exit126.loopexit_crit_edge.i:        ; preds = %lex_newline.exit.i
+  br label %.backedge.i, !llvm.loop !62
+
+.backedge.i:                                      ; preds = %lex_savenext.exit101.i, %.lex_newline.exit126.loopexit_crit_edge.i, %lex_next.exit.i115, %lj_buf_more.exit104.i, %623, %lex_next.exit94.i, %lex_next.exit100.i
+  %.be.i = phi i32 [ %740, %lex_savenext.exit101.i ], [ %537, %lex_next.exit94.i ], [ %.pr127.i, %.lex_newline.exit126.loopexit_crit_edge.i ], [ %.pr143.i, %623 ], [ %350, %lex_next.exit100.i ], [ %718, %lex_next.exit.i115 ], [ %.pr.pre.i, %lj_buf_more.exit104.i ]
   %.not.i110 = icmp eq i32 %.be.i, %63
   br i1 %.not.i110, label %._crit_edge.i, label %.lr.ph138.i, !llvm.loop !62
 
-718:                                              ; preds = %.lr.ph138.i
-  %719 = load ptr, ptr %13, align 8, !tbaa !51
-  %720 = load ptr, ptr %3, align 8, !tbaa !53
-  %721 = ptrtoint ptr %719 to i64
+719:                                              ; preds = %.lr.ph138.i
+  %720 = load ptr, ptr %13, align 8, !tbaa !51
+  %721 = load ptr, ptr %3, align 8, !tbaa !53
   %722 = ptrtoint ptr %720 to i64
-  %723 = sub i64 %721, %722
-  %724 = and i64 %723, 4294967295
-  %725 = icmp eq i64 %724, 0
-  br i1 %725, label %726, label %lj_buf_more.exit120.i, !prof !54
+  %723 = ptrtoint ptr %721 to i64
+  %724 = sub i64 %722, %723
+  %725 = and i64 %724, 4294967295
+  %726 = icmp eq i64 %725, 0
+  br i1 %726, label %727, label %lj_buf_more.exit120.i, !prof !54
 
-726:                                              ; preds = %718
-  %727 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+727:                                              ; preds = %719
+  %728 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %lj_buf_more.exit120.i
 
-lj_buf_more.exit120.i:                            ; preds = %726, %718
-  %.0.i119.i = phi ptr [ %727, %726 ], [ %720, %718 ]
-  %728 = trunc i32 %337 to i8
-  %729 = getelementptr inbounds nuw i8, ptr %.0.i119.i, i64 1
-  store i8 %728, ptr %.0.i119.i, align 1, !tbaa !29
-  store ptr %729, ptr %3, align 8, !tbaa !53
-  %730 = load ptr, ptr %11, align 8, !tbaa !27
-  %731 = load ptr, ptr %12, align 8, !tbaa !28
-  %732 = icmp ult ptr %730, %731
-  br i1 %732, label %733, label %737
+lj_buf_more.exit120.i:                            ; preds = %727, %719
+  %.0.i119.i = phi ptr [ %728, %727 ], [ %721, %719 ]
+  %729 = trunc i32 %337 to i8
+  %730 = getelementptr inbounds nuw i8, ptr %.0.i119.i, i64 1
+  store i8 %729, ptr %.0.i119.i, align 1, !tbaa !29
+  store ptr %730, ptr %3, align 8, !tbaa !53
+  %731 = load ptr, ptr %11, align 8, !tbaa !27
+  %732 = load ptr, ptr %12, align 8, !tbaa !28
+  %733 = icmp ult ptr %731, %732
+  br i1 %733, label %734, label %738
 
-733:                                              ; preds = %lj_buf_more.exit120.i
-  %734 = getelementptr inbounds nuw i8, ptr %730, i64 1
-  store ptr %734, ptr %11, align 8, !tbaa !27
-  %735 = load i8, ptr %730, align 1, !tbaa !29
-  %736 = zext i8 %735 to i32
+734:                                              ; preds = %lj_buf_more.exit120.i
+  %735 = getelementptr inbounds nuw i8, ptr %731, i64 1
+  store ptr %735, ptr %11, align 8, !tbaa !27
+  %736 = load i8, ptr %731, align 1, !tbaa !29
+  %737 = zext i8 %736 to i32
   br label %lex_savenext.exit101.i
 
-737:                                              ; preds = %lj_buf_more.exit120.i
-  %738 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+738:                                              ; preds = %lj_buf_more.exit120.i
+  %739 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_savenext.exit101.i
 
-lex_savenext.exit101.i:                           ; preds = %737, %733
-  %739 = phi i32 [ %736, %733 ], [ %738, %737 ]
-  store i32 %739, ptr %6, align 8, !tbaa !26
+lex_savenext.exit101.i:                           ; preds = %738, %734
+  %740 = phi i32 [ %737, %734 ], [ %739, %738 ]
+  store i32 %740, ptr %6, align 8, !tbaa !26
   br label %.backedge.i
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %lex_savenext.exit102.i
-  %740 = load ptr, ptr %13, align 8, !tbaa !51
-  %741 = load ptr, ptr %3, align 8, !tbaa !53
-  %742 = ptrtoint ptr %740 to i64
+  %741 = load ptr, ptr %13, align 8, !tbaa !51
+  %742 = load ptr, ptr %3, align 8, !tbaa !53
   %743 = ptrtoint ptr %741 to i64
-  %744 = sub i64 %742, %743
-  %745 = and i64 %744, 4294967295
-  %746 = icmp eq i64 %745, 0
-  br i1 %746, label %747, label %lj_buf_more.exit118.i, !prof !54
+  %744 = ptrtoint ptr %742 to i64
+  %745 = sub i64 %743, %744
+  %746 = and i64 %745, 4294967295
+  %747 = icmp eq i64 %746, 0
+  br i1 %747, label %748, label %lj_buf_more.exit118.i, !prof !54
 
-747:                                              ; preds = %._crit_edge.i
-  %748 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+748:                                              ; preds = %._crit_edge.i
+  %749 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %lj_buf_more.exit118.i
 
-lj_buf_more.exit118.i:                            ; preds = %747, %._crit_edge.i
-  %.0.i117.i = phi ptr [ %748, %747 ], [ %741, %._crit_edge.i ]
-  %749 = getelementptr inbounds nuw i8, ptr %.0.i117.i, i64 1
+lj_buf_more.exit118.i:                            ; preds = %748, %._crit_edge.i
+  %.0.i117.i = phi ptr [ %749, %748 ], [ %742, %._crit_edge.i ]
+  %750 = getelementptr inbounds nuw i8, ptr %.0.i117.i, i64 1
   store i8 %325, ptr %.0.i117.i, align 1, !tbaa !29
-  store ptr %749, ptr %3, align 8, !tbaa !53
-  %750 = load ptr, ptr %11, align 8, !tbaa !27
-  %751 = load ptr, ptr %12, align 8, !tbaa !28
-  %752 = icmp ult ptr %750, %751
-  br i1 %752, label %753, label %757
+  store ptr %750, ptr %3, align 8, !tbaa !53
+  %751 = load ptr, ptr %11, align 8, !tbaa !27
+  %752 = load ptr, ptr %12, align 8, !tbaa !28
+  %753 = icmp ult ptr %751, %752
+  br i1 %753, label %754, label %758
 
-753:                                              ; preds = %lj_buf_more.exit118.i
-  %754 = getelementptr inbounds nuw i8, ptr %750, i64 1
-  store ptr %754, ptr %11, align 8, !tbaa !27
-  %755 = load i8, ptr %750, align 1, !tbaa !29
-  %756 = zext i8 %755 to i32
+754:                                              ; preds = %lj_buf_more.exit118.i
+  %755 = getelementptr inbounds nuw i8, ptr %751, i64 1
+  store ptr %755, ptr %11, align 8, !tbaa !27
+  %756 = load i8, ptr %751, align 1, !tbaa !29
+  %757 = zext i8 %756 to i32
   br label %lex_string.exit
 
-757:                                              ; preds = %lj_buf_more.exit118.i
-  %758 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+758:                                              ; preds = %lj_buf_more.exit118.i
+  %759 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !58
   br label %lex_string.exit
 
-lex_string.exit:                                  ; preds = %753, %757
-  %759 = phi ptr [ %749, %753 ], [ %.pre.i, %757 ]
-  %760 = phi i32 [ %756, %753 ], [ %758, %757 ]
-  store i32 %760, ptr %6, align 8, !tbaa !26
-  %761 = load ptr, ptr %4, align 8, !tbaa !57
-  %762 = getelementptr inbounds nuw i8, ptr %761, i64 1
-  %763 = ptrtoint ptr %759 to i64
-  %764 = ptrtoint ptr %761 to i64
-  %reass.sub.i = add i64 %763, 4294967294
-  %765 = sub i64 %reass.sub.i, %764
-  %766 = and i64 %765, 4294967295
-  %767 = tail call ptr @lj_parse_keepstr(ptr noundef nonnull %0, ptr noundef nonnull %762, i64 noundef %766) #11
-  %768 = ptrtoint ptr %767 to i64
-  %769 = or i64 %768, -703687441776640
-  store i64 %769, ptr %1, align 8, !tbaa !29
+lex_string.exit:                                  ; preds = %754, %758
+  %760 = phi ptr [ %750, %754 ], [ %.pre.i, %758 ]
+  %761 = phi i32 [ %757, %754 ], [ %759, %758 ]
+  store i32 %761, ptr %6, align 8, !tbaa !26
+  %762 = load ptr, ptr %4, align 8, !tbaa !57
+  %763 = getelementptr inbounds nuw i8, ptr %762, i64 1
+  %764 = ptrtoint ptr %760 to i64
+  %765 = ptrtoint ptr %762 to i64
+  %reass.sub.i = add i64 %764, 4294967294
+  %766 = sub i64 %reass.sub.i, %765
+  %767 = and i64 %766, 4294967295
+  %768 = tail call ptr @lj_parse_keepstr(ptr noundef nonnull %0, ptr noundef nonnull %763, i64 noundef %767) #11
+  %769 = ptrtoint ptr %768 to i64
+  %770 = or i64 %769, -703687441776640
+  store i64 %770, ptr %1, align 8, !tbaa !29
   br label %.loopexit
 
-770:                                              ; preds = %62
-  %771 = load ptr, ptr %13, align 8, !tbaa !51
-  %772 = load ptr, ptr %3, align 8, !tbaa !53
-  %773 = ptrtoint ptr %771 to i64
+771:                                              ; preds = %62
+  %772 = load ptr, ptr %13, align 8, !tbaa !51
+  %773 = load ptr, ptr %3, align 8, !tbaa !53
   %774 = ptrtoint ptr %772 to i64
-  %775 = sub i64 %773, %774
-  %776 = and i64 %775, 4294967295
-  %777 = icmp eq i64 %776, 0
-  br i1 %777, label %778, label %lj_buf_more.exit103, !prof !54
+  %775 = ptrtoint ptr %773 to i64
+  %776 = sub i64 %774, %775
+  %777 = and i64 %776, 4294967295
+  %778 = icmp eq i64 %777, 0
+  br i1 %778, label %779, label %lj_buf_more.exit103, !prof !54
 
-778:                                              ; preds = %770
-  %779 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+779:                                              ; preds = %771
+  %780 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %lj_buf_more.exit103
 
-lj_buf_more.exit103:                              ; preds = %770, %778
-  %.0.i102 = phi ptr [ %779, %778 ], [ %772, %770 ]
-  %780 = getelementptr inbounds nuw i8, ptr %.0.i102, i64 1
+lj_buf_more.exit103:                              ; preds = %771, %779
+  %.0.i102 = phi ptr [ %780, %779 ], [ %773, %771 ]
+  %781 = getelementptr inbounds nuw i8, ptr %.0.i102, i64 1
   store i8 46, ptr %.0.i102, align 1, !tbaa !29
-  store ptr %780, ptr %3, align 8, !tbaa !53
-  %781 = load ptr, ptr %11, align 8, !tbaa !27
-  %782 = load ptr, ptr %12, align 8, !tbaa !28
-  %783 = icmp ult ptr %781, %782
-  br i1 %783, label %784, label %788
+  store ptr %781, ptr %3, align 8, !tbaa !53
+  %782 = load ptr, ptr %11, align 8, !tbaa !27
+  %783 = load ptr, ptr %12, align 8, !tbaa !28
+  %784 = icmp ult ptr %782, %783
+  br i1 %784, label %785, label %789
 
-784:                                              ; preds = %lj_buf_more.exit103
-  %785 = getelementptr inbounds nuw i8, ptr %781, i64 1
-  store ptr %785, ptr %11, align 8, !tbaa !27
-  %786 = load i8, ptr %781, align 1, !tbaa !29
-  %787 = zext i8 %786 to i32
+785:                                              ; preds = %lj_buf_more.exit103
+  %786 = getelementptr inbounds nuw i8, ptr %782, i64 1
+  store ptr %786, ptr %11, align 8, !tbaa !27
+  %787 = load i8, ptr %782, align 1, !tbaa !29
+  %788 = zext i8 %787 to i32
   br label %lex_savenext.exit101
 
-788:                                              ; preds = %lj_buf_more.exit103
-  %789 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+789:                                              ; preds = %lj_buf_more.exit103
+  %790 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_savenext.exit101
 
-lex_savenext.exit101:                             ; preds = %784, %788
-  %790 = phi i32 [ %787, %784 ], [ %789, %788 ]
-  store i32 %790, ptr %6, align 8, !tbaa !26
-  %791 = icmp eq i32 %790, 46
-  br i1 %791, label %792, label %815
+lex_savenext.exit101:                             ; preds = %785, %789
+  %791 = phi i32 [ %788, %785 ], [ %790, %789 ]
+  store i32 %791, ptr %6, align 8, !tbaa !26
+  %792 = icmp eq i32 %791, 46
+  br i1 %792, label %793, label %816
 
-792:                                              ; preds = %lex_savenext.exit101
-  %793 = load ptr, ptr %11, align 8, !tbaa !27
-  %794 = load ptr, ptr %12, align 8, !tbaa !28
-  %795 = icmp ult ptr %793, %794
-  br i1 %795, label %796, label %800
+793:                                              ; preds = %lex_savenext.exit101
+  %794 = load ptr, ptr %11, align 8, !tbaa !27
+  %795 = load ptr, ptr %12, align 8, !tbaa !28
+  %796 = icmp ult ptr %794, %795
+  br i1 %796, label %797, label %801
 
-796:                                              ; preds = %792
-  %797 = getelementptr inbounds nuw i8, ptr %793, i64 1
-  store ptr %797, ptr %11, align 8, !tbaa !27
-  %798 = load i8, ptr %793, align 1, !tbaa !29
-  %799 = zext i8 %798 to i32
+797:                                              ; preds = %793
+  %798 = getelementptr inbounds nuw i8, ptr %794, i64 1
+  store ptr %798, ptr %11, align 8, !tbaa !27
+  %799 = load i8, ptr %794, align 1, !tbaa !29
+  %800 = zext i8 %799 to i32
   br label %lex_next.exit86
 
-800:                                              ; preds = %792
-  %801 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+801:                                              ; preds = %793
+  %802 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit86
 
-lex_next.exit86:                                  ; preds = %796, %800
-  %802 = phi i32 [ %799, %796 ], [ %801, %800 ]
-  store i32 %802, ptr %6, align 8, !tbaa !26
-  %803 = icmp eq i32 %802, 46
-  br i1 %803, label %804, label %.loopexit
+lex_next.exit86:                                  ; preds = %797, %801
+  %803 = phi i32 [ %800, %797 ], [ %802, %801 ]
+  store i32 %803, ptr %6, align 8, !tbaa !26
+  %804 = icmp eq i32 %803, 46
+  br i1 %804, label %805, label %.loopexit
 
-804:                                              ; preds = %lex_next.exit86
-  %805 = load ptr, ptr %11, align 8, !tbaa !27
-  %806 = load ptr, ptr %12, align 8, !tbaa !28
-  %807 = icmp ult ptr %805, %806
-  br i1 %807, label %808, label %812
+805:                                              ; preds = %lex_next.exit86
+  %806 = load ptr, ptr %11, align 8, !tbaa !27
+  %807 = load ptr, ptr %12, align 8, !tbaa !28
+  %808 = icmp ult ptr %806, %807
+  br i1 %808, label %809, label %813
 
-808:                                              ; preds = %804
-  %809 = getelementptr inbounds nuw i8, ptr %805, i64 1
-  store ptr %809, ptr %11, align 8, !tbaa !27
-  %810 = load i8, ptr %805, align 1, !tbaa !29
-  %811 = zext i8 %810 to i32
+809:                                              ; preds = %805
+  %810 = getelementptr inbounds nuw i8, ptr %806, i64 1
+  store ptr %810, ptr %11, align 8, !tbaa !27
+  %811 = load i8, ptr %806, align 1, !tbaa !29
+  %812 = zext i8 %811 to i32
   br label %lex_next.exit85
 
-812:                                              ; preds = %804
-  %813 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+813:                                              ; preds = %805
+  %814 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit85
 
-lex_next.exit85:                                  ; preds = %808, %812
-  %814 = phi i32 [ %811, %808 ], [ %813, %812 ]
-  store i32 %814, ptr %6, align 8, !tbaa !26
+lex_next.exit85:                                  ; preds = %809, %813
+  %815 = phi i32 [ %812, %809 ], [ %814, %813 ]
+  store i32 %815, ptr %6, align 8, !tbaa !26
   br label %.loopexit
 
-815:                                              ; preds = %lex_savenext.exit101
-  %816 = sext i32 %790 to i64
-  %817 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %816
-  %818 = load i8, ptr %817, align 1, !tbaa !29
-  %819 = and i8 %818, 8
-  %.not74 = icmp eq i8 %819, 0
-  br i1 %.not74, label %.loopexit, label %820
+816:                                              ; preds = %lex_savenext.exit101
+  %817 = sext i32 %791 to i64
+  %818 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %817
+  %819 = load i8, ptr %818, align 1, !tbaa !29
+  %820 = and i8 %819, 8
+  %.not74 = icmp eq i8 %820, 0
+  br i1 %.not74, label %.loopexit, label %821
 
-820:                                              ; preds = %815
+821:                                              ; preds = %816
   tail call fastcc void @lex_number(ptr noundef nonnull %0, ptr noundef %1)
   br label %.loopexit
 
-821:                                              ; preds = %62
-  %822 = load ptr, ptr %11, align 8, !tbaa !27
-  %823 = load ptr, ptr %12, align 8, !tbaa !28
-  %824 = icmp ult ptr %822, %823
-  br i1 %824, label %825, label %829
+822:                                              ; preds = %62
+  %823 = load ptr, ptr %11, align 8, !tbaa !27
+  %824 = load ptr, ptr %12, align 8, !tbaa !28
+  %825 = icmp ult ptr %823, %824
+  br i1 %825, label %826, label %830
 
-825:                                              ; preds = %821
-  %826 = getelementptr inbounds nuw i8, ptr %822, i64 1
-  store ptr %826, ptr %11, align 8, !tbaa !27
-  %827 = load i8, ptr %822, align 1, !tbaa !29
-  %828 = zext i8 %827 to i32
+826:                                              ; preds = %822
+  %827 = getelementptr inbounds nuw i8, ptr %823, i64 1
+  store ptr %827, ptr %11, align 8, !tbaa !27
+  %828 = load i8, ptr %823, align 1, !tbaa !29
+  %829 = zext i8 %828 to i32
   br label %lex_next.exit
 
-829:                                              ; preds = %821
-  %830 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+830:                                              ; preds = %822
+  %831 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit
 
-lex_next.exit:                                    ; preds = %825, %829
-  %831 = phi i32 [ %828, %825 ], [ %830, %829 ]
-  store i32 %831, ptr %6, align 8, !tbaa !26
+lex_next.exit:                                    ; preds = %826, %830
+  %832 = phi i32 [ %829, %826 ], [ %831, %830 ]
+  store i32 %832, ptr %6, align 8, !tbaa !26
   br label %.loopexit
 
-.loopexit:                                        ; preds = %62, %lex_next.exit99, %815, %lex_next.exit86, %lex_next.exit88, %lex_next.exit90, %lex_next.exit92, %lex_next.exit94, %lex_next.exit96, %201, %202, %20, %59, %47, %lex_next.exit, %820, %lex_next.exit85, %lex_string.exit, %lex_next.exit87, %lex_next.exit89, %lex_next.exit91, %lex_next.exit93, %lex_next.exit95
-  %.1 = phi i32 [ %63, %lex_next.exit ], [ 280, %lex_next.exit85 ], [ 286, %820 ], [ 288, %lex_string.exit ], [ 285, %lex_next.exit87 ], [ 284, %lex_next.exit89 ], [ 282, %lex_next.exit91 ], [ 283, %lex_next.exit93 ], [ 281, %lex_next.exit95 ], [ 286, %20 ], [ %61, %59 ], [ 287, %47 ], [ 288, %201 ], [ 91, %202 ], [ 61, %lex_next.exit96 ], [ 60, %lex_next.exit94 ], [ 62, %lex_next.exit92 ], [ 126, %lex_next.exit90 ], [ 58, %lex_next.exit88 ], [ 279, %lex_next.exit86 ], [ 46, %815 ], [ 289, %62 ], [ 45, %lex_next.exit99 ]
+.loopexit:                                        ; preds = %62, %lex_next.exit99, %816, %lex_next.exit86, %lex_next.exit88, %lex_next.exit90, %lex_next.exit92, %lex_next.exit94, %lex_next.exit96, %201, %202, %20, %59, %47, %lex_next.exit, %821, %lex_next.exit85, %lex_string.exit, %lex_next.exit87, %lex_next.exit89, %lex_next.exit91, %lex_next.exit93, %lex_next.exit95
+  %.1 = phi i32 [ %63, %lex_next.exit ], [ 280, %lex_next.exit85 ], [ 286, %821 ], [ 288, %lex_string.exit ], [ 285, %lex_next.exit87 ], [ 284, %lex_next.exit89 ], [ 282, %lex_next.exit91 ], [ 283, %lex_next.exit93 ], [ 281, %lex_next.exit95 ], [ 286, %20 ], [ %61, %59 ], [ 287, %47 ], [ 288, %201 ], [ 91, %202 ], [ 61, %lex_next.exit96 ], [ 60, %lex_next.exit94 ], [ 62, %lex_next.exit92 ], [ 126, %lex_next.exit90 ], [ 58, %lex_next.exit88 ], [ 279, %lex_next.exit86 ], [ 46, %816 ], [ 289, %62 ], [ 45, %lex_next.exit99 ]
   ret i32 %.1
 }
 

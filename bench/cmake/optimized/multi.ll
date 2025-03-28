@@ -5526,10 +5526,13 @@ multi_deltimeout.exit:                            ; preds = %.critedge.i, %8, %2
   %.02126.i58 = phi ptr [ %52, %42 ], [ %32, %.lr.ph.i41 ]
   %52 = tail call ptr @Curl_node_next(ptr noundef nonnull %.02126.i58) #20
   %.not23.i = icmp eq ptr %52, null
-  br i1 %.not23.i, label %multi_addtimeout.exit, label %42, !llvm.loop !230
+  br i1 %.not23.i, label %.multi_addtimeout.exit.loopexit_crit_edge, label %42, !llvm.loop !230
 
-multi_addtimeout.exit:                            ; preds = %.lr.ph, %42, %.lr.ph.i41, %multi_deltimeout.exit, %31
-  %.022.i = phi ptr [ null, %multi_deltimeout.exit ], [ null, %31 ], [ null, %.lr.ph.i41 ], [ %.02126.i58, %42 ], [ %.02126.i58, %.lr.ph ]
+.multi_addtimeout.exit.loopexit_crit_edge:        ; preds = %.lr.ph
+  br label %multi_addtimeout.exit, !llvm.loop !230
+
+multi_addtimeout.exit:                            ; preds = %42, %.lr.ph.i41, %.multi_addtimeout.exit.loopexit_crit_edge, %multi_deltimeout.exit, %31
+  %.022.i = phi ptr [ null, %multi_deltimeout.exit ], [ null, %31 ], [ %.02126.i58, %.multi_addtimeout.exit.loopexit_crit_edge ], [ null, %.lr.ph.i41 ], [ %.02126.i58, %42 ]
   tail call void @Curl_llist_insert_next(ptr noundef nonnull %18, ptr noundef %.022.i, ptr noundef nonnull %27, ptr noundef nonnull %27) #20
   %53 = load i64, ptr %7, align 8, !tbaa !129
   %.not36 = icmp eq i64 %53, 0

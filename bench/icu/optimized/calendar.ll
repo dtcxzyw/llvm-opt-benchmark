@@ -4057,7 +4057,7 @@ define void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull 
 
 ._crit_edge.i:                                    ; preds = %32
   %.pre.i = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit:     ; preds = %30, %._crit_edge.i
   %37 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %22, %30 ]
@@ -4125,7 +4125,7 @@ define void @_ZN6icu_778Calendar16recalculateStampEv(ptr noundef nonnull align 8
 
 ._crit_edge:                                      ; preds = %14
   %.pre = load i8, ptr %2, align 8, !tbaa !40
-  br label %split
+  br label %split, !llvm.loop !69
 
 split:                                            ; preds = %12, %._crit_edge
   %19 = phi i8 [ %.pre, %._crit_edge ], [ %4, %12 ]
@@ -4204,7 +4204,7 @@ define void @_ZN6icu_778Calendar3setEiii(ptr noundef nonnull align 8 dereference
 
 ._crit_edge.i.i:                                  ; preds = %30
   %.pre.i.i = load i8, ptr %15, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %28, %._crit_edge.i.i
   %35 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %20, %28 ]
@@ -4267,7 +4267,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %28, %._crit_edge.i.
 
 ._crit_edge.i.i16:                                ; preds = %57
   %.pre.i.i17 = load i8, ptr %15, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i14
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i14, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i14: ; preds = %55, %._crit_edge.i.i16
   %62 = phi i8 [ %.pre.i.i17, %._crit_edge.i.i16 ], [ %47, %55 ]
@@ -4330,7 +4330,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i14: ; preds = %55, %._crit_edge.i.
 
 ._crit_edge.i.i32:                                ; preds = %83
   %.pre.i.i33 = load i8, ptr %15, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i30
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i30, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i30: ; preds = %81, %._crit_edge.i.i32
   %88 = phi i8 [ %.pre.i.i33, %._crit_edge.i.i32 ], [ %73, %81 ]
@@ -4420,7 +4420,7 @@ define void @_ZN6icu_778Calendar3setEiiiii(ptr noundef nonnull align 8 dereferen
 
 ._crit_edge.i.i:                                  ; preds = %32
   %.pre.i.i = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %30, %._crit_edge.i.i
   %37 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %22, %30 ]
@@ -4483,7 +4483,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %30, %._crit_edge.i.
 
 ._crit_edge.i.i18:                                ; preds = %59
   %.pre.i.i19 = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i16
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i16, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i16: ; preds = %57, %._crit_edge.i.i18
   %64 = phi i8 [ %.pre.i.i19, %._crit_edge.i.i18 ], [ %49, %57 ]
@@ -4546,7 +4546,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i16: ; preds = %57, %._crit_edge.i.
 
 ._crit_edge.i.i34:                                ; preds = %85
   %.pre.i.i35 = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i32
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i32, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i32: ; preds = %83, %._crit_edge.i.i34
   %90 = phi i8 [ %.pre.i.i35, %._crit_edge.i.i34 ], [ %75, %83 ]
@@ -4609,7 +4609,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i32: ; preds = %83, %._crit_edge.i.
 
 ._crit_edge.i.i50:                                ; preds = %111
   %.pre.i.i51 = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i48
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i48, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i48: ; preds = %109, %._crit_edge.i.i50
   %116 = phi i8 [ %.pre.i.i51, %._crit_edge.i.i50 ], [ %101, %109 ]
@@ -4672,7 +4672,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i48: ; preds = %109, %._crit_edge.i
 
 ._crit_edge.i.i66:                                ; preds = %137
   %.pre.i.i67 = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i64
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i64, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i64: ; preds = %135, %._crit_edge.i.i66
   %142 = phi i8 [ %.pre.i.i67, %._crit_edge.i.i66 ], [ %127, %135 ]
@@ -4762,7 +4762,7 @@ define void @_ZN6icu_778Calendar3setEiiiiii(ptr noundef nonnull align 8 derefere
 
 ._crit_edge.i.i:                                  ; preds = %33
   %.pre.i.i = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %31, %._crit_edge.i.i
   %38 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %23, %31 ]
@@ -4825,7 +4825,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %31, %._crit_edge.i.
 
 ._crit_edge.i.i19:                                ; preds = %60
   %.pre.i.i20 = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i17
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i17, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i17: ; preds = %58, %._crit_edge.i.i19
   %65 = phi i8 [ %.pre.i.i20, %._crit_edge.i.i19 ], [ %50, %58 ]
@@ -4888,7 +4888,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i17: ; preds = %58, %._crit_edge.i.
 
 ._crit_edge.i.i35:                                ; preds = %86
   %.pre.i.i36 = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i33
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i33, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i33: ; preds = %84, %._crit_edge.i.i35
   %91 = phi i8 [ %.pre.i.i36, %._crit_edge.i.i35 ], [ %76, %84 ]
@@ -4951,7 +4951,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i33: ; preds = %84, %._crit_edge.i.
 
 ._crit_edge.i.i51:                                ; preds = %112
   %.pre.i.i52 = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i49
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i49, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i49: ; preds = %110, %._crit_edge.i.i51
   %117 = phi i8 [ %.pre.i.i52, %._crit_edge.i.i51 ], [ %102, %110 ]
@@ -5014,7 +5014,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i49: ; preds = %110, %._crit_edge.i
 
 ._crit_edge.i.i67:                                ; preds = %138
   %.pre.i.i68 = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i65
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i65, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i65: ; preds = %136, %._crit_edge.i.i67
   %143 = phi i8 [ %.pre.i.i68, %._crit_edge.i.i67 ], [ %128, %136 ]
@@ -5077,7 +5077,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i65: ; preds = %136, %._crit_edge.i
 
 ._crit_edge.i.i83:                                ; preds = %164
   %.pre.i.i84 = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i81
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i81, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i81: ; preds = %162, %._crit_edge.i.i83
   %169 = phi i8 [ %.pre.i.i84, %._crit_edge.i.i83 ], [ %154, %162 ]
@@ -5233,7 +5233,7 @@ define void @_ZN6icu_778Calendar14setRelatedYearEi(ptr noundef nonnull align 8 d
 
 ._crit_edge.i.i:                                  ; preds = %28
   %.pre.i.i = load i8, ptr %13, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %26, %._crit_edge.i.i
   %33 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %18, %26 ]
@@ -5465,7 +5465,7 @@ define void @_ZN6icu_778Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode(ptr
 
 ._crit_edge.i.i:                                  ; preds = %48
   %.pre.i.i = load i8, ptr %33, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %46, %._crit_edge.i.i
   %53 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %38, %46 ]
@@ -5555,7 +5555,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %32, %_ZN6icu_778
 
 ._crit_edge.i.i34:                                ; preds = %87
   %.pre.i.i35 = load i8, ptr %72, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i32
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i32, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i32: ; preds = %85, %._crit_edge.i.i34
   %92 = phi i8 [ %.pre.i.i35, %._crit_edge.i.i34 ], [ %77, %85 ]
@@ -8678,7 +8678,7 @@ define noundef i32 @_ZNK6icu_778Calendar16getActualMinimumE19UCalendarDateFields
 
 ._crit_edge.i.i:                                  ; preds = %57
   %.pre.i.i = load i8, ptr %33, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %55, %._crit_edge.i.i
   %62 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %47, %55 ]
@@ -9025,7 +9025,7 @@ define void @_ZN6icu_778Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noun
 
 ._crit_edge.i.i:                                  ; preds = %44
   %.pre.i.i = load i8, ptr %29, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %42, %._crit_edge.i.i
   %49 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %34, %42 ]
@@ -9088,7 +9088,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %42, %._crit_edge.i.
 
 ._crit_edge.i.i27:                                ; preds = %71
   %.pre.i.i28 = load i8, ptr %29, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i25
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i25, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i25: ; preds = %69, %._crit_edge.i.i27
   %76 = phi i8 [ %.pre.i.i28, %._crit_edge.i.i27 ], [ %61, %69 ]
@@ -11299,7 +11299,7 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i: ; preds = %_ZN6
 
 ._crit_edge.i.i:                                  ; preds = %83
   %.pre.i.i = load i8, ptr %68, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %81, %._crit_edge.i.i
   %88 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %73, %81 ]
@@ -11542,7 +11542,7 @@ define void @_ZN6icu_778Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErr
 
 ._crit_edge.i.i:                                  ; preds = %41
   %.pre.i.i = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %39, %._crit_edge.i.i
   %46 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %31, %39 ]
@@ -11638,7 +11638,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %23, %_ZN6icu_778
 
 ._crit_edge.i.i30:                                ; preds = %80
   %.pre.i.i31 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i28
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i28, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i28: ; preds = %78, %._crit_edge.i.i30
   %85 = phi i8 [ %.pre.i.i31, %._crit_edge.i.i30 ], [ %70, %78 ]
@@ -11724,7 +11724,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit32: ; preds = %65, %_ZN6icu_7
 
 ._crit_edge.i.i46:                                ; preds = %118
   %.pre.i.i47 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i44
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i44, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i44: ; preds = %116, %._crit_edge.i.i46
   %123 = phi i8 [ %.pre.i.i47, %._crit_edge.i.i46 ], [ %108, %116 ]
@@ -11811,7 +11811,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit48: ; preds = %103, %_ZN6icu_
 
 ._crit_edge.i.i62:                                ; preds = %156
   %.pre.i.i63 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i60
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i60, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i60: ; preds = %154, %._crit_edge.i.i62
   %161 = phi i8 [ %.pre.i.i63, %._crit_edge.i.i62 ], [ %146, %154 ]
@@ -11876,7 +11876,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit64: ; preds = %141, %_ZN6icu_
 
 ._crit_edge.i.i78:                                ; preds = %182
   %.pre.i.i79 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i76
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i76, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i76: ; preds = %180, %._crit_edge.i.i78
   %187 = phi i8 [ %.pre.i.i79, %._crit_edge.i.i78 ], [ %172, %180 ]
@@ -12012,7 +12012,7 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %_ZN
 
 ._crit_edge.i.i95:                                ; preds = %239
   %.pre.i.i96 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i93
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i93, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i93: ; preds = %237, %._crit_edge.i.i95
   %244 = phi i8 [ %.pre.i.i96, %._crit_edge.i.i95 ], [ %229, %237 ]
@@ -12096,7 +12096,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit97: ; preds = %224, %_ZN6icu_
 
 ._crit_edge.i.i111:                               ; preds = %275
   %.pre.i.i112 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i109
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i109, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i109: ; preds = %273, %._crit_edge.i.i111
   %280 = phi i8 [ %.pre.i.i112, %._crit_edge.i.i111 ], [ %265, %273 ]
@@ -12189,7 +12189,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit113: ; preds = %261, %_ZN6icu
 
 ._crit_edge.i.i127:                               ; preds = %314
   %.pre.i.i128 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i125
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i125, !llvm.loop !69
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i125: ; preds = %312, %._crit_edge.i.i127
   %319 = phi i8 [ %.pre.i.i128, %._crit_edge.i.i127 ], [ %304, %312 ]

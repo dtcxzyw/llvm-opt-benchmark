@@ -1418,7 +1418,7 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr n
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load i32, ptr %13, align 4, !tbaa !96
-  %.pre37 = load ptr, ptr %14, align 8, !tbaa !97
+  %.pre35 = load ptr, ptr %14, align 8, !tbaa !97
   %.not4.i.i.i.i.i = icmp sgt i32 %.pre, 0
   %16 = add nsw i32 %.pre, -1
   br label %.split67.i
@@ -1434,7 +1434,7 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr n
 
 20:                                               ; preds = %.split67.i
   %21 = zext i32 %18 to i64
-  %22 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %.pre37, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %.pre35, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !98
   %.not.i = icmp eq i32 %23, %17
   br i1 %.not.i, label %.thread.i, label %._crit_edge.i
@@ -1453,7 +1453,7 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr n
   %26 = lshr i32 %25, 1
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 3
-  %29 = getelementptr inbounds nuw i8, ptr %.pre37, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %.pre35, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !98
   %31 = icmp slt i32 %17, %30
   br i1 %31, label %32, label %34
@@ -1478,7 +1478,7 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr n
 
 _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit.i: ; preds = %34
   store atomic i32 %26, ptr %12 monotonic, align 8
-  %38 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %.pre37, i64 %27, i32 1
+  %38 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %.pre35, i64 %27, i32 1
   br label %_ZN12hb_bit_set_t8page_forEjb.exit
 
 _ZN12hb_bit_set_t8page_forEjb.exit.thread:        ; preds = %37, %._crit_edge.i
@@ -1487,10 +1487,10 @@ _ZN12hb_bit_set_t8page_forEjb.exit.thread:        ; preds = %37, %._crit_edge.i
   br label %.split.us.i
 
 _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %.thread.i, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit.i
-  %.sink55.in = phi ptr [ %24, %.thread.i ], [ %38, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit.i ]
+  %.sink52.in = phi ptr [ %24, %.thread.i ], [ %38, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit.i ]
   %.sink = load ptr, ptr %15, align 8, !tbaa !101
-  %.sink55 = load i32, ptr %.sink55.in, align 4, !tbaa !102
-  %41 = zext i32 %.sink55 to i64
+  %.sink52 = load i32, ptr %.sink52.in, align 4, !tbaa !102
+  %41 = zext i32 %.sink52 to i64
   %42 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %.sink, i64 %41
   %.not70.i = icmp eq ptr %.sink, null
   %43 = and i32 %.03364.i, -512
@@ -1518,7 +1518,10 @@ _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %.thread.i, %_ZNK11h
   %54 = icmp ule i32 %47, %53
   %55 = icmp ult i32 %53, %46
   %56 = and i1 %54, %55
-  br i1 %56, label %49, label %.critedge.i, !llvm.loop !53
+  br i1 %56, label %49, label %..critedge.split.us_crit_edge.i, !llvm.loop !53
+
+..critedge.split.us_crit_edge.i:                  ; preds = %.lr.ph.i
+  br label %.critedge.i, !llvm.loop !53
 
 .split.i:                                         ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit, %69
   %.235.i = phi i32 [ %71, %69 ], [ %.03364.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
@@ -1555,10 +1558,10 @@ _ZN13hb_bit_page_t3setEjb.exit.i:                 ; preds = %.split.i
   %74 = and i1 %72, %73
   br i1 %74, label %.split.i, label %.critedge.i, !llvm.loop !53
 
-.critedge.i:                                      ; preds = %69, %.lr.ph.i
-  %.us-phi.i = phi ptr [ %52, %.lr.ph.i ], [ %70, %69 ]
-  %.us-phi45.i = phi i32 [ %53, %.lr.ph.i ], [ %71, %69 ]
-  %.us-phi46.i = phi i32 [ %51, %.lr.ph.i ], [ %68, %69 ]
+.critedge.i:                                      ; preds = %69, %..critedge.split.us_crit_edge.i
+  %.us-phi.i = phi ptr [ %52, %..critedge.split.us_crit_edge.i ], [ %70, %69 ]
+  %.us-phi45.i = phi i32 [ %53, %..critedge.split.us_crit_edge.i ], [ %71, %69 ]
+  %.us-phi46.i = phi i32 [ %51, %..critedge.split.us_crit_edge.i ], [ %68, %69 ]
   br label %.split67.i, !llvm.loop !55
 
 _ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj.exit:     ; preds = %.split.us.i, %67, %49, %4

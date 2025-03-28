@@ -1490,7 +1490,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
 ..thread41_crit_edge:                             ; preds = %13
   %.pre = tail call ptr @__errno_location() #23
   %.pr = load i32, ptr %.pre, align 4, !tbaa !33
-  br label %.thread41
+  br label %.thread41, !llvm.loop !54
 
 .thread41:                                        ; preds = %10, %..thread41_crit_edge
   %17 = phi i32 [ %.pr, %..thread41_crit_edge ], [ %12, %10 ]

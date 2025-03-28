@@ -3174,7 +3174,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_nl(ptr nou
 
 ..critedge8.i.loopexit_crit_edge:                 ; preds = %32
   %.pre.pre = load i8, ptr %scevgep419, align 1, !tbaa !34
-  br label %next_field.exit
+  br label %next_field.exit, !llvm.loop !69
 
 next_field.exit:                                  ; preds = %.lr.ph81.i, %.lr.ph81.i, %.lr.ph81.i, %.lr.ph88.i, %.lr.ph88.i, %.critedge6.i.thread, %..critedge8.i.loopexit_crit_edge
   %.1229436 = phi ptr [ %.10268, %..critedge8.i.loopexit_crit_edge ], [ %.0228, %.critedge6.i.thread ], [ %.10268, %.lr.ph88.i ], [ %.10268, %.lr.ph88.i ], [ %.10268, %.lr.ph81.i ], [ %.10268, %.lr.ph81.i ], [ %.10268, %.lr.ph81.i ]

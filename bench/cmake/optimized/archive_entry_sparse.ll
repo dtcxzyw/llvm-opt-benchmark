@@ -168,53 +168,56 @@ define dso_local i32 @archive_entry_sparse_reset(ptr noundef initializes((1152, 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store ptr %3, ptr %4, align 8, !tbaa !32
   %.not.i3 = icmp eq ptr %3, null
-  br i1 %.not.i3, label %archive_entry_sparse_count.exit, label %thread-pre-split, !llvm.loop !31
+  br i1 %.not.i3, label %archive_entry_sparse_count.exit, label %thread-pre-split.lr.ph, !llvm.loop !31
 
-thread-pre-split:                                 ; preds = %1, %thread-pre-split
-  %.0.i5 = phi i32 [ %5, %thread-pre-split ], [ 0, %1 ]
-  %.010.i4 = phi ptr [ %.010.i.pr, %thread-pre-split ], [ %3, %1 ]
+thread-pre-split.lr.ph:                           ; preds = %1
+  br label %thread-pre-split, !llvm.loop !31
+
+thread-pre-split:                                 ; preds = %thread-pre-split.lr.ph, %thread-pre-split
+  %.0.i5 = phi i32 [ 0, %thread-pre-split.lr.ph ], [ %5, %thread-pre-split ]
+  %.010.i4 = phi ptr [ %3, %thread-pre-split.lr.ph ], [ %.010.i.pr, %thread-pre-split ]
   %5 = add nuw nsw i32 %.0.i5, 1
   %.010.i.pr = load ptr, ptr %.010.i4, align 8, !tbaa !30
   %.not.i = icmp eq ptr %.010.i.pr, null
-  br i1 %.not.i, label %._crit_edge, label %thread-pre-split, !llvm.loop !31
+  br i1 %.not.i, label %6, label %thread-pre-split, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %thread-pre-split
-  %6 = icmp eq i32 %.0.i5, 0
-  br i1 %6, label %7, label %archive_entry_sparse_count.exit
+6:                                                ; preds = %thread-pre-split
+  %7 = icmp eq i32 %.0.i5, 0
+  br i1 %7, label %8, label %archive_entry_sparse_count.exit
 
-7:                                                ; preds = %._crit_edge
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !28
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %archive_entry_sparse_count.exit
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %10 = load i64, ptr %9, align 8, !tbaa !28
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %archive_entry_sparse_count.exit
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !29
-  %14 = tail call i64 @archive_entry_size(ptr noundef nonnull %0) #5
-  %.not11.i = icmp slt i64 %13, %14
-  br i1 %.not11.i, label %archive_entry_sparse_count.exit, label %15
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !29
+  %15 = tail call i64 @archive_entry_size(ptr noundef nonnull %0) #5
+  %.not11.i = icmp slt i64 %14, %15
+  br i1 %.not11.i, label %archive_entry_sparse_count.exit, label %16
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %2, align 8, !tbaa !4
-  %.not6.i.i = icmp eq ptr %16, null
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %2, align 8, !tbaa !4
+  %.not6.i.i = icmp eq ptr %17, null
   br i1 %.not6.i.i, label %archive_entry_sparse_clear.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
-  %17 = phi ptr [ %18, %.lr.ph.i.i ], [ %16, %15 ]
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
-  tail call void @free(ptr noundef nonnull %17) #5
-  store ptr %18, ptr %2, align 8, !tbaa !4
-  %.not.i.i = icmp eq ptr %18, null
+.lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
+  %18 = phi ptr [ %19, %.lr.ph.i.i ], [ %17, %16 ]
+  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  tail call void @free(ptr noundef nonnull %18) #5
+  store ptr %19, ptr %2, align 8, !tbaa !4
+  %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %archive_entry_sparse_clear.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
-archive_entry_sparse_clear.exit.i:                ; preds = %.lr.ph.i.i, %15
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  store ptr null, ptr %19, align 8, !tbaa !27
+archive_entry_sparse_clear.exit.i:                ; preds = %.lr.ph.i.i, %16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  store ptr null, ptr %20, align 8, !tbaa !27
   br label %archive_entry_sparse_count.exit
 
-archive_entry_sparse_count.exit:                  ; preds = %1, %._crit_edge, %7, %11, %archive_entry_sparse_clear.exit.i
-  %.1.i = phi i32 [ 0, %archive_entry_sparse_clear.exit.i ], [ 1, %11 ], [ 1, %7 ], [ %5, %._crit_edge ], [ 0, %1 ]
+archive_entry_sparse_count.exit:                  ; preds = %1, %6, %8, %12, %archive_entry_sparse_clear.exit.i
+  %.1.i = phi i32 [ 0, %archive_entry_sparse_clear.exit.i ], [ 1, %12 ], [ 1, %8 ], [ %5, %6 ], [ 0, %1 ]
   ret i32 %.1.i
 }
 

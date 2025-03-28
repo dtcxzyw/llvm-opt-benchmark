@@ -260,10 +260,13 @@ ossl_list_uint_set_remove.exit:                   ; preds = %64
   %89 = getelementptr i8, ptr %.095170244, i64 8
   %.095.val = load ptr, ptr %89, align 8, !tbaa !22
   %.not112 = icmp eq ptr %.095.val, null
-  br i1 %.not112, label %.critedge, label %84, !llvm.loop !25
+  br i1 %.not112, label %..critedge_crit_edge246, label %84, !llvm.loop !25
 
-.critedge:                                        ; preds = %.lr.ph245, %84, %.lr.ph172
-  %.1.lcssa.ph = phi ptr [ %.094166, %.lr.ph172 ], [ %.095170244, %84 ], [ %.095170244, %.lr.ph245 ]
+..critedge_crit_edge246:                          ; preds = %.lr.ph245
+  br label %.critedge, !llvm.loop !25
+
+.critedge:                                        ; preds = %84, %..critedge_crit_edge246, %.lr.ph172
+  %.1.lcssa.ph = phi ptr [ %.095170244, %..critedge_crit_edge246 ], [ %.094166, %.lr.ph172 ], [ %.095170244, %84 ]
   %.phi.trans.insert192 = getelementptr inbounds nuw i8, ptr %.1.lcssa.ph, i64 16
   %.pre = load i64, ptr %.phi.trans.insert192, align 8, !tbaa !20
   %90 = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %.pre)

@@ -45975,7 +45975,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit203: ; preds = %_ZSt
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %231
   %.pre240.pre.pre = load ptr, ptr %1, align 8, !tbaa !236
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !1275
 
 .loopexit:                                        ; preds = %.critedge, %.lr.ph224, %..loopexit.loopexit_crit_edge, %184, %182
   %.pre240.pre242.pre248 = phi ptr [ %.pre240.pre242.pre, %182 ], [ %.pre240.pre242.pre, %184 ], [ %.pre240.pre.pre, %..loopexit.loopexit_crit_edge ], [ %.pre240.pre.pre244, %.lr.ph224 ], [ %.pre240.pre.pre244, %.critedge ]

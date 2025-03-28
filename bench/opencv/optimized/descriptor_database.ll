@@ -2251,10 +2251,13 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %68, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
   %92 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.012.01925) #30
   %.not = icmp eq ptr %92, %24
-  br i1 %.not, label %.critedge, label %54, !llvm.loop !75
+  br i1 %.not, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge.loopexit_crit_edge, label %54, !llvm.loop !75
 
-.critedge:                                        ; preds = %54, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %.lr.ph, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiED2Ev.exit
-  %.0.lcssa = phi i1 [ false, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiED2Ev.exit ], [ false, %.lr.ph ], [ %.02024, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ true, %54 ]
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge.loopexit_crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  br label %.critedge, !llvm.loop !75
+
+.critedge:                                        ; preds = %54, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge.loopexit_crit_edge, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiED2Ev.exit
+  %.0.lcssa = phi i1 [ false, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiED2Ev.exit ], [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge.loopexit_crit_edge ], [ false, %.lr.ph ], [ %.02024, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ true, %54 ]
   ret i1 %.0.lcssa
 }
 
@@ -3828,10 +3831,13 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %39, %_ZNSt6vectorIi
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.08.01825, i64 48
   %64 = load ptr, ptr %9, align 8, !tbaa !143
   %.not = icmp eq ptr %63, %64
-  br i1 %.not, label %.critedge, label %26, !llvm.loop !157
+  br i1 %.not, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge.loopexit_crit_edge, label %26, !llvm.loop !157
 
-.critedge:                                        ; preds = %26, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit, %.lr.ph, %4
-  %.0.lcssa = phi i1 [ false, %4 ], [ false, %.lr.ph ], [ %.01924, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit ], [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ true, %26 ]
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge.loopexit_crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  br label %.critedge, !llvm.loop !157
+
+.critedge:                                        ; preds = %26, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit, %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge.loopexit_crit_edge, %4
+  %.0.lcssa = phi i1 [ false, %4 ], [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge.loopexit_crit_edge ], [ false, %.lr.ph ], [ %.01924, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit ], [ true, %26 ]
   ret i1 %.0.lcssa
 }
 

@@ -3836,21 +3836,24 @@ get_nat_pol_id_short.exit.thread.i:               ; preds = %254
   %indvars.iv.i123.i = phi i64 [ %indvars.iv.next.i.i, %260 ], [ 0, %254 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i123.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 56
-  br i1 %exitcond.i.i, label %get_nat_pol_id_short.exit.i, label %260, !llvm.loop !16
+  br i1 %exitcond.i.i, label %.get_nat_pol_id_short.exit_crit_edge.i, label %260, !llvm.loop !16
 
 260:                                              ; preds = %.lr.ph.i419
   %261 = getelementptr [57 x %struct.enum_val_t], ptr @dmp_national_values, i64 0, i64 %indvars.iv.next.i.i
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %263 = load i32, ptr %262, align 8
   %264 = icmp eq i32 %263, %249
-  br i1 %264, label %get_nat_pol_id_short.exit.split.loop.exit.i, label %.lr.ph.i419, !llvm.loop !16
+  br i1 %264, label %get_nat_pol_id_short.exit.loopexit.i, label %.lr.ph.i419, !llvm.loop !16
 
-get_nat_pol_id_short.exit.split.loop.exit.i:      ; preds = %260
+.get_nat_pol_id_short.exit_crit_edge.i:           ; preds = %.lr.ph.i419
+  br label %get_nat_pol_id_short.exit.i, !llvm.loop !16
+
+get_nat_pol_id_short.exit.loopexit.i:             ; preds = %260
   %265 = load ptr, ptr %261, align 8
   br label %get_nat_pol_id_short.exit.i
 
-get_nat_pol_id_short.exit.i:                      ; preds = %.lr.ph.i419, %get_nat_pol_id_short.exit.split.loop.exit.i
-  %.05.i.i = phi ptr [ %265, %get_nat_pol_id_short.exit.split.loop.exit.i ], [ @.str.728, %.lr.ph.i419 ]
+get_nat_pol_id_short.exit.i:                      ; preds = %get_nat_pol_id_short.exit.loopexit.i, %.get_nat_pol_id_short.exit_crit_edge.i
+  %.05.i.i = phi ptr [ @.str.728, %.get_nat_pol_id_short.exit_crit_edge.i ], [ %265, %get_nat_pol_id_short.exit.loopexit.i ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %211, ptr noundef nonnull @.str.722, ptr noundef %.05.i.i)
   %266 = load ptr, ptr %6, align 8
   br label %.lr.ph127.i
@@ -3859,21 +3862,24 @@ get_nat_pol_id_short.exit.i:                      ; preds = %.lr.ph.i419, %get_n
   %indvars.iv.i118126.i = phi i64 [ %indvars.iv.next.i119.i, %267 ], [ 0, %get_nat_pol_id_short.exit.i ]
   %indvars.iv.next.i119.i = add nuw nsw i64 %indvars.iv.i118126.i, 1
   %exitcond.i120.i = icmp eq i64 %indvars.iv.next.i119.i, 56
-  br i1 %exitcond.i120.i, label %get_nat_pol_id_short.exit122.i, label %267, !llvm.loop !16
+  br i1 %exitcond.i120.i, label %.get_nat_pol_id_short.exit122_crit_edge.i, label %267, !llvm.loop !16
 
 267:                                              ; preds = %.lr.ph127.i
   %268 = getelementptr [57 x %struct.enum_val_t], ptr @dmp_national_values, i64 0, i64 %indvars.iv.next.i119.i
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
   %270 = load i32, ptr %269, align 8
   %271 = icmp eq i32 %270, %249
-  br i1 %271, label %get_nat_pol_id_short.exit122.split.loop.exit.i, label %.lr.ph127.i, !llvm.loop !16
+  br i1 %271, label %get_nat_pol_id_short.exit122.loopexit.i, label %.lr.ph127.i, !llvm.loop !16
 
-get_nat_pol_id_short.exit122.split.loop.exit.i:   ; preds = %267
+.get_nat_pol_id_short.exit122_crit_edge.i:        ; preds = %.lr.ph127.i
+  br label %get_nat_pol_id_short.exit122.i, !llvm.loop !16
+
+get_nat_pol_id_short.exit122.loopexit.i:          ; preds = %267
   %272 = load ptr, ptr %268, align 8
   br label %get_nat_pol_id_short.exit122.i
 
-get_nat_pol_id_short.exit122.i:                   ; preds = %.lr.ph127.i, %get_nat_pol_id_short.exit122.split.loop.exit.i
-  %.05.i121.i = phi ptr [ %272, %get_nat_pol_id_short.exit122.split.loop.exit.i ], [ @.str.728, %.lr.ph127.i ]
+get_nat_pol_id_short.exit122.i:                   ; preds = %get_nat_pol_id_short.exit122.loopexit.i, %.get_nat_pol_id_short.exit122_crit_edge.i
+  %.05.i121.i = phi ptr [ @.str.728, %.get_nat_pol_id_short.exit122_crit_edge.i ], [ %272, %get_nat_pol_id_short.exit122.loopexit.i ]
   %273 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %266, ptr noundef nonnull @.str.723, ptr noundef %.1460, ptr noundef %.05.i121.i)
   br label %278
 

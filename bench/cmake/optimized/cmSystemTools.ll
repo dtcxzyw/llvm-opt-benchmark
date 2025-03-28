@@ -25616,7 +25616,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us: ; preds = %.lr
   %8 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.02110.us
   %9 = load i8, ptr %8, align 1, !tbaa !26
   %.not27.us = icmp eq i8 %9, 58
-  br i1 %.not27.us, label %.thread, label %10, !llvm.loop !747
+  br i1 %.not27.us, label %..thread.loopexit9_crit_edge12, label %10, !llvm.loop !747
 
 10:                                               ; preds = %7, %5
   %.122.us = add nuw i64 %.02110.us, 1
@@ -25683,15 +25683,19 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt1
   %33 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %30
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %.not27 = icmp eq i8 %34, 58
-  br i1 %.not27, label %.thread, label %35, !llvm.loop !747
+  br i1 %.not27, label %..thread.loopexit9_crit_edge12, label %35, !llvm.loop !747
 
 35:                                               ; preds = %32, %27
   %.122 = add nuw i64 %22, 1
   %36 = icmp ult i64 %.122, %.0.val
   br i1 %36, label %.lr.ph.split, label %.thread
 
-.thread:                                          ; preds = %35, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %32, %29, %.lr.ph.split, %15, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %23, %10, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us, %7, %0
-  %.3 = phi i64 [ -1, %0 ], [ %.02110.us, %7 ], [ %.02110.us, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us ], [ -1, %10 ], [ -1, %23 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %15 ], [ -1, %35 ], [ %22, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ %22, %32 ], [ %22, %29 ], [ -1, %.lr.ph.split ]
+..thread.loopexit9_crit_edge12:                   ; preds = %32, %7
+  %.us-phi19 = phi i64 [ %.02110.us, %7 ], [ %22, %32 ]
+  br label %.thread, !llvm.loop !747
+
+.thread:                                          ; preds = %35, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %29, %.lr.ph.split, %15, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %23, %10, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us, %0, %..thread.loopexit9_crit_edge12
+  %.3 = phi i64 [ %.us-phi19, %..thread.loopexit9_crit_edge12 ], [ -1, %0 ], [ -1, %10 ], [ %.02110.us, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us ], [ -1, %23 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %15 ], [ -1, %35 ], [ %22, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ %22, %29 ], [ -1, %.lr.ph.split ]
   ret i64 %.3
 }
 

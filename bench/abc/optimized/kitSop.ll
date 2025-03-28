@@ -1390,10 +1390,13 @@ Kit_SopCommonCube.exit.i:                         ; preds = %37, %34
   %.val.i14 = load i32, ptr %3, align 4, !tbaa !3
   %48 = sext i32 %.val.i14 to i64
   %49 = icmp slt i64 %indvars.iv.next.i13, %48
-  br i1 %49, label %42, label %Kit_SopMakeCubeFree.exit, !llvm.loop !30
+  br i1 %49, label %42, label %.Kit_SopMakeCubeFree.exit.loopexit_crit_edge, !llvm.loop !30
 
-Kit_SopMakeCubeFree.exit:                         ; preds = %.lr.ph, %42, %.lr.ph.i10, %Kit_SopDivideByLiteralQuo.exit, %Kit_SopCommonCube.exit.i
-  %.val.i19 = phi i32 [ %.0.lcssa.i, %Kit_SopDivideByLiteralQuo.exit ], [ %.0.lcssa.i, %Kit_SopCommonCube.exit.i ], [ %.0.lcssa.i, %.lr.ph.i10 ], [ %.val.i14, %42 ], [ %.val.i14, %.lr.ph ]
+.Kit_SopMakeCubeFree.exit.loopexit_crit_edge:     ; preds = %.lr.ph
+  br label %Kit_SopMakeCubeFree.exit, !llvm.loop !30
+
+Kit_SopMakeCubeFree.exit:                         ; preds = %42, %.lr.ph.i10, %.Kit_SopMakeCubeFree.exit.loopexit_crit_edge, %Kit_SopDivideByLiteralQuo.exit, %Kit_SopCommonCube.exit.i
+  %.val.i19 = phi i32 [ %.0.lcssa.i, %Kit_SopDivideByLiteralQuo.exit ], [ %.0.lcssa.i, %Kit_SopCommonCube.exit.i ], [ %.val.i14, %.Kit_SopMakeCubeFree.exit.loopexit_crit_edge ], [ %.0.lcssa.i, %.lr.ph.i10 ], [ %.val.i14, %42 ]
   %50 = icmp sgt i32 %.val.i19, 0
   br i1 %50, label %.preheader.lr.ph.split.us.i, label %Kit_SopWorstLiteral.exit.thread
 

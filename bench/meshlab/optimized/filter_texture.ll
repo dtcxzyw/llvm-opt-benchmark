@@ -39971,10 +39971,13 @@ _ZN3vcg3tri14TrivialSamplerINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE5resetEv.exit6
   %70 = fmul float %69, 5.000000e-01
   tail call void @_ZN3vcg3tri15SurfaceSamplingINS0_12VoronoiAtlasI6CMeshOE8VoroMeshENS0_14TrivialSamplerIS5_EEE18PoissonDiskPruningERS7_RS5_fRNS8_16PoissonDiskParamE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(628) %1, float noundef %70, ptr noundef nonnull align 8 dereferenceable(88) %4)
   %exitcond.not = icmp eq i32 %63, %6
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !389
+  br i1 %exitcond.not, label %_ZN3vcg3tri14TrivialSamplerINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE5resetEv.exit61..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !389
 
-.critedge:                                        ; preds = %.lr.ph, %_ZN3vcg3tri14TrivialSamplerINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE5resetEv.exit61, %.lr.ph.preheader, %.preheader
-  %.050.lcssa = phi float [ %51, %.preheader ], [ %51, %.lr.ph.preheader ], [ %70, %_ZN3vcg3tri14TrivialSamplerINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE5resetEv.exit61 ], [ %70, %.lr.ph ]
+_ZN3vcg3tri14TrivialSamplerINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE5resetEv.exit61..critedge.loopexit_crit_edge: ; preds = %_ZN3vcg3tri14TrivialSamplerINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE5resetEv.exit61
+  br label %.critedge, !llvm.loop !389
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %_ZN3vcg3tri14TrivialSamplerINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE5resetEv.exit61..critedge.loopexit_crit_edge, %.preheader
+  %.050.lcssa = phi float [ %51, %.preheader ], [ %70, %_ZN3vcg3tri14TrivialSamplerINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE5resetEv.exit61..critedge.loopexit_crit_edge ], [ %51, %.lr.ph.preheader ], [ %70, %.lr.ph ]
   store float %.050.lcssa, ptr %3, align 4
   ret void
 }
@@ -47786,12 +47789,15 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicINS3_12VoronoiA
   %118 = fcmp ule float %3, 0.000000e+00
   br i1 %118, label %.split, label %.outer.split.preheader
 
-.loopexit195:                                     ; preds = %474, %240
-  %.sroa.27.2.lcssa = phi ptr [ %.sroa.27.1.ph367, %240 ], [ %.sroa.27.4, %474 ]
-  %.sroa.11.2.lcssa = phi ptr [ %163, %240 ], [ %.sroa.11.4, %474 ]
-  %.sroa.0166.3.lcssa = phi ptr [ %.sroa.0166.2.ph369, %240 ], [ %.sroa.0166.5, %474 ]
-  %.157.lcssa = phi float [ %.056.ph.fr371, %240 ], [ %473, %474 ]
-  %.1.lcssa = phi ptr [ %.054.ph370, %240 ], [ %.3, %474 ]
+..loopexit195_crit_edge:                          ; preds = %474
+  br label %.loopexit195, !llvm.loop !481
+
+.loopexit195:                                     ; preds = %..loopexit195_crit_edge, %240
+  %.sroa.27.2.lcssa = phi ptr [ %.sroa.27.4, %..loopexit195_crit_edge ], [ %.sroa.27.1.ph367, %240 ]
+  %.sroa.11.2.lcssa = phi ptr [ %.sroa.11.4, %..loopexit195_crit_edge ], [ %163, %240 ]
+  %.sroa.0166.3.lcssa = phi ptr [ %.sroa.0166.5, %..loopexit195_crit_edge ], [ %.sroa.0166.2.ph369, %240 ]
+  %.157.lcssa = phi float [ %473, %..loopexit195_crit_edge ], [ %.056.ph.fr371, %240 ]
+  %.1.lcssa = phi ptr [ %.3, %..loopexit195_crit_edge ], [ %.054.ph370, %240 ]
   %119 = fcmp uge float %.157.lcssa, %3
   br i1 %119, label %.split, label %.outer.split.preheader
 
@@ -48056,7 +48062,7 @@ _ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EE9push_backERK
   %243 = load i32, ptr %242, align 4
   %244 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %245 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  br label %.preheader193
+  br label %.preheader193, !llvm.loop !481
 
 .preheader193:                                    ; preds = %.preheader193.lr.ph, %474
   %.sroa.0123.0266 = phi ptr [ %.sroa.0123.0258, %.preheader193.lr.ph ], [ %.sroa.0123.0, %474 ]
@@ -48482,7 +48488,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicINS3_12VoronoiA
   %481 = sext i8 %480 to i32
   %.sroa.0123.0 = load ptr, ptr %477, align 8
   %.not69 = icmp eq ptr %.sroa.0123.0, null
-  br i1 %.not69, label %.loopexit195, label %.preheader193, !llvm.loop !487
+  br i1 %.not69, label %..loopexit195_crit_edge, label %.preheader193, !llvm.loop !487
 
 .split:                                           ; preds = %.loopexit195, %.outer.split, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE8VertDistESt6vectorISA_SaISA_EEEENS9_4predEEvT_SH_T0_.exit
   %.sroa.0166.2.ph363 = phi ptr [ %.sroa.0166.0.lcssa, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE8VertDistESt6vectorISA_SaISA_EEEENS9_4predEEvT_SH_T0_.exit ], [ %.sroa.0166.2.ph369, %.outer.split ], [ %.sroa.0166.3.lcssa, %.loopexit195 ]

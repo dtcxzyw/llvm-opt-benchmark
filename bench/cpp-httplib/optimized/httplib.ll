@@ -5842,10 +5842,13 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #47
   %21 = call noundef i64 @recv(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3)
   %22 = icmp slt i64 %21, 0
-  br i1 %22, label %12, label %"_ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit", !llvm.loop !136
+  br i1 %22, label %12, label %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge", !llvm.loop !136
 
-"_ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit": ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i, %12, %.lr.ph.i, %4
-  %.lcssa.i = phi i64 [ %6, %4 ], [ %6, %.lr.ph.i ], [ %21, %12 ], [ %21, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i ]
+"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge": ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i
+  br label %"_ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit", !llvm.loop !136
+
+"_ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit": ; preds = %12, %.lr.ph.i, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge", %4
+  %.lcssa.i = phi i64 [ %6, %4 ], [ %21, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge" ], [ %6, %.lr.ph.i ], [ %21, %12 ]
   ret i64 %.lcssa.i
 }
 
@@ -5888,10 +5891,13 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #47
   %21 = call noundef i64 @send(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3)
   %22 = icmp slt i64 %21, 0
-  br i1 %22, label %12, label %"_ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit", !llvm.loop !140
+  br i1 %22, label %12, label %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit.loopexit_crit_edge", !llvm.loop !140
 
-"_ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit": ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i, %12, %.lr.ph.i, %4
-  %.lcssa.i = phi i64 [ %6, %4 ], [ %6, %.lr.ph.i ], [ %21, %12 ], [ %21, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i ]
+"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit.loopexit_crit_edge": ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i
+  br label %"_ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit", !llvm.loop !140
+
+"_ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit": ; preds = %12, %.lr.ph.i, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit.loopexit_crit_edge", %4
+  %.lcssa.i = phi i64 [ %6, %4 ], [ %21, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit.loopexit_crit_edge" ], [ %6, %.lr.ph.i ], [ %21, %12 ]
   ret i64 %.lcssa.i
 }
 
@@ -5962,10 +5968,13 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #47
   %34 = call noundef i32 @select(i32 noundef %18, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef nonnull %6)
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %25, label %_ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb1EEElillEUlvE_EElT_.exit, !llvm.loop !144
+  br i1 %35, label %25, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb1EEElillEUlvE_EElT_.exit.loopexit_crit_edge, !llvm.loop !144
 
-_ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb1EEElillEUlvE_EElT_.exit: ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i, %25, %.lr.ph.i, %8
-  %.lcssa.i = phi i32 [ %19, %8 ], [ %19, %.lr.ph.i ], [ %34, %25 ], [ %34, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i ]
+_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb1EEElillEUlvE_EElT_.exit.loopexit_crit_edge: ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i
+  br label %_ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb1EEElillEUlvE_EElT_.exit, !llvm.loop !144
+
+_ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb1EEElillEUlvE_EElT_.exit: ; preds = %25, %.lr.ph.i, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb1EEElillEUlvE_EElT_.exit.loopexit_crit_edge, %8
+  %.lcssa.i = phi i32 [ %19, %8 ], [ %34, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb1EEElillEUlvE_EElT_.exit.loopexit_crit_edge ], [ %19, %.lr.ph.i ], [ %34, %25 ]
   %36 = sext i32 %.lcssa.i to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #47
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #47
@@ -6043,10 +6052,13 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #47
   %34 = call noundef i32 @select(i32 noundef %18, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6)
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %25, label %_ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb0EEElillEUlvE_EElT_.exit, !llvm.loop !145
+  br i1 %35, label %25, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb0EEElillEUlvE_EElT_.exit.loopexit_crit_edge, !llvm.loop !145
 
-_ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb0EEElillEUlvE_EElT_.exit: ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i, %25, %.lr.ph.i, %8
-  %.lcssa.i = phi i32 [ %19, %8 ], [ %19, %.lr.ph.i ], [ %34, %25 ], [ %34, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i ]
+_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb0EEElillEUlvE_EElT_.exit.loopexit_crit_edge: ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i
+  br label %_ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb0EEElillEUlvE_EElT_.exit, !llvm.loop !145
+
+_ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb0EEElillEUlvE_EElT_.exit: ; preds = %25, %.lr.ph.i, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb0EEElillEUlvE_EElT_.exit.loopexit_crit_edge, %8
+  %.lcssa.i = phi i32 [ %19, %8 ], [ %34, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11select_implILb0EEElillEUlvE_EElT_.exit.loopexit_crit_edge ], [ %19, %.lr.ph.i ], [ %34, %25 ]
   %36 = sext i32 %.lcssa.i to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #47
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #47
@@ -6126,10 +6138,13 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #47
   %38 = call noundef i32 @select(i32 noundef %22, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %39 = icmp slt i32 %38, 0
-  br i1 %39, label %29, label %"_ZN7httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillE3$_0EElT_.exit", !llvm.loop !147
+  br i1 %39, label %29, label %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillE3$_0EElT_.exit.loopexit_crit_edge", !llvm.loop !147
 
-"_ZN7httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillE3$_0EElT_.exit": ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i, %12
-  %.lcssa.i = phi i32 [ %23, %12 ], [ %38, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i ]
+"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillE3$_0EElT_.exit.loopexit_crit_edge": ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i
+  br label %"_ZN7httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillE3$_0EElT_.exit", !llvm.loop !147
+
+"_ZN7httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillE3$_0EElT_.exit": ; preds = %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillE3$_0EElT_.exit.loopexit_crit_edge", %12
+  %.lcssa.i = phi i32 [ %23, %12 ], [ %38, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillE3$_0EElT_.exit.loopexit_crit_edge" ]
   %40 = icmp eq i32 %.lcssa.i, 0
   br i1 %40, label %.loopexit, label %41
 
@@ -6236,10 +6251,13 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #47
   %28 = call noundef i64 @recv(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 1, i32 noundef 2)
   %29 = icmp slt i64 %28, 0
-  br i1 %29, label %19, label %_ZN7httplib6detail11read_socketEiPvmi.exit, !llvm.loop !136
+  br i1 %29, label %19, label %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i", !llvm.loop !136
 
-_ZN7httplib6detail11read_socketEiPvmi.exit:       ; preds = %19, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i, %12, %.lr.ph.i.i
-  %.lcssa.i.i = phi i64 [ %13, %12 ], [ %13, %.lr.ph.i.i ], [ %28, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i ], [ %28, %19 ]
+"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i": ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i
+  br label %_ZN7httplib6detail11read_socketEiPvmi.exit, !llvm.loop !136
+
+_ZN7httplib6detail11read_socketEiPvmi.exit:       ; preds = %19, %12, %.lr.ph.i.i, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i"
+  %.lcssa.i.i = phi i64 [ %13, %12 ], [ %28, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i" ], [ %13, %.lr.ph.i.i ], [ %28, %19 ]
   %30 = icmp sgt i64 %.lcssa.i.i, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #47
   br label %31
@@ -30631,7 +30649,7 @@ define noundef i64 @_ZN7httplib6detail12SocketStream4readEPcm(ptr noundef nonnul
   %16 = load i64, ptr %6, align 8, !tbaa !588
   %17 = add i64 %16, %..sroa.speculated
   store i64 %17, ptr %6, align 8, !tbaa !588
-  br label %_ZN7httplib6detail11read_socketEiPvmi.exit27
+  br label %_ZN7httplib6detail11read_socketEiPvmi.exit28
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -30675,7 +30693,7 @@ define noundef i64 @_ZN7httplib6detail12SocketStream4readEPcm(ptr noundef nonnul
 _ZNK7httplib6detail12SocketStream11is_readableEv.exit: ; preds = %22, %30
   %.0.in.i = phi i64 [ %29, %22 ], [ %47, %30 ]
   %.0.i = icmp sgt i64 %.0.in.i, 0
-  br i1 %.0.i, label %48, label %_ZN7httplib6detail11read_socketEiPvmi.exit27
+  br i1 %.0.i, label %48, label %_ZN7httplib6detail11read_socketEiPvmi.exit28
 
 48:                                               ; preds = %_ZNK7httplib6detail12SocketStream11is_readableEv.exit
   %49 = icmp ult i64 %2, 4096
@@ -30696,12 +30714,12 @@ _ZNK7httplib6detail12SocketStream11is_readableEv.exit: ; preds = %22, %30
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load i32, ptr %57, align 4, !tbaa !3
   %60 = icmp eq i32 %59, 4
-  br i1 %60, label %.lr.ph.i, label %_ZN7httplib6detail11read_socketEiPvmi.exit27
+  br i1 %60, label %.lr.ph.i, label %_ZN7httplib6detail11read_socketEiPvmi.exit28
 
 61:                                               ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i
   %62 = load i32, ptr %57, align 4, !tbaa !3
   %63 = icmp eq i32 %62, 4
-  br i1 %63, label %.lr.ph.i, label %_ZN7httplib6detail11read_socketEiPvmi.exit27, !llvm.loop !136
+  br i1 %63, label %.lr.ph.i, label %_ZN7httplib6detail11read_socketEiPvmi.exit28, !llvm.loop !136
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i, %61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #47
@@ -30723,44 +30741,47 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #47
   %70 = call noundef i64 @recv(i32 noundef %51, ptr noundef %54, i64 noundef 4096, i32 noundef 0)
   %71 = icmp slt i64 %70, 0
-  br i1 %71, label %61, label %_ZN7httplib6detail11read_socketEiPvmi.exit, !llvm.loop !136
+  br i1 %71, label %61, label %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i", !llvm.loop !136
 
-_ZN7httplib6detail11read_socketEiPvmi.exit:       ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i, %52
-  %.lcssa.i.i = phi i64 [ %55, %52 ], [ %70, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i ]
+"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i": ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i
+  br label %_ZN7httplib6detail11read_socketEiPvmi.exit, !llvm.loop !136
+
+_ZN7httplib6detail11read_socketEiPvmi.exit:       ; preds = %52, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i"
+  %.lcssa.i.i = phi i64 [ %55, %52 ], [ %70, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i" ]
   %72 = icmp eq i64 %.lcssa.i.i, 0
-  br i1 %72, label %_ZN7httplib6detail11read_socketEiPvmi.exit27, label %73
+  br i1 %72, label %_ZN7httplib6detail11read_socketEiPvmi.exit28, label %73
 
 73:                                               ; preds = %_ZN7httplib6detail11read_socketEiPvmi.exit
-  %.not = icmp samesign ugt i64 %.lcssa.i.i, %.sroa.speculated
+  %.not = icmp sgt i64 %.lcssa.i.i, %.sroa.speculated
   %74 = load ptr, ptr %53, align 8, !tbaa !585
   br i1 %.not, label %76, label %75
 
 75:                                               ; preds = %73
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %74, i64 %.lcssa.i.i, i1 false)
-  br label %_ZN7httplib6detail11read_socketEiPvmi.exit27
+  br label %_ZN7httplib6detail11read_socketEiPvmi.exit28
 
 76:                                               ; preds = %73
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %74, i64 %.sroa.speculated, i1 false)
   store i64 %.sroa.speculated, ptr %6, align 8, !tbaa !588
   store i64 %.lcssa.i.i, ptr %8, align 8, !tbaa !589
-  br label %_ZN7httplib6detail11read_socketEiPvmi.exit27
+  br label %_ZN7httplib6detail11read_socketEiPvmi.exit28
 
 77:                                               ; preds = %48
   %78 = tail call noundef i64 @recv(i32 noundef %51, ptr noundef %1, i64 noundef %.sroa.speculated, i32 noundef 0)
   %79 = icmp slt i64 %78, 0
-  br i1 %79, label %.lr.ph.i.i24, label %_ZN7httplib6detail11read_socketEiPvmi.exit27
+  br i1 %79, label %.lr.ph.i.i24, label %_ZN7httplib6detail11read_socketEiPvmi.exit28
 
 .lr.ph.i.i24:                                     ; preds = %77
   %80 = tail call ptr @__errno_location() #52
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %82 = load i32, ptr %80, align 4, !tbaa !3
   %83 = icmp eq i32 %82, 4
-  br i1 %83, label %.lr.ph.i25, label %_ZN7httplib6detail11read_socketEiPvmi.exit27
+  br i1 %83, label %.lr.ph.i25, label %_ZN7httplib6detail11read_socketEiPvmi.exit28
 
 84:                                               ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i26
   %85 = load i32, ptr %80, align 4, !tbaa !3
   %86 = icmp eq i32 %85, 4
-  br i1 %86, label %.lr.ph.i25, label %_ZN7httplib6detail11read_socketEiPvmi.exit27, !llvm.loop !136
+  br i1 %86, label %.lr.ph.i25, label %_ZN7httplib6detail11read_socketEiPvmi.exit28, !llvm.loop !136
 
 .lr.ph.i25:                                       ; preds = %.lr.ph.i.i24, %84
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #47
@@ -30782,10 +30803,13 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #47
   %93 = call noundef i64 @recv(i32 noundef %51, ptr noundef %1, i64 noundef %.sroa.speculated, i32 noundef 0)
   %94 = icmp slt i64 %93, 0
-  br i1 %94, label %84, label %_ZN7httplib6detail11read_socketEiPvmi.exit27, !llvm.loop !136
+  br i1 %94, label %84, label %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i27", !llvm.loop !136
 
-_ZN7httplib6detail11read_socketEiPvmi.exit27:     ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i26, %84, %61, %.lr.ph.i.i, %.lr.ph.i.i24, %77, %75, %76, %_ZN7httplib6detail11read_socketEiPvmi.exit, %_ZNK7httplib6detail12SocketStream11is_readableEv.exit, %11
-  %.1 = phi i64 [ %..sroa.speculated, %11 ], [ -1, %_ZNK7httplib6detail12SocketStream11is_readableEv.exit ], [ %.lcssa.i.i, %75 ], [ %2, %76 ], [ 0, %_ZN7httplib6detail11read_socketEiPvmi.exit ], [ %78, %77 ], [ %78, %.lr.ph.i.i24 ], [ %55, %.lr.ph.i.i ], [ %70, %61 ], [ %93, %84 ], [ %93, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i26 ]
+"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i27": ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i26
+  br label %_ZN7httplib6detail11read_socketEiPvmi.exit28, !llvm.loop !136
+
+_ZN7httplib6detail11read_socketEiPvmi.exit28:     ; preds = %84, %61, %.lr.ph.i.i, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i27", %.lr.ph.i.i24, %77, %75, %76, %_ZN7httplib6detail11read_socketEiPvmi.exit, %_ZNK7httplib6detail12SocketStream11is_readableEv.exit, %11
+  %.1 = phi i64 [ %..sroa.speculated, %11 ], [ -1, %_ZNK7httplib6detail12SocketStream11is_readableEv.exit ], [ %.lcssa.i.i, %75 ], [ %2, %76 ], [ 0, %_ZN7httplib6detail11read_socketEiPvmi.exit ], [ %78, %77 ], [ %93, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11read_socketEiPvmiE3$_0EElT_.exit.loopexit_crit_edge.i27" ], [ %78, %.lr.ph.i.i24 ], [ %55, %.lr.ph.i.i ], [ %70, %61 ], [ %93, %84 ]
   ret i64 %.1
 }
 
@@ -30845,10 +30869,13 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #47
   %32 = call noundef i64 @send(i32 noundef %16, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   %33 = icmp slt i64 %32, 0
-  br i1 %33, label %23, label %_ZN7httplib6detail11send_socketEiPKvmi.exit, !llvm.loop !140
+  br i1 %33, label %23, label %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit.loopexit_crit_edge.i", !llvm.loop !140
 
-_ZN7httplib6detail11send_socketEiPKvmi.exit:      ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i, %23, %3, %.lr.ph.i.i, %15, %_ZNK7httplib6detail12SocketStream11is_writableEv.exit
-  %.0 = phi i64 [ -1, %_ZNK7httplib6detail12SocketStream11is_writableEv.exit ], [ %17, %15 ], [ %17, %.lr.ph.i.i ], [ -1, %3 ], [ %32, %23 ], [ %32, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i ]
+"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit.loopexit_crit_edge.i": ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i
+  br label %_ZN7httplib6detail11send_socketEiPKvmi.exit, !llvm.loop !140
+
+_ZN7httplib6detail11send_socketEiPKvmi.exit:      ; preds = %23, %3, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit.loopexit_crit_edge.i", %.lr.ph.i.i, %15, %_ZNK7httplib6detail12SocketStream11is_writableEv.exit
+  %.0 = phi i64 [ -1, %_ZNK7httplib6detail12SocketStream11is_writableEv.exit ], [ %17, %15 ], [ %32, %"_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i._ZN7httplib6detail12handle_EINTRIZNS0_11send_socketEiPKvmiE3$_0EElT_.exit.loopexit_crit_edge.i" ], [ %17, %.lr.ph.i.i ], [ -1, %3 ], [ %32, %23 ]
   ret i64 %.0
 }
 
@@ -54659,7 +54686,7 @@ define noundef zeroext i1 @_ZN7httplib9SSLClient14initialize_sslERNS_10ClientImp
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %3
   %16 = invoke ptr @SSL_new(ptr noundef %12)
-          to label %17 unwind label %96
+          to label %17 unwind label %95
 
 17:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
@@ -54709,8 +54736,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %30
 37:                                               ; preds = %36
   unreachable
 
-common.resume.i:                                  ; preds = %99, %96, %89, %38
-  %common.resume.op.i = phi { ptr, i32 } [ %39, %38 ], [ %90, %89 ], [ %100, %99 ], [ %97, %96 ]
+common.resume.i:                                  ; preds = %98, %95, %88, %38
+  %common.resume.op.i = phi { ptr, i32 } [ %39, %38 ], [ %89, %88 ], [ %99, %98 ], [ %96, %95 ]
   resume { ptr, i32 } %common.resume.op.i
 
 38:                                               ; preds = %36, %30
@@ -54733,7 +54760,7 @@ _ZN7httplib9SSLClient10load_certsEv.exit.i.i:     ; preds = %_ZL14__gthread_once
 
 42:                                               ; preds = %_ZN7httplib9SSLClient10load_certsEv.exit.i.i
   store i32 9, ptr %2, align 4, !tbaa !185
-  br label %92
+  br label %91
 
 43:                                               ; preds = %_ZN7httplib9SSLClient10load_certsEv.exit.i.i
   call void @SSL_set_verify(ptr noundef nonnull %16, i32 noundef 0, ptr noundef null)
@@ -54752,7 +54779,7 @@ _ZN7httplib9SSLClient10load_certsEv.exit.i.i:     ; preds = %_ZL14__gthread_once
 .lr.ph.i.i.i:                                     ; preds = %44, %59
   %51 = phi i32 [ %60, %59 ], [ %50, %44 ]
   %52 = call i32 @SSL_get_error(ptr noundef nonnull %16, i32 noundef %51)
-  switch i32 %52, label %61 [
+  switch i32 %52, label %.loopexit.i.i [
     i32 2, label %53
     i32 3, label %56
   ]
@@ -54760,179 +54787,185 @@ _ZN7httplib9SSLClient10load_certsEv.exit.i.i:     ; preds = %_ZL14__gthread_once
 53:                                               ; preds = %.lr.ph.i.i.i
   %54 = call noundef i64 @_ZN7httplib6detail11select_implILb1EEElill(i32 noundef %45, i64 noundef %47, i64 noundef %49)
   %55 = icmp sgt i64 %54, 0
-  br i1 %55, label %59, label %61, !llvm.loop !963
+  br i1 %55, label %59, label %..critedge_crit_edge.i.i.i, !llvm.loop !963
 
 56:                                               ; preds = %.lr.ph.i.i.i
   %57 = call noundef i64 @_ZN7httplib6detail11select_implILb0EEElill(i32 noundef %45, i64 noundef %47, i64 noundef %49)
   %58 = icmp sgt i64 %57, 0
-  br i1 %58, label %59, label %61, !llvm.loop !963
+  br i1 %58, label %59, label %..critedge_crit_edge16.i.i.i, !llvm.loop !963
 
 59:                                               ; preds = %56, %53
   %60 = call noundef i32 @SSL_connect(ptr noundef nonnull %16)
   %.not.i.i27.i = icmp eq i32 %60, 1
   br i1 %.not.i.i27.i, label %_ZN7httplib6detail33ssl_connect_or_accept_nonblockingIPFiP6ssl_stEEEbiS3_T_ll.exit.i.i, label %.lr.ph.i.i.i
 
-61:                                               ; preds = %56, %53, %.lr.ph.i.i.i
+..critedge_crit_edge.i.i.i:                       ; preds = %53
+  br label %.loopexit.i.i, !llvm.loop !963
+
+..critedge_crit_edge16.i.i.i:                     ; preds = %56
+  br label %.loopexit.i.i, !llvm.loop !963
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %..critedge_crit_edge16.i.i.i, %..critedge_crit_edge.i.i.i
   store i32 8, ptr %2, align 4, !tbaa !185
-  br label %92
+  br label %91
 
 _ZN7httplib6detail33ssl_connect_or_accept_nonblockingIPFiP6ssl_stEEEbiS3_T_ll.exit.i.i: ; preds = %59, %44
-  %62 = load i8, ptr %27, align 8, !tbaa !880, !range !47, !noundef !48
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %.thread.i
+  %61 = load i8, ptr %27, align 8, !tbaa !880, !range !47, !noundef !48
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %.thread.i
 
-64:                                               ; preds = %_ZN7httplib6detail33ssl_connect_or_accept_nonblockingIPFiP6ssl_stEEEbiS3_T_ll.exit.i.i
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  %66 = load ptr, ptr %65, align 8, !tbaa !114
-  %.not.i.i16.not.i.i = icmp eq ptr %66, null
-  br i1 %.not.i.i16.not.i.i, label %.thread.i.i, label %67
+63:                                               ; preds = %_ZN7httplib6detail33ssl_connect_or_accept_nonblockingIPFiP6ssl_stEEEbiS3_T_ll.exit.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1000
+  %65 = load ptr, ptr %64, align 8, !tbaa !114
+  %.not.i.i16.not.i.i = icmp eq ptr %65, null
+  br i1 %.not.i.i16.not.i.i, label %.thread.i.i, label %66
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 984
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 984
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %16, ptr %4, align 8, !tbaa !964
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %70 = load ptr, ptr %69, align 8, !tbaa !888
-  %71 = call noundef i32 %70(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1008
+  %69 = load ptr, ptr %68, align 8, !tbaa !888
+  %70 = call noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  switch i32 %71, label %.thread.i [
-    i32 2, label %72
+  switch i32 %70, label %.thread.i [
+    i32 2, label %71
     i32 0, label %.thread.i.i
   ]
 
-72:                                               ; preds = %67
+71:                                               ; preds = %66
   store i32 10, ptr %2, align 4, !tbaa !185
-  br label %92
+  br label %91
 
-.thread.i.i:                                      ; preds = %67, %64
-  %73 = call i64 @SSL_get_verify_result(ptr noundef nonnull %16)
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  store i64 %73, ptr %74, align 8, !tbaa !965
-  %.not.i.i = icmp eq i64 %73, 0
-  br i1 %.not.i.i, label %_ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit.i.i, label %75
+.thread.i.i:                                      ; preds = %66, %63
+  %72 = call i64 @SSL_get_verify_result(ptr noundef nonnull %16)
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  store i64 %72, ptr %73, align 8, !tbaa !965
+  %.not.i.i = icmp eq i64 %72, 0
+  br i1 %.not.i.i, label %_ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit.i.i, label %74
 
-75:                                               ; preds = %.thread.i.i
+74:                                               ; preds = %.thread.i.i
   store i32 10, ptr %2, align 4, !tbaa !185
-  br label %92
+  br label %91
 
 _ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit.i.i: ; preds = %.thread.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #47
-  %76 = call ptr @SSL_get1_peer_certificate(ptr noundef nonnull %16)
-  store ptr %76, ptr %8, align 8, !tbaa !966
+  %75 = call ptr @SSL_get1_peer_certificate(ptr noundef nonnull %16)
+  store ptr %75, ptr %8, align 8, !tbaa !966
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #47
-  %77 = ptrtoint ptr %8 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr @"_ZNSt17_Function_handlerIFvvEZZN7httplib9SSLClient14initialize_sslERNS1_10ClientImpl6SocketERNS1_5ErrorEENK3$_0clEP6ssl_stEUlvE_E9_M_invokeERKSt9_Any_data", ptr %78, align 8, !tbaa !161
-  %79 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %77, ptr %9, align 8
+  %76 = ptrtoint ptr %8 to i64
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr @"_ZNSt17_Function_handlerIFvvEZZN7httplib9SSLClient14initialize_sslERNS1_10ClientImpl6SocketERNS1_5ErrorEENK3$_0clEP6ssl_stEUlvE_E9_M_invokeERKSt9_Any_data", ptr %77, align 8, !tbaa !161
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %76, ptr %9, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZZN7httplib9SSLClient14initialize_sslERNS1_10ClientImpl6SocketERNS1_5ErrorEENK3$_0clEP6ssl_stEUlvE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %79, align 8, !tbaa !114
-  %80 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i8 1, ptr %80, align 8, !tbaa !158
-  %81 = icmp eq ptr %76, null
-  br i1 %81, label %.critedge.i.i, label %82
+  store ptr @"_ZNSt17_Function_handlerIFvvEZZN7httplib9SSLClient14initialize_sslERNS1_10ClientImpl6SocketERNS1_5ErrorEENK3$_0clEP6ssl_stEUlvE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %78, align 8, !tbaa !114
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i8 1, ptr %79, align 8, !tbaa !158
+  %80 = icmp eq ptr %75, null
+  br i1 %80, label %.critedge.i.i, label %81
 
-82:                                               ; preds = %_ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit.i.i
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 977
-  %84 = load i8, ptr %83, align 1, !tbaa !881, !range !47, !noundef !48
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %91
+81:                                               ; preds = %_ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit.i.i
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 977
+  %83 = load i8, ptr %82, align 1, !tbaa !881, !range !47, !noundef !48
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %85, label %90
 
-86:                                               ; preds = %82
-  %87 = invoke noundef zeroext i1 @_ZNK7httplib9SSLClient11verify_hostEP7x509_st(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef nonnull %76)
-          to label %88 unwind label %89
+85:                                               ; preds = %81
+  %86 = invoke noundef zeroext i1 @_ZNK7httplib9SSLClient11verify_hostEP7x509_st(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef nonnull %75)
+          to label %87 unwind label %88
 
-88:                                               ; preds = %86
-  br i1 %87, label %91, label %.critedge.i.i
+87:                                               ; preds = %85
+  br i1 %86, label %90, label %.critedge.i.i
 
-89:                                               ; preds = %86
-  %90 = landingpad { ptr, i32 }
+88:                                               ; preds = %85
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7httplib6detail10scope_exitD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %9) #47
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #47
   br label %common.resume.i
 
-91:                                               ; preds = %88, %82
+90:                                               ; preds = %87, %81
   call void @_ZN7httplib6detail10scope_exitD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %9) #47
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #47
   br label %.thread.i
 
-.critedge.i.i:                                    ; preds = %88, %_ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit.i.i
-  %.sink.i.i = phi i32 [ 10, %_ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit.i.i ], [ 11, %88 ]
+.critedge.i.i:                                    ; preds = %87, %_ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit.i.i
+  %.sink.i.i = phi i32 [ 10, %_ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit.i.i ], [ 11, %87 ]
   store i32 %.sink.i.i, ptr %2, align 4, !tbaa !185
   call void @_ZN7httplib6detail10scope_exitD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %9) #47
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #47
-  br label %92
+  br label %91
 
-92:                                               ; preds = %.critedge.i.i, %75, %72, %61, %42
-  %93 = call i32 @SSL_shutdown(ptr noundef nonnull %16)
-  %94 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
-  %.not.i.i28.i = icmp eq i32 %94, 0
-  br i1 %.not.i.i28.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i, label %95
+91:                                               ; preds = %.critedge.i.i, %74, %71, %.loopexit.i.i, %42
+  %92 = call i32 @SSL_shutdown(ptr noundef nonnull %16)
+  %93 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
+  %.not.i.i28.i = icmp eq i32 %93, 0
+  br i1 %.not.i.i28.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i, label %94
 
-95:                                               ; preds = %92
-  call void @_ZSt20__throw_system_errori(i32 noundef %94) #49
+94:                                               ; preds = %91
+  call void @_ZSt20__throw_system_errori(i32 noundef %93) #49
   unreachable
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i:      ; preds = %92
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i:      ; preds = %91
   invoke void @SSL_free(ptr noundef nonnull %16)
-          to label %103 unwind label %99
+          to label %102 unwind label %98
 
-96:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %97 = landingpad { ptr, i32 }
+95:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+  %96 = landingpad { ptr, i32 }
           cleanup
-  %98 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
+  %97 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
   br label %common.resume.i
 
-99:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i
-  %100 = landingpad { ptr, i32 }
+98:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i
+  %99 = landingpad { ptr, i32 }
           cleanup
-  %101 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
+  %100 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
   br label %common.resume.i
 
-.thread.i:                                        ; preds = %91, %67, %_ZN7httplib6detail33ssl_connect_or_accept_nonblockingIPFiP6ssl_stEEEbiS3_T_ll.exit.i.i
-  %102 = call i64 @BIO_ctrl(ptr noundef %23, i32 noundef 102, i64 noundef 0, ptr noundef null)
+.thread.i:                                        ; preds = %90, %66, %_ZN7httplib6detail33ssl_connect_or_accept_nonblockingIPFiP6ssl_stEEEbiS3_T_ll.exit.i.i
+  %101 = call i64 @BIO_ctrl(ptr noundef %23, i32 noundef 102, i64 noundef 0, ptr noundef null)
   br label %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
 
-103:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i
-  %104 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
+102:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i
+  %103 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
   br label %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
 
-"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit": ; preds = %.thread.i, %103
-  %.1.ph.i = phi ptr [ %16, %.thread.i ], [ null, %103 ]
-  %105 = call i32 (i32, i32, ...) @fcntl(i32 noundef %10, i32 noundef 3, i32 noundef 0)
-  %106 = and i32 %105, -2049
-  %107 = call i32 (i32, i32, ...) @fcntl(i32 noundef %10, i32 noundef 4, i32 noundef %106)
+"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit": ; preds = %.thread.i, %102
+  %.1.ph.i = phi ptr [ %16, %.thread.i ], [ null, %102 ]
+  %104 = call i32 (i32, i32, ...) @fcntl(i32 noundef %10, i32 noundef 3, i32 noundef 0)
+  %105 = and i32 %104, -2049
+  %106 = call i32 (i32, i32, ...) @fcntl(i32 noundef %10, i32 noundef 4, i32 noundef %105)
   %.not.not = icmp eq ptr %.1.ph.i, null
-  br i1 %.not.not, label %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread", label %108
+  br i1 %.not.not, label %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread", label %107
 
-108:                                              ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %.1.ph.i, ptr %109, align 8, !tbaa !968
+107:                                              ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %.1.ph.i, ptr %108, align 8, !tbaa !968
   br label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit
 
 "_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread": ; preds = %17, %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
-  %110 = load i32, ptr %1, align 8, !tbaa !861
-  %111 = icmp eq i32 %110, -1
-  br i1 %111, label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit, label %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit
+  %109 = load i32, ptr %1, align 8, !tbaa !861
+  %110 = icmp eq i32 %109, -1
+  br i1 %110, label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit, label %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit
 
 _ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit: ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread"
-  %112 = call noundef i32 @shutdown(i32 noundef %110, i32 noundef 2) #47
+  %111 = call noundef i32 @shutdown(i32 noundef %109, i32 noundef 2) #47
   %.pr = load i32, ptr %1, align 8, !tbaa !861
-  %113 = icmp eq i32 %.pr, -1
-  br i1 %113, label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit, label %114
+  %112 = icmp eq i32 %.pr, -1
+  br i1 %112, label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit, label %113
 
-114:                                              ; preds = %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit
-  %115 = call noundef i32 @close(i32 noundef %.pr)
+113:                                              ; preds = %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit
+  %114 = call noundef i32 @close(i32 noundef %.pr)
   store i32 -1, ptr %1, align 8, !tbaa !861
   br label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit
 
-_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit: ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread", %114, %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit, %108
-  %.not18 = phi i1 [ true, %108 ], [ false, %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit ], [ false, %114 ], [ false, %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread" ]
+_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit: ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread", %113, %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit, %107
+  %.not18 = phi i1 [ true, %107 ], [ false, %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit ], [ false, %113 ], [ false, %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread" ]
   ret i1 %.not18
 }
 
@@ -81080,7 +81113,7 @@ define noundef zeroext i1 @_ZN7httplib9SSLServer24process_and_close_socketEi(ptr
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %2
   %16 = invoke ptr @SSL_new(ptr noundef %12)
-          to label %17 unwind label %42
+          to label %17 unwind label %41
 
 17:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
@@ -81089,7 +81122,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %2
 
 "_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread": ; preds = %17
   store ptr null, ptr %6, align 8, !tbaa !964
-  br label %160
+  br label %159
 
 19:                                               ; preds = %17
   %20 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 3, i32 noundef 0)
@@ -81109,7 +81142,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %2
 .lr.ph.i.i.i:                                     ; preds = %19, %36
   %28 = phi i32 [ %37, %36 ], [ %27, %19 ]
   %29 = tail call i32 @SSL_get_error(ptr noundef nonnull %16, i32 noundef %28)
-  switch i32 %29, label %38 [
+  switch i32 %29, label %.loopexit.i [
     i32 2, label %30
     i32 3, label %33
   ]
@@ -81117,374 +81150,380 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %2
 30:                                               ; preds = %.lr.ph.i.i.i
   %31 = tail call noundef i64 @_ZN7httplib6detail11select_implILb1EEElill(i32 noundef %1, i64 noundef %.val27.val.i, i64 noundef %.val27.val28.i)
   %32 = icmp sgt i64 %31, 0
-  br i1 %32, label %36, label %38, !llvm.loop !963
+  br i1 %32, label %36, label %..critedge_crit_edge.i.i.i, !llvm.loop !963
 
 33:                                               ; preds = %.lr.ph.i.i.i
   %34 = tail call noundef i64 @_ZN7httplib6detail11select_implILb0EEElill(i32 noundef %1, i64 noundef %.val27.val.i, i64 noundef %.val27.val28.i)
   %35 = icmp sgt i64 %34, 0
-  br i1 %35, label %36, label %38, !llvm.loop !963
+  br i1 %35, label %36, label %..critedge_crit_edge16.i.i.i, !llvm.loop !963
 
 36:                                               ; preds = %33, %30
   %37 = tail call noundef i32 @SSL_accept(ptr noundef nonnull %16)
   %.not.i.i29.i = icmp eq i32 %37, 1
   br i1 %.not.i.i29.i, label %.thread.i, label %.lr.ph.i.i.i
 
-38:                                               ; preds = %33, %30, %.lr.ph.i.i.i
-  %39 = tail call i32 @SSL_shutdown(ptr noundef nonnull %16)
-  %40 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
-  %.not.i.i30.i = icmp eq i32 %40, 0
-  br i1 %.not.i.i30.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit31.i, label %41
+..critedge_crit_edge.i.i.i:                       ; preds = %30
+  br label %.loopexit.i, !llvm.loop !963
 
-41:                                               ; preds = %38
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %40) #49
+..critedge_crit_edge16.i.i.i:                     ; preds = %33
+  br label %.loopexit.i, !llvm.loop !963
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %..critedge_crit_edge16.i.i.i, %..critedge_crit_edge.i.i.i
+  %38 = tail call i32 @SSL_shutdown(ptr noundef nonnull %16)
+  %39 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
+  %.not.i.i30.i = icmp eq i32 %39, 0
+  br i1 %.not.i.i30.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit31.i, label %40
+
+40:                                               ; preds = %.loopexit.i
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %39) #49
   unreachable
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit31.i:      ; preds = %38
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit31.i:      ; preds = %.loopexit.i
   invoke void @SSL_free(ptr noundef nonnull %16)
-          to label %47 unwind label %44
+          to label %46 unwind label %43
 
-42:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %48
 
-44:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit31.i
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit31.i
+  %44 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %48
 
 .thread.i:                                        ; preds = %36, %19
-  %46 = tail call i64 @BIO_ctrl(ptr noundef %23, i32 noundef 102, i64 noundef 0, ptr noundef null)
+  %45 = tail call i64 @BIO_ctrl(ptr noundef %23, i32 noundef 102, i64 noundef 0, ptr noundef null)
   br label %"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
 
-47:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit31.i
-  %48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
+46:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit31.i
+  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
   br label %"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
 
-common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27, %49
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %49 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ]
+common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27, %48
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %48 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ]
   resume { ptr, i32 } %common.resume.op
 
-49:                                               ; preds = %44, %42
-  %.pn.i = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
-  %50 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
+48:                                               ; preds = %43, %41
+  %.pn.i = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
+  %49 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
   br label %common.resume
 
-"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit": ; preds = %.thread.i, %47
-  %.1.ph.i = phi ptr [ %16, %.thread.i ], [ null, %47 ]
-  %51 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 3, i32 noundef 0)
-  %52 = and i32 %51, -2049
-  %53 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 4, i32 noundef %52)
+"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit": ; preds = %.thread.i, %46
+  %.1.ph.i = phi ptr [ %16, %.thread.i ], [ null, %46 ]
+  %50 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 3, i32 noundef 0)
+  %51 = and i32 %50, -2049
+  %52 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 4, i32 noundef %51)
   store ptr %.1.ph.i, ptr %6, align 8, !tbaa !964
   %.not = icmp eq ptr %.1.ph.i, null
-  br i1 %.not, label %160, label %54
+  br i1 %.not, label %159, label %53
 
-54:                                               ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
+53:                                               ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #47
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %55, ptr %7, align 8, !tbaa !17
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %56, align 8, !tbaa !7
-  store i8 0, ptr %55, align 8, !tbaa !14
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %54, ptr %7, align 8, !tbaa !17
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %55, align 8, !tbaa !7
+  store i8 0, ptr %54, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #47
   store i32 0, ptr %8, align 4, !tbaa !3
   invoke void @_ZN7httplib6detail22get_remote_ip_and_portEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERi(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
-          to label %57 unwind label %143
+          to label %56 unwind label %142
 
-57:                                               ; preds = %54
+56:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #47
-  %58 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %58, ptr %9, align 8, !tbaa !17
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %59, align 8, !tbaa !7
-  store i8 0, ptr %58, align 8, !tbaa !14
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %57, ptr %9, align 8, !tbaa !17
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 0, ptr %58, align 8, !tbaa !7
+  store i8 0, ptr %57, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #47
   store i32 0, ptr %10, align 4, !tbaa !3
   invoke void @_ZN7httplib6detail21get_local_ip_and_portEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERi(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
-          to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %59 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %62 = load ptr, ptr %6, align 8, !tbaa !964
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %64 = load i64, ptr %63, align 8, !tbaa !620
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %66 = load i64, ptr %65, align 8, !tbaa !651
-  %67 = load i64, ptr %25, align 8, !tbaa !652
-  %68 = load i64, ptr %26, align 8, !tbaa !653
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %70 = load i64, ptr %69, align 8, !tbaa !654
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %72 = load i64, ptr %71, align 8, !tbaa !702
-  %73 = mul nsw i64 %66, 1000000000
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %77 = ptrtoint ptr %6 to i64
-  br label %78
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %61 = load ptr, ptr %6, align 8, !tbaa !964
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %63 = load i64, ptr %62, align 8, !tbaa !620
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %65 = load i64, ptr %64, align 8, !tbaa !651
+  %66 = load i64, ptr %25, align 8, !tbaa !652
+  %67 = load i64, ptr %26, align 8, !tbaa !653
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %69 = load i64, ptr %68, align 8, !tbaa !654
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %71 = load i64, ptr %70, align 8, !tbaa !702
+  %72 = mul nsw i64 %65, 1000000000
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %76 = ptrtoint ptr %6 to i64
+  br label %77
 
-78:                                               ; preds = %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i", %60
-  %.011.i.i = phi i64 [ %64, %60 ], [ %.112.i.i, %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" ]
-  %.010.i.i = phi i1 [ false, %60 ], [ %99, %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" ]
+77:                                               ; preds = %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i", %59
+  %.011.i.i = phi i64 [ %63, %59 ], [ %.112.i.i, %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" ]
+  %.010.i.i = phi i1 [ false, %59 ], [ %98, %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" ]
   %.not.i.i = icmp eq i64 %.011.i.i, 0
-  br i1 %.not.i.i, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %79
+  br i1 %.not.i.i, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %78
 
-79:                                               ; preds = %78
-  %80 = invoke noundef i64 @_ZN7httplib6detail11select_implILb1EEElill(i32 noundef %1, i64 noundef 0, i64 noundef 10000)
+78:                                               ; preds = %77
+  %79 = invoke noundef i64 @_ZN7httplib6detail11select_implILb1EEElill(i32 noundef %1, i64 noundef 0, i64 noundef 10000)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
-.noexc:                                           ; preds = %79
-  %81 = icmp sgt i64 %80, 0
-  br i1 %81, label %_ZN7httplib6detail10keep_aliveERKSt6atomicIiEil.exit.i.i, label %82
+.noexc:                                           ; preds = %78
+  %80 = icmp sgt i64 %79, 0
+  br i1 %80, label %_ZN7httplib6detail10keep_aliveERKSt6atomicIiEil.exit.i.i, label %81
 
-82:                                               ; preds = %.noexc
-  %83 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #47
-  br label %84
+81:                                               ; preds = %.noexc
+  %82 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #47
+  br label %83
 
-84:                                               ; preds = %92, %82
-  %85 = load atomic i32, ptr %61 seq_cst, align 8
-  %86 = icmp eq i32 %85, -1
-  br i1 %86, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %87
+83:                                               ; preds = %91, %81
+  %84 = load atomic i32, ptr %60 seq_cst, align 8
+  %85 = icmp eq i32 %84, -1
+  br i1 %85, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %86
 
-87:                                               ; preds = %84
-  %88 = invoke noundef i64 @_ZN7httplib6detail11select_implILb1EEElill(i32 noundef %1, i64 noundef 0, i64 noundef 10000)
+86:                                               ; preds = %83
+  %87 = invoke noundef i64 @_ZN7httplib6detail11select_implILb1EEElill(i32 noundef %1, i64 noundef 0, i64 noundef 10000)
           to label %.noexc10 unwind label %.loopexit
 
-.noexc10:                                         ; preds = %87
-  %89 = icmp slt i64 %88, 0
-  br i1 %89, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %90
+.noexc10:                                         ; preds = %86
+  %88 = icmp slt i64 %87, 0
+  br i1 %88, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %89
 
-90:                                               ; preds = %.noexc10
-  %91 = icmp eq i64 %88, 0
-  br i1 %91, label %92, label %_ZN7httplib6detail10keep_aliveERKSt6atomicIiEil.exit.i.i
+89:                                               ; preds = %.noexc10
+  %90 = icmp eq i64 %87, 0
+  br i1 %90, label %91, label %_ZN7httplib6detail10keep_aliveERKSt6atomicIiEil.exit.i.i
 
-92:                                               ; preds = %90
-  %93 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #47
-  %reass.sub = sub i64 %93, %83
-  %94 = add i64 %reass.sub, 10000000
-  %95 = icmp slt i64 %73, %94
-  br i1 %95, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %84
+91:                                               ; preds = %89
+  %92 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #47
+  %reass.sub = sub i64 %92, %82
+  %93 = add i64 %reass.sub, 10000000
+  %94 = icmp slt i64 %72, %93
+  br i1 %94, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %83
 
-_ZN7httplib6detail10keep_aliveERKSt6atomicIiEil.exit.i.i: ; preds = %90, %.noexc
+_ZN7httplib6detail10keep_aliveERKSt6atomicIiEil.exit.i.i: ; preds = %89, %.noexc
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #47
   store i8 0, ptr %5, align 1, !tbaa !183
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #47
-  invoke void @_ZN7httplib6detail15SSLSocketStreamC1EiP6ssl_stlllllNSt6chrono10time_pointINS4_3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef %1, ptr noundef %62, i64 noundef %67, i64 noundef %68, i64 noundef %70, i64 noundef %72, i64 noundef 0, i64 -9223372036854775808)
+  invoke void @_ZN7httplib6detail15SSLSocketStreamC1EiP6ssl_stlllllNSt6chrono10time_pointINS4_3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef %1, ptr noundef %61, i64 noundef %66, i64 noundef %67, i64 noundef %69, i64 noundef %71, i64 noundef 0, i64 -9223372036854775808)
           to label %.noexc11 unwind label %.loopexit.split-lp.loopexit
 
 .noexc11:                                         ; preds = %_ZN7httplib6detail10keep_aliveERKSt6atomicIiEil.exit.i.i
-  %96 = icmp eq i64 %.011.i.i, 1
-  %97 = load i32, ptr %8, align 4, !tbaa !3
-  %98 = load i32, ptr %10, align 4, !tbaa !3
+  %95 = icmp eq i64 %.011.i.i, 1
+  %96 = load i32, ptr %8, align 4, !tbaa !3
+  %97 = load i32, ptr %10, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #47
-  store i64 0, ptr %76, align 8
-  store i64 %77, ptr %3, align 8, !tbaa !1122
-  store ptr @"_ZNSt17_Function_handlerIFvRN7httplib7RequestEEZZNS0_9SSLServer24process_and_close_socketEiENK3$_0clERNS0_6StreamEbRbEUlS2_E_E9_M_invokeERKSt9_Any_dataS2_", ptr %75, align 8, !tbaa !839
-  store ptr @"_ZNSt17_Function_handlerIFvRN7httplib7RequestEEZZNS0_9SSLServer24process_and_close_socketEiENK3$_0clERNS0_6StreamEbRbEUlS2_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %74, align 8, !tbaa !114
-  %99 = invoke noundef zeroext i1 @_ZN7httplib6Server15process_requestERNS_6StreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_ibRbRKSt8functionIFvRNS_7RequestEEE(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %97, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %98, i1 noundef zeroext %96, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %100 unwind label %107
+  store i64 0, ptr %75, align 8
+  store i64 %76, ptr %3, align 8, !tbaa !1122
+  store ptr @"_ZNSt17_Function_handlerIFvRN7httplib7RequestEEZZNS0_9SSLServer24process_and_close_socketEiENK3$_0clERNS0_6StreamEbRbEUlS2_E_E9_M_invokeERKSt9_Any_dataS2_", ptr %74, align 8, !tbaa !839
+  store ptr @"_ZNSt17_Function_handlerIFvRN7httplib7RequestEEZZNS0_9SSLServer24process_and_close_socketEiENK3$_0clERNS0_6StreamEbRbEUlS2_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %73, align 8, !tbaa !114
+  %98 = invoke noundef zeroext i1 @_ZN7httplib6Server15process_requestERNS_6StreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_ibRbRKSt8functionIFvRNS_7RequestEEE(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %96, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %97, i1 noundef zeroext %95, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %99 unwind label %106
 
-100:                                              ; preds = %.noexc11
-  %101 = load ptr, ptr %74, align 8, !tbaa !114
-  %.not.i.i.i.i.i = icmp eq ptr %101, null
-  br i1 %.not.i.i.i.i.i, label %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i", label %102
+99:                                               ; preds = %.noexc11
+  %100 = load ptr, ptr %73, align 8, !tbaa !114
+  %.not.i.i.i.i.i = icmp eq ptr %100, null
+  br i1 %.not.i.i.i.i.i, label %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i", label %101
 
-102:                                              ; preds = %100
-  %103 = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" unwind label %104
+101:                                              ; preds = %99
+  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" unwind label %103
 
-104:                                              ; preds = %102
-  %105 = landingpad { ptr, i32 }
+103:                                              ; preds = %101
+  %104 = landingpad { ptr, i32 }
           catch ptr null
-  %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #51
+  %105 = extractvalue { ptr, i32 } %104, 0
+  call void @__clang_call_terminate(ptr %105) #51
   unreachable
 
-107:                                              ; preds = %.noexc11
-  %108 = landingpad { ptr, i32 }
+106:                                              ; preds = %.noexc11
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %109 = load ptr, ptr %74, align 8, !tbaa !114
-  %.not.i5.i.i.i.i = icmp eq ptr %109, null
-  br i1 %.not.i5.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i, label %110
+  %108 = load ptr, ptr %73, align 8, !tbaa !114
+  %.not.i5.i.i.i.i = icmp eq ptr %108, null
+  br i1 %.not.i5.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i, label %109
 
-110:                                              ; preds = %107
-  %111 = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i unwind label %112
+109:                                              ; preds = %106
+  %110 = invoke noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i unwind label %111
 
-112:                                              ; preds = %110
-  %113 = landingpad { ptr, i32 }
+111:                                              ; preds = %109
+  %112 = landingpad { ptr, i32 }
           catch ptr null
-  %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #51
+  %113 = extractvalue { ptr, i32 } %112, 0
+  call void @__clang_call_terminate(ptr %113) #51
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i:          ; preds = %110, %107
+_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i:          ; preds = %109, %106
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #47
   call void @_ZN7httplib6detail15SSLSocketStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #47
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #47
   br label %.body
 
-"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i": ; preds = %102, %100
+"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i": ; preds = %101, %99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #47
   call void @_ZN7httplib6detail15SSLSocketStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #47
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #47
-  %115 = load i8, ptr %5, align 1, !range !47
-  %116 = trunc nuw i8 %115 to i1
-  %not..i.i = xor i1 %116, true
-  %narrow.i.i = select i1 %99, i1 %not..i.i, i1 false
+  %114 = load i8, ptr %5, align 1, !range !47
+  %115 = trunc nuw i8 %114 to i1
+  %not..i.i = xor i1 %115, true
+  %narrow.i.i = select i1 %98, i1 %not..i.i, i1 false
   %spec.select.i.i = sext i1 %narrow.i.i to i64
   %.112.i.i = add i64 %.011.i.i, %spec.select.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #47
-  %not.17.i.i = xor i1 %99, true
-  %117 = select i1 %not.17.i.i, i1 true, i1 %116
-  br i1 %117, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %78
+  %not.17.i.i = xor i1 %98, true
+  %116 = select i1 %not.17.i.i, i1 true, i1 %115
+  br i1 %116, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %77
 
-"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit": ; preds = %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i", %78, %92, %.noexc10, %84
-  %.1.i.i = phi i1 [ %.010.i.i, %84 ], [ %.010.i.i, %.noexc10 ], [ %.010.i.i, %92 ], [ %.010.i.i, %78 ], [ %99, %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" ]
-  %118 = load ptr, ptr %6, align 8, !tbaa !964
-  br i1 %.1.i.i, label %119, label %.noexc15
+"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit": ; preds = %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i", %77, %91, %.noexc10, %83
+  %.1.i.i = phi i1 [ %.010.i.i, %83 ], [ %.010.i.i, %.noexc10 ], [ %.010.i.i, %91 ], [ %.010.i.i, %77 ], [ %98, %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" ]
+  %117 = load ptr, ptr %6, align 8, !tbaa !964
+  br i1 %.1.i.i, label %118, label %.noexc15
 
-119:                                              ; preds = %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit"
-  %120 = invoke i32 @SSL_shutdown(ptr noundef %118)
-          to label %.noexc14 unwind label %145
+118:                                              ; preds = %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit"
+  %119 = invoke i32 @SSL_shutdown(ptr noundef %117)
+          to label %.noexc14 unwind label %144
 
-.noexc14:                                         ; preds = %119
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %.noexc15
+.noexc14:                                         ; preds = %118
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %121, label %.noexc15
 
-122:                                              ; preds = %.noexc14
-  %123 = invoke i32 @SSL_shutdown(ptr noundef %118)
-          to label %.noexc15 unwind label %145
+121:                                              ; preds = %.noexc14
+  %122 = invoke i32 @SSL_shutdown(ptr noundef %117)
+          to label %.noexc15 unwind label %144
 
-.noexc15:                                         ; preds = %122, %.noexc14, %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit"
-  %124 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
-  %.not.i.i.i12 = icmp eq i32 %124, 0
-  br i1 %.not.i.i.i12, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i13, label %125
+.noexc15:                                         ; preds = %121, %.noexc14, %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit"
+  %123 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
+  %.not.i.i.i12 = icmp eq i32 %123, 0
+  br i1 %.not.i.i.i12, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i13, label %124
 
-125:                                              ; preds = %.noexc15
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %124) #49
-          to label %.noexc16 unwind label %145
+124:                                              ; preds = %.noexc15
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %123) #49
+          to label %.noexc16 unwind label %144
 
-.noexc16:                                         ; preds = %125
+.noexc16:                                         ; preds = %124
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i13:      ; preds = %.noexc15
-  invoke void @SSL_free(ptr noundef %118)
-          to label %129 unwind label %126
+  invoke void @SSL_free(ptr noundef %117)
+          to label %128 unwind label %125
 
-126:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i13
-  %127 = landingpad { ptr, i32 }
+125:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i13
+  %126 = landingpad { ptr, i32 }
           cleanup
-  %128 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
+  %127 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
   br label %.body
 
-129:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i13
-  %130 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
+128:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i13
+  %129 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #47
-  %131 = load ptr, ptr %9, align 8, !tbaa !13
-  %132 = icmp eq ptr %131, %58
-  br i1 %132, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %130 = load ptr, ptr %9, align 8, !tbaa !13
+  %131 = icmp eq ptr %130, %57
+  br i1 %131, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %129
-  %133 = load i64, ptr %59, align 8, !tbaa !7
-  %134 = icmp ult i64 %133, 16
-  call void @llvm.assume(i1 %134)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %128
+  %132 = load i64, ptr %58, align 8, !tbaa !7
+  %133 = icmp ult i64 %132, 16
+  call void @llvm.assume(i1 %133)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %129
-  %135 = load i64, ptr %58, align 8, !tbaa !14
-  %136 = add i64 %135, 1
-  call void @_ZdlPvm(ptr noundef %131, i64 noundef %136) #48
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %128
+  %134 = load i64, ptr %57, align 8, !tbaa !14
+  %135 = add i64 %134, 1
+  call void @_ZdlPvm(ptr noundef %130, i64 noundef %135) #48
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #47
-  %137 = load ptr, ptr %7, align 8, !tbaa !13
-  %138 = icmp eq ptr %137, %55
-  br i1 %138, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
+  %136 = load ptr, ptr %7, align 8, !tbaa !13
+  %137 = icmp eq ptr %136, %54
+  br i1 %137, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %139 = load i64, ptr %56, align 8, !tbaa !7
-  %140 = icmp ult i64 %139, 16
-  call void @llvm.assume(i1 %140)
+  %138 = load i64, ptr %55, align 8, !tbaa !7
+  %139 = icmp ult i64 %138, 16
+  call void @llvm.assume(i1 %139)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %141 = load i64, ptr %55, align 8, !tbaa !14
-  %142 = add i64 %141, 1
-  call void @_ZdlPvm(ptr noundef %137, i64 noundef %142) #48
+  %140 = load i64, ptr %54, align 8, !tbaa !14
+  %141 = add i64 %140, 1
+  call void @_ZdlPvm(ptr noundef %136, i64 noundef %141) #48
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #47
-  br label %160
+  br label %159
 
-143:                                              ; preds = %54
-  %144 = landingpad { ptr, i32 }
+142:                                              ; preds = %53
+  %143 = landingpad { ptr, i32 }
           cleanup
-  br label %153
+  br label %152
 
-.loopexit:                                        ; preds = %87
+.loopexit:                                        ; preds = %86
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit:                      ; preds = %_ZN7httplib6detail10keep_aliveERKSt6atomicIiEil.exit.i.i, %79
+.loopexit.split-lp.loopexit:                      ; preds = %_ZN7httplib6detail10keep_aliveERKSt6atomicIiEil.exit.i.i, %78
   %lpad.loopexit40 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %57
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %56
   %lpad.loopexit.split-lp41 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-145:                                              ; preds = %125, %122, %119
-  %146 = landingpad { ptr, i32 }
+144:                                              ; preds = %124, %121, %118
+  %145 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %145, %126, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %108, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i ], [ %146, %145 ], [ %127, %126 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit40, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %144, %125, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i
+  %.pn = phi { ptr, i32 } [ %107, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i ], [ %145, %144 ], [ %126, %125 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit40, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #47
-  %147 = load ptr, ptr %9, align 8, !tbaa !13
-  %148 = icmp eq ptr %147, %58
-  br i1 %148, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
+  %146 = load ptr, ptr %9, align 8, !tbaa !13
+  %147 = icmp eq ptr %146, %57
+  br i1 %147, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23: ; preds = %.body
-  %149 = load i64, ptr %59, align 8, !tbaa !7
-  %150 = icmp ult i64 %149, 16
-  call void @llvm.assume(i1 %150)
+  %148 = load i64, ptr %58, align 8, !tbaa !7
+  %149 = icmp ult i64 %148, 16
+  call void @llvm.assume(i1 %149)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22: ; preds = %.body
-  %151 = load i64, ptr %58, align 8, !tbaa !14
-  %152 = add i64 %151, 1
-  call void @_ZdlPvm(ptr noundef %147, i64 noundef %152) #48
+  %150 = load i64, ptr %57, align 8, !tbaa !14
+  %151 = add i64 %150, 1
+  call void @_ZdlPvm(ptr noundef %146, i64 noundef %151) #48
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #47
-  br label %153
+  br label %152
 
-153:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24, %143
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24 ], [ %144, %143 ]
+152:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24, %142
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24 ], [ %143, %142 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #47
-  %154 = load ptr, ptr %7, align 8, !tbaa !13
-  %155 = icmp eq ptr %154, %55
-  br i1 %155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
+  %153 = load ptr, ptr %7, align 8, !tbaa !13
+  %154 = icmp eq ptr %153, %54
+  br i1 %154, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26: ; preds = %153
-  %156 = load i64, ptr %56, align 8, !tbaa !7
-  %157 = icmp ult i64 %156, 16
-  call void @llvm.assume(i1 %157)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26: ; preds = %152
+  %155 = load i64, ptr %55, align 8, !tbaa !7
+  %156 = icmp ult i64 %155, 16
+  call void @llvm.assume(i1 %156)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %153
-  %158 = load i64, ptr %55, align 8, !tbaa !14
-  %159 = add i64 %158, 1
-  call void @_ZdlPvm(ptr noundef %154, i64 noundef %159) #48
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %152
+  %157 = load i64, ptr %54, align 8, !tbaa !14
+  %158 = add i64 %157, 1
+  call void @_ZdlPvm(ptr noundef %153, i64 noundef %158) #48
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
@@ -81492,10 +81531,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #47
   br label %common.resume
 
-160:                                              ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21, %"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
+159:                                              ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21, %"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
   %.0 = phi i1 [ %.1.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21 ], [ false, %"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit" ], [ false, %"_ZN7httplib6detail7ssl_newIZNS_9SSLServer24process_and_close_socketEiE3$_1ZNS2_24process_and_close_socketEiE3$_2EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread" ]
-  %161 = call noundef i32 @shutdown(i32 noundef %1, i32 noundef 2) #47
-  %162 = call noundef i32 @close(i32 noundef %1)
+  %160 = call noundef i32 @shutdown(i32 noundef %1, i32 noundef 2) #47
+  %161 = call noundef i32 @close(i32 noundef %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #47
   ret i1 %.0
 }

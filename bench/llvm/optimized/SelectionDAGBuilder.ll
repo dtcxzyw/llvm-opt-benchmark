@@ -32613,7 +32613,7 @@ _ZN4llvm9MapVectorIPKNS_11InstructionEbNS_13SmallDenseMapIS3_jLj8ENS_12DenseMapI
   %.pre193.pre = load i32, ptr %62, align 8, !tbaa !26
   %.pre197 = zext i32 %.pre193.pre to i64
   %206 = icmp eq i32 %.pre193.pre, 0
-  br label %.critedge68
+  br label %.critedge68, !llvm.loop !1602
 
 .critedge68.thread:                               ; preds = %.critedge66, %.critedge66.us.us
   %207 = getelementptr inbounds nuw %"struct.std::pair.821", ptr %121, i64 %123

@@ -3340,7 +3340,7 @@ Gia_ObjLevel.exit:                                ; preds = %146, %._crit_edge.i
 
 ..critedge.loopexit_crit_edge:                    ; preds = %193
   %.val137.pre.pre = load ptr, ptr %7, align 8, !tbaa !39
-  br label %.critedge
+  br label %.critedge, !llvm.loop !83
 
 .critedge:                                        ; preds = %136, %..critedge.loopexit_crit_edge, %123
   %.val137 = phi ptr [ %.val119, %123 ], [ %.val137.pre.pre, %..critedge.loopexit_crit_edge ], [ null, %136 ]
@@ -4554,7 +4554,7 @@ Gia_ObjLevel.exit:                                ; preds = %142, %._crit_edge.i
 
 ..critedge.loopexit_crit_edge:                    ; preds = %188
   %.val124.pre.pre = load ptr, ptr %9, align 8, !tbaa !39
-  br label %.critedge
+  br label %.critedge, !llvm.loop !92
 
 .critedge:                                        ; preds = %132, %..critedge.loopexit_crit_edge, %119
   %.val124 = phi ptr [ %.val110, %119 ], [ %.val124.pre.pre, %..critedge.loopexit_crit_edge ], [ null, %132 ]
@@ -5165,11 +5165,14 @@ Abc_UtilStrsav.exit90:                            ; preds = %Abc_UtilStrsav.exit
   %.val73 = load i32, ptr %41, align 4, !tbaa !29
   %42 = sext i32 %.val73 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph, label %.critedge, !llvm.loop !100
+  br i1 %43, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !100
 
-.critedge:                                        ; preds = %39, %.lr.ph, %.lr.ph.preheader
-  %.val7299 = phi i32 [ %.val7396, %.lr.ph.preheader ], [ %.val73, %.lr.ph ], [ %.val73, %39 ]
-  %44 = phi ptr [ %25, %.lr.ph.preheader ], [ %40, %.lr.ph ], [ %40, %39 ]
+..critedge_crit_edge:                             ; preds = %39
+  br label %.critedge, !llvm.loop !100
+
+.critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader
+  %.val7299 = phi i32 [ %.val73, %..critedge_crit_edge ], [ %.val7396, %.lr.ph.preheader ], [ %.val73, %.lr.ph ]
+  %44 = phi ptr [ %40, %..critedge_crit_edge ], [ %25, %.lr.ph.preheader ], [ %40, %.lr.ph ]
   %45 = icmp sgt i32 %.val7299, 0
   br i1 %45, label %.lr.ph102, label %.critedge4
 

@@ -18631,7 +18631,7 @@ _ZN2cv3PtrINS_3mcc8CCheckerEEaSERKS3_.exit.i:     ; preds = %_ZNSt16_Sp_counted_
 
 _ZN2cv3PtrINS_3mcc8CCheckerEEaSERKS3_.exit.i..critedge.ithread-pre-split_crit_edge: ; preds = %_ZN2cv3PtrINS_3mcc8CCheckerEEaSERKS3_.exit.i
   %.pre.pre = load ptr, ptr %5, align 8, !tbaa !298
-  br label %.critedge.ithread-pre-split
+  br label %.critedge.ithread-pre-split, !llvm.loop !459
 
 .critedge.ithread-pre-split:                      ; preds = %.noexc37, %_ZN2cv3PtrINS_3mcc8CCheckerEEaSERKS3_.exit.i..critedge.ithread-pre-split_crit_edge
   %.pre = phi ptr [ %.pre.pre, %_ZN2cv3PtrINS_3mcc8CCheckerEEaSERKS3_.exit.i..critedge.ithread-pre-split_crit_edge ], [ %120, %.noexc37 ]

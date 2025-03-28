@@ -6338,7 +6338,7 @@ if.end:                                           ; preds = %while.body
 
 if.end.while.end_crit_edge:                       ; preds = %if.end
   %.pre = load ptr, ptr %tok_.i, align 8
-  br label %while.end
+  br label %while.end, !llvm.loop !20
 
 while.end:                                        ; preds = %while.cond, %if.end.while.end_crit_edge
   %7 = phi ptr [ %.pre, %if.end.while.end_crit_edge ], [ %1, %while.cond ]

@@ -1815,7 +1815,10 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler20CachedRuneByteSuffixEhhbi(p
   %43 = load i64, ptr %42, align 8, !tbaa !81
   %44 = urem i64 %43, %28
   %.not19.i.i.i.i = icmp eq i64 %44, %29
-  br i1 %.not19.i.i.i.i, label %38, label %.loopexit, !llvm.loop !84
+  br i1 %.not19.i.i.i.i, label %38, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !84
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %41
+  br label %.loopexit, !llvm.loop !84
 
 _ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit: ; preds = %38, %22, %33
   %.sroa.06.1.i.i = phi ptr [ %34, %33 ], [ %.sroa.06.0.i.i, %22 ], [ %40, %38 ]
@@ -1823,7 +1826,7 @@ _ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit:
   %46 = load i32, ptr %45, align 8, !tbaa !85
   br label %71
 
-.loopexit:                                        ; preds = %41, %.lr.ph.i.i.i.i, %21, %26
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %21, %26, %..loopexit_crit_edge21.i.i.i.i
   %47 = tail call noundef i32 @_ZN10duckdb_re28Compiler22UncachedRuneByteSuffixEhhbi(ptr noundef nonnull align 8 dereferenceable(228) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %49 = load i64, ptr %48, align 8, !tbaa !28
@@ -1856,9 +1859,12 @@ _ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit:
   %64 = load i64, ptr %63, align 8, !tbaa !81
   %65 = urem i64 %64, %49
   %.not19.i.i.i.i15 = icmp eq i64 %65, %50
-  br i1 %.not19.i.i.i.i15, label %59, label %.loopexit.i.i, !llvm.loop !84
+  br i1 %.not19.i.i.i.i15, label %59, label %..loopexit_crit_edge21.i.i.i.i16, !llvm.loop !84
 
-.loopexit.i.i:                                    ; preds = %62, %.lr.ph.i.i.i.i12, %.loopexit
+..loopexit_crit_edge21.i.i.i.i16:                 ; preds = %62
+  br label %.loopexit.i.i, !llvm.loop !84
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i12, %..loopexit_crit_edge21.i.i.i.i16, %.loopexit
   %66 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
   store ptr null, ptr %66, align 8, !tbaa !64
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -1964,10 +1970,13 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re28Compiler22IsCachedRuneByteSuff
   %53 = load i64, ptr %52, align 8, !tbaa !81
   %54 = urem i64 %53, %38
   %.not19.i.i.i.i = icmp eq i64 %54, %39
-  br i1 %.not19.i.i.i.i, label %48, label %_ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit, !llvm.loop !84
+  br i1 %.not19.i.i.i.i, label %48, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !84
 
-_ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit: ; preds = %48, %.lr.ph.i.i.i.i, %51, %30, %31, %35, %43
-  %.sroa.06.1.i.i = phi ptr [ null, %35 ], [ %44, %43 ], [ null, %30 ], [ %.sroa.06.0.i.i, %31 ], [ %50, %48 ], [ null, %.lr.ph.i.i.i.i ], [ null, %51 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %51
+  br label %_ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit, !llvm.loop !84
+
+_ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit: ; preds = %48, %.lr.ph.i.i.i.i, %30, %31, %35, %43, %..loopexit_crit_edge21.i.i.i.i
+  %.sroa.06.1.i.i = phi ptr [ null, %35 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %44, %43 ], [ null, %30 ], [ %.sroa.06.0.i.i, %31 ], [ %50, %48 ], [ null, %.lr.ph.i.i.i.i ]
   %55 = icmp ne ptr %.sroa.06.1.i.i, null
   ret i1 %55
 }
@@ -2053,10 +2062,10 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr n
 17:                                               ; preds = %15
   %18 = and i32 %.sroa.022.4.extract.trunc, 1
   %.not = icmp eq i32 %18, 0
-  %sext76 = shl i64 %.fca.0.extract, 32
+  %sext77 = shl i64 %.fca.0.extract, 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8, !tbaa !55
-  %21 = ashr exact i64 %sext76, 29
+  %21 = ashr exact i64 %sext77, 29
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   br i1 %.not, label %26, label %23
 
@@ -2149,7 +2158,10 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr n
   %80 = load i64, ptr %79, align 8, !tbaa !81
   %81 = urem i64 %80, %65
   %.not19.i.i.i.i.i = icmp eq i64 %81, %66
-  br i1 %.not19.i.i.i.i.i, label %75, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread, !llvm.loop !84
+  br i1 %.not19.i.i.i.i.i, label %75, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !84
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %78
+  br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread, !llvm.loop !84
 
 _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit: ; preds = %75, %58, %70
   %82 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
@@ -2179,9 +2191,9 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit: ; preds = %75, %58, %70
 101:                                              ; preds = %84
   %102 = and i32 %.sroa.022.4.extract.trunc, 1
   %.not60 = icmp eq i32 %102, 0
-  %sext78 = shl i64 %.fca.0.extract, 32
+  %sext79 = shl i64 %.fca.0.extract, 32
   %103 = load ptr, ptr %32, align 8, !tbaa !55
-  %104 = ashr exact i64 %sext78, 29
+  %104 = ashr exact i64 %sext79, 29
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
   br i1 %.not60, label %108, label %106
 
@@ -2198,9 +2210,9 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit: ; preds = %75, %58, %70
   store i32 %112, ptr %105, align 4, !tbaa !73
   br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread
 
-_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %78, %.lr.ph.i.i.i.i.i, %57, %84, %106, %108, %62
-  %.054 = phi i32 [ %1, %62 ], [ %82, %84 ], [ %1, %108 ], [ %1, %106 ], [ %1, %57 ], [ %1, %.lr.ph.i.i.i.i.i ], [ %1, %78 ]
-  %.151 = phi i32 [ %.050, %62 ], [ %82, %84 ], [ %82, %108 ], [ %82, %106 ], [ %.050, %57 ], [ %.050, %.lr.ph.i.i.i.i.i ], [ %.050, %78 ]
+_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %57, %84, %106, %108, %..loopexit_crit_edge21.i.i.i.i.i, %62
+  %.054 = phi i32 [ %1, %62 ], [ %1, %..loopexit_crit_edge21.i.i.i.i.i ], [ %82, %84 ], [ %1, %108 ], [ %1, %106 ], [ %1, %57 ], [ %1, %.lr.ph.i.i.i.i.i ]
+  %.151 = phi i32 [ %.050, %62 ], [ %.050, %..loopexit_crit_edge21.i.i.i.i.i ], [ %82, %84 ], [ %82, %108 ], [ %82, %106 ], [ %.050, %57 ], [ %.050, %.lr.ph.i.i.i.i.i ]
   %113 = sext i32 %2 to i64
   %114 = load ptr, ptr %32, align 8, !tbaa !55
   %115 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %114, i64 %113
@@ -2232,16 +2244,16 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %78, %
   br label %138
 
 138:                                              ; preds = %139, %136
-  %.sroa.06.0.in.i.i.i68 = phi ptr [ %137, %136 ], [ %.sroa.06.0.i.i.i69, %139 ]
-  %.sroa.06.0.i.i.i69 = load ptr, ptr %.sroa.06.0.in.i.i.i68, align 8, !tbaa !64
-  %.not.i.i.i70 = icmp eq ptr %.sroa.06.0.i.i.i69, null
-  br i1 %.not.i.i.i70, label %.loopexit, label %139
+  %.sroa.06.0.in.i.i.i69 = phi ptr [ %137, %136 ], [ %.sroa.06.0.i.i.i70, %139 ]
+  %.sroa.06.0.i.i.i70 = load ptr, ptr %.sroa.06.0.in.i.i.i69, align 8, !tbaa !64
+  %.not.i.i.i71 = icmp eq ptr %.sroa.06.0.i.i.i70, null
+  br i1 %.not.i.i.i71, label %.loopexit, label %139
 
 139:                                              ; preds = %138
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i69, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i70, i64 8
   %141 = load i64, ptr %140, align 8, !tbaa !81
   %142 = icmp eq i64 %134, %141
-  br i1 %142, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit71, label %138, !llvm.loop !82
+  br i1 %142, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, label %138, !llvm.loop !82
 
 143:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2259,11 +2271,11 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %78, %
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load i64, ptr %153, align 8, !tbaa !81
   %155 = icmp eq i64 %134, %154
-  br i1 %155, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit71, label %.lr.ph.i.i.i.i.i63
+  br i1 %155, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, label %.lr.ph.i.i.i.i.i63
 
 156:                                              ; preds = %159
   %157 = icmp eq i64 %134, %161
-  br i1 %157, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit71, label %.lr.ph.i.i.i.i.i63, !llvm.loop !84
+  br i1 %157, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, label %.lr.ph.i.i.i.i.i63, !llvm.loop !84
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %151, %156
   %.020.i.i.i.i.i64 = phi ptr [ %158, %156 ], [ %152, %151 ]
@@ -2276,20 +2288,23 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %78, %
   %161 = load i64, ptr %160, align 8, !tbaa !81
   %162 = urem i64 %161, %146
   %.not19.i.i.i.i.i66 = icmp eq i64 %162, %147
-  br i1 %.not19.i.i.i.i.i66, label %156, label %.loopexit, !llvm.loop !84
+  br i1 %.not19.i.i.i.i.i66, label %156, label %..loopexit_crit_edge21.i.i.i.i.i67, !llvm.loop !84
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i63, %159, %138, %143
+..loopexit_crit_edge21.i.i.i.i.i67:               ; preds = %159
+  br label %.loopexit, !llvm.loop !84
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i63, %138, %143, %..loopexit_crit_edge21.i.i.i.i.i67
   store i32 0, ptr %115, align 4, !tbaa !73
   store i32 0, ptr %118, align 4, !tbaa !75
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %164 = load i32, ptr %163, align 8, !tbaa !52
   %165 = add nsw i32 %164, -1
   store i32 %165, ptr %163, align 8, !tbaa !52
-  %.pre87 = load ptr, ptr %32, align 8, !tbaa !55
-  br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit71
+  %.pre88 = load ptr, ptr %32, align 8, !tbaa !55
+  br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72
 
-_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit71: ; preds = %156, %139, %151, %.loopexit
-  %166 = phi ptr [ %114, %151 ], [ %.pre87, %.loopexit ], [ %114, %139 ], [ %114, %156 ]
+_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72: ; preds = %156, %139, %151, %.loopexit
+  %166 = phi ptr [ %114, %151 ], [ %.pre88, %.loopexit ], [ %114, %139 ], [ %114, %156 ]
   %167 = sext i32 %.151 to i64
   %168 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %166, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !73
@@ -2298,7 +2313,7 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit71: ; preds = %156, %139,
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %180, label %173
 
-173:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit71
+173:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72
   %174 = load ptr, ptr %32, align 8, !tbaa !55
   %175 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %174, i64 %167
   %176 = shl i32 %171, 4
@@ -2308,8 +2323,8 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit71: ; preds = %156, %139,
   store i32 %179, ptr %175, align 4, !tbaa !73
   br label %180
 
-180:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit71, %173, %10, %7
-  %.1 = phi i32 [ %8, %10 ], [ 0, %7 ], [ %.054, %173 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit71 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit ]
+180:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, %173, %10, %7
+  %.1 = phi i32 [ %8, %10 ], [ 0, %7 ], [ %.054, %173 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit ]
   ret i32 %.1
 }
 

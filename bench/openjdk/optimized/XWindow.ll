@@ -195,7 +195,7 @@ define i32 @Java_sun_awt_X11_XWindow_getAWTKeyCodeForKeySym(ptr noundef readnone
   %12 = getelementptr inbounds nuw [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next.i
   %13 = load i32, ptr %12, align 8
   %.not16.i = icmp eq i32 %13, 0
-  br i1 %.not16.i, label %keysymToAWTKeyCode.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not16.i, label %.keysymToAWTKeyCode.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -203,8 +203,11 @@ define i32 @Java_sun_awt_X11_XWindow_getAWTKeyCodeForKeySym(ptr noundef readnone
   %16 = icmp eq i64 %15, %4
   br i1 %16, label %keysymToAWTKeyCode.exit, label %.lr.ph, !llvm.loop !8
 
-keysymToAWTKeyCode.exit:                          ; preds = %.lr.ph, %.lr.ph.i, %.lr.ph.i.preheader, %8, %6
-  %.0 = phi i32 [ 262, %6 ], [ 0, %8 ], [ %9, %.lr.ph.i.preheader ], [ 0, %.lr.ph ], [ %13, %.lr.ph.i ]
+.keysymToAWTKeyCode.exit.loopexit_crit_edge:      ; preds = %.lr.ph
+  br label %keysymToAWTKeyCode.exit, !llvm.loop !8
+
+keysymToAWTKeyCode.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.keysymToAWTKeyCode.exit.loopexit_crit_edge, %8, %6
+  %.0 = phi i32 [ 262, %6 ], [ 0, %8 ], [ 0, %.keysymToAWTKeyCode.exit.loopexit_crit_edge ], [ %9, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
   ret i32 %.0
 }
 

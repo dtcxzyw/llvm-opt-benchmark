@@ -655,9 +655,12 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE16UnregisterStreamEj
   %39 = zext i32 %38 to i64
   %40 = urem i64 %39, %23
   %.not19.i.i.i.i = icmp eq i64 %40, %24
-  br i1 %.not19.i.i.i.i, label %33, label %.loopexit, !llvm.loop !51
+  br i1 %.not19.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !51
 
-.loopexit:                                        ; preds = %36, %.lr.ph.i.i.i.i, %15, %20
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
+  br label %.loopexit, !llvm.loop !51
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %15, %20, %..loopexit_crit_edge21.i.i.i.i
   %41 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %41, label %42, label %.critedge11
 
@@ -915,10 +918,13 @@ define linkonce_odr noundef zeroext i1 @_ZNK3net22PriorityWriteSchedulerIjE16Str
   %32 = zext i32 %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i, label %26, label %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, !llvm.loop !51
+  br i1 %.not19.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !51
 
-_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit: ; preds = %26, %.lr.ph.i.i.i.i, %29, %7, %8, %12, %21
-  %.sroa.06.1.i.i = phi ptr [ null, %12 ], [ %22, %21 ], [ null, %7 ], [ %.sroa.06.0.i.i, %8 ], [ %28, %26 ], [ null, %.lr.ph.i.i.i.i ], [ null, %29 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
+  br label %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, !llvm.loop !51
+
+_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit: ; preds = %26, %.lr.ph.i.i.i.i, %7, %8, %12, %21, %..loopexit_crit_edge21.i.i.i.i
+  %.sroa.06.1.i.i = phi ptr [ null, %12 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %22, %21 ], [ null, %7 ], [ %.sroa.06.0.i.i, %8 ], [ %28, %26 ], [ null, %.lr.ph.i.i.i.i ]
   %34 = icmp ne ptr %.sroa.06.1.i.i, null
   ret i1 %34
 }
@@ -981,7 +987,10 @@ define linkonce_odr { i64, i64 } @_ZNK3net22PriorityWriteSchedulerIjE19GetStream
   %32 = zext i32 %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i, label %26, label %.loopexit, !llvm.loop !51
+  br i1 %.not19.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !51
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
+  br label %.loopexit, !llvm.loop !51
 
 _ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit: ; preds = %26, %8, %21
   %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %8 ], [ %28, %26 ]
@@ -989,8 +998,8 @@ _ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt
   %35 = load i8, ptr %34, align 4, !tbaa !85
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %29, %7, %12, %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
-  %.sink = phi i8 [ %35, %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit ], [ 7, %12 ], [ 7, %7 ], [ 7, %29 ], [ 7, %.lr.ph.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %7, %..loopexit_crit_edge21.i.i.i.i, %12, %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
+  %.sink = phi i8 [ %35, %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit ], [ 7, %12 ], [ 7, %..loopexit_crit_edge21.i.i.i.i ], [ 7, %7 ], [ 7, %.lr.ph.i.i.i.i ]
   %36 = tail call noundef zeroext i8 @_ZN3net18ClampSpdy3PriorityEh(i8 noundef zeroext %.sink)
   %.sroa.35.0.insert.ext = zext i8 %36 to i64
   %.sroa.35.0.insert.shift = shl nuw nsw i64 %.sroa.35.0.insert.ext, 32
@@ -1011,11 +1020,11 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE22UpdateStreamPreced
   %10 = alloca %"class.logging::LogMessage", align 8
   %11 = alloca ptr, align 8
   %12 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  %.pre34 = load i8, ptr %2, align 4, !tbaa !40, !range !43
+  %.pre36 = load i8, ptr %2, align 4, !tbaa !40, !range !43
   br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %3
-  %14 = trunc nuw i8 %.pre34 to i1
+  %14 = trunc nuw i8 %.pre36 to i1
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %13
@@ -1032,7 +1041,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %15
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %3, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %18 = phi i8 [ 1, %13 ], [ %.pre34, %3 ], [ %.pre, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
+  %18 = phi i8 [ 1, %13 ], [ %.pre36, %3 ], [ %.pre, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %19 = trunc nuw i8 %18 to i1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -1091,7 +1100,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %15
   %50 = zext i32 %49 to i64
   %51 = urem i64 %50, %34
   %.not19.i.i.i.i = icmp eq i64 %51, %35
-  br i1 %.not19.i.i.i.i, label %44, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread, !llvm.loop !51
+  br i1 %.not19.i.i.i.i, label %44, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !51
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %47
+  br label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread, !llvm.loop !51
 
 52:                                               ; preds = %15
   %53 = landingpad { ptr, i32 }
@@ -1235,7 +1247,7 @@ _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9push_backEOS4
   store i8 %61, ptr %54, align 4, !tbaa !54
   br label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread
 
-_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %47, %25, %30, %120, %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
+_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %25, %..loopexit_crit_edge21.i.i.i.i, %30, %120, %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
   ret void
 }
 
@@ -1304,9 +1316,12 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE21RecordStreamEventT
   %34 = zext i32 %33 to i64
   %35 = urem i64 %34, %18
   %.not19.i.i.i.i = icmp eq i64 %35, %19
-  br i1 %.not19.i.i.i.i, label %28, label %.loopexit, !llvm.loop !51
+  br i1 %.not19.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !51
 
-.loopexit:                                        ; preds = %31, %.lr.ph.i.i.i.i, %9, %14
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %31
+  br label %.loopexit, !llvm.loop !51
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %9, %14, %..loopexit_crit_edge21.i.i.i.i
   %36 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %36, label %37, label %.critedge9
 
@@ -1414,9 +1429,12 @@ define linkonce_odr noundef i64 @_ZNK3net22PriorityWriteSchedulerIjE28GetLatestE
   %33 = zext i32 %32 to i64
   %34 = urem i64 %33, %17
   %.not19.i.i.i.i = icmp eq i64 %34, %18
-  br i1 %.not19.i.i.i.i, label %27, label %.loopexit, !llvm.loop !51
+  br i1 %.not19.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !51
 
-.loopexit:                                        ; preds = %30, %.lr.ph.i.i.i.i, %8, %13
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %30
+  br label %.loopexit, !llvm.loop !51
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i
   %35 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %35, label %36, label %.critedge14
 
@@ -1462,11 +1480,11 @@ _ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt
 
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %.02531 = phi i64 [ 0, %.lr.ph ], [ %.sroa.speculated, %47 ]
+  %.02532 = phi i64 [ 0, %.lr.ph ], [ %.sroa.speculated, %47 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 88
   %48 = getelementptr i8, ptr %46, i64 %.idx
   %49 = load i64, ptr %48, align 8, !tbaa !111
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %.02531, i64 %49)
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %.02532, i64 %49)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge14, label %47, !llvm.loop !112
@@ -1654,9 +1672,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK3net22PriorityWriteSchedulerIjE11Sho
   %33 = zext i32 %32 to i64
   %34 = urem i64 %33, %17
   %.not19.i.i.i.i = icmp eq i64 %34, %18
-  br i1 %.not19.i.i.i.i, label %27, label %.loopexit, !llvm.loop !51
+  br i1 %.not19.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !51
 
-.loopexit:                                        ; preds = %30, %.lr.ph.i.i.i.i, %8, %13
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %30
+  br label %.loopexit, !llvm.loop !51
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i
   %35 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %35, label %36, label %.critedge18
 
@@ -1692,8 +1713,8 @@ _ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt
   %.sroa.06.1.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i, %9 ], [ %29, %27 ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %45 = load i8, ptr %44, align 4, !tbaa !54
-  %.not36.not = icmp eq i8 %45, 0
-  br i1 %.not36.not, label %.critedge20, label %.lr.ph
+  %.not37.not = icmp eq i8 %45, 0
+  br i1 %.not37.not, label %.critedge20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1799,9 +1820,12 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE15MarkStreamReadyEjb
   %36 = zext i32 %35 to i64
   %37 = urem i64 %36, %20
   %.not19.i.i.i.i = icmp eq i64 %37, %21
-  br i1 %.not19.i.i.i.i, label %30, label %.loopexit, !llvm.loop !51
+  br i1 %.not19.i.i.i.i, label %30, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !51
 
-.loopexit:                                        ; preds = %33, %.lr.ph.i.i.i.i, %11, %16
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %33
+  br label %.loopexit, !llvm.loop !51
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %11, %16, %..loopexit_crit_edge21.i.i.i.i
   %38 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %38, label %39, label %.critedge15
 
@@ -1957,9 +1981,12 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE18MarkStreamNotReady
   %39 = zext i32 %38 to i64
   %40 = urem i64 %39, %23
   %.not19.i.i.i.i = icmp eq i64 %40, %24
-  br i1 %.not19.i.i.i.i, label %33, label %.loopexit, !llvm.loop !51
+  br i1 %.not19.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !51
 
-.loopexit:                                        ; preds = %36, %.lr.ph.i.i.i.i, %14, %19
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
+  br label %.loopexit, !llvm.loop !51
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %14, %19, %..loopexit_crit_edge21.i.i.i.i
   %41 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %41, label %42, label %.critedge11
 
@@ -2338,11 +2365,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWri
   %40 = zext i32 %39 to i64
   %41 = urem i64 %40, %12
   %.not19.i.i = icmp eq i64 %41, %13
-  br i1 %.not19.i.i, label %34, label %.critedge27, !llvm.loop !51
+  br i1 %.not19.i.i, label %34, label %..loopexit_crit_edge21.i.i, !llvm.loop !51
 
-.critedge27:                                      ; preds = %.lr.ph.i.i, %37, %24, %.thread
-  %42 = phi i64 [ %28, %24 ], [ %13, %.thread ], [ %13, %37 ], [ %13, %.lr.ph.i.i ]
-  %43 = phi i64 [ %25, %24 ], [ %10, %.thread ], [ %10, %37 ], [ %10, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %37
+  br label %.critedge27, !llvm.loop !51
+
+.critedge27:                                      ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread
+  %42 = phi i64 [ %28, %24 ], [ %13, %.thread ], [ %13, %..loopexit_crit_edge21.i.i ], [ %13, %.lr.ph.i.i ]
+  %43 = phi i64 [ %25, %24 ], [ %10, %.thread ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
   %44 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %42, i64 noundef %43, ptr noundef nonnull %3, i64 noundef 1)
           to label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit29
 

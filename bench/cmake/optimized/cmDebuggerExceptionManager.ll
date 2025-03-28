@@ -4623,9 +4623,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_
   %30 = load i64, ptr %29, align 8, !tbaa !152
   %31 = urem i64 %30, %7
   %.not19.i.i = icmp eq i64 %31, %8
-  br i1 %.not19.i.i, label %21, label %.loopexit, !llvm.loop !154
+  br i1 %.not19.i.i, label %21, label %..loopexit_crit_edge21.i.i, !llvm.loop !154
 
-.loopexit:                                        ; preds = %28, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %28
+  br label %.loopexit, !llvm.loop !154
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
   store ptr %0, ptr %3, align 8, !tbaa !155
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6955,9 +6958,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_
   %30 = load i64, ptr %29, align 8, !tbaa !152
   %31 = urem i64 %30, %7
   %.not19.i.i = icmp eq i64 %31, %8
-  br i1 %.not19.i.i, label %21, label %.loopexit, !llvm.loop !154
+  br i1 %.not19.i.i, label %21, label %..loopexit_crit_edge21.i.i, !llvm.loop !154
 
-.loopexit:                                        ; preds = %28, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %28
+  br label %.loopexit, !llvm.loop !154
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
   store ptr %0, ptr %3, align 8, !tbaa !155
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8

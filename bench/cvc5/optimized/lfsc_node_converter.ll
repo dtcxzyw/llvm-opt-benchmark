@@ -5330,7 +5330,10 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %3
   %425 = load i64, ptr %424, align 8, !tbaa !103
   %426 = urem i64 %425, %401
   %.not19.i.i.i.i = icmp eq i64 %426, %402
-  br i1 %.not19.i.i.i.i, label %416, label %.loopexit1497, !llvm.loop !105
+  br i1 %.not19.i.i.i.i, label %416, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !105
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %423
+  br label %.loopexit1497, !llvm.loop !105
 
 _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %416, %394, %406
   %427 = phi ptr [ %408, %406 ], [ %392, %394 ], [ %408, %416 ]
@@ -5364,7 +5367,7 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_to
           cleanup
   br label %3399
 
-.loopexit1497:                                    ; preds = %423, %.lr.ph.i.i.i.i, %393, %.noexc1020
+.loopexit1497:                                    ; preds = %.lr.ph.i.i.i.i, %393, %.noexc1020, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
   %444 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %445 = load ptr, ptr %444, align 8, !tbaa !106
@@ -34281,11 +34284,14 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal5proof17LfscNodeConverter14sh
   %50 = load i64, ptr %49, align 8, !tbaa !103
   %51 = urem i64 %50, %27
   %.not19.i.i.i.i = icmp eq i64 %51, %28
-  br i1 %.not19.i.i.i.i, label %41, label %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit, !llvm.loop !105
+  br i1 %.not19.i.i.i.i, label %41, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !105
 
-_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %48, %.lr.ph.i.i.i.i, %41, %20, %19, %32, %.noexc
-  %52 = phi ptr [ %.pre, %.noexc ], [ %.pre, %32 ], [ %18, %19 ], [ %18, %20 ], [ %.pre, %41 ], [ %.pre, %.lr.ph.i.i.i.i ], [ %.pre, %48 ]
-  %.sroa.06.1.i.i = phi ptr [ null, %.noexc ], [ %33, %32 ], [ %.sroa.06.0.i.i, %20 ], [ null, %19 ], [ null, %48 ], [ null, %.lr.ph.i.i.i.i ], [ %47, %41 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %48
+  br label %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit, !llvm.loop !105
+
+_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %.lr.ph.i.i.i.i, %41, %20, %19, %..loopexit_crit_edge21.i.i.i.i, %32, %.noexc
+  %52 = phi ptr [ %.pre, %.noexc ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre, %32 ], [ %18, %19 ], [ %18, %20 ], [ %.pre, %41 ], [ %.pre, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ null, %.noexc ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %33, %32 ], [ %.sroa.06.0.i.i, %20 ], [ null, %19 ], [ null, %.lr.ph.i.i.i.i ], [ %47, %41 ]
   %.not = icmp eq ptr %.sroa.06.1.i.i, null
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, 1152920405095219200
@@ -37046,9 +37052,12 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %44 = load i64, ptr %43, align 8, !tbaa !103
   %45 = urem i64 %44, %18
   %.not19.i.i = icmp eq i64 %45, %19
-  br i1 %.not19.i.i, label %35, label %.critedge, !llvm.loop !366
+  br i1 %.not19.i.i, label %35, label %..loopexit_crit_edge21.i.i, !llvm.loop !366
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %42, %21, %.thread
+..loopexit_crit_edge21.i.i:                       ; preds = %42
+  br label %.critedge, !llvm.loop !366
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %..loopexit_crit_edge21.i.i, %21, %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
   %46 = load ptr, ptr %3, align 8, !tbaa !367
   %47 = tail call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4cvc58internal12NodeTemplateILb1EEELb1EEEEE16_M_allocate_nodeIJRKS5_EEEPS6_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -37458,9 +37467,12 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal8TypeNodeES2_S
   %44 = load i64, ptr %43, align 8, !tbaa !103
   %45 = urem i64 %44, %18
   %.not19.i.i = icmp eq i64 %45, %19
-  br i1 %.not19.i.i, label %35, label %.critedge, !llvm.loop !378
+  br i1 %.not19.i.i, label %35, label %..loopexit_crit_edge21.i.i, !llvm.loop !378
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %42, %21, %.thread
+..loopexit_crit_edge21.i.i:                       ; preds = %42
+  br label %.critedge, !llvm.loop !378
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %..loopexit_crit_edge21.i.i, %21, %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
   %46 = load ptr, ptr %3, align 8, !tbaa !379
   %47 = tail call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4cvc58internal8TypeNodeELb1EEEEE16_M_allocate_nodeIJS4_EEEPS5_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -39152,9 +39164,12 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal8TypeNodeES2_S
   %44 = load i64, ptr %43, align 8, !tbaa !103
   %45 = urem i64 %44, %18
   %.not19.i.i = icmp eq i64 %45, %19
-  br i1 %.not19.i.i, label %35, label %.critedge, !llvm.loop !378
+  br i1 %.not19.i.i, label %35, label %..loopexit_crit_edge21.i.i, !llvm.loop !378
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %42, %21, %.thread
+..loopexit_crit_edge21.i.i:                       ; preds = %42
+  br label %.critedge, !llvm.loop !378
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %..loopexit_crit_edge21.i.i, %21, %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
   %46 = load ptr, ptr %3, align 8, !tbaa !379
   %47 = tail call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4cvc58internal8TypeNodeELb1EEEEE16_M_allocate_nodeIJRKS4_EEEPS5_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 8 dereferenceable(8) %1)

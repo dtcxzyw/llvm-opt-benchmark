@@ -3940,9 +3940,12 @@ _ZN5arrow7compute8internal12_GLOBAL__N_119EnsureInitCastTableEv.exit: ; preds = 
   %37 = sext i32 %36 to i64
   %38 = urem i64 %37, %21
   %.not19.i.i.i.i = icmp eq i64 %38, %22
-  br i1 %.not19.i.i.i.i, label %31, label %.loopexit, !llvm.loop !214
+  br i1 %.not19.i.i.i.i, label %31, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !214
 
-.loopexit:                                        ; preds = %34, %.lr.ph.i.i.i.i, %.preheader, %19
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %34
+  br label %.loopexit, !llvm.loop !214
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %19, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   call void @_ZN5arrow6Status8FromArgsIJRA21_KcRKNS_8DataTypeEEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.16, ptr noundef nonnull align 8 dereferenceable(72) %1)
   call void @_ZN5arrow6ResultISt10shared_ptrINS_7compute8internal12CastFunctionEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4) #26
@@ -5117,7 +5120,10 @@ _ZN5arrow7compute8internal12_GLOBAL__N_119EnsureInitCastTableEv.exit: ; preds = 
   %36 = sext i32 %35 to i64
   %37 = urem i64 %36, %20
   %.not19.i.i.i.i = icmp eq i64 %37, %21
-  br i1 %.not19.i.i.i.i, label %30, label %.critedge, !llvm.loop !214
+  br i1 %.not19.i.i.i.i, label %30, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !214
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %33
+  br label %.critedge, !llvm.loop !214
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %30, %14, %25
   %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %14 ], [ %32, %30 ]
@@ -5127,8 +5133,8 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4
   %41 = load ptr, ptr %40, align 8, !tbaa !104
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 232
   %43 = load ptr, ptr %42, align 8, !tbaa !104
-  %.not2026 = icmp eq ptr %41, %43
-  br i1 %.not2026, label %.critedge, label %.lr.ph
+  %.not2027 = icmp eq ptr %41, %43
+  br i1 %.not2027, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5136,16 +5142,16 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4
   br label %46
 
 46:                                               ; preds = %46, %.lr.ph
-  %.sroa.012.027 = phi ptr [ %41, %.lr.ph ], [ %48, %46 ]
-  %47 = load i32, ptr %.sroa.012.027, align 4, !tbaa !121
+  %.sroa.012.028 = phi ptr [ %41, %.lr.ph ], [ %48, %46 ]
+  %47 = load i32, ptr %.sroa.012.028, align 4, !tbaa !121
   %.not = icmp eq i32 %45, %47
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.012.027, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.012.028, i64 4
   %.not20 = icmp eq ptr %48, %43
   %or.cond = select i1 %.not, i1 true, i1 %.not20
   br i1 %or.cond, label %.critedge, label %46
 
-.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %33, %.preheader, %46, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ %.not, %46 ], [ false, %.preheader ], [ false, %33 ], [ false, %.lr.ph.i.i.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %46, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %..loopexit_crit_edge21.i.i.i.i, %18
+  %.0 = phi i1 [ false, %18 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ %.not, %46 ], [ false, %.preheader ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -6940,8 +6946,8 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE(ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::shared_ptr<arrow::compute::internal::CastFunction>>, std::allocator<std::pair<const int, std::shared_ptr<arrow::compute::internal::CastFunction>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
-  %.not5 = icmp eq ptr %.0.val, %.8.val
-  br i1 %.not5, label %._crit_edge, label %.lr.ph
+  %.not6 = icmp eq ptr %.0.val, %.8.val
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6951,8 +6957,8 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFu
   ret void
 
 3:                                                ; preds = %.lr.ph, %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEaSERKS4_.exit
-  %.sroa.01.06 = phi ptr [ %.0.val, %.lr.ph ], [ %68, %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEaSERKS4_.exit ]
-  %4 = load ptr, ptr %.sroa.01.06, align 8, !tbaa !215
+  %.sroa.01.07 = phi ptr [ %.0.val, %.lr.ph ], [ %68, %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEaSERKS4_.exit ]
+  %4 = load ptr, ptr %.sroa.01.07, align 8, !tbaa !215
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load i32, ptr %5, align 8, !tbaa !79
   %7 = sext i32 %6 to i64
@@ -6987,9 +6993,12 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFu
   %24 = sext i32 %23 to i64
   %25 = urem i64 %24, %8
   %.not19.i.i.i.i = icmp eq i64 %25, %9
-  br i1 %.not19.i.i.i.i, label %18, label %.loopexit.i.i, !llvm.loop !214
+  br i1 %.not19.i.i.i.i, label %18, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !214
 
-.loopexit.i.i:                                    ; preds = %21, %.lr.ph.i.i.i.i, %3
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %21
+  br label %.loopexit.i.i, !llvm.loop !214
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #26
   store ptr @_ZN5arrow7compute8internal12_GLOBAL__N_112g_cast_tableE, ptr %1, align 8, !tbaa !265
   %26 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
@@ -7004,7 +7013,7 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFu
 
 _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i: ; preds = %.loopexit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #26
-  %.pre = load ptr, ptr %.sroa.01.06, align 8, !tbaa !215
+  %.pre = load ptr, ptr %.sroa.01.07, align 8, !tbaa !215
   br label %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEEixEOi.exit
 
 30:                                               ; preds = %.loopexit.i.i
@@ -7020,7 +7029,7 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %32, ptr %.1.i.i, align 8, !tbaa !215
   %33 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.01.06, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.01.07, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !61
   %36 = load ptr, ptr %33, align 8, !tbaa !61
   %.not.i.i.i = icmp eq ptr %35, %36
@@ -7101,7 +7110,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
   br label %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEaSERKS4_.exit
 
 _ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEaSERKS4_.exit: ; preds = %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEEixEOi.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.01.06, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.01.07, i64 16
   %.not = icmp eq ptr %68, %.8.val
   br i1 %.not, label %._crit_edge, label %3
 }

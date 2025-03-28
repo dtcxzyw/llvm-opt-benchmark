@@ -15503,11 +15503,14 @@ land.rhs:                                         ; preds = %do.cond
   %21 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %mul68)
   %22 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %delta.3)
   %cmp71 = fcmp olt x86_fp80 %21, %22
-  br i1 %cmp71, label %do.body, label %do.end, !llvm.loop !161
+  br i1 %cmp71, label %do.body, label %land.rhs.do.end_crit_edge, !llvm.loop !161
 
-do.end:                                           ; preds = %land.rhs, %do.body, %if.then37, %if.then47, %do.cond, %if.end
-  %dec.lcssa = phi i64 [ %dec51, %if.end ], [ 0, %do.cond ], [ %dec62, %if.then47 ], [ %dec62, %if.then37 ], [ %dec, %do.body ], [ %dec62, %land.rhs ]
-  %result.1 = phi x86_fp80 [ %guess, %if.end ], [ %result.2, %do.cond ], [ %sub50, %if.then47 ], [ %sub40, %if.then37 ], [ %result.2, %do.body ], [ %result.2, %land.rhs ]
+land.rhs.do.end_crit_edge:                        ; preds = %land.rhs
+  br label %do.end, !llvm.loop !161
+
+do.end:                                           ; preds = %do.body, %if.then37, %if.then47, %do.cond, %land.rhs.do.end_crit_edge, %if.end
+  %dec.lcssa = phi i64 [ %dec62, %land.rhs.do.end_crit_edge ], [ %dec51, %if.end ], [ 0, %do.cond ], [ %dec62, %if.then47 ], [ %dec62, %if.then37 ], [ %dec, %do.body ]
+  %result.1 = phi x86_fp80 [ %result.2, %land.rhs.do.end_crit_edge ], [ %guess, %if.end ], [ %result.2, %do.cond ], [ %sub50, %if.then47 ], [ %sub40, %if.then37 ], [ %result.2, %do.body ]
   %sub72 = sub i64 %1, %dec.lcssa
   store i64 %sub72, ptr %max_iter, align 8, !tbaa !40
   br label %return

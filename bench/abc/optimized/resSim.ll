@@ -718,10 +718,10 @@ Abc_InfoRandomBytes.exit:                         ; preds = %.lr.ph.i15, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define void @Res_SimSetDerivedBytes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %.sroa.0388 = alloca ptr, align 16
-  %.sroa.4389 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0388)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4389)
+  %.sroa.0392 = alloca ptr, align 16
+  %.sroa.4393 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0392)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4393)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !15
   %.fr208 = freeze i32 %4
@@ -803,10 +803,13 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %.val137.val.us = load i32, ptr %46, align 4, !tbaa !22
   %47 = sext i32 %.val137.val.us to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph.split.us, label %.critedge, !llvm.loop !67
+  br i1 %48, label %.lr.ph.split.us, label %Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge, !llvm.loop !67
 
-.critedge:                                        ; preds = %Abc_InfoRandomBytes.exit.loopexit.us, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph, %2
-  %49 = phi ptr [ %7, %2 ], [ %7, %.lr.ph ], [ %7, %.lr.ph.split.us.preheader ], [ %44, %.lr.ph.split.us ], [ %44, %Abc_InfoRandomBytes.exit.loopexit.us ]
+Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Abc_InfoRandomBytes.exit.loopexit.us
+  br label %.critedge, !llvm.loop !67
+
+.critedge:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.us.preheader, %Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge, %.lr.ph, %2
+  %49 = phi ptr [ %7, %2 ], [ %7, %.lr.ph ], [ %44, %Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge ], [ %7, %.lr.ph.split.us.preheader ], [ %44, %.lr.ph.split.us ]
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.loopexit153, label %.preheader152
 
@@ -867,12 +870,15 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %.val136.val = load i32, ptr %80, align 4, !tbaa !22
   %81 = sext i32 %.val136.val to i64
   %82 = icmp slt i64 %indvars.iv.next225, %81
-  br i1 %82, label %63, label %.critedge2, !llvm.loop !68
+  br i1 %82, label %63, label %..critedge2.loopexit_crit_edge, !llvm.loop !68
 
-.critedge2:                                       ; preds = %.lr.ph332, %63, %.lr.ph170, %.preheader151
-  %83 = phi ptr [ %51, %.preheader151 ], [ %51, %.lr.ph170 ], [ %78, %63 ], [ %78, %.lr.ph332 ]
-  %84 = phi ptr [ %52, %.preheader151 ], [ %52, %.lr.ph170 ], [ %78, %63 ], [ %78, %.lr.ph332 ]
-  %85 = phi ptr [ %53, %.preheader151 ], [ %53, %.lr.ph170 ], [ %78, %63 ], [ %78, %.lr.ph332 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph332
+  br label %.critedge2, !llvm.loop !68
+
+.critedge2:                                       ; preds = %63, %.lr.ph170, %..critedge2.loopexit_crit_edge, %.preheader151
+  %83 = phi ptr [ %51, %.preheader151 ], [ %78, %..critedge2.loopexit_crit_edge ], [ %51, %.lr.ph170 ], [ %78, %63 ]
+  %84 = phi ptr [ %52, %.preheader151 ], [ %78, %..critedge2.loopexit_crit_edge ], [ %52, %.lr.ph170 ], [ %78, %63 ]
+  %85 = phi ptr [ %53, %.preheader151 ], [ %78, %..critedge2.loopexit_crit_edge ], [ %53, %.lr.ph170 ], [ %78, %63 ]
   %86 = add nsw i32 %.1182, 1
   %87 = load i32, ptr %3, align 4, !tbaa !15
   %88 = icmp eq i32 %86, %87
@@ -966,10 +972,13 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %.val135.val = load i32, ptr %132, align 4, !tbaa !22
   %133 = sext i32 %.val135.val to i64
   %134 = icmp slt i64 %indvars.iv.next228, %133
-  br i1 %134, label %.lr.ph176, label %.critedge4.loopexit, !llvm.loop !73
+  br i1 %134, label %.lr.ph176, label %..critedge4.loopexit_crit_edge, !llvm.loop !73
 
-.critedge4.loopexit:                              ; preds = %.lr.ph176, %.lr.ph342, %.lr.ph176.preheader
-  %135 = phi ptr [ %107, %.lr.ph176.preheader ], [ %130, %.lr.ph342 ], [ %130, %.lr.ph176 ]
+..critedge4.loopexit_crit_edge:                   ; preds = %.lr.ph342
+  br label %.critedge4.loopexit, !llvm.loop !73
+
+.critedge4.loopexit:                              ; preds = %.lr.ph176, %..critedge4.loopexit_crit_edge, %.lr.ph176.preheader
+  %135 = phi ptr [ %130, %..critedge4.loopexit_crit_edge ], [ %107, %.lr.ph176.preheader ], [ %130, %.lr.ph176 ]
   %.pre = load i32, ptr %3, align 4, !tbaa !15
   br label %.critedge4
 
@@ -1004,8 +1013,8 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 %.293
   %.sink = load ptr, ptr %150, align 8, !tbaa !75
   %.sink254 = load ptr, ptr %149, align 8, !tbaa !75
-  store ptr %.sink254, ptr %.sroa.0388, align 16, !tbaa !75
-  store ptr %.sink, ptr %.sroa.4389, align 8, !tbaa !75
+  store ptr %.sink254, ptr %.sroa.0392, align 16, !tbaa !75
+  store ptr %.sink, ptr %.sroa.4393, align 8, !tbaa !75
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %160
 
@@ -1028,7 +1037,7 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %162 = phi ptr [ %143, %.loopexit153 ], [ %235, %._crit_edge196 ]
   %163 = phi i1 [ true, %.loopexit153 ], [ false, %._crit_edge196 ]
   %indvars.iv247.sroa.phi.sroa.speculated = phi i32 [ %.294, %.loopexit153 ], [ %.295, %._crit_edge196 ]
-  %indvars.iv247.sroa.phi = phi ptr [ %.sroa.0388, %.loopexit153 ], [ %.sroa.4389, %._crit_edge196 ]
+  %indvars.iv247.sroa.phi = phi ptr [ %.sroa.0392, %.loopexit153 ], [ %.sroa.4393, %._crit_edge196 ]
   %.3200 = phi i32 [ %.0, %.loopexit153 ], [ %.4.lcssa, %._crit_edge196 ]
   %164 = icmp sgt i32 %indvars.iv247.sroa.phi.sroa.speculated, 0
   br i1 %164, label %.preheader145.lr.ph, label %._crit_edge196
@@ -1158,10 +1167,13 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %.val134.val = load i32, ptr %227, align 4, !tbaa !22
   %228 = sext i32 %.val134.val to i64
   %229 = icmp slt i64 %indvars.iv.next238, %228
-  br i1 %229, label %.lr.ph187, label %.critedge6, !llvm.loop !79
+  br i1 %229, label %.lr.ph187, label %..critedge6.loopexit_crit_edge, !llvm.loop !79
 
-.critedge6:                                       ; preds = %.lr.ph347, %.lr.ph187, %.lr.ph187.preheader, %.preheader144
-  %230 = phi ptr [ %196, %.preheader144 ], [ %196, %.lr.ph187.preheader ], [ %225, %.lr.ph187 ], [ %225, %.lr.ph347 ]
+..critedge6.loopexit_crit_edge:                   ; preds = %.lr.ph347
+  br label %.critedge6, !llvm.loop !79
+
+.critedge6:                                       ; preds = %.lr.ph187, %.lr.ph187.preheader, %..critedge6.loopexit_crit_edge, %.preheader144
+  %230 = phi ptr [ %196, %.preheader144 ], [ %225, %..critedge6.loopexit_crit_edge ], [ %196, %.lr.ph187.preheader ], [ %225, %.lr.ph187 ]
   %indvars.iv.next241 = add nsw i64 %indvars.iv240, 1
   %231 = load i32, ptr %3, align 4, !tbaa !15
   %232 = trunc nsw i64 %indvars.iv.next241 to i32
@@ -1230,7 +1242,7 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
 
 ..critedge8.loopexit_crit_edge:                   ; preds = %.lr.ph354
   %.pre257.pre = load i32, ptr %3, align 4, !tbaa !15
-  br label %.critedge8
+  br label %.critedge8, !llvm.loop !81
 
 .critedge8:                                       ; preds = %.lr.ph205, %.lr.ph205.preheader, %..critedge8.loopexit_crit_edge, %.preheader
   %264 = phi i32 [ %236, %.preheader ], [ %.pre257.pre, %..critedge8.loopexit_crit_edge ], [ %.pre257.pre258350, %.lr.ph205.preheader ], [ %.pre257.pre258, %.lr.ph205 ]
@@ -1240,8 +1252,8 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   br i1 %267, label %.preheader, label %.loopexit, !llvm.loop !82
 
 .loopexit:                                        ; preds = %.critedge2, %.preheader148.us, %.critedge4, %.preheader144.us, %.critedge6, %.critedge8, %.preheader.lr.ph, %.preheader143
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0388)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4389)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0392)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4393)
   ret void
 }
 
@@ -2532,7 +2544,7 @@ define range(i32 0, 2) i32 @Res_SimPrepare(ptr noundef initializes((0, 12)) %0, 
 ._crit_edge:                                      ; preds = %41
   %.pre = load i32, ptr %12, align 8, !tbaa !54
   %.pre143 = load i32, ptr %30, align 8, !tbaa !13
-  br label %split
+  br label %split, !llvm.loop !112
 
 split:                                            ; preds = %38, %._crit_edge
   %43 = phi i32 [ %.pre143, %._crit_edge ], [ %34, %38 ]

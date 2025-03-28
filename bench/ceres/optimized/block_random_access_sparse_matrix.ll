@@ -958,11 +958,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge314, %31
   %365 = load i64, ptr %364, align 8, !tbaa !120
   %366 = urem i64 %365, %343
   %.not19.i.i.i = icmp eq i64 %366, %344
-  br i1 %.not19.i.i.i, label %360, label %.critedge28.i, !llvm.loop !122
+  br i1 %.not19.i.i.i, label %360, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !122
 
-.critedge28.i:                                    ; preds = %363, %.lr.ph.i.i.i170, %352, %.thread.i
-  %367 = phi i64 [ %353, %352 ], [ %343, %.thread.i ], [ %343, %.lr.ph.i.i.i170 ], [ %343, %363 ]
-  %368 = phi i64 [ %354, %352 ], [ %344, %.thread.i ], [ %344, %.lr.ph.i.i.i170 ], [ %344, %363 ]
+..loopexit_crit_edge21.i.i.i:                     ; preds = %363
+  br label %.critedge28.i, !llvm.loop !122
+
+.critedge28.i:                                    ; preds = %.lr.ph.i.i.i170, %..loopexit_crit_edge21.i.i.i, %352, %.thread.i
+  %367 = phi i64 [ %353, %352 ], [ %343, %.thread.i ], [ %343, %..loopexit_crit_edge21.i.i.i ], [ %343, %.lr.ph.i.i.i170 ]
+  %368 = phi i64 [ %354, %352 ], [ %344, %.thread.i ], [ %344, %..loopexit_crit_edge21.i.i.i ], [ %344, %.lr.ph.i.i.i170 ]
   %369 = load i64, ptr %37, align 8, !tbaa !123
   %370 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 noundef %367, i64 noundef %342, i64 noundef 1)
           to label %.noexc179 unwind label %_ZNSt10_HashtableIlSt4pairIKlN5ceres8internal8CellInfoEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30.i
@@ -1472,7 +1475,10 @@ define hidden noundef ptr @_ZN5ceres8internal29BlockRandomAccessSparseMatrix7Get
   %39 = load i64, ptr %38, align 8, !tbaa !120
   %40 = urem i64 %39, %24
   %.not19.i.i.i.i = icmp eq i64 %40, %25
-  br i1 %.not19.i.i.i.i, label %34, label %_ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread, !llvm.loop !122
+  br i1 %.not19.i.i.i.i, label %34, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !122
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %37
+  br label %_ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread, !llvm.loop !122
 
 _ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit: ; preds = %34, %17, %29
   %.sroa.06.1.i.i = phi ptr [ %30, %29 ], [ %.sroa.06.0.i.i, %17 ], [ %36, %34 ]
@@ -1489,8 +1495,8 @@ _ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pa
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   br label %_ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread
 
-_ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %37, %16, %21, %_ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit
-  %.0 = phi ptr [ %47, %_ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit ], [ null, %21 ], [ null, %16 ], [ null, %37 ], [ null, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %16, %..loopexit_crit_edge21.i.i.i.i, %21, %_ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit
+  %.0 = phi ptr [ %47, %_ZNSt13unordered_mapIlN5ceres8internal8CellInfoESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit ], [ null, %21 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %16 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 

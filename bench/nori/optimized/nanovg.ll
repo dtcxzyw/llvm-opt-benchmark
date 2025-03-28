@@ -27199,10 +27199,13 @@ fons__atlasRectFits.exit.thread:                  ; preds = %26, %.lr.ph.i, %15,
 fons__atlasRemoveNode.exit.i:                     ; preds = %._crit_edge.i50.i, %129
   %.pre72.i = phi i32 [ 0, %129 ], [ %.lcssa.i.i, %._crit_edge.i50.i ]
   %140 = icmp slt i32 %88, %.pre72.i
-  br i1 %140, label %104, label %._crit_edge.i, !llvm.loop !134
+  br i1 %140, label %104, label %fons__atlasRemoveNode.exit.i.._crit_edge.i.loopexit_crit_edge, !llvm.loop !134
 
-._crit_edge.i:                                    ; preds = %104, %.lr.ph68, %fons__atlasRemoveNode.exit.i, %.lr.ph.i50, %.loopexit.i
-  %141 = phi i32 [ %87, %.loopexit.i ], [ %87, %.lr.ph.i50 ], [ %.pre72.i, %104 ], [ %.pre.pre.i, %.lr.ph68 ], [ %.pre72.i, %fons__atlasRemoveNode.exit.i ]
+fons__atlasRemoveNode.exit.i.._crit_edge.i.loopexit_crit_edge: ; preds = %fons__atlasRemoveNode.exit.i
+  br label %._crit_edge.i, !llvm.loop !134
+
+._crit_edge.i:                                    ; preds = %104, %.lr.ph68, %.lr.ph.i50, %fons__atlasRemoveNode.exit.i.._crit_edge.i.loopexit_crit_edge, %.loopexit.i
+  %141 = phi i32 [ %87, %.loopexit.i ], [ %.pre72.i, %fons__atlasRemoveNode.exit.i.._crit_edge.i.loopexit_crit_edge ], [ %87, %.lr.ph.i50 ], [ %.pre72.i, %104 ], [ %.pre.pre.i, %.lr.ph68 ]
   %142 = icmp sgt i32 %141, 1
   br i1 %142, label %.lr.ph68.i, label %.loopexit
 

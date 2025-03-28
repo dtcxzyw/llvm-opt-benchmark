@@ -7253,7 +7253,7 @@ define internal fastcc i32 @fix_next_header(ptr noundef %0, i32 noundef %1) unna
   %5 = tail call ptr @tvb_get_string_enc(ptr noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %3, i32 noundef 0)
   %6 = tail call ptr @strstr(ptr noundef %5, ptr noundef nonnull dereferenceable(1) @.str.38) #6
   %.not19 = icmp eq ptr %6, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  br i1 %.not19, label %._crit_edge20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = ptrtoint ptr %5 to i64
@@ -7262,7 +7262,7 @@ define internal fastcc i32 @fix_next_header(ptr noundef %0, i32 noundef %1) unna
 8:                                                ; preds = %19
   %9 = tail call ptr @strstr(ptr noundef %12, ptr noundef nonnull dereferenceable(1) @.str.38) #6
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !12
+  br i1 %.not, label %._crit_edge20, label %10, !llvm.loop !12
 
 10:                                               ; preds = %.lr.ph, %8
   %11 = phi ptr [ %6, %.lr.ph ], [ %9, %8 ]
@@ -7273,15 +7273,18 @@ define internal fastcc i32 @fix_next_header(ptr noundef %0, i32 noundef %1) unna
   %16 = add i32 %1, %15
   %17 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %16)
   %18 = icmp slt i32 %17, 5
-  br i1 %18, label %._crit_edge, label %19
+  br i1 %18, label %._crit_edge20, label %19
 
 19:                                               ; preds = %10
   %20 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef %16, ptr noundef nonnull @.str.37, i64 noundef 5)
   %.not18 = icmp eq i32 %20, 0
   br i1 %.not18, label %._crit_edge, label %8, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %8, %10, %19, %2
-  %.1 = phi i32 [ %3, %2 ], [ %15, %19 ], [ %15, %10 ], [ %15, %8 ]
+._crit_edge:                                      ; preds = %19
+  br label %._crit_edge20, !llvm.loop !12
+
+._crit_edge20:                                    ; preds = %8, %10, %._crit_edge, %2
+  %.1 = phi i32 [ %15, %._crit_edge ], [ %3, %2 ], [ %15, %10 ], [ %15, %8 ]
   ret i32 %.1
 }
 

@@ -2904,10 +2904,13 @@ _ZN12_GLOBAL__N_124X86FlagsCopyLoweringPass17rewriteArithmeticERN4llvm17MachineB
 .backedge:                                        ; preds = %.critedge6, %1096
   %.2177740 = phi i8 [ %916, %.critedge6 ], [ 0, %1096 ]
   %.not524 = icmp eq ptr %908, %903
-  br i1 %.not524, label %.critedge6.thread, label %.lr.ph636, !llvm.loop !498
+  br i1 %.not524, label %.backedge..critedge6.thread.loopexit806_crit_edge, label %.lr.ph636, !llvm.loop !498
 
-.critedge6.thread:                                ; preds = %.lr.ph636, %.backedge, %.critedge6, %940, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit, %.lr.ph636.preheader
-  %.1176 = phi i8 [ 0, %.lr.ph636.preheader ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ], [ %spec.select, %940 ], [ %916, %.critedge6 ], [ %.2177740, %.backedge ], [ %.2177740, %.lr.ph636 ]
+.backedge..critedge6.thread.loopexit806_crit_edge: ; preds = %.backedge
+  br label %.critedge6.thread, !llvm.loop !498
+
+.critedge6.thread:                                ; preds = %.lr.ph636, %.critedge6, %940, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit, %.lr.ph636.preheader, %.backedge..critedge6.thread.loopexit806_crit_edge
+  %.1176 = phi i8 [ %.2177740, %.backedge..critedge6.thread.loopexit806_crit_edge ], [ 0, %.lr.ph636.preheader ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ], [ %spec.select, %940 ], [ %916, %.critedge6 ], [ %.2177740, %.lr.ph636 ]
   %1098 = trunc nuw i8 %.1176 to i1
   br i1 %1098, label %.critedge6.thread.thread, label %.critedge6.thread.thread741
 

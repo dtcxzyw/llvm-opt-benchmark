@@ -152,11 +152,14 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal14ForEachSectio
   %17 = tail call ptr @__errno_location() #25
   %18 = load i32, ptr %17, align 4, !tbaa !10
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %.lr.ph.split.us.i.i, label %.thread39.i.i, !llvm.loop !12
+  br i1 %19, label %..lr.ph.split.us.i_crit_edge.i, label %.thread39.i.i, !llvm.loop !12
 
-.lr.ph.split.us.i.i:                              ; preds = %16, %14
-  %.sroa.37.4 = phi i64 [ %15, %14 ], [ 0, %16 ]
-  %.sroa.21.4 = phi i64 [ %.028.ph72.i.i, %14 ], [ 0, %16 ]
+..lr.ph.split.us.i_crit_edge.i:                   ; preds = %16
+  br label %.lr.ph.split.us.i.i, !llvm.loop !12
+
+.lr.ph.split.us.i.i:                              ; preds = %..lr.ph.split.us.i_crit_edge.i, %14
+  %.sroa.37.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %15, %14 ]
+  %.sroa.21.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %.028.ph72.i.i, %14 ]
   %.not.us.i.i = icmp uge i64 %.028.ph72.i.i, %.sroa.21.4
   %20 = icmp slt i64 %.028.ph72.i.i, %.sroa.37.4
   %or.cond.i.i = select i1 %.not.us.i.i, i1 %20, i1 false
@@ -226,11 +229,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %47 = tail call ptr @__errno_location() #25
   %48 = load i32, ptr %47, align 4, !tbaa !10
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %.lr.ph.split.us.i.i27, label %.thread39.i.i35, !llvm.loop !12
+  br i1 %49, label %..lr.ph.split.us.i_crit_edge.i36, label %.thread39.i.i35, !llvm.loop !12
 
-.lr.ph.split.us.i.i27:                            ; preds = %46, %44
-  %.sroa.37.9 = phi i64 [ %45, %44 ], [ 0, %46 ]
-  %.sroa.21.9 = phi i64 [ %.028.ph72.i.i21, %44 ], [ 0, %46 ]
+..lr.ph.split.us.i_crit_edge.i36:                 ; preds = %46
+  br label %.lr.ph.split.us.i.i27, !llvm.loop !12
+
+.lr.ph.split.us.i.i27:                            ; preds = %..lr.ph.split.us.i_crit_edge.i36, %44
+  %.sroa.37.9 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i36 ], [ %45, %44 ]
+  %.sroa.21.9 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i36 ], [ %.028.ph72.i.i21, %44 ]
   %.not.us.i.i28 = icmp sge i64 %.028.ph72.i.i21, %.sroa.21.9
   %50 = icmp slt i64 %.028.ph72.i.i21, %.sroa.37.9
   %or.cond.i.i29 = select i1 %.not.us.i.i28, i1 %50, i1 false
@@ -307,11 +313,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %77 = tail call ptr @__errno_location() #25
   %78 = load i32, ptr %77, align 4, !tbaa !10
   %79 = icmp eq i32 %78, 4
-  br i1 %79, label %.lr.ph.split.us.i.i47, label %.thread39.i.i55, !llvm.loop !12
+  br i1 %79, label %..lr.ph.split.us.i_crit_edge.i56, label %.thread39.i.i55, !llvm.loop !12
 
-.lr.ph.split.us.i.i47:                            ; preds = %76, %74
-  %.sroa.37.14 = phi i64 [ %75, %74 ], [ 0, %76 ]
-  %.sroa.21.14 = phi i64 [ %.028.ph72.i.i41, %74 ], [ 0, %76 ]
+..lr.ph.split.us.i_crit_edge.i56:                 ; preds = %76
+  br label %.lr.ph.split.us.i.i47, !llvm.loop !12
+
+.lr.ph.split.us.i.i47:                            ; preds = %..lr.ph.split.us.i_crit_edge.i56, %74
+  %.sroa.37.14 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i56 ], [ %75, %74 ]
+  %.sroa.21.14 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i56 ], [ %.028.ph72.i.i41, %74 ]
   %.not.us.i.i48 = icmp sge i64 %.028.ph72.i.i41, %.sroa.21.14
   %80 = icmp slt i64 %.028.ph72.i.i41, %.sroa.37.14
   %or.cond.i.i49 = select i1 %.not.us.i.i48, i1 %80, i1 false
@@ -514,11 +523,14 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal22GetSectionHea
   %20 = tail call ptr @__errno_location() #25
   %21 = load i32, ptr %20, align 4, !tbaa !10
   %22 = icmp eq i32 %21, 4
-  br i1 %22, label %.lr.ph.split.us.i.i, label %.thread39.i.i, !llvm.loop !12
+  br i1 %22, label %..lr.ph.split.us.i_crit_edge.i, label %.thread39.i.i, !llvm.loop !12
 
-.lr.ph.split.us.i.i:                              ; preds = %19, %17
-  %.sroa.37.4 = phi i64 [ %18, %17 ], [ 0, %19 ]
-  %.sroa.21.4 = phi i64 [ %.028.ph72.i.i, %17 ], [ 0, %19 ]
+..lr.ph.split.us.i_crit_edge.i:                   ; preds = %19
+  br label %.lr.ph.split.us.i.i, !llvm.loop !12
+
+.lr.ph.split.us.i.i:                              ; preds = %..lr.ph.split.us.i_crit_edge.i, %17
+  %.sroa.37.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %18, %17 ]
+  %.sroa.21.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %.028.ph72.i.i, %17 ]
   %.not.us.i.i = icmp uge i64 %.028.ph72.i.i, %.sroa.21.4
   %23 = icmp slt i64 %.028.ph72.i.i, %.sroa.37.4
   %or.cond.i.i = select i1 %.not.us.i.i, i1 %23, i1 false
@@ -588,11 +600,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %50 = tail call ptr @__errno_location() #25
   %51 = load i32, ptr %50, align 4, !tbaa !10
   %52 = icmp eq i32 %51, 4
-  br i1 %52, label %.lr.ph.split.us.i.i36, label %.thread39.i.i44, !llvm.loop !12
+  br i1 %52, label %..lr.ph.split.us.i_crit_edge.i45, label %.thread39.i.i44, !llvm.loop !12
 
-.lr.ph.split.us.i.i36:                            ; preds = %49, %47
-  %.sroa.37.9 = phi i64 [ %48, %47 ], [ 0, %49 ]
-  %.sroa.21.9 = phi i64 [ %.028.ph72.i.i30, %47 ], [ 0, %49 ]
+..lr.ph.split.us.i_crit_edge.i45:                 ; preds = %49
+  br label %.lr.ph.split.us.i.i36, !llvm.loop !12
+
+.lr.ph.split.us.i.i36:                            ; preds = %..lr.ph.split.us.i_crit_edge.i45, %47
+  %.sroa.37.9 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i45 ], [ %48, %47 ]
+  %.sroa.21.9 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i45 ], [ %.028.ph72.i.i30, %47 ]
   %.not.us.i.i37 = icmp sge i64 %.028.ph72.i.i30, %.sroa.21.9
   %53 = icmp slt i64 %.028.ph72.i.i30, %.sroa.37.9
   %or.cond.i.i38 = select i1 %.not.us.i.i37, i1 %53, i1 false
@@ -666,11 +681,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %77 = tail call ptr @__errno_location() #25
   %78 = load i32, ptr %77, align 4, !tbaa !10
   %79 = icmp eq i32 %78, 4
-  br i1 %79, label %.lr.ph.split.us.i.i56, label %.thread.sink.split, !llvm.loop !12
+  br i1 %79, label %..lr.ph.split.us.i_crit_edge.i65, label %.thread.sink.split, !llvm.loop !12
 
-.lr.ph.split.us.i.i56:                            ; preds = %76, %74
-  %.sroa.37.14 = phi i64 [ %75, %74 ], [ 0, %76 ]
-  %.sroa.21.14 = phi i64 [ %.028.ph72.i.i50, %74 ], [ 0, %76 ]
+..lr.ph.split.us.i_crit_edge.i65:                 ; preds = %76
+  br label %.lr.ph.split.us.i.i56, !llvm.loop !12
+
+.lr.ph.split.us.i.i56:                            ; preds = %..lr.ph.split.us.i_crit_edge.i65, %74
+  %.sroa.37.14 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i65 ], [ %75, %74 ]
+  %.sroa.21.14 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i65 ], [ %.028.ph72.i.i50, %74 ]
   %.not.us.i.i57 = icmp sge i64 %.028.ph72.i.i50, %.sroa.21.14
   %80 = icmp slt i64 %.028.ph72.i.i50, %.sroa.37.14
   %or.cond.i.i58 = select i1 %.not.us.i.i57, i1 %80, i1 false
@@ -1408,11 +1426,14 @@ _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFil
   %120 = tail call ptr @__errno_location() #25
   %121 = load i32, ptr %120, align 4, !tbaa !10
   %122 = icmp eq i32 %121, 4
-  br i1 %122, label %.lr.ph.split.us.i.i84.i.i.i, label %.thread39.i.i92.i.i.i, !llvm.loop !12
+  br i1 %122, label %..lr.ph.split.us.i_crit_edge.i93.i.i.i, label %.thread39.i.i92.i.i.i, !llvm.loop !12
 
-.lr.ph.split.us.i.i84.i.i.i:                      ; preds = %119, %117
-  %.sroa.30.13.i.i.i = phi i64 [ %118, %117 ], [ 0, %119 ]
-  %.sroa.17.13.i.i.i = phi i64 [ %.028.ph72.i.i78.i.i.i, %117 ], [ 0, %119 ]
+..lr.ph.split.us.i_crit_edge.i93.i.i.i:           ; preds = %119
+  br label %.lr.ph.split.us.i.i84.i.i.i, !llvm.loop !12
+
+.lr.ph.split.us.i.i84.i.i.i:                      ; preds = %..lr.ph.split.us.i_crit_edge.i93.i.i.i, %117
+  %.sroa.30.13.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i93.i.i.i ], [ %118, %117 ]
+  %.sroa.17.13.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i93.i.i.i ], [ %.028.ph72.i.i78.i.i.i, %117 ]
   %.not.us.i.i85.i.i.i = icmp uge i64 %.028.ph72.i.i78.i.i.i, %.sroa.17.13.i.i.i
   %123 = icmp slt i64 %.028.ph72.i.i78.i.i.i, %.sroa.30.13.i.i.i
   %or.cond.i.i86.i.i.i = select i1 %.not.us.i.i85.i.i.i, i1 %123, i1 false
@@ -1491,11 +1512,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %149 = tail call ptr @__errno_location() #25
   %150 = load i32, ptr %149, align 4, !tbaa !10
   %151 = icmp eq i32 %150, 4
-  br i1 %151, label %.lr.ph.split.us.i.i.i.i.i, label %.thread39.i.i.i.i.i, !llvm.loop !12
+  br i1 %151, label %..lr.ph.split.us.i_crit_edge.i.i.i.i, label %.thread39.i.i.i.i.i, !llvm.loop !12
 
-.lr.ph.split.us.i.i.i.i.i:                        ; preds = %148, %146
-  %.sroa.30.3.i.i.i = phi i64 [ %147, %146 ], [ 0, %148 ]
-  %.sroa.17.3.i.i.i = phi i64 [ %.028.ph72.i.i.i.i.i, %146 ], [ 0, %148 ]
+..lr.ph.split.us.i_crit_edge.i.i.i.i:             ; preds = %148
+  br label %.lr.ph.split.us.i.i.i.i.i, !llvm.loop !12
+
+.lr.ph.split.us.i.i.i.i.i:                        ; preds = %..lr.ph.split.us.i_crit_edge.i.i.i.i, %146
+  %.sroa.30.3.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i.i.i.i ], [ %147, %146 ]
+  %.sroa.17.3.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i.i.i.i ], [ %.028.ph72.i.i.i.i.i, %146 ]
   %.not.us.i.i.i.i.i = icmp uge i64 %.028.ph72.i.i.i.i.i, %.sroa.17.3.i.i.i
   %152 = icmp slt i64 %.028.ph72.i.i.i.i.i, %.sroa.30.3.i.i.i
   %or.cond.i.i.i.i.i = select i1 %.not.us.i.i.i.i.i, i1 %152, i1 false
@@ -1579,11 +1603,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %181 = tail call ptr @__errno_location() #25
   %182 = load i32, ptr %181, align 4, !tbaa !10
   %183 = icmp eq i32 %182, 4
-  br i1 %183, label %.lr.ph.split.us.i.i64.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.thread.i.i.i, !llvm.loop !12
+  br i1 %183, label %..lr.ph.split.us.i_crit_edge.i73.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.thread.i.i.i, !llvm.loop !12
 
-.lr.ph.split.us.i.i64.i.i.i:                      ; preds = %180, %178
-  %.sroa.30.8.i.i.i = phi i64 [ %179, %178 ], [ 0, %180 ]
-  %.sroa.17.8.i.i.i = phi i64 [ %.028.ph72.i.i58.i.i.i, %178 ], [ 0, %180 ]
+..lr.ph.split.us.i_crit_edge.i73.i.i.i:           ; preds = %180
+  br label %.lr.ph.split.us.i.i64.i.i.i, !llvm.loop !12
+
+.lr.ph.split.us.i.i64.i.i.i:                      ; preds = %..lr.ph.split.us.i_crit_edge.i73.i.i.i, %178
+  %.sroa.30.8.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i73.i.i.i ], [ %179, %178 ]
+  %.sroa.17.8.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i73.i.i.i ], [ %.028.ph72.i.i58.i.i.i, %178 ]
   %.not.us.i.i65.i.i.i = icmp sge i64 %.028.ph72.i.i58.i.i.i, %.sroa.17.8.i.i.i
   %184 = icmp slt i64 %.028.ph72.i.i58.i.i.i, %.sroa.30.8.i.i.i
   %or.cond.i.i66.i.i.i = select i1 %.not.us.i.i65.i.i.i, i1 %184, i1 false
@@ -1694,13 +1721,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %227
 
 225:                                              ; preds = %231
-  %226 = add nuw nsw i64 %.051110.i.i, 1
+  %226 = add nuw nsw i64 %.051111.i.i, 1
   %exitcond.not.i.i23 = icmp eq i64 %226, 4
   br i1 %exitcond.not.i.i23, label %239, label %227, !llvm.loop !66
 
 227:                                              ; preds = %225, %222
-  %.051110.i.i = phi i64 [ 0, %222 ], [ %226, %225 ]
-  %228 = getelementptr inbounds nuw [4 x %struct.Elf64_Phdr], ptr %224, i64 0, i64 %.051110.i.i
+  %.051111.i.i = phi i64 [ 0, %222 ], [ %226, %225 ]
+  %228 = getelementptr inbounds nuw [4 x %struct.Elf64_Phdr], ptr %224, i64 0, i64 %.051111.i.i
   %229 = load i32, ptr %228, align 8, !tbaa !61
   switch i32 %229, label %230 [
     i32 1, label %231
@@ -1719,8 +1746,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %236 = load i64, ptr %235, align 8, !tbaa !69
   %237 = add i64 %234, %236
   %238 = inttoptr i64 %237 to ptr
-  %.not83.i.i = icmp ult ptr %0, %238
-  br i1 %.not83.i.i, label %.thread.i.i, label %225
+  %.not84.i.i = icmp ult ptr %0, %238
+  br i1 %.not84.i.i, label %.thread.i.i, label %225
 
 239:                                              ; preds = %227, %225
   %240 = load ptr, ptr %72, align 8, !tbaa !54
@@ -1813,11 +1840,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %281 = tail call ptr @__errno_location() #25
   %282 = load i32, ptr %281, align 4, !tbaa !10
   %283 = icmp eq i32 %282, 4
-  br i1 %283, label %.lr.ph.split.us.i.i.i69.i.i, label %.thread39.i.i.i75.i.i, !llvm.loop !12
+  br i1 %283, label %..lr.ph.split.us.i_crit_edge.i.i76.i.i, label %.thread39.i.i.i75.i.i, !llvm.loop !12
 
-.lr.ph.split.us.i.i.i69.i.i:                      ; preds = %280, %278
-  %284 = phi i64 [ %279, %278 ], [ 0, %280 ]
-  %285 = phi i64 [ %.028.ph72.i.i.i63.i.i, %278 ], [ 0, %280 ]
+..lr.ph.split.us.i_crit_edge.i.i76.i.i:           ; preds = %280
+  br label %.lr.ph.split.us.i.i.i69.i.i, !llvm.loop !12
+
+.lr.ph.split.us.i.i.i69.i.i:                      ; preds = %..lr.ph.split.us.i_crit_edge.i.i76.i.i, %278
+  %284 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i.i76.i.i ], [ %279, %278 ]
+  %285 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i.i76.i.i ], [ %.028.ph72.i.i.i63.i.i, %278 ]
   %.not.us.i.i.i70.i.i = icmp sge i64 %.028.ph72.i.i.i63.i.i, %285
   %286 = icmp slt i64 %.028.ph72.i.i.i63.i.i, %284
   %or.cond.i.i.i71.i.i = select i1 %.not.us.i.i.i70.i.i, i1 %286, i1 false
@@ -1876,8 +1906,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileE
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #24
   call void @_ZN4absl18debugging_internal11VDSOSupportC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
   %301 = load ptr, ptr %12, align 8, !tbaa !80
-  %.not84.i.i = icmp eq ptr %301, null
-  br i1 %.not84.i.i, label %312, label %302
+  %.not85.i.i = icmp eq ptr %301, null
+  br i1 %.not85.i.i, label %312, label %302
 
 302:                                              ; preds = %300
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #24
@@ -2026,8 +2056,8 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i.i: ; preds = %341, %337, %_ZN4a
   %366 = add i32 %365, 1
   store i32 %366, ptr %.0.ptr.i.i.i.i, align 4, !tbaa !10
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx1.i.i.i.i, 4
-  %.not.i.i77.i.i = icmp eq i64 %.0.add.i.i.i.i, 80
-  br i1 %.not.i.i77.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i, label %.preheader60.i.i.i
+  %.not.i.i78.i.i = icmp eq i64 %.0.add.i.i.i.i, 80
+  br i1 %.not.i.i78.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i, label %.preheader60.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i: ; preds = %.preheader60.i.i.i
   store ptr %0, ptr %364, align 8, !tbaa !32
@@ -3433,7 +3463,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22GetSec
 ..lr.ph.split.us.i_crit_edge:                     ; preds = %31
   %.pre = load i64, ptr %9, align 8, !tbaa !78
   %.pre129 = load i64, ptr %10, align 8
-  br label %.lr.ph.split.us.i
+  br label %.lr.ph.split.us.i, !llvm.loop !12
 
 .lr.ph.split.us.i:                                ; preds = %..lr.ph.split.us.i_crit_edge, %29
   %35 = phi i64 [ %.pre129, %..lr.ph.split.us.i_crit_edge ], [ %30, %29 ]
@@ -3596,7 +3626,7 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internal
 ..lr.ph.split.us.i_crit_edge:                     ; preds = %36
   %.pre = load i64, ptr %13, align 8, !tbaa !78
   %.pre81 = load i64, ptr %14, align 8
-  br label %.lr.ph.split.us.i
+  br label %.lr.ph.split.us.i, !llvm.loop !12
 
 .lr.ph.split.us.i:                                ; preds = %..lr.ph.split.us.i_crit_edge, %34
   %40 = phi i64 [ %.pre81, %..lr.ph.split.us.i_crit_edge ], [ %35, %34 ]
@@ -3777,7 +3807,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 ..lr.ph.split.us.i90_crit_edge:                   ; preds = %108
   %.pre82 = load i64, ptr %92, align 8, !tbaa !78
   %.pre83 = load i64, ptr %93, align 8
-  br label %.lr.ph.split.us.i90
+  br label %.lr.ph.split.us.i90, !llvm.loop !12
 
 .lr.ph.split.us.i90:                              ; preds = %..lr.ph.split.us.i90_crit_edge, %106
   %112 = phi i64 [ %.pre83, %..lr.ph.split.us.i90_crit_edge ], [ %107, %106 ]

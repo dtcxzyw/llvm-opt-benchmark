@@ -3668,10 +3668,13 @@ define ptr @Abc_NtkFromMappedGia(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %32 = sub nsw i32 %.val314.val, %.val313
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %.critedge, !llvm.loop !152
+  br i1 %34, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !152
 
-.critedge:                                        ; preds = %.lr.ph461, %.lr.ph, %.lr.ph.preheader, %3
-  %.val321385 = phi i32 [ %.val313379, %3 ], [ %.val313379, %.lr.ph.preheader ], [ %.val313, %.lr.ph ], [ %.val313, %.lr.ph461 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph461
+  br label %.critedge, !llvm.loop !152
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %3
+  %.val321385 = phi i32 [ %.val313379, %3 ], [ %.val313, %..critedge.loopexit_crit_edge ], [ %.val313379, %.lr.ph.preheader ], [ %.val313, %.lr.ph ]
   %35 = getelementptr i8, ptr %0, i64 72
   %.val322386 = load ptr, ptr %35, align 8, !tbaa !153
   %36 = getelementptr i8, ptr %.val322386, i64 4
@@ -3711,10 +3714,13 @@ define ptr @Abc_NtkFromMappedGia(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %46 = sub nsw i32 %.val322.val, %.val321
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next421, %47
-  br i1 %48, label %.lr.ph390, label %.critedge2, !llvm.loop !154
+  br i1 %48, label %.lr.ph390, label %..critedge2.loopexit_crit_edge, !llvm.loop !154
 
-.critedge2:                                       ; preds = %.lr.ph468, %.lr.ph390, %.lr.ph390.preheader, %.critedge
-  %.val333392 = phi i32 [ %.val321385, %.critedge ], [ %.val321385, %.lr.ph390.preheader ], [ %.val321, %.lr.ph390 ], [ %.val321, %.lr.ph468 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph468
+  br label %.critedge2, !llvm.loop !154
+
+.critedge2:                                       ; preds = %.lr.ph390, %.lr.ph390.preheader, %..critedge2.loopexit_crit_edge, %.critedge
+  %.val333392 = phi i32 [ %.val321385, %.critedge ], [ %.val321, %..critedge2.loopexit_crit_edge ], [ %.val321385, %.lr.ph390.preheader ], [ %.val321, %.lr.ph390 ]
   %49 = icmp sgt i32 %.val333392, 0
   br i1 %49, label %.lr.ph396, label %.critedge4
 
@@ -4625,10 +4631,13 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %41 = sub nsw i32 %.val240.val, %.val239
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph, label %.critedge, !llvm.loop !163
+  br i1 %43, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !163
 
-.critedge:                                        ; preds = %.lr.ph464, %.lr.ph, %.lr.ph.preheader, %Vec_IntStartFull.exit
-  %.val247366 = phi i32 [ %.val239360, %Vec_IntStartFull.exit ], [ %.val239360, %.lr.ph.preheader ], [ %.val239, %.lr.ph ], [ %.val239, %.lr.ph464 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph464
+  br label %.critedge, !llvm.loop !163
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %Vec_IntStartFull.exit
+  %.val247366 = phi i32 [ %.val239360, %Vec_IntStartFull.exit ], [ %.val239, %..critedge.loopexit_crit_edge ], [ %.val239360, %.lr.ph.preheader ], [ %.val239, %.lr.ph ]
   %44 = getelementptr i8, ptr %0, i64 72
   %.val248367 = load ptr, ptr %44, align 8, !tbaa !153
   %45 = getelementptr i8, ptr %.val248367, i64 4
@@ -4668,11 +4677,14 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %56 = sub nsw i32 %.val248.val, %.val247
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next412, %57
-  br i1 %58, label %.lr.ph371, label %.critedge2, !llvm.loop !164
+  br i1 %58, label %.lr.ph371, label %..critedge2.loopexit_crit_edge, !llvm.loop !164
 
-.critedge2:                                       ; preds = %.lr.ph470, %.lr.ph371, %.lr.ph371.preheader, %.critedge
-  %59 = phi ptr [ %.val248367, %.critedge ], [ %.val248367, %.lr.ph371.preheader ], [ %.val248, %.lr.ph371 ], [ %.val248, %.lr.ph470 ]
-  %.val257373 = phi i32 [ %.val247366, %.critedge ], [ %.val247366, %.lr.ph371.preheader ], [ %.val247, %.lr.ph371 ], [ %.val247, %.lr.ph470 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph470
+  br label %.critedge2, !llvm.loop !164
+
+.critedge2:                                       ; preds = %.lr.ph371, %.lr.ph371.preheader, %..critedge2.loopexit_crit_edge, %.critedge
+  %59 = phi ptr [ %.val248367, %.critedge ], [ %.val248, %..critedge2.loopexit_crit_edge ], [ %.val248367, %.lr.ph371.preheader ], [ %.val248, %.lr.ph371 ]
+  %.val257373 = phi i32 [ %.val247366, %.critedge ], [ %.val247, %..critedge2.loopexit_crit_edge ], [ %.val247366, %.lr.ph371.preheader ], [ %.val247, %.lr.ph371 ]
   %60 = icmp sgt i32 %.val257373, 0
   br i1 %60, label %.lr.ph377, label %.critedge4
 
@@ -4743,7 +4755,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 ..critedge4.loopexit_crit_edge:                   ; preds = %61
   %.pre.pre = load ptr, ptr %44, align 8, !tbaa !153
-  br label %.critedge4
+  br label %.critedge4, !llvm.loop !165
 
 .critedge4:                                       ; preds = %.lr.ph377, %..critedge4.loopexit_crit_edge, %.critedge2
   %102 = phi ptr [ %59, %.critedge2 ], [ %.pre.pre, %..critedge4.loopexit_crit_edge ], [ %.pre.pre444, %.lr.ph377 ]
@@ -7298,11 +7310,14 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph91.preheader,
   %62 = sext i8 %61 to i32
   %63 = sext i8 %61 to i64
   %64 = icmp slt i64 %indvars.iv.next108, %63
-  br i1 %64, label %.lr.ph91, label %.critedge4, !llvm.loop !224
+  br i1 %64, label %.lr.ph91, label %..critedge4_crit_edge, !llvm.loop !224
 
-.critedge4:                                       ; preds = %.lr.ph91, %58, %Aig_ManObj.exit, %.lr.ph91.preheader
-  %.lcssa85 = phi i8 [ %43, %.lr.ph91.preheader ], [ %61, %.lr.ph91 ], [ %61, %58 ], [ %50, %Aig_ManObj.exit ]
-  %.lcssa = phi i32 [ %45, %.lr.ph91.preheader ], [ %62, %.lr.ph91 ], [ %62, %58 ], [ %51, %Aig_ManObj.exit ]
+..critedge4_crit_edge:                            ; preds = %58
+  br label %.critedge4, !llvm.loop !224
+
+.critedge4:                                       ; preds = %.lr.ph91, %Aig_ManObj.exit, %..critedge4_crit_edge, %.lr.ph91.preheader
+  %.lcssa85 = phi i8 [ %61, %..critedge4_crit_edge ], [ %43, %.lr.ph91.preheader ], [ %61, %.lr.ph91 ], [ %50, %Aig_ManObj.exit ]
+  %.lcssa = phi i32 [ %62, %..critedge4_crit_edge ], [ %45, %.lr.ph91.preheader ], [ %62, %.lr.ph91 ], [ %51, %Aig_ManObj.exit ]
   %65 = icmp slt i8 %.lcssa85, 5
   br i1 %65, label %.critedge4.thread, label %82
 

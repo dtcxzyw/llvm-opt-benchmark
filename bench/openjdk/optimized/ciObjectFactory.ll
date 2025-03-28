@@ -2457,7 +2457,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %6, %16
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph13
   %32 = load ptr, ptr %31, align 8
@@ -2465,12 +2465,16 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %6, %16
   %34 = icmp eq ptr %33, %1
   br i1 %34, label %._crit_edge.loopexit, label %.lr.ph13, !llvm.loop !15
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph13, %.lr.ph
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph13
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  br label %._crit_edge, !llvm.loop !15
+
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %_ZNK7oopDesc5klassEv.exit
-  %.0.lcssa = phi ptr [ %24, %_ZNK7oopDesc5klassEv.exit ], [ %24, %.lr.ph.preheader ], [ %35, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %_ZNK7oopDesc5klassEv.exit
+  %.0.lcssa = phi ptr [ %24, %_ZNK7oopDesc5klassEv.exit ], [ %35, %.._crit_edge.loopexit_crit_edge ], [ %24, %.lr.ph.preheader ], [ %36, %._crit_edge.loopexit ]
   ret ptr %.0.lcssa
 }
 

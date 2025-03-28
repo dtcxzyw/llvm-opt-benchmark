@@ -1737,11 +1737,14 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull %0, i1 noundef zeroext false) #5
   %25 = icmp sgt i32 %21, -1
-  br i1 %25, label %15, label %.critedge, !llvm.loop !16
+  br i1 %25, label %15, label %..critedge_crit_edge, !llvm.loop !16
 
-.critedge:                                        ; preds = %15, %.lr.ph, %7
-  %.not.lcssa = phi i1 [ true, %7 ], [ %25, %.lr.ph ], [ %25, %15 ]
-  %.1.lcssa = phi i32 [ 0, %7 ], [ %21, %.lr.ph ], [ %21, %15 ]
+..critedge_crit_edge:                             ; preds = %.lr.ph
+  br label %.critedge, !llvm.loop !16
+
+.critedge:                                        ; preds = %15, %..critedge_crit_edge, %7
+  %.not.lcssa = phi i1 [ false, %..critedge_crit_edge ], [ true, %7 ], [ true, %15 ]
+  %.1.lcssa = phi i32 [ %21, %..critedge_crit_edge ], [ 0, %7 ], [ %21, %15 ]
   %26 = and i64 %8, 512
   %.not.i = icmp eq i64 %26, 0
   br i1 %.not.i, label %up_irq_restore.exit, label %27

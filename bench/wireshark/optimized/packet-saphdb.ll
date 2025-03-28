@@ -1564,15 +1564,18 @@ define internal fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not12.i = icmp eq ptr %27, null
-  br i1 %.not12.i, label %opv_to_opi.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not12.i, label %.opv_to_opi.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %28 = load i8, ptr %25, align 8
   %29 = icmp eq i8 %28, %17
   br i1 %29, label %opv_to_opi.exit, label %.lr.ph, !llvm.loop !14
 
-opv_to_opi.exit:                                  ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %16, %.preheader.i
-  %.010.i = phi ptr [ @.str.337, %16 ], [ @.str.337, %.preheader.i ], [ %20, %.lr.ph.i.preheader ], [ %27, %.lr.ph.i ], [ @.str.337, %.lr.ph ]
+.opv_to_opi.exit.loopexit_crit_edge:              ; preds = %.lr.ph
+  br label %opv_to_opi.exit, !llvm.loop !14
+
+opv_to_opi.exit:                                  ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.opv_to_opi.exit.loopexit_crit_edge, %16, %.preheader.i
+  %.010.i = phi ptr [ @.str.337, %16 ], [ @.str.337, %.preheader.i ], [ @.str.337, %.opv_to_opi.exit.loopexit_crit_edge ], [ %20, %.lr.ph.i.preheader ], [ %27, %.lr.ph.i ]
   %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %19, ptr noundef nonnull @.str.363, ptr noundef nonnull %.010.i, i32 noundef %19)
   %31 = add i32 %10, %.0131
   %32 = tail call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %31)

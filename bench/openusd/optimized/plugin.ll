@@ -2483,10 +2483,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_9TfHashMapINS_6TfTypeENS
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %26
   %.not17.i.i.i.i = icmp eq i64 %50, %27
-  br i1 %.not17.i.i.i.i, label %40, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS0_9TfWeakPtrINS0_10PlugPluginEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit, !llvm.loop !43
+  br i1 %.not17.i.i.i.i, label %40, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !43
 
-_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS0_9TfWeakPtrINS0_10PlugPluginEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit: ; preds = %47, %.lr.ph.i.i.i.i, %40, %16, %15, %31, %20
-  %.sroa.06.1.i.i = phi ptr [ null, %20 ], [ %32, %31 ], [ null, %15 ], [ %.sroa.06.0.i.i, %16 ], [ %46, %40 ], [ null, %.lr.ph.i.i.i.i ], [ null, %47 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %47
+  br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS0_9TfWeakPtrINS0_10PlugPluginEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit, !llvm.loop !43
+
+_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS0_9TfWeakPtrINS0_10PlugPluginEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit: ; preds = %.lr.ph.i.i.i.i, %40, %16, %15, %..loopexit_crit_edge21.i.i.i.i, %31, %20
+  %.sroa.06.1.i.i = phi ptr [ null, %20 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %32, %31 ], [ null, %15 ], [ %.sroa.06.0.i.i, %16 ], [ %46, %40 ], [ null, %.lr.ph.i.i.i.i ]
   %51 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L9_classMapE seq_cst, align 8
   %.not.i.i4 = icmp eq i64 %51, 0
   br i1 %.not.i.i4, label %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_9TfHashMapINS_6TfTypeENS_9TfWeakPtrINS_10PlugPluginEEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S5_EEEENS_27Tf_StaticDataDefaultFactoryISD_EEEptEv.exit6
@@ -3966,10 +3969,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_9TfHashMapINS_6TfTypeENS
   %50 = load i64, ptr %49, align 8
   %51 = urem i64 %50, %27
   %.not17.i.i.i.i = icmp eq i64 %51, %28
-  br i1 %.not17.i.i.i.i, label %41, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS0_9TfWeakPtrINS0_10PlugPluginEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit, !llvm.loop !43
+  br i1 %.not17.i.i.i.i, label %41, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !43
 
-_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS0_9TfWeakPtrINS0_10PlugPluginEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit: ; preds = %48, %.lr.ph.i.i.i.i, %41, %17, %16, %32, %21
-  %.sroa.06.1.i.i = phi ptr [ null, %21 ], [ %33, %32 ], [ null, %16 ], [ %.sroa.06.0.i.i, %17 ], [ %47, %41 ], [ null, %.lr.ph.i.i.i.i ], [ null, %48 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %48
+  br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS0_9TfWeakPtrINS0_10PlugPluginEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit, !llvm.loop !43
+
+_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS0_9TfWeakPtrINS0_10PlugPluginEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit: ; preds = %.lr.ph.i.i.i.i, %41, %17, %16, %..loopexit_crit_edge21.i.i.i.i, %32, %21
+  %.sroa.06.1.i.i = phi ptr [ null, %21 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %33, %32 ], [ null, %16 ], [ %.sroa.06.0.i.i, %17 ], [ %47, %41 ], [ null, %.lr.ph.i.i.i.i ]
   %52 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L9_classMapE seq_cst, align 8
   %.not.i.i8 = icmp eq i64 %52, 0
   br i1 %.not.i.i8, label %53, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_9TfHashMapINS_6TfTypeENS_9TfWeakPtrINS_10PlugPluginEEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S5_EEEENS_27Tf_StaticDataDefaultFactoryISD_EEEptEv.exit10
@@ -4976,7 +4982,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_9TfHashMapINS_6TfTypeENS
   %223 = load i64, ptr %222, align 8
   %224 = urem i64 %223, %200
   %.not17.i.i.i.i.i = icmp eq i64 %224, %201
-  br i1 %.not17.i.i.i.i.i, label %214, label %.loopexit, !llvm.loop !43
+  br i1 %.not17.i.i.i.i.i, label %214, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !43
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %221
+  br label %.loopexit, !llvm.loop !43
 
 .loopexit145:                                     ; preds = %214, %190, %205
   %225 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L9_classMapE seq_cst, align 8
@@ -5121,7 +5130,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void %280(ptr noundef nonnull align 8 dereferenceable(12) %233) #24
   br label %.body75
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i52, %221, %189, %194
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i52, %189, %194, %..loopexit_crit_edge21.i.i.i.i.i
   %281 = load atomic i64, ptr %0 seq_cst, align 8, !noalias !78
   %.not.i.i.i.i.i74 = icmp eq i64 %281, 0
   br i1 %.not.i.i.i.i.i74, label %282, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9enable_ifIXsr3std14is_convertibleIS5_PS1_EE5valueEvE4typeE.exit.i.i.i.i.i
@@ -8954,9 +8963,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__det
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %32, %9
   %.not17.i.i = icmp eq i64 %33, %10
-  br i1 %.not17.i.i, label %23, label %.loopexit, !llvm.loop !43
+  br i1 %.not17.i.i, label %23, label %..loopexit_crit_edge21.i.i, !llvm.loop !43
 
-.loopexit:                                        ; preds = %30, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %30
+  br label %.loopexit, !llvm.loop !43
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   store ptr %0, ptr %3, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26

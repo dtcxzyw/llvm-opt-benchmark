@@ -13655,7 +13655,7 @@ Cba_NtkInsertGiaObj.exit:                         ; preds = %Cba_NtkInsertGiaLit
   %322 = getelementptr inbounds nuw i32, ptr %.val139.val, i64 %indvars.iv.next221
   %323 = load i32, ptr %322, align 4, !tbaa !33
   %.not107 = icmp eq i32 %323, 0
-  br i1 %.not107, label %.critedge2.loopexit, label %.lr.ph239, !llvm.loop !172
+  br i1 %.not107, label %.critedge2, label %.lr.ph239, !llvm.loop !172
 
 .lr.ph239:                                        ; preds = %.lr.ph210, %320
   %324 = phi i32 [ %323, %320 ], [ %145, %.lr.ph210 ]
@@ -13735,16 +13735,16 @@ Cba_NtkInsertGiaLit.exit:                         ; preds = %.lr.ph239, %335, %3
   %.val114 = load i32, ptr %368, align 4, !tbaa !46
   %369 = sext i32 %.val114 to i64
   %370 = icmp slt i64 %indvars.iv.next221, %369
-  br i1 %370, label %320, label %.critedge2.loopexit, !llvm.loop !172
+  br i1 %370, label %320, label %Cba_NtkInsertGiaLit.exit..critedge2_crit_edge, !llvm.loop !172
 
-.critedge2.loopexit:                              ; preds = %320, %Cba_NtkInsertGiaLit.exit
-  %371 = icmp sgt i32 %.val114, 0
-  br label %.critedge2
+Cba_NtkInsertGiaLit.exit..critedge2_crit_edge:    ; preds = %Cba_NtkInsertGiaLit.exit
+  br label %.critedge2, !llvm.loop !172
 
-.critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph210
-  %.val113212.pre = phi i1 [ true, %.lr.ph210 ], [ %371, %.critedge2.loopexit ]
-  %372 = phi ptr [ %137, %.lr.ph210 ], [ %367, %.critedge2.loopexit ]
-  br i1 %.val113212.pre, label %.lr.ph214, label %.critedge4
+.critedge2:                                       ; preds = %320, %Cba_NtkInsertGiaLit.exit..critedge2_crit_edge, %.lr.ph210
+  %.val113212.pre = phi i32 [ %.val114, %Cba_NtkInsertGiaLit.exit..critedge2_crit_edge ], [ %.val114208, %.lr.ph210 ], [ %.val114, %320 ]
+  %371 = phi ptr [ %367, %Cba_NtkInsertGiaLit.exit..critedge2_crit_edge ], [ %137, %.lr.ph210 ], [ %367, %320 ]
+  %372 = icmp sgt i32 %.val113212.pre, 0
+  br i1 %372, label %.lr.ph214, label %.critedge4
 
 .lr.ph214:                                        ; preds = %.critedge2
   %373 = getelementptr i8, ptr %1, i64 32
@@ -13758,7 +13758,7 @@ Cba_NtkInsertGiaLit.exit:                         ; preds = %.lr.ph239, %335, %3
 
 379:                                              ; preds = %.lr.ph214, %Cba_ObjSetName.exit183
   %indvars.iv223 = phi i64 [ 0, %.lr.ph214 ], [ %indvars.iv.next224, %Cba_ObjSetName.exit183 ]
-  %380 = phi ptr [ %372, %.lr.ph214 ], [ %484, %Cba_ObjSetName.exit183 ]
+  %380 = phi ptr [ %371, %.lr.ph214 ], [ %484, %Cba_ObjSetName.exit183 ]
   %381 = getelementptr i8, ptr %380, i64 8
   %.val141.val = load ptr, ptr %381, align 8, !tbaa !30
   %382 = getelementptr inbounds nuw i32, ptr %.val141.val, i64 %indvars.iv223

@@ -2823,7 +2823,7 @@ newarc.exit86:                                    ; preds = %106, %118, %.loopex
 
 ..critedge_crit_edge:                             ; preds = %145
   %.pre101 = load i32, ptr %52, align 4
-  br label %.critedge
+  br label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %131, %..critedge_crit_edge
   %147 = phi i32 [ %.pre101, %..critedge_crit_edge ], [ %143, %131 ]
@@ -10622,7 +10622,7 @@ check_in_colors_match.exit167.thread.i.i:         ; preds = %check_in_colors_mat
 ._crit_edge199.i.i:                               ; preds = %3388
   %3392 = trunc nuw nsw i64 %indvars.iv186.i.i to i32
   %.pre200.i.i = and i64 %indvars.iv186.i.i, 4294967295
-  br label %split.i.i
+  br label %split.i.i, !llvm.loop !75
 
 split.i.i:                                        ; preds = %3387, %._crit_edge199.i.i
   %.pre-phi.i.i = phi i64 [ %.pre200.i.i, %._crit_edge199.i.i ], [ %wide.trip.count.i.i, %3387 ]
@@ -23922,14 +23922,17 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   %224 = add nuw nsw i32 %.1163.i193, 1
   %225 = load i32, ptr %130, align 8
   %226 = icmp slt i32 %224, %225
-  br i1 %226, label %163, label %.critedge.i, !llvm.loop !116
+  br i1 %226, label %163, label %..critedge.i.loopexit_crit_edge205, !llvm.loop !116
 
-.critedge.i:                                      ; preds = %163, %222, %.lr.ph165.i, %._crit_edge.i
-  %227 = phi i32 [ %159, %._crit_edge.i ], [ %159, %.lr.ph165.i ], [ %225, %222 ], [ %225, %163 ]
-  %.0134.lcssa.i = phi i32 [ %.0, %._crit_edge.i ], [ %.0, %.lr.ph165.i ], [ %.2136.i, %222 ], [ %.2136.i, %163 ]
-  %.1132.lcssa.i = phi i32 [ %.0131.lcssa.i, %._crit_edge.i ], [ %.0131.lcssa.i, %.lr.ph165.i ], [ %.3.i, %222 ], [ %.3.i, %163 ]
-  %.1129.lcssa.i = phi ptr [ %.0128.lcssa.i, %._crit_edge.i ], [ %.0128.lcssa.i, %.lr.ph165.i ], [ %223, %222 ], [ %223, %163 ]
-  %.1.lcssa.i = phi i32 [ %.0131.lcssa.i, %._crit_edge.i ], [ %.0131.lcssa.i, %.lr.ph165.i ], [ %224, %222 ], [ %224, %163 ]
+..critedge.i.loopexit_crit_edge205:               ; preds = %222
+  br label %.critedge.i, !llvm.loop !116
+
+.critedge.i:                                      ; preds = %163, %.lr.ph165.i, %..critedge.i.loopexit_crit_edge205, %._crit_edge.i
+  %227 = phi i32 [ %159, %._crit_edge.i ], [ %225, %..critedge.i.loopexit_crit_edge205 ], [ %159, %.lr.ph165.i ], [ %225, %163 ]
+  %.0134.lcssa.i = phi i32 [ %.0, %._crit_edge.i ], [ %.2136.i, %..critedge.i.loopexit_crit_edge205 ], [ %.0, %.lr.ph165.i ], [ %.2136.i, %163 ]
+  %.1132.lcssa.i = phi i32 [ %.0131.lcssa.i, %._crit_edge.i ], [ %.3.i, %..critedge.i.loopexit_crit_edge205 ], [ %.0131.lcssa.i, %.lr.ph165.i ], [ %.3.i, %163 ]
+  %.1129.lcssa.i = phi ptr [ %.0128.lcssa.i, %._crit_edge.i ], [ %223, %..critedge.i.loopexit_crit_edge205 ], [ %.0128.lcssa.i, %.lr.ph165.i ], [ %223, %163 ]
+  %.1.lcssa.i = phi i32 [ %.0131.lcssa.i, %._crit_edge.i ], [ %224, %..critedge.i.loopexit_crit_edge205 ], [ %.0131.lcssa.i, %.lr.ph165.i ], [ %224, %163 ]
   %.not146.i = icmp ugt i32 %.0134.lcssa.i, %36
   br i1 %.not146.i, label %235, label %228
 
@@ -24343,11 +24346,11 @@ newarc.exit150:                                   ; preds = %408, %420, %.loopex
   br i1 %431, label %.lr.ph219, label %._crit_edge220.loopexit, !llvm.loop !121
 
 ._crit_edge220.loopexit:                          ; preds = %427
-  %.pre246 = load i32, ptr %334, align 4
+  %.pre251 = load i32, ptr %334, align 4
   br label %._crit_edge220
 
 ._crit_edge220:                                   ; preds = %._crit_edge220.loopexit, %.preheader
-  %432 = phi i32 [ %349, %.preheader ], [ %.pre246, %._crit_edge220.loopexit ]
+  %432 = phi i32 [ %349, %.preheader ], [ %.pre251, %._crit_edge220.loopexit ]
   %433 = phi i32 [ %350, %.preheader ], [ %430, %._crit_edge220.loopexit ]
   %.188.lcssa = phi ptr [ %.087222, %.preheader ], [ %428, %._crit_edge220.loopexit ]
   %434 = add nuw nsw i32 %.086223, 1

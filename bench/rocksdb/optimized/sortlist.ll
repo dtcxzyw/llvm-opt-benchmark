@@ -1118,16 +1118,19 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit44:        ; preds = %_ZNSt6vectorIiSaIiE
   %106 = sub i64 %104, %105
   %107 = ashr exact i64 %106, 2
   %108 = icmp ugt i64 %107, %101
-  br i1 %108, label %13, label %.critedge, !llvm.loop !46
+  br i1 %108, label %13, label %..critedge.loopexit_crit_edge, !llvm.loop !46
 
-.critedge:                                        ; preds = %96, %13, %.lr.ph, %4
-  %109 = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %97, %13 ], [ %97, %96 ]
-  %110 = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %99, %13 ], [ %99, %96 ]
-  %111 = phi ptr [ %7, %4 ], [ %7, %.lr.ph ], [ %103, %13 ], [ %103, %96 ]
-  %112 = phi ptr [ %6, %4 ], [ %6, %.lr.ph ], [ %102, %13 ], [ %102, %96 ]
-  %.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %100, %13 ], [ %100, %96 ]
-  %.026.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %.127, %13 ], [ %.127, %96 ]
-  %.0.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %.1, %13 ], [ %.1, %96 ]
+..critedge.loopexit_crit_edge:                    ; preds = %96
+  br label %.critedge, !llvm.loop !46
+
+.critedge:                                        ; preds = %13, %.lr.ph, %..critedge.loopexit_crit_edge, %4
+  %109 = phi ptr [ null, %4 ], [ %97, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph ], [ %97, %13 ]
+  %110 = phi ptr [ null, %4 ], [ %99, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph ], [ %99, %13 ]
+  %111 = phi ptr [ %7, %4 ], [ %103, %..critedge.loopexit_crit_edge ], [ %7, %.lr.ph ], [ %103, %13 ]
+  %112 = phi ptr [ %6, %4 ], [ %102, %..critedge.loopexit_crit_edge ], [ %6, %.lr.ph ], [ %102, %13 ]
+  %.lcssa = phi ptr [ null, %4 ], [ %100, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph ], [ %100, %13 ]
+  %.026.lcssa = phi i32 [ 0, %4 ], [ %.127, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.127, %13 ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.1, %13 ]
   store ptr %.lcssa, ptr %0, align 8
   %113 = zext i32 %.0.lcssa to i64
   %114 = ptrtoint ptr %112 to i64

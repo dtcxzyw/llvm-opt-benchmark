@@ -3847,7 +3847,7 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
   %13 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 6)
   %14 = load i32, ptr @hf_icq_tlv_request_seq_num, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %14, ptr noundef %2, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
-  switch i16 %13, label %38 [
+  switch i16 %13, label %39 [
     i16 2000, label %19
     i16 66, label %16
     i16 2010, label %19
@@ -3856,14 +3856,14 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
 16:                                               ; preds = %4
   %17 = load i32, ptr @hf_icq_dropped_msg_flag, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %17, ptr noundef %2, i32 noundef 10, i32 noundef 1, i32 noundef -2147483648)
-  br label %38
+  br label %39
 
 19:                                               ; preds = %4, %4
   %20 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 10)
   %21 = load i32, ptr @hf_icq_meta_subtype, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %21, ptr noundef %2, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
   %23 = icmp eq i16 %20, 1
-  br i1 %23, label %._crit_edge62, label %.lr.ph
+  br i1 %23, label %30, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %24
   %indvars.iv59 = phi i64 [ %indvars.iv.next, %24 ], [ 0, %19 ]
@@ -3880,28 +3880,31 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
 ._crit_edge:                                      ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
-  br label %._crit_edge62
+  br label %30
 
-._crit_edge62:                                    ; preds = %.lr.ph, %._crit_edge, %19
-  %.lcssa = phi ptr [ %25, %._crit_edge ], [ @icq_calls, %19 ], [ getelementptr inbounds nuw (i8, ptr @icq_calls, i64 1224), %.lr.ph ]
-  %30 = phi ptr [ %29, %._crit_edge ], [ @.str.769, %19 ], [ @.str.110, %.lr.ph ]
-  %spec.select = phi ptr [ %29, %._crit_edge ], [ @.str.769, %19 ], [ @.str.767, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = load ptr, ptr %31, align 8
-  tail call void @col_set_str(ptr noundef %32, i32 noundef 25, ptr noundef nonnull %spec.select)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.768, ptr noundef nonnull %30)
-  %33 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %.not56 = icmp eq ptr %34, null
-  br i1 %.not56, label %38, label %35
+._crit_edge62:                                    ; preds = %.lr.ph
+  br label %30, !llvm.loop !35
 
-35:                                               ; preds = %._crit_edge62
-  %36 = tail call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef 12)
-  %37 = tail call i32 %34(ptr noundef %36, ptr noundef %3, ptr noundef %6)
-  br label %38
+30:                                               ; preds = %._crit_edge62, %._crit_edge, %19
+  %.lcssa = phi ptr [ %25, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @icq_calls, i64 1224), %._crit_edge62 ], [ @icq_calls, %19 ]
+  %31 = phi ptr [ %29, %._crit_edge ], [ @.str.110, %._crit_edge62 ], [ @.str.769, %19 ]
+  %spec.select = phi ptr [ %29, %._crit_edge ], [ @.str.767, %._crit_edge62 ], [ @.str.769, %19 ]
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %33 = load ptr, ptr %32, align 8
+  tail call void @col_set_str(ptr noundef %33, i32 noundef 25, ptr noundef nonnull %spec.select)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.768, ptr noundef nonnull %31)
+  %34 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %.not56 = icmp eq ptr %35, null
+  br i1 %.not56, label %39, label %36
 
-38:                                               ; preds = %._crit_edge62, %4, %35, %16
-  %.0 = phi i32 [ 11, %16 ], [ %37, %35 ], [ 10, %4 ], [ 12, %._crit_edge62 ]
+36:                                               ; preds = %30
+  %37 = tail call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef 12)
+  %38 = tail call i32 %35(ptr noundef %37, ptr noundef %3, ptr noundef %6)
+  br label %39
+
+39:                                               ; preds = %30, %4, %36, %16
+  %.0 = phi i32 [ 11, %16 ], [ %38, %36 ], [ 10, %4 ], [ 12, %30 ]
   ret i32 %.0
 }
 

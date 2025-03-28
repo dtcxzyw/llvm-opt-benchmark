@@ -5256,7 +5256,7 @@ _ZNSt5queueIPKN5clang4ento12ExplodedNodeESt5dequeIS4_SaIS4_EEE3popEv.exit.i.i: ;
 
 _ZNSt5queueIPKN5clang4ento12ExplodedNodeESt5dequeIS4_SaIS4_EEE3popEv.exit..loopexit_crit_edge.i.i: ; preds = %_ZNSt5queueIPKN5clang4ento12ExplodedNodeESt5dequeIS4_SaIS4_EEE3popEv.exit.i.i
   %.pre78.i.i = load ptr, ptr %108, align 8, !tbaa !1051, !noalias !1006
-  br label %.loopexit.i.i
+  br label %.loopexit.i.i, !llvm.loop !1050
 
 193:                                              ; preds = %_ZNSt5queueIPKN5clang4ento12ExplodedNodeESt5dequeIS4_SaIS4_EEE3popEv.exit.i.i
   %194 = load i8, ptr %82, align 4, !tbaa !201, !range !114, !noalias !1006, !noundef !196

@@ -172,11 +172,14 @@ define noundef i32 @_ZNK6icu_7721DictionaryBreakEngine10findBreaksEP5UTextiiRNS_
   %23 = tail call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %24 = trunc i64 %23 to i32
   %25 = icmp sgt i32 %3, %24
-  br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !9
+  br i1 %25, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !9
 
-.critedge:                                        ; preds = %.lr.ph31, %.lr.ph, %.lr.ph.preheader, %10
-  %.lcssa24 = phi i64 [ %16, %10 ], [ %16, %.lr.ph.preheader ], [ %23, %.lr.ph ], [ %23, %.lr.ph31 ]
-  %.lcssa = phi i32 [ %17, %10 ], [ %17, %.lr.ph.preheader ], [ %24, %.lr.ph ], [ %24, %.lr.ph31 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph31
+  br label %.critedge, !llvm.loop !9
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %10
+  %.lcssa24 = phi i64 [ %16, %10 ], [ %23, %..critedge.loopexit_crit_edge ], [ %16, %.lr.ph.preheader ], [ %23, %.lr.ph ]
+  %.lcssa = phi i32 [ %17, %10 ], [ %24, %..critedge.loopexit_crit_edge ], [ %17, %.lr.ph.preheader ], [ %24, %.lr.ph ]
   %26 = load ptr, ptr %0, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8

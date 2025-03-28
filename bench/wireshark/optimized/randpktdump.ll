@@ -562,10 +562,13 @@ define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef %0) unnamed_
   %29 = getelementptr ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not12 = icmp eq ptr %30, null
-  br i1 %.not12, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not12, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !11
 
-.critedge:                                        ; preds = %.lr.ph20, %.lr.ph, %.lr.ph.preheader, %9
-  %.lcssa = phi ptr [ %16, %9 ], [ %16, %.lr.ph.preheader ], [ %27, %.lr.ph ], [ %27, %.lr.ph20 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph20
+  br label %.critedge, !llvm.loop !11
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %9
+  %.lcssa = phi ptr [ %16, %9 ], [ %27, %..critedge.loopexit_crit_edge ], [ %16, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   call void @g_strfreev(ptr noundef %.lcssa)
   %31 = load ptr, ptr %4, align 8
   call void @g_strfreev(ptr noundef %31)

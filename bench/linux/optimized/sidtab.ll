@@ -1310,7 +1310,7 @@ define dso_local void @sidtab_destroy(ptr noundef %0) local_unnamed_addr #4 alig
 
 ._crit_edge:                                      ; preds = %28
   %.pre = load ptr, ptr %0, align 8
-  br label %split
+  br label %split, !llvm.loop !24
 
 split:                                            ; preds = %.preheader, %._crit_edge
   %31 = phi ptr [ %.pre, %._crit_edge ], [ %26, %.preheader ]

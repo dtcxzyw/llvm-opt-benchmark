@@ -907,9 +907,12 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %116 = ptrtoint ptr %115 to i64
   %117 = urem i64 %116, %100
   %.not19.i.i.i.i.i.i.i = icmp eq i64 %117, %101
-  br i1 %.not19.i.i.i.i.i.i.i, label %110, label %.loopexit.i.i, !llvm.loop !112
+  br i1 %.not19.i.i.i.i.i.i.i, label %110, label %..loopexit_crit_edge21.i.i.i.i.i.i.i, !llvm.loop !112
 
-.loopexit.i.i:                                    ; preds = %113, %.lr.ph.i.i.i.i.i.i.i, %91, %96
+..loopexit_crit_edge21.i.i.i.i.i.i.i:             ; preds = %113
+  br label %.loopexit.i.i, !llvm.loop !112
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i, %91, %..loopexit_crit_edge21.i.i.i.i.i.i.i, %96
   %118 = load ptr, ptr %51, align 8, !tbaa !89
   invoke void @_ZN5folly18threadlocal_detail14StaticMetaBase24ensureThreadEntryIsInSetEPNS0_11ThreadEntryERNS_12SynchronizedINS0_14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEERNS_9LockedPtrISA_NS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE2ELNSD_23SynchronizedMutexMethodE0EEEEE(ptr noundef nonnull align 8 dereferenceable(128) %118, ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(84) %65, ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %.loopexit14.i.i unwind label %119
@@ -1755,7 +1758,10 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   %100 = ptrtoint ptr %99 to i64
   %101 = urem i64 %100, %84
   %.not19.i.i.i.i.i = icmp eq i64 %101, %85
-  br i1 %.not19.i.i.i.i.i, label %94, label %.loopexit, !llvm.loop !112
+  br i1 %.not19.i.i.i.i.i, label %94, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !112
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %97
+  br label %.loopexit, !llvm.loop !112
 
 .loopexit39:                                      ; preds = %94, %77, %89
   %102 = getelementptr inbounds nuw i8, ptr %71, i64 24
@@ -1799,7 +1805,7 @@ _ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
   resume { ptr, i32 } %117
 
-.loopexit:                                        ; preds = %97, %.lr.ph.i.i.i.i.i, %76, %81
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %76, %..loopexit_crit_edge21.i.i.i.i.i, %81
   %118 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %119 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %120 = load ptr, ptr %119, align 8, !tbaa !164
@@ -2959,9 +2965,12 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly18threadlocal_detail14ThreadEnt
   %32 = ptrtoint ptr %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i, label %26, label %.loopexit, !llvm.loop !112
+  br i1 %.not19.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !112
 
-.loopexit:                                        ; preds = %29, %.lr.ph.i.i.i.i, %8, %13
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
+  br label %.loopexit, !llvm.loop !112
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !169
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3065,9 +3074,12 @@ _ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE9push_backERKS3_.
   %85 = ptrtoint ptr %84 to i64
   %86 = urem i64 %85, %69
   %.not19.i.i.i.i6 = icmp eq i64 %86, %70
-  br i1 %.not19.i.i.i.i6, label %79, label %.loopexit.i.i, !llvm.loop !112
+  br i1 %.not19.i.i.i.i6, label %79, label %..loopexit_crit_edge21.i.i.i.i7, !llvm.loop !112
 
-.loopexit.i.i:                                    ; preds = %82, %.lr.ph.i.i.i.i3, %_ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE9push_backERKS3_.exit
+..loopexit_crit_edge21.i.i.i.i7:                  ; preds = %82
+  br label %.loopexit.i.i, !llvm.loop !112
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i3, %..loopexit_crit_edge21.i.i.i.i7, %_ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE9push_backERKS3_.exit
   %87 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
   store ptr null, ptr %87, align 8, !tbaa !105
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -5491,9 +5503,12 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %116 = ptrtoint ptr %115 to i64
   %117 = urem i64 %116, %100
   %.not19.i.i.i.i.i.i.i = icmp eq i64 %117, %101
-  br i1 %.not19.i.i.i.i.i.i.i, label %110, label %.loopexit.i.i, !llvm.loop !112
+  br i1 %.not19.i.i.i.i.i.i.i, label %110, label %..loopexit_crit_edge21.i.i.i.i.i.i.i, !llvm.loop !112
 
-.loopexit.i.i:                                    ; preds = %113, %.lr.ph.i.i.i.i.i.i.i, %91, %96
+..loopexit_crit_edge21.i.i.i.i.i.i.i:             ; preds = %113
+  br label %.loopexit.i.i, !llvm.loop !112
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i, %91, %..loopexit_crit_edge21.i.i.i.i.i.i.i, %96
   %118 = load ptr, ptr %51, align 8, !tbaa !89
   invoke void @_ZN5folly18threadlocal_detail14StaticMetaBase24ensureThreadEntryIsInSetEPNS0_11ThreadEntryERNS_12SynchronizedINS0_14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEERNS_9LockedPtrISA_NS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE2ELNSD_23SynchronizedMutexMethodE0EEEEE(ptr noundef nonnull align 8 dereferenceable(128) %118, ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(84) %65, ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %.loopexit14.i.i unwind label %119

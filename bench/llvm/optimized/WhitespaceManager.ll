@@ -6766,12 +6766,15 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit169: ; preds = %244
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 24
   %344 = load i32, ptr %343, align 8, !tbaa !24
   %.not145 = icmp eq i32 %344, 0
-  br i1 %.not145, label %.critedge6, label %.lr.ph217, !llvm.loop !409
+  br i1 %.not145, label %..critedge6.loopexit_crit_edge, label %.lr.ph217, !llvm.loop !409
 
-.critedge6:                                       ; preds = %.lr.ph, %.lr.ph217, %.lr.ph217.preheader, %301, %332
-  %.2126.lcssa = phi i32 [ %.0124228, %332 ], [ %.0124228, %301 ], [ %.0124228, %.lr.ph217.preheader ], [ %340, %.lr.ph217 ], [ %340, %.lr.ph ]
-  %.0114.lcssa = phi i8 [ 0, %332 ], [ 0, %301 ], [ 0, %.lr.ph217.preheader ], [ 1, %.lr.ph217 ], [ 1, %.lr.ph ]
-  %.lcssa198 = phi ptr [ %303, %332 ], [ %303, %301 ], [ %303, %.lr.ph217.preheader ], [ %342, %.lr.ph217 ], [ %342, %.lr.ph ]
+..critedge6.loopexit_crit_edge:                   ; preds = %.lr.ph
+  br label %.critedge6, !llvm.loop !409
+
+.critedge6:                                       ; preds = %.lr.ph217, %.lr.ph217.preheader, %..critedge6.loopexit_crit_edge, %301, %332
+  %.2126.lcssa = phi i32 [ %.0124228, %332 ], [ %.0124228, %301 ], [ %340, %..critedge6.loopexit_crit_edge ], [ %.0124228, %.lr.ph217.preheader ], [ %340, %.lr.ph217 ]
+  %.0114.lcssa = phi i8 [ 0, %332 ], [ 0, %301 ], [ 1, %..critedge6.loopexit_crit_edge ], [ 0, %.lr.ph217.preheader ], [ 1, %.lr.ph217 ]
+  %.lcssa198 = phi ptr [ %303, %332 ], [ %303, %301 ], [ %342, %..critedge6.loopexit_crit_edge ], [ %303, %.lr.ph217.preheader ], [ %342, %.lr.ph217 ]
   %345 = load ptr, ptr %.lcssa198, align 8, !tbaa !11
   %.not146 = icmp ne ptr %345, %297
   %346 = sext i1 %.not146 to i32

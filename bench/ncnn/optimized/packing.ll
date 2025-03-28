@@ -955,7 +955,7 @@ define internal void @_ZNK4ncnn7Packing7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
 
 ..critedge.loopexit_crit_edge:                    ; preds = %60
   %.pre.pre = load i32, ptr %4, align 4, !tbaa !34
-  br label %.critedge
+  br label %.critedge, !llvm.loop !55
 
 .critedge:                                        ; preds = %.lr.ph, %..critedge.loopexit_crit_edge, %.lr.ph50.split
   %79 = phi i32 [ %46, %.lr.ph50.split ], [ %.pre.pre, %..critedge.loopexit_crit_edge ], [ %.pre.pre67, %.lr.ph ]
@@ -1160,7 +1160,7 @@ _ZN4ncnn3MatD2Ev.exit54:                          ; preds = %.lr.ph89, %_ZN4ncnn
 
 .noexc53..critedge.loopexit_crit_edge:            ; preds = %.noexc53
   %.pre.pre = load i32, ptr %5, align 4, !tbaa !34
-  br label %.critedge
+  br label %.critedge, !llvm.loop !68
 
 .critedge:                                        ; preds = %.lr.ph, %.noexc53..critedge.loopexit_crit_edge, %.lr.ph87.split
   %104 = phi i32 [ %67, %.lr.ph87.split ], [ %.pre.pre, %.noexc53..critedge.loopexit_crit_edge ], [ %.pre.pre109, %.lr.ph ]
@@ -1378,7 +1378,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader.lr.ph, %
 
 .noexc59..critedge.loopexit_crit_edge:            ; preds = %.noexc59
   %.pre.pre = load i32, ptr %6, align 4, !tbaa !34
-  br label %.critedge
+  br label %.critedge, !llvm.loop !79
 
 .critedge:                                        ; preds = %.lr.ph, %.noexc59..critedge.loopexit_crit_edge, %.lr.ph93.split
   %124 = phi i32 [ %83, %.lr.ph93.split ], [ %.pre.pre, %.noexc59..critedge.loopexit_crit_edge ], [ %.pre.pre118, %.lr.ph ]

@@ -37207,10 +37207,13 @@ for.body:                                         ; preds = %land.rhs.lr.ph, %la
   %28 = sext i32 %27 to i64
   %cmp18 = icmp slt i64 %indvars.iv.next, %28
   %or.cond = select i1 %cmp16, i1 %cmp18, i1 false
-  br i1 %or.cond, label %land.rhs, label %for.end, !llvm.loop !600
+  br i1 %or.cond, label %land.rhs, label %for.body.for.end.loopexit_crit_edge, !llvm.loop !600
 
-for.end:                                          ; preds = %for.body, %land.rhs, %land.rhs.lr.ph, %if.end
-  %29 = phi i32 [ %12, %if.end ], [ %12, %land.rhs.lr.ph ], [ %27, %land.rhs ], [ %27, %for.body ]
+for.body.for.end.loopexit_crit_edge:              ; preds = %for.body
+  br label %for.end, !llvm.loop !600
+
+for.end:                                          ; preds = %land.rhs, %land.rhs.lr.ph, %for.body.for.end.loopexit_crit_edge, %if.end
+  %29 = phi i32 [ %12, %if.end ], [ %27, %for.body.for.end.loopexit_crit_edge ], [ %12, %land.rhs.lr.ph ], [ %27, %land.rhs ]
   %value_count_ = getelementptr inbounds nuw i8, ptr %result, i64 4
   store i32 %29, ptr %value_count_, align 4
   %30 = load i32, ptr %current_size_.i.i.i.i, align 8
@@ -82426,16 +82429,16 @@ while.cond.preheader.i.i.i.i:                     ; preds = %if.end.i.i.i.i, %wh
   %9 = load i32, ptr %8, align 4, !noalias !1775
   %10 = load i32, ptr %__begin5.sroa.0.021.i.i.i.i, align 4, !noalias !1775
   %cmp13.i.i.i.i = icmp slt i32 %9, %10
-  %.pre9.i.i.i = load ptr, ptr %7, align 8, !noalias !1775
+  %.pre11.i.i.i = load ptr, ptr %7, align 8, !noalias !1775
   br i1 %cmp13.i.i.i.i, label %land.rhs.i.preheader.i.i.i, label %while.end.ithread-pre-split.i.i.i
 
 land.rhs.i.preheader.i.i.i:                       ; preds = %while.cond.preheader.i.i.i.i
-  %11 = load i32, ptr %.pre9.i.i.i, align 4, !noalias !1775
+  %11 = load i32, ptr %.pre11.i.i.i, align 4, !noalias !1775
   %cmp12.i1.i.i.i = icmp sgt i32 %11, 0
   br i1 %cmp12.i1.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %invoke.cont16.i.i.i.i
-  %12 = load i32, ptr %.pre.pre.i.i.i, align 4, !noalias !1775
+  %12 = load i32, ptr %20, align 4, !noalias !1775
   %cmp12.i.i.i.i = icmp sgt i32 %12, 0
   br i1 %cmp12.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !1778
 
@@ -82461,8 +82464,8 @@ invoke.cont16.i.i.i.i:                            ; preds = %invoke.cont14.i.i.i
   %18 = load i32, ptr %17, align 4, !noalias !1775
   %19 = load i32, ptr %__begin5.sroa.0.021.i.i.i.i, align 4, !noalias !1775
   %cmp.i.i.i.i = icmp slt i32 %18, %19
-  %.pre.pre.i.i.i = load ptr, ptr %7, align 8, !noalias !1775
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %while.end.ithread-pre-split.i.i.i, !llvm.loop !1778
+  %20 = load ptr, ptr %7, align 8, !noalias !1775
+  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %invoke.cont16.i.while.end.i.loopexit_crit_edge.i.i.i, !llvm.loop !1778
 
 lpad.loopexit.i.i.i.i:                            ; preds = %invoke.cont14.i.i.i.i, %while.body.i.i.i.i
   %lpad.loopexit6.i.i.i.i = landingpad { ptr, i32 }
@@ -82479,29 +82482,32 @@ lpad.i.i.i.i:                                     ; preds = %lpad.loopexit.split
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %id_list.i.i.i.i) #38
   resume { ptr, i32 } %lpad.phi.i.i.i.i
 
-while.end.ithread-pre-split.i.i.i:                ; preds = %invoke.cont16.i.i.i.i, %while.cond.preheader.i.i.i.i
-  %.ph.i.i.i = phi ptr [ %.pre9.i.i.i, %while.cond.preheader.i.i.i.i ], [ %.pre.pre.i.i.i, %invoke.cont16.i.i.i.i ]
-  %separator.1.lcssa.i.ph.i.i.i = phi ptr [ %separator.022.i.i.i.i, %while.cond.preheader.i.i.i.i ], [ @.str.104, %invoke.cont16.i.i.i.i ]
-  %.lcssa9.i.ph.i.i.i = phi ptr [ %8, %while.cond.preheader.i.i.i.i ], [ %17, %invoke.cont16.i.i.i.i ]
-  %.lcssa.i.ph.i.i.i = phi i32 [ %9, %while.cond.preheader.i.i.i.i ], [ %18, %invoke.cont16.i.i.i.i ]
+invoke.cont16.i.while.end.i.loopexit_crit_edge.i.i.i: ; preds = %invoke.cont16.i.i.i.i
+  br label %while.end.ithread-pre-split.i.i.i, !llvm.loop !1778
+
+while.end.ithread-pre-split.i.i.i:                ; preds = %invoke.cont16.i.while.end.i.loopexit_crit_edge.i.i.i, %while.cond.preheader.i.i.i.i
+  %.ph.i.i.i = phi ptr [ %20, %invoke.cont16.i.while.end.i.loopexit_crit_edge.i.i.i ], [ %.pre11.i.i.i, %while.cond.preheader.i.i.i.i ]
+  %separator.1.lcssa.i.ph.i.i.i = phi ptr [ @.str.104, %invoke.cont16.i.while.end.i.loopexit_crit_edge.i.i.i ], [ %separator.022.i.i.i.i, %while.cond.preheader.i.i.i.i ]
+  %.lcssa9.i.ph.i.i.i = phi ptr [ %17, %invoke.cont16.i.while.end.i.loopexit_crit_edge.i.i.i ], [ %8, %while.cond.preheader.i.i.i.i ]
+  %.lcssa.i.ph.i.i.i = phi i32 [ %18, %invoke.cont16.i.while.end.i.loopexit_crit_edge.i.i.i ], [ %9, %while.cond.preheader.i.i.i.i ]
   %.pr.i.i.i = load i32, ptr %.ph.i.i.i, align 4, !noalias !1775
   br label %while.end.i.i.i.i
 
 while.end.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i, %while.end.ithread-pre-split.i.i.i, %land.rhs.i.preheader.i.i.i
-  %20 = phi i32 [ %.pr.i.i.i, %while.end.ithread-pre-split.i.i.i ], [ %11, %land.rhs.i.preheader.i.i.i ], [ %12, %land.rhs.i.i.i.i ]
+  %21 = phi i32 [ %.pr.i.i.i, %while.end.ithread-pre-split.i.i.i ], [ %11, %land.rhs.i.preheader.i.i.i ], [ %12, %land.rhs.i.i.i.i ]
   %separator.1.lcssa.i.i.i.i = phi ptr [ %separator.1.lcssa.i.ph.i.i.i, %while.end.ithread-pre-split.i.i.i ], [ %separator.022.i.i.i.i, %land.rhs.i.preheader.i.i.i ], [ @.str.104, %land.rhs.i.i.i.i ]
   %.lcssa9.i.i.i.i = phi ptr [ %.lcssa9.i.ph.i.i.i, %while.end.ithread-pre-split.i.i.i ], [ %8, %land.rhs.i.preheader.i.i.i ], [ %17, %land.rhs.i.i.i.i ]
   %.lcssa.i.i.i.i = phi i32 [ %.lcssa.i.ph.i.i.i, %while.end.ithread-pre-split.i.i.i ], [ %9, %land.rhs.i.preheader.i.i.i ], [ %18, %land.rhs.i.i.i.i ]
-  %cmp18.i.i.i.i = icmp eq i32 %20, 0
+  %cmp18.i.i.i.i = icmp eq i32 %21, 0
   br i1 %cmp18.i.i.i.i, label %for.end.i.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %while.end.i.i.i.i
   %to.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin5.sroa.0.021.i.i.i.i, i64 4
-  %21 = load i32, ptr %to.i.i.i.i, align 4, !noalias !1775
-  %cmp.i5.i.i.i.i = icmp slt i32 %.lcssa.i.i.i.i, %21
+  %22 = load i32, ptr %to.i.i.i.i, align 4, !noalias !1775
+  %cmp.i5.i.i.i.i = icmp slt i32 %.lcssa.i.i.i.i, %22
   %__b.__a.i.i.i.i.i = select i1 %cmp.i5.i.i.i.i, ptr %to.i.i.i.i, ptr %.lcssa9.i.i.i.i
-  %22 = load i32, ptr %__b.__a.i.i.i.i.i, align 4, !noalias !1775
-  store i32 %22, ptr %.lcssa9.i.i.i.i, align 4, !noalias !1775
+  %23 = load i32, ptr %__b.__a.i.i.i.i.i, align 4, !noalias !1775
+  store i32 %23, ptr %.lcssa9.i.i.i.i, align 4, !noalias !1775
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin5.sroa.0.021.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %.val.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i, label %for.end.i.i.i.i, label %while.cond.preheader.i.i.i.i

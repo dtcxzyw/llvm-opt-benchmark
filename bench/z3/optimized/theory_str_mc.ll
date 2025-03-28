@@ -15401,7 +15401,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 
 _ZN8rationalD2Ev.exit..critedge_crit_edge:        ; preds = %_ZN8rationalD2Ev.exit
   %.pre1229 = load ptr, ptr %1108, align 8, !tbaa !27
-  br label %.critedge
+  br label %.critedge, !llvm.loop !289
 
 1273:                                             ; preds = %1267, %1245
   %.pn189 = phi { ptr, i32 } [ %1246, %1245 ], [ %1268, %1267 ]
@@ -38526,7 +38526,7 @@ _ZNK8uint_set8containsEj.exit.thread.i.i:         ; preds = %_ZNK6vectorIjLb0EjE
 
 ._ZN8uint_set8iterator8scan_idxEv.exit.i.thread_crit_edge: ; preds = %250
   %.pre205 = lshr i32 %.sroa.5.12.extract.trunc, 5
-  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i
+  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i, !llvm.loop !698
 
 _ZN8uint_set8iterator8scan_idxEv.exit.i:          ; preds = %237, %_ZNK8uint_set8containsEj.exit.thread.us.i.i, %.loopexit162
   %.sroa.5.2 = phi i64 [ %.sroa.5.8.insert.insert, %.loopexit162 ], [ %.sroa.5.8.insert.insert148, %237 ], [ %.sroa.5.10, %_ZNK8uint_set8containsEj.exit.thread.us.i.i ]

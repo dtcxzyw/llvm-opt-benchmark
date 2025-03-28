@@ -3543,7 +3543,7 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %153, %158
 
 .preheader188:                                    ; preds = %161
   %.not163207 = icmp eq ptr %163, null
-  br i1 %.not163207, label %.critedge172.backedge, label %.lr.ph209
+  br i1 %.not163207, label %.critedge172.backedge, label %.lr.ph209, !llvm.loop !124
 
 .critedge172.backedge:                            ; preds = %170, %.preheader188, %._crit_edge, %.critedge, %174
   br label %.critedge172, !llvm.loop !124

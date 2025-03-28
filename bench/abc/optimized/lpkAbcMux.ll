@@ -374,10 +374,13 @@ define ptr @Lpk_MuxSplit(ptr noundef readnone captures(none) %0, ptr noundef %1,
 33:                                               ; preds = %30
   %34 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %34, 32
-  br i1 %exitcond.not.i, label %Kit_WordFindFirstBit.exit, label %30, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.Kit_WordFindFirstBit.exit_crit_edge, label %30, !llvm.loop !21
 
-Kit_WordFindFirstBit.exit:                        ; preds = %30, %33
-  %.06.i = phi i32 [ -1, %33 ], [ %.07.i, %30 ]
+.Kit_WordFindFirstBit.exit_crit_edge:             ; preds = %33
+  br label %Kit_WordFindFirstBit.exit, !llvm.loop !21
+
+Kit_WordFindFirstBit.exit:                        ; preds = %30, %.Kit_WordFindFirstBit.exit_crit_edge
+  %.06.i = phi i32 [ -1, %.Kit_WordFindFirstBit.exit_crit_edge ], [ %.07.i, %30 ]
   %35 = shl nuw i32 1, %.06.i
   %36 = or i32 %35, %29
   store i32 %36, ptr %27, align 4, !tbaa !8

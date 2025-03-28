@@ -4344,11 +4344,14 @@ define hidden void @_ZN10duckdb_re26Regexp10ParseState10DoCollapseENS_8RegexpOpE
   %.pn55 = phi i32 [ %17, %14 ], [ 1, %.lr.ph103 ]
   %.1 = add nuw nsw i32 %.pn55, %.071101
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !176
+  br i1 %.not, label %..critedge_crit_edge, label %.lr.ph, !llvm.loop !176
 
-.critedge:                                        ; preds = %.lr.ph, %18, %.lr.ph.preheader
-  %.040.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ null, %18 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %18 ], [ %.1, %.lr.ph ]
+..critedge_crit_edge:                             ; preds = %18
+  br label %.critedge, !llvm.loop !176
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge_crit_edge
+  %.040.lcssa = phi ptr [ null, %..critedge_crit_edge ], [ null, %.lr.ph.preheader ], [ %12, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %.1, %..critedge_crit_edge ], [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !23
   %21 = icmp eq ptr %20, %.040.lcssa
@@ -4482,12 +4485,15 @@ _ZN10duckdb_re216CharClassBuilderD2Ev.exit.i:     ; preds = %.noexc
 74:                                               ; preds = %._crit_edge, %70
   %.2 = phi i32 [ %71, %70 ], [ %.147.lcssa, %._crit_edge ]
   %.not52 = icmp eq ptr %33, null
-  br i1 %.not52, label %.critedge2, label %.lr.ph86, !llvm.loop !177
+  br i1 %.not52, label %..critedge2.loopexit_crit_edge, label %.lr.ph86, !llvm.loop !177
 
-.critedge2:                                       ; preds = %74, %.lr.ph86, %.lr.ph86.preheader, %.thread
-  %75 = phi ptr [ %22, %.thread ], [ %25, %.lr.ph86.preheader ], [ %25, %.lr.ph86 ], [ %25, %74 ]
-  %.0.lcssa98100 = phi i32 [ 0, %.thread ], [ %.0.lcssa, %.lr.ph86.preheader ], [ %.0.lcssa, %.lr.ph86 ], [ %.0.lcssa, %74 ]
-  %.141.lcssa = phi ptr [ null, %.thread ], [ null, %.lr.ph86.preheader ], [ null, %74 ], [ %33, %.lr.ph86 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %74
+  br label %.critedge2, !llvm.loop !177
+
+.critedge2:                                       ; preds = %.lr.ph86, %.lr.ph86.preheader, %..critedge2.loopexit_crit_edge, %.thread
+  %75 = phi ptr [ %22, %.thread ], [ %25, %..critedge2.loopexit_crit_edge ], [ %25, %.lr.ph86.preheader ], [ %25, %.lr.ph86 ]
+  %.0.lcssa98100 = phi i32 [ 0, %.thread ], [ %.0.lcssa, %..critedge2.loopexit_crit_edge ], [ %.0.lcssa, %.lr.ph86.preheader ], [ %.0.lcssa, %.lr.ph86 ]
+  %.141.lcssa = phi ptr [ null, %.thread ], [ null, %..critedge2.loopexit_crit_edge ], [ null, %.lr.ph86.preheader ], [ %33, %.lr.ph86 ]
   %76 = load i32, ptr %0, align 8, !tbaa !7
   %77 = invoke noundef ptr @_ZN10duckdb_re26Regexp17ConcatOrAlternateENS_8RegexpOpEPPS0_iNS0_10ParseFlagsEb(i32 noundef %1, ptr noundef nonnull %75, i32 noundef %.0.lcssa98100, i32 noundef %76, i1 noundef zeroext true)
           to label %78 unwind label %84

@@ -787,7 +787,7 @@ _ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %5
   %.pre = load i8, ptr %4, align 1, !tbaa !38, !range !31
   %.pre81 = load i32, ptr %11, align 4
   %67 = trunc nuw i8 %.pre to i1
-  br label %.loopexit84
+  br label %.loopexit84, !llvm.loop !39
 
 .loopexit84:                                      ; preds = %60, %._crit_edge
   %68 = phi i32 [ %.pre81, %._crit_edge ], [ %39, %60 ]

@@ -9557,7 +9557,7 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
 
 .min_heap_shift_down_.exit.loopexit_crit_edge.i:  ; preds = %131
   %.pre.pre.i = load ptr, ptr %38, align 8
-  br label %min_heap_shift_down_.exit.i
+  br label %min_heap_shift_down_.exit.i, !llvm.loop !39
 
 min_heap_shift_down_.exit.i:                      ; preds = %129, %124, %.min_heap_shift_down_.exit.loopexit_crit_edge.i, %91
   %135 = phi ptr [ %42, %91 ], [ %.pre.pre.i, %.min_heap_shift_down_.exit.loopexit_crit_edge.i ], [ %.pre.i.i, %124 ], [ %.pre.i.i, %129 ]

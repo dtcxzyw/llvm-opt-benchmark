@@ -8083,18 +8083,18 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19
   br i1 %52, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit", label %58
 
 55:                                               ; preds = %58
-  %.val13.i.i.i.i.i.i.i = load ptr, ptr %17, align 8, !alias.scope !2246, !noalias !2247, !nonnull !9, !noundef !9
+  %.val12.i.i.i.i.i.i.i = load ptr, ptr %17, align 8, !alias.scope !2246, !noalias !2247, !nonnull !9, !noundef !9
   %56 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %.val.i.i.i.i.i.i.i = load ptr, ptr %56, align 8, !alias.scope !2244, !noalias !2245, !nonnull !9, !noundef !9
-  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.val13.i.i.i.i.i.i.i, i64 %.val12.i.i.i.i.i.i.i), !alias.scope !2248, !noalias !2252
+  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.val12.i.i.i.i.i.i.i, i64 %.val11.i.i.i.i.i.i.i), !alias.scope !2248, !noalias !2252
   %57 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %57, label %60, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %.val12.i.i.i.i.i.i.i = load i64, ptr %59, align 8, !alias.scope !2244, !noalias !2245, !noundef !9
-  %.val14.i.i.i.i.i.i.i = load i64, ptr %16, align 8, !alias.scope !2246, !noalias !2247, !noundef !9
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val12.i.i.i.i.i.i.i, %.val14.i.i.i.i.i.i.i
+  %.val11.i.i.i.i.i.i.i = load i64, ptr %59, align 8, !alias.scope !2244, !noalias !2245, !noundef !9
+  %.val13.i.i.i.i.i.i.i = load i64, ptr %16, align 8, !alias.scope !2246, !noalias !2247, !noundef !9
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val11.i.i.i.i.i.i.i, %.val13.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %55, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
 
 60:                                               ; preds = %55, %53
@@ -8151,8 +8151,8 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19
   %83 = load i64, ptr %82, align 8, !alias.scope !2286, !noalias !2287, !noundef !9
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %85 = load i64, ptr %84, align 8, !alias.scope !2288, !noalias !2289, !noundef !9
-  %.not.i.i.i19.i.i.i.i.i.i.i = icmp eq i64 %83, %85
-  br i1 %.not.i.i.i19.i.i.i.i.i.i.i, label %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he459ef8c563e75e2E.exit.i.i.i.i.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
+  %.not.i.i.i18.i.i.i.i.i.i.i = icmp eq i64 %83, %85
+  br i1 %.not.i.i.i18.i.i.i.i.i.i.i, label %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he459ef8c563e75e2E.exit.i.i.i.i.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
 
 "_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he459ef8c563e75e2E.exit.i.i.i.i.i.i.i": ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -8202,8 +8202,8 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19
   %107 = load i64, ptr %106, align 8, !alias.scope !2310, !noalias !2311, !noundef !9
   %108 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %109 = load i64, ptr %108, align 8, !alias.scope !2315, !noalias !2316, !noundef !9
-  %.not.i.i.i = icmp eq i64 %107, %109
-  br i1 %.not.i.i.i, label %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he459ef8c563e75e2E.exit", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
+  %.not.i.i.i8 = icmp eq i64 %107, %109
+  br i1 %.not.i.i.i8, label %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he459ef8c563e75e2E.exit", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
 
 "_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he459ef8c563e75e2E.exit": ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -8260,25 +8260,25 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19
 
 135:                                              ; preds = %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcd598fdd71cb0f69E.exit"
   %136 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.val15.i.i.i.i.i.i.i = load ptr, ptr %136, align 8, !alias.scope !2244, !noalias !2245, !nonnull !9, !noundef !9
+  %.val14.i.i.i.i.i.i.i = load ptr, ptr %136, align 8, !alias.scope !2244, !noalias !2245, !nonnull !9, !noundef !9
   %137 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %.val16.i.i.i.i.i.i.i = load i64, ptr %137, align 8, !alias.scope !2244, !noalias !2245, !noundef !9
-  %.val17.i.i.i.i.i.i.i = load ptr, ptr %26, align 8, !alias.scope !2246, !noalias !2299, !nonnull !9, !noundef !9
-  %.val18.i.i.i.i.i.i.i = load i64, ptr %27, align 8, !alias.scope !2246, !noalias !2299, !noundef !9
+  %.val15.i.i.i.i.i.i.i = load i64, ptr %137, align 8, !alias.scope !2244, !noalias !2245, !noundef !9
+  %.val16.i.i.i.i.i.i.i = load ptr, ptr %26, align 8, !alias.scope !2246, !noalias !2299, !nonnull !9, !noundef !9
+  %.val17.i.i.i.i.i.i.i = load i64, ptr %27, align 8, !alias.scope !2246, !noalias !2299, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !2344), !noalias !2264
   call void @llvm.experimental.noalias.scope.decl(metadata !2347), !noalias !2264
-  %.not.i.i = icmp eq i64 %.val16.i.i.i.i.i.i.i, %.val18.i.i.i.i.i.i.i
+  %.not.i.i = icmp eq i64 %.val15.i.i.i.i.i.i.i, %.val17.i.i.i.i.i.i.i
   br i1 %.not.i.i, label %.preheader.split.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
 
 .preheader.split.i.i:                             ; preds = %135, %_ZN4core3cmp9PartialEq2ne17he2e022650f4c6f3cE.llvm.16534319955770480420.exit.i.i
   %.sroa.01.0.i.i = phi i64 [ %139, %_ZN4core3cmp9PartialEq2ne17he2e022650f4c6f3cE.llvm.16534319955770480420.exit.i.i ], [ 0, %135 ]
-  %exitcond.not.i.i = icmp eq i64 %.sroa.01.0.i.i, %.val16.i.i.i.i.i.i.i
+  %exitcond.not.i.i = icmp eq i64 %.sroa.01.0.i.i, %.val15.i.i.i.i.i.i.i
   br i1 %exitcond.not.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h68e1c6fd5c0bde97E.exit", label %138
 
 138:                                              ; preds = %.preheader.split.i.i
   %139 = add i64 %.sroa.01.0.i.i, 1
-  %140 = getelementptr inbounds [0 x { { { { i8, [23 x i8] } } }, i32, i8, [3 x i8] }], ptr %.val15.i.i.i.i.i.i.i, i64 0, i64 %.sroa.01.0.i.i
-  %141 = getelementptr inbounds [0 x { { { { i8, [23 x i8] } } }, i32, i8, [3 x i8] }], ptr %.val17.i.i.i.i.i.i.i, i64 0, i64 %.sroa.01.0.i.i
+  %140 = getelementptr inbounds [0 x { { { { i8, [23 x i8] } } }, i32, i8, [3 x i8] }], ptr %.val14.i.i.i.i.i.i.i, i64 0, i64 %.sroa.01.0.i.i
+  %141 = getelementptr inbounds [0 x { { { { i8, [23 x i8] } } }, i32, i8, [3 x i8] }], ptr %.val16.i.i.i.i.i.i.i, i64 0, i64 %.sroa.01.0.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2349), !noalias !2264
   call void @llvm.experimental.noalias.scope.decl(metadata !2352), !noalias !2264
   call void @llvm.experimental.noalias.scope.decl(metadata !2354), !noalias !2264
@@ -8299,8 +8299,8 @@ _ZN4core3cmp9PartialEq2ne17he2e022650f4c6f3cE.llvm.16534319955770480420.exit.i.i
   %150 = load i8, ptr %149, align 4, !range !438, !alias.scope !2359, !noalias !2360, !noundef !9
   %151 = getelementptr inbounds nuw i8, ptr %141, i64 28
   %152 = load i8, ptr %151, align 4, !range !438, !alias.scope !2361, !noalias !2362, !noundef !9
-  %.not.i.i.not.i.i = icmp eq i8 %150, %152
-  br i1 %.not.i.i.not.i.i, label %.preheader.split.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
+  %.not10.i.i = icmp eq i8 %150, %152
+  br i1 %.not10.i.i, label %.preheader.split.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h68e1c6fd5c0bde97E.exit": ; preds = %.preheader.split.i.i
   %153 = getelementptr inbounds nuw i8, ptr %31, i64 96
@@ -8311,9 +8311,9 @@ _ZN4core3cmp9PartialEq2ne17he2e022650f4c6f3cE.llvm.16534319955770480420.exit.i.i
   %155 = getelementptr inbounds nuw i8, ptr %31, i64 204
   %156 = load i8, ptr %155, align 4, !range !438, !alias.scope !2244, !noalias !2245, !noundef !9
   %157 = load i8, ptr %29, align 4, !range !438, !alias.scope !2246, !noalias !2299, !noundef !9
-  %.not9.i.i.i.i.not.i.i.i = icmp eq i8 %156, %157
-  %spec.select.i.i.i = zext i1 %.not9.i.i.i.i.not.i.i.i to i32
-  %spec.select10.i.i.i = select i1 %.not9.i.i.i.i.not.i.i.i, i32 1, i32 2
+  %.not.i.i.i = icmp eq i8 %156, %157
+  %spec.select.i.i.i = zext i1 %.not.i.i.i to i32
+  %spec.select10.i.i.i = select i1 %.not.i.i.i, i32 1, i32 2
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit": ; preds = %_ZN4core3cmp9PartialEq2ne17he2e022650f4c6f3cE.llvm.16534319955770480420.exit.i.i, %147, %138, %135, %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he459ef8c563e75e2E.exit.thread", %105, %33, %42, %53, %54, %55, %58, %66, %67, %68, %71, %74, %81, %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he459ef8c563e75e2E.exit.i.i.i.i.i.i.i", %101, %102, %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he459ef8c563e75e2E.exit", %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcd598fdd71cb0f69E.exit", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h68e1c6fd5c0bde97E.exit", %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h3b8fa8a4cefc3135E.exit.i.i.i"
@@ -8326,15 +8326,15 @@ _ZN4core3cmp9PartialEq2ne17he2e022650f4c6f3cE.llvm.16534319955770480420.exit.i.i
   %162 = add i64 %161, 1
   store i64 %162, ptr %11, align 8, !noalias !2364
   %163 = icmp eq i32 %spec.select.pn.i.i.i, 2
-  br i1 %163, label %30, label %.split.loop.exit16
+  br i1 %163, label %30, label %.split.loop.exit17
 
-.split.loop.exit16:                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
+.split.loop.exit17:                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h314ec3f6e7b8b4d9E.exit"
   %164 = trunc i64 %35 to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %30, %.split.loop.exit16
-  %.sroa.3.0 = phi i32 [ %164, %.split.loop.exit16 ], [ undef, %30 ]
-  %.sroa.0.0 = phi i32 [ %spec.select.pn.i.i.i, %.split.loop.exit16 ], [ 2, %30 ]
+.split.loop.exit:                                 ; preds = %30, %.split.loop.exit17
+  %.sroa.3.0 = phi i32 [ %164, %.split.loop.exit17 ], [ undef, %30 ]
+  %.sroa.0.0 = phi i32 [ %spec.select.pn.i.i.i, %.split.loop.exit17 ], [ 2, %30 ]
   %165 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %166 = insertvalue { i32, i32 } %165, i32 %.sroa.3.0, 1
   ret { i32, i32 } %166

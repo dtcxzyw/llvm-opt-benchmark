@@ -829,8 +829,8 @@ define internal i32 @dissect_sigcomp_tcp(ptr noundef %0, ptr noundef %1, ptr nou
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %30
 
-30:                                               ; preds = %137, %.thread
-  %.1149 = phi i32 [ %., %.thread ], [ %.2150.lcssa, %137 ]
+30:                                               ; preds = %138, %.thread
+  %.1149 = phi i32 [ %., %.thread ], [ %.2150.lcssa, %138 ]
   %31 = load i32, ptr @proto_sigcomp, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %33 = load i32, ptr @ett_sigcomp, align 4
@@ -852,12 +852,15 @@ define internal i32 @dissect_sigcomp_tcp(ptr noundef %0, ptr noundef %1, ptr nou
   %45 = icmp slt i32 %.1149, %28
   br i1 %45, label %.lr.ph198, label %.outer._crit_edge
 
+..loopexit_crit_edge:                             ; preds = %117
+  br label %.outer.backedge, !llvm.loop !8
+
 .lr.ph198:                                        ; preds = %44, %.outer.backedge
   %.1.ph216 = phi i32 [ %.1.ph.be, %.outer.backedge ], [ 0, %44 ]
   %.2150.ph215 = phi i32 [ %.2150.ph.be, %.outer.backedge ], [ %.1149, %44 ]
   %46 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2150.ph215)
   %47 = icmp eq i8 %46, -1
-  br i1 %47, label %48, label %118
+  br i1 %47, label %48, label %119
 
 48:                                               ; preds = %.lr.ph198
   %49 = add nsw i32 %.2150.ph215, 1
@@ -887,9 +890,9 @@ define internal i32 @dissect_sigcomp_tcp(ptr noundef %0, ptr noundef %1, ptr nou
   %63 = add i32 %.1.ph216, 1
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %116, %100, %59, %127
-  %.2150.ph.be = phi i32 [ %129, %127 ], [ %62, %59 ], [ %101, %100 ], [ %117, %116 ]
-  %.1.ph.be = phi i32 [ %128, %127 ], [ %63, %59 ], [ %.2207, %100 ], [ %106, %116 ]
+.outer.backedge:                                  ; preds = %100, %..loopexit_crit_edge, %59, %128
+  %.2150.ph.be = phi i32 [ %130, %128 ], [ %62, %59 ], [ %118, %..loopexit_crit_edge ], [ %101, %100 ]
+  %.1.ph.be = phi i32 [ %129, %128 ], [ %63, %59 ], [ %106, %..loopexit_crit_edge ], [ %.2207, %100 ]
   %64 = icmp slt i32 %.2150.ph.be, %28
   br i1 %64, label %.lr.ph198, label %.outer._crit_edge, !llvm.loop !8
 
@@ -966,53 +969,53 @@ define internal i32 @dissect_sigcomp_tcp(ptr noundef %0, ptr noundef %1, ptr nou
   %.1147 = select i1 %.not161, i8 %57, i8 %104
   %.2207 = add i32 %.1.ph216, 1
   %.not222 = icmp eq i8 %.1147, 0
-  br i1 %.not222, label %.outer.backedge, label %.lr.ph212.preheader, !llvm.loop !8
+  br i1 %.not222, label %.outer.backedge, label %.lr.ph212, !llvm.loop !8
 
-.lr.ph212.preheader:                              ; preds = %100
+.lr.ph212:                                        ; preds = %100
   %105 = zext i8 %.1147 to i32
   %106 = add i32 %.2207, %105
-  br label %.lr.ph212
+  br label %107, !llvm.loop !8
 
-.lr.ph212:                                        ; preds = %.lr.ph212.preheader, %116
-  %.2210 = phi i32 [ %.2, %116 ], [ %.2207, %.lr.ph212.preheader ]
-  %.3208 = phi i32 [ %117, %116 ], [ %101, %.lr.ph212.preheader ]
-  %107 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.3208)
-  %108 = sext i32 %.2210 to i64
-  %109 = getelementptr i8, ptr %38, i64 %108
-  store i8 %107, ptr %109, align 1
-  %110 = load i32, ptr @udvm_print_detail_level, align 4
-  %111 = icmp sgt i32 %110, 2
-  br i1 %111, label %112, label %116
+107:                                              ; preds = %.lr.ph212, %117
+  %.2210 = phi i32 [ %.2207, %.lr.ph212 ], [ %.2, %117 ]
+  %.3208 = phi i32 [ %101, %.lr.ph212 ], [ %118, %117 ]
+  %108 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.3208)
+  %109 = sext i32 %.2210 to i64
+  %110 = getelementptr i8, ptr %38, i64 %109
+  store i8 %108, ptr %110, align 1
+  %111 = load i32, ptr @udvm_print_detail_level, align 4
+  %112 = icmp sgt i32 %111, 2
+  br i1 %112, label %113, label %117
 
-112:                                              ; preds = %.lr.ph212
-  %113 = load i32, ptr @hf_sigcomp_addr_value, align 4
-  %114 = zext i8 %107 to i32
-  %115 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %34, i32 noundef %113, ptr noundef %0, i32 noundef %.3208, i32 noundef 1, i32 noundef %114, ptr noundef nonnull @.str.548, i32 noundef %.2210, i32 noundef %114)
-  br label %116
+113:                                              ; preds = %107
+  %114 = load i32, ptr @hf_sigcomp_addr_value, align 4
+  %115 = zext i8 %108 to i32
+  %116 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %34, i32 noundef %114, ptr noundef %0, i32 noundef %.3208, i32 noundef 1, i32 noundef %115, ptr noundef nonnull @.str.548, i32 noundef %.2210, i32 noundef %115)
+  br label %117
 
-116:                                              ; preds = %112, %.lr.ph212
-  %117 = add i32 %.3208, 1
+117:                                              ; preds = %113, %107
+  %118 = add i32 %.3208, 1
   %.2 = add i32 %.2210, 1
   %exitcond247.not = icmp eq i32 %.2, %106
-  br i1 %exitcond247.not, label %.outer.backedge, label %.lr.ph212, !llvm.loop !9
+  br i1 %exitcond247.not, label %..loopexit_crit_edge, label %107, !llvm.loop !9
 
-118:                                              ; preds = %.lr.ph198
-  %119 = sext i32 %.1.ph216 to i64
-  %120 = getelementptr i8, ptr %38, i64 %119
-  store i8 %46, ptr %120, align 1
-  %121 = load i32, ptr @udvm_print_detail_level, align 4
-  %122 = icmp sgt i32 %121, 2
-  br i1 %122, label %123, label %127
+119:                                              ; preds = %.lr.ph198
+  %120 = sext i32 %.1.ph216 to i64
+  %121 = getelementptr i8, ptr %38, i64 %120
+  store i8 %46, ptr %121, align 1
+  %122 = load i32, ptr @udvm_print_detail_level, align 4
+  %123 = icmp sgt i32 %122, 2
+  br i1 %123, label %124, label %128
 
-123:                                              ; preds = %118
-  %124 = zext i8 %46 to i32
-  %125 = load i32, ptr @hf_sigcomp_addr_value, align 4
-  %126 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %34, i32 noundef %125, ptr noundef %0, i32 noundef %.2150.ph215, i32 noundef 1, i32 noundef %124, ptr noundef nonnull @.str.546, i32 noundef %.1.ph216, i32 noundef %124)
-  br label %127
+124:                                              ; preds = %119
+  %125 = zext i8 %46 to i32
+  %126 = load i32, ptr @hf_sigcomp_addr_value, align 4
+  %127 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %34, i32 noundef %126, ptr noundef %0, i32 noundef %.2150.ph215, i32 noundef 1, i32 noundef %125, ptr noundef nonnull @.str.546, i32 noundef %.1.ph216, i32 noundef %125)
+  br label %128
 
-127:                                              ; preds = %123, %118
-  %128 = add i32 %.1.ph216, 1
-  %129 = add nsw i32 %.2150.ph215, 1
+128:                                              ; preds = %124, %119
+  %129 = add i32 %.1.ph216, 1
+  %130 = add nsw i32 %.2150.ph215, 1
   br label %.outer.backedge
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %48, %.backedge.thread, %44
@@ -1020,25 +1023,25 @@ define internal i32 @dissect_sigcomp_tcp(ptr noundef %0, ptr noundef %1, ptr nou
   %.2150.lcssa = phi i32 [ %.1149, %44 ], [ %83, %.backedge.thread ], [ %.2150.ph.be, %.outer.backedge ], [ %49, %48 ]
   %.0.lcssa = phi i1 [ false, %44 ], [ true, %.backedge.thread ], [ false, %48 ], [ false, %.outer.backedge ]
   %.lcssa = phi i1 [ false, %44 ], [ %84, %.backedge.thread ], [ false, %48 ], [ false, %.outer.backedge ]
-  %130 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %38, i32 noundef %.1.ph.lcssa190, i32 noundef %.1.ph.lcssa190)
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %130, ptr noundef nonnull @.str.549)
-  %131 = load i32, ptr @hf_sigcomp_data_for_sigcomp_dissector, align 4
-  %132 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %131, ptr noundef %130, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  br i1 %.0.lcssa, label %133, label %135
+  %131 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %38, i32 noundef %.1.ph.lcssa190, i32 noundef %.1.ph.lcssa190)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %131, ptr noundef nonnull @.str.549)
+  %132 = load i32, ptr @hf_sigcomp_data_for_sigcomp_dissector, align 4
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %132, ptr noundef %131, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  br i1 %.0.lcssa, label %134, label %136
 
-133:                                              ; preds = %.outer._crit_edge
-  %134 = tail call fastcc i32 @dissect_sigcomp_common(ptr noundef %130, ptr noundef %1, ptr noundef %34)
-  br label %137
+134:                                              ; preds = %.outer._crit_edge
+  %135 = tail call fastcc i32 @dissect_sigcomp_common(ptr noundef %131, ptr noundef %1, ptr noundef %34)
+  br label %138
 
-135:                                              ; preds = %.outer._crit_edge
-  %136 = tail call ptr @proto_tree_add_expert(ptr noundef %34, ptr noundef %1, ptr noundef nonnull @ei_sigcomp_tcp_fragment, ptr noundef %130, i32 noundef 0, i32 noundef -1)
-  br label %137
+136:                                              ; preds = %.outer._crit_edge
+  %137 = tail call ptr @proto_tree_add_expert(ptr noundef %34, ptr noundef %1, ptr noundef nonnull @ei_sigcomp_tcp_fragment, ptr noundef %131, i32 noundef 0, i32 noundef -1)
+  br label %138
 
-137:                                              ; preds = %135, %133
+138:                                              ; preds = %136, %134
   br i1 %.lcssa, label %30, label %.loopexit163
 
-.loopexit163:                                     ; preds = %137, %4, %72, %22
-  %.0151 = phi i32 [ -1, %22 ], [ %74, %72 ], [ %., %4 ], [ %.2150.lcssa, %137 ]
+.loopexit163:                                     ; preds = %138, %4, %72, %22
+  %.0151 = phi i32 [ -1, %22 ], [ %74, %72 ], [ %., %4 ], [ %.2150.lcssa, %138 ]
   ret i32 %.0151
 }
 

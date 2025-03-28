@@ -339,10 +339,13 @@ define internal range(i32 -30, 1) i32 @_archive_write_disk_close(ptr noundef %0)
   store i8 0, ptr %23, align 1, !tbaa !40
   %24 = load ptr, ptr %15, align 8, !tbaa !44
   %.not84 = icmp eq ptr %23, %24
-  br i1 %.not84, label %.critedge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not84, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !48
 
-.critedge:                                        ; preds = %.lr.ph108, %.lr.ph, %.lr.ph.preheader, %.preheader
-  %.lcssa = phi ptr [ %16, %.preheader ], [ %16, %.lr.ph.preheader ], [ %24, %.lr.ph ], [ %24, %.lr.ph108 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph108
+  br label %.critedge, !llvm.loop !48
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader
+  %.lcssa = phi ptr [ %16, %.preheader ], [ %24, %..critedge.loopexit_crit_edge ], [ %16, %.lr.ph.preheader ], [ %24, %.lr.ph ]
   %25 = getelementptr inbounds nuw i8, ptr %.076106, i64 160
   %26 = load i32, ptr %25, align 8, !tbaa !50
   %27 = icmp eq i32 %26, 0

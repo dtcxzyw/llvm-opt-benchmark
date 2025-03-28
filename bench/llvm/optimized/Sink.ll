@@ -165,7 +165,7 @@ define internal fastcc noundef zeroext i1 @_ZL27iterativelySinkInstructionsRN4ll
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit
-  br i1 %296, label %.split, label %.split40.us, !llvm.loop !19
+  br i1 %296, label %.split, label %._crit_edge..split40.us.loopexit_crit_edge, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit
   %.sroa.014.038 = phi ptr [ %.sroa.014.0, %_ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit ], [ %.sroa.014.035101, %.lr.ph.preheader ]
@@ -857,8 +857,11 @@ _ZL12ProcessBlockRN4llvm10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoERNS_9AARe
   %.not = icmp eq ptr %.sroa.014.0, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.split40.us:                                      ; preds = %.split, %._crit_edge, %4
-  %.us-phi = phi i1 [ false, %4 ], [ %.011100, %._crit_edge ], [ true, %.split ]
+._crit_edge..split40.us.loopexit_crit_edge:       ; preds = %._crit_edge
+  br label %.split40.us, !llvm.loop !19
+
+.split40.us:                                      ; preds = %.split, %._crit_edge..split40.us.loopexit_crit_edge, %4
+  %.us-phi = phi i1 [ false, %4 ], [ %.011100, %._crit_edge..split40.us.loopexit_crit_edge ], [ true, %.split ]
   ret i1 %.us-phi
 }
 

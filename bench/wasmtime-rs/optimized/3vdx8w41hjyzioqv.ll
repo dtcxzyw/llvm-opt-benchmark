@@ -33218,11 +33218,11 @@ define noundef zeroext i1 @"_ZN82_$LT$wasmtime..runtime..component..values..Val$
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
   %.tr = phi ptr [ %0, %2 ], [ %.tr.be, %tailrecurse.backedge ]
-  %.tr143 = phi ptr [ %1, %2 ], [ %.tr143.be, %tailrecurse.backedge ]
+  %.tr141 = phi ptr [ %1, %2 ], [ %.tr141.be, %tailrecurse.backedge ]
   %3 = load i32, ptr %.tr, align 16, !range !605, !noundef !4
   %4 = add nsw i32 %3, -3
   %narrow = tail call i32 @llvm.umin.i32(i32 %4, i32 21)
-  %5 = load i32, ptr %.tr143, align 16, !range !605, !noundef !4
+  %5 = load i32, ptr %.tr141, align 16, !range !605, !noundef !4
   switch i32 %narrow, label %default.unreachable [
     i32 0, label %6
     i32 1, label %8
@@ -33257,544 +33257,544 @@ default.unreachable:                              ; preds = %tailrecurse
 
 8:                                                ; preds = %tailrecurse
   %9 = icmp eq i32 %5, 4
-  br i1 %9, label %55, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %9, label %56, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 10:                                               ; preds = %tailrecurse
   %11 = icmp eq i32 %5, 5
-  br i1 %11, label %61, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %11, label %62, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 12:                                               ; preds = %tailrecurse
   %13 = icmp eq i32 %5, 6
-  br i1 %13, label %67, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %13, label %68, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 14:                                               ; preds = %tailrecurse
   %15 = icmp eq i32 %5, 7
-  br i1 %15, label %73, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %15, label %74, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 16:                                               ; preds = %tailrecurse
   %17 = icmp eq i32 %5, 8
-  br i1 %17, label %79, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %17, label %80, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 18:                                               ; preds = %tailrecurse
   %19 = icmp eq i32 %5, 9
-  br i1 %19, label %85, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %19, label %86, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 20:                                               ; preds = %tailrecurse
   %21 = icmp eq i32 %5, 10
-  br i1 %21, label %91, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %21, label %92, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 22:                                               ; preds = %tailrecurse
   %23 = icmp eq i32 %5, 11
-  br i1 %23, label %97, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %23, label %98, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 24:                                               ; preds = %tailrecurse
   %25 = icmp eq i32 %5, 12
-  br i1 %25, label %103, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %25, label %104, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 26:                                               ; preds = %tailrecurse
   %27 = icmp eq i32 %5, 13
-  br i1 %27, label %119, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %27, label %120, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 28:                                               ; preds = %tailrecurse
   %29 = icmp eq i32 %5, 14
-  br i1 %29, label %135, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %29, label %136, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 30:                                               ; preds = %tailrecurse
   %31 = icmp eq i32 %5, 15
-  br i1 %31, label %141, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %31, label %142, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 32:                                               ; preds = %tailrecurse
   %33 = icmp eq i32 %5, 16
-  br i1 %33, label %148, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %33, label %149, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 34:                                               ; preds = %tailrecurse
   %35 = icmp eq i32 %5, 17
-  br i1 %35, label %162, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %35, label %163, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 36:                                               ; preds = %tailrecurse
   %37 = icmp eq i32 %5, 18
-  br i1 %37, label %179, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %37, label %180, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 38:                                               ; preds = %tailrecurse
   %39 = icmp eq i32 %5, 19
-  br i1 %39, label %193, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %39, label %194, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 40:                                               ; preds = %tailrecurse
   %41 = icmp eq i32 %5, 20
-  br i1 %41, label %206, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %41, label %207, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 42:                                               ; preds = %tailrecurse
   %43 = icmp eq i32 %5, 21
-  br i1 %43, label %213, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %43, label %214, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 44:                                               ; preds = %tailrecurse
   %45 = icmp eq i32 %5, 22
-  br i1 %45, label %220, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %45, label %221, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 46:                                               ; preds = %tailrecurse
   %47 = icmp eq i32 %5, 23
-  br i1 %47, label %239, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %47, label %240, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 48:                                               ; preds = %tailrecurse
   %49 = icmp samesign ult i32 %5, 3
-  br i1 %49, label %249, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  br i1 %49, label %250, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 50:                                               ; preds = %6
   %51 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %52 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
   %53 = load i8, ptr %51, align 1, !range !3158, !noundef !4
   %54 = load i8, ptr %52, align 1, !range !3158, !noundef !4
-  %.not85 = icmp eq i8 %53, %54
+  %55 = icmp eq i8 %53, %54
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit673": ; preds = %200
-  %.mux.le = and i1 %203, %205
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit671": ; preds = %201
+  %.mux.le = and i1 %204, %206
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit675": ; preds = %213
-  %.mux488.le = and i1 %217, %219
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit673": ; preds = %214
+  %.mux486.le = and i1 %218, %220
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit677": ; preds = %229
-  %.mux490.le = and i1 %231, %233
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit675": ; preds = %230
+  %.mux488.le = and i1 %232, %234
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit679": ; preds = %234
-  %.mux492.le = and i1 %236, %238
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit677": ; preds = %235
+  %.mux490.le = and i1 %237, %239
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit": ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit673", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit675", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit677", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit679", %38, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit107", %42, %44, %220, %193, %244, %.preheader.split.i.i, %.preheader147.split, %188, %171, %.preheader144.split, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i", %.preheader.split, %157, %126, %110, %293, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i", %282, %276, %270, %264, %258, %255, %249, %239, %209, %206, %179, %162, %148, %144, %141, %48, %46, %40, %36, %34, %32, %30, %28, %133, %119, %131, %26, %117, %103, %115, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %135, %97, %91, %85, %79, %73, %67, %61, %55, %50
-  %.0 = phi i1 [ %140, %135 ], [ %102, %97 ], [ %96, %91 ], [ %90, %85 ], [ %84, %79 ], [ %78, %73 ], [ %72, %67 ], [ %66, %61 ], [ %60, %55 ], [ %.not85, %50 ], [ false, %6 ], [ false, %8 ], [ false, %10 ], [ false, %12 ], [ false, %14 ], [ false, %16 ], [ false, %18 ], [ false, %20 ], [ false, %22 ], [ false, %24 ], [ %118, %117 ], [ true, %103 ], [ false, %115 ], [ false, %26 ], [ %134, %133 ], [ true, %119 ], [ false, %131 ], [ false, %28 ], [ false, %30 ], [ false, %32 ], [ false, %34 ], [ false, %36 ], [ false, %40 ], [ false, %46 ], [ false, %48 ], [ %147, %144 ], [ false, %141 ], [ false, %148 ], [ false, %162 ], [ false, %179 ], [ %212, %209 ], [ false, %206 ], [ false, %239 ], [ %.not.i, %293 ], [ false, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i" ], [ false, %249 ], [ false, %282 ], [ false, %276 ], [ false, %255 ], [ false, %270 ], [ false, %258 ], [ false, %264 ], [ true, %110 ], [ true, %126 ], [ %exitcond316.not, %157 ], [ %exitcond316.not, %.preheader.split ], [ %exitcond315.not, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i" ], [ %exitcond315.not, %.preheader144.split ], [ %exitcond315.not, %171 ], [ %exitcond.not, %188 ], [ %exitcond.not, %.preheader147.split ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not.i.i, %244 ], [ %.mux.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit673" ], [ %.mux488.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit675" ], [ %.mux490.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit677" ], [ %.mux492.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit679" ], [ false, %38 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit107" ], [ false, %42 ], [ false, %44 ], [ false, %220 ], [ false, %193 ]
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit": ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit671", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit673", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit675", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit677", %38, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit106", %42, %44, %221, %194, %245, %.preheader.split.i.i, %.preheader145.split, %189, %172, %.preheader142.split, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i", %.preheader.split, %158, %127, %111, %294, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i", %283, %277, %271, %265, %259, %256, %250, %240, %210, %207, %180, %163, %149, %145, %142, %48, %46, %40, %36, %34, %32, %30, %28, %134, %120, %132, %26, %118, %104, %116, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %136, %98, %92, %86, %80, %74, %68, %62, %56, %50
+  %.0 = phi i1 [ %141, %136 ], [ %103, %98 ], [ %97, %92 ], [ %91, %86 ], [ %85, %80 ], [ %79, %74 ], [ %73, %68 ], [ %67, %62 ], [ %61, %56 ], [ %55, %50 ], [ false, %6 ], [ false, %8 ], [ false, %10 ], [ false, %12 ], [ false, %14 ], [ false, %16 ], [ false, %18 ], [ false, %20 ], [ false, %22 ], [ false, %24 ], [ %119, %118 ], [ true, %104 ], [ false, %116 ], [ false, %26 ], [ %135, %134 ], [ true, %120 ], [ false, %132 ], [ false, %28 ], [ false, %30 ], [ false, %32 ], [ false, %34 ], [ false, %36 ], [ false, %40 ], [ false, %46 ], [ false, %48 ], [ %148, %145 ], [ false, %142 ], [ false, %149 ], [ false, %163 ], [ false, %180 ], [ %213, %210 ], [ false, %207 ], [ false, %240 ], [ %299, %294 ], [ false, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i" ], [ false, %250 ], [ false, %283 ], [ false, %277 ], [ false, %256 ], [ false, %271 ], [ false, %259 ], [ false, %265 ], [ true, %111 ], [ true, %127 ], [ %exitcond314.not, %158 ], [ %exitcond314.not, %.preheader.split ], [ %exitcond313.not, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i" ], [ %exitcond313.not, %.preheader142.split ], [ %exitcond313.not, %172 ], [ %exitcond.not, %189 ], [ %exitcond.not, %.preheader145.split ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not.i.i, %245 ], [ %.mux.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit671" ], [ %.mux486.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit673" ], [ %.mux488.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit675" ], [ %.mux490.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit677" ], [ false, %38 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit106" ], [ false, %42 ], [ false, %44 ], [ false, %221 ], [ false, %194 ]
   ret i1 %.0
 
-55:                                               ; preds = %8
-  %56 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %57 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
-  %58 = load i8, ptr %56, align 1, !noundef !4
+56:                                               ; preds = %8
+  %57 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
   %59 = load i8, ptr %57, align 1, !noundef !4
-  %60 = icmp eq i8 %58, %59
+  %60 = load i8, ptr %58, align 1, !noundef !4
+  %61 = icmp eq i8 %59, %60
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-61:                                               ; preds = %10
-  %62 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %63 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
-  %64 = load i8, ptr %62, align 1, !noundef !4
+62:                                               ; preds = %10
+  %63 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
   %65 = load i8, ptr %63, align 1, !noundef !4
-  %66 = icmp eq i8 %64, %65
+  %66 = load i8, ptr %64, align 1, !noundef !4
+  %67 = icmp eq i8 %65, %66
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-67:                                               ; preds = %12
-  %68 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %69 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
-  %70 = load i16, ptr %68, align 2, !noundef !4
+68:                                               ; preds = %12
+  %69 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
   %71 = load i16, ptr %69, align 2, !noundef !4
-  %72 = icmp eq i16 %70, %71
+  %72 = load i16, ptr %70, align 2, !noundef !4
+  %73 = icmp eq i16 %71, %72
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-73:                                               ; preds = %14
-  %74 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %75 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
-  %76 = load i16, ptr %74, align 2, !noundef !4
+74:                                               ; preds = %14
+  %75 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
   %77 = load i16, ptr %75, align 2, !noundef !4
-  %78 = icmp eq i16 %76, %77
+  %78 = load i16, ptr %76, align 2, !noundef !4
+  %79 = icmp eq i16 %77, %78
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-79:                                               ; preds = %16
-  %80 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %81 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
-  %82 = load i32, ptr %80, align 4, !noundef !4
+80:                                               ; preds = %16
+  %81 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
   %83 = load i32, ptr %81, align 4, !noundef !4
-  %84 = icmp eq i32 %82, %83
+  %84 = load i32, ptr %82, align 4, !noundef !4
+  %85 = icmp eq i32 %83, %84
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-85:                                               ; preds = %18
-  %86 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %87 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
-  %88 = load i32, ptr %86, align 4, !noundef !4
+86:                                               ; preds = %18
+  %87 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
   %89 = load i32, ptr %87, align 4, !noundef !4
-  %90 = icmp eq i32 %88, %89
+  %90 = load i32, ptr %88, align 4, !noundef !4
+  %91 = icmp eq i32 %89, %90
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-91:                                               ; preds = %20
-  %92 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %93 = getelementptr inbounds nuw i8, ptr %.tr143, i64 8
-  %94 = load i64, ptr %92, align 8, !noundef !4
+92:                                               ; preds = %20
+  %93 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.tr141, i64 8
   %95 = load i64, ptr %93, align 8, !noundef !4
-  %96 = icmp eq i64 %94, %95
+  %96 = load i64, ptr %94, align 8, !noundef !4
+  %97 = icmp eq i64 %95, %96
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-97:                                               ; preds = %22
-  %98 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %99 = getelementptr inbounds nuw i8, ptr %.tr143, i64 8
-  %100 = load i64, ptr %98, align 8, !noundef !4
+98:                                               ; preds = %22
+  %99 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.tr141, i64 8
   %101 = load i64, ptr %99, align 8, !noundef !4
-  %102 = icmp eq i64 %100, %101
+  %102 = load i64, ptr %100, align 8, !noundef !4
+  %103 = icmp eq i64 %101, %102
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-103:                                              ; preds = %24
-  %104 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %105 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
-  %106 = load float, ptr %104, align 4, !noundef !4
-  %107 = fcmp une float %106, 0.000000e+00
-  %108 = load float, ptr %105, align 4
-  %109 = fcmp oeq float %106, %108
-  %or.cond = select i1 %107, i1 %109, i1 false
-  br i1 %or.cond, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %110
+104:                                              ; preds = %24
+  %105 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
+  %107 = load float, ptr %105, align 4, !noundef !4
+  %108 = fcmp une float %107, 0.000000e+00
+  %109 = load float, ptr %106, align 4
+  %110 = fcmp oeq float %107, %109
+  %or.cond = select i1 %108, i1 %110, i1 false
+  br i1 %or.cond, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %111
 
-110:                                              ; preds = %103
-  %111 = bitcast float %108 to i32
-  %112 = fcmp oeq float %106, 0.000000e+00
-  %113 = bitcast float %106 to i32
-  %114 = icmp eq i32 %111, %113
-  %or.cond401 = select i1 %112, i1 %114, i1 false
-  br i1 %or.cond401, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %115
+111:                                              ; preds = %104
+  %112 = bitcast float %109 to i32
+  %113 = fcmp oeq float %107, 0.000000e+00
+  %114 = bitcast float %107 to i32
+  %115 = icmp eq i32 %112, %114
+  %or.cond399 = select i1 %113, i1 %115, i1 false
+  br i1 %or.cond399, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %116
 
-115:                                              ; preds = %110
-  %116 = fcmp uno float %106, 0.000000e+00
-  br i1 %116, label %117, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+116:                                              ; preds = %111
+  %117 = fcmp uno float %107, 0.000000e+00
+  br i1 %117, label %118, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-117:                                              ; preds = %115
-  %118 = fcmp uno float %108, 0.000000e+00
+118:                                              ; preds = %116
+  %119 = fcmp uno float %109, 0.000000e+00
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-119:                                              ; preds = %26
-  %120 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %121 = getelementptr inbounds nuw i8, ptr %.tr143, i64 8
-  %122 = load double, ptr %120, align 8, !noundef !4
-  %123 = fcmp une double %122, 0.000000e+00
-  %124 = load double, ptr %121, align 8
-  %125 = fcmp oeq double %122, %124
-  %or.cond88 = select i1 %123, i1 %125, i1 false
-  br i1 %or.cond88, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %126
+120:                                              ; preds = %26
+  %121 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.tr141, i64 8
+  %123 = load double, ptr %121, align 8, !noundef !4
+  %124 = fcmp une double %123, 0.000000e+00
+  %125 = load double, ptr %122, align 8
+  %126 = fcmp oeq double %123, %125
+  %or.cond87 = select i1 %124, i1 %126, i1 false
+  br i1 %or.cond87, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %127
 
-126:                                              ; preds = %119
-  %127 = bitcast double %124 to i64
-  %128 = fcmp oeq double %122, 0.000000e+00
-  %129 = bitcast double %122 to i64
-  %130 = icmp eq i64 %127, %129
-  %or.cond403 = select i1 %128, i1 %130, i1 false
-  br i1 %or.cond403, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %131
+127:                                              ; preds = %120
+  %128 = bitcast double %125 to i64
+  %129 = fcmp oeq double %123, 0.000000e+00
+  %130 = bitcast double %123 to i64
+  %131 = icmp eq i64 %128, %130
+  %or.cond401 = select i1 %129, i1 %131, i1 false
+  br i1 %or.cond401, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %132
 
-131:                                              ; preds = %126
-  %132 = fcmp uno double %122, 0.000000e+00
-  br i1 %132, label %133, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+132:                                              ; preds = %127
+  %133 = fcmp uno double %123, 0.000000e+00
+  br i1 %133, label %134, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-133:                                              ; preds = %131
-  %134 = fcmp uno double %124, 0.000000e+00
+134:                                              ; preds = %132
+  %135 = fcmp uno double %125, 0.000000e+00
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-135:                                              ; preds = %28
-  %136 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %137 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
-  %138 = load i32, ptr %136, align 4, !range !7377, !noundef !4
+136:                                              ; preds = %28
+  %137 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
   %139 = load i32, ptr %137, align 4, !range !7377, !noundef !4
-  %140 = icmp eq i32 %138, %139
+  %140 = load i32, ptr %138, align 4, !range !7377, !noundef !4
+  %141 = icmp eq i32 %139, %140
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-141:                                              ; preds = %30
-  %142 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.val97 = load i64, ptr %142, align 8, !noundef !4
-  %143 = getelementptr inbounds nuw i8, ptr %.tr143, i64 24
-  %.val99 = load i64, ptr %143, align 8, !noundef !4
-  %.not.i.i = icmp eq i64 %.val97, %.val99
-  br i1 %.not.i.i, label %144, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+142:                                              ; preds = %30
+  %143 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.val96 = load i64, ptr %143, align 8, !noundef !4
+  %144 = getelementptr inbounds nuw i8, ptr %.tr141, i64 24
+  %.val98 = load i64, ptr %144, align 8, !noundef !4
+  %.not.i.i = icmp eq i64 %.val96, %.val98
+  br i1 %.not.i.i, label %145, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-144:                                              ; preds = %141
-  %145 = getelementptr inbounds nuw i8, ptr %.tr143, i64 16
-  %.val98 = load ptr, ptr %145, align 8, !nonnull !4, !noundef !4
-  %146 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val96 = load ptr, ptr %146, align 8, !nonnull !4, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val96, ptr nonnull readonly align 1 %.val98, i64 %.val97), !alias.scope !7378
-  %147 = icmp eq i32 %bcmp.i.i, 0
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds nuw i8, ptr %.tr141, i64 16
+  %.val97 = load ptr, ptr %146, align 8, !nonnull !4, !noundef !4
+  %147 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.val95 = load ptr, ptr %147, align 8, !nonnull !4, !noundef !4
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val95, ptr nonnull readonly align 1 %.val97, i64 %.val96), !alias.scope !7378
+  %148 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-148:                                              ; preds = %32
+149:                                              ; preds = %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7382)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7385)
-  %149 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %150 = load ptr, ptr %149, align 8, !alias.scope !7382, !noalias !7385, !nonnull !4, !noundef !4
-  %151 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %152 = load i64, ptr %151, align 8, !alias.scope !7382, !noalias !7385, !noundef !4
-  %153 = getelementptr inbounds nuw i8, ptr %.tr143, i64 16
-  %154 = load ptr, ptr %153, align 8, !alias.scope !7385, !noalias !7382, !nonnull !4, !noundef !4
-  %155 = getelementptr inbounds nuw i8, ptr %.tr143, i64 24
-  %156 = load i64, ptr %155, align 8, !alias.scope !7385, !noalias !7382, !noundef !4
-  %.not.i114 = icmp eq i64 %152, %156
-  br i1 %.not.i114, label %.preheader.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  %150 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %151 = load ptr, ptr %150, align 8, !alias.scope !7382, !noalias !7385, !nonnull !4, !noundef !4
+  %152 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %153 = load i64, ptr %152, align 8, !alias.scope !7382, !noalias !7385, !noundef !4
+  %154 = getelementptr inbounds nuw i8, ptr %.tr141, i64 16
+  %155 = load ptr, ptr %154, align 8, !alias.scope !7385, !noalias !7382, !nonnull !4, !noundef !4
+  %156 = getelementptr inbounds nuw i8, ptr %.tr141, i64 24
+  %157 = load i64, ptr %156, align 8, !alias.scope !7385, !noalias !7382, !noundef !4
+  %.not.i = icmp eq i64 %153, %157
+  br i1 %.not.i, label %.preheader.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-.preheader.split:                                 ; preds = %148, %157
-  %.sroa.01.0.i = phi i64 [ %158, %157 ], [ 0, %148 ]
-  %exitcond316.not = icmp eq i64 %.sroa.01.0.i, %152
-  br i1 %exitcond316.not, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %157
+.preheader.split:                                 ; preds = %149, %158
+  %.sroa.01.0.i = phi i64 [ %159, %158 ], [ 0, %149 ]
+  %exitcond314.not = icmp eq i64 %.sroa.01.0.i, %153
+  br i1 %exitcond314.not, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %158
 
-157:                                              ; preds = %.preheader.split
-  %158 = add i64 %.sroa.01.0.i, 1
-  %159 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %150, i64 0, i64 %.sroa.01.0.i
-  %160 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %154, i64 0, i64 %.sroa.01.0.i
-  %161 = tail call noundef zeroext i1 @"_ZN82_$LT$wasmtime..runtime..component..values..Val$u20$as$u20$core..cmp..PartialEq$GT$2eq17h696950105e4bcda3E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %159, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %160), !noalias !7387
-  br i1 %161, label %.preheader.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+158:                                              ; preds = %.preheader.split
+  %159 = add i64 %.sroa.01.0.i, 1
+  %160 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %151, i64 0, i64 %.sroa.01.0.i
+  %161 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %155, i64 0, i64 %.sroa.01.0.i
+  %162 = tail call noundef zeroext i1 @"_ZN82_$LT$wasmtime..runtime..component..values..Val$u20$as$u20$core..cmp..PartialEq$GT$2eq17h696950105e4bcda3E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %160, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %161), !noalias !7387
+  br i1 %162, label %.preheader.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-162:                                              ; preds = %34
+163:                                              ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7388)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7391)
-  %163 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %164 = load ptr, ptr %163, align 8, !alias.scope !7388, !noalias !7391, !nonnull !4, !noundef !4
-  %165 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %166 = load i64, ptr %165, align 8, !alias.scope !7388, !noalias !7391, !noundef !4
-  %167 = getelementptr inbounds nuw i8, ptr %.tr143, i64 16
-  %168 = load ptr, ptr %167, align 8, !alias.scope !7391, !noalias !7388, !nonnull !4, !noundef !4
-  %169 = getelementptr inbounds nuw i8, ptr %.tr143, i64 24
-  %170 = load i64, ptr %169, align 8, !alias.scope !7391, !noalias !7388, !noundef !4
-  %.not.i117 = icmp eq i64 %166, %170
-  br i1 %.not.i117, label %.preheader144.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  %164 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %165 = load ptr, ptr %164, align 8, !alias.scope !7388, !noalias !7391, !nonnull !4, !noundef !4
+  %166 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %167 = load i64, ptr %166, align 8, !alias.scope !7388, !noalias !7391, !noundef !4
+  %168 = getelementptr inbounds nuw i8, ptr %.tr141, i64 16
+  %169 = load ptr, ptr %168, align 8, !alias.scope !7391, !noalias !7388, !nonnull !4, !noundef !4
+  %170 = getelementptr inbounds nuw i8, ptr %.tr141, i64 24
+  %171 = load i64, ptr %170, align 8, !alias.scope !7391, !noalias !7388, !noundef !4
+  %.not.i115 = icmp eq i64 %167, %171
+  br i1 %.not.i115, label %.preheader142.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-.preheader144.split:                              ; preds = %162, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i"
-  %.sroa.01.0.i119 = phi i64 [ %175, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i" ], [ 0, %162 ]
-  %exitcond315.not = icmp eq i64 %.sroa.01.0.i119, %166
-  br i1 %exitcond315.not, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %171
+.preheader142.split:                              ; preds = %163, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i"
+  %.sroa.01.0.i117 = phi i64 [ %176, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i" ], [ 0, %163 ]
+  %exitcond313.not = icmp eq i64 %.sroa.01.0.i117, %167
+  br i1 %exitcond313.not, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %172
 
-171:                                              ; preds = %.preheader144.split
-  %172 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, [1 x i64], { i32, [11 x i32] } }], ptr %164, i64 0, i64 %.sroa.01.0.i119
-  %173 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, [1 x i64], { i32, [11 x i32] } }], ptr %168, i64 0, i64 %.sroa.01.0.i119
-  %174 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.llvm.14851531119274094909"(ptr noalias noundef nonnull readonly align 16 dereferenceable(80) %172, ptr noalias noundef nonnull readonly align 16 dereferenceable(80) %173), !noalias !7393
-  br i1 %174, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+172:                                              ; preds = %.preheader142.split
+  %173 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, [1 x i64], { i32, [11 x i32] } }], ptr %165, i64 0, i64 %.sroa.01.0.i117
+  %174 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, [1 x i64], { i32, [11 x i32] } }], ptr %169, i64 0, i64 %.sroa.01.0.i117
+  %175 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.llvm.14851531119274094909"(ptr noalias noundef nonnull readonly align 16 dereferenceable(80) %173, ptr noalias noundef nonnull readonly align 16 dereferenceable(80) %174), !noalias !7393
+  br i1 %175, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i": ; preds = %171
-  %175 = add i64 %.sroa.01.0.i119, 1
-  %176 = getelementptr inbounds nuw i8, ptr %172, i64 32
+"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i": ; preds = %172
+  %176 = add i64 %.sroa.01.0.i117, 1
   %177 = getelementptr inbounds nuw i8, ptr %173, i64 32
-  %178 = tail call noundef zeroext i1 @"_ZN82_$LT$wasmtime..runtime..component..values..Val$u20$as$u20$core..cmp..PartialEq$GT$2eq17h696950105e4bcda3E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %176, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %177), !noalias !7393
-  br i1 %178, label %.preheader144.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 32
+  %179 = tail call noundef zeroext i1 @"_ZN82_$LT$wasmtime..runtime..component..values..Val$u20$as$u20$core..cmp..PartialEq$GT$2eq17h696950105e4bcda3E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %177, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %178), !noalias !7393
+  br i1 %179, label %.preheader142.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-179:                                              ; preds = %36
+180:                                              ; preds = %36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7394)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7397)
-  %180 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %181 = load ptr, ptr %180, align 8, !alias.scope !7394, !noalias !7397, !nonnull !4, !noundef !4
-  %182 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %183 = load i64, ptr %182, align 8, !alias.scope !7394, !noalias !7397, !noundef !4
-  %184 = getelementptr inbounds nuw i8, ptr %.tr143, i64 16
-  %185 = load ptr, ptr %184, align 8, !alias.scope !7397, !noalias !7394, !nonnull !4, !noundef !4
-  %186 = getelementptr inbounds nuw i8, ptr %.tr143, i64 24
-  %187 = load i64, ptr %186, align 8, !alias.scope !7397, !noalias !7394, !noundef !4
-  %.not.i123 = icmp eq i64 %183, %187
-  br i1 %.not.i123, label %.preheader147.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  %181 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %182 = load ptr, ptr %181, align 8, !alias.scope !7394, !noalias !7397, !nonnull !4, !noundef !4
+  %183 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %184 = load i64, ptr %183, align 8, !alias.scope !7394, !noalias !7397, !noundef !4
+  %185 = getelementptr inbounds nuw i8, ptr %.tr141, i64 16
+  %186 = load ptr, ptr %185, align 8, !alias.scope !7397, !noalias !7394, !nonnull !4, !noundef !4
+  %187 = getelementptr inbounds nuw i8, ptr %.tr141, i64 24
+  %188 = load i64, ptr %187, align 8, !alias.scope !7397, !noalias !7394, !noundef !4
+  %.not.i121 = icmp eq i64 %184, %188
+  br i1 %.not.i121, label %.preheader145.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-.preheader147.split:                              ; preds = %179, %188
-  %.sroa.01.0.i125 = phi i64 [ %189, %188 ], [ 0, %179 ]
-  %exitcond.not = icmp eq i64 %.sroa.01.0.i125, %183
-  br i1 %exitcond.not, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %188
+.preheader145.split:                              ; preds = %180, %189
+  %.sroa.01.0.i123 = phi i64 [ %190, %189 ], [ 0, %180 ]
+  %exitcond.not = icmp eq i64 %.sroa.01.0.i123, %184
+  br i1 %exitcond.not, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %189
 
-188:                                              ; preds = %.preheader147.split
-  %189 = add i64 %.sroa.01.0.i125, 1
-  %190 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %181, i64 0, i64 %.sroa.01.0.i125
-  %191 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %185, i64 0, i64 %.sroa.01.0.i125
-  %192 = tail call noundef zeroext i1 @"_ZN82_$LT$wasmtime..runtime..component..values..Val$u20$as$u20$core..cmp..PartialEq$GT$2eq17h696950105e4bcda3E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %190, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %191), !noalias !7399
-  br i1 %192, label %.preheader147.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+189:                                              ; preds = %.preheader145.split
+  %190 = add i64 %.sroa.01.0.i123, 1
+  %191 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %182, i64 0, i64 %.sroa.01.0.i123
+  %192 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %186, i64 0, i64 %.sroa.01.0.i123
+  %193 = tail call noundef zeroext i1 @"_ZN82_$LT$wasmtime..runtime..component..values..Val$u20$as$u20$core..cmp..PartialEq$GT$2eq17h696950105e4bcda3E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %191, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %192), !noalias !7399
+  br i1 %193, label %.preheader145.split, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-193:                                              ; preds = %38
-  %194 = getelementptr inbounds nuw i8, ptr %.tr143, i64 32
-  %195 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.val93 = load i64, ptr %195, align 8, !noundef !4
-  %196 = getelementptr inbounds nuw i8, ptr %.tr143, i64 24
-  %.val95 = load i64, ptr %196, align 8, !noundef !4
-  %.not.i.i104 = icmp eq i64 %.val93, %.val95
-  br i1 %.not.i.i104, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit107", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+194:                                              ; preds = %38
+  %195 = getelementptr inbounds nuw i8, ptr %.tr141, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.val92 = load i64, ptr %196, align 8, !noundef !4
+  %197 = getelementptr inbounds nuw i8, ptr %.tr141, i64 24
+  %.val94 = load i64, ptr %197, align 8, !noundef !4
+  %.not.i.i103 = icmp eq i64 %.val92, %.val94
+  br i1 %.not.i.i103, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit106", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit107": ; preds = %193
-  %197 = getelementptr inbounds nuw i8, ptr %.tr143, i64 16
-  %.val94 = load ptr, ptr %197, align 8, !nonnull !4, !noundef !4
-  %198 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val92 = load ptr, ptr %198, align 8, !nonnull !4, !noundef !4
-  %bcmp.i.i106 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val92, ptr nonnull readonly align 1 %.val94, i64 %.val93), !alias.scope !7400
-  %199 = icmp eq i32 %bcmp.i.i106, 0
-  br i1 %199, label %200, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit106": ; preds = %194
+  %198 = getelementptr inbounds nuw i8, ptr %.tr141, i64 16
+  %.val93 = load ptr, ptr %198, align 8, !nonnull !4, !noundef !4
+  %199 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.val91 = load ptr, ptr %199, align 8, !nonnull !4, !noundef !4
+  %bcmp.i.i105 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val91, ptr nonnull readonly align 1 %.val93, i64 %.val92), !alias.scope !7400
+  %200 = icmp eq i32 %bcmp.i.i105, 0
+  br i1 %200, label %201, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-200:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit107"
-  %201 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %202 = load ptr, ptr %201, align 8, !noundef !4
-  %203 = icmp eq ptr %202, null
-  %204 = load ptr, ptr %194, align 8, !noundef !4
-  %205 = icmp eq ptr %204, null
-  %brmerge = or i1 %203, %205
-  br i1 %brmerge, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit673", label %tailrecurse.backedge
+201:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit106"
+  %202 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %203 = load ptr, ptr %202, align 8, !noundef !4
+  %204 = icmp eq ptr %203, null
+  %205 = load ptr, ptr %195, align 8, !noundef !4
+  %206 = icmp eq ptr %205, null
+  %brmerge = or i1 %204, %206
+  br i1 %brmerge, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit671", label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %200, %213, %229, %234
-  %.tr.be = phi ptr [ %202, %200 ], [ %216, %213 ], [ %230, %229 ], [ %235, %234 ]
-  %.tr143.be = phi ptr [ %204, %200 ], [ %218, %213 ], [ %232, %229 ], [ %237, %234 ]
+tailrecurse.backedge:                             ; preds = %201, %214, %230, %235
+  %.tr.be = phi ptr [ %203, %201 ], [ %217, %214 ], [ %231, %230 ], [ %236, %235 ]
+  %.tr141.be = phi ptr [ %205, %201 ], [ %219, %214 ], [ %233, %230 ], [ %238, %235 ]
   br label %tailrecurse
 
-206:                                              ; preds = %40
-  %207 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.val89 = load i64, ptr %207, align 8, !noundef !4
-  %208 = getelementptr inbounds nuw i8, ptr %.tr143, i64 24
-  %.val91 = load i64, ptr %208, align 8, !noundef !4
-  %.not.i.i108 = icmp eq i64 %.val89, %.val91
-  br i1 %.not.i.i108, label %209, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+207:                                              ; preds = %40
+  %208 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.val88 = load i64, ptr %208, align 8, !noundef !4
+  %209 = getelementptr inbounds nuw i8, ptr %.tr141, i64 24
+  %.val90 = load i64, ptr %209, align 8, !noundef !4
+  %.not.i.i107 = icmp eq i64 %.val88, %.val90
+  br i1 %.not.i.i107, label %210, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-209:                                              ; preds = %206
-  %210 = getelementptr inbounds nuw i8, ptr %.tr143, i64 16
-  %.val90 = load ptr, ptr %210, align 8, !nonnull !4, !noundef !4
-  %211 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val = load ptr, ptr %211, align 8, !nonnull !4, !noundef !4
-  %bcmp.i.i110 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val90, i64 %.val89), !alias.scope !7404
-  %212 = icmp eq i32 %bcmp.i.i110, 0
+210:                                              ; preds = %207
+  %211 = getelementptr inbounds nuw i8, ptr %.tr141, i64 16
+  %.val89 = load ptr, ptr %211, align 8, !nonnull !4, !noundef !4
+  %212 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.val = load ptr, ptr %212, align 8, !nonnull !4, !noundef !4
+  %bcmp.i.i109 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val89, i64 %.val88), !alias.scope !7404
+  %213 = icmp eq i32 %bcmp.i.i109, 0
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-213:                                              ; preds = %42
-  %214 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %215 = getelementptr inbounds nuw i8, ptr %.tr143, i64 8
-  %216 = load ptr, ptr %214, align 8, !noundef !4
-  %217 = icmp eq ptr %216, null
-  %218 = load ptr, ptr %215, align 8, !noundef !4
-  %219 = icmp eq ptr %218, null
-  %brmerge487 = or i1 %217, %219
-  br i1 %brmerge487, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit675", label %tailrecurse.backedge
+214:                                              ; preds = %42
+  %215 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %.tr141, i64 8
+  %217 = load ptr, ptr %215, align 8, !noundef !4
+  %218 = icmp eq ptr %217, null
+  %219 = load ptr, ptr %216, align 8, !noundef !4
+  %220 = icmp eq ptr %219, null
+  %brmerge485 = or i1 %218, %220
+  br i1 %brmerge485, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit673", label %tailrecurse.backedge
 
-220:                                              ; preds = %44
-  %221 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %222 = getelementptr inbounds nuw i8, ptr %.tr143, i64 8
+221:                                              ; preds = %44
+  %222 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %.tr141, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7408)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7411)
-  %223 = load i64, ptr %221, align 8, !range !1534, !alias.scope !7408, !noalias !7411, !noundef !4
-  %224 = load i64, ptr %222, align 8, !range !1534, !alias.scope !7411, !noalias !7408, !noundef !4
-  %225 = icmp eq i64 %223, %224
-  br i1 %225, label %226, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  %224 = load i64, ptr %222, align 8, !range !1534, !alias.scope !7408, !noalias !7411, !noundef !4
+  %225 = load i64, ptr %223, align 8, !range !1534, !alias.scope !7411, !noalias !7408, !noundef !4
+  %226 = icmp eq i64 %224, %225
+  br i1 %226, label %227, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-226:                                              ; preds = %220
-  %trunc.i = trunc nuw i64 %223 to i1
-  %227 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %228 = getelementptr inbounds nuw i8, ptr %.tr143, i64 16
-  br i1 %trunc.i, label %234, label %229
+227:                                              ; preds = %221
+  %trunc.i = trunc nuw i64 %224 to i1
+  %228 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %.tr141, i64 16
+  br i1 %trunc.i, label %235, label %230
 
-229:                                              ; preds = %226
+230:                                              ; preds = %227
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7413)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7416)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7418)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7421)
-  %230 = load ptr, ptr %227, align 8, !alias.scope !7423, !noalias !7424, !noundef !4
-  %231 = icmp eq ptr %230, null
-  %232 = load ptr, ptr %228, align 8, !alias.scope !7424, !noalias !7423, !noundef !4
-  %233 = icmp eq ptr %232, null
-  %brmerge489 = or i1 %231, %233
-  br i1 %brmerge489, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit677", label %tailrecurse.backedge
+  %231 = load ptr, ptr %228, align 8, !alias.scope !7423, !noalias !7424, !noundef !4
+  %232 = icmp eq ptr %231, null
+  %233 = load ptr, ptr %229, align 8, !alias.scope !7424, !noalias !7423, !noundef !4
+  %234 = icmp eq ptr %233, null
+  %brmerge487 = or i1 %232, %234
+  br i1 %brmerge487, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit675", label %tailrecurse.backedge
 
-234:                                              ; preds = %226
+235:                                              ; preds = %227
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7425)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7428)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7430)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7433)
-  %235 = load ptr, ptr %227, align 8, !alias.scope !7435, !noalias !7436, !noundef !4
-  %236 = icmp eq ptr %235, null
-  %237 = load ptr, ptr %228, align 8, !alias.scope !7436, !noalias !7435, !noundef !4
-  %238 = icmp eq ptr %237, null
-  %brmerge491 = or i1 %236, %238
-  br i1 %brmerge491, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit679", label %tailrecurse.backedge
+  %236 = load ptr, ptr %228, align 8, !alias.scope !7435, !noalias !7436, !noundef !4
+  %237 = icmp eq ptr %236, null
+  %238 = load ptr, ptr %229, align 8, !alias.scope !7436, !noalias !7435, !noundef !4
+  %239 = icmp eq ptr %238, null
+  %brmerge489 = or i1 %237, %239
+  br i1 %brmerge489, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit497.split.loop.exit677", label %tailrecurse.backedge
 
-239:                                              ; preds = %46
-  %240 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val100 = load ptr, ptr %240, align 8, !nonnull !4, !noundef !4
-  %241 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.val101 = load i64, ptr %241, align 8, !noundef !4
-  %242 = getelementptr inbounds nuw i8, ptr %.tr143, i64 16
-  %.val102 = load ptr, ptr %242, align 8, !nonnull !4, !noundef !4
-  %243 = getelementptr inbounds nuw i8, ptr %.tr143, i64 24
-  %.val103 = load i64, ptr %243, align 8, !noundef !4
-  %.not.i.i112 = icmp eq i64 %.val101, %.val103
-  br i1 %.not.i.i112, label %.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+240:                                              ; preds = %46
+  %241 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.val99 = load ptr, ptr %241, align 8, !nonnull !4, !noundef !4
+  %242 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.val100 = load i64, ptr %242, align 8, !noundef !4
+  %243 = getelementptr inbounds nuw i8, ptr %.tr141, i64 16
+  %.val101 = load ptr, ptr %243, align 8, !nonnull !4, !noundef !4
+  %244 = getelementptr inbounds nuw i8, ptr %.tr141, i64 24
+  %.val102 = load i64, ptr %244, align 8, !noundef !4
+  %.not.i.i111 = icmp eq i64 %.val100, %.val102
+  br i1 %.not.i.i111, label %.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-.preheader.split.i.i:                             ; preds = %239, %244
-  %.sroa.01.0.i.i = phi i64 [ %245, %244 ], [ 0, %239 ]
-  %exitcond.not.i.i = icmp eq i64 %.sroa.01.0.i.i, %.val101
-  br i1 %exitcond.not.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %244
+.preheader.split.i.i:                             ; preds = %240, %245
+  %.sroa.01.0.i.i = phi i64 [ %246, %245 ], [ 0, %240 ]
+  %exitcond.not.i.i = icmp eq i64 %.sroa.01.0.i.i, %.val100
+  br i1 %exitcond.not.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit", label %245
 
-244:                                              ; preds = %.preheader.split.i.i
-  %245 = add i64 %.sroa.01.0.i.i, 1
-  %246 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val100, i64 0, i64 %.sroa.01.0.i.i
-  %247 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val102, i64 0, i64 %.sroa.01.0.i.i
-  %248 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.llvm.14851531119274094909"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %246, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %247)
-  br i1 %248, label %.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+245:                                              ; preds = %.preheader.split.i.i
+  %246 = add i64 %.sroa.01.0.i.i, 1
+  %247 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val99, i64 0, i64 %.sroa.01.0.i.i
+  %248 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val101, i64 0, i64 %.sroa.01.0.i.i
+  %249 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.llvm.14851531119274094909"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %247, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %248)
+  br i1 %249, label %.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-249:                                              ; preds = %48
+250:                                              ; preds = %48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7437)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7440)
-  %250 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %251 = load i64, ptr %250, align 16, !alias.scope !7437, !noalias !7440, !noundef !4
-  %252 = getelementptr inbounds nuw i8, ptr %.tr143, i64 32
-  %253 = load i64, ptr %252, align 16, !alias.scope !7440, !noalias !7437, !noundef !4
-  %254 = icmp eq i64 %251, %253
-  br i1 %254, label %255, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  %251 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %252 = load i64, ptr %251, align 16, !alias.scope !7437, !noalias !7440, !noundef !4
+  %253 = getelementptr inbounds nuw i8, ptr %.tr141, i64 32
+  %254 = load i64, ptr %253, align 16, !alias.scope !7440, !noalias !7437, !noundef !4
+  %255 = icmp eq i64 %252, %254
+  br i1 %255, label %256, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-255:                                              ; preds = %249
+256:                                              ; preds = %250
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7442)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7445)
-  %256 = icmp eq i32 %3, %5
-  br i1 %256, label %257, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+  %257 = icmp eq i32 %3, %5
+  br i1 %257, label %258, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-257:                                              ; preds = %255
+258:                                              ; preds = %256
   switch i32 %3, label %default.unreachable.i [
     i32 0, label %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i"
-    i32 1, label %258
-    i32 2, label %264
+    i32 1, label %259
+    i32 2, label %265
   ]
 
-default.unreachable.i:                            ; preds = %257
+default.unreachable.i:                            ; preds = %258
   unreachable
 
-258:                                              ; preds = %257
-  %259 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %260 = load i64, ptr %259, align 16, !alias.scope !7447, !noalias !7448, !noundef !4
-  %261 = getelementptr inbounds nuw i8, ptr %.tr143, i64 16
-  %262 = load i64, ptr %261, align 16, !alias.scope !7448, !noalias !7447, !noundef !4
-  %263 = icmp eq i64 %260, %262
-  br i1 %263, label %270, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+259:                                              ; preds = %258
+  %260 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %261 = load i64, ptr %260, align 16, !alias.scope !7447, !noalias !7448, !noundef !4
+  %262 = getelementptr inbounds nuw i8, ptr %.tr141, i64 16
+  %263 = load i64, ptr %262, align 16, !alias.scope !7448, !noalias !7447, !noundef !4
+  %264 = icmp eq i64 %261, %263
+  br i1 %264, label %271, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-264:                                              ; preds = %257
-  %265 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %266 = load i64, ptr %265, align 8, !alias.scope !7447, !noalias !7448, !noundef !4
-  %267 = getelementptr inbounds nuw i8, ptr %.tr143, i64 8
-  %268 = load i64, ptr %267, align 8, !alias.scope !7448, !noalias !7447, !noundef !4
-  %269 = icmp eq i64 %266, %268
-  br i1 %269, label %282, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+265:                                              ; preds = %258
+  %266 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %267 = load i64, ptr %266, align 8, !alias.scope !7447, !noalias !7448, !noundef !4
+  %268 = getelementptr inbounds nuw i8, ptr %.tr141, i64 8
+  %269 = load i64, ptr %268, align 8, !alias.scope !7448, !noalias !7447, !noundef !4
+  %270 = icmp eq i64 %267, %269
+  br i1 %270, label %283, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-270:                                              ; preds = %258
-  %271 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %272 = load i64, ptr %271, align 8, !alias.scope !7447, !noalias !7448, !noundef !4
-  %273 = getelementptr inbounds nuw i8, ptr %.tr143, i64 8
-  %274 = load i64, ptr %273, align 8, !alias.scope !7448, !noalias !7447, !noundef !4
-  %275 = icmp eq i64 %272, %274
-  br i1 %275, label %276, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+271:                                              ; preds = %259
+  %272 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %273 = load i64, ptr %272, align 8, !alias.scope !7447, !noalias !7448, !noundef !4
+  %274 = getelementptr inbounds nuw i8, ptr %.tr141, i64 8
+  %275 = load i64, ptr %274, align 8, !alias.scope !7448, !noalias !7447, !noundef !4
+  %276 = icmp eq i64 %273, %275
+  br i1 %276, label %277, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-276:                                              ; preds = %270
-  %277 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %278 = load i32, ptr %277, align 4, !alias.scope !7447, !noalias !7448, !noundef !4
-  %279 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
-  %280 = load i32, ptr %279, align 4, !alias.scope !7448, !noalias !7447, !noundef !4
-  %281 = icmp eq i32 %278, %280
-  br i1 %281, label %293, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+277:                                              ; preds = %271
+  %278 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %279 = load i32, ptr %278, align 4, !alias.scope !7447, !noalias !7448, !noundef !4
+  %280 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
+  %281 = load i32, ptr %280, align 4, !alias.scope !7448, !noalias !7447, !noundef !4
+  %282 = icmp eq i32 %279, %281
+  br i1 %282, label %294, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-282:                                              ; preds = %264
-  %283 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %284 = load i32, ptr %283, align 4, !alias.scope !7447, !noalias !7448, !noundef !4
-  %285 = getelementptr inbounds nuw i8, ptr %.tr143, i64 4
-  %286 = load i32, ptr %285, align 4, !alias.scope !7448, !noalias !7447, !noundef !4
-  %287 = icmp eq i32 %284, %286
-  br i1 %287, label %293, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+283:                                              ; preds = %265
+  %284 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %285 = load i32, ptr %284, align 4, !alias.scope !7447, !noalias !7448, !noundef !4
+  %286 = getelementptr inbounds nuw i8, ptr %.tr141, i64 4
+  %287 = load i32, ptr %286, align 4, !alias.scope !7448, !noalias !7447, !noundef !4
+  %288 = icmp eq i32 %285, %287
+  br i1 %288, label %294, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i": ; preds = %257
-  %288 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %289 = load i128, ptr %288, align 16, !alias.scope !7447, !noalias !7448, !noundef !4
-  %290 = getelementptr inbounds nuw i8, ptr %.tr143, i64 16
-  %291 = load i128, ptr %290, align 16, !alias.scope !7448, !noalias !7447, !noundef !4
-  %292 = icmp eq i128 %289, %291
-  br i1 %292, label %293, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
+"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i": ; preds = %258
+  %289 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %290 = load i128, ptr %289, align 16, !alias.scope !7447, !noalias !7448, !noundef !4
+  %291 = getelementptr inbounds nuw i8, ptr %.tr141, i64 16
+  %292 = load i128, ptr %291, align 16, !alias.scope !7448, !noalias !7447, !noundef !4
+  %293 = icmp eq i128 %290, %292
+  br i1 %293, label %294, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-293:                                              ; preds = %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i", %282, %276
-  %294 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %295 = load i8, ptr %294, align 8, !range !3158, !alias.scope !7437, !noalias !7440, !noundef !4
-  %296 = getelementptr inbounds nuw i8, ptr %.tr143, i64 40
-  %297 = load i8, ptr %296, align 8, !range !3158, !alias.scope !7440, !noalias !7437, !noundef !4
-  %.not.i = icmp eq i8 %295, %297
+294:                                              ; preds = %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i", %283, %277
+  %295 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
+  %296 = load i8, ptr %295, align 8, !range !3158, !alias.scope !7437, !noalias !7440, !noundef !4
+  %297 = getelementptr inbounds nuw i8, ptr %.tr141, i64 40
+  %298 = load i8, ptr %297, align 8, !range !3158, !alias.scope !7440, !noalias !7437, !noundef !4
+  %299 = icmp eq i8 %296, %298
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 }
 

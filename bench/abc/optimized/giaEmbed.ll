@@ -330,13 +330,16 @@ Gia_ObjIsRo.exit:                                 ; preds = %Vec_IntPush.exit, %
   %.val167 = load i32, ptr %119, align 4, !tbaa !39
   %120 = sext i32 %.val167 to i64
   %121 = icmp slt i64 %indvars.iv.next, %120
-  br i1 %121, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !54
+  br i1 %121, label %.lr.ph, label %Gia_ObjIsRo.exit..critedge.loopexit_crit_edge, !llvm.loop !54
 
-.critedge.loopexit:                               ; preds = %.lr.ph, %Gia_ObjIsRo.exit, %.lr.ph.preheader
-  %122 = phi i32 [ 1, %.lr.ph.preheader ], [ %118, %Gia_ObjIsRo.exit ], [ %118, %.lr.ph ]
-  %.val192295 = phi ptr [ %.val188, %.lr.ph.preheader ], [ %.val190, %Gia_ObjIsRo.exit ], [ %.val190, %.lr.ph ]
-  %.val201293 = phi ptr [ null, %.lr.ph.preheader ], [ null, %.lr.ph ], [ %.val189, %Gia_ObjIsRo.exit ]
-  %.0.lcssa.ph = phi i32 [ %52, %.lr.ph.preheader ], [ %116, %Gia_ObjIsRo.exit ], [ %116, %.lr.ph ]
+Gia_ObjIsRo.exit..critedge.loopexit_crit_edge:    ; preds = %Gia_ObjIsRo.exit
+  br label %.critedge.loopexit, !llvm.loop !54
+
+.critedge.loopexit:                               ; preds = %.lr.ph, %Gia_ObjIsRo.exit..critedge.loopexit_crit_edge, %.lr.ph.preheader
+  %122 = phi i32 [ %118, %Gia_ObjIsRo.exit..critedge.loopexit_crit_edge ], [ 1, %.lr.ph.preheader ], [ %118, %.lr.ph ]
+  %.val192295 = phi ptr [ %.val190, %Gia_ObjIsRo.exit..critedge.loopexit_crit_edge ], [ %.val188, %.lr.ph.preheader ], [ %.val190, %.lr.ph ]
+  %.val201293 = phi ptr [ %.val189, %Gia_ObjIsRo.exit..critedge.loopexit_crit_edge ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ]
+  %.0.lcssa.ph = phi i32 [ %116, %Gia_ObjIsRo.exit..critedge.loopexit_crit_edge ], [ %52, %.lr.ph.preheader ], [ %116, %.lr.ph ]
   %.pre291 = load i32, ptr %29, align 8, !tbaa !45
   br label %.critedge
 

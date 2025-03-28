@@ -1164,11 +1164,14 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %11, %16, 
   %55 = load i64, ptr %54, align 8, !tbaa !81
   %56 = urem i64 %55, %32
   %.not19.i.i.i.i = icmp eq i64 %56, %33
-  br i1 %.not19.i.i.i.i, label %46, label %_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit, !llvm.loop !83
+  br i1 %.not19.i.i.i.i, label %46, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !83
 
-_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit: ; preds = %53, %.lr.ph.i.i.i.i, %46, %25, %24, %37, %.noexc
-  %57 = phi ptr [ %.pre, %.noexc ], [ %.pre, %37 ], [ %5, %24 ], [ %5, %25 ], [ %.pre, %46 ], [ %.pre, %.lr.ph.i.i.i.i ], [ %.pre, %53 ]
-  %.sroa.06.1.i.i = phi ptr [ null, %.noexc ], [ %38, %37 ], [ %.sroa.06.0.i.i, %25 ], [ null, %24 ], [ null, %53 ], [ null, %.lr.ph.i.i.i.i ], [ %52, %46 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %53
+  br label %_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit, !llvm.loop !83
+
+_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit: ; preds = %.lr.ph.i.i.i.i, %46, %25, %24, %..loopexit_crit_edge21.i.i.i.i, %37, %.noexc
+  %57 = phi ptr [ %.pre, %.noexc ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre, %37 ], [ %5, %24 ], [ %5, %25 ], [ %.pre, %46 ], [ %.pre, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ null, %.noexc ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %38, %37 ], [ %.sroa.06.0.i.i, %25 ], [ null, %24 ], [ null, %.lr.ph.i.i.i.i ], [ %52, %46 ]
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 1152920405095219200
   %.not.i.i2 = icmp eq i64 %59, 1152920405095219200
@@ -1590,11 +1593,14 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %11, %16, 
   %55 = load i64, ptr %54, align 8, !tbaa !81
   %56 = urem i64 %55, %32
   %.not19.i.i.i.i = icmp eq i64 %56, %33
-  br i1 %.not19.i.i.i.i, label %46, label %_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit, !llvm.loop !83
+  br i1 %.not19.i.i.i.i, label %46, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !83
 
-_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit: ; preds = %53, %.lr.ph.i.i.i.i, %46, %25, %24, %37, %.noexc
-  %57 = phi ptr [ %.pre, %.noexc ], [ %.pre, %37 ], [ %5, %24 ], [ %5, %25 ], [ %.pre, %46 ], [ %.pre, %.lr.ph.i.i.i.i ], [ %.pre, %53 ]
-  %.sroa.06.1.i.i = phi ptr [ null, %.noexc ], [ %38, %37 ], [ %.sroa.06.0.i.i, %25 ], [ null, %24 ], [ null, %53 ], [ null, %.lr.ph.i.i.i.i ], [ %52, %46 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %53
+  br label %_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit, !llvm.loop !83
+
+_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit: ; preds = %.lr.ph.i.i.i.i, %46, %25, %24, %..loopexit_crit_edge21.i.i.i.i, %37, %.noexc
+  %57 = phi ptr [ %.pre, %.noexc ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre, %37 ], [ %5, %24 ], [ %5, %25 ], [ %.pre, %46 ], [ %.pre, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ null, %.noexc ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %38, %37 ], [ %.sroa.06.0.i.i, %25 ], [ null, %24 ], [ null, %.lr.ph.i.i.i.i ], [ %52, %46 ]
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 1152920405095219200
   %.not.i.i2 = icmp eq i64 %59, 1152920405095219200
@@ -5457,9 +5463,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %32 = load i64, ptr %31, align 8, !tbaa !81
   %33 = urem i64 %32, %8
   %.not19.i.i = icmp eq i64 %33, %9
-  br i1 %.not19.i.i, label %23, label %.loopexit, !llvm.loop !83
+  br i1 %.not19.i.i, label %23, label %..loopexit_crit_edge21.i.i, !llvm.loop !83
 
-.loopexit:                                        ; preds = %30, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %30
+  br label %.loopexit, !llvm.loop !83
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   store ptr %1, ptr %4, align 8, !tbaa !162, !alias.scope !163

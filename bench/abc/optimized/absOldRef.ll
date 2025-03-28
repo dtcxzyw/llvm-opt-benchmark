@@ -167,11 +167,14 @@ define noundef ptr @Saig_ManCexRemap(ptr noundef %0, ptr noundef %1, ptr noundef
   %.val42 = phi i32 [ %.val425861, %.lr.ph63 ], [ %.val42.pre, %41 ]
   %55 = add nuw nsw i32 %.0354662, 1
   %56 = icmp slt i32 %55, %.val42
-  br i1 %56, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !41
+  br i1 %56, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !41
 
-.critedge.loopexit:                               ; preds = %54, %.lr.ph, %.lr.ph.preheader
-  %.val4257 = phi i32 [ %.val4255, %.lr.ph.preheader ], [ %.val42, %.lr.ph ], [ %.val42, %54 ]
-  %.val424552 = phi i32 [ %.val4245, %.lr.ph.preheader ], [ %.val42, %.lr.ph ], [ %.val42, %54 ]
+..critedge.loopexit_crit_edge:                    ; preds = %54
+  br label %.critedge.loopexit, !llvm.loop !41
+
+.critedge.loopexit:                               ; preds = %.lr.ph, %..critedge.loopexit_crit_edge, %.lr.ph.preheader
+  %.val4257 = phi i32 [ %.val42, %..critedge.loopexit_crit_edge ], [ %.val4255, %.lr.ph.preheader ], [ %.val42, %.lr.ph ]
+  %.val424552 = phi i32 [ %.val42, %..critedge.loopexit_crit_edge ], [ %.val4245, %.lr.ph.preheader ], [ %.val42, %.lr.ph ]
   %.pre = load i32, ptr %9, align 4, !tbaa !38
   br label %.critedge
 

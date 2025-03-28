@@ -1227,8 +1227,8 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
 
 .critedge5.i:                                     ; preds = %26, %26
   %30 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03345.i26, ptr noundef nonnull @.str.57, i64 noundef 11) #7
-  %.not42 = icmp eq i32 %30, 0
-  br i1 %.not42, label %31, label %.thread
+  %.not46 = icmp eq i32 %30, 0
+  br i1 %.not46, label %31, label %.thread
 
 .thread:                                          ; preds = %.critedge5.i
   store i16 0, ptr %15, align 2, !tbaa !130
@@ -1245,24 +1245,27 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
   %36 = sub i64 %34, %35
   %37 = tail call i32 @Curl_sasl_parse_url_auth_option(ptr noundef nonnull %11, ptr noundef nonnull %25, i64 noundef %36) #7
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %17, label %.critedge.thread.i, !llvm.loop !127
+  br i1 %38, label %17, label %..critedge.i_crit_edge, !llvm.loop !127
+
+..critedge.i_crit_edge:                           ; preds = %33
+  br label %.critedge.thread.i, !llvm.loop !127
 
 .critedge.i:                                      ; preds = %17
-  br i1 %.not42, label %.critedge.thread.i, label %imap_parse_url_options.exit.thread
+  br i1 %.not46, label %.critedge.thread.i, label %imap_parse_url_options.exit.thread
 
 imap_parse_url_options.exit.thread:               ; preds = %.critedge.i
   store i8 1, ptr %10, align 1, !tbaa !117
   br label %41
 
-.critedge.thread.i:                               ; preds = %33, %31, %.lr.ph.i, %.critedge.i, %2
-  %.0.lcssa58.i = phi i32 [ 0, %.critedge.i ], [ 0, %2 ], [ 0, %.lr.ph.i ], [ %37, %33 ], [ 3, %31 ]
+.critedge.thread.i:                               ; preds = %31, %.lr.ph.i, %..critedge.i_crit_edge, %.critedge.i, %2
+  %.0.lcssa58.i = phi i32 [ 0, %.critedge.i ], [ 0, %2 ], [ 0, %.lr.ph.i ], [ %37, %..critedge.i_crit_edge ], [ 3, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 1274
   %40 = load i16, ptr %39, align 2, !tbaa !130
   %switch.selectcmp = icmp eq i16 %40, -33
   %switch.select = select i1 %switch.selectcmp, i8 3, i8 2
-  %switch.selectcmp40 = icmp eq i16 %40, 0
-  %switch.select41 = select i1 %switch.selectcmp40, i8 0, i8 %switch.select
-  store i8 %switch.select41, ptr %10, align 1, !tbaa !117
+  %switch.selectcmp44 = icmp eq i16 %40, 0
+  %switch.select45 = select i1 %switch.selectcmp44, i8 0, i8 %switch.select
+  store i8 %switch.select45, ptr %10, align 1, !tbaa !117
   %.not = icmp eq i32 %.0.lcssa58.i, 0
   br i1 %.not, label %41, label %imap_multi_statemach.exit
 

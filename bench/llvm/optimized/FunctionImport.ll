@@ -24274,14 +24274,17 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN4llvm18GlobalValueSummaryES
   %39 = ptrtoint ptr %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %.critedge, !llvm.loop !1290
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !1290
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %36, %23, %.thread32
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread32 ], [ %11, %36 ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %26, %23 ], [ %10, %.thread32 ], [ %10, %36 ], [ %10, %.lr.ph.i.i ]
-  %43 = phi ptr [ %25, %23 ], [ %9, %.thread32 ], [ %9, %36 ], [ %9, %.lr.ph.i.i ]
-  %44 = phi i64 [ %24, %23 ], [ %8, %.thread32 ], [ %8, %36 ], [ %8, %.lr.ph.i.i ]
-  %45 = phi ptr [ %17, %23 ], [ %7, %.thread32 ], [ %7, %36 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge, !llvm.loop !1290
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread32
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread32 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %26, %23 ], [ %10, %.thread32 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %43 = phi ptr [ %25, %23 ], [ %9, %.thread32 ], [ %9, %..loopexit_crit_edge21.i.i ], [ %9, %.lr.ph.i.i ]
+  %44 = phi i64 [ %24, %23 ], [ %8, %.thread32 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %45 = phi ptr [ %17, %23 ], [ %7, %.thread32 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %46 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr null, ptr %46, align 8, !tbaa !1288
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8

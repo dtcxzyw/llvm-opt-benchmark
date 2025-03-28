@@ -911,10 +911,13 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   %read_pos_.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %40 = load i64, ptr %read_pos_.i, align 8
   %cmp.not.i = icmp eq i64 %40, 0
-  br i1 %cmp.not.i, label %if.end56, label %land.rhs.i, !llvm.loop !6
+  br i1 %cmp.not.i, label %if.end.i.if.end56.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !6
 
-if.end56:                                         ; preds = %land.rhs.i, %if.end.i, %land.rhs.i.preheader, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit52
-  %41 = phi ptr [ %31, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit52 ], [ %31, %land.rhs.i.preheader ], [ %37, %if.end.i ], [ %37, %land.rhs.i ]
+if.end.i.if.end56.loopexit_crit_edge:             ; preds = %if.end.i
+  br label %if.end56, !llvm.loop !6
+
+if.end56:                                         ; preds = %land.rhs.i, %land.rhs.i.preheader, %if.end.i.if.end56.loopexit_crit_edge, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit52
+  %41 = phi ptr [ %31, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit52 ], [ %37, %if.end.i.if.end56.loopexit_crit_edge ], [ %31, %land.rhs.i.preheader ], [ %37, %land.rhs.i ]
   %write_pos_ = getelementptr inbounds nuw i8, ptr %41, i64 16
   %42 = load i64, ptr %write_pos_, align 8
   %len_ = getelementptr inbounds nuw i8, ptr %41, i64 24

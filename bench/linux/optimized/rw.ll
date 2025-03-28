@@ -2649,9 +2649,12 @@ define dso_local i32 @io_do_iopoll(ptr noundef %0, i1 noundef zeroext %1) local_
   store i32 %64, ptr %65, align 4
   %66 = load ptr, ptr %54, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.thread17, label %49, !llvm.loop !42
+  br i1 %67, label %..thread17_crit_edge46, label %49, !llvm.loop !42
 
-.thread17:                                        ; preds = %63, %49
+..thread17_crit_edge46:                           ; preds = %63
+  br label %.thread17, !llvm.loop !42
+
+.thread17:                                        ; preds = %49, %..thread17_crit_edge46
   %68 = icmp eq i32 %55, 0
   br i1 %68, label %.thread12, label %69, !prof !43
 

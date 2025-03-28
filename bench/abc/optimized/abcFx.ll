@@ -6224,11 +6224,14 @@ Fx_ManCompressCubes.exit476:                      ; preds = %244, %Fx_ManCompres
   %.val340 = load i32, ptr %286, align 4, !tbaa !36
   %287 = sext i32 %.val340 to i64
   %288 = icmp slt i64 %indvars.iv.next997, %287
-  br i1 %288, label %.lr.ph895, label %.critedge2.loopexit, !llvm.loop !168
+  br i1 %288, label %.lr.ph895, label %..critedge2.loopexit_crit_edge, !llvm.loop !168
 
-.critedge2.loopexit:                              ; preds = %.lr.ph895, %.lr.ph1123, %.lr.ph895.preheader
-  %.lcssa886.ph = phi ptr [ %271, %.lr.ph895.preheader ], [ %285, %.lr.ph1123 ], [ %285, %.lr.ph895 ]
-  %.val340.lcssa.ph = phi i32 [ %.val340892, %.lr.ph895.preheader ], [ %.val340, %.lr.ph1123 ], [ %.val340, %.lr.ph895 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph1123
+  br label %.critedge2.loopexit, !llvm.loop !168
+
+.critedge2.loopexit:                              ; preds = %.lr.ph895, %..critedge2.loopexit_crit_edge, %.lr.ph895.preheader
+  %.lcssa886.ph = phi ptr [ %285, %..critedge2.loopexit_crit_edge ], [ %271, %.lr.ph895.preheader ], [ %285, %.lr.ph895 ]
+  %.val340.lcssa.ph = phi i32 [ %.val340, %..critedge2.loopexit_crit_edge ], [ %.val340892, %.lr.ph895.preheader ], [ %.val340, %.lr.ph895 ]
   %.pre1041 = load ptr, ptr %76, align 8, !tbaa !97
   br label %.critedge2
 
@@ -6383,11 +6386,14 @@ Vec_WecMarkLevels.exit491:                        ; preds = %305, %Vec_WecMarkLe
   %.val338 = load i32, ptr %355, align 4, !tbaa !36
   %356 = sext i32 %.val338 to i64
   %357 = icmp slt i64 %indvars.iv.next1003, %356
-  br i1 %357, label %340, label %.critedge6.loopexit, !llvm.loop !171
+  br i1 %357, label %340, label %..critedge6.loopexit_crit_edge, !llvm.loop !171
 
-.critedge6.loopexit:                              ; preds = %340, %.lr.ph1131, %.lr.ph907
-  %.lcssa885.ph = phi ptr [ %334, %.lr.ph907 ], [ %354, %.lr.ph1131 ], [ %354, %340 ]
-  %.val338.lcssa.ph = phi i32 [ %.val338904, %.lr.ph907 ], [ %.val338, %.lr.ph1131 ], [ %.val338, %340 ]
+..critedge6.loopexit_crit_edge:                   ; preds = %.lr.ph1131
+  br label %.critedge6.loopexit, !llvm.loop !171
+
+.critedge6.loopexit:                              ; preds = %340, %..critedge6.loopexit_crit_edge, %.lr.ph907
+  %.lcssa885.ph = phi ptr [ %354, %..critedge6.loopexit_crit_edge ], [ %334, %.lr.ph907 ], [ %354, %340 ]
+  %.val338.lcssa.ph = phi i32 [ %.val338, %..critedge6.loopexit_crit_edge ], [ %.val338904, %.lr.ph907 ], [ %.val338, %340 ]
   %.pre1043 = load ptr, ptr %76, align 8, !tbaa !97
   br label %.critedge6
 
@@ -8496,11 +8502,14 @@ Vec_IntPush.exit751:                              ; preds = %.Vec_IntGrow.exit10
   %.val328 = load i32, ptr %1330, align 4, !tbaa !36
   %1331 = sext i32 %.val328 to i64
   %1332 = icmp slt i64 %indvars.iv.next1019, %1331
-  br i1 %1332, label %.lr.ph933, label %.critedge13.loopexit, !llvm.loop !181
+  br i1 %1332, label %.lr.ph933, label %..critedge13.loopexit_crit_edge, !llvm.loop !181
 
-.critedge13.loopexit:                             ; preds = %.lr.ph933, %.lr.ph1141, %.lr.ph933.preheader
-  %.lcssa861.ph = phi ptr [ %1315, %.lr.ph933.preheader ], [ %1329, %.lr.ph1141 ], [ %1329, %.lr.ph933 ]
-  %.val328.lcssa.ph = phi i32 [ %.val328930, %.lr.ph933.preheader ], [ %.val328, %.lr.ph1141 ], [ %.val328, %.lr.ph933 ]
+..critedge13.loopexit_crit_edge:                  ; preds = %.lr.ph1141
+  br label %.critedge13.loopexit, !llvm.loop !181
+
+.critedge13.loopexit:                             ; preds = %.lr.ph933, %..critedge13.loopexit_crit_edge, %.lr.ph933.preheader
+  %.lcssa861.ph = phi ptr [ %1329, %..critedge13.loopexit_crit_edge ], [ %1315, %.lr.ph933.preheader ], [ %1329, %.lr.ph933 ]
+  %.val328.lcssa.ph = phi i32 [ %.val328, %..critedge13.loopexit_crit_edge ], [ %.val328930, %.lr.ph933.preheader ], [ %.val328, %.lr.ph933 ]
   %.pre1050 = load ptr, ptr %76, align 8, !tbaa !97
   br label %.critedge13
 
@@ -8655,11 +8664,14 @@ Vec_WecMarkLevels.exit771:                        ; preds = %1349, %Vec_WecMarkL
   %.val326 = load i32, ptr %1399, align 4, !tbaa !36
   %1400 = sext i32 %.val326 to i64
   %1401 = icmp slt i64 %indvars.iv.next1025, %1400
-  br i1 %1401, label %1384, label %.critedge17.loopexit, !llvm.loop !183
+  br i1 %1401, label %1384, label %..critedge17.loopexit_crit_edge, !llvm.loop !183
 
-.critedge17.loopexit:                             ; preds = %1384, %.lr.ph1150, %.lr.ph946
-  %.lcssa860.ph = phi ptr [ %1378, %.lr.ph946 ], [ %1398, %.lr.ph1150 ], [ %1398, %1384 ]
-  %.val326.lcssa.ph = phi i32 [ %.val326943, %.lr.ph946 ], [ %.val326, %.lr.ph1150 ], [ %.val326, %1384 ]
+..critedge17.loopexit_crit_edge:                  ; preds = %.lr.ph1150
+  br label %.critedge17.loopexit, !llvm.loop !183
+
+.critedge17.loopexit:                             ; preds = %1384, %..critedge17.loopexit_crit_edge, %.lr.ph946
+  %.lcssa860.ph = phi ptr [ %1398, %..critedge17.loopexit_crit_edge ], [ %1378, %.lr.ph946 ], [ %1398, %1384 ]
+  %.val326.lcssa.ph = phi i32 [ %.val326, %..critedge17.loopexit_crit_edge ], [ %.val326943, %.lr.ph946 ], [ %.val326, %1384 ]
   %.pre1052 = load ptr, ptr %76, align 8, !tbaa !97
   br label %.critedge17
 

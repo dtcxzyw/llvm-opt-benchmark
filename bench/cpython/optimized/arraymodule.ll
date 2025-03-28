@@ -3966,7 +3966,7 @@ PyObject_TypeCheck.exit141.thread:                ; preds = %PyObject_TypeCheck.
   %59 = add nuw nsw i64 %.082170188, 1
   %.val130 = load i64, ptr %12, align 8, !tbaa !40
   %60 = icmp slt i64 %59, %.val130
-  br i1 %60, label %.lr.ph, label %_Py_NewRef.exit143, !llvm.loop !100
+  br i1 %60, label %.lr.ph, label %._Py_NewRef.exit143.loopexit_crit_edge, !llvm.loop !100
 
 .lr.ph:                                           ; preds = %58
   %.val129 = load i64, ptr %13, align 8, !tbaa !40
@@ -4044,8 +4044,11 @@ Py_DECREF.exit117:                                ; preds = %Py_DECREF.exit119, 
   %93 = icmp slt i32 %80, 0
   br i1 %93, label %_Py_NewRef.exit, label %58
 
-_Py_NewRef.exit143:                               ; preds = %58, %.lr.ph, %.lr.ph.preheader, %._Py_NewRef.exit143_crit_edge, %55
-  %.val128 = phi i64 [ %.val128.pre, %._Py_NewRef.exit143_crit_edge ], [ %.val136, %55 ], [ %.val136, %.lr.ph.preheader ], [ %.val130, %.lr.ph ], [ %.val130, %58 ]
+._Py_NewRef.exit143.loopexit_crit_edge:           ; preds = %58
+  br label %_Py_NewRef.exit143, !llvm.loop !100
+
+_Py_NewRef.exit143:                               ; preds = %.lr.ph, %.lr.ph.preheader, %._Py_NewRef.exit143.loopexit_crit_edge, %._Py_NewRef.exit143_crit_edge, %55
+  %.val128 = phi i64 [ %.val128.pre, %._Py_NewRef.exit143_crit_edge ], [ %.val136, %55 ], [ %.val130, %._Py_NewRef.exit143.loopexit_crit_edge ], [ %.val136, %.lr.ph.preheader ], [ %.val130, %.lr.ph ]
   %.val127 = load i64, ptr %13, align 8, !tbaa !40
   switch i32 %2, label %_Py_NewRef.exit [
     i32 0, label %98

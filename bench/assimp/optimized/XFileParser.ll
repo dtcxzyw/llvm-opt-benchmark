@@ -9505,7 +9505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.lr.ph.i
   %.promoted1116.i = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.promoted1116.i.be, %.lr.ph.i.backedge ]
   %58 = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.be, %.lr.ph.i.backedge ]
-  %59 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be67, %.lr.ph.i.backedge ]
+  %59 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be69, %.lr.ph.i.backedge ]
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = tail call i32 @isspace(i32 noundef %61) #27
@@ -9532,7 +9532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .lr.ph.i.backedge:                                ; preds = %67, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   %.promoted1116.i.be = phi i32 [ %.promoted1114.i, %67 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   %.be = phi i32 [ %68, %67 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %.be67 = phi ptr [ %69, %67 ], [ %83, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %.be69 = phi ptr [ %69, %67 ], [ %83, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %.lr.ph.i, !llvm.loop !14
 
 71:                                               ; preds = %.lr.ph.i
@@ -9651,11 +9651,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   %113 = load ptr, ptr %53, align 8
   %114 = load ptr, ptr %54, align 8
   %115 = icmp ult ptr %113, %114
-  br i1 %115, label %105, label %.critedge, !llvm.loop !34
+  br i1 %115, label %105, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit..critedge.loopexit_crit_edge, !llvm.loop !34
 
-.critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, %105, %.lr.ph, %100
-  %.lcssa17 = phi ptr [ %101, %100 ], [ %101, %.lr.ph ], [ %113, %105 ], [ %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
-  %.lcssa = phi ptr [ %55, %100 ], [ %55, %.lr.ph ], [ %114, %105 ], [ %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit..critedge.loopexit_crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
+  br label %.critedge, !llvm.loop !34
+
+.critedge:                                        ; preds = %105, %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit..critedge.loopexit_crit_edge, %100
+  %.lcssa17 = phi ptr [ %101, %100 ], [ %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit..critedge.loopexit_crit_edge ], [ %101, %.lr.ph ], [ %113, %105 ]
+  %.lcssa = phi ptr [ %55, %100 ], [ %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit..critedge.loopexit_crit_edge ], [ %55, %.lr.ph ], [ %114, %105 ]
   %116 = getelementptr inbounds i8, ptr %.lcssa, i64 -1
   %.not11 = icmp ult ptr %.lcssa17, %116
   br i1 %.not11, label %123, label %117

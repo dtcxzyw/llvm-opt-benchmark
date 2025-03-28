@@ -4019,7 +4019,7 @@ is_usb_standard_setup_request.exit.i:             ; preds = %707
   %723 = getelementptr i8, ptr %.01821.i123.i, i64 24
   %724 = load ptr, ptr %723, align 8
   %.not.i121.i = icmp eq ptr %724, null
-  br i1 %.not.i121.i, label %dissect_usb_standard_setup_request.exit.i, label %725, !llvm.loop !8
+  br i1 %.not.i121.i, label %.dissect_usb_standard_setup_request.exit_crit_edge.i, label %725, !llvm.loop !8
 
 725:                                              ; preds = %.lr.ph.i
   %726 = getelementptr i8, ptr %.01821.i123.i, i64 16
@@ -4027,8 +4027,11 @@ is_usb_standard_setup_request.exit.i:             ; preds = %707
   %728 = icmp eq i8 %727, %721
   br i1 %728, label %dissect_usb_standard_setup_request.exit.i, label %.lr.ph.i, !llvm.loop !8
 
-dissect_usb_standard_setup_request.exit.i:        ; preds = %725, %.lr.ph.i, %714
-  %.lcssa.i.i = phi ptr [ @dissect_usb_setup_get_status_request, %714 ], [ %724, %725 ], [ null, %.lr.ph.i ]
+.dissect_usb_standard_setup_request.exit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %dissect_usb_standard_setup_request.exit.i, !llvm.loop !8
+
+dissect_usb_standard_setup_request.exit.i:        ; preds = %725, %.dissect_usb_standard_setup_request.exit_crit_edge.i, %714
+  %.lcssa.i.i = phi ptr [ null, %.dissect_usb_standard_setup_request.exit_crit_edge.i ], [ @dissect_usb_setup_get_status_request, %714 ], [ %724, %725 ]
   %.not20.i.i = icmp eq ptr %.lcssa.i.i, null
   %spec.store.select.i.i = select i1 %.not20.i.i, ptr @dissect_usb_setup_generic, ptr %.lcssa.i.i
   %729 = call i32 %spec.store.select.i.i(ptr noundef %1, ptr noundef %609, ptr noundef %.0111.i, i32 noundef 1, ptr noundef %201)

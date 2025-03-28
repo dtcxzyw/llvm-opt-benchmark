@@ -2798,14 +2798,18 @@ thread-pre-split1920:                             ; preds = %785, %786
   %indvars.iv.next2420 = add nsw i64 %indvars.iv24192607, -1
   %indvars2422 = trunc i64 %indvars.iv.next2420 to i32
   %1255 = icmp sgt i64 %indvars.iv24192607, 1
-  br i1 %1255, label %.lr.ph2196, label %._crit_edge2197.loopexit, !llvm.loop !50
+  br i1 %1255, label %.lr.ph2196, label %.._crit_edge2197.loopexit_crit_edge, !llvm.loop !50
 
-._crit_edge2197.loopexit:                         ; preds = %.lr.ph2196, %.lr.ph2608
+.._crit_edge2197.loopexit_crit_edge:              ; preds = %.lr.ph2608
+  store i32 %indvars2422, ptr %30, align 4, !tbaa !3
+  br label %._crit_edge2197, !llvm.loop !50
+
+._crit_edge2197.loopexit:                         ; preds = %.lr.ph2196
   store i32 %indvars2422, ptr %30, align 4, !tbaa !3
   br label %._crit_edge2197
 
-._crit_edge2197:                                  ; preds = %._crit_edge2197.loopexit, %.lr.ph2196.preheader, %.thread1918
-  %1256 = phi i32 [ %1246, %.thread1918 ], [ %1246, %.lr.ph2196.preheader ], [ %indvars2422, %._crit_edge2197.loopexit ]
+._crit_edge2197:                                  ; preds = %._crit_edge2197.loopexit, %.lr.ph2196.preheader, %.._crit_edge2197.loopexit_crit_edge, %.thread1918
+  %1256 = phi i32 [ %1246, %.thread1918 ], [ %indvars2422, %.._crit_edge2197.loopexit_crit_edge ], [ %1246, %.lr.ph2196.preheader ], [ %indvars2422, %._crit_edge2197.loopexit ]
   %1257 = load i32, ptr %6, align 4, !tbaa !3
   %1258 = icmp slt i32 %1256, %1257
   br i1 %1258, label %1259, label %1264

@@ -2618,18 +2618,21 @@ _ZNK6HandleclEv.exit.us:                          ; preds = %.lr.ph11
   %..i.us = select i1 %18, i64 20, i64 24
   %.7.i.us = select i1 %18, i64 2, i64 3
   %21 = select i1 %20, i64 16, i64 %..i.us
-  %22 = shl nuw nsw i64 %indvars.iv17, %.7.i.us
+  %22 = shl nuw nsw i64 %indvars.iv16, %.7.i.us
   %23 = add nuw nsw i64 %21, %22
   %24 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %23) #16
   %26 = icmp eq ptr %25, null
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   br i1 %26, label %.split.us, label %.lr.ph11, !llvm.loop !18
 
 .lr.ph11:                                         ; preds = %_ZN8Universe20out_of_memory_errorsEv.exit.split.us, %_ZNK6HandleclEv.exit.us
-  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %_ZNK6HandleclEv.exit.us ], [ 1, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us ]
-  %exitcond20 = icmp eq i64 %indvars.iv17, 7
-  br i1 %exitcond20, label %.split.us, label %_ZNK6HandleclEv.exit.us, !llvm.loop !18
+  %indvars.iv16 = phi i64 [ %indvars.iv.next17, %_ZNK6HandleclEv.exit.us ], [ 1, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us ]
+  %exitcond19 = icmp eq i64 %indvars.iv16, 7
+  br i1 %exitcond19, label %..split.us_crit_edge, label %_ZNK6HandleclEv.exit.us, !llvm.loop !18
+
+..split.us_crit_edge:                             ; preds = %.lr.ph11
+  br label %.split.us, !llvm.loop !18
 
 _ZN8Universe20out_of_memory_errorsEv.exit.split:  ; preds = %_ZN8Universe20out_of_memory_errorsEv.exit
   %27 = load ptr, ptr %0, align 8
@@ -2647,7 +2650,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit.split:  ; preds = %_ZN8Universe20out_o
 .lr.ph:                                           ; preds = %_ZN8Universe20out_of_memory_errorsEv.exit.split, %_ZNK6HandleclEv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6HandleclEv.exit ], [ 1, %_ZN8Universe20out_of_memory_errorsEv.exit.split ]
   %exitcond = icmp eq i64 %indvars.iv, 7
-  br i1 %exitcond, label %.split.us, label %_ZNK6HandleclEv.exit, !llvm.loop !18
+  br i1 %exitcond, label %..split_crit_edge, label %_ZNK6HandleclEv.exit, !llvm.loop !18
 
 _ZNK6HandleclEv.exit:                             ; preds = %.lr.ph
   %36 = load ptr, ptr %0, align 8
@@ -2666,8 +2669,11 @@ _ZNK6HandleclEv.exit:                             ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %46, label %.split.us, label %.lr.ph, !llvm.loop !18
 
-.split.us:                                        ; preds = %.lr.ph, %_ZNK6HandleclEv.exit, %_ZNK6HandleclEv.exit.us, %.lr.ph11, %_ZN8Universe20out_of_memory_errorsEv.exit.split, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us
-  %.us-phi = phi i1 [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us ], [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split ], [ %exitcond20, %.lr.ph11 ], [ %exitcond20, %_ZNK6HandleclEv.exit.us ], [ %exitcond, %_ZNK6HandleclEv.exit ], [ %exitcond, %.lr.ph ]
+..split_crit_edge:                                ; preds = %.lr.ph
+  br label %.split.us, !llvm.loop !18
+
+.split.us:                                        ; preds = %_ZNK6HandleclEv.exit, %_ZNK6HandleclEv.exit.us, %_ZN8Universe20out_of_memory_errorsEv.exit.split, %..split_crit_edge, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us, %..split.us_crit_edge
+  %.us-phi = phi i1 [ true, %..split.us_crit_edge ], [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us ], [ true, %..split_crit_edge ], [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split ], [ false, %_ZNK6HandleclEv.exit.us ], [ false, %_ZNK6HandleclEv.exit ]
   ret i1 %.us-phi
 }
 

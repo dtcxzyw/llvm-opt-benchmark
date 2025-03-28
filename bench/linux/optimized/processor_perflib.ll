@@ -1284,7 +1284,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 
 .thread29..thread25.loopexit35_crit_edge:         ; preds = %.thread29
   %.pre41.pre.pre = load i64, ptr @__cpu_possible_mask, align 8
-  br label %.thread25
+  br label %.thread25, !llvm.loop !25
 
 .thread25:                                        ; preds = %.preheader, %74, %142, %138, %.thread29..thread25.loopexit35_crit_edge, %.thread
   %.pre41 = phi i64 [ %.pre4143, %.thread ], [ %.pre41.pre.pre, %.thread29..thread25.loopexit35_crit_edge ], [ %111, %138 ], [ %111, %142 ], [ %70, %74 ], [ %70, %.preheader ]

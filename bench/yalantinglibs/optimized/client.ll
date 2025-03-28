@@ -31046,8 +31046,8 @@ entry:
   br i1 %cmp.i.not, label %while.cond.preheader, label %if.else57
 
 while.cond.preheader:                             ; preds = %entry
-  %tobool.not61 = icmp eq i64 %length, 0
-  br i1 %tobool.not61, label %while.end, label %while.body.lr.ph
+  %tobool.not62 = icmp eq i64 %length, 0
+  br i1 %tobool.not62, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %expected_buf_ = getelementptr inbounds nuw i8, ptr %0, i64 5192
@@ -31063,12 +31063,12 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit22
-  %all_res.sroa.6.063 = phi ptr [ %0, %while.body.lr.ph ], [ %add.ptr.i18, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit22 ]
-  %all_res.sroa.0.062 = phi i64 [ %length, %while.body.lr.ph ], [ %sub.i15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit22 ]
+  %all_res.sroa.6.064 = phi ptr [ %0, %while.body.lr.ph ], [ %add.ptr.i18, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit22 ]
+  %all_res.sroa.0.063 = phi i64 [ %length, %while.body.lr.ph ], [ %sub.i15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit22 ]
   %1 = load i64, ptr %expected_buf_, align 8
   %2 = load i64, ptr %read_pos, align 8
   %sub = sub i64 %1, %2
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %all_res.sroa.0.062)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %all_res.sroa.0.063)
   %cmp.i.i = icmp ugt i64 %2, %1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
@@ -31086,7 +31086,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %while.
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %4 = load ptr, ptr %_M_str.i7, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %2
-  %bcmp.i = tail call i32 @bcmp(ptr %all_res.sroa.6.063, ptr %add.ptr.i, i64 %.sroa.speculated)
+  %bcmp.i = tail call i32 @bcmp(ptr %all_res.sroa.6.064, ptr %add.ptr.i, i64 %.sroa.speculated)
   %cmp.i.i11 = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i11, label %if.then14, label %if.else
 
@@ -31142,9 +31142,12 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   %14 = load i64, ptr %add.ptr7.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i = urem i64 %14, %8
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.end.i.i, !llvm.loop !505
+  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !505
 
-if.end.i.i:                                       ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %if.then24
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
+  br label %if.end.i.i, !llvm.loop !505
+
+if.end.i.i:                                       ; preds = %if.end3.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.then24
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
@@ -31198,8 +31201,8 @@ _ZNSt5dequeINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5rati
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit22
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit22: ; preds = %if.then14, %_ZNSt5dequeINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESaIS8_EE9pop_frontEv.exit, %if.then19
-  %sub.i15 = sub nuw i64 %all_res.sroa.0.062, %.sroa.speculated
-  %add.ptr.i18 = getelementptr inbounds i8, ptr %all_res.sroa.6.063, i64 %.sroa.speculated
+  %sub.i15 = sub nuw i64 %all_res.sroa.0.063, %.sroa.speculated
+  %add.ptr.i18 = getelementptr inbounds i8, ptr %all_res.sroa.6.064, i64 %.sroa.speculated
   %tobool.not = icmp eq i64 %sub.i15, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !506
 

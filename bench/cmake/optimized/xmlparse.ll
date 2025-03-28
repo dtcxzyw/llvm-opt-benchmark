@@ -18014,7 +18014,7 @@ keylen.exit:                                      ; preds = %copy_salt_to_sipkey
 
 ..critedge.i.loopexit_crit_edge:                  ; preds = %26
   %.pre.pre = load ptr, ptr %14, align 8, !tbaa !318
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !342
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %..critedge.i.loopexit_crit_edge
   %31 = phi ptr [ %.pre.pre, %..critedge.i.loopexit_crit_edge ], [ %25, %.lr.ph.i ]

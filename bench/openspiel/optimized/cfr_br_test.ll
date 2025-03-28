@@ -4411,8 +4411,8 @@ define linkonce_odr dso_local void @_ZNK10open_spiel6Policy19GetStatePolicyAsMap
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
-  %.not16 = icmp eq ptr %14, %16
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.not17 = icmp eq ptr %14, %16
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load ptr, ptr %4, align 8
@@ -4441,10 +4441,10 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %._crit_edge, %18
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit11
 
 .lr.ph:                                           ; preds = %13, %.loopexit
-  %.sroa.012.017 = phi ptr [ %51, %.loopexit ], [ %14, %13 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
+  %.sroa.012.018 = phi ptr [ %51, %.loopexit ], [ %14, %13 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 8
   %27 = load double, ptr %26, align 8
-  %28 = load i64, ptr %.sroa.012.017, align 8
+  %28 = load i64, ptr %.sroa.012.018, align 8
   %29 = load i64, ptr %6, align 8
   %30 = urem i64 %28, %29
   %31 = load ptr, ptr %0, align 8
@@ -4475,9 +4475,12 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %._crit_edge, %18
   %44 = load i64, ptr %43, align 8
   %45 = urem i64 %44, %29
   %.not17.i.i.i.i = icmp eq i64 %45, %30
-  br i1 %.not17.i.i.i.i, label %39, label %.loopexit.i.i, !llvm.loop !58
+  br i1 %.not17.i.i.i.i, label %39, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !58
 
-.loopexit.i.i:                                    ; preds = %42, %.lr.ph.i.i.i.i, %.lr.ph
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %42
+  br label %.loopexit.i.i, !llvm.loop !58
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %.lr.ph
   %46 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %.noexc unwind label %52
 
@@ -4500,7 +4503,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
   %.not = icmp eq ptr %51, %16
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -4553,8 +4556,8 @@ define linkonce_odr dso_local void @_ZNK10open_spiel6Policy19GetStatePolicyAsMap
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
-  %.not16 = icmp eq ptr %14, %16
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.not17 = icmp eq ptr %14, %16
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load ptr, ptr %4, align 8
@@ -4583,10 +4586,10 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %._crit_edge, %18
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit11
 
 .lr.ph:                                           ; preds = %13, %.loopexit
-  %.sroa.012.017 = phi ptr [ %51, %.loopexit ], [ %14, %13 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
+  %.sroa.012.018 = phi ptr [ %51, %.loopexit ], [ %14, %13 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 8
   %27 = load double, ptr %26, align 8
-  %28 = load i64, ptr %.sroa.012.017, align 8
+  %28 = load i64, ptr %.sroa.012.018, align 8
   %29 = load i64, ptr %6, align 8
   %30 = urem i64 %28, %29
   %31 = load ptr, ptr %0, align 8
@@ -4617,9 +4620,12 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %._crit_edge, %18
   %44 = load i64, ptr %43, align 8
   %45 = urem i64 %44, %29
   %.not17.i.i.i.i = icmp eq i64 %45, %30
-  br i1 %.not17.i.i.i.i, label %39, label %.loopexit.i.i, !llvm.loop !58
+  br i1 %.not17.i.i.i.i, label %39, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !58
 
-.loopexit.i.i:                                    ; preds = %42, %.lr.ph.i.i.i.i, %.lr.ph
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %42
+  br label %.loopexit.i.i, !llvm.loop !58
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %.lr.ph
   %46 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %.noexc unwind label %52
 
@@ -4642,7 +4648,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
   %.not = icmp eq ptr %51, %16
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 

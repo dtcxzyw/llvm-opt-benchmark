@@ -7081,11 +7081,11 @@ thread-pre-split:                                 ; preds = %.lr.ph75
 
 .lr.ph75:                                         ; preds = %27, %thread-pre-split
   %.173 = phi ptr [ %29, %thread-pre-split ], [ %.046.lcssa, %27 ]
-  %28 = phi i8 [ %.pre.pre, %thread-pre-split ], [ %.lcssa65, %27 ]
+  %28 = phi i8 [ %.pre, %thread-pre-split ], [ %.lcssa65, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %.173, i64 1
   %.not57 = icmp eq i8 %28, 45
-  %.pre.pre = load i8, ptr %29, align 1, !tbaa !185
-  %30 = icmp eq i8 %.pre.pre, 0
+  %.pre = load i8, ptr %29, align 1, !tbaa !185
+  %30 = icmp eq i8 %.pre, 0
   br i1 %.not57, label %.critedge, label %thread-pre-split, !llvm.loop !197
 
 .critedge:                                        ; preds = %.lr.ph75

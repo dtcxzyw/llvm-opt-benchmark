@@ -11887,7 +11887,7 @@ preload_try_resolve_constants.exit:               ; preds = %.thread340, %294
   %.pre332.pre = load i32, ptr %.phi.trans.insert331.phi.trans.insert, align 8, !tbaa !223
   %.phi.trans.insert333.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre330.pre, i64 8
   %.pre334.pre = load i32, ptr %.phi.trans.insert333.phi.trans.insert, align 8, !tbaa !64
-  br label %.split
+  br label %.split, !llvm.loop !427
 
 .split:                                           ; preds = %.preheader.split, %._crit_edge290..split.loopexit_crit_edge, %.preheader.split.us
   %302 = phi i32 [ %187, %.preheader.split.us ], [ %.pre334.pre, %._crit_edge290..split.loopexit_crit_edge ], [ %195, %.preheader.split ]

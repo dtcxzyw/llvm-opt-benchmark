@@ -41115,15 +41115,18 @@ luaL_prepbuffer.exit51:                           ; preds = %52, %50, %47
   %66 = getelementptr inbounds nuw i8, ptr %.042.i, i64 1
   %67 = load i8, ptr %66, align 1, !tbaa !46
   %.not.i52 = icmp eq i8 %67, 0
-  br i1 %.not.i52, label %.critedge.i, label %.lr.ph.i, !llvm.loop !394
+  br i1 %.not.i52, label %..critedge.loopexit.i_crit_edge, label %.lr.ph.i, !llvm.loop !394
+
+..critedge.loopexit.i_crit_edge:                  ; preds = %65
+  br label %.critedge.i, !llvm.loop !394
 
 .critedge.loopexit.isplit:                        ; preds = %.lr.ph.i
   %68 = zext i8 %61 to i64
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %65, %.critedge.loopexit.isplit, %60
-  %69 = phi i64 [ 0, %60 ], [ %68, %.critedge.loopexit.isplit ], [ 0, %65 ]
-  %.0.lcssa.i = phi ptr [ %44, %60 ], [ %.042.i, %.critedge.loopexit.isplit ], [ %66, %65 ]
+.critedge.i:                                      ; preds = %..critedge.loopexit.i_crit_edge, %.critedge.loopexit.isplit, %60
+  %69 = phi i64 [ 0, %60 ], [ 0, %..critedge.loopexit.i_crit_edge ], [ %68, %.critedge.loopexit.isplit ]
+  %.0.lcssa.i = phi ptr [ %44, %60 ], [ %66, %..critedge.loopexit.i_crit_edge ], [ %.042.i, %.critedge.loopexit.isplit ]
   %70 = ptrtoint ptr %.0.lcssa.i to i64
   %71 = ptrtoint ptr %44 to i64
   %72 = sub i64 %70, %71

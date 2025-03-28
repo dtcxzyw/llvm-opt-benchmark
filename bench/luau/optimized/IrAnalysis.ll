@@ -935,7 +935,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %24, %26, %28, %30
   %55 = sub i64 %54, %51
   %56 = lshr exact i64 %55, 2
   %57 = trunc i64 %56 to i32
-  br label %58
+  br label %58, !llvm.loop !59
 
 58:                                               ; preds = %.lr.ph55.us, %107
   %indvars.iv = phi i64 [ %52, %.lr.ph55.us ], [ %indvars.iv.next, %107 ]

@@ -5232,7 +5232,7 @@ Vec_IntFree.exit431:                              ; preds = %Vec_IntFree.exit, %
 
 ..critedge6.loopexit_crit_edge:                   ; preds = %468
   %.pre648.pre = load i32, ptr %2, align 4, !tbaa !34
-  br label %.critedge6
+  br label %.critedge6, !llvm.loop !104
 
 .critedge6:                                       ; preds = %.lr.ph574, %..critedge6.loopexit_crit_edge
   %469 = phi i32 [ %.pre648.pre, %..critedge6.loopexit_crit_edge ], [ %190, %.lr.ph574 ]
@@ -5789,7 +5789,7 @@ Vec_IntFree.exit517:                              ; preds = %Vec_IntFree.exit515
 
 ..critedge8.loopexit_crit_edge:                   ; preds = %695
   %.pre655.pre = load i32, ptr %6, align 4, !tbaa !34
-  br label %.critedge8
+  br label %.critedge8, !llvm.loop !108
 
 .critedge8:                                       ; preds = %.lr.ph590, %..critedge8.loopexit_crit_edge, %.critedge6.thread
   %696 = phi i32 [ %472, %.critedge6.thread ], [ %.pre655.pre, %..critedge8.loopexit_crit_edge ], [ %474, %.lr.ph590 ]

@@ -4447,10 +4447,13 @@ Gla_ObjSatValue.exit:                             ; preds = %Gla_ManCheckVar.exi
   store i32 %206, ptr %132, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv605, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %84, !llvm.loop !115
+  br i1 %exitcond.not, label %Gla_ObjSatValue.exit..critedge.loopexit_crit_edge, label %84, !llvm.loop !115
 
-.critedge:                                        ; preds = %Gla_ObjSatValue.exit, %84, %.lr.ph, %Gla_ObjRef.exit
-  %207 = phi i32 [ %73, %Gla_ObjRef.exit ], [ %73, %.lr.ph ], [ %203, %84 ], [ %203, %Gla_ObjSatValue.exit ]
+Gla_ObjSatValue.exit..critedge.loopexit_crit_edge: ; preds = %Gla_ObjSatValue.exit
+  br label %.critedge, !llvm.loop !115
+
+.critedge:                                        ; preds = %84, %.lr.ph, %Gla_ObjSatValue.exit..critedge.loopexit_crit_edge, %Gla_ObjRef.exit
+  %207 = phi i32 [ %73, %Gla_ObjRef.exit ], [ %203, %Gla_ObjSatValue.exit..critedge.loopexit_crit_edge ], [ %73, %.lr.ph ], [ %203, %84 ]
   %.val213 = load i32, ptr %13, align 4, !tbaa !3
   %208 = icmp sgt i32 %.val213, 0
   br i1 %208, label %.lr.ph511, label %.critedge2
@@ -4737,10 +4740,13 @@ Gla_ObjSatValue.exit299:                          ; preds = %Gla_ManCheckVar.exi
   %343 = or disjoint i32 %342, 4
   store i32 %343, ptr %264, align 4
   %exitcond533.not = icmp eq i64 %indvars.iv.next530, %wide.trip.count532
-  br i1 %exitcond533.not, label %.critedge2, label %216, !llvm.loop !116
+  br i1 %exitcond533.not, label %Gla_ObjSatValue.exit299..critedge2.loopexit_crit_edge, label %216, !llvm.loop !116
 
-.critedge2:                                       ; preds = %Gla_ObjSatValue.exit299, %216, %.lr.ph511, %.critedge
-  %344 = phi i32 [ %207, %.critedge ], [ %207, %.lr.ph511 ], [ %339, %216 ], [ %339, %Gla_ObjSatValue.exit299 ]
+Gla_ObjSatValue.exit299..critedge2.loopexit_crit_edge: ; preds = %Gla_ObjSatValue.exit299
+  br label %.critedge2, !llvm.loop !116
+
+.critedge2:                                       ; preds = %216, %.lr.ph511, %Gla_ObjSatValue.exit299..critedge2.loopexit_crit_edge, %.critedge
+  %344 = phi i32 [ %207, %.critedge ], [ %339, %Gla_ObjSatValue.exit299..critedge2.loopexit_crit_edge ], [ %207, %.lr.ph511 ], [ %339, %216 ]
   %.val212513 = load i32, ptr %17, align 4, !tbaa !3
   %345 = icmp sgt i32 %.val212513, 0
   br i1 %345, label %.lr.ph515, label %.critedge4

@@ -5589,11 +5589,14 @@ skip_prefix.exit14:                               ; preds = %29
   %47 = add nuw i32 %.054485, 1
   %48 = load i32, ptr @global_argc, align 4, !tbaa !11
   %49 = icmp ult i32 %47, %48
-  br i1 %49, label %.lr.ph, label %.tail._crit_edge, !llvm.loop !151
+  br i1 %49, label %.lr.ph, label %..tail._crit_edge.loopexit_crit_edge, !llvm.loop !151
 
-.tail._crit_edge:                                 ; preds = %.tail, %.lr.ph, %46, %.lr.ph.preheader, %0
-  %50 = phi i32 [ %2, %0 ], [ %2, %.lr.ph.preheader ], [ %48, %46 ], [ %48, %.lr.ph ], [ %14, %.tail ]
-  %.05.lcssa = phi i32 [ 1, %0 ], [ 1, %.lr.ph.preheader ], [ %47, %46 ], [ %47, %.lr.ph ], [ %.054485, %.tail ]
+..tail._crit_edge.loopexit_crit_edge:             ; preds = %46
+  br label %.tail._crit_edge, !llvm.loop !151
+
+.tail._crit_edge:                                 ; preds = %.tail, %.lr.ph, %.lr.ph.preheader, %..tail._crit_edge.loopexit_crit_edge, %0
+  %50 = phi i32 [ %2, %0 ], [ %48, %..tail._crit_edge.loopexit_crit_edge ], [ %2, %.lr.ph.preheader ], [ %48, %.lr.ph ], [ %14, %.tail ]
+  %.05.lcssa = phi i32 [ 1, %0 ], [ %47, %..tail._crit_edge.loopexit_crit_edge ], [ 1, %.lr.ph.preheader ], [ %47, %.lr.ph ], [ %.054485, %.tail ]
   %.not9 = icmp eq i32 %.05.lcssa, %50
   br i1 %.not9, label %52, label %51
 

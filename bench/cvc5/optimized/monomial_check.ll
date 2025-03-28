@@ -9001,9 +9001,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit570: ; preds = %_ZN4cvc58internal1
   %1457 = load i64, ptr %1456, align 8, !tbaa !197
   %1458 = urem i64 %1457, %1431
   %.not19.i.i.i = icmp eq i64 %1458, %1432
-  br i1 %.not19.i.i.i, label %1448, label %.critedge.i748, !llvm.loop !199
+  br i1 %.not19.i.i.i, label %1448, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !199
 
-.critedge.i748:                                   ; preds = %1455, %.lr.ph.i.i.i747, %1434, %.noexc750
+..loopexit_crit_edge21.i.i.i:                     ; preds = %1455
+  br label %.critedge.i748, !llvm.loop !199
+
+.critedge.i748:                                   ; preds = %.lr.ph.i.i.i747, %..loopexit_crit_edge21.i.i.i, %1434, %.noexc750
   %1459 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %.noexc776 unwind label %.loopexit.split-lp
 
@@ -9564,9 +9567,12 @@ _ZNSt6vectorIN4cvc58internal6theory17SimpleTheoryLemmaESaIS3_EED2Ev.exit: ; pred
   %1687 = load i64, ptr %1686, align 8, !tbaa !197
   %1688 = urem i64 %1687, %1663
   %.not19.i.i.i.i = icmp eq i64 %1688, %1664
-  br i1 %.not19.i.i.i.i, label %1678, label %.loopexit, !llvm.loop !207
+  br i1 %.not19.i.i.i.i, label %1678, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !207
 
-.loopexit:                                        ; preds = %1685, %.lr.ph.i.i.i.i678, %1656, %.noexc680
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %1685
+  br label %.loopexit, !llvm.loop !207
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i678, %1656, %.noexc680, %..loopexit_crit_edge21.i.i.i.i
   %1689 = load ptr, ptr %72, align 8, !tbaa !6
   %1690 = getelementptr inbounds nuw i8, ptr %1689, i64 56
   %1691 = load ptr, ptr %1690, align 8, !tbaa !142

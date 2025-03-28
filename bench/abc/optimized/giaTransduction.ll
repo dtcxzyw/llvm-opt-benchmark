@@ -35721,7 +35721,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 
 ..critedge_crit_edge:                             ; preds = %185
   %.pre118.pre = load i32, ptr %132, align 4, !tbaa !119
-  br label %.critedge
+  br label %.critedge, !llvm.loop !715
 
 .critedgesplit:                                   ; preds = %172
   %195 = trunc nuw nsw i64 %indvars.iv111 to i32
@@ -35911,7 +35911,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %.phi.trans.insert.phi.trans.insert = sext i32 %.pre120.pre to i64
   %.phi.trans.insert121.phi.trans.insert = getelementptr inbounds nuw %"class.std::vector", ptr %288, i64 %.phi.trans.insert.phi.trans.insert
   %.pre124.pre = load ptr, ptr %.phi.trans.insert121.phi.trans.insert, align 8, !tbaa !124
-  br label %.critedge2
+  br label %.critedge2, !llvm.loop !717
 
 .critedge2.loopexitsplit:                         ; preds = %312
   %336 = trunc nuw nsw i64 %indvars.iv115 to i32
@@ -59793,7 +59793,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 
 ..critedge_crit_edge:                             ; preds = %185
   %.pre118.pre = load i32, ptr %132, align 4, !tbaa !119
-  br label %.critedge
+  br label %.critedge, !llvm.loop !1094
 
 .critedgesplit:                                   ; preds = %172
   %195 = trunc nuw nsw i64 %indvars.iv111 to i32
@@ -59983,7 +59983,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %.phi.trans.insert.phi.trans.insert = sext i32 %.pre120.pre to i64
   %.phi.trans.insert121.phi.trans.insert = getelementptr inbounds nuw %"class.std::vector", ptr %288, i64 %.phi.trans.insert.phi.trans.insert
   %.pre124.pre = load ptr, ptr %.phi.trans.insert121.phi.trans.insert, align 8, !tbaa !124
-  br label %.critedge2
+  br label %.critedge2, !llvm.loop !1096
 
 .critedge2.loopexitsplit:                         ; preds = %312
   %336 = trunc nuw nsw i64 %indvars.iv115 to i32

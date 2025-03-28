@@ -1049,7 +1049,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %21, %23, %25, %27
 
 ..critedge.loopexit_crit_edge:                    ; preds = %97
   %.pre45.pre = load ptr, ptr %5, align 8
-  br label %.critedge
+  br label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %80, %73, %..critedge.loopexit_crit_edge, %36
   %108 = phi ptr [ %62, %36 ], [ %.pre45.pre, %..critedge.loopexit_crit_edge ], [ %75, %73 ], [ %75, %80 ]

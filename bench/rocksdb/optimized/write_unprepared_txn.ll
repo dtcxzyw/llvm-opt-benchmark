@@ -832,7 +832,10 @@ _ZNKSt3setImSt4lessImESaImEE4findERKm.exit:       ; preds = %_ZNKSt8_Rb_treeImmS
   %95 = load i64, ptr %94, align 8, !tbaa !40
   %96 = urem i64 %95, %80
   %.not19.i.i.i.i = icmp eq i64 %96, %81
-  br i1 %.not19.i.i.i.i, label %90, label %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread, !llvm.loop !168
+  br i1 %.not19.i.i.i.i, label %90, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !168
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %93
+  br label %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread, !llvm.loop !168
 
 97:                                               ; preds = %_ZNKSt3setImSt4lessImESaImEE4findERKm.exit.thread, %_ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit
   %98 = landingpad { ptr, i32 }
@@ -866,10 +869,10 @@ _ZNKSt3setImSt4lessImESaImEE4findERKm.exit.thread: ; preds = %64, %_ZNKSt8_Rb_tr
   %110 = load atomic i64, ptr %18 acquire, align 8
   br label %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread
 
-_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %93, %.preheader, %79, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit, %109, %106
-  %cond = phi i1 [ false, %106 ], [ true, %109 ], [ false, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %79 ], [ false, %.preheader ], [ false, %93 ], [ false, %.lr.ph.i.i.i.i ]
-  %.331 = phi i64 [ %39, %106 ], [ %110, %109 ], [ %39, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ %39, %79 ], [ %39, %.preheader ], [ %39, %93 ], [ %39, %.lr.ph.i.i.i.i ]
-  %.5 = phi i1 [ %108, %106 ], [ %.1, %109 ], [ %101, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %79 ], [ false, %.preheader ], [ false, %93 ], [ false, %.lr.ph.i.i.i.i ]
+_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %79, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit, %109, %106
+  %cond = phi i1 [ false, %106 ], [ true, %109 ], [ false, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %79 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %.preheader ], [ false, %.lr.ph.i.i.i.i ]
+  %.331 = phi i64 [ %39, %106 ], [ %110, %109 ], [ %39, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ %39, %79 ], [ %39, %..loopexit_crit_edge21.i.i.i.i ], [ %39, %.preheader ], [ %39, %.lr.ph.i.i.i.i ]
+  %.5 = phi i1 [ %108, %106 ], [ %.1, %109 ], [ %101, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %79 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %.preheader ], [ false, %.lr.ph.i.i.i.i ]
   invoke void @_ZN7rocksdb4port7RWMutex10ReadUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %21)
           to label %_ZN7rocksdb8ReadLockD2Ev.exit unwind label %111
 
@@ -901,20 +904,20 @@ _ZN7rocksdb8ReadLockD2Ev.exit56:                  ; preds = %97
 
 117:                                              ; preds = %52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #28
-  br i1 %54, label %_ZN7rocksdb8ReadLockD2Ev.exit70, label %.thread117
+  br i1 %54, label %_ZN7rocksdb8ReadLockD2Ev.exit70, label %.thread119
 
 118:                                              ; preds = %_ZN7rocksdb8ReadLockD2Ev.exit, %50
   %.129.ph = phi i64 [ %51, %50 ], [ %.331, %_ZN7rocksdb8ReadLockD2Ev.exit ]
   %.2.ph93 = phi i1 [ %.1, %50 ], [ %.5, %_ZN7rocksdb8ReadLockD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #28
   %.not48 = icmp eq i64 %39, %.129.ph
-  br i1 %.not48, label %.thread117, label %31, !prof !169, !llvm.loop !170
+  br i1 %.not48, label %.thread119, label %31, !prof !169, !llvm.loop !170
 
-.thread117:                                       ; preds = %118, %117
+.thread119:                                       ; preds = %118, %117
   %119 = icmp ult i64 %39, %2
   br i1 %119, label %_ZN7rocksdb8ReadLockD2Ev.exit70, label %120
 
-120:                                              ; preds = %.thread117
+120:                                              ; preds = %.thread119
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 1057
   %122 = load atomic i8, ptr %121 acquire, align 1
   %123 = trunc i8 %122 to i1
@@ -1011,8 +1014,8 @@ _ZNKSt3mapImSt6vectorImSaImEESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit.thread
   call void @__clang_call_terminate(ptr %159) #30
   unreachable
 
-_ZN7rocksdb8ReadLockD2Ev.exit70:                  ; preds = %117, %153, %.thread, %.thread117, %124
-  %.6 = phi i1 [ true, %124 ], [ true, %.thread117 ], [ %.2.ph, %.thread ], [ %cond1, %153 ], [ false, %117 ]
+_ZN7rocksdb8ReadLockD2Ev.exit70:                  ; preds = %117, %153, %.thread, %.thread119, %124
+  %.6 = phi i1 [ true, %124 ], [ true, %.thread119 ], [ %.2.ph, %.thread ], [ %cond1, %153 ], [ false, %117 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
   br label %160
 
@@ -10170,9 +10173,12 @@ define internal fastcc void @_ZZN7rocksdb18WriteUnpreparedTxn27FlushWriteBatchTo
   %40 = zext i32 %39 to i64
   %41 = urem i64 %40, %24
   %.not19.i.i.i.i = icmp eq i64 %41, %25
-  br i1 %.not19.i.i.i.i, label %34, label %.loopexit.i.i, !llvm.loop !649
+  br i1 %.not19.i.i.i.i, label %34, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !649
 
-.loopexit.i.i:                                    ; preds = %37, %.lr.ph.i.i.i.i, %19
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %37
+  br label %.loopexit.i.i, !llvm.loop !649
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
   store ptr %21, ptr %6, align 8, !tbaa !650
   %42 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31

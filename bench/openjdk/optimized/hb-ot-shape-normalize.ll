@@ -192,10 +192,13 @@ _ZN11hb_buffer_t11next_glyphsEj.exit.thread:      ; preds = %_ZN9hb_font_t18get_
   call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef %4, i1 noundef zeroext %32)
   %106 = load i32, ptr %34, align 4
   %107 = icmp ult i32 %106, %spec.select160
-  br i1 %107, label %.lr.ph, label %.critedge, !llvm.loop !8
+  br i1 %107, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !8
 
-.critedge:                                        ; preds = %.lr.ph240, %.lr.ph, %.lr.ph.preheader, %99
-  %.lcssa207 = phi i32 [ %100, %99 ], [ %100, %.lr.ph.preheader ], [ %106, %.lr.ph ], [ %106, %.lr.ph240 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph240
+  br label %.critedge, !llvm.loop !8
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %99
+  %.lcssa207 = phi i32 [ %100, %99 ], [ %106, %..critedge.loopexit_crit_edge ], [ %100, %.lr.ph.preheader ], [ %106, %.lr.ph ]
   %108 = icmp eq i32 %.lcssa207, %33
   br i1 %108, label %.critedge2, label %109
 

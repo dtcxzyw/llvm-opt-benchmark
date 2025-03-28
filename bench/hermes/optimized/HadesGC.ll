@@ -17448,11 +17448,14 @@ while.body.i:                                     ; preds = %_ZZN6hermes2vm7Hade
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %10 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %9, %10
-  br i1 %cmp.i.i.i.i, label %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i, label %_ZNSt18condition_variable4waitIZN6hermes2vm7HadesGC8Executor6workerEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit, !llvm.loop !267
+  br i1 %cmp.i.i.i.i, label %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i, label %while.body.i._ZNSt18condition_variable4waitIZN6hermes2vm7HadesGC8Executor6workerEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit.loopexit_crit_edge, !llvm.loop !267
 
-_ZNSt18condition_variable4waitIZN6hermes2vm7HadesGC8Executor6workerEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit: ; preds = %while.body.i, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i.preheader, %while.body
-  %11 = phi ptr [ %4, %while.body ], [ %4, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i.preheader ], [ %10, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i ], [ %10, %while.body.i ]
-  %12 = phi ptr [ %5, %while.body ], [ %5, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i.preheader ], [ %9, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i ], [ %9, %while.body.i ]
+while.body.i._ZNSt18condition_variable4waitIZN6hermes2vm7HadesGC8Executor6workerEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit.loopexit_crit_edge: ; preds = %while.body.i
+  br label %_ZNSt18condition_variable4waitIZN6hermes2vm7HadesGC8Executor6workerEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit, !llvm.loop !267
+
+_ZNSt18condition_variable4waitIZN6hermes2vm7HadesGC8Executor6workerEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit: ; preds = %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i.preheader, %while.body.i._ZNSt18condition_variable4waitIZN6hermes2vm7HadesGC8Executor6workerEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit.loopexit_crit_edge, %while.body
+  %11 = phi ptr [ %4, %while.body ], [ %10, %while.body.i._ZNSt18condition_variable4waitIZN6hermes2vm7HadesGC8Executor6workerEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit.loopexit_crit_edge ], [ %4, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i.preheader ], [ %10, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i ]
+  %12 = phi ptr [ %5, %while.body ], [ %9, %while.body.i._ZNSt18condition_variable4waitIZN6hermes2vm7HadesGC8Executor6workerEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit.loopexit_crit_edge ], [ %5, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i.preheader ], [ %9, %_ZZN6hermes2vm7HadesGC8Executor6workerEvENKUlvE_clEv.exit.i ]
   %cmp.i.i21 = icmp eq ptr %12, %11
   br i1 %cmp.i.i21, label %while.cond.loopexit, label %while.body4
 

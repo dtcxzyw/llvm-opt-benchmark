@@ -116,7 +116,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit: ; 
   %.pre325 = load ptr, ptr %6, align 8, !tbaa !4
   %.pre326 = load i32, ptr %10, align 8, !tbaa !17
   %.pre332 = sext i32 %.pre326 to i64
-  br label %625
+  br label %625, !llvm.loop !15
 
 18:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1

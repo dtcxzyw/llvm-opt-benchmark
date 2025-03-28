@@ -387,7 +387,7 @@ define void @_ZN6icu_776BMPSet8initBitsEv(ptr noundef nonnull align 8 captures(n
 .preheader.preheader._crit_edge:                  ; preds = %.preheader.preheader
   %.pre = load ptr, ptr %2, align 8, !tbaa !6
   %.pre139 = load i32, ptr %3, align 8, !tbaa !12
-  br label %split
+  br label %split, !llvm.loop !22
 
 split:                                            ; preds = %17, %.preheader.preheader._crit_edge
   %27 = phi i32 [ %.pre139, %.preheader.preheader._crit_edge ], [ %10, %17 ]

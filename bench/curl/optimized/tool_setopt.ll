@@ -229,8 +229,8 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   %.0274449 = phi ptr [ %12, %14 ], [ @setopt_nv_CURL_SSLVERSION, %.preheader ]
   %12 = getelementptr inbounds nuw i8, ptr %.0274449, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !17
-  %.not37 = icmp ne ptr %13, null
-  br i1 %.not37, label %14, label %._crit_edge, !llvm.loop !22
+  %.not37 = icmp eq ptr %13, null
+  br i1 %.not37, label %._crit_edge52, label %14, !llvm.loop !22
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.0274449, i64 24
@@ -238,9 +238,12 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   %.not47 = icmp eq i64 %16, %11
   br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %.lr.ph, %14, %.preheader
-  %.not47.lcssa = phi i1 [ true, %.preheader ], [ %.not37, %14 ], [ %.not37, %.lr.ph ]
-  %.lcssa43 = phi ptr [ @.str.24, %.preheader ], [ null, %.lr.ph ], [ %13, %14 ]
+._crit_edge52:                                    ; preds = %.lr.ph
+  br label %._crit_edge, !llvm.loop !22
+
+._crit_edge:                                      ; preds = %14, %._crit_edge52, %.preheader
+  %.not47.lcssa = phi i1 [ false, %._crit_edge52 ], [ true, %.preheader ], [ true, %14 ]
+  %.lcssa43 = phi ptr [ null, %._crit_edge52 ], [ @.str.24, %.preheader ], [ %13, %14 ]
   %17 = and i64 %4, -65536
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %._crit_edge58, label %.lr.ph57
@@ -250,7 +253,7 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   %19 = getelementptr inbounds nuw i8, ptr %.0264655, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !17
   %.not38 = icmp eq ptr %20, null
-  br i1 %.not38, label %._crit_edge58, label %21, !llvm.loop !23
+  br i1 %.not38, label %._crit_edge60, label %21, !llvm.loop !23
 
 21:                                               ; preds = %.lr.ph57
   %22 = getelementptr inbounds nuw i8, ptr %.0264655, i64 24
@@ -258,8 +261,11 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   %24 = icmp eq i64 %23, %17
   br i1 %24, label %._crit_edge58, label %.lr.ph57, !llvm.loop !23
 
-._crit_edge58:                                    ; preds = %.lr.ph57, %21, %._crit_edge
-  %.lcssa = phi ptr [ @.str.32, %._crit_edge ], [ null, %.lr.ph57 ], [ %20, %21 ]
+._crit_edge60:                                    ; preds = %.lr.ph57
+  br label %._crit_edge58, !llvm.loop !23
+
+._crit_edge58:                                    ; preds = %21, %._crit_edge60, %._crit_edge
+  %.lcssa = phi ptr [ null, %._crit_edge60 ], [ @.str.32, %._crit_edge ], [ %20, %21 ]
   br i1 %.not47.lcssa, label %27, label %25
 
 25:                                               ; preds = %._crit_edge58

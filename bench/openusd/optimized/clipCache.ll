@@ -3671,11 +3671,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13Usd_ClipCache6ReloadEv(ptr n
   %81 = ptrtoint ptr %80 to i64
   %82 = urem i64 %81, %57
   %.not17.i.i.i = icmp eq i64 %82, %58
-  br i1 %.not17.i.i.i, label %75, label %_ZNKSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__11Usd_ClipSetEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb0EEEmRKT_m.exit.thread.i, !llvm.loop !30
+  br i1 %.not17.i.i.i, label %75, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !30
 
-_ZNKSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__11Usd_ClipSetEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb0EEEmRKT_m.exit.thread.i: ; preds = %78, %.lr.ph.i.i.i72, %66, %.thread.i
-  %83 = phi i64 [ %69, %66 ], [ %58, %.thread.i ], [ %58, %.lr.ph.i.i.i72 ], [ %58, %78 ]
-  %84 = phi i64 [ %67, %66 ], [ %56, %.thread.i ], [ %56, %.lr.ph.i.i.i72 ], [ %56, %78 ]
+..loopexit_crit_edge21.i.i.i:                     ; preds = %78
+  br label %_ZNKSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__11Usd_ClipSetEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb0EEEmRKT_m.exit.thread.i, !llvm.loop !30
+
+_ZNKSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__11Usd_ClipSetEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb0EEEmRKT_m.exit.thread.i: ; preds = %.lr.ph.i.i.i72, %..loopexit_crit_edge21.i.i.i, %66, %.thread.i
+  %83 = phi i64 [ %69, %66 ], [ %58, %.thread.i ], [ %58, %..loopexit_crit_edge21.i.i.i ], [ %58, %.lr.ph.i.i.i72 ]
+  %84 = phi i64 [ %67, %66 ], [ %56, %.thread.i ], [ %56, %..loopexit_crit_edge21.i.i.i ], [ %56, %.lr.ph.i.i.i72 ]
   %85 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
           to label %.noexc74 unwind label %.loopexit175
 

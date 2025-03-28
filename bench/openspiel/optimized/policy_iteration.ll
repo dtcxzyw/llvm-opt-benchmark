@@ -1725,7 +1725,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
 
 ._crit_edge196..critedge203_crit_edge:            ; preds = %._crit_edge196
   %.pre = load ptr, ptr %77, align 8
-  br label %.critedge203
+  br label %.critedge203, !llvm.loop !26
 
 .critedge203:                                     ; preds = %541, %._crit_edge196..critedge203_crit_edge
   %757 = phi ptr [ %.pre, %._crit_edge196..critedge203_crit_edge ], [ %542, %541 ]

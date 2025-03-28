@@ -8088,10 +8088,13 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   %260 = and i64 %259, -2
   %261 = inttoptr i64 %260 to ptr
   %.not = icmp eq ptr %.3, %261
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !171
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !171
 
-.critedge:                                        ; preds = %257, %.lr.ph, %.lr.ph.preheader, %2
-  %.lcssa = phi ptr [ %8, %2 ], [ %8, %.lr.ph.preheader ], [ %261, %.lr.ph ], [ %261, %257 ]
+..critedge.loopexit_crit_edge:                    ; preds = %257
+  br label %.critedge, !llvm.loop !171
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %2
+  %.lcssa = phi ptr [ %8, %2 ], [ %261, %..critedge.loopexit_crit_edge ], [ %8, %.lr.ph.preheader ], [ %261, %.lr.ph ]
   %262 = load i64, ptr %.lcssa, align 8, !tbaa !40
   %263 = or i64 %262, 1
   store i64 %263, ptr %.lcssa, align 8, !tbaa !40

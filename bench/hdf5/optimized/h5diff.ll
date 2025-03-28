@@ -2317,12 +2317,15 @@ is_exclude_path.exit125:                          ; preds = %174, %181, %.loopex
   %.1 = phi i64 [ %134, %is_exclude_path.exit ], [ %163, %is_exclude_path.exit116 ], [ %.089185239, %is_exclude_path.exit125 ]
   %190 = load i64, ptr %41, align 8, !tbaa !45
   %191 = icmp ult i64 %.1, %190
-  br i1 %191, label %51, label %.critedge, !llvm.loop !69
+  br i1 %191, label %51, label %..critedge_crit_edge244, !llvm.loop !69
 
-.critedge:                                        ; preds = %189, %51, %.lr.ph
-  %192 = phi i64 [ %42, %.lr.ph ], [ %190, %51 ], [ %190, %189 ]
-  %.090.lcssa = phi i64 [ 0, %.lr.ph ], [ %.191, %51 ], [ %.191, %189 ]
-  %.089.lcssa = phi i64 [ 0, %.lr.ph ], [ %.1, %51 ], [ %.1, %189 ]
+..critedge_crit_edge244:                          ; preds = %189
+  br label %.critedge, !llvm.loop !69
+
+.critedge:                                        ; preds = %51, %..critedge_crit_edge244, %.lr.ph
+  %192 = phi i64 [ %190, %..critedge_crit_edge244 ], [ %42, %.lr.ph ], [ %190, %51 ]
+  %.090.lcssa = phi i64 [ %.191, %..critedge_crit_edge244 ], [ 0, %.lr.ph ], [ %.191, %51 ]
+  %.089.lcssa = phi i64 [ %.1, %..critedge_crit_edge244 ], [ 0, %.lr.ph ], [ %.1, %51 ]
   store i32 1, ptr %7, align 4, !tbaa !28
   %193 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %193, align 4, !tbaa !28

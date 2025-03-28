@@ -12356,11 +12356,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_PathExprBui
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %3, align 8
   %13 = icmp eq ptr %11, %12
-  br i1 %13, label %.critedge, label %.lr.ph, !llvm.loop !183
+  br i1 %13, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !183
 
-.critedge:                                        ; preds = %.lr.ph10, %.lr.ph, %.lr.ph.preheader, %2
-  %.lcssa4 = phi ptr [ %4, %2 ], [ %4, %.lr.ph.preheader ], [ %11, %.lr.ph ], [ %11, %.lr.ph10 ]
-  %.lcssa = phi ptr [ %5, %2 ], [ %5, %.lr.ph.preheader ], [ %12, %.lr.ph ], [ %12, %.lr.ph10 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph10
+  br label %.critedge, !llvm.loop !183
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %2
+  %.lcssa4 = phi ptr [ %4, %2 ], [ %11, %..critedge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %.lcssa = phi ptr [ %5, %2 ], [ %12, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %.lcssa, %15

@@ -9708,7 +9708,7 @@ _ZN5clang17OffloadTargetInfoD2Ev.exit:            ; preds = %_ZNKSt7__cxx1112bas
 
 _ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit: ; preds = %_ZN5clang17OffloadTargetInfoD2Ev.exit, %763
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %63) #24
-  br i1 %747, label %.loopexit, label %584, !llvm.loop !512
+  br i1 %747, label %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit..loopexit.loopexit_crit_edge, label %584, !llvm.loop !512
 
 .critedge104:                                     ; preds = %621
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %66) #24
@@ -9768,12 +9768,15 @@ _ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209: ; preds = %_ZN5clang17Off
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %63) #24
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit, %584, %.preheader, %580, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148
-  %780 = phi ptr [ %.val119, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148 ], [ %.val119, %580 ], [ %770, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209 ], [ %.val119, %.preheader ], [ %.val116, %584 ], [ %.val116, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit ]
-  %.sroa.20.9 = phi ptr [ %.sroa.20.3, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148 ], [ %.sroa.20.3, %580 ], [ %.sroa.20.15, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209 ], [ %.sroa.20.3, %.preheader ], [ %.sroa.20.12, %584 ], [ %.sroa.20.12, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit ]
-  %.sroa.9.9 = phi ptr [ %.sroa.9.3, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148 ], [ %.sroa.9.3, %580 ], [ %.sroa.9.15, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209 ], [ %.sroa.9.3, %.preheader ], [ %.sroa.9.12, %584 ], [ %.sroa.9.12, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit ]
-  %.sroa.0377.9 = phi ptr [ %.sroa.0377.3, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148 ], [ %.sroa.0377.3, %580 ], [ %.sroa.0377.15, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209 ], [ %.sroa.0377.3, %.preheader ], [ %.sroa.0377.12, %584 ], [ %.sroa.0377.12, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit ]
-  %.9 = phi i32 [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148 ], [ 6, %580 ], [ 1, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209 ], [ 0, %.preheader ], [ 0, %584 ], [ 1, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit ]
+_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit..loopexit.loopexit_crit_edge: ; preds = %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit
+  br label %.loopexit, !llvm.loop !512
+
+.loopexit:                                        ; preds = %584, %.preheader, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit..loopexit.loopexit_crit_edge, %580, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148
+  %780 = phi ptr [ %.val119, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148 ], [ %.val119, %580 ], [ %770, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209 ], [ %.val116, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit..loopexit.loopexit_crit_edge ], [ %.val119, %.preheader ], [ %.val116, %584 ]
+  %.sroa.20.9 = phi ptr [ %.sroa.20.3, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148 ], [ %.sroa.20.3, %580 ], [ %.sroa.20.15, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209 ], [ %.sroa.20.12, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit..loopexit.loopexit_crit_edge ], [ %.sroa.20.3, %.preheader ], [ %.sroa.20.12, %584 ]
+  %.sroa.9.9 = phi ptr [ %.sroa.9.3, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148 ], [ %.sroa.9.3, %580 ], [ %.sroa.9.15, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209 ], [ %.sroa.9.12, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit..loopexit.loopexit_crit_edge ], [ %.sroa.9.3, %.preheader ], [ %.sroa.9.12, %584 ]
+  %.sroa.0377.9 = phi ptr [ %.sroa.0377.3, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148 ], [ %.sroa.0377.3, %580 ], [ %.sroa.0377.15, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209 ], [ %.sroa.0377.12, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit..loopexit.loopexit_crit_edge ], [ %.sroa.0377.3, %.preheader ], [ %.sroa.0377.12, %584 ]
+  %.9 = phi i32 [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i148 ], [ 6, %580 ], [ 1, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit209 ], [ 1, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit..loopexit.loopexit_crit_edge ], [ 0, %.preheader ], [ 0, %584 ]
   %781 = load i8, ptr %434, align 8
   %782 = trunc i8 %781 to i1
   br i1 %782, label %783, label %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit213

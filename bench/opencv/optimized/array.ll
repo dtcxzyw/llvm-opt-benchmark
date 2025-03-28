@@ -2778,12 +2778,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188: ; preds = %_Z
   %261 = mul nsw i64 %.0112209265, %260
   %indvars.iv.next240 = add nsw i64 %indvars.iv239264, -1
   %262 = icmp sgt i64 %indvars.iv.next240, %246
-  br i1 %262, label %.lr.ph211, label %._crit_edge, !llvm.loop !67
+  br i1 %262, label %.lr.ph211, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %.lr.ph211, %.lr.ph266, %.lr.ph211.preheader, %.loopexit
-  %.1117.in.lcssa = phi i32 [ %.pre, %.loopexit ], [ %.pre, %.lr.ph211.preheader ], [ %247, %.lr.ph266 ], [ %257, %.lr.ph211 ]
-  %.0112.lcssa = phi i64 [ %241, %.loopexit ], [ %241, %.lr.ph211.preheader ], [ %261, %.lr.ph266 ], [ %261, %.lr.ph211 ]
-  %.1117.lcssa = phi i32 [ %.1117207, %.loopexit ], [ %251, %.lr.ph211.preheader ], [ %.0113218, %.lr.ph266 ], [ %256, %.lr.ph211 ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph266
+  br label %._crit_edge, !llvm.loop !67
+
+._crit_edge:                                      ; preds = %.lr.ph211, %.lr.ph211.preheader, %.._crit_edge.loopexit_crit_edge, %.loopexit
+  %.1117.in.lcssa = phi i32 [ %.pre, %.loopexit ], [ %247, %.._crit_edge.loopexit_crit_edge ], [ %.pre, %.lr.ph211.preheader ], [ %257, %.lr.ph211 ]
+  %.0112.lcssa = phi i64 [ %241, %.loopexit ], [ %261, %.._crit_edge.loopexit_crit_edge ], [ %241, %.lr.ph211.preheader ], [ %261, %.lr.ph211 ]
+  %.1117.lcssa = phi i32 [ %.1117207, %.loopexit ], [ %.0113218, %.._crit_edge.loopexit_crit_edge ], [ %251, %.lr.ph211.preheader ], [ %256, %.lr.ph211 ]
   %263 = icmp eq i32 %.1117.lcssa, %.0113218
   %264 = icmp sgt i64 %.0112.lcssa, 2147483647
   %or.cond5 = select i1 %263, i1 %264, i1 false

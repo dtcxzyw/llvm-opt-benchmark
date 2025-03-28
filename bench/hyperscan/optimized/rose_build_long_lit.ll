@@ -4810,12 +4810,15 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %49 = getelementptr inbounds nuw i8, ptr %.0253, i64 8
   %50 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %48, %50
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !138
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !138
 
-.critedge:                                        ; preds = %47, %.lr.ph, %.lr.ph.preheader, %6
-  %.0.lcssa = phi ptr [ %4, %6 ], [ %4, %.lr.ph.preheader ], [ %49, %.lr.ph ], [ %49, %47 ]
-  %.lcssa23 = phi ptr [ %7, %6 ], [ %7, %.lr.ph.preheader ], [ %48, %.lr.ph ], [ %48, %47 ]
-  %.lcssa22 = phi ptr [ %7, %6 ], [ %8, %.lr.ph.preheader ], [ %50, %.lr.ph ], [ %48, %47 ]
+..critedge.loopexit_crit_edge:                    ; preds = %47
+  br label %.critedge, !llvm.loop !138
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %6
+  %.0.lcssa = phi ptr [ %4, %6 ], [ %49, %..critedge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %49, %.lr.ph ]
+  %.lcssa23 = phi ptr [ %7, %6 ], [ %48, %..critedge.loopexit_crit_edge ], [ %7, %.lr.ph.preheader ], [ %48, %.lr.ph ]
+  %.lcssa22 = phi ptr [ %7, %6 ], [ %48, %..critedge.loopexit_crit_edge ], [ %8, %.lr.ph.preheader ], [ %50, %.lr.ph ]
   %51 = load ptr, ptr %2, align 8
   %52 = load ptr, ptr %3, align 8
   %53 = ptrtoint ptr %.lcssa22 to i64

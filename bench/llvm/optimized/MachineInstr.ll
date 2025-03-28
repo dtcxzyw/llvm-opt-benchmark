@@ -6434,7 +6434,7 @@ _ZNK4llvm12MachineInstr20findInlineAsmFlagIdxEjPj.exit.thread: ; preds = %38, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK4llvm12MachineInstr34getRegClassConstraintEffectForVRegENS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %0, i32 %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
-  br i1 %5, label %7, label %113
+  br i1 %5, label %7, label %129
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -6478,239 +6478,265 @@ _ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 44
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 4
-  %.not.i6.i.i66 = icmp eq i32 %31, 0
-  br i1 %.not.i6.i.i66, label %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit, label %.lr.ph67
+  %.not.i6.i.i90 = icmp eq i32 %31, 0
+  br i1 %.not.i6.i.i90, label %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit, label %.lr.ph91
 
-.lr.ph.i5.i.i:                                    ; preds = %.lr.ph67
+.lr.ph.i5.i.i:                                    ; preds = %.lr.ph91
   %32 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !230
   %34 = icmp eq ptr %33, %18
-  br i1 %34, label %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit, label %.lr.ph32, !llvm.loop !290
+  br i1 %34, label %.lr.ph.i5.i.i._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge, label %.lr.ph32, !llvm.loop !290
 
 .lr.ph32:                                         ; preds = %.lr.ph.i5.i.i
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 44
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 4
   %.not.i6.i.i = icmp eq i32 %37, 0
-  br i1 %.not.i6.i.i, label %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit, label %.lr.ph67, !llvm.loop !290
+  br i1 %.not.i6.i.i, label %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit, label %.lr.ph91, !llvm.loop !290
 
-.lr.ph67:                                         ; preds = %.lr.ph32.preheader, %.lr.ph32
+.lr.ph91:                                         ; preds = %.lr.ph32.preheader, %.lr.ph32
   %38 = phi ptr [ %33, %.lr.ph32 ], [ %27, %.lr.ph32.preheader ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load i24, ptr %39, align 8
   %41 = icmp eq i24 %40, 0
-  br i1 %41, label %.lr.ph.i5.i.i, label %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit, !llvm.loop !290
+  br i1 %41, label %.lr.ph.i5.i.i, label %._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge, !llvm.loop !290
 
-_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit: ; preds = %.lr.ph67, %.lr.ph32, %.lr.ph.i5.i.i
-  %.sroa.0.1.ph = phi ptr [ %38, %.lr.ph67 ], [ %18, %.lr.ph32 ], [ %18, %.lr.ph.i5.i.i ]
+._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge: ; preds = %.lr.ph91
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !44
   %44 = zext i24 %40 to i64
   %45 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %43, i64 %44
+  br label %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit, !llvm.loop !290
+
+.lr.ph.i5.i.i._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge: ; preds = %.lr.ph.i5.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %47 = load ptr, ptr %46, align 8, !tbaa !44
+  %48 = zext i24 %40 to i64
+  %49 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %47, i64 %48
+  br label %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit, !llvm.loop !290
+
+_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit: ; preds = %.lr.ph32
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %51 = load ptr, ptr %50, align 8, !tbaa !44
+  %52 = zext i24 %40 to i64
+  %53 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %51, i64 %52
   br label %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit
 
-_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit, %.lr.ph32.preheader, %.lr.ph.i5.i.i.preheader, %_ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEE.exit.i.i
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %_ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEE.exit.i.i ], [ %18, %.lr.ph.i5.i.i.preheader ], [ %18, %.lr.ph32.preheader ], [ %.sroa.0.1.ph, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit ]
-  %.sroa.20.2 = phi ptr [ %24, %_ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEE.exit.i.i ], [ %24, %.lr.ph.i5.i.i.preheader ], [ %24, %.lr.ph32.preheader ], [ %45, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit ]
-  %.sroa.12.2 = phi ptr [ %20, %_ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEE.exit.i.i ], [ %20, %.lr.ph.i5.i.i.preheader ], [ %20, %.lr.ph32.preheader ], [ %43, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit ]
-  %46 = icmp ne ptr %.sroa.12.2, %.sroa.20.2
-  %47 = icmp ne ptr %2, null
-  %48 = and i1 %46, %47
-  br i1 %48, label %.lr.ph60, label %.loopexit
+_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit, %.lr.ph32.preheader, %.lr.ph.i5.i.i._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge, %.lr.ph.i5.i.i.preheader, %._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge, %_ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEE.exit.i.i
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %_ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEE.exit.i.i ], [ %38, %._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge ], [ %18, %.lr.ph.i5.i.i.preheader ], [ %18, %.lr.ph.i5.i.i._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge ], [ %18, %.lr.ph32.preheader ], [ %18, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit ]
+  %.sroa.20.2 = phi ptr [ %24, %_ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEE.exit.i.i ], [ %45, %._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge ], [ %24, %.lr.ph.i5.i.i.preheader ], [ %49, %.lr.ph.i5.i.i._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge ], [ %24, %.lr.ph32.preheader ], [ %53, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit ]
+  %.sroa.12.2 = phi ptr [ %20, %_ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEE.exit.i.i ], [ %43, %._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge ], [ %20, %.lr.ph.i5.i.i.preheader ], [ %47, %.lr.ph.i5.i.i._ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit_crit_edge ], [ %20, %.lr.ph32.preheader ], [ %51, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.loopexit ]
+  %54 = icmp ne ptr %.sroa.12.2, %.sroa.20.2
+  %55 = icmp ne ptr %2, null
+  %56 = and i1 %54, %55
+  br i1 %56, label %.lr.ph60, label %.loopexit
 
 .lr.ph60:                                         ; preds = %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit
   %.059 = phi ptr [ %.0.i, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit ], [ %2, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit ]
   %.sroa.12.058 = phi ptr [ %.sroa.12.4, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit ], [ %.sroa.12.2, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit ]
   %.sroa.20.057 = phi ptr [ %.sroa.20.4, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit ], [ %.sroa.20.2, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit ]
   %.sroa.0.056 = phi ptr [ %.sroa.0.2, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit ], [ %.sroa.0.1, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.12.058, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !34
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.056, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !44
-  %53 = ptrtoint ptr %.sroa.12.058 to i64
-  %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = lshr exact i64 %55, 5
-  %57 = trunc i64 %56 to i32
-  %58 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !44
-  %60 = and i64 %56, 4294967295
-  %61 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %59, i64 %60
-  %62 = load i32, ptr %61, align 8
-  %63 = and i32 %62, 255
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.12.058, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !34
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.056, i64 32
+  %60 = load ptr, ptr %59, align 8, !tbaa !44
+  %61 = ptrtoint ptr %.sroa.12.058 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  %64 = lshr exact i64 %63, 5
+  %65 = trunc i64 %64 to i32
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %67 = load ptr, ptr %66, align 8, !tbaa !44
+  %68 = and i64 %64, 4294967295
+  %69 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %67, i64 %68
+  %70 = load i32, ptr %69, align 8
+  %71 = and i32 %70, 255
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit
 
-65:                                               ; preds = %.lr.ph60
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !40
-  %.not.i = icmp eq i32 %67, %1
-  br i1 %.not.i, label %68, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit
+73:                                               ; preds = %.lr.ph60
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !40
+  %.not.i = icmp eq i32 %75, %1
+  br i1 %.not.i, label %76, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit
 
-68:                                               ; preds = %65
-  %69 = tail call noundef ptr @_ZNK4llvm12MachineInstr21getRegClassConstraintEjPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %50, i32 noundef %57, ptr noundef %3, ptr noundef %4)
-  %70 = load ptr, ptr %58, align 8, !tbaa !44
-  %71 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %70, i64 %60
-  %72 = load i32, ptr %71, align 8
-  %73 = lshr i32 %72, 8
-  %74 = and i32 %73, 4095
-  %.not.i.i = icmp eq i32 %74, 0
-  %.not21.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i, label %85, label %75
+76:                                               ; preds = %73
+  %77 = tail call noundef ptr @_ZNK4llvm12MachineInstr21getRegClassConstraintEjPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %58, i32 noundef %65, ptr noundef %3, ptr noundef %4)
+  %78 = load ptr, ptr %66, align 8, !tbaa !44
+  %79 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %78, i64 %68
+  %80 = load i32, ptr %79, align 8
+  %81 = lshr i32 %80, 8
+  %82 = and i32 %81, 4095
+  %.not.i.i = icmp eq i32 %82, 0
+  %.not21.i.i = icmp eq ptr %77, null
+  br i1 %.not.i.i, label %93, label %83
 
-75:                                               ; preds = %68
-  %76 = load ptr, ptr %4, align 8, !tbaa !263
-  br i1 %.not21.i.i, label %81, label %77
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %4, align 8, !tbaa !263
+  br i1 %.not21.i.i, label %89, label %85
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 232
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.059, ptr noundef nonnull %69, i32 noundef %74) #25
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 232
+  %87 = load ptr, ptr %86, align 8
+  %88 = tail call noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.059, ptr noundef nonnull %77, i32 noundef %82) #25
   br label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %76, i64 248
-  %83 = load ptr, ptr %82, align 8
-  %84 = tail call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.059, i32 noundef %74) #25
+89:                                               ; preds = %83
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 248
+  %91 = load ptr, ptr %90, align 8
+  %92 = tail call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.059, i32 noundef %82) #25
   br label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit
 
-85:                                               ; preds = %68
-  br i1 %.not21.i.i, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit, label %86
+93:                                               ; preds = %76
+  br i1 %.not21.i.i, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit, label %94
 
-86:                                               ; preds = %85
-  %87 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.059, ptr noundef nonnull %69) #25
+94:                                               ; preds = %93
+  %95 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.059, ptr noundef nonnull %77) #25
   br label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit
 
-_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit: ; preds = %.lr.ph60, %65, %77, %81, %85, %86
-  %.0.i = phi ptr [ %.059, %65 ], [ %.059, %.lr.ph60 ], [ %80, %77 ], [ %84, %81 ], [ %87, %86 ], [ %.059, %85 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.12.058, i64 32
-  %89 = icmp eq ptr %88, %.sroa.20.057
-  br i1 %89, label %.lr.ph.i.i.preheader, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit
+_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit: ; preds = %.lr.ph60, %73, %85, %89, %93, %94
+  %.0.i = phi ptr [ %.059, %73 ], [ %.059, %.lr.ph60 ], [ %88, %85 ], [ %92, %89 ], [ %95, %94 ], [ %.059, %93 ]
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.12.058, i64 32
+  %97 = icmp eq ptr %96, %.sroa.20.057
+  br i1 %97, label %.lr.ph.i.i.preheader, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.056, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !230
-  %92 = icmp eq ptr %91, %18
-  br i1 %92, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit, label %.lr.ph45.preheader
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.056, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !230
+  %100 = icmp eq ptr %99, %18
+  br i1 %100, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit, label %.lr.ph45.preheader
 
 .lr.ph45.preheader:                               ; preds = %.lr.ph.i.i.preheader
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 44
-  %94 = load i32, ptr %93, align 4
-  %95 = and i32 %94, 4
-  %.not.i.i1876 = icmp eq i32 %95, 0
-  br i1 %.not.i.i1876, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit, label %.lr.ph77
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 44
+  %102 = load i32, ptr %101, align 4
+  %103 = and i32 %102, 4
+  %.not.i.i1895 = icmp eq i32 %103, 0
+  br i1 %.not.i.i1895, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit, label %.lr.ph96
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph77
-  %96 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !230
-  %98 = icmp eq ptr %97, %18
-  br i1 %98, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit, label %.lr.ph45, !llvm.loop !290
+.lr.ph.i.i:                                       ; preds = %.lr.ph96
+  %104 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %105 = load ptr, ptr %104, align 8, !tbaa !230
+  %106 = icmp eq ptr %105, %18
+  br i1 %106, label %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge, label %.lr.ph45, !llvm.loop !290
 
 .lr.ph45:                                         ; preds = %.lr.ph.i.i
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 44
-  %100 = load i32, ptr %99, align 4
-  %101 = and i32 %100, 4
-  %.not.i.i18 = icmp eq i32 %101, 0
-  br i1 %.not.i.i18, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit, label %.lr.ph77, !llvm.loop !290
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 44
+  %108 = load i32, ptr %107, align 4
+  %109 = and i32 %108, 4
+  %.not.i.i18 = icmp eq i32 %109, 0
+  br i1 %.not.i.i18, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit, label %.lr.ph96, !llvm.loop !290
 
-.lr.ph77:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
-  %102 = phi ptr [ %97, %.lr.ph45 ], [ %91, %.lr.ph45.preheader ]
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
-  %104 = load i24, ptr %103, align 8
-  %105 = icmp eq i24 %104, 0
-  br i1 %105, label %.lr.ph.i.i, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit, !llvm.loop !290
+.lr.ph96:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
+  %110 = phi ptr [ %105, %.lr.ph45 ], [ %99, %.lr.ph45.preheader ]
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
+  %112 = load i24, ptr %111, align 8
+  %113 = icmp eq i24 %112, 0
+  br i1 %113, label %.lr.ph.i.i, label %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge, !llvm.loop !290
 
-_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit: ; preds = %.lr.ph77, %.lr.ph45, %.lr.ph.i.i
-  %.sroa.0.2.ph = phi ptr [ %102, %.lr.ph77 ], [ %18, %.lr.ph45 ], [ %18, %.lr.ph.i.i ]
-  %106 = getelementptr inbounds nuw i8, ptr %102, i64 32
-  %107 = load ptr, ptr %106, align 8, !tbaa !44
-  %108 = zext i24 %104 to i64
-  %109 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %107, i64 %108
+._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge: ; preds = %.lr.ph96
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %115 = load ptr, ptr %114, align 8, !tbaa !44
+  %116 = zext i24 %112 to i64
+  %117 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %115, i64 %116
+  br label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit, !llvm.loop !290
+
+.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge: ; preds = %.lr.ph.i.i
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %119 = load ptr, ptr %118, align 8, !tbaa !44
+  %120 = zext i24 %112 to i64
+  %121 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %119, i64 %120
+  br label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit, !llvm.loop !290
+
+_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit: ; preds = %.lr.ph45
+  %122 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %123 = load ptr, ptr %122, align 8, !tbaa !44
+  %124 = zext i24 %112 to i64
+  %125 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %123, i64 %124
   br label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit
 
-_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit: ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit, %.lr.ph45.preheader, %.lr.ph.i.i.preheader, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit
-  %.sroa.0.2 = phi ptr [ %.sroa.0.056, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit ], [ %18, %.lr.ph.i.i.preheader ], [ %18, %.lr.ph45.preheader ], [ %.sroa.0.2.ph, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit ]
-  %.sroa.20.4 = phi ptr [ %.sroa.20.057, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit ], [ %.sroa.20.057, %.lr.ph.i.i.preheader ], [ %.sroa.20.057, %.lr.ph45.preheader ], [ %109, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit ]
-  %.sroa.12.4 = phi ptr [ %88, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit ], [ %88, %.lr.ph.i.i.preheader ], [ %88, %.lr.ph45.preheader ], [ %107, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit ]
-  %110 = icmp ne ptr %.sroa.12.4, %.sroa.20.4
-  %111 = icmp ne ptr %.0.i, null
-  %112 = and i1 %110, %111
-  br i1 %112, label %.lr.ph60, label %.loopexit, !llvm.loop !291
+_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit: ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit, %.lr.ph45.preheader, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge, %.lr.ph.i.i.preheader, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit
+  %.sroa.0.2 = phi ptr [ %.sroa.0.056, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit ], [ %110, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %18, %.lr.ph.i.i.preheader ], [ %18, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %18, %.lr.ph45.preheader ], [ %18, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit ]
+  %.sroa.20.4 = phi ptr [ %.sroa.20.057, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit ], [ %117, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %.sroa.20.057, %.lr.ph.i.i.preheader ], [ %121, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %.sroa.20.057, %.lr.ph45.preheader ], [ %125, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit ]
+  %.sroa.12.4 = phi ptr [ %96, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit ], [ %115, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %96, %.lr.ph.i.i.preheader ], [ %119, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %96, %.lr.ph45.preheader ], [ %123, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit ]
+  %126 = icmp ne ptr %.sroa.12.4, %.sroa.20.4
+  %127 = icmp ne ptr %.0.i, null
+  %128 = and i1 %126, %127
+  br i1 %128, label %.lr.ph60, label %.loopexit, !llvm.loop !291
 
-113:                                              ; preds = %6
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %115 = load i24, ptr %114, align 8
-  %116 = icmp ne i24 %115, 0
-  %117 = icmp ne ptr %2, null
-  %118 = and i1 %116, %117
-  br i1 %118, label %.lr.ph, label %.loopexit
+129:                                              ; preds = %6
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %131 = load i24, ptr %130, align 8
+  %132 = icmp ne i24 %131, 0
+  %133 = icmp ne ptr %2, null
+  %134 = and i1 %132, %133
+  br i1 %134, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %113
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %120 = zext i24 %115 to i64
-  br label %121
+.lr.ph:                                           ; preds = %129
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %136 = zext i24 %131 to i64
+  br label %137
 
-121:                                              ; preds = %.lr.ph, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23
+137:                                              ; preds = %.lr.ph, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23 ]
   %.229 = phi ptr [ %2, %.lr.ph ], [ %.0.i19, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23 ]
-  %122 = load ptr, ptr %119, align 8, !tbaa !44
-  %123 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %122, i64 %indvars.iv
-  %124 = load i32, ptr %123, align 8
-  %125 = and i32 %124, 255
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23
+  %138 = load ptr, ptr %135, align 8, !tbaa !44
+  %139 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %138, i64 %indvars.iv
+  %140 = load i32, ptr %139, align 8
+  %141 = and i32 %140, 255
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %143, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  %129 = load i32, ptr %128, align 4, !tbaa !40
-  %.not.i20 = icmp eq i32 %129, %1
-  br i1 %.not.i20, label %130, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23
+143:                                              ; preds = %137
+  %144 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  %145 = load i32, ptr %144, align 4, !tbaa !40
+  %.not.i20 = icmp eq i32 %145, %1
+  br i1 %.not.i20, label %146, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23
 
-130:                                              ; preds = %127
-  %131 = trunc nuw nsw i64 %indvars.iv to i32
-  %132 = tail call noundef ptr @_ZNK4llvm12MachineInstr21getRegClassConstraintEjPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %0, i32 noundef %131, ptr noundef %3, ptr noundef %4)
-  %133 = load ptr, ptr %119, align 8, !tbaa !44
-  %134 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %133, i64 %indvars.iv
-  %135 = load i32, ptr %134, align 8
-  %136 = lshr i32 %135, 8
-  %137 = and i32 %136, 4095
-  %.not.i.i21 = icmp eq i32 %137, 0
-  %.not21.i.i22 = icmp eq ptr %132, null
-  br i1 %.not.i.i21, label %148, label %138
+146:                                              ; preds = %143
+  %147 = trunc nuw nsw i64 %indvars.iv to i32
+  %148 = tail call noundef ptr @_ZNK4llvm12MachineInstr21getRegClassConstraintEjPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %0, i32 noundef %147, ptr noundef %3, ptr noundef %4)
+  %149 = load ptr, ptr %135, align 8, !tbaa !44
+  %150 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %149, i64 %indvars.iv
+  %151 = load i32, ptr %150, align 8
+  %152 = lshr i32 %151, 8
+  %153 = and i32 %152, 4095
+  %.not.i.i21 = icmp eq i32 %153, 0
+  %.not21.i.i22 = icmp eq ptr %148, null
+  br i1 %.not.i.i21, label %164, label %154
 
-138:                                              ; preds = %130
-  %139 = load ptr, ptr %4, align 8, !tbaa !263
-  br i1 %.not21.i.i22, label %144, label %140
+154:                                              ; preds = %146
+  %155 = load ptr, ptr %4, align 8, !tbaa !263
+  br i1 %.not21.i.i22, label %160, label %156
 
-140:                                              ; preds = %138
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 232
-  %142 = load ptr, ptr %141, align 8
-  %143 = tail call noundef ptr %142(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.229, ptr noundef nonnull %132, i32 noundef %137) #25
+156:                                              ; preds = %154
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 232
+  %158 = load ptr, ptr %157, align 8
+  %159 = tail call noundef ptr %158(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.229, ptr noundef nonnull %148, i32 noundef %153) #25
   br label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23
 
-144:                                              ; preds = %138
-  %145 = getelementptr inbounds nuw i8, ptr %139, i64 248
-  %146 = load ptr, ptr %145, align 8
-  %147 = tail call noundef ptr %146(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.229, i32 noundef %137) #25
+160:                                              ; preds = %154
+  %161 = getelementptr inbounds nuw i8, ptr %155, i64 248
+  %162 = load ptr, ptr %161, align 8
+  %163 = tail call noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.229, i32 noundef %153) #25
   br label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23
 
-148:                                              ; preds = %130
-  br i1 %.not21.i.i22, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23, label %149
+164:                                              ; preds = %146
+  br i1 %.not21.i.i22, label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23, label %165
 
-149:                                              ; preds = %148
-  %150 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.229, ptr noundef nonnull %132) #25
+165:                                              ; preds = %164
+  %166 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef nonnull %.229, ptr noundef nonnull %148) #25
   br label %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23
 
-_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23: ; preds = %121, %127, %140, %144, %148, %149
-  %.0.i19 = phi ptr [ %.229, %127 ], [ %.229, %121 ], [ %143, %140 ], [ %147, %144 ], [ %150, %149 ], [ %.229, %148 ]
+_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23: ; preds = %137, %143, %156, %160, %164, %165
+  %.0.i19 = phi ptr [ %.229, %143 ], [ %.229, %137 ], [ %159, %156 ], [ %163, %160 ], [ %166, %165 ], [ %.229, %164 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %151 = icmp samesign ult i64 %indvars.iv.next, %120
-  %152 = icmp ne ptr %.0.i19, null
-  %153 = and i1 %151, %152
-  br i1 %153, label %121, label %.loopexit, !llvm.loop !292
+  %167 = icmp samesign ult i64 %indvars.iv.next, %136
+  %168 = icmp ne ptr %.0.i19, null
+  %169 = and i1 %167, %168
+  br i1 %169, label %137, label %.loopexit, !llvm.loop !292
 
-.loopexit:                                        ; preds = %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit, %113, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit
-  %.1 = phi ptr [ %2, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit ], [ %2, %113 ], [ %.0.i, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit ], [ %.0.i19, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23 ]
+.loopexit:                                        ; preds = %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit, %129, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit
+  %.1 = phi ptr [ %2, %_ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit ], [ %2, %129 ], [ %.0.i, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit ], [ %.0.i19, %_ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23 ]
   ret ptr %.1
 }
 

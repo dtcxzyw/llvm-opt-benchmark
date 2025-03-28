@@ -10320,7 +10320,7 @@ invoke.cont41.i.i.i.i.i:                          ; preds = %invoke.cont39.i.i.i
   %sub.ptr.sub.i34.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i32.i.i.i.i.i, %sub.ptr.rhs.cast.i33.i.i.i.i.i
   %sub.ptr.div.i35.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i34.i.i.i.i.i, 5
   %cmp21.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i35.i.i.i.i.i, %conv19.i.i.i.i.i
-  br i1 %cmp21.i.i.i.i.i, label %for.body22.i.i.i.i.i, label %for.end.i.i.i.i.i, !llvm.loop !114
+  br i1 %cmp21.i.i.i.i.i, label %for.body22.i.i.i.i.i, label %invoke.cont41.i.for.end.i.loopexit_crit_edge.i.i.i.i, !llvm.loop !114
 
 lpad40.i.i.i.i.i:                                 ; preds = %invoke.cont39.i.i.i.i.i
   %24 = landingpad { ptr, i32 }
@@ -10328,8 +10328,11 @@ lpad40.i.i.i.i.i:                                 ; preds = %invoke.cont39.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i.i.i.i.i) #24, !noalias !101
   br label %ehcleanup52.i.i.i.i.i
 
-for.end.i.i.i.i.i:                                ; preds = %invoke.cont41.i.i.i.i.i, %for.body22.i.i.i.i.i, %for.body22.i.preheader.i.i.i.i, %_ZNK8facebook5velox10StringView3strB5cxx11Ev.exit.i.i.i.i.i
-  %j.0.in.lcssa.i.i.i.i.i = phi i32 [ %i.024.i.i.i.i.i, %_ZNK8facebook5velox10StringView3strB5cxx11Ev.exit.i.i.i.i.i ], [ %i.024.i.i.i.i.i, %for.body22.i.preheader.i.i.i.i ], [ %j.020.i4.i.i.i.i, %for.body22.i.i.i.i.i ], [ %j.020.i4.i.i.i.i, %invoke.cont41.i.i.i.i.i ]
+invoke.cont41.i.for.end.i.loopexit_crit_edge.i.i.i.i: ; preds = %invoke.cont41.i.i.i.i.i
+  br label %for.end.i.i.i.i.i, !llvm.loop !114
+
+for.end.i.i.i.i.i:                                ; preds = %for.body22.i.i.i.i.i, %invoke.cont41.i.for.end.i.loopexit_crit_edge.i.i.i.i, %for.body22.i.preheader.i.i.i.i, %_ZNK8facebook5velox10StringView3strB5cxx11Ev.exit.i.i.i.i.i
+  %j.0.in.lcssa.i.i.i.i.i = phi i32 [ %i.024.i.i.i.i.i, %_ZNK8facebook5velox10StringView3strB5cxx11Ev.exit.i.i.i.i.i ], [ %j.020.i4.i.i.i.i, %invoke.cont41.i.for.end.i.loopexit_crit_edge.i.i.i.i ], [ %i.024.i.i.i.i.i, %for.body22.i.preheader.i.i.i.i ], [ %j.020.i4.i.i.i.i, %for.body22.i.i.i.i.i ]
   %call45.i.i.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i) #24, !noalias !101
   %call46.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i) #24, !noalias !101
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp47.i.i.i.i.i) #24, !noalias !101

@@ -2994,11 +2994,14 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN3ue212graph_detail17v
   %47 = load i64, ptr %46, align 8
   %48 = urem i64 %47, %12
   %.not19.i.i = icmp eq i64 %48, %13
-  br i1 %.not19.i.i, label %39, label %.critedge28, !llvm.loop !48
+  br i1 %.not19.i.i, label %39, label %..loopexit_crit_edge22.i.i, !llvm.loop !48
 
-.critedge28:                                      ; preds = %.lr.ph.i.i, %45, %24, %.thread
-  %49 = phi i64 [ %29, %24 ], [ %13, %.thread ], [ %13, %45 ], [ %13, %.lr.ph.i.i ]
-  %50 = phi i64 [ %26, %24 ], [ %10, %.thread ], [ %10, %45 ], [ %10, %.lr.ph.i.i ]
+..loopexit_crit_edge22.i.i:                       ; preds = %45
+  br label %.critedge28, !llvm.loop !48
+
+.critedge28:                                      ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge22.i.i, %.thread
+  %49 = phi i64 [ %29, %24 ], [ %13, %.thread ], [ %13, %..loopexit_crit_edge22.i.i ], [ %13, %.lr.ph.i.i ]
+  %50 = phi i64 [ %26, %24 ], [ %10, %.thread ], [ %10, %..loopexit_crit_edge22.i.i ], [ %10, %.lr.ph.i.i ]
   %51 = invoke ptr @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %49, i64 noundef %50, ptr noundef nonnull %4, i64 noundef 1)
           to label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30
 

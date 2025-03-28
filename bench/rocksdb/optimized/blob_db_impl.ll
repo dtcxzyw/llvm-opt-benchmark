@@ -13398,7 +13398,10 @@ define linkonce_odr void @_ZN7rocksdb7blob_db8BlobFile13UnlinkSstFileEm(ptr noun
   %30 = load i64, ptr %29, align 8, !tbaa !57
   %31 = urem i64 %30, %15
   %.not19.i.i.i.i = icmp eq i64 %31, %16
-  br i1 %.not19.i.i.i.i, label %25, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit, !llvm.loop !523
+  br i1 %.not19.i.i.i.i, label %25, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !523
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %28
+  br label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit, !llvm.loop !523
 
 _ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.loopexit: ; preds = %9, %8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13406,10 +13409,10 @@ _ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.loopexit: ; p
   %.pre10 = load ptr, ptr %3, align 8, !tbaa !521
   br label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit
 
-_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit: ; preds = %25, %.lr.ph.i.i.i.i, %28, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.loopexit, %13, %20
-  %32 = phi ptr [ %17, %13 ], [ %17, %20 ], [ %.pre10, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.loopexit ], [ %17, %28 ], [ %17, %.lr.ph.i.i.i.i ], [ %17, %25 ]
-  %33 = phi i64 [ %15, %13 ], [ %15, %20 ], [ %.pre, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.loopexit ], [ %15, %28 ], [ %15, %.lr.ph.i.i.i.i ], [ %15, %25 ]
-  %.sroa.06.1.i.i = phi ptr [ null, %13 ], [ %21, %20 ], [ %.sroa.06.0.i.i, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.loopexit ], [ %27, %25 ], [ null, %.lr.ph.i.i.i.i ], [ null, %28 ]
+_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit: ; preds = %25, %.lr.ph.i.i.i.i, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.loopexit, %13, %20, %..loopexit_crit_edge21.i.i.i.i
+  %32 = phi ptr [ %17, %13 ], [ %17, %..loopexit_crit_edge21.i.i.i.i ], [ %17, %20 ], [ %.pre10, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.loopexit ], [ %17, %.lr.ph.i.i.i.i ], [ %17, %25 ]
+  %33 = phi i64 [ %15, %13 ], [ %15, %..loopexit_crit_edge21.i.i.i.i ], [ %15, %20 ], [ %.pre, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.loopexit ], [ %15, %.lr.ph.i.i.i.i ], [ %15, %25 ]
+  %.sroa.06.1.i.i = phi ptr [ null, %13 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %21, %20 ], [ %.sroa.06.0.i.i, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.loopexit ], [ %27, %25 ], [ null, %.lr.ph.i.i.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !57
   %36 = urem i64 %35, %33
@@ -42811,11 +42814,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %36 = load i64, ptr %35, align 8, !tbaa !57
   %37 = urem i64 %36, %9
   %.not19.i.i = icmp eq i64 %37, %10
-  br i1 %.not19.i.i, label %31, label %.critedge, !llvm.loop !1162
+  br i1 %.not19.i.i, label %31, label %..loopexit_crit_edge21.i.i, !llvm.loop !1162
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %34, %22, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %34 ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %34 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %34
+  br label %.critedge, !llvm.loop !1162
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   store ptr null, ptr %40, align 8, !tbaa !368
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

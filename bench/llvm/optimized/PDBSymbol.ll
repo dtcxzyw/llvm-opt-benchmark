@@ -867,9 +867,12 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
   %29 = load i64, ptr %28, align 8, !tbaa !69
   %30 = urem i64 %29, %6
   %.not19.i.i = icmp eq i64 %30, %7
-  br i1 %.not19.i.i, label %20, label %.loopexit, !llvm.loop !71
+  br i1 %.not19.i.i, label %20, label %..loopexit_crit_edge21.i.i, !llvm.loop !71
 
-.loopexit:                                        ; preds = %27, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %27
+  br label %.loopexit, !llvm.loop !71
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   %31 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %3, ptr %32, align 4, !tbaa !72

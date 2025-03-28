@@ -1227,7 +1227,7 @@ sane_qsort.exit150.i:                             ; preds = %._crit_edge181.i
 
 ..critedge.loopexit_crit_edge.i:                  ; preds = %86
   %.pre.pre.i = load ptr, ptr %.phi.trans.insert.phi.trans.insert.i, align 8, !tbaa !15
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !57
 
 .critedge.i:                                      ; preds = %.lr.ph187.i, %..critedge.loopexit_crit_edge.i, %.preheader159.i
   %88 = phi ptr [ %79, %.preheader159.i ], [ %.pre.pre.i, %..critedge.loopexit_crit_edge.i ], [ %83, %.lr.ph187.i ]

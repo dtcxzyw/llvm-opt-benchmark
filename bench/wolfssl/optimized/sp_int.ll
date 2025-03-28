@@ -4089,7 +4089,7 @@ thread-pre-split:                                 ; preds = %_sp_copy.exit185.th
 
 .._crit_edge114.loopexit.i_crit_edge:             ; preds = %338
   %.pre = load i64, ptr %298, align 8, !tbaa !8
-  br label %._crit_edge114.loopexit.i
+  br label %._crit_edge114.loopexit.i, !llvm.loop !66
 
 ._crit_edge114.loopexit.i:                        ; preds = %.lr.ph113.i, %.._crit_edge114.loopexit.i_crit_edge
   %340 = phi i64 [ %.pre, %.._crit_edge114.loopexit.i_crit_edge ], [ %333, %.lr.ph113.i ]

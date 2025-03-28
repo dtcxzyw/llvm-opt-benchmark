@@ -439,14 +439,17 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   store i64 %95, ptr %13, align 8, !tbaa !28
   %.pr = load i64, ptr %12, align 8, !tbaa !26
   %.not = icmp eq i64 %.pr, 0
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !30
 
 96:                                               ; preds = %80
   call fastcc void @set_error(ptr noundef nonnull %0, i32 noundef %83)
   br label %134
 
-.critedge.loopexit:                               ; preds = %.lr.ph, %85, %.lr.ph.preheader
-  %97 = phi i64 [ %31, %.lr.ph.preheader ], [ %95, %85 ], [ %95, %.lr.ph ]
+..critedge.loopexit_crit_edge:                    ; preds = %85
+  br label %.critedge.loopexit, !llvm.loop !30
+
+.critedge.loopexit:                               ; preds = %.lr.ph, %..critedge.loopexit_crit_edge, %.lr.ph.preheader
+  %97 = phi i64 [ %95, %..critedge.loopexit_crit_edge ], [ %31, %.lr.ph.preheader ], [ %95, %.lr.ph ]
   %.pre = load ptr, ptr %10, align 8, !tbaa !25
   %.pre96 = load ptr, ptr %9, align 8, !tbaa !23
   br label %.critedge

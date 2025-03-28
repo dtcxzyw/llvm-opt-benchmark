@@ -2567,10 +2567,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
   %574 = trunc nsw i64 %indvars.iv.next.i218 to i32
   store i32 %574, ptr %549, align 4
   %exitcond.not.i219 = icmp eq i64 %indvars.iv.next.i218, %wide.trip.count.i215
-  br i1 %exitcond.not.i219, label %.noexc187, label %.lr.ph19.i, !llvm.loop !24
+  br i1 %exitcond.not.i219, label %..noexc187.loopexit_crit_edge, label %.lr.ph19.i, !llvm.loop !24
 
-.noexc187:                                        ; preds = %.lr.ph666, %.lr.ph19.i, %.lr.ph19.preheader.i, %.noexc.i155..noexc187_crit_edge, %._crit_edge.i, %.preheader.i214
-  %575 = phi i32 [ %.pre, %.noexc.i155..noexc187_crit_edge ], [ 0, %._crit_edge.i ], [ 0, %.preheader.i214 ], [ 0, %.lr.ph19.preheader.i ], [ %574, %.lr.ph19.i ], [ %574, %.lr.ph666 ]
+..noexc187.loopexit_crit_edge:                    ; preds = %.lr.ph666
+  br label %.noexc187, !llvm.loop !24
+
+.noexc187:                                        ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i, %..noexc187.loopexit_crit_edge, %.noexc.i155..noexc187_crit_edge, %._crit_edge.i, %.preheader.i214
+  %575 = phi i32 [ %.pre, %.noexc.i155..noexc187_crit_edge ], [ 0, %._crit_edge.i ], [ 0, %.preheader.i214 ], [ %574, %..noexc187.loopexit_crit_edge ], [ 0, %.lr.ph19.preheader.i ], [ %574, %.lr.ph19.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !20
   %576 = getelementptr inbounds nuw i8, ptr %501, i64 68
   %577 = getelementptr inbounds nuw i8, ptr %501, i64 72

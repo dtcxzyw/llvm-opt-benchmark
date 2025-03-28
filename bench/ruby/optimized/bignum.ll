@@ -15228,7 +15228,7 @@ BIGNUM_LEN.exit58:                                ; preds = %77, %80
 ..critedge2_crit_edge:                            ; preds = %83
   %.phi.trans.insert = inttoptr i64 %85 to ptr
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !11
-  br label %.critedge2
+  br label %.critedge2, !llvm.loop !153
 
 .critedge2:                                       ; preds = %BIGNUM_LEN.exit58, %..critedge2_crit_edge
   %.pre-phi = phi ptr [ %.phi.trans.insert, %..critedge2_crit_edge ], [ %74, %BIGNUM_LEN.exit58 ]

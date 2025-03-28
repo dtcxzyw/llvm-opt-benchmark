@@ -1624,7 +1624,7 @@ define dso_local void @_ZN4V3Os18filenameSubstituteERKNSt7__cxx1112basic_stringI
   %53 = phi i64 [ %54, %.lr.ph.split.us ], [ %40, %.lr.ph.split.us.preheader ]
   %54 = add nuw i64 %53, 1
   %exitcond231.not = icmp eq i64 %54, %22
-  br i1 %exitcond231.not, label %.critedge.thread.thread, label %.lr.ph.split.us, !llvm.loop !86
+  br i1 %exitcond231.not, label %.critedge2.us..critedge.thread.thread.loopexit_crit_edge, label %.lr.ph.split.us, !llvm.loop !86
 
 .lr.ph.split:                                     ; preds = %33
   br i1 %35, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -1773,11 +1773,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28
   br label %241
 
-.critedge.thread.thread:                          ; preds = %.critedge2.us, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %.thread232, %.critedge.thread, %75
-  %103 = phi i64 [ %36, %.critedge.thread ], [ %36, %75 ], [ %36, %.lr.ph.split.split ], [ %39, %.thread232 ], [ %39, %.lr.ph.split.us.preheader ], [ %39, %.lr.ph.split.us ], [ %39, %.critedge2.us ]
-  %104 = phi i64 [ %28, %.critedge.thread ], [ %28, %75 ], [ %28, %.lr.ph.split.split ], [ %.055201, %.thread232 ], [ %.055201, %.lr.ph.split.us.preheader ], [ %.055201, %.lr.ph.split.us ], [ %.055201, %.critedge2.us ]
-  %.not111234244258 = phi i64 [ %.lcssa246254, %.critedge.thread ], [ %.lcssa246, %75 ], [ %37, %.lr.ph.split.split ], [ %39, %.thread232 ], [ %39, %.lr.ph.split.us.preheader ], [ %42, %.critedge2.us ], [ %53, %.lr.ph.split.us ]
-  %.054.lcssa245256 = phi i64 [ %.054.lcssa245257, %.critedge.thread ], [ %.054.lcssa245, %75 ], [ %36, %.lr.ph.split.split ], [ %39, %.thread232 ], [ %39, %.lr.ph.split.us.preheader ], [ %42, %.critedge2.us ], [ %53, %.lr.ph.split.us ]
+.critedge2.us..critedge.thread.thread.loopexit_crit_edge: ; preds = %.critedge2.us
+  br label %.critedge.thread.thread, !llvm.loop !86
+
+.critedge.thread.thread:                          ; preds = %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.critedge2.us..critedge.thread.thread.loopexit_crit_edge, %.lr.ph.split.split, %.thread232, %.critedge.thread, %75
+  %103 = phi i64 [ %36, %.critedge.thread ], [ %36, %75 ], [ %36, %.lr.ph.split.split ], [ %39, %.thread232 ], [ %39, %.critedge2.us..critedge.thread.thread.loopexit_crit_edge ], [ %39, %.lr.ph.split.us.preheader ], [ %39, %.lr.ph.split.us ]
+  %104 = phi i64 [ %28, %.critedge.thread ], [ %28, %75 ], [ %28, %.lr.ph.split.split ], [ %.055201, %.thread232 ], [ %.055201, %.critedge2.us..critedge.thread.thread.loopexit_crit_edge ], [ %.055201, %.lr.ph.split.us.preheader ], [ %.055201, %.lr.ph.split.us ]
+  %.not111234244258 = phi i64 [ %.lcssa246254, %.critedge.thread ], [ %.lcssa246, %75 ], [ %37, %.lr.ph.split.split ], [ %39, %.thread232 ], [ %42, %.critedge2.us..critedge.thread.thread.loopexit_crit_edge ], [ %39, %.lr.ph.split.us.preheader ], [ %53, %.lr.ph.split.us ]
+  %.054.lcssa245256 = phi i64 [ %.054.lcssa245257, %.critedge.thread ], [ %.054.lcssa245, %75 ], [ %36, %.lr.ph.split.split ], [ %39, %.thread232 ], [ %42, %.critedge2.us..critedge.thread.thread.loopexit_crit_edge ], [ %39, %.lr.ph.split.us.preheader ], [ %53, %.lr.ph.split.us ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #28
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %.not = icmp ult i64 %104, %22

@@ -97,7 +97,7 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr noundef readonly captures(n
   %28 = getelementptr inbounds nuw i8, ptr %.057.i85, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %get_wal_level_string.exit, label %30, !llvm.loop !6
+  br i1 %.not.i, label %.get_wal_level_string.exit_crit_edge, label %30, !llvm.loop !6
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds nuw i8, ptr %.057.i85, i64 24
@@ -105,8 +105,11 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr noundef readonly captures(n
   %33 = icmp eq i32 %32, %26
   br i1 %33, label %get_wal_level_string.exit, label %.lr.ph, !llvm.loop !6
 
-get_wal_level_string.exit:                        ; preds = %30, %.lr.ph, %12
-  %.0.i = phi ptr [ @.str, %12 ], [ @.str.45, %.lr.ph ], [ %29, %30 ]
+.get_wal_level_string.exit_crit_edge:             ; preds = %.lr.ph
+  br label %get_wal_level_string.exit, !llvm.loop !6
+
+get_wal_level_string.exit:                        ; preds = %30, %.get_wal_level_string.exit_crit_edge, %12
+  %.0.i = phi ptr [ @.str.45, %.get_wal_level_string.exit_crit_edge ], [ @.str, %12 ], [ %29, %30 ]
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = lshr i64 %35, 32
@@ -189,7 +192,7 @@ get_wal_level_string.exit:                        ; preds = %30, %.lr.ph, %12
   %72 = getelementptr inbounds nuw i8, ptr %.057.i7388, i64 16
   %73 = load ptr, ptr %72, align 8
   %.not.i74 = icmp eq ptr %73, null
-  br i1 %.not.i74, label %get_wal_level_string.exit76, label %74, !llvm.loop !6
+  br i1 %.not.i74, label %.get_wal_level_string.exit76_crit_edge, label %74, !llvm.loop !6
 
 74:                                               ; preds = %.lr.ph89
   %75 = getelementptr inbounds nuw i8, ptr %.057.i7388, i64 24
@@ -197,8 +200,11 @@ get_wal_level_string.exit:                        ; preds = %30, %.lr.ph, %12
   %77 = icmp eq i32 %76, %.sroa.8.0.copyload
   br i1 %77, label %get_wal_level_string.exit76, label %.lr.ph89, !llvm.loop !6
 
-get_wal_level_string.exit76:                      ; preds = %74, %.lr.ph89, %70
-  %.0.i75 = phi ptr [ @.str, %70 ], [ @.str.45, %.lr.ph89 ], [ %73, %74 ]
+.get_wal_level_string.exit76_crit_edge:           ; preds = %.lr.ph89
+  br label %get_wal_level_string.exit76, !llvm.loop !6
+
+get_wal_level_string.exit76:                      ; preds = %74, %.get_wal_level_string.exit76_crit_edge, %70
+  %.0.i75 = phi ptr [ @.str.45, %.get_wal_level_string.exit76_crit_edge ], [ @.str, %70 ], [ %73, %74 ]
   %78 = trunc i8 %.sroa.9.0.copyload to i1
   %79 = select i1 %78, ptr @.str.13, ptr @.str.14
   %80 = trunc i8 %.sroa.10.0.copyload to i1
@@ -241,7 +247,7 @@ get_wal_level_string.exit76:                      ; preds = %74, %.lr.ph89, %70
   %91 = getelementptr inbounds nuw i8, ptr %.057.i7798, i64 16
   %92 = load ptr, ptr %91, align 8
   %.not.i78 = icmp eq ptr %92, null
-  br i1 %.not.i78, label %get_wal_level_string.exit80, label %93, !llvm.loop !6
+  br i1 %.not.i78, label %.get_wal_level_string.exit80_crit_edge, label %93, !llvm.loop !6
 
 93:                                               ; preds = %.lr.ph99
   %94 = getelementptr inbounds nuw i8, ptr %.057.i7798, i64 24
@@ -249,8 +255,11 @@ get_wal_level_string.exit76:                      ; preds = %74, %.lr.ph89, %70
   %96 = icmp eq i32 %95, %.sroa.6.0.copyload
   br i1 %96, label %get_wal_level_string.exit80, label %.lr.ph99, !llvm.loop !6
 
-get_wal_level_string.exit80:                      ; preds = %93, %.lr.ph99, %88
-  %.0.i79 = phi ptr [ @.str, %88 ], [ @.str.45, %.lr.ph99 ], [ %92, %93 ]
+.get_wal_level_string.exit80_crit_edge:           ; preds = %.lr.ph99
+  br label %get_wal_level_string.exit80, !llvm.loop !6
+
+get_wal_level_string.exit80:                      ; preds = %93, %.get_wal_level_string.exit80_crit_edge, %88
+  %.0.i79 = phi ptr [ @.str.45, %.get_wal_level_string.exit80_crit_edge ], [ @.str, %88 ], [ %92, %93 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.58.0.copyload, ptr noundef %89, ptr noundef nonnull %.0.i79) #4
   br label %110
 
@@ -275,7 +284,7 @@ get_wal_level_string.exit80:                      ; preds = %93, %.lr.ph99, %88
   %104 = getelementptr inbounds nuw i8, ptr %.057.i8193, i64 16
   %105 = load ptr, ptr %104, align 8
   %.not.i82 = icmp eq ptr %105, null
-  br i1 %.not.i82, label %get_wal_level_string.exit84, label %106, !llvm.loop !6
+  br i1 %.not.i82, label %.get_wal_level_string.exit84_crit_edge, label %106, !llvm.loop !6
 
 106:                                              ; preds = %.lr.ph94
   %107 = getelementptr inbounds nuw i8, ptr %.057.i8193, i64 24
@@ -283,8 +292,11 @@ get_wal_level_string.exit80:                      ; preds = %93, %.lr.ph99, %88
   %109 = icmp eq i32 %108, %.0.copyload
   br i1 %109, label %get_wal_level_string.exit84, label %.lr.ph94, !llvm.loop !6
 
-get_wal_level_string.exit84:                      ; preds = %106, %.lr.ph94, %102
-  %.0.i83 = phi ptr [ @.str, %102 ], [ @.str.45, %.lr.ph94 ], [ %105, %106 ]
+.get_wal_level_string.exit84_crit_edge:           ; preds = %.lr.ph94
+  br label %get_wal_level_string.exit84, !llvm.loop !6
+
+get_wal_level_string.exit84:                      ; preds = %106, %.get_wal_level_string.exit84_crit_edge, %102
+  %.0.i83 = phi ptr [ @.str.45, %.get_wal_level_string.exit84_crit_edge ], [ @.str, %102 ], [ %105, %106 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %.0.i83) #4
   br label %110
 

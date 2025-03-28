@@ -2193,7 +2193,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit160.us:         ; preds = %187
 
 ._crit_edge:                                      ; preds = %219
   %.pre = load i32, ptr %27, align 4, !tbaa !104
-  br label %split
+  br label %split, !llvm.loop !121
 
 split:                                            ; preds = %209, %._crit_edge
   %223 = phi i32 [ %.pre, %._crit_edge ], [ %210, %209 ]

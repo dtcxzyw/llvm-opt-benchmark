@@ -542,7 +542,7 @@ define dso_local i64 @ACLGetCommandCategoryFlagByName(ptr noundef readonly captu
   %7 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %2, i64 %indvars.iv.next, i32 1
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.lr.ph16
   %9 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %2, i64 %indvars.iv.next
@@ -551,8 +551,11 @@ define dso_local i64 @ACLGetCommandCategoryFlagByName(ptr noundef readonly captu
   %.not8 = icmp eq i32 %11, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph16, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph16, %.lr.ph.preheader, %1
-  %.lcssa = phi i64 [ 0, %1 ], [ %4, %.lr.ph.preheader ], [ 0, %.lr.ph16 ], [ %8, %.lr.ph ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph16
+  br label %._crit_edge, !llvm.loop !28
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %1
+  %.lcssa = phi i64 [ 0, %1 ], [ 0, %.._crit_edge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %8, %.lr.ph ]
   ret i64 %.lcssa
 }
 
@@ -5311,7 +5314,7 @@ sdslen.exit.us:                                   ; preds = %29, %25, %21, %17, 
   %32 = trunc i64 %.0.i.us to i32
   %33 = call i32 @stringmatchlen(ptr noundef nonnull %9, i32 noundef %32, ptr noundef %1, i32 noundef %2, i32 noundef 0) #25
   %.not16.us = icmp eq i32 %33, 0
-  br i1 %.not16.us, label %.critedge18.us, label %._crit_edge, !llvm.loop !187
+  br i1 %.not16.us, label %.critedge18.us, label %.critedge._crit_edge, !llvm.loop !187
 
 .critedge18.us:                                   ; preds = %sdslen.exit.us
   %34 = call ptr @listNext(ptr noundef nonnull %5) #25
@@ -5324,15 +5327,21 @@ sdslen.exit.us:                                   ; preds = %29, %25, %21, %17, 
   %37 = load ptr, ptr %36, align 8, !tbaa !85
   %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %1) #29
   %.not15 = icmp eq i32 %38, 0
-  br i1 %.not15, label %._crit_edge, label %.critedge18, !llvm.loop !187
+  br i1 %.not15, label %._crit_edge21, label %.critedge18, !llvm.loop !187
 
 .critedge18:                                      ; preds = %.lr.ph.split
   %39 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.critedge18, %sdslen.exit.us, %.critedge18.us, %4
-  %.2 = phi i32 [ 4, %4 ], [ 4, %.critedge18.us ], [ 0, %sdslen.exit.us ], [ 4, %.critedge18 ], [ 0, %.lr.ph.split ]
+.critedge._crit_edge:                             ; preds = %sdslen.exit.us
+  br label %._crit_edge, !llvm.loop !187
+
+._crit_edge21:                                    ; preds = %.lr.ph.split
+  br label %._crit_edge, !llvm.loop !187
+
+._crit_edge:                                      ; preds = %.critedge18, %.critedge18.us, %._crit_edge21, %.critedge._crit_edge, %4
+  %.2 = phi i32 [ 0, %._crit_edge21 ], [ 0, %.critedge._crit_edge ], [ 4, %4 ], [ 4, %.critedge18.us ], [ 4, %.critedge18 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
   ret i32 %.2
 }
@@ -5566,11 +5575,11 @@ define dso_local range(i32 0, 2) i32 @ACLShouldKillPubsubClient(ptr noundef %0, 
   %9 = load ptr, ptr %8, align 8, !tbaa !194
   %10 = tail call ptr @dictGetIterator(ptr noundef %9) #25
   %11 = tail call ptr @dictNext(ptr noundef %10) #25
-  %.not81 = icmp eq ptr %11, null
-  br i1 %.not81, label %.critedge72, label %sdslen.exit
+  %.not85 = icmp eq ptr %11, null
+  br i1 %.not85, label %.critedge73, label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %.critedge, %ACLCheckChannelAgainstList.exit
-  %12 = phi ptr [ %22, %ACLCheckChannelAgainstList.exit ], [ %11, %.critedge ]
+sdslen.exit:                                      ; preds = %.critedge, %._crit_edge21.i
+  %12 = phi ptr [ %22, %._crit_edge21.i ], [ %11, %.critedge ]
   %13 = call ptr @dictGetKey(ptr noundef nonnull %12) #25
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !144
@@ -5578,7 +5587,7 @@ sdslen.exit:                                      ; preds = %.critedge, %ACLChec
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %5) #25
   %16 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not19.i = icmp eq ptr %16, null
-  br i1 %.not19.i, label %.critedge48.critedge, label %.lr.ph.split.i
+  br i1 %.not19.i, label %ACLCheckChannelAgainstList.exit, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %sdslen.exit, %.critedge18.i
   %17 = phi ptr [ %21, %.critedge18.i ], [ %16, %sdslen.exit ]
@@ -5586,30 +5595,34 @@ sdslen.exit:                                      ; preds = %.critedge, %ACLChec
   %19 = load ptr, ptr %18, align 8, !tbaa !85
   %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %15) #29
   %.not15.i = icmp eq i32 %20, 0
-  br i1 %.not15.i, label %ACLCheckChannelAgainstList.exit, label %.critedge18.i, !llvm.loop !187
+  br i1 %.not15.i, label %._crit_edge21.i, label %.critedge18.i, !llvm.loop !187
 
 .critedge18.i:                                    ; preds = %.lr.ph.split.i
   %21 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %.critedge48.critedge, label %.lr.ph.split.i
+  br i1 %.not.i, label %ACLCheckChannelAgainstList.exit, label %.lr.ph.split.i
 
-ACLCheckChannelAgainstList.exit:                  ; preds = %.lr.ph.split.i
+._crit_edge21.i:                                  ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
   %22 = call ptr @dictNext(ptr noundef %10) #25
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.critedge72, label %sdslen.exit
+  br i1 %.not, label %.critedge73, label %sdslen.exit
 
-.critedge72:                                      ; preds = %ACLCheckChannelAgainstList.exit, %.critedge
+ACLCheckChannelAgainstList.exit:                  ; preds = %sdslen.exit, %.critedge18.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  br label %.critedge52.sink.split
+
+.critedge73:                                      ; preds = %._crit_edge21.i, %.critedge
   call void @dictReleaseIterator(ptr noundef %10) #25
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %24 = load ptr, ptr %23, align 8, !tbaa !195
   %25 = call ptr @dictGetIterator(ptr noundef %24) #25
   %26 = call ptr @dictNext(ptr noundef %25) #25
-  %.not4382 = icmp eq ptr %26, null
-  br i1 %.not4382, label %.critedge74, label %.lr.ph
+  %.not4386 = icmp eq ptr %26, null
+  br i1 %.not4386, label %.critedge75, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.critedge72, %ACLCheckChannelAgainstList.exit58
-  %27 = phi ptr [ %83, %ACLCheckChannelAgainstList.exit58 ], [ %26, %.critedge72 ]
+.lr.ph:                                           ; preds = %.critedge73, %.critedge._crit_edge.i
+  %27 = phi ptr [ %83, %.critedge._crit_edge.i ], [ %26, %.critedge73 ]
   %28 = call ptr @dictGetKey(ptr noundef nonnull %27) #25
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !144
@@ -5660,7 +5673,7 @@ sdslen.exit54:                                    ; preds = %.lr.ph, %35, %38, %
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %4) #25
   %54 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not19.i55 = icmp eq ptr %54, null
-  br i1 %.not19.i55, label %.critedge50.critedge.critedge, label %.lr.ph.split.us.i
+  br i1 %.not19.i55, label %ACLCheckChannelAgainstList.exit58, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %sdslen.exit54, %.critedge18.us.i
   %55 = phi ptr [ %82, %.critedge18.us.i ], [ %54, %sdslen.exit54 ]
@@ -5711,34 +5724,34 @@ sdslen.exit.us.i:                                 ; preds = %77, %73, %69, %65, 
   %80 = trunc i64 %.0.i.us.i to i32
   %81 = call i32 @stringmatchlen(ptr noundef nonnull %57, i32 noundef %80, ptr noundef %30, i32 noundef %53, i32 noundef 0) #25
   %.not16.us.i = icmp eq i32 %81, 0
-  br i1 %.not16.us.i, label %.critedge18.us.i, label %ACLCheckChannelAgainstList.exit58, !llvm.loop !187
+  br i1 %.not16.us.i, label %.critedge18.us.i, label %.critedge._crit_edge.i, !llvm.loop !187
 
 .critedge18.us.i:                                 ; preds = %sdslen.exit.us.i
   %82 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not.us.i = icmp eq ptr %82, null
-  br i1 %.not.us.i, label %.critedge50.critedge.critedge, label %.lr.ph.split.us.i
+  br i1 %.not.us.i, label %ACLCheckChannelAgainstList.exit58, label %.lr.ph.split.us.i
 
-ACLCheckChannelAgainstList.exit58:                ; preds = %sdslen.exit.us.i
+.critedge._crit_edge.i:                           ; preds = %sdslen.exit.us.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
   %83 = call ptr @dictNext(ptr noundef %25) #25
   %.not43 = icmp eq ptr %83, null
-  br i1 %.not43, label %.critedge74, label %.lr.ph
+  br i1 %.not43, label %.critedge75, label %.lr.ph
 
-.critedge48.critedge:                             ; preds = %sdslen.exit, %.critedge18.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+ACLCheckChannelAgainstList.exit58:                ; preds = %sdslen.exit54, %.critedge18.us.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
   br label %.critedge52.sink.split
 
-.critedge74:                                      ; preds = %ACLCheckChannelAgainstList.exit58, %.critedge72
+.critedge75:                                      ; preds = %.critedge._crit_edge.i, %.critedge73
   call void @dictReleaseIterator(ptr noundef %25) #25
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %85 = load ptr, ptr %84, align 8, !tbaa !196
   %86 = call ptr @dictGetIterator(ptr noundef %85) #25
   %87 = call ptr @dictNext(ptr noundef %86) #25
-  %.not4683 = icmp eq ptr %87, null
-  br i1 %.not4683, label %.critedge52.sink.split, label %.lr.ph84
+  %.not4687 = icmp eq ptr %87, null
+  br i1 %.not4687, label %.critedge52.sink.split, label %.lr.ph88
 
-.lr.ph84:                                         ; preds = %.critedge74, %ACLCheckChannelAgainstList.exit70
-  %88 = phi ptr [ %144, %ACLCheckChannelAgainstList.exit70 ], [ %87, %.critedge74 ]
+.lr.ph88:                                         ; preds = %.critedge75, %.critedge._crit_edge.i67
+  %88 = phi ptr [ %144, %.critedge._crit_edge.i67 ], [ %87, %.critedge75 ]
   %89 = call ptr @dictGetKey(ptr noundef nonnull %88) #25
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !144
@@ -5754,45 +5767,45 @@ ACLCheckChannelAgainstList.exit58:                ; preds = %sdslen.exit.us.i
     i32 4, label %111
   ]
 
-96:                                               ; preds = %.lr.ph84
+96:                                               ; preds = %.lr.ph88
   %97 = lshr i32 %94, 3
   %98 = zext nneg i32 %97 to i64
   br label %sdslen.exit60
 
-99:                                               ; preds = %.lr.ph84
+99:                                               ; preds = %.lr.ph88
   %100 = getelementptr inbounds i8, ptr %91, i64 -3
   %101 = load i8, ptr %100, align 1, !tbaa !19
   %102 = zext i8 %101 to i64
   br label %sdslen.exit60
 
-103:                                              ; preds = %.lr.ph84
+103:                                              ; preds = %.lr.ph88
   %104 = getelementptr inbounds i8, ptr %91, i64 -5
   %105 = load i16, ptr %104, align 1, !tbaa !26
   %106 = zext i16 %105 to i64
   br label %sdslen.exit60
 
-107:                                              ; preds = %.lr.ph84
+107:                                              ; preds = %.lr.ph88
   %108 = getelementptr inbounds i8, ptr %91, i64 -9
   %109 = load i32, ptr %108, align 1, !tbaa !102
   %110 = zext i32 %109 to i64
   br label %sdslen.exit60
 
-111:                                              ; preds = %.lr.ph84
+111:                                              ; preds = %.lr.ph88
   %112 = getelementptr inbounds i8, ptr %91, i64 -17
   %113 = load i64, ptr %112, align 1, !tbaa !5
   br label %sdslen.exit60
 
-sdslen.exit60:                                    ; preds = %.lr.ph84, %96, %99, %103, %107, %111
-  %.0.i59 = phi i64 [ %113, %111 ], [ %110, %107 ], [ %106, %103 ], [ %102, %99 ], [ %98, %96 ], [ 0, %.lr.ph84 ]
+sdslen.exit60:                                    ; preds = %.lr.ph88, %96, %99, %103, %107, %111
+  %.0.i59 = phi i64 [ %113, %111 ], [ %110, %107 ], [ %106, %103 ], [ %102, %99 ], [ %98, %96 ], [ 0, %.lr.ph88 ]
   %114 = trunc i64 %.0.i59 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %3) #25
   %115 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not19.i61 = icmp eq ptr %115, null
-  br i1 %.not19.i61, label %.critedge52.critedge.critedge, label %.lr.ph.split.us.i63
+  br i1 %.not19.i61, label %ACLCheckChannelAgainstList.exit71, label %.lr.ph.split.us.i63
 
-.lr.ph.split.us.i63:                              ; preds = %sdslen.exit60, %.critedge18.us.i68
-  %116 = phi ptr [ %143, %.critedge18.us.i68 ], [ %115, %sdslen.exit60 ]
+.lr.ph.split.us.i63:                              ; preds = %sdslen.exit60, %.critedge18.us.i69
+  %116 = phi ptr [ %143, %.critedge18.us.i69 ], [ %115, %sdslen.exit60 ]
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !85
   %119 = getelementptr inbounds i8, ptr %118, i64 -1
@@ -5840,30 +5853,26 @@ sdslen.exit.us.i64:                               ; preds = %138, %134, %130, %1
   %141 = trunc i64 %.0.i.us.i65 to i32
   %142 = call i32 @stringmatchlen(ptr noundef nonnull %118, i32 noundef %141, ptr noundef %91, i32 noundef %114, i32 noundef 0) #25
   %.not16.us.i66 = icmp eq i32 %142, 0
-  br i1 %.not16.us.i66, label %.critedge18.us.i68, label %ACLCheckChannelAgainstList.exit70, !llvm.loop !187
+  br i1 %.not16.us.i66, label %.critedge18.us.i69, label %.critedge._crit_edge.i67, !llvm.loop !187
 
-.critedge18.us.i68:                               ; preds = %sdslen.exit.us.i64
+.critedge18.us.i69:                               ; preds = %sdslen.exit.us.i64
   %143 = call ptr @listNext(ptr noundef nonnull %3) #25
-  %.not.us.i69 = icmp eq ptr %143, null
-  br i1 %.not.us.i69, label %.critedge52.critedge.critedge, label %.lr.ph.split.us.i63
+  %.not.us.i70 = icmp eq ptr %143, null
+  br i1 %.not.us.i70, label %ACLCheckChannelAgainstList.exit71, label %.lr.ph.split.us.i63
 
-ACLCheckChannelAgainstList.exit70:                ; preds = %sdslen.exit.us.i64
+.critedge._crit_edge.i67:                         ; preds = %sdslen.exit.us.i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
   %144 = call ptr @dictNext(ptr noundef %86) #25
   %.not46 = icmp eq ptr %144, null
-  br i1 %.not46, label %.critedge52.sink.split, label %.lr.ph84
+  br i1 %.not46, label %.critedge52.sink.split, label %.lr.ph88
 
-.critedge50.critedge.critedge:                    ; preds = %sdslen.exit54, %.critedge18.us.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  br label %.critedge52.sink.split
-
-.critedge52.critedge.critedge:                    ; preds = %sdslen.exit60, %.critedge18.us.i68
+ACLCheckChannelAgainstList.exit71:                ; preds = %sdslen.exit60, %.critedge18.us.i69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
   br label %.critedge52.sink.split
 
-.critedge52.sink.split:                           ; preds = %ACLCheckChannelAgainstList.exit70, %.critedge74, %.critedge50.critedge.critedge, %.critedge48.critedge, %.critedge52.critedge.critedge
-  %.sink = phi ptr [ %86, %.critedge52.critedge.critedge ], [ %10, %.critedge48.critedge ], [ %25, %.critedge50.critedge.critedge ], [ %86, %.critedge74 ], [ %86, %ACLCheckChannelAgainstList.exit70 ]
-  %.1.ph = phi i32 [ 1, %.critedge52.critedge.critedge ], [ 1, %.critedge48.critedge ], [ 1, %.critedge50.critedge.critedge ], [ 0, %.critedge74 ], [ 0, %ACLCheckChannelAgainstList.exit70 ]
+.critedge52.sink.split:                           ; preds = %.critedge._crit_edge.i67, %.critedge75, %ACLCheckChannelAgainstList.exit58, %ACLCheckChannelAgainstList.exit, %ACLCheckChannelAgainstList.exit71
+  %.sink = phi ptr [ %86, %ACLCheckChannelAgainstList.exit71 ], [ %10, %ACLCheckChannelAgainstList.exit ], [ %25, %ACLCheckChannelAgainstList.exit58 ], [ %86, %.critedge75 ], [ %86, %.critedge._crit_edge.i67 ]
+  %.1.ph = phi i32 [ 1, %ACLCheckChannelAgainstList.exit71 ], [ 1, %ACLCheckChannelAgainstList.exit ], [ 1, %ACLCheckChannelAgainstList.exit58 ], [ 0, %.critedge75 ], [ 0, %.critedge._crit_edge.i67 ]
   call void @dictReleaseIterator(ptr noundef %.sink) #25
   br label %.critedge52
 

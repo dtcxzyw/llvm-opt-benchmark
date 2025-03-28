@@ -7027,9 +7027,12 @@ define linkonce_odr dso_local void @_ZN12Explanations10RecordArgsEPKvPKcP13__va_
   %27 = ptrtoint ptr %26 to i64
   %28 = urem i64 %27, %11
   %.not19.i.i.i.i = icmp eq i64 %28, %12
-  br i1 %.not19.i.i.i.i, label %21, label %.loopexit.i.i, !llvm.loop !261
+  br i1 %.not19.i.i.i.i, label %21, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !261
 
-.loopexit.i.i:                                    ; preds = %24, %.lr.ph.i.i.i.i, %4
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %24
+  br label %.loopexit.i.i, !llvm.loop !261
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
   store ptr %0, ptr %6, align 8, !tbaa !262
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8

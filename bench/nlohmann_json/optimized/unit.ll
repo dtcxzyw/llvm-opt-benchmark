@@ -5164,9 +5164,12 @@ _ZN7doctest12_GLOBAL__N_14hashEPKc.exit9.loopexit.i: ; preds = %.lr.ph.i4.i
   %277 = load i64, ptr %276, align 8, !tbaa !186
   %278 = urem i64 %277, %262
   %.not19.i.i.i.i = icmp eq i64 %278, %263
-  br i1 %.not19.i.i.i.i, label %272, label %.loopexit, !llvm.loop !192
+  br i1 %.not19.i.i.i.i, label %272, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !192
 
-.loopexit:                                        ; preds = %275, %.lr.ph.i.i.i.i, %255, %260
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %275
+  br label %.loopexit, !llvm.loop !192
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %255, %260, %..loopexit_crit_edge21.i.i.i.i
   %279 = getelementptr inbounds nuw i8, ptr %34, i64 4384
   %280 = load ptr, ptr %279, align 8, !tbaa !133
   %281 = ptrtoint ptr %280 to i64
@@ -17853,11 +17856,14 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIyySaIyENSt8__detail
   %36 = load i64, ptr %35, align 8, !tbaa !186
   %37 = urem i64 %36, %9
   %.not19.i.i = icmp eq i64 %37, %10
-  br i1 %.not19.i.i, label %31, label %.critedge, !llvm.loop !451
+  br i1 %.not19.i.i, label %31, label %..loopexit_crit_edge21.i.i, !llvm.loop !451
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %34, %22, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %34 ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %34 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %34
+  br label %.critedge, !llvm.loop !451
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #51
   store ptr null, ptr %40, align 8, !tbaa !185
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

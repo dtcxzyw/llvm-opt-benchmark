@@ -8229,7 +8229,7 @@ t1_allocate_blend.exit.thread:                    ; preds = %26, %19
 
 ..thread.loopexit_crit_edge:                      ; preds = %59
   %.pre.pre = load i32, ptr %6, align 4, !tbaa !19
-  br label %.thread
+  br label %.thread, !llvm.loop !517
 
 .thread:                                          ; preds = %54, %41, %13, %2, %..thread.loopexit_crit_edge, %30, %t1_allocate_blend.exit.thread
   %65 = phi i32 [ 0, %30 ], [ %.ph, %t1_allocate_blend.exit.thread ], [ %.pre.pre, %..thread.loopexit_crit_edge ], [ 162, %2 ], [ 3, %13 ], [ 3, %41 ], [ %58, %54 ]

@@ -9045,7 +9045,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
 
 ._ZNK6vectorIP4sortLb0EjE4sizeEv.exit162.loopexit_crit_edge: ; preds = %494
   %.pre273.pre = load ptr, ptr %0, align 8, !tbaa !235
-  br label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit162
+  br label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit162, !llvm.loop !481
 
 _ZN11ast_manager6mk_appEP9func_declPKP4expr.exit: ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit162
   %503 = load ptr, ptr %0, align 8, !tbaa !235

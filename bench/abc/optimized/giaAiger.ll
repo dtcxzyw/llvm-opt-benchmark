@@ -322,7 +322,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 Vec_IntPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_IntPush.exit
   %.val2748.pre.pre = load ptr, ptr %3, align 8, !tbaa !32
-  br label %.critedge.loopexit
+  br label %.critedge.loopexit, !llvm.loop !38
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %Vec_IntPush.exit..critedge.loopexit_crit_edge
   %.val2748.pre = phi ptr [ %.val2748.pre.pre, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ %.val2748.pre.pre65, %.lr.ph ]
@@ -7738,10 +7738,13 @@ Gia_AigerWriteUnsignedBuffer.exit588:             ; preds = %Gia_AigerWriteUnsig
   %214 = sub nsw i32 %.0376.val547.val, %.0376.val546
   %215 = sext i32 %214 to i64
   %216 = icmp slt i64 %indvars.iv.next820, %215
-  br i1 %216, label %.lr.ph775, label %.critedge6, !llvm.loop !153
+  br i1 %216, label %.lr.ph775, label %..critedge6.loopexit_crit_edge, !llvm.loop !153
 
-.critedge6:                                       ; preds = %.lr.ph866, %.lr.ph775, %.lr.ph775.preheader, %.preheader751
-  %.0376.val485777 = phi i32 [ %.0376.val546771, %.preheader751 ], [ %.0376.val546771, %.lr.ph775.preheader ], [ %.0376.val546, %.lr.ph775 ], [ %.0376.val546, %.lr.ph866 ]
+..critedge6.loopexit_crit_edge:                   ; preds = %.lr.ph866
+  br label %.critedge6, !llvm.loop !153
+
+.critedge6:                                       ; preds = %.lr.ph775, %.lr.ph775.preheader, %..critedge6.loopexit_crit_edge, %.preheader751
+  %.0376.val485777 = phi i32 [ %.0376.val546771, %.preheader751 ], [ %.0376.val546, %..critedge6.loopexit_crit_edge ], [ %.0376.val546771, %.lr.ph775.preheader ], [ %.0376.val546, %.lr.ph775 ]
   %217 = icmp sgt i32 %.0376.val485777, 0
   br i1 %217, label %.lr.ph780, label %.critedge8
 

@@ -19203,8 +19203,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 46:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %47 = add i64 %.1108190, 1
-  %exitcond221.not = icmp eq i64 %47, %6
-  br i1 %exitcond221.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !726
+  %exitcond222.not = icmp eq i64 %47, %6
+  br i1 %exitcond222.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !726
 
 .loopexit167:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %27
   %.0107 = phi i64 [ %5, %27 ], [ %.us-phi193, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -19269,15 +19269,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !730
   %83 = icmp eq i32 %82, -1
-  br i1 %83, label %_ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit, label %.lr.ph.i.i, !llvm.loop !733
+  br i1 %83, label %._ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit.loopexit_crit_edge, label %.lr.ph.i.i, !llvm.loop !733
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph196
   %84 = load i8, ptr %80, align 4, !tbaa !732
   %.not.i.i = icmp eq i8 %84, %61
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit, label %.lr.ph196, !llvm.loop !733
 
-_ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit: ; preds = %.lr.ph.i.i, %.lr.ph196, %.lr.ph.i.i.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
-  %85 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ %76, %.lr.ph.i.i.preheader ], [ %82, %.lr.ph.i.i ], [ -1, %.lr.ph196 ]
+._ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit.loopexit_crit_edge: ; preds = %.lr.ph196
+  br label %_ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit, !llvm.loop !733
+
+_ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %._ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit.loopexit_crit_edge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
+  %85 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit.loopexit_crit_edge ], [ %76, %.lr.ph.i.i.preheader ], [ %82, %.lr.ph.i.i ]
   store i32 %85, ptr %12, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #26
@@ -19285,8 +19288,8 @@ _ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit:
 
 86:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115, %_ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit
   %87 = add nuw i64 %.2109199, 1
-  %exitcond222.not = icmp eq i64 %87, %6
-  br i1 %exitcond222.not, label %.loopexit, label %51, !llvm.loop !734
+  %exitcond223.not = icmp eq i64 %87, %6
+  br i1 %exitcond223.not, label %.loopexit, label %51, !llvm.loop !734
 
 88:                                               ; preds = %7
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -19349,8 +19352,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
 
 115:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
   %116 = add i64 %.1105184, 1
-  %exitcond219.not = icmp eq i64 %116, %6
-  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !735
+  %exitcond220.not = icmp eq i64 %116, %6
+  br i1 %exitcond220.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !735
 
 .loopexit170:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit, %88
   %.0104 = phi i64 [ %5, %88 ], [ %114, %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -19427,8 +19430,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %153, %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %154 = add i64 %.2106188, 1
-  %exitcond220.not = icmp eq i64 %154, %6
-  br i1 %exitcond220.not, label %.loopexit, label %125, !llvm.loop !736
+  %exitcond221.not = icmp eq i64 %154, %6
+  br i1 %exitcond221.not, label %.loopexit, label %125, !llvm.loop !736
 
 155:                                              ; preds = %7
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -19490,8 +19493,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
 
 181:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128
   %182 = add i64 %.1103180, 1
-  %exitcond217.not = icmp eq i64 %182, %6
-  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !737
+  %exitcond218.not = icmp eq i64 %182, %6
+  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !737
 
 .loopexit173:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit129, %155
   %.0102 = phi i64 [ %5, %155 ], [ %180, %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit129 ]
@@ -19550,8 +19553,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
 
 205:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133, %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit134
   %206 = add i64 %.2182, 1
-  %exitcond218.not = icmp eq i64 %206, %6
-  br i1 %exitcond218.not, label %.loopexit, label %187, !llvm.loop !738
+  %exitcond219.not = icmp eq i64 %206, %6
+  br i1 %exitcond219.not, label %.loopexit, label %187, !llvm.loop !738
 
 207:                                              ; preds = %.lr.ph, %225
   %.0101179 = phi i64 [ %5, %.lr.ph ], [ %226, %225 ]
@@ -21561,8 +21564,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 46:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %47 = add i64 %.1108190, 1
-  %exitcond221.not = icmp eq i64 %47, %6
-  br i1 %exitcond221.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !797
+  %exitcond222.not = icmp eq i64 %47, %6
+  br i1 %exitcond222.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !797
 
 .loopexit167:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %27
   %.0107 = phi i64 [ %5, %27 ], [ %.us-phi193, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -21627,15 +21630,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !801
   %83 = icmp eq i32 %82, -1
-  br i1 %83, label %_ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit, label %.lr.ph.i.i, !llvm.loop !804
+  br i1 %83, label %._ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit.loopexit_crit_edge, label %.lr.ph.i.i, !llvm.loop !804
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph196
   %84 = load i16, ptr %80, align 4, !tbaa !803
   %.not.i.i = icmp eq i16 %84, %61
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit, label %.lr.ph196, !llvm.loop !804
 
-_ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit: ; preds = %.lr.ph.i.i, %.lr.ph196, %.lr.ph.i.i.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
-  %85 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ %76, %.lr.ph.i.i.preheader ], [ %82, %.lr.ph.i.i ], [ -1, %.lr.ph196 ]
+._ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit.loopexit_crit_edge: ; preds = %.lr.ph196
+  br label %_ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit, !llvm.loop !804
+
+_ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %._ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit.loopexit_crit_edge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
+  %85 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit.loopexit_crit_edge ], [ %76, %.lr.ph.i.i.preheader ], [ %82, %.lr.ph.i.i ]
   store i32 %85, ptr %12, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #26
@@ -21643,8 +21649,8 @@ _ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit:
 
 86:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115, %_ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit
   %87 = add nuw i64 %.2109199, 1
-  %exitcond222.not = icmp eq i64 %87, %6
-  br i1 %exitcond222.not, label %.loopexit, label %51, !llvm.loop !805
+  %exitcond223.not = icmp eq i64 %87, %6
+  br i1 %exitcond223.not, label %.loopexit, label %51, !llvm.loop !805
 
 88:                                               ; preds = %7
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -21707,8 +21713,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
 
 115:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
   %116 = add i64 %.1105184, 1
-  %exitcond219.not = icmp eq i64 %116, %6
-  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !806
+  %exitcond220.not = icmp eq i64 %116, %6
+  br i1 %exitcond220.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !806
 
 .loopexit170:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit, %88
   %.0104 = phi i64 [ %5, %88 ], [ %114, %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -21785,8 +21791,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %153, %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %154 = add i64 %.2106188, 1
-  %exitcond220.not = icmp eq i64 %154, %6
-  br i1 %exitcond220.not, label %.loopexit, label %125, !llvm.loop !807
+  %exitcond221.not = icmp eq i64 %154, %6
+  br i1 %exitcond221.not, label %.loopexit, label %125, !llvm.loop !807
 
 155:                                              ; preds = %7
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -21848,8 +21854,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
 
 181:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128
   %182 = add i64 %.1103180, 1
-  %exitcond217.not = icmp eq i64 %182, %6
-  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !808
+  %exitcond218.not = icmp eq i64 %182, %6
+  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !808
 
 .loopexit173:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit129, %155
   %.0102 = phi i64 [ %5, %155 ], [ %180, %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit129 ]
@@ -21908,8 +21914,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
 
 205:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133, %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit134
   %206 = add i64 %.2182, 1
-  %exitcond218.not = icmp eq i64 %206, %6
-  br i1 %exitcond218.not, label %.loopexit, label %187, !llvm.loop !809
+  %exitcond219.not = icmp eq i64 %206, %6
+  br i1 %exitcond219.not, label %.loopexit, label %187, !llvm.loop !809
 
 207:                                              ; preds = %.lr.ph, %225
   %.0101179 = phi i64 [ %5, %.lr.ph ], [ %226, %225 ]
@@ -23708,8 +23714,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %46 = add i64 %.1108187, 1
-  %exitcond218.not = icmp eq i64 %46, %6
-  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !868
+  %exitcond219.not = icmp eq i64 %46, %6
+  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !868
 
 .loopexit164:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %26
   %.0107 = phi i64 [ %5, %26 ], [ %.us-phi190, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -23773,15 +23779,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !872
   %81 = icmp eq i32 %80, -1
-  br i1 %81, label %_ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit, label %.lr.ph.i.i, !llvm.loop !875
+  br i1 %81, label %._ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit.loopexit_crit_edge, label %.lr.ph.i.i, !llvm.loop !875
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph193
   %82 = load i32, ptr %78, align 4, !tbaa !874
   %.not.i.i = icmp eq i32 %82, %60
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit, label %.lr.ph193, !llvm.loop !875
 
-_ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit: ; preds = %.lr.ph.i.i, %.lr.ph193, %.lr.ph.i.i.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
-  %83 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ %74, %.lr.ph.i.i.preheader ], [ %80, %.lr.ph.i.i ], [ -1, %.lr.ph193 ]
+._ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit.loopexit_crit_edge: ; preds = %.lr.ph193
+  br label %_ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit, !llvm.loop !875
+
+_ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %._ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit.loopexit_crit_edge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
+  %83 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit.loopexit_crit_edge ], [ %74, %.lr.ph.i.i.preheader ], [ %80, %.lr.ph.i.i ]
   store i32 %83, ptr %11, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #26
@@ -23789,8 +23798,8 @@ _ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit:
 
 84:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115, %_ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit
   %85 = add nuw i64 %.2109196, 1
-  %exitcond219.not = icmp eq i64 %85, %6
-  br i1 %exitcond219.not, label %.loopexit, label %50, !llvm.loop !876
+  %exitcond220.not = icmp eq i64 %85, %6
+  br i1 %exitcond220.not, label %.loopexit, label %50, !llvm.loop !876
 
 86:                                               ; preds = %7
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -23852,8 +23861,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
 
 112:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
   %113 = add i64 %.1105181, 1
-  %exitcond216.not = icmp eq i64 %113, %6
-  br i1 %exitcond216.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !877
+  %exitcond217.not = icmp eq i64 %113, %6
+  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !877
 
 .loopexit167:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit, %86
   %.0104 = phi i64 [ %5, %86 ], [ %111, %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -23929,8 +23938,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %149, %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %150 = add i64 %.2106185, 1
-  %exitcond217.not = icmp eq i64 %150, %6
-  br i1 %exitcond217.not, label %.loopexit, label %122, !llvm.loop !878
+  %exitcond218.not = icmp eq i64 %150, %6
+  br i1 %exitcond218.not, label %.loopexit, label %122, !llvm.loop !878
 
 151:                                              ; preds = %7
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -23991,8 +24000,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
 
 176:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128
   %177 = add i64 %.1103177, 1
-  %exitcond214.not = icmp eq i64 %177, %6
-  br i1 %exitcond214.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !879
+  %exitcond215.not = icmp eq i64 %177, %6
+  br i1 %exitcond215.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !879
 
 .loopexit170:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit129, %151
   %.0102 = phi i64 [ %5, %151 ], [ %175, %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit129 ]
@@ -24050,8 +24059,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
 
 199:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133, %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit134
   %200 = add i64 %.2179, 1
-  %exitcond215.not = icmp eq i64 %200, %6
-  br i1 %exitcond215.not, label %.loopexit, label %182, !llvm.loop !880
+  %exitcond216.not = icmp eq i64 %200, %6
+  br i1 %exitcond216.not, label %.loopexit, label %182, !llvm.loop !880
 
 201:                                              ; preds = %.lr.ph, %218
   %.0101176 = phi i64 [ %5, %.lr.ph ], [ %219, %218 ]
@@ -25831,8 +25840,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %46 = add i64 %.1108186, 1
-  %exitcond218.not = icmp eq i64 %46, %6
-  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !939
+  %exitcond219.not = icmp eq i64 %46, %6
+  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !939
 
 .loopexit163:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %26
   %.0107 = phi i64 [ %5, %26 ], [ %.us-phi189, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -25891,15 +25900,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !943
   %76 = icmp eq i32 %75, -1
-  br i1 %76, label %_ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit, label %77, !llvm.loop !946
+  br i1 %76, label %._ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194, label %77, !llvm.loop !946
 
 77:                                               ; preds = %.lr.ph192
   %78 = load i64, ptr %73, align 8, !tbaa !945
   %.not.i.i = icmp eq i64 %78, %70
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit, label %.lr.ph192, !llvm.loop !946
 
-_ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit: ; preds = %77, %.lr.ph192, %.lr.ph.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
-  %79 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ %68, %.lr.ph.i.i ], [ %75, %77 ], [ -1, %.lr.ph192 ]
+._ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194: ; preds = %.lr.ph192
+  br label %_ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit, !llvm.loop !946
+
+_ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit: ; preds = %77, %.lr.ph.i.i, %._ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
+  %79 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194 ], [ %68, %.lr.ph.i.i ], [ %75, %77 ]
   store i32 %79, ptr %10, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #26
@@ -25907,8 +25919,8 @@ _ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit:
 
 80:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115, %_ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit
   %81 = add nuw i64 %.2109196, 1
-  %exitcond219.not = icmp eq i64 %81, %6
-  br i1 %exitcond219.not, label %.loopexit, label %50, !llvm.loop !947
+  %exitcond220.not = icmp eq i64 %81, %6
+  br i1 %exitcond220.not, label %.loopexit, label %50, !llvm.loop !947
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -25969,8 +25981,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 107:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
   %108 = add i64 %.1105180, 1
-  %exitcond216.not = icmp eq i64 %108, %6
-  br i1 %exitcond216.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !948
+  %exitcond217.not = icmp eq i64 %108, %6
+  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !948
 
 .loopexit166:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit, %82
   %.0104 = phi i64 [ %5, %82 ], [ %106, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -26045,8 +26057,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %143, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %144 = add i64 %.2106184, 1
-  %exitcond217.not = icmp eq i64 %144, %6
-  br i1 %exitcond217.not, label %.loopexit, label %117, !llvm.loop !949
+  %exitcond218.not = icmp eq i64 %144, %6
+  br i1 %exitcond218.not, label %.loopexit, label %117, !llvm.loop !949
 
 145:                                              ; preds = %7
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -26107,8 +26119,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 170:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128
   %171 = add i64 %.1103176, 1
-  %exitcond214.not = icmp eq i64 %171, %6
-  br i1 %exitcond214.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !950
+  %exitcond215.not = icmp eq i64 %171, %6
+  br i1 %exitcond215.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !950
 
 .loopexit169:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129, %145
   %.0102 = phi i64 [ %5, %145 ], [ %169, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129 ]
@@ -26166,8 +26178,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 193:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134
   %194 = add i64 %.2178, 1
-  %exitcond215.not = icmp eq i64 %194, %6
-  br i1 %exitcond215.not, label %.loopexit, label %176, !llvm.loop !951
+  %exitcond216.not = icmp eq i64 %194, %6
+  br i1 %exitcond216.not, label %.loopexit, label %176, !llvm.loop !951
 
 195:                                              ; preds = %.lr.ph, %212
   %.0101175 = phi i64 [ %5, %.lr.ph ], [ %213, %212 ]
@@ -28145,8 +28157,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 44:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %45 = add i64 %.1106189, 1
-  %exitcond221.not = icmp eq i64 %45, %6
-  br i1 %exitcond221.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1004
+  %exitcond222.not = icmp eq i64 %45, %6
+  br i1 %exitcond222.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1004
 
 .loopexit166:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %25
   %.0105 = phi i64 [ %5, %25 ], [ %.us-phi192, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -28205,15 +28217,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %4
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !1008
   %74 = icmp eq i32 %73, -1
-  br i1 %74, label %_ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8GetIndexERKS1_.exit, label %75, !llvm.loop !1012
+  br i1 %74, label %._ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge197, label %75, !llvm.loop !1012
 
 75:                                               ; preds = %.lr.ph195
   %76 = load i64, ptr %71, align 8, !tbaa !1011
   %.not.i.i = icmp eq i64 %76, %68
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8GetIndexERKS1_.exit, label %.lr.ph195, !llvm.loop !1012
 
-_ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8GetIndexERKS1_.exit: ; preds = %75, %.lr.ph195, %.lr.ph.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  %77 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread ], [ %66, %.lr.ph.i.i ], [ %73, %75 ], [ -1, %.lr.ph195 ]
+._ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge197: ; preds = %.lr.ph195
+  br label %_ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8GetIndexERKS1_.exit, !llvm.loop !1012
+
+_ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8GetIndexERKS1_.exit: ; preds = %75, %.lr.ph.i.i, %._ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge197, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
+  %77 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge197 ], [ %66, %.lr.ph.i.i ], [ %73, %75 ]
   store i32 %77, ptr %11, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %48, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #26
@@ -28221,8 +28236,8 @@ _ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8G
 
 78:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %_ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8GetIndexERKS1_.exit
   %79 = add nuw i64 %.2199, 1
-  %exitcond222.not = icmp eq i64 %79, %6
-  br i1 %exitcond222.not, label %.loopexit, label %49, !llvm.loop !1013
+  %exitcond223.not = icmp eq i64 %79, %6
+  br i1 %exitcond223.not, label %.loopexit, label %49, !llvm.loop !1013
 
 80:                                               ; preds = %7
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -28264,8 +28279,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %_
 
 96:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %97 = add i64 %.1109183, 1
-  %exitcond219.not = icmp eq i64 %97, %6
-  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123, !llvm.loop !1014
+  %exitcond220.not = icmp eq i64 %97, %6
+  br i1 %exitcond220.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123, !llvm.loop !1014
 
 .loopexit169:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread, %80
   %.0108 = phi i64 [ %5, %80 ], [ %95, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread ]
@@ -28321,8 +28336,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %1
 
 _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %123, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127
   %124 = add i64 %.2110187, 1
-  %exitcond220.not = icmp eq i64 %124, %6
-  br i1 %exitcond220.not, label %.loopexit, label %104, !llvm.loop !1015
+  %exitcond221.not = icmp eq i64 %124, %6
+  br i1 %exitcond221.not, label %.loopexit, label %104, !llvm.loop !1015
 
 125:                                              ; preds = %7
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -28364,8 +28379,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread: ; preds = %_
 
 141:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131
   %142 = add i64 %.1112179, 1
-  %exitcond217.not = icmp eq i64 %142, %6
-  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131, !llvm.loop !1016
+  %exitcond218.not = icmp eq i64 %142, %6
+  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131, !llvm.loop !1016
 
 .loopexit172:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread, %125
   %.0111 = phi i64 [ %5, %125 ], [ %140, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread ]
@@ -28404,8 +28419,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135.thread: ; preds = %1
 
 155:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135.thread
   %156 = add i64 %.2113181, 1
-  %exitcond218.not = icmp eq i64 %156, %6
-  br i1 %exitcond218.not, label %.loopexit, label %145, !llvm.loop !1017
+  %exitcond219.not = icmp eq i64 %156, %6
+  br i1 %exitcond219.not, label %.loopexit, label %145, !llvm.loop !1017
 
 157:                                              ; preds = %.lr.ph, %167
   %.0107178 = phi i64 [ %5, %.lr.ph ], [ %168, %167 ]
@@ -34224,8 +34239,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %46 = add i64 %.1108186, 1
-  %exitcond218.not = icmp eq i64 %46, %6
-  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1210
+  %exitcond219.not = icmp eq i64 %46, %6
+  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1210
 
 .loopexit163:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %26
   %.0107 = phi i64 [ %5, %26 ], [ %.us-phi189, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -34284,15 +34299,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !1214
   %76 = icmp eq i32 %75, -1
-  br i1 %76, label %_ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERKl.exit, label %77, !llvm.loop !1217
+  br i1 %76, label %._ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194, label %77, !llvm.loop !1217
 
 77:                                               ; preds = %.lr.ph192
   %78 = load i64, ptr %73, align 8, !tbaa !1216
   %.not.i.i = icmp eq i64 %78, %70
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERKl.exit, label %.lr.ph192, !llvm.loop !1217
 
-_ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERKl.exit: ; preds = %77, %.lr.ph192, %.lr.ph.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
-  %79 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ %68, %.lr.ph.i.i ], [ %75, %77 ], [ -1, %.lr.ph192 ]
+._ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194: ; preds = %.lr.ph192
+  br label %_ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERKl.exit, !llvm.loop !1217
+
+_ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERKl.exit: ; preds = %77, %.lr.ph.i.i, %._ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
+  %79 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194 ], [ %68, %.lr.ph.i.i ], [ %75, %77 ]
   store i32 %79, ptr %10, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #26
@@ -34300,8 +34318,8 @@ _ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERK
 
 80:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115, %_ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERKl.exit
   %81 = add nuw i64 %.2109196, 1
-  %exitcond219.not = icmp eq i64 %81, %6
-  br i1 %exitcond219.not, label %.loopexit, label %50, !llvm.loop !1218
+  %exitcond220.not = icmp eq i64 %81, %6
+  br i1 %exitcond220.not, label %.loopexit, label %50, !llvm.loop !1218
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -34362,8 +34380,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 107:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
   %108 = add i64 %.1105180, 1
-  %exitcond216.not = icmp eq i64 %108, %6
-  br i1 %exitcond216.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1219
+  %exitcond217.not = icmp eq i64 %108, %6
+  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1219
 
 .loopexit166:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit, %82
   %.0104 = phi i64 [ %5, %82 ], [ %106, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -34438,8 +34456,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %143, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %144 = add i64 %.2106184, 1
-  %exitcond217.not = icmp eq i64 %144, %6
-  br i1 %exitcond217.not, label %.loopexit, label %117, !llvm.loop !1220
+  %exitcond218.not = icmp eq i64 %144, %6
+  br i1 %exitcond218.not, label %.loopexit, label %117, !llvm.loop !1220
 
 145:                                              ; preds = %7
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -34500,8 +34518,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 170:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128
   %171 = add i64 %.1103176, 1
-  %exitcond214.not = icmp eq i64 %171, %6
-  br i1 %exitcond214.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1221
+  %exitcond215.not = icmp eq i64 %171, %6
+  br i1 %exitcond215.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1221
 
 .loopexit169:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129, %145
   %.0102 = phi i64 [ %5, %145 ], [ %169, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129 ]
@@ -34559,8 +34577,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 193:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134
   %194 = add i64 %.2178, 1
-  %exitcond215.not = icmp eq i64 %194, %6
-  br i1 %exitcond215.not, label %.loopexit, label %176, !llvm.loop !1222
+  %exitcond216.not = icmp eq i64 %194, %6
+  br i1 %exitcond216.not, label %.loopexit, label %176, !llvm.loop !1222
 
 195:                                              ; preds = %.lr.ph, %212
   %.0101175 = phi i64 [ %5, %.lr.ph ], [ %213, %212 ]
@@ -36238,8 +36256,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %46 = add i64 %.1108186, 1
-  %exitcond218.not = icmp eq i64 %46, %6
-  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1276
+  %exitcond219.not = icmp eq i64 %46, %6
+  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1276
 
 .loopexit163:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %26
   %.0107 = phi i64 [ %5, %26 ], [ %.us-phi189, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -36298,15 +36316,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !1280
   %76 = icmp eq i32 %75, -1
-  br i1 %76, label %_ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl.exit, label %77, !llvm.loop !1283
+  br i1 %76, label %._ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194, label %77, !llvm.loop !1283
 
 77:                                               ; preds = %.lr.ph192
   %78 = load i64, ptr %73, align 8, !tbaa !1282
   %.not.i.i = icmp eq i64 %78, %70
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl.exit, label %.lr.ph192, !llvm.loop !1283
 
-_ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl.exit: ; preds = %77, %.lr.ph192, %.lr.ph.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
-  %79 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ %68, %.lr.ph.i.i ], [ %75, %77 ], [ -1, %.lr.ph192 ]
+._ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194: ; preds = %.lr.ph192
+  br label %_ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl.exit, !llvm.loop !1283
+
+_ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl.exit: ; preds = %77, %.lr.ph.i.i, %._ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
+  %79 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl.exit.loopexit_crit_edge194 ], [ %68, %.lr.ph.i.i ], [ %75, %77 ]
   store i32 %79, ptr %10, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #26
@@ -36314,8 +36335,8 @@ _ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl
 
 80:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115, %_ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl.exit
   %81 = add nuw i64 %.2109196, 1
-  %exitcond219.not = icmp eq i64 %81, %6
-  br i1 %exitcond219.not, label %.loopexit, label %50, !llvm.loop !1284
+  %exitcond220.not = icmp eq i64 %81, %6
+  br i1 %exitcond220.not, label %.loopexit, label %50, !llvm.loop !1284
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -36377,8 +36398,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 108:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
   %109 = add i64 %.1105180, 1
-  %exitcond216.not = icmp eq i64 %109, %6
-  br i1 %exitcond216.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1285
+  %exitcond217.not = icmp eq i64 %109, %6
+  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1285
 
 .loopexit166:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit, %82
   %.0104 = phi i64 [ %5, %82 ], [ %107, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -36454,8 +36475,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %145, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %146 = add i64 %.2106184, 1
-  %exitcond217.not = icmp eq i64 %146, %6
-  br i1 %exitcond217.not, label %.loopexit, label %118, !llvm.loop !1286
+  %exitcond218.not = icmp eq i64 %146, %6
+  br i1 %exitcond218.not, label %.loopexit, label %118, !llvm.loop !1286
 
 147:                                              ; preds = %7
   %148 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -36517,8 +36538,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 173:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128
   %174 = add i64 %.1103176, 1
-  %exitcond214.not = icmp eq i64 %174, %6
-  br i1 %exitcond214.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1287
+  %exitcond215.not = icmp eq i64 %174, %6
+  br i1 %exitcond215.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1287
 
 .loopexit169:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129, %147
   %.0102 = phi i64 [ %5, %147 ], [ %172, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129 ]
@@ -36577,8 +36598,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
 
 197:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133, %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134
   %198 = add i64 %.2178, 1
-  %exitcond215.not = icmp eq i64 %198, %6
-  br i1 %exitcond215.not, label %.loopexit, label %179, !llvm.loop !1288
+  %exitcond216.not = icmp eq i64 %198, %6
+  br i1 %exitcond216.not, label %.loopexit, label %179, !llvm.loop !1288
 
 199:                                              ; preds = %.lr.ph, %217
   %.0101175 = phi i64 [ %5, %.lr.ph ], [ %218, %217 ]
@@ -38259,8 +38280,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 46:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %47 = add i64 %.1108190, 1
-  %exitcond221.not = icmp eq i64 %47, %6
-  br i1 %exitcond221.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1345
+  %exitcond222.not = icmp eq i64 %47, %6
+  br i1 %exitcond222.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1345
 
 .loopexit167:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %27
   %.0107 = phi i64 [ %5, %27 ], [ %.us-phi193, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -38324,15 +38345,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !1349
   %82 = icmp eq i32 %81, -1
-  br i1 %82, label %_ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit, label %.lr.ph.i.i, !llvm.loop !1352
+  br i1 %82, label %._ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit.loopexit_crit_edge, label %.lr.ph.i.i, !llvm.loop !1352
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph196
   %83 = load i8, ptr %79, align 4, !tbaa !1351
   %.not.i.i = icmp eq i8 %83, %61
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit, label %.lr.ph196, !llvm.loop !1352
 
-_ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit: ; preds = %.lr.ph.i.i, %.lr.ph196, %.lr.ph.i.i.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
-  %84 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ %75, %.lr.ph.i.i.preheader ], [ %81, %.lr.ph.i.i ], [ -1, %.lr.ph196 ]
+._ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit.loopexit_crit_edge: ; preds = %.lr.ph196
+  br label %_ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit, !llvm.loop !1352
+
+_ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %._ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit.loopexit_crit_edge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
+  %84 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit.loopexit_crit_edge ], [ %75, %.lr.ph.i.i.preheader ], [ %81, %.lr.ph.i.i ]
   store i32 %84, ptr %12, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #26
@@ -38340,8 +38364,8 @@ _ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit:
 
 85:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115, %_ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit
   %86 = add nuw i64 %.2109199, 1
-  %exitcond222.not = icmp eq i64 %86, %6
-  br i1 %exitcond222.not, label %.loopexit, label %51, !llvm.loop !1353
+  %exitcond223.not = icmp eq i64 %86, %6
+  br i1 %exitcond223.not, label %.loopexit, label %51, !llvm.loop !1353
 
 87:                                               ; preds = %7
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -38404,8 +38428,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
 
 114:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
   %115 = add i64 %.1105184, 1
-  %exitcond219.not = icmp eq i64 %115, %6
-  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1354
+  %exitcond220.not = icmp eq i64 %115, %6
+  br i1 %exitcond220.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1354
 
 .loopexit170:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit, %87
   %.0104 = phi i64 [ %5, %87 ], [ %113, %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -38482,8 +38506,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %152, %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %153 = add i64 %.2106188, 1
-  %exitcond220.not = icmp eq i64 %153, %6
-  br i1 %exitcond220.not, label %.loopexit, label %124, !llvm.loop !1355
+  %exitcond221.not = icmp eq i64 %153, %6
+  br i1 %exitcond221.not, label %.loopexit, label %124, !llvm.loop !1355
 
 154:                                              ; preds = %7
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -38545,8 +38569,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
 
 180:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128
   %181 = add i64 %.1103180, 1
-  %exitcond217.not = icmp eq i64 %181, %6
-  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1356
+  %exitcond218.not = icmp eq i64 %181, %6
+  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1356
 
 .loopexit173:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit129, %154
   %.0102 = phi i64 [ %5, %154 ], [ %179, %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit129 ]
@@ -38605,8 +38629,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
 
 204:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133, %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit134
   %205 = add i64 %.2182, 1
-  %exitcond218.not = icmp eq i64 %205, %6
-  br i1 %exitcond218.not, label %.loopexit, label %186, !llvm.loop !1357
+  %exitcond219.not = icmp eq i64 %205, %6
+  br i1 %exitcond219.not, label %.loopexit, label %186, !llvm.loop !1357
 
 206:                                              ; preds = %.lr.ph, %224
   %.0101179 = phi i64 [ %5, %.lr.ph ], [ %225, %224 ]
@@ -40407,8 +40431,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 46:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %47 = add i64 %.1108190, 1
-  %exitcond221.not = icmp eq i64 %47, %6
-  br i1 %exitcond221.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1416
+  %exitcond222.not = icmp eq i64 %47, %6
+  br i1 %exitcond222.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1416
 
 .loopexit167:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %27
   %.0107 = phi i64 [ %5, %27 ], [ %.us-phi193, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -40472,15 +40496,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !1420
   %82 = icmp eq i32 %81, -1
-  br i1 %82, label %_ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit, label %.lr.ph.i.i, !llvm.loop !1423
+  br i1 %82, label %._ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit.loopexit_crit_edge, label %.lr.ph.i.i, !llvm.loop !1423
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph196
   %83 = load i16, ptr %79, align 4, !tbaa !1422
   %.not.i.i = icmp eq i16 %83, %61
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit, label %.lr.ph196, !llvm.loop !1423
 
-_ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit: ; preds = %.lr.ph.i.i, %.lr.ph196, %.lr.ph.i.i.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
-  %84 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ %75, %.lr.ph.i.i.preheader ], [ %81, %.lr.ph.i.i ], [ -1, %.lr.ph196 ]
+._ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit.loopexit_crit_edge: ; preds = %.lr.ph196
+  br label %_ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit, !llvm.loop !1423
+
+_ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %._ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit.loopexit_crit_edge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
+  %84 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit.loopexit_crit_edge ], [ %75, %.lr.ph.i.i.preheader ], [ %81, %.lr.ph.i.i ]
   store i32 %84, ptr %12, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #26
@@ -40488,8 +40515,8 @@ _ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit:
 
 85:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115, %_ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit
   %86 = add nuw i64 %.2109199, 1
-  %exitcond222.not = icmp eq i64 %86, %6
-  br i1 %exitcond222.not, label %.loopexit, label %51, !llvm.loop !1424
+  %exitcond223.not = icmp eq i64 %86, %6
+  br i1 %exitcond223.not, label %.loopexit, label %51, !llvm.loop !1424
 
 87:                                               ; preds = %7
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -40552,8 +40579,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
 
 114:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
   %115 = add i64 %.1105184, 1
-  %exitcond219.not = icmp eq i64 %115, %6
-  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1425
+  %exitcond220.not = icmp eq i64 %115, %6
+  br i1 %exitcond220.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1425
 
 .loopexit170:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit, %87
   %.0104 = phi i64 [ %5, %87 ], [ %113, %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -40630,8 +40657,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %152, %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %153 = add i64 %.2106188, 1
-  %exitcond220.not = icmp eq i64 %153, %6
-  br i1 %exitcond220.not, label %.loopexit, label %124, !llvm.loop !1426
+  %exitcond221.not = icmp eq i64 %153, %6
+  br i1 %exitcond221.not, label %.loopexit, label %124, !llvm.loop !1426
 
 154:                                              ; preds = %7
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -40693,8 +40720,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
 
 180:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128
   %181 = add i64 %.1103180, 1
-  %exitcond217.not = icmp eq i64 %181, %6
-  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1427
+  %exitcond218.not = icmp eq i64 %181, %6
+  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1427
 
 .loopexit173:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit129, %154
   %.0102 = phi i64 [ %5, %154 ], [ %179, %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit129 ]
@@ -40753,8 +40780,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
 
 204:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133, %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit134
   %205 = add i64 %.2182, 1
-  %exitcond218.not = icmp eq i64 %205, %6
-  br i1 %exitcond218.not, label %.loopexit, label %186, !llvm.loop !1428
+  %exitcond219.not = icmp eq i64 %205, %6
+  br i1 %exitcond219.not, label %.loopexit, label %186, !llvm.loop !1428
 
 206:                                              ; preds = %.lr.ph, %224
   %.0101179 = phi i64 [ %5, %.lr.ph ], [ %225, %224 ]
@@ -42554,8 +42581,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %46 = add i64 %.1108187, 1
-  %exitcond218.not = icmp eq i64 %46, %6
-  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1487
+  %exitcond219.not = icmp eq i64 %46, %6
+  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1487
 
 .loopexit164:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %26
   %.0107 = phi i64 [ %5, %26 ], [ %.us-phi190, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -42619,15 +42646,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !1491
   %81 = icmp eq i32 %80, -1
-  br i1 %81, label %_ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit, label %.lr.ph.i.i, !llvm.loop !1494
+  br i1 %81, label %._ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit.loopexit_crit_edge, label %.lr.ph.i.i, !llvm.loop !1494
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph193
   %82 = load i32, ptr %78, align 4, !tbaa !1493
   %.not.i.i = icmp eq i32 %82, %60
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit, label %.lr.ph193, !llvm.loop !1494
 
-_ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit: ; preds = %.lr.ph.i.i, %.lr.ph193, %.lr.ph.i.i.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
-  %83 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ %74, %.lr.ph.i.i.preheader ], [ %80, %.lr.ph.i.i ], [ -1, %.lr.ph193 ]
+._ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit.loopexit_crit_edge: ; preds = %.lr.ph193
+  br label %_ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit, !llvm.loop !1494
+
+_ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %._ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit.loopexit_crit_edge, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
+  %83 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit.loopexit_crit_edge ], [ %74, %.lr.ph.i.i.preheader ], [ %80, %.lr.ph.i.i ]
   store i32 %83, ptr %11, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #26
@@ -42635,8 +42665,8 @@ _ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit:
 
 84:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115, %_ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit
   %85 = add nuw i64 %.2109196, 1
-  %exitcond219.not = icmp eq i64 %85, %6
-  br i1 %exitcond219.not, label %.loopexit, label %50, !llvm.loop !1495
+  %exitcond220.not = icmp eq i64 %85, %6
+  br i1 %exitcond220.not, label %.loopexit, label %50, !llvm.loop !1495
 
 86:                                               ; preds = %7
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -42698,8 +42728,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
 
 112:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
   %113 = add i64 %.1105181, 1
-  %exitcond216.not = icmp eq i64 %113, %6
-  br i1 %exitcond216.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1496
+  %exitcond217.not = icmp eq i64 %113, %6
+  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1496
 
 .loopexit167:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit, %86
   %.0104 = phi i64 [ %5, %86 ], [ %111, %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -42775,8 +42805,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb11dbp_encoder10WriteValueIjEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %149, %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %150 = add i64 %.2106185, 1
-  %exitcond217.not = icmp eq i64 %150, %6
-  br i1 %exitcond217.not, label %.loopexit, label %122, !llvm.loop !1497
+  %exitcond218.not = icmp eq i64 %150, %6
+  br i1 %exitcond218.not, label %.loopexit, label %122, !llvm.loop !1497
 
 151:                                              ; preds = %7
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -42837,8 +42867,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
 
 176:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128
   %177 = add i64 %.1103177, 1
-  %exitcond214.not = icmp eq i64 %177, %6
-  br i1 %exitcond214.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1498
+  %exitcond215.not = icmp eq i64 %177, %6
+  br i1 %exitcond215.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1498
 
 .loopexit170:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit129, %151
   %.0102 = phi i64 [ %5, %151 ], [ %175, %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit129 ]
@@ -42896,8 +42926,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
 
 199:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133, %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit134
   %200 = add i64 %.2179, 1
-  %exitcond215.not = icmp eq i64 %200, %6
-  br i1 %exitcond215.not, label %.loopexit, label %182, !llvm.loop !1499
+  %exitcond216.not = icmp eq i64 %200, %6
+  br i1 %exitcond216.not, label %.loopexit, label %182, !llvm.loop !1499
 
 201:                                              ; preds = %.lr.ph, %218
   %.0101176 = phi i64 [ %5, %.lr.ph ], [ %219, %218 ]
@@ -44889,8 +44919,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %46 = add i64 %.1108187, 1
-  %exitcond219.not = icmp eq i64 %46, %6
-  br i1 %exitcond219.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1558
+  %exitcond220.not = icmp eq i64 %46, %6
+  br i1 %exitcond220.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1558
 
 .loopexit164:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %26
   %.0107 = phi i64 [ %5, %26 ], [ %.us-phi190, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -44949,15 +44979,18 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread: ; preds = %5
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !1562
   %76 = icmp eq i32 %75, -1
-  br i1 %76, label %_ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit, label %77, !llvm.loop !1565
+  br i1 %76, label %._ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit.loopexit_crit_edge195, label %77, !llvm.loop !1565
 
 77:                                               ; preds = %.lr.ph193
   %78 = load i64, ptr %73, align 8, !tbaa !1564
   %.not.i.i = icmp eq i64 %78, %70
   br i1 %.not.i.i, label %_ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit, label %.lr.ph193, !llvm.loop !1565
 
-_ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit: ; preds = %77, %.lr.ph193, %.lr.ph.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
-  %79 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ %68, %.lr.ph.i.i ], [ %75, %77 ], [ -1, %.lr.ph193 ]
+._ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit.loopexit_crit_edge195: ; preds = %.lr.ph193
+  br label %_ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit, !llvm.loop !1565
+
+_ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit: ; preds = %77, %.lr.ph.i.i, %._ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit.loopexit_crit_edge195, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread
+  %79 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit.loopexit_crit_edge195 ], [ %68, %.lr.ph.i.i ], [ %75, %77 ]
   store i32 %79, ptr %11, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #26
@@ -44965,8 +44998,8 @@ _ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit:
 
 80:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit115, %_ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit
   %81 = add nuw i64 %.2109197, 1
-  %exitcond220.not = icmp eq i64 %81, %6
-  br i1 %exitcond220.not, label %.loopexit, label %50, !llvm.loop !1566
+  %exitcond221.not = icmp eq i64 %81, %6
+  br i1 %exitcond221.not, label %.loopexit, label %50, !llvm.loop !1566
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -45027,8 +45060,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
 
 107:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119
   %108 = add i64 %.1105181, 1
-  %exitcond217.not = icmp eq i64 %108, %6
-  br i1 %exitcond217.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1567
+  %exitcond218.not = icmp eq i64 %108, %6
+  br i1 %exitcond218.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, !llvm.loop !1567
 
 .loopexit167:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit, %82
   %.0104 = phi i64 [ %5, %82 ], [ %106, %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -45103,8 +45136,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb11dbp_encoder10WriteValueImEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.exit: ; preds = %143, %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit124, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %144 = add i64 %.2106185, 1
-  %exitcond218.not = icmp eq i64 %144, %6
-  br i1 %exitcond218.not, label %.loopexit, label %117, !llvm.loop !1568
+  %exitcond219.not = icmp eq i64 %144, %6
+  br i1 %exitcond219.not, label %.loopexit, label %117, !llvm.loop !1568
 
 145:                                              ; preds = %7
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -45165,8 +45198,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
 
 170:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128
   %171 = add i64 %.1103177, 1
-  %exitcond215.not = icmp eq i64 %171, %6
-  br i1 %exitcond215.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1569
+  %exitcond216.not = icmp eq i64 %171, %6
+  br i1 %exitcond216.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128, !llvm.loop !1569
 
 .loopexit170:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit129, %145
   %.0102 = phi i64 [ %5, %145 ], [ %169, %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit129 ]
@@ -45224,8 +45257,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
 
 193:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133, %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit134
   %194 = add i64 %.2179, 1
-  %exitcond216.not = icmp eq i64 %194, %6
-  br i1 %exitcond216.not, label %.loopexit, label %176, !llvm.loop !1570
+  %exitcond217.not = icmp eq i64 %194, %6
+  br i1 %exitcond217.not, label %.loopexit, label %176, !llvm.loop !1570
 
 195:                                              ; preds = %.lr.ph, %212
   %.0101176 = phi i64 [ %5, %.lr.ph ], [ %213, %212 ]
@@ -47224,8 +47257,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 56:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %57 = add i64 %.1106193, 1
-  %exitcond226.not = icmp eq i64 %57, %6
-  br i1 %exitcond226.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1630
+  %exitcond227.not = icmp eq i64 %57, %6
+  br i1 %exitcond227.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1630
 
 .loopexit170:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %37
   %.0105 = phi i64 [ %5, %37 ], [ %.us-phi196, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -47290,7 +47323,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %6
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !1634
   %90 = icmp eq i32 %89, -1
-  br i1 %90, label %_ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit, label %91, !llvm.loop !1638
+  br i1 %90, label %._ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge202, label %91, !llvm.loop !1638
 
 91:                                               ; preds = %.lr.ph200
   %92 = load float, ptr %87, align 4, !tbaa !1637
@@ -47300,8 +47333,11 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %6
   %spec.select.i.not.i.i.i = select i1 %or.cond.i.not4.i.i.i, i1 %94, i1 false
   br i1 %spec.select.i.not.i.i.i, label %.lr.ph200, label %_ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit, !llvm.loop !1638
 
-_ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit: ; preds = %91, %.lr.ph200, %.lr.ph.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  %95 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread ], [ %79, %.lr.ph.i.i ], [ %89, %91 ], [ -1, %.lr.ph200 ]
+._ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge202: ; preds = %.lr.ph200
+  br label %_ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit, !llvm.loop !1638
+
+_ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit: ; preds = %91, %.lr.ph.i.i, %._ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge202, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
+  %95 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge202 ], [ %79, %.lr.ph.i.i ], [ %89, %91 ]
   store i32 %95, ptr %18, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %60, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #26
@@ -47309,8 +47345,8 @@ _ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE
 
 96:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %_ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit
   %97 = add nuw i64 %.2204, 1
-  %exitcond227.not = icmp eq i64 %97, %6
-  br i1 %exitcond227.not, label %.loopexit, label %61, !llvm.loop !1639
+  %exitcond228.not = icmp eq i64 %97, %6
+  br i1 %exitcond228.not, label %.loopexit, label %61, !llvm.loop !1639
 
 98:                                               ; preds = %7
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -47374,8 +47410,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22Colum
 
 122:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %123 = add i64 %.1109187, 1
-  %exitcond224.not = icmp eq i64 %123, %6
-  br i1 %exitcond224.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123, !llvm.loop !1640
+  %exitcond225.not = icmp eq i64 %123, %6
+  br i1 %exitcond225.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123, !llvm.loop !1640
 
 .loopexit173:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit, %98
   %.0108 = phi i64 [ %5, %98 ], [ %121, %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -47436,8 +47472,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22Colum
 
 144:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127, %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit128
   %145 = add i64 %.2110191, 1
-  %exitcond225.not = icmp eq i64 %145, %6
-  br i1 %exitcond225.not, label %.loopexit, label %128, !llvm.loop !1641
+  %exitcond226.not = icmp eq i64 %145, %6
+  br i1 %exitcond226.not, label %.loopexit, label %128, !llvm.loop !1641
 
 146:                                              ; preds = %7
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -47501,8 +47537,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22Colum
 
 170:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132
   %171 = add i64 %.1112183, 1
-  %exitcond222.not = icmp eq i64 %171, %6
-  br i1 %exitcond222.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132, !llvm.loop !1642
+  %exitcond223.not = icmp eq i64 %171, %6
+  br i1 %exitcond223.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132, !llvm.loop !1642
 
 .loopexit176:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit133, %146
   %.0111 = phi i64 [ %5, %146 ], [ %169, %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit133 ]
@@ -47563,8 +47599,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22Colum
 
 192:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137, %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit138
   %193 = add i64 %.2113185, 1
-  %exitcond223.not = icmp eq i64 %193, %6
-  br i1 %exitcond223.not, label %.loopexit, label %176, !llvm.loop !1643
+  %exitcond224.not = icmp eq i64 %193, %6
+  br i1 %exitcond224.not, label %.loopexit, label %176, !llvm.loop !1643
 
 194:                                              ; preds = %.lr.ph, %222
   %.0107182 = phi i64 [ %5, %.lr.ph ], [ %223, %222 ]
@@ -49687,8 +49723,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 56:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %57 = add i64 %.1106193, 1
-  %exitcond226.not = icmp eq i64 %57, %6
-  br i1 %exitcond226.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1702
+  %exitcond227.not = icmp eq i64 %57, %6
+  br i1 %exitcond227.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, !llvm.loop !1702
 
 .loopexit170:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %37
   %.0105 = phi i64 [ %5, %37 ], [ %.us-phi196, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread ]
@@ -49753,7 +49789,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %6
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8, !tbaa !1706
   %90 = icmp eq i32 %89, -1
-  br i1 %90, label %_ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit, label %91, !llvm.loop !1710
+  br i1 %90, label %._ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge202, label %91, !llvm.loop !1710
 
 91:                                               ; preds = %.lr.ph200
   %92 = load double, ptr %87, align 8, !tbaa !1709
@@ -49763,8 +49799,11 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %6
   %spec.select.i.not.i.i.i = select i1 %or.cond.i.not4.i.i.i, i1 %94, i1 false
   br i1 %spec.select.i.not.i.i.i, label %.lr.ph200, label %_ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit, !llvm.loop !1710
 
-_ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit: ; preds = %91, %.lr.ph200, %.lr.ph.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  %95 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread ], [ %79, %.lr.ph.i.i ], [ %89, %91 ], [ -1, %.lr.ph200 ]
+._ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge202: ; preds = %.lr.ph200
+  br label %_ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit, !llvm.loop !1710
+
+_ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit: ; preds = %91, %.lr.ph.i.i, %._ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge202, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
+  %95 = phi i32 [ -1, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread ], [ -1, %._ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit.loopexit_crit_edge202 ], [ %79, %.lr.ph.i.i ], [ %89, %91 ]
   store i32 %95, ptr %18, align 4, !tbaa !29
   call void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %60, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #26
@@ -49772,8 +49811,8 @@ _ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorE
 
 96:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119, %_ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEE8GetIndexERKS1_.exit
   %97 = add nuw i64 %.2204, 1
-  %exitcond227.not = icmp eq i64 %97, %6
-  br i1 %exitcond227.not, label %.loopexit, label %61, !llvm.loop !1711
+  %exitcond228.not = icmp eq i64 %97, %6
+  br i1 %exitcond228.not, label %.loopexit, label %61, !llvm.loop !1711
 
 98:                                               ; preds = %7
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -49837,8 +49876,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22Colu
 
 122:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123
   %123 = add i64 %.1109187, 1
-  %exitcond224.not = icmp eq i64 %123, %6
-  br i1 %exitcond224.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123, !llvm.loop !1712
+  %exitcond225.not = icmp eq i64 %123, %6
+  br i1 %exitcond225.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123, !llvm.loop !1712
 
 .loopexit173:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit, %98
   %.0108 = phi i64 [ %5, %98 ], [ %121, %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit ]
@@ -49899,8 +49938,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22Colu
 
 144:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127, %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit128
   %145 = add i64 %.2110191, 1
-  %exitcond225.not = icmp eq i64 %145, %6
-  br i1 %exitcond225.not, label %.loopexit, label %128, !llvm.loop !1713
+  %exitcond226.not = icmp eq i64 %145, %6
+  br i1 %exitcond226.not, label %.loopexit, label %128, !llvm.loop !1713
 
 146:                                              ; preds = %7
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 18496
@@ -49964,8 +50003,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22Colu
 
 170:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132
   %171 = add i64 %.1112183, 1
-  %exitcond222.not = icmp eq i64 %171, %6
-  br i1 %exitcond222.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132, !llvm.loop !1714
+  %exitcond223.not = icmp eq i64 %171, %6
+  br i1 %exitcond223.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132, !llvm.loop !1714
 
 .loopexit176:                                     ; preds = %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit133, %146
   %.0111 = phi i64 [ %5, %146 ], [ %169, %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit133 ]
@@ -50026,8 +50065,8 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22Colu
 
 192:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137, %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit138
   %193 = add i64 %.2113185, 1
-  %exitcond223.not = icmp eq i64 %193, %6
-  br i1 %exitcond223.not, label %.loopexit, label %176, !llvm.loop !1715
+  %exitcond224.not = icmp eq i64 %193, %6
+  br i1 %exitcond224.not, label %.loopexit, label %176, !llvm.loop !1715
 
 194:                                              ; preds = %.lr.ph, %222
   %.0107182 = phi i64 [ %5, %.lr.ph ], [ %223, %222 ]

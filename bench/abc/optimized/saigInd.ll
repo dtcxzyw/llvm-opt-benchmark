@@ -632,7 +632,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %Saig_ObjIsLo.exit.t
 
 ._crit_edge:                                      ; preds = %184
   %.pre = load i32, ptr %87, align 8, !tbaa !55
-  br label %split
+  br label %split, !llvm.loop !66
 
 split:                                            ; preds = %.critedge3, %._crit_edge
   %191 = phi i32 [ %.pre, %._crit_edge ], [ %181, %.critedge3 ]

@@ -738,6 +738,9 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   %.not103.i = icmp eq i32 %150, 0
   br i1 %.not103.i, label %._crit_edge.i, label %.critedge4.i
 
+..loopexit_crit_edge.i:                           ; preds = %171
+  br label %.backedge.i, !llvm.loop !66
+
 ._crit_edge.i:                                    ; preds = %.backedge.i, %.critedge2.i
   call void @stmm_free_gen(ptr noundef %149) #11
   call void @stmm_free_table(ptr noundef %116) #11
@@ -761,7 +764,7 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   %158 = icmp eq ptr %157, null
   br i1 %158, label %.backedge.i, label %.preheader92.i
 
-.backedge.i:                                      ; preds = %171, %.critedge4.i
+.backedge.i:                                      ; preds = %.critedge4.i, %..loopexit_crit_edge.i
   %159 = call i32 @stmm_gen(ptr noundef %149, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %.not.i70 = icmp eq i32 %159, 0
   br i1 %.not.i70, label %._crit_edge.i, label %.critedge4.i, !llvm.loop !66
@@ -769,7 +772,7 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
 .lr.ph102.i:                                      ; preds = %.preheader92.i
   %160 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 64
   %161 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 20
-  br label %171
+  br label %171, !llvm.loop !66
 
 .preheader92.i:                                   ; preds = %.critedge4.i, %.preheader92.i
   %.06298.i = phi ptr [ %170, %.preheader92.i ], [ %157, %.critedge4.i ]
@@ -805,7 +808,7 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   %183 = getelementptr inbounds nuw i8, ptr %.163101.i, i64 8
   %.163.i = load ptr, ptr %183, align 8, !tbaa !30
   %.not73.i = icmp eq ptr %.163.i, null
-  br i1 %.not73.i, label %.backedge.i, label %171, !llvm.loop !68
+  br i1 %.not73.i, label %..loopexit_crit_edge.i, label %171, !llvm.loop !68
 
 184:                                              ; preds = %198, %.lr.ph106.i
   %indvars.iv111.i = phi i64 [ 0, %.lr.ph106.i ], [ %indvars.iv.next112.i, %198 ]

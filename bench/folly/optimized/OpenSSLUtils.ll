@@ -1083,7 +1083,10 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5folly3ssl12OpenSSLUt
   %34 = zext i16 %33 to i64
   %35 = urem i64 %34, %18
   %.not19.i.i.i.i = icmp eq i64 %35, %19
-  br i1 %.not19.i.i.i.i, label %28, label %.loopexit, !llvm.loop !61
+  br i1 %.not19.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !61
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %31
+  br label %.loopexit, !llvm.loop !61
 
 _ZNSt13unordered_mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashItESt8equal_toItESaISt4pairIKtS5_EEE4findERSB_.exit: ; preds = %28, %12, %23
   %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %12 ], [ %30, %28 ]
@@ -1096,7 +1099,7 @@ _ZNSt13unordered_mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11) #24
   br label %49
 
-.loopexit:                                        ; preds = %31, %.lr.ph.i.i.i.i, %.preheader, %16
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %16, %..loopexit_crit_edge21.i.i.i.i
   %39 = load atomic i8, ptr @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE5emptyB5cxx11 acquire, align 8
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %48, !prof !47
@@ -1264,9 +1267,12 @@ define internal fastcc void @_ZN5folly3sslL21getOpenSSLCipherNamesB5cxx11Ev() un
   %57 = zext i16 %56 to i64
   %58 = urem i64 %57, %41
   %.not19.i.i.i.i = icmp eq i64 %58, %42
-  br i1 %.not19.i.i.i.i, label %51, label %.loopexit.i.i, !llvm.loop !61
+  br i1 %.not19.i.i.i.i, label %51, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !61
 
-.loopexit.i.i:                                    ; preds = %54, %.lr.ph.i.i.i.i, %39
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %54
+  br label %.loopexit.i.i, !llvm.loop !61
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #24
   store ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, ptr %1, align 8, !tbaa !67
   %59 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26

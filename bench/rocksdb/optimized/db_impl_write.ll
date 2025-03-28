@@ -22258,10 +22258,13 @@ define void @_ZN7rocksdb6DBImpl10DelayWriteEmRNS_11WriteThreadERKNS_12WriteOptio
   tail call void %61(ptr noundef nonnull align 8 dereferenceable(32) %58, i32 noundef 1001)
   %62 = load atomic i32, ptr %45 seq_cst, align 4
   %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !1150
+  br i1 %63, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !1150
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph128, %.lr.ph.preheader, %43
-  %.227.lcssa = phi i1 [ false, %43 ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph128 ], [ true, %.lr.ph ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph128
+  br label %._crit_edge, !llvm.loop !1150
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %43
+  %.227.lcssa = phi i1 [ false, %43 ], [ true, %.._crit_edge.loopexit_crit_edge ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph ]
   tail call void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %21)
   tail call void @_ZN7rocksdb11WriteThread13EndWriteStallEv(ptr noundef nonnull align 8 dereferenceable(432) %3)
   br label %64

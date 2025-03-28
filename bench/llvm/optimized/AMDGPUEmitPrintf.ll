@@ -2153,7 +2153,7 @@ _ZN4llvm5APIntD2Ev.exit15.i.i:                    ; preds = %954, %951, %_ZN4llv
 
 _ZN4llvm5APIntD2Ev.exit15..critedge_crit_edge.i.i: ; preds = %_ZN4llvm5APIntD2Ev.exit15.i.i
   %.pre27.i.i = load i64, ptr %808, align 8, !tbaa !138
-  br label %.critedge.i.i
+  br label %.critedge.i.i, !llvm.loop !176
 
 .critedge.i.i:                                    ; preds = %902, %_ZN4llvm5APIntD2Ev.exit15..critedge_crit_edge.i.i
   %955 = phi ptr [ %.pr.i.i, %_ZN4llvm5APIntD2Ev.exit15..critedge_crit_edge.i.i ], [ null, %902 ]

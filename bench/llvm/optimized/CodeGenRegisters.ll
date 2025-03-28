@@ -20020,7 +20020,7 @@ _ZL15computeUberSetsRSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS1_EERS_IPS1_SaIS5
   br i1 %235, label %.split.us, label %_ZL15computeUberSetsRSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS1_EERS_IPS1_SaIS5_EERN4llvm14CodeGenRegBankE.exit.split
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit
-  br i1 %264, label %_ZL15computeUberSetsRSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS1_EERS_IPS1_SaIS5_EERN4llvm14CodeGenRegBankE.exit.split, label %.split.us.loopexit, !llvm.loop !989
+  br i1 %265, label %_ZL15computeUberSetsRSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS1_EERS_IPS1_SaIS5_EERN4llvm14CodeGenRegBankE.exit.split, label %.split.us.loopexit, !llvm.loop !989
 
 .split.us.loopexit:                               ; preds = %._crit_edge, %_ZL15computeUberSetsRSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS1_EERS_IPS1_SaIS5_EERN4llvm14CodeGenRegBankE.exit.split
   %.val8.pre = load ptr, ptr %5, align 8, !tbaa !955
@@ -20101,18 +20101,18 @@ _ZL15computeUberSetsRSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS1_EERS_IPS1_SaIS5
   %259 = load ptr, ptr %9, align 8, !tbaa !295, !noalias !983
   %260 = load ptr, ptr %8, align 8, !tbaa !295, !noalias !986
   %.not19 = icmp eq ptr %259, %260
-  br i1 %.not19, label %.split.us.loopexit, label %.lr.ph.preheader, !llvm.loop !991
+  br i1 %.not19, label %.split.us.loopexit, label %.lr.ph, !llvm.loop !991
 
-.lr.ph.preheader:                                 ; preds = %_ZL15computeUberSetsRSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS1_EERS_IPS1_SaIS5_EERN4llvm14CodeGenRegBankE.exit.split
+.lr.ph:                                           ; preds = %_ZL15computeUberSetsRSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS1_EERS_IPS1_SaIS5_EERN4llvm14CodeGenRegBankE.exit.split
   %261 = load ptr, ptr %12, align 8, !tbaa !294, !noalias !983
   %262 = load ptr, ptr %28, align 8, !tbaa !297, !noalias !983
-  br label %.lr.ph
+  br label %263, !llvm.loop !991
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit
-  %.123 = phi i1 [ %264, %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit ], [ false, %.lr.ph.preheader ]
-  %.sroa.13.022 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit ], [ %261, %.lr.ph.preheader ]
-  %.sroa.10.021 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit ], [ %262, %.lr.ph.preheader ]
-  %.sroa.015.020 = phi ptr [ %.sroa.015.1, %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit ], [ %259, %.lr.ph.preheader ]
+263:                                              ; preds = %.lr.ph, %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit
+  %.123 = phi i1 [ false, %.lr.ph ], [ %265, %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit ]
+  %.sroa.13.022 = phi ptr [ %261, %.lr.ph ], [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit ]
+  %.sroa.10.021 = phi ptr [ %262, %.lr.ph ], [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit ]
+  %.sroa.015.020 = phi ptr [ %259, %.lr.ph ], [ %.sroa.015.1, %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   store ptr %6, ptr %226, align 8, !tbaa !280
   store ptr %6, ptr %6, align 8, !tbaa !281
@@ -20123,47 +20123,47 @@ _ZL15computeUberSetsRSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS1_EERS_IPS1_SaIS5
   store i32 0, ptr %230, align 8, !tbaa !55
   store i32 6, ptr %231, align 4, !tbaa !56
   store i32 0, ptr %232, align 8, !tbaa !455
-  %263 = call fastcc noundef zeroext i1 @_ZL15normalizeWeightPN4llvm15CodeGenRegisterERSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS4_EERS2_IPS4_SaIS8_EERNS_9BitVectorERNS_15SparseBitVectorILj128EEERNS_14CodeGenRegBankE(ptr noundef nonnull %.sroa.015.020, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(984) %0)
-  %264 = or i1 %.123, %263
-  %265 = load ptr, ptr %7, align 8, !tbaa !54
-  %266 = icmp eq ptr %265, %229
-  br i1 %266, label %_ZN4llvm9BitVectorD2Ev.exit, label %267
+  %264 = call fastcc noundef zeroext i1 @_ZL15normalizeWeightPN4llvm15CodeGenRegisterERSt6vectorIN12_GLOBAL__N_110UberRegSetESaIS4_EERS2_IPS4_SaIS8_EERNS_9BitVectorERNS_15SparseBitVectorILj128EEERNS_14CodeGenRegBankE(ptr noundef nonnull %.sroa.015.020, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(984) %0)
+  %265 = or i1 %.123, %264
+  %266 = load ptr, ptr %7, align 8, !tbaa !54
+  %267 = icmp eq ptr %266, %229
+  br i1 %267, label %_ZN4llvm9BitVectorD2Ev.exit, label %268
 
-267:                                              ; preds = %.lr.ph
-  call void @free(ptr noundef %265) #26
+268:                                              ; preds = %263
+  call void @free(ptr noundef %266) #26
   br label %_ZN4llvm9BitVectorD2Ev.exit
 
-_ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %.lr.ph, %267
+_ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %263, %268
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #26
-  %268 = load ptr, ptr %6, align 8, !tbaa !281
-  %.not8.i.i.i = icmp eq ptr %268, %6
+  %269 = load ptr, ptr %6, align 8, !tbaa !281
+  %.not8.i.i.i = icmp eq ptr %269, %6
   br i1 %.not8.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm9BitVectorD2Ev.exit, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %269, %.lr.ph.i.i.i ], [ %268, %_ZN4llvm9BitVectorD2Ev.exit ]
-  %269 = load ptr, ptr %.09.i.i.i, align 8, !tbaa !281
+  %.09.i.i.i = phi ptr [ %270, %.lr.ph.i.i.i ], [ %269, %_ZN4llvm9BitVectorD2Ev.exit ]
+  %270 = load ptr, ptr %.09.i.i.i, align 8, !tbaa !281
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i, i64 noundef 40) #28
-  %.not.i.i.i14 = icmp eq ptr %269, %6
+  %.not.i.i.i14 = icmp eq ptr %270, %6
   br i1 %.not.i.i.i14, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !306
 
 _ZN4llvm15SparseBitVectorILj128EED2Ev.exit:       ; preds = %.lr.ph.i.i.i, %_ZN4llvm9BitVectorD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
-  %270 = getelementptr inbounds nuw i8, ptr %.sroa.015.020, i64 624
-  %271 = icmp eq ptr %270, %.sroa.10.021
-  br i1 %271, label %272, label %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.015.020, i64 624
+  %272 = icmp eq ptr %271, %.sroa.10.021
+  br i1 %272, label %273, label %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit
 
-272:                                              ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit
-  %273 = getelementptr inbounds nuw i8, ptr %.sroa.13.022, i64 8
-  %274 = load ptr, ptr %273, align 8, !tbaa !290
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 624
+273:                                              ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit
+  %274 = getelementptr inbounds nuw i8, ptr %.sroa.13.022, i64 8
+  %275 = load ptr, ptr %274, align 8, !tbaa !290
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 624
   br label %_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit
 
-_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit: ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit, %272
-  %.sroa.015.1 = phi ptr [ %274, %272 ], [ %270, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit ]
-  %.sroa.10.1 = phi ptr [ %275, %272 ], [ %.sroa.10.021, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit ]
-  %.sroa.13.1 = phi ptr [ %273, %272 ], [ %.sroa.13.022, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit ]
+_ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit: ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit, %273
+  %.sroa.015.1 = phi ptr [ %275, %273 ], [ %271, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit ]
+  %.sroa.10.1 = phi ptr [ %276, %273 ], [ %.sroa.10.021, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit ]
+  %.sroa.13.1 = phi ptr [ %274, %273 ], [ %.sroa.13.022, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit ]
   %.not = icmp eq ptr %.sroa.015.1, %260
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !991
+  br i1 %.not, label %._crit_edge, label %263, !llvm.loop !991
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

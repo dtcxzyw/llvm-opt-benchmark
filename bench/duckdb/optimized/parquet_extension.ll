@@ -28029,12 +28029,15 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_Identity
   %39 = zext i32 %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %.critedge, !llvm.loop !911
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !911
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %36, %23, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %36 ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %36 ], [ %8, %.lr.ph.i.i ]
-  %43 = phi i32 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %36 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge, !llvm.loop !911
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi i32 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr null, ptr %44, align 8, !tbaa !129
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -32922,11 +32925,11 @@ _ZNSt10unique_ptrIN6duckdb13MultiFileListESt14default_deleteIS1_EED2Ev.exit5.i: 
   br label %.body
 
 _ZNSt10unique_ptrIN6duckdb22ParquetReadGlobalStateESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %66, %49
-  %.sink358 = phi ptr [ %56, %49 ], [ %71, %66 ]
-  %74 = load ptr, ptr %.sink358, align 8, !tbaa !133
+  %.sink361 = phi ptr [ %56, %49 ], [ %71, %66 ]
+  %74 = load ptr, ptr %.sink361, align 8, !tbaa !133
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(224) %.sink358) #27
+  call void %76(ptr noundef nonnull align 8 dereferenceable(224) %.sink361) #27
   br label %_ZNSt10unique_ptrIN6duckdb22ParquetReadGlobalStateESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6duckdb22ParquetReadGlobalStateESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6duckdb22ParquetReadGlobalStateESt14default_deleteIS1_EED2Ev.exit.sink.split, %66, %49
@@ -33097,8 +33100,8 @@ _ZNSt10unique_ptrIN6duckdb26MultiFileReaderGlobalStateESt14default_deleteIS1_EED
   br i1 %145, label %224, label %.preheader
 
 .preheader:                                       ; preds = %140, %187
-  %.sroa.0261.0318 = phi ptr [ %188, %187 ], [ %142, %140 ]
-  %146 = load ptr, ptr %.sroa.0261.0318, align 8, !tbaa !1069
+  %.sroa.0261.0319 = phi ptr [ %188, %187 ], [ %142, %140 ]
+  %146 = load ptr, ptr %.sroa.0261.0319, align 8, !tbaa !1069
   %.not290 = icmp eq ptr %146, null
   br i1 %.not290, label %.critedge, label %147
 
@@ -33114,9 +33117,9 @@ _ZNSt10unique_ptrIN6duckdb26MultiFileReaderGlobalStateESt14default_deleteIS1_EED
           to label %.noexc136 unwind label %191
 
 .noexc136:                                        ; preds = %149
-  %151 = load i64, ptr %.sroa.0261.0318, align 8, !tbaa !1069, !noalias !1071
+  %151 = load i64, ptr %.sroa.0261.0319, align 8, !tbaa !1069, !noalias !1071
   store i64 %151, ptr %5, align 8, !tbaa !1069, !noalias !1071
-  store ptr null, ptr %.sroa.0261.0318, align 8, !tbaa !1069, !noalias !1071
+  store ptr null, ptr %.sroa.0261.0319, align 8, !tbaa !1069, !noalias !1071
   invoke void @_ZN6duckdb21ParquetFileReaderDataC2ENS_10unique_ptrINS_16ParquetUnionDataESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(72) %150, ptr noundef nonnull %5)
           to label %152 unwind label %154, !noalias !1071
 
@@ -33229,7 +33232,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_21ParquetFileReaderDataESt14default_delete
 
 187:                                              ; preds = %186, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_21ParquetFileReaderDataESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_21ParquetFileReaderDataESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #27
-  %188 = getelementptr inbounds nuw i8, ptr %.sroa.0261.0318, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %.sroa.0261.0319, i64 8
   %.not289 = icmp eq ptr %188, %144
   br i1 %.not289, label %.critedge, label %.preheader
 
@@ -33371,17 +33374,17 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_21ParquetFileReaderDataESt14default_delete
 
 237:                                              ; preds = %230
   %238 = icmp eq i64 %233, 0
-  %.pre338 = load ptr, ptr %14, align 8, !tbaa !26
+  %.pre340 = load ptr, ptr %14, align 8, !tbaa !26
   br i1 %238, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %239
 
 239:                                              ; preds = %237
   %240 = load ptr, ptr %231, align 8, !tbaa !26
-  %bcmp.i = call i32 @bcmp(ptr %240, ptr %.pre338, i64 %233)
+  %bcmp.i = call i32 @bcmp(ptr %240, ptr %.pre340, i64 %233)
   %241 = icmp eq i32 %bcmp.i, 0
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge, %237, %239
-  %242 = phi ptr [ %.pre, %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge ], [ %.pre338, %239 ], [ %.pre338, %237 ]
+  %242 = phi ptr [ %.pre, %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge ], [ %.pre340, %239 ], [ %.pre340, %237 ]
   %243 = phi i1 [ false, %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge ], [ %241, %239 ], [ true, %237 ]
   %244 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %245 = icmp eq ptr %242, %244
@@ -33576,8 +33579,8 @@ _ZNSt10unique_ptrIN6duckdb21ParquetFileReaderDataESt14default_deleteIS1_EED2Ev.e
   %306 = load ptr, ptr %305, align 8, !tbaa !1114
   %307 = getelementptr inbounds nuw i8, ptr %303, i64 88
   %308 = load ptr, ptr %307, align 8, !tbaa !1114
-  %.not292319 = icmp eq ptr %306, %308
-  br i1 %.not292319, label %._crit_edge, label %.lr.ph
+  %.not292320 = icmp eq ptr %306, %308
+  br i1 %.not292320, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %304
   %309 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -33594,7 +33597,7 @@ _ZNSt10unique_ptrIN6duckdb21ParquetFileReaderDataESt14default_deleteIS1_EED2Ev.e
   br label %.body
 
 314:                                              ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202
-  %.sroa.0257.0320 = phi ptr [ %306, %.lr.ph ], [ %398, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202 ]
+  %.sroa.0257.0321 = phi ptr [ %306, %.lr.ph ], [ %398, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #27
   store ptr %309, ptr %16, align 8, !tbaa !31
   store i64 0, ptr %310, align 8, !tbaa !30
@@ -33614,7 +33617,7 @@ _ZNSt10unique_ptrIN6duckdb21ParquetFileReaderDataESt14default_deleteIS1_EED2Ev.e
           to label %323 unwind label %344
 
 323:                                              ; preds = %320
-  %324 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0257.0320)
+  %324 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0257.0321)
           to label %325 unwind label %344
 
 325:                                              ; preds = %323
@@ -33624,7 +33627,7 @@ _ZNSt10unique_ptrIN6duckdb21ParquetFileReaderDataESt14default_deleteIS1_EED2Ev.e
   br i1 %.not297, label %356, label %328
 
 328:                                              ; preds = %325
-  %329 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0257.0320)
+  %329 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0257.0321)
           to label %330 unwind label %344
 
 330:                                              ; preds = %328
@@ -33641,12 +33644,12 @@ _ZNSt10unique_ptrIN6duckdb21ParquetFileReaderDataESt14default_deleteIS1_EED2Ev.e
 
 338:                                              ; preds = %333
   %339 = icmp eq i64 %334, 0
-  %.pre340 = load ptr, ptr %16, align 8, !tbaa !26
+  %.pre342 = load ptr, ptr %16, align 8, !tbaa !26
   br i1 %339, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread274, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %338
   %340 = load ptr, ptr %332, align 8, !tbaa !26
-  %bcmp.i.i = call i32 @bcmp(ptr %.pre340, ptr %340, i64 %334)
+  %bcmp.i.i = call i32 @bcmp(ptr %.pre342, ptr %340, i64 %334)
   %.not299 = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not299, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread274, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
 
@@ -33707,7 +33710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194: ; preds = %34
   br label %399
 
 356:                                              ; preds = %325
-  %357 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0257.0320)
+  %357 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0257.0321)
           to label %358 unwind label %344
 
 358:                                              ; preds = %356
@@ -33785,7 +33788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit199: ; preds = %37
   br label %399
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit196.thread278: ; preds = %366, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit196
-  %383 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0257.0320)
+  %383 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_21ParquetFileReaderDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0257.0321)
           to label %384 unwind label %344
 
 384:                                              ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit196.thread278
@@ -33810,11 +33813,11 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit1
           to label %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread274_crit_edge unwind label %344
 
 ._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread274_crit_edge: ; preds = %389
-  %.pre339 = load ptr, ptr %16, align 8, !tbaa !26
+  %.pre341 = load ptr, ptr %16, align 8, !tbaa !26
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread274
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread274: ; preds = %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread274_crit_edge, %338, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %394 = phi ptr [ %.pre339, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread274_crit_edge ], [ %.pre340, %338 ], [ %.pre340, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
+  %394 = phi ptr [ %.pre341, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread274_crit_edge ], [ %.pre342, %338 ], [ %.pre342, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
   %395 = icmp eq ptr %394, %309
   br i1 %395, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i201, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i200
 
@@ -33830,7 +33833,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i201, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i200
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #27
-  %398 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0320, i64 8
+  %398 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0321, i64 8
   %.not292 = icmp eq ptr %398, %308
   br i1 %.not292, label %._crit_edge, label %314
 
@@ -33935,7 +33938,7 @@ _ZN6duckdb19ParquetScanFunction21ParquetScanMaxThreadsERNS_13ClientContextEPKNS_
   %442 = getelementptr inbounds nuw i8, ptr %440, i64 32
   %443 = load ptr, ptr %442, align 8, !tbaa !985
   %.not293 = icmp eq ptr %443, null
-  br i1 %.not293, label %.thread344, label %444
+  br i1 %.not293, label %.thread346, label %444
 
 444:                                              ; preds = %441
   %445 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_22ParquetReadGlobalStateESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -33959,7 +33962,7 @@ _ZN6duckdb19ParquetScanFunction21ParquetScanMaxThreadsERNS_13ClientContextEPKNS_
   %459 = icmp eq ptr %456, %458
   br i1 %459, label %_ZNK6duckdb22TableFunctionInitInput22CanRemoveFilterColumnsEv.exit, label %_ZNK6duckdb22TableFunctionInitInput22CanRemoveFilterColumnsEv.exit.thread
 
-.thread344:                                       ; preds = %441
+.thread346:                                       ; preds = %441
   %460 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %461 = load ptr, ptr %460, align 8, !tbaa !970
   %462 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -33970,11 +33973,11 @@ _ZN6duckdb19ParquetScanFunction21ParquetScanMaxThreadsERNS_13ClientContextEPKNS_
 _ZNK6duckdb22TableFunctionInitInput22CanRemoveFilterColumnsEv.exit: ; preds = %449
   br i1 %454, label %488, label %.loopexit
 
-_ZNK6duckdb22TableFunctionInitInput22CanRemoveFilterColumnsEv.exit.thread: ; preds = %449, %.thread344
-  %465 = phi ptr [ %463, %.thread344 ], [ %458, %449 ]
-  %466 = phi ptr [ %461, %.thread344 ], [ %456, %449 ]
-  %467 = phi ptr [ %460, %.thread344 ], [ %455, %449 ]
-  %468 = phi i1 [ false, %.thread344 ], [ %454, %449 ]
+_ZNK6duckdb22TableFunctionInitInput22CanRemoveFilterColumnsEv.exit.thread: ; preds = %449, %.thread346
+  %465 = phi ptr [ %463, %.thread346 ], [ %458, %449 ]
+  %466 = phi ptr [ %461, %.thread346 ], [ %456, %449 ]
+  %467 = phi ptr [ %460, %.thread346 ], [ %455, %449 ]
+  %468 = phi i1 [ false, %.thread346 ], [ %454, %449 ]
   %469 = ptrtoint ptr %465 to i64
   %470 = ptrtoint ptr %466 to i64
   %471 = sub i64 %469, %470
@@ -33985,8 +33988,8 @@ _ZNK6duckdb22TableFunctionInitInput22CanRemoveFilterColumnsEv.exit.thread: ; pre
   %476 = ptrtoint ptr %474 to i64
   %477 = sub i64 %475, %476
   %478 = icmp ne i64 %471, %477
-  %brmerge342 = or i1 %468, %478
-  br i1 %brmerge342, label %479, label %.loopexit303
+  %brmerge344 = or i1 %468, %478
+  br i1 %brmerge344, label %479, label %.loopexit303
 
 479:                                              ; preds = %_ZNK6duckdb22TableFunctionInitInput22CanRemoveFilterColumnsEv.exit.thread
   %480 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_22ParquetReadGlobalStateESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -34079,10 +34082,10 @@ _ZN6duckdb6vectorImLb1EEaSERKS1_.exit:            ; preds = %.lr.ph.i, %519, %48
   %525 = load ptr, ptr %97, align 8, !tbaa !1125
   %526 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %527 = load ptr, ptr %526, align 8, !tbaa !1125
-  %.not294321 = icmp eq ptr %525, %527
-  br i1 %.not294321, label %.loopexit303, label %.lr.ph323
+  %.not294322 = icmp eq ptr %525, %527
+  br i1 %.not294322, label %.loopexit303, label %.lr.ph324
 
-.lr.ph323:                                        ; preds = %_ZN6duckdb6vectorImLb1EEaSERKS1_.exit
+.lr.ph324:                                        ; preds = %_ZN6duckdb6vectorImLb1EEaSERKS1_.exit
   %528 = load i64, ptr @_ZN6duckdb20VIRTUAL_COLUMN_STARTE, align 8, !tbaa !40
   %529 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %530 = getelementptr inbounds nuw i8, ptr %24, i64 128
@@ -34090,28 +34093,28 @@ _ZN6duckdb6vectorImLb1EEaSERKS1_.exit:            ; preds = %.lr.ph.i, %519, %48
   %532 = getelementptr inbounds nuw i8, ptr %24, i64 144
   br label %533
 
-533:                                              ; preds = %.lr.ph323, %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRS1_EEEvDpOT_.exit
-  %.sroa.0251.0322 = phi ptr [ %525, %.lr.ph323 ], [ %602, %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRS1_EEEvDpOT_.exit ]
-  %534 = load i64, ptr %.sroa.0251.0322, align 8, !tbaa !1126
+533:                                              ; preds = %.lr.ph324, %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRS1_EEEvDpOT_.exit
+  %.sroa.0251.0323 = phi ptr [ %525, %.lr.ph324 ], [ %602, %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRS1_EEEvDpOT_.exit ]
+  %534 = load i64, ptr %.sroa.0251.0323, align 8, !tbaa !1126
   %.not296 = icmp ult i64 %534, %528
   br i1 %.not296, label %588, label %535
 
 535:                                              ; preds = %533
   %536 = load i64, ptr %529, align 8, !tbaa !820
   %.not.not.i.i = icmp eq i64 %536, 0
-  br i1 %.not.not.i.i, label %.preheader328, label %541
+  br i1 %.not.not.i.i, label %.preheader329, label %541
 
-.preheader328:                                    ; preds = %535, %537
+.preheader329:                                    ; preds = %535, %537
   %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %537 ], [ %532, %535 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !129
   %.not.i.i218 = icmp eq ptr %.sroa.06.0.i.i, null
   br i1 %.not.i.i218, label %.loopexit300, label %537
 
-537:                                              ; preds = %.preheader328
+537:                                              ; preds = %.preheader329
   %538 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
   %539 = load i64, ptr %538, align 8, !tbaa !40
   %540 = icmp eq i64 %534, %539
-  br i1 %540, label %_ZNSt13unordered_mapImN6duckdb11TableColumnESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit, label %.preheader328, !llvm.loop !1128
+  br i1 %540, label %_ZNSt13unordered_mapImN6duckdb11TableColumnESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit, label %.preheader329, !llvm.loop !1128
 
 541:                                              ; preds = %535
   %542 = load i64, ptr %531, align 8, !tbaa !137
@@ -34144,9 +34147,12 @@ _ZN6duckdb6vectorImLb1EEaSERKS1_.exit:            ; preds = %.lr.ph.i, %519, %48
   %557 = load i64, ptr %556, align 8, !tbaa !40
   %558 = urem i64 %557, %542
   %.not19.i.i.i.i = icmp eq i64 %558, %543
-  br i1 %.not19.i.i.i.i, label %552, label %.loopexit300, !llvm.loop !1129
+  br i1 %.not19.i.i.i.i, label %552, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !1129
 
-.loopexit300:                                     ; preds = %541, %555, %.lr.ph.i.i.i.i217, %.preheader328
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %555
+  br label %.loopexit300, !llvm.loop !1129
+
+.loopexit300:                                     ; preds = %541, %.lr.ph.i.i.i.i217, %.preheader329, %..loopexit_crit_edge21.i.i.i.i
   %559 = call ptr @__cxa_allocate_exception(i64 16) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #27
@@ -34268,7 +34274,7 @@ _ZNSt13unordered_mapImN6duckdb11TableColumnESt4hashImESt8equal_toImESaISt4pairIK
           to label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRS1_EEEvDpOT_.exit unwind label %562
 
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRS1_EEEvDpOT_.exit: ; preds = %.noexc226, %600, %586, %.noexc223
-  %602 = getelementptr inbounds nuw i8, ptr %.sroa.0251.0322, i64 32
+  %602 = getelementptr inbounds nuw i8, ptr %.sroa.0251.0323, i64 32
   %.not294 = icmp eq ptr %602, %527
   br i1 %.not294, label %.loopexit303, label %533
 
@@ -34290,20 +34296,20 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRS1_EEEvDpOT_.exit: ;
   %611 = load ptr, ptr %610, align 8, !tbaa !721
   %612 = getelementptr inbounds nuw i8, ptr %608, i64 16
   %613 = load ptr, ptr %612, align 8, !tbaa !721
-  %.not295324 = icmp eq ptr %611, %613
-  br i1 %.not295324, label %.loopexit, label %.lr.ph327
+  %.not295325 = icmp eq ptr %611, %613
+  br i1 %.not295325, label %.loopexit, label %.lr.ph328
 
 614:                                              ; preds = %606, %604
   %615 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.lr.ph327:                                        ; preds = %609, %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit231
-  %.sroa.0242.0325 = phi ptr [ %627, %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit231 ], [ %611, %609 ]
+.lr.ph328:                                        ; preds = %609, %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit231
+  %.sroa.0242.0326 = phi ptr [ %627, %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit231 ], [ %611, %609 ]
   %616 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_22ParquetReadGlobalStateESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %617 unwind label %628
 
-617:                                              ; preds = %.lr.ph327
+617:                                              ; preds = %.lr.ph328
   %618 = getelementptr inbounds nuw i8, ptr %616, i64 176
   %619 = load ptr, ptr %618, align 8, !tbaa !388
   %620 = getelementptr inbounds nuw i8, ptr %616, i64 184
@@ -34312,7 +34318,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRS1_EEEvDpOT_.exit: ;
   br i1 %.not.i228, label %625, label %622
 
 622:                                              ; preds = %617
-  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %619, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0242.0325)
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %619, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0242.0326)
           to label %.noexc229 unwind label %628
 
 .noexc229:                                        ; preds = %622
@@ -34323,20 +34329,20 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRS1_EEEvDpOT_.exit: ;
 
 625:                                              ; preds = %617
   %626 = getelementptr inbounds nuw i8, ptr %616, i64 168
-  invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %626, ptr %619, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0242.0325)
+  invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %626, ptr %619, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0242.0326)
           to label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit231 unwind label %628
 
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit231: ; preds = %.noexc229, %625
-  %627 = getelementptr inbounds nuw i8, ptr %.sroa.0242.0325, i64 24
+  %627 = getelementptr inbounds nuw i8, ptr %.sroa.0242.0326, i64 24
   %.not295 = icmp eq ptr %627, %613
-  br i1 %.not295, label %.loopexit, label %.lr.ph327
+  br i1 %.not295, label %.loopexit, label %.lr.ph328
 
-628:                                              ; preds = %625, %622, %.lr.ph327
+628:                                              ; preds = %625, %622, %.lr.ph328
   %629 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit231, %.thread344, %_ZNK6duckdb22TableFunctionInitInput22CanRemoveFilterColumnsEv.exit, %609, %.loopexit303
+.loopexit:                                        ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit231, %.thread346, %_ZNK6duckdb22TableFunctionInitInput22CanRemoveFilterColumnsEv.exit, %609, %.loopexit303
   %630 = load ptr, ptr %8, align 8, !tbaa !1030
   store ptr null, ptr %8, align 8, !tbaa !1030
   store ptr %630, ptr %0, align 8, !tbaa !1130

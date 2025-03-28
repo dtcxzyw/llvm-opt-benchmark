@@ -169,10 +169,13 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   %23 = load i32, ptr %3, align 8, !tbaa !32
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !33
+  br i1 %25, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !33
 
-.critedge:                                        ; preds = %19, %.lr.ph, %.lr.ph.preheader, %1
-  %26 = phi i32 [ %4, %1 ], [ %4, %.lr.ph.preheader ], [ %23, %.lr.ph ], [ %23, %19 ]
+..critedge.loopexit_crit_edge:                    ; preds = %19
+  br label %.critedge, !llvm.loop !33
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %1
+  %26 = phi i32 [ %4, %1 ], [ %23, %..critedge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %23, %.lr.ph ]
   %27 = getelementptr i8, ptr %0, i64 56
   %.val47 = load i32, ptr %27, align 8, !tbaa !35
   %.not37 = icmp eq i32 %.val47, 0

@@ -5694,7 +5694,10 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   %92 = phi ptr [ %93, %87 ], [ %79, %.split.us ]
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.split148.us.thread, label %87, !llvm.loop !102
+  br i1 %94, label %..split148.us_crit_edge, label %87, !llvm.loop !102
+
+..split148.us_crit_edge:                          ; preds = %.lr.ph
+  br label %.split148.us.thread, !llvm.loop !102
 
 .split:                                           ; preds = %81, %.thread82
   %95 = phi ptr [ %354, %.thread82 ], [ %79, %81 ]
@@ -5714,7 +5717,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %105, label %..thread82_crit_edge, label %106
 
 ..thread82_crit_edge:                             ; preds = %101
-  %.pre170 = load i32, ptr %97, align 4
+  %.pre171 = load i32, ptr %97, align 4
   br label %.thread82
 
 106:                                              ; preds = %101
@@ -5969,12 +5972,12 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %275, label %.loopexit127, label %.preheader126.preheader
 
 .preheader126.preheader:                          ; preds = %.loopexit129
-  %.phi.trans.insert168 = getelementptr inbounds nuw i8, ptr %272, i64 288
-  %.pre169 = load i64, ptr %.phi.trans.insert168, align 32
+  %.phi.trans.insert169 = getelementptr inbounds nuw i8, ptr %272, i64 288
+  %.pre170 = load i64, ptr %.phi.trans.insert169, align 32
   br label %.preheader126
 
 .preheader126:                                    ; preds = %.preheader126.preheader, %.preheader126
-  %276 = phi i64 [ %285, %.preheader126 ], [ %.pre169, %.preheader126.preheader ]
+  %276 = phi i64 [ %285, %.preheader126 ], [ %.pre170, %.preheader126.preheader ]
   %277 = phi ptr [ %291, %.preheader126 ], [ %274, %.preheader126.preheader ]
   %278 = phi ptr [ %287, %.preheader126 ], [ %272, %.preheader126.preheader ]
   %279 = getelementptr inbounds nuw i8, ptr %277, i64 224
@@ -6076,7 +6079,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br label %.thread
 
 .thread82:                                        ; preds = %..thread82_crit_edge, %.split
-  %350 = phi i32 [ %.pre170, %..thread82_crit_edge ], [ %98, %.split ]
+  %350 = phi i32 [ %.pre171, %..thread82_crit_edge ], [ %98, %.split ]
   %351 = and i32 %350, %17
   %352 = icmp eq i32 %351, 0
   %353 = select i1 %352, ptr %96, ptr %95
@@ -6088,9 +6091,9 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   %356 = icmp eq ptr %353, null
   br i1 %356, label %.thread, label %.split148.us.thread, !prof !103
 
-.split148.us.thread:                              ; preds = %.lr.ph, %87, %.split148.us
-  %.us-phi182 = phi ptr [ %353, %.split148.us ], [ %92, %87 ], [ %92, %.lr.ph ]
-  %357 = tail call fastcc i32 @find_idlest_cpu(ptr noundef nonnull %.us-phi182, ptr noundef %0, i32 noundef %16, i32 noundef %1, i32 noundef %17)
+.split148.us.thread:                              ; preds = %87, %..split148.us_crit_edge, %.split148.us
+  %.us-phi183 = phi ptr [ %353, %.split148.us ], [ %92, %..split148.us_crit_edge ], [ %92, %87 ]
+  %357 = tail call fastcc i32 @find_idlest_cpu(ptr noundef nonnull %.us-phi183, ptr noundef %0, i32 noundef %16, i32 noundef %1, i32 noundef %17)
   br label %998
 
 .thread:                                          ; preds = %.split.us, %71, %345, %346, %338, %106, %.split148.us
@@ -6331,9 +6334,9 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
           to label %._crit_edge [label %520], !srcloc !8
 
 ._crit_edge:                                      ; preds = %518
-  %.phi.trans.insert172 = sext i32 %358 to i64
-  %.phi.trans.insert173 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %.phi.trans.insert172
-  %.pre174 = load i64, ptr %.phi.trans.insert173, align 8
+  %.phi.trans.insert173 = sext i32 %358 to i64
+  %.phi.trans.insert174 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %.phi.trans.insert173
+  %.pre175 = load i64, ptr %.phi.trans.insert174, align 8
   br label %619
 
 520:                                              ; preds = %518
@@ -6407,10 +6410,10 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   %572 = load i64, ptr %571, align 64
   %573 = tail call i32 @available_idle_cpu(i32 noundef %562) #27
   %574 = icmp eq i32 %573, 0
-  %.pre171 = load i64, ptr %567, align 8
-  %575 = add i64 %.pre171, ptrtoint (ptr @runqueues to i64)
+  %.pre172 = load i64, ptr %567, align 8
+  %575 = add i64 %.pre172, ptrtoint (ptr @runqueues to i64)
   %576 = inttoptr i64 %575 to ptr
-  br i1 %574, label %577, label %._crit_edge176
+  br i1 %574, label %577, label %._crit_edge177
 
 577:                                              ; preds = %561
   %578 = getelementptr inbounds nuw i8, ptr %576, i64 4
@@ -6420,16 +6423,16 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   %582 = icmp ne i32 %579, %581
   %583 = icmp eq i32 %579, 0
   %584 = or i1 %583, %582
-  br i1 %584, label %593, label %._crit_edge176
+  br i1 %584, label %593, label %._crit_edge177
 
-._crit_edge176:                                   ; preds = %561, %577
+._crit_edge177:                                   ; preds = %561, %577
   %585 = getelementptr inbounds nuw i8, ptr %576, i64 2496
   %586 = load i64, ptr %585, align 64
   %587 = shl i64 %586, 10
   %588 = icmp ult i64 %560, %587
   br i1 %588, label %.loopexit124, label %589
 
-589:                                              ; preds = %._crit_edge176
+589:                                              ; preds = %._crit_edge177
   %590 = icmp ugt i64 %572, %563
   %591 = select i1 %590, i32 %562, i32 %565
   %592 = tail call i64 @llvm.umax.i64(i64 %572, i64 %563)
@@ -6472,16 +6475,16 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   %614 = icmp ult i32 %613, 64
   br i1 %614, label %561, label %.loopexit124, !llvm.loop !108
 
-.loopexit124:                                     ; preds = %._crit_edge176, %611, %555
-  %615 = phi i32 [ -1, %555 ], [ %562, %._crit_edge176 ], [ %.ph87, %611 ]
+.loopexit124:                                     ; preds = %._crit_edge177, %611, %555
+  %615 = phi i32 [ -1, %555 ], [ %562, %._crit_edge177 ], [ %.ph87, %611 ]
   %616 = load i32, ptr @nr_cpu_ids, align 4
   %617 = icmp ult i32 %615, %616
   %618 = select i1 %617, i32 %615, i32 %358
   br label %998
 
 619:                                              ; preds = %._crit_edge, %520
-  %.pre-phi = phi i64 [ %.phi.trans.insert172, %._crit_edge ], [ %521, %520 ]
-  %620 = phi i64 [ %.pre174, %._crit_edge ], [ %523, %520 ]
+  %.pre-phi = phi i64 [ %.phi.trans.insert173, %._crit_edge ], [ %521, %520 ]
+  %620 = phi i64 [ %.pre175, %._crit_edge ], [ %523, %520 ]
   %621 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %.pre-phi
   %622 = add i64 %620, ptrtoint (ptr @sd_llc to i64)
   %623 = inttoptr i64 %622 to ptr

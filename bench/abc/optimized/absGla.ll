@@ -606,7 +606,7 @@ define i32 @Ga2_ManMarkup(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   %19 = load i32, ptr %9, align 8, !tbaa !39
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !40
+  br i1 %21, label %.lr.ph, label %..critedge.loopexit300_crit_edge, !llvm.loop !40
 
 .lr.ph246:                                        ; preds = %73
   %.val154 = load ptr, ptr %8, align 8, !tbaa !12
@@ -688,10 +688,13 @@ define i32 @Ga2_ManMarkup(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   %74 = load i32, ptr %9, align 8, !tbaa !39
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next272, %75
-  br i1 %76, label %.lr.ph246, label %.critedge2, !llvm.loop !41
+  br i1 %76, label %.lr.ph246, label %..critedge2_crit_edge, !llvm.loop !41
 
-.critedge2:                                       ; preds = %73, %.lr.ph246, %.lr.ph246.preheader
-  %77 = phi i32 [ %10, %.lr.ph246.preheader ], [ %74, %.lr.ph246 ], [ %74, %73 ]
+..critedge2_crit_edge:                            ; preds = %73
+  br label %.critedge2, !llvm.loop !41
+
+.critedge2:                                       ; preds = %.lr.ph246, %..critedge2_crit_edge, %.lr.ph246.preheader
+  %77 = phi i32 [ %74, %..critedge2_crit_edge ], [ %10, %.lr.ph246.preheader ], [ %74, %.lr.ph246 ]
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph249.preheader, label %.critedge
 
@@ -751,10 +754,13 @@ define i32 @Ga2_ManMarkup(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   %101 = load i32, ptr %9, align 8, !tbaa !39
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next275, %102
-  br i1 %103, label %.lr.ph249, label %.critedge4, !llvm.loop !42
+  br i1 %103, label %.lr.ph249, label %..critedge4_crit_edge, !llvm.loop !42
 
-.critedge4:                                       ; preds = %100, %.lr.ph249, %.lr.ph249.preheader
-  %104 = phi i32 [ %77, %.lr.ph249.preheader ], [ %101, %.lr.ph249 ], [ %101, %100 ]
+..critedge4_crit_edge:                            ; preds = %100
+  br label %.critedge4, !llvm.loop !42
+
+.critedge4:                                       ; preds = %.lr.ph249, %..critedge4_crit_edge, %.lr.ph249.preheader
+  %104 = phi i32 [ %101, %..critedge4_crit_edge ], [ %77, %.lr.ph249.preheader ], [ %101, %.lr.ph249 ]
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %.lr.ph252.preheader, label %.critedge
 
@@ -796,10 +802,16 @@ define i32 @Ga2_ManMarkup(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   %117 = load i32, ptr %9, align 8, !tbaa !39
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next278, %118
-  br i1 %119, label %.lr.ph252, label %.critedge, !llvm.loop !43
+  br i1 %119, label %.lr.ph252, label %..critedge.loopexit_crit_edge, !llvm.loop !43
 
-.critedge:                                        ; preds = %.lr.ph, %.lr.ph306, %.lr.ph252, %116, %.lr.ph.preheader, %.lr.ph252.preheader, %.preheader, %.critedge2, %.preheader241, %.critedge4
-  %.val163287 = phi i32 [ %10, %.preheader241 ], [ %104, %.critedge4 ], [ %77, %.critedge2 ], [ %10, %.preheader ], [ %104, %.lr.ph252.preheader ], [ %10, %.lr.ph.preheader ], [ %117, %116 ], [ %117, %.lr.ph252 ], [ %19, %.lr.ph306 ], [ %19, %.lr.ph ]
+..critedge.loopexit_crit_edge:                    ; preds = %116
+  br label %.critedge, !llvm.loop !43
+
+..critedge.loopexit300_crit_edge:                 ; preds = %.lr.ph306
+  br label %.critedge, !llvm.loop !40
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph252, %.lr.ph.preheader, %..critedge.loopexit300_crit_edge, %.lr.ph252.preheader, %..critedge.loopexit_crit_edge, %.preheader, %.critedge2, %.preheader241, %.critedge4
+  %.val163287 = phi i32 [ %10, %.preheader241 ], [ %104, %.critedge4 ], [ %77, %.critedge2 ], [ %10, %.preheader ], [ %117, %..critedge.loopexit_crit_edge ], [ %104, %.lr.ph252.preheader ], [ %19, %..critedge.loopexit300_crit_edge ], [ %10, %.lr.ph.preheader ], [ %117, %.lr.ph252 ], [ %19, %.lr.ph ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %121 = load ptr, ptr %120, align 8, !tbaa !44
   %122 = icmp eq ptr %121, null
@@ -3295,7 +3307,7 @@ Vec_IntPush.exit.i:                               ; preds = %166, %Vec_IntGrow.e
 
 Vec_IntPush.exit..critedge.loopexit_crit_edge.i:  ; preds = %Vec_IntPush.exit.i
   %.pre319.pre.i = load ptr, ptr %0, align 8, !tbaa !68
-  br label %.critedge.loopexit.i
+  br label %.critedge.loopexit.i, !llvm.loop !141
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph.i, %Vec_IntPush.exit..critedge.loopexit_crit_edge.i
   %.pre319.i = phi ptr [ %.pre319.pre.i, %Vec_IntPush.exit..critedge.loopexit_crit_edge.i ], [ %109, %.lr.ph.i ]
@@ -4539,7 +4551,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 Vec_IntPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_IntPush.exit
   %.val3.i87.pre.pre.pre = load ptr, ptr %0, align 8, !tbaa !68
-  br label %.critedge
+  br label %.critedge, !llvm.loop !153
 
 .critedge:                                        ; preds = %75, %Vec_IntPush.exit..critedge.loopexit_crit_edge
   %.val3.i87.pre.pre = phi ptr [ %.val3.i87.pre.pre.pre, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ %76, %75 ]
@@ -4862,10 +4874,13 @@ define void @Ga2_ManAddToAbs(ptr noundef captures(none) %0, ptr noundef readonly
   %.val64 = load i32, ptr %3, align 4, !tbaa !8
   %40 = sext i32 %.val64 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %14, label %.critedge, !llvm.loop !154
+  br i1 %41, label %14, label %..critedge_crit_edge133, !llvm.loop !154
 
-.critedge:                                        ; preds = %39, %14, %.lr.ph
-  %.val6387 = phi i32 [ %.val6480, %.lr.ph ], [ %.val64, %14 ], [ %.val64, %39 ]
+..critedge_crit_edge133:                          ; preds = %39
+  br label %.critedge, !llvm.loop !154
+
+.critedge:                                        ; preds = %14, %..critedge_crit_edge133, %.lr.ph
+  %.val6387 = phi i32 [ %.val64, %..critedge_crit_edge133 ], [ %.val6480, %.lr.ph ], [ %.val64, %14 ]
   %42 = icmp sgt i32 %.val6387, 0
   br i1 %42, label %.lr.ph89, label %.critedge2
 
@@ -4955,10 +4970,13 @@ define void @Ga2_ManAddToAbs(ptr noundef captures(none) %0, ptr noundef readonly
   %.val63 = load i32, ptr %3, align 4, !tbaa !8
   %83 = sext i32 %.val63 to i64
   %84 = icmp slt i64 %indvars.iv.next103, %83
-  br i1 %84, label %47, label %.critedge2, !llvm.loop !157
+  br i1 %84, label %47, label %.critedge4..critedge2.loopexit_crit_edge, !llvm.loop !157
 
-.critedge2:                                       ; preds = %.critedge4, %47, %.lr.ph89, %2, %.critedge
-  %.val91124 = phi i32 [ %.val6387, %.critedge ], [ %.val6480, %2 ], [ %.val6387, %.lr.ph89 ], [ %.val63, %47 ], [ %.val63, %.critedge4 ]
+.critedge4..critedge2.loopexit_crit_edge:         ; preds = %.critedge4
+  br label %.critedge2, !llvm.loop !157
+
+.critedge2:                                       ; preds = %47, %.lr.ph89, %.critedge4..critedge2.loopexit_crit_edge, %2, %.critedge
+  %.val91124 = phi i32 [ %.val6387, %.critedge ], [ %.val6480, %2 ], [ %.val63, %.critedge4..critedge2.loopexit_crit_edge ], [ %.val6387, %.lr.ph89 ], [ %.val63, %47 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !69
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 120
@@ -5104,10 +5122,13 @@ Vec_IntFillExtra.exit:                            ; preds = %92, %._crit_edge.i
   %.val = load i32, ptr %3, align 4, !tbaa !8
   %146 = sext i32 %.val to i64
   %147 = icmp slt i64 %indvars.iv.next106, %146
-  br i1 %147, label %.lr.ph93, label %.critedge6, !llvm.loop !160
+  br i1 %147, label %.lr.ph93, label %..critedge6.loopexit_crit_edge, !llvm.loop !160
 
-.critedge6:                                       ; preds = %.lr.ph93, %.lr.ph145, %.lr.ph93.preheader, %Vec_IntFillExtra.exit
-  %.val91120 = phi i32 [ %.val91, %Vec_IntFillExtra.exit ], [ %.val91, %.lr.ph93.preheader ], [ %.val, %.lr.ph145 ], [ %.val, %.lr.ph93 ]
+..critedge6.loopexit_crit_edge:                   ; preds = %.lr.ph145
+  br label %.critedge6, !llvm.loop !160
+
+.critedge6:                                       ; preds = %.lr.ph93, %.lr.ph93.preheader, %..critedge6.loopexit_crit_edge, %Vec_IntFillExtra.exit
+  %.val91120 = phi i32 [ %.val91, %Vec_IntFillExtra.exit ], [ %.val, %..critedge6.loopexit_crit_edge ], [ %.val91, %.lr.ph93.preheader ], [ %.val, %.lr.ph93 ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %148 = load ptr, ptr %85, align 8, !tbaa !69
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 120

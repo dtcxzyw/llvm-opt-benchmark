@@ -2075,7 +2075,7 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
   %.pre = zext i32 %73 to i64
-  br label %.loopexit28
+  br label %.loopexit28, !llvm.loop !28
 
 .loopexit28:                                      ; preds = %39, %77, %.loopexit._crit_edge, %.loopexit23, %13, %2
   %93 = phi i64 [ 0, %2 ], [ 0, %13 ], [ 0, %.loopexit23 ], [ %.pre, %.loopexit._crit_edge ], [ %74, %77 ], [ 0, %39 ]

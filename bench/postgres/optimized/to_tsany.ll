@@ -1109,12 +1109,15 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %91 = add nsw i32 %.26289, 1
   %92 = load i32, ptr %10, align 4
   %93 = icmp slt i32 %91, %92
-  br i1 %93, label %.lr.ph63, label %.critedge2, !llvm.loop !10
+  br i1 %93, label %.lr.ph63, label %..critedge2.loopexit_crit_edge, !llvm.loop !10
 
-.critedge2:                                       ; preds = %.lr.ph63, %90, %.lr.ph91, %.lr.ph63.preheader, %52
-  %94 = phi i32 [ %44, %52 ], [ %44, %.lr.ph63.preheader ], [ %72, %.lr.ph91 ], [ %92, %90 ], [ %92, %.lr.ph63 ]
-  %95 = phi i32 [ %45, %52 ], [ %45, %.lr.ph63.preheader ], [ %71, %.lr.ph91 ], [ %92, %90 ], [ %92, %.lr.ph63 ]
-  %.2.lcssa = phi i32 [ %.170, %52 ], [ %.170, %.lr.ph63.preheader ], [ %.26289, %.lr.ph91 ], [ %91, %90 ], [ %91, %.lr.ph63 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %90
+  br label %.critedge2, !llvm.loop !10
+
+.critedge2:                                       ; preds = %.lr.ph63, %.lr.ph91, %.lr.ph63.preheader, %..critedge2.loopexit_crit_edge, %52
+  %94 = phi i32 [ %44, %52 ], [ %92, %..critedge2.loopexit_crit_edge ], [ %44, %.lr.ph63.preheader ], [ %72, %.lr.ph91 ], [ %92, %.lr.ph63 ]
+  %95 = phi i32 [ %45, %52 ], [ %92, %..critedge2.loopexit_crit_edge ], [ %45, %.lr.ph63.preheader ], [ %71, %.lr.ph91 ], [ %92, %.lr.ph63 ]
+  %.2.lcssa = phi i32 [ %.170, %52 ], [ %91, %..critedge2.loopexit_crit_edge ], [ %.170, %.lr.ph63.preheader ], [ %.26289, %.lr.ph91 ], [ %91, %.lr.ph63 ]
   %.not56 = icmp eq i32 %.05069, 0
   br i1 %.not56, label %97, label %96
 

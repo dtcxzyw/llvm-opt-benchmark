@@ -13700,11 +13700,14 @@ define hidden void @_ZN23OuterStripMinedLoopNode15fix_sunk_storesEP18CountedLoop
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
   %.not = icmp eq ptr %49, %5
-  br i1 %.not, label %39, label %._crit_edge124, !llvm.loop !31
+  br i1 %.not, label %39, label %._crit_edge126, !llvm.loop !31
 
-._crit_edge124:                                   ; preds = %.lr.ph123, %39, %26
-  %.070.lcssa = phi ptr [ %21, %26 ], [ %.070121, %.lr.ph123 ], [ %46, %39 ]
-  %.lcssa = phi ptr [ %34, %26 ], [ %46, %.lr.ph123 ], [ %41, %39 ]
+._crit_edge126:                                   ; preds = %.lr.ph123
+  br label %._crit_edge124, !llvm.loop !31
+
+._crit_edge124:                                   ; preds = %39, %._crit_edge126, %26
+  %.070.lcssa = phi ptr [ %.070121, %._crit_edge126 ], [ %21, %26 ], [ %46, %39 ]
+  %.lcssa = phi ptr [ %46, %._crit_edge126 ], [ %34, %26 ], [ %41, %39 ]
   br label %50
 
 50:                                               ; preds = %._crit_edge, %._crit_edge124

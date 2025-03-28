@@ -290,7 +290,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 
 .thread25..thread19.split.us_crit_edge:           ; preds = %.thread25
   %.pre35 = load i64, ptr @__cpu_possible_mask, align 8
-  br label %.thread19.split.us
+  br label %.thread19.split.us, !llvm.loop !14
 
 .thread19.split.us:                               ; preds = %33, %.thread, %.thread25..thread19.split.us_crit_edge
   %134 = phi i64 [ %.pre35, %.thread25..thread19.split.us_crit_edge ], [ %29, %.thread ], [ %29, %33 ]

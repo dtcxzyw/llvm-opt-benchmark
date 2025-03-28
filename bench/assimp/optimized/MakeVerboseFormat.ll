@@ -620,7 +620,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit191:          ; preds = %_ZNK6aiMesh15HasVer
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit191._ZNK6aiMesh15HasVertexColorsEj.exit194.thread_crit_edge: ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit191
   %.pre300 = load ptr, ptr %119, align 8
-  br label %_ZNK6aiMesh15HasVertexColorsEj.exit194.thread
+  br label %_ZNK6aiMesh15HasVertexColorsEj.exit194.thread, !llvm.loop !23
 
 _ZNK6aiMesh15HasVertexColorsEj.exit194.thread:    ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit194, %_ZNK6aiMesh16HasTextureCoordsEj.exit191._ZNK6aiMesh15HasVertexColorsEj.exit194.thread_crit_edge
   %231 = phi ptr [ %.pre300, %_ZNK6aiMesh16HasTextureCoordsEj.exit191._ZNK6aiMesh15HasVertexColorsEj.exit194.thread_crit_edge ], [ %.pre301, %_ZNK6aiMesh15HasVertexColorsEj.exit194 ]

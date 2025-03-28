@@ -33543,7 +33543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190: ; preds = %_Z
 
 ..critedge.loopexit_crit_edge:                    ; preds = %257
   %.pre287.pre = load ptr, ptr %13, align 8, !tbaa !637
-  br label %.critedge
+  br label %.critedge, !llvm.loop !644
 
 .lr.ph281:                                        ; preds = %.critedge, %.lr.ph281
   %.sroa.0205.4280 = phi ptr [ %260, %.lr.ph281 ], [ %.sroa.0205.0.lcssa, %.critedge ]

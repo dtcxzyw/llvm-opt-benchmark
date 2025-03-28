@@ -286,13 +286,16 @@ define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef 
   %38 = add nuw nsw i32 %.1120148167, 1
   %.2 = add i32 %.2152164, 1
   %39 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.2, i32 noundef 1)
-  br i1 %39, label %24, label %.critedge, !llvm.loop !6
+  br i1 %39, label %24, label %..critedge.loopexit_crit_edge172, !llvm.loop !6
 
-.critedge:                                        ; preds = %24, %.lr.ph168, %.lr.ph, %.preheader
-  %.1120.lcssa = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %38, %.lr.ph168 ], [ %38, %24 ]
-  %.2.in.lcssa = phi i32 [ %.0114, %.preheader ], [ %.0114, %.lr.ph ], [ %.2152164, %.lr.ph168 ], [ %.2152164, %24 ]
-  %.1.lcssa = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph ], [ %37, %.lr.ph168 ], [ %37, %24 ]
-  %.2.lcssa = phi i32 [ %.2147, %.preheader ], [ %.2147, %.lr.ph ], [ %.2, %.lr.ph168 ], [ %.2, %24 ]
+..critedge.loopexit_crit_edge172:                 ; preds = %.lr.ph168
+  br label %.critedge, !llvm.loop !6
+
+.critedge:                                        ; preds = %24, %.lr.ph, %..critedge.loopexit_crit_edge172, %.preheader
+  %.1120.lcssa = phi i32 [ 1, %.preheader ], [ %38, %..critedge.loopexit_crit_edge172 ], [ 1, %.lr.ph ], [ %38, %24 ]
+  %.2.in.lcssa = phi i32 [ %.0114, %.preheader ], [ %.2152164, %..critedge.loopexit_crit_edge172 ], [ %.0114, %.lr.ph ], [ %.2152164, %24 ]
+  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %37, %..critedge.loopexit_crit_edge172 ], [ 0, %.lr.ph ], [ %37, %24 ]
+  %.2.lcssa = phi i32 [ %.2147, %.preheader ], [ %.2, %..critedge.loopexit_crit_edge172 ], [ %.2147, %.lr.ph ], [ %.2, %24 ]
   %40 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2.lcssa)
   %41 = icmp eq i8 %40, 62
   %42 = add i32 %.2.in.lcssa, 2

@@ -881,7 +881,7 @@ hex_char_to_num.exit319..thread326_crit_edge:     ; preds = %hex_char_to_num.exi
   %.pre367 = load i32, ptr %12, align 4, !tbaa !51
   %.pre370 = and i32 %.pre366, 8
   %282 = icmp ne i32 %.pre370, 0
-  br label %.thread326
+  br label %.thread326, !llvm.loop !83
 
 283:                                              ; preds = %219
   %284 = load i8, ptr %164, align 2, !tbaa !84

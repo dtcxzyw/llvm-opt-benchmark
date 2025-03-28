@@ -29526,10 +29526,13 @@ switch.lookup:                                    ; preds = %88
   %97 = load i32, ptr %65, align 8
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %74, label %._crit_edge, !llvm.loop !154
+  br i1 %99, label %74, label %.._crit_edge.loopexit_crit_edge259, !llvm.loop !154
 
-._crit_edge:                                      ; preds = %74, %93, %.lr.ph, %64
-  %100 = phi i32 [ %66, %64 ], [ %66, %.lr.ph ], [ %97, %93 ], [ %97, %74 ]
+.._crit_edge.loopexit_crit_edge259:               ; preds = %93
+  br label %._crit_edge, !llvm.loop !154
+
+._crit_edge:                                      ; preds = %74, %.lr.ph, %.._crit_edge.loopexit_crit_edge259, %64
+  %100 = phi i32 [ %66, %64 ], [ %97, %.._crit_edge.loopexit_crit_edge259 ], [ %66, %.lr.ph ], [ %97, %74 ]
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 106
   %102 = load i8, ptr %101, align 2, !range !7, !noundef !8
   %103 = trunc nuw i8 %102 to i1

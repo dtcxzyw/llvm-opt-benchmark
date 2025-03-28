@@ -6955,11 +6955,14 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %first, align 8
   %tobool.not = icmp eq ptr %5, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !138
+  br i1 %tobool.not, label %for.body.for.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !138
 
-for.end:                                          ; preds = %for.body, %land.rhs, %land.rhs.preheader, %entry
-  %8 = phi ptr [ %.pre10, %entry ], [ %.pre10, %land.rhs.preheader ], [ %7, %land.rhs ], [ %7, %for.body ]
-  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %this, %land.rhs.preheader ], [ %pNode.0812, %land.rhs ], [ %pNode.0812, %for.body ]
+for.body.for.end.loopexit_crit_edge:              ; preds = %for.body
+  br label %for.end, !llvm.loop !138
+
+for.end:                                          ; preds = %land.rhs, %land.rhs.preheader, %for.body.for.end.loopexit_crit_edge, %entry
+  %8 = phi ptr [ %.pre10, %entry ], [ %7, %for.body.for.end.loopexit_crit_edge ], [ %.pre10, %land.rhs.preheader ], [ %7, %land.rhs ]
+  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %pNode.0812, %for.body.for.end.loopexit_crit_edge ], [ %this, %land.rhs.preheader ], [ %pNode.0812, %land.rhs ]
   %9 = load ptr, ptr %last, align 8
   %cmp.i5 = icmp eq ptr %8, %9
   br i1 %cmp.i5, label %if.then, label %for.body.lr.ph.i.i
@@ -7784,11 +7787,14 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %first, align 8
   %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !144
+  br i1 %tobool.not, label %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !144
 
-for.end:                                          ; preds = %_ZN10TestObjectaSERKS_.exit, %land.rhs, %land.rhs.preheader, %entry
-  %11 = phi ptr [ %.pre11, %entry ], [ %.pre11, %land.rhs.preheader ], [ %10, %land.rhs ], [ %10, %_ZN10TestObjectaSERKS_.exit ]
-  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %this, %land.rhs.preheader ], [ %pNode.0913, %land.rhs ], [ %pNode.0913, %_ZN10TestObjectaSERKS_.exit ]
+_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge: ; preds = %_ZN10TestObjectaSERKS_.exit
+  br label %for.end, !llvm.loop !144
+
+for.end:                                          ; preds = %land.rhs, %land.rhs.preheader, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, %entry
+  %11 = phi ptr [ %.pre11, %entry ], [ %10, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %.pre11, %land.rhs.preheader ], [ %10, %land.rhs ]
+  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %pNode.0913, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %this, %land.rhs.preheader ], [ %pNode.0913, %land.rhs ]
   %12 = load ptr, ptr %last, align 8
   %cmp.i5 = icmp eq ptr %11, %12
   br i1 %cmp.i5, label %if.then, label %for.body.lr.ph.i.i
@@ -8138,11 +8144,14 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %first, align 8
   %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !148
+  br i1 %tobool.not, label %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !148
 
-for.end:                                          ; preds = %_ZN10TestObjectaSERKS_.exit, %land.rhs, %land.rhs.preheader, %entry
-  %11 = phi ptr [ %.pre11, %entry ], [ %.pre11, %land.rhs.preheader ], [ %10, %land.rhs ], [ %10, %_ZN10TestObjectaSERKS_.exit ]
-  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %this, %land.rhs.preheader ], [ %pNode.0913, %land.rhs ], [ %pNode.0913, %_ZN10TestObjectaSERKS_.exit ]
+_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge: ; preds = %_ZN10TestObjectaSERKS_.exit
+  br label %for.end, !llvm.loop !148
+
+for.end:                                          ; preds = %land.rhs, %land.rhs.preheader, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, %entry
+  %11 = phi ptr [ %.pre11, %entry ], [ %10, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %.pre11, %land.rhs.preheader ], [ %10, %land.rhs ]
+  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %pNode.0913, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %this, %land.rhs.preheader ], [ %pNode.0913, %land.rhs ]
   %12 = load ptr, ptr %last, align 8
   %cmp.i5 = icmp eq ptr %11, %12
   br i1 %cmp.i5, label %if.then, label %for.body.lr.ph.i.i

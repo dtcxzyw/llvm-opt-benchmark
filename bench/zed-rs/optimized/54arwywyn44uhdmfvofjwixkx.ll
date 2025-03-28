@@ -13194,11 +13194,11 @@ define noundef zeroext i1 @"_ZN61_$LT$tab_switcher..Toggle$u20$as$u20$gpui..acti
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !549, !alias.scope !3076, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !549, !noalias !3076, !noundef !4
-  %.not.i.i = icmp eq i8 %16, %.val5.i
+  %17 = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfc5a650c1c5835f1E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hfc5a650c1c5835f1E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 

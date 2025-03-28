@@ -1026,12 +1026,15 @@ lor.rhs:                                          ; preds = %_ZL22optimizeStatic
   store i32 1, ptr %Size.i.i.i.i.i.i6, align 8
   br label %while.body.i8
 
+for.cond.while.condthread-pre-split.loopexit_crit_edge.i: ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i
+  br label %while.condthread-pre-split.i, !llvm.loop !21
+
 while.condthread-pre-splitthread-pre-split.i:     ; preds = %for.body.i.i.i, %_ZN6hermes10successorsEPNS_10BasicBlockE.exit.i, %if.end.i40, %_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i
   %.pr.pr.i = load i32, ptr %Size.i.i.i.i.i.i6, align 8
   br label %while.condthread-pre-split.i
 
-while.condthread-pre-split.i:                     ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i, %while.condthread-pre-splitthread-pre-split.i
-  %.pr.i = phi i32 [ %.pr.pr.i, %while.condthread-pre-splitthread-pre-split.i ], [ %add.i21.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i ]
+while.condthread-pre-split.i:                     ; preds = %while.condthread-pre-splitthread-pre-split.i, %for.cond.while.condthread-pre-split.loopexit_crit_edge.i
+  %.pr.i = phi i32 [ %.pr.pr.i, %while.condthread-pre-splitthread-pre-split.i ], [ %add.i21.i, %for.cond.while.condthread-pre-split.loopexit_crit_edge.i ]
   %tobool.not.i.i10 = icmp eq i32 %.pr.i, 0
   br i1 %tobool.not.i.i10, label %while.end.i11, label %while.body.i8
 
@@ -1044,59 +1047,59 @@ while.body.i8:                                    ; preds = %while.condthread-pr
   %133 = load ptr, ptr %arrayidx.i.i.i, align 8
   %sub.i.i.i = add i32 %131, -1
   store i32 %sub.i.i.i, ptr %Size.i.i.i.i.i.i6, align 8
-  %134 = load ptr, ptr %CurArray.i.i.i.i, align 8, !noalias !21
-  %135 = load ptr, ptr %visited.i, align 8, !noalias !21
+  %134 = load ptr, ptr %CurArray.i.i.i.i, align 8, !noalias !22
+  %135 = load ptr, ptr %visited.i, align 8, !noalias !22
   %cmp.i.i.i.i = icmp eq ptr %134, %135
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i45, label %_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i46, label %_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i
 
-if.then.i.i.i45:                                  ; preds = %while.body.i8
-  %136 = load i32, ptr %NumNonEmpty.i.i.i.i, align 4, !noalias !21
+if.then.i.i.i46:                                  ; preds = %while.body.i8
+  %136 = load i32, ptr %NumNonEmpty.i.i.i.i, align 4, !noalias !22
   %idx.ext.i.i.i = zext i32 %136 to i64
   %add.ptr.i.i7.i = getelementptr inbounds nuw ptr, ptr %135, i64 %idx.ext.i.i.i
   %cmp.not26.i.i.i = icmp eq i32 %136, 0
   br i1 %cmp.not26.i.i.i, label %if.end16.i.i.i, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %if.then.i.i.i45, %if.end.i.i.i
-  %LastTombstone.028.i.i.i = phi ptr [ %spec.select.i.i.i46, %if.end.i.i.i ], [ null, %if.then.i.i.i45 ]
-  %APtr.027.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %135, %if.then.i.i.i45 ]
-  %137 = load ptr, ptr %APtr.027.i.i.i, align 8, !noalias !21
+for.body.i.i.i:                                   ; preds = %if.then.i.i.i46, %if.end.i.i.i
+  %LastTombstone.028.i.i.i = phi ptr [ %spec.select.i.i.i47, %if.end.i.i.i ], [ null, %if.then.i.i.i46 ]
+  %APtr.027.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %135, %if.then.i.i.i46 ]
+  %137 = load ptr, ptr %APtr.027.i.i.i, align 8, !noalias !22
   %cmp3.i.i.i = icmp eq ptr %137, %133
   br i1 %cmp3.i.i.i, label %while.condthread-pre-splitthread-pre-split.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %cmp8.i.i.i = icmp eq ptr %137, inttoptr (i64 -2 to ptr)
-  %spec.select.i.i.i46 = select i1 %cmp8.i.i.i, ptr %APtr.027.i.i.i, ptr %LastTombstone.028.i.i.i
+  %spec.select.i.i.i47 = select i1 %cmp8.i.i.i, ptr %APtr.027.i.i.i, ptr %LastTombstone.028.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %APtr.027.i.i.i, i64 8
-  %cmp.not.i.i.i47 = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i7.i
-  br i1 %cmp.not.i.i.i47, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !12
+  %cmp.not.i.i.i48 = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i7.i
+  br i1 %cmp.not.i.i.i48, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !12
 
 for.end.i.i.i:                                    ; preds = %if.end.i.i.i
-  %cmp11.not.i.i.i = icmp eq ptr %spec.select.i.i.i46, null
+  %cmp11.not.i.i.i = icmp eq ptr %spec.select.i.i.i47, null
   br i1 %cmp11.not.i.i.i, label %if.end16.i.i.i, label %if.then12.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %for.end.i.i.i
-  store ptr %133, ptr %spec.select.i.i.i46, align 8, !noalias !21
-  %138 = load i32, ptr %NumTombstones.i.i.i.i, align 8, !noalias !21
+  store ptr %133, ptr %spec.select.i.i.i47, align 8, !noalias !22
+  %138 = load i32, ptr %NumTombstones.i.i.i.i, align 8, !noalias !22
   %dec.i.i.i = add i32 %138, -1
-  store i32 %dec.i.i.i, ptr %NumTombstones.i.i.i.i, align 8, !noalias !21
+  store i32 %dec.i.i.i, ptr %NumTombstones.i.i.i.i, align 8, !noalias !22
   br label %if.end.i40
 
-if.end16.i.i.i:                                   ; preds = %for.end.i.i.i, %if.then.i.i.i45
-  %139 = load i32, ptr %CurArraySize.i.i.i.i, align 8, !noalias !21
+if.end16.i.i.i:                                   ; preds = %for.end.i.i.i, %if.then.i.i.i46
+  %139 = load i32, ptr %CurArraySize.i.i.i.i, align 8, !noalias !22
   %cmp18.i.i.i = icmp ult i32 %136, %139
   br i1 %cmp18.i.i.i, label %if.then19.i.i.i, label %_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i
 
 if.then19.i.i.i:                                  ; preds = %if.end16.i.i.i
   %inc.i.i.i = add nuw i32 %136, 1
-  store i32 %inc.i.i.i, ptr %NumNonEmpty.i.i.i.i, align 4, !noalias !21
-  store ptr %133, ptr %add.ptr.i.i7.i, align 8, !noalias !21
+  store i32 %inc.i.i.i, ptr %NumNonEmpty.i.i.i.i, align 4, !noalias !22
+  store ptr %133, ptr %add.ptr.i.i7.i, align 8, !noalias !22
   br label %if.end.i40
 
 _ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i: ; preds = %while.body.i8, %if.end16.i.i.i
-  %call32.i.i.i = call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %visited.i, ptr noundef %133) #9, !noalias !21
+  %call32.i.i.i = call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %visited.i, ptr noundef %133) #9, !noalias !22
   %140 = extractvalue { ptr, i8 } %call32.i.i.i, 1
   %141 = trunc i8 %140 to i1
-  br i1 %141, label %if.end.i40, label %while.condthread-pre-splitthread-pre-split.i, !llvm.loop !24
+  br i1 %141, label %if.end.i40, label %while.condthread-pre-splitthread-pre-split.i, !llvm.loop !21
 
 if.end.i40:                                       ; preds = %if.then12.i.i.i, %if.then19.i.i.i, %_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i
   %call.i.i.i41 = call noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80) %133) #9, !noalias !25
@@ -1107,34 +1110,37 @@ if.end.i40:                                       ; preds = %if.then12.i.i.i, %i
 _ZN6hermes10successorsEPNS_10BasicBlockE.exit.i:  ; preds = %if.end.i40
   %call.i.i.i.i = call noundef i32 @_ZNK6hermes14TerminatorInst16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(132) %call.i2.i.i) #9, !noalias !25
   %cmp.i.i.not56.i = icmp eq i32 %call.i.i.i.i, 0
-  br i1 %cmp.i.i.not56.i, label %while.condthread-pre-splitthread-pre-split.i, label %for.body.i42, !llvm.loop !24
+  br i1 %cmp.i.i.not56.i, label %while.condthread-pre-splitthread-pre-split.i, label %for.body.lr.ph.i42, !llvm.loop !21
 
-for.body.i42:                                     ; preds = %_ZN6hermes10successorsEPNS_10BasicBlockE.exit.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i
-  %__begin2.sroa.2.057.i = phi i32 [ %add.i.i.i44, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i ], [ 0, %_ZN6hermes10successorsEPNS_10BasicBlockE.exit.i ]
-  %call.i.i43 = call noundef ptr @_ZNK6hermes14TerminatorInst12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(132) %call.i.i.i41, i32 noundef %__begin2.sroa.2.057.i) #9
+for.body.lr.ph.i42:                               ; preds = %_ZN6hermes10successorsEPNS_10BasicBlockE.exit.i
+  br label %for.body.i43, !llvm.loop !21
+
+for.body.i43:                                     ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i, %for.body.lr.ph.i42
+  %__begin2.sroa.2.057.i = phi i32 [ 0, %for.body.lr.ph.i42 ], [ %add.i.i.i45, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i ]
+  %call.i.i44 = call noundef ptr @_ZNK6hermes14TerminatorInst12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(132) %call.i.i.i41, i32 noundef %__begin2.sroa.2.057.i) #9
   %142 = load i32, ptr %Size.i.i.i.i.i.i6, align 8
   %143 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.not.i15.i = icmp ult i32 %142, %143
   br i1 %cmp.not.i15.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i, label %if.then.i16.i
 
-if.then.i16.i:                                    ; preds = %for.body.i42
+if.then.i16.i:                                    ; preds = %for.body.i43
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %workList.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i5, i64 noundef 0, i64 noundef 8) #9
   %.pre.i18.i = load i32, ptr %Size.i.i.i.i.i.i6, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i
 
-_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i: ; preds = %if.then.i16.i, %for.body.i42
-  %144 = phi i32 [ %.pre.i18.i, %if.then.i16.i ], [ %142, %for.body.i42 ]
+_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit22.i: ; preds = %if.then.i16.i, %for.body.i43
+  %144 = phi i32 [ %.pre.i18.i, %if.then.i16.i ], [ %142, %for.body.i43 ]
   %145 = load ptr, ptr %workList.i, align 8
   %conv.i3.i19.i = zext i32 %144 to i64
   %add.ptr.i.i20.i = getelementptr inbounds nuw ptr, ptr %145, i64 %conv.i3.i19.i
-  %146 = ptrtoint ptr %call.i.i43 to i64
+  %146 = ptrtoint ptr %call.i.i44 to i64
   store i64 %146, ptr %add.ptr.i.i20.i, align 1
   %147 = load i32, ptr %Size.i.i.i.i.i.i6, align 8
   %add.i21.i = add i32 %147, 1
   store i32 %add.i21.i, ptr %Size.i.i.i.i.i.i6, align 8
-  %add.i.i.i44 = add nuw nsw i32 %__begin2.sroa.2.057.i, 1
-  %cmp.i.i.not.i = icmp eq i32 %add.i.i.i44, %call.i.i.i.i
-  br i1 %cmp.i.i.not.i, label %while.condthread-pre-split.i, label %for.body.i42, !llvm.loop !24
+  %add.i.i.i45 = add nuw nsw i32 %__begin2.sroa.2.057.i, 1
+  %cmp.i.i.not.i = icmp eq i32 %add.i.i.i45, %call.i.i.i.i
+  br i1 %cmp.i.i.not.i, label %for.cond.while.condthread-pre-split.loopexit_crit_edge.i, label %for.body.i43, !llvm.loop !21
 
 while.end.i11:                                    ; preds = %while.condthread-pre-split.i
   %.pre.i = load ptr, ptr %Next.i.i.i.i.i.i, align 8
@@ -1604,10 +1610,10 @@ attributes #11 = { builtin nounwind }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_: %agg.result"}
-!23 = distinct !{!23, !"_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_"}
-!24 = distinct !{!24, !5}
+!21 = distinct !{!21, !5}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_: %agg.result"}
+!24 = distinct !{!24, !"_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_"}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZN6hermes10successorsEPNS_10BasicBlockE: %agg.result"}
 !27 = distinct !{!27, !"_ZN6hermes10successorsEPNS_10BasicBlockE"}

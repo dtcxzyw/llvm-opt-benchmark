@@ -2920,11 +2920,14 @@ _ZNK3nla7emonics18is_canonical_monicEj.exit.thread: ; preds = %68, %_ZNK10union_
   %122 = zext i32 %121 to i64
   %123 = urem i64 %122, %97
   %.not19.i.i.i = icmp eq i64 %123, %98
-  br i1 %.not19.i.i.i, label %116, label %.critedge.i, !llvm.loop !114
+  br i1 %.not19.i.i.i, label %116, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !114
 
-.critedge.i:                                      ; preds = %119, %.lr.ph.i.i.i, %107, %.thread37.i
-  %124 = phi i64 [ %110, %107 ], [ %98, %.thread37.i ], [ %98, %.lr.ph.i.i.i ], [ %98, %119 ]
-  %125 = phi i64 [ %108, %107 ], [ %96, %.thread37.i ], [ %96, %.lr.ph.i.i.i ], [ %96, %119 ]
+..loopexit_crit_edge21.i.i.i:                     ; preds = %119
+  br label %.critedge.i, !llvm.loop !114
+
+.critedge.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %107, %.thread37.i
+  %124 = phi i64 [ %110, %107 ], [ %98, %.thread37.i ], [ %98, %..loopexit_crit_edge21.i.i.i ], [ %98, %.lr.ph.i.i.i ]
+  %125 = phi i64 [ %108, %107 ], [ %96, %.thread37.i ], [ %96, %..loopexit_crit_edge21.i.i.i ], [ %96, %.lr.ph.i.i.i ]
   %126 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
           to label %.noexc77 unwind label %139
 
@@ -8758,12 +8761,15 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_Identity
   %40 = zext i32 %39 to i64
   %41 = urem i64 %40, %10
   %.not19.i.i = icmp eq i64 %41, %11
-  br i1 %.not19.i.i, label %34, label %.critedge, !llvm.loop !114
+  br i1 %.not19.i.i, label %34, label %..loopexit_crit_edge21.i.i, !llvm.loop !114
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %37, %24, %.thread37
-  %42 = phi i64 [ %28, %24 ], [ %11, %.thread37 ], [ %11, %37 ], [ %11, %.lr.ph.i.i ]
-  %43 = phi i64 [ %25, %24 ], [ %8, %.thread37 ], [ %8, %37 ], [ %8, %.lr.ph.i.i ]
-  %44 = phi i32 [ %17, %24 ], [ %7, %.thread37 ], [ %7, %37 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %37
+  br label %.critedge, !llvm.loop !114
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread37
+  %42 = phi i64 [ %28, %24 ], [ %11, %.thread37 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %43 = phi i64 [ %25, %24 ], [ %8, %.thread37 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %44 = phi i32 [ %17, %24 ], [ %7, %.thread37 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr null, ptr %45, align 8, !tbaa !109
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8

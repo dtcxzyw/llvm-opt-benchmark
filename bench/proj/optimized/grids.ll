@@ -1019,7 +1019,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS
   %.sroa.06.0.in.i.i = phi ptr [ %8, %7 ], [ %.sroa.06.0.i.i, %11 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !47
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, null
-  br i1 %.not.i.i, label %.loopexit23, label %11
+  br i1 %.not.i.i, label %.loopexit24, label %11
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
@@ -1036,7 +1036,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !52
   %.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i, label %.loopexit23, label %23
+  br i1 %.not.i.i.i.i, label %.loopexit24, label %23
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr %22, align 8, !tbaa !47
@@ -1053,14 +1053,17 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS
   %.020.i.i.i.i = phi ptr [ %30, %28 ], [ %24, %23 ]
   %30 = load ptr, ptr %.020.i.i.i.i, align 8, !tbaa !47
   %.not18.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not18.i.i.i.i, label %.loopexit23, label %31
+  br i1 %.not18.i.i.i.i, label %.loopexit24, label %31
 
 31:                                               ; preds = %.lr.ph.i.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !29
   %34 = urem i64 %33, %18
   %.not19.i.i.i.i = icmp eq i64 %34, %19
-  br i1 %.not19.i.i.i.i, label %28, label %.loopexit23, !llvm.loop !53
+  br i1 %.not19.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !53
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %31
+  br label %.loopexit24, !llvm.loop !53
 
 _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit: ; preds = %28, %11, %23
   %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %11 ], [ %30, %28 ]
@@ -1081,7 +1084,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   tail call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %41, ptr noundef %42) #34
   br label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit
 
-.loopexit23:                                      ; preds = %31, %.lr.ph.i.i.i.i, %10, %15
+.loopexit24:                                      ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %47 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE13emplace_frontIJRKmRKS7_EEERS8_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %48 = load ptr, ptr %46, align 8, !tbaa !57
@@ -1095,7 +1098,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %.not.i.i.i.i9 = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i9, label %.loopexit.i.i, label %56
 
-56:                                               ; preds = %.loopexit23
+56:                                               ; preds = %.loopexit24
   %57 = load ptr, ptr %55, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !29
@@ -1117,9 +1120,12 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %66 = load i64, ptr %65, align 8, !tbaa !29
   %67 = urem i64 %66, %51
   %.not19.i.i.i.i13 = icmp eq i64 %67, %52
-  br i1 %.not19.i.i.i.i13, label %61, label %.loopexit.i.i, !llvm.loop !53
+  br i1 %.not19.i.i.i.i13, label %61, label %..loopexit_crit_edge21.i.i.i.i14, !llvm.loop !53
 
-.loopexit.i.i:                                    ; preds = %64, %.lr.ph.i.i.i.i10, %.loopexit23
+..loopexit_crit_edge21.i.i.i.i14:                 ; preds = %64
+  br label %.loopexit.i.i, !llvm.loop !53
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i10, %..loopexit_crit_edge21.i.i.i.i14, %.loopexit24
   %68 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #37
   store ptr null, ptr %68, align 8, !tbaa !47
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -1157,9 +1163,9 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
 .lr.ph.i:                                         ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %.noexc14
+  br label %.noexc15
 
-.noexc14:                                         ; preds = %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE8pop_backEv.exit.i, %.lr.ph.i
+.noexc15:                                         ; preds = %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE8pop_backEv.exit.i, %.lr.ph.i
   %84 = load ptr, ptr %82, align 8, !tbaa !71
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = tail call noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(8) %85)
@@ -1173,7 +1179,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE8pop_backEv.exit.i, label %92
 
-92:                                               ; preds = %.noexc14
+92:                                               ; preds = %.noexc15
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %94 = load ptr, ptr %93, align 8, !tbaa !76
   %95 = ptrtoint ptr %94 to i64
@@ -1182,12 +1188,12 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   tail call void @_ZdlPvm(ptr noundef nonnull %91, i64 noundef %97) #35
   br label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE8pop_backEv.exit.i
 
-_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE8pop_backEv.exit.i: ; preds = %92, %.noexc14
+_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE8pop_backEv.exit.i: ; preds = %92, %.noexc15
   tail call void @_ZdlPvm(ptr noundef nonnull %87, i64 noundef 48) #35
   %98 = load i64, ptr %5, align 8, !tbaa !40
   %99 = load i64, ptr %73, align 8, !tbaa !62
   %100 = icmp ugt i64 %98, %99
-  br i1 %100, label %.noexc14, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit, !llvm.loop !77
+  br i1 %100, label %.noexc15, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit, !llvm.loop !77
 
 _ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit: ; preds = %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE8pop_backEv.exit.i, %76, %.loopexit, %45, %_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit
   ret void
@@ -1259,7 +1265,10 @@ define hidden noundef ptr @_ZN5osgeo4proj14FloatLineCache3getEjj(ptr noundef non
   %35 = load i64, ptr %34, align 8, !tbaa !29
   %36 = urem i64 %35, %20
   %.not19.i.i.i.i.i = icmp eq i64 %36, %21
-  br i1 %.not19.i.i.i.i.i, label %30, label %_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit, !llvm.loop !53
+  br i1 %.not19.i.i.i.i.i, label %30, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !53
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %33
+  br label %_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit, !llvm.loop !53
 
 _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit.i: ; preds = %30, %13, %25
   %.sroa.06.1.i.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i.i, %13 ], [ %32, %30 ]
@@ -1283,8 +1292,8 @@ _ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   br label %_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit
 
-_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit: ; preds = %.lr.ph.i.i.i.i.i, %33, %12, %17, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i
-  %.0.i = phi ptr [ %46, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i ], [ null, %17 ], [ null, %12 ], [ null, %33 ], [ null, %.lr.ph.i.i.i.i.i ]
+_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit: ; preds = %.lr.ph.i.i.i.i.i, %12, %17, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i
+  %.0.i = phi ptr [ %46, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i ], [ null, %17 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %12 ], [ null, %.lr.ph.i.i.i.i.i ]
   ret ptr %.0.i
 }
 
@@ -1772,7 +1781,10 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj20GTXVerticalShiftGrid7valueAtE
   %36 = load i64, ptr %35, align 8, !tbaa !29
   %37 = urem i64 %36, %21
   %.not19.i.i.i.i.i.i = icmp eq i64 %37, %22
-  br i1 %.not19.i.i.i.i.i.i, label %31, label %.loopexit, !llvm.loop !53
+  br i1 %.not19.i.i.i.i.i.i, label %31, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !53
+
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %34
+  br label %.loopexit, !llvm.loop !53
 
 _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit.i.i: ; preds = %31, %14, %26
   %.sroa.06.1.i.i.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i.i.i, %14 ], [ %33, %31 ]
@@ -1791,7 +1803,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %.pre.i.i = load ptr, ptr %40, align 8, !tbaa !54
   br label %135
 
-.loopexit:                                        ; preds = %34, %.lr.ph.i.i.i.i.i.i, %13, %18
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %13, %18, %..loopexit_crit_edge21.i.i.i.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8, !tbaa !31
@@ -1813,7 +1825,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
 
 ._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge:    ; preds = %58
   %.pre = load i32, ptr %47, align 8, !tbaa !31
-  %.pre42 = sext i32 %.pre to i64
+  %.pre44 = sext i32 %.pre to i64
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 60:                                               ; preds = %.loopexit
@@ -1861,7 +1873,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
           to label %143 unwind label %144
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge, %64, %62, %60
-  %.pre-phi = phi i64 [ %.pre42, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge ], [ %49, %64 ], [ %49, %62 ], [ %49, %60 ]
+  %.pre-phi = phi i64 [ %.pre44, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge ], [ %49, %64 ], [ %49, %62 ], [ %49, %60 ]
   %82 = shl nsw i64 %.pre-phi, 2
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %84 = load ptr, ptr %83, align 8, !tbaa !80
@@ -1919,11 +1931,11 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br i1 %exitcond27.not.i, label %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit, label %.preheader.us.i, !llvm.loop !91
 
 _ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit:   ; preds = %._crit_edge.us.i
-  %.pre41 = load ptr, ptr %46, align 8, !tbaa !73
+  %.pre43 = load ptr, ptr %46, align 8, !tbaa !73
   br label %_ZN5osgeo4projL10swap_wordsEPvmm.exit
 
 _ZN5osgeo4projL10swap_wordsEPvmm.exit:            ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit, %100
-  %113 = phi ptr [ %.pre41, %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit ], [ %101, %100 ]
+  %113 = phi ptr [ %.pre43, %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit ], [ %101, %100 ]
   %114 = sext i32 %1 to i64
   %115 = getelementptr inbounds nuw float, ptr %113, i64 %114
   %116 = load float, ptr %115, align 4, !tbaa !38
@@ -2172,7 +2184,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS
   %.sroa.06.0.in.i.i = phi ptr [ %8, %7 ], [ %.sroa.06.0.i.i, %11 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !47
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, null
-  br i1 %.not.i.i, label %.loopexit23, label %11
+  br i1 %.not.i.i, label %.loopexit24, label %11
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
@@ -2189,7 +2201,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !52
   %.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i, label %.loopexit23, label %23
+  br i1 %.not.i.i.i.i, label %.loopexit24, label %23
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr %22, align 8, !tbaa !47
@@ -2206,14 +2218,17 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS
   %.020.i.i.i.i = phi ptr [ %30, %28 ], [ %24, %23 ]
   %30 = load ptr, ptr %.020.i.i.i.i, align 8, !tbaa !47
   %.not18.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not18.i.i.i.i, label %.loopexit23, label %31
+  br i1 %.not18.i.i.i.i, label %.loopexit24, label %31
 
 31:                                               ; preds = %.lr.ph.i.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !29
   %34 = urem i64 %33, %18
   %.not19.i.i.i.i = icmp eq i64 %34, %19
-  br i1 %.not19.i.i.i.i, label %28, label %.loopexit23, !llvm.loop !125
+  br i1 %.not19.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !125
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %31
+  br label %.loopexit24, !llvm.loop !125
 
 _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit: ; preds = %28, %11, %23
   %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %11 ], [ %30, %28 ]
@@ -2234,7 +2249,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   tail call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %41, ptr noundef %42) #34
   br label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit
 
-.loopexit23:                                      ; preds = %31, %.lr.ph.i.i.i.i, %10, %15
+.loopexit24:                                      ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %47 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE13emplace_frontIJRKmRKS7_EEERS8_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %48 = load ptr, ptr %46, align 8, !tbaa !57
@@ -2248,7 +2263,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %.not.i.i.i.i9 = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i9, label %.loopexit.i.i, label %56
 
-56:                                               ; preds = %.loopexit23
+56:                                               ; preds = %.loopexit24
   %57 = load ptr, ptr %55, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !29
@@ -2270,9 +2285,12 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %66 = load i64, ptr %65, align 8, !tbaa !29
   %67 = urem i64 %66, %51
   %.not19.i.i.i.i13 = icmp eq i64 %67, %52
-  br i1 %.not19.i.i.i.i13, label %61, label %.loopexit.i.i, !llvm.loop !125
+  br i1 %.not19.i.i.i.i13, label %61, label %..loopexit_crit_edge21.i.i.i.i14, !llvm.loop !125
 
-.loopexit.i.i:                                    ; preds = %64, %.lr.ph.i.i.i.i10, %.loopexit23
+..loopexit_crit_edge21.i.i.i.i14:                 ; preds = %64
+  br label %.loopexit.i.i, !llvm.loop !125
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i10, %..loopexit_crit_edge21.i.i.i.i14, %.loopexit24
   %68 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #37
   store ptr null, ptr %68, align 8, !tbaa !47
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -2310,9 +2328,9 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
 .lr.ph.i:                                         ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %.noexc14
+  br label %.noexc15
 
-.noexc14:                                         ; preds = %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE8pop_backEv.exit.i, %.lr.ph.i
+.noexc15:                                         ; preds = %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE8pop_backEv.exit.i, %.lr.ph.i
   %84 = load ptr, ptr %82, align 8, !tbaa !71
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = tail call noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(8) %85)
@@ -2326,7 +2344,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE8pop_backEv.exit.i, label %92
 
-92:                                               ; preds = %.noexc14
+92:                                               ; preds = %.noexc15
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %94 = load ptr, ptr %93, align 8, !tbaa !140
   %95 = ptrtoint ptr %94 to i64
@@ -2335,12 +2353,12 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   tail call void @_ZdlPvm(ptr noundef nonnull %91, i64 noundef %97) #35
   br label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE8pop_backEv.exit.i
 
-_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE8pop_backEv.exit.i: ; preds = %92, %.noexc14
+_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE8pop_backEv.exit.i: ; preds = %92, %.noexc15
   tail call void @_ZdlPvm(ptr noundef nonnull %87, i64 noundef 48) #35
   %98 = load i64, ptr %5, align 8, !tbaa !120
   %99 = load i64, ptr %73, align 8, !tbaa !130
   %100 = icmp ugt i64 %98, %99
-  br i1 %100, label %.noexc14, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit, !llvm.loop !141
+  br i1 %100, label %.noexc15, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit, !llvm.loop !141
 
 _ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit: ; preds = %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE8pop_backEv.exit.i, %76, %.loopexit, %45, %_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit
   ret void
@@ -2406,7 +2424,10 @@ define hidden noundef ptr @_ZN5osgeo4proj10BlockCache3getEjj(ptr noundef nonnull
   %35 = load i64, ptr %34, align 8, !tbaa !29
   %36 = urem i64 %35, %20
   %.not19.i.i.i.i.i = icmp eq i64 %36, %21
-  br i1 %.not19.i.i.i.i.i, label %30, label %_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit, !llvm.loop !125
+  br i1 %.not19.i.i.i.i.i, label %30, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !125
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %33
+  br label %_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit, !llvm.loop !125
 
 _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit.i: ; preds = %30, %13, %25
   %.sroa.06.1.i.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i.i, %13 ], [ %32, %30 ]
@@ -2430,8 +2451,8 @@ _ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   br label %_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit
 
-_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit: ; preds = %.lr.ph.i.i.i.i.i, %33, %12, %17, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i
-  %.0.i = phi ptr [ %46, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i ], [ null, %17 ], [ null, %12 ], [ null, %33 ], [ null, %.lr.ph.i.i.i.i.i ]
+_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit: ; preds = %.lr.ph.i.i.i.i.i, %12, %17, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i
+  %.0.i = phi ptr [ %46, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i ], [ null, %17 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %12 ], [ null, %.lr.ph.i.i.i.i.i ]
   ret ptr %.0.i
 }
 
@@ -4330,7 +4351,10 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid7valueAtEtiiRf(ptr no
   %94 = load i64, ptr %93, align 8, !tbaa !29
   %95 = urem i64 %94, %79
   %.not19.i.i.i.i.i.i = icmp eq i64 %95, %80
-  br i1 %.not19.i.i.i.i.i.i, label %89, label %.loopexit, !llvm.loop !125
+  br i1 %.not19.i.i.i.i.i.i, label %89, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !125
+
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %92
+  br label %.loopexit, !llvm.loop !125
 
 _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit.i.i: ; preds = %89, %72, %84
   %.sroa.06.1.i.i.i.i = phi ptr [ %85, %84 ], [ %.sroa.06.0.i.i.i.i, %72 ], [ %91, %89 ]
@@ -4354,7 +4378,7 @@ _ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   br label %_ZN5osgeo4proj10BlockCache3getEjj.exit
 
-.loopexit:                                        ; preds = %92, %.lr.ph.i.i.i.i.i.i, %71, %76
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %71, %76, %..loopexit_crit_edge21.i.i.i.i.i.i
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %107 = load ptr, ptr %106, align 8, !tbaa !165
   %108 = tail call i64 @TIFFCurrentDirOffset(ptr noundef %107)
@@ -10806,7 +10830,10 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj8NTv2Grid7valueAtEiibRfS2_(ptr 
   %43 = load i64, ptr %42, align 8, !tbaa !29
   %44 = urem i64 %43, %28
   %.not19.i.i.i.i.i.i = icmp eq i64 %44, %29
-  br i1 %.not19.i.i.i.i.i.i, label %38, label %.loopexit, !llvm.loop !53
+  br i1 %.not19.i.i.i.i.i.i, label %38, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !53
+
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %41
+  br label %.loopexit, !llvm.loop !53
 
 _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit.i.i: ; preds = %38, %21, %33
   %.sroa.06.1.i.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.06.0.i.i.i.i, %21 ], [ %40, %38 ]
@@ -10825,7 +10852,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %.pre.i.i = load ptr, ptr %47, align 8, !tbaa !54
   br label %198
 
-.loopexit:                                        ; preds = %41, %.lr.ph.i.i.i.i.i.i, %20, %25
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %20, %25, %..loopexit_crit_edge21.i.i.i.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load i32, ptr %54, align 8, !tbaa !31
@@ -10921,7 +10948,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
 .preheader:                                       ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %110 = load i32, ptr %54, align 8, !tbaa !31
   %111 = icmp sgt i32 %110, 1
-  %.pre77 = load ptr, ptr %53, align 8, !tbaa !73
+  %.pre79 = load ptr, ptr %53, align 8, !tbaa !73
   br i1 %111, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -10939,7 +10966,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   %115 = sext i32 %114 to i64
   %116 = load ptr, ptr %58, align 8, !tbaa !119
   %117 = ptrtoint ptr %116 to i64
-  %118 = ptrtoint ptr %.pre77 to i64
+  %118 = ptrtoint ptr %.pre79 to i64
   %119 = sub i64 %117, %118
   %120 = ashr exact i64 %119, 2
   %121 = icmp ult i64 %120, %115
@@ -10948,7 +10975,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
 122:                                              ; preds = %._crit_edge
   %123 = sub nuw nsw i64 %115, %120
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %123)
-  %.pre79.pre = load i32, ptr %54, align 8, !tbaa !31
+  %.pre81.pre = load i32, ptr %54, align 8, !tbaa !31
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
 
 124:                                              ; preds = %._crit_edge
@@ -10956,7 +10983,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br i1 %125, label %126, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw float, ptr %.pre77, i64 %115
+  %127 = getelementptr inbounds nuw float, ptr %.pre79, i64 %115
   %.not.i.i50 = icmp eq ptr %116, %127
   br i1 %.not.i.i50, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51, label %128
 
@@ -10965,7 +10992,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit51:             ; preds = %122, %124, %126, %128
-  %.pre79 = phi i32 [ %.pre79.pre, %122 ], [ %110, %124 ], [ %110, %126 ], [ %110, %128 ]
+  %.pre81 = phi i32 [ %.pre81.pre, %122 ], [ %110, %124 ], [ %110, %126 ], [ %110, %128 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %130 = load i8, ptr %129, align 8, !tbaa !317, !range !13, !noundef !14
   %131 = trunc nuw i8 %130 to i1
@@ -10974,26 +11001,26 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit51:             ; preds = %122, %124, %126, %1
 132:                                              ; preds = %.lr.ph, %132
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %132 ]
   %133 = shl nsw i64 %indvars.iv, 2
-  %134 = getelementptr inbounds nuw float, ptr %.pre77, i64 %133
+  %134 = getelementptr inbounds nuw float, ptr %.pre79, i64 %133
   %135 = load float, ptr %134, align 4, !tbaa !38
   %136 = shl nuw nsw i64 %indvars.iv, 1
-  %137 = getelementptr inbounds nuw float, ptr %.pre77, i64 %136
+  %137 = getelementptr inbounds nuw float, ptr %.pre79, i64 %136
   store float %135, ptr %137, align 4, !tbaa !38
   %138 = or disjoint i64 %133, 1
-  %139 = getelementptr inbounds nuw float, ptr %.pre77, i64 %138
+  %139 = getelementptr inbounds nuw float, ptr %.pre79, i64 %138
   %140 = load float, ptr %139, align 4, !tbaa !38
   %141 = or disjoint i64 %136, 1
-  %142 = getelementptr inbounds nuw float, ptr %.pre77, i64 %141
+  %142 = getelementptr inbounds nuw float, ptr %.pre79, i64 %141
   store float %140, ptr %142, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %132, !llvm.loop !318
 
 143:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
-  %144 = shl nsw i32 %.pre79, 1
+  %144 = shl nsw i32 %.pre81, 1
   %145 = sext i32 %144 to i64
-  %.not.i = icmp eq i32 %.pre79, 0
-  br i1 %.not.i, label %._crit_edge66, label %.preheader.us.i.preheader
+  %.not.i = icmp eq i32 %.pre81, 0
+  br i1 %.not.i, label %._crit_edge67, label %.preheader.us.i.preheader
 
 .preheader.us.i.preheader:                        ; preds = %143
   %146 = load ptr, ptr %53, align 8, !tbaa !73
@@ -11024,22 +11051,22 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit51:             ; preds = %122, %124, %126, %1
   br i1 %exitcond27.not.i, label %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit, label %.preheader.us.i, !llvm.loop !91
 
 _ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit:   ; preds = %._crit_edge.us.i
-  %.pre78 = load i32, ptr %54, align 8, !tbaa !31
+  %.pre80 = load i32, ptr %54, align 8, !tbaa !31
   br label %_ZN5osgeo4projL10swap_wordsEPvmm.exit
 
 _ZN5osgeo4projL10swap_wordsEPvmm.exit:            ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
-  %156 = phi i32 [ %.pre78, %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit ], [ %.pre79, %_ZNSt6vectorIfSaIfEE6resizeEm.exit51 ]
+  %156 = phi i32 [ %.pre80, %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit ], [ %.pre81, %_ZNSt6vectorIfSaIfEE6resizeEm.exit51 ]
   %157 = icmp sgt i32 %156, 1
-  br i1 %157, label %.lr.ph65, label %._crit_edge66
+  br i1 %157, label %.lr.ph66, label %._crit_edge67
 
-.lr.ph65:                                         ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit
+.lr.ph66:                                         ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit
   %158 = lshr i32 %156, 1
   %159 = load ptr, ptr %53, align 8, !tbaa !73
   %160 = zext nneg i32 %156 to i64
-  %wide.trip.count75 = zext nneg i32 %158 to i64
+  %wide.trip.count77 = zext nneg i32 %158 to i64
   br label %166
 
-._crit_edge66:                                    ; preds = %166, %143, %_ZN5osgeo4projL10swap_wordsEPvmm.exit
+._crit_edge67:                                    ; preds = %166, %143, %_ZN5osgeo4projL10swap_wordsEPvmm.exit
   %161 = load ptr, ptr %8, align 8, !tbaa !310
   %162 = load i32, ptr %10, align 8, !tbaa !313
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #34
@@ -11050,15 +11077,15 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit:            ; preds = %_ZN5osgeo4projL10sw
   invoke void @_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6insertERSH_RKS5_(ptr noundef nonnull align 8 dereferenceable(112) %161, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %53)
           to label %_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit unwind label %181
 
-_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit: ; preds = %._crit_edge66
+_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit: ; preds = %._crit_edge67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
   br label %201
 
-166:                                              ; preds = %.lr.ph65, %166
-  %indvars.iv72 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next73, %166 ]
-  %167 = shl nuw nsw i64 %indvars.iv72, 1
+166:                                              ; preds = %.lr.ph66, %166
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next75, %166 ]
+  %167 = shl nuw nsw i64 %indvars.iv74, 1
   %168 = getelementptr inbounds nuw float, ptr %159, i64 %167
-  %169 = xor i64 %indvars.iv72, -1
+  %169 = xor i64 %indvars.iv74, -1
   %170 = add nsw i64 %160, %169
   %171 = shl nsw i64 %170, 1
   %172 = getelementptr inbounds nuw float, ptr %159, i64 %171
@@ -11074,11 +11101,11 @@ _ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit: ; preds = %._c
   %180 = load float, ptr %178, align 4, !tbaa !38
   store float %180, ptr %176, align 4, !tbaa !38
   store float %179, ptr %178, align 4, !tbaa !38
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %._crit_edge66, label %166, !llvm.loop !319
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
+  br i1 %exitcond78.not, label %._crit_edge67, label %166, !llvm.loop !319
 
-181:                                              ; preds = %._crit_edge66
+181:                                              ; preds = %._crit_edge67
   %182 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -25853,20 +25880,20 @@ define linkonce_odr hidden noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt14_List_i
   br i1 %15, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit, label %.lr.ph, !llvm.loop !545
 
 .lr.ph:                                           ; preds = %.preheader.i, %12
-  %.016.i40 = phi ptr [ %16, %12 ], [ %7, %.preheader.i ]
-  %16 = load ptr, ptr %.016.i40, align 8, !tbaa !47
+  %.016.i41 = phi ptr [ %16, %12 ], [ %7, %.preheader.i ]
+  %16 = load ptr, ptr %.016.i41, align 8, !tbaa !47
   %.not14.i = icmp eq ptr %16, null
   br i1 %.not14.i, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, label %12, !llvm.loop !545
 
 _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit: ; preds = %12, %.preheader.i
   %17 = phi ptr [ %7, %.preheader.i ], [ %16, %12 ]
-  %.01115.i.lcssa = phi ptr [ %6, %.preheader.i ], [ %.016.i40, %12 ]
+  %.01115.i.lcssa = phi ptr [ %6, %.preheader.i ], [ %.016.i41, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !50
   %20 = urem i64 %8, %19
   %.pre = load ptr, ptr %0, align 8, !tbaa !51
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %20
-  %.pre44 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
+  %.pre46 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
   br label %.loopexit
 
 21:                                               ; preds = %2
@@ -25890,8 +25917,8 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
 .loopexit.thread:                                 ; preds = %29
   %34 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
   %35 = load ptr, ptr %30, align 8, !tbaa !47
-  %.not18.i2748 = icmp eq ptr %35, null
-  br i1 %.not18.i2748, label %._crit_edge.i.i, label %50
+  %.not18.i2750 = icmp eq ptr %35, null
+  br i1 %.not18.i2750, label %._crit_edge.i.i, label %50
 
 36:                                               ; preds = %39
   %37 = icmp eq i64 %22, %41
@@ -25908,11 +25935,14 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %41 = load i64, ptr %40, align 8, !tbaa !29
   %42 = urem i64 %41, %24
   %.not19.i = icmp eq i64 %42, %25
-  br i1 %.not19.i, label %36, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, !llvm.loop !53
+  br i1 %.not19.i, label %36, label %..loopexit_crit_edge21.i, !llvm.loop !53
+
+..loopexit_crit_edge21.i:                         ; preds = %39
+  br label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, !llvm.loop !53
 
 .loopexit:                                        ; preds = %36, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit
   %43 = phi i64 [ %19, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %24, %36 ]
-  %44 = phi ptr [ %.pre44, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %28, %36 ]
+  %44 = phi ptr [ %.pre46, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %28, %36 ]
   %45 = phi ptr [ %.pre, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %26, %36 ]
   %.019 = phi ptr [ %17, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %38, %36 ]
   %.018 = phi i64 [ %20, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %25, %36 ]
@@ -25930,15 +25960,15 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %51 = phi i64 [ %24, %.loopexit.thread ], [ %43, %48 ]
   %52 = phi ptr [ %28, %.loopexit.thread ], [ %44, %48 ]
   %53 = phi ptr [ %26, %.loopexit.thread ], [ %45, %48 ]
-  %.0195058 = phi ptr [ %30, %.loopexit.thread ], [ %.019, %48 ]
-  %.0185157 = phi i64 [ %25, %.loopexit.thread ], [ %.018, %48 ]
-  %.0165355 = phi ptr [ %28, %.loopexit.thread ], [ %.016, %48 ]
+  %.0195260 = phi ptr [ %30, %.loopexit.thread ], [ %.019, %48 ]
+  %.0185359 = phi i64 [ %25, %.loopexit.thread ], [ %.018, %48 ]
+  %.0165557 = phi ptr [ %28, %.loopexit.thread ], [ %.016, %48 ]
   %54 = phi ptr [ %34, %.loopexit.thread ], [ %49, %48 ]
   %55 = phi ptr [ %35, %.loopexit.thread ], [ %47, %48 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !29
   %58 = urem i64 %57, %51
-  %.not9.i.i = icmp eq i64 %58, %.0185157
+  %.not9.i.i = icmp eq i64 %58, %.0185359
   br i1 %.not9.i.i, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit, label %59
 
 59:                                               ; preds = %50
@@ -25948,8 +25978,8 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.thread, %59, %48
   %61 = phi ptr [ %28, %.loopexit.thread ], [ %52, %59 ], [ %44, %48 ]
-  %.0195059 = phi ptr [ %30, %.loopexit.thread ], [ %.0195058, %59 ], [ %.019, %48 ]
-  %.0165356 = phi ptr [ %28, %.loopexit.thread ], [ %.0165355, %59 ], [ %.016, %48 ]
+  %.0195261 = phi ptr [ %30, %.loopexit.thread ], [ %.0195260, %59 ], [ %.019, %48 ]
+  %.0165558 = phi ptr [ %28, %.loopexit.thread ], [ %.0165557, %59 ], [ %.016, %48 ]
   %62 = phi ptr [ %34, %.loopexit.thread ], [ %54, %59 ], [ %49, %48 ]
   %63 = phi ptr [ null, %.loopexit.thread ], [ %55, %59 ], [ null, %48 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -25980,18 +26010,18 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   br label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit
 
 _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit: ; preds = %50, %67, %68, %69, %73
-  %.01652 = phi ptr [ %.0165355, %50 ], [ %.0165356, %67 ], [ %.016, %68 ], [ %.016, %69 ], [ %.016, %73 ]
-  %.01949 = phi ptr [ %.0195058, %50 ], [ %.0195059, %67 ], [ %.019, %68 ], [ %.019, %69 ], [ %.019, %73 ]
-  %75 = load ptr, ptr %.01949, align 8, !tbaa !47
-  store ptr %75, ptr %.01652, align 8, !tbaa !47
-  tail call void @_ZdlPvm(ptr noundef nonnull %.01949, i64 noundef 24) #35
+  %.01654 = phi ptr [ %.0165557, %50 ], [ %.0165558, %67 ], [ %.016, %68 ], [ %.016, %69 ], [ %.016, %73 ]
+  %.01951 = phi ptr [ %.0195260, %50 ], [ %.0195261, %67 ], [ %.019, %68 ], [ %.019, %69 ], [ %.019, %73 ]
+  %75 = load ptr, ptr %.01951, align 8, !tbaa !47
+  store ptr %75, ptr %.01654, align 8, !tbaa !47
+  tail call void @_ZdlPvm(ptr noundef nonnull %.01951, i64 noundef 24) #35
   %76 = load i64, ptr %3, align 8, !tbaa !40
   %77 = add i64 %76, -1
   store i64 %77, ptr %3, align 8, !tbaa !40
   br label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread
 
-_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread: ; preds = %.lr.ph.i, %39, %.lr.ph, %21, %5, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit ], [ 0, %5 ], [ 0, %21 ], [ 0, %.lr.ph ], [ 0, %39 ], [ 0, %.lr.ph.i ]
+_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread: ; preds = %.lr.ph.i, %.lr.ph, %21, %..loopexit_crit_edge21.i, %5, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit ], [ 0, %5 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %21 ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -26499,20 +26529,20 @@ define linkonce_odr hidden noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt14_List_i
   br i1 %15, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit, label %.lr.ph, !llvm.loop !550
 
 .lr.ph:                                           ; preds = %.preheader.i, %12
-  %.016.i40 = phi ptr [ %16, %12 ], [ %7, %.preheader.i ]
-  %16 = load ptr, ptr %.016.i40, align 8, !tbaa !47
+  %.016.i41 = phi ptr [ %16, %12 ], [ %7, %.preheader.i ]
+  %16 = load ptr, ptr %.016.i41, align 8, !tbaa !47
   %.not14.i = icmp eq ptr %16, null
   br i1 %.not14.i, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, label %12, !llvm.loop !550
 
 _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit: ; preds = %12, %.preheader.i
   %17 = phi ptr [ %7, %.preheader.i ], [ %16, %12 ]
-  %.01115.i.lcssa = phi ptr [ %6, %.preheader.i ], [ %.016.i40, %12 ]
+  %.01115.i.lcssa = phi ptr [ %6, %.preheader.i ], [ %.016.i41, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !123
   %20 = urem i64 %8, %19
   %.pre = load ptr, ptr %0, align 8, !tbaa !124
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %20
-  %.pre44 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
+  %.pre46 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
   br label %.loopexit
 
 21:                                               ; preds = %2
@@ -26536,8 +26566,8 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
 .loopexit.thread:                                 ; preds = %29
   %34 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
   %35 = load ptr, ptr %30, align 8, !tbaa !47
-  %.not18.i2748 = icmp eq ptr %35, null
-  br i1 %.not18.i2748, label %._crit_edge.i.i, label %50
+  %.not18.i2750 = icmp eq ptr %35, null
+  br i1 %.not18.i2750, label %._crit_edge.i.i, label %50
 
 36:                                               ; preds = %39
   %37 = icmp eq i64 %22, %41
@@ -26554,11 +26584,14 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %41 = load i64, ptr %40, align 8, !tbaa !29
   %42 = urem i64 %41, %24
   %.not19.i = icmp eq i64 %42, %25
-  br i1 %.not19.i, label %36, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, !llvm.loop !125
+  br i1 %.not19.i, label %36, label %..loopexit_crit_edge21.i, !llvm.loop !125
+
+..loopexit_crit_edge21.i:                         ; preds = %39
+  br label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, !llvm.loop !125
 
 .loopexit:                                        ; preds = %36, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit
   %43 = phi i64 [ %19, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %24, %36 ]
-  %44 = phi ptr [ %.pre44, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %28, %36 ]
+  %44 = phi ptr [ %.pre46, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %28, %36 ]
   %45 = phi ptr [ %.pre, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %26, %36 ]
   %.019 = phi ptr [ %17, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %38, %36 ]
   %.018 = phi i64 [ %20, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %25, %36 ]
@@ -26576,15 +26609,15 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %51 = phi i64 [ %24, %.loopexit.thread ], [ %43, %48 ]
   %52 = phi ptr [ %28, %.loopexit.thread ], [ %44, %48 ]
   %53 = phi ptr [ %26, %.loopexit.thread ], [ %45, %48 ]
-  %.0195058 = phi ptr [ %30, %.loopexit.thread ], [ %.019, %48 ]
-  %.0185157 = phi i64 [ %25, %.loopexit.thread ], [ %.018, %48 ]
-  %.0165355 = phi ptr [ %28, %.loopexit.thread ], [ %.016, %48 ]
+  %.0195260 = phi ptr [ %30, %.loopexit.thread ], [ %.019, %48 ]
+  %.0185359 = phi i64 [ %25, %.loopexit.thread ], [ %.018, %48 ]
+  %.0165557 = phi ptr [ %28, %.loopexit.thread ], [ %.016, %48 ]
   %54 = phi ptr [ %34, %.loopexit.thread ], [ %49, %48 ]
   %55 = phi ptr [ %35, %.loopexit.thread ], [ %47, %48 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !29
   %58 = urem i64 %57, %51
-  %.not9.i.i = icmp eq i64 %58, %.0185157
+  %.not9.i.i = icmp eq i64 %58, %.0185359
   br i1 %.not9.i.i, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit, label %59
 
 59:                                               ; preds = %50
@@ -26594,8 +26627,8 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.thread, %59, %48
   %61 = phi ptr [ %28, %.loopexit.thread ], [ %52, %59 ], [ %44, %48 ]
-  %.0195059 = phi ptr [ %30, %.loopexit.thread ], [ %.0195058, %59 ], [ %.019, %48 ]
-  %.0165356 = phi ptr [ %28, %.loopexit.thread ], [ %.0165355, %59 ], [ %.016, %48 ]
+  %.0195261 = phi ptr [ %30, %.loopexit.thread ], [ %.0195260, %59 ], [ %.019, %48 ]
+  %.0165558 = phi ptr [ %28, %.loopexit.thread ], [ %.0165557, %59 ], [ %.016, %48 ]
   %62 = phi ptr [ %34, %.loopexit.thread ], [ %54, %59 ], [ %49, %48 ]
   %63 = phi ptr [ null, %.loopexit.thread ], [ %55, %59 ], [ null, %48 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -26626,18 +26659,18 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   br label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit
 
 _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit: ; preds = %50, %67, %68, %69, %73
-  %.01652 = phi ptr [ %.0165355, %50 ], [ %.0165356, %67 ], [ %.016, %68 ], [ %.016, %69 ], [ %.016, %73 ]
-  %.01949 = phi ptr [ %.0195058, %50 ], [ %.0195059, %67 ], [ %.019, %68 ], [ %.019, %69 ], [ %.019, %73 ]
-  %75 = load ptr, ptr %.01949, align 8, !tbaa !47
-  store ptr %75, ptr %.01652, align 8, !tbaa !47
-  tail call void @_ZdlPvm(ptr noundef nonnull %.01949, i64 noundef 24) #35
+  %.01654 = phi ptr [ %.0165557, %50 ], [ %.0165558, %67 ], [ %.016, %68 ], [ %.016, %69 ], [ %.016, %73 ]
+  %.01951 = phi ptr [ %.0195260, %50 ], [ %.0195261, %67 ], [ %.019, %68 ], [ %.019, %69 ], [ %.019, %73 ]
+  %75 = load ptr, ptr %.01951, align 8, !tbaa !47
+  store ptr %75, ptr %.01654, align 8, !tbaa !47
+  tail call void @_ZdlPvm(ptr noundef nonnull %.01951, i64 noundef 24) #35
   %76 = load i64, ptr %3, align 8, !tbaa !120
   %77 = add i64 %76, -1
   store i64 %77, ptr %3, align 8, !tbaa !120
   br label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread
 
-_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread: ; preds = %.lr.ph.i, %39, %.lr.ph, %21, %5, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit ], [ 0, %5 ], [ 0, %21 ], [ 0, %.lr.ph ], [ 0, %39 ], [ 0, %.lr.ph.i ]
+_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread: ; preds = %.lr.ph.i, %.lr.ph, %21, %..loopexit_crit_edge21.i, %5, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit ], [ 0, %5 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %21 ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 

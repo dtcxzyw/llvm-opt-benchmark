@@ -3981,10 +3981,13 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit: ; preds = %if.then.i.i
   call void @_ZN5eastl16adjust_heap_implINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElOS2_NS_4lessIS2_EES2_EEvT_T0_SA_SA_T1_T2_(ptr noundef nonnull %agg.tmp.i, i64 noundef %shr, i64 noundef %add11.i, i64 noundef %shr, ptr noundef nonnull align 64 dereferenceable(4) %temp)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %cmp5.not45 = icmp ult i64 %sub, 2
-  br i1 %cmp5.not45, label %if.end, label %do.body.split, !llvm.loop !58
+  br i1 %cmp5.not45, label %if.end, label %do.body.split.lr.ph, !llvm.loop !58
 
-do.body.split:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit42
-  %8 = phi i64 [ %dec8, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit42 ], [ %shr, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit ]
+do.body.split.lr.ph:                              ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
+  br label %do.body.split, !llvm.loop !58
+
+do.body.split:                                    ; preds = %do.body.split.lr.ph, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit42
+  %8 = phi i64 [ %shr, %do.body.split.lr.ph ], [ %dec8, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit42 ]
   %dec8 = add nsw i64 %8, -1
   %9 = load ptr, ptr %first, align 8, !noalias !59
   %10 = load ptr, ptr %mpBegin3.i.i, align 8, !noalias !59
@@ -4026,9 +4029,12 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit42: ; preds = %if.then.i
   call void @_ZN5eastl16adjust_heap_implINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElOS2_NS_4lessIS2_EES2_EEvT_T0_SA_SA_T1_T2_(ptr noundef nonnull %agg.tmp.i, i64 noundef %dec8, i64 noundef %add11.i, i64 noundef %dec8, ptr noundef nonnull align 64 dereferenceable(4) %temp)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %cmp5.not = icmp eq i64 %dec8, 0
-  br i1 %cmp5.not, label %if.end, label %do.body.split, !llvm.loop !58
+  br i1 %cmp5.not, label %do.body.if.end.loopexit_crit_edge, label %do.body.split, !llvm.loop !58
 
-if.end:                                           ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit42, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit, %entry
+do.body.if.end.loopexit_crit_edge:                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit42
+  br label %if.end, !llvm.loop !58
+
+if.end:                                           ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit, %do.body.if.end.loopexit_crit_edge, %entry
   ret void
 }
 

@@ -1869,7 +1869,7 @@ _set_job_time_limit.exit950.thread.thread:        ; preds = %268, %274, %271
 
 ._crit_edge3316:                                  ; preds = %327
   %.pre3317 = load ptr, ptr %7, align 8
-  br label %331
+  br label %331, !llvm.loop !15
 
 _job_part_valid.exit:                             ; preds = %318
   %328 = getelementptr inbounds nuw i8, ptr %319, i64 672
@@ -1946,13 +1946,13 @@ _job_part_valid.exit:                             ; preds = %318
 365:                                              ; preds = %363
   %366 = load i32, ptr %364, align 8
   %367 = icmp eq i32 %366, %359
-  br i1 %367, label %363, label %368, !llvm.loop !15
+  br i1 %367, label %363, label %368, !llvm.loop !16
 
 368:                                              ; preds = %365
   %369 = getelementptr inbounds nuw i8, ptr %364, i64 16
   %370 = load i64, ptr %369, align 8
   %.0..i.i = call i64 @llvm.smax.i64(i64 %.0.ph.i.i, i64 %370)
-  br label %.outer.i.i, !llvm.loop !15
+  br label %.outer.i.i, !llvm.loop !16
 
 _het_job_start_compute.exit.i:                    ; preds = %363
   call void @list_iterator_destroy(ptr noundef %362) #15
@@ -2152,7 +2152,7 @@ _set_job_time_limit.exit950.backedge:             ; preds = %2040, %2043, %2049,
   %.0440.be = phi i64 [ %.2442, %315 ], [ %.2442, %_het_job_start_find.exit ], [ %.2442, %.thread3406 ], [ %.3443, %665 ], [ %.3443, %671 ], [ %.3443, %668 ], [ %.3443, %720 ], [ %.3443, %726 ], [ %.3443, %723 ], [ %.5445, %1025 ], [ %.5445, %1154 ], [ %.5445, %1190 ], [ %.5445, %1488 ], [ %.5445, %1364 ], [ %.3443, %712 ], [ %.3443, %718 ], [ %.3443, %715 ], [ %.3443, %704 ], [ %.3443, %710 ], [ %.3443, %707 ], [ %.3443, %693 ], [ %.3443, %699 ], [ %.3443, %696 ], [ %.3443, %682 ], [ %.3443, %688 ], [ %.3443, %685 ], [ %.2442, %459 ], [ %.2442, %436 ], [ %.2442, %_job_part_valid.exit ], [ %.2442, %293 ], [ %.2442, %327 ], [ %.5445, %938 ], [ %.5445, %941 ], [ %.5445, %961 ], [ %.5445, %964 ], [ %.5445, %1729 ], [ %.5445, %1732 ], [ %.5445, %1792 ], [ %.5445, %1795 ], [ %.5445, %1817 ], [ %.5445, %1820 ], [ %.5445, %_set_job_time_limit.exit969.thread ], [ %.5445, %1903 ], [ %.5445, %1906 ], [ %.5445, %1923 ], [ %.5445, %1925 ], [ %848, %875 ], [ %848, %878 ], [ %848, %872 ], [ %848, %894 ], [ %848, %897 ], [ %848, %891 ], [ %.5445, %1586 ], [ %.5445, %1590 ], [ %.2442, %454 ], [ %848, %886 ], [ %848, %866 ], [ %848, %861 ], [ %.5445, %908 ], [ %.3443, %597 ], [ %.3443, %655 ], [ %.3443, %734 ], [ %.3443, %632 ], [ %.3443, %622 ], [ %.3443, %611 ], [ %.3443, %601 ], [ %.3443, %592 ], [ %.5445, %1668 ], [ %.5445, %1667 ], [ %.5445, %1672 ], [ %.5445, %1676 ], [ %.5445, %1681 ], [ %.5445, %_set_job_time_limit.exit975 ], [ %.5445, %2049 ], [ %.5445, %2043 ], [ %.5445, %2040 ]
   %.0436.be = phi i64 [ %.0436, %315 ], [ %.0436, %_het_job_start_find.exit ], [ %.0436, %.thread3406 ], [ %.2438, %665 ], [ %.2438, %671 ], [ %.2438, %668 ], [ %.2438, %720 ], [ %.2438, %726 ], [ %.2438, %723 ], [ %.34392259, %1025 ], [ %.34392259, %1154 ], [ %.34392259, %1190 ], [ %1338, %1488 ], [ %1338, %1364 ], [ %.2438, %712 ], [ %.2438, %718 ], [ %.2438, %715 ], [ %.2438, %704 ], [ %.2438, %710 ], [ %.2438, %707 ], [ %.2438, %693 ], [ %.2438, %699 ], [ %.2438, %696 ], [ %.2438, %682 ], [ %.2438, %688 ], [ %.2438, %685 ], [ %.0436, %459 ], [ %.0436, %436 ], [ %.0436, %_job_part_valid.exit ], [ %.0436, %293 ], [ %.0436, %327 ], [ %.34392259, %938 ], [ %.34392259, %941 ], [ %.34392259, %961 ], [ %.34392259, %964 ], [ %1338, %1729 ], [ %1338, %1732 ], [ %1338, %1792 ], [ %1338, %1795 ], [ %1338, %1817 ], [ %1338, %1820 ], [ %1338, %_set_job_time_limit.exit969.thread ], [ %1338, %1903 ], [ %1338, %1906 ], [ %1338, %1923 ], [ %1338, %1925 ], [ %.34392259, %875 ], [ %.34392259, %878 ], [ %.34392259, %872 ], [ %.34392259, %894 ], [ %.34392259, %897 ], [ %.34392259, %891 ], [ %1338, %1586 ], [ %1338, %1590 ], [ %.0436, %454 ], [ %.34392259, %886 ], [ %.34392259, %866 ], [ %.34392259, %861 ], [ %.34392259, %908 ], [ %.2438, %597 ], [ %.2438, %655 ], [ %730, %734 ], [ %.2438, %632 ], [ %.2438, %622 ], [ %.2438, %611 ], [ %.2438, %601 ], [ %.2438, %592 ], [ %1338, %1668 ], [ %1338, %1667 ], [ %1338, %1672 ], [ %1338, %1676 ], [ %1338, %1681 ], [ %1338, %_set_job_time_limit.exit975 ], [ %1338, %2049 ], [ %1338, %2043 ], [ %1338, %2040 ]
   %.0433.be = phi i32 [ %.0433, %315 ], [ %.0433, %_het_job_start_find.exit ], [ %.0433, %.thread3406 ], [ %560, %665 ], [ %560, %671 ], [ %560, %668 ], [ %560, %720 ], [ %560, %726 ], [ %560, %723 ], [ %560, %1025 ], [ %560, %1154 ], [ %560, %1190 ], [ %560, %1488 ], [ %560, %1364 ], [ %560, %712 ], [ %560, %718 ], [ %560, %715 ], [ %560, %704 ], [ %560, %710 ], [ %560, %707 ], [ %560, %693 ], [ %560, %699 ], [ %560, %696 ], [ %560, %682 ], [ %560, %688 ], [ %560, %685 ], [ %.0433, %459 ], [ %.0433, %436 ], [ %.0433, %_job_part_valid.exit ], [ %.0433, %293 ], [ %.0433, %327 ], [ %560, %938 ], [ -2, %941 ], [ %560, %961 ], [ -2, %964 ], [ %560, %1729 ], [ -2, %1732 ], [ %560, %1792 ], [ -2, %1795 ], [ %560, %1817 ], [ -2, %1820 ], [ %560, %_set_job_time_limit.exit969.thread ], [ %560, %1903 ], [ -2, %1906 ], [ %560, %1923 ], [ -2, %1925 ], [ %560, %875 ], [ %560, %878 ], [ %560, %872 ], [ %560, %894 ], [ %560, %897 ], [ %560, %891 ], [ %560, %1586 ], [ -2, %1590 ], [ %.0433, %454 ], [ %560, %886 ], [ %560, %866 ], [ %560, %861 ], [ %560, %908 ], [ %560, %1681 ], [ %560, %1676 ], [ %560, %1672 ], [ %560, %1667 ], [ %560, %1668 ], [ %560, %734 ], [ %560, %655 ], [ %560, %632 ], [ %560, %622 ], [ %560, %611 ], [ %560, %601 ], [ %560, %592 ], [ %560, %597 ], [ %560, %_set_job_time_limit.exit975 ], [ %560, %2049 ], [ %560, %2043 ], [ %560, %2040 ]
-  br label %_set_job_time_limit.exit950, !llvm.loop !16
+  br label %_set_job_time_limit.exit950, !llvm.loop !15
 
 458:                                              ; preds = %454
   %.b670727 = load i1, ptr @assoc_limit_stop, align 1
@@ -2447,17 +2447,17 @@ _set_job_time_limit.exit961:                      ; preds = %_set_job_time_limit
   %594 = load i32, ptr %593, align 8
   %595 = and i32 %594, 255
   %596 = icmp eq i32 %595, 0
-  br i1 %596, label %597, label %_set_job_time_limit.exit950.backedge, !llvm.loop !16
+  br i1 %596, label %597, label %_set_job_time_limit.exit950.backedge, !llvm.loop !15
 
 597:                                              ; preds = %592
   %598 = getelementptr inbounds nuw i8, ptr %573, i64 720
   %599 = load i32, ptr %598, align 8
   %600 = icmp eq i32 %599, 0
-  br i1 %600, label %_set_job_time_limit.exit950.backedge, label %601, !llvm.loop !16
+  br i1 %600, label %_set_job_time_limit.exit950.backedge, label %601, !llvm.loop !15
 
 601:                                              ; preds = %597
   %602 = call zeroext i1 @avail_front_end(ptr noundef nonnull %573) #15
-  br i1 %602, label %603, label %_set_job_time_limit.exit950.backedge, !llvm.loop !16
+  br i1 %602, label %603, label %_set_job_time_limit.exit950.backedge, !llvm.loop !15
 
 603:                                              ; preds = %601
   %604 = load ptr, ptr %7, align 8
@@ -2491,15 +2491,15 @@ _set_job_time_limit.exit961:                      ; preds = %_set_job_time_limit
   %620 = and i8 %.2537, 1
   %621 = icmp eq i8 %620, %221
   %or.cond911 = select i1 %or.cond909, i1 %621, i1 false
-  br i1 %or.cond911, label %_set_job_time_limit.exit950.backedge, label %622, !llvm.loop !16
+  br i1 %or.cond911, label %_set_job_time_limit.exit950.backedge, label %622, !llvm.loop !15
 
 622:                                              ; preds = %611, %610
   %623 = call zeroext i1 @job_array_start_test(ptr noundef nonnull %604) #15
-  br i1 %623, label %._crit_edge3327, label %_set_job_time_limit.exit950.backedge, !llvm.loop !16
+  br i1 %623, label %._crit_edge3327, label %_set_job_time_limit.exit950.backedge, !llvm.loop !15
 
 ._crit_edge3327:                                  ; preds = %622
   %.pre3328 = load ptr, ptr %7, align 8
-  br label %624
+  br label %624, !llvm.loop !15
 
 624:                                              ; preds = %._crit_edge3327, %607
   %625 = phi ptr [ %.pre3328, %._crit_edge3327 ], [ %604, %607 ]
@@ -2525,7 +2525,7 @@ _set_job_time_limit.exit961:                      ; preds = %_set_job_time_limit
 632:                                              ; preds = %629, %624
   %633 = call i32 @job_limits_check(ptr noundef nonnull %7, i1 noundef zeroext true) #15
   %.not743 = icmp eq i32 %633, 0
-  br i1 %.not743, label %634, label %_set_job_time_limit.exit950.backedge, !llvm.loop !16
+  br i1 %.not743, label %634, label %_set_job_time_limit.exit950.backedge, !llvm.loop !15
 
 634:                                              ; preds = %632
   %635 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -2564,7 +2564,7 @@ _set_job_time_limit.exit961:                      ; preds = %_set_job_time_limit
 655:                                              ; preds = %637, %653, %634
   %656 = load ptr, ptr %7, align 8
   %657 = call fastcc zeroext i1 @_job_exceeds_max_bf_param(ptr noundef %656, i64 noundef %.fr3404)
-  br i1 %657, label %_set_job_time_limit.exit950.backedge, label %658, !llvm.loop !16
+  br i1 %657, label %_set_job_time_limit.exit950.backedge, label %658, !llvm.loop !15
 
 658:                                              ; preds = %655
   %659 = load i16, ptr %562, align 2
@@ -2715,7 +2715,7 @@ _set_job_time_limit.exit961:                      ; preds = %_set_job_time_limit
 
 734:                                              ; preds = %729
   %735 = call zeroext i1 @deadline_ok(ptr noundef nonnull %731, ptr noundef nonnull @__func__._attempt_backfill) #15
-  br i1 %735, label %736, label %_set_job_time_limit.exit950.backedge, !llvm.loop !16
+  br i1 %735, label %736, label %_set_job_time_limit.exit950.backedge, !llvm.loop !15
 
 736:                                              ; preds = %734
   %737 = load ptr, ptr %7, align 8
@@ -3018,12 +3018,12 @@ _set_job_time_limit.exit950.thread.thread1204:    ; preds = %837, %843, %840
   %865 = call ptr @find_job_record(i32 noundef %864) #15
   store ptr %865, ptr %7, align 8
   %.not767 = icmp eq ptr %865, null
-  br i1 %.not767, label %_set_job_time_limit.exit950.backedge, label %866, !llvm.loop !16
+  br i1 %.not767, label %_set_job_time_limit.exit950.backedge, label %866, !llvm.loop !15
 
 866:                                              ; preds = %861, %851, %847
   %867 = phi ptr [ %865, %861 ], [ %.pre3331, %851 ], [ %.pre3331, %847 ]
   %868 = call fastcc zeroext i1 @_job_runnable_now(ptr noundef %867)
-  br i1 %868, label %869, label %_set_job_time_limit.exit950.backedge, !llvm.loop !16
+  br i1 %868, label %869, label %_set_job_time_limit.exit950.backedge, !llvm.loop !15
 
 869:                                              ; preds = %866
   %870 = load ptr, ptr %7, align 8
@@ -3060,7 +3060,7 @@ _set_job_time_limit.exit950.thread.thread1204:    ; preds = %837, %843, %840
 
 886:                                              ; preds = %883, %880
   %887 = call fastcc zeroext i1 @_job_part_valid(ptr noundef nonnull %881, ptr noundef %215)
-  br i1 %887, label %888, label %_set_job_time_limit.exit950.backedge, !llvm.loop !16
+  br i1 %887, label %888, label %_set_job_time_limit.exit950.backedge, !llvm.loop !15
 
 888:                                              ; preds = %886
   %889 = load ptr, ptr %7, align 8
@@ -3106,7 +3106,7 @@ _set_job_time_limit.exit950.thread.thread1204:    ; preds = %837, %843, %840
   %909 = getelementptr inbounds nuw i8, ptr %907, i64 344
   %910 = load ptr, ptr %909, align 8
   %.not771 = icmp eq ptr %910, null
-  br i1 %.not771, label %_set_job_time_limit.exit950.backedge, label %914, !llvm.loop !16
+  br i1 %.not771, label %_set_job_time_limit.exit950.backedge, label %914, !llvm.loop !15
 
 911:                                              ; preds = %904
   %912 = getelementptr inbounds nuw i8, ptr %907, i64 208
@@ -4696,14 +4696,14 @@ _set_job_time_limit.exit960:                      ; preds = %1549
   br label %1667
 
 1667:                                             ; preds = %1666, %1662
-  br i1 %.0515, label %1668, label %_set_job_time_limit.exit950.backedge, !llvm.loop !16
+  br i1 %.0515, label %1668, label %_set_job_time_limit.exit950.backedge, !llvm.loop !15
 
 1668:                                             ; preds = %1667
   %1669 = load ptr, ptr %7, align 8
   %1670 = getelementptr inbounds nuw i8, ptr %1669, i64 52
   %1671 = load i32, ptr %1670, align 4
   %.not825 = icmp eq i32 %1671, -2
-  br i1 %.not825, label %_set_job_time_limit.exit950.backedge, label %1672, !llvm.loop !16
+  br i1 %.not825, label %_set_job_time_limit.exit950.backedge, label %1672, !llvm.loop !15
 
 1672:                                             ; preds = %1668
   %1673 = getelementptr inbounds nuw i8, ptr %1669, i64 48
@@ -4713,19 +4713,19 @@ _set_job_time_limit.exit960:                      ; preds = %1549
   %.not826 = icmp eq ptr %1675, null
   %.not827 = icmp eq ptr %1675, %1669
   %or.cond922 = or i1 %.not826, %.not827
-  br i1 %or.cond922, label %_set_job_time_limit.exit950.backedge, label %1676, !llvm.loop !16
+  br i1 %or.cond922, label %_set_job_time_limit.exit950.backedge, label %1676, !llvm.loop !15
 
 1676:                                             ; preds = %1672
   %1677 = getelementptr inbounds nuw i8, ptr %1675, i64 448
   %1678 = load i32, ptr %1677, align 8
   %1679 = and i32 %1678, 255
   %1680 = icmp eq i32 %1679, 0
-  br i1 %1680, label %1681, label %_set_job_time_limit.exit950.backedge, !llvm.loop !16
+  br i1 %1680, label %1681, label %_set_job_time_limit.exit950.backedge, !llvm.loop !15
 
 1681:                                             ; preds = %1676
   %1682 = call i32 @bb_g_job_test_stage_in(ptr noundef nonnull %1675, i1 noundef zeroext false) #15
   %1683 = icmp eq i32 %1682, 1
-  br i1 %1683, label %_set_job_time_limit.exit961, label %_set_job_time_limit.exit950.backedge, !llvm.loop !16
+  br i1 %1683, label %_set_job_time_limit.exit961, label %_set_job_time_limit.exit950.backedge, !llvm.loop !15
 
 1684:                                             ; preds = %1492
   %1685 = load ptr, ptr %18, align 8
@@ -5107,12 +5107,12 @@ _set_job_time_limit.exit963:                      ; preds = %1694, %1702
   %1891 = load ptr, ptr %7, align 8
   %1892 = getelementptr inbounds nuw i8, ptr %1891, i64 976
   store i32 %560, ptr %1892, align 8
-  br i1 %567, label %1893, label %_set_job_time_limit.exit969.thread, !llvm.loop !16
+  br i1 %567, label %1893, label %_set_job_time_limit.exit969.thread, !llvm.loop !15
 
 1893:                                             ; preds = %1890
   %1894 = getelementptr inbounds nuw i8, ptr %1891, i64 498
   store i16 0, ptr %1894, align 2
-  br label %_set_job_time_limit.exit969.thread, !llvm.loop !16
+  br label %_set_job_time_limit.exit969.thread, !llvm.loop !15
 
 _set_job_time_limit.exit969.thread:               ; preds = %1893, %1890
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %35) #15
@@ -7563,13 +7563,13 @@ define internal fastcc void @_het_job_start_set(ptr noundef %0, i64 noundef %1, 
 75:                                               ; preds = %73
   %76 = load i32, ptr %74, align 8
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %73, label %78, !llvm.loop !15
+  br i1 %77, label %73, label %78, !llvm.loop !16
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %80 = load i64, ptr %79, align 8
   %.0..i = tail call i64 @llvm.smax.i64(i64 %.0.ph.i, i64 %80)
-  br label %.outer.i, !llvm.loop !15
+  br label %.outer.i, !llvm.loop !16
 
 _het_job_start_compute.exit:                      ; preds = %73
   tail call void @list_iterator_destroy(ptr noundef %72) #15
@@ -7595,13 +7595,13 @@ _het_job_start_compute.exit:                      ; preds = %73
 87:                                               ; preds = %85
   %88 = load i32, ptr %86, align 8
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %85, label %90, !llvm.loop !15
+  br i1 %89, label %85, label %90, !llvm.loop !16
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %92 = load i64, ptr %91, align 8
   %.0..i74 = tail call i64 @llvm.smax.i64(i64 %.0.ph.i72, i64 %92)
-  br label %.outer.i71, !llvm.loop !15
+  br label %.outer.i71, !llvm.loop !16
 
 _het_job_start_compute.exit75:                    ; preds = %85
   tail call void @list_iterator_destroy(ptr noundef %84) #15
@@ -8497,11 +8497,14 @@ _num_feature_count.exit:                          ; preds = %.thread
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %63 = load i16, ptr %62, align 8
   %.not263 = icmp eq i16 %63, 0
-  br i1 %.not263, label %.critedge, label %.lr.ph310, !llvm.loop !32
+  br i1 %.not263, label %..critedge.loopexit_crit_edge, label %.lr.ph310, !llvm.loop !32
 
-.critedge:                                        ; preds = %.lr.ph355, %.lr.ph310, %.lr.ph310.preheader, %36
-  %.0215.lcssa = phi ptr [ %39, %36 ], [ %39, %.lr.ph310.preheader ], [ %53, %.lr.ph310 ], [ %53, %.lr.ph355 ]
-  %.0211.in.lcssa = phi i16 [ %47, %36 ], [ %47, %.lr.ph310.preheader ], [ %60, %.lr.ph310 ], [ %60, %.lr.ph355 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph355
+  br label %.critedge, !llvm.loop !32
+
+.critedge:                                        ; preds = %.lr.ph310, %.lr.ph310.preheader, %..critedge.loopexit_crit_edge, %36
+  %.0215.lcssa = phi ptr [ %39, %36 ], [ %53, %..critedge.loopexit_crit_edge ], [ %39, %.lr.ph310.preheader ], [ %53, %.lr.ph310 ]
+  %.0211.in.lcssa = phi i16 [ %47, %36 ], [ %60, %..critedge.loopexit_crit_edge ], [ %47, %.lr.ph310.preheader ], [ %60, %.lr.ph310 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0215.lcssa, i64 14
   store i8 4, ptr %64, align 2
   %narrow = tail call i16 @llvm.umax.i16(i16 %.0211.in.lcssa, i16 1)
@@ -8753,10 +8756,13 @@ thread-pre-split:                                 ; preds = %82, %83
   %162 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %163 = load i16, ptr %162, align 8
   %.not250 = icmp eq i16 %163, 0
-  br i1 %.not250, label %.critedge5, label %.lr.ph, !llvm.loop !34
+  br i1 %.not250, label %..critedge5.loopexit_crit_edge, label %.lr.ph, !llvm.loop !34
 
-.critedge5:                                       ; preds = %.lr.ph352, %.lr.ph, %.lr.ph.preheader, %140
-  %.1216.lcssa = phi ptr [ %143, %140 ], [ %143, %.lr.ph.preheader ], [ %155, %.lr.ph ], [ %155, %.lr.ph352 ]
+..critedge5.loopexit_crit_edge:                   ; preds = %.lr.ph352
+  br label %.critedge5, !llvm.loop !34
+
+.critedge5:                                       ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge5.loopexit_crit_edge, %140
+  %.1216.lcssa = phi ptr [ %143, %140 ], [ %155, %..critedge5.loopexit_crit_edge ], [ %143, %.lr.ph.preheader ], [ %155, %.lr.ph ]
   %164 = getelementptr inbounds nuw i8, ptr %.1216.lcssa, i64 14
   store i8 4, ptr %164, align 2
   %165 = load ptr, ptr %1, align 8
@@ -10674,13 +10680,13 @@ _het_job_full.exit.thread:                        ; preds = %11, %15, %23, %_het
 63:                                               ; preds = %61
   %64 = load i32, ptr %62, align 8
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %61, label %66, !llvm.loop !15
+  br i1 %65, label %61, label %66, !llvm.loop !16
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %68 = load i64, ptr %67, align 8
   %.0..i = tail call i64 @llvm.smax.i64(i64 %.0.ph.i, i64 %68)
-  br label %.outer.i, !llvm.loop !15
+  br label %.outer.i, !llvm.loop !16
 
 _het_job_start_compute.exit:                      ; preds = %61
   tail call void @list_iterator_destroy(ptr noundef %60) #15
@@ -11492,8 +11498,8 @@ attributes #17 = { noreturn nounwind }
 !12 = !{i8 0, i8 2}
 !13 = !{}
 !14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !9, !10}
 !17 = distinct !{!17, !10}
 !18 = distinct !{!18, !10}
 !19 = distinct !{!19, !10}

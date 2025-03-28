@@ -1857,7 +1857,10 @@ define internal fastcc noundef ptr @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowC
   %38 = ptrtoint ptr %37 to i64
   %39 = urem i64 %38, %22
   %.not19.i.i.i.i.i = icmp eq i64 %39, %23
-  br i1 %.not19.i.i.i.i.i, label %32, label %.loopexit.i, !llvm.loop !62
+  br i1 %.not19.i.i.i.i.i, label %32, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !62
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %35
+  br label %.loopexit.i, !llvm.loop !62
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread: ; preds = %32, %15, %27
   %.sroa.06.1.i.i.i = phi ptr [ %28, %27 ], [ %.sroa.06.0.i.i.i, %15 ], [ %34, %32 ]
@@ -1865,7 +1868,7 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread: ; pred
   %41 = load ptr, ptr %40, align 8, !tbaa !57
   br label %.thread
 
-.loopexit.i:                                      ; preds = %35, %.lr.ph.i.i.i.i.i, %14, %19
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %14, %..loopexit_crit_edge21.i.i.i.i.i, %19
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %43 = load i8, ptr %42, align 8, !tbaa !8, !range !14, !noundef !15
   %44 = trunc nuw i8 %43 to i1
@@ -2005,8 +2008,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12
   br i1 %110, label %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread.sink.split, label %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread
 
 _ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread.sink.split: ; preds = %108, %94
-  %.sink62 = phi ptr [ %93, %94 ], [ %107, %108 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sink62, i64 24
+  %.sink68 = phi ptr [ %93, %94 ], [ %107, %108 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.sink68, i64 24
   store ptr null, ptr %111, align 8, !tbaa !69
   br label %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread
 
@@ -2045,9 +2048,12 @@ _ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread: ; p
   %131 = ptrtoint ptr %130 to i64
   %132 = urem i64 %131, %115
   %.not19.i.i.i.i = icmp eq i64 %132, %116
-  br i1 %.not19.i.i.i.i, label %125, label %.loopexit.i.i, !llvm.loop !62
+  br i1 %.not19.i.i.i.i, label %125, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !62
 
-.loopexit.i.i:                                    ; preds = %128, %.lr.ph.i.i.i.i, %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %128
+  br label %.loopexit.i.i, !llvm.loop !62
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread
   %133 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr null, ptr %133, align 8, !tbaa !56
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
@@ -2366,7 +2372,10 @@ define internal fastcc noundef ptr @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowC
   %38 = ptrtoint ptr %37 to i64
   %39 = urem i64 %38, %22
   %.not19.i.i.i.i.i = icmp eq i64 %39, %23
-  br i1 %.not19.i.i.i.i.i, label %32, label %.loopexit.i, !llvm.loop !89
+  br i1 %.not19.i.i.i.i.i, label %32, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !89
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %35
+  br label %.loopexit.i, !llvm.loop !89
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread: ; preds = %32, %15, %27
   %.sroa.06.1.i.i.i = phi ptr [ %28, %27 ], [ %.sroa.06.0.i.i.i, %15 ], [ %34, %32 ]
@@ -2374,7 +2383,7 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread: ; preds = %32,
   %41 = load ptr, ptr %40, align 8, !tbaa !85
   br label %.thread
 
-.loopexit.i:                                      ; preds = %35, %.lr.ph.i.i.i.i.i, %14, %19
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %14, %..loopexit_crit_edge21.i.i.i.i.i, %19
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 344
   %43 = load i8, ptr %42, align 8, !tbaa !74, !range !14, !noundef !15
   %44 = trunc nuw i8 %43 to i1
@@ -2618,9 +2627,12 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread: ; preds = %133,
   %158 = ptrtoint ptr %157 to i64
   %159 = urem i64 %158, %142
   %.not19.i.i.i.i = icmp eq i64 %159, %143
-  br i1 %.not19.i.i.i.i, label %152, label %.loopexit.i.i, !llvm.loop !89
+  br i1 %.not19.i.i.i.i, label %152, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !89
 
-.loopexit.i.i:                                    ; preds = %155, %.lr.ph.i.i.i.i, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %155
+  br label %.loopexit.i.i, !llvm.loop !89
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread
   %160 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr null, ptr %160, align 8, !tbaa !56
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
@@ -2871,9 +2883,12 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner25hasExceededIterationLimitEv.exit: ; preds =
   %43 = ptrtoint ptr %42 to i64
   %44 = urem i64 %43, %27
   %.not19.i.i.i.i = icmp eq i64 %44, %28
-  br i1 %.not19.i.i.i.i, label %37, label %.loopexit.i.i, !llvm.loop !62
+  br i1 %.not19.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !62
 
-.loopexit.i.i:                                    ; preds = %40, %.lr.ph.i.i.i.i, %19
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %40
+  br label %.loopexit.i.i, !llvm.loop !62
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %19
   %45 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr null, ptr %45, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -2954,7 +2969,10 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner25hasExceededIterationLimitEv.exit.thread: ; 
   %81 = ptrtoint ptr %80 to i64
   %82 = urem i64 %81, %65
   %.not19.i.i.i.i.i = icmp eq i64 %82, %66
-  br i1 %.not19.i.i.i.i.i, label %75, label %.loopexit.i, !llvm.loop !62
+  br i1 %.not19.i.i.i.i.i, label %75, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !62
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %78
+  br label %.loopexit.i, !llvm.loop !62
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread: ; preds = %75, %58, %70
   %.sroa.06.1.i.i.i = phi ptr [ %71, %70 ], [ %.sroa.06.0.i.i.i, %58 ], [ %77, %75 ]
@@ -2965,13 +2983,13 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread: ; pred
   %87 = tail call noundef ptr @_ZNK4Luau12BuiltinTypes21errorRecoveryTypePackEv(ptr noundef nonnull align 8 dereferenceable(232) %86)
   br label %101
 
-.loopexit.i:                                      ; preds = %78, %.lr.ph.i.i.i.i.i, %57, %62
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %57, %..loopexit_crit_edge21.i.i.i.i.i, %62
   %88 = getelementptr inbounds nuw i8, ptr %50, i64 72
   %89 = load i8, ptr %88, align 8, !tbaa !8, !range !14, !noundef !15
   %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread21
+  br i1 %90, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread25
 
-_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread21: ; preds = %.loopexit.i
+_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread25: ; preds = %.loopexit.i
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !163
   %93 = tail call noundef ptr @_ZNK4Luau12BuiltinTypes21errorRecoveryTypePackEv(ptr noundef nonnull align 8 dereferenceable(232) %92)
@@ -2992,8 +3010,8 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit: ; preds = %.l
   %spec.select = select i1 %cond.fr, ptr %50, ptr %100
   br label %101
 
-101:                                              ; preds = %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread21, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread, %_ZNSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit
-  %.0 = phi ptr [ %22, %_ZNSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit ], [ %93, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread21 ], [ %84, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread ], [ %spec.select, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit ]
+101:                                              ; preds = %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread25, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread, %_ZNSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit
+  %.0 = phi ptr [ %22, %_ZNSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit ], [ %93, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread25 ], [ %84, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread ], [ %spec.select, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit ]
   ret ptr %.0
 }
 
@@ -3151,9 +3169,12 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner25hasExceededIterationLimitEv.exit: ; preds =
   %43 = ptrtoint ptr %42 to i64
   %44 = urem i64 %43, %27
   %.not19.i.i.i.i = icmp eq i64 %44, %28
-  br i1 %.not19.i.i.i.i, label %37, label %.loopexit.i.i, !llvm.loop !89
+  br i1 %.not19.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !89
 
-.loopexit.i.i:                                    ; preds = %40, %.lr.ph.i.i.i.i, %19
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %40
+  br label %.loopexit.i.i, !llvm.loop !89
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %19
   %45 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr null, ptr %45, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -3234,7 +3255,10 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner25hasExceededIterationLimitEv.exit.thread: ; 
   %81 = ptrtoint ptr %80 to i64
   %82 = urem i64 %81, %65
   %.not19.i.i.i.i.i = icmp eq i64 %82, %66
-  br i1 %.not19.i.i.i.i.i, label %75, label %.loopexit.i, !llvm.loop !89
+  br i1 %.not19.i.i.i.i.i, label %75, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !89
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %78
+  br label %.loopexit.i, !llvm.loop !89
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread: ; preds = %75, %58, %70
   %.sroa.06.1.i.i.i = phi ptr [ %71, %70 ], [ %.sroa.06.0.i.i.i, %58 ], [ %77, %75 ]
@@ -3245,13 +3269,13 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread: ; preds = %75,
   %87 = tail call noundef ptr @_ZNK4Luau12BuiltinTypes17errorRecoveryTypeEv(ptr noundef nonnull align 8 dereferenceable(232) %86)
   br label %101
 
-.loopexit.i:                                      ; preds = %78, %.lr.ph.i.i.i.i.i, %57, %62
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %57, %..loopexit_crit_edge21.i.i.i.i.i, %62
   %88 = getelementptr inbounds nuw i8, ptr %50, i64 344
   %89 = load i8, ptr %88, align 8, !tbaa !74, !range !14, !noundef !15
   %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread21
+  br i1 %90, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread25
 
-_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread21: ; preds = %.loopexit.i
+_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread25: ; preds = %.loopexit.i
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !163
   %93 = tail call noundef ptr @_ZNK4Luau12BuiltinTypes17errorRecoveryTypeEv(ptr noundef nonnull align 8 dereferenceable(232) %92)
@@ -3272,8 +3296,8 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit: ; preds = %.loopexit.
   %spec.select = select i1 %cond.fr, ptr %50, ptr %100
   br label %101
 
-101:                                              ; preds = %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread21, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread, %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit
-  %.0 = phi ptr [ %22, %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit ], [ %93, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread21 ], [ %84, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread ], [ %spec.select, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit ]
+101:                                              ; preds = %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread25, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread, %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit
+  %.0 = phi ptr [ %22, %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit ], [ %93, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread25 ], [ %84, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread ], [ %spec.select, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit ]
   ret ptr %.0
 }
 
@@ -10811,9 +10835,12 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEC2ERKS7_.exit: ; preds = %_ZNS
   %90 = ptrtoint ptr %89 to i64
   %91 = urem i64 %90, %74
   %.not19.i.i.i.i.i.i = icmp eq i64 %91, %75
-  br i1 %.not19.i.i.i.i.i.i, label %84, label %.loopexit.i.i, !llvm.loop !89
+  br i1 %.not19.i.i.i.i.i.i, label %84, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !89
 
-.loopexit.i.i:                                    ; preds = %87, %.lr.ph.i.i.i.i.i.i, %66, %71
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %87
+  br label %.loopexit.i.i, !llvm.loop !89
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i, %66, %..loopexit_crit_edge21.i.i.i.i.i.i, %71
   %92 = getelementptr inbounds nuw i8, ptr %60, i64 344
   %93 = load i8, ptr %92, align 8, !tbaa !74, !range !14, !noalias !329, !noundef !15
   %94 = trunc nuw i8 %93 to i1
@@ -10845,13 +10872,13 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i: ; preds = %.loopexi
   br label %106
 
 106:                                              ; preds = %107, %104
-  %.sroa.06.0.in.i.i.i23.i = phi ptr [ %105, %104 ], [ %.sroa.06.0.i.i.i24.i, %107 ]
-  %.sroa.06.0.i.i.i24.i = load ptr, ptr %.sroa.06.0.in.i.i.i23.i, align 8, !tbaa !56, !noalias !329
-  %.not.i.i.i25.i = icmp eq ptr %.sroa.06.0.i.i.i24.i, null
-  br i1 %.not.i.i.i25.i, label %.loopexit.i13.i, label %107
+  %.sroa.06.0.in.i.i.i24.i = phi ptr [ %105, %104 ], [ %.sroa.06.0.i.i.i25.i, %107 ]
+  %.sroa.06.0.i.i.i25.i = load ptr, ptr %.sroa.06.0.in.i.i.i24.i, align 8, !tbaa !56, !noalias !329
+  %.not.i.i.i26.i = icmp eq ptr %.sroa.06.0.i.i.i25.i, null
+  br i1 %.not.i.i.i26.i, label %.loopexit.i14.i, label %107
 
 107:                                              ; preds = %106
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i24.i, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i25.i, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !57, !noalias !329
   %110 = icmp eq ptr %100, %109
   br i1 %110, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split, label %106, !llvm.loop !58
@@ -10865,7 +10892,7 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i: ; preds = %.loopexi
   %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %115
   %118 = load ptr, ptr %117, align 8, !tbaa !61, !noalias !329
   %.not.i.i.i.i.i8.i = icmp eq ptr %118, null
-  br i1 %.not.i.i.i.i.i8.i, label %.loopexit.i13.i, label %119
+  br i1 %.not.i.i.i.i.i8.i, label %.loopexit.i14.i, label %119
 
 119:                                              ; preds = %111
   %120 = load ptr, ptr %118, align 8, !tbaa !56, !noalias !329
@@ -10882,7 +10909,7 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i: ; preds = %.loopexi
   %.020.i.i.i.i.i10.i = phi ptr [ %126, %124 ], [ %120, %119 ]
   %126 = load ptr, ptr %.020.i.i.i.i.i10.i, align 8, !tbaa !56, !noalias !329
   %.not18.i.i.i.i.i11.i = icmp eq ptr %126, null
-  br i1 %.not18.i.i.i.i.i11.i, label %.loopexit.i13.i, label %127
+  br i1 %.not18.i.i.i.i.i11.i, label %.loopexit.i14.i, label %127
 
 127:                                              ; preds = %.lr.ph.i.i.i.i.i9.i
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
@@ -10890,34 +10917,37 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i: ; preds = %.loopexi
   %130 = ptrtoint ptr %129 to i64
   %131 = urem i64 %130, %114
   %.not19.i.i.i.i.i12.i = icmp eq i64 %131, %115
-  br i1 %.not19.i.i.i.i.i12.i, label %124, label %.loopexit.i13.i, !llvm.loop !62
+  br i1 %.not19.i.i.i.i.i12.i, label %124, label %..loopexit_crit_edge21.i.i.i.i.i13.i, !llvm.loop !62
 
-.loopexit.i13.i:                                  ; preds = %127, %.lr.ph.i.i.i.i.i9.i, %106, %111
+..loopexit_crit_edge21.i.i.i.i.i13.i:             ; preds = %127
+  br label %.loopexit.i14.i, !llvm.loop !62
+
+.loopexit.i14.i:                                  ; preds = %.lr.ph.i.i.i.i.i9.i, %106, %..loopexit_crit_edge21.i.i.i.i.i13.i, %111
   %132 = getelementptr inbounds nuw i8, ptr %100, i64 72
   %133 = load i8, ptr %132, align 8, !tbaa !8, !range !14, !noalias !329, !noundef !15
   %134 = trunc nuw i8 %133 to i1
   br i1 %134, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i, label %_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit.sink.split
 
-_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i: ; preds = %.loopexit.i13.i
+_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i: ; preds = %.loopexit.i14.i
   %135 = load i8, ptr @_ZN5FFlag26LuauFreezeIgnorePersistentE, align 8, !tbaa !63, !range !14, !noalias !329, !noundef !15
   %136 = trunc nuw i8 %135 to i1
   %137 = load ptr, ptr %18, align 8, !noalias !329
-  %.not.i18.i = icmp eq ptr %100, %137
-  %or.cond.i20.not.i = select i1 %136, i1 %.not.i18.i, i1 false
+  %.not.i19.i = icmp eq ptr %100, %137
+  %or.cond.i21.not.i = select i1 %136, i1 %.not.i19.i, i1 false
   store i8 0, ptr %17, align 8, !tbaa !332, !alias.scope !329
-  br i1 %or.cond.i20.not.i, label %_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit
+  br i1 %or.cond.i21.not.i, label %_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split: ; preds = %124, %107, %84, %67, %119, %79
-  %.sroa.06.1.i.i.i22.i.sink = phi ptr [ %80, %79 ], [ %120, %119 ], [ %.sroa.06.0.i.i.i.i, %67 ], [ %86, %84 ], [ %.sroa.06.0.i.i.i24.i, %107 ], [ %126, %124 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i22.i.sink, i64 16
+  %.sroa.06.1.i.i.i23.i.sink = phi ptr [ %80, %79 ], [ %120, %119 ], [ %.sroa.06.0.i.i.i.i, %67 ], [ %86, %84 ], [ %.sroa.06.0.i.i.i25.i, %107 ], [ %126, %124 ]
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i23.i.sink, i64 16
   %139 = load ptr, ptr %138, align 8, !tbaa !42, !noalias !329
   br label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit: ; preds = %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i
   %.sink = phi i32 [ 0, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i ], [ 1, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i ], [ %57, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split ]
-  %.sroa.07.012.i33.i.sink = phi ptr [ %60, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i ], [ %100, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i ], [ %139, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split ]
+  %.sroa.07.012.i34.i.sink = phi ptr [ %60, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i ], [ %100, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i ], [ %139, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split ]
   store i32 %.sink, ptr %5, align 8, !tbaa !40, !alias.scope !329
-  store ptr %.sroa.07.012.i33.i.sink, ptr %19, align 8, !tbaa !42, !alias.scope !329
+  store ptr %.sroa.07.012.i34.i.sink, ptr %19, align 8, !tbaa !42, !alias.scope !329
   store i8 0, ptr %17, align 8, !tbaa !332
   %140 = sext i32 %.sink to i64
   %141 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableDtorE, i64 0, i64 %140
@@ -10932,7 +10962,7 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePack
   call void @__clang_call_terminate(ptr %145) #21
   unreachable
 
-_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit.sink.split: ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEC2ERKS7_.exit, %.loopexit.i13.i, %.loopexit.i.i
+_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit.sink.split: ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEC2ERKS7_.exit, %.loopexit.i14.i, %.loopexit.i.i
   store i8 0, ptr %17, align 8, !tbaa !332, !alias.scope !329
   br label %_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit
 

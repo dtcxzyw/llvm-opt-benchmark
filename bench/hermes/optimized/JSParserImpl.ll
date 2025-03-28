@@ -20167,12 +20167,15 @@ if.end30:                                         ; preds = %while.body21
   %sub.i = add i32 %24, -1
   store i32 %sub.i, ptr %Size.i.i.i.i.i, align 8
   %tobool.not.i = icmp eq i32 %sub.i, 0
-  br i1 %tobool.not.i, label %while.end.loopexit, label %land.rhs, !llvm.loop !38
+  br i1 %tobool.not.i, label %if.end30.while.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !38
 
-while.end.loopexit:                               ; preds = %land.rhs, %if.end30, %while.body21, %land.rhs.preheader
-  %.lcssa.ph = phi i32 [ %.pr, %land.rhs.preheader ], [ %sub.i, %land.rhs ], [ 0, %if.end30 ], [ %22, %while.body21 ]
-  %topExpr.1.lcssa.ph = phi ptr [ %topExpr.0123, %land.rhs.preheader ], [ %call39, %land.rhs ], [ %call39, %if.end30 ], [ %topExpr.1111149, %while.body21 ]
-  %topExprStartLoc.sroa.0.1.lcssa.ph = phi ptr [ %topExprStartLoc.sroa.0.0124, %land.rhs.preheader ], [ %retval.sroa.0.0.copyload.i47, %land.rhs ], [ %retval.sroa.0.0.copyload.i47, %if.end30 ], [ %topExprStartLoc.sroa.0.1112148, %while.body21 ]
+if.end30.while.end.loopexit_crit_edge:            ; preds = %if.end30
+  br label %while.end.loopexit, !llvm.loop !38
+
+while.end.loopexit:                               ; preds = %land.rhs, %while.body21, %if.end30.while.end.loopexit_crit_edge, %land.rhs.preheader
+  %.lcssa.ph = phi i32 [ 0, %if.end30.while.end.loopexit_crit_edge ], [ %.pr, %land.rhs.preheader ], [ %sub.i, %land.rhs ], [ %22, %while.body21 ]
+  %topExpr.1.lcssa.ph = phi ptr [ %call39, %if.end30.while.end.loopexit_crit_edge ], [ %topExpr.0123, %land.rhs.preheader ], [ %call39, %land.rhs ], [ %topExpr.1111149, %while.body21 ]
+  %topExprStartLoc.sroa.0.1.lcssa.ph = phi ptr [ %retval.sroa.0.0.copyload.i47, %if.end30.while.end.loopexit_crit_edge ], [ %topExprStartLoc.sroa.0.0124, %land.rhs.preheader ], [ %retval.sroa.0.0.copyload.i47, %land.rhs ], [ %topExprStartLoc.sroa.0.1112148, %while.body21 ]
   %.pre = load ptr, ptr %tok_, align 8
   %.pre135 = load i32, ptr %.pre, align 8
   br label %while.end

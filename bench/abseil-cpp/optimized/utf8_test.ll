@@ -465,7 +465,7 @@ define internal void @_ZN12_GLOBAL__N_133EncodeUTF8Char_BasicFunction_Test8TestB
   %92 = trunc nuw nsw i64 %indvars.iv.next277 to i32
   store i32 %92, ptr %6, align 4, !tbaa !29
   %93 = icmp eq i64 %indvars.iv.next277, 0
-  br i1 %93, label %.critedge.loopexit, label %83, !llvm.loop !30
+  br i1 %93, label %..critedge_crit_edge278, label %83, !llvm.loop !30
 
 94:                                               ; preds = %74
   %95 = landingpad { ptr, i32 }
@@ -477,14 +477,17 @@ define internal void @_ZN12_GLOBAL__N_133EncodeUTF8Char_BasicFunction_Test8TestB
           cleanup
   br label %382
 
-.critedge.loopexit:                               ; preds = %83, %91, %.lr.ph
-  %.ph = phi i64 [ %87, %.lr.ph ], [ 0, %91 ], [ %indvars.iv.next277, %83 ]
+..critedge_crit_edge278:                          ; preds = %91
+  br label %.critedge, !llvm.loop !30
+
+.critedge.loopexit:                               ; preds = %83, %.lr.ph
+  %.ph = phi i64 [ %87, %.lr.ph ], [ %indvars.iv.next277, %83 ]
   %98 = shl i64 %.ph, 32
   %99 = ashr exact i64 %98, 32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %80
-  %sext = phi i64 [ 7, %80 ], [ %99, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %..critedge_crit_edge278, %80
+  %sext = phi i64 [ 0, %..critedge_crit_edge278 ], [ 7, %80 ], [ %99, %.critedge.loopexit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
   store i64 %76, ptr %8, align 8, !tbaa !32

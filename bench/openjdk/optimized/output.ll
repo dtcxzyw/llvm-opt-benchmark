@@ -6034,7 +6034,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %35, %38
 ._crit_edge155:                                   ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 44
   %.pre = load i32, ptr %53, align 4
-  br label %split
+  br label %split, !llvm.loop !41
 
 split:                                            ; preds = %_ZNK5Block8get_nodeEj.exit, %._crit_edge155
   %54 = phi i32 [ %.pre, %._crit_edge155 ], [ %45, %_ZNK5Block8get_nodeEj.exit ]

@@ -48,7 +48,7 @@ define i32 @wtap_name_to_compression_type(ptr noundef %0) local_unnamed_addr #0 
   %3 = getelementptr i8, ptr %.06911, i64 40
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 4
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !6
+  br i1 %.not, label %._crit_edge12, label %5, !llvm.loop !6
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr i8, ptr %.06911, i64 64
@@ -57,8 +57,11 @@ define i32 @wtap_name_to_compression_type(ptr noundef %0) local_unnamed_addr #0 
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %5, %1
-  %.lcssa = phi i32 [ 1, %1 ], [ 4, %.lr.ph ], [ %4, %5 ]
+._crit_edge12:                                    ; preds = %.lr.ph
+  br label %._crit_edge, !llvm.loop !6
+
+._crit_edge:                                      ; preds = %5, %._crit_edge12, %1
+  %.lcssa = phi i32 [ 4, %._crit_edge12 ], [ 1, %1 ], [ %4, %5 ]
   ret i32 %.lcssa
 }
 
@@ -82,7 +85,7 @@ define i32 @wtap_extension_to_compression_type(ptr noundef %0) local_unnamed_add
   %3 = getelementptr i8, ptr %.06911, i64 40
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 4
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !8
+  br i1 %.not, label %._crit_edge12, label %5, !llvm.loop !8
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr i8, ptr %.06911, i64 48
@@ -91,8 +94,11 @@ define i32 @wtap_extension_to_compression_type(ptr noundef %0) local_unnamed_add
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %5, %1
-  %.lcssa = phi i32 [ 1, %1 ], [ 4, %.lr.ph ], [ %4, %5 ]
+._crit_edge12:                                    ; preds = %.lr.ph
+  br label %._crit_edge, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %5, %._crit_edge12, %1
+  %.lcssa = phi i32 [ 4, %._crit_edge12 ], [ 1, %1 ], [ %4, %5 ]
   ret i32 %.lcssa
 }
 

@@ -337,10 +337,13 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
   %41 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %41, ptr %29, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !7
+  br i1 %exitcond.not, label %..critedge.loopexit_crit_edge, label %37, !llvm.loop !7
 
-.critedge:                                        ; preds = %.lr.ph53, %37, %.lr.ph, %26
-  %.pr = phi i32 [ %.promoted, %26 ], [ %.promoted, %.lr.ph ], [ %41, %37 ], [ %41, %.lr.ph53 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph53
+  br label %.critedge, !llvm.loop !7
+
+.critedge:                                        ; preds = %37, %.lr.ph, %..critedge.loopexit_crit_edge, %26
+  %.pr = phi i32 [ %.promoted, %26 ], [ %41, %..critedge.loopexit_crit_edge ], [ %.promoted, %.lr.ph ], [ %41, %37 ]
   %42 = icmp sgt i32 %.pr, 0
   br i1 %42, label %.lr.ph42, label %.critedge2
 

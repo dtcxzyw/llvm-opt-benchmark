@@ -3292,9 +3292,12 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4llvm9hash
   %30 = load i64, ptr %29, align 8, !tbaa !221
   %31 = urem i64 %30, %7
   %.not19.i.i = icmp eq i64 %31, %8
-  br i1 %.not19.i.i, label %21, label %.critedge, !llvm.loop !223
+  br i1 %.not19.i.i, label %21, label %..loopexit_crit_edge21.i.i, !llvm.loop !223
 
-.critedge:                                        ; preds = %28, %.lr.ph.i.i, %4
+..loopexit_crit_edge21.i.i:                       ; preds = %28
+  br label %.critedge, !llvm.loop !223
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %4, %..loopexit_crit_edge21.i.i
   %32 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #23
   store ptr null, ptr %32, align 8, !tbaa !182
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -3332,14 +3335,14 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4llvm9hash
   br label %_ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEEC2EOSA_.exit.i.i.i.i.i.i.i
 
 _ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEEC2EOSA_.exit.i.i.i.i.i.i.i: ; preds = %49, %38
-  %.sink33 = phi ptr [ %35, %49 ], [ %43, %38 ]
-  %.sink32 = phi ptr [ %35, %49 ], [ %45, %38 ]
+  %.sink35 = phi ptr [ %35, %49 ], [ %43, %38 ]
+  %.sink34 = phi ptr [ %35, %49 ], [ %45, %38 ]
   %.sink = phi i64 [ 0, %49 ], [ %48, %38 ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ 0, %49 ], [ %40, %38 ]
   %51 = getelementptr inbounds nuw i8, ptr %32, i64 112
-  store ptr %.sink33, ptr %51, align 8, !tbaa !127
+  store ptr %.sink35, ptr %51, align 8, !tbaa !127
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 120
-  store ptr %.sink32, ptr %52, align 8, !tbaa !201
+  store ptr %.sink34, ptr %52, align 8, !tbaa !201
   %53 = getelementptr inbounds nuw i8, ptr %32, i64 128
   store i64 %.sink, ptr %53, align 8, !tbaa !198
   store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i, ptr %35, align 8, !tbaa !202
@@ -3374,16 +3377,16 @@ _ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4
   br label %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESP_IJOS5_EEEEEPNS8_16_Hashtable_allocISaINS8_10_Hash_nodeIS6_Lb1EEEEEEDpOT_.exit
 
 _ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESP_IJOS5_EEEEEPNS8_16_Hashtable_allocISaINS8_10_Hash_nodeIS6_Lb1EEEEEEDpOT_.exit: ; preds = %57, %68
-  %.sink36 = phi ptr [ %54, %68 ], [ %62, %57 ]
-  %.sink35 = phi ptr [ %54, %68 ], [ %64, %57 ]
-  %.sink34 = phi i64 [ 0, %68 ], [ %67, %57 ]
+  %.sink38 = phi ptr [ %54, %68 ], [ %62, %57 ]
+  %.sink37 = phi ptr [ %54, %68 ], [ %64, %57 ]
+  %.sink36 = phi i64 [ 0, %68 ], [ %67, %57 ]
   %.sink.i.i.i.i6.i.i.i.i.i.i.i = phi i32 [ 0, %68 ], [ %59, %57 ]
   %70 = getelementptr inbounds nuw i8, ptr %32, i64 160
-  store ptr %.sink36, ptr %70, align 8, !tbaa !127
+  store ptr %.sink38, ptr %70, align 8, !tbaa !127
   %71 = getelementptr inbounds nuw i8, ptr %32, i64 168
-  store ptr %.sink35, ptr %71, align 8, !tbaa !201
+  store ptr %.sink37, ptr %71, align 8, !tbaa !201
   %72 = getelementptr inbounds nuw i8, ptr %32, i64 176
-  store i64 %.sink34, ptr %72, align 8, !tbaa !198
+  store i64 %.sink36, ptr %72, align 8, !tbaa !198
   store i32 %.sink.i.i.i.i6.i.i.i.i.i.i.i, ptr %54, align 8, !tbaa !202
   %73 = getelementptr inbounds nuw i8, ptr %32, i64 184
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 168

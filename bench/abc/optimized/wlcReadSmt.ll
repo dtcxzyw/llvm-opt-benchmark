@@ -2537,10 +2537,13 @@ Smt_VecEntryNode.exit279:                         ; preds = %.lr.ph396
   %233 = getelementptr %struct.Vec_Int_t_, ptr %.val214, i64 %232, i32 1
   %.val7.i273 = load i32, ptr %233, align 4, !tbaa !25
   %234 = icmp sgt i32 %.val7.i273, 0
-  br i1 %234, label %.lr.ph347, label %Smt_VecEntryIsType.exit276.thread, !llvm.loop !52
+  br i1 %234, label %.lr.ph347, label %Smt_VecEntryNode.exit279.Smt_VecEntryIsType.exit276.thread.loopexit_crit_edge, !llvm.loop !52
 
-Smt_VecEntryIsType.exit276.thread:                ; preds = %Smt_VecEntryNode.exit279, %.lr.ph347, %.lr.ph396, %.lr.ph347.preheader, %Smt_VecEntryNode.exit272, %216
-  %.0165 = phi i32 [ %218, %216 ], [ %218, %Smt_VecEntryNode.exit272 ], [ %218, %.lr.ph347.preheader ], [ %229, %.lr.ph396 ], [ %229, %.lr.ph347 ], [ %229, %Smt_VecEntryNode.exit279 ]
+Smt_VecEntryNode.exit279.Smt_VecEntryIsType.exit276.thread.loopexit_crit_edge: ; preds = %Smt_VecEntryNode.exit279
+  br label %Smt_VecEntryIsType.exit276.thread, !llvm.loop !52
+
+Smt_VecEntryIsType.exit276.thread:                ; preds = %.lr.ph347, %.lr.ph396, %.lr.ph347.preheader, %Smt_VecEntryNode.exit279.Smt_VecEntryIsType.exit276.thread.loopexit_crit_edge, %Smt_VecEntryNode.exit272, %216
+  %.0165 = phi i32 [ %218, %216 ], [ %218, %Smt_VecEntryNode.exit272 ], [ %229, %Smt_VecEntryNode.exit279.Smt_VecEntryIsType.exit276.thread.loopexit_crit_edge ], [ %218, %.lr.ph347.preheader ], [ %229, %.lr.ph396 ], [ %229, %.lr.ph347 ]
   %235 = tail call i32 @Smt_PrsBuildNode(ptr noundef %29, ptr noundef nonnull %0, i32 noundef %.0165, i32 noundef -1, ptr noundef null)
   %.not176 = icmp eq i32 %235, 0
   br i1 %.not176, label %236, label %237

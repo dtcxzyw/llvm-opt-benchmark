@@ -1210,7 +1210,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
 ._crit_edge:                                      ; preds = %789
   %.pre62 = and i64 %785, -2
   %.pre63 = inttoptr i64 %.pre62 to ptr
-  br label %62
+  br label %62, !llvm.loop !26
 
 794:                                              ; preds = %663, %660, %.thread38
   %795 = phi i32 [ -22, %.thread38 ], [ %661, %660 ], [ %664, %663 ]

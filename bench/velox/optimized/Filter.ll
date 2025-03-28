@@ -7617,9 +7617,12 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i.i.i = sext i32 %14 to i64
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i.i.i, %8
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %if.then.i.i.i, !llvm.loop !114
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, !llvm.loop !114
 
-if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i
+  br label %if.then.i.i.i, !llvm.loop !114
+
+if.then.i.i.i:                                    ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, %if.end15.i.i.i.i
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.74) #38
           to label %.noexc unwind label %lpad
 
@@ -19532,7 +19535,7 @@ if.end.while.end.loopexit_crit_edge:              ; preds = %if.end
   %.pre.pre = load ptr, ptr %ranges, align 8
   %add.ptr.i37.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %.pre.pre, i64 %indvars.iv
   %.pre175.pre = load ptr, ptr %add.ptr.i37.phi.trans.insert.phi.trans.insert, align 8
-  br label %while.end
+  br label %while.end, !llvm.loop !332
 
 while.end:                                        ; preds = %land.lhs.true, %while.body, %if.end.while.end.loopexit_crit_edge, %invoke.cont
   %26 = phi ptr [ %6, %invoke.cont ], [ %.pre175.pre, %if.end.while.end.loopexit_crit_edge ], [ %13, %while.body ], [ %13, %land.lhs.true ]
@@ -31807,12 +31810,15 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %conv.i.i.i.i.i.i.i = sext i32 %11 to i64
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i, %2
   %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i.i, %rem.i.i.i19
-  br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end25, !llvm.loop !733
+  br i1 %cmp.not.i.i, label %for.cond.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i, !llvm.loop !733
 
-if.end25:                                         ; preds = %if.end3.i.i, %lor.lhs.false.i.i, %if.end13, %if.end13.thread
-  %rem.i.i.i22 = phi i64 [ %rem.i.i.i, %if.end13 ], [ %rem.i.i.i19, %if.end13.thread ], [ %rem.i.i.i19, %lor.lhs.false.i.i ], [ %rem.i.i.i19, %if.end3.i.i ]
-  %conv.i.i.i20 = phi i64 [ %conv.i.i.i, %if.end13 ], [ %conv.i.i.i17, %if.end13.thread ], [ %conv.i.i.i17, %lor.lhs.false.i.i ], [ %conv.i.i.i17, %if.end3.i.i ]
-  %12 = phi i32 [ %5, %if.end13 ], [ %1, %if.end13.thread ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.end3.i.i ]
+lor.lhs.false.return.loopexit_crit_edge.i.i:      ; preds = %lor.lhs.false.i.i
+  br label %if.end25, !llvm.loop !733
+
+if.end25:                                         ; preds = %if.end3.i.i, %if.end13, %lor.lhs.false.return.loopexit_crit_edge.i.i, %if.end13.thread
+  %rem.i.i.i22 = phi i64 [ %rem.i.i.i, %if.end13 ], [ %rem.i.i.i19, %if.end13.thread ], [ %rem.i.i.i19, %lor.lhs.false.return.loopexit_crit_edge.i.i ], [ %rem.i.i.i19, %if.end3.i.i ]
+  %conv.i.i.i20 = phi i64 [ %conv.i.i.i, %if.end13 ], [ %conv.i.i.i17, %if.end13.thread ], [ %conv.i.i.i17, %lor.lhs.false.return.loopexit_crit_edge.i.i ], [ %conv.i.i.i17, %if.end3.i.i ]
+  %12 = phi i32 [ %5, %if.end13 ], [ %1, %if.end13.thread ], [ %1, %lor.lhs.false.return.loopexit_crit_edge.i.i ], [ %1, %if.end3.i.i ]
   %second.i11 = getelementptr inbounds nuw i8, ptr %__v, i64 8
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #39
   store ptr null, ptr %call5.i.i.i.i.i, align 8

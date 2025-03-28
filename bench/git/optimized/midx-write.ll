@@ -1289,7 +1289,7 @@ sane_qsort.exit._crit_edge:                       ; preds = %sane_qsort.exit
   %518 = sext i32 %.1210 to i64
   %519 = load i64, ptr %515, align 8, !tbaa !69
   %520 = icmp ugt i64 %519, %518
-  br i1 %520, label %.lr.ph728, label %.critedge.loopexit, !llvm.loop !92
+  br i1 %520, label %.lr.ph728, label %.critedge, !llvm.loop !92
 
 .lr.ph728:                                        ; preds = %.lr.ph514.preheader, %.lr.ph514
   %521 = phi i64 [ %518, %.lr.ph514 ], [ 0, %.lr.ph514.preheader ]
@@ -1356,19 +1356,19 @@ _.exit337:                                        ; preds = %538, %540
   %553 = zext i32 %552 to i64
   %554 = load i64, ptr %71, align 8, !tbaa !43
   %555 = icmp ugt i64 %554, %553
-  br i1 %555, label %.lr.ph514, label %.critedge.loopexit, !llvm.loop !92
+  br i1 %555, label %.lr.ph514, label %..critedge_crit_edge, !llvm.loop !92
 
-.critedge.loopexit:                               ; preds = %.lr.ph514, %551
-  %556 = icmp eq i32 %.1208, 0
-  br label %.critedge
+..critedge_crit_edge:                             ; preds = %551
+  br label %.critedge, !llvm.loop !92
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph514.preheader
-  %557 = phi i64 [ %.pre608, %.lr.ph514.preheader ], [ %554, %.critedge.loopexit ]
-  %.0207.lcssa.ph = phi i1 [ true, %.lr.ph514.preheader ], [ %556, %.critedge.loopexit ]
-  br i1 %.0207.lcssa.ph, label %558, label %1124
+.critedge:                                        ; preds = %.lr.ph514, %..critedge_crit_edge, %.lr.ph514.preheader
+  %556 = phi i64 [ %554, %..critedge_crit_edge ], [ %.pre608, %.lr.ph514.preheader ], [ %554, %.lr.ph514 ]
+  %.0207.lcssa.ph = phi i32 [ %.1208, %..critedge_crit_edge ], [ 0, %.lr.ph514.preheader ], [ %.1208, %.lr.ph514 ]
+  %557 = icmp eq i32 %.0207.lcssa.ph, 0
+  br i1 %557, label %558, label %1124
 
 558:                                              ; preds = %sane_qsort.exit._crit_edge, %.critedge, %514
-  %559 = phi i64 [ %.pre607, %sane_qsort.exit._crit_edge ], [ %557, %.critedge ], [ %.pre608, %514 ]
+  %559 = phi i64 [ %.pre607, %sane_qsort.exit._crit_edge ], [ %556, %.critedge ], [ %.pre608, %514 ]
   %mul.ov.i339 = icmp ugt i64 %559, 4611686018427387903
   br i1 %mul.ov.i339, label %560, label %st_mult.exit340
 

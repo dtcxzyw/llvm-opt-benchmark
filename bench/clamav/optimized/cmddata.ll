@@ -145,7 +145,7 @@ define noundef zeroext i1 @_ZN11CommandData9CheckArgsEP10StringListbPKwbi(ptr no
   %.021.us = phi ptr [ %8, %30 ], [ %9, %26 ], [ %9, %22 ]
   %32 = call noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef nonnull %23, ptr noundef %.021.us, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 8200, ptr nonnull %8) #16
-  br i1 %32, label %._crit_edge, label %.critedge.us, !llvm.loop !13
+  br i1 %32, label %._crit_edge24, label %.critedge.us, !llvm.loop !13
 
 33:                                               ; preds = %20
   %34 = load i32, ptr %6, align 16, !tbaa !11
@@ -158,7 +158,7 @@ define noundef zeroext i1 @_ZN11CommandData9CheckArgsEP10StringListbPKwbi(ptr no
 
 37:                                               ; preds = %36, %33
   %38 = call noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %4)
-  br i1 %38, label %._crit_edge, label %.critedge.us, !llvm.loop !13
+  br i1 %38, label %._crit_edge26, label %.critedge.us, !llvm.loop !13
 
 .critedge.us:                                     ; preds = %37, %31
   %39 = call noundef zeroext i1 @_ZN10StringList9GetStringEPwm(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %7, i64 noundef 2048)
@@ -200,7 +200,7 @@ define noundef zeroext i1 @_ZN11CommandData9CheckArgsEP10StringListbPKwbi(ptr no
   %.021.us30 = phi ptr [ %8, %52 ], [ %9, %48 ], [ %9, %44 ]
   %54 = call noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef nonnull %45, ptr noundef %.021.us30, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 8200, ptr nonnull %8) #16
-  br i1 %54, label %._crit_edge, label %.critedge.us31, !llvm.loop !13
+  br i1 %54, label %._crit_edge24, label %.critedge.us31, !llvm.loop !13
 
 .critedge.us31:                                   ; preds = %53
   %55 = call noundef zeroext i1 @_ZN10StringList9GetStringEPwm(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %7, i64 noundef 2048)
@@ -239,14 +239,20 @@ define noundef zeroext i1 @_ZN11CommandData9CheckArgsEP10StringListbPKwbi(ptr no
   %.021 = phi ptr [ %8, %68 ], [ %9, %64 ], [ %9, %60 ]
   %70 = call noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef nonnull %61, ptr noundef %.021, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 8200, ptr nonnull %8) #16
-  br i1 %70, label %._crit_edge, label %.critedge, !llvm.loop !13
+  br i1 %70, label %._crit_edge24, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %69
   %71 = call noundef zeroext i1 @_ZN10StringList9GetStringEPwm(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %7, i64 noundef 2048)
   br i1 %71, label %.lr.ph.split.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %69, %.critedge, %53, %.critedge.us31, %37, %31, %.critedge.us, %5
-  %.lcssa = phi i1 [ false, %5 ], [ false, %.critedge.us ], [ true, %31 ], [ true, %37 ], [ %54, %.critedge.us31 ], [ %54, %53 ], [ %70, %.critedge ], [ %70, %69 ]
+._crit_edge24:                                    ; preds = %69, %53, %31
+  br label %._crit_edge, !llvm.loop !13
+
+._crit_edge26:                                    ; preds = %37
+  br label %._crit_edge, !llvm.loop !13
+
+._crit_edge:                                      ; preds = %.critedge, %.critedge.us31, %.critedge.us, %._crit_edge26, %._crit_edge24, %5
+  %.lcssa = phi i1 [ true, %._crit_edge24 ], [ true, %._crit_edge26 ], [ false, %5 ], [ false, %.critedge.us ], [ false, %.critedge.us31 ], [ false, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6) #16
   ret i1 %.lcssa

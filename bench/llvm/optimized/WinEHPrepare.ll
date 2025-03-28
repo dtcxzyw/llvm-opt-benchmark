@@ -931,7 +931,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEiNS_12DenseMapInfoIS4_vEEN
 
 ..loopexit_crit_edge:                             ; preds = %57
   %.pr.pre = load i32, ptr %9, align 8, !tbaa !26
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !130
 
 .critedge50:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit, %57
   %60 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %29) #22
@@ -1585,7 +1585,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEiNS_12DenseMapInfoIS4_vEEN
 
 ..loopexit_crit_edge:                             ; preds = %56
   %.pr.pre = load i32, ptr %8, align 8, !tbaa !26
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !198
 
 .critedge54:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit, %56
   %59 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %28) #22

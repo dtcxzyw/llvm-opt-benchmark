@@ -679,7 +679,7 @@ for.body125.cleanup_crit_edge:                    ; preds = %for.body125
   %73 = trunc nsw i64 %indvars.iv.next2053 to i32
   %sext2069 = shl i64 %indvars.iv.next2053, 32
   %.pre2068 = ashr exact i64 %sext2069, 32
-  br label %cleanup
+  br label %cleanup, !llvm.loop !43
 
 cleanup:                                          ; preds = %for.cond122, %for.body125.cleanup_crit_edge
   %.pre-phi = phi i64 [ %.pre2068, %for.body125.cleanup_crit_edge ], [ %71, %for.cond122 ]

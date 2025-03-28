@@ -3262,7 +3262,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
 
 .loopexit..critedge5_crit_edge:                   ; preds = %.loopexit
   %.pre523 = load i32, ptr %4, align 4, !tbaa !38
-  br label %.critedge5
+  br label %.critedge5, !llvm.loop !70
 
 .critedge5:                                       ; preds = %399, %.loopexit..critedge5_crit_edge
   %456 = phi i32 [ %.pre523, %.loopexit..critedge5_crit_edge ], [ %400, %399 ]

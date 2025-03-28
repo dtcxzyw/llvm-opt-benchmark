@@ -10550,7 +10550,7 @@ thread-pre-split.i:                               ; preds = %_ZN4llvm15SmallVect
 
 .thread-pre-split_crit_edge.i:                    ; preds = %158
   %.pr.pre.i = load i32, ptr %122, align 8, !tbaa !26
-  br label %thread-pre-split.i
+  br label %thread-pre-split.i, !llvm.loop !602
 
 161:                                              ; preds = %146
   %162 = add i32 %.081.i, 1

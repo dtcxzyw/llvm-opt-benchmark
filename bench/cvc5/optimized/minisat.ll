@@ -2123,7 +2123,10 @@ _ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE.exit: ;
   %60 = load i64, ptr %59, align 8, !tbaa !380
   %61 = urem i64 %60, %37
   %.not19.i.i.i.i = icmp eq i64 %61, %38
-  br i1 %.not19.i.i.i.i, label %51, label %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backERKS3_.exit, !llvm.loop !382
+  br i1 %.not19.i.i.i.i, label %51, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !382
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %58
+  br label %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backERKS3_.exit, !llvm.loop !382
 
 _ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %51, %32, %42
   %62 = load ptr, ptr %12, align 8, !tbaa !48
@@ -2194,7 +2197,7 @@ _ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE17_M_realloc_insertIJRKS3_
   store ptr %86, ptr %13, align 8, !tbaa !60
   br label %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backERKS3_.exit
 
-_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backERKS3_.exit: ; preds = %.lr.ph.i.i.i.i, %58, %.preheader, %36, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %64
+_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backERKS3_.exit: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %36, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %64
   %87 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %87, %7
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !388
@@ -3857,10 +3860,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal4prop10
   %43 = load i64, ptr %42, align 8, !tbaa !380
   %44 = urem i64 %43, %9
   %.not19.i.i = icmp eq i64 %44, %10
-  br i1 %.not19.i.i, label %34, label %.critedge27, !llvm.loop !382
+  br i1 %.not19.i.i, label %34, label %..loopexit_crit_edge21.i.i, !llvm.loop !382
 
-.critedge27:                                      ; preds = %.lr.ph.i.i, %41, %21, %.thread
-  %45 = phi i64 [ %24, %21 ], [ %10, %.thread ], [ %10, %41 ], [ %10, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %41
+  br label %.critedge27, !llvm.loop !382
+
+.critedge27:                                      ; preds = %.lr.ph.i.i, %21, %..loopexit_crit_edge21.i.i, %.thread
+  %45 = phi i64 [ %24, %21 ], [ %10, %.thread ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
   %46 = invoke ptr @_ZNSt10_HashtableIN4cvc58internal4prop10SatLiteralES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_22SatLiteralHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %45, i64 noundef %5, ptr noundef nonnull %3, i64 noundef 1)
           to label %_ZNSt10_HashtableIN4cvc58internal4prop10SatLiteralES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_22SatLiteralHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIN4cvc58internal4prop10SatLiteralES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_22SatLiteralHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit29
 

@@ -119891,11 +119891,11 @@ define internal fastcc noundef zeroext i1 @"_ZN71_$LT$typst..visualize..paint..P
   switch i32 %19, label %default.unreachable12 [
     i32 0, label %23
     i32 1, label %27
-    i32 2, label %276
+    i32 2, label %277
   ]
 
-"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit": ; preds = %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i29.i", %205, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i", %99, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i", %47, %342, %336, %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit14.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit12.i.i", %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i", %280, %276, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i37.i", %268, %262, %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i35.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit10.i.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i31.i", %200, %199, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i", %191, %185, %181, %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit19.i.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit17.i.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit16.i.i.i", %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i16.i", %94, %93, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i", %85, %79, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i", %42, %41, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1c0420bf48f9a7d5E.exit.sink.split.i", %27, %2, %23
-  %.0.shrunk = phi i1 [ %26, %23 ], [ false, %2 ], [ false, %27 ], [ true, %41 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i" ], [ false, %79 ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i" ], [ false, %42 ], [ false, %85 ], [ true, %93 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i" ], [ false, %185 ], [ false, %181 ], [ false, %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit19.i.i.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit16.i.i.i" ], [ false, %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i16.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit17.i.i.i" ], [ false, %94 ], [ false, %191 ], [ true, %199 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i37.i" ], [ false, %262 ], [ false, %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i35.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i31.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit10.i.i.i" ], [ false, %200 ], [ false, %268 ], [ %.not.i.i39.i, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1c0420bf48f9a7d5E.exit.sink.split.i" ], [ true, %276 ], [ false, %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit14.i.i" ], [ false, %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit.i.i" ], [ false, %280 ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit12.i.i" ], [ false, %336 ], [ %spec.select.i.i.i, %342 ], [ false, %47 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i" ], [ false, %99 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i" ], [ false, %205 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i29.i" ]
+"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit": ; preds = %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i28.i", %206, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i", %100, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i", %48, %343, %337, %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit14.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit12.i.i", %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i", %281, %277, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i36.i", %269, %263, %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i34.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit10.i.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i30.i", %201, %200, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i", %192, %186, %182, %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit19.i.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit17.i.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit16.i.i.i", %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i16.i", %95, %94, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i", %86, %80, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i", %43, %42, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1c0420bf48f9a7d5E.exit.sink.split.i", %27, %2, %23
+  %.0.shrunk = phi i1 [ %26, %23 ], [ false, %2 ], [ false, %27 ], [ true, %42 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i" ], [ false, %80 ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i" ], [ false, %43 ], [ false, %86 ], [ true, %94 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i" ], [ false, %186 ], [ false, %182 ], [ false, %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit19.i.i.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit16.i.i.i" ], [ false, %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i16.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit17.i.i.i" ], [ false, %95 ], [ false, %192 ], [ true, %200 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i36.i" ], [ false, %263 ], [ false, %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i34.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i30.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit10.i.i.i" ], [ false, %201 ], [ false, %269 ], [ %41, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1c0420bf48f9a7d5E.exit.sink.split.i" ], [ true, %277 ], [ false, %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit14.i.i" ], [ false, %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit.i.i" ], [ false, %281 ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit12.i.i" ], [ false, %337 ], [ %spec.select.i.i.i, %343 ], [ false, %48 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i" ], [ false, %100 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i" ], [ false, %206 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i28.i" ]
   ret i1 %.0.shrunk
 
 default.unreachable12:                            ; preds = %33, %22
@@ -119926,734 +119926,734 @@ default.unreachable12:                            ; preds = %33, %22
   tail call void @llvm.assume(i1 %35)
   %36 = icmp eq ptr %.val3, %.val5
   switch i64 %.val, label %default.unreachable12 [
-    i64 0, label %41
-    i64 1, label %93
-    i64 2, label %199
+    i64 0, label %42
+    i64 1, label %94
+    i64 2, label %200
   ]
 
-"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1c0420bf48f9a7d5E.exit.sink.split.i": ; preds = %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i37.i", %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i", %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i"
-  %.sink.i = phi i64 [ 48, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i" ], [ 88, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i" ], [ 64, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i37.i" ]
+"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1c0420bf48f9a7d5E.exit.sink.split.i": ; preds = %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i36.i", %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i", %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i"
+  %.sink.i = phi i64 [ 48, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i" ], [ 88, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i" ], [ 64, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i36.i" ]
   %37 = getelementptr inbounds nuw i8, ptr %.val3, i64 %.sink.i
   %38 = load i8, ptr %37, align 8, !range !729, !noalias !4, !noundef !4
   %39 = getelementptr inbounds nuw i8, ptr %.val5, i64 %.sink.i
   %40 = load i8, ptr %39, align 8, !range !729, !noalias !4, !noundef !4
-  %.not.i.i39.i = icmp eq i8 %38, %40
+  %41 = icmp eq i8 %38, %40
   br label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-41:                                               ; preds = %33
-  br i1 %36, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %42
+42:                                               ; preds = %33
+  br i1 %36, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %43
 
-42:                                               ; preds = %41
+43:                                               ; preds = %42
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28599)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28602)
-  %43 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
-  %.val.i.i.i = load ptr, ptr %43, align 8, !alias.scope !28599, !noalias !28602, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
-  %.val1.i.i.i = load i64, ptr %44, align 8, !alias.scope !28599, !noalias !28602, !noundef !4
-  %45 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
-  %.val2.i.i.i = load ptr, ptr %45, align 8, !alias.scope !28602, !noalias !28599, !nonnull !4, !noundef !4
-  %46 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
-  %.val3.i.i.i = load i64, ptr %46, align 8, !alias.scope !28602, !noalias !28599, !noundef !4
+  %44 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
+  %.val.i.i.i = load ptr, ptr %44, align 8, !alias.scope !28599, !noalias !28602, !nonnull !4, !noundef !4
+  %45 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
+  %.val1.i.i.i = load i64, ptr %45, align 8, !alias.scope !28599, !noalias !28602, !noundef !4
+  %46 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
+  %.val2.i.i.i = load ptr, ptr %46, align 8, !alias.scope !28602, !noalias !28599, !nonnull !4, !noundef !4
+  %47 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
+  %.val3.i.i.i = load i64, ptr %47, align 8, !alias.scope !28602, !noalias !28599, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28604)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28607)
   %.not.i.i.i.i.i = icmp eq i64 %.val1.i.i.i, %.val3.i.i.i
   br i1 %.not.i.i.i.i.i, label %.preheader.split.i.i.i.i.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-.preheader.split.i.i.i.i.i:                       ; preds = %42, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i"
-  %.sroa.01.0.i.i.i.i.i = phi i64 [ %48, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i" ], [ 0, %42 ]
+.preheader.split.i.i.i.i.i:                       ; preds = %43, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i"
+  %.sroa.01.0.i.i.i.i.i = phi i64 [ %49, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i" ], [ 0, %43 ]
   %exitcond.not.i.i.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i.i.i, %.val1.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i.i", label %47
+  br i1 %exitcond.not.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i.i", label %48
 
-47:                                               ; preds = %.preheader.split.i.i.i.i.i
-  %48 = add i64 %.sroa.01.0.i.i.i.i.i, 1
-  %49 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
-  %50 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val2.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
+48:                                               ; preds = %.preheader.split.i.i.i.i.i
+  %49 = add i64 %.sroa.01.0.i.i.i.i.i, 1
+  %50 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
+  %51 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val2.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28609)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28612)
-  %51 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %50), !noalias !28614
-  br i1 %51, label %52, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %52 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %51), !noalias !28614
+  br i1 %52, label %53, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 24
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28615)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28618)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28620)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28623)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28625)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28628)
-  %54 = load double, ptr %53, align 8, !alias.scope !28630, !noalias !28631, !noundef !4
-  %55 = fcmp uno double %54, 0.000000e+00
-  br i1 %55, label %60, label %56
+  %55 = load double, ptr %54, align 8, !alias.scope !28630, !noalias !28631, !noundef !4
+  %56 = fcmp uno double %55, 0.000000e+00
+  br i1 %56, label %61, label %57
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %58 = load double, ptr %57, align 8, !alias.scope !28632, !noalias !28633, !noundef !4
-  %59 = fcmp uno double %58, 0.000000e+00
-  br i1 %59, label %60, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i"
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %59 = load double, ptr %58, align 8, !alias.scope !28632, !noalias !28633, !noundef !4
+  %60 = fcmp uno double %59, 0.000000e+00
+  br i1 %60, label %61, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i"
 
-60:                                               ; preds = %56, %52
+61:                                               ; preds = %57, %53
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18), !noalias !28634
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %18, align 8, !noalias !28634
-  %61 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 1, ptr %61, align 8, !noalias !28634
-  %62 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr null, ptr %62, align 8, !noalias !28634
-  %63 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %63, align 8, !noalias !28634
-  %64 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 0, ptr %64, align 8, !noalias !28634
+  %62 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 1, ptr %62, align 8, !noalias !28634
+  %63 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store ptr null, ptr %63, align 8, !noalias !28634
+  %64 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %64, align 8, !noalias !28634
+  %65 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i64 0, ptr %65, align 8, !noalias !28634
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28635
   unreachable
 
-"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i": ; preds = %56
-  %65 = fcmp une double %54, %58
-  br i1 %65, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %.preheader.split.i.i.i.i.i
+"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i.i": ; preds = %57
+  %66 = fcmp une double %55, %59
+  br i1 %66, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %.preheader.split.i.i.i.i.i
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i.i": ; preds = %.preheader.split.i.i.i.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28636)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28639)
-  %67 = load double, ptr %66, align 8, !alias.scope !28641, !noalias !28642, !noundef !4
-  %68 = fcmp uno double %67, 0.000000e+00
-  br i1 %68, label %73, label %69
+  %68 = load double, ptr %67, align 8, !alias.scope !28641, !noalias !28642, !noundef !4
+  %69 = fcmp uno double %68, 0.000000e+00
+  br i1 %69, label %74, label %70
 
-69:                                               ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i.i"
-  %70 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
-  %71 = load double, ptr %70, align 8, !alias.scope !28642, !noalias !28641, !noundef !4
-  %72 = fcmp uno double %71, 0.000000e+00
-  br i1 %72, label %73, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i"
+70:                                               ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i.i"
+  %71 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
+  %72 = load double, ptr %71, align 8, !alias.scope !28642, !noalias !28641, !noundef !4
+  %73 = fcmp uno double %72, 0.000000e+00
+  br i1 %73, label %74, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i"
 
-73:                                               ; preds = %69, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i.i"
+74:                                               ; preds = %70, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !28643
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %17, align 8, !noalias !28643
-  %74 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 1, ptr %74, align 8, !noalias !28643
-  %75 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store ptr null, ptr %75, align 8, !noalias !28643
-  %76 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %76, align 8, !noalias !28643
-  %77 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i64 0, ptr %77, align 8, !noalias !28643
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 1, ptr %75, align 8, !noalias !28643
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store ptr null, ptr %76, align 8, !noalias !28643
+  %77 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %77, align 8, !noalias !28643
+  %78 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store i64 0, ptr %78, align 8, !noalias !28643
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28643
   unreachable
 
-"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i": ; preds = %69
-  %78 = fcmp oeq double %67, %71
-  br i1 %78, label %79, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i": ; preds = %70
+  %79 = fcmp oeq double %68, %72
+  br i1 %79, label %80, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-79:                                               ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i"
-  %80 = getelementptr inbounds nuw i8, ptr %.val3, i64 50
-  %81 = load i8, ptr %80, align 2, !range !5102, !alias.scope !28599, !noalias !28602, !noundef !4
-  %82 = getelementptr inbounds nuw i8, ptr %.val5, i64 50
-  %83 = load i8, ptr %82, align 2, !range !5102, !alias.scope !28602, !noalias !28599, !noundef !4
-  %84 = icmp eq i8 %81, %83
-  br i1 %84, label %85, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+80:                                               ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i"
+  %81 = getelementptr inbounds nuw i8, ptr %.val3, i64 50
+  %82 = load i8, ptr %81, align 2, !range !5102, !alias.scope !28599, !noalias !28602, !noundef !4
+  %83 = getelementptr inbounds nuw i8, ptr %.val5, i64 50
+  %84 = load i8, ptr %83, align 2, !range !5102, !alias.scope !28602, !noalias !28599, !noundef !4
+  %85 = icmp eq i8 %82, %84
+  br i1 %85, label %86, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-85:                                               ; preds = %79
-  %86 = getelementptr inbounds nuw i8, ptr %.val3, i64 49
-  %87 = getelementptr inbounds nuw i8, ptr %.val5, i64 49
-  %.val4.i.i.i = load i8, ptr %86, align 1, !range !2668, !alias.scope !28599, !noalias !28602, !noundef !4
-  %.val5.i.i.i = load i8, ptr %87, align 1, !range !2668, !alias.scope !28602, !noalias !28599, !noundef !4
-  %88 = icmp ne i8 %.val4.i.i.i, 2
-  %89 = icmp ne i8 %.val5.i.i.i, 2
-  %90 = xor i1 %88, %89
-  br i1 %90, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i"
+86:                                               ; preds = %80
+  %87 = getelementptr inbounds nuw i8, ptr %.val3, i64 49
+  %88 = getelementptr inbounds nuw i8, ptr %.val5, i64 49
+  %.val4.i.i.i = load i8, ptr %87, align 1, !range !2668, !alias.scope !28599, !noalias !28602, !noundef !4
+  %.val5.i.i.i = load i8, ptr %88, align 1, !range !2668, !alias.scope !28602, !noalias !28599, !noundef !4
+  %89 = icmp ne i8 %.val4.i.i.i, 2
+  %90 = icmp ne i8 %.val5.i.i.i, 2
+  %91 = xor i1 %89, %90
+  br i1 %91, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i"
 
-"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i": ; preds = %85
-  %91 = icmp ne i8 %.val4.i.i.i, %.val5.i.i.i
-  %92 = and i1 %89, %91
-  %spec.select.i.not.i.i.i = and i1 %88, %92
+"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i.i": ; preds = %86
+  %92 = icmp ne i8 %.val4.i.i.i, %.val5.i.i.i
+  %93 = and i1 %90, %92
+  %spec.select.i.not.i.i.i = and i1 %89, %93
   br i1 %spec.select.i.not.i.i.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1c0420bf48f9a7d5E.exit.sink.split.i"
 
-93:                                               ; preds = %33
-  br i1 %36, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %94
+94:                                               ; preds = %33
+  br i1 %36, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %95
 
-94:                                               ; preds = %93
+95:                                               ; preds = %94
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28644)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28647)
-  %95 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
-  %.val.i.i8.i = load ptr, ptr %95, align 8, !alias.scope !28644, !noalias !28647, !nonnull !4, !noundef !4
-  %96 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
-  %.val7.i.i.i = load i64, ptr %96, align 8, !alias.scope !28644, !noalias !28647, !noundef !4
-  %97 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
-  %.val8.i.i.i = load ptr, ptr %97, align 8, !alias.scope !28647, !noalias !28644, !nonnull !4, !noundef !4
-  %98 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
-  %.val9.i.i.i = load i64, ptr %98, align 8, !alias.scope !28647, !noalias !28644, !noundef !4
+  %96 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
+  %.val.i.i8.i = load ptr, ptr %96, align 8, !alias.scope !28644, !noalias !28647, !nonnull !4, !noundef !4
+  %97 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
+  %.val7.i.i.i = load i64, ptr %97, align 8, !alias.scope !28644, !noalias !28647, !noundef !4
+  %98 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
+  %.val8.i.i.i = load ptr, ptr %98, align 8, !alias.scope !28647, !noalias !28644, !nonnull !4, !noundef !4
+  %99 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
+  %.val9.i.i.i = load i64, ptr %99, align 8, !alias.scope !28647, !noalias !28644, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28649)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28652)
   %.not.i.i.i.i9.i = icmp eq i64 %.val7.i.i.i, %.val9.i.i.i
   br i1 %.not.i.i.i.i9.i, label %.preheader.split.i.i.i.i11.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-.preheader.split.i.i.i.i11.i:                     ; preds = %94, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i"
-  %.sroa.01.0.i.i.i.i12.i = phi i64 [ %100, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i" ], [ 0, %94 ]
+.preheader.split.i.i.i.i11.i:                     ; preds = %95, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i"
+  %.sroa.01.0.i.i.i.i12.i = phi i64 [ %101, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i" ], [ 0, %95 ]
   %exitcond.not.i.i.i.i13.i = icmp eq i64 %.sroa.01.0.i.i.i.i12.i, %.val7.i.i.i
-  br i1 %exitcond.not.i.i.i.i13.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i15.i", label %99
+  br i1 %exitcond.not.i.i.i.i13.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i15.i", label %100
 
-99:                                               ; preds = %.preheader.split.i.i.i.i11.i
-  %100 = add i64 %.sroa.01.0.i.i.i.i12.i, 1
-  %101 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i8.i, i64 0, i64 %.sroa.01.0.i.i.i.i12.i
-  %102 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val8.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i12.i
+100:                                              ; preds = %.preheader.split.i.i.i.i11.i
+  %101 = add i64 %.sroa.01.0.i.i.i.i12.i, 1
+  %102 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i8.i, i64 0, i64 %.sroa.01.0.i.i.i.i12.i
+  %103 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val8.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i12.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28654)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28657)
-  %103 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %102), !noalias !28659
-  br i1 %103, label %104, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %104 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %102, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %103), !noalias !28659
+  br i1 %104, label %105, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-104:                                              ; preds = %99
-  %105 = getelementptr inbounds nuw i8, ptr %101, i64 24
+105:                                              ; preds = %100
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28660)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28663)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28665)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28668)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28670)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28673)
-  %106 = load double, ptr %105, align 8, !alias.scope !28675, !noalias !28676, !noundef !4
-  %107 = fcmp uno double %106, 0.000000e+00
-  br i1 %107, label %112, label %108
+  %107 = load double, ptr %106, align 8, !alias.scope !28675, !noalias !28676, !noundef !4
+  %108 = fcmp uno double %107, 0.000000e+00
+  br i1 %108, label %113, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  %110 = load double, ptr %109, align 8, !alias.scope !28677, !noalias !28678, !noundef !4
-  %111 = fcmp uno double %110, 0.000000e+00
-  br i1 %111, label %112, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i"
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  %111 = load double, ptr %110, align 8, !alias.scope !28677, !noalias !28678, !noundef !4
+  %112 = fcmp uno double %111, 0.000000e+00
+  br i1 %112, label %113, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i"
 
-112:                                              ; preds = %108, %104
+113:                                              ; preds = %109, %105
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !28679
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %16, align 8, !noalias !28679
-  %113 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 1, ptr %113, align 8, !noalias !28679
-  %114 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr null, ptr %114, align 8, !noalias !28679
-  %115 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %115, align 8, !noalias !28679
-  %116 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i64 0, ptr %116, align 8, !noalias !28679
+  %114 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 1, ptr %114, align 8, !noalias !28679
+  %115 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store ptr null, ptr %115, align 8, !noalias !28679
+  %116 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %116, align 8, !noalias !28679
+  %117 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store i64 0, ptr %117, align 8, !noalias !28679
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28680
   unreachable
 
-"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i": ; preds = %108
-  %117 = fcmp une double %106, %110
-  br i1 %117, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %.preheader.split.i.i.i.i11.i
+"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i14.i": ; preds = %109
+  %118 = fcmp une double %107, %111
+  br i1 %118, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %.preheader.split.i.i.i.i11.i
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i15.i": ; preds = %.preheader.split.i.i.i.i11.i
-  %118 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28681)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28684)
-  %119 = load double, ptr %118, align 8, !alias.scope !28686, !noalias !28687, !noundef !4
-  %120 = fcmp uno double %119, 0.000000e+00
-  br i1 %120, label %125, label %121
+  %120 = load double, ptr %119, align 8, !alias.scope !28686, !noalias !28687, !noundef !4
+  %121 = fcmp uno double %120, 0.000000e+00
+  br i1 %121, label %126, label %122
 
-121:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i15.i"
-  %122 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
-  %123 = load double, ptr %122, align 8, !alias.scope !28687, !noalias !28686, !noundef !4
-  %124 = fcmp uno double %123, 0.000000e+00
-  br i1 %124, label %125, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i16.i"
+122:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i15.i"
+  %123 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
+  %124 = load double, ptr %123, align 8, !alias.scope !28687, !noalias !28686, !noundef !4
+  %125 = fcmp uno double %124, 0.000000e+00
+  br i1 %125, label %126, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i16.i"
 
-125:                                              ; preds = %121, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i15.i"
+126:                                              ; preds = %122, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i15.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !28688
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %15, align 8, !noalias !28688
-  %126 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 1, ptr %126, align 8, !noalias !28688
-  %127 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr null, ptr %127, align 8, !noalias !28688
-  %128 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %128, align 8, !noalias !28688
-  %129 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store i64 0, ptr %129, align 8, !noalias !28688
+  %127 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i64 1, ptr %127, align 8, !noalias !28688
+  %128 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store ptr null, ptr %128, align 8, !noalias !28688
+  %129 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %129, align 8, !noalias !28688
+  %130 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store i64 0, ptr %130, align 8, !noalias !28688
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28688
   unreachable
 
-"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i16.i": ; preds = %121
-  %130 = fcmp oeq double %119, %123
-  br i1 %130, label %131, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i16.i": ; preds = %122
+  %131 = fcmp oeq double %120, %124
+  br i1 %131, label %132, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-131:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i16.i"
-  %132 = getelementptr inbounds nuw i8, ptr %.val3, i64 48
-  %133 = getelementptr inbounds nuw i8, ptr %.val5, i64 48
-  %.val12.i.i.i = load double, ptr %132, align 8, !alias.scope !28689, !noalias !28692, !noundef !4
-  %.val13.i.i.i = load double, ptr %133, align 8, !alias.scope !28647, !noalias !28644
-  %134 = fcmp uno double %.val12.i.i.i, 0.000000e+00
-  %135 = fcmp uno double %.val13.i.i.i, 0.000000e+00
-  %or.cond.i.i.i.i = select i1 %134, i1 true, i1 %135
-  br i1 %or.cond.i.i.i.i, label %136, label %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i.i"
+132:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i16.i"
+  %133 = getelementptr inbounds nuw i8, ptr %.val3, i64 48
+  %134 = getelementptr inbounds nuw i8, ptr %.val5, i64 48
+  %.val12.i.i.i = load double, ptr %133, align 8, !alias.scope !28689, !noalias !28692, !noundef !4
+  %.val13.i.i.i = load double, ptr %134, align 8, !alias.scope !28647, !noalias !28644
+  %135 = fcmp uno double %.val12.i.i.i, 0.000000e+00
+  %136 = fcmp uno double %.val13.i.i.i, 0.000000e+00
+  %or.cond.i.i.i.i = select i1 %135, i1 true, i1 %136
+  br i1 %or.cond.i.i.i.i, label %137, label %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i.i"
 
-136:                                              ; preds = %131
+137:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !28694
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %14, align 8, !noalias !28694
-  %137 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 1, ptr %137, align 8, !noalias !28694
-  %138 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr null, ptr %138, align 8, !noalias !28694
-  %139 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %139, align 8, !noalias !28694
-  %140 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 0, ptr %140, align 8, !noalias !28694
+  %138 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 1, ptr %138, align 8, !noalias !28694
+  %139 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store ptr null, ptr %139, align 8, !noalias !28694
+  %140 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %140, align 8, !noalias !28694
+  %141 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i64 0, ptr %141, align 8, !noalias !28694
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28694
   unreachable
 
-"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i.i": ; preds = %131
-  %141 = fcmp oeq double %.val12.i.i.i, %.val13.i.i.i
-  br i1 %141, label %142, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i.i": ; preds = %132
+  %142 = fcmp oeq double %.val12.i.i.i, %.val13.i.i.i
+  br i1 %142, label %143, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-142:                                              ; preds = %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i.i"
-  %143 = getelementptr inbounds nuw i8, ptr %.val3, i64 56
+143:                                              ; preds = %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i.i"
+  %144 = getelementptr inbounds nuw i8, ptr %.val3, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28698)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28701)
-  %144 = load double, ptr %143, align 8, !alias.scope !28703, !noalias !28704, !noundef !4
-  %145 = fcmp uno double %144, 0.000000e+00
-  br i1 %145, label %150, label %146
+  %145 = load double, ptr %144, align 8, !alias.scope !28703, !noalias !28704, !noundef !4
+  %146 = fcmp uno double %145, 0.000000e+00
+  br i1 %146, label %151, label %147
 
-146:                                              ; preds = %142
-  %147 = getelementptr inbounds nuw i8, ptr %.val5, i64 56
-  %148 = load double, ptr %147, align 8, !alias.scope !28704, !noalias !28703, !noundef !4
-  %149 = fcmp uno double %148, 0.000000e+00
-  br i1 %149, label %150, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit16.i.i.i"
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds nuw i8, ptr %.val5, i64 56
+  %149 = load double, ptr %148, align 8, !alias.scope !28704, !noalias !28703, !noundef !4
+  %150 = fcmp uno double %149, 0.000000e+00
+  br i1 %150, label %151, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit16.i.i.i"
 
-150:                                              ; preds = %146, %142
+151:                                              ; preds = %147, %143
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !28705
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %13, align 8, !noalias !28705
-  %151 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 1, ptr %151, align 8, !noalias !28705
-  %152 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr null, ptr %152, align 8, !noalias !28705
-  %153 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %153, align 8, !noalias !28705
-  %154 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 0, ptr %154, align 8, !noalias !28705
+  %152 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 1, ptr %152, align 8, !noalias !28705
+  %153 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store ptr null, ptr %153, align 8, !noalias !28705
+  %154 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %154, align 8, !noalias !28705
+  %155 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store i64 0, ptr %155, align 8, !noalias !28705
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28705
   unreachable
 
-"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit16.i.i.i": ; preds = %146
-  %155 = fcmp oeq double %144, %148
-  br i1 %155, label %156, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit16.i.i.i": ; preds = %147
+  %156 = fcmp oeq double %145, %149
+  br i1 %156, label %157, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-156:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit16.i.i.i"
-  %157 = getelementptr inbounds nuw i8, ptr %.val3, i64 64
+157:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit16.i.i.i"
+  %158 = getelementptr inbounds nuw i8, ptr %.val3, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28706)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28709)
-  %158 = load double, ptr %157, align 8, !alias.scope !28711, !noalias !28712, !noundef !4
-  %159 = fcmp uno double %158, 0.000000e+00
-  br i1 %159, label %164, label %160
+  %159 = load double, ptr %158, align 8, !alias.scope !28711, !noalias !28712, !noundef !4
+  %160 = fcmp uno double %159, 0.000000e+00
+  br i1 %160, label %165, label %161
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %.val5, i64 64
-  %162 = load double, ptr %161, align 8, !alias.scope !28712, !noalias !28711, !noundef !4
-  %163 = fcmp uno double %162, 0.000000e+00
-  br i1 %163, label %164, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit17.i.i.i"
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds nuw i8, ptr %.val5, i64 64
+  %163 = load double, ptr %162, align 8, !alias.scope !28712, !noalias !28711, !noundef !4
+  %164 = fcmp uno double %163, 0.000000e+00
+  br i1 %164, label %165, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit17.i.i.i"
 
-164:                                              ; preds = %160, %156
+165:                                              ; preds = %161, %157
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !28713
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %12, align 8, !noalias !28713
-  %165 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 1, ptr %165, align 8, !noalias !28713
-  %166 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr null, ptr %166, align 8, !noalias !28713
-  %167 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %167, align 8, !noalias !28713
-  %168 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 0, ptr %168, align 8, !noalias !28713
+  %166 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 1, ptr %166, align 8, !noalias !28713
+  %167 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr null, ptr %167, align 8, !noalias !28713
+  %168 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %168, align 8, !noalias !28713
+  %169 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 0, ptr %169, align 8, !noalias !28713
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28713
   unreachable
 
-"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit17.i.i.i": ; preds = %160
-  %169 = fcmp oeq double %158, %162
-  br i1 %169, label %170, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit17.i.i.i": ; preds = %161
+  %170 = fcmp oeq double %159, %163
+  br i1 %170, label %171, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-170:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit17.i.i.i"
-  %171 = getelementptr inbounds nuw i8, ptr %.val3, i64 72
-  %172 = getelementptr inbounds nuw i8, ptr %.val5, i64 72
-  %.val14.i.i.i = load double, ptr %171, align 8, !alias.scope !28689, !noalias !28692, !noundef !4
-  %.val15.i.i.i = load double, ptr %172, align 8, !alias.scope !28647, !noalias !28644
-  %173 = fcmp uno double %.val14.i.i.i, 0.000000e+00
-  %174 = fcmp uno double %.val15.i.i.i, 0.000000e+00
-  %or.cond.i18.i.i.i = select i1 %173, i1 true, i1 %174
-  br i1 %or.cond.i18.i.i.i, label %175, label %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit19.i.i.i"
+171:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit17.i.i.i"
+  %172 = getelementptr inbounds nuw i8, ptr %.val3, i64 72
+  %173 = getelementptr inbounds nuw i8, ptr %.val5, i64 72
+  %.val14.i.i.i = load double, ptr %172, align 8, !alias.scope !28689, !noalias !28692, !noundef !4
+  %.val15.i.i.i = load double, ptr %173, align 8, !alias.scope !28647, !noalias !28644
+  %174 = fcmp uno double %.val14.i.i.i, 0.000000e+00
+  %175 = fcmp uno double %.val15.i.i.i, 0.000000e+00
+  %or.cond.i18.i.i.i = select i1 %174, i1 true, i1 %175
+  br i1 %or.cond.i18.i.i.i, label %176, label %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit19.i.i.i"
 
-175:                                              ; preds = %170
+176:                                              ; preds = %171
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !28714
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %11, align 8, !noalias !28714
-  %176 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 1, ptr %176, align 8, !noalias !28714
-  %177 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr null, ptr %177, align 8, !noalias !28714
-  %178 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %178, align 8, !noalias !28714
-  %179 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 0, ptr %179, align 8, !noalias !28714
+  %177 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 1, ptr %177, align 8, !noalias !28714
+  %178 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store ptr null, ptr %178, align 8, !noalias !28714
+  %179 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %179, align 8, !noalias !28714
+  %180 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i64 0, ptr %180, align 8, !noalias !28714
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28714
   unreachable
 
-"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit19.i.i.i": ; preds = %170
-  %180 = fcmp oeq double %.val14.i.i.i, %.val15.i.i.i
-  br i1 %180, label %181, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit19.i.i.i": ; preds = %171
+  %181 = fcmp oeq double %.val14.i.i.i, %.val15.i.i.i
+  br i1 %181, label %182, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-181:                                              ; preds = %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit19.i.i.i"
-  %182 = getelementptr inbounds nuw i8, ptr %.val3, i64 80
-  %183 = getelementptr inbounds nuw i8, ptr %.val5, i64 80
-  %184 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %182, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %183)
-  br i1 %184, label %185, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+182:                                              ; preds = %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit19.i.i.i"
+  %183 = getelementptr inbounds nuw i8, ptr %.val3, i64 80
+  %184 = getelementptr inbounds nuw i8, ptr %.val5, i64 80
+  %185 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %184)
+  br i1 %185, label %186, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-185:                                              ; preds = %181
-  %186 = getelementptr inbounds nuw i8, ptr %.val3, i64 90
-  %187 = load i8, ptr %186, align 2, !range !5102, !alias.scope !28644, !noalias !28647, !noundef !4
-  %188 = getelementptr inbounds nuw i8, ptr %.val5, i64 90
-  %189 = load i8, ptr %188, align 2, !range !5102, !alias.scope !28647, !noalias !28644, !noundef !4
-  %190 = icmp eq i8 %187, %189
-  br i1 %190, label %191, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+186:                                              ; preds = %182
+  %187 = getelementptr inbounds nuw i8, ptr %.val3, i64 90
+  %188 = load i8, ptr %187, align 2, !range !5102, !alias.scope !28644, !noalias !28647, !noundef !4
+  %189 = getelementptr inbounds nuw i8, ptr %.val5, i64 90
+  %190 = load i8, ptr %189, align 2, !range !5102, !alias.scope !28647, !noalias !28644, !noundef !4
+  %191 = icmp eq i8 %188, %190
+  br i1 %191, label %192, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-191:                                              ; preds = %185
-  %192 = getelementptr inbounds nuw i8, ptr %.val3, i64 89
-  %193 = getelementptr inbounds nuw i8, ptr %.val5, i64 89
-  %.val10.i.i.i = load i8, ptr %192, align 1, !range !2668, !alias.scope !28644, !noalias !28647, !noundef !4
-  %.val11.i.i.i = load i8, ptr %193, align 1, !range !2668, !alias.scope !28647, !noalias !28644, !noundef !4
-  %194 = icmp ne i8 %.val10.i.i.i, 2
-  %195 = icmp ne i8 %.val11.i.i.i, 2
-  %196 = xor i1 %194, %195
-  br i1 %196, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i"
+192:                                              ; preds = %186
+  %193 = getelementptr inbounds nuw i8, ptr %.val3, i64 89
+  %194 = getelementptr inbounds nuw i8, ptr %.val5, i64 89
+  %.val10.i.i.i = load i8, ptr %193, align 1, !range !2668, !alias.scope !28644, !noalias !28647, !noundef !4
+  %.val11.i.i.i = load i8, ptr %194, align 1, !range !2668, !alias.scope !28647, !noalias !28644, !noundef !4
+  %195 = icmp ne i8 %.val10.i.i.i, 2
+  %196 = icmp ne i8 %.val11.i.i.i, 2
+  %197 = xor i1 %195, %196
+  br i1 %197, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i"
 
-"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i": ; preds = %191
-  %197 = icmp ne i8 %.val10.i.i.i, %.val11.i.i.i
-  %198 = and i1 %195, %197
-  %spec.select.i.not.i.i18.i = and i1 %194, %198
+"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i17.i": ; preds = %192
+  %198 = icmp ne i8 %.val10.i.i.i, %.val11.i.i.i
+  %199 = and i1 %196, %198
+  %spec.select.i.not.i.i18.i = and i1 %195, %199
   br i1 %spec.select.i.not.i.i18.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1c0420bf48f9a7d5E.exit.sink.split.i"
 
-199:                                              ; preds = %33
-  br i1 %36, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %200
+200:                                              ; preds = %33
+  br i1 %36, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %201
 
-200:                                              ; preds = %199
+201:                                              ; preds = %200
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28718)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28721)
-  %201 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
-  %.val.i.i20.i = load ptr, ptr %201, align 8, !alias.scope !28718, !noalias !28721, !nonnull !4, !noundef !4
-  %202 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
-  %.val3.i.i21.i = load i64, ptr %202, align 8, !alias.scope !28718, !noalias !28721, !noundef !4
-  %203 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
-  %.val4.i.i22.i = load ptr, ptr %203, align 8, !alias.scope !28721, !noalias !28718, !nonnull !4, !noundef !4
-  %204 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
-  %.val5.i.i23.i = load i64, ptr %204, align 8, !alias.scope !28721, !noalias !28718, !noundef !4
+  %202 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
+  %.val.i.i19.i = load ptr, ptr %202, align 8, !alias.scope !28718, !noalias !28721, !nonnull !4, !noundef !4
+  %203 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
+  %.val3.i.i20.i = load i64, ptr %203, align 8, !alias.scope !28718, !noalias !28721, !noundef !4
+  %204 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
+  %.val4.i.i21.i = load ptr, ptr %204, align 8, !alias.scope !28721, !noalias !28718, !nonnull !4, !noundef !4
+  %205 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
+  %.val5.i.i22.i = load i64, ptr %205, align 8, !alias.scope !28721, !noalias !28718, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28723)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28726)
-  %.not.i.i.i.i24.i = icmp eq i64 %.val3.i.i21.i, %.val5.i.i23.i
-  br i1 %.not.i.i.i.i24.i, label %.preheader.split.i.i.i.i26.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %.not.i.i.i.i23.i = icmp eq i64 %.val3.i.i20.i, %.val5.i.i22.i
+  br i1 %.not.i.i.i.i23.i, label %.preheader.split.i.i.i.i25.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-.preheader.split.i.i.i.i26.i:                     ; preds = %200, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i29.i"
-  %.sroa.01.0.i.i.i.i27.i = phi i64 [ %206, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i29.i" ], [ 0, %200 ]
-  %exitcond.not.i.i.i.i28.i = icmp eq i64 %.sroa.01.0.i.i.i.i27.i, %.val3.i.i21.i
-  br i1 %exitcond.not.i.i.i.i28.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i30.i", label %205
+.preheader.split.i.i.i.i25.i:                     ; preds = %201, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i28.i"
+  %.sroa.01.0.i.i.i.i26.i = phi i64 [ %207, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i28.i" ], [ 0, %201 ]
+  %exitcond.not.i.i.i.i27.i = icmp eq i64 %.sroa.01.0.i.i.i.i26.i, %.val3.i.i20.i
+  br i1 %exitcond.not.i.i.i.i27.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i29.i", label %206
 
-205:                                              ; preds = %.preheader.split.i.i.i.i26.i
-  %206 = add i64 %.sroa.01.0.i.i.i.i27.i, 1
-  %207 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i20.i, i64 0, i64 %.sroa.01.0.i.i.i.i27.i
-  %208 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val4.i.i22.i, i64 0, i64 %.sroa.01.0.i.i.i.i27.i
+206:                                              ; preds = %.preheader.split.i.i.i.i25.i
+  %207 = add i64 %.sroa.01.0.i.i.i.i26.i, 1
+  %208 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i19.i, i64 0, i64 %.sroa.01.0.i.i.i.i26.i
+  %209 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val4.i.i21.i, i64 0, i64 %.sroa.01.0.i.i.i.i26.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28728)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28731)
-  %209 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %207, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %208), !noalias !28733
-  br i1 %209, label %210, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %210 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %208, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %209), !noalias !28733
+  br i1 %210, label %211, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-210:                                              ; preds = %205
-  %211 = getelementptr inbounds nuw i8, ptr %207, i64 24
+211:                                              ; preds = %206
+  %212 = getelementptr inbounds nuw i8, ptr %208, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28734)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28737)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28739)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28742)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28744)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28747)
-  %212 = load double, ptr %211, align 8, !alias.scope !28749, !noalias !28750, !noundef !4
-  %213 = fcmp uno double %212, 0.000000e+00
-  br i1 %213, label %218, label %214
+  %213 = load double, ptr %212, align 8, !alias.scope !28749, !noalias !28750, !noundef !4
+  %214 = fcmp uno double %213, 0.000000e+00
+  br i1 %214, label %219, label %215
 
-214:                                              ; preds = %210
-  %215 = getelementptr inbounds nuw i8, ptr %208, i64 24
-  %216 = load double, ptr %215, align 8, !alias.scope !28751, !noalias !28752, !noundef !4
-  %217 = fcmp uno double %216, 0.000000e+00
-  br i1 %217, label %218, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i29.i"
+215:                                              ; preds = %211
+  %216 = getelementptr inbounds nuw i8, ptr %209, i64 24
+  %217 = load double, ptr %216, align 8, !alias.scope !28751, !noalias !28752, !noundef !4
+  %218 = fcmp uno double %217, 0.000000e+00
+  br i1 %218, label %219, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i28.i"
 
-218:                                              ; preds = %214, %210
+219:                                              ; preds = %215, %211
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !28753
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %10, align 8, !noalias !28753
-  %219 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 1, ptr %219, align 8, !noalias !28753
-  %220 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr null, ptr %220, align 8, !noalias !28753
-  %221 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %221, align 8, !noalias !28753
-  %222 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 0, ptr %222, align 8, !noalias !28753
+  %220 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 1, ptr %220, align 8, !noalias !28753
+  %221 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store ptr null, ptr %221, align 8, !noalias !28753
+  %222 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %222, align 8, !noalias !28753
+  %223 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 0, ptr %223, align 8, !noalias !28753
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28754
   unreachable
 
-"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i29.i": ; preds = %214
-  %223 = fcmp une double %212, %216
-  br i1 %223, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %.preheader.split.i.i.i.i26.i
+"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hefaf9756af4dc154E.llvm.13383457361836014260.exit.i.i.i.i28.i": ; preds = %215
+  %224 = fcmp une double %213, %217
+  br i1 %224, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %.preheader.split.i.i.i.i25.i
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i30.i": ; preds = %.preheader.split.i.i.i.i26.i
-  %224 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i29.i": ; preds = %.preheader.split.i.i.i.i25.i
+  %225 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28755)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28758)
-  %225 = load double, ptr %224, align 8, !alias.scope !28760, !noalias !28761, !noundef !4
-  %226 = fcmp uno double %225, 0.000000e+00
-  br i1 %226, label %231, label %227
+  %226 = load double, ptr %225, align 8, !alias.scope !28760, !noalias !28761, !noundef !4
+  %227 = fcmp uno double %226, 0.000000e+00
+  br i1 %227, label %232, label %228
 
-227:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i30.i"
-  %228 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
-  %229 = load double, ptr %228, align 8, !alias.scope !28761, !noalias !28760, !noundef !4
-  %230 = fcmp uno double %229, 0.000000e+00
-  br i1 %230, label %231, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i31.i"
+228:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i29.i"
+  %229 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
+  %230 = load double, ptr %229, align 8, !alias.scope !28761, !noalias !28760, !noundef !4
+  %231 = fcmp uno double %230, 0.000000e+00
+  br i1 %231, label %232, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i30.i"
 
-231:                                              ; preds = %227, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i30.i"
+232:                                              ; preds = %228, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h924fb1c6fb677326E.exit.i.i29.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !28762
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %9, align 8, !noalias !28762
-  %232 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 1, ptr %232, align 8, !noalias !28762
-  %233 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %233, align 8, !noalias !28762
-  %234 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %234, align 8, !noalias !28762
-  %235 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 0, ptr %235, align 8, !noalias !28762
+  %233 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 1, ptr %233, align 8, !noalias !28762
+  %234 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %234, align 8, !noalias !28762
+  %235 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %235, align 8, !noalias !28762
+  %236 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 0, ptr %236, align 8, !noalias !28762
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28762
   unreachable
 
-"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i31.i": ; preds = %227
-  %236 = fcmp oeq double %225, %229
-  br i1 %236, label %237, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i30.i": ; preds = %228
+  %237 = fcmp oeq double %226, %230
+  br i1 %237, label %238, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-237:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i31.i"
-  %238 = getelementptr inbounds nuw i8, ptr %.val3, i64 48
+238:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i30.i"
+  %239 = getelementptr inbounds nuw i8, ptr %.val3, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28763)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28766)
-  %239 = load double, ptr %238, align 8, !alias.scope !28768, !noalias !28769, !noundef !4
-  %240 = fcmp uno double %239, 0.000000e+00
-  br i1 %240, label %245, label %241
+  %240 = load double, ptr %239, align 8, !alias.scope !28768, !noalias !28769, !noundef !4
+  %241 = fcmp uno double %240, 0.000000e+00
+  br i1 %241, label %246, label %242
 
-241:                                              ; preds = %237
-  %242 = getelementptr inbounds nuw i8, ptr %.val5, i64 48
-  %243 = load double, ptr %242, align 8, !alias.scope !28769, !noalias !28768, !noundef !4
-  %244 = fcmp uno double %243, 0.000000e+00
-  br i1 %244, label %245, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit10.i.i.i"
+242:                                              ; preds = %238
+  %243 = getelementptr inbounds nuw i8, ptr %.val5, i64 48
+  %244 = load double, ptr %243, align 8, !alias.scope !28769, !noalias !28768, !noundef !4
+  %245 = fcmp uno double %244, 0.000000e+00
+  br i1 %245, label %246, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit10.i.i.i"
 
-245:                                              ; preds = %241, %237
+246:                                              ; preds = %242, %238
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !28770
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %8, align 8, !noalias !28770
-  %246 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1, ptr %246, align 8, !noalias !28770
-  %247 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %247, align 8, !noalias !28770
-  %248 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %248, align 8, !noalias !28770
-  %249 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 0, ptr %249, align 8, !noalias !28770
+  %247 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 1, ptr %247, align 8, !noalias !28770
+  %248 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %248, align 8, !noalias !28770
+  %249 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %249, align 8, !noalias !28770
+  %250 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 0, ptr %250, align 8, !noalias !28770
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28770
   unreachable
 
-"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit10.i.i.i": ; preds = %241
-  %250 = fcmp oeq double %239, %243
-  br i1 %250, label %251, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit10.i.i.i": ; preds = %242
+  %251 = fcmp oeq double %240, %244
+  br i1 %251, label %252, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-251:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit10.i.i.i"
-  %252 = getelementptr inbounds nuw i8, ptr %.val3, i64 56
-  %253 = getelementptr inbounds nuw i8, ptr %.val5, i64 56
-  %.val8.i.i32.i = load double, ptr %252, align 8, !alias.scope !28771, !noalias !28774, !noundef !4
-  %.val9.i.i33.i = load double, ptr %253, align 8, !alias.scope !28721, !noalias !28718
-  %254 = fcmp uno double %.val8.i.i32.i, 0.000000e+00
-  %255 = fcmp uno double %.val9.i.i33.i, 0.000000e+00
-  %or.cond.i.i.i34.i = select i1 %254, i1 true, i1 %255
-  br i1 %or.cond.i.i.i34.i, label %256, label %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i35.i"
+252:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit10.i.i.i"
+  %253 = getelementptr inbounds nuw i8, ptr %.val3, i64 56
+  %254 = getelementptr inbounds nuw i8, ptr %.val5, i64 56
+  %.val8.i.i31.i = load double, ptr %253, align 8, !alias.scope !28771, !noalias !28774, !noundef !4
+  %.val9.i.i32.i = load double, ptr %254, align 8, !alias.scope !28721, !noalias !28718
+  %255 = fcmp uno double %.val8.i.i31.i, 0.000000e+00
+  %256 = fcmp uno double %.val9.i.i32.i, 0.000000e+00
+  %or.cond.i.i.i33.i = select i1 %255, i1 true, i1 %256
+  br i1 %or.cond.i.i.i33.i, label %257, label %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i34.i"
 
-256:                                              ; preds = %251
+257:                                              ; preds = %252
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !28776
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %7, align 8, !noalias !28776
-  %257 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %257, align 8, !noalias !28776
-  %258 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %258, align 8, !noalias !28776
-  %259 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %259, align 8, !noalias !28776
-  %260 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %260, align 8, !noalias !28776
+  %258 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %258, align 8, !noalias !28776
+  %259 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr null, ptr %259, align 8, !noalias !28776
+  %260 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %260, align 8, !noalias !28776
+  %261 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 0, ptr %261, align 8, !noalias !28776
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28776
   unreachable
 
-"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i35.i": ; preds = %251
-  %261 = fcmp oeq double %.val8.i.i32.i, %.val9.i.i33.i
-  br i1 %261, label %262, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i34.i": ; preds = %252
+  %262 = fcmp oeq double %.val8.i.i31.i, %.val9.i.i32.i
+  br i1 %262, label %263, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-262:                                              ; preds = %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i35.i"
-  %263 = getelementptr inbounds nuw i8, ptr %.val3, i64 66
-  %264 = load i8, ptr %263, align 2, !range !5102, !alias.scope !28718, !noalias !28721, !noundef !4
-  %265 = getelementptr inbounds nuw i8, ptr %.val5, i64 66
-  %266 = load i8, ptr %265, align 2, !range !5102, !alias.scope !28721, !noalias !28718, !noundef !4
-  %267 = icmp eq i8 %264, %266
-  br i1 %267, label %268, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+263:                                              ; preds = %"_ZN68_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a064342d44ca80fE.exit.i.i34.i"
+  %264 = getelementptr inbounds nuw i8, ptr %.val3, i64 66
+  %265 = load i8, ptr %264, align 2, !range !5102, !alias.scope !28718, !noalias !28721, !noundef !4
+  %266 = getelementptr inbounds nuw i8, ptr %.val5, i64 66
+  %267 = load i8, ptr %266, align 2, !range !5102, !alias.scope !28721, !noalias !28718, !noundef !4
+  %268 = icmp eq i8 %265, %267
+  br i1 %268, label %269, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-268:                                              ; preds = %262
-  %269 = getelementptr inbounds nuw i8, ptr %.val3, i64 65
-  %270 = getelementptr inbounds nuw i8, ptr %.val5, i64 65
-  %.val6.i.i.i = load i8, ptr %269, align 1, !range !2668, !alias.scope !28718, !noalias !28721, !noundef !4
-  %.val7.i.i36.i = load i8, ptr %270, align 1, !range !2668, !alias.scope !28721, !noalias !28718, !noundef !4
-  %271 = icmp ne i8 %.val6.i.i.i, 2
-  %272 = icmp ne i8 %.val7.i.i36.i, 2
-  %273 = xor i1 %271, %272
-  br i1 %273, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i37.i"
+269:                                              ; preds = %263
+  %270 = getelementptr inbounds nuw i8, ptr %.val3, i64 65
+  %271 = getelementptr inbounds nuw i8, ptr %.val5, i64 65
+  %.val6.i.i.i = load i8, ptr %270, align 1, !range !2668, !alias.scope !28718, !noalias !28721, !noundef !4
+  %.val7.i.i35.i = load i8, ptr %271, align 1, !range !2668, !alias.scope !28721, !noalias !28718, !noundef !4
+  %272 = icmp ne i8 %.val6.i.i.i, 2
+  %273 = icmp ne i8 %.val7.i.i35.i, 2
+  %274 = xor i1 %272, %273
+  br i1 %274, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i36.i"
 
-"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i37.i": ; preds = %268
-  %274 = icmp ne i8 %.val6.i.i.i, %.val7.i.i36.i
-  %275 = and i1 %272, %274
-  %spec.select.i.not.i.i38.i = and i1 %271, %275
-  br i1 %spec.select.i.not.i.i38.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1c0420bf48f9a7d5E.exit.sink.split.i"
+"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hadc96f964df2d1adE.exit.i.i36.i": ; preds = %269
+  %275 = icmp ne i8 %.val6.i.i.i, %.val7.i.i35.i
+  %276 = and i1 %273, %275
+  %spec.select.i.not.i.i37.i = and i1 %272, %276
+  br i1 %spec.select.i.not.i.i37.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1c0420bf48f9a7d5E.exit.sink.split.i"
 
-276:                                              ; preds = %22
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %278 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val6 = load ptr, ptr %277, align 8, !nonnull !4, !noundef !4
-  %.val7 = load ptr, ptr %278, align 8, !nonnull !4, !noundef !4
-  %279 = icmp eq ptr %.val6, %.val7
-  br i1 %279, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %280
+277:                                              ; preds = %22
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val6 = load ptr, ptr %278, align 8, !nonnull !4, !noundef !4
+  %.val7 = load ptr, ptr %279, align 8, !nonnull !4, !noundef !4
+  %280 = icmp eq ptr %.val6, %.val7
+  br i1 %280, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %281
 
-280:                                              ; preds = %276
-  %281 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
-  %282 = getelementptr inbounds nuw i8, ptr %.val7, i64 16
+281:                                              ; preds = %277
+  %282 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %.val7, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28780)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28783)
-  %283 = load i128, ptr %281, align 16, !alias.scope !28780, !noalias !28783, !noundef !4
-  %284 = load i128, ptr %282, align 16, !alias.scope !28783, !noalias !28780, !noundef !4
-  %285 = icmp eq i128 %283, %284
-  br i1 %285, label %286, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %284 = load i128, ptr %282, align 16, !alias.scope !28780, !noalias !28783, !noundef !4
+  %285 = load i128, ptr %283, align 16, !alias.scope !28783, !noalias !28780, !noundef !4
+  %286 = icmp eq i128 %284, %285
+  br i1 %286, label %287, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-286:                                              ; preds = %280
-  %287 = getelementptr inbounds nuw i8, ptr %.val6, i64 80
+287:                                              ; preds = %281
+  %288 = getelementptr inbounds nuw i8, ptr %.val6, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28785)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28788)
-  %288 = load double, ptr %287, align 8, !alias.scope !28790, !noalias !28791, !noundef !4
-  %289 = fcmp uno double %288, 0.000000e+00
-  br i1 %289, label %294, label %290
+  %289 = load double, ptr %288, align 8, !alias.scope !28790, !noalias !28791, !noundef !4
+  %290 = fcmp uno double %289, 0.000000e+00
+  br i1 %290, label %295, label %291
 
-290:                                              ; preds = %286
-  %291 = getelementptr inbounds nuw i8, ptr %.val7, i64 80
-  %292 = load double, ptr %291, align 8, !alias.scope !28791, !noalias !28790, !noundef !4
-  %293 = fcmp uno double %292, 0.000000e+00
-  br i1 %293, label %294, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i"
+291:                                              ; preds = %287
+  %292 = getelementptr inbounds nuw i8, ptr %.val7, i64 80
+  %293 = load double, ptr %292, align 8, !alias.scope !28791, !noalias !28790, !noundef !4
+  %294 = fcmp uno double %293, 0.000000e+00
+  br i1 %294, label %295, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i"
 
-294:                                              ; preds = %290, %286
+295:                                              ; preds = %291, %287
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !28792
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %6, align 8, !noalias !28792
-  %295 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %295, align 8, !noalias !28792
-  %296 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %296, align 8, !noalias !28792
-  %297 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %297, align 8, !noalias !28792
-  %298 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %298, align 8, !noalias !28792
+  %296 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %296, align 8, !noalias !28792
+  %297 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %297, align 8, !noalias !28792
+  %298 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %298, align 8, !noalias !28792
+  %299 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %299, align 8, !noalias !28792
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28792
   unreachable
 
-"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i": ; preds = %290
-  %299 = fcmp oeq double %288, %292
-  br i1 %299, label %300, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i": ; preds = %291
+  %300 = fcmp oeq double %289, %293
+  br i1 %300, label %301, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-300:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i"
-  %301 = getelementptr inbounds nuw i8, ptr %.val6, i64 88
-  %302 = getelementptr inbounds nuw i8, ptr %.val7, i64 88
-  %.val10.i.i = load double, ptr %301, align 8, !alias.scope !28793, !noalias !28796, !noundef !4
-  %.val11.i.i = load double, ptr %302, align 8, !alias.scope !28783, !noalias !28780
-  %303 = fcmp uno double %.val10.i.i, 0.000000e+00
-  %304 = fcmp uno double %.val11.i.i, 0.000000e+00
-  %or.cond.i.i.i = select i1 %303, i1 true, i1 %304
-  br i1 %or.cond.i.i.i, label %305, label %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit.i.i"
+301:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i"
+  %302 = getelementptr inbounds nuw i8, ptr %.val6, i64 88
+  %303 = getelementptr inbounds nuw i8, ptr %.val7, i64 88
+  %.val10.i.i = load double, ptr %302, align 8, !alias.scope !28793, !noalias !28796, !noundef !4
+  %.val11.i.i = load double, ptr %303, align 8, !alias.scope !28783, !noalias !28780
+  %304 = fcmp uno double %.val10.i.i, 0.000000e+00
+  %305 = fcmp uno double %.val11.i.i, 0.000000e+00
+  %or.cond.i.i.i = select i1 %304, i1 true, i1 %305
+  br i1 %or.cond.i.i.i, label %306, label %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit.i.i"
 
-305:                                              ; preds = %300
+306:                                              ; preds = %301
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !28798
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %5, align 8, !noalias !28798
-  %306 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %306, align 8, !noalias !28798
-  %307 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %307, align 8, !noalias !28798
-  %308 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %308, align 8, !noalias !28798
-  %309 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %309, align 8, !noalias !28798
+  %307 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %307, align 8, !noalias !28798
+  %308 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %308, align 8, !noalias !28798
+  %309 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %309, align 8, !noalias !28798
+  %310 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %310, align 8, !noalias !28798
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28798
   unreachable
 
-"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit.i.i": ; preds = %300
-  %310 = fcmp oeq double %.val10.i.i, %.val11.i.i
-  br i1 %310, label %311, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit.i.i": ; preds = %301
+  %311 = fcmp oeq double %.val10.i.i, %.val11.i.i
+  br i1 %311, label %312, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-311:                                              ; preds = %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit.i.i"
-  %312 = getelementptr inbounds nuw i8, ptr %.val6, i64 96
+312:                                              ; preds = %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit.i.i"
+  %313 = getelementptr inbounds nuw i8, ptr %.val6, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28802)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28805)
-  %313 = load double, ptr %312, align 8, !alias.scope !28807, !noalias !28808, !noundef !4
-  %314 = fcmp uno double %313, 0.000000e+00
-  br i1 %314, label %319, label %315
+  %314 = load double, ptr %313, align 8, !alias.scope !28807, !noalias !28808, !noundef !4
+  %315 = fcmp uno double %314, 0.000000e+00
+  br i1 %315, label %320, label %316
 
-315:                                              ; preds = %311
-  %316 = getelementptr inbounds nuw i8, ptr %.val7, i64 96
-  %317 = load double, ptr %316, align 8, !alias.scope !28808, !noalias !28807, !noundef !4
-  %318 = fcmp uno double %317, 0.000000e+00
-  br i1 %318, label %319, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit12.i.i"
+316:                                              ; preds = %312
+  %317 = getelementptr inbounds nuw i8, ptr %.val7, i64 96
+  %318 = load double, ptr %317, align 8, !alias.scope !28808, !noalias !28807, !noundef !4
+  %319 = fcmp uno double %318, 0.000000e+00
+  br i1 %319, label %320, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit12.i.i"
 
-319:                                              ; preds = %315, %311
+320:                                              ; preds = %316, %312
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !28809
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %4, align 8, !noalias !28809
-  %320 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %320, align 8, !noalias !28809
-  %321 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %321, align 8, !noalias !28809
-  %322 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %322, align 8, !noalias !28809
-  %323 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %323, align 8, !noalias !28809
+  %321 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %321, align 8, !noalias !28809
+  %322 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %322, align 8, !noalias !28809
+  %323 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %323, align 8, !noalias !28809
+  %324 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 0, ptr %324, align 8, !noalias !28809
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28809
   unreachable
 
-"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit12.i.i": ; preds = %315
-  %324 = fcmp oeq double %313, %317
-  br i1 %324, label %325, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit12.i.i": ; preds = %316
+  %325 = fcmp oeq double %314, %318
+  br i1 %325, label %326, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-325:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit12.i.i"
-  %326 = getelementptr inbounds nuw i8, ptr %.val6, i64 104
-  %327 = getelementptr inbounds nuw i8, ptr %.val7, i64 104
-  %.val8.i.i = load double, ptr %326, align 8, !alias.scope !28793, !noalias !28796, !noundef !4
-  %.val9.i.i = load double, ptr %327, align 8, !alias.scope !28783, !noalias !28780
-  %328 = fcmp uno double %.val8.i.i, 0.000000e+00
-  %329 = fcmp uno double %.val9.i.i, 0.000000e+00
-  %or.cond.i13.i.i = select i1 %328, i1 true, i1 %329
-  br i1 %or.cond.i13.i.i, label %330, label %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit14.i.i"
+326:                                              ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit12.i.i"
+  %327 = getelementptr inbounds nuw i8, ptr %.val6, i64 104
+  %328 = getelementptr inbounds nuw i8, ptr %.val7, i64 104
+  %.val8.i.i = load double, ptr %327, align 8, !alias.scope !28793, !noalias !28796, !noundef !4
+  %.val9.i.i = load double, ptr %328, align 8, !alias.scope !28783, !noalias !28780
+  %329 = fcmp uno double %.val8.i.i, 0.000000e+00
+  %330 = fcmp uno double %.val9.i.i, 0.000000e+00
+  %or.cond.i13.i.i = select i1 %329, i1 true, i1 %330
+  br i1 %or.cond.i13.i.i, label %331, label %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit14.i.i"
 
-330:                                              ; preds = %325
+331:                                              ; preds = %326
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !28810
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %3, align 8, !noalias !28810
-  %331 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %331, align 8, !noalias !28810
-  %332 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %332, align 8, !noalias !28810
-  %333 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %333, align 8, !noalias !28810
-  %334 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 0, ptr %334, align 8, !noalias !28810
+  %332 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %332, align 8, !noalias !28810
+  %333 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %333, align 8, !noalias !28810
+  %334 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %334, align 8, !noalias !28810
+  %335 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 0, ptr %335, align 8, !noalias !28810
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #76, !noalias !28810
   unreachable
 
-"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit14.i.i": ; preds = %325
-  %335 = fcmp oeq double %.val8.i.i, %.val9.i.i
-  br i1 %335, label %336, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit14.i.i": ; preds = %326
+  %336 = fcmp oeq double %.val8.i.i, %.val9.i.i
+  br i1 %336, label %337, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-336:                                              ; preds = %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit14.i.i"
-  %337 = getelementptr inbounds nuw i8, ptr %.val6, i64 112
-  %338 = getelementptr inbounds nuw i8, ptr %.val7, i64 112
-  %.val.i.i = load i8, ptr %337, align 1, !range !2668, !alias.scope !28780, !noalias !28783, !noundef !4
-  %.val7.i.i = load i8, ptr %338, align 1, !range !2668, !alias.scope !28783, !noalias !28780, !noundef !4
-  %339 = icmp ne i8 %.val.i.i, 2
-  %340 = icmp ne i8 %.val7.i.i, 2
-  %341 = xor i1 %339, %340
-  br i1 %341, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %342
+337:                                              ; preds = %"_ZN64_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62980110f47e6f2eE.exit14.i.i"
+  %338 = getelementptr inbounds nuw i8, ptr %.val6, i64 112
+  %339 = getelementptr inbounds nuw i8, ptr %.val7, i64 112
+  %.val.i.i = load i8, ptr %338, align 1, !range !2668, !alias.scope !28780, !noalias !28783, !noundef !4
+  %.val7.i.i = load i8, ptr %339, align 1, !range !2668, !alias.scope !28783, !noalias !28780, !noundef !4
+  %340 = icmp ne i8 %.val.i.i, 2
+  %341 = icmp ne i8 %.val7.i.i, 2
+  %342 = xor i1 %340, %341
+  br i1 %342, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %343
 
-342:                                              ; preds = %336
-  %brmerge.demorgan.i.i.i = and i1 %339, %340
+343:                                              ; preds = %337
+  %brmerge.demorgan.i.i.i = and i1 %340, %341
   %brmerge.i.i.i = xor i1 %brmerge.demorgan.i.i.i, true
-  %343 = icmp eq i8 %.val.i.i, %.val7.i.i
-  %spec.select.i.i.i = or i1 %343, %brmerge.i.i.i
+  %344 = icmp eq i8 %.val.i.i, %.val7.i.i
+  %spec.select.i.i.i = or i1 %344, %brmerge.i.i.i
   br label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 }
 

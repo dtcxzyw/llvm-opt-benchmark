@@ -1058,7 +1058,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %16
   %47 = zext i32 %46 to i64
   %48 = urem i64 %47, %31
   %.not17.i.i.i.i.i = icmp eq i64 %48, %32
-  br i1 %.not17.i.i.i.i.i, label %41, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, !llvm.loop !9
+  br i1 %.not17.i.i.i.i.i, label %41, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !9
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %44
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit, !llvm.loop !9
 
 _ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i: ; preds = %41, %24, %36
   %.sroa.06.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.06.0.i.i.i, %24 ], [ %43, %41 ]
@@ -1079,33 +1082,33 @@ _ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__d
 .loopexit:                                        ; preds = %50, %49
   %54 = icmp ne i32 %4, 0
   %55 = icmp ne ptr %.sroa.06.1.i.i.i, %.sroa.03.0.i.i
-  %or.cond21 = and i1 %54, %55
-  br i1 %or.cond21, label %.lr.ph, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
+  %or.cond22 = and i1 %54, %55
+  br i1 %or.cond22, label %.lr.ph, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 .lr.ph:                                           ; preds = %.loopexit, %62
-  %.sroa.0.023 = phi ptr [ %63, %62 ], [ %.sroa.06.1.i.i.i, %.loopexit ]
-  %.022 = phi i32 [ %.1, %62 ], [ 0, %.loopexit ]
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 104
+  %.sroa.0.024 = phi ptr [ %63, %62 ], [ %.sroa.06.1.i.i.i, %.loopexit ]
+  %.023 = phi i32 [ %.1, %62 ], [ 0, %.loopexit ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.024, i64 104
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %2, %57
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.024, i64 56
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %60) #19
-  %61 = add nuw i32 %.022, 1
+  %61 = add nuw i32 %.023, 1
   br label %62
 
 62:                                               ; preds = %.lr.ph, %59
-  %.1 = phi i32 [ %61, %59 ], [ %.022, %.lr.ph ]
-  %63 = load ptr, ptr %.sroa.0.023, align 8
+  %.1 = phi i32 [ %61, %59 ], [ %.023, %.lr.ph ]
+  %63 = load ptr, ptr %.sroa.0.024, align 8
   %64 = icmp ult i32 %.1, %4
   %65 = icmp ne ptr %63, %.sroa.03.0.i.i
   %or.cond = select i1 %64, i1 %65, i1 false
   br i1 %or.cond, label %.lr.ph, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, !llvm.loop !11
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %44, %.lr.ph.i.i.i.i.i, %23, %62, %28, %.loopexit
-  %.0.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %28 ], [ %.1, %62 ], [ 0, %23 ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %44 ]
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i, %23, %62, %..loopexit_crit_edge21.i.i.i.i.i, %28, %.loopexit
+  %.0.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %28 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.1, %62 ], [ 0, %23 ], [ 0, %.lr.ph.i.i.i.i.i ]
   store i8 1, ptr %0, align 4
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.0.lcssa, ptr %66, align 4

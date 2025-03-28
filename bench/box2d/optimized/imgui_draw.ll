@@ -9583,7 +9583,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %48, %
 
 ._ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us_crit_edge: ; preds = %118
   %.pre = load i8, ptr %scevgep.i343.us, align 1, !tbaa !23
-  br label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us
+  br label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us, !llvm.loop !148
 
 _ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us: ; preds = %.lr.ph.i344.us, %._ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us_crit_edge
   %120 = phi i8 [ %.pre, %._ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us_crit_edge ], [ %117, %.lr.ph.i344.us ]
@@ -25754,7 +25754,7 @@ define dso_local <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr nound
 
 ._ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us_crit_edge: ; preds = %30
   %.pre = load i8, ptr %scevgep.i.us, align 1, !tbaa !23
-  br label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us
+  br label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us, !llvm.loop !148
 
 _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us_crit_edge
   %32 = phi i8 [ %.pre, %._ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us_crit_edge ], [ %29, %.lr.ph.i.us ]

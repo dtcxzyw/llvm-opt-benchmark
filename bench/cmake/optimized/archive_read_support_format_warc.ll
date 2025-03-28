@@ -1591,11 +1591,14 @@ define internal fastcc i64 @xstrpisotime(ptr noundef nonnull %0, ptr noundef non
   %21 = add nsw i32 %.030.i50, -10
   %22 = icmp ult i32 %21, -19
   %or.cond.i = select i1 %20, i1 %22, i1 false
-  br i1 %or.cond.i, label %10, label %strtoi_lim.exit, !llvm.loop !54
+  br i1 %or.cond.i, label %10, label %.strtoi_lim.exit_crit_edge53, !llvm.loop !54
 
-strtoi_lim.exit:                                  ; preds = %.lr.ph, %10, %.preheader47
-  %.023.lcssa.i = phi i32 [ 0, %.preheader47 ], [ %18, %10 ], [ %18, %.lr.ph ]
-  %.022.lcssa.i = phi ptr [ %6, %.preheader47 ], [ %19, %10 ], [ %19, %.lr.ph ]
+.strtoi_lim.exit_crit_edge53:                     ; preds = %.lr.ph
+  br label %strtoi_lim.exit, !llvm.loop !54
+
+strtoi_lim.exit:                                  ; preds = %10, %.strtoi_lim.exit_crit_edge53, %.preheader47
+  %.023.lcssa.i = phi i32 [ %18, %.strtoi_lim.exit_crit_edge53 ], [ 0, %.preheader47 ], [ %18, %10 ]
+  %.022.lcssa.i = phi ptr [ %19, %.strtoi_lim.exit_crit_edge53 ], [ %6, %.preheader47 ], [ %19, %10 ]
   %23 = icmp eq ptr %.022.lcssa.i, %6
   %24 = add i32 %.023.lcssa.i, -4096
   %or.cond27.i = icmp ult i32 %24, -2513
@@ -1640,13 +1643,16 @@ strtoi_lim.exit:                                  ; preds = %.lr.ph, %10, %.preh
   %41 = add nsw i32 %.030.i958, -10
   %42 = icmp ult i32 %41, -19
   %or.cond.i18 = select i1 %40, i1 %42, i1 false
-  br i1 %or.cond.i18, label %31, label %strtoi_lim.exit19.thread, !llvm.loop !54
+  br i1 %or.cond.i18, label %31, label %.strtoi_lim.exit19_crit_edge63, !llvm.loop !54
 
-strtoi_lim.exit19.thread:                         ; preds = %31, %.lr.ph60
-  %.022.lcssa.i14.ptr94 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i, i64 %.02229.i10.add
+.strtoi_lim.exit19_crit_edge63:                   ; preds = %.lr.ph60
+  br label %strtoi_lim.exit19.thread, !llvm.loop !54
+
+strtoi_lim.exit19.thread:                         ; preds = %31, %.strtoi_lim.exit19_crit_edge63
+  %.022.lcssa.i14.ptr102 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i, i64 %.02229.i10.add
   %43 = add i32 %39, -13
-  %or.cond27.i1595 = icmp ult i32 %43, -12
-  br i1 %or.cond27.i1595, label %.thread, label %45
+  %or.cond27.i15103 = icmp ult i32 %43, -12
+  br i1 %or.cond27.i15103, label %.thread, label %45
 
 44:                                               ; preds = %.preheader46
   %.022.lcssa.i14.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i, i64 1
@@ -1655,9 +1661,9 @@ strtoi_lim.exit19.thread:                         ; preds = %31, %.lr.ph60
 45:                                               ; preds = %strtoi_lim.exit19.thread
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %39, ptr %46, align 8, !tbaa !57
-  %.ptr43 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i14.ptr94, i64 1
+  %.ptr43 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i14.ptr102, i64 1
   store ptr %.ptr43, ptr %3, align 8, !tbaa !32
-  %47 = load i8, ptr %.022.lcssa.i14.ptr94, align 1, !tbaa !28
+  %47 = load i8, ptr %.022.lcssa.i14.ptr102, align 1, !tbaa !28
   %.not4 = icmp eq i8 %47, 45
   br i1 %.not4, label %.preheader45, label %.thread
 
@@ -1670,7 +1676,7 @@ strtoi_lim.exit19.thread:                         ; preds = %31, %.lr.ph60
 50:                                               ; preds = %.lr.ph70
   %51 = udiv i32 %.030.i2068, 10
   %52 = mul nsw i32 %58, 10
-  %.02229.i21.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i14.ptr94, i64 %.02229.i21.add
+  %.02229.i21.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i14.ptr102, i64 %.02229.i21.add
   %53 = load i8, ptr %.02229.i21.ptr, align 1, !tbaa !28
   %54 = add i8 %53, -48
   %or.cond26.i23 = icmp ult i8 %54, 10
@@ -1688,24 +1694,27 @@ strtoi_lim.exit19.thread:                         ; preds = %31, %.lr.ph60
   %60 = add nsw i32 %.030.i2068, -10
   %61 = icmp ult i32 %60, -19
   %or.cond.i29 = select i1 %59, i1 %61, i1 false
-  br i1 %or.cond.i29, label %50, label %strtoi_lim.exit30.thread, !llvm.loop !54
+  br i1 %or.cond.i29, label %50, label %.strtoi_lim.exit30_crit_edge73, !llvm.loop !54
 
-strtoi_lim.exit30.thread:                         ; preds = %50, %.lr.ph70
-  %.022.lcssa.i25.ptr102 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i14.ptr94, i64 %.02229.i21.add
+.strtoi_lim.exit30_crit_edge73:                   ; preds = %.lr.ph70
+  br label %strtoi_lim.exit30.thread, !llvm.loop !54
+
+strtoi_lim.exit30.thread:                         ; preds = %50, %.strtoi_lim.exit30_crit_edge73
+  %.022.lcssa.i25.ptr110 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i14.ptr102, i64 %.02229.i21.add
   %62 = add i32 %58, -32
-  %or.cond27.i26103 = icmp ult i32 %62, -31
-  br i1 %or.cond27.i26103, label %.thread, label %64
+  %or.cond27.i26111 = icmp ult i32 %62, -31
+  br i1 %or.cond27.i26111, label %.thread, label %64
 
 63:                                               ; preds = %.preheader45
-  %.022.lcssa.i25.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i14.ptr94, i64 1
+  %.022.lcssa.i25.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i14.ptr102, i64 1
   br label %.thread
 
 64:                                               ; preds = %strtoi_lim.exit30.thread
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %58, ptr %65, align 4, !tbaa !58
-  %.ptr44 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i25.ptr102, i64 1
+  %.ptr44 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i25.ptr110, i64 1
   store ptr %.ptr44, ptr %3, align 8, !tbaa !32
-  %66 = load i8, ptr %.022.lcssa.i25.ptr102, align 1, !tbaa !28
+  %66 = load i8, ptr %.022.lcssa.i25.ptr110, align 1, !tbaa !28
   %.not5 = icmp eq i8 %66, 84
   br i1 %.not5, label %.preheader, label %.thread
 
@@ -1713,16 +1722,16 @@ strtoi_lim.exit30.thread:                         ; preds = %50, %.lr.ph70
   %67 = load i8, ptr %.ptr44, align 1, !tbaa !28
   %68 = add i8 %67, -48
   %or.cond26.i3477 = icmp ult i8 %68, 10
-  br i1 %or.cond26.i3477, label %.lr.ph80, label %.thread119
+  br i1 %or.cond26.i3477, label %.lr.ph80, label %.thread127
 
-.thread119:                                       ; preds = %.preheader
-  %.022.lcssa.i36.ptr114 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i25.ptr102, i64 1
+.thread127:                                       ; preds = %.preheader
+  %.022.lcssa.i36.ptr122 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i25.ptr110, i64 1
   br label %.thread
 
 69:                                               ; preds = %.lr.ph80
   %70 = udiv i32 %.030.i3178, 10
   %71 = mul nsw i32 %.fr, 10
-  %.02229.i32.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i25.ptr102, i64 %.02229.i32.add
+  %.02229.i32.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i25.ptr110, i64 %.02229.i32.add
   %72 = load i8, ptr %.02229.i32.ptr, align 1, !tbaa !28
   %73 = add i8 %72, -48
   %or.cond26.i34 = icmp ult i8 %73, 10
@@ -1741,10 +1750,13 @@ strtoi_lim.exit30.thread:                         ; preds = %50, %.lr.ph70
   %79 = add nsw i32 %.030.i3178, -10
   %80 = icmp ult i32 %79, -19
   %or.cond.i40 = select i1 %78, i1 %80, i1 false
-  br i1 %or.cond.i40, label %69, label %strtoi_lim.exit41, !llvm.loop !54
+  br i1 %or.cond.i40, label %69, label %.strtoi_lim.exit41_crit_edge83, !llvm.loop !54
 
-strtoi_lim.exit41:                                ; preds = %.lr.ph80, %69
-  %.022.lcssa.i36.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i25.ptr102, i64 %.02229.i32.add
+.strtoi_lim.exit41_crit_edge83:                   ; preds = %.lr.ph80
+  br label %strtoi_lim.exit41, !llvm.loop !54
+
+strtoi_lim.exit41:                                ; preds = %69, %.strtoi_lim.exit41_crit_edge83
+  %.022.lcssa.i36.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i25.ptr110, i64 %.02229.i32.add
   %or.cond27.i37 = icmp ugt i32 %.fr, 23
   br i1 %or.cond27.i37, label %.thread, label %81
 
@@ -1776,12 +1788,12 @@ strtoi_lim.exit41:                                ; preds = %.lr.ph80, %69
   %93 = call fastcc i32 @strtoi_lim(ptr noundef nonnull %90, ptr noundef %3, i32 noundef 0, i32 noundef 60)
   store i32 %93, ptr %4, align 8, !tbaa !61
   %94 = icmp slt i32 %93, 0
-  %.pre91 = load ptr, ptr %3, align 8, !tbaa !32
+  %.pre99 = load ptr, ptr %3, align 8, !tbaa !32
   br i1 %94, label %.thread, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %.pre91, i64 1
-  %97 = load i8, ptr %.pre91, align 1, !tbaa !28
+  %96 = getelementptr inbounds nuw i8, ptr %.pre99, i64 1
+  %97 = load i8, ptr %.pre99, align 1, !tbaa !28
   %.not8 = icmp eq i8 %97, 90
   br i1 %.not8, label %98, label %.thread
 
@@ -1795,9 +1807,9 @@ strtoi_lim.exit41:                                ; preds = %.lr.ph80, %69
   %103 = call i64 @timegm(ptr noundef nonnull %4) #16
   br label %.thread
 
-.thread:                                          ; preds = %strtoi_lim.exit41, %.thread119, %strtoi_lim.exit30.thread, %63, %strtoi_lim.exit19.thread, %44, %98, %27, %strtoi_lim.exit, %45, %64, %81, %89, %85, %95, %92
-  %104 = phi ptr [ %.022.lcssa.i, %strtoi_lim.exit ], [ %.ptr42, %27 ], [ %.ptr43, %45 ], [ %.ptr44, %64 ], [ %83, %81 ], [ %.pre, %85 ], [ %90, %89 ], [ %.pre91, %92 ], [ %96, %95 ], [ %96, %98 ], [ %.022.lcssa.i14.ptr, %44 ], [ %.022.lcssa.i14.ptr94, %strtoi_lim.exit19.thread ], [ %.022.lcssa.i25.ptr, %63 ], [ %.022.lcssa.i25.ptr102, %strtoi_lim.exit30.thread ], [ %.022.lcssa.i36.ptr114, %.thread119 ], [ %.022.lcssa.i36.ptr, %strtoi_lim.exit41 ]
-  %.0 = phi i64 [ -1, %strtoi_lim.exit ], [ -1, %27 ], [ -1, %45 ], [ -1, %64 ], [ -1, %81 ], [ -1, %85 ], [ -1, %89 ], [ -1, %92 ], [ -1, %95 ], [ %103, %98 ], [ -1, %44 ], [ -1, %strtoi_lim.exit19.thread ], [ -1, %63 ], [ -1, %strtoi_lim.exit30.thread ], [ -1, %.thread119 ], [ -1, %strtoi_lim.exit41 ]
+.thread:                                          ; preds = %strtoi_lim.exit41, %.thread127, %strtoi_lim.exit30.thread, %63, %strtoi_lim.exit19.thread, %44, %98, %27, %strtoi_lim.exit, %45, %64, %81, %89, %85, %95, %92
+  %104 = phi ptr [ %.022.lcssa.i, %strtoi_lim.exit ], [ %.ptr42, %27 ], [ %.ptr43, %45 ], [ %.ptr44, %64 ], [ %83, %81 ], [ %.pre, %85 ], [ %90, %89 ], [ %.pre99, %92 ], [ %96, %95 ], [ %96, %98 ], [ %.022.lcssa.i14.ptr, %44 ], [ %.022.lcssa.i14.ptr102, %strtoi_lim.exit19.thread ], [ %.022.lcssa.i25.ptr, %63 ], [ %.022.lcssa.i25.ptr110, %strtoi_lim.exit30.thread ], [ %.022.lcssa.i36.ptr122, %.thread127 ], [ %.022.lcssa.i36.ptr, %strtoi_lim.exit41 ]
+  %.0 = phi i64 [ -1, %strtoi_lim.exit ], [ -1, %27 ], [ -1, %45 ], [ -1, %64 ], [ -1, %81 ], [ -1, %85 ], [ -1, %89 ], [ -1, %92 ], [ -1, %95 ], [ %103, %98 ], [ -1, %44 ], [ -1, %strtoi_lim.exit19.thread ], [ -1, %63 ], [ -1, %strtoi_lim.exit30.thread ], [ -1, %.thread127 ], [ -1, %strtoi_lim.exit41 ]
   store ptr %104, ptr %1, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #16
   ret i64 %.0
@@ -1833,11 +1845,14 @@ define internal fastcc range(i32 -2, 4096) i32 @strtoi_lim(ptr noundef %0, ptr n
   %18 = add nsw i32 %.03032, -10
   %19 = icmp ult i32 %18, -19
   %or.cond = select i1 %17, i1 %19, i1 false
-  br i1 %or.cond, label %7, label %.critedge, !llvm.loop !54
+  br i1 %or.cond, label %7, label %..critedge_crit_edge35, !llvm.loop !54
 
-.critedge:                                        ; preds = %.lr.ph, %7, %4
-  %.023.lcssa = phi i32 [ 0, %4 ], [ %14, %7 ], [ %14, %.lr.ph ]
-  %.022.lcssa = phi ptr [ %0, %4 ], [ %15, %7 ], [ %15, %.lr.ph ]
+..critedge_crit_edge35:                           ; preds = %.lr.ph
+  br label %.critedge, !llvm.loop !54
+
+.critedge:                                        ; preds = %7, %..critedge_crit_edge35, %4
+  %.023.lcssa = phi i32 [ %14, %..critedge_crit_edge35 ], [ 0, %4 ], [ %14, %7 ]
+  %.022.lcssa = phi ptr [ %15, %..critedge_crit_edge35 ], [ %0, %4 ], [ %15, %7 ]
   %20 = icmp eq ptr %.022.lcssa, %0
   %21 = icmp slt i32 %.023.lcssa, %2
   %22 = icmp sgt i32 %.023.lcssa, %3

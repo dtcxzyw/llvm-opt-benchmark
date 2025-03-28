@@ -14301,16 +14301,19 @@ _ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124: ; preds = %_ZNK14Gi
   %149 = call float @llvm.fabs.f32(float %139)
   %150 = fcmp ogt float %149, %.0
   %or.cond246 = select i1 %or.cond244, i1 %150, i1 false
-  br i1 %or.cond246, label %.lr.ph, label %.critedge, !llvm.loop !577
+  br i1 %or.cond246, label %.lr.ph, label %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124..critedge.loopexit_crit_edge, !llvm.loop !577
 
-.critedge:                                        ; preds = %.lr.ph, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124, %74
-  %151 = phi float [ %61, %74 ], [ %141, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124 ], [ %141, %.lr.ph ]
-  %152 = phi float [ %53, %74 ], [ %137, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124 ], [ %137, %.lr.ph ]
-  %153 = phi float [ %55, %74 ], [ %138, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124 ], [ %138, %.lr.ph ]
-  %154 = phi float [ %57, %74 ], [ %139, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124 ], [ %139, %.lr.ph ]
-  %155 = phi float [ %59, %74 ], [ %140, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124 ], [ %140, %.lr.ph ]
-  %.0102.lcssa = phi i32 [ 0, %74 ], [ %142, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124 ], [ %142, %.lr.ph ]
-  %.lcssa = phi float [ %75, %74 ], [ %143, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124 ], [ %143, %.lr.ph ]
+_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124..critedge.loopexit_crit_edge: ; preds = %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124
+  br label %.critedge, !llvm.loop !577
+
+.critedge:                                        ; preds = %.lr.ph, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124..critedge.loopexit_crit_edge, %74
+  %151 = phi float [ %61, %74 ], [ %141, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124..critedge.loopexit_crit_edge ], [ %141, %.lr.ph ]
+  %152 = phi float [ %53, %74 ], [ %137, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124..critedge.loopexit_crit_edge ], [ %137, %.lr.ph ]
+  %153 = phi float [ %55, %74 ], [ %138, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124..critedge.loopexit_crit_edge ], [ %138, %.lr.ph ]
+  %154 = phi float [ %57, %74 ], [ %139, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124..critedge.loopexit_crit_edge ], [ %139, %.lr.ph ]
+  %155 = phi float [ %59, %74 ], [ %140, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124..critedge.loopexit_crit_edge ], [ %140, %.lr.ph ]
+  %.0102.lcssa = phi i32 [ 0, %74 ], [ %142, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124..critedge.loopexit_crit_edge ], [ %142, %.lr.ph ]
+  %.lcssa = phi float [ %75, %74 ], [ %143, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit124..critedge.loopexit_crit_edge ], [ %143, %.lr.ph ]
   %156 = fcmp ugt float %.lcssa, %.0
   br i1 %156, label %158, label %157
 

@@ -29366,13 +29366,13 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load i32, ptr %11, align 8
   %14 = icmp sgt i32 %13, 0
-  %.pre8 = load i32, ptr %12, align 8
+  %.pre10 = load i32, ptr %12, align 8
   br i1 %14, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = icmp sgt i32 %.pre8, 0
+  %17 = icmp sgt i32 %.pre10, 0
   br i1 %17, label %.lr.ph, label %.critedge.i
 
 18:                                               ; preds = %.lr.ph
@@ -29380,43 +29380,48 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %19 = load i32, ptr %11, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i, %20
-  %.pre.pre = load i32, ptr %12, align 8
-  %22 = sext i32 %.pre.pre to i64
-  %23 = icmp slt i64 %indvars.iv.next.i, %22
-  %or.cond = select i1 %21, i1 %23, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge.i, !llvm.loop !157
+  %22 = load i32, ptr %12, align 8
+  br i1 %21, label %23, label %..critedge.i.loopexit_crit_edge, !llvm.loop !157
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %18
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %.lr.ph.i ]
-  %24 = load ptr, ptr %15, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i4
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i4
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %26, ptr noundef %29)
-  br i1 %30, label %18, label %31
+23:                                               ; preds = %18
+  %24 = sext i32 %22 to i64
+  %25 = icmp slt i64 %indvars.iv.next.i, %24
+  br i1 %25, label %.lr.ph, label %.critedge.i, !llvm.loop !157
 
-31:                                               ; preds = %.lr.ph
-  %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i4
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %16, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i4
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_ltEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %34, ptr noundef %37)
-  %.in.v.i.i = select i1 %38, i64 264528, i64 264536
+.lr.ph:                                           ; preds = %.lr.ph.i, %23
+  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %23 ], [ 0, %.lr.ph.i ]
+  %26 = load ptr, ptr %15, align 8
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i4
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %16, align 8
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i4
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %28, ptr noundef %31)
+  br i1 %32, label %18, label %33
+
+33:                                               ; preds = %.lr.ph
+  %34 = load ptr, ptr %15, align 8
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i4
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %16, align 8
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i4
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_ltEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %36, ptr noundef %39)
+  %.in.v.i.i = select i1 %40, i64 264528, i64 264536
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_128clES1_PNS_8PyObjectES4_.exit"
 
-.critedge.i:                                      ; preds = %18, %.lr.ph.i, %10
-  %39 = phi i32 [ %.pre8, %10 ], [ %.pre8, %.lr.ph.i ], [ %.pre.pre, %18 ]
-  %.lcssa.i = phi i32 [ %13, %10 ], [ %13, %.lr.ph.i ], [ %19, %18 ]
-  %40 = icmp slt i32 %.lcssa.i, %39
-  %.in.v.i26.i = select i1 %40, i64 264528, i64 264536
+..critedge.i.loopexit_crit_edge:                  ; preds = %18
+  br label %.critedge.i, !llvm.loop !157
+
+.critedge.i:                                      ; preds = %23, %.lr.ph.i, %..critedge.i.loopexit_crit_edge, %10
+  %41 = phi i32 [ %.pre10, %10 ], [ %22, %..critedge.i.loopexit_crit_edge ], [ %.pre10, %.lr.ph.i ], [ %22, %23 ]
+  %.lcssa.i = phi i32 [ %13, %10 ], [ %19, %..critedge.i.loopexit_crit_edge ], [ %13, %.lr.ph.i ], [ %19, %23 ]
+  %42 = icmp slt i32 %.lcssa.i, %41
+  %.in.v.i26.i = select i1 %42, i64 264528, i64 264536
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_128clES1_PNS_8PyObjectES4_.exit"
 
-"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_128clES1_PNS_8PyObjectES4_.exit": ; preds = %3, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i, %31, %.critedge.i
-  %.in.v.i26.sink.i = phi i64 [ %.in.v.i26.i, %.critedge.i ], [ %.in.v.i.i, %31 ], [ 264544, %3 ], [ 264544, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i ]
+"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_128clES1_PNS_8PyObjectES4_.exit": ; preds = %3, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i, %33, %.critedge.i
+  %.in.v.i26.sink.i = phi i64 [ %.in.v.i26.i, %.critedge.i ], [ %.in.v.i.i, %33 ], [ 264544, %3 ], [ 264544, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i ]
   %.in.i27.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v.i26.sink.i
   %.025.i = load ptr, ptr %.in.i27.i, align 8
   ret ptr %.025.i
@@ -29440,13 +29445,13 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load i32, ptr %11, align 8
   %14 = icmp sgt i32 %13, 0
-  %.pre8 = load i32, ptr %12, align 8
+  %.pre10 = load i32, ptr %12, align 8
   br i1 %14, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = icmp sgt i32 %.pre8, 0
+  %17 = icmp sgt i32 %.pre10, 0
   br i1 %17, label %.lr.ph, label %.critedge.i
 
 18:                                               ; preds = %.lr.ph
@@ -29454,43 +29459,48 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %19 = load i32, ptr %11, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i, %20
-  %.pre.pre = load i32, ptr %12, align 8
-  %22 = sext i32 %.pre.pre to i64
-  %23 = icmp slt i64 %indvars.iv.next.i, %22
-  %or.cond = select i1 %21, i1 %23, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge.i, !llvm.loop !158
+  %22 = load i32, ptr %12, align 8
+  br i1 %21, label %23, label %..critedge.i.loopexit_crit_edge, !llvm.loop !158
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %18
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %.lr.ph.i ]
-  %24 = load ptr, ptr %15, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i4
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i4
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %26, ptr noundef %29)
-  br i1 %30, label %18, label %31
+23:                                               ; preds = %18
+  %24 = sext i32 %22 to i64
+  %25 = icmp slt i64 %indvars.iv.next.i, %24
+  br i1 %25, label %.lr.ph, label %.critedge.i, !llvm.loop !158
 
-31:                                               ; preds = %.lr.ph
-  %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i4
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %16, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i4
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_leEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %34, ptr noundef %37)
-  %.in.v.i.i = select i1 %38, i64 264528, i64 264536
+.lr.ph:                                           ; preds = %.lr.ph.i, %23
+  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %23 ], [ 0, %.lr.ph.i ]
+  %26 = load ptr, ptr %15, align 8
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i4
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %16, align 8
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i4
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %28, ptr noundef %31)
+  br i1 %32, label %18, label %33
+
+33:                                               ; preds = %.lr.ph
+  %34 = load ptr, ptr %15, align 8
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i4
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %16, align 8
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i4
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_leEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %36, ptr noundef %39)
+  %.in.v.i.i = select i1 %40, i64 264528, i64 264536
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_129clES1_PNS_8PyObjectES4_.exit"
 
-.critedge.i:                                      ; preds = %18, %.lr.ph.i, %10
-  %39 = phi i32 [ %.pre8, %10 ], [ %.pre8, %.lr.ph.i ], [ %.pre.pre, %18 ]
-  %.lcssa.i = phi i32 [ %13, %10 ], [ %13, %.lr.ph.i ], [ %19, %18 ]
-  %.not.i = icmp sgt i32 %.lcssa.i, %39
+..critedge.i.loopexit_crit_edge:                  ; preds = %18
+  br label %.critedge.i, !llvm.loop !158
+
+.critedge.i:                                      ; preds = %23, %.lr.ph.i, %..critedge.i.loopexit_crit_edge, %10
+  %41 = phi i32 [ %.pre10, %10 ], [ %22, %..critedge.i.loopexit_crit_edge ], [ %.pre10, %.lr.ph.i ], [ %22, %23 ]
+  %.lcssa.i = phi i32 [ %13, %10 ], [ %19, %..critedge.i.loopexit_crit_edge ], [ %13, %.lr.ph.i ], [ %19, %23 ]
+  %.not.i = icmp sgt i32 %.lcssa.i, %41
   %.in.v.i26.i = select i1 %.not.i, i64 264536, i64 264528
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_129clES1_PNS_8PyObjectES4_.exit"
 
-"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_129clES1_PNS_8PyObjectES4_.exit": ; preds = %3, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i, %31, %.critedge.i
-  %.in.v.i26.sink.i = phi i64 [ %.in.v.i26.i, %.critedge.i ], [ %.in.v.i.i, %31 ], [ 264544, %3 ], [ 264544, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i ]
+"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_129clES1_PNS_8PyObjectES4_.exit": ; preds = %3, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i, %33, %.critedge.i
+  %.in.v.i26.sink.i = phi i64 [ %.in.v.i26.i, %.critedge.i ], [ %.in.v.i.i, %33 ], [ 264544, %3 ], [ 264544, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i ]
   %.in.i27.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v.i26.sink.i
   %.025.i = load ptr, ptr %.in.i27.i, align 8
   ret ptr %.025.i
@@ -29516,13 +29526,13 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load i32, ptr %11, align 8
   %14 = icmp sgt i32 %13, 0
-  %.pre8 = load i32, ptr %12, align 8
+  %.pre10 = load i32, ptr %12, align 8
   br i1 %14, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = icmp sgt i32 %.pre8, 0
+  %17 = icmp sgt i32 %.pre10, 0
   br i1 %17, label %.lr.ph, label %.critedge.i
 
 18:                                               ; preds = %.lr.ph
@@ -29530,43 +29540,48 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %19 = load i32, ptr %11, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i, %20
-  %.pre.pre = load i32, ptr %12, align 8
-  %22 = sext i32 %.pre.pre to i64
-  %23 = icmp slt i64 %indvars.iv.next.i, %22
-  %or.cond = select i1 %21, i1 %23, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge.i, !llvm.loop !159
+  %22 = load i32, ptr %12, align 8
+  br i1 %21, label %23, label %..critedge.i.loopexit_crit_edge, !llvm.loop !159
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %18
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %.lr.ph.i ]
-  %24 = load ptr, ptr %15, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i4
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i4
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %26, ptr noundef %29)
-  br i1 %30, label %18, label %31
+23:                                               ; preds = %18
+  %24 = sext i32 %22 to i64
+  %25 = icmp slt i64 %indvars.iv.next.i, %24
+  br i1 %25, label %.lr.ph, label %.critedge.i, !llvm.loop !159
 
-31:                                               ; preds = %.lr.ph
-  %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i4
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %16, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i4
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_gtEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %34, ptr noundef %37)
-  %.in.v.i.i = select i1 %38, i64 264528, i64 264536
+.lr.ph:                                           ; preds = %.lr.ph.i, %23
+  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %23 ], [ 0, %.lr.ph.i ]
+  %26 = load ptr, ptr %15, align 8
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i4
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %16, align 8
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i4
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %28, ptr noundef %31)
+  br i1 %32, label %18, label %33
+
+33:                                               ; preds = %.lr.ph
+  %34 = load ptr, ptr %15, align 8
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i4
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %16, align 8
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i4
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_gtEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %36, ptr noundef %39)
+  %.in.v.i.i = select i1 %40, i64 264528, i64 264536
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_130clES1_PNS_8PyObjectES4_.exit"
 
-.critedge.i:                                      ; preds = %18, %.lr.ph.i, %10
-  %39 = phi i32 [ %.pre8, %10 ], [ %.pre8, %.lr.ph.i ], [ %.pre.pre, %18 ]
-  %.lcssa.i = phi i32 [ %13, %10 ], [ %13, %.lr.ph.i ], [ %19, %18 ]
-  %40 = icmp sgt i32 %.lcssa.i, %39
-  %.in.v.i26.i = select i1 %40, i64 264528, i64 264536
+..critedge.i.loopexit_crit_edge:                  ; preds = %18
+  br label %.critedge.i, !llvm.loop !159
+
+.critedge.i:                                      ; preds = %23, %.lr.ph.i, %..critedge.i.loopexit_crit_edge, %10
+  %41 = phi i32 [ %.pre10, %10 ], [ %22, %..critedge.i.loopexit_crit_edge ], [ %.pre10, %.lr.ph.i ], [ %22, %23 ]
+  %.lcssa.i = phi i32 [ %13, %10 ], [ %19, %..critedge.i.loopexit_crit_edge ], [ %13, %.lr.ph.i ], [ %19, %23 ]
+  %42 = icmp sgt i32 %.lcssa.i, %41
+  %.in.v.i26.i = select i1 %42, i64 264528, i64 264536
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_130clES1_PNS_8PyObjectES4_.exit"
 
-"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_130clES1_PNS_8PyObjectES4_.exit": ; preds = %3, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i, %31, %.critedge.i
-  %.in.v.i26.sink.i = phi i64 [ %.in.v.i26.i, %.critedge.i ], [ %.in.v.i.i, %31 ], [ 264544, %3 ], [ 264544, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i ]
+"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_130clES1_PNS_8PyObjectES4_.exit": ; preds = %3, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i, %33, %.critedge.i
+  %.in.v.i26.sink.i = phi i64 [ %.in.v.i26.i, %.critedge.i ], [ %.in.v.i.i, %33 ], [ 264544, %3 ], [ 264544, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i ]
   %.in.i27.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v.i26.sink.i
   %.025.i = load ptr, ptr %.in.i27.i, align 8
   ret ptr %.025.i
@@ -29590,13 +29605,13 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load i32, ptr %11, align 8
   %14 = icmp sgt i32 %13, 0
-  %.pre8 = load i32, ptr %12, align 8
+  %.pre10 = load i32, ptr %12, align 8
   br i1 %14, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = icmp sgt i32 %.pre8, 0
+  %17 = icmp sgt i32 %.pre10, 0
   br i1 %17, label %.lr.ph, label %.critedge.i
 
 18:                                               ; preds = %.lr.ph
@@ -29604,43 +29619,48 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %19 = load i32, ptr %11, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i, %20
-  %.pre.pre = load i32, ptr %12, align 8
-  %22 = sext i32 %.pre.pre to i64
-  %23 = icmp slt i64 %indvars.iv.next.i, %22
-  %or.cond = select i1 %21, i1 %23, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge.i, !llvm.loop !160
+  %22 = load i32, ptr %12, align 8
+  br i1 %21, label %23, label %..critedge.i.loopexit_crit_edge, !llvm.loop !160
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %18
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %.lr.ph.i ]
-  %24 = load ptr, ptr %15, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i4
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i4
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %26, ptr noundef %29)
-  br i1 %30, label %18, label %31
+23:                                               ; preds = %18
+  %24 = sext i32 %22 to i64
+  %25 = icmp slt i64 %indvars.iv.next.i, %24
+  br i1 %25, label %.lr.ph, label %.critedge.i, !llvm.loop !160
 
-31:                                               ; preds = %.lr.ph
-  %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i4
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %16, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i4
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_geEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %34, ptr noundef %37)
-  %.in.v.i.i = select i1 %38, i64 264528, i64 264536
+.lr.ph:                                           ; preds = %.lr.ph.i, %23
+  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %23 ], [ 0, %.lr.ph.i ]
+  %26 = load ptr, ptr %15, align 8
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i4
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %16, align 8
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i4
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %28, ptr noundef %31)
+  br i1 %32, label %18, label %33
+
+33:                                               ; preds = %.lr.ph
+  %34 = load ptr, ptr %15, align 8
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i4
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %16, align 8
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i4
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_geEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %36, ptr noundef %39)
+  %.in.v.i.i = select i1 %40, i64 264528, i64 264536
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_131clES1_PNS_8PyObjectES4_.exit"
 
-.critedge.i:                                      ; preds = %18, %.lr.ph.i, %10
-  %39 = phi i32 [ %.pre8, %10 ], [ %.pre8, %.lr.ph.i ], [ %.pre.pre, %18 ]
-  %.lcssa.i = phi i32 [ %13, %10 ], [ %13, %.lr.ph.i ], [ %19, %18 ]
-  %.not.i = icmp slt i32 %.lcssa.i, %39
+..critedge.i.loopexit_crit_edge:                  ; preds = %18
+  br label %.critedge.i, !llvm.loop !160
+
+.critedge.i:                                      ; preds = %23, %.lr.ph.i, %..critedge.i.loopexit_crit_edge, %10
+  %41 = phi i32 [ %.pre10, %10 ], [ %22, %..critedge.i.loopexit_crit_edge ], [ %.pre10, %.lr.ph.i ], [ %22, %23 ]
+  %.lcssa.i = phi i32 [ %13, %10 ], [ %19, %..critedge.i.loopexit_crit_edge ], [ %13, %.lr.ph.i ], [ %19, %23 ]
+  %.not.i = icmp slt i32 %.lcssa.i, %41
   %.in.v.i26.i = select i1 %.not.i, i64 264536, i64 264528
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_131clES1_PNS_8PyObjectES4_.exit"
 
-"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_131clES1_PNS_8PyObjectES4_.exit": ; preds = %3, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i, %31, %.critedge.i
-  %.in.v.i26.sink.i = phi i64 [ %.in.v.i26.i, %.critedge.i ], [ %.in.v.i.i, %31 ], [ 264544, %3 ], [ 264544, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i ]
+"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_131clES1_PNS_8PyObjectES4_.exit": ; preds = %3, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i, %33, %.critedge.i
+  %.in.v.i26.sink.i = phi i64 [ %.in.v.i26.i, %.critedge.i ], [ %.in.v.i.i, %33 ], [ 264544, %3 ], [ 264544, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i ]
   %.in.i27.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v.i26.sink.i
   %.025.i = load ptr, ptr %.in.i27.i, align 8
   ret ptr %.025.i
@@ -29680,7 +29700,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %20 = load i32, ptr %13, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next.i, %21
-  br i1 %22, label %23, label %.critedge.i, !llvm.loop !161
+  br i1 %22, label %23, label %..critedge.i.loopexit_crit_edge, !llvm.loop !161
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %16, align 8
@@ -29710,8 +29730,11 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %.in.v.i.i = select i1 %41, i64 264528, i64 264536
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_132clES1_PNS_8PyObjectES4_.exit"
 
-.critedge.i:                                      ; preds = %19, %23, %.lr.ph.i, %10
-  %.lcssa.i = phi i32 [ %14, %10 ], [ %14, %.lr.ph.i ], [ %20, %23 ], [ %20, %19 ]
+..critedge.i.loopexit_crit_edge:                  ; preds = %19
+  br label %.critedge.i, !llvm.loop !161
+
+.critedge.i:                                      ; preds = %23, %.lr.ph.i, %..critedge.i.loopexit_crit_edge, %10
+  %.lcssa.i = phi i32 [ %14, %10 ], [ %20, %..critedge.i.loopexit_crit_edge ], [ %14, %.lr.ph.i ], [ %20, %23 ]
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %43 = load i32, ptr %42, align 8
   %44 = icmp slt i32 %.lcssa.i, %43
@@ -29757,7 +29780,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %20 = load i32, ptr %13, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next.i, %21
-  br i1 %22, label %23, label %.critedge.i, !llvm.loop !162
+  br i1 %22, label %23, label %..critedge.i.loopexit_crit_edge, !llvm.loop !162
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %16, align 8
@@ -29787,8 +29810,11 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %.in.v.i.i = select i1 %41, i64 264528, i64 264536
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_133clES1_PNS_8PyObjectES4_.exit"
 
-.critedge.i:                                      ; preds = %19, %23, %.lr.ph.i, %10
-  %.lcssa.i = phi i32 [ %14, %10 ], [ %14, %.lr.ph.i ], [ %20, %23 ], [ %20, %19 ]
+..critedge.i.loopexit_crit_edge:                  ; preds = %19
+  br label %.critedge.i, !llvm.loop !162
+
+.critedge.i:                                      ; preds = %23, %.lr.ph.i, %..critedge.i.loopexit_crit_edge, %10
+  %.lcssa.i = phi i32 [ %14, %10 ], [ %20, %..critedge.i.loopexit_crit_edge ], [ %14, %.lr.ph.i ], [ %20, %23 ]
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %43 = load i32, ptr %42, align 8
   %.not.i = icmp sgt i32 %.lcssa.i, %43
@@ -29834,7 +29860,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %20 = load i32, ptr %13, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next.i, %21
-  br i1 %22, label %23, label %.critedge.i, !llvm.loop !163
+  br i1 %22, label %23, label %..critedge.i.loopexit_crit_edge, !llvm.loop !163
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %16, align 8
@@ -29864,8 +29890,11 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %.in.v.i.i = select i1 %41, i64 264528, i64 264536
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_134clES1_PNS_8PyObjectES4_.exit"
 
-.critedge.i:                                      ; preds = %19, %23, %.lr.ph.i, %10
-  %.lcssa.i = phi i32 [ %14, %10 ], [ %14, %.lr.ph.i ], [ %20, %23 ], [ %20, %19 ]
+..critedge.i.loopexit_crit_edge:                  ; preds = %19
+  br label %.critedge.i, !llvm.loop !163
+
+.critedge.i:                                      ; preds = %23, %.lr.ph.i, %..critedge.i.loopexit_crit_edge, %10
+  %.lcssa.i = phi i32 [ %14, %10 ], [ %20, %..critedge.i.loopexit_crit_edge ], [ %14, %.lr.ph.i ], [ %20, %23 ]
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %43 = load i32, ptr %42, align 8
   %44 = icmp sgt i32 %.lcssa.i, %43
@@ -29911,7 +29940,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %20 = load i32, ptr %13, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next.i, %21
-  br i1 %22, label %23, label %.critedge.i, !llvm.loop !164
+  br i1 %22, label %23, label %..critedge.i.loopexit_crit_edge, !llvm.loop !164
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %16, align 8
@@ -29941,8 +29970,11 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i:  ; preds = %3
   %.in.v.i.i = select i1 %41, i64 264528, i64 264536
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_135clES1_PNS_8PyObjectES4_.exit"
 
-.critedge.i:                                      ; preds = %19, %23, %.lr.ph.i, %10
-  %.lcssa.i = phi i32 [ %14, %10 ], [ %14, %.lr.ph.i ], [ %20, %23 ], [ %20, %19 ]
+..critedge.i.loopexit_crit_edge:                  ; preds = %19
+  br label %.critedge.i, !llvm.loop !164
+
+.critedge.i:                                      ; preds = %23, %.lr.ph.i, %..critedge.i.loopexit_crit_edge, %10
+  %.lcssa.i = phi i32 [ %14, %10 ], [ %20, %..critedge.i.loopexit_crit_edge ], [ %14, %.lr.ph.i ], [ %20, %23 ]
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %43 = load i32, ptr %42, align 8
   %.not.i = icmp slt i32 %.lcssa.i, %43

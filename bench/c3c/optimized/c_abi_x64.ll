@@ -1529,18 +1529,17 @@ thread-pre-split:                                 ; preds = %2, %tailrecurse.bac
   %19 = trunc i64 %18 to i32
   %20 = icmp uge i32 %.tr1927, %19
   tail call void @llvm.assume(i1 %20)
-  %exitcond.not.i22 = icmp eq i32 %15, 1
-  br i1 %exitcond.not.i22, label %x64_get_member_at_offset.exit, label %.lr.ph.i, !llvm.loop !14
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.next.i23, 1
+.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
+  %21 = phi ptr [ %23, %.lr.ph.i ], [ %16, %.lr.ph.preheader.i ]
+  %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %x64_get_member_at_offset.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.x64_get_member_at_offset.exit_crit_edge, label %.lr.ph.i, !llvm.loop !14
 
-.lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %.lr.ph
-  %indvars.iv.next.i23 = phi i64 [ %indvars.iv.next.i, %.lr.ph ], [ 1, %.lr.ph.preheader.i ]
-  %21 = phi ptr [ %23, %.lr.ph ], [ %16, %.lr.ph.preheader.i ]
-  %22 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next.i23
+.lr.ph.i:                                         ; preds = %.lr.ph
+  %22 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next.i
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load i64, ptr %24, align 8
@@ -1548,13 +1547,15 @@ thread-pre-split:                                 ; preds = %2, %tailrecurse.bac
   %27 = icmp ult i32 %.tr1927, %26
   br i1 %27, label %x64_get_member_at_offset.exit, label %.lr.ph, !llvm.loop !14
 
-x64_get_member_at_offset.exit:                    ; preds = %.lr.ph, %.lr.ph.i, %.lr.ph.preheader.i
-  %.lcssa = phi ptr [ %16, %.lr.ph.preheader.i ], [ %23, %.lr.ph ], [ %21, %.lr.ph.i ]
-  %28 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
+.x64_get_member_at_offset.exit_crit_edge:         ; preds = %.lr.ph
+  br label %x64_get_member_at_offset.exit, !llvm.loop !14
+
+x64_get_member_at_offset.exit:                    ; preds = %.lr.ph.i, %.x64_get_member_at_offset.exit_crit_edge
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %29 to i32
   %31 = sub i32 %.tr1927, %30
-  %32 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %33 = load ptr, ptr %32, align 8
   br label %tailrecurse.backedge
 
@@ -1677,26 +1678,35 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.i
   %exitcond.not.i107 = icmp eq i32 %26, 1
-  br i1 %exitcond.not.i107, label %x64_get_member_at_offset.exit.thread42, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i107, label %x64_get_member_at_offset.exit.thread42, label %.lr.ph.i.lr.ph, !llvm.loop !14
+
+.lr.ph.i.lr.ph:                                   ; preds = %.lr.ph.preheader
+  br label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.next.i108, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %x64_get_member_at_offset.exit.thread42, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.lr.ph.x64_get_member_at_offset.exit.thread42_crit_edge, label %.lr.ph.i, !llvm.loop !14
 
-.lr.ph.i:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv.next.i108 = phi i64 [ %indvars.iv.next.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %32 = phi ptr [ %34, %.lr.ph ], [ %27, %.lr.ph.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %.lr.ph
+  %indvars.iv.next.i108 = phi i64 [ 1, %.lr.ph.i.lr.ph ], [ %indvars.iv.next.i, %.lr.ph ]
+  %32 = phi ptr [ %27, %.lr.ph.i.lr.ph ], [ %34, %.lr.ph ]
   %33 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next.i108
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load i64, ptr %35, align 8
   %37 = trunc i64 %36 to i32
   %38 = icmp ult i32 %.tr46, %37
-  br i1 %38, label %x64_get_member_at_offset.exit.thread42, label %.lr.ph, !llvm.loop !14
+  br i1 %38, label %.lr.ph.i.x64_get_member_at_offset.exit.thread42_crit_edge, label %.lr.ph, !llvm.loop !14
 
-x64_get_member_at_offset.exit.thread42:           ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.preheader
-  %.lcssa = phi ptr [ %27, %.lr.ph.preheader ], [ %32, %.lr.ph.i ], [ %34, %.lr.ph ]
+.lr.ph.x64_get_member_at_offset.exit.thread42_crit_edge: ; preds = %.lr.ph
+  br label %x64_get_member_at_offset.exit.thread42, !llvm.loop !14
+
+.lr.ph.i.x64_get_member_at_offset.exit.thread42_crit_edge: ; preds = %.lr.ph.i
+  br label %x64_get_member_at_offset.exit.thread42, !llvm.loop !14
+
+x64_get_member_at_offset.exit.thread42:           ; preds = %.lr.ph.i.x64_get_member_at_offset.exit.thread42_crit_edge, %.lr.ph.x64_get_member_at_offset.exit.thread42_crit_edge, %.lr.ph.preheader
+  %.lcssa = phi ptr [ %34, %.lr.ph.x64_get_member_at_offset.exit.thread42_crit_edge ], [ %32, %.lr.ph.i.x64_get_member_at_offset.exit.thread42_crit_edge ], [ %27, %.lr.ph.preheader ]
   %39 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 72
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
@@ -2004,12 +2014,12 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.backe
 14:                                               ; preds = %11, %tailrecurse.i
   switch i32 %.pre.i, label %x64_get_fp_type_at_offset.exit.thread [
     i32 26, label %.lr.ph.preheader.i.i
-    i32 33, label %46
+    i32 33, label %43
   ]
 
 x64_get_fp_type_at_offset.exit.thread:            ; preds = %14
   %15 = load ptr, ptr @type_double, align 8
-  br label %x64_get_fp_type_at_offset.exit118.thread
+  br label %x64_get_fp_type_at_offset.exit120.thread
 
 .lr.ph.preheader.i.i:                             ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 56
@@ -2032,520 +2042,468 @@ x64_get_fp_type_at_offset.exit.thread:            ; preds = %14
   %28 = trunc i64 %27 to i32
   %29 = icmp uge i32 %.tr26.i, %28
   tail call void @llvm.assume(i1 %29)
-  %exitcond.not.i.i154 = icmp eq i32 %24, 1
-  br i1 %exitcond.not.i.i154, label %x64_get_member_at_offset.exit.i, label %.lr.ph.i.i.preheader, !llvm.loop !14
+  br label %.lr.ph.i
 
-.lr.ph.i.i.preheader:                             ; preds = %.lr.ph.preheader.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %33 = load i64, ptr %32, align 8
-  %34 = trunc i64 %33 to i32
-  %35 = icmp ult i32 %.tr26.i, %34
-  br i1 %35, label %x64_get_member_at_offset.exit.i.loopexit, label %.lr.ph.i, !llvm.loop !14
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %36 = phi ptr [ %38, %.lr.ph.i.i ], [ %31, %.lr.ph.i.i.preheader ]
-  %indvars.iv.next.i.i155198 = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 1, %.lr.ph.i.i.preheader ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.next.i.i155198, 1
+.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %30 = phi ptr [ %32, %.lr.ph.i.i ], [ %25, %.lr.ph.preheader.i.i ]
+  %indvars.iv.i27.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i27.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %x64_get_member_at_offset.exit.i.loopexit, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.x64_get_member_at_offset.exit_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %37 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next.i.i
+  %31 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next.i.i
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  %34 = load i64, ptr %33, align 8
+  %35 = trunc i64 %34 to i32
+  %36 = icmp ult i32 %.tr26.i, %35
+  br i1 %36, label %x64_get_member_at_offset.exit.i, label %.lr.ph.i, !llvm.loop !14
+
+.x64_get_member_at_offset.exit_crit_edge.i:       ; preds = %.lr.ph.i
+  br label %x64_get_member_at_offset.exit.i, !llvm.loop !14
+
+x64_get_member_at_offset.exit.i:                  ; preds = %.lr.ph.i.i, %.x64_get_member_at_offset.exit_crit_edge.i
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %40 = load i64, ptr %39, align 8
   %41 = trunc i64 %40 to i32
-  %42 = icmp ult i32 %.tr26.i, %41
-  br i1 %42, label %x64_get_member_at_offset.exit.i.loopexit, label %.lr.ph.i, !llvm.loop !14
-
-x64_get_member_at_offset.exit.i.loopexit:         ; preds = %.lr.ph.i, %.lr.ph.i.i, %.lr.ph.i.i.preheader
-  %.lcssa152.ph = phi ptr [ %25, %.lr.ph.i.i.preheader ], [ %36, %.lr.ph.i.i ], [ %36, %.lr.ph.i ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.lcssa152.ph, i64 48
-  %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre184 = trunc i64 %.pre to i32
-  br label %x64_get_member_at_offset.exit.i
-
-x64_get_member_at_offset.exit.i:                  ; preds = %x64_get_member_at_offset.exit.i.loopexit, %.lr.ph.preheader.i.i
-  %.pre-phi185 = phi i32 [ %.pre184, %x64_get_member_at_offset.exit.i.loopexit ], [ %28, %.lr.ph.preheader.i.i ]
-  %.lcssa152 = phi ptr [ %.lcssa152.ph, %x64_get_member_at_offset.exit.i.loopexit ], [ %25, %.lr.ph.preheader.i.i ]
-  %43 = getelementptr inbounds nuw i8, ptr %.lcssa152, i64 72
-  %44 = load ptr, ptr %43, align 8
-  %45 = sub i32 %.tr26.i, %.pre-phi185
+  %42 = sub i32 %.tr26.i, %41
   br label %tailrecurse.i.backedge
 
-46:                                               ; preds = %14
-  %47 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 56
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call fastcc ptr @type_lowering(ptr noundef %48)
-  %50 = tail call i32 @type_size(ptr noundef %49) #7
-  %51 = urem i32 %.tr26.i, %50
+43:                                               ; preds = %14
+  %44 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 56
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call fastcc ptr @type_lowering(ptr noundef %45)
+  %47 = tail call i32 @type_size(ptr noundef %46) #7
+  %48 = urem i32 %.tr26.i, %47
   br label %tailrecurse.i.backedge
 
-tailrecurse.i.backedge:                           ; preds = %46, %x64_get_member_at_offset.exit.i
-  %.tr.i.be = phi ptr [ %44, %x64_get_member_at_offset.exit.i ], [ %49, %46 ]
-  %.tr26.i.be = phi i32 [ %45, %x64_get_member_at_offset.exit.i ], [ %51, %46 ]
+tailrecurse.i.backedge:                           ; preds = %43, %x64_get_member_at_offset.exit.i
+  %.tr.i.be = phi ptr [ %38, %x64_get_member_at_offset.exit.i ], [ %46, %43 ]
+  %.tr26.i.be = phi i32 [ %42, %x64_get_member_at_offset.exit.i ], [ %48, %43 ]
   br label %tailrecurse.i
 
 x64_get_fp_type_at_offset.exit:                   ; preds = %11
-  %52 = load ptr, ptr @type_double, align 8
-  %53 = icmp eq ptr %.tr.i, %52
-  br i1 %53, label %x64_get_fp_type_at_offset.exit118.thread, label %54
+  %49 = load ptr, ptr @type_double, align 8
+  %50 = icmp eq ptr %.tr.i, %49
+  br i1 %50, label %x64_get_fp_type_at_offset.exit120.thread, label %51
 
-54:                                               ; preds = %x64_get_fp_type_at_offset.exit
-  %55 = tail call i32 @type_size(ptr noundef nonnull %.tr.i) #7
-  %56 = tail call i32 @type_size(ptr noundef %2) #7
-  %57 = sub i32 %56, %3
-  %58 = icmp ugt i32 %57, %55
-  br i1 %58, label %59, label %.loopexit
+51:                                               ; preds = %x64_get_fp_type_at_offset.exit
+  %52 = tail call i32 @type_size(ptr noundef nonnull %.tr.i) #7
+  %53 = tail call i32 @type_size(ptr noundef %2) #7
+  %54 = sub i32 %53, %3
+  %55 = icmp ugt i32 %54, %52
+  br i1 %55, label %56, label %.loopexit
 
-59:                                               ; preds = %54
-  %60 = add i32 %55, %1
+56:                                               ; preds = %51
+  %57 = add i32 %52, %1
   br label %tailrecurse.i77
 
-tailrecurse.i77:                                  ; preds = %tailrecurse.i77.backedge, %59
-  %.tr.i78 = phi ptr [ %0, %59 ], [ %.tr.i78.be, %tailrecurse.i77.backedge ]
-  %.tr26.i79 = phi i32 [ %60, %59 ], [ %.tr26.i79.be, %tailrecurse.i77.backedge ]
+tailrecurse.i77:                                  ; preds = %tailrecurse.i77.backedge, %56
+  %.tr.i78 = phi ptr [ %0, %56 ], [ %.tr.i78.be, %tailrecurse.i77.backedge ]
+  %.tr26.i79 = phi i32 [ %57, %56 ], [ %.tr26.i79.be, %tailrecurse.i77.backedge ]
   %.not.i80 = icmp eq i32 %.tr26.i79, 0
   %.pre.i81 = load i32, ptr %.tr.i78, align 8
-  br i1 %.not.i80, label %61, label %70
+  br i1 %.not.i80, label %58, label %67
 
-61:                                               ; preds = %tailrecurse.i77
-  %62 = icmp eq i32 %.pre.i81, 31
-  br i1 %62, label %63, label %67
+58:                                               ; preds = %tailrecurse.i77
+  %59 = icmp eq i32 %.pre.i81, 31
+  br i1 %59, label %60, label %64
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %.tr.i78, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = load i32, ptr %65, align 8
-  br label %67
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %.tr.i78, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i32, ptr %62, align 8
+  br label %64
 
-67:                                               ; preds = %63, %61
-  %.0.i96 = phi i32 [ %66, %63 ], [ %.pre.i81, %61 ]
-  %68 = add i32 %.0.i96, -13
-  %69 = icmp ult i32 %68, 5
-  br i1 %69, label %x64_get_fp_type_at_offset.exit97, label %70
+64:                                               ; preds = %60, %58
+  %.0.i97 = phi i32 [ %63, %60 ], [ %.pre.i81, %58 ]
+  %65 = add i32 %.0.i97, -13
+  %66 = icmp ult i32 %65, 5
+  br i1 %66, label %x64_get_fp_type_at_offset.exit98, label %67
 
-70:                                               ; preds = %67, %tailrecurse.i77
+67:                                               ; preds = %64, %tailrecurse.i77
   switch i32 %.pre.i81, label %.loopexit [
     i32 26, label %.lr.ph.preheader.i.i85
-    i32 33, label %101
+    i32 33, label %95
   ]
 
-.lr.ph.preheader.i.i85:                           ; preds = %70
-  %71 = getelementptr inbounds nuw i8, ptr %.tr.i78, i64 56
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 @type_size(ptr noundef %74) #7
-  %.not.i.i86 = icmp ugt i32 %75, %.tr26.i79
+.lr.ph.preheader.i.i85:                           ; preds = %67
+  %68 = getelementptr inbounds nuw i8, ptr %.tr.i78, i64 56
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 72
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call i32 @type_size(ptr noundef %71) #7
+  %.not.i.i86 = icmp ugt i32 %72, %.tr26.i79
   tail call void @llvm.assume(i1 %.not.i.i86)
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 104
-  %77 = load ptr, ptr %76, align 8, !nonnull !13, !noundef !13
-  %78 = getelementptr inbounds i8, ptr %77, i64 -8
-  %79 = load i32, ptr %78, align 4
-  %.not27.i.i87 = icmp ne i32 %79, 0
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 104
+  %74 = load ptr, ptr %73, align 8, !nonnull !13, !noundef !13
+  %75 = getelementptr inbounds i8, ptr %74, i64 -8
+  %76 = load i32, ptr %75, align 4
+  %.not27.i.i87 = icmp ne i32 %76, 0
   tail call void @llvm.assume(i1 %.not27.i.i87)
-  %wide.trip.count.i.i88 = zext i32 %79 to i64
-  %80 = load ptr, ptr %77, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %82 = load i64, ptr %81, align 8
-  %83 = trunc i64 %82 to i32
-  %84 = icmp uge i32 %.tr26.i79, %83
-  tail call void @llvm.assume(i1 %84)
-  %exitcond.not.i.i92157 = icmp eq i32 %79, 1
-  br i1 %exitcond.not.i.i92157, label %x64_get_member_at_offset.exit.i94, label %.lr.ph.i.i93.preheader, !llvm.loop !14
+  %wide.trip.count.i.i88 = zext i32 %76 to i64
+  %77 = load ptr, ptr %74, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  %79 = load i64, ptr %78, align 8
+  %80 = trunc i64 %79 to i32
+  %81 = icmp uge i32 %.tr26.i79, %80
+  tail call void @llvm.assume(i1 %81)
+  br label %.lr.ph.i89
 
-.lr.ph.i.i93.preheader:                           ; preds = %.lr.ph.preheader.i.i85
-  %85 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %88 = load i64, ptr %87, align 8
-  %89 = trunc i64 %88 to i32
-  %90 = icmp ult i32 %.tr26.i79, %89
-  br i1 %90, label %x64_get_member_at_offset.exit.i94.loopexit, label %.lr.ph.i89, !llvm.loop !14
-
-.lr.ph.i89:                                       ; preds = %.lr.ph.i.i93.preheader, %.lr.ph.i.i93
-  %91 = phi ptr [ %93, %.lr.ph.i.i93 ], [ %86, %.lr.ph.i.i93.preheader ]
-  %indvars.iv.next.i.i91158200 = phi i64 [ %indvars.iv.next.i.i91, %.lr.ph.i.i93 ], [ 1, %.lr.ph.i.i93.preheader ]
-  %indvars.iv.next.i.i91 = add nuw nsw i64 %indvars.iv.next.i.i91158200, 1
+.lr.ph.i89:                                       ; preds = %.lr.ph.i.i93, %.lr.ph.preheader.i.i85
+  %82 = phi ptr [ %84, %.lr.ph.i.i93 ], [ %77, %.lr.ph.preheader.i.i85 ]
+  %indvars.iv.i27.i90 = phi i64 [ %indvars.iv.next.i.i91, %.lr.ph.i.i93 ], [ 0, %.lr.ph.preheader.i.i85 ]
+  %indvars.iv.next.i.i91 = add nuw nsw i64 %indvars.iv.i27.i90, 1
   %exitcond.not.i.i92 = icmp eq i64 %indvars.iv.next.i.i91, %wide.trip.count.i.i88
-  br i1 %exitcond.not.i.i92, label %x64_get_member_at_offset.exit.i94.loopexit, label %.lr.ph.i.i93, !llvm.loop !14
+  br i1 %exitcond.not.i.i92, label %.x64_get_member_at_offset.exit_crit_edge.i95, label %.lr.ph.i.i93, !llvm.loop !14
 
 .lr.ph.i.i93:                                     ; preds = %.lr.ph.i89
-  %92 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv.next.i.i91
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
-  %95 = load i64, ptr %94, align 8
-  %96 = trunc i64 %95 to i32
-  %97 = icmp ult i32 %.tr26.i79, %96
-  br i1 %97, label %x64_get_member_at_offset.exit.i94.loopexit, label %.lr.ph.i89, !llvm.loop !14
+  %83 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv.next.i.i91
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i32
+  %88 = icmp ult i32 %.tr26.i79, %87
+  br i1 %88, label %x64_get_member_at_offset.exit.i94, label %.lr.ph.i89, !llvm.loop !14
 
-x64_get_member_at_offset.exit.i94.loopexit:       ; preds = %.lr.ph.i89, %.lr.ph.i.i93, %.lr.ph.i.i93.preheader
-  %.lcssa150.ph = phi ptr [ %80, %.lr.ph.i.i93.preheader ], [ %91, %.lr.ph.i.i93 ], [ %91, %.lr.ph.i89 ]
-  %.phi.trans.insert173 = getelementptr inbounds nuw i8, ptr %.lcssa150.ph, i64 48
-  %.pre174 = load i64, ptr %.phi.trans.insert173, align 8
-  %.pre182 = trunc i64 %.pre174 to i32
-  br label %x64_get_member_at_offset.exit.i94
+.x64_get_member_at_offset.exit_crit_edge.i95:     ; preds = %.lr.ph.i89
+  br label %x64_get_member_at_offset.exit.i94, !llvm.loop !14
 
-x64_get_member_at_offset.exit.i94:                ; preds = %x64_get_member_at_offset.exit.i94.loopexit, %.lr.ph.preheader.i.i85
-  %.pre-phi183 = phi i32 [ %.pre182, %x64_get_member_at_offset.exit.i94.loopexit ], [ %83, %.lr.ph.preheader.i.i85 ]
-  %.lcssa150 = phi ptr [ %.lcssa150.ph, %x64_get_member_at_offset.exit.i94.loopexit ], [ %80, %.lr.ph.preheader.i.i85 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.lcssa150, i64 72
-  %99 = load ptr, ptr %98, align 8
-  %100 = sub i32 %.tr26.i79, %.pre-phi183
+x64_get_member_at_offset.exit.i94:                ; preds = %.lr.ph.i.i93, %.x64_get_member_at_offset.exit_crit_edge.i95
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 72
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 48
+  %92 = load i64, ptr %91, align 8
+  %93 = trunc i64 %92 to i32
+  %94 = sub i32 %.tr26.i79, %93
   br label %tailrecurse.i77.backedge
 
-101:                                              ; preds = %70
-  %102 = getelementptr inbounds nuw i8, ptr %.tr.i78, i64 56
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call fastcc ptr @type_lowering(ptr noundef %103)
-  %105 = tail call i32 @type_size(ptr noundef %104) #7
-  %106 = urem i32 %.tr26.i79, %105
+95:                                               ; preds = %67
+  %96 = getelementptr inbounds nuw i8, ptr %.tr.i78, i64 56
+  %97 = load ptr, ptr %96, align 8
+  %98 = tail call fastcc ptr @type_lowering(ptr noundef %97)
+  %99 = tail call i32 @type_size(ptr noundef %98) #7
+  %100 = urem i32 %.tr26.i79, %99
   br label %tailrecurse.i77.backedge
 
-tailrecurse.i77.backedge:                         ; preds = %101, %x64_get_member_at_offset.exit.i94
-  %.tr.i78.be = phi ptr [ %99, %x64_get_member_at_offset.exit.i94 ], [ %104, %101 ]
-  %.tr26.i79.be = phi i32 [ %100, %x64_get_member_at_offset.exit.i94 ], [ %106, %101 ]
+tailrecurse.i77.backedge:                         ; preds = %95, %x64_get_member_at_offset.exit.i94
+  %.tr.i78.be = phi ptr [ %90, %x64_get_member_at_offset.exit.i94 ], [ %98, %95 ]
+  %.tr26.i79.be = phi i32 [ %94, %x64_get_member_at_offset.exit.i94 ], [ %100, %95 ]
   br label %tailrecurse.i77
 
-.loopexit:                                        ; preds = %70, %54
-  %107 = load i32, ptr %.tr.i, align 8
-  %108 = icmp eq i32 %107, 31
-  br i1 %108, label %109, label %113
+.loopexit:                                        ; preds = %67, %51
+  %101 = load i32, ptr %.tr.i, align 8
+  %102 = icmp eq i32 %101, 31
+  br i1 %102, label %103, label %107
 
-109:                                              ; preds = %.loopexit
-  %110 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = load i32, ptr %111, align 8
-  br label %113
+103:                                              ; preds = %.loopexit
+  %104 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = load i32, ptr %105, align 8
+  br label %107
 
-113:                                              ; preds = %109, %.loopexit
-  %.0 = phi i32 [ %112, %109 ], [ %107, %.loopexit ]
-  %114 = add i32 %.0, -13
-  %115 = icmp ult i32 %114, 2
-  %116 = icmp ugt i32 %57, 4
-  %or.cond = and i1 %116, %115
-  br i1 %or.cond, label %117, label %x64_get_fp_type_at_offset.exit118.thread
+107:                                              ; preds = %103, %.loopexit
+  %.0 = phi i32 [ %106, %103 ], [ %101, %.loopexit ]
+  %108 = add i32 %.0, -13
+  %109 = icmp ult i32 %108, 2
+  %110 = icmp ugt i32 %54, 4
+  %or.cond = and i1 %110, %109
+  br i1 %or.cond, label %111, label %x64_get_fp_type_at_offset.exit120.thread
 
-117:                                              ; preds = %113
-  %118 = add nuw nsw i32 %1, 4
-  br label %tailrecurse.i98
+111:                                              ; preds = %107
+  %112 = add nuw nsw i32 %1, 4
+  br label %tailrecurse.i99
 
-tailrecurse.i98:                                  ; preds = %tailrecurse.i98.backedge, %117
-  %.tr.i99 = phi ptr [ %0, %117 ], [ %.tr.i99.be, %tailrecurse.i98.backedge ]
-  %.tr26.i100 = phi i32 [ %118, %117 ], [ %.tr26.i100.be, %tailrecurse.i98.backedge ]
-  %.not.i101 = icmp eq i32 %.tr26.i100, 0
-  %.pre.i102 = load i32, ptr %.tr.i99, align 8
-  br i1 %.not.i101, label %119, label %128
+tailrecurse.i99:                                  ; preds = %tailrecurse.i99.backedge, %111
+  %.tr.i100 = phi ptr [ %0, %111 ], [ %.tr.i100.be, %tailrecurse.i99.backedge ]
+  %.tr26.i101 = phi i32 [ %112, %111 ], [ %.tr26.i101.be, %tailrecurse.i99.backedge ]
+  %.not.i102 = icmp eq i32 %.tr26.i101, 0
+  %.pre.i103 = load i32, ptr %.tr.i100, align 8
+  br i1 %.not.i102, label %113, label %122
 
-119:                                              ; preds = %tailrecurse.i98
-  %120 = icmp eq i32 %.pre.i102, 31
-  br i1 %120, label %121, label %125
+113:                                              ; preds = %tailrecurse.i99
+  %114 = icmp eq i32 %.pre.i103, 31
+  br i1 %114, label %115, label %119
 
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds nuw i8, ptr %.tr.i99, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = load i32, ptr %123, align 8
-  br label %125
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds nuw i8, ptr %.tr.i100, i64 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = load i32, ptr %117, align 8
+  br label %119
 
-125:                                              ; preds = %121, %119
-  %.0.i117 = phi i32 [ %124, %121 ], [ %.pre.i102, %119 ]
-  %126 = add i32 %.0.i117, -13
-  %127 = icmp ult i32 %126, 5
-  br i1 %127, label %x64_get_fp_type_at_offset.exit97, label %128
+119:                                              ; preds = %115, %113
+  %.0.i119 = phi i32 [ %118, %115 ], [ %.pre.i103, %113 ]
+  %120 = add i32 %.0.i119, -13
+  %121 = icmp ult i32 %120, 5
+  br i1 %121, label %x64_get_fp_type_at_offset.exit98, label %122
 
-128:                                              ; preds = %125, %tailrecurse.i98
-  switch i32 %.pre.i102, label %x64_get_fp_type_at_offset.exit118.thread [
-    i32 26, label %.lr.ph.preheader.i.i106
-    i32 33, label %159
+122:                                              ; preds = %119, %tailrecurse.i99
+  switch i32 %.pre.i103, label %x64_get_fp_type_at_offset.exit120.thread [
+    i32 26, label %.lr.ph.preheader.i.i107
+    i32 33, label %150
   ]
 
-.lr.ph.preheader.i.i106:                          ; preds = %128
-  %129 = getelementptr inbounds nuw i8, ptr %.tr.i99, i64 56
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 72
-  %132 = load ptr, ptr %131, align 8
-  %133 = tail call i32 @type_size(ptr noundef %132) #7
-  %.not.i.i107 = icmp ugt i32 %133, %.tr26.i100
-  tail call void @llvm.assume(i1 %.not.i.i107)
-  %134 = getelementptr inbounds nuw i8, ptr %130, i64 104
-  %135 = load ptr, ptr %134, align 8, !nonnull !13, !noundef !13
-  %136 = getelementptr inbounds i8, ptr %135, i64 -8
-  %137 = load i32, ptr %136, align 4
-  %.not27.i.i108 = icmp ne i32 %137, 0
-  tail call void @llvm.assume(i1 %.not27.i.i108)
-  %wide.trip.count.i.i109 = zext i32 %137 to i64
-  %138 = load ptr, ptr %135, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
-  %140 = load i64, ptr %139, align 8
-  %141 = trunc i64 %140 to i32
-  %142 = icmp uge i32 %.tr26.i100, %141
-  tail call void @llvm.assume(i1 %142)
-  %exitcond.not.i.i113161 = icmp eq i32 %137, 1
-  br i1 %exitcond.not.i.i113161, label %x64_get_member_at_offset.exit.i115, label %.lr.ph.i.i114.preheader, !llvm.loop !14
+.lr.ph.preheader.i.i107:                          ; preds = %122
+  %123 = getelementptr inbounds nuw i8, ptr %.tr.i100, i64 56
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 72
+  %126 = load ptr, ptr %125, align 8
+  %127 = tail call i32 @type_size(ptr noundef %126) #7
+  %.not.i.i108 = icmp ugt i32 %127, %.tr26.i101
+  tail call void @llvm.assume(i1 %.not.i.i108)
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 104
+  %129 = load ptr, ptr %128, align 8, !nonnull !13, !noundef !13
+  %130 = getelementptr inbounds i8, ptr %129, i64 -8
+  %131 = load i32, ptr %130, align 4
+  %.not27.i.i109 = icmp ne i32 %131, 0
+  tail call void @llvm.assume(i1 %.not27.i.i109)
+  %wide.trip.count.i.i110 = zext i32 %131 to i64
+  %132 = load ptr, ptr %129, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 48
+  %134 = load i64, ptr %133, align 8
+  %135 = trunc i64 %134 to i32
+  %136 = icmp uge i32 %.tr26.i101, %135
+  tail call void @llvm.assume(i1 %136)
+  br label %.lr.ph.i111
 
-.lr.ph.i.i114.preheader:                          ; preds = %.lr.ph.preheader.i.i106
-  %143 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 48
-  %146 = load i64, ptr %145, align 8
-  %147 = trunc i64 %146 to i32
-  %148 = icmp ult i32 %.tr26.i100, %147
-  br i1 %148, label %x64_get_member_at_offset.exit.i115.loopexit, label %.lr.ph.i110, !llvm.loop !14
+.lr.ph.i111:                                      ; preds = %.lr.ph.i.i115, %.lr.ph.preheader.i.i107
+  %137 = phi ptr [ %139, %.lr.ph.i.i115 ], [ %132, %.lr.ph.preheader.i.i107 ]
+  %indvars.iv.i27.i112 = phi i64 [ %indvars.iv.next.i.i113, %.lr.ph.i.i115 ], [ 0, %.lr.ph.preheader.i.i107 ]
+  %indvars.iv.next.i.i113 = add nuw nsw i64 %indvars.iv.i27.i112, 1
+  %exitcond.not.i.i114 = icmp eq i64 %indvars.iv.next.i.i113, %wide.trip.count.i.i110
+  br i1 %exitcond.not.i.i114, label %.x64_get_member_at_offset.exit_crit_edge.i117, label %.lr.ph.i.i115, !llvm.loop !14
 
-.lr.ph.i110:                                      ; preds = %.lr.ph.i.i114.preheader, %.lr.ph.i.i114
-  %149 = phi ptr [ %151, %.lr.ph.i.i114 ], [ %144, %.lr.ph.i.i114.preheader ]
-  %indvars.iv.next.i.i112162203 = phi i64 [ %indvars.iv.next.i.i112, %.lr.ph.i.i114 ], [ 1, %.lr.ph.i.i114.preheader ]
-  %indvars.iv.next.i.i112 = add nuw nsw i64 %indvars.iv.next.i.i112162203, 1
-  %exitcond.not.i.i113 = icmp eq i64 %indvars.iv.next.i.i112, %wide.trip.count.i.i109
-  br i1 %exitcond.not.i.i113, label %x64_get_member_at_offset.exit.i115.loopexit, label %.lr.ph.i.i114, !llvm.loop !14
+.lr.ph.i.i115:                                    ; preds = %.lr.ph.i111
+  %138 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv.next.i.i113
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
+  %141 = load i64, ptr %140, align 8
+  %142 = trunc i64 %141 to i32
+  %143 = icmp ult i32 %.tr26.i101, %142
+  br i1 %143, label %x64_get_member_at_offset.exit.i116, label %.lr.ph.i111, !llvm.loop !14
 
-.lr.ph.i.i114:                                    ; preds = %.lr.ph.i110
-  %150 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv.next.i.i112
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 48
-  %153 = load i64, ptr %152, align 8
-  %154 = trunc i64 %153 to i32
-  %155 = icmp ult i32 %.tr26.i100, %154
-  br i1 %155, label %x64_get_member_at_offset.exit.i115.loopexit, label %.lr.ph.i110, !llvm.loop !14
+.x64_get_member_at_offset.exit_crit_edge.i117:    ; preds = %.lr.ph.i111
+  br label %x64_get_member_at_offset.exit.i116, !llvm.loop !14
 
-x64_get_member_at_offset.exit.i115.loopexit:      ; preds = %.lr.ph.i110, %.lr.ph.i.i114, %.lr.ph.i.i114.preheader
-  %.lcssa148.ph = phi ptr [ %138, %.lr.ph.i.i114.preheader ], [ %149, %.lr.ph.i.i114 ], [ %149, %.lr.ph.i110 ]
-  %.phi.trans.insert175 = getelementptr inbounds nuw i8, ptr %.lcssa148.ph, i64 48
-  %.pre176 = load i64, ptr %.phi.trans.insert175, align 8
-  %.pre180 = trunc i64 %.pre176 to i32
-  br label %x64_get_member_at_offset.exit.i115
+x64_get_member_at_offset.exit.i116:               ; preds = %.lr.ph.i.i115, %.x64_get_member_at_offset.exit_crit_edge.i117
+  %144 = getelementptr inbounds nuw i8, ptr %137, i64 72
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %137, i64 48
+  %147 = load i64, ptr %146, align 8
+  %148 = trunc i64 %147 to i32
+  %149 = sub i32 %.tr26.i101, %148
+  br label %tailrecurse.i99.backedge
 
-x64_get_member_at_offset.exit.i115:               ; preds = %x64_get_member_at_offset.exit.i115.loopexit, %.lr.ph.preheader.i.i106
-  %.pre-phi181 = phi i32 [ %.pre180, %x64_get_member_at_offset.exit.i115.loopexit ], [ %141, %.lr.ph.preheader.i.i106 ]
-  %.lcssa148 = phi ptr [ %.lcssa148.ph, %x64_get_member_at_offset.exit.i115.loopexit ], [ %138, %.lr.ph.preheader.i.i106 ]
-  %156 = getelementptr inbounds nuw i8, ptr %.lcssa148, i64 72
-  %157 = load ptr, ptr %156, align 8
-  %158 = sub i32 %.tr26.i100, %.pre-phi181
-  br label %tailrecurse.i98.backedge
+150:                                              ; preds = %122
+  %151 = getelementptr inbounds nuw i8, ptr %.tr.i100, i64 56
+  %152 = load ptr, ptr %151, align 8
+  %153 = tail call fastcc ptr @type_lowering(ptr noundef %152)
+  %154 = tail call i32 @type_size(ptr noundef %153) #7
+  %155 = urem i32 %.tr26.i101, %154
+  br label %tailrecurse.i99.backedge
 
-159:                                              ; preds = %128
-  %160 = getelementptr inbounds nuw i8, ptr %.tr.i99, i64 56
-  %161 = load ptr, ptr %160, align 8
-  %162 = tail call fastcc ptr @type_lowering(ptr noundef %161)
-  %163 = tail call i32 @type_size(ptr noundef %162) #7
-  %164 = urem i32 %.tr26.i100, %163
-  br label %tailrecurse.i98.backedge
+tailrecurse.i99.backedge:                         ; preds = %150, %x64_get_member_at_offset.exit.i116
+  %.tr.i100.be = phi ptr [ %145, %x64_get_member_at_offset.exit.i116 ], [ %153, %150 ]
+  %.tr26.i101.be = phi i32 [ %149, %x64_get_member_at_offset.exit.i116 ], [ %155, %150 ]
+  br label %tailrecurse.i99
 
-tailrecurse.i98.backedge:                         ; preds = %159, %x64_get_member_at_offset.exit.i115
-  %.tr.i99.be = phi ptr [ %157, %x64_get_member_at_offset.exit.i115 ], [ %162, %159 ]
-  %.tr26.i100.be = phi i32 [ %158, %x64_get_member_at_offset.exit.i115 ], [ %164, %159 ]
-  br label %tailrecurse.i98
+x64_get_fp_type_at_offset.exit98:                 ; preds = %64, %119
+  %156 = phi i32 [ %.pre.i103, %119 ], [ %.pre.i81, %64 ]
+  %.1 = phi ptr [ %.tr.i100, %119 ], [ %.tr.i78, %64 ]
+  %157 = load ptr, ptr @type_float, align 8
+  %158 = icmp eq ptr %.tr.i, %157
+  %159 = icmp eq ptr %.tr.i, %.1
+  %or.cond76 = and i1 %159, %158
+  br i1 %or.cond76, label %160, label %162
 
-x64_get_fp_type_at_offset.exit97:                 ; preds = %67, %125
-  %165 = phi i32 [ %.pre.i102, %125 ], [ %.pre.i81, %67 ]
-  %.1 = phi ptr [ %.tr.i99, %125 ], [ %.tr.i78, %67 ]
-  %166 = load ptr, ptr @type_float, align 8
-  %167 = icmp eq ptr %.tr.i, %166
-  %168 = icmp eq ptr %.tr.i, %.1
-  %or.cond76 = and i1 %168, %167
-  br i1 %or.cond76, label %169, label %171
+160:                                              ; preds = %x64_get_fp_type_at_offset.exit98
+  %161 = tail call ptr @type_get_vector(ptr noundef nonnull %.tr.i, i32 noundef 2) #7
+  br label %x64_get_fp_type_at_offset.exit120.thread
 
-169:                                              ; preds = %x64_get_fp_type_at_offset.exit97
-  %170 = tail call ptr @type_get_vector(ptr noundef nonnull %.tr.i, i32 noundef 2) #7
-  br label %x64_get_fp_type_at_offset.exit118.thread
+162:                                              ; preds = %x64_get_fp_type_at_offset.exit98
+  %163 = load i32, ptr %.tr.i, align 8
+  %164 = icmp eq i32 %163, 31
+  br i1 %164, label %165, label %169
 
-171:                                              ; preds = %x64_get_fp_type_at_offset.exit97
-  %172 = load i32, ptr %.tr.i, align 8
-  %173 = icmp eq i32 %172, 31
+165:                                              ; preds = %162
+  %166 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = load i32, ptr %167, align 8
+  br label %169
+
+169:                                              ; preds = %165, %162
+  %.059 = phi i32 [ %168, %165 ], [ %163, %162 ]
+  %170 = add i32 %.059, -13
+  %171 = icmp ult i32 %170, 2
+  br i1 %171, label %172, label %230
+
+172:                                              ; preds = %169
+  %173 = icmp eq i32 %156, 31
   br i1 %173, label %174, label %178
 
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
+174:                                              ; preds = %172
+  %175 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = load i32, ptr %176, align 8
   br label %178
 
-178:                                              ; preds = %174, %171
-  %.059 = phi i32 [ %177, %174 ], [ %172, %171 ]
-  %179 = add i32 %.059, -13
+178:                                              ; preds = %174, %172
+  %.060 = phi i32 [ %177, %174 ], [ %156, %172 ]
+  %179 = add i32 %.060, -13
   %180 = icmp ult i32 %179, 2
-  br i1 %180, label %181, label %242
+  br i1 %180, label %181, label %230
 
 181:                                              ; preds = %178
-  %182 = icmp eq i32 %165, 31
-  br i1 %182, label %183, label %187
+  %182 = icmp ugt i32 %54, 4
+  br i1 %182, label %183, label %x64_get_fp_type_at_offset.exit142
 
 183:                                              ; preds = %181
-  %184 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %185 = load ptr, ptr %184, align 8
-  %186 = load i32, ptr %185, align 8
-  br label %187
+  %184 = add nuw nsw i32 %1, 4
+  br label %tailrecurse.i121
 
-187:                                              ; preds = %183, %181
-  %.060 = phi i32 [ %186, %183 ], [ %165, %181 ]
-  %188 = add i32 %.060, -13
-  %189 = icmp ult i32 %188, 2
-  br i1 %189, label %190, label %242
+tailrecurse.i121:                                 ; preds = %tailrecurse.i121.backedge, %183
+  %.tr.i122 = phi ptr [ %0, %183 ], [ %.tr.i122.be, %tailrecurse.i121.backedge ]
+  %.tr26.i123 = phi i32 [ %184, %183 ], [ %.tr26.i123.be, %tailrecurse.i121.backedge ]
+  %.not.i124 = icmp eq i32 %.tr26.i123, 0
+  %.pre.i125 = load i32, ptr %.tr.i122, align 8
+  br i1 %.not.i124, label %185, label %194
 
-190:                                              ; preds = %187
-  %191 = icmp ugt i32 %57, 4
-  br i1 %191, label %192, label %x64_get_fp_type_at_offset.exit139
+185:                                              ; preds = %tailrecurse.i121
+  %186 = icmp eq i32 %.pre.i125, 31
+  br i1 %186, label %187, label %191
 
-192:                                              ; preds = %190
-  %193 = add nuw nsw i32 %1, 4
-  br label %tailrecurse.i119
+187:                                              ; preds = %185
+  %188 = getelementptr inbounds nuw i8, ptr %.tr.i122, i64 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = load i32, ptr %189, align 8
+  br label %191
 
-tailrecurse.i119:                                 ; preds = %tailrecurse.i119.backedge, %192
-  %.tr.i120 = phi ptr [ %0, %192 ], [ %.tr.i120.be, %tailrecurse.i119.backedge ]
-  %.tr26.i121 = phi i32 [ %193, %192 ], [ %.tr26.i121.be, %tailrecurse.i119.backedge ]
-  %.not.i122 = icmp eq i32 %.tr26.i121, 0
-  %.pre.i123 = load i32, ptr %.tr.i120, align 8
-  br i1 %.not.i122, label %194, label %203
+191:                                              ; preds = %187, %185
+  %.0.i141 = phi i32 [ %190, %187 ], [ %.pre.i125, %185 ]
+  %192 = add i32 %.0.i141, -13
+  %193 = icmp ult i32 %192, 5
+  br i1 %193, label %x64_get_fp_type_at_offset.exit142, label %194
 
-194:                                              ; preds = %tailrecurse.i119
-  %195 = icmp eq i32 %.pre.i123, 31
-  br i1 %195, label %196, label %200
-
-196:                                              ; preds = %194
-  %197 = getelementptr inbounds nuw i8, ptr %.tr.i120, i64 8
-  %198 = load ptr, ptr %197, align 8
-  %199 = load i32, ptr %198, align 8
-  br label %200
-
-200:                                              ; preds = %196, %194
-  %.0.i138 = phi i32 [ %199, %196 ], [ %.pre.i123, %194 ]
-  %201 = add i32 %.0.i138, -13
-  %202 = icmp ult i32 %201, 5
-  br i1 %202, label %x64_get_fp_type_at_offset.exit139, label %203
-
-203:                                              ; preds = %200, %tailrecurse.i119
-  switch i32 %.pre.i123, label %x64_get_fp_type_at_offset.exit139 [
-    i32 26, label %.lr.ph.preheader.i.i127
-    i32 33, label %234
+194:                                              ; preds = %191, %tailrecurse.i121
+  switch i32 %.pre.i125, label %x64_get_fp_type_at_offset.exit142 [
+    i32 26, label %.lr.ph.preheader.i.i129
+    i32 33, label %222
   ]
 
-.lr.ph.preheader.i.i127:                          ; preds = %203
-  %204 = getelementptr inbounds nuw i8, ptr %.tr.i120, i64 56
-  %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 72
-  %207 = load ptr, ptr %206, align 8
-  %208 = tail call i32 @type_size(ptr noundef %207) #7
-  %.not.i.i128 = icmp ugt i32 %208, %.tr26.i121
-  tail call void @llvm.assume(i1 %.not.i.i128)
-  %209 = getelementptr inbounds nuw i8, ptr %205, i64 104
-  %210 = load ptr, ptr %209, align 8, !nonnull !13, !noundef !13
-  %211 = getelementptr inbounds i8, ptr %210, i64 -8
-  %212 = load i32, ptr %211, align 4
-  %.not27.i.i129 = icmp ne i32 %212, 0
-  tail call void @llvm.assume(i1 %.not27.i.i129)
-  %wide.trip.count.i.i130 = zext i32 %212 to i64
-  %213 = load ptr, ptr %210, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 48
-  %215 = load i64, ptr %214, align 8
-  %216 = trunc i64 %215 to i32
-  %217 = icmp uge i32 %.tr26.i121, %216
-  tail call void @llvm.assume(i1 %217)
-  %exitcond.not.i.i134165 = icmp eq i32 %212, 1
-  br i1 %exitcond.not.i.i134165, label %x64_get_member_at_offset.exit.i136, label %.lr.ph.i.i135.preheader, !llvm.loop !14
+.lr.ph.preheader.i.i129:                          ; preds = %194
+  %195 = getelementptr inbounds nuw i8, ptr %.tr.i122, i64 56
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 72
+  %198 = load ptr, ptr %197, align 8
+  %199 = tail call i32 @type_size(ptr noundef %198) #7
+  %.not.i.i130 = icmp ugt i32 %199, %.tr26.i123
+  tail call void @llvm.assume(i1 %.not.i.i130)
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 104
+  %201 = load ptr, ptr %200, align 8, !nonnull !13, !noundef !13
+  %202 = getelementptr inbounds i8, ptr %201, i64 -8
+  %203 = load i32, ptr %202, align 4
+  %.not27.i.i131 = icmp ne i32 %203, 0
+  tail call void @llvm.assume(i1 %.not27.i.i131)
+  %wide.trip.count.i.i132 = zext i32 %203 to i64
+  %204 = load ptr, ptr %201, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 48
+  %206 = load i64, ptr %205, align 8
+  %207 = trunc i64 %206 to i32
+  %208 = icmp uge i32 %.tr26.i123, %207
+  tail call void @llvm.assume(i1 %208)
+  br label %.lr.ph.i133
 
-.lr.ph.i.i135.preheader:                          ; preds = %.lr.ph.preheader.i.i127
-  %218 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 48
-  %221 = load i64, ptr %220, align 8
-  %222 = trunc i64 %221 to i32
-  %223 = icmp ult i32 %.tr26.i121, %222
-  br i1 %223, label %x64_get_member_at_offset.exit.i136.loopexit, label %.lr.ph.i131, !llvm.loop !14
+.lr.ph.i133:                                      ; preds = %.lr.ph.i.i137, %.lr.ph.preheader.i.i129
+  %209 = phi ptr [ %211, %.lr.ph.i.i137 ], [ %204, %.lr.ph.preheader.i.i129 ]
+  %indvars.iv.i27.i134 = phi i64 [ %indvars.iv.next.i.i135, %.lr.ph.i.i137 ], [ 0, %.lr.ph.preheader.i.i129 ]
+  %indvars.iv.next.i.i135 = add nuw nsw i64 %indvars.iv.i27.i134, 1
+  %exitcond.not.i.i136 = icmp eq i64 %indvars.iv.next.i.i135, %wide.trip.count.i.i132
+  br i1 %exitcond.not.i.i136, label %.x64_get_member_at_offset.exit_crit_edge.i139, label %.lr.ph.i.i137, !llvm.loop !14
 
-.lr.ph.i131:                                      ; preds = %.lr.ph.i.i135.preheader, %.lr.ph.i.i135
-  %224 = phi ptr [ %226, %.lr.ph.i.i135 ], [ %219, %.lr.ph.i.i135.preheader ]
-  %indvars.iv.next.i.i133166206 = phi i64 [ %indvars.iv.next.i.i133, %.lr.ph.i.i135 ], [ 1, %.lr.ph.i.i135.preheader ]
-  %indvars.iv.next.i.i133 = add nuw nsw i64 %indvars.iv.next.i.i133166206, 1
-  %exitcond.not.i.i134 = icmp eq i64 %indvars.iv.next.i.i133, %wide.trip.count.i.i130
-  br i1 %exitcond.not.i.i134, label %x64_get_member_at_offset.exit.i136.loopexit, label %.lr.ph.i.i135, !llvm.loop !14
+.lr.ph.i.i137:                                    ; preds = %.lr.ph.i133
+  %210 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv.next.i.i135
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 48
+  %213 = load i64, ptr %212, align 8
+  %214 = trunc i64 %213 to i32
+  %215 = icmp ult i32 %.tr26.i123, %214
+  br i1 %215, label %x64_get_member_at_offset.exit.i138, label %.lr.ph.i133, !llvm.loop !14
 
-.lr.ph.i.i135:                                    ; preds = %.lr.ph.i131
-  %225 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv.next.i.i133
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %226, i64 48
-  %228 = load i64, ptr %227, align 8
-  %229 = trunc i64 %228 to i32
-  %230 = icmp ult i32 %.tr26.i121, %229
-  br i1 %230, label %x64_get_member_at_offset.exit.i136.loopexit, label %.lr.ph.i131, !llvm.loop !14
+.x64_get_member_at_offset.exit_crit_edge.i139:    ; preds = %.lr.ph.i133
+  br label %x64_get_member_at_offset.exit.i138, !llvm.loop !14
 
-x64_get_member_at_offset.exit.i136.loopexit:      ; preds = %.lr.ph.i131, %.lr.ph.i.i135, %.lr.ph.i.i135.preheader
-  %.lcssa.ph = phi ptr [ %213, %.lr.ph.i.i135.preheader ], [ %224, %.lr.ph.i.i135 ], [ %224, %.lr.ph.i131 ]
-  %.phi.trans.insert177 = getelementptr inbounds nuw i8, ptr %.lcssa.ph, i64 48
-  %.pre178 = load i64, ptr %.phi.trans.insert177, align 8
-  %.pre179 = trunc i64 %.pre178 to i32
-  br label %x64_get_member_at_offset.exit.i136
+x64_get_member_at_offset.exit.i138:               ; preds = %.lr.ph.i.i137, %.x64_get_member_at_offset.exit_crit_edge.i139
+  %216 = getelementptr inbounds nuw i8, ptr %209, i64 72
+  %217 = load ptr, ptr %216, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %209, i64 48
+  %219 = load i64, ptr %218, align 8
+  %220 = trunc i64 %219 to i32
+  %221 = sub i32 %.tr26.i123, %220
+  br label %tailrecurse.i121.backedge
 
-x64_get_member_at_offset.exit.i136:               ; preds = %x64_get_member_at_offset.exit.i136.loopexit, %.lr.ph.preheader.i.i127
-  %.pre-phi = phi i32 [ %.pre179, %x64_get_member_at_offset.exit.i136.loopexit ], [ %216, %.lr.ph.preheader.i.i127 ]
-  %.lcssa = phi ptr [ %.lcssa.ph, %x64_get_member_at_offset.exit.i136.loopexit ], [ %213, %.lr.ph.preheader.i.i127 ]
-  %231 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 72
-  %232 = load ptr, ptr %231, align 8
-  %233 = sub i32 %.tr26.i121, %.pre-phi
-  br label %tailrecurse.i119.backedge
+222:                                              ; preds = %194
+  %223 = getelementptr inbounds nuw i8, ptr %.tr.i122, i64 56
+  %224 = load ptr, ptr %223, align 8
+  %225 = tail call fastcc ptr @type_lowering(ptr noundef %224)
+  %226 = tail call i32 @type_size(ptr noundef %225) #7
+  %227 = urem i32 %.tr26.i123, %226
+  br label %tailrecurse.i121.backedge
 
-234:                                              ; preds = %203
-  %235 = getelementptr inbounds nuw i8, ptr %.tr.i120, i64 56
-  %236 = load ptr, ptr %235, align 8
-  %237 = tail call fastcc ptr @type_lowering(ptr noundef %236)
-  %238 = tail call i32 @type_size(ptr noundef %237) #7
-  %239 = urem i32 %.tr26.i121, %238
-  br label %tailrecurse.i119.backedge
+tailrecurse.i121.backedge:                        ; preds = %222, %x64_get_member_at_offset.exit.i138
+  %.tr.i122.be = phi ptr [ %217, %x64_get_member_at_offset.exit.i138 ], [ %225, %222 ]
+  %.tr26.i123.be = phi i32 [ %221, %x64_get_member_at_offset.exit.i138 ], [ %227, %222 ]
+  br label %tailrecurse.i121
 
-tailrecurse.i119.backedge:                        ; preds = %234, %x64_get_member_at_offset.exit.i136
-  %.tr.i120.be = phi ptr [ %232, %x64_get_member_at_offset.exit.i136 ], [ %237, %234 ]
-  %.tr26.i121.be = phi i32 [ %233, %x64_get_member_at_offset.exit.i136 ], [ %239, %234 ]
-  br label %tailrecurse.i119
+x64_get_fp_type_at_offset.exit142:                ; preds = %194, %191, %181
+  %228 = phi i32 [ 2, %181 ], [ 2, %194 ], [ 4, %191 ]
+  %229 = tail call ptr @type_get_vector(ptr noundef nonnull %.tr.i, i32 noundef %228) #7
+  br label %x64_get_fp_type_at_offset.exit120.thread
 
-x64_get_fp_type_at_offset.exit139:                ; preds = %203, %200, %190
-  %240 = phi i32 [ 2, %190 ], [ 2, %203 ], [ 4, %200 ]
-  %241 = tail call ptr @type_get_vector(ptr noundef nonnull %.tr.i, i32 noundef %240) #7
-  br label %x64_get_fp_type_at_offset.exit118.thread
+230:                                              ; preds = %178, %169
+  br i1 %164, label %231, label %235
 
-242:                                              ; preds = %187, %178
-  br i1 %173, label %243, label %247
+231:                                              ; preds = %230
+  %232 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
+  %233 = load ptr, ptr %232, align 8
+  %234 = load i32, ptr %233, align 8
+  br label %235
 
-243:                                              ; preds = %242
-  %244 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
-  %245 = load ptr, ptr %244, align 8
-  %246 = load i32, ptr %245, align 8
-  br label %247
+235:                                              ; preds = %231, %230
+  %.061 = phi i32 [ %234, %231 ], [ %163, %230 ]
+  %236 = add i32 %.061, -13
+  %237 = icmp ult i32 %236, 2
+  br i1 %237, label %247, label %238
 
-247:                                              ; preds = %243, %242
-  %.061 = phi i32 [ %246, %243 ], [ %172, %242 ]
-  %248 = add i32 %.061, -13
-  %249 = icmp ult i32 %248, 2
-  br i1 %249, label %259, label %250
+238:                                              ; preds = %235
+  %239 = icmp eq i32 %156, 31
+  br i1 %239, label %240, label %244
 
-250:                                              ; preds = %247
-  %251 = icmp eq i32 %165, 31
-  br i1 %251, label %252, label %256
+240:                                              ; preds = %238
+  %241 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %242 = load ptr, ptr %241, align 8
+  %243 = load i32, ptr %242, align 8
+  br label %244
 
-252:                                              ; preds = %250
-  %253 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %254 = load ptr, ptr %253, align 8
-  %255 = load i32, ptr %254, align 8
-  br label %256
+244:                                              ; preds = %240, %238
+  %.062 = phi i32 [ %243, %240 ], [ %156, %238 ]
+  %245 = add i32 %.062, -13
+  %246 = icmp ult i32 %245, 2
+  br i1 %246, label %247, label %250
 
-256:                                              ; preds = %252, %250
-  %.062 = phi i32 [ %255, %252 ], [ %165, %250 ]
-  %257 = add i32 %.062, -13
-  %258 = icmp ult i32 %257, 2
-  br i1 %258, label %259, label %262
+247:                                              ; preds = %244, %235
+  %248 = load ptr, ptr @type_float16, align 8
+  %249 = tail call ptr @type_get_vector(ptr noundef %248, i32 noundef 4) #7
+  br label %x64_get_fp_type_at_offset.exit120.thread
 
-259:                                              ; preds = %256, %247
-  %260 = load ptr, ptr @type_float16, align 8
-  %261 = tail call ptr @type_get_vector(ptr noundef %260, i32 noundef 4) #7
-  br label %x64_get_fp_type_at_offset.exit118.thread
+250:                                              ; preds = %244
+  %251 = load ptr, ptr @type_double, align 8
+  br label %x64_get_fp_type_at_offset.exit120.thread
 
-262:                                              ; preds = %256
-  %263 = load ptr, ptr @type_double, align 8
-  br label %x64_get_fp_type_at_offset.exit118.thread
-
-x64_get_fp_type_at_offset.exit118.thread:         ; preds = %128, %113, %x64_get_fp_type_at_offset.exit, %x64_get_fp_type_at_offset.exit.thread, %262, %259, %x64_get_fp_type_at_offset.exit139, %169
-  %.063 = phi ptr [ %170, %169 ], [ %241, %x64_get_fp_type_at_offset.exit139 ], [ %261, %259 ], [ %263, %262 ], [ %15, %x64_get_fp_type_at_offset.exit.thread ], [ %52, %x64_get_fp_type_at_offset.exit ], [ %.tr.i, %113 ], [ %.tr.i, %128 ]
+x64_get_fp_type_at_offset.exit120.thread:         ; preds = %122, %107, %x64_get_fp_type_at_offset.exit, %x64_get_fp_type_at_offset.exit.thread, %250, %247, %x64_get_fp_type_at_offset.exit142, %160
+  %.063 = phi ptr [ %161, %160 ], [ %229, %x64_get_fp_type_at_offset.exit142 ], [ %249, %247 ], [ %251, %250 ], [ %15, %x64_get_fp_type_at_offset.exit.thread ], [ %49, %x64_get_fp_type_at_offset.exit ], [ %.tr.i, %107 ], [ %.tr.i, %122 ]
   ret ptr %.063
 }
 

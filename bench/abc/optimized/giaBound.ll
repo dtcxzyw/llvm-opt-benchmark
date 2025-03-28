@@ -3781,7 +3781,7 @@ Vec_IntPush.exit301:                              ; preds = %.Vec_IntGrow.exit10
   %250 = trunc nsw i64 %indvars.iv.next607 to i32
   store i32 %250, ptr %31, align 4, !tbaa !47
   store i32 %394, ptr %30, align 8
-  br label %thread-pre-split
+  br label %thread-pre-split, !llvm.loop !104
 
 thread-pre-split:                                 ; preds = %.preheader494, %.thread-pre-split.loopexit_crit_edge, %Vec_IntPush.exit322, %252
   %.val253.pr = phi i32 [ %.val253.pr.pre657, %.preheader494 ], [ %250, %.thread-pre-split.loopexit_crit_edge ], [ %.val253.pr.pre, %Vec_IntPush.exit322 ], [ %254, %252 ]
@@ -3887,7 +3887,7 @@ Vec_IntSetEntry.exit:                             ; preds = %267, %Vec_IntGrow.e
 .lr.ph515:                                        ; preds = %.preheader494
   %.promoted517 = load i32, ptr %30, align 8, !tbaa !48
   %305 = sext i32 %.val253.pr.pre657 to i64
-  br label %362
+  br label %362, !llvm.loop !104
 
 306:                                              ; preds = %Vec_IntSetEntry.exit
   %307 = load i32, ptr %247, align 4, !tbaa !24
@@ -4297,7 +4297,7 @@ Vec_IntSetEntry.exit352:                          ; preds = %.lr.ph532, %Vec_Int
 ..critedge6.loopexit_crit_edge:                   ; preds = %Vec_PtrPush.exit376
   %481 = trunc nsw i64 %indvars.iv.next620 to i32
   store i32 %563, ptr %30, align 8
-  br label %.critedge6.backedge
+  br label %.critedge6.backedge, !llvm.loop !110
 
 .preheader:                                       ; preds = %.critedge6.backedge, %.critedge6.preheader
   %.lcssa541545.lcssa = phi i32 [ %.promoted544, %.critedge6.preheader ], [ %.lcssa541546, %.critedge6.backedge ]
@@ -4406,7 +4406,7 @@ Vec_IntSetEntry.exit367:                          ; preds = %504, %Vec_IntGrow.e
   %.promoted542 = load i32, ptr %30, align 8, !tbaa !48
   %529 = zext nneg i32 %.lcssa541545548 to i64
   %530 = add nsw i64 %529, -1
-  br label %531
+  br label %531, !llvm.loop !110
 
 531:                                              ; preds = %.lr.ph539, %Vec_PtrPush.exit376
   %indvars.iv619 = phi i64 [ %530, %.lr.ph539 ], [ %indvars.iv.next620, %Vec_PtrPush.exit376 ]

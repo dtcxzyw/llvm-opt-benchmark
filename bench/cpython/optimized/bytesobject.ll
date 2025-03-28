@@ -11529,7 +11529,7 @@ countchar.exit.i.i.i:                             ; preds = %109
 ._crit_edge.i.i.i:                                ; preds = %143
   %.pre.i.i.i = ptrtoint ptr %148 to i64
   %.pre46.i.i.i = sub i64 %114, %.pre.i.i.i
-  br label %split.i.i.i
+  br label %split.i.i.i, !llvm.loop !209
 
 split.i.i.i:                                      ; preds = %138, %._crit_edge.i.i.i
   %.pre-phi47.i.i.i = phi i64 [ %.pre46.i.i.i, %._crit_edge.i.i.i ], [ %140, %138 ]
@@ -11605,7 +11605,7 @@ stringlib_count.exit.thread.i.i.i:                ; preds = %stringlib_count.exi
 .._crit_edge.i69_crit_edge.i.i:                   ; preds = %175
   %.pre.i.i = ptrtoint ptr %179 to i64
   %.pre150.i.i = sub i64 %169, %.pre.i.i
-  br label %._crit_edge.i69.i.i
+  br label %._crit_edge.i69.i.i, !llvm.loop !210
 
 ._crit_edge.i69.i.i:                              ; preds = %.lr.ph.i67.i.i, %.._crit_edge.i69_crit_edge.i.i
   %.pre-phi151.i.i = phi i64 [ %.pre150.i.i, %.._crit_edge.i69_crit_edge.i.i ], [ %172, %.lr.ph.i67.i.i ]
@@ -11857,7 +11857,7 @@ countchar.exit.i100.i.i:                          ; preds = %252
 ._crit_edge.i96.i.i:                              ; preds = %301
   %.pre.i97.i.i = ptrtoint ptr %.1.i95.i.i to i64
   %.pre65.i.i.i = sub i64 %257, %.pre.i97.i.i
-  br label %split.i98.i.i
+  br label %split.i98.i.i, !llvm.loop !213
 
 split.i98.i.i:                                    ; preds = %289, %._crit_edge.i96.i.i
   %.pre-phi66.i.i.i = phi i64 [ %.pre65.i.i.i, %._crit_edge.i96.i.i ], [ %292, %289 ]
@@ -11954,7 +11954,7 @@ stringlib_count.exit.thread.i112.i.i:             ; preds = %stringlib_count.exi
 ._crit_edge.i108.i.i:                             ; preds = %340
   %.pre.i109.i.i = ptrtoint ptr %.1.i107.i.i to i64
   %.pre74.i.i.i = sub i64 %331, %.pre.i109.i.i
-  br label %split.i110.i.i
+  br label %split.i110.i.i, !llvm.loop !214
 
 split.i110.i.i:                                   ; preds = %332, %._crit_edge.i108.i.i
   %.pre-phi75.i.i.i = phi i64 [ %.pre74.i.i.i, %._crit_edge.i108.i.i ], [ %335, %332 ]

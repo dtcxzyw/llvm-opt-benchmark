@@ -1673,11 +1673,14 @@ megaco_tvb_skip_wsp.exit1139:                     ; preds = %megaco_tvb_skip_wsp
   %496 = add i32 %494, 1
   %497 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %496, i32 noundef %.013.i, i8 noundef zeroext 123)
   %.not957 = icmp eq i32 %497, -1
-  br i1 %.not957, label %.critedge.loopexit, label %.lr.ph1362, !llvm.loop !15
+  br i1 %.not957, label %..critedge.loopexit_crit_edge, label %.lr.ph1362, !llvm.loop !15
 
-.critedge.loopexit:                               ; preds = %.lr.ph1362, %.lr.ph1803, %.lr.ph1362.preheader
-  %.1898.lcssa.ph = phi i32 [ %.0897, %.lr.ph1362.preheader ], [ %494, %.lr.ph1803 ], [ %494, %.lr.ph1362 ]
-  %.3885.lcssa.ph = phi i32 [ %.2884, %.lr.ph1362.preheader ], [ %495, %.lr.ph1803 ], [ %495, %.lr.ph1362 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph1803
+  br label %.critedge.loopexit, !llvm.loop !15
+
+.critedge.loopexit:                               ; preds = %.lr.ph1362, %..critedge.loopexit_crit_edge, %.lr.ph1362.preheader
+  %.1898.lcssa.ph = phi i32 [ %494, %..critedge.loopexit_crit_edge ], [ %.0897, %.lr.ph1362.preheader ], [ %494, %.lr.ph1362 ]
+  %.3885.lcssa.ph = phi i32 [ %495, %..critedge.loopexit_crit_edge ], [ %.2884, %.lr.ph1362.preheader ], [ %495, %.lr.ph1362 ]
   %498 = freeze i32 %.3885.lcssa.ph
   br label %.critedge
 

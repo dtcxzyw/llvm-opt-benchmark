@@ -48593,9 +48593,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont6.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont6.loopexit, !llvm.loop !657
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -48636,14 +48640,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont6.loopexit, !llvm.loop !657
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont6.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !657
 
-invoke.cont6.loopexit:                            ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont6.loopexit_crit_edge:     ; preds = %while.body.i
+  br label %invoke.cont6.loopexit, !llvm.loop !657
+
+invoke.cont6.loopexit:                            ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont6.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont6.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont6.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont6
@@ -49531,9 +49536,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -49570,14 +49579,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -51359,9 +51369,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !695
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -51402,14 +51416,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !695
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !695
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !695
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -52280,9 +52295,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -52319,14 +52338,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -53844,9 +53864,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i89 = icmp ult i8 %.pre.i, %15
   br i1 %cmp.i.i89, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %16 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr110, %land.rhs.lr.ph.i ]
-  %rem.i8391 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %15
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !719
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %16 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr110, %land.rhs.lr.ph.i ]
+  %rem.i8391 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i92 = zext i8 %rem.i8391 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i92
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -53887,14 +53911,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %16, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %15
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !719
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !719
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i86 = phi i8 [ %my_size.promoted.i.pr110, %land.rhs.lr.ph.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i84 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8391, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !719
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i86 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr110, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i84 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8391, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i84, ptr %range_pool, align 8
   store i8 %inc32.i86, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -56317,9 +56342,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !657
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -56360,14 +56389,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !657
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !657
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !657
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -57542,9 +57572,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -57581,14 +57615,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -59091,9 +59126,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !695
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -59134,14 +59173,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !695
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !695
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !695
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -60316,9 +60356,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -60355,14 +60399,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -61800,9 +61845,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i81 = icmp ult i8 %.pre.i, %12
   br i1 %cmp.i.i81, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %13 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
-  %rem.i7583 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %12
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !719
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %13 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
+  %rem.i7583 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i84 = zext i8 %rem.i7583 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i84
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -61843,14 +61892,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %13, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %12
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !719
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !719
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i78 = phi i8 [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i76 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !719
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i78 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i76 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i76, ptr %range_pool, align 8
   store i8 %inc32.i78, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -65059,9 +65109,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !921
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -65102,14 +65156,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !921
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !921
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !921
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -65980,9 +66035,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -66019,14 +66078,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -67808,9 +67868,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !957
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -67851,14 +67915,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !957
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !957
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !957
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -68729,9 +68794,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -68768,14 +68837,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -70294,9 +70364,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i90 = icmp ult i8 %.pre.i, %15
   br i1 %cmp.i.i90, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %16 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
-  %rem.i8492 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %15
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !981
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %16 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
+  %rem.i8492 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i93 = zext i8 %rem.i8492 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i93
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -70337,14 +70411,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %16, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %15
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !981
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !981
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i87 = phi i8 [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i85 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !981
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i87 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i85 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i85, ptr %range_pool, align 8
   store i8 %inc32.i87, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -72768,9 +72843,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !921
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -72811,14 +72890,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !921
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !921
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !921
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -73993,9 +74073,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -74032,14 +74116,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -75542,9 +75627,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !957
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -75585,14 +75674,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !957
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !957
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !957
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -76767,9 +76857,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -76806,14 +76900,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -78251,9 +78346,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i81 = icmp ult i8 %.pre.i, %12
   br i1 %cmp.i.i81, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %13 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
-  %rem.i7583 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %12
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !981
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %13 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
+  %rem.i7583 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i84 = zext i8 %rem.i7583 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i84
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -78294,14 +78393,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %13, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %12
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !981
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !981
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i78 = phi i8 [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i76 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !981
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i78 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i76 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i76, ptr %range_pool, align 8
   store i8 %inc32.i78, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -81518,9 +81618,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1183
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -81561,14 +81665,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1183
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1183
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1183
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -82439,9 +82544,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -82478,14 +82587,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -84267,9 +84377,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1219
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -84310,14 +84424,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1219
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1219
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1219
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -85188,9 +85303,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -85227,14 +85346,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -86753,9 +86873,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i90 = icmp ult i8 %.pre.i, %15
   br i1 %cmp.i.i90, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %16 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
-  %rem.i8492 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %15
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1243
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %16 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
+  %rem.i8492 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i93 = zext i8 %rem.i8492 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i93
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -86796,14 +86920,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %16, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %15
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1243
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1243
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i87 = phi i8 [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i85 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1243
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i87 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i85 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i85, ptr %range_pool, align 8
   store i8 %inc32.i87, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -89227,9 +89352,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1183
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -89270,14 +89399,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1183
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1183
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1183
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -90452,9 +90582,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -90491,14 +90625,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -92001,9 +92136,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1219
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -92044,14 +92183,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1219
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1219
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1219
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -93226,9 +93366,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -93265,14 +93409,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -94710,9 +94855,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i81 = icmp ult i8 %.pre.i, %12
   br i1 %cmp.i.i81, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %13 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
-  %rem.i7583 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %12
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1243
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %13 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
+  %rem.i7583 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i84 = zext i8 %rem.i7583 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i84
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -94753,14 +94902,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %13, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %12
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1243
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1243
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i78 = phi i8 [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i76 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1243
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i78 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i76 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i76, ptr %range_pool, align 8
   store i8 %inc32.i78, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -97977,9 +98127,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1445
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -98020,14 +98174,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1445
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1445
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1445
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -98898,9 +99053,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -98937,14 +99096,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -100726,9 +100886,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1481
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -100769,14 +100933,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1481
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1481
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1481
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -101647,9 +101812,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -101686,14 +101855,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -103212,9 +103382,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i90 = icmp ult i8 %.pre.i, %15
   br i1 %cmp.i.i90, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %16 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
-  %rem.i8492 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %15
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1505
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %16 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
+  %rem.i8492 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i93 = zext i8 %rem.i8492 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i93
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -103255,14 +103429,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %16, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %15
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1505
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1505
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i87 = phi i8 [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i85 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1505
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i87 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i85 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i85, ptr %range_pool, align 8
   store i8 %inc32.i87, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -105686,9 +105861,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1445
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -105729,14 +105908,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1445
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1445
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1445
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -106911,9 +107091,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -106950,14 +107134,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -108460,9 +108645,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1481
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -108503,14 +108692,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1481
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1481
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1481
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -109685,9 +109875,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -109724,14 +109918,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -111169,9 +111364,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i81 = icmp ult i8 %.pre.i, %12
   br i1 %cmp.i.i81, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %13 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
-  %rem.i7583 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %12
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1505
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %13 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
+  %rem.i7583 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i84 = zext i8 %rem.i7583 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i84
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -111212,14 +111411,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %13, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %12
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1505
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1505
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i78 = phi i8 [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i76 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1505
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i78 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i76 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i76, ptr %range_pool, align 8
   store i8 %inc32.i78, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -114436,9 +114636,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1707
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -114479,14 +114683,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1707
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1707
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1707
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -115357,9 +115562,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -115396,14 +115605,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -117185,9 +117395,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1743
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -117228,14 +117442,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1743
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1743
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1743
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -118106,9 +118321,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -118145,14 +118364,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -119671,9 +119891,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i90 = icmp ult i8 %.pre.i, %15
   br i1 %cmp.i.i90, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %16 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
-  %rem.i8492 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %15
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1767
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %16 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
+  %rem.i8492 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i93 = zext i8 %rem.i8492 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i93
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -119714,14 +119938,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %16, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %15
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1767
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1767
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i87 = phi i8 [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i85 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1767
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i87 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i85 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i85, ptr %range_pool, align 8
   store i8 %inc32.i87, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -122145,9 +122370,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1707
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -122188,14 +122417,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1707
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1707
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1707
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -123370,9 +123600,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -123409,14 +123643,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -124919,9 +125154,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1743
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -124962,14 +125201,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1743
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1743
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1743
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -126144,9 +126384,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -126183,14 +126427,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -127628,9 +127873,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i81 = icmp ult i8 %.pre.i, %12
   br i1 %cmp.i.i81, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %13 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
-  %rem.i7583 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %12
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1767
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %13 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
+  %rem.i7583 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i84 = zext i8 %rem.i7583 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i84
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -127671,14 +127920,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %13, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %12
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1767
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1767
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i78 = phi i8 [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i76 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1767
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i78 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i76 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i76, ptr %range_pool, align 8
   store i8 %inc32.i78, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -130895,9 +131145,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1969
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -130938,14 +131192,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1969
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1969
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1969
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -131816,9 +132071,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -131855,14 +132114,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -133644,9 +133904,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2005
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -133687,14 +133951,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2005
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2005
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2005
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -134565,9 +134830,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -134604,14 +134873,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -136130,9 +136400,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i90 = icmp ult i8 %.pre.i, %15
   br i1 %cmp.i.i90, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %16 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
-  %rem.i8492 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %15
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2029
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %16 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
+  %rem.i8492 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i93 = zext i8 %rem.i8492 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i93
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -136173,14 +136447,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %16, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %15
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2029
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2029
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i87 = phi i8 [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i85 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2029
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i87 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i85 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i85, ptr %range_pool, align 8
   store i8 %inc32.i87, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -138604,9 +138879,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1969
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -138647,14 +138926,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !1969
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !1969
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !1969
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -139829,9 +140109,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -139868,14 +140152,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -141378,9 +141663,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2005
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -141421,14 +141710,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2005
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2005
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2005
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -142603,9 +142893,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -142642,14 +142936,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -144087,9 +144382,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i81 = icmp ult i8 %.pre.i, %12
   br i1 %cmp.i.i81, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %13 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
-  %rem.i7583 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %12
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2029
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %13 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
+  %rem.i7583 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i84 = zext i8 %rem.i7583 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i84
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -144130,14 +144429,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %13, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %12
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2029
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2029
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i78 = phi i8 [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i76 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2029
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i78 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i76 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i76, ptr %range_pool, align 8
   store i8 %inc32.i78, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -147354,9 +147654,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2231
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -147397,14 +147701,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2231
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2231
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2231
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -148275,9 +148580,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -148314,14 +148623,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -150103,9 +150413,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2267
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -150146,14 +150460,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2267
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2267
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2267
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -151024,9 +151339,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -151063,14 +151382,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -152589,9 +152909,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i90 = icmp ult i8 %.pre.i, %15
   br i1 %cmp.i.i90, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %16 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
-  %rem.i8492 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %15
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2291
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %16 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
+  %rem.i8492 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i93 = zext i8 %rem.i8492 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i93
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -152632,14 +152956,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %16, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %15
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2291
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2291
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i87 = phi i8 [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i85 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2291
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i87 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i85 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i85, ptr %range_pool, align 8
   store i8 %inc32.i87, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -155063,9 +155388,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2231
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -155106,14 +155435,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2231
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2231
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2231
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -156288,9 +156618,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -156327,14 +156661,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -157837,9 +158172,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2267
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -157880,14 +158219,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2267
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2267
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2267
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -159062,9 +159402,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -159101,14 +159445,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -160546,9 +160891,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i81 = icmp ult i8 %.pre.i, %12
   br i1 %cmp.i.i81, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %13 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
-  %rem.i7583 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %12
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2291
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %13 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
+  %rem.i7583 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i84 = zext i8 %rem.i7583 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i84
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -160589,14 +160938,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %13, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %12
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2291
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2291
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i78 = phi i8 [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i76 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2291
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i78 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i76 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i76, ptr %range_pool, align 8
   store i8 %inc32.i78, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -163813,9 +164163,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2493
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -163856,14 +164210,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2493
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2493
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2493
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -164734,9 +165089,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -164773,14 +165132,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -166562,9 +166922,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i142 = icmp ult i8 %.pre.i, %23
   br i1 %cmp.i.i142, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %24 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
-  %rem.i136144 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %23
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2529
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %24 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ]
+  %rem.i136144 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i145 = zext i8 %rem.i136144 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i145
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -166605,14 +166969,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %24, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %23
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2529
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2529
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i139 = phi i8 [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i137 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2529
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i139 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr175, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %24, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i137 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i136144, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i137, ptr %range_pool, align 8
   store i8 %inc32.i139, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -167483,9 +167848,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -167522,14 +167891,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -169048,9 +169418,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i90 = icmp ult i8 %.pre.i, %15
   br i1 %cmp.i.i90, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %16 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
-  %rem.i8492 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %15
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2553
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %16 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ]
+  %rem.i8492 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i93 = zext i8 %rem.i8492 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i93
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -169091,14 +169465,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %16, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %15
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2553
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2553
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i87 = phi i8 [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i85 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2553
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i87 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr111, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %16, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i85 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8492, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i85, ptr %range_pool, align 8
   store i8 %inc32.i87, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -171522,9 +171897,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2493
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -171565,14 +171944,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2493
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2493
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2493
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -172747,9 +173127,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -172786,14 +173170,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -174296,9 +174681,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i85 = icmp ult i8 %.pre.i, %14
   br i1 %cmp.i.i85, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %15 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
-  %rem.i7987 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %14
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2529
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %15 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ]
+  %rem.i7987 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i88 = zext i8 %rem.i7987 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i88
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -174339,14 +174728,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %15, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %14
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2529
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2529
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i82 = phi i8 [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i80 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2529
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i82 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr108, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %15, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i80 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7987, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i80, ptr %range_pool, align 8
   store i8 %inc32.i82, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -175521,9 +175911,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i1094 = icmp ult i8 %.pre.i, %21
   br i1 %cmp.i.i1094, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %22 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
-  %rem.i8896 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i10 = icmp ult i8 %inc.i, %21
+  br i1 %cmp.i.i10, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %22 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ]
+  %rem.i8896 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i97 = zext i8 %rem.i8896 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i97
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -175560,14 +175954,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %22, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i10 = icmp ult i8 %inc.i, %21
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i10, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !666
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !666
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i91 = phi i8 [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i89 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !666
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i91 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr115, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %22, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %rem.i89 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i8896, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i89, ptr %range_pool, align 8
   store i8 %inc32.i91, ptr %my_size.i, align 2
   br label %invoke.cont
@@ -177005,9 +177400,13 @@ land.rhs.lr.ph.i:                                 ; preds = %do.body
   %cmp.i.i81 = icmp ult i8 %.pre.i, %12
   br i1 %cmp.i.i81, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit
 
-_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %13 = phi i8 [ %inc32.i, %while.body.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
-  %rem.i7583 = phi i8 [ %rem.i, %while.body.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
+land.rhs.i:                                       ; preds = %while.body.i
+  %cmp.i.i = icmp ult i8 %inc.i, %12
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2553
+
+_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.lr.ph.i, %land.rhs.i
+  %13 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ]
+  %rem.i7583 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i84 = zext i8 %rem.i7583 to i64
   %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i84
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
@@ -177048,14 +177447,15 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %arrayidx30.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idx.ext.i
   store i8 %inc.i, ptr %arrayidx30.i, align 1
   %inc32.i = add nuw nsw i8 %13, 1
-  %exitcond.not.i = icmp ne i8 %inc32.i, 8
-  %cmp.i.i = icmp ult i8 %inc.i, %12
-  %or.cond = select i1 %exitcond.not.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont.loopexit, !llvm.loop !2553
+  %exitcond.not.i = icmp eq i8 %inc32.i, 8
+  br i1 %exitcond.not.i, label %while.body.i.invoke.cont.loopexit_crit_edge, label %land.rhs.i, !llvm.loop !2553
 
-invoke.cont.loopexit:                             ; preds = %while.body.i, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.lr.ph.i
-  %inc32.i78 = phi i8 [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %inc32.i, %while.body.i ]
-  %rem.i76 = phi i8 [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ], [ %rem.i, %while.body.i ]
+while.body.i.invoke.cont.loopexit_crit_edge:      ; preds = %while.body.i
+  br label %invoke.cont.loopexit, !llvm.loop !2553
+
+invoke.cont.loopexit:                             ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, %land.rhs.i, %while.body.i.invoke.cont.loopexit_crit_edge, %land.rhs.lr.ph.i
+  %inc32.i78 = phi i8 [ 8, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %my_size.promoted.i.pr104, %land.rhs.lr.ph.i ], [ %inc32.i, %land.rhs.i ], [ %13, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
+  %rem.i76 = phi i8 [ %rem.i, %while.body.i.invoke.cont.loopexit_crit_edge ], [ %this.promoted.i, %land.rhs.lr.ph.i ], [ %rem.i, %land.rhs.i ], [ %rem.i7583, %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i ]
   store i8 %rem.i76, ptr %range_pool, align 8
   store i8 %inc32.i78, ptr %my_size.i, align 2
   br label %invoke.cont

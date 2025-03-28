@@ -3323,6 +3323,10 @@ Vec_IntFill.exit.i.i:                             ; preds = %.lr.ph.i.i.i, %Vec_
   store i32 %90, ptr %88, align 8, !tbaa !39
   br label %.lr.ph12.i
 
+..critedge.loopexit_crit_edge.i:                  ; preds = %284
+  %.val.pre.i = load i32, ptr %64, align 4, !tbaa !33
+  br label %.critedge.backedge.i, !llvm.loop !108
+
 .lr.ph12.i:                                       ; preds = %.critedge.backedge.i, %.lr.ph12.preheader.i
   %91 = phi ptr [ %149, %.critedge.backedge.i ], [ %69, %.lr.ph12.preheader.i ]
   %.val11.i = phi i32 [ %.val.i, %.critedge.backedge.i ], [ 1, %.lr.ph12.preheader.i ]
@@ -3444,13 +3448,9 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %.lr.ph12.i, %._crit
   %.not33 = icmp eq i32 %146, %148
   br i1 %.not33, label %.critedge.backedge.i, label %150
 
-.critedge.backedge.loopexit.i:                    ; preds = %284
-  %.val.pre.i = load i32, ptr %64, align 4, !tbaa !33
-  br label %.critedge.backedge.i
-
-.critedge.backedge.i:                             ; preds = %208, %.critedge.backedge.loopexit.i, %Abc_NodeIsTravIdCurrent.exit
-  %.val.i = phi i32 [ %.val.pre.i, %.critedge.backedge.loopexit.i ], [ %93, %208 ], [ %93, %Abc_NodeIsTravIdCurrent.exit ]
-  %149 = phi ptr [ %285, %.critedge.backedge.loopexit.i ], [ %91, %208 ], [ %91, %Abc_NodeIsTravIdCurrent.exit ]
+.critedge.backedge.i:                             ; preds = %208, %Abc_NodeIsTravIdCurrent.exit, %..critedge.loopexit_crit_edge.i
+  %.val.i = phi i32 [ %93, %208 ], [ %.val.pre.i, %..critedge.loopexit_crit_edge.i ], [ %93, %Abc_NodeIsTravIdCurrent.exit ]
+  %149 = phi ptr [ %91, %208 ], [ %285, %..critedge.loopexit_crit_edge.i ], [ %91, %Abc_NodeIsTravIdCurrent.exit ]
   %.not.i = icmp eq i32 %.val.i, 0
   br i1 %.not.i, label %.critedge._crit_edge.i, label %.lr.ph12.i, !llvm.loop !108
 
@@ -3586,7 +3586,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
 
 .lr.ph.i:                                         ; preds = %208
   %211 = getelementptr i8, ptr %96, i64 48
-  br label %212
+  br label %212, !llvm.loop !108
 
 212:                                              ; preds = %284, %.lr.ph.i
   %.val5014.i = phi i32 [ %.val507.i, %.lr.ph.i ], [ %.val50.i, %284 ]
@@ -3756,7 +3756,7 @@ Vec_IntPush.exit70.i:                             ; preds = %278, %Vec_IntGrow.e
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %286 = sext i32 %.val50.i to i64
   %287 = icmp slt i64 %indvars.iv.next.i, %286
-  br i1 %287, label %212, label %.critedge.backedge.loopexit.i, !llvm.loop !111
+  br i1 %287, label %212, label %..critedge.loopexit_crit_edge.i, !llvm.loop !111
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.backedge.i
   %.pre.i = load ptr, ptr %66, align 8, !tbaa !41

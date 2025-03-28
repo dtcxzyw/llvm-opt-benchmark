@@ -10447,7 +10447,7 @@ _ZN13mpzzp_manager3setER3mpzS1_.exit115:          ; preds = %_ZN11mpz_managerILb
 
 _ZN13mpzzp_manager3setER3mpzS1_.exit115._ZNK6vectorI3mpzLb0EjE5emptyEv.exit.thread.loopexit_crit_edge: ; preds = %_ZN13mpzzp_manager3setER3mpzS1_.exit115
   %.pre140.pre = load ptr, ptr %59, align 8, !tbaa !28
-  br label %_ZNK6vectorI3mpzLb0EjE5emptyEv.exit.thread
+  br label %_ZNK6vectorI3mpzLb0EjE5emptyEv.exit.thread, !llvm.loop !114
 
 .loopexit.split-lp:                               ; preds = %.loopexit129, %.loopexit.split-lp130, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
   %.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit134, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit131, %.loopexit129 ], [ %lpad.loopexit.split-lp132, %.loopexit.split-lp130 ]

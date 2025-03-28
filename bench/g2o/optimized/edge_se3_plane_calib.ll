@@ -323,7 +323,7 @@ define noundef zeroext i1 @_ZN3g2o23EdgeSE3PlaneSensorCalib4readERSi(ptr noundef
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !36
   %.phi.trans.insert.i = getelementptr i8, ptr %.pre.i, i64 -24
   %.pre11.i = load i64, ptr %.phi.trans.insert.i, align 8
-  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !50
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %5, %..critedge_crit_edge.i
   %14 = phi i64 [ %.pre11.i, %..critedge_crit_edge.i ], [ %8, %5 ]
@@ -379,7 +379,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9D
   %.pre.i12 = load ptr, ptr %1, align 8, !tbaa !36
   %.phi.trans.insert.i13 = getelementptr i8, ptr %.pre.i12, i64 -24
   %.pre11.i14 = load i64, ptr %.phi.trans.insert.i13, align 8
-  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !52
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %37, %..critedge_crit_edge.i11
   %46 = phi i64 [ %.pre11.i14, %..critedge_crit_edge.i11 ], [ %40, %37 ]
@@ -424,7 +424,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %.pre.i18 = load ptr, ptr %1, align 8, !tbaa !36
   %.phi.trans.insert.i19 = getelementptr i8, ptr %.pre.i18, i64 -24
   %.pre37.i = load i64, ptr %.phi.trans.insert.i19, align 8
-  br label %_ZN3g2o8BaseEdgeILi3ENS_7Plane3DEE21readInformationMatrixERSi.exit
+  br label %_ZN3g2o8BaseEdgeILi3ENS_7Plane3DEE21readInformationMatrixERSi.exit, !llvm.loop !53
 
 64:                                               ; preds = %58
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv32.i, 24

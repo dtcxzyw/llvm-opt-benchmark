@@ -1339,9 +1339,12 @@ _ZSt8_DestroyIPSt6vectorIPN5ceres8internal13ResidualBlockESaIS4_EES6_EvT_S8_RSaI
   %281 = ptrtoint ptr %280 to i64
   %282 = urem i64 %281, %265
   %.not19.i.i.i.i.i = icmp eq i64 %282, %266
-  br i1 %.not19.i.i.i.i.i, label %275, label %.loopexit122, !llvm.loop !115
+  br i1 %.not19.i.i.i.i.i, label %275, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !115
 
-.loopexit122:                                     ; preds = %.lr.ph.i.i.i.i.i63, %278, %.preheader, %263
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %278
+  br label %.loopexit122, !llvm.loop !115
+
+.loopexit122:                                     ; preds = %.lr.ph.i.i.i.i.i63, %.preheader, %263, %..loopexit_crit_edge21.i.i.i.i.i
   %283 = load ptr, ptr %11, align 8, !tbaa !52
   %284 = load ptr, ptr %228, align 8, !tbaa !42
   %.not.i65 = icmp eq ptr %283, %284
@@ -4581,22 +4584,22 @@ define linkonce_odr hidden void @_ZN5ceres13OrderedGroupsIPdE7ReverseEv(ptr noun
   %30 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %12) #36
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !62, !noalias !394
-  %.not56 = icmp eq ptr %30, %32
-  br i1 %.not56, label %._crit_edge60, label %.lr.ph59
+  %.not57 = icmp eq ptr %30, %32
+  br i1 %.not57, label %._crit_edge61, label %.lr.ph60
 
-.lr.ph59:                                         ; preds = %25
+.lr.ph60:                                         ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %35
 
-35:                                               ; preds = %.lr.ph59, %_ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31
-  %.sroa.036.057 = phi ptr [ %30, %.lr.ph59 ], [ %92, %_ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31 ]
-  %36 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.036.057) #36
+35:                                               ; preds = %.lr.ph60, %_ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31
+  %.sroa.036.058 = phi ptr [ %30, %.lr.ph60 ], [ %92, %_ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31 ]
+  %36 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.036.058) #36
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !62
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %.not4254 = icmp eq ptr %38, %39
-  br i1 %.not4254, label %._crit_edge, label %.lr.ph
+  %.not4255 = icmp eq ptr %38, %39
+  br i1 %.not4255, label %._crit_edge, label %.lr.ph
 
 40:                                               ; preds = %21, %.critedge.i
   %41 = landingpad { ptr, i32 }
@@ -4609,8 +4612,8 @@ define linkonce_odr hidden void @_ZN5ceres13OrderedGroupsIPdE7ReverseEv(ptr noun
   br label %.body
 
 .lr.ph:                                           ; preds = %35, %.loopexit
-  %.sroa.032.055 = phi ptr [ %71, %.loopexit ], [ %38, %35 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.032.055, i64 32
+  %.sroa.032.056 = phi ptr [ %71, %.loopexit ], [ %38, %35 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.032.056, i64 32
   %45 = load i32, ptr %7, align 4, !tbaa !54
   %46 = load ptr, ptr %44, align 8, !tbaa !73
   %47 = ptrtoint ptr %46 to i64
@@ -4645,9 +4648,12 @@ define linkonce_odr hidden void @_ZN5ceres13OrderedGroupsIPdE7ReverseEv(ptr noun
   %64 = ptrtoint ptr %63 to i64
   %65 = urem i64 %64, %48
   %.not19.i.i.i.i = icmp eq i64 %65, %49
-  br i1 %.not19.i.i.i.i, label %58, label %.loopexit.i.i, !llvm.loop !115
+  br i1 %.not19.i.i.i.i, label %58, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !115
 
-.loopexit.i.i:                                    ; preds = %61, %.lr.ph.i.i.i.i13, %.lr.ph
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %61
+  br label %.loopexit.i.i, !llvm.loop !115
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i13, %..loopexit_crit_edge21.i.i.i.i, %.lr.ph
   %66 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
           to label %.noexc14 unwind label %72
 
@@ -4670,7 +4676,7 @@ _ZNSt10_HashtableIPdSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   %.pn.i.i = phi ptr [ %54, %53 ], [ %69, %.noexc14 ], [ %60, %58 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %45, ptr %.1.i.i, align 4, !tbaa !54
-  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.055) #36
+  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.056) #36
   %.not42 = icmp eq ptr %71, %39
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -4680,7 +4686,7 @@ _ZNSt10_HashtableIPdSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %.body
 
 ._crit_edge:                                      ; preds = %.loopexit, %35
-  %74 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.036.057) #36
+  %74 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.036.058) #36
   %75 = load ptr, ptr %14, align 8, !tbaa !61
   %.not10.i.i.i.i15 = icmp eq ptr %75, null
   br i1 %.not10.i.i.i.i15, label %.critedge.i26, label %.lr.ph.i.i.i.i16
@@ -4737,13 +4743,13 @@ _ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31:  ; preds = %86
   %90 = load i32, ptr %7, align 4, !tbaa !54
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %7, align 4, !tbaa !54
-  %92 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.036.057) #36
+  %92 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.036.058) #36
   %93 = load ptr, ptr %31, align 8, !tbaa !62, !noalias !394
   %.not = icmp eq ptr %92, %93
-  br i1 %.not, label %._crit_edge60, label %35, !llvm.loop !403
+  br i1 %.not, label %._crit_edge61, label %35, !llvm.loop !403
 
-._crit_edge60:                                    ; preds = %_ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31, %25
-  %.lcssa46 = phi ptr [ %32, %25 ], [ %93, %_ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31 ]
+._crit_edge61:                                    ; preds = %_ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31, %25
+  %.lcssa47 = phi ptr [ %32, %25 ], [ %93, %_ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !69
   %96 = icmp eq ptr %95, null
@@ -4751,7 +4757,7 @@ _ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31:  ; preds = %86
   %.not.i.i = icmp eq ptr %97, null
   br i1 %96, label %98, label %106
 
-98:                                               ; preds = %._crit_edge60
+98:                                               ; preds = %._crit_edge61
   br i1 %.not.i.i, label %_ZNSt3mapIiSt3setIPdSt4lessIS1_ESaIS1_EES2_IiESaISt4pairIKiS5_EEE4swapERSB_.exit, label %99
 
 99:                                               ; preds = %98
@@ -4773,14 +4779,14 @@ _ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31:  ; preds = %86
   store i64 0, ptr %17, align 8, !tbaa !64
   br label %_ZNSt3mapIiSt3setIPdSt4lessIS1_ESaIS1_EES2_IiESaISt4pairIKiS5_EEE4swapERSB_.exit
 
-106:                                              ; preds = %._crit_edge60
+106:                                              ; preds = %._crit_edge61
   br i1 %.not.i.i, label %107, label %113
 
 107:                                              ; preds = %106
   %108 = load i32, ptr %12, align 8, !tbaa !55
   store i32 %108, ptr %13, align 8, !tbaa !55
   store ptr %95, ptr %14, align 8, !tbaa !61
-  store ptr %.lcssa46, ptr %15, align 8, !tbaa !62
+  store ptr %.lcssa47, ptr %15, align 8, !tbaa !62
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %110 = load ptr, ptr %109, align 8, !tbaa !63
   store ptr %110, ptr %16, align 8, !tbaa !63
@@ -4799,7 +4805,7 @@ _ZNSt3setIPdSt4lessIS0_ESaIS0_EEaSERKS4_.exit31:  ; preds = %86
   store ptr %95, ptr %14, align 8, !tbaa !69
   %114 = load ptr, ptr %15, align 8, !tbaa !69
   store ptr %114, ptr %31, align 8, !tbaa !69
-  store ptr %.lcssa46, ptr %15, align 8, !tbaa !69
+  store ptr %.lcssa47, ptr %15, align 8, !tbaa !69
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %116 = load ptr, ptr %115, align 8, !tbaa !69
   %117 = load ptr, ptr %16, align 8, !tbaa !69

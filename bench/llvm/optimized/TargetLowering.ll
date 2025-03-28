@@ -2364,7 +2364,7 @@ _ZNK4llvm3EVTeqES0_.exit118:                      ; preds = %_ZNK4llvm3EVTeqES0_
 
 _ZNK4llvm3EVTeqES0_.exit118..critedge76.loopexit_crit_edge: ; preds = %_ZNK4llvm3EVTeqES0_.exit118
   %.pr174.pre.pre = load i16, ptr %11, align 8, !tbaa !356
-  br label %.critedge76
+  br label %.critedge76, !llvm.loop !364
 
 .critedge76:                                      ; preds = %_ZNK4llvm3EVTeqES0_.exit118..critedge76.loopexit_crit_edge, %123
   %.pr174 = phi i16 [ %.pr174.pre200, %123 ], [ %.pr174.pre.pre, %_ZNK4llvm3EVTeqES0_.exit118..critedge76.loopexit_crit_edge ]

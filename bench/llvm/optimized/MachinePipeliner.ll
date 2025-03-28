@@ -37715,7 +37715,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit: ; preds = %50
 
 _ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit.thread_crit_edge: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit
   %.pre71 = load i8, ptr %10, align 4, !tbaa !32, !range !50, !noalias !1584
-  br label %_ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit.thread
+  br label %_ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit.thread, !llvm.loop !1587
 
 _ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit.thread: ; preds = %68, %_ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit.thread_crit_edge
   %73 = phi i8 [ %.pre71, %_ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_5SUnitEE5countEPKS1_.exit.thread_crit_edge ], [ %58, %68 ]

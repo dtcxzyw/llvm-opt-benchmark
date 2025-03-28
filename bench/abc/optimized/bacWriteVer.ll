@@ -5750,19 +5750,19 @@ Bac_ObjGetConst.exit:                             ; preds = %178
   br i1 %.not161.not400, label %.lr.ph.preheader, label %Bac_ObjGetConst.exit241.thread
 
 .lr.ph.preheader:                                 ; preds = %Bac_ObjGetConst.exit
+  %183 = zext i1 %narrow.i to i32
   %indvars.iv491 = add nsw i64 %172, 1
-  %183 = getelementptr inbounds i32, ptr %.val170, i64 %indvars.iv491
-  %184 = load i32, ptr %183, align 4, !tbaa !10
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr i8, ptr %.val186, i64 %185
-  %187 = load i8, ptr %186, align 1, !tbaa !43
-  %.mask.i.i238492 = and i8 %187, -2
+  %184 = getelementptr inbounds i32, ptr %.val170, i64 %indvars.iv491
+  %185 = load i32, ptr %184, align 4, !tbaa !10
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr i8, ptr %.val186, i64 %186
+  %188 = load i8, ptr %187, align 1, !tbaa !43
+  %.mask.i.i238492 = and i8 %188, -2
   %.not.i239493 = icmp eq i8 %.mask.i.i238492, 8
-  %188 = trunc nsw i64 %indvars.iv491 to i32
-  br i1 %.not.i239493, label %.lr.ph497.preheader, label %Bac_ObjGetConst.exit241.thread
+  %189 = trunc nsw i64 %indvars.iv491 to i32
+  br i1 %.not.i239493, label %.lr.ph497.preheader, label %Bac_ObjGetConst.exit241.thread.loopexit
 
 .lr.ph497.preheader:                              ; preds = %.lr.ph.preheader
-  %189 = zext i1 %narrow.i to i32
   %invariant.gep = getelementptr i8, ptr %.val186, i64 -1
   br label %.lr.ph497
 
@@ -5776,38 +5776,41 @@ Bac_ObjGetConst.exit:                             ; preds = %178
   %.mask.i.i238 = and i8 %194, -2
   %.not.i239 = icmp eq i8 %.mask.i.i238, 8
   %195 = trunc nsw i64 %indvars.iv to i32
-  br i1 %.not.i239, label %.lr.ph497, label %Bac_ObjGetConst.exit241.thread.loopexit.loopexit, !llvm.loop !64
+  br i1 %.not.i239, label %.lr.ph497, label %Bac_ObjGetConst.exit241.thread.loopexit, !llvm.loop !64
 
 .lr.ph497:                                        ; preds = %.lr.ph497.preheader, %.lr.ph
-  %196 = phi i32 [ %195, %.lr.ph ], [ %188, %.lr.ph497.preheader ]
-  %197 = phi i64 [ %192, %.lr.ph ], [ %185, %.lr.ph497.preheader ]
+  %196 = phi i32 [ %195, %.lr.ph ], [ %189, %.lr.ph497.preheader ]
+  %197 = phi i64 [ %192, %.lr.ph ], [ %186, %.lr.ph497.preheader ]
   %indvars.iv496 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv491, %.lr.ph497.preheader ]
   %.0143.in401495 = phi i32 [ %196, %.lr.ph ], [ %.0145436, %.lr.ph497.preheader ]
-  %.0138402494 = phi i32 [ %spec.select, %.lr.ph ], [ %189, %.lr.ph497.preheader ]
+  %.0138402494 = phi i32 [ %spec.select, %.lr.ph ], [ %183, %.lr.ph497.preheader ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %197
   %198 = load i8, ptr %gep, align 1, !tbaa !43
   %199 = add i8 %198, -20
   %narrow.i.i240 = icmp ult i8 %199, -8
-  br i1 %narrow.i.i240, label %Bac_ObjGetConst.exit241.thread.loopexit.loopexit, label %Bac_ObjGetConst.exit241
+  br i1 %narrow.i.i240, label %Bac_ObjGetConst.exit241.thread.loopexit, label %Bac_ObjGetConst.exit241
 
 Bac_ObjGetConst.exit241:                          ; preds = %.lr.ph497
   %200 = and i8 %198, 28
   %narrow.i242.not = icmp eq i8 %200, 12
   %spec.select = select i1 %narrow.i242.not, i32 %.0138402494, i32 0
   %exitcond.not = icmp eq i64 %indvars.iv496, %38
-  br i1 %exitcond.not, label %Bac_ObjGetConst.exit241.thread.loopexit.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %Bac_ObjGetConst.exit241.Bac_ObjGetConst.exit241.thread.loopexit_crit_edge, label %.lr.ph, !llvm.loop !64
 
-Bac_ObjGetConst.exit241.thread.loopexit.loopexit: ; preds = %.lr.ph, %.lr.ph497, %Bac_ObjGetConst.exit241
-  %.0143.in.lcssa.ph.ph = phi i32 [ %1, %Bac_ObjGetConst.exit241 ], [ %.0143.in401495, %.lr.ph497 ], [ %196, %.lr.ph ]
-  %.0138.lcssa.ph.ph = phi i32 [ %spec.select, %Bac_ObjGetConst.exit241 ], [ %.0138402494, %.lr.ph497 ], [ %spec.select, %.lr.ph ]
-  %.0143.lcssa.ph.ph = phi i32 [ %132, %Bac_ObjGetConst.exit241 ], [ %196, %.lr.ph497 ], [ %195, %.lr.ph ]
-  %201 = icmp ne i32 %.0138.lcssa.ph.ph, 0
+Bac_ObjGetConst.exit241.Bac_ObjGetConst.exit241.thread.loopexit_crit_edge: ; preds = %Bac_ObjGetConst.exit241
+  br label %Bac_ObjGetConst.exit241.thread.loopexit, !llvm.loop !64
+
+Bac_ObjGetConst.exit241.thread.loopexit:          ; preds = %.lr.ph497, %.lr.ph, %Bac_ObjGetConst.exit241.Bac_ObjGetConst.exit241.thread.loopexit_crit_edge, %.lr.ph.preheader
+  %.0143.in.lcssa.ph = phi i32 [ %1, %Bac_ObjGetConst.exit241.Bac_ObjGetConst.exit241.thread.loopexit_crit_edge ], [ %.0145436, %.lr.ph.preheader ], [ %.0143.in401495, %.lr.ph497 ], [ %196, %.lr.ph ]
+  %.0138.lcssa.ph = phi i32 [ %spec.select, %Bac_ObjGetConst.exit241.Bac_ObjGetConst.exit241.thread.loopexit_crit_edge ], [ %183, %.lr.ph.preheader ], [ %.0138402494, %.lr.ph497 ], [ %spec.select, %.lr.ph ]
+  %.0143.lcssa.ph = phi i32 [ %132, %Bac_ObjGetConst.exit241.Bac_ObjGetConst.exit241.thread.loopexit_crit_edge ], [ %189, %.lr.ph.preheader ], [ %196, %.lr.ph497 ], [ %195, %.lr.ph ]
+  %201 = icmp ne i32 %.0138.lcssa.ph, 0
   br label %Bac_ObjGetConst.exit241.thread
 
-Bac_ObjGetConst.exit241.thread:                   ; preds = %.lr.ph.preheader, %Bac_ObjGetConst.exit241.thread.loopexit.loopexit, %Bac_ObjGetConst.exit
-  %.0143.in.lcssa = phi i32 [ %.0145436, %Bac_ObjGetConst.exit ], [ %.0145436, %.lr.ph.preheader ], [ %.0143.in.lcssa.ph.ph, %Bac_ObjGetConst.exit241.thread.loopexit.loopexit ]
-  %.0138.lcssa = phi i1 [ %narrow.i, %Bac_ObjGetConst.exit ], [ %narrow.i, %.lr.ph.preheader ], [ %201, %Bac_ObjGetConst.exit241.thread.loopexit.loopexit ]
-  %.0143.lcssa = phi i32 [ %.0143399, %Bac_ObjGetConst.exit ], [ %188, %.lr.ph.preheader ], [ %.0143.lcssa.ph.ph, %Bac_ObjGetConst.exit241.thread.loopexit.loopexit ]
+Bac_ObjGetConst.exit241.thread:                   ; preds = %Bac_ObjGetConst.exit241.thread.loopexit, %Bac_ObjGetConst.exit
+  %.0143.in.lcssa = phi i32 [ %.0145436, %Bac_ObjGetConst.exit ], [ %.0143.in.lcssa.ph, %Bac_ObjGetConst.exit241.thread.loopexit ]
+  %.0138.lcssa = phi i1 [ %narrow.i, %Bac_ObjGetConst.exit ], [ %201, %Bac_ObjGetConst.exit241.thread.loopexit ]
+  %.0143.lcssa = phi i32 [ %.0143399, %Bac_ObjGetConst.exit ], [ %.0143.lcssa.ph, %Bac_ObjGetConst.exit241.thread.loopexit ]
   %202 = sub nsw i32 %.0143.lcssa, %.0145436
   tail call fastcc void @Vec_StrPrintNum(ptr noundef %6, i32 noundef %202)
   %203 = icmp sgt i32 %202, 8

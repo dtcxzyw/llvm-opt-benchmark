@@ -1204,11 +1204,14 @@ define dso_local noundef zeroext i1 @parse_path_prefix(ptr noundef %0, ptr nound
   tail call void @advance(ptr noundef nonnull %0) #8
   %40 = load i32, ptr %4, align 8
   %41 = icmp eq i32 %40, 64
-  br i1 %41, label %24, label %.critedge, !llvm.loop !12
+  br i1 %41, label %24, label %..critedge.loopexit_crit_edge, !llvm.loop !12
 
-.critedge:                                        ; preds = %.lr.ph63, %24, %.lr.ph, %10
-  %.053.lcssa = phi i32 [ %17, %10 ], [ %17, %.lr.ph ], [ %39, %24 ], [ %39, %.lr.ph63 ]
-  %.sroa.01.0.lcssa = phi i64 [ %.sroa.01.0.copyload, %10 ], [ %.sroa.01.0.copyload, %.lr.ph ], [ %.sroa.01.0.copyload2, %24 ], [ %.sroa.01.0.copyload2, %.lr.ph63 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph63
+  br label %.critedge, !llvm.loop !12
+
+.critedge:                                        ; preds = %24, %.lr.ph, %..critedge.loopexit_crit_edge, %10
+  %.053.lcssa = phi i32 [ %17, %10 ], [ %39, %..critedge.loopexit_crit_edge ], [ %17, %.lr.ph ], [ %39, %24 ]
+  %.sroa.01.0.lcssa = phi i64 [ %.sroa.01.0.copyload, %10 ], [ %.sroa.01.0.copyload2, %..critedge.loopexit_crit_edge ], [ %.sroa.01.0.copyload, %.lr.ph ], [ %.sroa.01.0.copyload2, %24 ]
   store i32 64, ptr %3, align 4
   %42 = load i64, ptr %11, align 8
   %.not.unshifted.i = xor i64 %42, %.sroa.01.0.lcssa

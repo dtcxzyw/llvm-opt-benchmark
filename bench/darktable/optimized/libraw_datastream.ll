@@ -348,15 +348,18 @@ define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull a
   %34 = sub i64 %32, %33
   %35 = icmp ult i64 %34, %.pre40.pre
   %36 = ptrtoint ptr %31 to i64
-  br i1 %35, label %21, label %.critedge, !llvm.loop !62
+  br i1 %35, label %21, label %..critedge.loopexit_crit_edge, !llvm.loop !62
 
-.critedge:                                        ; preds = %24, %21, %29, %.lr.ph
-  %.pre54.pre-phi = phi i64 [ %19, %.lr.ph ], [ %36, %21 ], [ %25, %24 ], [ %36, %29 ]
-  %.pre40 = phi i64 [ %10, %.lr.ph ], [ %.pre40.pre, %29 ], [ %.pre40.pre, %21 ], [ %.pre40.pre, %24 ]
-  %.pre = phi ptr [ %11, %.lr.ph ], [ %.pre.pre, %29 ], [ %.pre.pre, %21 ], [ %.pre.pre, %24 ]
-  %.024.lcssa.ph = phi ptr [ %12, %.lr.ph ], [ %30, %21 ], [ %.0242870, %24 ], [ %30, %29 ]
-  %.023.lcssa.ph = phi ptr [ %1, %.lr.ph ], [ %31, %21 ], [ %.0232969, %24 ], [ %31, %29 ]
-  %.lcssa.ph = phi i64 [ %18, %.lr.ph ], [ %18, %21 ], [ %26, %24 ], [ %32, %29 ]
+..critedge.loopexit_crit_edge:                    ; preds = %29
+  br label %.critedge, !llvm.loop !62
+
+.critedge:                                        ; preds = %24, %21, %.lr.ph, %..critedge.loopexit_crit_edge
+  %.pre54.pre-phi = phi i64 [ %36, %..critedge.loopexit_crit_edge ], [ %19, %.lr.ph ], [ %36, %21 ], [ %25, %24 ]
+  %.pre40 = phi i64 [ %.pre40.pre, %..critedge.loopexit_crit_edge ], [ %10, %.lr.ph ], [ %.pre40.pre, %21 ], [ %.pre40.pre, %24 ]
+  %.pre = phi ptr [ %.pre.pre, %..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %.pre.pre, %21 ], [ %.pre.pre, %24 ]
+  %.024.lcssa.ph = phi ptr [ %30, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph ], [ %30, %21 ], [ %.0242870, %24 ]
+  %.023.lcssa.ph = phi ptr [ %31, %..critedge.loopexit_crit_edge ], [ %1, %.lr.ph ], [ %31, %21 ], [ %.0232969, %24 ]
+  %.lcssa.ph = phi i64 [ %32, %..critedge.loopexit_crit_edge ], [ %18, %.lr.ph ], [ %18, %21 ], [ %26, %24 ]
   %.pre45 = ptrtoint ptr %.pre to i64
   %.pre46 = sub i64 %.lcssa.ph, %.pre45
   %37 = sub i64 %.pre54.pre-phi, %14

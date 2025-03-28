@@ -402,7 +402,7 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
   %.pre28 = load i64, ptr %21, align 8
-  br label %split
+  br label %split, !llvm.loop !12
 
 split:                                            ; preds = %83, %.loopexit._crit_edge
   %175 = phi i64 [ %.pre28, %.loopexit._crit_edge ], [ %86, %83 ]

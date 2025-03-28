@@ -124,11 +124,14 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !10
 
-.critedge:                                        ; preds = %23, %.lr.ph, %.lr.ph.preheader, %14
-  %.0122.lcssa = phi ptr [ %1, %14 ], [ %1, %.lr.ph.preheader ], [ %20, %.lr.ph ], [ %20, %23 ]
-  %.0121.lcssa = phi i32 [ %0, %14 ], [ %0, %.lr.ph.preheader ], [ %24, %.lr.ph ], [ %24, %23 ]
+..critedge.loopexit_crit_edge:                    ; preds = %23
+  br label %.critedge, !llvm.loop !10
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %14
+  %.0122.lcssa = phi ptr [ %1, %14 ], [ %20, %..critedge.loopexit_crit_edge ], [ %1, %.lr.ph.preheader ], [ %20, %.lr.ph ]
+  %.0121.lcssa = phi i32 [ %0, %14 ], [ %24, %..critedge.loopexit_crit_edge ], [ %0, %.lr.ph.preheader ], [ %24, %.lr.ph ]
   store ptr %15, ptr %.0122.lcssa, align 8, !tbaa !4
   %27 = tail call ptr @opt_init(i32 noundef %.0121.lcssa, ptr noundef nonnull %.0122.lcssa, ptr noundef nonnull @engine_options) #7
   br label %.outer

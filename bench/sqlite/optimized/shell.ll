@@ -4815,10 +4815,13 @@ thread-pre-split.i:                               ; preds = %.critedge7.i.i
 
 .critedge7.i.i:                                   ; preds = %139, %.lr.ph.i52
   %144 = icmp samesign ugt i32 %.in.i73.i, 1
-  br i1 %144, label %thread-pre-split.i, label %skipNonB64.exit.i, !llvm.loop !85
+  br i1 %144, label %thread-pre-split.i, label %.critedge7.i.skipNonB64.exit_crit_edge.i, !llvm.loop !85
 
-skipNonB64.exit.i:                                ; preds = %.critedge7.i.i, %139, %thread-pre-split.i, %133
-  %.0.lcssa.i.i = phi ptr [ %.04086.i, %133 ], [ %scevgep.i.i, %.critedge7.i.i ], [ %.08.i74.i, %139 ], [ %135, %thread-pre-split.i ]
+.critedge7.i.skipNonB64.exit_crit_edge.i:         ; preds = %.critedge7.i.i
+  br label %skipNonB64.exit.i, !llvm.loop !85
+
+skipNonB64.exit.i:                                ; preds = %139, %thread-pre-split.i, %.critedge7.i.skipNonB64.exit_crit_edge.i, %133
+  %.0.lcssa.i.i = phi ptr [ %scevgep.i.i, %.critedge7.i.skipNonB64.exit_crit_edge.i ], [ %.04086.i, %133 ], [ %.08.i74.i, %139 ], [ %135, %thread-pre-split.i ]
   %145 = ptrtoint ptr %.0.lcssa.i.i to i64
   %146 = ptrtoint ptr %.04086.i to i64
   %.neg.i = sub i64 %146, %145

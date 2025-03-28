@@ -170,10 +170,13 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   %.27693120 = phi i64 [ %14, %10 ], [ %.07495, %.preheader90 ]
   %14 = add i64 %.27693120, 1
   %exitcond.not = icmp eq i64 %14, %umax
-  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !10
+  br i1 %exitcond.not, label %..critedge_crit_edge, label %10, !llvm.loop !10
 
-.critedge:                                        ; preds = %10, %.lr.ph121, %.preheader90
-  %.276.lcssa = phi i64 [ %.07495, %.preheader90 ], [ %14, %10 ], [ %umax, %.lr.ph121 ]
+..critedge_crit_edge:                             ; preds = %.lr.ph121
+  br label %.critedge, !llvm.loop !10
+
+.critedge:                                        ; preds = %10, %..critedge_crit_edge, %.preheader90
+  %.276.lcssa = phi i64 [ %umax, %..critedge_crit_edge ], [ %.07495, %.preheader90 ], [ %14, %10 ]
   %15 = icmp eq i64 %.276.lcssa, %4
   br i1 %15, label %.critedge._crit_edge, label %16
 

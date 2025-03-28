@@ -2021,7 +2021,7 @@ Aig_ManRegFindBestVar.exit:                       ; preds = %58, %.critedge2.i, 
 
 .thread-pre-split_crit_edge:                      ; preds = %85
   %.pr.pre = load i32, ptr %42, align 4, !tbaa !21
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %52, %Aig_ManRegFindBestVar.exit, %54, %.thread-pre-split_crit_edge
   %87 = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %.val40, %54 ], [ %.val40, %Aig_ManRegFindBestVar.exit ], [ %.val40, %52 ]

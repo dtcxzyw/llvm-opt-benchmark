@@ -1733,7 +1733,10 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %52 = sext i32 %39 to i64
   br label %.lr.ph.split.us
 
-.loopexit192:                                     ; preds = %._crit_edge252, %.critedge
+..loopexit192_crit_edge:                          ; preds = %._crit_edge252
+  br label %.loopexit192, !llvm.loop !9
+
+.loopexit192:                                     ; preds = %..loopexit192_crit_edge, %.critedge
   br i1 %104, label %.lr.ph.split.us, label %.loopexit193
 
 .lr.ph.split.us:                                  ; preds = %.loopexit192, %.lr.ph.lr.ph
@@ -1864,7 +1867,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 102:                                              ; preds = %98, %.lr.ph241
   %.1164 = phi i32 [ %99, %98 ], [ %.0163240, %.lr.ph241 ]
   %.not180.not = icmp sgt i64 %indvars.iv.next279, %92
-  br i1 %.not180.not, label %.lr.ph241, label %._crit_edge, !llvm.loop !9
+  br i1 %.not180.not, label %.lr.ph241, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %102, %.preheader
   %.0163.lcssa = phi i32 [ %.0160.ph258, %.preheader ], [ %.1164, %102 ]
@@ -1903,7 +1906,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 118:                                              ; preds = %.lr.ph245
   %indvars.iv.next283 = add nsw i64 %indvars.iv282, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next283, %52
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph245, !llvm.loop !10
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph245, !llvm.loop !11
 
 .critedge.loopexit.split.loop.exit312:            ; preds = %.lr.ph245
   %119 = trunc nsw i64 %indvars.iv282 to i32
@@ -1912,13 +1915,13 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 .critedge:                                        ; preds = %118, %.critedge.loopexit.split.loop.exit312, %111
   %.2162.lcssa = phi i32 [ %.0160.ph258, %111 ], [ %119, %.critedge.loopexit.split.loop.exit312 ], [ %39, %118 ]
   %120 = icmp slt i32 %.0163.lcssa, %.2162.lcssa
-  br i1 %120, label %.lr.ph257, label %.loopexit192, !llvm.loop !11
+  br i1 %120, label %.lr.ph257, label %.loopexit192, !llvm.loop !9
 
 .lr.ph257:                                        ; preds = %.critedge
   %121 = sext i32 %.2153 to i64
   %122 = sext i32 %.0163.lcssa to i64
   %wide.trip.count = sext i32 %.2162.lcssa to i64
-  br label %123
+  br label %123, !llvm.loop !9
 
 123:                                              ; preds = %.lr.ph257, %._crit_edge252
   %indvars.iv286 = phi i64 [ %122, %.lr.ph257 ], [ %indvars.iv.next287, %._crit_edge252 ]
@@ -2001,7 +2004,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   store ptr %125, ptr %170, align 8
   %indvars.iv.next287 = add nsw i64 %indvars.iv286, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
-  br i1 %exitcond294.not, label %.loopexit192, label %123, !llvm.loop !13
+  br i1 %exitcond294.not, label %..loopexit192_crit_edge, label %123, !llvm.loop !13
 
 .loopexit193:                                     ; preds = %.loopexit192, %.split.us, %36, %.split213.us
   %.1161 = phi i32 [ %.0160.ph258, %.split213.us ], [ %40, %36 ], [ %.2162.lcssa, %.loopexit192 ], [ %39, %.split.us ]

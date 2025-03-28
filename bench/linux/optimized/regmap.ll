@@ -8538,10 +8538,13 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %108 = shl i64 %107, 32
   %109 = ashr exact i64 %108, 32
   %110 = icmp ult i64 %109, %97
-  br i1 %110, label %.preheader, label %.split, !llvm.loop !90
+  br i1 %110, label %.preheader, label %.split1, !llvm.loop !90
 
-.split:                                           ; preds = %.preheader, %102
-  %.sink = phi i64 [ 0, %102 ], [ %97, %.preheader ]
+.split1:                                          ; preds = %.preheader
+  br label %.split, !llvm.loop !90
+
+.split:                                           ; preds = %102, %.split1
+  %.sink = phi i64 [ %97, %.split1 ], [ 0, %102 ]
   %111 = tail call i32 @regmap_raw_write(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %100, i64 noundef %.sink)
   tail call void @kfree(ptr noundef nonnull %100) #24
   br label %112
@@ -8831,7 +8834,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 
 .split1:                                          ; preds = %126, %122
   %130 = tail call fastcc i32 @_regmap_raw_multi_reg_write(ptr noundef %0, ptr noundef %1, i64 noundef %2)
-  br label %.thread31
+  br label %.thread31, !llvm.loop !101
 
 .lr.ph:                                           ; preds = %109, %126
   %131 = phi i64 [ %128, %126 ], [ 0, %109 ]

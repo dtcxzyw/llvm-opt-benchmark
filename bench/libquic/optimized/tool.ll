@@ -109,21 +109,24 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef read
   %30 = add nuw nsw i64 %.0812.i78, 1
   %31 = getelementptr inbounds nuw [17 x %struct.Tool], ptr @_ZL6kTools, i64 0, i64 %30
   %exitcond.i = icmp eq i64 %30, 16
-  br i1 %exitcond.i, label %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit, label %32, !llvm.loop !19
+  br i1 %exitcond.i, label %._ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge79, label %32, !llvm.loop !19
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %31, align 16, !tbaa !21
   %34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %33) #17
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %35, label %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.sink.split, label %.lr.ph, !llvm.loop !19
 
-_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit: ; preds = %32, %.lr.ph
+._ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge79: ; preds = %.lr.ph
+  br label %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.sink.split, !llvm.loop !19
+
+_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.sink.split: ; preds = %32, %._ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge79
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   br label %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit, %23
-  %.lcssa.i = phi ptr [ @_Z7CiphersRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, %23 ], [ %37, %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit ]
+_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.sink.split, %23
+  %.lcssa.i = phi ptr [ @_Z7CiphersRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, %23 ], [ %37, %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.sink.split ]
   %38 = load ptr, ptr %6, align 8, !tbaa !15
   %39 = icmp eq ptr %38, %12
   br i1 %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -207,21 +210,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %66 = add nuw nsw i64 %.0812.i4081, 1
   %67 = getelementptr inbounds nuw [17 x %struct.Tool], ptr @_ZL6kTools, i64 0, i64 %66
   %exitcond.i41 = icmp eq i64 %66, 16
-  br i1 %exitcond.i41, label %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.loopexit, label %68, !llvm.loop !19
+  br i1 %exitcond.i41, label %._ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43_crit_edge84, label %68, !llvm.loop !19
 
 68:                                               ; preds = %.lr.ph82
   %69 = load ptr, ptr %67, align 16, !tbaa !21
   %70 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %69) #17
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.loopexit, label %.lr.ph82, !llvm.loop !19
+  br i1 %71, label %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.sink.split, label %.lr.ph82, !llvm.loop !19
 
-_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.loopexit: ; preds = %68, %.lr.ph82
+._ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43_crit_edge84: ; preds = %.lr.ph82
+  br label %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.sink.split, !llvm.loop !19
+
+_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.sink.split: ; preds = %68, %._ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43_crit_edge84
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !23
   br label %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43
 
-_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43: ; preds = %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.loopexit, %59
-  %.lcssa.i42 = phi ptr [ @_Z7CiphersRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, %59 ], [ %73, %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.loopexit ]
+_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43: ; preds = %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.sink.split, %59
+  %.lcssa.i42 = phi ptr [ @_Z7CiphersRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, %59 ], [ %73, %_ZL8FindToolRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.sink.split ]
   %74 = load ptr, ptr %7, align 8, !tbaa !15
   %75 = icmp eq ptr %74, %48
   br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
@@ -377,8 +383,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit unwind label %131
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %127
-  %.pre90 = load ptr, ptr %9, align 8, !tbaa !15
-  %128 = icmp eq ptr %.pre90, %89
+  %.pre92 = load ptr, ptr %9, align 8, !tbaa !15
+  %128 = icmp eq ptr %.pre92, %89
   br i1 %128, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.thread, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
@@ -388,7 +394,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
-  call void @_ZdlPv(ptr noundef %.pre90) #19
+  call void @_ZdlPv(ptr noundef %.pre92) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60

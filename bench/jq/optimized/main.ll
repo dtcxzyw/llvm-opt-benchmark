@@ -1432,7 +1432,7 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   %.4461.us = select i1 %or.cond9.us, i32 %670, i32 %.2459.ph.us1969
   %671 = call i32 @jq_halted(ptr noundef nonnull %16) #19
   %.not577.us = icmp eq i32 %671, 0
-  br i1 %.not577.us, label %.outer.us, label %.critedge, !llvm.loop !25
+  br i1 %.not577.us, label %.outer.us, label %.split.us.us..critedge.loopexit_crit_edge, !llvm.loop !25
 
 672:                                              ; preds = %649
   %673 = call { i64, ptr } @jv_null() #19
@@ -1506,9 +1506,12 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   %712 = icmp eq i32 %711, 0
   br i1 %712, label %.lr.ph1396, label %.critedge
 
-.critedge:                                        ; preds = %.outer, %.split, %704, %682, %.split.us.us, %.outer.us, %659, %.outer.us.preheader, %.split1427.us, %672
-  %.1458 = phi i32 [ -1, %672 ], [ %.2459.ph.us1969, %.split1427.us ], [ -1, %.outer.us.preheader ], [ %.2459.ph.us1969, %659 ], [ %.4461.us, %.outer.us ], [ %.4461.us, %.split.us.us ], [ %.2459.ph, %682 ], [ %.2459.ph, %704 ], [ %.2459.ph, %.outer ], [ %.4461, %.split ]
-  %.12 = phi i32 [ %677, %672 ], [ 5, %.split1427.us ], [ -4, %.outer.us.preheader ], [ %.13.ph.us1970, %659 ], [ %666, %.outer.us ], [ %666, %.split.us.us ], [ %.13.ph, %682 ], [ %.13.ph, %704 ], [ %.13.ph, %.outer ], [ %690, %.split ]
+.split.us.us..critedge.loopexit_crit_edge:        ; preds = %.split.us.us
+  br label %.critedge, !llvm.loop !25
+
+.critedge:                                        ; preds = %.outer, %.split, %704, %682, %.outer.us, %659, %.outer.us.preheader, %.split.us.us..critedge.loopexit_crit_edge, %.split1427.us, %672
+  %.1458 = phi i32 [ -1, %672 ], [ %.2459.ph.us1969, %.split1427.us ], [ %.4461.us, %.split.us.us..critedge.loopexit_crit_edge ], [ -1, %.outer.us.preheader ], [ %.2459.ph.us1969, %659 ], [ %.4461.us, %.outer.us ], [ %.2459.ph, %682 ], [ %.2459.ph, %704 ], [ %.2459.ph, %.outer ], [ %.4461, %.split ]
+  %.12 = phi i32 [ %677, %672 ], [ 5, %.split1427.us ], [ %666, %.split.us.us..critedge.loopexit_crit_edge ], [ -4, %.outer.us.preheader ], [ %.13.ph.us1970, %659 ], [ %666, %.outer.us ], [ %.13.ph, %682 ], [ %.13.ph, %704 ], [ %.13.ph, %.outer ], [ %690, %.split ]
   %713 = call i32 @jq_util_input_errors(ptr noundef %20) #19
   %.not578 = icmp eq i32 %713, 0
   %spec.select597 = select i1 %.not578, i32 %.12, i32 2

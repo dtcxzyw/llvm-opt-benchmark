@@ -3005,16 +3005,16 @@ define internal fastcc void @_ZL25TestAggregateCounterValueRKN32pxrInternal_v0_2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i = icmp eq ptr %8, null
-  %.sink40.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink40.sroa.gep49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink40.sroa.gep51 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink40.sroa.gep52 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink40.sroa.gep54 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink40.sroa.gep55 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink40.sroa.gep57 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink40.sroa.gep58 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink40.sroa.gep60 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sink40.sroa.gep61 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink43.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink43.sroa.gep54 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink43.sroa.gep56 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink43.sroa.gep57 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink43.sroa.gep59 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink43.sroa.gep60 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink43.sroa.gep62 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink43.sroa.gep63 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink43.sroa.gep65 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink43.sroa.gep66 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13TraceReporterEE13_FetchPointerEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %2
@@ -3122,9 +3122,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %67, %40
   %.not17.i.i.i.i = icmp eq i64 %68, %41
-  br i1 %.not17.i.i.i.i, label %56, label %.loopexit, !llvm.loop !8
+  br i1 %.not17.i.i.i.i, label %56, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !8
 
-.loopexit:                                        ; preds = %65, %.lr.ph.i.i.i.i, %26, %33
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %65
+  br label %.loopexit, !llvm.loop !8
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %26, %33, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   br label %.invoke
 
@@ -3137,21 +3140,21 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   br i1 %71, label %73, label %.invoke
 
 .invoke:                                          ; preds = %.loopexit22, %.loopexit
-  %.sink40.sroa.phi = phi ptr [ %.sink40.sroa.gep, %.loopexit ], [ %.sink40.sroa.gep49, %.loopexit22 ]
-  %.sink40.sroa.phi50 = phi ptr [ %.sink40.sroa.gep51, %.loopexit ], [ %.sink40.sroa.gep52, %.loopexit22 ]
-  %.sink40.sroa.phi53 = phi ptr [ %.sink40.sroa.gep54, %.loopexit ], [ %.sink40.sroa.gep55, %.loopexit22 ]
-  %.sink40.sroa.phi56 = phi ptr [ %.sink40.sroa.gep57, %.loopexit ], [ %.sink40.sroa.gep58, %.loopexit22 ]
-  %.sink40.sroa.phi59 = phi ptr [ %.sink40.sroa.gep60, %.loopexit ], [ %.sink40.sroa.gep61, %.loopexit22 ]
-  %.sink40 = phi ptr [ %4, %.loopexit ], [ %3, %.loopexit22 ]
-  %.sink37 = phi i64 [ 70, %.loopexit ], [ 71, %.loopexit22 ]
+  %.sink43.sroa.phi = phi ptr [ %.sink43.sroa.gep, %.loopexit ], [ %.sink43.sroa.gep54, %.loopexit22 ]
+  %.sink43.sroa.phi55 = phi ptr [ %.sink43.sroa.gep56, %.loopexit ], [ %.sink43.sroa.gep57, %.loopexit22 ]
+  %.sink43.sroa.phi58 = phi ptr [ %.sink43.sroa.gep59, %.loopexit ], [ %.sink43.sroa.gep60, %.loopexit22 ]
+  %.sink43.sroa.phi61 = phi ptr [ %.sink43.sroa.gep62, %.loopexit ], [ %.sink43.sroa.gep63, %.loopexit22 ]
+  %.sink43.sroa.phi64 = phi ptr [ %.sink43.sroa.gep65, %.loopexit ], [ %.sink43.sroa.gep66, %.loopexit22 ]
+  %.sink43 = phi ptr [ %4, %.loopexit ], [ %3, %.loopexit22 ]
+  %.sink40 = phi i64 [ 70, %.loopexit ], [ 71, %.loopexit22 ]
   %72 = phi ptr [ @.str.17, %.loopexit ], [ @.str.18, %.loopexit22 ]
-  store ptr @.str.16, ptr %.sink40, align 8
-  store ptr @__func__._ZL25TestAggregateCounterValueRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEd, ptr %.sink40.sroa.phi, align 8
-  store i64 %.sink37, ptr %.sink40.sroa.phi50, align 8
-  store ptr @__PRETTY_FUNCTION__._ZL25TestAggregateCounterValueRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEd, ptr %.sink40.sroa.phi53, align 8
-  store i8 0, ptr %.sink40.sroa.phi56, align 8
-  store i32 4, ptr %.sink40.sroa.phi59, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink40, ptr noundef nonnull @.str.19, ptr noundef nonnull %72) #19
+  store ptr @.str.16, ptr %.sink43, align 8
+  store ptr @__func__._ZL25TestAggregateCounterValueRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEd, ptr %.sink43.sroa.phi, align 8
+  store i64 %.sink40, ptr %.sink43.sroa.phi55, align 8
+  store ptr @__PRETTY_FUNCTION__._ZL25TestAggregateCounterValueRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEd, ptr %.sink43.sroa.phi58, align 8
+  store i8 0, ptr %.sink43.sroa.phi61, align 8
+  store i32 4, ptr %.sink43.sroa.phi64, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink43, ptr noundef nonnull @.str.19, ptr noundef nonnull %72) #19
           to label %.cont unwind label %82
 
 .cont:                                            ; preds = %.invoke
@@ -3616,26 +3619,26 @@ define internal fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i.i.i = icmp eq ptr %11, null
-  %.sink74.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink74.sroa.gep83 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink74.sroa.gep84 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink74.sroa.gep85 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink74.sroa.gep87 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink74.sroa.gep88 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink74.sroa.gep89 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink74.sroa.gep90 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink74.sroa.gep92 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink74.sroa.gep93 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink74.sroa.gep94 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink74.sroa.gep95 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink74.sroa.gep97 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink74.sroa.gep98 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink74.sroa.gep99 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink74.sroa.gep100 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink74.sroa.gep102 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %.sink74.sroa.gep103 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.sink74.sroa.gep104 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sink74.sroa.gep105 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink77.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink77.sroa.gep88 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink77.sroa.gep89 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink77.sroa.gep90 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink77.sroa.gep92 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink77.sroa.gep93 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink77.sroa.gep94 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink77.sroa.gep95 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink77.sroa.gep97 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink77.sroa.gep98 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink77.sroa.gep99 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink77.sroa.gep100 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink77.sroa.gep102 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink77.sroa.gep103 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink77.sroa.gep104 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink77.sroa.gep105 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink77.sroa.gep107 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sink77.sroa.gep108 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sink77.sroa.gep109 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink77.sroa.gep110 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13TraceReporterEE13_FetchPointerEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %2
@@ -3749,9 +3752,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %70 = load i64, ptr %69, align 8
   %71 = urem i64 %70, %43
   %.not17.i.i.i.i = icmp eq i64 %71, %44
-  br i1 %.not17.i.i.i.i, label %59, label %.loopexit, !llvm.loop !13
+  br i1 %.not17.i.i.i.i, label %59, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !13
 
-.loopexit:                                        ; preds = %68, %.lr.ph.i.i.i.i, %30, %37
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %68
+  br label %.loopexit, !llvm.loop !13
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %30, %37, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   br label %.invoke
 
@@ -3778,35 +3784,35 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
 
 88:                                               ; preds = %.loopexit53
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  %.not58 = icmp eq ptr %82, %81
-  br i1 %.not58, label %._crit_edge, label %.lr.ph
+  %.not59 = icmp eq ptr %82, %81
+  br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %88, %94
-  %.sroa.029.060 = phi ptr [ %95, %94 ], [ %75, %88 ]
-  %.sroa.026.059 = phi ptr [ %96, %94 ], [ %82, %88 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.026.059, i64 8
+  %.sroa.029.061 = phi ptr [ %95, %94 ], [ %75, %88 ]
+  %.sroa.026.060 = phi ptr [ %96, %94 ], [ %82, %88 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.026.060, i64 8
   %90 = load double, ptr %89, align 8
-  %91 = load double, ptr %.sroa.029.060, align 8
+  %91 = load double, ptr %.sroa.029.061, align 8
   %92 = fcmp oeq double %90, %91
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   br i1 %92, label %94, label %.invoke
 
 .invoke:                                          ; preds = %.lr.ph, %.loopexit53, %21, %.loopexit
-  %.sink74.sroa.phi = phi ptr [ %.sink74.sroa.gep, %.loopexit ], [ %.sink74.sroa.gep83, %21 ], [ %.sink74.sroa.gep84, %.loopexit53 ], [ %.sink74.sroa.gep85, %.lr.ph ]
-  %.sink74.sroa.phi86 = phi ptr [ %.sink74.sroa.gep87, %.loopexit ], [ %.sink74.sroa.gep88, %21 ], [ %.sink74.sroa.gep89, %.loopexit53 ], [ %.sink74.sroa.gep90, %.lr.ph ]
-  %.sink74.sroa.phi91 = phi ptr [ %.sink74.sroa.gep92, %.loopexit ], [ %.sink74.sroa.gep93, %21 ], [ %.sink74.sroa.gep94, %.loopexit53 ], [ %.sink74.sroa.gep95, %.lr.ph ]
-  %.sink74.sroa.phi96 = phi ptr [ %.sink74.sroa.gep97, %.loopexit ], [ %.sink74.sroa.gep98, %21 ], [ %.sink74.sroa.gep99, %.loopexit53 ], [ %.sink74.sroa.gep100, %.lr.ph ]
-  %.sink74.sroa.phi101 = phi ptr [ %.sink74.sroa.gep102, %.loopexit ], [ %.sink74.sroa.gep103, %21 ], [ %.sink74.sroa.gep104, %.loopexit53 ], [ %.sink74.sroa.gep105, %.lr.ph ]
-  %.sink74 = phi ptr [ %5, %.loopexit ], [ %6, %21 ], [ %4, %.loopexit53 ], [ %3, %.lr.ph ]
-  %.sink71 = phi i64 [ 50, %.loopexit ], [ 44, %21 ], [ 54, %.loopexit53 ], [ 58, %.lr.ph ]
+  %.sink77.sroa.phi = phi ptr [ %.sink77.sroa.gep, %.loopexit ], [ %.sink77.sroa.gep88, %21 ], [ %.sink77.sroa.gep89, %.loopexit53 ], [ %.sink77.sroa.gep90, %.lr.ph ]
+  %.sink77.sroa.phi91 = phi ptr [ %.sink77.sroa.gep92, %.loopexit ], [ %.sink77.sroa.gep93, %21 ], [ %.sink77.sroa.gep94, %.loopexit53 ], [ %.sink77.sroa.gep95, %.lr.ph ]
+  %.sink77.sroa.phi96 = phi ptr [ %.sink77.sroa.gep97, %.loopexit ], [ %.sink77.sroa.gep98, %21 ], [ %.sink77.sroa.gep99, %.loopexit53 ], [ %.sink77.sroa.gep100, %.lr.ph ]
+  %.sink77.sroa.phi101 = phi ptr [ %.sink77.sroa.gep102, %.loopexit ], [ %.sink77.sroa.gep103, %21 ], [ %.sink77.sroa.gep104, %.loopexit53 ], [ %.sink77.sroa.gep105, %.lr.ph ]
+  %.sink77.sroa.phi106 = phi ptr [ %.sink77.sroa.gep107, %.loopexit ], [ %.sink77.sroa.gep108, %21 ], [ %.sink77.sroa.gep109, %.loopexit53 ], [ %.sink77.sroa.gep110, %.lr.ph ]
+  %.sink77 = phi ptr [ %5, %.loopexit ], [ %6, %21 ], [ %4, %.loopexit53 ], [ %3, %.lr.ph ]
+  %.sink74 = phi i64 [ 50, %.loopexit ], [ 44, %21 ], [ 54, %.loopexit53 ], [ 58, %.lr.ph ]
   %93 = phi ptr [ @.str.17, %.loopexit ], [ @.str.25, %21 ], [ @.str.26, %.loopexit53 ], [ @.str.27, %.lr.ph ]
-  store ptr @.str.16, ptr %.sink74, align 8
-  store ptr @__func__._ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE, ptr %.sink74.sroa.phi, align 8
-  store i64 %.sink71, ptr %.sink74.sroa.phi86, align 8
-  store ptr @__PRETTY_FUNCTION__._ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE, ptr %.sink74.sroa.phi91, align 8
-  store i8 0, ptr %.sink74.sroa.phi96, align 8
-  store i32 4, ptr %.sink74.sroa.phi101, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink74, ptr noundef nonnull @.str.19, ptr noundef nonnull %93) #19
+  store ptr @.str.16, ptr %.sink77, align 8
+  store ptr @__func__._ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE, ptr %.sink77.sroa.phi, align 8
+  store i64 %.sink74, ptr %.sink77.sroa.phi91, align 8
+  store ptr @__PRETTY_FUNCTION__._ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE, ptr %.sink77.sroa.phi96, align 8
+  store i8 0, ptr %.sink77.sroa.phi101, align 8
+  store i32 4, ptr %.sink77.sroa.phi106, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink77, ptr noundef nonnull @.str.19, ptr noundef nonnull %93) #19
           to label %.cont unwind label %99
 
 .cont:                                            ; preds = %.invoke
@@ -3814,8 +3820,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
 
 94:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.029.060, i64 8
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.026.059, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.029.061, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.026.060, i64 16
   %.not = icmp eq ptr %96, %81
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

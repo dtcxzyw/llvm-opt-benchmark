@@ -3506,16 +3506,16 @@ define hidden noundef nonnull ptr @_ZNK5clang6driver10toolchains15HIPAMDToolChai
 
 _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i, %16
   %.sroa.029.1 = phi ptr [ %19, %16 ], [ %19, %.lr.ph.i.i.preheader.i ], [ %27, %.lr.ph.i.i.i ]
-  %.not4748 = icmp eq ptr %.sroa.029.1, %23
-  br i1 %.not4748, label %._crit_edge, label %.lr.ph
+  %.not4749 = icmp eq ptr %.sroa.029.1, %23
+  br i1 %.not4749, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, %_ZNK4llvm3opt7ArgList5beginEv.exit
+._crit_edge:                                      ; preds = %.lr.ph.i, %32, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, %35, %_ZNK4llvm3opt7ArgList5beginEv.exit
   %28 = icmp eq i64 %3, 0
   br i1 %28, label %42, label %37
 
 .lr.ph:                                           ; preds = %_ZNK4llvm3opt7ArgList5beginEv.exit, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit
-  %.sroa.029.049 = phi ptr [ %.sroa.029.3, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit ], [ %.sroa.029.1, %_ZNK4llvm3opt7ArgList5beginEv.exit ]
-  %29 = load ptr, ptr %.sroa.029.049, align 8, !tbaa !173
+  %.sroa.029.050 = phi ptr [ %.sroa.029.2, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit ], [ %.sroa.029.1, %_ZNK4llvm3opt7ArgList5beginEv.exit ]
+  %29 = load ptr, ptr %.sroa.029.050, align 8, !tbaa !173
   %30 = tail call noundef zeroext i1 @_ZNK5clang6driver10toolchains15AMDGPUToolChain24shouldSkipSanitizeOptionERKNS0_9ToolChainERKN4llvm3opt7ArgListENS6_9StringRefEPKNS7_3ArgE(ptr noundef nonnull align 8 dereferenceable(5064) %0, ptr noundef nonnull align 8 dereferenceable(2392) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr %2, i64 %3, ptr noundef %29) #15
   br i1 %30, label %32, label %31
 
@@ -3524,9 +3524,9 @@ _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.
   br label %32
 
 32:                                               ; preds = %31, %.lr.ph
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.029.049, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.029.050, i64 8
   %.not2.i.i = icmp eq ptr %33, %23
-  br i1 %.not2.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %32, %35
   %.sroa.029.2 = phi ptr [ %36, %35 ], [ %33, %32 ]
@@ -3537,11 +3537,10 @@ _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.
 35:                                               ; preds = %.lr.ph.i.i
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.029.2, i64 8
   %.not.i.i = icmp eq ptr %36, %23
-  br i1 %.not.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, label %.lr.ph.i.i, !llvm.loop !439
+  br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.i.i, !llvm.loop !439
 
-_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i, %35, %32
-  %.sroa.029.3 = phi ptr [ %33, %32 ], [ %.sroa.029.2, %.lr.ph.i.i ], [ %36, %35 ]
-  %.not47 = icmp eq ptr %.sroa.029.3, %23
+_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i
+  %.not47 = icmp eq ptr %.sroa.029.2, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 37:                                               ; preds = %._crit_edge

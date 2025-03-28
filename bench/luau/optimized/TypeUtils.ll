@@ -7246,7 +7246,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
   %72 = sub i64 %70, %71
   %73 = ashr exact i64 %72, 3
   %74 = icmp ult i64 %68, %73
-  br i1 %74, label %.lr.ph, label %.critedge, !llvm.loop !219
+  br i1 %74, label %.lr.ph, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit..critedge.loopexit_crit_edge, !llvm.loop !219
 
 75:                                               ; preds = %12
   %76 = landingpad { ptr, i32 }
@@ -7264,13 +7264,16 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
           cleanup
   br label %_ZN4Luau8TypePackD2Ev.exit96
 
-.critedge:                                        ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit, %.lr.ph, %.lr.ph.preheader, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader
-  %77 = phi ptr [ %.promoted317, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %.promoted317, %.lr.ph.preheader ], [ %66, %.lr.ph ], [ %66, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit ]
-  %78 = phi ptr [ %13, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %13, %.lr.ph.preheader ], [ %65, %.lr.ph ], [ %65, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit ]
-  %79 = phi ptr [ %14, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %14, %.lr.ph.preheader ], [ %65, %.lr.ph ], [ %65, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit ]
-  %.lcssa287 = phi ptr [ %.promoted321, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %.promoted321, %.lr.ph.preheader ], [ %67, %.lr.ph ], [ %67, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit ]
-  %.065.lcssa = phi i64 [ 0, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ 0, %.lr.ph.preheader ], [ %68, %.lr.ph ], [ %68, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit ]
-  %.lcssa = phi i64 [ 0, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %26, %.lr.ph.preheader ], [ %73, %.lr.ph ], [ %73, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit ]
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit..critedge.loopexit_crit_edge: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit
+  br label %.critedge, !llvm.loop !219
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit..critedge.loopexit_crit_edge, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader
+  %77 = phi ptr [ %.promoted317, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %66, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit..critedge.loopexit_crit_edge ], [ %.promoted317, %.lr.ph.preheader ], [ %66, %.lr.ph ]
+  %78 = phi ptr [ %13, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %65, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit..critedge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %65, %.lr.ph ]
+  %79 = phi ptr [ %14, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %65, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit..critedge.loopexit_crit_edge ], [ %14, %.lr.ph.preheader ], [ %65, %.lr.ph ]
+  %.lcssa287 = phi ptr [ %.promoted321, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %67, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit..critedge.loopexit_crit_edge ], [ %.promoted321, %.lr.ph.preheader ], [ %67, %.lr.ph ]
+  %.065.lcssa = phi i64 [ 0, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %68, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %68, %.lr.ph ]
+  %.lcssa = phi i64 [ 0, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.preheader ], [ %73, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit..critedge.loopexit_crit_edge ], [ %26, %.lr.ph.preheader ], [ %73, %.lr.ph ]
   store ptr %.lcssa287, ptr %0, align 8
   %80 = ptrtoint ptr %77 to i64
   %81 = ptrtoint ptr %.lcssa287 to i64

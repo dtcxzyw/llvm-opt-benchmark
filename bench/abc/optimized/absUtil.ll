@@ -560,10 +560,13 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   %61 = sub nsw i32 %.val71.val, %.val70
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next113, %62
-  br i1 %63, label %.lr.ph100, label %.critedge4, !llvm.loop !61
+  br i1 %63, label %.lr.ph100, label %..critedge4.loopexit_crit_edge, !llvm.loop !61
 
-.critedge4:                                       ; preds = %.lr.ph, %.lr.ph100, %.lr.ph100.preheader, %.critedge2
-  %.val69102 = phi i32 [ %.val7095, %.critedge2 ], [ %.val7095, %.lr.ph100.preheader ], [ %.val70, %.lr.ph100 ], [ %.val70, %.lr.ph ]
+..critedge4.loopexit_crit_edge:                   ; preds = %.lr.ph
+  br label %.critedge4, !llvm.loop !61
+
+.critedge4:                                       ; preds = %.lr.ph100, %.lr.ph100.preheader, %..critedge4.loopexit_crit_edge, %.critedge2
+  %.val69102 = phi i32 [ %.val7095, %.critedge2 ], [ %.val70, %..critedge4.loopexit_crit_edge ], [ %.val7095, %.lr.ph100.preheader ], [ %.val70, %.lr.ph100 ]
   %64 = icmp sgt i32 %.val69102, 0
   br i1 %64, label %.lr.ph105, label %.critedge6
 

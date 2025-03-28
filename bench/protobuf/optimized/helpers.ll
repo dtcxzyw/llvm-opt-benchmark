@@ -10128,11 +10128,14 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i161
 while.cond103.outer.preheader:                    ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf8compiler3SCCESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNS4_3cpp29TopologicalSortMessagesInFileEPKNS3_14FileDescriptorERNSF_18MessageSCCAnalyzerEE3$_0EEEvT_T0_.exit.i.i.i.i", %if.then.i.i.i162, %if.else.i.i.i
   br label %while.cond103.outer.outer
 
-while.cond103.outer.outer:                        ; preds = %while.end.i.i371, %while.cond103.outer.preheader
-  %current_scc_q.sroa.7.1.ph.ph = phi ptr [ %next_scc_q.sroa.10.2834, %while.cond103.outer.preheader ], [ %add.ptr.i.i169, %while.end.i.i371 ]
-  %next_scc_q.sroa.21.3.ph.ph = phi ptr [ null, %while.cond103.outer.preheader ], [ %next_scc_q.sroa.21.5, %while.end.i.i371 ]
-  %next_scc_q.sroa.10.3.ph.ph = phi ptr [ null, %while.cond103.outer.preheader ], [ %next_scc_q.sroa.10.5, %while.end.i.i371 ]
-  %next_scc_q.sroa.0.5.ph.ph = phi ptr [ null, %while.cond103.outer.preheader ], [ %next_scc_q.sroa.0.7, %while.end.i.i371 ]
+invoke.cont147.while.cond103.loopexit_crit_edge:  ; preds = %while.end.i.i371
+  br label %while.cond103.outer.outer, !llvm.loop !252
+
+while.cond103.outer.outer:                        ; preds = %while.cond103.outer.preheader, %invoke.cont147.while.cond103.loopexit_crit_edge
+  %current_scc_q.sroa.7.1.ph.ph = phi ptr [ %next_scc_q.sroa.10.2834, %while.cond103.outer.preheader ], [ %add.ptr.i.i169, %invoke.cont147.while.cond103.loopexit_crit_edge ]
+  %next_scc_q.sroa.21.3.ph.ph = phi ptr [ null, %while.cond103.outer.preheader ], [ %next_scc_q.sroa.21.5, %invoke.cont147.while.cond103.loopexit_crit_edge ]
+  %next_scc_q.sroa.10.3.ph.ph = phi ptr [ null, %while.cond103.outer.preheader ], [ %next_scc_q.sroa.10.5, %invoke.cont147.while.cond103.loopexit_crit_edge ]
+  %next_scc_q.sroa.0.5.ph.ph = phi ptr [ null, %while.cond103.outer.preheader ], [ %next_scc_q.sroa.0.7, %invoke.cont147.while.cond103.loopexit_crit_edge ]
   br label %while.cond103.outer
 
 while.cond103.outer:                              ; preds = %while.cond103.outer.outer, %invoke.cont144
@@ -10176,7 +10179,7 @@ for.body115:                                      ; preds = %for.body115.prehead
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i177 = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i176, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i178 = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i177, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i176
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i179 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i178 to i64
-  %165 = load i64, ptr %capacity_.i.i.i.i.i.i180, align 8, !noalias !252
+  %165 = load i64, ptr %capacity_.i.i.i.i.i.i180, align 8, !noalias !253
   %shr.i.i.i.i.i.i.i181 = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i179, 7
   %166 = ptrtoint ptr %163 to i64
   %shr.i.i.i.i.i.i.i.i182 = lshr i64 %166, 12
@@ -10229,7 +10232,7 @@ for.end.i.i.i.i207:                               ; preds = %for.inc.i.i.i.i203,
 if.end34.i.i.i.i211:                              ; preds = %for.end.i.i.i.i207
   %add.i12.i.i.i.i212 = add i64 %seq.sroa.10.0.i.i.i.i190, 16
   %add3.i.i.i.i.i213 = add i64 %add.i12.i.i.i.i212, %seq.sroa.4.0.i.i.i.i191
-  br label %while.body.i.i.i.i188, !llvm.loop !255
+  br label %while.body.i.i.i.i188, !llvm.loop !256
 
 invoke.cont118:                                   ; preds = %for.body.i.i.i.i196
   %.not = icmp eq ptr %163, null
@@ -10348,7 +10351,7 @@ for.end125:                                       ; preds = %for.inc123, %while.
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i249 = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i248, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i250 = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i249, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i248
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i251 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i250 to i64
-  %180 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !256
+  %180 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !257
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i251, 7
   %181 = ptrtoint ptr %178 to i64
   %shr.i.i.i.i.i.i = lshr i64 %181, 12
@@ -10407,13 +10410,13 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %while
 if.end34.i.i:                                     ; preds = %for.end.i.i
   %add.i12.i.i = add i64 %seq.sroa.10.0.i.i, 16
   %add3.i.i.i = add i64 %add.i12.i.i, %seq.sroa.4.0.i.i
-  br label %while.body.i.i253, !llvm.loop !259
+  br label %while.body.i.i253, !llvm.loop !260
 
 invoke.cont130:                                   ; preds = %for.end.i.i, %if.then.i.i261
   %call25.pn.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i, %if.then.i.i261 ], [ { ptr null, ptr undef }, %for.end.i.i ]
   %190 = extractvalue { ptr, ptr } %call25.pn.i.i, 0
   %cmp.i263 = icmp eq ptr %190, null
-  br i1 %cmp.i263, label %while.cond103, label %invoke.cont137, !llvm.loop !260
+  br i1 %cmp.i263, label %while.cond103, label %invoke.cont137, !llvm.loop !252
 
 invoke.cont137:                                   ; preds = %invoke.cont130
   %191 = extractvalue { ptr, ptr } %call25.pn.i.i, 1
@@ -10446,14 +10449,17 @@ invoke.cont144:                                   ; preds = %while.body.i.i274, 
   %retval.sroa.0.0.i268 = phi ptr [ %192, %invoke.cont137 ], [ %add.ptr.i.i279, %while.body.i.i274 ]
   %.lcssa.i.i269 = phi i8 [ %194, %invoke.cont137 ], [ %200, %while.body.i.i274 ]
   %cmp.i.i270 = icmp eq i8 %.lcssa.i.i269, -1
-  br i1 %cmp.i.i270, label %while.cond103.outer, label %invoke.cont150, !llvm.loop !260
+  br i1 %cmp.i.i270, label %while.cond103.outer, label %invoke.cont150.lr.ph, !llvm.loop !252
 
-invoke.cont150:                                   ; preds = %invoke.cont144, %while.end.i.i371
-  %next_scc_q.sroa.0.6829 = phi ptr [ %next_scc_q.sroa.0.7, %while.end.i.i371 ], [ %next_scc_q.sroa.0.5.ph.ph, %invoke.cont144 ]
-  %next_scc_q.sroa.10.4828 = phi ptr [ %next_scc_q.sroa.10.5, %while.end.i.i371 ], [ %next_scc_q.sroa.10.3.ph.ph, %invoke.cont144 ]
-  %next_scc_q.sroa.21.4827 = phi ptr [ %next_scc_q.sroa.21.5, %while.end.i.i371 ], [ %next_scc_q.sroa.21.3.ph.ph, %invoke.cont144 ]
-  %__begin5140.sroa.0.0826 = phi ptr [ %__begin5140.sroa.0.1, %while.end.i.i371 ], [ %retval.sroa.0.0.i268, %invoke.cont144 ]
-  %__begin5140.sroa.6.0825 = phi ptr [ %__begin5140.sroa.6.1, %while.end.i.i371 ], [ %retval.sroa.5.0.i267, %invoke.cont144 ]
+invoke.cont150.lr.ph:                             ; preds = %invoke.cont144
+  br label %invoke.cont150, !llvm.loop !252
+
+invoke.cont150:                                   ; preds = %invoke.cont150.lr.ph, %while.end.i.i371
+  %next_scc_q.sroa.0.6829 = phi ptr [ %next_scc_q.sroa.0.5.ph.ph, %invoke.cont150.lr.ph ], [ %next_scc_q.sroa.0.7, %while.end.i.i371 ]
+  %next_scc_q.sroa.10.4828 = phi ptr [ %next_scc_q.sroa.10.3.ph.ph, %invoke.cont150.lr.ph ], [ %next_scc_q.sroa.10.5, %while.end.i.i371 ]
+  %next_scc_q.sroa.21.4827 = phi ptr [ %next_scc_q.sroa.21.3.ph.ph, %invoke.cont150.lr.ph ], [ %next_scc_q.sroa.21.5, %while.end.i.i371 ]
+  %__begin5140.sroa.0.0826 = phi ptr [ %retval.sroa.0.0.i268, %invoke.cont150.lr.ph ], [ %__begin5140.sroa.0.1, %while.end.i.i371 ]
+  %__begin5140.sroa.6.0825 = phi ptr [ %retval.sroa.5.0.i267, %invoke.cont150.lr.ph ], [ %__begin5140.sroa.6.1, %while.end.i.i371 ]
   %201 = load ptr, ptr %__begin5140.sroa.6.0825, align 8
   %202 = load ptr, ptr %scc_to_outgoing_edges_map, align 8
   call void @llvm.prefetch.p0(ptr %202, i32 0, i32 1, i32 1)
@@ -10656,7 +10662,7 @@ while.end.i.i371:                                 ; preds = %while.body.i.i375, 
   %__begin5140.sroa.0.1 = phi ptr [ %incdec.ptr.i368, %for.inc204 ], [ %add.ptr.i.i380, %while.body.i.i375 ]
   %.lcssa.i.i372 = phi i8 [ %218, %for.inc204 ], [ %224, %while.body.i.i375 ]
   %cmp.i.i373 = icmp eq i8 %.lcssa.i.i372, -1
-  br i1 %cmp.i.i373, label %while.cond103.outer.outer, label %invoke.cont150, !llvm.loop !260
+  br i1 %cmp.i.i373, label %invoke.cont147.while.cond103.loopexit_crit_edge, label %invoke.cont150, !llvm.loop !252
 
 while.end208:                                     ; preds = %while.cond103
   %tobool.not.i.i.i383 = icmp eq ptr %next_scc_q.sroa.0.3835, null
@@ -26648,14 +26654,14 @@ attributes #35 = { cold nounwind }
 !249 = distinct !{!249, !18}
 !250 = distinct !{!250, !18}
 !251 = distinct !{!251, !18}
-!252 = !{!253}
-!253 = distinct !{!253, !254, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
-!254 = distinct !{!254, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
-!255 = distinct !{!255, !18}
-!256 = !{!257}
-!257 = distinct !{!257, !258, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
-!258 = distinct !{!258, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
-!259 = distinct !{!259, !18}
+!252 = distinct !{!252, !18}
+!253 = !{!254}
+!254 = distinct !{!254, !255, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
+!255 = distinct !{!255, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
+!256 = distinct !{!256, !18}
+!257 = !{!258}
+!258 = distinct !{!258, !259, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
+!259 = distinct !{!259, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
 !260 = distinct !{!260, !18}
 !261 = distinct !{!261, !18}
 !262 = !{!263}

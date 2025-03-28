@@ -1099,7 +1099,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   %6 = icmp ugt i32 %2, 4
-  br i1 %6, label %49, label %7
+  br i1 %6, label %50, label %7
 
 7:                                                ; preds = %3
   %8 = icmp samesign ugt i32 %2, 2
@@ -1119,7 +1119,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
   %18 = getelementptr i8, ptr %16, i64 -16
   %19 = icmp ne ptr %18, null
   %20 = and i1 %17, %19
-  br i1 %20, label %21, label %49
+  br i1 %20, label %21, label %50
 
 21:                                               ; preds = %13
   store i32 0, ptr %4, align 4, !annotation !5
@@ -1127,12 +1127,12 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
   %22 = tail call i32 @acpi_target_system_state() #6
   %23 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef %0, ptr noundef nonnull %18, i32 noundef %22, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !6
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %49
+  br i1 %24, label %25, label %50
 
 25:                                               ; preds = %21
   %26 = load i32, ptr %4, align 4
   %27 = icmp slt i32 %14, %26
-  br i1 %27, label %49, label %28
+  br i1 %27, label %50, label %28
 
 28:                                               ; preds = %25
   %29 = load i32, ptr %5, align 4
@@ -1157,7 +1157,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
   %indvars.iv8 = phi i64 [ %indvars.iv.next, %.preheader ], [ %34, %.preheader.preheader ]
   %indvars.iv.next = add nsw i64 %indvars.iv8, -1
   %40 = icmp sgt i64 %indvars.iv.next, %35
-  br i1 %40, label %.preheader, label %.loopexit.loopexit, !llvm.loop !7
+  br i1 %40, label %.preheader, label %..loopexit.loopexit_crit_edge, !llvm.loop !7
 
 .preheader:                                       ; preds = %.lr.ph
   %41 = getelementptr [5 x %struct.acpi_device_power_state], ptr %32, i64 0, i64 %indvars.iv.next
@@ -1166,24 +1166,28 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !7
 
-.loopexit.loopexit:                               ; preds = %.preheader, %.lr.ph
+..loopexit.loopexit_crit_edge:                    ; preds = %.lr.ph
   %45 = trunc nsw i64 %indvars.iv.next to i32
+  br label %.loopexit, !llvm.loop !7
+
+.loopexit.loopexit:                               ; preds = %.preheader
+  %46 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader.preheader, %31, %28
-  %46 = phi i32 [ %14, %31 ], [ %29, %28 ], [ %14, %.preheader.preheader ], [ %45, %.loopexit.loopexit ]
-  %47 = icmp eq ptr %1, null
-  br i1 %47, label %49, label %48
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader.preheader, %..loopexit.loopexit_crit_edge, %31, %28
+  %47 = phi i32 [ %14, %31 ], [ %29, %28 ], [ %45, %..loopexit.loopexit_crit_edge ], [ %14, %.preheader.preheader ], [ %46, %.loopexit.loopexit ]
+  %48 = icmp eq ptr %1, null
+  br i1 %48, label %50, label %49
 
-48:                                               ; preds = %.loopexit
+49:                                               ; preds = %.loopexit
   store i32 %26, ptr %1, align 4
-  br label %49
+  br label %50
 
-49:                                               ; preds = %.loopexit, %48, %25, %21, %13, %3
-  %50 = phi i32 [ -22, %3 ], [ -19, %13 ], [ %23, %21 ], [ -22, %25 ], [ %46, %48 ], [ %46, %.loopexit ]
+50:                                               ; preds = %.loopexit, %49, %25, %21, %13, %3
+  %51 = phi i32 [ -22, %3 ], [ -19, %13 ], [ %23, %21 ], [ -22, %25 ], [ %47, %49 ], [ %47, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  ret i32 %50
+  ret i32 %51
 }
 
 ; Function Attrs: null_pointer_is_valid

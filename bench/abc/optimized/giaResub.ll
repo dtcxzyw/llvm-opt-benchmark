@@ -6826,11 +6826,14 @@ Gia_ManDivCover.exit.thread63:                    ; preds = %.preheader91.i.i, %
   %.val = load i32, ptr %32, align 4, !tbaa !28
   %123 = trunc nuw i64 %indvars.iv.next109 to i32
   %124 = icmp sgt i32 %.val, %123
-  br i1 %124, label %56, label %.critedge2.loopexit, !llvm.loop !142
+  br i1 %124, label %56, label %.loopexit..critedge2.loopexit_crit_edge, !llvm.loop !142
 
-.critedge2.loopexit:                              ; preds = %.loopexit, %56, %.lr.ph
-  %.val48116 = phi i32 [ %.val48118, %.lr.ph ], [ %.val, %56 ], [ %.val, %.loopexit ]
-  %125 = phi i32 [ %38, %.lr.ph ], [ %71, %56 ], [ %71, %.loopexit ]
+.loopexit..critedge2.loopexit_crit_edge:          ; preds = %.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !142
+
+.critedge2.loopexit:                              ; preds = %56, %.loopexit..critedge2.loopexit_crit_edge, %.lr.ph
+  %.val48116 = phi i32 [ %.val, %.loopexit..critedge2.loopexit_crit_edge ], [ %.val48118, %.lr.ph ], [ %.val, %56 ]
+  %125 = phi i32 [ %71, %.loopexit..critedge2.loopexit_crit_edge ], [ %38, %.lr.ph ], [ %71, %56 ]
   %.pre = sext i32 %.val48116 to i64
   br label %.critedge2
 
@@ -13780,17 +13783,21 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val125 = load i32, ptr %216, align 4, !tbaa !28
   %217 = sext i32 %.val125 to i64
   %218 = icmp slt i64 %indvars.iv.next, %217
-  br i1 %218, label %.lr.ph, label %.critedge2.loopexit, !llvm.loop !213
+  br i1 %218, label %.lr.ph, label %Vec_PtrPush.exit..critedge2.loopexit_crit_edge, !llvm.loop !213
 
-.critedge2.loopexit:                              ; preds = %.lr.ph, %Vec_PtrPush.exit
+Vec_PtrPush.exit..critedge2.loopexit_crit_edge:   ; preds = %Vec_PtrPush.exit
+  store i32 %212, ptr %14, align 4, !tbaa !73
+  br label %.critedge2, !llvm.loop !213
+
+.critedge2.loopexit:                              ; preds = %.lr.ph
   store i32 %212, ptr %14, align 4, !tbaa !73
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph.preheader, %Vec_PtrPushTwo.exit
-  %219 = phi i32 [ %169, %Vec_PtrPushTwo.exit ], [ %169, %.lr.ph.preheader ], [ %209, %.critedge2.loopexit ]
-  %220 = phi i32 [ 2, %Vec_PtrPushTwo.exit ], [ 2, %.lr.ph.preheader ], [ %212, %.critedge2.loopexit ]
-  %221 = phi i32 [ %170, %Vec_PtrPushTwo.exit ], [ %170, %.lr.ph.preheader ], [ %210, %.critedge2.loopexit ]
-  %222 = phi i32 [ %171, %Vec_PtrPushTwo.exit ], [ %171, %.lr.ph.preheader ], [ %210, %.critedge2.loopexit ]
+.critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph.preheader, %Vec_PtrPush.exit..critedge2.loopexit_crit_edge, %Vec_PtrPushTwo.exit
+  %219 = phi i32 [ %169, %Vec_PtrPushTwo.exit ], [ %209, %Vec_PtrPush.exit..critedge2.loopexit_crit_edge ], [ %169, %.lr.ph.preheader ], [ %209, %.critedge2.loopexit ]
+  %220 = phi i32 [ 2, %Vec_PtrPushTwo.exit ], [ %212, %Vec_PtrPush.exit..critedge2.loopexit_crit_edge ], [ 2, %.lr.ph.preheader ], [ %212, %.critedge2.loopexit ]
+  %221 = phi i32 [ %170, %Vec_PtrPushTwo.exit ], [ %210, %Vec_PtrPush.exit..critedge2.loopexit_crit_edge ], [ %170, %.lr.ph.preheader ], [ %210, %.critedge2.loopexit ]
+  %222 = phi i32 [ %171, %Vec_PtrPushTwo.exit ], [ %210, %Vec_PtrPush.exit..critedge2.loopexit_crit_edge ], [ %171, %.lr.ph.preheader ], [ %210, %.critedge2.loopexit ]
   %223 = load i32, ptr %77, align 8, !tbaa !41
   %224 = icmp sgt i32 %223, 0
   br i1 %224, label %.lr.ph212, label %.critedge4

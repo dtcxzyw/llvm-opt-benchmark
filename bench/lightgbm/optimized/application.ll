@@ -11169,8 +11169,8 @@ define linkonce_odr void @_ZN8LightGBM9Predictor16CopyToPredictMapERKSt6vectorIS
   %9 = load ptr, ptr %2, align 8, !tbaa !441
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !441
-  %.not13 = icmp eq ptr %9, %11
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not14 = icmp eq ptr %9, %11
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -11180,14 +11180,14 @@ define linkonce_odr void @_ZN8LightGBM9Predictor16CopyToPredictMapERKSt6vectorIS
   ret void
 
 13:                                               ; preds = %.lr.ph, %46
-  %.sroa.09.014 = phi ptr [ %9, %.lr.ph ], [ %47, %46 ]
-  %14 = load i32, ptr %.sroa.09.014, align 8, !tbaa !449
+  %.sroa.09.015 = phi ptr [ %9, %.lr.ph ], [ %47, %46 ]
+  %14 = load i32, ptr %.sroa.09.015, align 8, !tbaa !449
   %15 = load i32, ptr %12, align 8, !tbaa !417
   %16 = icmp slt i32 %14, %15
   br i1 %16, label %17, label %46
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 8
   %19 = load double, ptr %18, align 8, !tbaa !451
   %20 = sext i32 %14 to i64
   %21 = load i64, ptr %5, align 8, !tbaa !448
@@ -11221,9 +11221,12 @@ define linkonce_odr void @_ZN8LightGBM9Predictor16CopyToPredictMapERKSt6vectorIS
   %37 = sext i32 %36 to i64
   %38 = urem i64 %37, %21
   %.not19.i.i.i.i = icmp eq i64 %38, %22
-  br i1 %.not19.i.i.i.i, label %31, label %.loopexit.i.i, !llvm.loop !455
+  br i1 %.not19.i.i.i.i, label %31, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !455
 
-.loopexit.i.i:                                    ; preds = %34, %.lr.ph.i.i.i.i, %17
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %34
+  br label %.loopexit.i.i, !llvm.loop !455
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %17
   %39 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
           to label %.noexc unwind label %44
 
@@ -11259,7 +11262,7 @@ _ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   resume { ptr, i32 } %eh.lpad-body
 
 46:                                               ; preds = %.loopexit, %13
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 16
   %.not = icmp eq ptr %47, %11
   br i1 %.not, label %._crit_edge, label %13
 }

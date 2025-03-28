@@ -961,10 +961,13 @@ Tas_ManPropagateOne.exit.thread:                  ; preds = %297, %298, %282, %2
   %333 = load i32, ptr %4, align 4, !tbaa !71
   %334 = sext i32 %333 to i64
   %335 = icmp slt i64 %indvars.iv.next, %334
-  br i1 %335, label %.lr.ph, label %.critedge, !llvm.loop !73
+  br i1 %335, label %.lr.ph, label %Tas_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge, !llvm.loop !73
 
-.critedge:                                        ; preds = %Tas_ManPropagateOne.exit.thread, %.lr.ph, %.lr.ph.preheader, %16
-  %.lcssa71 = phi i32 [ %18, %16 ], [ %18, %.lr.ph.preheader ], [ %333, %.lr.ph ], [ %333, %Tas_ManPropagateOne.exit.thread ]
+Tas_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge: ; preds = %Tas_ManPropagateOne.exit.thread
+  br label %.critedge, !llvm.loop !73
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %Tas_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge, %16
+  %.lcssa71 = phi i32 [ %18, %16 ], [ %333, %Tas_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge ], [ %18, %.lr.ph.preheader ], [ %333, %.lr.ph ]
   store i32 %.lcssa71, ptr %3, align 8, !tbaa !70
   %336 = load i32, ptr %15, align 8, !tbaa !86
   %337 = load i32, ptr %13, align 4, !tbaa !87
@@ -1108,11 +1111,14 @@ Tas_ManPropagateTwo.exit.thread:                  ; preds = %398, %399, %Tas_Var
   %415 = load i32, ptr %13, align 4, !tbaa !87
   %416 = sext i32 %415 to i64
   %417 = icmp slt i64 %indvars.iv.next102, %416
-  br i1 %417, label %.lr.ph85, label %.critedge2, !llvm.loop !88
+  br i1 %417, label %.lr.ph85, label %Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge, !llvm.loop !88
 
-.critedge2:                                       ; preds = %Tas_ManPropagateTwo.exit.thread, %.lr.ph85, %.lr.ph85.preheader, %.critedge
-  %.0.lcssa = phi i32 [ %336, %.critedge ], [ %336, %.lr.ph85.preheader ], [ %.1, %.lr.ph85 ], [ %.1, %Tas_ManPropagateTwo.exit.thread ]
-  %.lcssa73 = phi i32 [ %337, %.critedge ], [ %337, %.lr.ph85.preheader ], [ %415, %.lr.ph85 ], [ %415, %Tas_ManPropagateTwo.exit.thread ]
+Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge: ; preds = %Tas_ManPropagateTwo.exit.thread
+  br label %.critedge2, !llvm.loop !88
+
+.critedge2:                                       ; preds = %.lr.ph85, %.lr.ph85.preheader, %Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge, %.critedge
+  %.0.lcssa = phi i32 [ %336, %.critedge ], [ %.1, %Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge ], [ %336, %.lr.ph85.preheader ], [ %.1, %.lr.ph85 ]
+  %.lcssa73 = phi i32 [ %337, %.critedge ], [ %415, %Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge ], [ %337, %.lr.ph85.preheader ], [ %415, %.lr.ph85 ]
   %418 = icmp eq i32 %.0.lcssa, %.lcssa73
   br i1 %418, label %Tas_ManPropagateOne.exit.thread55, label %419
 

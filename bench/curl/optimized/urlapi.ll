@@ -103,7 +103,7 @@ switch.early.test:                                ; preds = %12
 ..thread_crit_edge:                               ; preds = %17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !3
-  br label %.thread
+  br label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %switch.early.test, %..thread_crit_edge
   %19 = phi i8 [ %.pre, %..thread_crit_edge ], [ %.fr73, %switch.early.test ]
@@ -2526,7 +2526,7 @@ switch.early.test.i.i:                            ; preds = %26
 ..thread_crit_edge.i.i:                           ; preds = %31
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1, !tbaa !3
-  br label %.thread.i.i
+  br label %.thread.i.i, !llvm.loop !6
 
 .thread.i.i:                                      ; preds = %switch.early.test.i.i, %..thread_crit_edge.i.i
   %33 = phi i8 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %.fr73.i.i, %switch.early.test.i.i ]

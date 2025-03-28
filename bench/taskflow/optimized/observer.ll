@@ -3559,14 +3559,14 @@ _ZSt19static_pointer_castIN2tf17ObserverInterfaceE10MyObserverESt10shared_ptrIT_
   br i1 %29, label %_ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeERKS3_.exit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !310
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i.i, %26
-  %.016.i39.i.i.i = phi ptr [ %30, %26 ], [ %21, %.preheader.i.i.i.i ]
-  %30 = load ptr, ptr %.016.i39.i.i.i, align 8, !tbaa !309
+  %.016.i40.i.i.i = phi ptr [ %30, %26 ], [ %21, %.preheader.i.i.i.i ]
+  %30 = load ptr, ptr %.016.i40.i.i.i, align 8, !tbaa !309
   %.not14.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not14.i.i.i.i, label %_ZNSt13unordered_setISt10shared_ptrIN2tf17ObserverInterfaceEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5eraseERKS3_.exit, label %26, !llvm.loop !310
 
 _ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeERKS3_.exit.i.i.i: ; preds = %26, %.preheader.i.i.i.i
   %31 = phi ptr [ %21, %.preheader.i.i.i.i ], [ %30, %26 ]
-  %.01115.i.lcssa.i.i.i = phi ptr [ %20, %.preheader.i.i.i.i ], [ %.016.i39.i.i.i, %26 ]
+  %.01115.i.lcssa.i.i.i = phi ptr [ %20, %.preheader.i.i.i.i ], [ %.016.i40.i.i.i, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %33 = load i64, ptr %32, align 8, !tbaa !284
   %34 = ptrtoint ptr %22 to i64
@@ -3608,7 +3608,10 @@ _ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail
   %56 = ptrtoint ptr %55 to i64
   %57 = urem i64 %56, %40
   %.not19.i.i.i.i = icmp eq i64 %57, %41
-  br i1 %.not19.i.i.i.i, label %50, label %_ZNSt13unordered_setISt10shared_ptrIN2tf17ObserverInterfaceEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5eraseERKS3_.exit, !llvm.loop !312
+  br i1 %.not19.i.i.i.i, label %50, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !312
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %53
+  br label %_ZNSt13unordered_setISt10shared_ptrIN2tf17ObserverInterfaceEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5eraseERKS3_.exit, !llvm.loop !312
 
 .loopexit.i.i.i:                                  ; preds = %50, %45, %_ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeERKS3_.exit.i.i.i
   %.019.i.i.i = phi ptr [ %31, %_ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeERKS3_.exit.i.i.i ], [ %46, %45 ], [ %52, %50 ]
@@ -3617,7 +3620,7 @@ _ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail
   %58 = invoke ptr @_ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %4, i64 noundef %.018.i.i.i, ptr noundef nonnull %.016.i.i.i, ptr noundef nonnull %.019.i.i.i)
           to label %_ZNSt13unordered_setISt10shared_ptrIN2tf17ObserverInterfaceEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5eraseERKS3_.exit unwind label %81
 
-_ZNSt13unordered_setISt10shared_ptrIN2tf17ObserverInterfaceEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5eraseERKS3_.exit: ; preds = %53, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %36, %19, %.loopexit.i.i.i
+_ZNSt13unordered_setISt10shared_ptrIN2tf17ObserverInterfaceEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5eraseERKS3_.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %36, %19, %.loopexit.i.i.i
   %59 = load ptr, ptr %6, align 8, !tbaa !4
   %.not.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2tf17ObserverInterfaceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %60
@@ -18095,11 +18098,14 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableISt10shared_ptrIN2tf
   %43 = ptrtoint ptr %42 to i64
   %44 = urem i64 %43, %15
   %.not19.i.i = icmp eq i64 %44, %16
-  br i1 %.not19.i.i, label %37, label %.critedge27, !llvm.loop !312
+  br i1 %.not19.i.i, label %37, label %..loopexit_crit_edge21.i.i, !llvm.loop !312
 
-.critedge27:                                      ; preds = %.lr.ph.i.i, %40, %27, %.thread
-  %45 = phi i64 [ %31, %27 ], [ %16, %.thread ], [ %16, %40 ], [ %16, %.lr.ph.i.i ]
-  %46 = phi i64 [ %28, %27 ], [ %13, %.thread ], [ %13, %40 ], [ %13, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %40
+  br label %.critedge27, !llvm.loop !312
+
+.critedge27:                                      ; preds = %.lr.ph.i.i, %27, %..loopexit_crit_edge21.i.i, %.thread
+  %45 = phi i64 [ %31, %27 ], [ %16, %.thread ], [ %16, %..loopexit_crit_edge21.i.i ], [ %16, %.lr.ph.i.i ]
+  %46 = phi i64 [ %28, %27 ], [ %13, %.thread ], [ %13, %..loopexit_crit_edge21.i.i ], [ %13, %.lr.ph.i.i ]
   %47 = invoke ptr @_ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %45, i64 noundef %46, ptr noundef nonnull %5, i64 noundef 1)
           to label %_ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %48
 

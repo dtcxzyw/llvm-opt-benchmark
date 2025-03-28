@@ -383,14 +383,18 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr noundef readon
   %indvars.iv.next = add nsw i64 %indvars.iv60, -1
   %18 = trunc nuw nsw i64 %indvars.iv.next to i32
   %19 = icmp sgt i64 %indvars.iv60, 1
-  br i1 %19, label %15, label %.critedge.loopexit, !llvm.loop !35
+  br i1 %19, label %15, label %..critedge_crit_edge62, !llvm.loop !35
 
-.critedge.loopexit:                               ; preds = %15, %.lr.ph61
+..critedge_crit_edge62:                           ; preds = %.lr.ph61
+  store i32 %18, ptr %8, align 4, !tbaa !17
+  br label %.critedge, !llvm.loop !35
+
+.critedge.loopexit:                               ; preds = %15
   store i32 %18, ptr %8, align 4, !tbaa !17
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph
-  %20 = phi i32 [ %.promoted, %.lr.ph ], [ %18, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %..critedge_crit_edge62, %.lr.ph
+  %20 = phi i32 [ %18, %..critedge_crit_edge62 ], [ %.promoted, %.lr.ph ], [ %18, %.critedge.loopexit ]
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph47, label %.critedge.._crit_edge_crit_edge
 

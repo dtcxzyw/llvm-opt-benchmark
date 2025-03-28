@@ -8206,14 +8206,17 @@ define dso_local { ptr, i8 } @_ZN5clang5RISCV12RVVTypeCache11computeTypeENS0_9Ba
   %49 = load i64, ptr %48, align 8, !tbaa !21
   %50 = urem i64 %49, %34
   %.not19.i.i.i.i = icmp eq i64 %50, %35
-  br i1 %.not19.i.i.i.i, label %44, label %.loopexit, !llvm.loop !230
+  br i1 %.not19.i.i.i.i, label %44, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !230
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %47
+  br label %.loopexit, !llvm.loop !230
 
 _ZNSt13unordered_mapImN5clang5RISCV7RVVTypeESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit: ; preds = %44, %28, %39
   %.sroa.06.1.i.i = phi ptr [ %40, %39 ], [ %.sroa.06.0.i.i, %28 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   br label %163
 
-.loopexit:                                        ; preds = %47, %.lr.ph.i.i.i.i, %27, %32
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %27, %32, %..loopexit_crit_edge21.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %53 = load ptr, ptr %52, align 8, !tbaa !231
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -11776,13 +11779,16 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmN5clang5RISCV7RVVT
   %36 = load i64, ptr %35, align 8, !tbaa !21
   %37 = urem i64 %36, %9
   %.not19.i.i = icmp eq i64 %37, %10
-  br i1 %.not19.i.i, label %31, label %.critedge17, !llvm.loop !230
+  br i1 %.not19.i.i, label %31, label %..loopexit_crit_edge21.i.i, !llvm.loop !230
 
-.critedge17:                                      ; preds = %.lr.ph.i.i, %34, %.critedge, %.critedge.thread
-  %38 = phi i64 [ %25, %.critedge ], [ %10, %.critedge.thread ], [ %10, %34 ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %24, %.critedge ], [ %9, %.critedge.thread ], [ %9, %34 ], [ %9, %.lr.ph.i.i ]
-  %40 = phi ptr [ %23, %.critedge ], [ %8, %.critedge.thread ], [ %8, %34 ], [ %8, %.lr.ph.i.i ]
-  %41 = phi i64 [ %22, %.critedge ], [ %7, %.critedge.thread ], [ %7, %34 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %34
+  br label %.critedge17, !llvm.loop !230
+
+.critedge17:                                      ; preds = %.lr.ph.i.i, %.critedge, %..loopexit_crit_edge21.i.i, %.critedge.thread
+  %38 = phi i64 [ %25, %.critedge ], [ %10, %.critedge.thread ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %24, %.critedge ], [ %9, %.critedge.thread ], [ %9, %..loopexit_crit_edge21.i.i ], [ %9, %.lr.ph.i.i ]
+  %40 = phi ptr [ %23, %.critedge ], [ %8, %.critedge.thread ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %41 = phi i64 [ %22, %.critedge ], [ %7, %.critedge.thread ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %42, i64 noundef %39, i64 noundef %6, i64 noundef 1) #22
   %44 = extractvalue { i8, i64 } %43, 0

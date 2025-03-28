@@ -4344,7 +4344,7 @@ _ZN7glslang10TPpContext20peekContinuedPastingEi.exit: ; preds = %98
 _ZN7glslang10TPpContext20peekContinuedPastingEi.exit._ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread_crit_edge: ; preds = %_ZN7glslang10TPpContext20peekContinuedPastingEi.exit
   %.pre = load ptr, ptr %6, align 8
   %.pre49 = load ptr, ptr %7, align 8
-  br label %_ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread
+  br label %_ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread, !llvm.loop !27
 
 _ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread: ; preds = %98, %_ZN7glslang10TPpContext20peekContinuedPastingEi.exit._ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread_crit_edge
   %108 = phi ptr [ %.pre49, %_ZN7glslang10TPpContext20peekContinuedPastingEi.exit._ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread_crit_edge ], [ %100, %98 ]

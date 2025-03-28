@@ -8481,12 +8481,15 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE22__parse_decimal_escapeINS_11__wr
   %.sroa.06.1.i = getelementptr inbounds nuw i8, ptr %.sroa.06.131.i31, i64 1
   %.0.i = add i32 %31, -48
   %.not23.i = icmp eq ptr %.sroa.06.1.i, %2
-  br i1 %.not23.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !75
+  br i1 %.not23.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !75
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %28, %.lr.ph.preheader.i, %19
-  %.0.in.lcssa.i = phi i32 [ %20, %19 ], [ %20, %.lr.ph.preheader.i ], [ %31, %28 ], [ %31, %.lr.ph.i ]
-  %.sroa.06.1.lcssa.i = phi ptr [ %.sroa.06.127.i, %19 ], [ %.sroa.06.127.i, %.lr.ph.preheader.i ], [ %.sroa.06.1.i, %.lr.ph.i ], [ %scevgep.i, %28 ]
-  %.0.lcssa.i = phi i32 [ %.028.i, %19 ], [ %.028.i, %.lr.ph.preheader.i ], [ %.0.i, %28 ], [ %.0.i, %.lr.ph.i ]
+..critedge.i.loopexit_crit_edge:                  ; preds = %28
+  br label %.critedge.i, !llvm.loop !75
+
+.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.preheader.i, %..critedge.i.loopexit_crit_edge, %19
+  %.0.in.lcssa.i = phi i32 [ %20, %19 ], [ %31, %..critedge.i.loopexit_crit_edge ], [ %20, %.lr.ph.preheader.i ], [ %31, %.lr.ph.i ]
+  %.sroa.06.1.lcssa.i = phi ptr [ %.sroa.06.127.i, %19 ], [ %scevgep.i, %..critedge.i.loopexit_crit_edge ], [ %.sroa.06.127.i, %.lr.ph.preheader.i ], [ %.sroa.06.1.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %.028.i, %19 ], [ %.0.i, %..critedge.i.loopexit_crit_edge ], [ %.028.i, %.lr.ph.preheader.i ], [ %.0.i, %.lr.ph.i ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = freeze i32 %33

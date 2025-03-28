@@ -1819,7 +1819,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %120,
 
 .critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge.i: ; preds = %.critedge2.i.i
   %.pre.i = load i8, ptr %scevgep.i.i, align 1
-  br label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit.i
+  br label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit.i, !llvm.loop !8
 
 _ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit.i: ; preds = %.lr.ph.i.i, %.critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge.i
   %139 = phi i8 [ %.pre.i, %.critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge.i ], [ %137, %.lr.ph.i.i ]
@@ -2754,7 +2754,7 @@ define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser9parseNameEPcS1_PPNS_4N
 
 .critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge: ; preds = %.critedge2.i
   %.pre = load i8, ptr %scevgep.i, align 1
-  br label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit
+  br label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit, !llvm.loop !8
 
 _ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit: ; preds = %.lr.ph.i, %.critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge
   %12 = phi i8 [ %.pre, %.critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge ], [ %10, %.lr.ph.i ]
@@ -5199,7 +5199,7 @@ define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser14parseReferenceEPcS1_R
 
 .critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge.i: ; preds = %.critedge2.i.i
   %.pre.i = load i8, ptr %scevgep.i.i, align 1
-  br label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit.i
+  br label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit.i, !llvm.loop !8
 
 _ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit.i: ; preds = %.lr.ph.i.i, %.critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge.i
   %13 = phi i8 [ %.pre.i, %.critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge.i ], [ %11, %.lr.ph.i.i ]
@@ -5383,7 +5383,7 @@ _ZN10ODDLParserL16getNextSeparatorIcEEPT_S2_S2_.exit.thread: ; preds = %56, %_ZN
 
 .critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge.i28: ; preds = %.critedge2.i.i26
   %.pre.i29 = load i8, ptr %scevgep.i.i23, align 1
-  br label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit.i30
+  br label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit.i30, !llvm.loop !8
 
 _ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit.i30: ; preds = %.lr.ph.i.i24, %.critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge.i28
   %69 = phi i8 [ %.pre.i29, %.critedge2.i._ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit_crit_edge.i28 ], [ %67, %.lr.ph.i.i24 ]

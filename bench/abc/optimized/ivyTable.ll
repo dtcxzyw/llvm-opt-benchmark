@@ -153,7 +153,7 @@ define void @Ivy_TableInsert(ptr noundef captures(none) %0, ptr noundef readonly
   %5 = and i32 %.val, 15
   %6 = add nsw i32 %5, -7
   %narrow.i = icmp ult i32 %6, -3
-  br i1 %narrow.i, label %145, label %7
+  br i1 %narrow.i, label %148, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 8, !tbaa !19
@@ -232,12 +232,12 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %38
   %wide.trip.count.i = zext nneg i32 %28 to i64
   br label %47
 
-47:                                               ; preds = %99, %.lr.ph35.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next.i, %99 ]
+47:                                               ; preds = %100, %.lr.ph35.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next.i, %100 ]
   %48 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4, !tbaa !21
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %99, label %51
+  br i1 %50, label %100, label %51
 
 51:                                               ; preds = %47
   %.val.i = load ptr, ptr %46, align 8, !tbaa !22
@@ -306,118 +306,128 @@ Ivy_Hash.exit.i.i:                                ; preds = %65, %Ivy_ObjFaninId
   %91 = icmp eq i32 %89, %90
   br i1 %91, label %Ivy_TableFind.exit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i26.i, %.lr.ph.i
-  %.014.i30.i = phi i32 [ %93, %.lr.ph.i ], [ %86, %.lr.ph.i26.i ]
-  %92 = add nsw i32 %.014.i30.i, 1
-  %93 = srem i32 %92, %36
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i32, ptr %calloc.i, i64 %94
-  %96 = load i32, ptr %95, align 4, !tbaa !21
-  %.not.i27.i = icmp eq i32 %96, 0
-  %97 = icmp eq i32 %96, %90
-  %or.cond.i = or i1 %.not.i27.i, %97
-  br i1 %or.cond.i, label %Ivy_TableFind.exit.i, label %.lr.ph.i, !llvm.loop !30
+92:                                               ; preds = %.lr.ph.i
+  %93 = icmp eq i32 %98, %90
+  br i1 %93, label %Ivy_TableFind.exit.i, label %.lr.ph.i, !llvm.loop !30
 
-Ivy_TableFind.exit.i:                             ; preds = %.lr.ph.i, %.lr.ph.i26.i, %Ivy_Hash.exit.i.i
-  %.lcssa12.i.i = phi i64 [ %87, %Ivy_Hash.exit.i.i ], [ %87, %.lr.ph.i26.i ], [ %94, %.lr.ph.i ]
-  %98 = getelementptr inbounds i32, ptr %calloc.i, i64 %.lcssa12.i.i
-  store i32 %49, ptr %98, align 4, !tbaa !21
-  br label %99
+.lr.ph.i:                                         ; preds = %.lr.ph.i26.i, %92
+  %.014.i30.i = phi i32 [ %95, %92 ], [ %86, %.lr.ph.i26.i ]
+  %94 = add nsw i32 %.014.i30.i, 1
+  %95 = srem i32 %94, %36
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds i32, ptr %calloc.i, i64 %96
+  %98 = load i32, ptr %97, align 4, !tbaa !21
+  %.not.i27.i = icmp eq i32 %98, 0
+  br i1 %.not.i27.i, label %.Ivy_TableFind.exit.loopexit_crit_edge.i, label %92, !llvm.loop !30
 
-99:                                               ; preds = %Ivy_TableFind.exit.i, %47
+.Ivy_TableFind.exit.loopexit_crit_edge.i:         ; preds = %.lr.ph.i
+  br label %Ivy_TableFind.exit.i, !llvm.loop !30
+
+Ivy_TableFind.exit.i:                             ; preds = %92, %.Ivy_TableFind.exit.loopexit_crit_edge.i, %.lr.ph.i26.i, %Ivy_Hash.exit.i.i
+  %.lcssa12.i.i = phi i64 [ %87, %Ivy_Hash.exit.i.i ], [ %96, %.Ivy_TableFind.exit.loopexit_crit_edge.i ], [ %87, %.lr.ph.i26.i ], [ %96, %92 ]
+  %99 = getelementptr inbounds i32, ptr %calloc.i, i64 %.lcssa12.i.i
+  store i32 %49, ptr %99, align 4, !tbaa !21
+  br label %100
+
+100:                                              ; preds = %Ivy_TableFind.exit.i, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %47, !llvm.loop !31
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %47, !llvm.loop !31
 
-._crit_edge.i:                                    ; preds = %Abc_PrimeCudd.exit.i
+._crit_edge.i:                                    ; preds = %100, %Abc_PrimeCudd.exit.i
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %Ivy_TableResize.exit, label %._crit_edge.thread.i
+  br i1 %.not.i, label %Ivy_TableResize.exit, label %101
 
-._crit_edge.thread.i:                             ; preds = %99, %._crit_edge.i
+101:                                              ; preds = %._crit_edge.i
   call void @free(ptr noundef nonnull %27) #9
   br label %Ivy_TableResize.exit
 
-Ivy_TableResize.exit:                             ; preds = %._crit_edge.thread.i, %._crit_edge.i, %11, %7
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %101 = load i32, ptr %100, align 8, !tbaa !12
+Ivy_TableResize.exit:                             ; preds = %101, %._crit_edge.i, %11, %7
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %103 = load i32, ptr %102, align 8, !tbaa !12
   %.val.i.i = load i32, ptr %4, align 8
-  %102 = getelementptr i8, ptr %1, i64 16
-  %.val12.i.i = load ptr, ptr %102, align 8, !tbaa !3
+  %104 = getelementptr i8, ptr %1, i64 16
+  %.val12.i.i = load ptr, ptr %104, align 8, !tbaa !3
   %.not.i.i.i = icmp eq ptr %.val12.i.i, null
-  br i1 %.not.i.i.i, label %Ivy_ObjFaninId0.exit.i.i, label %103
+  br i1 %.not.i.i.i, label %Ivy_ObjFaninId0.exit.i.i, label %105
 
-103:                                              ; preds = %Ivy_TableResize.exit
-  %104 = ptrtoint ptr %.val12.i.i to i64
-  %105 = and i64 %104, -2
-  %106 = inttoptr i64 %105 to ptr
-  %.val.i.i.i9 = load i32, ptr %106, align 8, !tbaa !19
-  %107 = mul nsw i32 %.val.i.i.i9, 7937
+105:                                              ; preds = %Ivy_TableResize.exit
+  %106 = ptrtoint ptr %.val12.i.i to i64
+  %107 = and i64 %106, -2
+  %108 = inttoptr i64 %107 to ptr
+  %.val.i.i.i9 = load i32, ptr %108, align 8, !tbaa !19
+  %109 = mul nsw i32 %.val.i.i.i9, 7937
   br label %Ivy_ObjFaninId0.exit.i.i
 
-Ivy_ObjFaninId0.exit.i.i:                         ; preds = %103, %Ivy_TableResize.exit
-  %108 = phi i32 [ %107, %103 ], [ 0, %Ivy_TableResize.exit ]
-  %109 = getelementptr i8, ptr %1, i64 24
-  %.val13.i.i = load ptr, ptr %109, align 8, !tbaa !11
+Ivy_ObjFaninId0.exit.i.i:                         ; preds = %105, %Ivy_TableResize.exit
+  %110 = phi i32 [ %109, %105 ], [ 0, %Ivy_TableResize.exit ]
+  %111 = getelementptr i8, ptr %1, i64 24
+  %.val13.i.i = load ptr, ptr %111, align 8, !tbaa !11
   %.not.i17.i.i = icmp eq ptr %.val13.i.i, null
   %.pre.i.i = ptrtoint ptr %.val13.i.i to i64
-  br i1 %.not.i17.i.i, label %Ivy_Hash.exit.i, label %110
+  br i1 %.not.i17.i.i, label %Ivy_Hash.exit.i, label %112
 
-110:                                              ; preds = %Ivy_ObjFaninId0.exit.i.i
-  %111 = and i64 %.pre.i.i, -2
-  %112 = inttoptr i64 %111 to ptr
-  %.val.i18.i.i = load i32, ptr %112, align 8, !tbaa !19
-  %113 = mul nsw i32 %.val.i18.i.i, 2971
+112:                                              ; preds = %Ivy_ObjFaninId0.exit.i.i
+  %113 = and i64 %.pre.i.i, -2
+  %114 = inttoptr i64 %113 to ptr
+  %.val.i18.i.i = load i32, ptr %114, align 8, !tbaa !19
+  %115 = mul nsw i32 %.val.i18.i.i, 2971
   br label %Ivy_Hash.exit.i
 
-Ivy_Hash.exit.i:                                  ; preds = %110, %Ivy_ObjFaninId0.exit.i.i
-  %114 = phi i32 [ %113, %110 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
-  %115 = and i32 %.val.i.i, 15
-  %116 = icmp eq i32 %115, 6
-  %117 = select i1 %116, i32 1699, i32 0
-  %118 = ptrtoint ptr %.val12.i.i to i64
-  %119 = trunc i64 %118 to i1
-  %120 = select i1 %119, i32 911, i32 0
-  %121 = trunc i64 %.pre.i.i to i1
-  %122 = select i1 %121, i32 353, i32 0
-  %123 = lshr i32 %.val.i.i, 9
-  %124 = and i32 %123, 3
-  %125 = mul nuw nsw i32 %124, 911
-  %126 = xor i32 %125, %117
-  %127 = xor i32 %126, %120
-  %128 = xor i32 %127, %108
+Ivy_Hash.exit.i:                                  ; preds = %112, %Ivy_ObjFaninId0.exit.i.i
+  %116 = phi i32 [ %115, %112 ], [ 0, %Ivy_ObjFaninId0.exit.i.i ]
+  %117 = and i32 %.val.i.i, 15
+  %118 = icmp eq i32 %117, 6
+  %119 = select i1 %118, i32 1699, i32 0
+  %120 = ptrtoint ptr %.val12.i.i to i64
+  %121 = trunc i64 %120 to i1
+  %122 = select i1 %121, i32 911, i32 0
+  %123 = trunc i64 %.pre.i.i to i1
+  %124 = select i1 %123, i32 353, i32 0
+  %125 = lshr i32 %.val.i.i, 9
+  %126 = and i32 %125, 3
+  %127 = mul nuw nsw i32 %126, 911
+  %128 = xor i32 %127, %119
   %129 = xor i32 %128, %122
-  %130 = xor i32 %129, %114
-  %131 = urem i32 %130, %101
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %133 = load ptr, ptr %132, align 8, !tbaa !20
-  %134 = sext i32 %131 to i64
-  %135 = getelementptr inbounds i32, ptr %133, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !21
-  %.not13.i = icmp eq i32 %136, 0
+  %130 = xor i32 %129, %110
+  %131 = xor i32 %130, %124
+  %132 = xor i32 %131, %116
+  %133 = urem i32 %132, %103
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %135 = load ptr, ptr %134, align 8, !tbaa !20
+  %136 = sext i32 %133 to i64
+  %137 = getelementptr inbounds i32, ptr %135, i64 %136
+  %138 = load i32, ptr %137, align 4, !tbaa !21
+  %.not13.i = icmp eq i32 %138, 0
   %.pre = load i32, ptr %1, align 8, !tbaa !19
-  %137 = icmp eq i32 %136, %.pre
-  %or.cond27 = select i1 %.not13.i, i1 true, i1 %137
-  br i1 %or.cond27, label %Ivy_TableFind.exit, label %.lr.ph
+  %139 = icmp eq i32 %138, %.pre
+  %or.cond = select i1 %.not13.i, i1 true, i1 %139
+  br i1 %or.cond, label %Ivy_TableFind.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %Ivy_Hash.exit.i, %.lr.ph
-  %.014.i16 = phi i32 [ %139, %.lr.ph ], [ %131, %Ivy_Hash.exit.i ]
-  %138 = add nsw i32 %.014.i16, 1
-  %139 = srem i32 %138, %101
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds i32, ptr %133, i64 %140
-  %142 = load i32, ptr %141, align 4, !tbaa !21
-  %.not.i11 = icmp eq i32 %142, 0
-  %143 = icmp eq i32 %142, %.pre
-  %or.cond = or i1 %.not.i11, %143
-  br i1 %or.cond, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !30
+140:                                              ; preds = %.lr.ph
+  %141 = icmp eq i32 %146, %.pre
+  br i1 %141, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !30
 
-Ivy_TableFind.exit:                               ; preds = %.lr.ph, %Ivy_Hash.exit.i
-  %.lcssa12.i = phi i64 [ %134, %Ivy_Hash.exit.i ], [ %140, %.lr.ph ]
-  %144 = getelementptr inbounds i32, ptr %133, i64 %.lcssa12.i
-  store i32 %.pre, ptr %144, align 4, !tbaa !21
-  br label %145
+.lr.ph:                                           ; preds = %Ivy_Hash.exit.i, %140
+  %.014.i17 = phi i32 [ %143, %140 ], [ %133, %Ivy_Hash.exit.i ]
+  %142 = add nsw i32 %.014.i17, 1
+  %143 = srem i32 %142, %103
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds i32, ptr %135, i64 %144
+  %146 = load i32, ptr %145, align 4, !tbaa !21
+  %.not.i11 = icmp eq i32 %146, 0
+  br i1 %.not.i11, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %140, !llvm.loop !30
 
-145:                                              ; preds = %2, %Ivy_TableFind.exit
+.Ivy_TableFind.exit.loopexit_crit_edge:           ; preds = %.lr.ph
+  br label %Ivy_TableFind.exit, !llvm.loop !30
+
+Ivy_TableFind.exit:                               ; preds = %140, %.Ivy_TableFind.exit.loopexit_crit_edge, %Ivy_Hash.exit.i
+  %.lcssa12.i = phi i64 [ %136, %Ivy_Hash.exit.i ], [ %144, %.Ivy_TableFind.exit.loopexit_crit_edge ], [ %144, %140 ]
+  %147 = getelementptr inbounds i32, ptr %135, i64 %.lcssa12.i
+  store i32 %.pre, ptr %147, align 4, !tbaa !21
+  br label %148
+
+148:                                              ; preds = %2, %Ivy_TableFind.exit
   ret void
 }
 
@@ -492,59 +502,64 @@ Ivy_Hash.exit.i:                                  ; preds = %17, %Ivy_ObjFaninId
   %44 = icmp eq i32 %42, %43
   br i1 %44, label %Ivy_TableFind.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
-  %.014.i21 = phi i32 [ %46, %.lr.ph ], [ %37, %.lr.ph.i ]
-  %45 = add nsw i32 %.014.i21, 1
-  %46 = srem i32 %45, %8
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %39, i64 %47
-  %49 = load i32, ptr %48, align 4, !tbaa !21
-  %.not.i = icmp eq i32 %49, 0
-  %50 = icmp eq i32 %49, %43
-  %or.cond = or i1 %.not.i, %50
-  br i1 %or.cond, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !30
+45:                                               ; preds = %.lr.ph
+  %46 = icmp eq i32 %51, %43
+  br i1 %46, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !30
 
-Ivy_TableFind.exit:                               ; preds = %.lr.ph, %.lr.ph.i, %Ivy_Hash.exit.i
-  %.lcssa12.i = phi i64 [ %40, %Ivy_Hash.exit.i ], [ %40, %.lr.ph.i ], [ %47, %.lr.ph ]
-  %51 = getelementptr inbounds i32, ptr %39, i64 %.lcssa12.i
-  store i32 0, ptr %51, align 4, !tbaa !21
-  %52 = trunc nsw i64 %.lcssa12.i to i32
-  %53 = add nsw i32 %52, 1
-  %54 = load i32, ptr %7, align 8, !tbaa !12
-  %55 = srem i32 %53, %54
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %39, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !21
-  %.not1924 = icmp eq i32 %58, 0
+.lr.ph:                                           ; preds = %.lr.ph.i, %45
+  %.014.i21 = phi i32 [ %48, %45 ], [ %37, %.lr.ph.i ]
+  %47 = add nsw i32 %.014.i21, 1
+  %48 = srem i32 %47, %8
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i32, ptr %39, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !21
+  %.not.i = icmp eq i32 %51, 0
+  br i1 %.not.i, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %45, !llvm.loop !30
+
+.Ivy_TableFind.exit.loopexit_crit_edge:           ; preds = %.lr.ph
+  br label %Ivy_TableFind.exit, !llvm.loop !30
+
+Ivy_TableFind.exit:                               ; preds = %45, %.lr.ph.i, %.Ivy_TableFind.exit.loopexit_crit_edge, %Ivy_Hash.exit.i
+  %.lcssa12.i = phi i64 [ %40, %Ivy_Hash.exit.i ], [ %49, %.Ivy_TableFind.exit.loopexit_crit_edge ], [ %40, %.lr.ph.i ], [ %49, %45 ]
+  %52 = getelementptr inbounds i32, ptr %39, i64 %.lcssa12.i
+  store i32 0, ptr %52, align 4, !tbaa !21
+  %53 = trunc nsw i64 %.lcssa12.i to i32
+  %54 = add nsw i32 %53, 1
+  %55 = load i32, ptr %7, align 8, !tbaa !12
+  %56 = srem i32 %54, %55
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i32, ptr %39, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !21
+  %.not1924 = icmp eq i32 %59, 0
   br i1 %.not1924, label %.loopexit, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %Ivy_TableFind.exit
-  %59 = getelementptr i8, ptr %0, i64 24
-  br label %60
+  %60 = getelementptr i8, ptr %0, i64 24
+  br label %61
 
-60:                                               ; preds = %.lr.ph26, %60
-  %61 = phi i32 [ %58, %.lr.ph26 ], [ %73, %60 ]
-  %62 = phi ptr [ %57, %.lr.ph26 ], [ %72, %60 ]
-  %.025 = phi i32 [ %55, %.lr.ph26 ], [ %69, %60 ]
-  %.val20 = load ptr, ptr %59, align 8, !tbaa !22
-  %63 = getelementptr i8, ptr %.val20, i64 8
-  %.val20.val = load ptr, ptr %63, align 8, !tbaa !23
-  %64 = sext i32 %61 to i64
-  %65 = getelementptr inbounds ptr, ptr %.val20.val, i64 %64
-  %66 = load ptr, ptr %65, align 8, !tbaa !25
-  store i32 0, ptr %62, align 4, !tbaa !21
-  tail call void @Ivy_TableInsert(ptr noundef nonnull %0, ptr noundef %66)
-  %67 = add nsw i32 %.025, 1
-  %68 = load i32, ptr %7, align 8, !tbaa !12
-  %69 = srem i32 %67, %68
-  %70 = load ptr, ptr %38, align 8, !tbaa !20
-  %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds i32, ptr %70, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !21
-  %.not19 = icmp eq i32 %73, 0
-  br i1 %.not19, label %.loopexit, label %60, !llvm.loop !32
+61:                                               ; preds = %.lr.ph26, %61
+  %62 = phi i32 [ %59, %.lr.ph26 ], [ %74, %61 ]
+  %63 = phi ptr [ %58, %.lr.ph26 ], [ %73, %61 ]
+  %.025 = phi i32 [ %56, %.lr.ph26 ], [ %70, %61 ]
+  %.val20 = load ptr, ptr %60, align 8, !tbaa !22
+  %64 = getelementptr i8, ptr %.val20, i64 8
+  %.val20.val = load ptr, ptr %64, align 8, !tbaa !23
+  %65 = sext i32 %62 to i64
+  %66 = getelementptr inbounds ptr, ptr %.val20.val, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !25
+  store i32 0, ptr %63, align 4, !tbaa !21
+  tail call void @Ivy_TableInsert(ptr noundef nonnull %0, ptr noundef %67)
+  %68 = add nsw i32 %.025, 1
+  %69 = load i32, ptr %7, align 8, !tbaa !12
+  %70 = srem i32 %68, %69
+  %71 = load ptr, ptr %38, align 8, !tbaa !20
+  %72 = sext i32 %70 to i64
+  %73 = getelementptr inbounds i32, ptr %71, i64 %72
+  %74 = load i32, ptr %73, align 4, !tbaa !21
+  %.not19 = icmp eq i32 %74, 0
+  br i1 %.not19, label %.loopexit, label %61, !llvm.loop !32
 
-.loopexit:                                        ; preds = %60, %Ivy_TableFind.exit, %2
+.loopexit:                                        ; preds = %61, %Ivy_TableFind.exit, %2
   ret void
 }
 
@@ -555,7 +570,7 @@ define void @Ivy_TableUpdate(ptr noundef readonly captures(none) %0, ptr noundef
   %5 = and i32 %.val, 15
   %6 = add nsw i32 %5, -7
   %narrow.i = icmp ult i32 %6, -3
-  br i1 %narrow.i, label %53, label %7
+  br i1 %narrow.i, label %54, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -619,25 +634,30 @@ Ivy_Hash.exit.i:                                  ; preds = %18, %Ivy_ObjFaninId
   %45 = icmp eq i32 %43, %44
   br i1 %45, label %Ivy_TableFind.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
-  %.014.i4 = phi i32 [ %47, %.lr.ph ], [ %38, %.lr.ph.i ]
-  %46 = add nsw i32 %.014.i4, 1
-  %47 = srem i32 %46, %9
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %40, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !21
-  %.not.i = icmp eq i32 %50, 0
-  %51 = icmp eq i32 %50, %44
-  %or.cond = or i1 %.not.i, %51
-  br i1 %or.cond, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !30
+46:                                               ; preds = %.lr.ph
+  %47 = icmp eq i32 %52, %44
+  br i1 %47, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !30
 
-Ivy_TableFind.exit:                               ; preds = %.lr.ph, %.lr.ph.i, %Ivy_Hash.exit.i
-  %.lcssa12.i = phi i64 [ %41, %Ivy_Hash.exit.i ], [ %41, %.lr.ph.i ], [ %48, %.lr.ph ]
-  %52 = getelementptr inbounds i32, ptr %40, i64 %.lcssa12.i
-  store i32 %2, ptr %52, align 4, !tbaa !21
-  br label %53
+.lr.ph:                                           ; preds = %.lr.ph.i, %46
+  %.014.i4 = phi i32 [ %49, %46 ], [ %38, %.lr.ph.i ]
+  %48 = add nsw i32 %.014.i4, 1
+  %49 = srem i32 %48, %9
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i32, ptr %40, i64 %50
+  %52 = load i32, ptr %51, align 4, !tbaa !21
+  %.not.i = icmp eq i32 %52, 0
+  br i1 %.not.i, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %46, !llvm.loop !30
 
-53:                                               ; preds = %3, %Ivy_TableFind.exit
+.Ivy_TableFind.exit.loopexit_crit_edge:           ; preds = %.lr.ph
+  br label %Ivy_TableFind.exit, !llvm.loop !30
+
+Ivy_TableFind.exit:                               ; preds = %46, %.lr.ph.i, %.Ivy_TableFind.exit.loopexit_crit_edge, %Ivy_Hash.exit.i
+  %.lcssa12.i = phi i64 [ %41, %Ivy_Hash.exit.i ], [ %50, %.Ivy_TableFind.exit.loopexit_crit_edge ], [ %41, %.lr.ph.i ], [ %50, %46 ]
+  %53 = getelementptr inbounds i32, ptr %40, i64 %.lcssa12.i
+  store i32 %2, ptr %53, align 4, !tbaa !21
+  br label %54
+
+54:                                               ; preds = %3, %Ivy_TableFind.exit
   ret void
 }
 

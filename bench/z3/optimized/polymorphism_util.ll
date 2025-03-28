@@ -3892,7 +3892,7 @@ _ZNK9parameter7get_astEv.exit61:                  ; preds = %271
   %281 = tail call noundef ptr @_ZNK9parameter7get_astEv(ptr noundef nonnull align 8 dereferenceable(16) %258)
   %282 = tail call noundef ptr @_ZNK9parameter7get_astEv(ptr noundef nonnull align 8 dereferenceable(16) %262)
   %283 = tail call noundef zeroext i1 @_ZN12polymorphism12substitution5unifyEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %281, ptr noundef %282)
-  br i1 %283, label %select.unfold, label %.thread97, !llvm.loop !130
+  br i1 %283, label %select.unfold, label %..thread97.loopexit_crit_edge243, !llvm.loop !130
 
 284:                                              ; preds = %_ZNK9parameter7get_astEv.exit, %.lr.ph242
   %285 = tail call noundef zeroext i1 @_ZNK9parametereqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %258, ptr noundef nonnull align 8 dereferenceable(16) %262)
@@ -3902,8 +3902,11 @@ select.unfold:                                    ; preds = %280, %284
   %.not24.wide = icmp eq i64 %254, 0
   br i1 %.not24.wide, label %.thread97, label %.lr.ph242
 
-.thread97:                                        ; preds = %tailrecurse.outer, %tailrecurse.us178, %tailrecurse, %tailrecurse.us, %284, %280, %_ZNK9parameter7get_astEv.exit61, %271, %select.unfold, %_ZNK4decl18get_num_parametersEv.exit57, %247, %3, %_ZNK4decl18get_num_parametersEv.exit58, %225, %_ZNK4decl13get_decl_kindEv.exit56, %_ZNK4decl13get_family_idEv.exit55, %_ZN7obj_refI4sort11ast_managerED2Ev.exit
-  %.0 = phi i1 [ %.1, %_ZN7obj_refI4sort11ast_managerED2Ev.exit ], [ false, %_ZNK4decl13get_family_idEv.exit55 ], [ false, %_ZNK4decl13get_decl_kindEv.exit56 ], [ false, %225 ], [ %not..not23, %_ZNK4decl18get_num_parametersEv.exit57 ], [ true, %_ZNK4decl18get_num_parametersEv.exit58 ], [ true, %3 ], [ true, %247 ], [ false, %284 ], [ false, %280 ], [ false, %_ZNK9parameter7get_astEv.exit61 ], [ false, %271 ], [ true, %select.unfold ], [ true, %tailrecurse.us ], [ true, %tailrecurse ], [ true, %tailrecurse.us178 ], [ true, %tailrecurse.outer ]
+..thread97.loopexit_crit_edge243:                 ; preds = %280
+  br label %.thread97, !llvm.loop !130
+
+.thread97:                                        ; preds = %tailrecurse.outer, %tailrecurse.us178, %tailrecurse, %tailrecurse.us, %284, %_ZNK9parameter7get_astEv.exit61, %271, %select.unfold, %_ZNK4decl18get_num_parametersEv.exit57, %247, %3, %_ZNK4decl18get_num_parametersEv.exit58, %..thread97.loopexit_crit_edge243, %225, %_ZNK4decl13get_decl_kindEv.exit56, %_ZNK4decl13get_family_idEv.exit55, %_ZN7obj_refI4sort11ast_managerED2Ev.exit
+  %.0 = phi i1 [ %.1, %_ZN7obj_refI4sort11ast_managerED2Ev.exit ], [ false, %_ZNK4decl13get_family_idEv.exit55 ], [ false, %_ZNK4decl13get_decl_kindEv.exit56 ], [ false, %225 ], [ %not..not23, %_ZNK4decl18get_num_parametersEv.exit57 ], [ false, %..thread97.loopexit_crit_edge243 ], [ true, %_ZNK4decl18get_num_parametersEv.exit58 ], [ true, %3 ], [ true, %247 ], [ false, %284 ], [ false, %_ZNK9parameter7get_astEv.exit61 ], [ false, %271 ], [ true, %select.unfold ], [ true, %tailrecurse.us ], [ true, %tailrecurse ], [ true, %tailrecurse.us178 ], [ true, %tailrecurse.outer ]
   ret i1 %.0
 }
 
@@ -4223,7 +4226,7 @@ _ZNK9parameter7get_astEv.exit35:                  ; preds = %146
   %156 = tail call noundef ptr @_ZNK9parameter7get_astEv(ptr noundef nonnull align 8 dereferenceable(16) %133)
   %157 = tail call noundef ptr @_ZNK9parameter7get_astEv(ptr noundef nonnull align 8 dereferenceable(16) %137)
   %158 = tail call noundef zeroext i1 @_ZN12polymorphism12substitution5matchEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %156, ptr noundef %157)
-  br i1 %158, label %select.unfold, label %.thread57, !llvm.loop !131
+  br i1 %158, label %select.unfold, label %..thread57.loopexit_crit_edge76, !llvm.loop !131
 
 159:                                              ; preds = %_ZNK9parameter7get_astEv.exit, %.lr.ph75
   %160 = tail call noundef zeroext i1 @_ZNK9parametereqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %137)
@@ -4233,8 +4236,11 @@ select.unfold:                                    ; preds = %155, %159
   %.not20.wide = icmp eq i64 %129, 0
   br i1 %.not20.wide, label %.thread57, label %.lr.ph75
 
-.thread57:                                        ; preds = %tailrecurse, %159, %155, %_ZNK9parameter7get_astEv.exit35, %146, %select.unfold, %_ZNK4decl18get_num_parametersEv.exit31, %122, %3, %_ZNK4decl18get_num_parametersEv.exit32, %100, %_ZNK4decl13get_decl_kindEv.exit30, %_ZNK4decl13get_family_idEv.exit29, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit28
-  %.0 = phi i1 [ true, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit28 ], [ false, %_ZNK4decl13get_family_idEv.exit29 ], [ false, %_ZNK4decl13get_decl_kindEv.exit30 ], [ false, %100 ], [ %not..not19, %_ZNK4decl18get_num_parametersEv.exit31 ], [ true, %_ZNK4decl18get_num_parametersEv.exit32 ], [ true, %3 ], [ true, %122 ], [ false, %159 ], [ false, %155 ], [ false, %_ZNK9parameter7get_astEv.exit35 ], [ false, %146 ], [ true, %select.unfold ], [ true, %tailrecurse ]
+..thread57.loopexit_crit_edge76:                  ; preds = %155
+  br label %.thread57, !llvm.loop !131
+
+.thread57:                                        ; preds = %tailrecurse, %159, %_ZNK9parameter7get_astEv.exit35, %146, %select.unfold, %_ZNK4decl18get_num_parametersEv.exit31, %122, %3, %_ZNK4decl18get_num_parametersEv.exit32, %..thread57.loopexit_crit_edge76, %100, %_ZNK4decl13get_decl_kindEv.exit30, %_ZNK4decl13get_family_idEv.exit29, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit28
+  %.0 = phi i1 [ true, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit28 ], [ false, %_ZNK4decl13get_family_idEv.exit29 ], [ false, %_ZNK4decl13get_decl_kindEv.exit30 ], [ false, %100 ], [ %not..not19, %_ZNK4decl18get_num_parametersEv.exit31 ], [ false, %..thread57.loopexit_crit_edge76 ], [ true, %_ZNK4decl18get_num_parametersEv.exit32 ], [ true, %3 ], [ true, %122 ], [ false, %159 ], [ false, %_ZNK9parameter7get_astEv.exit35 ], [ false, %146 ], [ true, %select.unfold ], [ true, %tailrecurse ]
   ret i1 %.0
 }
 

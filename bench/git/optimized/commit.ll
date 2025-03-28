@@ -2303,7 +2303,7 @@ define dso_local noundef ptr @commit_list_insert_by_date(ptr noundef %0, ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !90
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !109
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge13, label %13, !llvm.loop !109
 
 13:                                               ; preds = %.lr.ph12
   %14 = load ptr, ptr %12, align 8, !tbaa !89
@@ -2312,19 +2312,23 @@ define dso_local noundef ptr @commit_list_insert_by_date(ptr noundef %0, ptr nou
   %17 = icmp ult i64 %16, %5
   br i1 %17, label %._crit_edge.loopexit, label %.lr.ph12, !llvm.loop !109
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph12, %13
+.._crit_edge.loopexit_crit_edge13:                ; preds = %.lr.ph12
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  br label %._crit_edge, !llvm.loop !109
+
+._crit_edge.loopexit:                             ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %1, %2 ], [ %1, %.lr.ph ], [ %18, %._crit_edge.loopexit ]
-  %19 = tail call ptr @xmalloc(i64 noundef 16) #24
-  store ptr %0, ptr %19, align 8, !tbaa !89
-  %20 = load ptr, ptr %.0.lcssa, align 8, !tbaa !90
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %20, ptr %21, align 8, !tbaa !48
-  store ptr %19, ptr %.0.lcssa, align 8, !tbaa !90
-  ret ptr %19
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %.._crit_edge.loopexit_crit_edge13, %2
+  %.0.lcssa = phi ptr [ %1, %2 ], [ %18, %.._crit_edge.loopexit_crit_edge13 ], [ %1, %.lr.ph ], [ %19, %._crit_edge.loopexit ]
+  %20 = tail call ptr @xmalloc(i64 noundef 16) #24
+  store ptr %0, ptr %20, align 8, !tbaa !89
+  %21 = load ptr, ptr %.0.lcssa, align 8, !tbaa !90
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %21, ptr %22, align 8, !tbaa !48
+  store ptr %20, ptr %.0.lcssa, align 8, !tbaa !90
+  ret ptr %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2535,20 +2539,20 @@ pop_commit.exit:                                  ; preds = %2, %4
   %.masked = and i32 %1, 268435455
   br label %10
 
-10:                                               ; preds = %.lr.ph20, %42
-  %.019 = phi ptr [ %.017, %.lr.ph20 ], [ %.0, %42 ]
+10:                                               ; preds = %.lr.ph20, %43
+  %.019 = phi ptr [ %.017, %.lr.ph20 ], [ %.0, %43 ]
   %11 = load ptr, ptr %.019, align 8, !tbaa !89
   %12 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %13 = tail call range(i32 -1, 1) i32 @repo_parse_commit_internal(ptr noundef %12, ptr noundef %11, i32 noundef 0, i32 noundef 1)
   %.not12 = icmp eq i32 %13, 0
-  br i1 %.not12, label %14, label %42
+  br i1 %.not12, label %14, label %43
 
 14:                                               ; preds = %10
   %15 = load i32, ptr %11, align 8
   %16 = lshr i32 %15, 4
   %17 = and i32 %16, %1
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %18, label %42
+  br i1 %.not13, label %18, label %43
 
 18:                                               ; preds = %14
   %19 = or i32 %16, %.masked
@@ -2574,7 +2578,7 @@ pop_commit.exit:                                  ; preds = %2, %4
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !90
   %.not.i14 = icmp eq ptr %32, null
-  br i1 %.not.i14, label %commit_list_insert_by_date.exit.loopexit, label %33, !llvm.loop !109
+  br i1 %.not.i14, label %.commit_list_insert_by_date.exit.loopexit_crit_edge15, label %33, !llvm.loop !109
 
 33:                                               ; preds = %.lr.ph
   %34 = load ptr, ptr %32, align 8, !tbaa !89
@@ -2583,27 +2587,31 @@ pop_commit.exit:                                  ; preds = %2, %4
   %37 = icmp ult i64 %36, %25
   br i1 %37, label %commit_list_insert_by_date.exit.loopexit, label %.lr.ph, !llvm.loop !109
 
-commit_list_insert_by_date.exit.loopexit:         ; preds = %.lr.ph, %33
+.commit_list_insert_by_date.exit.loopexit_crit_edge15: ; preds = %.lr.ph
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  br label %commit_list_insert_by_date.exit, !llvm.loop !109
+
+commit_list_insert_by_date.exit.loopexit:         ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %commit_list_insert_by_date.exit
 
-commit_list_insert_by_date.exit:                  ; preds = %commit_list_insert_by_date.exit.loopexit, %.lr.ph.i, %18
-  %.0.lcssa.i = phi ptr [ %0, %18 ], [ %0, %.lr.ph.i ], [ %38, %commit_list_insert_by_date.exit.loopexit ]
-  %39 = tail call ptr @xmalloc(i64 noundef 16) #24
-  store ptr %11, ptr %39, align 8, !tbaa !89
-  %40 = load ptr, ptr %.0.lcssa.i, align 8, !tbaa !90
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %40, ptr %41, align 8, !tbaa !48
-  store ptr %39, ptr %.0.lcssa.i, align 8, !tbaa !90
-  br label %42
+commit_list_insert_by_date.exit:                  ; preds = %commit_list_insert_by_date.exit.loopexit, %.lr.ph.i, %.commit_list_insert_by_date.exit.loopexit_crit_edge15, %18
+  %.0.lcssa.i = phi ptr [ %0, %18 ], [ %38, %.commit_list_insert_by_date.exit.loopexit_crit_edge15 ], [ %0, %.lr.ph.i ], [ %39, %commit_list_insert_by_date.exit.loopexit ]
+  %40 = tail call ptr @xmalloc(i64 noundef 16) #24
+  store ptr %11, ptr %40, align 8, !tbaa !89
+  %41 = load ptr, ptr %.0.lcssa.i, align 8, !tbaa !90
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store ptr %41, ptr %42, align 8, !tbaa !48
+  store ptr %40, ptr %.0.lcssa.i, align 8, !tbaa !90
+  br label %43
 
-42:                                               ; preds = %commit_list_insert_by_date.exit, %14, %10
-  %43 = getelementptr inbounds nuw i8, ptr %.019, i64 8
-  %.0 = load ptr, ptr %43, align 8, !tbaa !90
+43:                                               ; preds = %commit_list_insert_by_date.exit, %14, %10
+  %44 = getelementptr inbounds nuw i8, ptr %.019, i64 8
+  %.0 = load ptr, ptr %44, align 8, !tbaa !90
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !111
 
-._crit_edge:                                      ; preds = %42, %pop_commit.exit
+._crit_edge:                                      ; preds = %43, %pop_commit.exit
   ret ptr %8
 }
 

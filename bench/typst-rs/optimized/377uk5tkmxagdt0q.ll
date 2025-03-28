@@ -1885,11 +1885,11 @@ define internal fastcc noundef zeroext i1 @"_ZN71_$LT$typst..visualize..paint..P
   switch i32 %3, label %default.unreachable12 [
     i32 0, label %7
     i32 1, label %11
-    i32 2, label %146
+    i32 2, label %147
   ]
 
-"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit": ; preds = %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i28.i", %113, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i", %62, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i", %31, %178, %172, %168, %164, %160, %156, %150, %146, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i31.i", %138, %132, %128, %124, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i29.i", %108, %107, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i", %99, %93, %89, %85, %81, %77, %73, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i", %57, %56, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i", %48, %42, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i", %26, %25, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h8c7d2bed23b745acE.exit.sink.split.i", %11, %2, %7
-  %.0.shrunk = phi i1 [ %10, %7 ], [ false, %2 ], [ false, %11 ], [ true, %25 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i" ], [ false, %42 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i" ], [ false, %26 ], [ false, %48 ], [ true, %56 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i" ], [ false, %93 ], [ false, %89 ], [ false, %85 ], [ false, %77 ], [ false, %73 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i" ], [ false, %81 ], [ false, %57 ], [ false, %99 ], [ true, %107 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i31.i" ], [ false, %132 ], [ false, %128 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i29.i" ], [ false, %124 ], [ false, %108 ], [ false, %138 ], [ %.not.i.i33.i, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h8c7d2bed23b745acE.exit.sink.split.i" ], [ true, %146 ], [ false, %168 ], [ false, %160 ], [ false, %150 ], [ false, %156 ], [ false, %164 ], [ false, %172 ], [ %spec.select.i.i.i, %178 ], [ false, %31 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i" ], [ false, %62 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i" ], [ false, %113 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i28.i" ]
+"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit": ; preds = %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i27.i", %114, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i", %63, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i", %32, %179, %173, %169, %165, %161, %157, %151, %147, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i30.i", %139, %133, %129, %125, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i28.i", %109, %108, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i", %100, %94, %90, %86, %82, %78, %74, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i", %58, %57, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i", %49, %43, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i", %27, %26, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h8c7d2bed23b745acE.exit.sink.split.i", %11, %2, %7
+  %.0.shrunk = phi i1 [ %10, %7 ], [ false, %2 ], [ false, %11 ], [ true, %26 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i" ], [ false, %43 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i" ], [ false, %27 ], [ false, %49 ], [ true, %57 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i" ], [ false, %94 ], [ false, %90 ], [ false, %86 ], [ false, %78 ], [ false, %74 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i" ], [ false, %82 ], [ false, %58 ], [ false, %100 ], [ true, %108 ], [ false, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i30.i" ], [ false, %133 ], [ false, %129 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i28.i" ], [ false, %125 ], [ false, %109 ], [ false, %139 ], [ %25, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h8c7d2bed23b745acE.exit.sink.split.i" ], [ true, %147 ], [ false, %169 ], [ false, %161 ], [ false, %151 ], [ false, %157 ], [ false, %165 ], [ false, %173 ], [ %spec.select.i.i.i, %179 ], [ false, %32 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i" ], [ false, %63 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i" ], [ false, %114 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i27.i" ]
   ret i1 %.0.shrunk
 
 default.unreachable12:                            ; preds = %17, %6
@@ -1920,314 +1920,314 @@ default.unreachable12:                            ; preds = %17, %6
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq ptr %.val3, %.val5
   switch i64 %.val, label %default.unreachable12 [
-    i64 0, label %25
-    i64 1, label %56
-    i64 2, label %107
+    i64 0, label %26
+    i64 1, label %57
+    i64 2, label %108
   ]
 
-"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h8c7d2bed23b745acE.exit.sink.split.i": ; preds = %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i31.i", %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i", %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i"
-  %.sink.i = phi i64 [ 48, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i" ], [ 88, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i" ], [ 64, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i31.i" ]
+"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h8c7d2bed23b745acE.exit.sink.split.i": ; preds = %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i30.i", %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i", %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i"
+  %.sink.i = phi i64 [ 48, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i" ], [ 88, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i" ], [ 64, %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i30.i" ]
   %21 = getelementptr inbounds nuw i8, ptr %.val3, i64 %.sink.i
   %22 = load i8, ptr %21, align 8, !range !269, !noalias !16, !noundef !16
   %23 = getelementptr inbounds nuw i8, ptr %.val5, i64 %.sink.i
   %24 = load i8, ptr %23, align 8, !range !269, !noalias !16, !noundef !16
-  %.not.i.i33.i = icmp eq i8 %22, %24
+  %25 = icmp eq i8 %22, %24
   br label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-25:                                               ; preds = %17
-  br i1 %20, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %26
+26:                                               ; preds = %17
+  br i1 %20, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %27
 
-26:                                               ; preds = %25
+27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !366)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !369)
-  %27 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
-  %.val.i.i.i = load ptr, ptr %27, align 8, !alias.scope !366, !noalias !369, !nonnull !16, !noundef !16
-  %28 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
-  %.val1.i.i.i = load i64, ptr %28, align 8, !alias.scope !366, !noalias !369, !noundef !16
-  %29 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
-  %.val2.i.i.i = load ptr, ptr %29, align 8, !alias.scope !369, !noalias !366, !nonnull !16, !noundef !16
-  %30 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
-  %.val3.i.i.i = load i64, ptr %30, align 8, !alias.scope !369, !noalias !366, !noundef !16
+  %28 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
+  %.val.i.i.i = load ptr, ptr %28, align 8, !alias.scope !366, !noalias !369, !nonnull !16, !noundef !16
+  %29 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
+  %.val1.i.i.i = load i64, ptr %29, align 8, !alias.scope !366, !noalias !369, !noundef !16
+  %30 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
+  %.val2.i.i.i = load ptr, ptr %30, align 8, !alias.scope !369, !noalias !366, !nonnull !16, !noundef !16
+  %31 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
+  %.val3.i.i.i = load i64, ptr %31, align 8, !alias.scope !369, !noalias !366, !noundef !16
   %.not.i.i.i.i.i = icmp eq i64 %.val1.i.i.i, %.val3.i.i.i
   br i1 %.not.i.i.i.i.i, label %.preheader.split.i.i.i.i.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-.preheader.split.i.i.i.i.i:                       ; preds = %26, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i"
-  %.sroa.01.0.i.i.i.i.i = phi i64 [ %35, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i" ], [ 0, %26 ]
+.preheader.split.i.i.i.i.i:                       ; preds = %27, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i"
+  %.sroa.01.0.i.i.i.i.i = phi i64 [ %36, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i" ], [ 0, %27 ]
   %exitcond.not.i.i.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i.i.i, %.val1.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i", label %31
+  br i1 %exitcond.not.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i", label %32
 
-31:                                               ; preds = %.preheader.split.i.i.i.i.i
-  %32 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
-  %33 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val2.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
-  %34 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33), !noalias !371
-  br i1 %34, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+32:                                               ; preds = %.preheader.split.i.i.i.i.i
+  %33 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
+  %34 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val2.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
+  %35 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %34), !noalias !371
+  br i1 %35, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i": ; preds = %31
-  %35 = add i64 %.sroa.01.0.i.i.i.i.i, 1
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
+"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i": ; preds = %32
+  %36 = add i64 %.sroa.01.0.i.i.i.i.i, 1
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %38 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %37), !noalias !371
-  br i1 %38, label %.preheader.split.i.i.i.i.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %39 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %38), !noalias !371
+  br i1 %39, label %.preheader.split.i.i.i.i.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i": ; preds = %.preheader.split.i.i.i.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
-  %40 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
-  %41 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40)
-  br i1 %41, label %42, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %40 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
+  %42 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %41)
+  br i1 %42, label %43, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-42:                                               ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i"
-  %43 = getelementptr inbounds nuw i8, ptr %.val3, i64 50
-  %44 = load i8, ptr %43, align 2, !range !372, !alias.scope !366, !noalias !369, !noundef !16
-  %45 = getelementptr inbounds nuw i8, ptr %.val5, i64 50
-  %46 = load i8, ptr %45, align 2, !range !372, !alias.scope !369, !noalias !366, !noundef !16
-  %47 = icmp eq i8 %44, %46
-  br i1 %47, label %48, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+43:                                               ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i"
+  %44 = getelementptr inbounds nuw i8, ptr %.val3, i64 50
+  %45 = load i8, ptr %44, align 2, !range !372, !alias.scope !366, !noalias !369, !noundef !16
+  %46 = getelementptr inbounds nuw i8, ptr %.val5, i64 50
+  %47 = load i8, ptr %46, align 2, !range !372, !alias.scope !369, !noalias !366, !noundef !16
+  %48 = icmp eq i8 %45, %47
+  br i1 %48, label %49, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw i8, ptr %.val3, i64 49
-  %50 = getelementptr inbounds nuw i8, ptr %.val5, i64 49
-  %.val4.i.i.i = load i8, ptr %49, align 1, !range !373, !alias.scope !366, !noalias !369, !noundef !16
-  %.val5.i.i.i = load i8, ptr %50, align 1, !range !373, !alias.scope !369, !noalias !366, !noundef !16
-  %51 = icmp ne i8 %.val4.i.i.i, 2
-  %52 = icmp ne i8 %.val5.i.i.i, 2
-  %53 = xor i1 %51, %52
-  br i1 %53, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i"
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds nuw i8, ptr %.val3, i64 49
+  %51 = getelementptr inbounds nuw i8, ptr %.val5, i64 49
+  %.val4.i.i.i = load i8, ptr %50, align 1, !range !373, !alias.scope !366, !noalias !369, !noundef !16
+  %.val5.i.i.i = load i8, ptr %51, align 1, !range !373, !alias.scope !369, !noalias !366, !noundef !16
+  %52 = icmp ne i8 %.val4.i.i.i, 2
+  %53 = icmp ne i8 %.val5.i.i.i, 2
+  %54 = xor i1 %52, %53
+  br i1 %54, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i"
 
-"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i": ; preds = %48
-  %54 = icmp ne i8 %.val4.i.i.i, %.val5.i.i.i
-  %55 = and i1 %52, %54
-  %spec.select.i.not.i.i.i = and i1 %51, %55
+"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i.i": ; preds = %49
+  %55 = icmp ne i8 %.val4.i.i.i, %.val5.i.i.i
+  %56 = and i1 %53, %55
+  %spec.select.i.not.i.i.i = and i1 %52, %56
   br i1 %spec.select.i.not.i.i.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h8c7d2bed23b745acE.exit.sink.split.i"
 
-56:                                               ; preds = %17
-  br i1 %20, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %57
+57:                                               ; preds = %17
+  br i1 %20, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %58
 
-57:                                               ; preds = %56
+58:                                               ; preds = %57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !377)
-  %58 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
-  %.val.i.i8.i = load ptr, ptr %58, align 8, !alias.scope !374, !noalias !377, !nonnull !16, !noundef !16
-  %59 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
-  %.val7.i.i.i = load i64, ptr %59, align 8, !alias.scope !374, !noalias !377, !noundef !16
-  %60 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
-  %.val8.i.i.i = load ptr, ptr %60, align 8, !alias.scope !377, !noalias !374, !nonnull !16, !noundef !16
-  %61 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
-  %.val9.i.i.i = load i64, ptr %61, align 8, !alias.scope !377, !noalias !374, !noundef !16
+  %59 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
+  %.val.i.i8.i = load ptr, ptr %59, align 8, !alias.scope !374, !noalias !377, !nonnull !16, !noundef !16
+  %60 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
+  %.val7.i.i.i = load i64, ptr %60, align 8, !alias.scope !374, !noalias !377, !noundef !16
+  %61 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
+  %.val8.i.i.i = load ptr, ptr %61, align 8, !alias.scope !377, !noalias !374, !nonnull !16, !noundef !16
+  %62 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
+  %.val9.i.i.i = load i64, ptr %62, align 8, !alias.scope !377, !noalias !374, !noundef !16
   %.not.i.i.i.i9.i = icmp eq i64 %.val7.i.i.i, %.val9.i.i.i
   br i1 %.not.i.i.i.i9.i, label %.preheader.split.i.i.i.i11.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-.preheader.split.i.i.i.i11.i:                     ; preds = %57, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i"
-  %.sroa.01.0.i.i.i.i12.i = phi i64 [ %66, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i" ], [ 0, %57 ]
+.preheader.split.i.i.i.i11.i:                     ; preds = %58, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i"
+  %.sroa.01.0.i.i.i.i12.i = phi i64 [ %67, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i" ], [ 0, %58 ]
   %exitcond.not.i.i.i.i13.i = icmp eq i64 %.sroa.01.0.i.i.i.i12.i, %.val7.i.i.i
-  br i1 %exitcond.not.i.i.i.i13.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i", label %62
+  br i1 %exitcond.not.i.i.i.i13.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i", label %63
 
-62:                                               ; preds = %.preheader.split.i.i.i.i11.i
-  %63 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i8.i, i64 0, i64 %.sroa.01.0.i.i.i.i12.i
-  %64 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val8.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i12.i
-  %65 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %64), !noalias !379
-  br i1 %65, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+63:                                               ; preds = %.preheader.split.i.i.i.i11.i
+  %64 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i8.i, i64 0, i64 %.sroa.01.0.i.i.i.i12.i
+  %65 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val8.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i12.i
+  %66 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %65), !noalias !379
+  br i1 %66, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i": ; preds = %62
-  %66 = add i64 %.sroa.01.0.i.i.i.i12.i, 1
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
+"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i": ; preds = %63
+  %67 = add i64 %.sroa.01.0.i.i.i.i12.i, 1
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %69 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %68), !noalias !379
-  br i1 %69, label %.preheader.split.i.i.i.i11.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %70 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %68, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %69), !noalias !379
+  br i1 %70, label %.preheader.split.i.i.i.i11.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i": ; preds = %.preheader.split.i.i.i.i11.i
-  %70 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
-  %71 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
-  %72 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %70, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %71)
-  br i1 %72, label %73, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %71 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
+  %73 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %72)
+  br i1 %73, label %74, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-73:                                               ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i"
-  %74 = getelementptr inbounds nuw i8, ptr %.val3, i64 48
-  %75 = getelementptr inbounds nuw i8, ptr %.val5, i64 48
-  %76 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %75)
-  br i1 %76, label %77, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+74:                                               ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i"
+  %75 = getelementptr inbounds nuw i8, ptr %.val3, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %.val5, i64 48
+  %77 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76)
+  br i1 %77, label %78, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %.val3, i64 56
-  %79 = getelementptr inbounds nuw i8, ptr %.val5, i64 56
-  %80 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %79)
-  br i1 %80, label %81, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %.val3, i64 56
+  %80 = getelementptr inbounds nuw i8, ptr %.val5, i64 56
+  %81 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %80)
+  br i1 %81, label %82, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %.val3, i64 64
-  %83 = getelementptr inbounds nuw i8, ptr %.val5, i64 64
-  %84 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %83)
-  br i1 %84, label %85, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %.val3, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %.val5, i64 64
+  %85 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %84)
+  br i1 %85, label %86, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %.val3, i64 72
-  %87 = getelementptr inbounds nuw i8, ptr %.val5, i64 72
-  %88 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %86, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %87)
-  br i1 %88, label %89, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %.val3, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %.val5, i64 72
+  %89 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %88)
+  br i1 %89, label %90, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %.val3, i64 80
-  %91 = getelementptr inbounds nuw i8, ptr %.val5, i64 80
-  %92 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %90, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %91)
-  br i1 %92, label %93, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds nuw i8, ptr %.val3, i64 80
+  %92 = getelementptr inbounds nuw i8, ptr %.val5, i64 80
+  %93 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %91, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %92)
+  br i1 %93, label %94, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %.val3, i64 90
-  %95 = load i8, ptr %94, align 2, !range !372, !alias.scope !374, !noalias !377, !noundef !16
-  %96 = getelementptr inbounds nuw i8, ptr %.val5, i64 90
-  %97 = load i8, ptr %96, align 2, !range !372, !alias.scope !377, !noalias !374, !noundef !16
-  %98 = icmp eq i8 %95, %97
-  br i1 %98, label %99, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %.val3, i64 90
+  %96 = load i8, ptr %95, align 2, !range !372, !alias.scope !374, !noalias !377, !noundef !16
+  %97 = getelementptr inbounds nuw i8, ptr %.val5, i64 90
+  %98 = load i8, ptr %97, align 2, !range !372, !alias.scope !377, !noalias !374, !noundef !16
+  %99 = icmp eq i8 %96, %98
+  br i1 %99, label %100, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-99:                                               ; preds = %93
-  %100 = getelementptr inbounds nuw i8, ptr %.val3, i64 89
-  %101 = getelementptr inbounds nuw i8, ptr %.val5, i64 89
-  %.val10.i.i.i = load i8, ptr %100, align 1, !range !373, !alias.scope !374, !noalias !377, !noundef !16
-  %.val11.i.i.i = load i8, ptr %101, align 1, !range !373, !alias.scope !377, !noalias !374, !noundef !16
-  %102 = icmp ne i8 %.val10.i.i.i, 2
-  %103 = icmp ne i8 %.val11.i.i.i, 2
-  %104 = xor i1 %102, %103
-  br i1 %104, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i"
+100:                                              ; preds = %94
+  %101 = getelementptr inbounds nuw i8, ptr %.val3, i64 89
+  %102 = getelementptr inbounds nuw i8, ptr %.val5, i64 89
+  %.val10.i.i.i = load i8, ptr %101, align 1, !range !373, !alias.scope !374, !noalias !377, !noundef !16
+  %.val11.i.i.i = load i8, ptr %102, align 1, !range !373, !alias.scope !377, !noalias !374, !noundef !16
+  %103 = icmp ne i8 %.val10.i.i.i, 2
+  %104 = icmp ne i8 %.val11.i.i.i, 2
+  %105 = xor i1 %103, %104
+  br i1 %105, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i"
 
-"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i": ; preds = %99
-  %105 = icmp ne i8 %.val10.i.i.i, %.val11.i.i.i
-  %106 = and i1 %103, %105
-  %spec.select.i.not.i.i17.i = and i1 %102, %106
+"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i16.i": ; preds = %100
+  %106 = icmp ne i8 %.val10.i.i.i, %.val11.i.i.i
+  %107 = and i1 %104, %106
+  %spec.select.i.not.i.i17.i = and i1 %103, %107
   br i1 %spec.select.i.not.i.i17.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h8c7d2bed23b745acE.exit.sink.split.i"
 
-107:                                              ; preds = %17
-  br i1 %20, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %108
+108:                                              ; preds = %17
+  br i1 %20, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %109
 
-108:                                              ; preds = %107
+109:                                              ; preds = %108
   tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !383)
-  %109 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
-  %.val.i.i19.i = load ptr, ptr %109, align 8, !alias.scope !380, !noalias !383, !nonnull !16, !noundef !16
-  %110 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
-  %.val3.i.i20.i = load i64, ptr %110, align 8, !alias.scope !380, !noalias !383, !noundef !16
-  %111 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
-  %.val4.i.i21.i = load ptr, ptr %111, align 8, !alias.scope !383, !noalias !380, !nonnull !16, !noundef !16
-  %112 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
-  %.val5.i.i22.i = load i64, ptr %112, align 8, !alias.scope !383, !noalias !380, !noundef !16
-  %.not.i.i.i.i23.i = icmp eq i64 %.val3.i.i20.i, %.val5.i.i22.i
-  br i1 %.not.i.i.i.i23.i, label %.preheader.split.i.i.i.i25.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %110 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
+  %.val.i.i18.i = load ptr, ptr %110, align 8, !alias.scope !380, !noalias !383, !nonnull !16, !noundef !16
+  %111 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
+  %.val3.i.i19.i = load i64, ptr %111, align 8, !alias.scope !380, !noalias !383, !noundef !16
+  %112 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
+  %.val4.i.i20.i = load ptr, ptr %112, align 8, !alias.scope !383, !noalias !380, !nonnull !16, !noundef !16
+  %113 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
+  %.val5.i.i21.i = load i64, ptr %113, align 8, !alias.scope !383, !noalias !380, !noundef !16
+  %.not.i.i.i.i22.i = icmp eq i64 %.val3.i.i19.i, %.val5.i.i21.i
+  br i1 %.not.i.i.i.i22.i, label %.preheader.split.i.i.i.i24.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-.preheader.split.i.i.i.i25.i:                     ; preds = %108, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i28.i"
-  %.sroa.01.0.i.i.i.i26.i = phi i64 [ %117, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i28.i" ], [ 0, %108 ]
-  %exitcond.not.i.i.i.i27.i = icmp eq i64 %.sroa.01.0.i.i.i.i26.i, %.val3.i.i20.i
-  br i1 %exitcond.not.i.i.i.i27.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i29.i", label %113
+.preheader.split.i.i.i.i24.i:                     ; preds = %109, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i27.i"
+  %.sroa.01.0.i.i.i.i25.i = phi i64 [ %118, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i27.i" ], [ 0, %109 ]
+  %exitcond.not.i.i.i.i26.i = icmp eq i64 %.sroa.01.0.i.i.i.i25.i, %.val3.i.i19.i
+  br i1 %exitcond.not.i.i.i.i26.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i28.i", label %114
 
-113:                                              ; preds = %.preheader.split.i.i.i.i25.i
-  %114 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i19.i, i64 0, i64 %.sroa.01.0.i.i.i.i26.i
-  %115 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val4.i.i21.i, i64 0, i64 %.sroa.01.0.i.i.i.i26.i
-  %116 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %114, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %115), !noalias !385
-  br i1 %116, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i28.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+114:                                              ; preds = %.preheader.split.i.i.i.i24.i
+  %115 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i18.i, i64 0, i64 %.sroa.01.0.i.i.i.i25.i
+  %116 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val4.i.i20.i, i64 0, i64 %.sroa.01.0.i.i.i.i25.i
+  %117 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %116), !noalias !385
+  br i1 %117, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i27.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i28.i": ; preds = %113
-  %117 = add i64 %.sroa.01.0.i.i.i.i26.i, 1
-  %118 = getelementptr inbounds nuw i8, ptr %114, i64 24
+"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i27.i": ; preds = %114
+  %118 = add i64 %.sroa.01.0.i.i.i.i25.i, 1
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %120 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %118, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %119), !noalias !385
-  br i1 %120, label %.preheader.split.i.i.i.i25.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %121 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %119, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %120), !noalias !385
+  br i1 %121, label %.preheader.split.i.i.i.i24.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i29.i": ; preds = %.preheader.split.i.i.i.i25.i
-  %121 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
-  %122 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
-  %123 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %122)
-  br i1 %123, label %124, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i28.i": ; preds = %.preheader.split.i.i.i.i24.i
+  %122 = getelementptr inbounds nuw i8, ptr %.val3, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %.val5, i64 40
+  %124 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %122, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %123)
+  br i1 %124, label %125, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-124:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i29.i"
-  %125 = getelementptr inbounds nuw i8, ptr %.val3, i64 48
-  %126 = getelementptr inbounds nuw i8, ptr %.val5, i64 48
-  %127 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %125, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %126)
-  br i1 %127, label %128, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+125:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i28.i"
+  %126 = getelementptr inbounds nuw i8, ptr %.val3, i64 48
+  %127 = getelementptr inbounds nuw i8, ptr %.val5, i64 48
+  %128 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %126, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %127)
+  br i1 %128, label %129, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-128:                                              ; preds = %124
-  %129 = getelementptr inbounds nuw i8, ptr %.val3, i64 56
-  %130 = getelementptr inbounds nuw i8, ptr %.val5, i64 56
-  %131 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %129, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %130)
-  br i1 %131, label %132, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds nuw i8, ptr %.val3, i64 56
+  %131 = getelementptr inbounds nuw i8, ptr %.val5, i64 56
+  %132 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %130, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %131)
+  br i1 %132, label %133, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw i8, ptr %.val3, i64 66
-  %134 = load i8, ptr %133, align 2, !range !372, !alias.scope !380, !noalias !383, !noundef !16
-  %135 = getelementptr inbounds nuw i8, ptr %.val5, i64 66
-  %136 = load i8, ptr %135, align 2, !range !372, !alias.scope !383, !noalias !380, !noundef !16
-  %137 = icmp eq i8 %134, %136
-  br i1 %137, label %138, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds nuw i8, ptr %.val3, i64 66
+  %135 = load i8, ptr %134, align 2, !range !372, !alias.scope !380, !noalias !383, !noundef !16
+  %136 = getelementptr inbounds nuw i8, ptr %.val5, i64 66
+  %137 = load i8, ptr %136, align 2, !range !372, !alias.scope !383, !noalias !380, !noundef !16
+  %138 = icmp eq i8 %135, %137
+  br i1 %138, label %139, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-138:                                              ; preds = %132
-  %139 = getelementptr inbounds nuw i8, ptr %.val3, i64 65
-  %140 = getelementptr inbounds nuw i8, ptr %.val5, i64 65
-  %.val6.i.i.i = load i8, ptr %139, align 1, !range !373, !alias.scope !380, !noalias !383, !noundef !16
-  %.val7.i.i30.i = load i8, ptr %140, align 1, !range !373, !alias.scope !383, !noalias !380, !noundef !16
-  %141 = icmp ne i8 %.val6.i.i.i, 2
-  %142 = icmp ne i8 %.val7.i.i30.i, 2
-  %143 = xor i1 %141, %142
-  br i1 %143, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i31.i"
+139:                                              ; preds = %133
+  %140 = getelementptr inbounds nuw i8, ptr %.val3, i64 65
+  %141 = getelementptr inbounds nuw i8, ptr %.val5, i64 65
+  %.val6.i.i.i = load i8, ptr %140, align 1, !range !373, !alias.scope !380, !noalias !383, !noundef !16
+  %.val7.i.i29.i = load i8, ptr %141, align 1, !range !373, !alias.scope !383, !noalias !380, !noundef !16
+  %142 = icmp ne i8 %.val6.i.i.i, 2
+  %143 = icmp ne i8 %.val7.i.i29.i, 2
+  %144 = xor i1 %142, %143
+  br i1 %144, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i30.i"
 
-"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i31.i": ; preds = %138
-  %144 = icmp ne i8 %.val6.i.i.i, %.val7.i.i30.i
-  %145 = and i1 %142, %144
-  %spec.select.i.not.i.i32.i = and i1 %141, %145
-  br i1 %spec.select.i.not.i.i32.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h8c7d2bed23b745acE.exit.sink.split.i"
+"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h66fd927bb5da5650E.exit.i.i30.i": ; preds = %139
+  %145 = icmp ne i8 %.val6.i.i.i, %.val7.i.i29.i
+  %146 = and i1 %143, %145
+  %spec.select.i.not.i.i31.i = and i1 %142, %146
+  br i1 %spec.select.i.not.i.i31.i, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h8c7d2bed23b745acE.exit.sink.split.i"
 
-146:                                              ; preds = %6
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %148 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val6 = load ptr, ptr %147, align 8, !nonnull !16, !noundef !16
-  %.val7 = load ptr, ptr %148, align 8, !nonnull !16, !noundef !16
-  %149 = icmp eq ptr %.val6, %.val7
-  br i1 %149, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %150
+147:                                              ; preds = %6
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val6 = load ptr, ptr %148, align 8, !nonnull !16, !noundef !16
+  %.val7 = load ptr, ptr %149, align 8, !nonnull !16, !noundef !16
+  %150 = icmp eq ptr %.val6, %.val7
+  br i1 %150, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %151
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
-  %152 = getelementptr inbounds nuw i8, ptr %.val7, i64 16
+151:                                              ; preds = %147
+  %152 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %.val7, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !389)
-  %153 = load i128, ptr %151, align 16, !alias.scope !386, !noalias !389, !noundef !16
-  %154 = load i128, ptr %152, align 16, !alias.scope !389, !noalias !386, !noundef !16
-  %155 = icmp eq i128 %153, %154
-  br i1 %155, label %156, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+  %154 = load i128, ptr %152, align 16, !alias.scope !386, !noalias !389, !noundef !16
+  %155 = load i128, ptr %153, align 16, !alias.scope !389, !noalias !386, !noundef !16
+  %156 = icmp eq i128 %154, %155
+  br i1 %156, label %157, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-156:                                              ; preds = %150
-  %157 = getelementptr inbounds nuw i8, ptr %.val6, i64 80
-  %158 = getelementptr inbounds nuw i8, ptr %.val7, i64 80
-  %159 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %157, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %158)
-  br i1 %159, label %160, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+157:                                              ; preds = %151
+  %158 = getelementptr inbounds nuw i8, ptr %.val6, i64 80
+  %159 = getelementptr inbounds nuw i8, ptr %.val7, i64 80
+  %160 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %158, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %159)
+  br i1 %160, label %161, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %.val6, i64 88
-  %162 = getelementptr inbounds nuw i8, ptr %.val7, i64 88
-  %163 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %161, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %162)
-  br i1 %163, label %164, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds nuw i8, ptr %.val6, i64 88
+  %163 = getelementptr inbounds nuw i8, ptr %.val7, i64 88
+  %164 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %162, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %163)
+  br i1 %164, label %165, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-164:                                              ; preds = %160
-  %165 = getelementptr inbounds nuw i8, ptr %.val6, i64 96
-  %166 = getelementptr inbounds nuw i8, ptr %.val7, i64 96
-  %167 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %165, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %166)
-  br i1 %167, label %168, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+165:                                              ; preds = %161
+  %166 = getelementptr inbounds nuw i8, ptr %.val6, i64 96
+  %167 = getelementptr inbounds nuw i8, ptr %.val7, i64 96
+  %168 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %166, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
+  br i1 %168, label %169, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-168:                                              ; preds = %164
-  %169 = getelementptr inbounds nuw i8, ptr %.val6, i64 104
-  %170 = getelementptr inbounds nuw i8, ptr %.val7, i64 104
-  %171 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %169, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %170)
-  br i1 %171, label %172, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
+169:                                              ; preds = %165
+  %170 = getelementptr inbounds nuw i8, ptr %.val6, i64 104
+  %171 = getelementptr inbounds nuw i8, ptr %.val7, i64 104
+  %172 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %170, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %171)
+  br i1 %172, label %173, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
-172:                                              ; preds = %168
-  %173 = getelementptr inbounds nuw i8, ptr %.val6, i64 112
-  %174 = getelementptr inbounds nuw i8, ptr %.val7, i64 112
-  %.val.i.i = load i8, ptr %173, align 1, !range !373, !alias.scope !386, !noalias !389, !noundef !16
-  %.val7.i.i = load i8, ptr %174, align 1, !range !373, !alias.scope !389, !noalias !386, !noundef !16
-  %175 = icmp ne i8 %.val.i.i, 2
-  %176 = icmp ne i8 %.val7.i.i, 2
-  %177 = xor i1 %175, %176
-  br i1 %177, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %178
+173:                                              ; preds = %169
+  %174 = getelementptr inbounds nuw i8, ptr %.val6, i64 112
+  %175 = getelementptr inbounds nuw i8, ptr %.val7, i64 112
+  %.val.i.i = load i8, ptr %174, align 1, !range !373, !alias.scope !386, !noalias !389, !noundef !16
+  %.val7.i.i = load i8, ptr %175, align 1, !range !373, !alias.scope !389, !noalias !386, !noundef !16
+  %176 = icmp ne i8 %.val.i.i, 2
+  %177 = icmp ne i8 %.val7.i.i, 2
+  %178 = xor i1 %176, %177
+  br i1 %178, label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit", label %179
 
-178:                                              ; preds = %172
-  %brmerge.demorgan.i.i.i = and i1 %175, %176
+179:                                              ; preds = %173
+  %brmerge.demorgan.i.i.i = and i1 %176, %177
   %brmerge.i.i.i = xor i1 %brmerge.demorgan.i.i.i, true
-  %179 = icmp eq i8 %.val.i.i, %.val7.i.i
-  %spec.select.i.i.i = or i1 %179, %brmerge.i.i.i
+  %180 = icmp eq i8 %.val.i.i, %.val7.i.i
+  %spec.select.i.i.i = or i1 %180, %brmerge.i.i.i
   br label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 }
 

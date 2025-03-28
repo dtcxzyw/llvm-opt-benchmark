@@ -485,20 +485,23 @@ define internal range(i32 -30, 1) i32 @archive_compressor_xz_open(ptr noundef ca
   %95 = shl nuw i32 1, %.05261.i
   %96 = and i32 %95, %91
   %.not.i = icmp eq i32 %96, 0
-  br i1 %.not.i, label %97, label %._crit_edge.i
+  br i1 %.not.i, label %97, label %split.i
 
 97:                                               ; preds = %.preheader.i
   %98 = add nsw i32 %.05261.i, -1
   %99 = icmp ugt i32 %.05261.i, 12
   br i1 %99, label %.preheader.i, label %._crit_edge.i, !llvm.loop !59
 
-._crit_edge.i:                                    ; preds = %.preheader.i, %97
-  %.052.lcssa.i = phi i32 [ 11, %97 ], [ %.05261.i, %.preheader.i ]
+._crit_edge.i:                                    ; preds = %97
+  br label %split.i, !llvm.loop !59
+
+split.i:                                          ; preds = %.preheader.i, %._crit_edge.i
+  %.052.lcssa.i = phi i32 [ 11, %._crit_edge.i ], [ %.05261.i, %.preheader.i ]
   %100 = shl nuw i32 1, %.052.lcssa.i
   %101 = icmp sgt i32 %91, %100
   br i1 %101, label %102, label %111
 
-102:                                              ; preds = %._crit_edge.i
+102:                                              ; preds = %split.i
   %103 = add nuw nsw i32 %.052.lcssa.i, 1
   %104 = shl nuw i32 2, %.052.lcssa.i
   %105 = sub nsw i32 %104, %91
@@ -509,9 +512,9 @@ define internal range(i32 -30, 1) i32 @archive_compressor_xz_open(ptr noundef ca
   %110 = and i32 %109, 224
   br label %111
 
-111:                                              ; preds = %102, %._crit_edge.i
-  %.1.i = phi i32 [ %103, %102 ], [ %.052.lcssa.i, %._crit_edge.i ]
-  %.051.i = phi i32 [ %110, %102 ], [ 0, %._crit_edge.i ]
+111:                                              ; preds = %102, %split.i
+  %.1.i = phi i32 [ %103, %102 ], [ %.052.lcssa.i, %split.i ]
+  %.051.i = phi i32 [ %110, %102 ], [ 0, %split.i ]
   %112 = and i32 %.1.i, 31
   %113 = or disjoint i32 %.051.i, %112
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 320

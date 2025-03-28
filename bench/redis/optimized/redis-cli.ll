@@ -5356,7 +5356,7 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %parseClusterNodeAdd
 
 ._crit_edge58:                                    ; preds = %55
   %.pre = load ptr, ptr %41, align 8, !tbaa !82
-  br label %57
+  br label %57, !llvm.loop !155
 
 57:                                               ; preds = %._crit_edge58, %53
   %58 = phi ptr [ %.pre, %._crit_edge58 ], [ %54, %53 ]
@@ -18516,7 +18516,7 @@ parseClusterNodeAddress.exit.thread:              ; preds = %55, %47
   %149 = load i32, ptr %21, align 8, !tbaa !129
   %150 = and i32 %149, 1
   %.not224 = icmp eq i32 %150, 0
-  br i1 %.not224, label %select.unfold258, label %clusterManagerCheckRedisReply.exit.thread, !llvm.loop !409
+  br i1 %.not224, label %select.unfold258, label %.clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280, !llvm.loop !409
 
 151:                                              ; preds = %147
   %152 = call ptr @hi_sdsnew(ptr noundef nonnull %.1175) #33
@@ -18748,8 +18748,11 @@ select.unfold258:                                 ; preds = %148, %253
   %.not219 = icmp eq ptr %strchr, null
   br i1 %.not219, label %clusterManagerCheckRedisReply.exit.thread, label %30
 
-clusterManagerCheckRedisReply.exit.thread:        ; preds = %253, %148, %46, %select.unfold258, %clusterManagerCheckRedisReply.exit, %parseClusterNodeAddress.exit.thread, %clusterManagerCheckRedisReply.exit.thread.thread262
-  %.0163264 = phi i32 [ 0, %clusterManagerCheckRedisReply.exit.thread.thread262 ], [ 0, %parseClusterNodeAddress.exit.thread ], [ 1, %clusterManagerCheckRedisReply.exit ], [ 1, %253 ], [ 1, %148 ], [ 0, %46 ], [ 1, %select.unfold258 ]
+.clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280: ; preds = %148
+  br label %clusterManagerCheckRedisReply.exit.thread, !llvm.loop !409
+
+clusterManagerCheckRedisReply.exit.thread:        ; preds = %253, %46, %select.unfold258, %clusterManagerCheckRedisReply.exit, %.clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280, %parseClusterNodeAddress.exit.thread, %clusterManagerCheckRedisReply.exit.thread.thread262
+  %.0163264 = phi i32 [ 0, %clusterManagerCheckRedisReply.exit.thread.thread262 ], [ 0, %parseClusterNodeAddress.exit.thread ], [ 1, %.clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280 ], [ 1, %clusterManagerCheckRedisReply.exit ], [ 1, %253 ], [ 0, %46 ], [ 1, %select.unfold258 ]
   call void @freeReplyObject(ptr noundef nonnull %6) #33
   br label %clusterManagerCheckRedisReply.exit.thread.thread
 

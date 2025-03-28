@@ -801,11 +801,14 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %Gia_ObjIsPi.exit
   %220 = load i32, ptr %5, align 8, !tbaa !3
   %221 = sext i32 %220 to i64
   %222 = icmp slt i64 %indvars.iv.next, %221
-  br i1 %222, label %.lr.ph165, label %.critedge2.loopexit, !llvm.loop !46
+  br i1 %222, label %.lr.ph165, label %..critedge2.loopexit_crit_edge, !llvm.loop !46
 
-.critedge2.loopexit:                              ; preds = %219, %.lr.ph165, %.lr.ph165.preheader
-  %.2.lcssa.ph = phi i32 [ %.1101172, %.lr.ph165.preheader ], [ %.3, %.lr.ph165 ], [ %.3, %219 ]
-  %.lcssa.ph = phi i32 [ %67, %.lr.ph165.preheader ], [ %220, %.lr.ph165 ], [ %220, %219 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %219
+  br label %.critedge2.loopexit, !llvm.loop !46
+
+.critedge2.loopexit:                              ; preds = %.lr.ph165, %..critedge2.loopexit_crit_edge, %.lr.ph165.preheader
+  %.2.lcssa.ph = phi i32 [ %.3, %..critedge2.loopexit_crit_edge ], [ %.1101172, %.lr.ph165.preheader ], [ %.3, %.lr.ph165 ]
+  %.lcssa.ph = phi i32 [ %220, %..critedge2.loopexit_crit_edge ], [ %67, %.lr.ph165.preheader ], [ %220, %.lr.ph165 ]
   %.pre177 = load i32, ptr %6, align 4, !tbaa !41
   br label %.critedge2
 

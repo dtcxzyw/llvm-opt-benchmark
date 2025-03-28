@@ -2506,7 +2506,7 @@ _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %238, %_ZNK3app13get
 
 _ZNK3app13get_decl_kindEv.exit.thread.._crit_edge.loopexit_crit_edge: ; preds = %_ZNK3app13get_decl_kindEv.exit.thread
   %.pre189.pre = load ptr, ptr %1, align 8, !tbaa !187
-  br label %._crit_edge
+  br label %._crit_edge, !llvm.loop !243
 
 ._crit_edge:                                      ; preds = %95, %61, %_ZNK3app13get_decl_kindEv.exit.thread.._crit_edge.loopexit_crit_edge, %_ZNK4goal4sizeEv.exit
   %345 = phi ptr [ %31, %_ZNK4goal4sizeEv.exit ], [ %.pre189.pre, %_ZNK3app13get_decl_kindEv.exit.thread.._crit_edge.loopexit_crit_edge ], [ %31, %61 ], [ %96, %95 ]

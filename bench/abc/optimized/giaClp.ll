@@ -1204,11 +1204,14 @@ Gia_ObjCollapseDeref.exit155:                     ; preds = %.lr.ph194, %144
   %.val105 = load i32, ptr %148, align 4, !tbaa !3
   %149 = sext i32 %.val105 to i64
   %150 = icmp slt i64 %indvars.iv.next176, %149
-  br i1 %150, label %118, label %.critedge4, !llvm.loop !65
+  br i1 %150, label %118, label %Gia_ObjCollapseDeref.exit155..critedge4_crit_edge, !llvm.loop !65
 
-.critedge4:                                       ; preds = %Gia_ObjCollapseDeref.exit155, %118, %.lr.ph165
-  %.val = phi i32 [ %.val105163, %.lr.ph165 ], [ %.val105, %118 ], [ %.val105, %Gia_ObjCollapseDeref.exit155 ]
-  %151 = phi ptr [ %112, %.lr.ph165 ], [ %147, %118 ], [ %147, %Gia_ObjCollapseDeref.exit155 ]
+Gia_ObjCollapseDeref.exit155..critedge4_crit_edge: ; preds = %Gia_ObjCollapseDeref.exit155
+  br label %.critedge4, !llvm.loop !65
+
+.critedge4:                                       ; preds = %118, %Gia_ObjCollapseDeref.exit155..critedge4_crit_edge, %.lr.ph165
+  %.val = phi i32 [ %.val105, %Gia_ObjCollapseDeref.exit155..critedge4_crit_edge ], [ %.val105163, %.lr.ph165 ], [ %.val105, %118 ]
+  %151 = phi ptr [ %147, %Gia_ObjCollapseDeref.exit155..critedge4_crit_edge ], [ %112, %.lr.ph165 ], [ %147, %118 ]
   %152 = icmp sgt i32 %.val, 0
   br i1 %152, label %.lr.ph168, label %.critedge6
 

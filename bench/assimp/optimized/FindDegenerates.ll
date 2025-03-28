@@ -152,8 +152,8 @@ define void @_ZN6Assimp22FindDegeneratesProcess7ExecuteEP7aiScene(ptr noundef no
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE7reserveEm.exit: ; preds = %6
   %15 = load i32, ptr %12, align 8
-  %.not39 = icmp eq i32 %15, 0
-  br i1 %.not39, label %._crit_edge, label %.lr.ph
+  %.not40 = icmp eq i32 %15, 0
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE7reserveEm.exit
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -175,7 +175,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE7reserveEm.exit:
 
 23:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
-  %.038 = phi i32 [ 0, %.lr.ph ], [ %.1, %74 ]
+  %.039 = phi i32 [ 0, %.lr.ph ], [ %.1, %74 ]
   %24 = load ptr, ptr %16, align 8
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
@@ -247,9 +247,12 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE7reserveEm.exit:
   %60 = zext i32 %59 to i64
   %61 = urem i64 %60, %43
   %.not19.i.i.i.i = icmp eq i64 %61, %44
-  br i1 %.not19.i.i.i.i, label %54, label %.loopexit.i.i, !llvm.loop !3
+  br i1 %.not19.i.i.i.i, label %54, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !3
 
-.loopexit.i.i:                                    ; preds = %57, %.lr.ph.i.i.i.i, %42
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %57
+  br label %.loopexit.i.i, !llvm.loop !3
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %42
   %62 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
           to label %.noexc unwind label %40
 
@@ -272,18 +275,18 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
 .loopexit:                                        ; preds = %54, %.noexc, %48
   %.pn.i.i = phi ptr [ %49, %48 ], [ %66, %.noexc ], [ %56, %54 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
-  store i32 %.038, ptr %.1.i.i, align 4
+  store i32 %.039, ptr %.1.i.i, align 4
   %68 = load ptr, ptr %16, align 8
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
-  %71 = zext i32 %.038 to i64
+  %71 = zext i32 %.039 to i64
   %72 = getelementptr inbounds nuw ptr, ptr %68, i64 %71
   store ptr %70, ptr %72, align 8
-  %73 = add i32 %.038, 1
+  %73 = add i32 %.039, 1
   br label %74
 
 74:                                               ; preds = %37, %.loopexit
-  %.1 = phi i32 [ %.038, %37 ], [ %73, %.loopexit ]
+  %.1 = phi i32 [ %.039, %37 ], [ %73, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %12, align 8
   %76 = zext i32 %75 to i64
@@ -1264,17 +1267,17 @@ define internal fastcc void @_ZL16updateSceneGraphP6aiNodeRKSt13unordered_mapIjj
   store i32 %.018.lcssa, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %10 = load i32, ptr %9, align 8
-  %.not33 = icmp eq i32 %10, 0
-  br i1 %.not33, label %._crit_edge32, label %.lr.ph31
+  %.not34 = icmp eq i32 %10, 0
+  br i1 %.not34, label %._crit_edge33, label %.lr.ph32
 
-.lr.ph31:                                         ; preds = %._crit_edge
+.lr.ph32:                                         ; preds = %._crit_edge
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   br label %50
 
 12:                                               ; preds = %.lr.ph, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread
   %13 = phi i32 [ %4, %.lr.ph ], [ %47, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread ]
-  %.01827 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread ]
+  %.01828 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread ]
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
@@ -1327,41 +1330,44 @@ define internal fastcc void @_ZL16updateSceneGraphP6aiNodeRKSt13unordered_mapIjj
   %40 = zext i32 %39 to i64
   %41 = urem i64 %40, %24
   %.not19.i.i.i.i = icmp eq i64 %41, %25
-  br i1 %.not19.i.i.i.i, label %34, label %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread, !llvm.loop !3
+  br i1 %.not19.i.i.i.i, label %34, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !3
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %37
+  br label %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread, !llvm.loop !3
 
 _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit: ; preds = %34, %18, %29
   %.sroa.06.1.i.i = phi ptr [ %30, %29 ], [ %.sroa.06.0.i.i, %18 ], [ %36, %34 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %43 = load i32, ptr %42, align 4
-  %44 = zext i32 %.01827 to i64
+  %44 = zext i32 %.01828 to i64
   %45 = getelementptr inbounds nuw i32, ptr %14, i64 %44
   store i32 %43, ptr %45, align 4
-  %46 = add i32 %.01827, 1
+  %46 = add i32 %.01828, 1
   %.pre = load i32, ptr %3, align 8
   br label %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread
 
-_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %37, %.preheader, %22, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
-  %47 = phi i32 [ %.pre, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %13, %22 ], [ %13, %.preheader ], [ %13, %37 ], [ %13, %.lr.ph.i.i.i.i ]
-  %.1 = phi i32 [ %46, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %.01827, %22 ], [ %.01827, %.preheader ], [ %.01827, %37 ], [ %.01827, %.lr.ph.i.i.i.i ]
+_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %22, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
+  %47 = phi i32 [ %.pre, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %13, %22 ], [ %13, %..loopexit_crit_edge21.i.i.i.i ], [ %13, %.preheader ], [ %13, %.lr.ph.i.i.i.i ]
+  %.1 = phi i32 [ %46, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %.01828, %22 ], [ %.01828, %..loopexit_crit_edge21.i.i.i.i ], [ %.01828, %.preheader ], [ %.01828, %.lr.ph.i.i.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %12, label %._crit_edge, !llvm.loop !22
 
-._crit_edge32:                                    ; preds = %50, %._crit_edge
+._crit_edge33:                                    ; preds = %50, %._crit_edge
   ret void
 
-50:                                               ; preds = %.lr.ph31, %50
-  %indvars.iv39 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next40, %50 ]
+50:                                               ; preds = %.lr.ph32, %50
+  %indvars.iv41 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next42, %50 ]
   %51 = load ptr, ptr %11, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv39
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv41
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @_ZL16updateSceneGraphP6aiNodeRKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE(ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %54 = load i32, ptr %9, align 8
   %55 = zext i32 %54 to i64
-  %56 = icmp samesign ult i64 %indvars.iv.next40, %55
-  br i1 %56, label %50, label %._crit_edge32, !llvm.loop !23
+  %56 = icmp samesign ult i64 %indvars.iv.next42, %55
+  br i1 %56, label %50, label %._crit_edge33, !llvm.loop !23
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1707,12 +1713,15 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %39 = ptrtoint ptr %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %.critedge, !llvm.loop !27
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !27
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %36, %23, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %36 ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %36 ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %36 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge, !llvm.loop !27
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

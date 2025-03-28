@@ -12658,10 +12658,13 @@ _ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEE4nextEv.exit: ;
   %56 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QCP::MarginSide, QList<QCPLayoutElement *>>>::Entry", ptr %52, i64 %55, i32 0, i32 0, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %57, 0
-  br i1 %58, label %thread-pre-split, label %._crit_edge, !llvm.loop !76
+  br i1 %58, label %thread-pre-split, label %_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEE4nextEv.exit._crit_edge, !llvm.loop !76
 
-._crit_edge:                                      ; preds = %_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEE4nextEv.exit, %thread-pre-split, %_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEEC2ERK5QHashIS1_S5_E.exit
-  %or.cond.not.lcssa = phi i1 [ true, %_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEEC2ERK5QHashIS1_S5_E.exit ], [ %58, %thread-pre-split ], [ %58, %_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEE4nextEv.exit ]
+_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEE4nextEv.exit._crit_edge: ; preds = %_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEE4nextEv.exit
+  br label %._crit_edge, !llvm.loop !76
+
+._crit_edge:                                      ; preds = %thread-pre-split, %_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEE4nextEv.exit._crit_edge, %_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEEC2ERK5QHashIS1_S5_E.exit
+  %or.cond.not.lcssa = phi i1 [ false, %_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEE4nextEv.exit._crit_edge ], [ true, %_ZN13QHashIteratorIN3QCP10MarginSideE5QListIP16QCPLayoutElementEEC2ERK5QHashIS1_S5_E.exit ], [ true, %thread-pre-split ]
   call void @_ZN5QHashIN3QCP10MarginSideE5QListIP16QCPLayoutElementEED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(40) %2) #53
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #53
   ret i1 %or.cond.not.lcssa

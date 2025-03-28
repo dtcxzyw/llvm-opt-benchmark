@@ -605,12 +605,12 @@ _ZN6bufferIP3appLb0ELj16EE9push_backERKS1_.exit:  ; preds = %44, %40, %_ZlsRSo6s
   store ptr %2, ptr %49, align 8, !tbaa !71
   br label %53
 
-thread-pre-split.loopexit:                        ; preds = %103
+.thread-pre-split_crit_edge:                      ; preds = %103
   %.pr.pre = load i32, ptr %50, align 8, !tbaa !72
-  br label %thread-pre-split
+  br label %thread-pre-split, !llvm.loop !73
 
-thread-pre-split:                                 ; preds = %thread-pre-split.loopexit, %53
-  %.pr = phi i32 [ %.pr.pre, %thread-pre-split.loopexit ], [ %56, %53 ]
+thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %53
+  %.pr = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %56, %53 ]
   %52 = icmp eq i32 %.pr, 0
   br i1 %52, label %104, label %53
 
@@ -630,7 +630,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
 .lr.ph:                                           ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %wide.trip.count = zext i32 %61 to i64
-  br label %65
+  br label %65, !llvm.loop !73
 
 63:                                               ; preds = %104
   %64 = landingpad { ptr, i32 }
@@ -743,7 +743,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZNK9fu
 103:                                              ; preds = %_ZN6bufferIP3appLb0ELj16EE9push_backERKS1_.exit43, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %thread-pre-split.loopexit, label %65, !llvm.loop !75
+  br i1 %exitcond.not, label %.thread-pre-split_crit_edge, label %65, !llvm.loop !75
 
 104:                                              ; preds = %thread-pre-split
   %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.9, i64 noundef 1)

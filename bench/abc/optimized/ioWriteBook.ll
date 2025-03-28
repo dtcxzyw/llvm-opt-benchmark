@@ -1023,6 +1023,9 @@ Vec_PtrPush.exit133.i.i.i.i:                      ; preds = %416, %Vec_PtrGrow.e
   %423 = icmp slt i64 %indvars.iv.next243.i.i.i.i, %422
   br i1 %423, label %390, label %thread-pre-split.preheader.sink.split.i.i.i.i, !llvm.loop !61
 
+.thread-pre-split.loopexit_crit_edge.i.i.i.i:     ; preds = %780
+  br label %thread-pre-split.backedge.i.i.i.i, !llvm.loop !62
+
 thread-pre-split.i.i.i.i:                         ; preds = %thread-pre-split.i.i.i.i.preheader, %thread-pre-split.backedge.i.i.i.i
   %424 = phi i32 [ %667, %thread-pre-split.backedge.i.i.i.i ], [ %.ph165, %thread-pre-split.i.i.i.i.preheader ]
   %425 = phi i32 [ %668, %thread-pre-split.backedge.i.i.i.i ], [ %.ph165, %thread-pre-split.i.i.i.i.preheader ]
@@ -1052,7 +1055,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %thread-pre-split.i.
   %437 = getelementptr inbounds nuw ptr, ptr %.val82.i.i.i.i, i64 %436
   %438 = load ptr, ptr %437, align 8, !tbaa !34
   %439 = icmp eq ptr %438, %431
-  br i1 %439, label %440, label %432, !llvm.loop !62
+  br i1 %439, label %440, label %432, !llvm.loop !63
 
 440:                                              ; preds = %435, %432
   %.0.in.lcssa.i.i.i.i.i = phi i32 [ %433, %435 ], [ 0, %432 ]
@@ -1071,7 +1074,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %thread-pre-split.i.
   store ptr %445, ptr %446, align 8, !tbaa !34
   %indvars.iv.next19.i.i.i.i.i = add nuw nsw i64 %indvars.iv18.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next19.i.i.i.i.i, %indvars.iv256.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %Vec_PtrRemove.exit.i.i.i.i, label %443, !llvm.loop !63
+  br i1 %exitcond.not.i.i.i.i.i, label %Vec_PtrRemove.exit.i.i.i.i, label %443, !llvm.loop !64
 
 Vec_PtrRemove.exit.i.i.i.i:                       ; preds = %443, %440
   %indvars.iv.next257.i.i.i.i = add nsw i64 %indvars.iv256.i.i.i.i, -1
@@ -1179,7 +1182,7 @@ Abc_NodeIsTravIdCurrent.exit.i.i.i:               ; preds = %._crit_edge.i.i.i.i
   %492 = getelementptr inbounds nuw i8, ptr %.val123.i.i.i.i, i64 216
   %493 = load i32, ptr %492, align 8, !tbaa !54
   %.not.i224.i.i = icmp eq i32 %491, %493
-  br i1 %.not.i224.i.i, label %427, label %494, !llvm.loop !64
+  br i1 %.not.i224.i.i, label %427, label %494, !llvm.loop !62
 
 494:                                              ; preds = %Abc_NodeIsTravIdCurrent.exit.i.i.i
   %495 = getelementptr i8, ptr %431, i64 16
@@ -1564,11 +1567,11 @@ Vec_PtrPush.exit169.i.i.i.i:                      ; preds = %651, %Vec_PtrGrow.e
   %.not77.i.i.i.i = icmp eq i32 %.val109.i.i.i.i, 0
   br i1 %.not77.i.i.i.i, label %thread-pre-split.backedge.i.i.i.i, label %669
 
-thread-pre-split.backedge.i.i.i.i:                ; preds = %780, %686, %.critedge4.i.i.i.i
-  %667 = phi i32 [ %664, %.critedge4.i.i.i.i ], [ %664, %686 ], [ %781, %780 ]
-  %668 = phi i32 [ %665, %.critedge4.i.i.i.i ], [ %665, %686 ], [ %782, %780 ]
-  %.val.pr226.i.i.i.i = phi i32 [ %.val.pr233.i.i.i.i, %.critedge4.i.i.i.i ], [ %.val.pr233.i.i.i.i, %686 ], [ %.val.pr229.i.i.i.i, %780 ]
-  br label %thread-pre-split.i.i.i.i, !llvm.loop !64
+thread-pre-split.backedge.i.i.i.i:                ; preds = %686, %.critedge4.i.i.i.i, %.thread-pre-split.loopexit_crit_edge.i.i.i.i
+  %667 = phi i32 [ %664, %.critedge4.i.i.i.i ], [ %781, %.thread-pre-split.loopexit_crit_edge.i.i.i.i ], [ %664, %686 ]
+  %668 = phi i32 [ %665, %.critedge4.i.i.i.i ], [ %782, %.thread-pre-split.loopexit_crit_edge.i.i.i.i ], [ %665, %686 ]
+  %.val.pr226.i.i.i.i = phi i32 [ %.val.pr233.i.i.i.i, %.critedge4.i.i.i.i ], [ %.val.pr229.i.i.i.i, %.thread-pre-split.loopexit_crit_edge.i.i.i.i ], [ %.val.pr233.i.i.i.i, %686 ]
+  br label %thread-pre-split.i.i.i.i, !llvm.loop !62
 
 669:                                              ; preds = %.critedge4.i.i.i.i
   %.val101.i.i.i.i = load i32, ptr %61, align 8, !tbaa !26
@@ -1614,11 +1617,11 @@ thread-pre-split.backedge.i.i.i.i:                ; preds = %780, %686, %.crited
   %.367.i.i.i.i = phi ptr [ %431, %669 ], [ %685, %679 ], [ %431, %670 ]
   %687 = getelementptr i8, ptr %.367.i.i.i.i, i64 28
   %688 = icmp sgt i32 %.367.val108221.i.i.i.i, 0
-  br i1 %688, label %.lr.ph223.i.i.i.i, label %thread-pre-split.backedge.i.i.i.i, !llvm.loop !64
+  br i1 %688, label %.lr.ph223.i.i.i.i, label %thread-pre-split.backedge.i.i.i.i, !llvm.loop !62
 
 .lr.ph223.i.i.i.i:                                ; preds = %686
   %689 = getelementptr i8, ptr %.367.i.i.i.i, i64 32
-  br label %690
+  br label %690, !llvm.loop !62
 
 690:                                              ; preds = %780, %.lr.ph223.i.i.i.i
   %691 = phi i32 [ %664, %.lr.ph223.i.i.i.i ], [ %781, %780 ]
@@ -1823,7 +1826,7 @@ Vec_PtrPush.exit195.i.i.i.i:                      ; preds = %773, %Vec_PtrGrow.e
   %.367.val108.i.i.i.i = load i32, ptr %687, align 4, !tbaa !60
   %783 = sext i32 %.367.val108.i.i.i.i to i64
   %784 = icmp slt i64 %indvars.iv.next264.i.i.i.i, %783
-  br i1 %784, label %690, label %thread-pre-split.backedge.i.i.i.i, !llvm.loop !66
+  br i1 %784, label %690, label %.thread-pre-split.loopexit_crit_edge.i.i.i.i, !llvm.loop !66
 
 Io_NtkBfsPads.exit.i.i.i:                         ; preds = %541, %427
   %785 = phi ptr [ %.043102.i.i.i, %427 ], [ %431, %541 ]

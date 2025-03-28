@@ -3146,7 +3146,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
 ._crit_edge1896:                                  ; preds = %505
   %.pre1897 = add i32 %.44871.ph, -16
   %.pre1899 = zext i32 %.pre1897 to i64
-  br label %514
+  br label %514, !llvm.loop !127
 
 514:                                              ; preds = %._crit_edge1896, %494
   %.pre-phi1900 = phi i64 [ %.pre1899, %._crit_edge1896 ], [ %496, %494 ]

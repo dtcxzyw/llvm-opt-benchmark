@@ -2850,7 +2850,10 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEEdeEv.exit: ; preds = %.noexc37
   %133 = ptrtoint ptr %132 to i64
   %134 = urem i64 %133, %117
   %.not19.i.i.i.i.i = icmp eq i64 %134, %118
-  br i1 %.not19.i.i.i.i.i, label %127, label %_ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4pairINS_16OverloadResolver8AnalysisEmEE4findES3_.exit.thread, !llvm.loop !191
+  br i1 %.not19.i.i.i.i.i, label %127, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !191
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %130
+  br label %_ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4pairINS_16OverloadResolver8AnalysisEmEE4findES3_.exit.thread, !llvm.loop !191
 
 _ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4pairINS_16OverloadResolver8AnalysisEmEE4findES3_.exit: ; preds = %127, %111, %122
   %.sroa.06.1.i.i.i = phi ptr [ %123, %122 ], [ %.sroa.06.0.i.i.i, %111 ], [ %129, %127 ]
@@ -2867,7 +2870,7 @@ _ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4pairINS_16OverloadResolver8AnalysisE
           cleanup
   br label %206
 
-_ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4pairINS_16OverloadResolver8AnalysisEmEE4findES3_.exit.thread: ; preds = %130, %.lr.ph.i.i.i.i.i40, %.preheader, %115, %_ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4pairINS_16OverloadResolver8AnalysisEmEE4findES3_.exit
+_ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4pairINS_16OverloadResolver8AnalysisEmEE4findES3_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i40, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i, %115, %_ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4pairINS_16OverloadResolver8AnalysisEmEE4findES3_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #27
   invoke void @_ZN4Luau16OverloadResolver13checkOverloadEPKNS_4TypeEPKNS_8TypePackEPNS_7AstExprEPKSt6vectorIS8_SaIS8_EEb(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.45") align 8 %9, ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %109, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true)
           to label %141 unwind label %201
@@ -8551,9 +8554,12 @@ define linkonce_odr dso_local void @_ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4
   %34 = ptrtoint ptr %33 to i64
   %35 = urem i64 %34, %18
   %.not19.i.i.i.i.i = icmp eq i64 %35, %19
-  br i1 %.not19.i.i.i.i.i, label %28, label %.loopexit, !llvm.loop !191
+  br i1 %.not19.i.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !191
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %31, %10, %15
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %31
+  br label %.loopexit, !llvm.loop !191
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !296
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8672,9 +8678,12 @@ _ZNSt6vectorISt4pairIPKN4Luau4TypeES0_INS1_16OverloadResolver8AnalysisEmEESaIS8_
   %88 = ptrtoint ptr %87 to i64
   %89 = urem i64 %88, %72
   %.not19.i.i.i.i = icmp eq i64 %89, %73
-  br i1 %.not19.i.i.i.i, label %82, label %.loopexit.i.i, !llvm.loop !191
+  br i1 %.not19.i.i.i.i, label %82, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !191
 
-.loopexit.i.i:                                    ; preds = %85, %.lr.ph.i.i.i.i, %_ZNSt6vectorISt4pairIPKN4Luau4TypeES0_INS1_16OverloadResolver8AnalysisEmEESaIS8_EE9push_backEOS8_.exit
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %85
+  br label %.loopexit.i.i, !llvm.loop !191
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt6vectorISt4pairIPKN4Luau4TypeES0_INS1_16OverloadResolver8AnalysisEmEESaIS8_EE9push_backEOS8_.exit
   %90 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %90, align 8, !tbaa !188
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8

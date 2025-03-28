@@ -129,10 +129,13 @@ define ptr @try_val_to_str(i32 noundef %0, ptr noundef readonly captures(address
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not16.i = icmp eq ptr %13, null
-  br i1 %.not16.i, label %try_val_to_str_idx.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not16.i, label %.try_val_to_str_idx.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !6
 
-try_val_to_str_idx.exit:                          ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %2, %.preheader.i
-  %.013.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ %4, %.lr.ph.i.preheader ], [ null, %.lr.ph ], [ %13, %.lr.ph.i ]
+.try_val_to_str_idx.exit.loopexit_crit_edge:      ; preds = %.lr.ph
+  br label %try_val_to_str_idx.exit, !llvm.loop !6
+
+try_val_to_str_idx.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.try_val_to_str_idx.exit.loopexit_crit_edge, %2, %.preheader.i
+  %.013.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ null, %.try_val_to_str_idx.exit.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
   ret ptr %.013.i
 }
 
@@ -235,10 +238,13 @@ define nonnull ptr @val_to_str_const(i32 noundef %0, ptr noundef readonly captur
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16.i.i = icmp eq ptr %16, null
-  br i1 %.not16.i.i, label %try_val_to_str.exit, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not16.i.i, label %.try_val_to_str.exit.loopexit_crit_edge, label %.lr.ph.i.i, !llvm.loop !6
 
-try_val_to_str.exit:                              ; preds = %.lr.ph, %.lr.ph.i.i, %.lr.ph.i.i.preheader, %5, %.preheader.i.i
-  %.013.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ %7, %.lr.ph.i.i.preheader ], [ null, %.lr.ph ], [ %16, %.lr.ph.i.i ]
+.try_val_to_str.exit.loopexit_crit_edge:          ; preds = %.lr.ph
+  br label %try_val_to_str.exit, !llvm.loop !6
+
+try_val_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %.try_val_to_str.exit.loopexit_crit_edge, %5, %.preheader.i.i
+  %.013.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ null, %.try_val_to_str.exit.loopexit_crit_edge ], [ %7, %.lr.ph.i.i.preheader ], [ %16, %.lr.ph.i.i ]
   %.not8 = icmp eq ptr %.013.i.i, null
   %. = select i1 %.not8, ptr %2, ptr %.013.i.i
   ret ptr %.
@@ -429,10 +435,13 @@ define ptr @try_val64_to_str(i64 noundef %0, ptr noundef readonly captures(addre
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not16.i = icmp eq ptr %13, null
-  br i1 %.not16.i, label %try_val64_to_str_idx.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not16.i, label %.try_val64_to_str_idx.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !8
 
-try_val64_to_str_idx.exit:                        ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %2, %.preheader.i
-  %.013.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ %4, %.lr.ph.i.preheader ], [ null, %.lr.ph ], [ %13, %.lr.ph.i ]
+.try_val64_to_str_idx.exit.loopexit_crit_edge:    ; preds = %.lr.ph
+  br label %try_val64_to_str_idx.exit, !llvm.loop !8
+
+try_val64_to_str_idx.exit:                        ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.try_val64_to_str_idx.exit.loopexit_crit_edge, %2, %.preheader.i
+  %.013.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ null, %.try_val64_to_str_idx.exit.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
   ret ptr %.013.i
 }
 
@@ -473,10 +482,13 @@ define nonnull ptr @val64_to_str_const(i64 noundef %0, ptr noundef readonly capt
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16.i.i = icmp eq ptr %16, null
-  br i1 %.not16.i.i, label %try_val64_to_str.exit, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not16.i.i, label %.try_val64_to_str.exit.loopexit_crit_edge, label %.lr.ph.i.i, !llvm.loop !8
 
-try_val64_to_str.exit:                            ; preds = %.lr.ph, %.lr.ph.i.i, %.lr.ph.i.i.preheader, %5, %.preheader.i.i
-  %.013.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ %7, %.lr.ph.i.i.preheader ], [ null, %.lr.ph ], [ %16, %.lr.ph.i.i ]
+.try_val64_to_str.exit.loopexit_crit_edge:        ; preds = %.lr.ph
+  br label %try_val64_to_str.exit, !llvm.loop !8
+
+try_val64_to_str.exit:                            ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %.try_val64_to_str.exit.loopexit_crit_edge, %5, %.preheader.i.i
+  %.013.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ null, %.try_val64_to_str.exit.loopexit_crit_edge ], [ %7, %.lr.ph.i.i.preheader ], [ %16, %.lr.ph.i.i ]
   %.not8 = icmp eq ptr %.013.i.i, null
   %. = select i1 %.not8, ptr %2, ptr %.013.i.i
   ret ptr %.
@@ -1500,10 +1512,13 @@ define ptr @try_str_to_str(ptr noundef readonly captures(none) %0, ptr noundef r
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not13.i = icmp eq ptr %13, null
-  br i1 %.not13.i, label %try_str_to_str_idx.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not13.i, label %.try_str_to_str_idx.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !15
 
-try_str_to_str_idx.exit:                          ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %2, %.preheader.i
-  %.012.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ %4, %.lr.ph.i.preheader ], [ null, %.lr.ph ], [ %13, %.lr.ph.i ]
+.try_str_to_str_idx.exit.loopexit_crit_edge:      ; preds = %.lr.ph
+  br label %try_str_to_str_idx.exit, !llvm.loop !15
+
+try_str_to_str_idx.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.try_str_to_str_idx.exit.loopexit_crit_edge, %2, %.preheader.i
+  %.012.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ null, %.try_str_to_str_idx.exit.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
   ret ptr %.012.i
 }
 

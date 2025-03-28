@@ -141,8 +141,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader, %29, %30, %31, %32
-  %.sink360 = phi i32 [ 2, %32 ], [ 4, %31 ], [ 1, %30 ], [ 18, %29 ], [ 8, %.preheader ]
-  %33 = or i32 %26, %.sink360
+  %.sink368 = phi i32 [ 2, %32 ], [ 4, %31 ], [ 1, %30 ], [ 18, %29 ], [ 8, %.preheader ]
+  %33 = or i32 %26, %.sink368
   store i32 %33, ptr @odb_flags, align 4, !tbaa !12
   br label %34
 
@@ -326,10 +326,10 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %10
   unreachable
 
 gv_calloc.exit163:                                ; preds = %.thread.i162, %115
-  %.not.i159334 = phi i1 [ true, %.thread.i162 ], [ false, %115 ]
-  %.0126.lcssa331 = phi i64 [ 0, %.thread.i162 ], [ %.1127.lcssa, %115 ]
+  %.not.i159338 = phi i1 [ true, %.thread.i162 ], [ false, %115 ]
+  %.0126.lcssa335 = phi i64 [ 0, %.thread.i162 ], [ %.1127.lcssa, %115 ]
   %122 = phi ptr [ %110, %.thread.i162 ], [ %116, %115 ]
-  tail call void @qsort(ptr noundef %17, i64 noundef %.0126.lcssa331, i64 noundef 16, ptr noundef nonnull @edgecmp) #18
+  tail call void @qsort(ptr noundef %17, i64 noundef %.0126.lcssa335, i64 noundef 16, ptr noundef nonnull @edgecmp) #18
   %123 = load i32, ptr %40, align 8, !tbaa !50
   %124 = add nsw i32 %123, 2
   tail call void @PQgen(i32 noundef %124) #18
@@ -338,7 +338,7 @@ gv_calloc.exit163:                                ; preds = %.thread.i162, %115
   %127 = sext i32 %123 to i64
   %128 = getelementptr %struct.snode, ptr %126, i64 %127
   %129 = getelementptr i8, ptr %128, i64 64
-  br i1 %.not.i159334, label %._crit_edge282, label %.lr.ph281
+  br i1 %.not.i159338, label %._crit_edge282, label %.lr.ph281
 
 .lr.ph281:                                        ; preds = %gv_calloc.exit163
   %130 = getelementptr i8, ptr %128, i64 96
@@ -418,11 +418,11 @@ gv_calloc.exit163:                                ; preds = %.thread.i162, %115
   %.not.i164 = icmp eq ptr %177, %153
   %..i = select i1 %.not.i164, ptr %128, ptr %129
   %178 = tail call ptr @createSEdge(ptr noundef nonnull %40, ptr noundef %..i, ptr noundef nonnull %172, double noundef 0.000000e+00) #18
-  %.pre328 = load i32, ptr %164, align 8, !tbaa !63
+  %.pre332 = load i32, ptr %164, align 8, !tbaa !63
   br label %179
 
 179:                                              ; preds = %.sink.split.i, %168
-  %180 = phi i32 [ %.pre328, %.sink.split.i ], [ %169, %168 ]
+  %180 = phi i32 [ %.pre332, %.sink.split.i ], [ %169, %168 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %181 = sext i32 %180 to i64
   %182 = icmp slt i64 %indvars.iv.next.i, %181
@@ -961,7 +961,7 @@ convertSPtoRoute.exit:                            ; preds = %421, %gv_recalloc.e
   store ptr %.0.i.i266.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !90
   tail call void @reset(ptr noundef nonnull %40) #18
   %423 = add nuw i64 %.0122280, 1
-  %exitcond.not = icmp eq i64 %423, %.0126.lcssa331
+  %exitcond.not = icmp eq i64 %423, %.0126.lcssa335
   br i1 %exitcond.not, label %._crit_edge282, label %135, !llvm.loop !91
 
 ._crit_edge282:                                   ; preds = %convertSPtoRoute.exit, %gv_calloc.exit163
@@ -1041,22 +1041,22 @@ gv_alloc.exit.i:                                  ; preds = %.critedge.i
 .lr.ph285.preheader:                              ; preds = %.lr.ph.i180.preheader
   %459 = load i32, ptr %458, align 8, !tbaa !76
   %460 = and i32 %459, 1
-  %.not37.i385 = icmp eq i32 %460, 0
-  br i1 %.not37.i385, label %.lr.ph386, label %.critedge2.i
+  %.not37.i397 = icmp eq i32 %460, 0
+  br i1 %.not37.i397, label %.lr.ph398, label %.critedge2.i
 
-.lr.ph.i180:                                      ; preds = %.lr.ph386
+.lr.ph.i180:                                      ; preds = %.lr.ph398
   %461 = getelementptr inbounds nuw i8, ptr %470, i64 40
   %462 = load ptr, ptr %461, align 8, !tbaa !71
   %.not36.i = icmp eq ptr %462, null
-  br i1 %.not36.i, label %.critedge2.i, label %.lr.ph285, !llvm.loop !101
+  br i1 %.not36.i, label %.lr.ph.i180..critedge2.i.loopexit_crit_edge, label %.lr.ph285, !llvm.loop !101
 
 .lr.ph285:                                        ; preds = %.lr.ph.i180
   %463 = load i32, ptr %462, align 8, !tbaa !76
   %464 = and i32 %463, 1
   %.not37.i = icmp eq i32 %464, 0
-  br i1 %.not37.i, label %.lr.ph386, label %.critedge2.i, !llvm.loop !101
+  br i1 %.not37.i, label %.lr.ph398, label %.critedge2.i, !llvm.loop !101
 
-.lr.ph386:                                        ; preds = %.lr.ph285.preheader, %.lr.ph285
+.lr.ph398:                                        ; preds = %.lr.ph285.preheader, %.lr.ph285
   %465 = phi i32 [ %463, %.lr.ph285 ], [ %459, %.lr.ph285.preheader ]
   %466 = phi ptr [ %462, %.lr.ph285 ], [ %458, %.lr.ph285.preheader ]
   %467 = or i32 %465, 4
@@ -1065,10 +1065,16 @@ gv_alloc.exit.i:                                  ; preds = %.critedge.i
   %469 = load ptr, ptr %468, align 8, !tbaa !66
   %470 = load ptr, ptr %469, align 8, !tbaa !67
   %.not35.i = icmp eq ptr %470, null
-  br i1 %.not35.i, label %.critedge2.i, label %.lr.ph.i180, !llvm.loop !101
+  br i1 %.not35.i, label %..critedge2.i.loopexit_crit_edge288, label %.lr.ph.i180, !llvm.loop !101
 
-.critedge2.i:                                     ; preds = %.lr.ph386, %.lr.ph285, %.lr.ph.i180, %.lr.ph285.preheader, %.lr.ph.i180.preheader, %gv_alloc.exit.i
-  %.1.lcssa.i = phi ptr [ %.0.i, %gv_alloc.exit.i ], [ %.0.i, %.lr.ph.i180.preheader ], [ %.0.i, %.lr.ph285.preheader ], [ %466, %.lr.ph.i180 ], [ %466, %.lr.ph285 ], [ %466, %.lr.ph386 ]
+..critedge2.i.loopexit_crit_edge288:              ; preds = %.lr.ph398
+  br label %.critedge2.i, !llvm.loop !101
+
+.lr.ph.i180..critedge2.i.loopexit_crit_edge:      ; preds = %.lr.ph.i180
+  br label %.critedge2.i, !llvm.loop !101
+
+.critedge2.i:                                     ; preds = %.lr.ph285, %.lr.ph285.preheader, %.lr.ph.i180..critedge2.i.loopexit_crit_edge, %.lr.ph.i180.preheader, %..critedge2.i.loopexit_crit_edge288, %gv_alloc.exit.i
+  %.1.lcssa.i = phi ptr [ %.0.i, %gv_alloc.exit.i ], [ %466, %..critedge2.i.loopexit_crit_edge288 ], [ %.0.i, %.lr.ph.i180.preheader ], [ %466, %.lr.ph.i180..critedge2.i.loopexit_crit_edge ], [ %.0.i, %.lr.ph285.preheader ], [ %466, %.lr.ph285 ]
   %471 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 88
   %472 = load double, ptr %471, align 8, !tbaa !80
   %473 = getelementptr inbounds nuw i8, ptr %445, i64 24
@@ -1165,22 +1171,22 @@ gv_alloc.exit.i194:                               ; preds = %.critedge.i193
 .lr.ph292.preheader:                              ; preds = %.lr.ph.i196.preheader
   %517 = load i32, ptr %516, align 8, !tbaa !76
   %518 = and i32 %517, 1
-  %.not37.i199389 = icmp eq i32 %518, 0
-  br i1 %.not37.i199389, label %.lr.ph390, label %.critedge2.i200
+  %.not37.i199400 = icmp eq i32 %518, 0
+  br i1 %.not37.i199400, label %.lr.ph401, label %.critedge2.i200
 
-.lr.ph.i196:                                      ; preds = %.lr.ph390
+.lr.ph.i196:                                      ; preds = %.lr.ph401
   %519 = getelementptr inbounds nuw i8, ptr %529, i64 40
   %520 = load ptr, ptr %519, align 8, !tbaa !71
   %.not36.i198 = icmp eq ptr %520, null
-  br i1 %.not36.i198, label %.critedge2.i200, label %.lr.ph292, !llvm.loop !106
+  br i1 %.not36.i198, label %.lr.ph.i196..critedge2.i200.loopexit_crit_edge, label %.lr.ph292, !llvm.loop !106
 
 .lr.ph292:                                        ; preds = %.lr.ph.i196
   %521 = load i32, ptr %520, align 8, !tbaa !76
   %522 = and i32 %521, 1
   %.not37.i199 = icmp eq i32 %522, 0
-  br i1 %.not37.i199, label %.lr.ph390, label %.critedge2.i200, !llvm.loop !106
+  br i1 %.not37.i199, label %.lr.ph401, label %.critedge2.i200, !llvm.loop !106
 
-.lr.ph390:                                        ; preds = %.lr.ph292.preheader, %.lr.ph292
+.lr.ph401:                                        ; preds = %.lr.ph292.preheader, %.lr.ph292
   %523 = phi i32 [ %521, %.lr.ph292 ], [ %517, %.lr.ph292.preheader ]
   %524 = phi ptr [ %520, %.lr.ph292 ], [ %516, %.lr.ph292.preheader ]
   %525 = or i32 %523, 2
@@ -1190,10 +1196,16 @@ gv_alloc.exit.i194:                               ; preds = %.critedge.i193
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 8
   %529 = load ptr, ptr %528, align 8, !tbaa !67
   %.not35.i203 = icmp eq ptr %529, null
-  br i1 %.not35.i203, label %.critedge2.i200, label %.lr.ph.i196, !llvm.loop !106
+  br i1 %.not35.i203, label %..critedge2.i200.loopexit_crit_edge295, label %.lr.ph.i196, !llvm.loop !106
 
-.critedge2.i200:                                  ; preds = %.lr.ph390, %.lr.ph292, %.lr.ph.i196, %.lr.ph292.preheader, %.lr.ph.i196.preheader, %gv_alloc.exit.i194
-  %.1.lcssa.i201 = phi ptr [ %.0.i189, %gv_alloc.exit.i194 ], [ %.0.i189, %.lr.ph.i196.preheader ], [ %.0.i189, %.lr.ph292.preheader ], [ %524, %.lr.ph.i196 ], [ %524, %.lr.ph292 ], [ %524, %.lr.ph390 ]
+..critedge2.i200.loopexit_crit_edge295:           ; preds = %.lr.ph401
+  br label %.critedge2.i200, !llvm.loop !106
+
+.lr.ph.i196..critedge2.i200.loopexit_crit_edge:   ; preds = %.lr.ph.i196
+  br label %.critedge2.i200, !llvm.loop !106
+
+.critedge2.i200:                                  ; preds = %.lr.ph292, %.lr.ph292.preheader, %.lr.ph.i196..critedge2.i200.loopexit_crit_edge, %.lr.ph.i196.preheader, %..critedge2.i200.loopexit_crit_edge295, %gv_alloc.exit.i194
+  %.1.lcssa.i201 = phi ptr [ %.0.i189, %gv_alloc.exit.i194 ], [ %524, %..critedge2.i200.loopexit_crit_edge295 ], [ %.0.i189, %.lr.ph.i196.preheader ], [ %524, %.lr.ph.i196..critedge2.i200.loopexit_crit_edge ], [ %.0.i189, %.lr.ph292.preheader ], [ %524, %.lr.ph292 ]
   %530 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i201, i64 96
   %531 = load double, ptr %530, align 8, !tbaa !79
   %532 = getelementptr inbounds nuw i8, ptr %502, i64 24
@@ -1214,7 +1226,7 @@ gv_alloc.exit.i194:                               ; preds = %.critedge.i193
 extractVChans.exit:                               ; preds = %535, %extractHChans.exit
   %539 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store ptr %482, ptr %539, align 8, !tbaa !108
-  br i1 %.not.i159334, label %assignSegs.exit, label %.lr.ph19.i
+  br i1 %.not.i159338, label %assignSegs.exit, label %.lr.ph19.i
 
 .lr.ph19.i:                                       ; preds = %extractVChans.exit, %._crit_edge.i209
   %.01517.i = phi i64 [ %541, %._crit_edge.i209 ], [ 0, %extractVChans.exit ]
@@ -1227,7 +1239,7 @@ extractVChans.exit:                               ; preds = %535, %extractHChans
 
 ._crit_edge.i209:                                 ; preds = %insertChan.exit.i, %.lr.ph19.i
   %541 = add nuw i64 %.01517.i, 1
-  %exitcond22.not.i = icmp eq i64 %541, %.0126.lcssa331
+  %exitcond22.not.i = icmp eq i64 %541, %.0126.lcssa335
   br i1 %exitcond22.not.i, label %assignSegs.exit, label %.lr.ph19.i, !llvm.loop !109
 
 .lr.ph.i206:                                      ; preds = %.lr.ph19.i, %insertChan.exit.i
@@ -1436,7 +1448,7 @@ create_graphs.exit23.i:                           ; preds = %._crit_edge.i21.i, 
   br label %643
 
 .preheader.i214:                                  ; preds = %643, %634
-  br i1 %.not.i159334, label %._crit_edge.i218, label %.lr.ph67.i
+  br i1 %.not.i159338, label %._crit_edge.i218, label %.lr.ph67.i
 
 643:                                              ; preds = %643, %.lr.ph.i223
   %indvars.iv.i224 = phi i64 [ 0, %.lr.ph.i223 ], [ %indvars.iv.next.i225, %643 ]
@@ -1752,7 +1764,7 @@ emitEdge.exit.i:                                  ; preds = %833, %810
   %862 = tail call double @llvm.maxnum.f64(double %731, double %.3.i.i)
   %863 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %635, ptr noundef nonnull @.str.36, double noundef %.362.i.i, double noundef %.3.i.i) #20, !noalias !131
   %864 = add nuw i64 %.03466.i, 1
-  %exitcond.not.i217 = icmp eq i64 %864, %.0126.lcssa331
+  %exitcond.not.i217 = icmp eq i64 %864, %.0126.lcssa335
   br i1 %exitcond.not.i217, label %._crit_edge.i218, label %.lr.ph67.i, !llvm.loop !136
 
 865:                                              ; preds = %865, %.lr.ph77.i
@@ -1794,7 +1806,7 @@ emitGraph.exit:                                   ; preds = %865, %._crit_edge.i
   br label %881
 
 881:                                              ; preds = %emitGraph.exit, %629
-  br i1 %.not.i159334, label %attachOrthoEdges.exit, label %.lr.ph13.i
+  br i1 %.not.i159338, label %attachOrthoEdges.exit, label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %881, %1116
   %.08511.i = phi ptr [ %.1.i, %1116 ], [ null, %881 ]
@@ -2133,7 +2145,7 @@ gv_calloc.exit.i228:                              ; preds = %930, %.lr.ph13.i
   %1122 = load ptr, ptr %1121, align 8, !tbaa !39
   tail call void @clip_and_install(ptr noundef nonnull %883, ptr noundef %1122, ptr noundef nonnull %.1.i, i64 noundef %924, ptr noundef nonnull @sinfo) #18
   %1123 = add nuw i64 %.0889.i, 1
-  %exitcond22.not.i231 = icmp eq i64 %1123, %.0126.lcssa331
+  %exitcond22.not.i231 = icmp eq i64 %1123, %.0126.lcssa335
   br i1 %exitcond22.not.i231, label %attachOrthoEdges.exit, label %.lr.ph13.i, !llvm.loop !140
 
 attachOrthoEdges.exit:                            ; preds = %1116, %881
@@ -2151,7 +2163,7 @@ assignTracks.exit.thread:                         ; preds = %214, %626, %623, %6
   br label %1127
 
 1127:                                             ; preds = %1126, %assignTracks.exit.thread
-  br i1 %.not.i159334, label %._crit_edge300, label %.lr.ph299
+  br i1 %.not.i159338, label %._crit_edge300, label %.lr.ph299
 
 ._crit_edge300:                                   ; preds = %.lr.ph299, %1127
   tail call void @free(ptr noundef %122) #18
@@ -2165,8 +2177,8 @@ assignTracks.exit.thread:                         ; preds = %214, %626, %623, %6
   %1129 = load ptr, ptr %1128, align 8, !tbaa !141
   tail call void @free(ptr noundef %1129) #18
   %1130 = add nuw i64 %.0297, 1
-  %exitcond327.not = icmp eq i64 %1130, %.0126.lcssa331
-  br i1 %exitcond327.not, label %._crit_edge300, label %.lr.ph299, !llvm.loop !143
+  %exitcond331.not = icmp eq i64 %1130, %.0126.lcssa335
+  br i1 %exitcond331.not, label %._crit_edge300, label %.lr.ph299, !llvm.loop !143
 }
 
 declare i32 @agnedges(ptr noundef) local_unnamed_addr #1

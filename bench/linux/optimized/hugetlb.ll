@@ -15013,7 +15013,7 @@ define internal fastcc noundef i64 @__nr_hugepages_store_common(i1 noundef zeroe
 ._crit_edge:                                      ; preds = %64
   %.pre = load i64, ptr %56, align 8
   %.pre13 = load i64, ptr %57, align 8
-  br label %split
+  br label %split, !llvm.loop !155
 
 split:                                            ; preds = %61, %58, %._crit_edge
   %67 = phi i64 [ %.pre13, %._crit_edge ], [ %59, %61 ], [ 0, %58 ]

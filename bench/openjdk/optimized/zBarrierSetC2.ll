@@ -2130,7 +2130,7 @@ define hidden void @_ZNK13ZBarrierSetC232analyze_dominating_barriers_implER9Node
   br label %27
 
 27:                                               ; preds = %.lr.ph138, %.loopexit126
-  %.0137 = phi i32 [ 0, %.lr.ph138 ], [ %346, %.loopexit126 ]
+  %.0137 = phi i32 [ 0, %.lr.ph138 ], [ %347, %.loopexit126 ]
   %28 = load ptr, ptr %19, align 8
   %29 = zext i32 %.0137 to i64
   %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
@@ -2619,6 +2619,9 @@ _ZNK5Block8get_nodeEj.exit.i.i:                   ; preds = %257, %_ZNK5Block8ge
   %.not68168 = icmp eq i32 %266, 0
   br i1 %.not68168, label %.critedge, label %.lr.ph169
 
+..loopexit_crit_edge:                             ; preds = %_ZN10Block_List4pushEP5Block.exit109
+  br label %.backedge, !llvm.loop !18
+
 .lr.ph169:                                        ; preds = %.lr.ph134.preheader, %.backedge
   %267 = phi i32 [ %286, %.backedge ], [ %266, %.lr.ph134.preheader ]
   %268 = load ptr, ptr %24, align 8
@@ -2651,7 +2654,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %.lr.ph169, %277
   %.not119 = icmp eq i32 %285, 0
   br i1 %.not119, label %287, label %.backedge
 
-.backedge:                                        ; preds = %_ZN10Block_List4pushEP5Block.exit109, %.preheader, %_ZN9VectorSet8test_setEj.exit, %.loopexit120
+.backedge:                                        ; preds = %.preheader, %..loopexit_crit_edge, %_ZN9VectorSet8test_setEj.exit, %.loopexit120
   %286 = load i32, ptr %25, align 8
   %.not68 = icmp eq i32 %286, 0
   br i1 %.not68, label %.critedge, label %.lr.ph169
@@ -2705,84 +2708,87 @@ _ZNK5Block8get_nodeEj.exit.i.i101:                ; preds = %295, %_ZNK5Block8ge
   %312 = icmp ugt i32 %311, 1
   br i1 %312, label %.lr.ph, label %.backedge, !llvm.loop !18
 
-.lr.ph:                                           ; preds = %.preheader, %_ZN10Block_List4pushEP5Block.exit109
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10Block_List4pushEP5Block.exit109 ], [ 1, %.preheader ]
-  %313 = phi ptr [ %333, %_ZN10Block_List4pushEP5Block.exit109 ], [ %309, %.preheader ]
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
-  %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds nuw ptr, ptr %315, i64 %indvars.iv
-  %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds nuw i8, ptr %317, i64 40
-  %319 = load i32, ptr %318, align 8
-  %320 = load ptr, ptr %20, align 8
-  %321 = zext i32 %319 to i64
-  %322 = getelementptr inbounds nuw ptr, ptr %320, i64 %321
-  %323 = load ptr, ptr %322, align 8
-  %324 = load i32, ptr %25, align 8
-  %325 = add i32 %324, 1
-  store i32 %325, ptr %25, align 8
-  %326 = load i32, ptr %7, align 8
-  %.not.i.i108 = icmp ult i32 %324, %326
-  br i1 %.not.i.i108, label %_ZN10Block_List4pushEP5Block.exit109, label %327
+.lr.ph:                                           ; preds = %.preheader
+  br label %313, !llvm.loop !18
 
-327:                                              ; preds = %.lr.ph
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %7, i32 noundef %324) #15
+313:                                              ; preds = %.lr.ph, %_ZN10Block_List4pushEP5Block.exit109
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZN10Block_List4pushEP5Block.exit109 ]
+  %314 = phi ptr [ %309, %.lr.ph ], [ %334, %_ZN10Block_List4pushEP5Block.exit109 ]
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
+  %316 = load ptr, ptr %315, align 8
+  %317 = getelementptr inbounds nuw ptr, ptr %316, i64 %indvars.iv
+  %318 = load ptr, ptr %317, align 8
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 40
+  %320 = load i32, ptr %319, align 8
+  %321 = load ptr, ptr %20, align 8
+  %322 = zext i32 %320 to i64
+  %323 = getelementptr inbounds nuw ptr, ptr %321, i64 %322
+  %324 = load ptr, ptr %323, align 8
+  %325 = load i32, ptr %25, align 8
+  %326 = add i32 %325, 1
+  store i32 %326, ptr %25, align 8
+  %327 = load i32, ptr %7, align 8
+  %.not.i.i108 = icmp ult i32 %325, %327
+  br i1 %.not.i.i108, label %_ZN10Block_List4pushEP5Block.exit109, label %328
+
+328:                                              ; preds = %313
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %7, i32 noundef %325) #15
   br label %_ZN10Block_List4pushEP5Block.exit109
 
-_ZN10Block_List4pushEP5Block.exit109:             ; preds = %.lr.ph, %327
-  %328 = load ptr, ptr %24, align 8
-  %329 = zext i32 %324 to i64
-  %330 = getelementptr inbounds nuw ptr, ptr %328, i64 %329
-  store ptr %323, ptr %330, align 8
+_ZN10Block_List4pushEP5Block.exit109:             ; preds = %313, %328
+  %329 = load ptr, ptr %24, align 8
+  %330 = zext i32 %325 to i64
+  %331 = getelementptr inbounds nuw ptr, ptr %329, i64 %330
+  store ptr %324, ptr %331, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %331 = load i32, ptr %305, align 8
-  %.not.i.i106 = icmp ne i32 %331, 0
+  %332 = load i32, ptr %305, align 8
+  %.not.i.i106 = icmp ne i32 %332, 0
   call void @llvm.assume(i1 %.not.i.i106)
-  %332 = load ptr, ptr %306, align 8
-  %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 24
-  %335 = load i32, ptr %334, align 8
-  %336 = zext i32 %335 to i64
-  %337 = icmp samesign ult i64 %indvars.iv.next, %336
-  br i1 %337, label %.lr.ph, label %.backedge, !llvm.loop !19
+  %333 = load ptr, ptr %306, align 8
+  %334 = load ptr, ptr %333, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 24
+  %336 = load i32, ptr %335, align 8
+  %337 = zext i32 %336 to i64
+  %338 = icmp samesign ult i64 %indvars.iv.next, %337
+  br i1 %338, label %313, label %..loopexit_crit_edge, !llvm.loop !19
 
 .critedge:                                        ; preds = %.backedge, %.lr.ph134.preheader
   store i8 32, ptr %60, align 4
   br label %.critedge69
 
 .critedge69:                                      ; preds = %_ZNK5Block8get_nodeEj.exit.i.i, %_ZNK5Block8get_nodeEj.exit.i.i101, %.critedge
-  %338 = load ptr, ptr %229, align 8
-  %.not.i.i.i.i110 = icmp eq ptr %338, null
-  br i1 %.not.i.i.i.i110, label %340, label %339
+  %339 = load ptr, ptr %229, align 8
+  %.not.i.i.i.i110 = icmp eq ptr %339, null
+  br i1 %.not.i.i.i.i110, label %341, label %340
 
-339:                                              ; preds = %.critedge69
+340:                                              ; preds = %.critedge69
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %227, i64 noundef %235) #15
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %229) #15
-  br label %340
+  br label %341
 
-340:                                              ; preds = %339, %.critedge69
-  %341 = load ptr, ptr %230, align 8
-  %.not8.i.i.i.i = icmp eq ptr %341, %231
-  br i1 %.not8.i.i.i.i, label %_ZL19block_has_safepointPK5Blockjj.exit, label %342
+341:                                              ; preds = %340, %.critedge69
+  %342 = load ptr, ptr %230, align 8
+  %.not8.i.i.i.i = icmp eq ptr %342, %231
+  br i1 %.not8.i.i.i.i, label %_ZL19block_has_safepointPK5Blockjj.exit, label %343
 
-342:                                              ; preds = %340
+343:                                              ; preds = %341
   store ptr %229, ptr %228, align 8
   store ptr %231, ptr %230, align 8
   store ptr %233, ptr %232, align 8
   br label %_ZL19block_has_safepointPK5Blockjj.exit
 
-_ZL19block_has_safepointPK5Blockjj.exit:          ; preds = %.preheader123, %._crit_edge.i73, %_ZNK5Block8get_nodeEj.exit.i85, %213, %342, %340, %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread, %.loopexit121, %198, %_ZN5Block9dominatesEPS_.exit, %166, %170, %69
+_ZL19block_has_safepointPK5Blockjj.exit:          ; preds = %.preheader123, %._crit_edge.i73, %_ZNK5Block8get_nodeEj.exit.i85, %213, %343, %341, %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread, %.loopexit121, %198, %_ZN5Block9dominatesEPS_.exit, %166, %170, %69
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
-  %343 = load i32, ptr %21, align 8
-  %344 = zext i32 %343 to i64
-  %345 = icmp samesign ult i64 %indvars.iv.next151, %344
-  br i1 %345, label %61, label %.loopexit126, !llvm.loop !20
+  %344 = load i32, ptr %21, align 8
+  %345 = zext i32 %344 to i64
+  %346 = icmp samesign ult i64 %indvars.iv.next151, %345
+  br i1 %346, label %61, label %.loopexit126, !llvm.loop !20
 
 .loopexit126:                                     ; preds = %_ZL19block_has_safepointPK5Blockjj.exit, %_ZL11block_indexPK5BlockPK4Node.exit
-  %346 = add nuw i32 %.0137, 1
-  %347 = load i32, ptr %10, align 8
-  %348 = icmp ult i32 %346, %347
-  br i1 %348, label %27, label %._crit_edge, !llvm.loop !21
+  %347 = add nuw i32 %.0137, 1
+  %348 = load i32, ptr %10, align 8
+  %349 = icmp ult i32 %347, %348
+  br i1 %349, label %27, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.loopexit126, %3
   ret void

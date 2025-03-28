@@ -892,11 +892,14 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit167: ; preds = %326, %
   %363 = load i64, ptr %362, align 8, !tbaa !59
   %364 = urem i64 %363, %340
   %.not19.i.i.i.i = icmp eq i64 %364, %341
-  br i1 %.not19.i.i.i.i, label %354, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit, !llvm.loop !61
+  br i1 %.not19.i.i.i.i, label %354, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !61
 
-_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit: ; preds = %361, %.lr.ph.i.i.i.i, %354, %334, %333, %345, %.noexc170
-  %365 = phi ptr [ %.pre588, %.noexc170 ], [ %.pre588, %345 ], [ %332, %333 ], [ %332, %334 ], [ %.pre588, %354 ], [ %.pre588, %.lr.ph.i.i.i.i ], [ %.pre588, %361 ]
-  %.sroa.06.1.i.i = phi ptr [ null, %.noexc170 ], [ %346, %345 ], [ %.sroa.06.0.i.i, %334 ], [ null, %333 ], [ null, %361 ], [ null, %.lr.ph.i.i.i.i ], [ %360, %354 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %361
+  br label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit, !llvm.loop !61
+
+_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit: ; preds = %.lr.ph.i.i.i.i, %354, %334, %333, %..loopexit_crit_edge21.i.i.i.i, %345, %.noexc170
+  %365 = phi ptr [ %.pre588, %.noexc170 ], [ %.pre588, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre588, %345 ], [ %332, %333 ], [ %332, %334 ], [ %.pre588, %354 ], [ %.pre588, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ null, %.noexc170 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %346, %345 ], [ %.sroa.06.0.i.i, %334 ], [ null, %333 ], [ null, %.lr.ph.i.i.i.i ], [ %360, %354 ]
   %366 = load i64, ptr %365, align 8
   %367 = and i64 %366, 1152920405095219200
   %.not.i.i171 = icmp eq i64 %367, 1152920405095219200
@@ -4796,9 +4799,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %32 = load i64, ptr %31, align 8, !tbaa !59
   %33 = urem i64 %32, %8
   %.not19.i.i = icmp eq i64 %33, %9
-  br i1 %.not19.i.i, label %23, label %.loopexit, !llvm.loop !61
+  br i1 %.not19.i.i, label %23, label %..loopexit_crit_edge21.i.i, !llvm.loop !61
 
-.loopexit:                                        ; preds = %30, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %30
+  br label %.loopexit, !llvm.loop !61
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   store ptr %1, ptr %4, align 8, !tbaa !80, !alias.scope !127

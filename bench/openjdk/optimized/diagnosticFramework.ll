@@ -1419,8 +1419,8 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
 
 9:                                                ; preds = %5
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
-  %.not44 = icmp eq i64 %10, 0
-  br i1 %.not44, label %.loopexit, label %.lr.ph
+  %.not45 = icmp eq i64 %10, 0
+  br i1 %.not45, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %11 = icmp eq i32 %0, 4
@@ -1439,12 +1439,12 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
   br label %.loopexit
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.backedge
-  %.sroa.7.04046 = phi i64 [ 0, %.lr.ph ], [ %53, %.backedge ]
+  %.sroa.7.04150 = phi i64 [ 0, %.lr.ph ], [ %53, %.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   br label %21
 
 21:                                               ; preds = %24, %.lr.ph.i
-  %.05.i = phi i64 [ %.sroa.7.04046, %.lr.ph.i ], [ %25, %24 ]
+  %.05.i = phi i64 [ %.sroa.7.04150, %.lr.ph.i ], [ %25, %24 ]
   %22 = getelementptr inbounds i8, ptr %2, i64 %.05.i
   %23 = load i8, ptr %22, align 1, !noalias !33
   %.not.i = icmp eq i8 %23, 10
@@ -1457,8 +1457,8 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
 
 .critedge.i:                                      ; preds = %24, %21
   %.0.lcssa.i = phi i64 [ %10, %24 ], [ %.05.i, %21 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.04046
-  %27 = sub i64 %.0.lcssa.i, %.sroa.7.04046
+  %26 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.04150
+  %27 = sub i64 %.0.lcssa.i, %.sroa.7.04150
   store ptr %26, ptr %6, align 8, !alias.scope !33
   %28 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa.i
   %29 = icmp sgt i64 %27, 0
@@ -1482,10 +1482,13 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
   %36 = phi ptr [ %37, %.lr.ph.i.i ], [ %26, %.lr.ph.i.preheader.i ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %38 = icmp ult ptr %37, %28
-  br i1 %38, label %.lr.ph.i.i, label %.critedge.i.loopexit.i, !llvm.loop !6
+  br i1 %38, label %.lr.ph.i.i, label %..critedge.i.loopexit_crit_edge.i, !llvm.loop !6
 
-.critedge.i.loopexit.i:                           ; preds = %.lr.ph9.i, %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %39 = phi ptr [ %26, %.lr.ph.i.preheader.i ], [ %37, %.lr.ph.i.i ], [ %37, %.lr.ph9.i ]
+..critedge.i.loopexit_crit_edge.i:                ; preds = %.lr.ph9.i
+  br label %.critedge.i.loopexit.i, !llvm.loop !6
+
+.critedge.i.loopexit.i:                           ; preds = %.lr.ph.i.i, %..critedge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i
+  %39 = phi ptr [ %37, %..critedge.i.loopexit_crit_edge.i ], [ %26, %.lr.ph.i.preheader.i ], [ %37, %.lr.ph.i.i ]
   store ptr %39, ptr %6, align 8, !alias.scope !33
   br label %.critedge.i.i
 
@@ -1664,12 +1667,12 @@ _ZN8DCmdMarkD2Ev.exit:                            ; preds = %113, %106, %93
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %116, %118
   %switch = icmp eq i32 %.0, 0
   %119 = icmp ult i64 %53, %10
-  %or.cond43 = and i1 %switch, %119
-  br i1 %or.cond43, label %.backedge, label %.loopexit
+  %or.cond44 = and i1 %switch, %119
+  br i1 %or.cond44, label %.backedge, label %.loopexit
 
 120:                                              ; preds = %_ZNK7CmdLine13is_executableEv.exit
-  %.old42 = icmp ult i64 %53, %10
-  br i1 %.old42, label %.backedge, label %.loopexit
+  %.old43 = icmp ult i64 %53, %10
+  br i1 %.old43, label %.backedge, label %.loopexit
 
 .backedge:                                        ; preds = %120, %_ZN12ResourceMarkD2Ev.exit
   br i1 %11, label %19, label %.lr.ph.i, !llvm.loop !37

@@ -6524,7 +6524,7 @@ define hidden ptr @hwloc_find_insert_io_parent_by_complete_cpuset(ptr noundef %0
 .hwloc_get_highest_obj_covering_complete_cpuset.exit.loopexit_crit_edge: ; preds = %23
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.01733.i, i64 192
   %.pre.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !54
-  br label %hwloc_get_highest_obj_covering_complete_cpuset.exit
+  br label %hwloc_get_highest_obj_covering_complete_cpuset.exit, !llvm.loop !184
 
 hwloc_get_highest_obj_covering_complete_cpuset.exit: ; preds = %.loopexit.i, %15, %.hwloc_get_highest_obj_covering_complete_cpuset.exit.loopexit_crit_edge, %8, %.preheader.i
   %25 = phi ptr [ %11, %8 ], [ %11, %.preheader.i ], [ %.pre.pre, %.hwloc_get_highest_obj_covering_complete_cpuset.exit.loopexit_crit_edge ], [ %17, %15 ], [ %17, %.loopexit.i ]
@@ -6832,7 +6832,7 @@ hwloc__object_cpusets_compare_first.exit.us:      ; preds = %.lr.ph.split.us.spl
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %21 = load ptr, ptr %20, align 8, !tbaa !50
   %.not16.us = icmp eq ptr %21, null
-  br i1 %.not16.us, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !185
+  br i1 %.not16.us, label %..critedge.loopexit_crit_edge, label %.lr.ph.split.us.split, !llvm.loop !185
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %22 = phi ptr [ %37, %35 ], [ %4, %.lr.ph ]
@@ -6872,9 +6872,12 @@ hwloc__object_cpusets_compare_first.exit:         ; preds = %25, %32
   %.not16 = icmp eq ptr %37, null
   br i1 %.not16, label %.critedge, label %.lr.ph.split, !llvm.loop !185
 
-.critedge:                                        ; preds = %hwloc__object_cpusets_compare_first.exit, %35, %27, %29, %.lr.ph.split.us.split, %19, %hwloc__object_cpusets_compare_first.exit.us, %.lr.ph.split.us.split.preheader, %.lr.ph.split.us, %.lr.ph40
-  %.014.lcssa = phi ptr [ %2, %.lr.ph40 ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us.split.preheader ], [ %.01419.us51, %hwloc__object_cpusets_compare_first.exit.us ], [ %20, %19 ], [ %20, %.lr.ph.split.us.split ], [ %.01419, %29 ], [ %.01419, %27 ], [ %36, %35 ], [ %.01419, %hwloc__object_cpusets_compare_first.exit ]
-  %.lcssa = phi ptr [ null, %.lr.ph40 ], [ %4, %.lr.ph.split.us ], [ %4, %.lr.ph.split.us.split.preheader ], [ %16, %hwloc__object_cpusets_compare_first.exit.us ], [ null, %19 ], [ %21, %.lr.ph.split.us.split ], [ %22, %29 ], [ %22, %27 ], [ null, %35 ], [ %22, %hwloc__object_cpusets_compare_first.exit ]
+..critedge.loopexit_crit_edge:                    ; preds = %19
+  br label %.critedge, !llvm.loop !185
+
+.critedge:                                        ; preds = %hwloc__object_cpusets_compare_first.exit, %35, %27, %29, %.lr.ph.split.us.split, %hwloc__object_cpusets_compare_first.exit.us, %.lr.ph.split.us.split.preheader, %..critedge.loopexit_crit_edge, %.lr.ph.split.us, %.lr.ph40
+  %.014.lcssa = phi ptr [ %2, %.lr.ph40 ], [ %2, %.lr.ph.split.us ], [ %20, %..critedge.loopexit_crit_edge ], [ %2, %.lr.ph.split.us.split.preheader ], [ %.01419.us51, %hwloc__object_cpusets_compare_first.exit.us ], [ %20, %.lr.ph.split.us.split ], [ %.01419, %29 ], [ %.01419, %27 ], [ %36, %35 ], [ %.01419, %hwloc__object_cpusets_compare_first.exit ]
+  %.lcssa = phi ptr [ null, %.lr.ph40 ], [ %4, %.lr.ph.split.us ], [ null, %..critedge.loopexit_crit_edge ], [ %4, %.lr.ph.split.us.split.preheader ], [ %16, %hwloc__object_cpusets_compare_first.exit.us ], [ %21, %.lr.ph.split.us.split ], [ %22, %29 ], [ %22, %27 ], [ null, %35 ], [ %22, %hwloc__object_cpusets_compare_first.exit ]
   store ptr %.lcssa, ptr %5, align 8, !tbaa !56
   store ptr %.039, ptr %.014.lcssa, align 8, !tbaa !50
   %.not = icmp eq ptr %6, null
@@ -10611,14 +10614,14 @@ define internal fastcc void @hwloc_debug_sort_children(ptr noundef captures(none
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8, !tbaa !50
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %25, label %.preheader32
+  br i1 %.not, label %26, label %.preheader32
 
 thread-pre-split:                                 ; preds = %.preheader32, %hwloc_debug_insert_osdev_sorted.exit
   %.024.ph = phi ptr [ %.0..0..0..0..0..0..i, %hwloc_debug_insert_osdev_sorted.exit ], [ %.02437, %.preheader32 ]
   %.0.ph = phi ptr [ %.038, %hwloc_debug_insert_osdev_sorted.exit ], [ %7, %.preheader32 ]
   %.pr = load ptr, ptr %.0.ph, align 8, !tbaa !50
   %.not27 = icmp eq ptr %.pr, null
-  br i1 %.not27, label %24, label %.preheader32
+  br i1 %.not27, label %25, label %.preheader32
 
 .preheader32:                                     ; preds = %1, %thread-pre-split
   %.038 = phi ptr [ %.0.ph, %thread-pre-split ], [ %3, %1 ]
@@ -10659,43 +10662,46 @@ thread-pre-split:                                 ; preds = %.preheader32, %hwlo
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %.pr.i = load ptr, ptr %22, align 8, !tbaa !50
   %.not.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i, label %hwloc_debug_insert_osdev_sorted.exit.loopexit, label %16, !llvm.loop !243
+  br i1 %.not.i, label %.hwloc_debug_insert_osdev_sorted.exit.loopexit_crit_edge, label %16, !llvm.loop !243
 
-hwloc_debug_insert_osdev_sorted.exit.loopexit:    ; preds = %16, %.lr.ph
-  %.lcssa.i.ph = phi ptr [ null, %.lr.ph ], [ %.pr.i, %16 ]
+.hwloc_debug_insert_osdev_sorted.exit.loopexit_crit_edge: ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 88
+  br label %hwloc_debug_insert_osdev_sorted.exit, !llvm.loop !243
+
+hwloc_debug_insert_osdev_sorted.exit.loopexit:    ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 88
   br label %hwloc_debug_insert_osdev_sorted.exit
 
-hwloc_debug_insert_osdev_sorted.exit:             ; preds = %hwloc_debug_insert_osdev_sorted.exit.loopexit, %.lr.ph.i, %8
-  %.lcssa.i = phi ptr [ null, %8 ], [ %.02437, %.lr.ph.i ], [ %.lcssa.i.ph, %hwloc_debug_insert_osdev_sorted.exit.loopexit ]
-  %.0.lcssa.i = phi ptr [ %2, %8 ], [ %2, %.lr.ph.i ], [ %23, %hwloc_debug_insert_osdev_sorted.exit.loopexit ]
+hwloc_debug_insert_osdev_sorted.exit:             ; preds = %hwloc_debug_insert_osdev_sorted.exit.loopexit, %.lr.ph.i, %.hwloc_debug_insert_osdev_sorted.exit.loopexit_crit_edge, %8
+  %.lcssa.i = phi ptr [ null, %8 ], [ null, %.hwloc_debug_insert_osdev_sorted.exit.loopexit_crit_edge ], [ %.02437, %.lr.ph.i ], [ %.pr.i, %hwloc_debug_insert_osdev_sorted.exit.loopexit ]
+  %.0.lcssa.i = phi ptr [ %2, %8 ], [ %23, %.hwloc_debug_insert_osdev_sorted.exit.loopexit_crit_edge ], [ %2, %.lr.ph.i ], [ %24, %hwloc_debug_insert_osdev_sorted.exit.loopexit ]
   store ptr %.lcssa.i, ptr %7, align 8, !tbaa !56
   store ptr %5, ptr %.0.lcssa.i, align 8, !tbaa !50
   %.0..0..0..0..0..0..i = load ptr, ptr %2, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %thread-pre-split, !llvm.loop !242
 
-24:                                               ; preds = %thread-pre-split
+25:                                               ; preds = %thread-pre-split
   store ptr %.024.ph, ptr %.0.ph, align 8, !tbaa !50
-  br label %25
+  br label %26
 
-25:                                               ; preds = %24, %1
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %.02539 = load ptr, ptr %26, align 8, !tbaa !50
+26:                                               ; preds = %25, %1
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %.02539 = load ptr, ptr %27, align 8, !tbaa !50
   %.not2840 = icmp eq ptr %.02539, null
   br i1 %.not2840, label %._crit_edge, label %.lr.ph42
 
-.lr.ph42:                                         ; preds = %25, %.lr.ph42
-  %.02541 = phi ptr [ %.025, %.lr.ph42 ], [ %.02539, %25 ]
+.lr.ph42:                                         ; preds = %26, %.lr.ph42
+  %.02541 = phi ptr [ %.025, %.lr.ph42 ], [ %.02539, %26 ]
   tail call fastcc void @hwloc_debug_sort_children(ptr noundef nonnull %.02541)
-  %27 = getelementptr inbounds nuw i8, ptr %.02541, i64 88
-  %.025 = load ptr, ptr %27, align 8, !tbaa !50
+  %28 = getelementptr inbounds nuw i8, ptr %.02541, i64 88
+  %.025 = load ptr, ptr %28, align 8, !tbaa !50
   %.not28 = icmp eq ptr %.025, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph42, !llvm.loop !244
 
-._crit_edge:                                      ; preds = %.lr.ph42, %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %.143 = load ptr, ptr %28, align 8, !tbaa !50
+._crit_edge:                                      ; preds = %.lr.ph42, %26
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %.143 = load ptr, ptr %29, align 8, !tbaa !50
   %.not2944 = icmp eq ptr %.143, null
   br i1 %.not2944, label %.preheader, label %.lr.ph47
 
@@ -10707,16 +10713,16 @@ hwloc_debug_insert_osdev_sorted.exit:             ; preds = %hwloc_debug_insert_
 .lr.ph47:                                         ; preds = %._crit_edge, %.lr.ph47
   %.145 = phi ptr [ %.1, %.lr.ph47 ], [ %.143, %._crit_edge ]
   tail call fastcc void @hwloc_debug_sort_children(ptr noundef nonnull %.145)
-  %29 = getelementptr inbounds nuw i8, ptr %.145, i64 88
-  %.1 = load ptr, ptr %29, align 8, !tbaa !50
+  %30 = getelementptr inbounds nuw i8, ptr %.145, i64 88
+  %.1 = load ptr, ptr %30, align 8, !tbaa !50
   %.not29 = icmp eq ptr %.1, null
   br i1 %.not29, label %.preheader, label %.lr.ph47, !llvm.loop !245
 
 .lr.ph51:                                         ; preds = %.preheader, %.lr.ph51
   %.250 = phi ptr [ %.2, %.lr.ph51 ], [ %.248, %.preheader ]
   tail call fastcc void @hwloc_debug_sort_children(ptr noundef nonnull %.250)
-  %30 = getelementptr inbounds nuw i8, ptr %.250, i64 88
-  %.2 = load ptr, ptr %30, align 8, !tbaa !50
+  %31 = getelementptr inbounds nuw i8, ptr %.250, i64 88
+  %.2 = load ptr, ptr %31, align 8, !tbaa !50
   %.not30 = icmp eq ptr %.2, null
   br i1 %.not30, label %._crit_edge52, label %.lr.ph51, !llvm.loop !246
 

@@ -21587,7 +21587,7 @@ define hidden nonnull ptr @proto_custom_set(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not483811, label %..outer374._crit_edge_crit_edge, label %.lr.ph486.lr.ph
 
 ..outer374._crit_edge_crit_edge:                  ; preds = %7
-  %.pre1030 = add i32 %6, -1
+  %.pre1031 = add i32 %6, -1
   br label %.outer374._crit_edge
 
 .lr.ph486.lr.ph:                                  ; preds = %7
@@ -21600,10 +21600,22 @@ define hidden nonnull ptr @proto_custom_set(ptr noundef %0, ptr noundef %1, i32 
   %spec.select818 = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 1)
   br label %.lr.ph486
 
-.loopexit:                                        ; preds = %493, %492, %proto_get_finfo_ptr_array.exit.thread.us588, %proto_get_finfo_ptr_array.exit.thread.us520, %247, %.lr.ph505.split.us.split, %.lr.ph505.split.us, %hfinfo_same_name_get_prev.exit342, %proto_get_finfo_ptr_array.exit.thread, %proto_get_finfo_ptr_array.exit.thread.us
-  %.7267.ph.lcssa461 = phi i32 [ %.7267.ph806, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.7267.ph806, %proto_get_finfo_ptr_array.exit.thread ], [ %.7267.ph806, %hfinfo_same_name_get_prev.exit342 ], [ %.7267.ph806, %.lr.ph505.split.us ], [ %.7267.ph806, %.lr.ph505.split.us.split ], [ %.7267.ph806, %247 ], [ %.7267.ph806, %proto_get_finfo_ptr_array.exit.thread.us520 ], [ %.7267.ph806, %proto_get_finfo_ptr_array.exit.thread.us588 ], [ %.8268.lcssa, %492 ], [ %.8268.lcssa, %493 ]
-  %.6.ph.lcssa451 = phi i32 [ %.6.ph807, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.6.ph807, %proto_get_finfo_ptr_array.exit.thread ], [ %.6.ph807, %hfinfo_same_name_get_prev.exit342 ], [ %.6.ph807, %.lr.ph505.split.us ], [ %.6.ph807, %.lr.ph505.split.us.split ], [ %.6.ph807, %247 ], [ %.6.ph807, %proto_get_finfo_ptr_array.exit.thread.us520 ], [ %.6.ph807, %proto_get_finfo_ptr_array.exit.thread.us588 ], [ %.7.lcssa, %492 ], [ %.7.lcssa, %493 ]
-  %.1.ph.lcssa441 = phi ptr [ %.1.ph809, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.1.ph809, %proto_get_finfo_ptr_array.exit.thread ], [ %.1.ph809, %hfinfo_same_name_get_prev.exit342 ], [ %.1.ph809, %.lr.ph505.split.us ], [ %.1.ph809, %.lr.ph505.split.us.split ], [ %.1.ph809, %247 ], [ %.1.ph809, %proto_get_finfo_ptr_array.exit.thread.us520 ], [ %.1.ph809, %proto_get_finfo_ptr_array.exit.thread.us588 ], [ %.2, %492 ], [ %.2, %493 ]
+.outer369..outer369..loopexit_crit_edge_crit_edge: ; preds = %247, %hfinfo_same_name_get_prev.exit342
+  br label %.outer369..loopexit_crit_edge, !llvm.loop !26
+
+.outer369..loopexit_crit_edge:                    ; preds = %493, %492, %.outer369..outer369..loopexit_crit_edge_crit_edge
+  %split506 = phi i32 [ %.7267.ph806, %.outer369..outer369..loopexit_crit_edge_crit_edge ], [ %.8268.lcssa, %492 ], [ %.8268.lcssa, %493 ]
+  %split507 = phi i32 [ %.6.ph807, %.outer369..outer369..loopexit_crit_edge_crit_edge ], [ %.7.lcssa, %492 ], [ %.7.lcssa, %493 ]
+  %split508 = phi ptr [ %.1.ph809, %.outer369..outer369..loopexit_crit_edge_crit_edge ], [ %.2, %492 ], [ %.2, %493 ]
+  br label %.loopexit, !llvm.loop !26
+
+..loopexit_crit_edge:                             ; preds = %proto_get_finfo_ptr_array.exit.thread.us588, %proto_get_finfo_ptr_array.exit.thread.us520, %.lr.ph505.split.us.split, %.lr.ph505.split.us, %proto_get_finfo_ptr_array.exit.thread, %proto_get_finfo_ptr_array.exit.thread.us
+  br label %.loopexit, !llvm.loop !26
+
+.loopexit:                                        ; preds = %..loopexit_crit_edge, %.outer369..loopexit_crit_edge
+  %.7267.ph.lcssa461 = phi i32 [ %.7267.ph806, %..loopexit_crit_edge ], [ %split506, %.outer369..loopexit_crit_edge ]
+  %.6.ph.lcssa451 = phi i32 [ %.6.ph807, %..loopexit_crit_edge ], [ %split507, %.outer369..loopexit_crit_edge ]
+  %.1.ph.lcssa441 = phi ptr [ %.1.ph809, %..loopexit_crit_edge ], [ %split508, %.outer369..loopexit_crit_edge ]
   %16 = add i32 %22, 1
   %17 = call ptr @g_slist_nth_data(ptr noundef %1, i32 noundef %22)
   %.not483 = icmp eq ptr %17, null
@@ -21727,11 +21739,11 @@ protoo_strlcpy.exit:                              ; preds = %56, %58
   br i1 %.not316, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %protoo_strlcpy.exit
-  %.pre1029 = load ptr, ptr %8, align 8
+  %.pre1030 = load ptr, ptr %8, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %71 = phi ptr [ %30, %.preheader ], [ %.pre1029, %._crit_edge.loopexit ]
+  %71 = phi ptr [ %30, %.preheader ], [ %.pre1030, %._crit_edge.loopexit ]
   %.2262.lcssa = phi i32 [ %.0260484, %.preheader ], [ %66, %._crit_edge.loopexit ]
   %.2256.lcssa = phi i32 [ %.0254485, %.preheader ], [ %69, %._crit_edge.loopexit ]
   call void @g_ptr_array_unref(ptr noundef %71)
@@ -21959,7 +21971,7 @@ protoo_strlcpy.exit333:                           ; preds = %108, %110
   %.2251.ph808 = phi ptr [ %511, %507 ], [ %.2251.ph808.ph, %.lr.ph505.lr.ph.preheader ]
   %.6.ph807 = phi i32 [ %.7.lcssa, %507 ], [ %.0254485, %.lr.ph505.lr.ph.preheader ]
   %.7267.ph806 = phi i32 [ %.8268.lcssa, %507 ], [ %.0260484, %.lr.ph505.lr.ph.preheader ]
-  br label %.lr.ph505
+  br label %.lr.ph505, !llvm.loop !26
 
 .lr.ph505:                                        ; preds = %.lr.ph505.lr.ph, %hfinfo_same_name_get_prev.exit342
   %.0247.ph371790 = phi i32 [ %.0247.ph810, %.lr.ph505.lr.ph ], [ %267, %hfinfo_same_name_get_prev.exit342 ]
@@ -21967,13 +21979,13 @@ protoo_strlcpy.exit333:                           ; preds = %108, %110
   br i1 %12, label %.lr.ph505.split.us, label %.lr.ph505.split
 
 .lr.ph505.split.us:                               ; preds = %.lr.ph505
-  br i1 %.not.i334, label %.loopexit, label %.lr.ph505.split.us.split
+  br i1 %.not.i334, label %..loopexit_crit_edge, label %.lr.ph505.split.us.split
 
 .lr.ph505.split.us.split:                         ; preds = %.lr.ph505.split.us
   %165 = load ptr, ptr %15, align 8
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, null
-  br i1 %167, label %.loopexit, label %.lr.ph505.split.us.split.split
+  br i1 %167, label %..loopexit_crit_edge, label %.lr.ph505.split.us.split.split, !llvm.loop !26
 
 .lr.ph505.split.us.split.split:                   ; preds = %.lr.ph505.split.us.split, %proto_get_finfo_ptr_array.exit.thread.us
   %.2251504.us = phi ptr [ %179, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.2251.ph370789, %.lr.ph505.split.us.split ]
@@ -22001,7 +22013,7 @@ proto_get_finfo_ptr_array.exit.thread.us:         ; preds = %175, %proto_get_fin
   %178 = getelementptr inbounds nuw i8, ptr %.2251504.us, i64 64
   %179 = load ptr, ptr %178, align 8
   %.not298.us = icmp eq ptr %179, null
-  br i1 %.not298.us, label %.loopexit, label %.lr.ph505.split.us.split.split, !llvm.loop !29
+  br i1 %.not298.us, label %..loopexit_crit_edge, label %.lr.ph505.split.us.split.split, !llvm.loop !29
 
 .lr.ph505.split:                                  ; preds = %.lr.ph505
   br i1 %.not.i334, label %.lr.ph505.split.split.us, label %.lr.ph505.split.split
@@ -22011,14 +22023,14 @@ proto_get_finfo_ptr_array.exit.thread.us:         ; preds = %175, %proto_get_fin
   %181 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
   %182 = trunc nuw i8 %181 to i1
   %183 = load ptr, ptr @gpa_hfinfo.2, align 8
-  br label %proto_get_finfo_ptr_array.exit.thread.us520
+  br label %proto_get_finfo_ptr_array.exit.thread.us520, !llvm.loop !26
 
 proto_get_finfo_ptr_array.exit.thread.us520:      ; preds = %190, %.lr.ph505.split.split.us
   %.2251504.us519 = phi ptr [ %.2251.ph370789, %.lr.ph505.split.split.us ], [ %193, %190 ]
   %184 = getelementptr i8, ptr %.2251504.us519, i64 60
   %.2251.val.us = load i32, ptr %184, align 4
   switch i32 %.2251.val.us, label %185 [
-    i32 -1, label %.loopexit
+    i32 -1, label %..loopexit_crit_edge
     i32 0, label %187
   ]
 
@@ -22047,28 +22059,28 @@ proto_get_finfo_ptr_array.exit.thread.us520:      ; preds = %190, %.lr.ph505.spl
   %194 = load ptr, ptr %15, align 8
   %195 = load ptr, ptr %194, align 8
   %196 = icmp eq ptr %195, null
-  br i1 %196, label %.lr.ph505.split.split.split.us, label %.lr.ph505.split.split.split
+  br i1 %196, label %.lr.ph505.split.split.split.us, label %.lr.ph505.split.split.split, !llvm.loop !26
 
 .lr.ph505.split.split.split.us:                   ; preds = %.lr.ph505.split.split
   %197 = load i32, ptr @gpa_hfinfo.0, align 8
   %198 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
   %199 = trunc nuw i8 %198 to i1
   %200 = load ptr, ptr @gpa_hfinfo.2, align 8
-  br label %proto_get_finfo_ptr_array.exit.thread.us588
+  br label %proto_get_finfo_ptr_array.exit.thread.us588, !llvm.loop !26
 
 proto_get_finfo_ptr_array.exit.thread.us588:      ; preds = %207, %.lr.ph505.split.split.split.us
   %.2251504.us586 = phi ptr [ %.2251.ph370789, %.lr.ph505.split.split.split.us ], [ %210, %207 ]
   %201 = getelementptr i8, ptr %.2251504.us586, i64 60
   %.2251.val.us589 = load i32, ptr %201, align 4
   switch i32 %.2251.val.us589, label %202 [
-    i32 -1, label %.loopexit
+    i32 -1, label %..loopexit_crit_edge
     i32 0, label %204
   ]
 
 202:                                              ; preds = %proto_get_finfo_ptr_array.exit.thread.us588
   %203 = icmp ugt i32 %.2251.val.us589, %197
-  %brmerge1246.not = select i1 %203, i1 %199, i1 false
-  br i1 %brmerge1246.not, label %.split525.us, label %._crit_edge.i.us590
+  %brmerge1257.not = select i1 %203, i1 %199, i1 false
+  br i1 %brmerge1257.not, label %.split525.us, label %._crit_edge.i.us590
 
 204:                                              ; preds = %proto_get_finfo_ptr_array.exit.thread.us588
   br i1 %199, label %.split525.us, label %._crit_edge.i.us590
@@ -22112,7 +22124,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph505.split.spl
   %221 = getelementptr i8, ptr %.2251504, i64 60
   %.2251.val = load i32, ptr %221, align 4
   switch i32 %.2251.val, label %222 [
-    i32 -1, label %.loopexit
+    i32 -1, label %..loopexit_crit_edge
     i32 0, label %225
   ]
 
@@ -22184,7 +22196,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph505.split.spl
   %248 = getelementptr i8, ptr %.us-phi513, i64 60
   %.2251.val324 = load i32, ptr %248, align 4
   switch i32 %.2251.val324, label %249 [
-    i32 -1, label %.loopexit
+    i32 -1, label %.outer369..outer369..loopexit_crit_edge_crit_edge
     i32 0, label %252
   ]
 
@@ -22233,7 +22245,7 @@ hfinfo_same_name_get_prev.exit342:                ; preds = %261, %244
   %.4 = phi ptr [ %246, %244 ], [ %265, %261 ]
   %267 = add i32 %.us-phi514, %.0247.ph371790
   %.not298503 = icmp eq ptr %.4, null
-  br i1 %.not298503, label %.loopexit, label %.lr.ph505, !llvm.loop !31
+  br i1 %.not298503, label %.outer369..outer369..loopexit_crit_edge_crit_edge, label %.lr.ph505, !llvm.loop !31
 
 268:                                              ; preds = %239
   br i1 %12, label %269, label %271
@@ -22263,8 +22275,8 @@ hfinfo_same_name_get_prev.exit342:                ; preds = %261, %244
 
 .lr.ph802:                                        ; preds = %.thread, %276
   %279 = phi i32 [ %275, %.thread ], [ %278, %276 ]
-  %.12531043 = phi i32 [ %.2272.ph, %.thread ], [ %277, %276 ]
-  %.22721042 = phi i32 [ %.2272.ph, %.thread ], [ 0, %276 ]
+  %.12531044 = phi i32 [ %.2272.ph, %.thread ], [ %277, %276 ]
+  %.22721043 = phi i32 [ %.2272.ph, %.thread ], [ 0, %276 ]
   %280 = getelementptr inbounds nuw i8, ptr %.us-phi513, i64 16
   %281 = getelementptr inbounds nuw i8, ptr %.us-phi513, i64 24
   %282 = getelementptr inbounds nuw i8, ptr %.us-phi513, i64 20
@@ -22273,7 +22285,7 @@ hfinfo_same_name_get_prev.exit342:                ; preds = %261, %244
 283:                                              ; preds = %.lr.ph802, %486
   %.7800 = phi i32 [ %.6.ph807, %.lr.ph802 ], [ %.9, %486 ]
   %.8268799 = phi i32 [ %.7267.ph806, %.lr.ph802 ], [ %.10, %486 ]
-  %.3273798 = phi i32 [ %.22721042, %.lr.ph802 ], [ %487, %486 ]
+  %.3273798 = phi i32 [ %.22721043, %.lr.ph802 ], [ %487, %486 ]
   %284 = load ptr, ptr %.us-phi515, align 8
   %285 = sext i32 %.3273798 to i64
   %286 = getelementptr ptr, ptr %284, i64 %285
@@ -22407,7 +22419,7 @@ protoo_strlcpy.exit346:                           ; preds = %308, %310
 
 351:                                              ; preds = %349
   %.not309 = icmp eq i32 %.pre, 35
-  br i1 %.not309, label %.thread1044, label %352
+  br i1 %.not309, label %.thread1045, label %352
 
 352:                                              ; preds = %351
   %353 = load i32, ptr %282, align 4
@@ -22638,7 +22650,7 @@ hf_try_val64_to_str_const.exit:                   ; preds = %432, %434, %438, %4
 
 463:                                              ; preds = %352, %349
   %switch323 = icmp ult i32 %.pre, 2
-  br i1 %switch323, label %464, label %.thread1044
+  br i1 %switch323, label %464, label %.thread1045
 
 464:                                              ; preds = %463
   %465 = call ptr @strstr(ptr noundef %5, ptr noundef nonnull dereferenceable(1) @.str.74) #41
@@ -22660,7 +22672,7 @@ hf_try_val64_to_str_const.exit:                   ; preds = %432, %434, %438, %4
   store i8 0, ptr %476, align 1
   br label %486
 
-.thread1044:                                      ; preds = %351, %463
+.thread1045:                                      ; preds = %351, %463
   %477 = getelementptr inbounds nuw i8, ptr %287, i64 48
   %478 = load ptr, ptr %477, align 8
   %479 = load ptr, ptr %287, align 8
@@ -22673,10 +22685,10 @@ hf_try_val64_to_str_const.exit:                   ; preds = %432, %434, %438, %4
   call void @wmem_free(ptr noundef null, ptr noundef %482)
   br label %486
 
-486:                                              ; preds = %.thread1044, %473, %467, %455
-  %.9 = phi i32 [ %462, %455 ], [ %472, %467 ], [ %474, %473 ], [ %485, %.thread1044 ]
+486:                                              ; preds = %.thread1045, %473, %467, %455
+  %.9 = phi i32 [ %462, %455 ], [ %472, %467 ], [ %474, %473 ], [ %485, %.thread1045 ]
   %487 = add i32 %.3273798, 1
-  %.not302 = icmp sgt i32 %487, %.12531043
+  %.not302 = icmp sgt i32 %487, %.12531044
   br i1 %.not302, label %._crit_edge803, label %283, !llvm.loop !33
 
 ._crit_edge803:                                   ; preds = %486, %276
@@ -22693,15 +22705,15 @@ hf_try_val64_to_str_const.exit:                   ; preds = %432, %434, %438, %4
 
 492:                                              ; preds = %489, %._crit_edge803
   %.2 = phi ptr [ %.1.ph809, %._crit_edge803 ], [ %491, %489 ]
-  br i1 %.not314, label %493, label %.loopexit
+  br i1 %.not314, label %493, label %.outer369..loopexit_crit_edge, !llvm.loop !26
 
 493:                                              ; preds = %492
   %494 = getelementptr i8, ptr %.us-phi513, i64 60
   %.2251.val325 = load i32, ptr %494, align 4
   switch i32 %.2251.val325, label %495 [
-    i32 -1, label %.loopexit
+    i32 -1, label %.outer369..loopexit_crit_edge
     i32 0, label %498
-  ]
+  ], !llvm.loop !26
 
 495:                                              ; preds = %493
   %496 = load i32, ptr @gpa_hfinfo.0, align 8
@@ -22745,7 +22757,7 @@ hf_try_val64_to_str_const.exit:                   ; preds = %432, %434, %438, %4
   unreachable
 
 .outer374._crit_edge:                             ; preds = %.loopexit, %123, %..outer374._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre1030, %..outer374._crit_edge_crit_edge ], [ %13, %123 ], [ %13, %.loopexit ]
+  %.pre-phi = phi i32 [ %.pre1031, %..outer374._crit_edge_crit_edge ], [ %13, %123 ], [ %13, %.loopexit ]
   %.0248.ph.lcssa477 = phi ptr [ null, %..outer374._crit_edge_crit_edge ], [ %.0248.ph814, %123 ], [ %.1.ph.lcssa441, %.loopexit ]
   %.0260.lcssa = phi i32 [ 0, %..outer374._crit_edge_crit_edge ], [ %.1261, %123 ], [ %.7267.ph.lcssa461, %.loopexit ]
   %.0254.lcssa = phi i32 [ 0, %..outer374._crit_edge_crit_edge ], [ %.1255, %123 ], [ %.6.ph.lcssa451, %.loopexit ]

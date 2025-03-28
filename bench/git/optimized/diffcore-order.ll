@@ -71,10 +71,13 @@ define dso_local void @order_objects(ptr noundef %0, ptr noundef readonly captur
   %.037.us41.i = phi ptr [ %24, %22 ], [ %.03138.us.i, %.preheader.us.i ]
   %24 = getelementptr inbounds nuw i8, ptr %.037.us41.i, i64 1
   %25 = icmp ult ptr %24, %16
-  br i1 %25, label %22, label %.critedge.us.i, !llvm.loop !14
+  br i1 %25, label %22, label %..critedge.us_crit_edge.i, !llvm.loop !14
 
-.critedge.us.i:                                   ; preds = %.lr.ph.i, %22
-  %.lcssa.us.i = phi i64 [ 1, %22 ], [ 0, %.lr.ph.i ]
+..critedge.us_crit_edge.i:                        ; preds = %.lr.ph.i
+  br label %.critedge.us.i, !llvm.loop !14
+
+.critedge.us.i:                                   ; preds = %22, %..critedge.us_crit_edge.i
+  %.lcssa.us.i = phi i64 [ 0, %..critedge.us_crit_edge.i ], [ 1, %22 ]
   switch i8 %21, label %26 [
     i8 10, label %.critedge.us.thread.i
     i8 35, label %.critedge.us.thread.i
@@ -85,10 +88,10 @@ define dso_local void @order_objects(ptr noundef %0, ptr noundef readonly captur
   br label %.critedge.us.thread.i
 
 .critedge.us.thread.i:                            ; preds = %26, %.critedge.us.i, %.critedge.us.i, %.preheader.us.i
-  %.lcssa.us53.i = phi i64 [ %.lcssa.us.i, %.critedge.us.i ], [ %.lcssa.us.i, %26 ], [ %.lcssa.us.i, %.critedge.us.i ], [ 1, %.preheader.us.i ]
-  %.0.lcssa.us52.i = phi ptr [ %24, %.critedge.us.i ], [ %24, %26 ], [ %24, %.critedge.us.i ], [ %.03138.us.i, %.preheader.us.i ]
+  %.lcssa.us54.i = phi i64 [ %.lcssa.us.i, %.critedge.us.i ], [ %.lcssa.us.i, %26 ], [ %.lcssa.us.i, %.critedge.us.i ], [ 1, %.preheader.us.i ]
+  %.0.lcssa.us53.i = phi ptr [ %24, %.critedge.us.i ], [ %24, %26 ], [ %24, %.critedge.us.i ], [ %.03138.us.i, %.preheader.us.i ]
   %.129.us.i = phi i32 [ %.02839.us.i, %.critedge.us.i ], [ %27, %26 ], [ %.02839.us.i, %.critedge.us.i ], [ %.02839.us.i, %.preheader.us.i ]
-  %spec.select.us.i = getelementptr inbounds nuw i8, ptr %.0.lcssa.us52.i, i64 %.lcssa.us53.i
+  %spec.select.us.i = getelementptr inbounds nuw i8, ptr %.0.lcssa.us53.i, i64 %.lcssa.us54.i
   %28 = icmp ult ptr %spec.select.us.i, %16
   br i1 %28, label %.preheader.us.i, label %._crit_edge.i, !llvm.loop !16
 

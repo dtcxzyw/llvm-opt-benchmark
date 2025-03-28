@@ -847,9 +847,9 @@ define dso_local range(i32 -1, 1) i32 @write_packetized_from_buf_no_flush_count(
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.packet_write_gently.err, i64 24, i1 false)
   %13 = call fastcc i32 @do_packet_write(i32 noundef %2, ptr noundef %12, i64 noundef range(i64 1, -9223372036854775808) %..us29, ptr noundef %5)
   %.not.i.us = icmp eq i32 %13, 0
-  br i1 %.not.i.us, label %8, label %packet_write_gently.exit.us
+  br i1 %.not.i.us, label %8, label %packet_write_gently.exit.us..split22.us_crit_edge
 
-packet_write_gently.exit.us:                      ; preds = %.lr.ph30
+packet_write_gently.exit.us..split22.us_crit_edge: ; preds = %.lr.ph30
   %14 = load ptr, ptr %6, align 8, !tbaa !16
   %15 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %14) #16
   call void @strbuf_release(ptr noundef nonnull %5) #16
@@ -882,9 +882,9 @@ packet_write_gently.exit.us:                      ; preds = %.lr.ph30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.packet_write_gently.err, i64 24, i1 false)
   %23 = call fastcc i32 @do_packet_write(i32 noundef %2, ptr noundef %22, i64 noundef range(i64 1, -9223372036854775808) %.25, ptr noundef %5)
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %16, label %packet_write_gently.exit
+  br i1 %.not.i, label %16, label %packet_write_gently.exit..split22_crit_edge
 
-packet_write_gently.exit:                         ; preds = %.lr.ph
+packet_write_gently.exit..split22_crit_edge:      ; preds = %.lr.ph
   %24 = load ptr, ptr %6, align 8, !tbaa !16
   %25 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %24) #16
   call void @strbuf_release(ptr noundef nonnull %5) #16
@@ -894,8 +894,8 @@ packet_write_gently.exit:                         ; preds = %.lr.ph
   store i32 %27, ptr %3, align 4, !tbaa !9
   br label %.split22.us, !llvm.loop !22
 
-.split22.us:                                      ; preds = %16, %8, %packet_write_gently.exit, %packet_write_gently.exit.us, %.split, %.split.us
-  %.us-phi = phi i32 [ 0, %.split.us ], [ 0, %.split ], [ -1, %packet_write_gently.exit.us ], [ -1, %packet_write_gently.exit ], [ 0, %8 ], [ 0, %16 ]
+.split22.us:                                      ; preds = %16, %8, %.split, %packet_write_gently.exit..split22_crit_edge, %.split.us, %packet_write_gently.exit.us..split22.us_crit_edge
+  %.us-phi = phi i32 [ -1, %packet_write_gently.exit.us..split22.us_crit_edge ], [ 0, %.split.us ], [ -1, %packet_write_gently.exit..split22_crit_edge ], [ 0, %.split ], [ 0, %8 ], [ 0, %16 ]
   ret i32 %.us-phi
 }
 

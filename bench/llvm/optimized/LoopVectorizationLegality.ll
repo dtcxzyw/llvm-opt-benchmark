@@ -3088,7 +3088,7 @@ _ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecFor
   br label %.lr.ph41.i.i.i
 
 .lr.ph41.i.i.i:                                   ; preds = %.loopexit.i.i.i, %.lr.ph41.i.preheader.i.i
-  %21 = phi i32 [ %73, %.loopexit.i.i.i ], [ 1, %.lr.ph41.i.preheader.i.i ]
+  %21 = phi i32 [ %75, %.loopexit.i.i.i ], [ 1, %.lr.ph41.i.preheader.i.i ]
   %22 = load ptr, ptr %6, align 8, !tbaa !280
   %.val.i.i.i = load i8, ptr %22, align 1, !tbaa !266, !range !48, !noundef !49
   %23 = trunc nuw i8 %.val.i.i.i to i1
@@ -3116,144 +3116,155 @@ _ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecFor
   %.not38.i.i.i = icmp eq i64 %36, 0
   br i1 %.not38.i.i.i, label %.loopexitthread-pre-split.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !290
 
-.lr.ph.i.i.i:                                     ; preds = %33, %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i
-  %.01139.i.i.i = phi ptr [ %72, %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i ], [ %35, %33 ]
-  %38 = load ptr, ptr %.01139.i.i.i, align 8, !tbaa !289
-  %39 = load i8, ptr %18, align 4, !tbaa !32, !range !48, !noalias !291, !noundef !49
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %41, label %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %33
+  br label %40, !llvm.loop !290
 
-41:                                               ; preds = %.lr.ph.i.i.i
-  %42 = load ptr, ptr %13, align 8, !tbaa !28, !noalias !291
-  %43 = load i32, ptr %16, align 4, !tbaa !30, !noalias !291
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
-  %.not36.i.i.i23.i.i.i = icmp eq i32 %43, 0
+38:                                               ; preds = %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %.01139.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %39, %37
+  br i1 %.not.i.i.i, label %..loopexit_crit_edge.i.i.i, label %40, !llvm.loop !290
+
+40:                                               ; preds = %38, %.lr.ph.i.i.i
+  %.01139.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i ], [ %39, %38 ]
+  %41 = load ptr, ptr %.01139.i.i.i, align 8, !tbaa !289
+  %42 = load i8, ptr %18, align 4, !tbaa !32, !range !48, !noalias !291, !noundef !49
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.i.i.i
+
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %13, align 8, !tbaa !28, !noalias !291
+  %46 = load i32, ptr %16, align 4, !tbaa !30, !noalias !291
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %47
+  %.not36.i.i.i23.i.i.i = icmp eq i32 %46, 0
   br i1 %.not36.i.i.i23.i.i.i, label %._crit_edge.i.i.i29.i.i.i, label %.lr.ph.i.i.i24.i.i.i
 
-.lr.ph.i.i.i24.i.i.i:                             ; preds = %41, %.critedge.i.i.i27.i.i.i
-  %.02937.i.i.i25.i.i.i = phi ptr [ %47, %.critedge.i.i.i27.i.i.i ], [ %42, %41 ]
-  %46 = load ptr, ptr %.02937.i.i.i25.i.i.i, align 8, !tbaa !274, !noalias !291
-  %.not17.i.i.i26.i.i.i = icmp eq ptr %46, %38
+.lr.ph.i.i.i24.i.i.i:                             ; preds = %44, %.critedge.i.i.i27.i.i.i
+  %.02937.i.i.i25.i.i.i = phi ptr [ %50, %.critedge.i.i.i27.i.i.i ], [ %45, %44 ]
+  %49 = load ptr, ptr %.02937.i.i.i25.i.i.i, align 8, !tbaa !274, !noalias !291
+  %.not17.i.i.i26.i.i.i = icmp eq ptr %49, %41
   br i1 %.not17.i.i.i26.i.i.i, label %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i, label %.critedge.i.i.i27.i.i.i
 
 .critedge.i.i.i27.i.i.i:                          ; preds = %.lr.ph.i.i.i24.i.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i25.i.i.i, i64 8
-  %.not.i.i.i28.i.i.i = icmp eq ptr %47, %45
+  %50 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i25.i.i.i, i64 8
+  %.not.i.i.i28.i.i.i = icmp eq ptr %50, %48
   br i1 %.not.i.i.i28.i.i.i, label %._crit_edge.i.i.i29.i.i.i, label %.lr.ph.i.i.i24.i.i.i, !llvm.loop !294
 
-._crit_edge.i.i.i29.i.i.i:                        ; preds = %.critedge.i.i.i27.i.i.i, %41
-  %48 = load i32, ptr %15, align 8, !tbaa !29, !noalias !291
-  %49 = icmp ult i32 %43, %48
-  br i1 %49, label %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.thread.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.i.i.i
+._crit_edge.i.i.i29.i.i.i:                        ; preds = %.critedge.i.i.i27.i.i.i, %44
+  %51 = load i32, ptr %15, align 8, !tbaa !29, !noalias !291
+  %52 = icmp ult i32 %46, %51
+  br i1 %52, label %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.thread.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.i.i.i
 
 _ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.thread.i.i.i: ; preds = %._crit_edge.i.i.i29.i.i.i
-  %50 = add nuw i32 %43, 1
-  store i32 %50, ptr %16, align 4, !tbaa !30, !noalias !291
-  store ptr %38, ptr %45, align 8, !tbaa !274, !noalias !291
-  br label %54
+  %53 = add nuw i32 %46, 1
+  store i32 %53, ptr %16, align 4, !tbaa !30, !noalias !291
+  store ptr %41, ptr %48, align 8, !tbaa !274, !noalias !291
+  br label %57
 
-_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.i.i.i: ; preds = %._crit_edge.i.i.i29.i.i.i, %.lr.ph.i.i.i
-  %51 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %13, ptr noundef %38) #20, !noalias !291
-  %52 = extractvalue { ptr, i8 } %51, 1
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %54, label %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i
+_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.i.i.i: ; preds = %._crit_edge.i.i.i29.i.i.i, %40
+  %54 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %13, ptr noundef %41) #20, !noalias !291
+  %55 = extractvalue { ptr, i8 } %54, 1
+  %56 = trunc nuw i8 %55 to i1
+  br i1 %56, label %57, label %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i
 
-54:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.i.i.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.thread.i.i.i
-  %55 = getelementptr i8, ptr %38, i64 24
-  %.val.i17.i.i.i = load i16, ptr %55, align 8, !tbaa !275
+57:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.i.i.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.thread.i.i.i
+  %58 = getelementptr i8, ptr %41, i64 24
+  %.val.i17.i.i.i = load i16, ptr %58, align 8, !tbaa !275
   %.not.i18.i.i.i = icmp eq i16 %.val.i17.i.i.i, 7
-  br i1 %.not.i18.i.i.i, label %_ZZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_EN11FindClosure6followES5_.exit.i22.i.i.i, label %57
+  br i1 %.not.i18.i.i.i, label %_ZZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_EN11FindClosure6followES5_.exit.i22.i.i.i, label %60
 
-_ZZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_EN11FindClosure6followES5_.exit.i22.i.i.i: ; preds = %54
-  %56 = load ptr, ptr %6, align 8, !tbaa !280
-  store i8 1, ptr %56, align 1, !tbaa !266
+_ZZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_EN11FindClosure6followES5_.exit.i22.i.i.i: ; preds = %57
+  %59 = load ptr, ptr %6, align 8, !tbaa !280
+  store i8 1, ptr %59, align 1, !tbaa !266
   br label %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i
 
-57:                                               ; preds = %54
-  %58 = load i32, ptr %11, align 8, !tbaa !26
-  %59 = load i32, ptr %12, align 4, !tbaa !27
-  %.not.i.i.not.i.i19.i.i.i = icmp ult i32 %58, %59
-  br i1 %.not.i.i.not.i.i19.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i21.i.i.i, label %60, !prof !33
-
 60:                                               ; preds = %57
-  %61 = zext i32 %58 to i64
-  %62 = add nuw nsw i64 %61, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef %62, i64 noundef 8) #20
+  %61 = load i32, ptr %11, align 8, !tbaa !26
+  %62 = load i32, ptr %12, align 4, !tbaa !27
+  %.not.i.i.not.i.i19.i.i.i = icmp ult i32 %61, %62
+  br i1 %.not.i.i.not.i.i19.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i21.i.i.i, label %63, !prof !33
+
+63:                                               ; preds = %60
+  %64 = zext i32 %61 to i64
+  %65 = add nuw nsw i64 %64, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef %65, i64 noundef 8) #20
   %.pre.i4.i20.i.i.i = load i32, ptr %11, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i21.i.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i21.i.i.i: ; preds = %60, %57
-  %63 = phi i32 [ %58, %57 ], [ %.pre.i4.i20.i.i.i, %60 ]
-  %64 = load ptr, ptr %9, align 8, !tbaa !25
-  %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
-  %67 = ptrtoint ptr %38 to i64
-  store i64 %67, ptr %66, align 1
-  %68 = load i32, ptr %11, align 8, !tbaa !26
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %11, align 8, !tbaa !26
+_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i21.i.i.i: ; preds = %63, %60
+  %66 = phi i32 [ %61, %60 ], [ %.pre.i4.i20.i.i.i, %63 ]
+  %67 = load ptr, ptr %9, align 8, !tbaa !25
+  %68 = zext i32 %66 to i64
+  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
+  %70 = ptrtoint ptr %41 to i64
+  store i64 %70, ptr %69, align 1
+  %71 = load i32, ptr %11, align 8, !tbaa !26
+  %72 = add i32 %71, 1
+  store i32 %72, ptr %11, align 8, !tbaa !26
   br label %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i
 
 _ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i: ; preds = %.lr.ph.i.i.i24.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i21.i.i.i, %_ZZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_EN11FindClosure6followES5_.exit.i22.i.i.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i15.i.i.i
-  %70 = load ptr, ptr %6, align 8, !tbaa !280
-  %.val12.i.i.i = load i8, ptr %70, align 1, !tbaa !266, !range !48, !noundef !49
-  %71 = trunc nuw i8 %.val12.i.i.i to i1
-  %72 = getelementptr inbounds nuw i8, ptr %.01139.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %72, %37
-  %or.cond.i.i.i = select i1 %71, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %.loopexitthread-pre-split.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !290
+  %73 = load ptr, ptr %6, align 8, !tbaa !280
+  %.val12.i.i.i = load i8, ptr %73, align 1, !tbaa !266, !range !48, !noundef !49
+  %74 = trunc nuw i8 %.val12.i.i.i to i1
+  br i1 %74, label %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30..loopexit_crit_edge.i.i.i, label %38, !llvm.loop !290
 
-.loopexitthread-pre-split.i.i.i:                  ; preds = %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i, %33
+..loopexit_crit_edge.i.i.i:                       ; preds = %38
+  br label %.loopexitthread-pre-split.i.i.i, !llvm.loop !290
+
+_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30..loopexit_crit_edge.i.i.i: ; preds = %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30.i.i.i
+  br label %.loopexitthread-pre-split.i.i.i, !llvm.loop !290
+
+.loopexitthread-pre-split.i.i.i:                  ; preds = %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE4pushES6_.exit30..loopexit_crit_edge.i.i.i, %..loopexit_crit_edge.i.i.i, %33
   %.pr.i.i.i = load i32, ptr %11, align 8, !tbaa !26
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %.loopexitthread-pre-split.i.i.i, %24
-  %73 = phi i32 [ %.pr.i.i.i, %.loopexitthread-pre-split.i.i.i ], [ %30, %24 ]
-  %.not.i13.i.i.i = icmp eq i32 %73, 0
+  %75 = phi i32 [ %.pr.i.i.i, %.loopexitthread-pre-split.i.i.i ], [ %30, %24 ]
+  %.not.i13.i.i.i = icmp eq i32 %75, 0
   br i1 %.not.i13.i.i.i, label %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE8visitAllES6_.exit.i.i, label %.lr.ph41.i.i.i
 
 _ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE8visitAllES6_.exit.i.i: ; preds = %.loopexit.i.i.i, %.lr.ph41.i.i.i
   %.pre.i.i = load i8, ptr %18, align 4, !tbaa !32, !range !48
-  %74 = trunc nuw i8 %.pre.i.i to i1
-  br i1 %74, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i, label %75
+  %76 = trunc nuw i8 %.pre.i.i to i1
+  br i1 %76, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i, label %77
 
-75:                                               ; preds = %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE8visitAllES6_.exit.i.i
-  %76 = load ptr, ptr %13, align 8, !tbaa !28
-  call void @free(ptr noundef %76) #20
+77:                                               ; preds = %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE8visitAllES6_.exit.i.i
+  %78 = load ptr, ptr %13, align 8, !tbaa !28
+  call void @free(ptr noundef %78) #20
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i:     ; preds = %75, %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE8visitAllES6_.exit.i.i, %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE8visitAllES6_.exit.thread.i.i
-  %77 = load ptr, ptr %9, align 8, !tbaa !25
-  %78 = icmp eq ptr %77, %10
-  br i1 %78, label %_ZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_.exit, label %79
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i:     ; preds = %77, %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE8visitAllES6_.exit.i.i, %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS6_E_EEbS6_T_E11FindClosureE8visitAllES6_.exit.thread.i.i
+  %79 = load ptr, ptr %9, align 8, !tbaa !25
+  %80 = icmp eq ptr %79, %10
+  br i1 %80, label %_ZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_.exit, label %81
 
-79:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i
-  call void @free(ptr noundef %77) #20
+81:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i
+  call void @free(ptr noundef %79) #20
   br label %_ZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_.exit
 
-_ZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i, %79
+_ZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i, %81
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #20
-  %80 = load i8, ptr %7, align 1, !tbaa !266, !range !48, !noundef !49
-  %81 = trunc nuw i8 %80 to i1
+  %82 = load i8, ptr %7, align 1, !tbaa !266, !range !48, !noundef !49
+  %83 = trunc nuw i8 %82 to i1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #20
-  br i1 %81, label %84, label %82
-
-82:                                               ; preds = %_ZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_.exit
-  %83 = call noundef ptr @_ZN4llvm15ScalarEvolution18getCouldNotComputeEv(ptr noundef nonnull align 8 dereferenceable(1344) %1) #20
-  br label %105
+  br i1 %83, label %86, label %84
 
 84:                                               ; preds = %_ZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_.exit
+  %85 = call noundef ptr @_ZN4llvm15ScalarEvolution18getCouldNotComputeEv(ptr noundef nonnull align 8 dereferenceable(1344) %1) #20
+  br label %107
+
+86:                                               ; preds = %_ZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopEEUlS5_E_EEbS5_T_.exit
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8) #20
   store ptr %1, ptr %8, align 8, !tbaa !295
-  %85 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 1, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %86, align 4, !tbaa !296
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 1, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 0, ptr %88, align 4, !tbaa !296
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %84
-  %.07.i.i.i.idx.i.i = phi i64 [ %.07.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i ], [ 16, %84 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %86
+  %.07.i.i.i.idx.i.i = phi i64 [ %.07.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i ], [ 16, %86 ]
   %.07.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.07.i.i.i.idx.i.i
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i.i.ptr.i.i, align 8, !tbaa !289
   %.07.i.i.i.add.i.i = add nuw nsw i64 %.07.i.i.i.idx.i.i, 16
@@ -3261,46 +3272,46 @@ _ZN4llvm16SCEVExprContainsIZNS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7r
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriterC2ERNS_15ScalarEvolutionEjjPNS_4LoopE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !299
 
 _ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriterC2ERNS_15ScalarEvolutionEjjPNS_4LoopE.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %87 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i32 %2, ptr %87, align 8, !tbaa !300
-  %88 = getelementptr inbounds nuw i8, ptr %8, i64 84
-  store i32 %3, ptr %88, align 4, !tbaa !303
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store ptr %4, ptr %89, align 8, !tbaa !304
-  %90 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store i8 0, ptr %90, align 8, !tbaa !305
-  %91 = call fastcc noundef ptr @_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriter5visitEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(97) %8, ptr noundef %0)
-  %.val = load i8, ptr %90, align 8, !tbaa !305, !range !48, !noundef !49
-  %92 = trunc nuw i8 %.val to i1
-  br i1 %92, label %93, label %95
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i32 %2, ptr %89, align 8, !tbaa !300
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 84
+  store i32 %3, ptr %90, align 4, !tbaa !303
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  store ptr %4, ptr %91, align 8, !tbaa !304
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  store i8 0, ptr %92, align 8, !tbaa !305
+  %93 = call fastcc noundef ptr @_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriter5visitEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(97) %8, ptr noundef %0)
+  %.val = load i8, ptr %92, align 8, !tbaa !305, !range !48, !noundef !49
+  %94 = trunc nuw i8 %.val to i1
+  br i1 %94, label %95, label %97
 
-93:                                               ; preds = %_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriterC2ERNS_15ScalarEvolutionEjjPNS_4LoopE.exit
-  %94 = call noundef ptr @_ZN4llvm15ScalarEvolution18getCouldNotComputeEv(ptr noundef nonnull align 8 dereferenceable(1344) %1) #20
-  br label %95
+95:                                               ; preds = %_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriterC2ERNS_15ScalarEvolutionEjjPNS_4LoopE.exit
+  %96 = call noundef ptr @_ZN4llvm15ScalarEvolution18getCouldNotComputeEv(ptr noundef nonnull align 8 dereferenceable(1344) %1) #20
+  br label %97
 
-95:                                               ; preds = %_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriterC2ERNS_15ScalarEvolutionEjjPNS_4LoopE.exit, %93
-  %.1 = phi ptr [ %94, %93 ], [ %91, %_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriterC2ERNS_15ScalarEvolutionEjjPNS_4LoopE.exit ]
-  %96 = load i32, ptr %85, align 8
-  %97 = and i32 %96, 1
-  %.not.i.i.i9 = icmp eq i32 %97, 0
-  br i1 %.not.i.i.i9, label %98, label %_ZN4llvm18SCEVRewriteVisitorINS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriterEED2Ev.exit
+97:                                               ; preds = %_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriterC2ERNS_15ScalarEvolutionEjjPNS_4LoopE.exit, %95
+  %.1 = phi ptr [ %96, %95 ], [ %93, %_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriterC2ERNS_15ScalarEvolutionEjjPNS_4LoopE.exit ]
+  %98 = load i32, ptr %87, align 8
+  %99 = and i32 %98, 1
+  %.not.i.i.i9 = icmp eq i32 %99, 0
+  br i1 %.not.i.i.i9, label %100, label %_ZN4llvm18SCEVRewriteVisitorINS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriterEED2Ev.exit
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %100 = load ptr, ptr %99, align 8, !tbaa !306
-  %101 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %102 = load i32, ptr %101, align 8, !tbaa !309
-  %103 = zext i32 %102 to i64
-  %104 = shl nuw nsw i64 %103, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %100, i64 noundef %104, i64 noundef 8) #20
+100:                                              ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %102 = load ptr, ptr %101, align 8, !tbaa !306
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %104 = load i32, ptr %103, align 8, !tbaa !309
+  %105 = zext i32 %104 to i64
+  %106 = shl nuw nsw i64 %105, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %102, i64 noundef %106, i64 noundef 8) #20
   br label %_ZN4llvm18SCEVRewriteVisitorINS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriterEED2Ev.exit
 
-_ZN4llvm18SCEVRewriteVisitorINS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriterEED2Ev.exit: ; preds = %95, %98
+_ZN4llvm18SCEVRewriteVisitorINS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriterEED2Ev.exit: ; preds = %97, %100
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8) #20
-  br label %105
+  br label %107
 
-105:                                              ; preds = %_ZN4llvm18SCEVRewriteVisitorINS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriterEED2Ev.exit, %82
-  %.0 = phi ptr [ %.1, %_ZN4llvm18SCEVRewriteVisitorINS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriterEED2Ev.exit ], [ %83, %82 ]
+107:                                              ; preds = %_ZN4llvm18SCEVRewriteVisitorINS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriterEED2Ev.exit, %84
+  %.0 = phi ptr [ %.1, %_ZN4llvm18SCEVRewriteVisitorINS_12_GLOBAL__N_131SCEVAddRecForUniformityRewriterEED2Ev.exit ], [ %85, %84 ]
   ret ptr %.0
 }
 

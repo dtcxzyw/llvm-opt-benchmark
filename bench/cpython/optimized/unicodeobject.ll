@@ -63775,7 +63775,7 @@ PyUnicode_READ.exit.i:                            ; preds = %.split.i
 .preheader.i:                                     ; preds = %.split42.us.i
   %.12351.i = add i64 %3, 1
   %24 = icmp slt i64 %.12351.i, %2
-  br i1 %24, label %.lr.ph.i, label %PyUnicode_READ.exit28._crit_edge.i
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   switch i32 %0, label %PyUnicode_READ.exit28.i [
@@ -63794,8 +63794,8 @@ PyUnicode_READ.exit28.us.i:                       ; preds = %.lr.ph.i, %29
 
 29:                                               ; preds = %PyUnicode_READ.exit28.us.i
   %.123.us.i = add nsw i64 %.12352.us.i, 1
-  %exitcond89.not.i = icmp eq i64 %.123.us.i, %2
-  br i1 %exitcond89.not.i, label %handle_capital_sigma.exit, label %PyUnicode_READ.exit28.us.i, !llvm.loop !686
+  %exitcond96.not.i = icmp eq i64 %.123.us.i, %2
+  br i1 %exitcond96.not.i, label %handle_capital_sigma.exit, label %PyUnicode_READ.exit28.us.i, !llvm.loop !686
 
 PyUnicode_READ.exit28.us65.i:                     ; preds = %.lr.ph.i, %34
   %.12352.us61.i = phi i64 [ %.123.us64.i, %34 ], [ %.12351.i, %.lr.ph.i ]
@@ -63813,8 +63813,8 @@ PyUnicode_READ.exit28.us65.i:                     ; preds = %.lr.ph.i, %34
 
 35:                                               ; preds = %PyUnicode_READ.exit28.i
   %.123.i = add nsw i64 %.12352.i, 1
-  %exitcond90.not.i = icmp eq i64 %.123.i, %2
-  br i1 %exitcond90.not.i, label %handle_capital_sigma.exit, label %PyUnicode_READ.exit28.i, !llvm.loop !686
+  %exitcond97.not.i = icmp eq i64 %.123.i, %2
+  br i1 %exitcond97.not.i, label %handle_capital_sigma.exit, label %PyUnicode_READ.exit28.i, !llvm.loop !686
 
 PyUnicode_READ.exit28.i:                          ; preds = %.lr.ph.i, %35
   %.12352.i = phi i64 [ %.123.i, %35 ], [ %.12351.i, %.lr.ph.i ]
@@ -63824,13 +63824,18 @@ PyUnicode_READ.exit28.i:                          ; preds = %.lr.ph.i, %35
   %.not24.i = icmp eq i32 %38, 0
   br i1 %.not24.i, label %PyUnicode_READ.exit28._crit_edge.i, label %35, !llvm.loop !686
 
-PyUnicode_READ.exit28._crit_edge.i:               ; preds = %PyUnicode_READ.exit28.us65.i, %PyUnicode_READ.exit28.us.i, %PyUnicode_READ.exit28.i, %.preheader.i
-  %.123.lcssa.i = phi i64 [ %.12351.i, %.preheader.i ], [ %.12352.i, %PyUnicode_READ.exit28.i ], [ %.12352.us.i, %PyUnicode_READ.exit28.us.i ], [ %.12352.us61.i, %PyUnicode_READ.exit28.us65.i ]
-  %.3.i = phi i32 [ %.us-phi.i, %.preheader.i ], [ %37, %PyUnicode_READ.exit28.i ], [ %27, %PyUnicode_READ.exit28.us.i ], [ %32, %PyUnicode_READ.exit28.us65.i ]
+PyUnicode_READ.exit28._crit_edge.i:               ; preds = %PyUnicode_READ.exit28.us65.i, %PyUnicode_READ.exit28.us.i, %PyUnicode_READ.exit28.i
+  %.us-phi58.i = phi i64 [ %.12352.i, %PyUnicode_READ.exit28.i ], [ %.12352.us.i, %PyUnicode_READ.exit28.us.i ], [ %.12352.us61.i, %PyUnicode_READ.exit28.us65.i ]
+  %.us-phi59.i = phi i32 [ %37, %PyUnicode_READ.exit28.i ], [ %27, %PyUnicode_READ.exit28.us.i ], [ %32, %PyUnicode_READ.exit28.us65.i ]
+  br label %._crit_edge.i, !llvm.loop !686
+
+._crit_edge.i:                                    ; preds = %PyUnicode_READ.exit28._crit_edge.i, %.preheader.i
+  %.123.lcssa.i = phi i64 [ %.us-phi58.i, %PyUnicode_READ.exit28._crit_edge.i ], [ %.12351.i, %.preheader.i ]
+  %.3.i = phi i32 [ %.us-phi59.i, %PyUnicode_READ.exit28._crit_edge.i ], [ %.us-phi.i, %.preheader.i ]
   %39 = icmp eq i64 %.123.lcssa.i, %2
   br i1 %39, label %handle_capital_sigma.exit, label %40
 
-40:                                               ; preds = %PyUnicode_READ.exit28._crit_edge.i
+40:                                               ; preds = %._crit_edge.i
   %41 = tail call i32 @_PyUnicode_IsCased(i32 noundef %.3.i) #41
   %.fr.i = freeze i32 %41
   %.not25.not.i = icmp eq i32 %.fr.i, 0
@@ -63839,8 +63844,8 @@ PyUnicode_READ.exit28._crit_edge.i:               ; preds = %PyUnicode_READ.exit
 .thread34.i:                                      ; preds = %.split.us43.i, %.split.us.i, %.split.i, %40, %.split42.us.i
   br label %handle_capital_sigma.exit
 
-handle_capital_sigma.exit:                        ; preds = %34, %29, %35, %PyUnicode_READ.exit28._crit_edge.i, %40, %.thread34.i
-  %42 = phi i32 [ 963, %.thread34.i ], [ 962, %40 ], [ 962, %PyUnicode_READ.exit28._crit_edge.i ], [ 962, %35 ], [ 962, %29 ], [ 962, %34 ]
+handle_capital_sigma.exit:                        ; preds = %34, %29, %35, %._crit_edge.i, %40, %.thread34.i
+  %42 = phi i32 [ 963, %.thread34.i ], [ 962, %40 ], [ 962, %._crit_edge.i ], [ 962, %35 ], [ 962, %29 ], [ 962, %34 ]
   store i32 %42, ptr %5, align 4, !tbaa !200
   br label %45
 

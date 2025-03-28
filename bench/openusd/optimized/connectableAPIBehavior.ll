@@ -9667,9 +9667,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread.i: ; preds = %
   br label %457
 
 457:                                              ; preds = %457, %455
-  %.sroa.06.0.in.i.i.i15.i = phi ptr [ %456, %455 ], [ %.sroa.06.0.i.i.i16.i, %457 ]
-  %.sroa.06.0.i.i.i16.i = load ptr, ptr %.sroa.06.0.in.i.i.i15.i, align 8, !noalias !80, !nonnull !65, !noundef !65
-  %458 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16.i, i64 8
+  %.sroa.06.0.in.i.i.i16.i = phi ptr [ %456, %455 ], [ %.sroa.06.0.i.i.i17.i, %457 ]
+  %.sroa.06.0.i.i.i17.i = load ptr, ptr %.sroa.06.0.in.i.i.i16.i, align 8, !noalias !80, !nonnull !65, !noundef !65
+  %458 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17.i, i64 8
   %459 = load ptr, ptr %458, align 8, !noalias !80
   %460 = ptrtoint ptr %459 to i64
   %461 = xor i64 %460, %408
@@ -9717,7 +9717,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread.i: ; preds = %
   br i1 %494, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i, label %.lr.ph.i.i.i.i.i10.i, !llvm.loop !86
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i: ; preds = %.lr.ph.i.i.i.i.i10.i, %457, %.lr.ph.i.i.i.i.i.i, %414, %463, %420
-  %.sroa.06.1.i.i.i.pn.i = phi ptr [ %431, %420 ], [ %474, %463 ], [ %.sroa.06.0.i.i.i.i, %414 ], [ %441, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.06.0.i.i.i16.i, %457 ], [ %484, %.lr.ph.i.i.i.i.i10.i ]
+  %.sroa.06.1.i.i.i.pn.i = phi ptr [ %431, %420 ], [ %474, %463 ], [ %.sroa.06.0.i.i.i.i, %414 ], [ %441, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.06.0.i.i.i17.i, %457 ], [ %484, %.lr.ph.i.i.i.i.i10.i ]
   %.in.i = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.pn.i, i64 16
   %495 = load ptr, ptr %.in.i, align 8, !noalias !80
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 72
@@ -9729,9 +9729,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefin
   %502 = sub i64 %500, %501
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !80
   %.not.i.i.i.i.i72 = icmp eq ptr %498, %499
-  br i1 %.not.i.i.i.i.i72, label %.noexc20.thread.i, label %506
+  br i1 %.not.i.i.i.i.i72, label %.noexc21.thread.i, label %506
 
-.noexc20.thread.i:                                ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i
+.noexc21.thread.i:                                ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i
   %503 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %504 = getelementptr inbounds i8, ptr null, i64 %502
   %505 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -9752,27 +9752,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefin
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8allocateERS2_m.exit.i.i.i.i.i: ; preds = %506
   %508 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %502) #21
-          to label %.lr.ph.i.i.i.i.i18.preheader.i unwind label %532, !noalias !80
+          to label %.lr.ph.i.i.i.i.i19.preheader.i unwind label %532, !noalias !80
 
-.lr.ph.i.i.i.i.i18.preheader.i:                   ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8allocateERS2_m.exit.i.i.i.i.i
+.lr.ph.i.i.i.i.i19.preheader.i:                   ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8allocateERS2_m.exit.i.i.i.i.i
   store ptr %508, ptr %17, align 8, !alias.scope !80
   %509 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %508, ptr %509, align 8, !alias.scope !80
   %510 = getelementptr inbounds nuw i8, ptr %508, i64 %502
   %511 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %510, ptr %511, align 8, !alias.scope !80
-  br label %.lr.ph.i.i.i.i.i18.i
+  br label %.lr.ph.i.i.i.i.i19.i
 
-.lr.ph.i.i.i.i.i18.i:                             ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i18.preheader.i
-  %.09.i.i.i.i.i.i = phi ptr [ %525, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %508, %.lr.ph.i.i.i.i.i18.preheader.i ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %524, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %499, %.lr.ph.i.i.i.i.i18.preheader.i ]
+.lr.ph.i.i.i.i.i19.i:                             ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i19.preheader.i
+  %.09.i.i.i.i.i.i = phi ptr [ %525, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %508, %.lr.ph.i.i.i.i.i19.preheader.i ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %524, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %499, %.lr.ph.i.i.i.i.i19.preheader.i ]
   %512 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !noalias !80
   store i64 %512, ptr %.09.i.i.i.i.i.i, align 8, !noalias !80
   %513 = and i64 %512, 7
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %513, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %514
 
-514:                                              ; preds = %.lr.ph.i.i.i.i.i18.i
+514:                                              ; preds = %.lr.ph.i.i.i.i.i19.i
   %515 = and i64 %512, -8
   %516 = inttoptr i64 %515 to ptr
   %517 = atomicrmw add ptr %516, i32 2 monotonic, align 4, !noalias !80
@@ -9788,21 +9788,21 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8alloca
   store ptr %523, ptr %.09.i.i.i.i.i.i, align 8, !noalias !80
   br label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
-_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %519, %514, %.lr.ph.i.i.i.i.i18.i
+_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %519, %514, %.lr.ph.i.i.i.i.i19.i
   %524 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
   %525 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i19.i = icmp eq ptr %524, %498
-  br i1 %.not.i.i.i.i.i19.i, label %.loopexit.loopexit.i, label %.lr.ph.i.i.i.i.i18.i, !llvm.loop !60
+  %.not.i.i.i.i.i20.i = icmp eq ptr %524, %498
+  br i1 %.not.i.i.i.i.i20.i, label %.loopexit.loopexit.i, label %.lr.ph.i.i.i.i.i19.i, !llvm.loop !60
 
 .loopexit.loopexit.i:                             ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %6, align 8, !noalias !80
   %.pre185 = ptrtoint ptr %.pre.i to i64
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.noexc20.thread.i
-  %.pre-phi = phi i64 [ %.pre185, %.loopexit.loopexit.i ], [ %408, %.noexc20.thread.i ]
-  %526 = phi ptr [ %509, %.loopexit.loopexit.i ], [ %503, %.noexc20.thread.i ]
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %525, %.loopexit.loopexit.i ], [ null, %.noexc20.thread.i ]
+.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.noexc21.thread.i
+  %.pre-phi = phi i64 [ %.pre185, %.loopexit.loopexit.i ], [ %408, %.noexc21.thread.i ]
+  %526 = phi ptr [ %509, %.loopexit.loopexit.i ], [ %503, %.noexc21.thread.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %525, %.loopexit.loopexit.i ], [ null, %.noexc21.thread.i ]
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %526, align 8, !alias.scope !80
   %527 = and i64 %.pre-phi, 7
   %.not.i.i.i73 = icmp eq i64 %527, 0
@@ -9820,8 +9820,8 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %534 = load ptr, ptr %6, align 8, !noalias !80
   %535 = ptrtoint ptr %534 to i64
   %536 = and i64 %535, 7
-  %.not.i.i21.i = icmp eq i64 %536, 0
-  br i1 %.not.i.i21.i, label %.body79, label %537
+  %.not.i.i22.i = icmp eq i64 %536, 0
+  br i1 %.not.i.i22.i, label %.body79, label %537
 
 537:                                              ; preds = %532
   %538 = and i64 %535, -8

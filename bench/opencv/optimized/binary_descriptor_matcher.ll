@@ -6403,7 +6403,7 @@ _ZN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable5queryEmPi.exit
 
 ..critedge4.loopexit_crit_edge:                   ; preds = %261
   %.pre199.pre = load i32, ptr %7, align 4
-  br label %.critedge4.loopexit
+  br label %.critedge4.loopexit, !llvm.loop !225
 
 .critedge2:                                       ; preds = %.critedge4, %.preheader127
   ret void

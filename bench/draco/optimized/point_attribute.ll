@@ -2146,11 +2146,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5
   %48 = load i64, ptr %47, align 8, !tbaa !118
   %49 = urem i64 %48, %16
   %.not19.i.i = icmp eq i64 %49, %17
-  br i1 %.not19.i.i, label %41, label %.critedge27, !llvm.loop !120
+  br i1 %.not19.i.i, label %41, label %..loopexit_crit_edge23.i.i, !llvm.loop !120
 
-.critedge27:                                      ; preds = %.lr.ph.i.i, %46, %26, %.thread
-  %50 = phi i64 [ %33, %26 ], [ %17, %.thread ], [ %17, %46 ], [ %17, %.lr.ph.i.i ]
-  %51 = phi i64 [ %30, %26 ], [ %14, %.thread ], [ %14, %46 ], [ %14, %.lr.ph.i.i ]
+..loopexit_crit_edge23.i.i:                       ; preds = %46
+  br label %.critedge27, !llvm.loop !120
+
+.critedge27:                                      ; preds = %.lr.ph.i.i, %26, %..loopexit_crit_edge23.i.i, %.thread
+  %50 = phi i64 [ %33, %26 ], [ %17, %.thread ], [ %17, %..loopexit_crit_edge23.i.i ], [ %17, %.lr.ph.i.i ]
+  %51 = phi i64 [ %30, %26 ], [ %14, %.thread ], [ %14, %..loopexit_crit_edge23.i.i ], [ %14, %.lr.ph.i.i ]
   %52 = invoke ptr @_ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %50, i64 noundef %51, ptr noundef nonnull %3, i64 noundef 1)
           to label %_ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableISt5arrayIjLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit29
 
@@ -4777,11 +4780,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5
   %48 = load i64, ptr %47, align 8, !tbaa !118
   %49 = urem i64 %48, %16
   %.not19.i.i = icmp eq i64 %49, %17
-  br i1 %.not19.i.i, label %41, label %.critedge27, !llvm.loop !182
+  br i1 %.not19.i.i, label %41, label %..loopexit_crit_edge23.i.i, !llvm.loop !182
 
-.critedge27:                                      ; preds = %.lr.ph.i.i, %46, %26, %.thread
-  %50 = phi i64 [ %33, %26 ], [ %17, %.thread ], [ %17, %46 ], [ %17, %.lr.ph.i.i ]
-  %51 = phi i64 [ %30, %26 ], [ %14, %.thread ], [ %14, %46 ], [ %14, %.lr.ph.i.i ]
+..loopexit_crit_edge23.i.i:                       ; preds = %46
+  br label %.critedge27, !llvm.loop !182
+
+.critedge27:                                      ; preds = %.lr.ph.i.i, %26, %..loopexit_crit_edge23.i.i, %.thread
+  %50 = phi i64 [ %33, %26 ], [ %17, %.thread ], [ %17, %..loopexit_crit_edge23.i.i ], [ %17, %.lr.ph.i.i ]
+  %51 = phi i64 [ %30, %26 ], [ %14, %.thread ], [ %14, %..loopexit_crit_edge23.i.i ], [ %14, %.lr.ph.i.i ]
   %52 = invoke ptr @_ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %50, i64 noundef %51, ptr noundef nonnull %3, i64 noundef 1)
           to label %_ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableISt5arrayIhLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit29
 
@@ -8227,11 +8233,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5
   %48 = load i64, ptr %47, align 8, !tbaa !118
   %49 = urem i64 %48, %16
   %.not19.i.i = icmp eq i64 %49, %17
-  br i1 %.not19.i.i, label %41, label %.critedge27, !llvm.loop !250
+  br i1 %.not19.i.i, label %41, label %..loopexit_crit_edge23.i.i, !llvm.loop !250
 
-.critedge27:                                      ; preds = %.lr.ph.i.i, %46, %26, %.thread
-  %50 = phi i64 [ %33, %26 ], [ %17, %.thread ], [ %17, %46 ], [ %17, %.lr.ph.i.i ]
-  %51 = phi i64 [ %30, %26 ], [ %14, %.thread ], [ %14, %46 ], [ %14, %.lr.ph.i.i ]
+..loopexit_crit_edge23.i.i:                       ; preds = %46
+  br label %.critedge27, !llvm.loop !250
+
+.critedge27:                                      ; preds = %.lr.ph.i.i, %26, %..loopexit_crit_edge23.i.i, %.thread
+  %50 = phi i64 [ %33, %26 ], [ %17, %.thread ], [ %17, %..loopexit_crit_edge23.i.i ], [ %17, %.lr.ph.i.i ]
+  %51 = phi i64 [ %30, %26 ], [ %14, %.thread ], [ %14, %..loopexit_crit_edge23.i.i ], [ %14, %.lr.ph.i.i ]
   %52 = invoke ptr @_ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %50, i64 noundef %51, ptr noundef nonnull %3, i64 noundef 1)
           to label %_ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableISt5arrayItLm1EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit29
 

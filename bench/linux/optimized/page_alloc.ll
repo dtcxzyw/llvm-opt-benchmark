@@ -5112,7 +5112,7 @@ select.unfold:                                    ; preds = %74
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %206
   %211 = icmp ne i8 %208, 0
-  br label %.loopexit.loopexit
+  br label %.loopexit.loopexit, !llvm.loop !114
 
 .loopexit.loopexit:                               ; preds = %201, %..loopexit.loopexit_crit_edge
   %.ph = phi i1 [ %211, %..loopexit.loopexit_crit_edge ], [ %202, %201 ]

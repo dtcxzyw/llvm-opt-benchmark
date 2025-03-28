@@ -6174,16 +6174,16 @@ define internal void @cycle_events(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br label %59
 
 59:                                               ; preds = %57, %59
-  %.0910.i339446 = phi ptr [ @.str.1, %57 ], [ %61, %59 ]
-  %.0811.i338445 = phi ptr [ %58, %57 ], [ %62, %59 ]
-  %.012.i337444 = phi i64 [ 0, %57 ], [ %60, %59 ]
-  %60 = add nuw nsw i64 %.012.i337444, 1
-  %61 = getelementptr inbounds nuw i8, ptr %.0910.i339446, i64 1
-  %62 = getelementptr inbounds nuw i8, ptr %.0811.i338445, i64 1
+  %.0910.i339443 = phi ptr [ @.str.1, %57 ], [ %61, %59 ]
+  %.0811.i338442 = phi ptr [ %58, %57 ], [ %62, %59 ]
+  %.012.i337441 = phi i64 [ 0, %57 ], [ %60, %59 ]
+  %60 = add nuw nsw i64 %.012.i337441, 1
+  %61 = getelementptr inbounds nuw i8, ptr %.0910.i339443, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.0811.i338442, i64 1
   %63 = load i8, ptr %61, align 1, !tbaa !85
   store i8 %63, ptr %62, align 1, !tbaa !85
-  %exitcond411 = icmp eq i64 %60, 7
-  br i1 %exitcond411, label %pmix_strncpy.exit, label %59
+  %exitcond410 = icmp eq i64 %60, 7
+  br i1 %exitcond410, label %pmix_strncpy.exit, label %59
 
 pmix_strncpy.exit:                                ; preds = %53, %50, %59
   %.0811.i338.lcssa.sink = phi ptr [ %62, %59 ], [ %.0811.i, %50 ], [ %56, %53 ]
@@ -6289,11 +6289,11 @@ pmix_strncpy.exit:                                ; preds = %53, %50, %59
 
 120:                                              ; preds = %107
   store i32 0, ptr %108, align 8, !tbaa !189
-  %.pre427 = load ptr, ptr %43, align 8, !tbaa !167
+  %.pre426 = load ptr, ptr %43, align 8, !tbaa !167
   br label %.thread
 
 .thread:                                          ; preds = %111, %116, %120
-  %121 = phi ptr [ %112, %111 ], [ %112, %116 ], [ %.pre427, %120 ]
+  %121 = phi ptr [ %112, %111 ], [ %112, %116 ], [ %.pre426, %120 ]
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 161
   %123 = load i8, ptr %122, align 1, !tbaa !231, !range !14, !noundef !15
   %124 = trunc nuw i8 %123 to i1
@@ -6333,8 +6333,8 @@ pmix_strncpy.exit:                                ; preds = %53, %50, %59
 .thread362:                                       ; preds = %138
   %141 = load ptr, ptr %43, align 8, !tbaa !167
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %141, i64 160
-  %.pre414 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !230
-  br label %.preheader432
+  %.pre413 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !230
+  br label %.preheader430
 
 .thread359:                                       ; preds = %137, %138
   %142 = phi ptr [ %140, %138 ], [ null, %137 ]
@@ -6407,12 +6407,12 @@ pmix_strncpy.exit:                                ; preds = %53, %50, %59
   %176 = load i64, ptr %86, align 8, !tbaa !112
   %177 = add i64 %176, 1
   store i64 %177, ptr %86, align 8, !tbaa !112
-  %.pre426 = load ptr, ptr %43, align 8, !tbaa !167
+  %.pre425 = load ptr, ptr %43, align 8, !tbaa !167
   br label %178
 
 178:                                              ; preds = %171, %.loopexit374
   %179 = phi i64 [ %177, %171 ], [ %168, %.loopexit374 ]
-  %180 = phi ptr [ %.pre426, %171 ], [ %142, %.loopexit374 ]
+  %180 = phi ptr [ %.pre425, %171 ], [ %142, %.loopexit374 ]
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 488
   %182 = load ptr, ptr %181, align 8, !tbaa !180
   %.not329 = icmp eq ptr %182, null
@@ -6449,20 +6449,23 @@ pmix_notify_check_affected.exit:                  ; preds = %._crit_edge.us.i, %
   %202 = getelementptr inbounds nuw i8, ptr %112, i64 496
   %203 = load ptr, ptr %202, align 8, !tbaa !162
   %.not370 = icmp eq ptr %203, null
-  br i1 %.not370, label %.loopexit373, label %.preheader432
+  br i1 %.not370, label %.loopexit373, label %.preheader430
 
-.preheader432:                                    ; preds = %.thread362, %201
-  %204 = phi i8 [ %.pre414, %.thread362 ], [ %114, %201 ]
+.preheader430:                                    ; preds = %.thread362, %201
+  %204 = phi i8 [ %.pre413, %.thread362 ], [ %114, %201 ]
   %spec.select335 = phi ptr [ getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 1208), %.thread362 ], [ %112, %201 ]
   %205 = icmp eq i8 %204, 64
   %206 = getelementptr inbounds nuw i8, ptr %2, i64 284
   %207 = getelementptr inbounds nuw i8, ptr %2, i64 568
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 576
-  %spec.select437 = select i1 %205, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 1208), ptr %spec.select335
+  %spec.select435 = select i1 %205, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 1208), ptr %spec.select335
   br label %209
 
-209:                                              ; preds = %.preheader432, %.backedge
-  %.5 = phi ptr [ %213, %.backedge ], [ %spec.select437, %.preheader432 ]
+..loopexit372_crit_edge:                          ; preds = %237
+  br label %.backedge, !llvm.loop !250
+
+209:                                              ; preds = %.preheader430, %.backedge
+  %.5 = phi ptr [ %213, %.backedge ], [ %spec.select435, %.preheader430 ]
   %.not312 = icmp eq ptr %.5, null
   br i1 %.not312, label %.thread366, label %210
 
@@ -6527,15 +6530,15 @@ pmix_notify_check_affected.exit356:               ; preds = %228, %216
   %234 = getelementptr inbounds nuw i8, ptr %213, i64 496
   %235 = load ptr, ptr %234, align 8, !tbaa !162
   %236 = load i32, ptr %65, align 8, !tbaa !106
-  br label %239
+  br label %239, !llvm.loop !250
 
-.backedge:                                        ; preds = %._crit_edge.us.i353, %237, %.thread366, %.preheader16.i345, %pmix_notify_check_affected.exit356
+.backedge:                                        ; preds = %._crit_edge.us.i353, %.thread366, %.preheader16.i345, %pmix_notify_check_affected.exit356, %..loopexit372_crit_edge
   br label %209, !llvm.loop !250
 
 237:                                              ; preds = %239
   %238 = add nuw i64 %.3397, 1
-  %exitcond412.not = icmp eq i64 %238, %233
-  br i1 %exitcond412.not, label %.backedge, label %239, !llvm.loop !251
+  %exitcond411.not = icmp eq i64 %238, %233
+  br i1 %exitcond411.not, label %..loopexit372_crit_edge, label %239, !llvm.loop !251
 
 239:                                              ; preds = %.lr.ph398, %237
   %.3397 = phi i64 [ 0, %.lr.ph398 ], [ %238, %237 ]
@@ -6562,12 +6565,12 @@ pmix_notify_check_affected.exit356:               ; preds = %228, %216
   %253 = load i64, ptr %86, align 8, !tbaa !112
   %254 = add i64 %253, 1
   store i64 %254, ptr %86, align 8, !tbaa !112
-  %.pre425 = load ptr, ptr %43, align 8, !tbaa !167
+  %.pre424 = load ptr, ptr %43, align 8, !tbaa !167
   br label %255
 
 255:                                              ; preds = %248, %243
   %256 = phi i64 [ %254, %248 ], [ %245, %243 ]
-  %257 = phi ptr [ %.pre425, %248 ], [ %213, %243 ]
+  %257 = phi ptr [ %.pre424, %248 ], [ %213, %243 ]
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 488
   %259 = load ptr, ptr %258, align 8, !tbaa !180
   %.not327 = icmp eq ptr %259, null
@@ -6653,12 +6656,12 @@ pmix_notify_check_affected.exit356:               ; preds = %228, %216
   %313 = load i64, ptr %86, align 8, !tbaa !112
   %314 = add i64 %313, 1
   store i64 %314, ptr %86, align 8, !tbaa !112
-  %.pre415 = load ptr, ptr %43, align 8, !tbaa !167
+  %.pre414 = load ptr, ptr %43, align 8, !tbaa !167
   br label %315
 
 315:                                              ; preds = %308, %303
   %316 = phi i64 [ %314, %308 ], [ %305, %303 ]
-  %317 = phi ptr [ %.pre415, %308 ], [ %288, %303 ]
+  %317 = phi ptr [ %.pre414, %308 ], [ %288, %303 ]
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 488
   %319 = load ptr, ptr %318, align 8, !tbaa !180
   %.not317 = icmp eq ptr %319, null
@@ -6746,12 +6749,12 @@ pmix_notify_check_affected.exit356:               ; preds = %228, %216
   %376 = load i64, ptr %86, align 8, !tbaa !112
   %377 = add i64 %376, 1
   store i64 %377, ptr %86, align 8, !tbaa !112
-  %.pre423 = load ptr, ptr %43, align 8, !tbaa !167
+  %.pre422 = load ptr, ptr %43, align 8, !tbaa !167
   br label %378
 
 378:                                              ; preds = %371, %366
   %379 = phi i64 [ %377, %371 ], [ %368, %366 ]
-  %380 = phi ptr [ %.pre423, %371 ], [ %356, %366 ]
+  %380 = phi ptr [ %.pre422, %371 ], [ %356, %366 ]
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 488
   %382 = load ptr, ptr %381, align 8, !tbaa !180
   %.not325 = icmp eq ptr %382, null
@@ -6765,12 +6768,12 @@ pmix_notify_check_affected.exit356:               ; preds = %228, %216
   %388 = load i64, ptr %86, align 8, !tbaa !112
   %389 = add i64 %388, 1
   store i64 %389, ptr %86, align 8, !tbaa !112
-  %.pre424 = load ptr, ptr %43, align 8, !tbaa !167
+  %.pre423 = load ptr, ptr %43, align 8, !tbaa !167
   br label %390
 
 390:                                              ; preds = %383, %378
   %391 = phi i64 [ %389, %383 ], [ %379, %378 ]
-  %392 = phi ptr [ %.pre424, %383 ], [ %380, %378 ]
+  %392 = phi ptr [ %.pre423, %383 ], [ %380, %378 ]
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 480
   %394 = load ptr, ptr %393, align 8, !tbaa !181
   %395 = getelementptr inbounds nuw i8, ptr %392, i64 152
@@ -6797,8 +6800,8 @@ pmix_notify_check_affected.exit356:               ; preds = %228, %216
 
 404:                                              ; preds = %406
   %405 = add nuw i64 %.4399, 1
-  %exitcond413.not = icmp eq i64 %405, %358
-  br i1 %exitcond413.not, label %.loopexit, label %406, !llvm.loop !252
+  %exitcond412.not = icmp eq i64 %405, %358
+  br i1 %exitcond412.not, label %.loopexit, label %406, !llvm.loop !252
 
 406:                                              ; preds = %.lr.ph400, %404
   %.4399 = phi i64 [ 0, %.lr.ph400 ], [ %405, %404 ]
@@ -6825,12 +6828,12 @@ pmix_notify_check_affected.exit356:               ; preds = %228, %216
   %420 = load i64, ptr %86, align 8, !tbaa !112
   %421 = add i64 %420, 1
   store i64 %421, ptr %86, align 8, !tbaa !112
-  %.pre419 = load ptr, ptr %43, align 8, !tbaa !167
+  %.pre418 = load ptr, ptr %43, align 8, !tbaa !167
   br label %422
 
 422:                                              ; preds = %415, %410
   %423 = phi i64 [ %421, %415 ], [ %412, %410 ]
-  %424 = phi ptr [ %.pre419, %415 ], [ %356, %410 ]
+  %424 = phi ptr [ %.pre418, %415 ], [ %356, %410 ]
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 488
   %426 = load ptr, ptr %425, align 8, !tbaa !180
   %.not323 = icmp eq ptr %426, null
@@ -6844,12 +6847,12 @@ pmix_notify_check_affected.exit356:               ; preds = %228, %216
   %432 = load i64, ptr %86, align 8, !tbaa !112
   %433 = add i64 %432, 1
   store i64 %433, ptr %86, align 8, !tbaa !112
-  %.pre420 = load ptr, ptr %43, align 8, !tbaa !167
+  %.pre419 = load ptr, ptr %43, align 8, !tbaa !167
   br label %434
 
 434:                                              ; preds = %427, %422
   %435 = phi i64 [ %433, %427 ], [ %423, %422 ]
-  %436 = phi ptr [ %.pre420, %427 ], [ %424, %422 ]
+  %436 = phi ptr [ %.pre419, %427 ], [ %424, %422 ]
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 480
   %438 = load ptr, ptr %437, align 8, !tbaa !181
   %439 = getelementptr inbounds nuw i8, ptr %436, i64 152
@@ -6880,12 +6883,12 @@ pmix_notify_check_affected.exit356:               ; preds = %228, %216
   %456 = load i64, ptr %86, align 8, !tbaa !112
   %457 = add i64 %456, 1
   store i64 %457, ptr %86, align 8, !tbaa !112
-  %.pre421 = load ptr, ptr %43, align 8, !tbaa !167
+  %.pre420 = load ptr, ptr %43, align 8, !tbaa !167
   br label %458
 
 458:                                              ; preds = %451, %446
   %459 = phi i64 [ %457, %451 ], [ %448, %446 ]
-  %460 = phi ptr [ %.pre421, %451 ], [ %356, %446 ]
+  %460 = phi ptr [ %.pre420, %451 ], [ %356, %446 ]
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 488
   %462 = load ptr, ptr %461, align 8, !tbaa !180
   %.not321 = icmp eq ptr %462, null
@@ -6899,12 +6902,12 @@ pmix_notify_check_affected.exit356:               ; preds = %228, %216
   %468 = load i64, ptr %86, align 8, !tbaa !112
   %469 = add i64 %468, 1
   store i64 %469, ptr %86, align 8, !tbaa !112
-  %.pre422 = load ptr, ptr %43, align 8, !tbaa !167
+  %.pre421 = load ptr, ptr %43, align 8, !tbaa !167
   br label %470
 
 470:                                              ; preds = %463, %458
   %471 = phi i64 [ %469, %463 ], [ %459, %458 ]
-  %472 = phi ptr [ %.pre422, %463 ], [ %460, %458 ]
+  %472 = phi ptr [ %.pre421, %463 ], [ %460, %458 ]
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 480
   %474 = load ptr, ptr %473, align 8, !tbaa !181
   %475 = getelementptr inbounds nuw i8, ptr %472, i64 152

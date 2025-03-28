@@ -402,7 +402,10 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %76, %71, %.crited
   %149 = load i64, ptr %148, align 8, !tbaa !44
   %150 = urem i64 %149, %125
   %.not19.i.i.i.i = icmp eq i64 %150, %126
-  br i1 %.not19.i.i.i.i, label %140, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, !llvm.loop !46
+  br i1 %.not19.i.i.i.i, label %140, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !46
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %147
+  br label %_ZNSt6vectorImSaImEE9push_backERKm.exit, !llvm.loop !46
 
 _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %140, %119, %130
   %151 = load ptr, ptr %106, align 8, !tbaa !47
@@ -485,7 +488,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
           cleanup
   br label %203
 
-_ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %.lr.ph.i.i.i.i, %147, %118, %.noexc40, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %153
+_ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %.lr.ph.i.i.i.i, %118, %..loopexit_crit_edge21.i.i.i.i, %.noexc40, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %153
   %177 = add nuw i64 %.0153, 1
   %exitcond.not = icmp eq i64 %177, %umax
   br i1 %exitcond.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit, label %112, !llvm.loop !53

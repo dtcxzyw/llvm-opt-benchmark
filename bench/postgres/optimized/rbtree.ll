@@ -593,10 +593,13 @@ rbt_rotate_right.exit.i:                          ; preds = %171, %170, %116, %1
   %.3.i = phi ptr [ %63, %57 ], [ %122, %116 ], [ %.2.i, %111 ], [ %.2.i, %112 ], [ %.5.i, %170 ], [ %.5.i, %171 ]
   %172 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.3.i, %172
-  br i1 %.not.i, label %rbt_insert_fixup.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !8
 
-rbt_insert_fixup.exit:                            ; preds = %rbt_rotate_right.exit.i, %.lr.ph.i, %.lr.ph.i.preheader, %36
-  %.lcssa.i = phi ptr [ %37, %36 ], [ %37, %.lr.ph.i.preheader ], [ %172, %.lr.ph.i ], [ %172, %rbt_rotate_right.exit.i ]
+rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge: ; preds = %rbt_rotate_right.exit.i
+  br label %rbt_insert_fixup.exit, !llvm.loop !8
+
+rbt_insert_fixup.exit:                            ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge, %36
+  %.lcssa.i = phi ptr [ %37, %36 ], [ %172, %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge ], [ %37, %.lr.ph.i.preheader ], [ %172, %.lr.ph.i ]
   store i8 0, ptr %.lcssa.i, align 8
   br label %173
 

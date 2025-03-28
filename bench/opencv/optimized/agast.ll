@@ -19113,11 +19113,14 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %12093, %.noexc269, 
   %12136 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %12094, i64 %12135
   %12137 = load float, ptr %12136, align 4, !tbaa !171
   %12138 = fcmp olt float %12137, %12123
-  br i1 %12138, label %12131, label %.critedge, !llvm.loop !175
+  br i1 %12138, label %12131, label %..critedge.loopexit_crit_edge, !llvm.loop !175
 
-.critedge:                                        ; preds = %.lr.ph1573, %12131, %.lr.ph639, %.preheader322
-  %.390.lcssa = phi i64 [ %.188, %.preheader322 ], [ %.188, %.lr.ph639 ], [ %12135, %12131 ], [ %12135, %.lr.ph1573 ]
-  %.lcssa337 = phi float [ %12125, %.preheader322 ], [ %12125, %.lr.ph639 ], [ %12137, %12131 ], [ %12137, %.lr.ph1573 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph1573
+  br label %.critedge, !llvm.loop !175
+
+.critedge:                                        ; preds = %12131, %.lr.ph639, %..critedge.loopexit_crit_edge, %.preheader322
+  %.390.lcssa = phi i64 [ %.188, %.preheader322 ], [ %12135, %..critedge.loopexit_crit_edge ], [ %.188, %.lr.ph639 ], [ %12135, %12131 ]
+  %.lcssa337 = phi float [ %12125, %.preheader322 ], [ %12137, %..critedge.loopexit_crit_edge ], [ %12125, %.lr.ph639 ], [ %12137, %12131 ]
   %12139 = fcmp une float %.lcssa337, %12123
   %.not = icmp eq i64 %.390.lcssa, %.099652
   %or.cond = or i1 %.not, %12139

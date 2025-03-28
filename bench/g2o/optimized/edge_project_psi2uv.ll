@@ -674,9 +674,12 @@ _ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE12readParamIdsERSi.e
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv.i
   %30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %29)
-  br i1 %22, label %21, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !84
+  br i1 %22, label %21, label %..critedge_crit_edge.i, !llvm.loop !84
 
-_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %28, %21
+..critedge_crit_edge.i:                           ; preds = %28
+  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !84
+
+_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %21, %..critedge_crit_edge.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %32
 
@@ -714,7 +717,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   %.pre.i7 = load ptr, ptr %1, align 8, !tbaa !35
   %.phi.trans.insert.i8 = getelementptr i8, ptr %.pre.i7, i64 -24
   %.pre36.i = load i64, ptr %.phi.trans.insert.i8, align 8
-  br label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit
+  br label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit, !llvm.loop !85
 
 46:                                               ; preds = %40
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv32.i, 4

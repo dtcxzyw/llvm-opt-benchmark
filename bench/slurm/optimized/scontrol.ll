@@ -4777,11 +4777,14 @@ define internal fastcc void @_print_daemons() unnamed_addr #8 {
   %30 = load i32, ptr %10, align 8
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %15, label %.loopexit, !llvm.loop !31
+  br i1 %32, label %15, label %._crit_edge..loopexit.loopexit_crit_edge, !llvm.loop !31
 
-.loopexit:                                        ; preds = %15, %._crit_edge, %.lr.ph38, %0, %29
-  %.121 = phi i1 [ true, %29 ], [ false, %0 ], [ false, %.lr.ph38 ], [ true, %._crit_edge ], [ true, %15 ]
-  %33 = phi i1 [ true, %29 ], [ false, %0 ], [ false, %.lr.ph38 ], [ false, %._crit_edge ], [ false, %15 ]
+._crit_edge..loopexit.loopexit_crit_edge:         ; preds = %._crit_edge
+  br label %.loopexit, !llvm.loop !31
+
+.loopexit:                                        ; preds = %15, %.lr.ph38, %._crit_edge..loopexit.loopexit_crit_edge, %0, %29
+  %.121 = phi i1 [ true, %29 ], [ false, %0 ], [ true, %._crit_edge..loopexit.loopexit_crit_edge ], [ false, %.lr.ph38 ], [ true, %15 ]
+  %33 = phi i1 [ true, %29 ], [ false, %0 ], [ false, %._crit_edge..loopexit.loopexit_crit_edge ], [ false, %.lr.ph38 ], [ false, %15 ]
   call void @slurm_conf_unlock() #18
   %34 = call ptr @slurm_conf_get_nodename(ptr noundef nonnull %1) #18
   store ptr %34, ptr %4, align 8

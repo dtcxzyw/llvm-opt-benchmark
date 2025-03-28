@@ -1798,7 +1798,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   %586 = getelementptr inbounds nuw i8, ptr %565, i64 24
   %587 = load ptr, ptr %586, align 8, !tbaa !242
   %588 = icmp eq ptr %587, null
-  br i1 %588, label %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i152, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96, !llvm.loop !269
+  br i1 %588, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit._ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i152.loopexit_crit_edge, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96, !llvm.loop !269
 
 .loopexit395:                                     ; preds = %544
   %lpad.loopexit397 = landingpad { ptr, i32 }
@@ -1872,9 +1872,12 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
   call void @__clang_call_terminate(ptr %611) #20
   unreachable
 
-_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i152: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96, %_ZNK17array_recognizers8is_arrayEP4sort.exit97, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96.preheader, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %.sroa.0357.2.lcssa = phi ptr [ %159, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %159, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96.preheader ], [ %.sroa.0357.2520808, %_ZNK17array_recognizers8is_arrayEP4sort.exit97 ], [ %527, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96 ], [ %527, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit ]
-  %.152.lcssa = phi ptr [ %117, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %117, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96.preheader ], [ %.152521807, %_ZNK17array_recognizers8is_arrayEP4sort.exit97 ], [ %565, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96 ], [ %565, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit ]
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit._ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i152.loopexit_crit_edge: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
+  br label %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i152, !llvm.loop !269
+
+_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i152: ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96, %_ZNK17array_recognizers8is_arrayEP4sort.exit97, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96.preheader, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit._ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i152.loopexit_crit_edge, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
+  %.sroa.0357.2.lcssa = phi ptr [ %159, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %527, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit._ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i152.loopexit_crit_edge ], [ %159, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96.preheader ], [ %.sroa.0357.2520808, %_ZNK17array_recognizers8is_arrayEP4sort.exit97 ], [ %527, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96 ]
+  %.152.lcssa = phi ptr [ %117, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %565, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit._ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i152.loopexit_crit_edge ], [ %117, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96.preheader ], [ %.152521807, %_ZNK17array_recognizers8is_arrayEP4sort.exit97 ], [ %565, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i96 ]
   %612 = getelementptr inbounds nuw i8, ptr %.152.lcssa, i64 8
   %613 = load i32, ptr %612, align 4, !tbaa !225
   %614 = add i32 %613, 1

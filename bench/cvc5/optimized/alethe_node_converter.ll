@@ -8660,7 +8660,10 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE10substit
   %56 = load i64, ptr %55, align 8, !tbaa !152
   %57 = urem i64 %56, %32
   %.not19.i.i.i.i = icmp eq i64 %57, %33
-  br i1 %.not19.i.i.i.i, label %47, label %_ZSt4findIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb1EEEEENS5_ILb0EEEET_S9_S9_RKT0_.exit, !llvm.loop !154
+  br i1 %.not19.i.i.i.i, label %47, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !154
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %54
+  br label %_ZSt4findIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb1EEEEENS5_ILb0EEEET_S9_S9_RKT0_.exit, !llvm.loop !154
 
 .loopexit:                                        ; preds = %47, %26, %37
   %.sroa.06.1.i.i = phi ptr [ %38, %37 ], [ %.sroa.06.0.i.i, %26 ], [ %53, %47 ]
@@ -8693,7 +8696,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE10substit
   call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %59)
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
 
-_ZSt4findIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb1EEEEENS5_ILb0EEEET_S9_S9_RKT0_.exit: ; preds = %54, %.lr.ph.i.i.i.i, %25, %.noexc
+_ZSt4findIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb1EEEEENS5_ILb0EEEET_S9_S9_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i, %25, %.noexc, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
   %74 = load ptr, ptr %1, align 8, !tbaa !11
@@ -8975,8 +8978,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit55: ; preds = %_ZN4cvc58internal12
   %210 = lshr i64 %209, 32
   %211 = and i64 %210, 67108863
   %212 = getelementptr inbounds nuw ptr, ptr %207, i64 %211
-  %.not7984 = icmp eq ptr %spec.select.i.i, %212
-  br i1 %.not7984, label %._crit_edge, label %.lr.ph
+  %.not7985 = icmp eq ptr %spec.select.i.i, %212
+  br i1 %.not7985, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61, %204
   invoke void @_ZN4cvc58internal11NodeBuildercvNS0_12NodeTemplateILb1EEEEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(124) %12)
@@ -8988,11 +8991,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit55: ; preds = %_ZN4cvc58internal12
   br label %277
 
 .lr.ph:                                           ; preds = %204, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61
-  %.sroa.066.085 = phi ptr [ %260, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61 ], [ %spec.select.i.i, %204 ]
+  %.sroa.066.086 = phi ptr [ %260, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61 ], [ %spec.select.i.i, %204 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #23
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
-  %215 = load ptr, ptr %.sroa.066.085, align 8, !tbaa !54, !noalias !155
+  %215 = load ptr, ptr %.sroa.066.086, align 8, !tbaa !54, !noalias !155
   store ptr %215, ptr %18, align 8, !tbaa !11, !alias.scope !155
   %216 = load i64, ptr %215, align 8, !noalias !155
   %217 = lshr i64 %216, 40
@@ -9086,7 +9089,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59: ; preds = %233, %237, %243
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59, %250, %256
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #23
-  %260 = getelementptr inbounds nuw i8, ptr %.sroa.066.085, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.066.086, i64 8
   %.not79 = icmp eq ptr %260, %212
   br i1 %.not79, label %._crit_edge, label %.lr.ph, !llvm.loop !158
 
@@ -9722,9 +9725,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %31 = load i64, ptr %30, align 8, !tbaa !152
   %32 = urem i64 %31, %7
   %.not19.i.i = icmp eq i64 %32, %8
-  br i1 %.not19.i.i, label %22, label %.loopexit, !llvm.loop !154
+  br i1 %.not19.i.i, label %22, label %..loopexit_crit_edge21.i.i, !llvm.loop !154
 
-.loopexit:                                        ; preds = %29, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %29
+  br label %.loopexit, !llvm.loop !154
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
   store ptr %1, ptr %3, align 8, !tbaa !181, !alias.scope !183
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #23

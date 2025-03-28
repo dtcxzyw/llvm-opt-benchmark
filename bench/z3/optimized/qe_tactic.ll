@@ -2570,7 +2570,7 @@ _ZNK4goal3depEj.exit:                             ; preds = %_ZNK11ast_manager3g
   %.pre.pre = load ptr, ptr %1, align 8, !tbaa !268
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 120
   %.pre107.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
-  br label %_ZN9qe_tactic3imp10checkpointEv.exit._crit_edge
+  br label %_ZN9qe_tactic3imp10checkpointEv.exit._crit_edge, !llvm.loop !363
 
 _ZN9qe_tactic3imp10checkpointEv.exit._crit_edge:  ; preds = %_ZN9qe_tactic3imp10checkpointEv.exit, %3, %._ZN9qe_tactic3imp10checkpointEv.exit._crit_edge.loopexit_crit_edge, %_ZNK4goal4sizeEv.exit
   %203 = phi ptr [ null, %_ZNK4goal4sizeEv.exit ], [ %202, %._ZN9qe_tactic3imp10checkpointEv.exit._crit_edge.loopexit_crit_edge ], [ null, %3 ], [ %43, %_ZN9qe_tactic3imp10checkpointEv.exit ]

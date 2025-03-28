@@ -203,11 +203,14 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %.val102.val = load i32, ptr %81, align 4, !tbaa !35
   %82 = sub nsw i32 %.val102.val, %.val101
   %83 = icmp slt i32 %80, %82
-  br i1 %83, label %.lr.ph, label %.critedge, !llvm.loop !36
+  br i1 %83, label %.lr.ph, label %Gia_ManAppendCi.exit..critedge.loopexit_crit_edge, !llvm.loop !36
 
-.critedge:                                        ; preds = %.lr.ph, %Gia_ManAppendCi.exit, %.lr.ph.preheader, %.preheader141
-  %.val102144194 = phi ptr [ %.val102144, %.preheader141 ], [ %.val102144, %.lr.ph.preheader ], [ %.val102, %Gia_ManAppendCi.exit ], [ %.val102, %.lr.ph ]
-  %.val101143190 = phi i32 [ %.val101143, %.preheader141 ], [ %.val101143, %.lr.ph.preheader ], [ %.val101, %Gia_ManAppendCi.exit ], [ %.val101, %.lr.ph ]
+Gia_ManAppendCi.exit..critedge.loopexit_crit_edge: ; preds = %Gia_ManAppendCi.exit
+  br label %.critedge, !llvm.loop !36
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %Gia_ManAppendCi.exit..critedge.loopexit_crit_edge, %.preheader141
+  %.val102144194 = phi ptr [ %.val102144, %.preheader141 ], [ %.val102, %Gia_ManAppendCi.exit..critedge.loopexit_crit_edge ], [ %.val102144, %.lr.ph.preheader ], [ %.val102, %.lr.ph ]
+  %.val101143190 = phi i32 [ %.val101143, %.preheader141 ], [ %.val101, %Gia_ManAppendCi.exit..critedge.loopexit_crit_edge ], [ %.val101143, %.lr.ph.preheader ], [ %.val101, %.lr.ph ]
   %84 = add nuw nsw i32 %.0148, 1
   %exitcond.not = icmp eq i32 %84, %1
   br i1 %exitcond.not, label %.preheader140, label %.preheader141, !llvm.loop !41
@@ -955,11 +958,14 @@ define ptr @Bmc_CexBuildNetwork2(ptr noundef readonly captures(none) %0, ptr nou
   %89 = sub nsw i32 %.val159.val, %.val158
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next, %90
-  br i1 %91, label %.lr.ph202, label %.critedge2, !llvm.loop !56
+  br i1 %91, label %.lr.ph202, label %..critedge2.loopexit_crit_edge, !llvm.loop !56
 
-.critedge2:                                       ; preds = %.lr.ph238, %.lr.ph202, %.lr.ph202.preheader, %.preheader
-  %.1.lcssa = phi i32 [ %.0222, %.preheader ], [ %.0222, %.lr.ph202.preheader ], [ %73, %.lr.ph202 ], [ %73, %.lr.ph238 ]
-  %.val167207 = phi i32 [ %.val158195, %.preheader ], [ %.val158195, %.lr.ph202.preheader ], [ %.val158, %.lr.ph202 ], [ %.val158, %.lr.ph238 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph238
+  br label %.critedge2, !llvm.loop !56
+
+.critedge2:                                       ; preds = %.lr.ph202, %.lr.ph202.preheader, %..critedge2.loopexit_crit_edge, %.preheader
+  %.1.lcssa = phi i32 [ %.0222, %.preheader ], [ %73, %..critedge2.loopexit_crit_edge ], [ %.0222, %.lr.ph202.preheader ], [ %73, %.lr.ph202 ]
+  %.val167207 = phi i32 [ %.val158195, %.preheader ], [ %.val158, %..critedge2.loopexit_crit_edge ], [ %.val158195, %.lr.ph202.preheader ], [ %.val158, %.lr.ph202 ]
   %92 = add nsw i32 %.val167207, %.1.lcssa
   %93 = icmp sgt i32 %.val167207, 0
   br i1 %93, label %.lr.ph211, label %.critedge4
@@ -1428,11 +1434,14 @@ define ptr @Bmc_CexBuildNetwork2_(ptr noundef readonly captures(none) %0, ptr no
   %86 = sub nsw i32 %.val130.val, %.val129
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %.lr.ph173, label %.critedge2, !llvm.loop !63
+  br i1 %88, label %.lr.ph173, label %..critedge2.loopexit_crit_edge, !llvm.loop !63
 
-.critedge2:                                       ; preds = %.lr.ph208, %.lr.ph173, %.lr.ph173.preheader, %.preheader
-  %.1.lcssa = phi i32 [ %.0193, %.preheader ], [ %.0193, %.lr.ph173.preheader ], [ %71, %.lr.ph173 ], [ %71, %.lr.ph208 ]
-  %.val138178 = phi i32 [ %.val129166, %.preheader ], [ %.val129166, %.lr.ph173.preheader ], [ %.val129, %.lr.ph173 ], [ %.val129, %.lr.ph208 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph208
+  br label %.critedge2, !llvm.loop !63
+
+.critedge2:                                       ; preds = %.lr.ph173, %.lr.ph173.preheader, %..critedge2.loopexit_crit_edge, %.preheader
+  %.1.lcssa = phi i32 [ %.0193, %.preheader ], [ %71, %..critedge2.loopexit_crit_edge ], [ %.0193, %.lr.ph173.preheader ], [ %71, %.lr.ph173 ]
+  %.val138178 = phi i32 [ %.val129166, %.preheader ], [ %.val129, %..critedge2.loopexit_crit_edge ], [ %.val129166, %.lr.ph173.preheader ], [ %.val129, %.lr.ph173 ]
   %89 = add nsw i32 %.val138178, %.1.lcssa
   %90 = icmp sgt i32 %.val138178, 0
   br i1 %90, label %.lr.ph182, label %.critedge4

@@ -4248,11 +4248,14 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc36
   %.1.us = phi i32 [ %.085.us, %36 ], [ %47, %46 ]
   %49 = add nuw nsw i32 %.02684.us, 1
   %exitcond.not = icmp eq i32 %49, %11
-  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !25
+  br i1 %exitcond.not, label %.._crit_edge.us_crit_edge, label %36, !llvm.loop !25
 
-._crit_edge.us:                                   ; preds = %44, %48
-  %.zext82.us.pre-phi = phi i64 [ %.pre97, %48 ], [ %.zext.us, %44 ]
-  %.026.lcssa.us = phi i32 [ %11, %48 ], [ %.02684.us, %44 ]
+.._crit_edge.us_crit_edge:                        ; preds = %48
+  br label %._crit_edge.us, !llvm.loop !25
+
+._crit_edge.us:                                   ; preds = %44, %.._crit_edge.us_crit_edge
+  %.zext82.us.pre-phi = phi i64 [ %.pre97, %.._crit_edge.us_crit_edge ], [ %.zext.us, %44 ]
+  %.026.lcssa.us = phi i32 [ %11, %.._crit_edge.us_crit_edge ], [ %.02684.us, %44 ]
   %50 = zext nneg i32 %.026.lcssa.us to i64
   %51 = load ptr, ptr %1, align 8
   %52 = getelementptr inbounds nuw i32, ptr %51, i64 %50

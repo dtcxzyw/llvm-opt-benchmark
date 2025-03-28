@@ -12115,7 +12115,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 
 .backedge.._crit_edge.loopexit_crit_edge:         ; preds = %.backedge
   %.pre.pre = load ptr, ptr %0, align 8, !tbaa !279
-  br label %._crit_edge.loopexit
+  br label %._crit_edge.loopexit, !llvm.loop !309
 
 296:                                              ; preds = %256
   %297 = landingpad { ptr, i32 }

@@ -969,10 +969,13 @@ define hidden void @_ZN4cvc58internal4prop11TheoryProxy19notifyInputFormulasERKS
   %45 = load i64, ptr %44, align 8, !tbaa !369
   %46 = urem i64 %45, %30
   %.not19.i.i.i.i = icmp eq i64 %46, %31
-  br i1 %.not19.i.i.i.i, label %40, label %_ZNSt13unordered_mapImN4cvc58internal12NodeTemplateILb1EEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit, !llvm.loop !375
+  br i1 %.not19.i.i.i.i, label %40, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !375
 
-_ZNSt13unordered_mapImN4cvc58internal12NodeTemplateILb1EEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit: ; preds = %40, %.lr.ph.i.i.i.i, %43, %.preheader, %25, %29, %35
-  %.sroa.06.1.i.i = phi ptr [ null, %29 ], [ %36, %35 ], [ null, %.preheader ], [ %.sroa.06.0.i.i, %25 ], [ %42, %40 ], [ null, %.lr.ph.i.i.i.i ], [ null, %43 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %43
+  br label %_ZNSt13unordered_mapImN4cvc58internal12NodeTemplateILb1EEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit, !llvm.loop !375
+
+_ZNSt13unordered_mapImN4cvc58internal12NodeTemplateILb1EEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit: ; preds = %40, %.lr.ph.i.i.i.i, %.preheader, %25, %29, %35, %..loopexit_crit_edge21.i.i.i.i
+  %.sroa.06.1.i.i = phi ptr [ null, %29 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %36, %35 ], [ null, %.preheader ], [ %.sroa.06.0.i.i, %25 ], [ %42, %40 ], [ null, %.lr.ph.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   %47 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %48 = icmp eq i8 %47, 0
@@ -2832,8 +2835,8 @@ define hidden void @_ZN4cvc58internal4prop11TheoryProxy15notifySatClauseERKSt6ve
   %29 = load ptr, ptr %1, align 8, !tbaa !457
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !457
-  %.not83 = icmp eq ptr %29, %31
-  br i1 %.not83, label %._crit_edge, label %.lr.ph
+  %.not84 = icmp eq ptr %29, %31
+  br i1 %.not84, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -2847,12 +2850,12 @@ define hidden void @_ZN4cvc58internal4prop11TheoryProxy15notifySatClauseERKSt6ve
           to label %132 unwind label %152
 
 36:                                               ; preds = %.lr.ph, %_ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTemplateILb0EEENS3_22SatLiteralHashFunctionEE4findERKS4_.exit.thread
-  %.sroa.074.084 = phi ptr [ %29, %.lr.ph ], [ %131, %_ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTemplateILb0EEENS3_22SatLiteralHashFunctionEE4findERKS4_.exit.thread ]
+  %.sroa.074.085 = phi ptr [ %29, %.lr.ph ], [ %131, %_ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTemplateILb0EEENS3_22SatLiteralHashFunctionEE4findERKS4_.exit.thread ]
   %37 = load ptr, ptr %32, align 8, !tbaa !458
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %39 = load i64, ptr %38, align 8, !tbaa !461
   %.not.not.i.i.i.i = icmp eq i64 %39, 0
-  %40 = load i64, ptr %.sroa.074.084, align 8
+  %40 = load i64, ptr %.sroa.074.085, align 8
   br i1 %.not.not.i.i.i.i, label %41, label %48
 
 41:                                               ; preds = %36
@@ -2912,7 +2915,10 @@ define hidden void @_ZN4cvc58internal4prop11TheoryProxy15notifySatClauseERKSt6ve
   %74 = load i64, ptr %73, align 8, !tbaa !468
   %75 = urem i64 %74, %51
   %.not19.i.i.i.i.i.i = icmp eq i64 %75, %52
-  br i1 %.not19.i.i.i.i.i.i, label %65, label %_ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTemplateILb0EEENS3_22SatLiteralHashFunctionEE4findERKS4_.exit.thread, !llvm.loop !470
+  br i1 %.not19.i.i.i.i.i.i, label %65, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !470
+
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %72
+  br label %_ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTemplateILb0EEENS3_22SatLiteralHashFunctionEE4findERKS4_.exit.thread, !llvm.loop !470
 
 _ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTemplateILb0EEENS3_22SatLiteralHashFunctionEE4findERKS4_.exit: ; preds = %65, %44, %56
   %.sroa.06.1.i.i.i.i = phi ptr [ %57, %56 ], [ %.sroa.06.0.i.i.i.i, %44 ], [ %71, %65 ]
@@ -3036,8 +3042,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
   br label %217
 
-_ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTemplateILb0EEENS3_22SatLiteralHashFunctionEE4findERKS4_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %72, %43, %48, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.074.084, i64 8
+_ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTemplateILb0EEENS3_22SatLiteralHashFunctionEE4findERKS4_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %43, %..loopexit_crit_edge21.i.i.i.i.i.i, %48, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.074.085, i64 8
   %.not = icmp eq ptr %131, %31
   br i1 %.not, label %._crit_edge, label %36
 
@@ -3088,8 +3094,8 @@ _ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTempl
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %147
   %150 = load ptr, ptr %9, align 8, !tbaa !438
   %151 = load ptr, ptr %11, align 8, !tbaa !438
-  %.not7885 = icmp eq ptr %150, %151
-  br i1 %.not7885, label %.loopexit, label %.lr.ph87
+  %.not7886 = icmp eq ptr %150, %151
+  br i1 %.not7886, label %.loopexit, label %.lr.ph88
 
 152:                                              ; preds = %132, %._crit_edge
   %153 = landingpad { ptr, i32 }
@@ -3101,21 +3107,21 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %147
           cleanup
   br label %215
 
-.lr.ph87:                                         ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit, %160
-  %.sroa.059.086 = phi ptr [ %161, %160 ], [ %150, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit ]
-  %156 = load ptr, ptr %.sroa.059.086, align 8, !tbaa !472
+.lr.ph88:                                         ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit, %160
+  %.sroa.059.087 = phi ptr [ %161, %160 ], [ %150, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit ]
+  %156 = load ptr, ptr %.sroa.059.087, align 8, !tbaa !472
   %157 = load ptr, ptr %156, align 8, !tbaa !3
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = load ptr, ptr %158, align 8
   invoke void %159(ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %160 unwind label %162
 
-160:                                              ; preds = %.lr.ph87
-  %161 = getelementptr inbounds nuw i8, ptr %.sroa.059.086, i64 8
+160:                                              ; preds = %.lr.ph88
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.059.087, i64 8
   %.not78 = icmp eq ptr %161, %151
-  br i1 %.not78, label %.loopexit, label %.lr.ph87
+  br i1 %.not78, label %.loopexit, label %.lr.ph88
 
-162:                                              ; preds = %.lr.ph87
+162:                                              ; preds = %.lr.ph88
   %163 = landingpad { ptr, i32 }
           cleanup
   br label %.body

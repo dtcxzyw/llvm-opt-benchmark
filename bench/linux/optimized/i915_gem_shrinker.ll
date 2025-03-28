@@ -483,7 +483,7 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
 
 .thread20..loopexit.loopexit44_crit_edge:         ; preds = %.thread20
   %.pre.pre = load ptr, ptr %93, align 8
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %102, %.preheader23, %123, %.thread20..loopexit.loopexit44_crit_edge
   %263 = phi ptr [ %.pre.pre, %.thread20..loopexit.loopexit44_crit_edge ], [ %124, %123 ], [ %.pre.pre58, %.preheader23 ], [ %.pre.pre58, %102 ]

@@ -4069,7 +4069,7 @@ _Z12double_equalRKdS0_.exit.thread:               ; preds = %142, %_Z12double_eq
   %.not.not92 = icmp slt i32 %179, %180
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %182 = load double, ptr %181, align 8
-  br i1 %.not.not92, label %.lr.ph, label %._crit_edge
+  br i1 %.not.not92, label %.lr.ph, label %._crit_edge96
 
 .lr.ph:                                           ; preds = %178, %.critedge
   %183 = phi i32 [ %206, %.critedge ], [ %180, %178 ]
@@ -4105,22 +4105,25 @@ _Z12double_equalRKdS0_.exit.thread:               ; preds = %142, %_Z12double_eq
 
 ..critedge_crit_edge:                             ; preds = %192
   %.pre = load i32, ptr %1, align 4, !tbaa !92
-  br label %.critedge
+  br label %.critedge, !llvm.loop !194
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph
   %206 = phi i32 [ %.pre, %..critedge_crit_edge ], [ %183, %.lr.ph ]
   %.not.not = icmp slt i32 %.05995, %206
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge96
 
-._crit_edge:                                      ; preds = %.critedge, %192, %178
-  %.158 = phi double [ %155, %178 ], [ %190, %192 ], [ %190, %.critedge ]
+._crit_edge:                                      ; preds = %192
+  br label %._crit_edge96, !llvm.loop !194
+
+._crit_edge96:                                    ; preds = %.critedge, %178, %._crit_edge
+  %.158 = phi double [ %190, %._crit_edge ], [ %155, %178 ], [ %190, %.critedge ]
   %207 = tail call double @log10(double noundef %.158) #26, !tbaa !92
   %208 = fneg double %207
   %209 = fsub double %208, %182
   br label %210
 
-210:                                              ; preds = %169, %174, %._crit_edge, %17, %10
-  %.0 = phi double [ %13, %10 ], [ %24, %17 ], [ %173, %169 ], [ %177, %174 ], [ %209, %._crit_edge ]
+210:                                              ; preds = %169, %174, %._crit_edge96, %17, %10
+  %.0 = phi double [ %13, %10 ], [ %24, %17 ], [ %173, %169 ], [ %177, %174 ], [ %209, %._crit_edge96 ]
   ret double %.0
 }
 

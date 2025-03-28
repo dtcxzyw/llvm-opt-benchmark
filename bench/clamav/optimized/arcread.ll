@@ -3508,36 +3508,41 @@ define noundef i64 @_ZN7Archive11SearchBlockE11HEADER_TYPE(ptr noundef nonnull a
   %.not.us = icmp eq i64 %15, 0
   br i1 %.not.us, label %.critedge, label %.critedge2.us, !llvm.loop !210
 
-.critedge2:                                       ; preds = %.lr.ph.split.preheader, %25
-  %16 = phi i32 [ %27, %25 ], [ %5, %.lr.ph.split.preheader ]
-  %.01226 = phi i64 [ %18, %25 ], [ 0, %.lr.ph.split.preheader ]
-  %17 = phi i64 [ %26, %25 ], [ %3, %.lr.ph.split.preheader ]
-  %18 = add i64 %.01226, 1
-  %19 = and i64 %18, 127
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %22
+.lr.ph.split:                                     ; preds = %26
+  %16 = load i32, ptr %4, align 4
+  %.not9 = icmp eq i32 %16, 5
+  br i1 %.not9, label %.critedge, label %.critedge2, !llvm.loop !210
 
-21:                                               ; preds = %.critedge2
+.critedge2:                                       ; preds = %.lr.ph.split.preheader, %.lr.ph.split
+  %17 = phi i32 [ %16, %.lr.ph.split ], [ %5, %.lr.ph.split.preheader ]
+  %.01226 = phi i64 [ %19, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+  %18 = phi i64 [ %27, %.lr.ph.split ], [ %3, %.lr.ph.split.preheader ]
+  %19 = add i64 %.01226, 1
+  %20 = and i64 %19, 127
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %.critedge2
   tail call void @_Z4Waitv()
   %.pre = load i32, ptr %4, align 4, !tbaa !71
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %.critedge2
-  %23 = phi i32 [ %.pre, %21 ], [ %16, %.critedge2 ]
-  %24 = icmp eq i32 %23, %1
-  br i1 %24, label %.critedge, label %25
+23:                                               ; preds = %22, %.critedge2
+  %24 = phi i32 [ %.pre, %22 ], [ %17, %.critedge2 ]
+  %25 = icmp eq i32 %24, %1
+  br i1 %25, label %.critedge, label %26
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   tail call void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
-  %26 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
-  %.not = icmp eq i64 %26, 0
-  %27 = load i32, ptr %4, align 4
-  %.not9 = icmp eq i32 %27, 5
-  %or.cond = select i1 %.not, i1 true, i1 %.not9
-  br i1 %or.cond, label %.critedge, label %.critedge2, !llvm.loop !210
+  %27 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
+  %.not = icmp eq i64 %27, 0
+  br i1 %.not, label %..critedge.loopexit23_crit_edge, label %.lr.ph.split, !llvm.loop !210
 
-.critedge:                                        ; preds = %25, %22, %11, %14, %.lr.ph.split.preheader, %2
-  %.07 = phi i64 [ 0, %2 ], [ 0, %.lr.ph.split.preheader ], [ 0, %14 ], [ %6, %11 ], [ %17, %22 ], [ 0, %25 ]
+..critedge.loopexit23_crit_edge:                  ; preds = %26
+  br label %.critedge, !llvm.loop !210
+
+.critedge:                                        ; preds = %.lr.ph.split, %23, %11, %14, %.lr.ph.split.preheader, %..critedge.loopexit23_crit_edge, %2
+  %.07 = phi i64 [ 0, %2 ], [ 0, %..critedge.loopexit23_crit_edge ], [ 0, %.lr.ph.split.preheader ], [ 0, %14 ], [ %6, %11 ], [ %18, %23 ], [ 0, %.lr.ph.split ]
   ret i64 %.07
 }
 
@@ -3556,41 +3561,46 @@ define noundef i64 @_ZN7Archive14SearchSubBlockEPKw(ptr noundef nonnull align 8 
   %or.cond = select i1 %.not7, i1 true, i1 %.not613
   br i1 %or.cond, label %.critedge, label %.lr.ph15
 
-.lr.ph15:                                         ; preds = %2, %19
-  %7 = phi i32 [ %21, %19 ], [ %6, %2 ]
-  %.0814 = phi i64 [ %9, %19 ], [ 0, %2 ]
-  %8 = phi i64 [ %20, %19 ], [ %5, %2 ]
-  %9 = add i64 %.0814, 1
-  %10 = and i64 %9, 127
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %13
+.lr.ph:                                           ; preds = %20
+  %7 = load i32, ptr %3, align 4, !tbaa !71
+  %.not6 = icmp eq i32 %7, 5
+  br i1 %.not6, label %.critedge, label %.lr.ph15, !llvm.loop !211
 
-12:                                               ; preds = %.lr.ph15
+.lr.ph15:                                         ; preds = %2, %.lr.ph
+  %8 = phi i32 [ %7, %.lr.ph ], [ %6, %2 ]
+  %.0814 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
+  %9 = phi i64 [ %21, %.lr.ph ], [ %5, %2 ]
+  %10 = add i64 %.0814, 1
+  %11 = and i64 %10, 127
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %.lr.ph15
   tail call void @_Z4Waitv()
   %.pre = load i32, ptr %3, align 4, !tbaa !71
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %.lr.ph15
-  %14 = phi i32 [ %.pre, %12 ], [ %7, %.lr.ph15 ]
-  %15 = icmp eq i32 %14, 3
-  br i1 %15, label %16, label %19
+14:                                               ; preds = %13, %.lr.ph15
+  %15 = phi i32 [ %.pre, %13 ], [ %8, %.lr.ph15 ]
+  %16 = icmp eq i32 %15, 3
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %13
-  %17 = tail call i32 @wcscmp(ptr noundef nonnull %4, ptr noundef %1) #22
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.critedge, label %19
+17:                                               ; preds = %14
+  %18 = tail call i32 @wcscmp(ptr noundef nonnull %4, ptr noundef %1) #22
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %.critedge, label %20
 
-19:                                               ; preds = %16, %13
+20:                                               ; preds = %17, %14
   tail call void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
-  %20 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
-  %.not = icmp eq i64 %20, 0
-  %21 = load i32, ptr %3, align 4
-  %.not6 = icmp eq i32 %21, 5
-  %or.cond19 = select i1 %.not, i1 true, i1 %.not6
-  br i1 %or.cond19, label %.critedge, label %.lr.ph15, !llvm.loop !211
+  %21 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
+  %.not = icmp eq i64 %21, 0
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !211
 
-.critedge:                                        ; preds = %19, %16, %2
-  %.04 = phi i64 [ 0, %2 ], [ %8, %16 ], [ 0, %19 ]
+..critedge.loopexit_crit_edge:                    ; preds = %20
+  br label %.critedge, !llvm.loop !211
+
+.critedge:                                        ; preds = %.lr.ph, %17, %..critedge.loopexit_crit_edge, %2
+  %.04 = phi i64 [ 0, %2 ], [ 0, %..critedge.loopexit_crit_edge ], [ %9, %17 ], [ 0, %.lr.ph ]
   ret i64 %.04
 }
 
@@ -3654,41 +3664,46 @@ define noundef i64 @_ZN7Archive8SearchRREv(ptr noundef nonnull align 8 dereferen
   %or.cond = select i1 %.not7.i, i1 true, i1 %.not6.i13
   br i1 %or.cond, label %_ZN7Archive14SearchSubBlockEPKw.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %32, %49
-  %37 = phi i32 [ %51, %49 ], [ %36, %32 ]
-  %.08.i14 = phi i64 [ %39, %49 ], [ 0, %32 ]
-  %38 = phi i64 [ %50, %49 ], [ %35, %32 ]
-  %39 = add i64 %.08.i14, 1
-  %40 = and i64 %39, 127
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %42, label %43
+.lr.ph.i:                                         ; preds = %50
+  %37 = load i32, ptr %33, align 4, !tbaa !71
+  %.not6.i = icmp eq i32 %37, 5
+  br i1 %.not6.i, label %_ZN7Archive14SearchSubBlockEPKw.exit, label %.lr.ph, !llvm.loop !211
 
-42:                                               ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %32, %.lr.ph.i
+  %38 = phi i32 [ %37, %.lr.ph.i ], [ %36, %32 ]
+  %.08.i14 = phi i64 [ %40, %.lr.ph.i ], [ 0, %32 ]
+  %39 = phi i64 [ %51, %.lr.ph.i ], [ %35, %32 ]
+  %40 = add i64 %.08.i14, 1
+  %41 = and i64 %40, 127
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %43, label %44
+
+43:                                               ; preds = %.lr.ph
   tail call void @_Z4Waitv()
   %.pre.i = load i32, ptr %33, align 4, !tbaa !71
-  br label %43
+  br label %44
 
-43:                                               ; preds = %42, %.lr.ph
-  %44 = phi i32 [ %.pre.i, %42 ], [ %37, %.lr.ph ]
-  %45 = icmp eq i32 %44, 3
-  br i1 %45, label %46, label %49
+44:                                               ; preds = %43, %.lr.ph
+  %45 = phi i32 [ %.pre.i, %43 ], [ %38, %.lr.ph ]
+  %46 = icmp eq i32 %45, 3
+  br i1 %46, label %47, label %50
 
-46:                                               ; preds = %43
-  %47 = tail call i32 @wcscmp(ptr noundef nonnull %34, ptr noundef nonnull @.str) #22
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %_ZN7Archive14SearchSubBlockEPKw.exit, label %49
+47:                                               ; preds = %44
+  %48 = tail call i32 @wcscmp(ptr noundef nonnull %34, ptr noundef nonnull @.str) #22
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %_ZN7Archive14SearchSubBlockEPKw.exit, label %50
 
-49:                                               ; preds = %46, %43
+50:                                               ; preds = %47, %44
   tail call void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
-  %50 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
-  %.not.i = icmp eq i64 %50, 0
-  %51 = load i32, ptr %33, align 4
-  %.not6.i = icmp eq i32 %51, 5
-  %or.cond18 = select i1 %.not.i, i1 true, i1 %.not6.i
-  br i1 %or.cond18, label %_ZN7Archive14SearchSubBlockEPKw.exit, label %.lr.ph, !llvm.loop !211
+  %51 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
+  %.not.i = icmp eq i64 %51, 0
+  br i1 %.not.i, label %._ZN7Archive14SearchSubBlockEPKw.exit.loopexit_crit_edge16, label %.lr.ph.i, !llvm.loop !211
 
-_ZN7Archive14SearchSubBlockEPKw.exit:             ; preds = %46, %49, %32, %25
-  %.1 = phi i64 [ %17, %25 ], [ 0, %32 ], [ %38, %46 ], [ 0, %49 ]
+._ZN7Archive14SearchSubBlockEPKw.exit.loopexit_crit_edge16: ; preds = %50
+  br label %_ZN7Archive14SearchSubBlockEPKw.exit, !llvm.loop !211
+
+_ZN7Archive14SearchSubBlockEPKw.exit:             ; preds = %.lr.ph.i, %47, %._ZN7Archive14SearchSubBlockEPKw.exit.loopexit_crit_edge16, %32, %25
+  %.1 = phi i64 [ %17, %25 ], [ 0, %32 ], [ 0, %._ZN7Archive14SearchSubBlockEPKw.exit.loopexit_crit_edge16 ], [ 0, %.lr.ph.i ], [ %39, %47 ]
   ret i64 %.1
 }
 

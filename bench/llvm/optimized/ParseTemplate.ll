@@ -8792,7 +8792,7 @@ _ZN5clang11DeclContext16getLexicalParentEv.exit:  ; preds = %_ZN4llvm23SmallVect
 
 _ZN5clang11DeclContext16getLexicalParentEv.exit..critedge.loopexit_crit_edge: ; preds = %_ZN5clang11DeclContext16getLexicalParentEv.exit
   %.pre69.pre = load i32, ptr %43, align 8, !tbaa !317, !noalias !1471
-  br label %.critedge
+  br label %.critedge, !llvm.loop !1484
 
 ._crit_edge:                                      ; preds = %202, %12, %.critedge
   %.sroa.559.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %12 ], [ %194, %202 ]

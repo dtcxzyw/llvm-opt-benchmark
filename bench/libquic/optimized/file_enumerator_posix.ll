@@ -598,7 +598,7 @@ _ZNSt5stackIN4base8FilePathESt5dequeIS1_SaIS1_EEE3popEv.exit: ; preds = %49, %51
 
 ..loopexit_crit_edge:                             ; preds = %61
   %.pre = load ptr, ptr %24, align 8, !tbaa !42
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !58
 
 62:                                               ; preds = %_ZNSt5stackIN4base8FilePathESt5dequeIS1_SaIS1_EEE3topEv.exit
   %63 = landingpad { ptr, i32 }

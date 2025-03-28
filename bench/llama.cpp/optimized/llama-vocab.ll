@@ -14171,8 +14171,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   %59 = icmp sgt i32 %1, -1
   %60 = trunc i64 %23 to i32
   %61 = icmp slt i32 %1, %60
-  %or.cond134 = and i1 %59, %61
-  br i1 %or.cond134, label %62, label %"_ZZNK11llama_vocab4impl14token_to_pieceEiPciibENK3$_0clEPKcm.exit54"
+  %or.cond136 = and i1 %59, %61
+  br i1 %or.cond136, label %62, label %"_ZZNK11llama_vocab4impl14token_to_pieceEiPciibENK3$_0clEPKcm.exit54"
 
 62:                                               ; preds = %"_ZZNK11llama_vocab4impl14token_to_pieceEiPciibENK3$_0clEPKcm.exit.thread"
   %63 = zext nneg i32 %1 to i64
@@ -14351,10 +14351,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   br label %"_ZZNK11llama_vocab4impl14token_to_pieceEiPciibENK3$_0clEPKcm.exit79"
 
 131:                                              ; preds = %.critedge.i70
-  %spec.select135 = zext i1 %not.or.cond131 to i64
+  %spec.select137 = zext i1 %not.or.cond131 to i64
   %spec.select.idx = zext i1 %or.cond131 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %8, i64 %spec.select.idx
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %spec.select, i64 %spec.select135, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %spec.select, i64 %spec.select137, i1 false)
   br label %"_ZZNK11llama_vocab4impl14token_to_pieceEiPciibENK3$_0clEPKcm.exit79"
 
 "_ZZNK11llama_vocab4impl14token_to_pieceEiPciibENK3$_0clEPKcm.exit79": ; preds = %130, %131

@@ -1313,7 +1313,10 @@ Saig_MvSimHash.exit.i:                            ; preds = %.lr.ph.i.i, %.crite
   %53 = getelementptr inbounds ptr, ptr %.val21.i, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !27
   %.not19.i = icmp eq ptr %54, null
-  br i1 %.not19.i, label %Saig_MvSimTableFind.exit, label %47, !llvm.loop !83
+  br i1 %.not19.i, label %.Saig_MvSimTableFind.exit.loopexit_crit_edge, label %47, !llvm.loop !83
+
+.Saig_MvSimTableFind.exit.loopexit_crit_edge:     ; preds = %51
+  br label %Saig_MvSimTableFind.exit, !llvm.loop !83
 
 Saig_MvSimTableFind.exit.thread:                  ; preds = %.lr.ph31, %Saig_MvSimHash.exit.i
   %.0.lcssa.i25 = phi ptr [ %36, %Saig_MvSimHash.exit.i ], [ %.01623.i30, %.lr.ph31 ]
@@ -1386,8 +1389,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %4, ptr %84, align 8, !tbaa !27
   br label %Saig_MvSimTableFind.exit
 
-Saig_MvSimTableFind.exit:                         ; preds = %47, %51, %38, %.lr.ph.i, %Vec_PtrPush.exit
-  %.018 = phi i32 [ -1, %Vec_PtrPush.exit ], [ %37, %38 ], [ %37, %.lr.ph.i ], [ %50, %51 ], [ %50, %47 ]
+Saig_MvSimTableFind.exit:                         ; preds = %47, %38, %.Saig_MvSimTableFind.exit.loopexit_crit_edge, %.lr.ph.i, %Vec_PtrPush.exit
+  %.018 = phi i32 [ -1, %Vec_PtrPush.exit ], [ %37, %38 ], [ %50, %.Saig_MvSimTableFind.exit.loopexit_crit_edge ], [ %37, %.lr.ph.i ], [ %50, %47 ]
   ret i32 %.018
 }
 

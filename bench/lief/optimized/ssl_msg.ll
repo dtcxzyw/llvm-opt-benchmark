@@ -3181,7 +3181,7 @@ mbedtls_ssl_update_out_pointers.exit:             ; preds = %mbedtls_ssl_update_
 
 ._crit_edge133:                                   ; preds = %153
   %.val113.val.pre = load i8, ptr %125, align 1, !tbaa !19
-  br label %split
+  br label %split, !llvm.loop !125
 
 split:                                            ; preds = %mbedtls_ssl_update_out_pointers.exit, %._crit_edge133
   %159 = phi i8 [ %.val113.val.pre, %._crit_edge133 ], [ %.val112.val, %mbedtls_ssl_update_out_pointers.exit ]
@@ -4821,7 +4821,7 @@ ssl_check_client_reconnect.exit.i:                ; preds = %218
   %.val.pre.i.i = load ptr, ptr %0, align 8, !tbaa !18
   %.phi.trans.insert82.i.i = getelementptr i8, ptr %.val.pre.i.i, i64 9
   %.val.val.pre.i.i = load i8, ptr %.phi.trans.insert82.i.i, align 1, !tbaa !19
-  br label %split.i.i
+  br label %split.i.i, !llvm.loop !156
 
 split.i.i:                                        ; preds = %.preheader.i.i, %._crit_edge80.i.i
   %.val.val.i.i = phi i8 [ %.val.val.pre.i.i, %._crit_edge80.i.i ], [ %.val74.val.i.i, %.preheader.i.i ]

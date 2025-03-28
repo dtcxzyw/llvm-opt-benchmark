@@ -3978,11 +3978,14 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge288.loop
 177:                                              ; preds = %.lr.ph346
   %178 = add nsw i64 %.1189272345, 1
   %exitcond298.not = icmp eq i64 %178, %.0162.lcssa308316321
-  br i1 %exitcond298.not, label %._crit_edge275, label %.lr.ph274, !llvm.loop !147
+  br i1 %exitcond298.not, label %.._crit_edge275_crit_edge, label %.lr.ph274, !llvm.loop !147
 
-._crit_edge275:                                   ; preds = %.lr.ph274, %177, %.lr.ph274.preheader
-  %.1189.lcssa.ph = phi i64 [ %.4156282, %.lr.ph274.preheader ], [ %178, %.lr.ph274 ], [ %.0162.lcssa308316321, %177 ]
-  %.0146.lcssa.ph = phi ptr [ %149, %.lr.ph274.preheader ], [ %173, %177 ], [ %173, %.lr.ph274 ]
+.._crit_edge275_crit_edge:                        ; preds = %177
+  br label %._crit_edge275, !llvm.loop !147
+
+._crit_edge275:                                   ; preds = %.lr.ph274, %.._crit_edge275_crit_edge, %.lr.ph274.preheader
+  %.1189.lcssa.ph = phi i64 [ %.0162.lcssa308316321, %.._crit_edge275_crit_edge ], [ %.4156282, %.lr.ph274.preheader ], [ %178, %.lr.ph274 ]
+  %.0146.lcssa.ph = phi ptr [ %173, %.._crit_edge275_crit_edge ], [ %149, %.lr.ph274.preheader ], [ %173, %.lr.ph274 ]
   %179 = add i64 %.1189.lcssa.ph, -1
   %180 = tail call ptr @PyUnicodeWriter_Finish(ptr noundef nonnull %163) #11
   %181 = icmp eq ptr %180, null

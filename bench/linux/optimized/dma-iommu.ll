@@ -3137,7 +3137,7 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %45 = load i32, ptr %7, align 8
   %46 = icmp eq i32 %45, 1
-  br i1 %46, label %47, label %.thread11
+  br i1 %46, label %47, label %.thread18
 
 47:                                               ; preds = %.thread, %40
   %48 = phi ptr [ %44, %.thread ], [ %41, %40 ]
@@ -3146,7 +3146,7 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   store i64 %50, ptr %48, align 8
   br label %iommu_dma_free_iova.exit
 
-.thread11:                                        ; preds = %.thread
+.thread18:                                        ; preds = %.thread
   %51 = load i64, ptr %8, align 8
   %52 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %51) #18, !srcloc !10
   %53 = lshr i64 %13, %52
@@ -3159,13 +3159,13 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   %59 = load ptr, ptr %58, align 8
   br i1 %57, label %63, label %60
 
-60:                                               ; preds = %.thread11
+60:                                               ; preds = %.thread18
   %61 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %59) #18, !srcloc !67
   %62 = inttoptr i64 %61 to ptr
   br label %63
 
-63:                                               ; preds = %60, %.thread11
-  %64 = phi ptr [ %62, %60 ], [ %59, %.thread11 ]
+63:                                               ; preds = %60, %.thread18
+  %64 = phi ptr [ %62, %60 ], [ %59, %.thread18 ]
   %65 = call i64 @_raw_spin_lock_irqsave(ptr noundef %64) #15
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %67 = load volatile i64, ptr %66, align 8
@@ -3222,11 +3222,14 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   %102 = and i32 %99, %101
   %103 = load i32, ptr %75, align 8
   %104 = icmp eq i32 %102, %103
-  br i1 %104, label %.loopexit6.i, label %85, !llvm.loop !34
+  br i1 %104, label %..loopexit6.i.loopexit_crit_edge4, label %85, !llvm.loop !34
 
-.loopexit6.i:                                     ; preds = %85, %.lr.ph, %78, %71
-  %105 = phi i32 [ %73, %71 ], [ %73, %78 ], [ %100, %.lr.ph ], [ %100, %85 ]
-  %106 = phi i32 [ %73, %71 ], [ %76, %78 ], [ %103, %85 ], [ %102, %.lr.ph ]
+..loopexit6.i.loopexit_crit_edge4:                ; preds = %.lr.ph
+  br label %.loopexit6.i, !llvm.loop !34
+
+.loopexit6.i:                                     ; preds = %85, %78, %..loopexit6.i.loopexit_crit_edge4, %71
+  %105 = phi i32 [ %73, %71 ], [ %100, %..loopexit6.i.loopexit_crit_edge4 ], [ %73, %78 ], [ %100, %85 ]
+  %106 = phi i32 [ %73, %71 ], [ %102, %..loopexit6.i.loopexit_crit_edge4 ], [ %76, %78 ], [ %103, %85 ]
   %107 = load volatile i32, ptr %64, align 4
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %110, !prof !28
@@ -3304,10 +3307,13 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   %152 = and i32 %149, %151
   %153 = load i32, ptr %75, align 8
   %154 = icmp eq i32 %152, %153
-  br i1 %154, label %.loopexit.i, label %.preheader.i, !llvm.loop !34
+  br i1 %154, label %..loopexit.i.loopexit_crit_edge, label %.preheader.i, !llvm.loop !34
 
-.loopexit.i:                                      ; preds = %.preheader.i, %.lr.ph7, %.preheader.i.preheader, %127, %110
-  %155 = phi i32 [ %128, %127 ], [ %106, %110 ], [ %129, %.preheader.i.preheader ], [ %153, %.preheader.i ], [ %152, %.lr.ph7 ]
+..loopexit.i.loopexit_crit_edge:                  ; preds = %.lr.ph7
+  br label %.loopexit.i, !llvm.loop !34
+
+.loopexit.i:                                      ; preds = %.preheader.i, %.preheader.i.preheader, %..loopexit.i.loopexit_crit_edge, %127, %110
+  %155 = phi i32 [ %128, %127 ], [ %106, %110 ], [ %152, %..loopexit.i.loopexit_crit_edge ], [ %129, %.preheader.i.preheader ], [ %153, %.preheader.i ]
   %156 = load volatile i32, ptr %64, align 4
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %159, !prof !28

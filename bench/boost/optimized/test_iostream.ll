@@ -2706,7 +2706,7 @@ _ZN5boost6nowide4test8test_monEv.exit:            ; preds = %0, %11, %13
 
 .noexc12._crit_edge:                              ; preds = %.noexc12
   %.pre = load ptr, ptr %5, align 8, !tbaa !18
-  br label %split
+  br label %split, !llvm.loop !54
 
 split:                                            ; preds = %17, %.noexc12._crit_edge
   %26 = phi ptr [ %.pre, %.noexc12._crit_edge ], [ %18, %17 ]
@@ -2831,7 +2831,7 @@ _Z29create_random_one_line_stringB5cxx11m.exit:   ; preds = %_Z29create_random_o
 
 .noexc21._crit_edge:                              ; preds = %.noexc21
   %.pre75 = load ptr, ptr %6, align 8, !tbaa !18
-  br label %split74
+  br label %split74, !llvm.loop !54
 
 split74:                                          ; preds = %58, %.noexc21._crit_edge
   %67 = phi ptr [ %.pre75, %.noexc21._crit_edge ], [ %59, %58 ]
@@ -2936,7 +2936,7 @@ _ZN5boost6nowide4test8test_monEv.exit30:          ; preds = %84, %87, %89
 
 .noexc38._crit_edge:                              ; preds = %.noexc38
   %.pre77 = load ptr, ptr %7, align 8, !tbaa !18
-  br label %split76
+  br label %split76, !llvm.loop !54
 
 split76:                                          ; preds = %94, %.noexc38._crit_edge
   %103 = phi ptr [ %.pre77, %.noexc38._crit_edge ], [ %95, %94 ]
@@ -3039,7 +3039,7 @@ _ZN5boost6nowide4test8test_monEv.exit47:          ; preds = %118, %121, %123
 
 .noexc55._crit_edge:                              ; preds = %.noexc55
   %.pre79 = load ptr, ptr %8, align 8, !tbaa !18
-  br label %split78
+  br label %split78, !llvm.loop !54
 
 split78:                                          ; preds = %128, %.noexc55._crit_edge
   %137 = phi ptr [ %.pre79, %.noexc55._crit_edge ], [ %129, %128 ]

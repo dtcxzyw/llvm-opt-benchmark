@@ -534,7 +534,7 @@ ZSTD_seqDecompressedSize.exit.i:                  ; preds = %ZSTD_getSequenceLen
   %.pre494.i = ptrtoint ptr %.4204.ph.i to i64
   %.pre495.i = sub i64 %39, %.pre494.i
   %.pre496.i = ashr exact i64 %.pre495.i, 3
-  br label %.thread380.loopexit.i
+  br label %.thread380.loopexit.i, !llvm.loop !70
 
 .thread380.loopexit.i:                            ; preds = %sizeBlockSequences.exit.i, %..thread380.loopexit_crit_edge.i
   %.pre492.pre-phi.i = phi i64 [ %.pre496.i, %..thread380.loopexit_crit_edge.i ], [ %170, %sizeBlockSequences.exit.i ]

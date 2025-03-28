@@ -12265,7 +12265,10 @@ define void @_ZNK18sscsrind_reg_csr_t7get_regEv(ptr dead_on_unwind noalias writa
   %45 = load i64, ptr %44, align 8, !tbaa !96
   %46 = urem i64 %45, %30
   %.not19.i.i.i.i = icmp eq i64 %46, %31
-  br i1 %.not19.i.i.i.i, label %40, label %.loopexit, !llvm.loop !288
+  br i1 %.not19.i.i.i.i, label %40, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !288
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %43
+  br label %.loopexit, !llvm.loop !288
 
 _ZNSt13unordered_mapImSt10shared_ptrI5csr_tESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit: ; preds = %40, %25, %35
   %.sroa.06.1.i.i = phi ptr [ %36, %35 ], [ %.sroa.06.0.i.i, %25 ], [ %42, %40 ]
@@ -12295,7 +12298,7 @@ _ZNSt13unordered_mapImSt10shared_ptrI5csr_tESt4hashImESt8equal_toImESaISt4pairIK
   %59 = atomicrmw volatile add ptr %53, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit
 
-.loopexit:                                        ; preds = %43, %.lr.ph.i.i.i.i, %.preheader, %29
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %29, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit
 
@@ -12528,9 +12531,12 @@ define void @_ZN18sscsrind_reg_csr_t14add_ireg_proxyEmSt10shared_ptrI5csr_tE(ptr
   %22 = load i64, ptr %21, align 8, !tbaa !96
   %23 = urem i64 %22, %7
   %.not19.i.i.i.i = icmp eq i64 %23, %8
-  br i1 %.not19.i.i.i.i, label %17, label %.loopexit.i.i, !llvm.loop !288
+  br i1 %.not19.i.i.i.i, label %17, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !288
 
-.loopexit.i.i:                                    ; preds = %20, %.lr.ph.i.i.i.i, %3
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %20
+  br label %.loopexit.i.i, !llvm.loop !288
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #30
   store ptr %5, ptr %4, align 8, !tbaa !289
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8

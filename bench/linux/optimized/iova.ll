@@ -1510,7 +1510,7 @@ define internal fastcc void @free_iova_rcaches(ptr noundef captures(none) %0) un
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
   %.pre = load ptr, ptr %2, align 8
-  br label %split
+  br label %split, !llvm.loop !46
 
 split:                                            ; preds = %3, %.loopexit._crit_edge
   %52 = phi ptr [ %.pre, %.loopexit._crit_edge ], [ %5, %3 ]

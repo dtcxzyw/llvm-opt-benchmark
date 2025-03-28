@@ -2678,11 +2678,14 @@ _ZL11mpi_sub_hlpmPmPKmS1_.exit:                   ; preds = %.lr.ph.i
   %87 = add nuw i64 %.16482, 1
   %88 = load i64, ptr %22, align 8, !tbaa !12
   %89 = icmp ult i64 %87, %88
-  br i1 %89, label %.lr.ph65, label %.critedge, !llvm.loop !51
+  br i1 %89, label %.lr.ph65, label %..critedge.loopexit_crit_edge, !llvm.loop !51
 
-.critedge:                                        ; preds = %.lr.ph83, %.lr.ph65, %.lr.ph65.preheader, %.preheader
-  %.1.lcssa = phi i64 [ %.040.lcssa76, %.preheader ], [ %.040.lcssa76, %.lr.ph65.preheader ], [ %87, %.lr.ph65 ], [ %87, %.lr.ph83 ]
-  %.lcssa = phi i64 [ %78, %.preheader ], [ %78, %.lr.ph65.preheader ], [ %88, %.lr.ph65 ], [ %88, %.lr.ph83 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph83
+  br label %.critedge, !llvm.loop !51
+
+.critedge:                                        ; preds = %.lr.ph65, %.lr.ph65.preheader, %..critedge.loopexit_crit_edge, %.preheader
+  %.1.lcssa = phi i64 [ %.040.lcssa76, %.preheader ], [ %87, %..critedge.loopexit_crit_edge ], [ %.040.lcssa76, %.lr.ph65.preheader ], [ %87, %.lr.ph65 ]
+  %.lcssa = phi i64 [ %78, %.preheader ], [ %88, %..critedge.loopexit_crit_edge ], [ %78, %.lr.ph65.preheader ], [ %88, %.lr.ph65 ]
   %90 = icmp eq i64 %.1.lcssa, %.lcssa
   br i1 %90, label %mbedtls_mpi_grow.exit, label %91
 

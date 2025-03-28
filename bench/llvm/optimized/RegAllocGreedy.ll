@@ -11841,11 +11841,7 @@ _ZNK4llvm15AllocationOrder8IteratordeEv.exit..loopexit253_crit_edge: ; preds = %
   %247 = load float, ptr %246, align 4, !tbaa !811
   %248 = add i32 %.0145, 2
   %.not169267 = icmp eq i32 %248, %.0149.ph.ph
-  br i1 %.not169267, label %.loopexit252.outer.backedge, label %.lr.ph270
-
-.loopexit252.outer.backedge:                      ; preds = %.lr.ph270, %244
-  %.0.ph.be = phi float [ %247, %244 ], [ %.sroa.speculated195, %.lr.ph270 ]
-  br label %.loopexit252.outer, !llvm.loop !856
+  br i1 %.not169267, label %.loopexit252.outer.backedge, label %.lr.ph270, !llvm.loop !856
 
 .lr.ph270:                                        ; preds = %244, %.lr.ph270
   %.0154269 = phi i32 [ %253, %.lr.ph270 ], [ %248, %244 ]
@@ -11876,6 +11872,10 @@ _ZNK4llvm15AllocationOrder8IteratordeEv.exit..loopexit253_crit_edge: ; preds = %
   %259 = fcmp olt float %.2, %258
   %.sroa.speculated = select i1 %259, float %258, float %.2
   br label %.loopexit252.outer.outer
+
+.loopexit252.outer.backedge:                      ; preds = %.lr.ph270, %244
+  %.0.ph.be = phi float [ %247, %244 ], [ %.sroa.speculated195, %.lr.ph270 ]
+  br label %.loopexit252.outer, !llvm.loop !856
 
 .loopexit302:                                     ; preds = %.loopexit303, %190
   %.2140.ph = phi float [ %.1139.ph.ph, %190 ], [ %.3141228, %.loopexit303 ]

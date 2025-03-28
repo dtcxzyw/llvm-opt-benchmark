@@ -47156,7 +47156,10 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   %152 = zext i32 %151 to i64
   %153 = urem i64 %152, %136
   %.not19.i.i.i.i.i = icmp eq i64 %153, %137
-  br i1 %.not19.i.i.i.i.i, label %146, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread71, !llvm.loop !1436
+  br i1 %.not19.i.i.i.i.i, label %146, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !1436
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %149
+  br label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread71, !llvm.loop !1436
 
 154:                                              ; preds = %122
   %155 = landingpad { ptr, i32 }
@@ -47210,7 +47213,7 @@ _ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread: ; preds = %
           cleanup
   br label %178
 
-_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread71: ; preds = %149, %.lr.ph.i.i.i.i.i42, %128, %133, %166, %167
+_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread71: ; preds = %.lr.ph.i.i.i.i.i42, %128, %..loopexit_crit_edge21.i.i.i.i.i, %133, %166, %167
   %177 = add nuw i64 %.030100, 1
   %exitcond.not = icmp eq i64 %177, %3
   br i1 %exitcond.not, label %._crit_edge103, label %106, !llvm.loop !1440
@@ -134151,7 +134154,10 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   %104 = zext i32 %103 to i64
   %105 = urem i64 %104, %88
   %.not19.i.i.i.i.i = icmp eq i64 %105, %89
-  br i1 %.not19.i.i.i.i.i, label %98, label %_ZNSt6vectorImSaImEED2Ev.exit, !llvm.loop !1436
+  br i1 %.not19.i.i.i.i.i, label %98, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !1436
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %101
+  br label %_ZNSt6vectorImSaImEED2Ev.exit, !llvm.loop !1436
 
 _ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit: ; preds = %98, %81, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit, %93
   br i1 %64, label %106, label %172
@@ -134377,7 +134383,7 @@ _ZNSt6vectorImSaImEED2Ev.exit62:                  ; preds = %169, %.body
   %188 = call { double, double } @_ZNK7xgboost4tree13HistEvaluator14EnumerateSplitILin1EEENS0_9GradStatsERKNS_6common13HistogramCutsENS4_4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEEjiRKNS0_13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEEEPNS0_19SplitEntryContainerIS3_EE(ptr noundef nonnull align 8 dereferenceable(208) %8, ptr noundef nonnull align 8 dereferenceable(32) %186, i64 %23, ptr %24, i32 noundef %54, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull %17)
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %101, %.lr.ph.i.i.i.i.i, %80, %85, %165, %164, %128, %185, %172
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i, %80, %..loopexit_crit_edge21.i.i.i.i.i, %85, %165, %164, %128, %185, %172
   %189 = add nuw i64 %.0137, 1
   %exitcond.not = icmp eq i64 %189, %3
   br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !3825

@@ -1160,11 +1160,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %25 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %4, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !66
   %27 = icmp eq ptr %9, %26
-  br i1 %27, label %._crit_edge, label %.lr.ph, !prof !148, !llvm.loop !149
+  br i1 %27, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !prof !148, !llvm.loop !149
 
-._crit_edge:                                      ; preds = %.lr.ph58, %.lr.ph, %.lr.ph.preheader, %8, %3
-  %.lcssa53.sink = phi ptr [ null, %3 ], [ %17, %8 ], [ %17, %.lr.ph.preheader ], [ %25, %.lr.ph ], [ %25, %.lr.ph58 ]
-  %.0 = phi i1 [ false, %3 ], [ true, %8 ], [ false, %.lr.ph.preheader ], [ %27, %.lr.ph ], [ %27, %.lr.ph58 ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph58
+  br label %._crit_edge, !llvm.loop !149
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %8, %3
+  %.lcssa53.sink = phi ptr [ null, %3 ], [ %17, %8 ], [ %25, %.._crit_edge.loopexit_crit_edge ], [ %17, %.lr.ph.preheader ], [ %25, %.lr.ph ]
+  %.0 = phi i1 [ false, %3 ], [ true, %8 ], [ true, %.._crit_edge.loopexit_crit_edge ], [ false, %.lr.ph.preheader ], [ false, %.lr.ph ]
   store ptr %.lcssa53.sink, ptr %2, align 8, !tbaa !150
   ret i1 %.0
 }
@@ -1294,10 +1297,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_16FrozenIndPHIInfoENS_6detail13DenseSetEm
   %59 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %41, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !66
   %61 = icmp eq ptr %38, %60
-  br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_16FrozenIndPHIInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPS8_.exit.i, label %.lr.ph.i13.i, !prof !148, !llvm.loop !149
+  br i1 %61, label %._ZN4llvm12DenseMapBaseINS_8DenseMapINS_16FrozenIndPHIInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPS8_.exit.loopexit_crit_edge.i, label %.lr.ph.i13.i, !prof !148, !llvm.loop !149
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapINS_16FrozenIndPHIInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPS8_.exit.i: ; preds = %.lr.ph.i7, %.lr.ph.i13.i, %.lr.ph.i13.preheader.i, %40
-  %.lcssa53.sink.i.i = phi ptr [ %51, %40 ], [ %51, %.lr.ph.i13.preheader.i ], [ %59, %.lr.ph.i13.i ], [ %59, %.lr.ph.i7 ]
+._ZN4llvm12DenseMapBaseINS_8DenseMapINS_16FrozenIndPHIInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPS8_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i7
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_16FrozenIndPHIInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPS8_.exit.i, !llvm.loop !149
+
+_ZN4llvm12DenseMapBaseINS_8DenseMapINS_16FrozenIndPHIInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPS8_.exit.i: ; preds = %.lr.ph.i13.i, %._ZN4llvm12DenseMapBaseINS_8DenseMapINS_16FrozenIndPHIInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPS8_.exit.loopexit_crit_edge.i, %.lr.ph.i13.preheader.i, %40
+  %.lcssa53.sink.i.i = phi ptr [ %51, %40 ], [ %59, %._ZN4llvm12DenseMapBaseINS_8DenseMapINS_16FrozenIndPHIInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPS8_.exit.loopexit_crit_edge.i ], [ %51, %.lr.ph.i13.preheader.i ], [ %59, %.lr.ph.i13.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.lcssa53.sink.i.i, ptr noundef nonnull align 8 dereferenceable(28) %.024.i, i64 28, i1 false), !tbaa.struct !152
   %62 = load i32, ptr %32, align 8, !tbaa !136
   %63 = add i32 %62, 1

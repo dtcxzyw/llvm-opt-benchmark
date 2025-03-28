@@ -19233,10 +19233,10 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$gpui..style..HighlightStyle$u20$as$
   br i1 %trunc, label %6, label %5
 
 5:                                                ; preds = %2
-  br i1 %trunc6, label %99, label %7
+  br i1 %trunc6, label %100, label %7
 
 6:                                                ; preds = %2
-  br i1 %trunc6, label %12, label %99
+  br i1 %trunc6, label %12, label %100
 
 7:                                                ; preds = %5, %12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -19251,13 +19251,13 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$gpui..style..HighlightStyle$u20$as$
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = tail call noundef zeroext i1 @"_ZN58_$LT$gpui..color..Hsla$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1d1dd0500c72fffE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %14)
-  br i1 %15, label %7, label %99
+  br i1 %15, label %7, label %100
 
 16:                                               ; preds = %7
-  br i1 %trunc9, label %99, label %18
+  br i1 %trunc9, label %100, label %18
 
 17:                                               ; preds = %7
-  br i1 %trunc9, label %24, label %99
+  br i1 %trunc9, label %24, label %100
 
 18:                                               ; preds = %16, %24
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -19273,15 +19273,15 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$gpui..style..HighlightStyle$u20$as$
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load float, ptr %27, align 4, !noundef !9
   %29 = fcmp oeq float %26, %28
-  br i1 %29, label %18, label %99
+  br i1 %29, label %18, label %100
 
 30:                                               ; preds = %18
   %31 = icmp eq i8 %23, 3
-  br i1 %31, label %34, label %99
+  br i1 %31, label %34, label %100
 
 32:                                               ; preds = %18
   %33 = icmp eq i8 %20, %23
-  br i1 %33, label %34, label %99
+  br i1 %33, label %34, label %100
 
 34:                                               ; preds = %32, %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -19293,10 +19293,10 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$gpui..style..HighlightStyle$u20$as$
   br i1 %trunc11, label %40, label %39
 
 39:                                               ; preds = %34
-  br i1 %trunc12, label %99, label %41
+  br i1 %trunc12, label %100, label %41
 
 40:                                               ; preds = %34
-  br i1 %trunc12, label %48, label %99
+  br i1 %trunc12, label %48, label %100
 
 41:                                               ; preds = %39, %48
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -19311,13 +19311,13 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$gpui..style..HighlightStyle$u20$as$
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = tail call noundef zeroext i1 @"_ZN58_$LT$gpui..color..Hsla$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1d1dd0500c72fffE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %49, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %50)
-  br i1 %51, label %41, label %99
+  br i1 %51, label %41, label %100
 
 52:                                               ; preds = %41
-  br i1 %47, label %54, label %99
+  br i1 %47, label %54, label %100
 
 53:                                               ; preds = %41
-  br i1 %47, label %99, label %61
+  br i1 %47, label %100, label %61
 
 54:                                               ; preds = %52, %70
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -19326,7 +19326,7 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$gpui..style..HighlightStyle$u20$as$
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %59 = load i32, ptr %58, align 4, !range !4020, !noundef !9
   %60 = icmp eq i32 %59, 2
-  br i1 %57, label %79, label %80
+  br i1 %57, label %80, label %81
 
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -19334,7 +19334,7 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$gpui..style..HighlightStyle$u20$as$
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %65 = load float, ptr %64, align 4, !noundef !9
   %66 = fcmp oeq float %63, %65
-  br i1 %66, label %67, label %99
+  br i1 %66, label %67, label %100
 
 67:                                               ; preds = %61
   %switch33 = icmp eq i32 %43, 0
@@ -19342,83 +19342,83 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$gpui..style..HighlightStyle$u20$as$
   br i1 %switch33, label %68, label %69
 
 68:                                               ; preds = %67
-  br i1 %switch35, label %70, label %99
+  br i1 %switch35, label %70, label %100
 
 69:                                               ; preds = %67
-  br i1 %switch35, label %99, label %75
+  br i1 %switch35, label %100, label %76
 
-70:                                               ; preds = %68, %75
+70:                                               ; preds = %68, %76
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %72 = load i8, ptr %71, align 4, !range !169, !noundef !9
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %74 = load i8, ptr %73, align 4, !range !169, !noundef !9
-  %.not = icmp eq i8 %72, %74
-  br i1 %.not, label %54, label %99
+  %75 = icmp eq i8 %72, %74
+  br i1 %75, label %54, label %100
 
-75:                                               ; preds = %69
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %78 = tail call noundef zeroext i1 @"_ZN58_$LT$gpui..color..Hsla$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1d1dd0500c72fffE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %76, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %77)
-  br i1 %78, label %70, label %99
-
-79:                                               ; preds = %54
-  br i1 %60, label %81, label %99
+76:                                               ; preds = %69
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %79 = tail call noundef zeroext i1 @"_ZN58_$LT$gpui..color..Hsla$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1d1dd0500c72fffE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %77, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %78)
+  br i1 %79, label %70, label %100
 
 80:                                               ; preds = %54
-  br i1 %60, label %99, label %86
+  br i1 %60, label %82, label %100
 
-81:                                               ; preds = %93, %79, %95
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %83 = load i32, ptr %82, align 4, !range !378, !noundef !9
-  %trunc14 = trunc nuw i32 %83 to i1
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %85 = load i32, ptr %84, align 4, !range !378, !noundef !9
-  %trunc15 = trunc nuw i32 %85 to i1
-  br i1 %trunc14, label %101, label %100
+81:                                               ; preds = %54
+  br i1 %60, label %100, label %87
 
-86:                                               ; preds = %80
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %88 = load float, ptr %87, align 4, !noundef !9
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %90 = load float, ptr %89, align 4, !noundef !9
-  %91 = fcmp oeq float %88, %90
-  br i1 %91, label %92, label %99
+82:                                               ; preds = %94, %80, %96
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %84 = load i32, ptr %83, align 4, !range !378, !noundef !9
+  %trunc14 = trunc nuw i32 %84 to i1
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %86 = load i32, ptr %85, align 4, !range !378, !noundef !9
+  %trunc15 = trunc nuw i32 %86 to i1
+  br i1 %trunc14, label %102, label %101
 
-92:                                               ; preds = %86
+87:                                               ; preds = %81
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %89 = load float, ptr %88, align 4, !noundef !9
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %91 = load float, ptr %90, align 4, !noundef !9
+  %92 = fcmp oeq float %89, %91
+  br i1 %92, label %93, label %100
+
+93:                                               ; preds = %87
   %switch41 = icmp eq i32 %56, 0
   %switch43 = icmp eq i32 %59, 0
-  br i1 %switch41, label %93, label %94
+  br i1 %switch41, label %94, label %95
 
-93:                                               ; preds = %92
-  br i1 %switch43, label %81, label %99
+94:                                               ; preds = %93
+  br i1 %switch43, label %82, label %100
 
-94:                                               ; preds = %92
-  br i1 %switch43, label %99, label %95
+95:                                               ; preds = %93
+  br i1 %switch43, label %100, label %96
 
-95:                                               ; preds = %94
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %98 = tail call noundef zeroext i1 @"_ZN58_$LT$gpui..color..Hsla$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1d1dd0500c72fffE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %97)
-  br i1 %98, label %81, label %99
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %99 = tail call noundef zeroext i1 @"_ZN58_$LT$gpui..color..Hsla$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1d1dd0500c72fffE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %97, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %98)
+  br i1 %99, label %82, label %100
 
-99:                                               ; preds = %101, %100, %94, %93, %69, %68, %40, %39, %17, %16, %12, %24, %48, %70, %95, %30, %32, %52, %53, %75, %61, %79, %80, %86, %5, %6, %102
-  %.sroa.0.0 = phi i1 [ %107, %102 ], [ false, %6 ], [ false, %5 ], [ false, %94 ], [ false, %93 ], [ false, %86 ], [ false, %80 ], [ false, %79 ], [ false, %69 ], [ false, %68 ], [ false, %61 ], [ false, %75 ], [ false, %53 ], [ false, %52 ], [ false, %40 ], [ false, %39 ], [ false, %32 ], [ false, %30 ], [ false, %17 ], [ false, %16 ], [ false, %95 ], [ false, %70 ], [ false, %48 ], [ false, %24 ], [ false, %12 ], [ %switch47, %100 ], [ false, %101 ]
+100:                                              ; preds = %102, %101, %95, %94, %69, %68, %40, %39, %17, %16, %12, %24, %48, %70, %96, %30, %32, %52, %53, %76, %61, %80, %81, %87, %5, %6, %103
+  %.sroa.0.0 = phi i1 [ %108, %103 ], [ false, %6 ], [ false, %5 ], [ false, %95 ], [ false, %94 ], [ false, %87 ], [ false, %81 ], [ false, %80 ], [ false, %69 ], [ false, %68 ], [ false, %61 ], [ false, %76 ], [ false, %53 ], [ false, %52 ], [ false, %40 ], [ false, %39 ], [ false, %32 ], [ false, %30 ], [ false, %17 ], [ false, %16 ], [ false, %96 ], [ false, %70 ], [ false, %48 ], [ false, %24 ], [ false, %12 ], [ %switch47, %101 ], [ false, %102 ]
   ret i1 %.sroa.0.0
 
-100:                                              ; preds = %81
+101:                                              ; preds = %82
   %switch47 = xor i1 %trunc15, true
-  br label %99
+  br label %100
 
-101:                                              ; preds = %81
-  br i1 %trunc15, label %102, label %99
+102:                                              ; preds = %82
+  br i1 %trunc15, label %103, label %100
 
-102:                                              ; preds = %101
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %104 = load float, ptr %103, align 4, !noundef !9
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %106 = load float, ptr %105, align 4, !noundef !9
-  %107 = fcmp oeq float %104, %106
-  br label %99
+103:                                              ; preds = %102
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %105 = load float, ptr %104, align 4, !noundef !9
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %107 = load float, ptr %106, align 4, !noundef !9
+  %108 = fcmp oeq float %105, %107
+  br label %100
 }
 
 ; Function Attrs: nonlazybind uwtable

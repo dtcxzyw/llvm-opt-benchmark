@@ -1211,10 +1211,13 @@ _ZL27hasUnrollAndJamEnablePragmaPKN4llvm4LoopE.exit.i.i: ; preds = %307, %_ZL28u
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i20, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   %.not103.i.i = icmp eq i32 %indvars.i, 0
-  br i1 %.not103.i.i, label %.critedge.i30.i.sink.split, label %335, !llvm.loop !164
+  br i1 %.not103.i.i, label %..critedge.i30.i.loopexit_crit_edge21, label %335, !llvm.loop !164
 
-.critedge.i30.i.sink.split:                       ; preds = %.lr.ph, %335
-  %indvars.i.lcssa28.sink = phi i32 [ %indvars.i, %335 ], [ 0, %.lr.ph ]
+..critedge.i30.i.loopexit_crit_edge21:            ; preds = %.lr.ph
+  br label %.critedge.i30.i.sink.split, !llvm.loop !164
+
+.critedge.i30.i.sink.split:                       ; preds = %335, %..critedge.i30.i.loopexit_crit_edge21
+  %indvars.i.lcssa28.sink = phi i32 [ 0, %..critedge.i30.i.loopexit_crit_edge21 ], [ %indvars.i, %335 ]
   store i32 %indvars.i.lcssa28.sink, ptr %77, align 4, !tbaa !146
   br label %.critedge.i30.i
 

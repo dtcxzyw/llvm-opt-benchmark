@@ -41546,12 +41546,15 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   %5096 = ptrtoint ptr %5095 to i64
   %5097 = urem i64 %5096, %5072
   %.not19.i.i.i = icmp eq i64 %5097, %5073
-  br i1 %.not19.i.i.i, label %5090, label %.critedge.i4737, !llvm.loop !171
+  br i1 %.not19.i.i.i, label %5090, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !171
 
-.critedge.i4737:                                  ; preds = %5093, %.lr.ph.i.i.i4735, %5081, %.thread36.i
-  %5098 = phi i64 [ %5083, %5081 ], [ %5072, %.thread36.i ], [ %5072, %.lr.ph.i.i.i4735 ], [ %5072, %5093 ]
-  %5099 = phi i64 [ %5084, %5081 ], [ %5073, %.thread36.i ], [ %5073, %.lr.ph.i.i.i4735 ], [ %5073, %5093 ]
-  %5100 = phi i64 [ %5082, %5081 ], [ %5071, %.thread36.i ], [ %5071, %.lr.ph.i.i.i4735 ], [ %5071, %5093 ]
+..loopexit_crit_edge21.i.i.i:                     ; preds = %5093
+  br label %.critedge.i4737, !llvm.loop !171
+
+.critedge.i4737:                                  ; preds = %.lr.ph.i.i.i4735, %..loopexit_crit_edge21.i.i.i, %5081, %.thread36.i
+  %5098 = phi i64 [ %5083, %5081 ], [ %5072, %.thread36.i ], [ %5072, %..loopexit_crit_edge21.i.i.i ], [ %5072, %.lr.ph.i.i.i4735 ]
+  %5099 = phi i64 [ %5084, %5081 ], [ %5073, %.thread36.i ], [ %5073, %..loopexit_crit_edge21.i.i.i ], [ %5073, %.lr.ph.i.i.i4735 ]
+  %5100 = phi i64 [ %5082, %5081 ], [ %5071, %.thread36.i ], [ %5071, %..loopexit_crit_edge21.i.i.i ], [ %5071, %.lr.ph.i.i.i4735 ]
   %5101 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #37
           to label %.noexc4741 unwind label %.loopexit5589
 
@@ -69435,7 +69438,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197: ; preds = %_Z
   %431 = ptrtoint ptr %430 to i64
   %432 = urem i64 %431, %415
   %.not19.i.i.i.i.i = icmp eq i64 %432, %416
-  br i1 %.not19.i.i.i.i.i, label %425, label %.loopexit, !llvm.loop !295
+  br i1 %.not19.i.i.i.i.i, label %425, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !295
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %428
+  br label %.loopexit, !llvm.loop !295
 
 ._crit_edge.i.i200:                               ; preds = %425, %408, %420
   %433 = load i64, ptr %27, align 8
@@ -69877,7 +69883,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #34
   br label %.body326
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %428, %407, %412
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %407, %412, %..loopexit_crit_edge21.i.i.i.i.i
   %.not81 = icmp eq i32 %343, 0
   br i1 %.not81, label %657, label %590
 

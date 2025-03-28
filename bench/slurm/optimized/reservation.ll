@@ -11599,8 +11599,8 @@ _get_job_duration.exit:                           ; preds = %26, %29
   %40 = load ptr, ptr @resv_list, align 8
   %41 = tail call ptr @list_iterator_create(ptr noundef %40) #19
   %42 = tail call ptr @list_next(ptr noundef %41) #19
-  %.not4244 = icmp eq ptr %42, null
-  br i1 %.not4244, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not4446 = icmp eq ptr %42, null
+  br i1 %.not4446, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %_get_job_duration.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -11608,7 +11608,7 @@ _get_job_duration.exit:                           ; preds = %26, %29
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %_update_bb_resv.exit
   %44 = phi ptr [ %42, %.lr.ph.lr.ph ], [ %171, %_update_bb_resv.exit ]
-  %.1.ph45 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.6, %_update_bb_resv.exit ]
+  %.1.ph47 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.6, %_update_bb_resv.exit ]
   br label %45
 
 45:                                               ; preds = %.lr.ph, %.backedge
@@ -11692,7 +11692,7 @@ _get_job_duration.exit:                           ; preds = %26, %29
   br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph50.i
 
 .lr.ph50.i:                                       ; preds = %82, %_add_bb_resv.exit.i
-  %.2 = phi ptr [ %.4, %_add_bb_resv.exit.i ], [ %.1.ph45, %82 ]
+  %.2 = phi ptr [ %.4, %_add_bb_resv.exit.i ], [ %.1.ph47, %82 ]
   %.02149.i = phi ptr [ %170, %_add_bb_resv.exit.i ], [ %84, %82 ]
   %85 = call i32 @xstrncmp(ptr noundef nonnull %.02149.i, ptr noundef nonnull @.str.233, i64 noundef 9) #19
   %.not27.i = icmp eq i32 %85, 0
@@ -11853,11 +11853,14 @@ _get_job_duration.exit:                           ; preds = %26, %29
 151:                                              ; preds = %.lr.ph.i
   %152 = add nuw nsw i32 %.151.i41.i, 1
   %153 = icmp ult i32 %152, %.pre63.pre.i.i
-  br i1 %153, label %.lr.ph53.i.i, label %._crit_edge54.i.i, !llvm.loop !71
+  br i1 %153, label %.lr.ph53.i.i, label %.._crit_edge54.i_crit_edge.i, !llvm.loop !71
 
-._crit_edge54.i.i:                                ; preds = %151, %.lr.ph.i, %.lr.ph53.i.i, %.lr.ph53.i.preheader.i
-  %154 = phi i32 [ %144, %.lr.ph53.i.preheader.i ], [ %.pre63.pre.i.i, %.lr.ph53.i.i ], [ %.pre63.pre.i.i, %.lr.ph.i ], [ %.pre63.pre.i.i, %151 ]
-  %.1.lcssa.i.i = phi i32 [ 0, %.lr.ph53.i.preheader.i ], [ %152, %151 ], [ %.151.i41.i, %.lr.ph.i ], [ %152, %.lr.ph53.i.i ]
+.._crit_edge54.i_crit_edge.i:                     ; preds = %151
+  br label %._crit_edge54.i.i, !llvm.loop !71
+
+._crit_edge54.i.i:                                ; preds = %.lr.ph.i, %.lr.ph53.i.i, %.._crit_edge54.i_crit_edge.i, %.lr.ph53.i.preheader.i
+  %154 = phi i32 [ %.pre63.pre.i.i, %.._crit_edge54.i_crit_edge.i ], [ %144, %.lr.ph53.i.preheader.i ], [ %.pre63.pre.i.i, %.lr.ph53.i.i ], [ %.pre63.pre.i.i, %.lr.ph.i ]
+  %.1.lcssa.i.i = phi i32 [ %152, %.._crit_edge54.i_crit_edge.i ], [ 0, %.lr.ph53.i.preheader.i ], [ %.151.i41.i, %.lr.ph.i ], [ %152, %.lr.ph53.i.i ]
   %.not47.i.i = icmp ult i32 %.1.lcssa.i.i, %154
   br i1 %.not47.i.i, label %166, label %._crit_edge54.thread.i.i
 
@@ -11893,21 +11896,21 @@ _add_bb_resv.exit.i:                              ; preds = %166, %135, %105
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph50.i, !llvm.loop !72
 
 ._crit_edge.i:                                    ; preds = %_add_bb_resv.exit.i, %82
-  %.5 = phi ptr [ %.1.ph45, %82 ], [ %.4, %_add_bb_resv.exit.i ]
+  %.5 = phi ptr [ %.1.ph47, %82 ], [ %.4, %_add_bb_resv.exit.i ]
   call void @slurm_xfree(ptr noundef nonnull %6) #19
   br label %_update_bb_resv.exit
 
 _update_bb_resv.exit:                             ; preds = %75, %79, %._crit_edge.i
-  %.6 = phi ptr [ %.1.ph45, %75 ], [ %.1.ph45, %79 ], [ %.5, %._crit_edge.i ]
+  %.6 = phi ptr [ %.1.ph47, %75 ], [ %.1.ph47, %79 ], [ %.5, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
   %171 = call ptr @list_next(ptr noundef %41) #19
-  %.not42 = icmp eq ptr %171, null
-  br i1 %.not42, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !69
+  %.not44 = icmp eq ptr %171, null
+  br i1 %.not44, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !69
 
 .outer._crit_edge:                                ; preds = %_update_bb_resv.exit, %.backedge, %_get_job_duration.exit
-  %.1.ph.lcssa = phi ptr [ null, %_get_job_duration.exit ], [ %.1.ph45, %.backedge ], [ %.6, %_update_bb_resv.exit ]
+  %.1.ph.lcssa = phi ptr [ null, %_get_job_duration.exit ], [ %.1.ph47, %.backedge ], [ %.6, %_update_bb_resv.exit ]
   call void @list_iterator_destroy(ptr noundef %41) #19
   br label %172
 

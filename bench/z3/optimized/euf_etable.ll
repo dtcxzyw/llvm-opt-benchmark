@@ -1217,7 +1217,7 @@ define hidden void @_ZNK3euf6etable13display_unaryERSoPv(ptr nonnull readnone al
   br i1 %16, label %.lr.ph.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
-  %.sroa.08.012.ph = phi ptr [ %8, %.lr.ph.i.i.preheader.i ], [ %22, %.lr.ph.i.i.i ]
+  %.sroa.08.013.ph = phi ptr [ %8, %.lr.ph.i.i.preheader.i ], [ %22, %.lr.ph.i.i.i ]
   br label %.lr.ph.outer
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i
@@ -1231,31 +1231,34 @@ define hidden void @_ZNK3euf6etable13display_unaryERSoPv(ptr nonnull readnone al
   %21 = phi ptr [ %22, %.lr.ph.i.i.i ], [ %8, %.lr.ph.i.i.preheader.i ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.not.i.i.i = icmp eq ptr %22, %12
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i, !llvm.loop !139
+  br i1 %.not.i.i.i, label %._ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i, label %.lr.ph.i.i.i, !llvm.loop !139
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %33, %39, %3
+._ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %._crit_edge, !llvm.loop !139
+
+._crit_edge:                                      ; preds = %33, %39, %._ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i, %3
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3, i64 noundef 1)
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i, %.lr.ph.preheader
-  %.sroa.08.012.ph30 = phi ptr [ %.sroa.08.012.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
+  %.sroa.08.013.ph30 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %.lr.ph
-  %.sroa.9.013 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.012.ph30, %.lr.ph.outer ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.9.013, i64 8
+  %.sroa.9.014 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.013.ph30, %.lr.ph.outer ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = load ptr, ptr %25, align 8, !tbaa !26
   %27 = load i32, ptr %26, align 4, !tbaa !27
   %28 = zext i32 %27 to i64
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %28)
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.2, i64 noundef 1)
-  %31 = load ptr, ptr %.sroa.9.013, align 8, !tbaa !78
+  %31 = load ptr, ptr %.sroa.9.014, align 8, !tbaa !78
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %.lr.ph
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.ph30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph30, i64 16
   %.not2.i.i = icmp eq ptr %34, %12
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
@@ -1295,7 +1298,7 @@ define hidden void @_ZNK3euf6etable14display_binaryERSoPv(ptr nonnull readnone a
   br i1 %16, label %.lr.ph.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
-  %.sroa.08.012.ph = phi ptr [ %8, %.lr.ph.i.i.preheader.i ], [ %22, %.lr.ph.i.i.i ]
+  %.sroa.08.013.ph = phi ptr [ %8, %.lr.ph.i.i.preheader.i ], [ %22, %.lr.ph.i.i.i ]
   br label %.lr.ph.outer
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i
@@ -1309,31 +1312,34 @@ define hidden void @_ZNK3euf6etable14display_binaryERSoPv(ptr nonnull readnone a
   %21 = phi ptr [ %22, %.lr.ph.i.i.i ], [ %8, %.lr.ph.i.i.preheader.i ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.not.i.i.i = icmp eq ptr %22, %12
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i, !llvm.loop !143
+  br i1 %.not.i.i.i, label %._ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i, label %.lr.ph.i.i.i, !llvm.loop !143
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %33, %39, %3
+._ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %._crit_edge, !llvm.loop !143
+
+._crit_edge:                                      ; preds = %33, %39, %._ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i, %3
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3, i64 noundef 1)
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i, %.lr.ph.preheader
-  %.sroa.08.012.ph30 = phi ptr [ %.sroa.08.012.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
+  %.sroa.08.013.ph30 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %.lr.ph
-  %.sroa.9.013 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.012.ph30, %.lr.ph.outer ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.9.013, i64 8
+  %.sroa.9.014 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.013.ph30, %.lr.ph.outer ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = load ptr, ptr %25, align 8, !tbaa !26
   %27 = load i32, ptr %26, align 4, !tbaa !27
   %28 = zext i32 %27 to i64
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %28)
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.2, i64 noundef 1)
-  %31 = load ptr, ptr %.sroa.9.013, align 8, !tbaa !106
+  %31 = load ptr, ptr %.sroa.9.014, align 8, !tbaa !106
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %.lr.ph
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.ph30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph30, i64 16
   %.not2.i.i = icmp eq ptr %34, %12
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
@@ -1374,7 +1380,7 @@ define hidden void @_ZNK3euf6etable19display_binary_commERSoPv(ptr nonnull readn
   br i1 %17, label %.lr.ph.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
-  %.sroa.08.012.ph = phi ptr [ %9, %.lr.ph.i.i.preheader.i ], [ %23, %.lr.ph.i.i.i ]
+  %.sroa.08.013.ph = phi ptr [ %9, %.lr.ph.i.i.preheader.i ], [ %23, %.lr.ph.i.i.i ]
   br label %.lr.ph.outer
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i
@@ -1388,31 +1394,34 @@ define hidden void @_ZNK3euf6etable19display_binary_commERSoPv(ptr nonnull readn
   %22 = phi ptr [ %23, %.lr.ph.i.i.i ], [ %9, %.lr.ph.i.i.preheader.i ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.not.i.i.i = icmp eq ptr %23, %13
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i, !llvm.loop !147
+  br i1 %.not.i.i.i, label %._ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i, label %.lr.ph.i.i.i, !llvm.loop !147
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %34, %40, %3
+._ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %._crit_edge, !llvm.loop !147
+
+._crit_edge:                                      ; preds = %34, %40, %._ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i, %3
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3, i64 noundef 1)
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i, %.lr.ph.preheader
-  %.sroa.08.012.ph30 = phi ptr [ %.sroa.08.012.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
+  %.sroa.08.013.ph30 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %.lr.ph
-  %.sroa.9.013 = phi ptr [ %32, %.lr.ph ], [ %.sroa.08.012.ph30, %.lr.ph.outer ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.9.013, i64 8
+  %.sroa.9.014 = phi ptr [ %32, %.lr.ph ], [ %.sroa.08.013.ph30, %.lr.ph.outer ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !24
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = load i32, ptr %27, align 4, !tbaa !27
   %29 = zext i32 %28 to i64
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %29)
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.2, i64 noundef 1)
-  %32 = load ptr, ptr %.sroa.9.013, align 8, !tbaa !95
+  %32 = load ptr, ptr %.sroa.9.014, align 8, !tbaa !95
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %.lr.ph
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.ph30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph30, i64 16
   %.not2.i.i = icmp eq ptr %35, %13
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
@@ -1452,7 +1461,7 @@ define hidden void @_ZNK3euf6etable12display_naryERSoPv(ptr nonnull readnone ali
   br i1 %16, label %.lr.ph.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
-  %.sroa.08.012.ph = phi ptr [ %8, %.lr.ph.i.i.preheader.i ], [ %22, %.lr.ph.i.i.i ]
+  %.sroa.08.013.ph = phi ptr [ %8, %.lr.ph.i.i.preheader.i ], [ %22, %.lr.ph.i.i.i ]
   br label %.lr.ph.outer
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i
@@ -1466,31 +1475,34 @@ define hidden void @_ZNK3euf6etable12display_naryERSoPv(ptr nonnull readnone ali
   %21 = phi ptr [ %22, %.lr.ph.i.i.i ], [ %8, %.lr.ph.i.i.preheader.i ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.not.i.i.i = icmp eq ptr %22, %12
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i, !llvm.loop !151
+  br i1 %.not.i.i.i, label %._ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i, label %.lr.ph.i.i.i, !llvm.loop !151
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %33, %39, %3
+._ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %._crit_edge, !llvm.loop !151
+
+._crit_edge:                                      ; preds = %33, %39, %._ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE8iteratorC2EPNS6_4cellES9_.exit.loopexit_crit_edge.i, %3
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3, i64 noundef 1)
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i, %.lr.ph.preheader
-  %.sroa.08.012.ph30 = phi ptr [ %.sroa.08.012.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
+  %.sroa.08.013.ph30 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %.lr.ph
-  %.sroa.9.013 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.012.ph30, %.lr.ph.outer ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.9.013, i64 8
+  %.sroa.9.014 = phi ptr [ %31, %.lr.ph ], [ %.sroa.08.013.ph30, %.lr.ph.outer ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = load ptr, ptr %25, align 8, !tbaa !26
   %27 = load i32, ptr %26, align 4, !tbaa !27
   %28 = zext i32 %27 to i64
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %28)
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.2, i64 noundef 1)
-  %31 = load ptr, ptr %.sroa.9.013, align 8, !tbaa !117
+  %31 = load ptr, ptr %.sroa.9.014, align 8, !tbaa !117
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %.lr.ph
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.ph30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph30, i64 16
   %.not2.i.i = icmp eq ptr %34, %12
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 

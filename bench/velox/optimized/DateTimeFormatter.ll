@@ -4632,10 +4632,13 @@ while.body121:                                    ; preds = %while.cond117.prehe
   %tokenEnd.14155 = phi ptr [ %incdec.ptr122, %land.rhsthread-pre-split ], [ %cur.044, %while.cond117.preheader ]
   %incdec.ptr122 = getelementptr inbounds nuw i8, ptr %tokenEnd.14155, i64 1
   %cmp118 = icmp ult ptr %incdec.ptr122, %add.ptr
-  br i1 %cmp118, label %land.rhsthread-pre-split, label %while.end, !llvm.loop !21
+  br i1 %cmp118, label %land.rhsthread-pre-split, label %while.body121.while.end.loopexit_crit_edge, !llvm.loop !21
 
-while.end:                                        ; preds = %while.body121, %land.rhsthread-pre-split, %while.cond117.preheader
-  %tokenEnd.1.lcssa = phi ptr [ %cur.044, %while.cond117.preheader ], [ %incdec.ptr122, %land.rhsthread-pre-split ], [ %incdec.ptr122, %while.body121 ]
+while.body121.while.end.loopexit_crit_edge:       ; preds = %while.body121
+  br label %while.end, !llvm.loop !21
+
+while.end:                                        ; preds = %land.rhsthread-pre-split, %while.body121.while.end.loopexit_crit_edge, %while.cond117.preheader
+  %tokenEnd.1.lcssa = phi ptr [ %cur.044, %while.cond117.preheader ], [ %incdec.ptr122, %while.body121.while.end.loopexit_crit_edge ], [ %incdec.ptr122, %land.rhsthread-pre-split ]
   %sub.ptr.lhs.cast = ptrtoint ptr %tokenEnd.1.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cur.044 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast

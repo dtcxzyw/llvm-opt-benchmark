@@ -1634,10 +1634,13 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit208: ; preds = %.lr.ph.i.i203, 
   %391 = add i64 %390, 1
   store i64 %391, ptr %122, align 16
   %392 = icmp ult i64 %391, %.sroa.speculated334
-  br i1 %392, label %175, label %.critedge3, !llvm.loop !12
+  br i1 %392, label %175, label %..critedge3.loopexit_crit_edge, !llvm.loop !12
 
-.critedge3:                                       ; preds = %389, %175, %.lr.ph412, %._crit_edge
-  %.1131.lcssa = phi i32 [ %.0130, %._crit_edge ], [ %.0130, %.lr.ph412 ], [ %210, %175 ], [ %210, %389 ]
+..critedge3.loopexit_crit_edge:                   ; preds = %389
+  br label %.critedge3, !llvm.loop !12
+
+.critedge3:                                       ; preds = %175, %.lr.ph412, %..critedge3.loopexit_crit_edge, %._crit_edge
+  %.1131.lcssa = phi i32 [ %.0130, %._crit_edge ], [ %210, %..critedge3.loopexit_crit_edge ], [ %.0130, %.lr.ph412 ], [ %210, %175 ]
   %393 = load ptr, ptr %119, align 16
   %394 = load atomic i8, ptr %393 seq_cst, align 1
   %395 = trunc i8 %394 to i1

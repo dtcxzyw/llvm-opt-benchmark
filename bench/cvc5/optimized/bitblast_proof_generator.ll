@@ -275,9 +275,12 @@ define hidden void @_ZN4cvc58internal6theory2bv22BitblastProofGenerator11getProo
   %87 = load i64, ptr %86, align 8, !tbaa !33
   %88 = urem i64 %87, %63
   %.not19.i.i.i.i.i = icmp eq i64 %88, %64
-  br i1 %.not19.i.i.i.i.i, label %78, label %.loopexit.i.i, !llvm.loop !35
+  br i1 %.not19.i.i.i.i.i, label %78, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !35
 
-.loopexit.i.i:                                    ; preds = %85, %.lr.ph.i.i.i.i.i, %54, %59
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %85
+  br label %.loopexit.i.i, !llvm.loop !35
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %54, %..loopexit_crit_edge21.i.i.i.i.i, %59
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.3) #22
   unreachable
 
@@ -3374,14 +3377,17 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St5tupleIJS3_S
   %57 = load i64, ptr %56, align 8, !tbaa !33
   %58 = urem i64 %57, %31
   %.not19.i.i = icmp eq i64 %58, %32
-  br i1 %.not19.i.i, label %48, label %.critedge28, !llvm.loop !35
+  br i1 %.not19.i.i, label %48, label %..loopexit_crit_edge21.i.i, !llvm.loop !35
+
+..loopexit_crit_edge21.i.i:                       ; preds = %55
+  br label %.critedge28, !llvm.loop !35
 
 59:                                               ; preds = %.critedge
   %60 = landingpad { ptr, i32 }
           cleanup
   br label %64
 
-.critedge28:                                      ; preds = %.lr.ph.i.i, %55, %34, %29
+.critedge28:                                      ; preds = %.lr.ph.i.i, %..loopexit_crit_edge21.i.i, %34, %29
   %61 = invoke ptr @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St5tupleIJS3_S3_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %32, i64 noundef %28, ptr noundef nonnull %5, i64 noundef 1)
           to label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St5tupleIJS3_S3_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %62
 

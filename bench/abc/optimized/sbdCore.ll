@@ -13587,7 +13587,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 .lr.ph89:                                         ; preds = %.lr.ph110
   %.val69 = load ptr, ptr %29, align 8, !tbaa !55
   %.not58 = icmp eq ptr %.val69, null
-  br i1 %.not58, label %.critedge2.loopexit, label %.lr.ph110, !llvm.loop !289
+  br i1 %.not58, label %.critedge2, label %.lr.ph110, !llvm.loop !289
 
 .lr.ph110:                                        ; preds = %.lr.ph89.preheader, %.lr.ph89
   %.val69109 = phi ptr [ %.val69, %.lr.ph89 ], [ %.val69106, %.lr.ph89.preheader ]
@@ -13610,16 +13610,16 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %.val63 = load i32, ptr %115, align 4, !tbaa !48
   %116 = sext i32 %.val63 to i64
   %117 = icmp slt i64 %indvars.iv.next97, %116
-  br i1 %117, label %.lr.ph89, label %.critedge2.loopexit, !llvm.loop !289
+  br i1 %117, label %.lr.ph89, label %..critedge2_crit_edge, !llvm.loop !289
 
-.critedge2.loopexit:                              ; preds = %.lr.ph89, %.lr.ph110
-  %118 = icmp sgt i32 %.val63, 0
-  br label %.critedge2
+..critedge2_crit_edge:                            ; preds = %.lr.ph110
+  br label %.critedge2, !llvm.loop !289
 
-.critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph89.preheader
-  %.val6291.pre = phi i1 [ true, %.lr.ph89.preheader ], [ %118, %.critedge2.loopexit ]
-  %119 = phi ptr [ %102, %.lr.ph89.preheader ], [ %114, %.critedge2.loopexit ]
-  br i1 %.val6291.pre, label %.lr.ph93, label %.critedge4
+.critedge2:                                       ; preds = %.lr.ph89, %..critedge2_crit_edge, %.lr.ph89.preheader
+  %.val6291.pre = phi i32 [ %.val63, %..critedge2_crit_edge ], [ %.val6387, %.lr.ph89.preheader ], [ %.val63, %.lr.ph89 ]
+  %118 = phi ptr [ %114, %..critedge2_crit_edge ], [ %102, %.lr.ph89.preheader ], [ %114, %.lr.ph89 ]
+  %119 = icmp sgt i32 %.val6291.pre, 0
+  br i1 %119, label %.lr.ph93, label %.critedge4
 
 .lr.ph93:                                         ; preds = %.critedge2
   %120 = getelementptr i8, ptr %5, i64 32
@@ -13629,7 +13629,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 
 123:                                              ; preds = %.lr.ph93, %Gia_ManAppendCo.exit
   %indvars.iv99 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next100, %Gia_ManAppendCo.exit ]
-  %124 = phi ptr [ %119, %.lr.ph93 ], [ %211, %Gia_ManAppendCo.exit ]
+  %124 = phi ptr [ %118, %.lr.ph93 ], [ %211, %Gia_ManAppendCo.exit ]
   %.val67 = load ptr, ptr %29, align 8, !tbaa !55
   %125 = getelementptr i8, ptr %124, i64 8
   %.val68.val = load ptr, ptr %125, align 8, !tbaa !49

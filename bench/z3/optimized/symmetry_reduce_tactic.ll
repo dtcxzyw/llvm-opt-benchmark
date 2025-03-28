@@ -11639,7 +11639,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i56: ; pre
 
 .backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread.loopexit_crit_edge: ; preds = %.backedge
   %.pre103.pre = load ptr, ptr %10, align 8, !tbaa !163
-  br label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread
+  br label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, !llvm.loop !330
 
 _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %.backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread.loopexit_crit_edge, %28
   %274 = phi ptr [ null, %28 ], [ null, %.backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread.loopexit_crit_edge ], [ %37, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ]

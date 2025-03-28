@@ -12763,7 +12763,7 @@ tng_block_init.exit:                              ; preds = %10, %13
 
 ..critedge.loopexit_crit_edge:                    ; preds = %25
   %.pre.pre = load i64, ptr %21, align 8, !tbaa !183
-  br label %.critedge
+  br label %.critedge, !llvm.loop !273
 
 .critedge:                                        ; preds = %.lr.ph39, %.lr.ph39, %23, %.lr.ph, %..critedge.loopexit_crit_edge
   %.pre = phi i64 [ %.pre.pre, %..critedge.loopexit_crit_edge ], [ %.pre.pre2836, %.lr.ph ], [ %.pre.pre28, %23 ], [ %.pre.pre2838, %.lr.ph39 ], [ %.pre.pre2838, %.lr.ph39 ]

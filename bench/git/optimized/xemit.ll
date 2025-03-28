@@ -1044,10 +1044,13 @@ get_func_line.exit346:                            ; preds = %.thread.i334, %.lr.
   %409 = add nsw i64 %.5199539721, 1
   %410 = load i64, ptr %391, align 8, !tbaa !17
   %411 = icmp slt i64 %409, %410
-  br i1 %411, label %396, label %.critedge7, !llvm.loop !53
+  br i1 %411, label %396, label %..critedge7.loopexit_crit_edge, !llvm.loop !53
 
-.critedge7:                                       ; preds = %408, %396, %.lr.ph542, %389
-  %412 = phi i64 [ %390, %389 ], [ %390, %.lr.ph542 ], [ %410, %396 ], [ %410, %408 ]
+..critedge7.loopexit_crit_edge:                   ; preds = %408
+  br label %.critedge7, !llvm.loop !53
+
+.critedge7:                                       ; preds = %396, %.lr.ph542, %..critedge7.loopexit_crit_edge, %389
+  %412 = phi i64 [ %390, %389 ], [ %410, %..critedge7.loopexit_crit_edge ], [ %390, %.lr.ph542 ], [ %410, %396 ]
   %413 = getelementptr inbounds nuw i8, ptr %.4363, i64 24
   %414 = load i64, ptr %413, align 8, !tbaa !18
   %415 = icmp sgt i64 %414, 0

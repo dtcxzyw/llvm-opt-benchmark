@@ -3894,10 +3894,13 @@ define void @_ZNK10open_spiel11tiny_hanabi15TinyHanabiState8ToStringB5cxx11Ev(pt
   %56 = load i32, ptr %12, align 8
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %28, label %.critedge, !llvm.loop !30
+  br i1 %58, label %28, label %..critedge.loopexit_crit_edge, !llvm.loop !30
 
-.critedge:                                        ; preds = %55, %28, %.lr.ph, %2
-  %.lcssa = phi i32 [ %13, %2 ], [ %13, %.lr.ph ], [ %56, %28 ], [ %56, %55 ]
+..critedge.loopexit_crit_edge:                    ; preds = %55
+  br label %.critedge, !llvm.loop !30
+
+.critedge:                                        ; preds = %28, %.lr.ph, %..critedge.loopexit_crit_edge, %2
+  %.lcssa = phi i32 [ %13, %2 ], [ %56, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph ], [ %56, %28 ]
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = sext i32 %.lcssa to i64

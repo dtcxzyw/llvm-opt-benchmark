@@ -185,10 +185,13 @@ define noundef zeroext i1 @_ZNK5faiss15IDSelectorBatch9is_memberEl(ptr noundef n
   %44 = load i64, ptr %43, align 8, !tbaa !16
   %45 = urem i64 %44, %29
   %.not19.i.i.i.i.i = icmp eq i64 %45, %30
-  br i1 %.not19.i.i.i.i.i, label %39, label %_ZNKSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEE5countERKl.exit, !llvm.loop !42
+  br i1 %.not19.i.i.i.i.i, label %39, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !42
 
-_ZNKSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEE5countERKl.exit: ; preds = %39, %.lr.ph.i.i.i.i.i, %42, %21, %22, %26, %34
-  %.sroa.06.1.i.i.i = phi ptr [ null, %26 ], [ %35, %34 ], [ %.sroa.06.0.i.i.i, %22 ], [ null, %21 ], [ null, %42 ], [ null, %.lr.ph.i.i.i.i.i ], [ %41, %39 ]
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %42
+  br label %_ZNKSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEE5countERKl.exit, !llvm.loop !42
+
+_ZNKSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEE5countERKl.exit: ; preds = %39, %.lr.ph.i.i.i.i.i, %21, %22, %26, %34, %..loopexit_crit_edge21.i.i.i.i.i
+  %.sroa.06.1.i.i.i = phi ptr [ null, %26 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %35, %34 ], [ %.sroa.06.0.i.i.i, %22 ], [ null, %21 ], [ null, %.lr.ph.i.i.i.i.i ], [ %41, %39 ]
   %.not.i.i = icmp ne ptr %.sroa.06.1.i.i.i, null
   br label %46
 
@@ -879,11 +882,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIllSaIlENSt8__detail9_Identity
   %36 = load i64, ptr %35, align 8, !tbaa !16
   %37 = urem i64 %36, %9
   %.not19.i.i = icmp eq i64 %37, %10
-  br i1 %.not19.i.i, label %31, label %.critedge, !llvm.loop !67
+  br i1 %.not19.i.i, label %31, label %..loopexit_crit_edge21.i.i, !llvm.loop !67
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %34, %22, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %34 ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %34 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %34
+  br label %.critedge, !llvm.loop !67
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
   store ptr null, ptr %40, align 8, !tbaa !37
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

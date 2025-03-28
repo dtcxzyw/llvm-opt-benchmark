@@ -5245,7 +5245,7 @@ _ZL26select_different_registers8RegisterS_RS_S0_.exit: ; preds = %_ZL26select_di
 
 ._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i: ; preds = %90
   %.pre.i.i.i = load i8, ptr %86, align 1
-  br label %_ZN7BitData23null_seen_byte_constantEv.exit
+  br label %_ZN7BitData23null_seen_byte_constantEv.exit, !llvm.loop !93
 
 _ZN7BitData23null_seen_byte_constantEv.exit:      ; preds = %87, %._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i
   %93 = phi i8 [ %.pre.i.i.i, %._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i ], [ %88, %87 ]
@@ -5687,7 +5687,7 @@ define hidden void @_ZN13LIR_Assembler16emit_opTypeCheckEP15LIR_OpTypeCheck(ptr 
 
 ._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i: ; preds = %83
   %.pre.i.i.i = load i8, ptr %79, align 1
-  br label %_ZN7BitData23null_seen_byte_constantEv.exit
+  br label %_ZN7BitData23null_seen_byte_constantEv.exit, !llvm.loop !93
 
 _ZN7BitData23null_seen_byte_constantEv.exit:      ; preds = %80, %._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i
   %86 = phi i8 [ %.pre.i.i.i, %._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i ], [ %81, %80 ]

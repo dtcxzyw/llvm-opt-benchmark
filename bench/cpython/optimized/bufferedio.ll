@@ -2939,7 +2939,7 @@ define internal fastcc range(i64 -2, -9223372036854775808) i64 @_bufferedwriter_
   %22 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 74416), ptr noundef nonnull %4, i64 noundef -9223372036854775806, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %19, label %.critedge29
+  br i1 %23, label %19, label %.critedge29, !llvm.loop !91
 
 .critedge:                                        ; preds = %19
   %24 = load i32, ptr %10, align 8, !tbaa !14
@@ -3143,7 +3143,7 @@ define internal fastcc range(i64 -2, -9223372036854775808) i64 @_bufferedreader_
   %21 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67904), ptr noundef nonnull %4, i64 noundef -9223372036854775806, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %18, label %.critedge30
+  br i1 %22, label %18, label %.critedge30, !llvm.loop !92
 
 .critedge:                                        ; preds = %18
   %23 = load i32, ptr %10, align 8, !tbaa !14

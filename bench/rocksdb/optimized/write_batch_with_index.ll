@@ -826,9 +826,12 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt13unord
   %22 = zext i32 %21 to i64
   %23 = urem i64 %22, %6
   %.not19.i.i.i = icmp eq i64 %23, %7
-  br i1 %.not19.i.i.i, label %16, label %.loopexit.i, !llvm.loop !127
+  br i1 %.not19.i.i.i, label %16, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !127
 
-.loopexit.i:                                      ; preds = %19, %.lr.ph.i.i.i, %2
+..loopexit_crit_edge21.i.i.i:                     ; preds = %19
+  br label %.loopexit.i, !llvm.loop !127
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %2
   %24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   store ptr null, ptr %24, align 8, !tbaa !126
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -1062,9 +1065,12 @@ _ZN7rocksdb5Arena8AllocateEm.exit:                ; preds = %29, %34
   %79 = zext i32 %78 to i64
   %80 = urem i64 %79, %63
   %.not19.i.i.i.i = icmp eq i64 %80, %64
-  br i1 %.not19.i.i.i.i, label %73, label %.loopexit.i.i, !llvm.loop !127
+  br i1 %.not19.i.i.i.i, label %73, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !127
 
-.loopexit.i.i:                                    ; preds = %76, %.lr.ph.i.i.i.i, %59
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %76
+  br label %.loopexit.i.i, !llvm.loop !127
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %59
   %81 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   store ptr null, ptr %81, align 8, !tbaa !126
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8

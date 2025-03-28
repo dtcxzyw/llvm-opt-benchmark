@@ -22596,10 +22596,13 @@ _ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit71.i: ; preds = %_ZNK5c
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.0.0.copyload.i.i69.i = load i32, ptr %80, align 8, !tbaa !159
   %.not136.i = icmp eq i32 %.sroa.0.0.copyload.i.i69.i, 0
-  br i1 %.not136.i, label %.critedge.i, label %70, !llvm.loop !2080
+  br i1 %.not136.i, label %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit71.i..critedge.i.loopexit_crit_edge, label %70, !llvm.loop !2080
 
-.critedge.i:                                      ; preds = %70, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit71.i, %.lr.ph.i, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit.i, %63
-  %.sroa.0120.0.lcssa.i = phi i32 [ %62, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit.i ], [ %62, %63 ], [ %62, %.lr.ph.i ], [ %.sroa.02.0.i.i.i, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit71.i ], [ %.sroa.02.0.i.i.i, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i ], [ %.sroa.02.0.i.i.i, %70 ]
+_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit71.i..critedge.i.loopexit_crit_edge: ; preds = %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit71.i
+  br label %.critedge.i, !llvm.loop !2080
+
+.critedge.i:                                      ; preds = %70, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i, %.lr.ph.i, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit71.i..critedge.i.loopexit_crit_edge, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit.i, %63
+  %.sroa.0120.0.lcssa.i = phi i32 [ %62, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit.i ], [ %62, %63 ], [ %.sroa.02.0.i.i.i, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit71.i..critedge.i.loopexit_crit_edge ], [ %62, %.lr.ph.i ], [ %.sroa.02.0.i.i.i, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i ], [ %.sroa.02.0.i.i.i, %70 ]
   %81 = tail call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %61, i32 %.sroa.0120.0.lcssa.i)
   %.not.not.i72.i = icmp eq ptr %81, null
   br i1 %.not.not.i72.i, label %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, label %82

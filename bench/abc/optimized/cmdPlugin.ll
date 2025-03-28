@@ -786,14 +786,17 @@ Vec_IntPush.exit57:                               ; preds = %Vec_IntPush.exit57.
   %108 = sub nsw i32 %.val43.val, %.val42
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next, %109
-  br i1 %110, label %.lr.ph74, label %.critedge2, !llvm.loop !58
+  br i1 %110, label %.lr.ph74, label %Vec_IntPush.exit57..critedge2.loopexit_crit_edge, !llvm.loop !58
 
-.critedge2:                                       ; preds = %Vec_IntPush.exit57, %79, %.lr.ph74, %.lr.ph74.preheader, %47
-  %.pre.i5399 = phi ptr [ %.pre.i5398, %47 ], [ %.pre.i5398, %.lr.ph74.preheader ], [ %.pre.i53103, %.lr.ph74 ], [ %51, %79 ], [ %.pre.i53103, %Vec_IntPush.exit57 ]
-  %.pre.i6091 = phi ptr [ %.pre.i6090, %47 ], [ %.pre.i6090, %.lr.ph74.preheader ], [ %.pre.i53101.sink, %.lr.ph74 ], [ %50, %79 ], [ %.pre.i53101.sink, %Vec_IntPush.exit57 ]
-  %.val436986 = phi ptr [ %.val4369, %47 ], [ %.val4369, %.lr.ph74.preheader ], [ %.val43, %.lr.ph74 ], [ %.val436988119, %79 ], [ %.val43, %Vec_IntPush.exit57 ]
-  %.val426882 = phi i32 [ %.val4268, %47 ], [ %.val4268, %.lr.ph74.preheader ], [ %.val42, %.lr.ph74 ], [ %.val426884120, %79 ], [ %.val42, %Vec_IntPush.exit57 ]
-  %.1.lcssa = phi i32 [ %.0, %47 ], [ %.0, %.lr.ph74.preheader ], [ %.2, %.lr.ph74 ], [ %.172122, %79 ], [ %.2, %Vec_IntPush.exit57 ]
+Vec_IntPush.exit57..critedge2.loopexit_crit_edge: ; preds = %Vec_IntPush.exit57
+  br label %.critedge2, !llvm.loop !58
+
+.critedge2:                                       ; preds = %79, %.lr.ph74, %.lr.ph74.preheader, %Vec_IntPush.exit57..critedge2.loopexit_crit_edge, %47
+  %.pre.i5399 = phi ptr [ %.pre.i5398, %47 ], [ %.pre.i53103, %Vec_IntPush.exit57..critedge2.loopexit_crit_edge ], [ %.pre.i5398, %.lr.ph74.preheader ], [ %.pre.i53103, %.lr.ph74 ], [ %51, %79 ]
+  %.pre.i6091 = phi ptr [ %.pre.i6090, %47 ], [ %.pre.i53101.sink, %Vec_IntPush.exit57..critedge2.loopexit_crit_edge ], [ %.pre.i6090, %.lr.ph74.preheader ], [ %.pre.i53101.sink, %.lr.ph74 ], [ %50, %79 ]
+  %.val436986 = phi ptr [ %.val4369, %47 ], [ %.val43, %Vec_IntPush.exit57..critedge2.loopexit_crit_edge ], [ %.val4369, %.lr.ph74.preheader ], [ %.val43, %.lr.ph74 ], [ %.val436988119, %79 ]
+  %.val426882 = phi i32 [ %.val4268, %47 ], [ %.val42, %Vec_IntPush.exit57..critedge2.loopexit_crit_edge ], [ %.val4268, %.lr.ph74.preheader ], [ %.val42, %.lr.ph74 ], [ %.val426884120, %79 ]
+  %.1.lcssa = phi i32 [ %.0, %47 ], [ %.2, %Vec_IntPush.exit57..critedge2.loopexit_crit_edge ], [ %.0, %.lr.ph74.preheader ], [ %.2, %.lr.ph74 ], [ %.172122, %79 ]
   %.val37 = load i32, ptr %3, align 4, !tbaa !36
   %111 = icmp eq i32 %.1.lcssa, %.val37
   br i1 %111, label %112, label %47

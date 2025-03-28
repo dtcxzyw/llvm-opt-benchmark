@@ -3290,7 +3290,7 @@ define i32 @Abc_ZddPerm2Comb(ptr noundef captures(none) %0, i32 noundef %1, ptr 
 ._crit_edge37:                                    ; preds = %9
   %14 = trunc nuw nsw i64 %indvars.iv.next32 to i32
   %.pre = and i64 %indvars.iv.next32, 4294967295
-  br label %split
+  br label %split, !llvm.loop !54
 
 split:                                            ; preds = %.preheader, %._crit_edge37
   %.pre-phi = phi i64 [ %.pre, %._crit_edge37 ], [ %wide.trip.count35, %.preheader ]
@@ -3420,7 +3420,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
 ._crit_edge37.i:                                  ; preds = %9
   %14 = trunc nuw nsw i64 %indvars.iv.next32.i to i32
   %.pre.i = and i64 %indvars.iv.next32.i, 4294967295
-  br label %split.i
+  br label %split.i, !llvm.loop !54
 
 split.i:                                          ; preds = %.preheader.i, %._crit_edge37.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge37.i ], [ 10, %.preheader.i ]
@@ -4103,7 +4103,7 @@ Abc_ZddPermPrint.exit55:                          ; preds = %.lr.ph.i50
 ._crit_edge37.i:                                  ; preds = %21
   %26 = trunc nuw nsw i64 %indvars.iv.next32.i to i32
   %.pre.i = and i64 %indvars.iv.next32.i, 4294967295
-  br label %split.i
+  br label %split.i, !llvm.loop !54
 
 split.i:                                          ; preds = %.preheader.i, %._crit_edge37.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge37.i ], [ 5, %.preheader.i ]
@@ -4496,7 +4496,7 @@ Abc_Clock.exit72:                                 ; preds = %Abc_ZddManCreatePer
 ._crit_edge37.i:                                  ; preds = %67
   %72 = trunc nuw nsw i64 %indvars.iv.next32.i to i32
   %.pre.i = and i64 %indvars.iv.next32.i, 4294967295
-  br label %split.i
+  br label %split.i, !llvm.loop !54
 
 split.i:                                          ; preds = %.preheader.i, %._crit_edge37.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge37.i ], [ 24, %.preheader.i ]

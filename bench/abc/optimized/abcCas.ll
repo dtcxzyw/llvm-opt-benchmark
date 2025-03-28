@@ -5914,7 +5914,7 @@ Vec_IntFill.exit56:                               ; preds = %Vec_IntGrow.exit.i5
 
 ._crit_edge:                                      ; preds = %92
   %.pre = load i32, ptr %47, align 4, !tbaa !141
-  br label %split
+  br label %split, !llvm.loop !158
 
 split:                                            ; preds = %55, %._crit_edge
   %93 = phi i32 [ %.pre, %._crit_edge ], [ %.pre63, %55 ]

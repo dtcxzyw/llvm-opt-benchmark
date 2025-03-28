@@ -5038,7 +5038,7 @@ open_cached_dir.exit:                             ; preds = %91, %invalidate_dir
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %142
-  %159 = phi i32 [ 0, %142 ], [ %203, %.backedge.backedge ]
+  %159 = phi i32 [ 0, %142 ], [ %204, %.backedge.backedge ]
   %.lcssa104112 = phi i32 [ 0, %142 ], [ %.lcssa104110, %.backedge.backedge ]
   %.150 = phi i32 [ 0, %142 ], [ %.4, %.backedge.backedge ]
   br i1 %.not.i65, label %.preheader.i, label %169
@@ -5057,7 +5057,10 @@ open_cached_dir.exit:                             ; preds = %91, %invalidate_dir
   %167 = load i8, ptr %166, align 4
   %168 = and i8 %167, 4
   %.not31.i105 = icmp eq i8 %168, 0
-  br i1 %.not31.i105, label %.critedge.i, label %._crit_edge, !llvm.loop !178
+  br i1 %.not31.i105, label %.critedge.i.lr.ph, label %194, !llvm.loop !178
+
+.critedge.i.lr.ph:                                ; preds = %.lr.ph.i
+  br label %.critedge.i, !llvm.loop !178
 
 169:                                              ; preds = %.backedge
   %170 = call ptr @readdir64(ptr noundef nonnull %143) #27
@@ -5102,10 +5105,10 @@ readdir_skip_dot_and_dotdot.exit.i:               ; preds = %169, %.critedge.bac
   %184 = load i8, ptr %183, align 2, !tbaa !165
   %185 = zext i8 %184 to i32
   store i32 %185, ptr %145, align 8, !tbaa !70
-  br label %202
+  br label %203
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %188
-  %indvars.iv.i106 = phi i64 [ %indvars.iv.next.i, %188 ], [ %163, %.lr.ph.i ]
+.critedge.i:                                      ; preds = %.critedge.i.lr.ph, %188
+  %indvars.iv.i106 = phi i64 [ %163, %.critedge.i.lr.ph ], [ %indvars.iv.next.i, %188 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i106, 1
   %186 = trunc nsw i64 %indvars.iv.next.i to i32
   %187 = icmp ugt i32 %160, %186
@@ -5120,13 +5123,16 @@ readdir_skip_dot_and_dotdot.exit.i:               ; preds = %169, %.critedge.bac
   %.not31.i = icmp eq i8 %193, 0
   br i1 %.not31.i, label %.critedge.i, label %._crit_edge, !llvm.loop !178
 
-._crit_edge:                                      ; preds = %188, %.lr.ph.i
-  %.lcssa = phi i32 [ %.lcssa104112, %.lr.ph.i ], [ %186, %188 ]
-  %.lcssa89 = phi ptr [ %165, %.lr.ph.i ], [ %190, %188 ]
+._crit_edge:                                      ; preds = %188
+  br label %194, !llvm.loop !178
+
+194:                                              ; preds = %._crit_edge, %.lr.ph.i
+  %.lcssa = phi i32 [ %186, %._crit_edge ], [ %.lcssa104112, %.lr.ph.i ]
+  %.lcssa89 = phi ptr [ %190, %._crit_edge ], [ %165, %.lr.ph.i ]
   store ptr %.lcssa89, ptr %148, align 8, !tbaa !179
   %storemerge.i = add nuw nsw i32 %.lcssa, 1
   store i32 %storemerge.i, ptr %146, align 4, !tbaa !180
-  br label %202
+  br label %203
 
 ._crit_edge.i.loopexit:                           ; preds = %.critedge.i
   store i32 %160, ptr %146, align 4
@@ -5135,149 +5141,149 @@ readdir_skip_dot_and_dotdot.exit.i:               ; preds = %169, %.critedge.bac
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader.i
   %.lcssa104111 = phi i32 [ %160, %._crit_edge.i.loopexit ], [ %.lcssa104112, %.preheader.i ]
   store ptr null, ptr %148, align 8, !tbaa !179
-  %194 = load i32, ptr %150, align 8, !tbaa !10
-  %195 = icmp ult i32 %159, %194
-  br i1 %195, label %196, label %read_cached_dir.exit.thread83.thread
+  %195 = load i32, ptr %150, align 8, !tbaa !10
+  %196 = icmp ult i32 %159, %195
+  br i1 %196, label %197, label %read_cached_dir.exit.thread83.thread
 
-196:                                              ; preds = %._crit_edge.i
-  %197 = load ptr, ptr %151, align 8, !tbaa !172
-  %198 = add nuw nsw i32 %159, 1
-  store i32 %198, ptr %149, align 8, !tbaa !181
-  %199 = sext i32 %159 to i64
-  %200 = getelementptr inbounds ptr, ptr %197, i64 %199
-  %201 = load ptr, ptr %200, align 8, !tbaa !102
-  store ptr %201, ptr %152, align 8, !tbaa !182
-  br label %202
+197:                                              ; preds = %._crit_edge.i
+  %198 = load ptr, ptr %151, align 8, !tbaa !172
+  %199 = add nuw nsw i32 %159, 1
+  store i32 %199, ptr %149, align 8, !tbaa !181
+  %200 = sext i32 %159 to i64
+  %201 = getelementptr inbounds ptr, ptr %198, i64 %200
+  %202 = load ptr, ptr %201, align 8, !tbaa !102
+  store ptr %202, ptr %152, align 8, !tbaa !182
+  br label %203
 
-202:                                              ; preds = %181, %._crit_edge, %196
-  %203 = phi i32 [ %159, %181 ], [ %159, %._crit_edge ], [ %198, %196 ]
-  %.lcssa104110 = phi i32 [ %.lcssa104112, %181 ], [ %storemerge.i, %._crit_edge ], [ %.lcssa104111, %196 ]
-  %204 = call fastcc i32 @treat_path(ptr noundef %0, ptr noundef %4, ptr noundef %10, ptr noundef %1, ptr noundef %11, i32 noundef %3, ptr noundef %7)
-  %205 = load i32, ptr %153, align 4, !tbaa !52
-  %206 = add i32 %205, 1
-  store i32 %206, ptr %153, align 4, !tbaa !52
-  %spec.select = call i32 @llvm.umax.i32(i32 %204, i32 %.150)
-  %207 = icmp eq i32 %204, 1
-  br i1 %207, label %208, label %232
+203:                                              ; preds = %181, %194, %197
+  %204 = phi i32 [ %159, %181 ], [ %159, %194 ], [ %199, %197 ]
+  %.lcssa104110 = phi i32 [ %.lcssa104112, %181 ], [ %storemerge.i, %194 ], [ %.lcssa104111, %197 ]
+  %205 = call fastcc i32 @treat_path(ptr noundef %0, ptr noundef %4, ptr noundef %10, ptr noundef %1, ptr noundef %11, i32 noundef %3, ptr noundef %7)
+  %206 = load i32, ptr %153, align 4, !tbaa !52
+  %207 = add i32 %206, 1
+  store i32 %207, ptr %153, align 4, !tbaa !52
+  %spec.select = call i32 @llvm.umax.i32(i32 %205, i32 %.150)
+  %208 = icmp eq i32 %205, 1
+  br i1 %208, label %209, label %233
 
-208:                                              ; preds = %202
-  %209 = load ptr, ptr %154, align 8, !tbaa !54
-  %210 = load ptr, ptr %155, align 8, !tbaa !74
-  %211 = getelementptr inbounds i8, ptr %210, i64 %12
-  %212 = load i64, ptr %156, align 8, !tbaa !73
-  %213 = trunc i64 %212 to i32
-  %214 = sub i32 %213, %3
-  %215 = call fastcc ptr @lookup_untracked(ptr noundef %209, ptr noundef %4, ptr noundef %211, i32 noundef %214)
-  %216 = load ptr, ptr %155, align 8, !tbaa !74
-  %217 = load i64, ptr %156, align 8, !tbaa !73
-  %218 = trunc i64 %217 to i32
-  %219 = call fastcc i32 @read_directory_recursive(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %216, i32 noundef %218, ptr noundef %215, i32 noundef %5, i32 noundef %6, ptr noundef %7)
-  %spec.select63 = call i32 @llvm.umax.i32(i32 %219, i32 %spec.select)
-  br i1 %.not59, label %232, label %220
+209:                                              ; preds = %203
+  %210 = load ptr, ptr %154, align 8, !tbaa !54
+  %211 = load ptr, ptr %155, align 8, !tbaa !74
+  %212 = getelementptr inbounds i8, ptr %211, i64 %12
+  %213 = load i64, ptr %156, align 8, !tbaa !73
+  %214 = trunc i64 %213 to i32
+  %215 = sub i32 %214, %3
+  %216 = call fastcc ptr @lookup_untracked(ptr noundef %210, ptr noundef %4, ptr noundef %212, i32 noundef %215)
+  %217 = load ptr, ptr %155, align 8, !tbaa !74
+  %218 = load i64, ptr %156, align 8, !tbaa !73
+  %219 = trunc i64 %218 to i32
+  %220 = call fastcc i32 @read_directory_recursive(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %217, i32 noundef %219, ptr noundef %216, i32 noundef %5, i32 noundef %6, ptr noundef %7)
+  %spec.select63 = call i32 @llvm.umax.i32(i32 %220, i32 %spec.select)
+  br i1 %.not59, label %233, label %221
 
-220:                                              ; preds = %208
-  %221 = load ptr, ptr %155, align 8, !tbaa !74
-  %222 = load i64, ptr %156, align 8, !tbaa !73
-  %223 = trunc i64 %222 to i32
-  %224 = call fastcc i32 @do_match_pathspec(ptr noundef %1, ptr noundef nonnull readonly %7, ptr noundef %221, i32 noundef %223, i32 noundef 0, ptr noundef null, i32 noundef range(i32 0, 7) 0)
-  %225 = load i32, ptr %157, align 8, !tbaa !23
-  %226 = and i32 %225, 32
-  %227 = icmp ne i32 %226, 0
-  %228 = icmp ne i32 %224, 0
-  %or.cond.i.i69 = select i1 %227, i1 %228, i1 false
-  br i1 %or.cond.i.i69, label %229, label %match_pathspec.exit
+221:                                              ; preds = %209
+  %222 = load ptr, ptr %155, align 8, !tbaa !74
+  %223 = load i64, ptr %156, align 8, !tbaa !73
+  %224 = trunc i64 %223 to i32
+  %225 = call fastcc i32 @do_match_pathspec(ptr noundef %1, ptr noundef nonnull readonly %7, ptr noundef %222, i32 noundef %224, i32 noundef 0, ptr noundef null, i32 noundef range(i32 0, 7) 0)
+  %226 = load i32, ptr %157, align 8, !tbaa !23
+  %227 = and i32 %226, 32
+  %228 = icmp ne i32 %227, 0
+  %229 = icmp ne i32 %225, 0
+  %or.cond.i.i69 = select i1 %228, i1 %229, i1 false
+  br i1 %or.cond.i.i69, label %230, label %match_pathspec.exit
 
-229:                                              ; preds = %220
-  %230 = call fastcc i32 @do_match_pathspec(ptr noundef %1, ptr noundef nonnull readonly %7, ptr noundef %221, i32 noundef %223, i32 noundef 0, ptr noundef null, i32 noundef 1)
-  %.not.i.i70 = icmp eq i32 %230, 0
-  %231 = select i1 %.not.i.i70, i32 %224, i32 0
+230:                                              ; preds = %221
+  %231 = call fastcc i32 @do_match_pathspec(ptr noundef %1, ptr noundef nonnull readonly %7, ptr noundef %222, i32 noundef %224, i32 noundef 0, ptr noundef null, i32 noundef 1)
+  %.not.i.i70 = icmp eq i32 %231, 0
+  %232 = select i1 %.not.i.i70, i32 %225, i32 0
   br label %match_pathspec.exit
 
-match_pathspec.exit:                              ; preds = %220, %229
-  %.0.i.i = phi i32 [ %231, %229 ], [ %224, %220 ]
+match_pathspec.exit:                              ; preds = %221, %230
+  %.0.i.i = phi i32 [ %232, %230 ], [ %225, %221 ]
   %.not60 = icmp ne i32 %.0.i.i, 0
   %spec.select64 = zext i1 %.not60 to i32
-  br label %232
+  br label %233
 
-232:                                              ; preds = %match_pathspec.exit, %208, %202
-  %.4 = phi i32 [ %spec.select, %202 ], [ %spec.select63, %match_pathspec.exit ], [ %spec.select63, %208 ]
-  %.0 = phi i32 [ %204, %202 ], [ %spec.select64, %match_pathspec.exit ], [ 1, %208 ]
-  br i1 %.not61, label %261, label %233
+233:                                              ; preds = %match_pathspec.exit, %209, %203
+  %.4 = phi i32 [ %spec.select, %203 ], [ %spec.select63, %match_pathspec.exit ], [ %spec.select63, %209 ]
+  %.0 = phi i32 [ %205, %203 ], [ %spec.select64, %match_pathspec.exit ], [ 1, %209 ]
+  br i1 %.not61, label %262, label %234
 
-233:                                              ; preds = %232
-  %234 = icmp ugt i32 %.4, 1
-  %or.cond = select i1 %158, i1 %234, i1 false
-  br i1 %or.cond, label %read_cached_dir.exit, label %235
+234:                                              ; preds = %233
+  %235 = icmp ugt i32 %.4, 1
+  %or.cond = select i1 %158, i1 %235, i1 false
+  br i1 %or.cond, label %read_cached_dir.exit, label %236
 
-235:                                              ; preds = %233
-  %236 = icmp eq i32 %.4, 3
-  br i1 %236, label %237, label %.backedge.backedge
+236:                                              ; preds = %234
+  %237 = icmp eq i32 %.4, 3
+  br i1 %237, label %238, label %.backedge.backedge
 
-237:                                              ; preds = %235
-  br i1 %.not.i65, label %read_cached_dir.exit.thread83, label %238
+238:                                              ; preds = %236
+  br i1 %.not.i65, label %read_cached_dir.exit.thread83, label %239
 
-238:                                              ; preds = %237
-  %239 = load ptr, ptr %155, align 8, !tbaa !74
-  %240 = getelementptr inbounds i8, ptr %239, i64 %12
-  br i1 %.not.i.i, label %read_cached_dir.exit.thread79, label %241
+239:                                              ; preds = %238
+  %240 = load ptr, ptr %155, align 8, !tbaa !74
+  %241 = getelementptr inbounds i8, ptr %240, i64 %12
+  br i1 %.not.i.i, label %read_cached_dir.exit.thread79, label %242
 
-241:                                              ; preds = %238
-  %242 = load i32, ptr %150, align 8, !tbaa !10
-  %243 = add i32 %242, 1
-  %244 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  %245 = load i32, ptr %244, align 4, !tbaa !10
-  %246 = icmp ugt i32 %243, %245
-  br i1 %246, label %st_mult.exit.i, label %254
+242:                                              ; preds = %239
+  %243 = load i32, ptr %150, align 8, !tbaa !10
+  %244 = add i32 %243, 1
+  %245 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %246 = load i32, ptr %245, align 4, !tbaa !10
+  %247 = icmp ugt i32 %244, %246
+  br i1 %247, label %st_mult.exit.i, label %255
 
-st_mult.exit.i:                                   ; preds = %241
-  %247 = mul i32 %245, 3
-  %248 = add i32 %247, 48
-  %249 = lshr i32 %248, 1
-  %..i72 = call i32 @llvm.umax.i32(i32 %249, i32 %243)
-  store i32 %..i72, ptr %244, align 4, !tbaa !10
-  %250 = zext i32 %..i72 to i64
-  %251 = load ptr, ptr %151, align 8, !tbaa !172
-  %252 = shl nuw nsw i64 %250, 3
-  %253 = call ptr @xrealloc(ptr noundef %251, i64 noundef %252) #27
-  store ptr %253, ptr %151, align 8, !tbaa !172
-  br label %254
+st_mult.exit.i:                                   ; preds = %242
+  %248 = mul i32 %246, 3
+  %249 = add i32 %248, 48
+  %250 = lshr i32 %249, 1
+  %..i72 = call i32 @llvm.umax.i32(i32 %250, i32 %244)
+  store i32 %..i72, ptr %245, align 4, !tbaa !10
+  %251 = zext i32 %..i72 to i64
+  %252 = load ptr, ptr %151, align 8, !tbaa !172
+  %253 = shl nuw nsw i64 %251, 3
+  %254 = call ptr @xrealloc(ptr noundef %252, i64 noundef %253) #27
+  store ptr %254, ptr %151, align 8, !tbaa !172
+  br label %255
 
-254:                                              ; preds = %st_mult.exit.i, %241
-  %255 = call ptr @xstrdup(ptr noundef %240) #27
-  %256 = load ptr, ptr %151, align 8, !tbaa !172
-  %257 = load i32, ptr %150, align 8, !tbaa !10
-  %258 = add i32 %257, 1
-  store i32 %258, ptr %150, align 8, !tbaa !10
-  %259 = zext i32 %257 to i64
-  %260 = getelementptr inbounds nuw ptr, ptr %256, i64 %259
-  store ptr %255, ptr %260, align 8, !tbaa !102
+255:                                              ; preds = %st_mult.exit.i, %242
+  %256 = call ptr @xstrdup(ptr noundef %241) #27
+  %257 = load ptr, ptr %151, align 8, !tbaa !172
+  %258 = load i32, ptr %150, align 8, !tbaa !10
+  %259 = add i32 %258, 1
+  store i32 %259, ptr %150, align 8, !tbaa !10
+  %260 = zext i32 %258 to i64
+  %261 = getelementptr inbounds nuw ptr, ptr %257, i64 %260
+  store ptr %256, ptr %261, align 8, !tbaa !102
   br label %read_cached_dir.exit.thread79
 
-261:                                              ; preds = %232
+262:                                              ; preds = %233
   call fastcc void @add_path_to_appropriate_result_list(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %10, ptr noundef %1, ptr noundef %11, i32 noundef %3, ptr noundef %7, i32 noundef %.0)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %261, %235
+.backedge.backedge:                               ; preds = %262, %236
   br label %.backedge, !llvm.loop !183
 
-read_cached_dir.exit:                             ; preds = %233
+read_cached_dir.exit:                             ; preds = %234
   br i1 %.not.i65, label %read_cached_dir.exit.thread83, label %read_cached_dir.exit.thread79
 
-read_cached_dir.exit.thread79:                    ; preds = %readdir_skip_dot_and_dotdot.exit.i, %238, %254, %read_cached_dir.exit
-  %.281 = phi i32 [ 2, %read_cached_dir.exit ], [ 3, %254 ], [ 3, %238 ], [ %.150, %readdir_skip_dot_and_dotdot.exit.i ]
-  %262 = call i32 @closedir(ptr noundef nonnull %143)
+read_cached_dir.exit.thread79:                    ; preds = %readdir_skip_dot_and_dotdot.exit.i, %239, %255, %read_cached_dir.exit
+  %.281 = phi i32 [ 2, %read_cached_dir.exit ], [ 3, %255 ], [ 3, %239 ], [ %.150, %readdir_skip_dot_and_dotdot.exit.i ]
+  %263 = call i32 @closedir(ptr noundef nonnull %143)
   br label %read_cached_dir.exit.thread83
 
-read_cached_dir.exit.thread83:                    ; preds = %237, %read_cached_dir.exit.thread79, %read_cached_dir.exit
-  %.282 = phi i32 [ %.281, %read_cached_dir.exit.thread79 ], [ 2, %read_cached_dir.exit ], [ 3, %237 ]
+read_cached_dir.exit.thread83:                    ; preds = %238, %read_cached_dir.exit.thread79, %read_cached_dir.exit
+  %.282 = phi i32 [ %.281, %read_cached_dir.exit.thread79 ], [ 2, %read_cached_dir.exit ], [ 3, %238 ]
   br i1 %.not.i.i, label %close_cached_dir.exit, label %read_cached_dir.exit.thread83.thread
 
 read_cached_dir.exit.thread83.thread:             ; preds = %._crit_edge.i, %read_cached_dir.exit.thread83
   %.282127 = phi i32 [ %.282, %read_cached_dir.exit.thread83 ], [ %.150, %._crit_edge.i ]
-  %263 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  %264 = load i8, ptr %263, align 4
-  %265 = or i8 %264, 6
-  store i8 %265, ptr %263, align 4
+  %264 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  %265 = load i8, ptr %264, align 4
+  %266 = or i8 %265, 6
+  store i8 %266, ptr %264, align 4
   br label %close_cached_dir.exit
 
 close_cached_dir.exit:                            ; preds = %read_cached_dir.exit.thread83.thread, %read_cached_dir.exit.thread83, %open_cached_dir.exit

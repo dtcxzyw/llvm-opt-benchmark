@@ -3513,11 +3513,14 @@ define range(i32 -1, 1) i32 @H5O_msg_get_flags(ptr noundef %0, i32 noundef %1, p
   %39 = getelementptr inbounds nuw i8, ptr %.0212945, i64 48
   %40 = zext i32 %38 to i64
   %41 = icmp ugt i64 %31, %40
-  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !91
+  br i1 %41, label %.lr.ph, label %.._crit_edge_crit_edge, !llvm.loop !91
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph46, %.lr.ph.preheader
-  %.021.lcssa = phi ptr [ %33, %.lr.ph.preheader ], [ %39, %.lr.ph46 ], [ %39, %.lr.ph ]
-  %.lcssa28 = phi i64 [ 0, %.lr.ph.preheader ], [ %40, %.lr.ph46 ], [ %40, %.lr.ph ]
+.._crit_edge_crit_edge:                           ; preds = %.lr.ph46
+  br label %._crit_edge, !llvm.loop !91
+
+._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge, %.lr.ph.preheader
+  %.021.lcssa = phi ptr [ %39, %.._crit_edge_crit_edge ], [ %33, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.lcssa28 = phi i64 [ %40, %.._crit_edge_crit_edge ], [ 0, %.lr.ph.preheader ], [ %40, %.lr.ph ]
   %42 = icmp eq i64 %31, %.lcssa28
   br i1 %42, label %._crit_edge.thread, label %46
 

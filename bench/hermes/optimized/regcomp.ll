@@ -2360,7 +2360,7 @@ p_ere_exp.exit.while.end.loopexit_crit_edge:      ; preds = %p_ere_exp.exit, %p_
   %197 = phi ptr [ @nuls, %p_ere_exp.exit.thread ], [ %196, %p_ere_exp.exit ]
   %198 = phi ptr [ @nuls, %p_ere_exp.exit.thread ], [ %195, %p_ere_exp.exit ]
   %.pre746.pre = load i64, ptr %slen, align 8
-  br label %while.end
+  br label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %land.lhs.true, %p_ere_exp.exit.while.end.loopexit_crit_edge
   %199 = phi ptr [ %198, %p_ere_exp.exit.while.end.loopexit_crit_edge ], [ %6, %land.lhs.true ]

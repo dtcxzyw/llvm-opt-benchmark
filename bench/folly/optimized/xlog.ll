@@ -300,7 +300,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6detail21xlogEve
 ._crit_edge:                                      ; preds = %10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !34
-  %.pre4 = load ptr, ptr %12, align 8, !tbaa !42
+  %.pre6 = load ptr, ptr %12, align 8, !tbaa !42
   br label %23
 
 13:                                               ; preds = %10
@@ -323,7 +323,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6detail21xlogEve
   br label %23
 
 23:                                               ; preds = %._crit_edge, %13
-  %24 = phi ptr [ %18, %13 ], [ %.pre4, %._crit_edge ]
+  %24 = phi ptr [ %18, %13 ], [ %.pre6, %._crit_edge ]
   %25 = phi i64 [ 1, %13 ], [ %.pre, %._crit_edge ]
   %26 = phi ptr [ %16, %13 ], [ %12, %._crit_edge ]
   %27 = ptrtoint ptr %0 to i64
@@ -356,9 +356,12 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6detail21xlogEve
   %42 = ptrtoint ptr %41 to i64
   %43 = urem i64 %42, %25
   %.not19.i.i.i.i = icmp eq i64 %43, %28
-  br i1 %.not19.i.i.i.i, label %36, label %.loopexit.i.i, !llvm.loop !47
+  br i1 %.not19.i.i.i.i, label %36, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !47
 
-.loopexit.i.i:                                    ; preds = %39, %.lr.ph.i.i.i.i, %23
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %39
+  br label %.loopexit.i.i, !llvm.loop !47
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %23
   %44 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store ptr null, ptr %44, align 8, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

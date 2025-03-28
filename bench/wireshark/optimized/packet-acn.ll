@@ -4607,7 +4607,7 @@ get_field_type_parameters.exit.i44.i.i.i.i:       ; preds = %943, %938, %937, %9
 
 .loopexit.i..lr.ph31thread-pre-split.i_crit_edge.i.i.i.i: ; preds = %.loopexit.i.i.i.i.i
   %.pr.i.pre.i.i.i.i = load i16, ptr %116, align 2
-  br label %.lr.ph31.i.i.i.i.i.outer
+  br label %.lr.ph31.i.i.i.i.i.outer, !llvm.loop !37
 
 dissect_acn_blob_preset_properties.exit.i.i.i.i:  ; preds = %.loopexit.i.i.i.i.i, %929
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %116) #7
@@ -4721,7 +4721,7 @@ get_field_type_parameters.exit.i52.i.i.i.i:       ; preds = %979, %974, %973, %9
 
 .loopexit.i49..lr.ph31thread-pre-split.i50_crit_edge.i.i.i.i: ; preds = %.loopexit.i49.i.i.i.i
   %.pr.i51.pre.i.i.i.i = load i16, ptr %112, align 2
-  br label %.lr.ph31.i47.i.i.i.i.outer
+  br label %.lr.ph31.i47.i.i.i.i.outer, !llvm.loop !40
 
 dissect_acn_blob_dimming_rack_status_properties_v2.exit.i.i.i.i: ; preds = %.loopexit.i49.i.i.i.i, %965
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %112) #7

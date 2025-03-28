@@ -25713,7 +25713,7 @@ _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.ex
   br i1 %.not335.i, label %._ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i_crit_edge, label %440
 
 ._ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i_crit_edge: ; preds = %439
-  %.pre44.pre = load i32, ptr %13, align 4, !tbaa !393
+  %.pre47.pre = load i32, ptr %13, align 4, !tbaa !393
   br label %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i
 
 440:                                              ; preds = %439
@@ -25744,7 +25744,7 @@ _ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit4
   br label %463
 
 _ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i: ; preds = %._ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i_crit_edge, %437
-  %.pre44 = phi i32 [ %.pre44.pre, %._ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i_crit_edge ], [ %438, %437 ]
+  %.pre47 = phi i32 [ %.pre47.pre, %._ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i_crit_edge ], [ %438, %437 ]
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val372638.i = load i32, ptr %450, align 8, !tbaa !384
   br label %463
@@ -25779,7 +25779,7 @@ _ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit4
   br label %463
 
 463:                                              ; preds = %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.i.thread, %462, %459, %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i
-  %464 = phi i32 [ %.pre44, %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i ], [ %456, %462 ], [ %435, %459 ], [ %448, %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.i.thread ]
+  %464 = phi i32 [ %.pre47, %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i ], [ %456, %462 ], [ %435, %459 ], [ %448, %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.i.thread ]
   %.val372640.i = phi i32 [ %.val372638.i, %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i ], [ %.val372.i, %462 ], [ %.val372.i, %459 ], [ %.val.i416.i, %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.i.thread ]
   %465 = phi ptr [ %450, %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.thread.i ], [ %452, %462 ], [ %452, %459 ], [ %445, %_ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit414.i.thread ]
   %466 = icmp sgt i32 %464, %.val372640.i
@@ -25808,7 +25808,7 @@ _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.ex
   %.pre633.i = load i32, ptr %476, align 4, !tbaa !495
   %477 = icmp eq i8 %.pre631.i, 0
   %478 = select i1 %477, ptr %10, ptr %474
-  %.pre45 = load float, ptr %478, align 4, !tbaa !191
+  %.pre48 = load float, ptr %478, align 4, !tbaa !191
   br label %479
 
 479:                                              ; preds = %575, %.lr.ph586.i
@@ -25932,7 +25932,7 @@ _ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit.i: ; preds = %.l
 
 539:                                              ; preds = %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit.i
   %540 = fadd float %.0297581.i, %537
-  %541 = fcmp ogt float %540, %.pre45
+  %541 = fcmp ogt float %540, %.pre48
   br i1 %541, label %.thread510.i, label %542
 
 542:                                              ; preds = %539
@@ -26009,7 +26009,7 @@ _ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit.i: ; preds = %.l
 _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit427.i: ; preds = %572, %569
   %573 = phi i32 [ %570, %569 ], [ %.val373.i, %572 ]
   store i8 1, ptr %471, align 2, !tbaa !404
-  store float %.pre45, ptr %474, align 4, !tbaa !405
+  store float %.pre48, ptr %474, align 4, !tbaa !405
   br i1 %.not333559.i, label %575, label %574
 
 574:                                              ; preds = %_ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit427.i
@@ -26159,7 +26159,7 @@ _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.ex
   %.pre630.i = load i32, ptr %629, align 4, !tbaa !493
   %631 = icmp eq i8 %.pre.i, 0
   %632 = select i1 %631, ptr %11, ptr %627
-  %.pre43 = load float, ptr %632, align 4, !tbaa !191
+  %.pre46 = load float, ptr %632, align 4, !tbaa !191
   br label %633
 
 633:                                              ; preds = %736, %.lr.ph579.i
@@ -26277,7 +26277,7 @@ _ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit462.i: ; preds = 
 
 692:                                              ; preds = %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit462.i
   %693 = fadd float %.0300574.i, %690
-  %694 = fcmp ogt float %693, %.pre43
+  %694 = fcmp ogt float %693, %.pre46
   br i1 %694, label %.thread527.i, label %695
 
 695:                                              ; preds = %692
@@ -26354,7 +26354,7 @@ _ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit462.i: ; preds = 
 _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit467.i: ; preds = %725, %722
   %726 = phi i32 [ %723, %722 ], [ %.val375.i, %725 ]
   store i8 1, ptr %625, align 2, !tbaa !404
-  store float %.pre43, ptr %627, align 4, !tbaa !405
+  store float %.pre46, ptr %627, align 4, !tbaa !405
   br i1 %.not328557.i, label %728, label %727
 
 727:                                              ; preds = %_ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit467.i
@@ -26899,10 +26899,13 @@ thread-pre-split542.i:                            ; preds = %_ZN5ImStbL37stb_tex
   %944 = trunc nuw nsw i64 %indvars.iv.next604.i24 to i32
   store i32 %944, ptr %13, align 4, !tbaa !393
   %945 = icmp samesign ugt i64 %indvars.iv603.i23, 1
-  br i1 %945, label %941, label %.critedge6.i, !llvm.loop !506
+  br i1 %945, label %941, label %..critedge6.i.loopexit_crit_edge27, !llvm.loop !506
 
-.critedge6.i:                                     ; preds = %941, %.lr.ph25, %.lr.ph567.i, %thread-pre-split542.i, %935
-  %946 = phi i32 [ %.pr543.i, %thread-pre-split542.i ], [ 0, %935 ], [ %.pr543.i, %.lr.ph567.i ], [ %944, %941 ], [ 0, %.lr.ph25 ]
+..critedge6.i.loopexit_crit_edge27:               ; preds = %.lr.ph25
+  br label %.critedge6.i, !llvm.loop !506
+
+.critedge6.i:                                     ; preds = %941, %.lr.ph567.i, %..critedge6.i.loopexit_crit_edge27, %thread-pre-split542.i, %935
+  %946 = phi i32 [ %.pr543.i, %thread-pre-split542.i ], [ 0, %935 ], [ 0, %..critedge6.i.loopexit_crit_edge27 ], [ %.pr543.i, %.lr.ph567.i ], [ %944, %941 ]
   store i32 %946, ptr %912, align 4, !tbaa !395
   %947 = getelementptr inbounds nuw i8, ptr %13, i64 22
   store i8 0, ptr %947, align 2, !tbaa !404
@@ -27004,10 +27007,13 @@ _ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit5
   %984 = trunc i64 %indvars.iv.next.i to i32
   store i32 %984, ptr %13, align 4, !tbaa !393
   %exitcond.not.i = icmp eq i32 %.val358.i, %984
-  br i1 %exitcond.not.i, label %.critedge8.i, label %981, !llvm.loop !507
+  br i1 %exitcond.not.i, label %..critedge8.i.loopexit_crit_edge19, label %981, !llvm.loop !507
 
-.critedge8.i:                                     ; preds = %981, %.lr.ph, %.lr.ph.i, %980, %.preheader549.i
-  %985 = phi i32 [ %.promoted.i, %.preheader549.i ], [ %.val358.i, %980 ], [ %.promoted.i, %.lr.ph.i ], [ %984, %981 ], [ %.val358.i, %.lr.ph ]
+..critedge8.i.loopexit_crit_edge19:               ; preds = %.lr.ph
+  br label %.critedge8.i, !llvm.loop !507
+
+.critedge8.i:                                     ; preds = %981, %.lr.ph.i, %..critedge8.i.loopexit_crit_edge19, %980, %.preheader549.i
+  %985 = phi i32 [ %.promoted.i, %.preheader549.i ], [ %.val358.i, %980 ], [ %.val358.i, %..critedge8.i.loopexit_crit_edge19 ], [ %.promoted.i, %.lr.ph.i ], [ %984, %981 ]
   store i32 %985, ptr %952, align 4, !tbaa !395
   %986 = getelementptr inbounds nuw i8, ptr %13, i64 22
   store i8 0, ptr %986, align 2, !tbaa !404
@@ -42602,45 +42608,50 @@ define void @_ZN5ImGui30TabBarQueueReorderFromMousePosEP11ImGuiTabBarP12ImGuiTab
   %38 = icmp sgt i32 %36, %33
   br i1 %38, label %.lr.ph70, label %.critedge
 
-.lr.ph70:                                         ; preds = %.lr.ph, %47
-  %.0455569 = phi i32 [ %59, %47 ], [ %33, %.lr.ph ]
-  %.0435668 = phi i32 [ %.0455569, %47 ], [ %33, %.lr.ph ]
-  %39 = zext nneg i32 %.0455569 to i64
-  %40 = getelementptr inbounds nuw %struct.ImGuiTabItem, ptr %28, i64 %39
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !781
-  %43 = and i32 %42, 32
-  %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %44, label %.critedge
+39:                                               ; preds = %49
+  %40 = icmp slt i32 %61, %36
+  br i1 %40, label %.lr.ph70, label %.critedge, !llvm.loop !821
 
-44:                                               ; preds = %.lr.ph70
-  %45 = xor i32 %42, %11
-  %46 = and i32 %45, 192
-  %.not47 = icmp eq i32 %46, 0
-  br i1 %.not47, label %47, label %.critedge
+.lr.ph70:                                         ; preds = %.lr.ph, %39
+  %.0455569 = phi i32 [ %61, %39 ], [ %33, %.lr.ph ]
+  %.0435668 = phi i32 [ %.0455569, %39 ], [ %33, %.lr.ph ]
+  %41 = zext nneg i32 %.0455569 to i64
+  %42 = getelementptr inbounds nuw %struct.ImGuiTabItem, ptr %28, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %44 = load i32, ptr %43, align 4, !tbaa !781
+  %45 = and i32 %44, 32
+  %.not = icmp eq i32 %45, 0
+  br i1 %.not, label %46, label %.critedge
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %49 = load float, ptr %48, align 4, !tbaa !811
-  %50 = fadd float %21, %49
-  %51 = load float, ptr %37, align 8, !tbaa !364
-  %52 = getelementptr inbounds nuw i8, ptr %40, i64 20
-  %53 = load float, ptr %52, align 4, !tbaa !802
-  %54 = fadd float %50, %53
-  %55 = fadd float %51, %54
-  %56 = fsub float %50, %51
-  %57 = fcmp ule float %.sroa.0.0.vec.extract, %56
-  %58 = fcmp uge float %.sroa.0.0.vec.extract, %55
-  %or.cond52 = select i1 %25, i1 %58, i1 %57
-  %59 = add nsw i32 %.0455569, %26
-  %60 = icmp sgt i32 %59, -1
-  %61 = icmp slt i32 %59, %36
-  %62 = and i1 %60, %61
-  %or.cond77 = select i1 %or.cond52, i1 %62, i1 false
-  br i1 %or.cond77, label %.lr.ph70, label %.critedge, !llvm.loop !821
+46:                                               ; preds = %.lr.ph70
+  %47 = xor i32 %44, %11
+  %48 = and i32 %47, 192
+  %.not47 = icmp eq i32 %48, 0
+  br i1 %.not47, label %49, label %.critedge
 
-.critedge:                                        ; preds = %44, %.lr.ph70, %47, %.lr.ph
-  %.144 = phi i32 [ %33, %.lr.ph ], [ %.0435668, %44 ], [ %.0435668, %.lr.ph70 ], [ %.0455569, %47 ]
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %51 = load float, ptr %50, align 4, !tbaa !811
+  %52 = fadd float %21, %51
+  %53 = load float, ptr %37, align 8, !tbaa !364
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 20
+  %55 = load float, ptr %54, align 4, !tbaa !802
+  %56 = fadd float %52, %55
+  %57 = fadd float %53, %56
+  %58 = fsub float %52, %53
+  %59 = fcmp ule float %.sroa.0.0.vec.extract, %58
+  %60 = fcmp uge float %.sroa.0.0.vec.extract, %57
+  %or.cond52 = select i1 %25, i1 %60, i1 %59
+  %61 = add nsw i32 %.0455569, %26
+  %62 = icmp sgt i32 %61, -1
+  %or.cond = select i1 %or.cond52, i1 %62, i1 false
+  br i1 %or.cond, label %39, label %..critedge_crit_edge, !llvm.loop !821
+
+..critedge_crit_edge:                             ; preds = %49
+  br label %.critedge, !llvm.loop !821
+
+.critedge:                                        ; preds = %46, %.lr.ph70, %39, %..critedge_crit_edge, %.lr.ph
+  %.144 = phi i32 [ %.0455569, %..critedge_crit_edge ], [ %33, %.lr.ph ], [ %.0435668, %46 ], [ %.0435668, %.lr.ph70 ], [ %.0455569, %39 ]
   %.not48 = icmp eq i32 %.144, %33
   br i1 %.not48, label %.critedge.thread, label %63
 

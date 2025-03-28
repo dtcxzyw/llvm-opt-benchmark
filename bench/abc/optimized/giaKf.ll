@@ -3860,10 +3860,13 @@ Vec_FltFill.exit:                                 ; preds = %Vec_FltGrow.exit.i,
   %75 = load i32, ptr %5, align 8, !tbaa !19
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next, %76
-  br i1 %77, label %28, label %.critedge, !llvm.loop !153
+  br i1 %77, label %28, label %..critedge.loopexit_crit_edge, !llvm.loop !153
 
-.critedge:                                        ; preds = %74, %28, %.lr.ph, %Vec_FltFill.exit
-  %.lcssa = phi i32 [ %25, %Vec_FltFill.exit ], [ %25, %.lr.ph ], [ %75, %28 ], [ %75, %74 ]
+..critedge.loopexit_crit_edge:                    ; preds = %74
+  br label %.critedge, !llvm.loop !153
+
+.critedge:                                        ; preds = %28, %.lr.ph, %..critedge.loopexit_crit_edge, %Vec_FltFill.exit
+  %.lcssa = phi i32 [ %25, %Vec_FltFill.exit ], [ %75, %..critedge.loopexit_crit_edge ], [ %25, %.lr.ph ], [ %75, %28 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %79 = load ptr, ptr %78, align 8, !tbaa !47
   %80 = getelementptr i8, ptr %79, i64 4

@@ -1248,11 +1248,14 @@ define void @_ZN5Block8mergeOutEPS_(ptr noundef nonnull align 8 dereferenceable(
   %25 = load ptr, ptr %4, align 8, !tbaa !41
   %26 = load ptr, ptr %6, align 8, !tbaa !41
   %27 = icmp eq ptr %25, %26
-  br i1 %27, label %_ZN5Block20findMinOutConstraintEv.exit, label %.preheader.i, !llvm.loop !56
+  br i1 %27, label %._ZN5Block20findMinOutConstraintEv.exit.loopexit_crit_edge, label %.preheader.i, !llvm.loop !56
 
-_ZN5Block20findMinOutConstraintEv.exit:           ; preds = %.lr.ph, %.preheader.i, %.preheader.i.preheader, %2
-  %28 = phi ptr [ %5, %2 ], [ %5, %.preheader.i.preheader ], [ %25, %.preheader.i ], [ %25, %.lr.ph ]
-  %29 = phi ptr [ %5, %2 ], [ %7, %.preheader.i.preheader ], [ %26, %.preheader.i ], [ %25, %.lr.ph ]
+._ZN5Block20findMinOutConstraintEv.exit.loopexit_crit_edge: ; preds = %.lr.ph
+  br label %_ZN5Block20findMinOutConstraintEv.exit, !llvm.loop !56
+
+_ZN5Block20findMinOutConstraintEv.exit:           ; preds = %.preheader.i, %.preheader.i.preheader, %._ZN5Block20findMinOutConstraintEv.exit.loopexit_crit_edge, %2
+  %28 = phi ptr [ %5, %2 ], [ %25, %._ZN5Block20findMinOutConstraintEv.exit.loopexit_crit_edge ], [ %5, %.preheader.i.preheader ], [ %25, %.preheader.i ]
+  %29 = phi ptr [ %5, %2 ], [ %25, %._ZN5Block20findMinOutConstraintEv.exit.loopexit_crit_edge ], [ %7, %.preheader.i.preheader ], [ %26, %.preheader.i ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !41
   %32 = getelementptr i8, ptr %1, i64 96
@@ -1289,11 +1292,14 @@ _ZN5Block20findMinOutConstraintEv.exit:           ; preds = %.lr.ph, %.preheader
   %51 = load ptr, ptr %30, align 8, !tbaa !41
   %52 = load ptr, ptr %32, align 8, !tbaa !41
   %53 = icmp eq ptr %51, %52
-  br i1 %53, label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit, label %.preheader.i4, !llvm.loop !56
+  br i1 %53, label %._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge, label %.preheader.i4, !llvm.loop !56
 
-_ZN5Block20findMinOutConstraintEv.exit8.loopexit: ; preds = %.preheader.i4, %.lr.ph22, %.preheader.i4.preheader
-  %.val311 = phi ptr [ %33, %.preheader.i4.preheader ], [ %52, %.lr.ph22 ], [ %52, %.preheader.i4 ]
-  %.val9 = phi ptr [ %31, %.preheader.i4.preheader ], [ %51, %.lr.ph22 ], [ %51, %.preheader.i4 ]
+._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge: ; preds = %.lr.ph22
+  br label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit, !llvm.loop !56
+
+_ZN5Block20findMinOutConstraintEv.exit8.loopexit: ; preds = %.preheader.i4, %._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge, %.preheader.i4.preheader
+  %.val311 = phi ptr [ %52, %._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge ], [ %33, %.preheader.i4.preheader ], [ %52, %.preheader.i4 ]
+  %.val9 = phi ptr [ %51, %._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge ], [ %31, %.preheader.i4.preheader ], [ %51, %.preheader.i4 ]
   %.pre = load ptr, ptr %6, align 8, !tbaa !41
   %.pre14 = load ptr, ptr %4, align 8, !tbaa !41
   br label %_ZN5Block20findMinOutConstraintEv.exit8

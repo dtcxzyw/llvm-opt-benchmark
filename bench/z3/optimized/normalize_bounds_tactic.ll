@@ -2253,9 +2253,12 @@ _ZNK4goal4sizeEv.exit146:                         ; preds = %384, %380, %376
   %388 = icmp samesign ult i64 %indvars.iv323425, %387
   br i1 %388, label %418, label %.critedge
 
-.critedge:                                        ; preds = %363, %_ZN7obj_refI3app11ast_managerED2Ev.exit, %_ZNK4goal4sizeEv.exit146, %.lr.ph284, %352
-  %.lcssa279 = phi ptr [ %355, %352 ], [ %355, %.lr.ph284 ], [ %369, %_ZNK4goal4sizeEv.exit146 ], [ %561, %_ZN7obj_refI3app11ast_managerED2Ev.exit ], [ %561, %363 ]
-  %.lcssa = phi i32 [ %357, %352 ], [ %357, %.lr.ph284 ], [ %370, %_ZNK4goal4sizeEv.exit146 ], [ %563, %_ZN7obj_refI3app11ast_managerED2Ev.exit ], [ %563, %363 ]
+_ZN7obj_refI3app11ast_managerED2Ev.exit..critedge.loopexit_crit_edge: ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit
+  br label %.critedge, !llvm.loop !133
+
+.critedge:                                        ; preds = %363, %_ZNK4goal4sizeEv.exit146, %.lr.ph284, %_ZN7obj_refI3app11ast_managerED2Ev.exit..critedge.loopexit_crit_edge, %352
+  %.lcssa279 = phi ptr [ %355, %352 ], [ %561, %_ZN7obj_refI3app11ast_managerED2Ev.exit..critedge.loopexit_crit_edge ], [ %355, %.lr.ph284 ], [ %369, %_ZNK4goal4sizeEv.exit146 ], [ %561, %363 ]
+  %.lcssa = phi i32 [ %357, %352 ], [ %563, %_ZN7obj_refI3app11ast_managerED2Ev.exit..critedge.loopexit_crit_edge ], [ %357, %.lr.ph284 ], [ %370, %_ZNK4goal4sizeEv.exit146 ], [ %563, %363 ]
   %389 = getelementptr inbounds nuw i8, ptr %.lcssa279, i64 120
   %390 = add i32 %.lcssa, 1
   %391 = and i32 %390, 67108863
@@ -2671,7 +2674,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %549, %551, %557
   %563 = load i32, ptr %562, align 8
   %564 = and i32 %563, 536870912
   %.not220 = icmp eq i32 %564, 0
-  br i1 %.not220, label %363, label %.critedge, !llvm.loop !133
+  br i1 %.not220, label %363, label %_ZN7obj_refI3app11ast_managerED2Ev.exit..critedge.loopexit_crit_edge, !llvm.loop !133
 
 565:                                              ; preds = %513, %511
   %.pn = phi { ptr, i32 } [ %512, %511 ], [ %514, %513 ]

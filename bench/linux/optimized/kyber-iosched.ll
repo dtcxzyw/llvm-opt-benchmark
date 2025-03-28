@@ -1492,14 +1492,14 @@ define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %
   %11 = add nuw nsw i64 %20, 1
   %12 = icmp samesign ult i64 %20, 3
   %13 = icmp eq i64 %11, 4
-  br i1 %13, label %.critedge, label %14, !llvm.loop !39
+  br i1 %13, label %..critedge_crit_edge7, label %14, !llvm.loop !39
 
 14:                                               ; preds = %10
   %15 = getelementptr [4 x %struct.list_head], ptr %4, i64 0, i64 %11
   %16 = load volatile ptr, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %17 = icmp eq ptr %16, %15
-  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !39
+  br i1 %17, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1514,8 +1514,14 @@ define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %
   %23 = tail call zeroext i1 @sbitmap_any_bit_set(ptr noundef %22) #18
   br i1 %23, label %.critedge, label %10
 
-.critedge:                                        ; preds = %14, %.lr.ph10, %.lr.ph, %10, %.lr.ph.preheader, %1
-  %24 = phi i1 [ true, %1 ], [ true, %.lr.ph.preheader ], [ %12, %10 ], [ %12, %.lr.ph ], [ %21, %.lr.ph10 ], [ %12, %14 ]
+..critedge_crit_edge7:                            ; preds = %10
+  br label %.critedge, !llvm.loop !39
+
+..critedge.loopexit_crit_edge:                    ; preds = %14
+  br label %.critedge, !llvm.loop !39
+
+.critedge:                                        ; preds = %.lr.ph10, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %..critedge_crit_edge7, %1
+  %24 = phi i1 [ %12, %..critedge_crit_edge7 ], [ true, %1 ], [ %12, %..critedge.loopexit_crit_edge ], [ true, %.lr.ph.preheader ], [ %12, %.lr.ph ], [ %21, %.lr.ph10 ]
   ret i1 %24
 }
 

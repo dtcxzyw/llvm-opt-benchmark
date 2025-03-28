@@ -318,7 +318,7 @@ Curl_http_proxy_get_destination.exit:             ; preds = %38, %41
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 449
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 4824
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 1372
-  br label %105
+  br label %105, !llvm.loop !108
 
 105:                                              ; preds = %.critedge.thread.i, %.lr.ph.i
   %.094.in.sroa.speculated158.i = phi ptr [ %storemerge.i57, %.lr.ph.i ], [ %.094.in.sroa.speculate.load..i, %.critedge.thread.i ]
@@ -503,7 +503,10 @@ hd_name_eq.exit121.thread.i:                      ; preds = %151, %hd_name_eq.ex
   %154 = getelementptr inbounds nuw i8, ptr %.094.in.sroa.speculated158.i, i64 8
   %.094.in.sroa.speculate.load..i = load ptr, ptr %154, align 8, !tbaa !107
   %.not102.i = icmp eq ptr %.094.in.sroa.speculate.load..i, null
-  br i1 %.not102.i, label %dynhds_add_custom.exit.thread, label %105, !llvm.loop !119
+  br i1 %.not102.i, label %._crit_edge.i, label %105, !llvm.loop !119
+
+._crit_edge.i:                                    ; preds = %.critedge.thread.i
+  br label %dynhds_add_custom.exit.thread, !llvm.loop !108
 
 dynhds_add_custom.exit:                           ; preds = %hd_name_eq.exit121.thread.i, %Curl_http_proxy_get_destination.exit, %88, %80, %68, %61, %50, %47
   %.0 = phi i32 [ %49, %47 ], [ %55, %50 ], [ %71, %68 ], [ %91, %88 ], [ %83, %80 ], [ %64, %61 ], [ 27, %Curl_http_proxy_get_destination.exit ], [ %153, %hd_name_eq.exit121.thread.i ]
@@ -516,8 +519,8 @@ dynhds_add_custom.exit:                           ; preds = %hd_name_eq.exit121.
   store ptr null, ptr %5, align 8, !tbaa !45
   br label %dynhds_add_custom.exit.thread
 
-dynhds_add_custom.exit.thread:                    ; preds = %.critedge.thread.i, %92, %156, %dynhds_add_custom.exit
-  %.064 = phi i32 [ %.0, %156 ], [ %.0, %dynhds_add_custom.exit ], [ 0, %92 ], [ 0, %.critedge.thread.i ]
+dynhds_add_custom.exit.thread:                    ; preds = %92, %._crit_edge.i, %156, %dynhds_add_custom.exit
+  %.064 = phi i32 [ %.0, %156 ], [ %.0, %dynhds_add_custom.exit ], [ 0, %._crit_edge.i ], [ 0, %92 ]
   %157 = load ptr, ptr @Curl_cfree, align 8, !tbaa !120
   call void %157(ptr noundef %46) #6
   %158 = load ptr, ptr %5, align 8, !tbaa !45

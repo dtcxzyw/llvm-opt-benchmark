@@ -1865,10 +1865,13 @@ while.body:                                       ; preds = %land.rhs.preheader,
   %call = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(80) %this)
   %.pr = load i32, ptr %size_, align 8
   %cmp.not = icmp eq i32 %.pr, 0
-  br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !30
+  br i1 %cmp.not, label %while.body.while.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !30
 
-while.end:                                        ; preds = %while.body, %land.rhs, %land.rhs.preheader, %entry
-  %.lcssa = phi i32 [ 0, %entry ], [ %0, %land.rhs.preheader ], [ %.pr, %land.rhs ], [ 0, %while.body ]
+while.body.while.end.loopexit_crit_edge:          ; preds = %while.body
+  br label %while.end, !llvm.loop !30
+
+while.end:                                        ; preds = %land.rhs, %land.rhs.preheader, %while.body.while.end.loopexit_crit_edge, %entry
+  %.lcssa = phi i32 [ 0, %entry ], [ 0, %while.body.while.end.loopexit_crit_edge ], [ %0, %land.rhs.preheader ], [ %.pr, %land.rhs ]
   %sub = sub i32 %0, %.lcssa
   ret i32 %sub
 }

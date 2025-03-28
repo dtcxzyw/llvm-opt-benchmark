@@ -1594,11 +1594,14 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   store i64 %717, ptr %484, align 8
   %718 = load i64, ptr %485, align 8
   %719 = icmp slt i64 %717, %718
-  br i1 %719, label %657, label %.loopexit, !llvm.loop !25
+  br i1 %719, label %657, label %..loopexit.loopexit_crit_edge129, !llvm.loop !25
 
-.loopexit:                                        ; preds = %657, %713, %651, %669, %646
-  %720 = phi i64 [ %.pre89, %669 ], [ %649, %646 ], [ %649, %651 ], [ %718, %713 ], [ %718, %657 ]
-  %721 = phi i64 [ %674, %669 ], [ %648, %646 ], [ %648, %651 ], [ %717, %713 ], [ %717, %657 ]
+..loopexit.loopexit_crit_edge129:                 ; preds = %713
+  br label %.loopexit, !llvm.loop !25
+
+.loopexit:                                        ; preds = %657, %651, %..loopexit.loopexit_crit_edge129, %669, %646
+  %720 = phi i64 [ %.pre89, %669 ], [ %649, %646 ], [ %718, %..loopexit.loopexit_crit_edge129 ], [ %649, %651 ], [ %718, %657 ]
+  %721 = phi i64 [ %674, %669 ], [ %648, %646 ], [ %717, %..loopexit.loopexit_crit_edge129 ], [ %648, %651 ], [ %717, %657 ]
   %722 = icmp slt i64 %721, %720
   br i1 %722, label %723, label %727
 

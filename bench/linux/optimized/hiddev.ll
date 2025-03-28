@@ -661,12 +661,15 @@ split:                                            ; preds = %48, %52, %56, %.pre
   store i32 %119, ptr %28, align 4
   %120 = load i32, ptr %27, align 8
   %121 = icmp eq i32 %120, %119
-  br i1 %121, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %121, label %..loopexit.loopexit_crit_edge, label %.preheader, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.preheader, %115, %.thread
-  %122 = phi i32 [ %73, %.thread ], [ %119, %115 ], [ %119, %.preheader ]
-  %123 = phi i32 [ %.mux, %.thread ], [ %119, %115 ], [ %120, %.preheader ]
-  %124 = phi i32 [ 0, %.thread ], [ %116, %115 ], [ %116, %.preheader ]
+..loopexit.loopexit_crit_edge:                    ; preds = %115
+  br label %.loopexit, !llvm.loop !14
+
+.loopexit:                                        ; preds = %.preheader, %.thread, %..loopexit.loopexit_crit_edge
+  %122 = phi i32 [ %73, %.thread ], [ %119, %..loopexit.loopexit_crit_edge ], [ %119, %.preheader ]
+  %123 = phi i32 [ %.mux, %.thread ], [ %119, %..loopexit.loopexit_crit_edge ], [ %120, %.preheader ]
+  %124 = phi i32 [ 0, %.thread ], [ %116, %..loopexit.loopexit_crit_edge ], [ %116, %.preheader ]
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %35, label %126, !llvm.loop !15
 

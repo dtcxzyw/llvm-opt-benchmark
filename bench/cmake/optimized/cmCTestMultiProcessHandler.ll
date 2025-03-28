@@ -15619,7 +15619,7 @@ define dso_local noundef zeroext i1 @_ZN13BacktraceData3AddERK19cmListFileBacktr
   %.sroa.06.0.in.i.i = phi ptr [ %18, %17 ], [ %.sroa.06.0.i.i, %20 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !610
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, null
-  br i1 %.not.i.i, label %.loopexit45, label %20
+  br i1 %.not.i.i, label %.loopexit46, label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
@@ -15636,7 +15636,7 @@ define dso_local noundef zeroext i1 @_ZN13BacktraceData3AddERK19cmListFileBacktr
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !616
   %.not.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i, label %.loopexit45, label %32
+  br i1 %.not.i.i.i.i, label %.loopexit46, label %32
 
 32:                                               ; preds = %24
   %33 = load ptr, ptr %31, align 8, !tbaa !610
@@ -15653,7 +15653,7 @@ define dso_local noundef zeroext i1 @_ZN13BacktraceData3AddERK19cmListFileBacktr
   %.020.i.i.i.i = phi ptr [ %39, %37 ], [ %33, %32 ]
   %39 = load ptr, ptr %.020.i.i.i.i, align 8, !tbaa !610
   %.not18.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not18.i.i.i.i, label %.loopexit45, label %40
+  br i1 %.not18.i.i.i.i, label %.loopexit46, label %40
 
 40:                                               ; preds = %.lr.ph.i.i.i.i
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -15661,7 +15661,10 @@ define dso_local noundef zeroext i1 @_ZN13BacktraceData3AddERK19cmListFileBacktr
   %43 = ptrtoint ptr %42 to i64
   %44 = urem i64 %43, %27
   %.not19.i.i.i.i = icmp eq i64 %44, %28
-  br i1 %.not19.i.i.i.i, label %37, label %.loopexit45, !llvm.loop !617
+  br i1 %.not19.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !617
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %40
+  br label %.loopexit46, !llvm.loop !617
 
 _ZNSt13unordered_mapIPK17cmListFileContextjSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_jEEE4findERS8_.exit: ; preds = %37, %20, %32
   %.sroa.06.1.i.i = phi ptr [ %33, %32 ], [ %.sroa.06.0.i.i, %20 ], [ %39, %37 ]
@@ -15670,7 +15673,7 @@ _ZNSt13unordered_mapIPK17cmListFileContextjSt4hashIS2_ESt8equal_toIS2_ESaISt4pai
   store i32 %46, ptr %2, align 4, !tbaa !147
   br label %165
 
-.loopexit45:                                      ; preds = %40, %.lr.ph.i.i.i.i, %19, %24
+.loopexit46:                                      ; preds = %.lr.ph.i.i.i.i, %19, %24, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #30
   call void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #30
@@ -15678,7 +15681,7 @@ _ZNSt13unordered_mapIPK17cmListFileContextjSt4hashIS2_ESt8equal_toIS2_ESaISt4pai
   %48 = invoke noundef i32 @_ZN13BacktraceData7AddFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(32) %47)
           to label %49 unwind label %62
 
-49:                                               ; preds = %.loopexit45
+49:                                               ; preds = %.loopexit46
   invoke void @_ZN4Json5ValueC1Ej(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %48)
           to label %50 unwind label %62
 
@@ -15711,7 +15714,7 @@ _ZNSt13unordered_mapIPK17cmListFileContextjSt4hashIS2_ESt8equal_toIS2_ESaISt4pai
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #30
   br label %72
 
-62:                                               ; preds = %49, %.loopexit45
+62:                                               ; preds = %49, %.loopexit46
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %66
@@ -15935,9 +15938,12 @@ _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit: ; preds = 
   %153 = ptrtoint ptr %152 to i64
   %154 = urem i64 %153, %137
   %.not19.i.i.i.i34 = icmp eq i64 %154, %138
-  br i1 %.not19.i.i.i.i34, label %147, label %.loopexit.i.i, !llvm.loop !617
+  br i1 %.not19.i.i.i.i34, label %147, label %..loopexit_crit_edge21.i.i.i.i35, !llvm.loop !617
 
-.loopexit.i.i:                                    ; preds = %150, %.lr.ph.i.i.i.i31, %134
+..loopexit_crit_edge21.i.i.i.i35:                 ; preds = %150
+  br label %.loopexit.i.i, !llvm.loop !617
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i31, %..loopexit_crit_edge21.i.i.i.i35, %134
   %155 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
           to label %.noexc unwind label %162
 

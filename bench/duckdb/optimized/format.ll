@@ -1311,15 +1311,18 @@ define noundef range(i32 1, 0) i32 @_ZN10duckdb_fmt2v68internal12count_digitsILj
 9:                                                ; preds = %4
   %10 = add nsw i32 %.07, -1
   %11 = icmp ugt i32 %.07, 1
-  br i1 %11, label %4, label %.critedge, !llvm.loop !21
+  br i1 %11, label %4, label %..critedge_crit_edge, !llvm.loop !21
+
+..critedge_crit_edge:                             ; preds = %9
+  br label %.critedge, !llvm.loop !21
 
 .critedgesplit:                                   ; preds = %4
   %12 = shl nuw nsw i32 %.07, 1
   br label %.critedge
 
-.critedge:                                        ; preds = %9, %.critedgesplit
-  %13 = phi i8 [ %7, %.critedgesplit ], [ %3, %9 ]
-  %.0.lcssa = phi i32 [ %12, %.critedgesplit ], [ 0, %9 ]
+.critedge:                                        ; preds = %.critedgesplit, %..critedge_crit_edge
+  %13 = phi i8 [ %3, %..critedge_crit_edge ], [ %7, %.critedgesplit ]
+  %.0.lcssa = phi i32 [ 0, %..critedge_crit_edge ], [ %12, %.critedgesplit ]
   %14 = zext i8 %13 to i32
   br label %15
 

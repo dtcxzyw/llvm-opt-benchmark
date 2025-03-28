@@ -2356,7 +2356,7 @@ VM_CF_LEP.exit.i:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 160
   %163 = load ptr, ptr %162, align 8, !tbaa !133
   %.not155.i31 = icmp eq ptr %163, null
-  br i1 %.not155.i31, label %._crit_edge, label %.lr.ph
+  br i1 %.not155.i31, label %.critedge.i._crit_edge, label %.lr.ph
 
 164:                                              ; preds = %156, %156
   %.not156.i = icmp eq i32 %.0117250.i, 0
@@ -2372,7 +2372,7 @@ VM_CF_LEP.exit.i:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %167 = getelementptr inbounds nuw i8, ptr %171, i64 160
   %168 = load ptr, ptr %167, align 8, !tbaa !133
   %.not155.i = icmp eq ptr %168, null
-  br i1 %.not155.i, label %._crit_edge, label %.lr.ph, !llvm.loop !150
+  br i1 %.not155.i, label %.critedge.i._crit_edge, label %.lr.ph, !llvm.loop !150
 
 .lr.ph:                                           ; preds = %.critedge.i.preheader, %.critedge.i
   %169 = phi ptr [ %168, %.critedge.i ], [ %163, %.critedge.i.preheader ]
@@ -2383,8 +2383,11 @@ VM_CF_LEP.exit.i:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %switch171.i = icmp ult i32 %.0.off.i, 3
   br i1 %switch171.i, label %.critedge.i, label %._crit_edge, !llvm.loop !150
 
-._crit_edge:                                      ; preds = %.critedge.i, %.lr.ph, %.critedge.i.preheader
-  %.0.lcssa.i = phi i32 [ 6, %.critedge.i.preheader ], [ %172, %.lr.ph ], [ %172, %.critedge.i ]
+._crit_edge:                                      ; preds = %.lr.ph
+  br label %.critedge.i._crit_edge, !llvm.loop !150
+
+.critedge.i._crit_edge:                           ; preds = %.critedge.i, %._crit_edge, %.critedge.i.preheader
+  %.0.lcssa.i = phi i32 [ %172, %._crit_edge ], [ 6, %.critedge.i.preheader ], [ %172, %.critedge.i ]
   %173 = icmp eq i32 %.0.lcssa.i, 0
   %174 = icmp eq i32 %.0.lcssa.i, 7
   %175 = or i1 %173, %174
@@ -2394,8 +2397,8 @@ VM_CF_LEP.exit.i:                                 ; preds = %.lr.ph.i.i.i, %.lr.
 177:                                              ; preds = %156
   br label %.thread203.i
 
-.thread203.i:                                     ; preds = %148, %177, %._crit_edge, %164, %156, %154, %.preheader223.i, %141
-  %.1118.i = phi i32 [ %.0117250.i, %156 ], [ 0, %177 ], [ %176, %._crit_edge ], [ 0, %164 ], [ %.0117250.i, %154 ], [ %.0117250.i, %141 ], [ 0, %.preheader223.i ], [ 0, %148 ]
+.thread203.i:                                     ; preds = %148, %177, %.critedge.i._crit_edge, %164, %156, %154, %.preheader223.i, %141
+  %.1118.i = phi i32 [ %.0117250.i, %156 ], [ 0, %177 ], [ %176, %.critedge.i._crit_edge ], [ 0, %164 ], [ %.0117250.i, %154 ], [ %.0117250.i, %141 ], [ 0, %.preheader223.i ], [ 0, %148 ]
   %178 = icmp eq ptr %.5.val.i, %.2124.i
   br i1 %178, label %179, label %188
 

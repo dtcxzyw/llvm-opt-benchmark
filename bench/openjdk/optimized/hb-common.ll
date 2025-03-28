@@ -436,12 +436,12 @@ define internal fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef nonn
 2:                                                ; preds = %44, %1
   %3 = load atomic i64, ptr @_ZL5langs acquire, align 8
   %4 = inttoptr i64 %3 to ptr
-  %.not29 = icmp eq i64 %3, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i64 %3, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %26
-  %.02030 = phi ptr [ %27, %26 ], [ %4, %2 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.02030, i64 8
+  %.02034 = phi ptr [ %27, %26 ], [ %4, %2 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.02034, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 1
   %.not11.i.i = icmp eq i8 %7, 0
@@ -465,11 +465,14 @@ define internal fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef nonn
   %18 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 1
   %19 = load i8, ptr %17, align 1
   %.not.i.i = icmp eq i8 %19, 0
-  br i1 %.not.i.i, label %_ZNK18hb_language_item_teqEPKc.exit, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not.i.i, label %..critedge.loopexit.i_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !14
 
-_ZNK18hb_language_item_teqEPKc.exit:              ; preds = %.lr.ph.i.i, %16, %.lr.ph
-  %.0.lcssa.i.i = phi ptr [ %0, %.lr.ph ], [ %.013.i.i, %.lr.ph.i.i ], [ %18, %16 ]
-  %.lcssa.i.i = phi i32 [ 0, %.lr.ph ], [ %9, %.lr.ph.i.i ], [ 0, %16 ]
+..critedge.loopexit.i_crit_edge.i:                ; preds = %16
+  br label %_ZNK18hb_language_item_teqEPKc.exit, !llvm.loop !14
+
+_ZNK18hb_language_item_teqEPKc.exit:              ; preds = %.lr.ph.i.i, %.lr.ph, %..critedge.loopexit.i_crit_edge.i
+  %.0.lcssa.i.i = phi ptr [ %0, %.lr.ph ], [ %18, %..critedge.loopexit.i_crit_edge.i ], [ %.013.i.i, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi i32 [ 0, %.lr.ph ], [ 0, %..critedge.loopexit.i_crit_edge.i ], [ %9, %.lr.ph.i.i ]
   %20 = load i8, ptr %.0.lcssa.i.i, align 1
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZL9canon_map, i64 0, i64 %21
@@ -479,7 +482,7 @@ _ZNK18hb_language_item_teqEPKc.exit:              ; preds = %.lr.ph.i.i, %16, %.
   br i1 %25, label %.loopexit25, label %26
 
 26:                                               ; preds = %_ZNK18hb_language_item_teqEPKc.exit
-  %27 = load ptr, ptr %.02030, align 8
+  %27 = load ptr, ptr %.02034, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
@@ -541,7 +544,7 @@ _ZN18hb_language_item_taSEPKc.exit:               ; preds = %29
   br label %2
 
 .loopexit25:                                      ; preds = %.loopexit, %._crit_edge, %_ZNK18hb_language_item_teqEPKc.exit, %_ZN18hb_language_item_taSEPKc.exit
-  %.0 = phi ptr [ null, %_ZN18hb_language_item_taSEPKc.exit ], [ %.02030, %_ZNK18hb_language_item_teqEPKc.exit ], [ %28, %.loopexit ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ null, %_ZN18hb_language_item_taSEPKc.exit ], [ %.02034, %_ZNK18hb_language_item_teqEPKc.exit ], [ %28, %.loopexit ], [ null, %._crit_edge ]
   ret ptr %.0
 }
 

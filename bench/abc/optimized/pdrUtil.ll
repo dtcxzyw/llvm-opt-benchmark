@@ -1544,11 +1544,14 @@ define void @Pdr_QueuePush(ptr noundef captures(none) %0, ptr noundef %1) local_
   %34 = getelementptr inbounds nuw i8, ptr %.0242831, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !61
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !80
+  br i1 %.not, label %._crit_edge36, label %23, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %33, %28, %23, %.preheader
-  %.024.lcssa = phi ptr [ %16, %.preheader ], [ null, %33 ], [ %.0242831, %28 ], [ %35, %23 ]
-  %.0.lcssa = phi ptr [ %15, %.preheader ], [ %34, %33 ], [ %.02930, %28 ], [ %34, %23 ]
+._crit_edge36:                                    ; preds = %33
+  br label %._crit_edge, !llvm.loop !80
+
+._crit_edge:                                      ; preds = %28, %23, %._crit_edge36, %.preheader
+  %.024.lcssa = phi ptr [ null, %._crit_edge36 ], [ %16, %.preheader ], [ %.0242831, %28 ], [ %35, %23 ]
+  %.0.lcssa = phi ptr [ %34, %._crit_edge36 ], [ %15, %.preheader ], [ %.02930, %28 ], [ %34, %23 ]
   store ptr %1, ptr %.0.lcssa, align 8, !tbaa !81
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %.024.lcssa, ptr %36, align 8, !tbaa !61

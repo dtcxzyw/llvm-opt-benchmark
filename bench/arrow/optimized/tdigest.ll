@@ -2188,13 +2188,16 @@ _ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vecto
   %112 = sub i64 %110, %111
   %113 = ashr exact i64 %112, 4
   %114 = icmp ugt i64 %113, %109
-  br i1 %114, label %87, label %.critedge, !llvm.loop !109
+  br i1 %114, label %87, label %..critedge.loopexit_crit_edge, !llvm.loop !109
 
-.critedge:                                        ; preds = %108, %87, %.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit
-  %.val3659 = phi ptr [ %.val49, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.val3450, %.lr.ph ], [ %.val34, %87 ], [ %.val34, %108 ]
-  %.val3558 = phi ptr [ %.val49, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.val49, %.lr.ph ], [ %.val, %87 ], [ %.val, %108 ]
-  %.027.lcssa = phi i32 [ 0, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ 0, %.lr.ph ], [ %.128, %87 ], [ %.128, %108 ]
-  %.0.lcssa = phi i32 [ 0, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ 0, %.lr.ph ], [ %.1, %87 ], [ %.1, %108 ]
+..critedge.loopexit_crit_edge:                    ; preds = %108
+  br label %.critedge, !llvm.loop !109
+
+.critedge:                                        ; preds = %87, %.lr.ph, %..critedge.loopexit_crit_edge, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit
+  %.val3659 = phi ptr [ %.val49, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.val34, %..critedge.loopexit_crit_edge ], [ %.val3450, %.lr.ph ], [ %.val34, %87 ]
+  %.val3558 = phi ptr [ %.val49, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.val, %..critedge.loopexit_crit_edge ], [ %.val49, %.lr.ph ], [ %.val, %87 ]
+  %.027.lcssa = phi i32 [ 0, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.128, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.128, %87 ]
+  %.0.lcssa = phi i32 [ 0, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.1, %87 ]
   %115 = zext i32 %.027.lcssa to i64
   %116 = ptrtoint ptr %.val3659 to i64
   %117 = ptrtoint ptr %.val3558 to i64

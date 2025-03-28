@@ -899,7 +899,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 .critedge..critedge.thread_crit_edge.i:           ; preds = %.critedge.i
   %.pre.i = load i32, ptr @_ZL16s_maxBackupCount, align 4, !tbaa !9, !noalias !30
-  br label %.critedge.thread.i
+  br label %.critedge.thread.i, !llvm.loop !55
 
 .critedge.thread.i:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40.i, %.critedge..critedge.thread_crit_edge.i
   %164 = phi i32 [ %.pre.i, %.critedge..critedge.thread_crit_edge.i ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40.i ]

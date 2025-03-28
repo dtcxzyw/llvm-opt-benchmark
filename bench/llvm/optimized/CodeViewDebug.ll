@@ -14136,8 +14136,8 @@ define hidden void @_ZN4llvm13CodeViewDebug19collectVariableInfoEPKNS_12DISubpro
   %9 = load i32, ptr %8, align 8, !tbaa !64
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw %"struct.std::pair.957", ptr %7, i64 %10
-  %.not53 = icmp eq i32 %9, 0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph
+  %.not54 = icmp eq i32 %9, 0
+  br i1 %.not54, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -14172,9 +14172,9 @@ define hidden void @_ZN4llvm13CodeViewDebug19collectVariableInfoEPKNS_12DISubpro
   ret void
 
 36:                                               ; preds = %.lr.ph, %_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit
-  %.01754 = phi ptr [ %7, %.lr.ph ], [ %220, %_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit ]
-  %.sroa.0.0.copyload = load ptr, ptr %.01754, align 8
-  %.sroa.5.0..017.sroa_idx = getelementptr inbounds nuw i8, ptr %.01754, i64 8
+  %.01755 = phi ptr [ %7, %.lr.ph ], [ %220, %_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit ]
+  %.sroa.0.0.copyload = load ptr, ptr %.01755, align 8
+  %.sroa.5.0..017.sroa_idx = getelementptr inbounds nuw i8, ptr %.01755, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..017.sroa_idx, align 8
   %37 = load ptr, ptr %4, align 8, !tbaa !1210
   %38 = load i32, ptr %12, align 8, !tbaa !1213
@@ -14237,7 +14237,7 @@ define hidden void @_ZN4llvm13CodeViewDebug19collectVariableInfoEPKNS_12DISubpro
   br i1 %84, label %_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit, label %.lr.ph.i.i.i.i.i, !prof !364, !llvm.loop !1214
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %36
-  %85 = getelementptr inbounds nuw i8, ptr %.01754, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.01755, i64 16
   %.not21 = icmp eq ptr %.sroa.5.0.copyload, null
   %86 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 -16
   %87 = load i64, ptr %86, align 8
@@ -14265,15 +14265,15 @@ _ZNK4llvm15DILocalVariable8getScopeEv.exit:       ; preds = %90, %93
   %98 = load ptr, ptr %.sroa.0.0.i.i.i.i.i, align 8, !tbaa !192
   %99 = load i64, ptr %13, align 8, !tbaa !1215
   %.not.not.i.i.i = icmp eq i64 %99, 0
-  br i1 %.not.not.i.i.i, label %.preheader57, label %108
+  br i1 %.not.not.i.i.i, label %.preheader58, label %108
 
-.preheader57:                                     ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit, %100
+.preheader58:                                     ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit, %100
   %.sroa.06.0.in.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %100 ], [ %16, %_ZNK4llvm15DILocalVariable8getScopeEv.exit ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8, !tbaa !864
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit, label %100
 
-100:                                              ; preds = %.preheader57
+100:                                              ; preds = %.preheader58
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !1216
   %103 = icmp eq ptr %98, %102
@@ -14281,7 +14281,7 @@ _ZNK4llvm15DILocalVariable8getScopeEv.exit:       ; preds = %90, %93
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %.sroa.5.0.copyload, %105
   %107 = select i1 %103, i1 %106, i1 false
-  br i1 %107, label %_ZNSt13unordered_mapISt4pairIPKN4llvm12DILocalScopeEPKNS1_10DILocationEENS1_12LexicalScopeENS1_9pair_hashIS4_S7_EESt8equal_toIS8_ESaIS0_IKS8_S9_EEE4findERSE_.exit.i, label %.preheader57, !llvm.loop !1218
+  br i1 %107, label %_ZNSt13unordered_mapISt4pairIPKN4llvm12DILocalScopeEPKNS1_10DILocationEENS1_12LexicalScopeENS1_9pair_hashIS4_S7_EESt8equal_toIS8_ESaIS0_IKS8_S9_EEE4findERSE_.exit.i, label %.preheader58, !llvm.loop !1218
 
 108:                                              ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit
   %109 = ptrtoint ptr %98 to i64
@@ -14402,7 +14402,10 @@ _ZNK4llvm15DILocalVariable8getScopeEv.exit26:     ; preds = %138, %141
   %170 = ptrtoint ptr %169 to i64
   %171 = urem i64 %170, %154
   %.not19.i.i.i.i.i31 = icmp eq i64 %171, %155
-  br i1 %.not19.i.i.i.i.i31, label %164, label %_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit, !llvm.loop !1229
+  br i1 %.not19.i.i.i.i.i31, label %164, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !1229
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %167
+  br label %_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit, !llvm.loop !1229
 
 _ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i: ; preds = %164, %148, %159
   %.sroa.06.1.i.i.i32 = phi ptr [ %160, %159 ], [ %.sroa.06.0.i.i.i34, %148 ], [ %166, %164 ]
@@ -14529,8 +14532,8 @@ _ZN4llvm13CodeViewDebug13LocalVariableD2Ev.exit:  ; preds = %_ZN4llvm23SmallVect
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #25
   br label %_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit
 
-_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit: ; preds = %73, %132, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocationEES1_IKS9_NS2_12LexicalScopeEENS_10_Select1stESt8equal_toIS9_ENS2_9pair_hashIS5_S8_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i.i, %.preheader57, %.lr.ph.i.i.i.i.i29, %167, %.preheader, %152, %108, %40, %_ZN4llvm13CodeViewDebug13LocalVariableD2Ev.exit
-  %220 = getelementptr inbounds nuw i8, ptr %.01754, i64 96
+_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit: ; preds = %73, %132, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocationEES1_IKS9_NS2_12LexicalScopeEENS_10_Select1stESt8equal_toIS9_ENS2_9pair_hashIS5_S8_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i.i, %.preheader58, %.lr.ph.i.i.i.i.i29, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i, %152, %108, %40, %_ZN4llvm13CodeViewDebug13LocalVariableD2Ev.exit
+  %220 = getelementptr inbounds nuw i8, ptr %.01755, i64 96
   %.not = icmp eq ptr %220, %11
   br i1 %.not, label %._crit_edge, label %36
 }
@@ -30053,13 +30056,16 @@ _ZNSt10_HashtableIPKN4llvm10DILocationESt4pairIKS3_NS0_13CodeViewDebug10InlineSi
   %60 = ptrtoint ptr %59 to i64
   %61 = urem i64 %60, %31
   %.not19.i.i = icmp eq i64 %61, %32
-  br i1 %.not19.i.i, label %54, label %.critedge17, !llvm.loop !869
+  br i1 %.not19.i.i, label %54, label %..loopexit_crit_edge21.i.i, !llvm.loop !869
 
-.critedge17:                                      ; preds = %.lr.ph.i.i, %57, %.critedge, %.critedge.thread
-  %62 = phi i64 [ %48, %.critedge ], [ %32, %.critedge.thread ], [ %32, %57 ], [ %32, %.lr.ph.i.i ]
-  %63 = phi i64 [ %47, %.critedge ], [ %31, %.critedge.thread ], [ %31, %57 ], [ %31, %.lr.ph.i.i ]
-  %64 = phi ptr [ %46, %.critedge ], [ %30, %.critedge.thread ], [ %30, %57 ], [ %30, %.lr.ph.i.i ]
-  %65 = phi i64 [ %45, %.critedge ], [ %29, %.critedge.thread ], [ %29, %57 ], [ %29, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %57
+  br label %.critedge17, !llvm.loop !869
+
+.critedge17:                                      ; preds = %.lr.ph.i.i, %.critedge, %..loopexit_crit_edge21.i.i, %.critedge.thread
+  %62 = phi i64 [ %48, %.critedge ], [ %32, %.critedge.thread ], [ %32, %..loopexit_crit_edge21.i.i ], [ %32, %.lr.ph.i.i ]
+  %63 = phi i64 [ %47, %.critedge ], [ %31, %.critedge.thread ], [ %31, %..loopexit_crit_edge21.i.i ], [ %31, %.lr.ph.i.i ]
+  %64 = phi ptr [ %46, %.critedge ], [ %30, %.critedge.thread ], [ %30, %..loopexit_crit_edge21.i.i ], [ %30, %.lr.ph.i.i ]
+  %65 = phi i64 [ %45, %.critedge ], [ %29, %.critedge.thread ], [ %29, %..loopexit_crit_edge21.i.i ], [ %29, %.lr.ph.i.i ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %66, i64 noundef %63, i64 noundef %27, i64 noundef 1) #25
   %68 = extractvalue { i8, i64 } %67, 0
@@ -36350,13 +36356,16 @@ _ZNSt10_HashtableIPKN4llvm18DILexicalBlockBaseESt4pairIKS3_NS0_13CodeViewDebug12
   %69 = ptrtoint ptr %68 to i64
   %70 = urem i64 %69, %40
   %.not19.i.i = icmp eq i64 %70, %41
-  br i1 %.not19.i.i, label %63, label %.critedge17, !llvm.loop !1860
+  br i1 %.not19.i.i, label %63, label %..loopexit_crit_edge21.i.i, !llvm.loop !1860
 
-.critedge17:                                      ; preds = %.lr.ph.i.i, %66, %.critedge, %.critedge.thread
-  %71 = phi i64 [ %57, %.critedge ], [ %41, %.critedge.thread ], [ %41, %66 ], [ %41, %.lr.ph.i.i ]
-  %72 = phi i64 [ %56, %.critedge ], [ %40, %.critedge.thread ], [ %40, %66 ], [ %40, %.lr.ph.i.i ]
-  %73 = phi ptr [ %55, %.critedge ], [ %39, %.critedge.thread ], [ %39, %66 ], [ %39, %.lr.ph.i.i ]
-  %74 = phi i64 [ %54, %.critedge ], [ %38, %.critedge.thread ], [ %38, %66 ], [ %38, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %66
+  br label %.critedge17, !llvm.loop !1860
+
+.critedge17:                                      ; preds = %.lr.ph.i.i, %.critedge, %..loopexit_crit_edge21.i.i, %.critedge.thread
+  %71 = phi i64 [ %57, %.critedge ], [ %41, %.critedge.thread ], [ %41, %..loopexit_crit_edge21.i.i ], [ %41, %.lr.ph.i.i ]
+  %72 = phi i64 [ %56, %.critedge ], [ %40, %.critedge.thread ], [ %40, %..loopexit_crit_edge21.i.i ], [ %40, %.lr.ph.i.i ]
+  %73 = phi ptr [ %55, %.critedge ], [ %39, %.critedge.thread ], [ %39, %..loopexit_crit_edge21.i.i ], [ %39, %.lr.ph.i.i ]
+  %74 = phi i64 [ %54, %.critedge ], [ %38, %.critedge.thread ], [ %38, %..loopexit_crit_edge21.i.i ], [ %38, %.lr.ph.i.i ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %76 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %75, i64 noundef %72, i64 noundef %36, i64 noundef 1) #25
   %77 = extractvalue { i8, i64 } %76, 0

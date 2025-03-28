@@ -25150,12 +25150,15 @@ land.rhs:                                         ; preds = %if.end52
   %cmp31 = fcmp olt double %27, %max_abscissa.1
   br i1 %cmp31, label %for.body33, label %for.cond.cleanup32, !llvm.loop !343
 
-for.cond.cleanup32:                               ; preds = %if.end52, %land.rhs, %land.rhs.lr.ph, %cleanup21
-  %28 = phi ptr [ %22, %cleanup21 ], [ %22, %land.rhs.lr.ph ], [ %.pre, %land.rhs ], [ %.pre, %if.end52 ]
-  %29 = phi double [ %I0.1, %cleanup21 ], [ %I0.1, %land.rhs.lr.ph ], [ %42, %land.rhs ], [ %42, %if.end52 ]
-  %L1_I1.0.lcssa = phi double [ %L1_I0.1, %cleanup21 ], [ %L1_I0.1, %land.rhs.lr.ph ], [ %45, %land.rhs ], [ %45, %if.end52 ]
-  %first_j.0.lcssa = phi i64 [ 0, %cleanup21 ], [ 0, %land.rhs.lr.ph ], [ %first_j.1, %land.rhs ], [ %first_j.1, %if.end52 ]
-  %min_abscissa.0.lcssa = phi double [ 0.000000e+00, %cleanup21 ], [ 0.000000e+00, %land.rhs.lr.ph ], [ %min_abscissa.1, %land.rhs ], [ %min_abscissa.1, %if.end52 ]
+if.end52.for.cond.cleanup32.loopexit_crit_edge:   ; preds = %if.end52
+  br label %for.cond.cleanup32, !llvm.loop !343
+
+for.cond.cleanup32:                               ; preds = %land.rhs, %land.rhs.lr.ph, %if.end52.for.cond.cleanup32.loopexit_crit_edge, %cleanup21
+  %28 = phi ptr [ %22, %cleanup21 ], [ %.pre, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ %22, %land.rhs.lr.ph ], [ %.pre, %land.rhs ]
+  %29 = phi double [ %I0.1, %cleanup21 ], [ %42, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ %I0.1, %land.rhs.lr.ph ], [ %42, %land.rhs ]
+  %L1_I1.0.lcssa = phi double [ %L1_I0.1, %cleanup21 ], [ %45, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ %L1_I0.1, %land.rhs.lr.ph ], [ %45, %land.rhs ]
+  %first_j.0.lcssa = phi i64 [ 0, %cleanup21 ], [ %first_j.1, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ 0, %land.rhs.lr.ph ], [ %first_j.1, %land.rhs ]
+  %min_abscissa.0.lcssa = phi double [ 0.000000e+00, %cleanup21 ], [ %min_abscissa.1, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ 0.000000e+00, %land.rhs.lr.ph ], [ %min_abscissa.1, %land.rhs ]
   %mul = fmul double %29, 5.000000e-01
   store double %mul, ptr %I1, align 8, !tbaa !60
   %mul59 = fmul double %L1_I1.0.lcssa, 5.000000e-01
@@ -25236,7 +25239,7 @@ if.end52:                                         ; preds = %_ZZNK8QuantLib15Exp
   %sub.ptr.sub.i70 = sub i64 %sub.ptr.lhs.cast.i68, %sub.ptr.rhs.cast.i69
   %sub.ptr.div.i71 = ashr exact i64 %sub.ptr.sub.i70, 3
   %cmp27 = icmp ult i64 %inc54, %sub.ptr.div.i71
-  br i1 %cmp27, label %land.rhs, label %for.cond.cleanup32, !llvm.loop !343
+  br i1 %cmp27, label %land.rhs, label %if.end52.for.cond.cleanup32.loopexit_crit_edge, !llvm.loop !343
 
 for.body66:                                       ; preds = %for.body66.lr.ph, %for.inc142
   %i61.0301 = phi i64 [ 2, %for.body66.lr.ph ], [ %inc143, %for.inc142 ]
@@ -25703,12 +25706,15 @@ land.rhs:                                         ; preds = %if.end52
   %cmp31 = fcmp olt double %31, %max_abscissa.1
   br i1 %cmp31, label %for.body33, label %for.cond.cleanup32, !llvm.loop !351
 
-for.cond.cleanup32:                               ; preds = %if.end52, %land.rhs, %land.rhs.lr.ph, %cleanup21
-  %32 = phi ptr [ %26, %cleanup21 ], [ %26, %land.rhs.lr.ph ], [ %.pre, %land.rhs ], [ %.pre, %if.end52 ]
-  %33 = phi double [ %I0.1, %cleanup21 ], [ %I0.1, %land.rhs.lr.ph ], [ %50, %land.rhs ], [ %50, %if.end52 ]
-  %L1_I1.0.lcssa = phi double [ %L1_I0.1, %cleanup21 ], [ %L1_I0.1, %land.rhs.lr.ph ], [ %53, %land.rhs ], [ %53, %if.end52 ]
-  %first_j.0.lcssa = phi i64 [ 0, %cleanup21 ], [ 0, %land.rhs.lr.ph ], [ %first_j.1, %land.rhs ], [ %first_j.1, %if.end52 ]
-  %min_abscissa.0.lcssa = phi double [ 0.000000e+00, %cleanup21 ], [ 0.000000e+00, %land.rhs.lr.ph ], [ %min_abscissa.1, %land.rhs ], [ %min_abscissa.1, %if.end52 ]
+if.end52.for.cond.cleanup32.loopexit_crit_edge:   ; preds = %if.end52
+  br label %for.cond.cleanup32, !llvm.loop !351
+
+for.cond.cleanup32:                               ; preds = %land.rhs, %land.rhs.lr.ph, %if.end52.for.cond.cleanup32.loopexit_crit_edge, %cleanup21
+  %32 = phi ptr [ %26, %cleanup21 ], [ %.pre, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ %26, %land.rhs.lr.ph ], [ %.pre, %land.rhs ]
+  %33 = phi double [ %I0.1, %cleanup21 ], [ %50, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ %I0.1, %land.rhs.lr.ph ], [ %50, %land.rhs ]
+  %L1_I1.0.lcssa = phi double [ %L1_I0.1, %cleanup21 ], [ %53, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ %L1_I0.1, %land.rhs.lr.ph ], [ %53, %land.rhs ]
+  %first_j.0.lcssa = phi i64 [ 0, %cleanup21 ], [ %first_j.1, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ 0, %land.rhs.lr.ph ], [ %first_j.1, %land.rhs ]
+  %min_abscissa.0.lcssa = phi double [ 0.000000e+00, %cleanup21 ], [ %min_abscissa.1, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ 0.000000e+00, %land.rhs.lr.ph ], [ %min_abscissa.1, %land.rhs ]
   %mul = fmul double %33, 5.000000e-01
   store double %mul, ptr %I1, align 8, !tbaa !60
   %mul59 = fmul double %L1_I1.0.lcssa, 5.000000e-01
@@ -25794,7 +25800,7 @@ if.end52:                                         ; preds = %_ZZNK5boost4math10q
   %sub.ptr.sub.i70 = sub i64 %sub.ptr.lhs.cast.i68, %sub.ptr.rhs.cast.i69
   %sub.ptr.div.i71 = ashr exact i64 %sub.ptr.sub.i70, 3
   %cmp27 = icmp ult i64 %inc54, %sub.ptr.div.i71
-  br i1 %cmp27, label %land.rhs, label %for.cond.cleanup32, !llvm.loop !351
+  br i1 %cmp27, label %land.rhs, label %if.end52.for.cond.cleanup32.loopexit_crit_edge, !llvm.loop !351
 
 for.body66:                                       ; preds = %for.body66.lr.ph, %for.inc136
   %i61.0303 = phi i64 [ 2, %for.body66.lr.ph ], [ %inc137, %for.inc136 ]
@@ -26266,12 +26272,15 @@ land.rhs:                                         ; preds = %if.end52
   %cmp31 = fcmp olt double %31, %max_abscissa.1
   br i1 %cmp31, label %for.body33, label %for.cond.cleanup32, !llvm.loop !359
 
-for.cond.cleanup32:                               ; preds = %if.end52, %land.rhs, %land.rhs.lr.ph, %cleanup21
-  %32 = phi ptr [ %26, %cleanup21 ], [ %26, %land.rhs.lr.ph ], [ %.pre, %land.rhs ], [ %.pre, %if.end52 ]
-  %33 = phi double [ %I0.1, %cleanup21 ], [ %I0.1, %land.rhs.lr.ph ], [ %50, %land.rhs ], [ %50, %if.end52 ]
-  %L1_I1.0.lcssa = phi double [ %L1_I0.1, %cleanup21 ], [ %L1_I0.1, %land.rhs.lr.ph ], [ %53, %land.rhs ], [ %53, %if.end52 ]
-  %first_j.0.lcssa = phi i64 [ 0, %cleanup21 ], [ 0, %land.rhs.lr.ph ], [ %first_j.1, %land.rhs ], [ %first_j.1, %if.end52 ]
-  %min_abscissa.0.lcssa = phi double [ 0.000000e+00, %cleanup21 ], [ 0.000000e+00, %land.rhs.lr.ph ], [ %min_abscissa.1, %land.rhs ], [ %min_abscissa.1, %if.end52 ]
+if.end52.for.cond.cleanup32.loopexit_crit_edge:   ; preds = %if.end52
+  br label %for.cond.cleanup32, !llvm.loop !359
+
+for.cond.cleanup32:                               ; preds = %land.rhs, %land.rhs.lr.ph, %if.end52.for.cond.cleanup32.loopexit_crit_edge, %cleanup21
+  %32 = phi ptr [ %26, %cleanup21 ], [ %.pre, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ %26, %land.rhs.lr.ph ], [ %.pre, %land.rhs ]
+  %33 = phi double [ %I0.1, %cleanup21 ], [ %50, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ %I0.1, %land.rhs.lr.ph ], [ %50, %land.rhs ]
+  %L1_I1.0.lcssa = phi double [ %L1_I0.1, %cleanup21 ], [ %53, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ %L1_I0.1, %land.rhs.lr.ph ], [ %53, %land.rhs ]
+  %first_j.0.lcssa = phi i64 [ 0, %cleanup21 ], [ %first_j.1, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ 0, %land.rhs.lr.ph ], [ %first_j.1, %land.rhs ]
+  %min_abscissa.0.lcssa = phi double [ 0.000000e+00, %cleanup21 ], [ %min_abscissa.1, %if.end52.for.cond.cleanup32.loopexit_crit_edge ], [ 0.000000e+00, %land.rhs.lr.ph ], [ %min_abscissa.1, %land.rhs ]
   %mul = fmul double %33, 5.000000e-01
   store double %mul, ptr %I1, align 8, !tbaa !60
   %mul59 = fmul double %L1_I1.0.lcssa, 5.000000e-01
@@ -26357,7 +26366,7 @@ if.end52:                                         ; preds = %_ZZNK5boost4math10q
   %sub.ptr.sub.i70 = sub i64 %sub.ptr.lhs.cast.i68, %sub.ptr.rhs.cast.i69
   %sub.ptr.div.i71 = ashr exact i64 %sub.ptr.sub.i70, 3
   %cmp27 = icmp ult i64 %inc54, %sub.ptr.div.i71
-  br i1 %cmp27, label %land.rhs, label %for.cond.cleanup32, !llvm.loop !359
+  br i1 %cmp27, label %land.rhs, label %if.end52.for.cond.cleanup32.loopexit_crit_edge, !llvm.loop !359
 
 for.body66:                                       ; preds = %for.body66.lr.ph, %for.inc136
   %i61.0303 = phi i64 [ 2, %for.body66.lr.ph ], [ %inc137, %for.inc136 ]

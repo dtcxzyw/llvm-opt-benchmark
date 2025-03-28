@@ -2859,14 +2859,14 @@ define void @_ZN8LightGBM7Linkers9ConstructEv(ptr noundef nonnull align 8 derefe
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !65
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph, label %._crit_edge99
+  br i1 %18, label %.lr.ph, label %._crit_edge100
 
 ._crit_edge:                                      ; preds = %52
-  %.pre111 = load ptr, ptr %13, align 8, !tbaa !148
-  %.not7694 = icmp eq ptr %.pre111, null
-  br i1 %.not7694, label %._crit_edge99, label %.lr.ph98
+  %.pre113 = load ptr, ptr %13, align 8, !tbaa !148
+  %.not7695 = icmp eq ptr %.pre113, null
+  br i1 %.not7695, label %._crit_edge100, label %.lr.ph99
 
-.lr.ph98:                                         ; preds = %._crit_edge
+.lr.ph99:                                         ; preds = %._crit_edge
   %19 = load i32, ptr %0, align 8, !tbaa !70
   br label %80
 
@@ -2912,9 +2912,12 @@ define void @_ZN8LightGBM7Linkers9ConstructEv(ptr noundef nonnull align 8 derefe
   %42 = sext i32 %41 to i64
   %43 = urem i64 %42, %24
   %.not19.i.i.i.i = icmp eq i64 %43, %25
-  br i1 %.not19.i.i.i.i, label %35, label %.loopexit.i.i, !llvm.loop !150
+  br i1 %.not19.i.i.i.i, label %35, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !150
 
-.loopexit.i.i:                                    ; preds = %39, %.lr.ph.i.i.i.i, %23
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %39
+  br label %.loopexit.i.i, !llvm.loop !150
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %23
   %44 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %.noexc unwind label %50
 
@@ -2953,7 +2956,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %55 = icmp slt i64 %indvars.iv.next, %54
   br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !154
 
-._crit_edge99:                                    ; preds = %80, %1, %._crit_edge
+._crit_edge100:                                   ; preds = %80, %1, %._crit_edge
   %.071.lcssa = phi i32 [ 0, %._crit_edge ], [ 0, %1 ], [ %spec.select, %80 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %57 = load ptr, ptr %56, align 8, !tbaa !91
@@ -2973,7 +2976,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %65 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc27 unwind label %97
 
-.noexc27:                                         ; preds = %._crit_edge99
+.noexc27:                                         ; preds = %._crit_edge100
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN8LightGBM7LinkersEFviEPS4_iEEEEEE, i64 16), ptr %65, align 8, !tbaa !157
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 %.071.lcssa, ptr %66, align 4, !tbaa !159
@@ -3013,17 +3016,17 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i8.i: ; preds = %74
   call void %79(ptr noundef nonnull align 8 dereferenceable(8) %76) #29
   br label %.body28
 
-80:                                               ; preds = %.lr.ph98, %80
-  %.07196 = phi i32 [ 0, %.lr.ph98 ], [ %spec.select, %80 ]
-  %.sroa.063.095 = phi ptr [ %.pre111, %.lr.ph98 ], [ %85, %80 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.063.095, i64 8
+80:                                               ; preds = %.lr.ph99, %80
+  %.07197 = phi i32 [ 0, %.lr.ph99 ], [ %spec.select, %80 ]
+  %.sroa.063.096 = phi ptr [ %.pre113, %.lr.ph99 ], [ %85, %80 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.063.096, i64 8
   %82 = load i32, ptr %81, align 4, !tbaa !151
   %83 = icmp slt i32 %82, %19
   %84 = zext i1 %83 to i32
-  %spec.select = add nuw nsw i32 %.07196, %84
-  %85 = load ptr, ptr %.sroa.063.095, align 8, !tbaa !85
+  %spec.select = add nuw nsw i32 %.07197, %84
+  %85 = load ptr, ptr %.sroa.063.096, align 8, !tbaa !85
   %.not76 = icmp eq ptr %85, null
-  br i1 %.not76, label %._crit_edge99, label %80, !llvm.loop !168
+  br i1 %.not76, label %._crit_edge100, label %80, !llvm.loop !168
 
 86:                                               ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3031,10 +3034,10 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i8.i: ; preds = %74
   %88 = sdiv i32 %87, 20
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %88, i32 20)
   %89 = load ptr, ptr %13, align 8, !tbaa !148
-  %.not77102 = icmp eq ptr %89, null
-  br i1 %.not77102, label %._crit_edge106, label %.lr.ph105
+  %.not77103 = icmp eq ptr %89, null
+  br i1 %.not77103, label %._crit_edge107, label %.lr.ph106
 
-.lr.ph105:                                        ; preds = %86
+.lr.ph106:                                        ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3045,18 +3048,18 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i8.i: ; preds = %74
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %99
 
-._crit_edge106:                                   ; preds = %.loopexit78, %86
+._crit_edge107:                                   ; preds = %.loopexit78, %86
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %180 unwind label %.loopexit.split-lp
 
-97:                                               ; preds = %._crit_edge99
+97:                                               ; preds = %._crit_edge100
   %98 = landingpad { ptr, i32 }
           cleanup
   br label %.body28
 
-99:                                               ; preds = %.lr.ph105, %.loopexit78
-  %.sroa.054.0103 = phi ptr [ %89, %.lr.ph105 ], [ %179, %.loopexit78 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.054.0103, i64 8
+99:                                               ; preds = %.lr.ph106, %.loopexit78
+  %.sroa.054.0104 = phi ptr [ %89, %.lr.ph106 ], [ %179, %.loopexit78 ]
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.054.0104, i64 8
   %101 = load i32, ptr %100, align 4, !tbaa !151
   %102 = load i32, ptr %0, align 8, !tbaa !70
   %103 = icmp sgt i32 %101, %102
@@ -3067,8 +3070,8 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i8.i: ; preds = %74
   br label %105
 
 105:                                              ; preds = %.preheader, %.thread75
-  %.0101 = phi i32 [ 0, %.preheader ], [ %178, %.thread75 ]
-  %.072100 = phi i32 [ 200, %.preheader ], [ %177, %.thread75 ]
+  %.0102 = phi i32 [ 0, %.preheader ], [ %178, %.thread75 ]
+  %.072101 = phi i32 [ 200, %.preheader ], [ %177, %.thread75 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #29
   %106 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #29
   store i32 %106, ptr %10, align 4, !tbaa !97
@@ -3210,7 +3213,7 @@ _ZNKSt14default_deleteIN8LightGBM9TcpSocketEEclEPS1_.exit.i.i.i: ; preds = %141
   br label %.body39
 
 155:                                              ; preds = %128
-  invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef nonnull @.str.41, i32 noundef %101, i32 noundef %.072100)
+  invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef nonnull @.str.41, i32 noundef %101, i32 noundef %.072101)
           to label %156 unwind label %.loopexit79
 
 156:                                              ; preds = %155
@@ -3227,12 +3230,12 @@ _ZNKSt14default_deleteIN8LightGBM9TcpSocketEEclEPS1_.exit.i.i.i: ; preds = %141
   br label %_ZN8LightGBM9TcpSocket5CloseEv.exit
 
 _ZN8LightGBM9TcpSocket5CloseEv.exit:              ; preds = %.noexc41, %156
-  %161 = icmp slt i32 %.072100, 1
+  %161 = icmp slt i32 %.072101, 1
   br i1 %161, label %.thread75, label %162
 
 162:                                              ; preds = %_ZN8LightGBM9TcpSocket5CloseEv.exit
-  %163 = zext nneg i32 %.072100 to i64
-  %164 = udiv i32 %.072100, 1000
+  %163 = zext nneg i32 %.072101 to i64
+  %164 = udiv i32 %.072101, 1000
   %.zext = zext nneg i32 %164 to i64
   %.neg.i.i = mul nsw i64 %.zext, -1000
   %165 = add nsw i64 %.neg.i.i, %163
@@ -3267,10 +3270,10 @@ _ZN8LightGBM9TcpSocket5CloseEv.exit:              ; preds = %.noexc41, %156
 
 .thread75:                                        ; preds = %_ZN8LightGBM9TcpSocket5CloseEv.exit, %176
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #29
-  %.in.in = sitofp i32 %.072100 to float
+  %.in.in = sitofp i32 %.072101 to float
   %.in = fmul float %.in.in, 0x3FF4CCCCC0000000
   %177 = fptosi float %.in to i32
-  %178 = add nuw nsw i32 %.0101, 1
+  %178 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %178, %.sroa.speculated
   br i1 %exitcond.not, label %.loopexit78, label %105, !llvm.loop !173
 
@@ -3280,11 +3283,11 @@ _ZN8LightGBM9TcpSocket5CloseEv.exit:              ; preds = %.noexc41, %156
   br label %204
 
 .loopexit78:                                      ; preds = %.thread75, %.thread, %99
-  %179 = load ptr, ptr %.sroa.054.0103, align 8, !tbaa !85
+  %179 = load ptr, ptr %.sroa.054.0104, align 8, !tbaa !85
   %.not77 = icmp eq ptr %179, null
-  br i1 %.not77, label %._crit_edge106, label %99, !llvm.loop !174
+  br i1 %.not77, label %._crit_edge107, label %99, !llvm.loop !174
 
-180:                                              ; preds = %._crit_edge106
+180:                                              ; preds = %._crit_edge107
   %181 = load i32, ptr %16, align 4, !tbaa !65
   %182 = icmp sgt i32 %181, 0
   br i1 %182, label %.lr.ph.i, label %_ZN8LightGBM7Linkers12PrintLinkersEv.exit
@@ -3368,7 +3371,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev.exit: ; pre
           cleanup
   br label %204
 
-.loopexit.split-lp:                               ; preds = %._crit_edge106
+.loopexit.split-lp:                               ; preds = %._crit_edge107
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %204

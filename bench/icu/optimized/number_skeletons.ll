@@ -6804,12 +6804,15 @@ define void @_ZN6icu_776number4impl17blueprint_helpers23parseIntegerWidthOptionE
   %16 = add nuw nsw i32 %.14964, 1
   %17 = tail call noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
   %18 = icmp slt i32 %16, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !116
+  br i1 %18, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph66, %.lr.ph.preheader, %3
-  %.144.lcssa = phi i32 [ %., %3 ], [ %., %.lr.ph.preheader ], [ %15, %.lr.ph66 ], [ %15, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %.46, %3 ], [ %.46, %.lr.ph.preheader ], [ %16, %.lr.ph66 ], [ %16, %.lr.ph ]
-  %.lcssa = phi i1 [ %10, %3 ], [ %10, %.lr.ph.preheader ], [ true, %.lr.ph66 ], [ true, %.lr.ph ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph66
+  br label %._crit_edge, !llvm.loop !116
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %3
+  %.144.lcssa = phi i32 [ %., %3 ], [ %15, %.._crit_edge.loopexit_crit_edge ], [ %., %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %.46, %3 ], [ %16, %.._crit_edge.loopexit_crit_edge ], [ %.46, %.lr.ph.preheader ], [ %16, %.lr.ph ]
+  %.lcssa = phi i1 [ %10, %3 ], [ true, %.._crit_edge.loopexit_crit_edge ], [ %10, %.lr.ph.preheader ], [ true, %.lr.ph ]
   %19 = tail call noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
   %20 = icmp slt i32 %.1.lcssa, %19
   br i1 %20, label %.preheader, label %.loopexit

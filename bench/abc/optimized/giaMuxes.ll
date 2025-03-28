@@ -235,12 +235,15 @@ define void @Gia_ManPrintMuxStats(ptr noundef readonly captures(none) %0) local_
   %38 = load i32, ptr %26, align 8, !tbaa !7
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next.i, %39
-  br i1 %40, label %.lr.ph.i, label %Gia_ManCountMuxXor.exit, !llvm.loop !30
+  br i1 %40, label %.lr.ph.i, label %.sink.split.i.cont.Gia_ManCountMuxXor.exit.loopexit_crit_edge, !llvm.loop !30
 
-Gia_ManCountMuxXor.exit:                          ; preds = %.sink.split.i.cont, %.lr.ph.i, %.lr.ph.i.preheader, %24
-  %41 = phi i32 [ %27, %24 ], [ %27, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ], [ %38, %.sink.split.i.cont ]
-  %.342 = phi i32 [ 0, %24 ], [ 0, %.lr.ph.i.preheader ], [ %.241, %.lr.ph.i ], [ %.241, %.sink.split.i.cont ]
-  %.3 = phi i32 [ 0, %24 ], [ 0, %.lr.ph.i.preheader ], [ %.2, %.lr.ph.i ], [ %.2, %.sink.split.i.cont ]
+.sink.split.i.cont.Gia_ManCountMuxXor.exit.loopexit_crit_edge: ; preds = %.sink.split.i.cont
+  br label %Gia_ManCountMuxXor.exit, !llvm.loop !30
+
+Gia_ManCountMuxXor.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.sink.split.i.cont.Gia_ManCountMuxXor.exit.loopexit_crit_edge, %24
+  %41 = phi i32 [ %27, %24 ], [ %38, %.sink.split.i.cont.Gia_ManCountMuxXor.exit.loopexit_crit_edge ], [ %27, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
+  %.342 = phi i32 [ 0, %24 ], [ %.241, %.sink.split.i.cont.Gia_ManCountMuxXor.exit.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %.241, %.lr.ph.i ]
+  %.3 = phi i32 [ 0, %24 ], [ %.2, %.sink.split.i.cont.Gia_ManCountMuxXor.exit.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %.2, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1070,10 +1073,13 @@ Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.ex
   %18 = load i32, ptr %4, align 8, !tbaa !7
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !57
+  br i1 %20, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !57
 
-.critedge:                                        ; preds = %.lr.ph207, %.lr.ph, %.lr.ph.preheader
-  %21 = phi i32 [ %.val118, %.lr.ph.preheader ], [ %18, %.lr.ph ], [ %18, %.lr.ph207 ]
+..critedge_crit_edge:                             ; preds = %.lr.ph207
+  br label %.critedge, !llvm.loop !57
+
+.critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader
+  %21 = phi i32 [ %18, %..critedge_crit_edge ], [ %.val118, %.lr.ph.preheader ], [ %18, %.lr.ph ]
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph166.preheader, label %.critedge2
 
@@ -1161,10 +1167,13 @@ Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.ex
   %67 = load i32, ptr %4, align 8, !tbaa !7
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next185, %68
-  br i1 %69, label %.lr.ph166, label %.critedge2, !llvm.loop !58
+  br i1 %69, label %.lr.ph166, label %..critedge2.loopexit_crit_edge, !llvm.loop !58
 
-.critedge2:                                       ; preds = %66, %.lr.ph166, %.lr.ph166.preheader, %Vec_IntStart.exit, %.critedge
-  %70 = phi i32 [ %21, %.critedge ], [ %.val118, %Vec_IntStart.exit ], [ %21, %.lr.ph166.preheader ], [ %67, %.lr.ph166 ], [ %67, %66 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %66
+  br label %.critedge2, !llvm.loop !58
+
+.critedge2:                                       ; preds = %.lr.ph166, %.lr.ph166.preheader, %..critedge2.loopexit_crit_edge, %Vec_IntStart.exit, %.critedge
+  %70 = phi i32 [ %21, %.critedge ], [ %.val118, %Vec_IntStart.exit ], [ %67, %..critedge2.loopexit_crit_edge ], [ %21, %.lr.ph166.preheader ], [ %67, %.lr.ph166 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %72 = load ptr, ptr %71, align 8, !tbaa !35
   %73 = getelementptr i8, ptr %72, i64 4
@@ -7868,7 +7877,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
 
 Vec_IntAppend.exit..critedge.loopexit_crit_edge:  ; preds = %Vec_IntAppend.exit
   %.val186.pre.pre = load i32, ptr %12, align 4, !tbaa !34
-  br label %.critedge.loopexit
+  br label %.critedge.loopexit, !llvm.loop !130
 
 .critedge.loopexit:                               ; preds = %36, %Vec_IntAppend.exit..critedge.loopexit_crit_edge
   %.val186.pre = phi i32 [ %.val186.pre.pre, %Vec_IntAppend.exit..critedge.loopexit_crit_edge ], [ %.val186.pre.pre654, %36 ]

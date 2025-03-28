@@ -450,7 +450,7 @@ while.cond.backedge:                              ; preds = %cleanup.done18, %cl
 
 cleanup.done18.while.end_crit_edge:               ; preds = %cleanup.action.thread605, %cleanup.action.thread, %cleanup.done18
   %.pre = load ptr, ptr %iborLeg, align 8, !tbaa !23
-  br label %while.end
+  br label %while.end, !llvm.loop !33
 
 lpad:                                             ; preds = %cond.false.i51
   %26 = landingpad { ptr, i32 }

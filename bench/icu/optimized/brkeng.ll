@@ -1674,11 +1674,14 @@ define noundef i32 @_ZNK6icu_7718BreakEngineWrapper10findBreaksEP5UTextiiRNS_9UV
   %32 = tail call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %33 = trunc i64 %32 to i32
   %34 = icmp sgt i32 %3, %33
-  br i1 %34, label %24, label %.critedge, !llvm.loop !52
+  br i1 %34, label %24, label %..critedge.loopexit_crit_edge, !llvm.loop !52
 
-.critedge:                                        ; preds = %.lr.ph48, %24, %.lr.ph, %10
-  %.lcssa42 = phi i64 [ %15, %10 ], [ %15, %.lr.ph ], [ %32, %24 ], [ %32, %.lr.ph48 ]
-  %.lcssa = phi i32 [ %16, %10 ], [ %16, %.lr.ph ], [ %33, %24 ], [ %33, %.lr.ph48 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph48
+  br label %.critedge, !llvm.loop !52
+
+.critedge:                                        ; preds = %24, %.lr.ph, %..critedge.loopexit_crit_edge, %10
+  %.lcssa42 = phi i64 [ %15, %10 ], [ %32, %..critedge.loopexit_crit_edge ], [ %15, %.lr.ph ], [ %32, %24 ]
+  %.lcssa = phi i32 [ %16, %10 ], [ %33, %..critedge.loopexit_crit_edge ], [ %16, %.lr.ph ], [ %33, %24 ]
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !53
   %37 = sub nsw i32 %.lcssa, %13

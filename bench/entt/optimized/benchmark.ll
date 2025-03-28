@@ -8686,7 +8686,7 @@ _ZNSolsEPFRSoS_E.exit.preheader:                  ; preds = %.noexc14
   br label %112
 
 30:                                               ; preds = %_ZNSolsEPFRSoS_E.exit.preheader, %_ZNSolsEPFRSoS_E.exit
-  %.0424 = phi i64 [ 0, %_ZNSolsEPFRSoS_E.exit.preheader ], [ %50, %_ZNSolsEPFRSoS_E.exit ]
+  %.0423 = phi i64 [ 0, %_ZNSolsEPFRSoS_E.exit.preheader ], [ %50, %_ZNSolsEPFRSoS_E.exit ]
   %31 = invoke noundef i32 @_ZN4entt16basic_sigh_mixinINS_13basic_storageINS_6entityES2_SaIS2_EvEENS_14basic_registryIS2_S3_EEE8generateEv(ptr noundef nonnull align 8 dereferenceable(168) %25)
           to label %_ZN4entt14basic_registryINS_6entityESaIS1_EE6createEv.exit unwind label %.loopexit.split-lp
 
@@ -8731,7 +8731,7 @@ _ZN4entt14basic_registryINS_6entityESaIS1_EE6createEv.exit: ; preds = %30
   br i1 %.not.i.i.i, label %_ZNSolsEPFRSoS_E.exit, label %.lr.ph.i.i.i, !llvm.loop !127
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc8, %.noexc7
-  %50 = add nuw nsw i64 %.0424, 1
+  %50 = add nuw nsw i64 %.0423, 1
   %exitcond.not = icmp eq i64 %50, 1000000
   br i1 %exitcond.not, label %26, label %30, !llvm.loop !157
 
@@ -8777,7 +8777,10 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc8, %.noexc7
   %66 = phi i64 [ %67, %63 ], [ %60, %.lr.ph.i.i.i.i.i.i ]
   %67 = add nsw i64 %66, -1
   %.not.i.i.i.i.i.i = icmp eq i64 %67, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionNS_6entityESaIS4_EvEENS_14basic_registryIS5_SaIS5_EEEEEEEENS_9exclude_tIJEEEvE4eachIZN45Benchmark_IterateSingleStableComponent1M_Test8TestBodyEvE3$_0EEvT_.exit.i", label %63, !llvm.loop !163
+  br i1 %.not.i.i.i.i.i.i, label %._ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELb1ELm1ELm0EEC2ENS0_19sparse_set_iteratorISt6vectorIS3_S4_EEESt5arrayIPKS5_Lm1EESB_ISD_Lm0EEm.exit.loopexit_crit_edge3.i.i.i.i, label %63, !llvm.loop !163
+
+._ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELb1ELm1ELm0EEC2ENS0_19sparse_set_iteratorISt6vectorIS3_S4_EEESt5arrayIPKS5_Lm1EESB_ISD_Lm0EEm.exit.loopexit_crit_edge3.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  br label %"_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionNS_6entityESaIS4_EvEENS_14basic_registryIS5_SaIS5_EEEEEEEENS_9exclude_tIJEEEvE4eachIZN45Benchmark_IterateSingleStableComponent1M_Test8TestBodyEvE3$_0EEvT_.exit.i", !llvm.loop !163
 
 _ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionNS_6entityESaIS4_EvEENS_14basic_registryIS5_SaIS5_EEEEEEEENS_9exclude_tIJEEEvE4eachEv.exit.i.i: ; preds = %63, %.lr.ph.i.i.i.i.i.i
   %68 = phi i32 [ %61, %.lr.ph.i.i.i.i.i.i ], [ %64, %63 ]
@@ -8803,8 +8806,8 @@ _ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageI15stab
   %87 = getelementptr inbounds nuw %struct.stable_position, ptr %85, i64 %86
   store i64 0, ptr %87, align 8, !tbaa !142
   %88 = add nsw i64 %.sroa.36.034.i.i.i, -1
-  %.not1.i.i.i.i6.i = icmp eq i64 %88, 0
-  br i1 %.not1.i.i.i.i6.i, label %"_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionNS_6entityESaIS4_EvEENS_14basic_registryIS5_SaIS5_EEEEEEEENS_9exclude_tIJEEEvE4eachIZN45Benchmark_IterateSingleStableComponent1M_Test8TestBodyEvE3$_0EEvT_.exit.i", label %.lr.ph.i.i.i.i.i
+  %.not1.i.i.i.i5.i = icmp eq i64 %88, 0
+  br i1 %.not1.i.i.i.i5.i, label %"_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionNS_6entityESaIS4_EvEENS_14basic_registryIS5_SaIS5_EEEEEEEENS_9exclude_tIJEEEvE4eachIZN45Benchmark_IterateSingleStableComponent1M_Test8TestBodyEvE3$_0EEvT_.exit.i", label %.lr.ph.i.i.i.i.i
 
 _ZN4entt8internal22extended_view_iteratorINS0_13view_iteratorINS_16basic_sparse_setINS_6entityESaIS4_EEELb1ELm1ELm0EEEJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionS4_SaISA_EvEENS_14basic_registryIS4_S5_EEEEEEppEv.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i
   %89 = and i32 %105, 1048575
@@ -8843,7 +8846,7 @@ _ZN4entt8internal22extended_view_iteratorINS0_13view_iteratorINS_16basic_sparse_
   %.sroa.5.1.i.i.be = phi i64 [ %108, %107 ], [ %104, %_ZN4entt8internal22extended_view_iteratorINS0_13view_iteratorINS_16basic_sparse_setINS_6entityESaIS4_EEELb1ELm1ELm0EEEJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionS4_SaISA_EvEENS_14basic_registryIS4_S5_EEEEEEppEv.exit.i.loopexit.i ]
   br label %.lr.ph.i.i.i.i.i, !llvm.loop !163
 
-"_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionNS_6entityESaIS4_EvEENS_14basic_registryIS5_SaIS5_EEEEEEEENS_9exclude_tIJEEEvE4eachIZN45Benchmark_IterateSingleStableComponent1M_Test8TestBodyEvE3$_0EEvT_.exit.i": ; preds = %.lr.ph.i.i.i.i, %_ZN4entt8internal22extended_view_iteratorINS0_13view_iteratorINS_16basic_sparse_setINS_6entityESaIS4_EEELb1ELm1ELm0EEEJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionS4_SaISA_EvEENS_14basic_registryIS4_S5_EEEEEEppEv.exit.i.loopexit.i, %107, %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionNS_6entityESaIS4_EvEENS_14basic_registryIS5_SaIS5_EEEEEEEENS_9exclude_tIJEEEvE4eachEv.exit.i.i, %51
+"_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionNS_6entityESaIS4_EvEENS_14basic_registryIS5_SaIS5_EEEEEEEENS_9exclude_tIJEEEvE4eachIZN45Benchmark_IterateSingleStableComponent1M_Test8TestBodyEvE3$_0EEvT_.exit.i": ; preds = %_ZN4entt8internal22extended_view_iteratorINS0_13view_iteratorINS_16basic_sparse_setINS_6entityESaIS4_EEELb1ELm1ELm0EEEJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionS4_SaISA_EvEENS_14basic_registryIS4_S5_EEEEEEppEv.exit.i.loopexit.i, %107, %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageI15stable_positionNS_6entityESaIS4_EvEENS_14basic_registryIS5_SaIS5_EEEEEEEENS_9exclude_tIJEEEvE4eachEv.exit.i.i, %._ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELb1ELm1ELm0EEC2ENS0_19sparse_set_iteratorISt6vectorIS3_S4_EEESt5arrayIPKS5_Lm1EESB_ISD_Lm0EEm.exit.loopexit_crit_edge3.i.i.i.i, %51
   invoke void @_ZN5timer7elapsedEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %109 unwind label %110
 

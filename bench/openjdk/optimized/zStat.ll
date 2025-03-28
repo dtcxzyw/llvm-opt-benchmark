@@ -6358,11 +6358,14 @@ define hidden void @_ZN5ZStat10run_threadEv(ptr noundef nonnull align 8 derefere
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %37 = load ptr, ptr %36, align 8
   %.not18.i = icmp eq ptr %37, null
-  br i1 %.not18.i, label %._crit_edge.i, label %22, !llvm.loop !113
+  br i1 %.not18.i, label %.._crit_edge.i.loopexit_crit_edge34, label %22, !llvm.loop !113
 
-._crit_edge.i:                                    ; preds = %22, %29, %35, %.lr.ph.i, %.lr.ph31.i
-  %.015.lcssa.i = phi ptr [ @_ZN18ZStatIterableValueI12ZStatSamplerE6_firstE, %.lr.ph31.i ], [ @_ZN18ZStatIterableValueI12ZStatSamplerE6_firstE, %.lr.ph.i ], [ %36, %22 ], [ %.01520.i29, %29 ], [ %36, %35 ]
-  %.lcssa.i = phi ptr [ null, %.lr.ph31.i ], [ %14, %.lr.ph.i ], [ %37, %22 ], [ %27, %29 ], [ null, %35 ]
+.._crit_edge.i.loopexit_crit_edge34:              ; preds = %35
+  br label %._crit_edge.i, !llvm.loop !113
+
+._crit_edge.i:                                    ; preds = %22, %29, %.lr.ph.i, %.._crit_edge.i.loopexit_crit_edge34, %.lr.ph31.i
+  %.015.lcssa.i = phi ptr [ @_ZN18ZStatIterableValueI12ZStatSamplerE6_firstE, %.lr.ph31.i ], [ %36, %.._crit_edge.i.loopexit_crit_edge34 ], [ @_ZN18ZStatIterableValueI12ZStatSamplerE6_firstE, %.lr.ph.i ], [ %36, %22 ], [ %.01520.i29, %29 ]
+  %.lcssa.i = phi ptr [ null, %.lr.ph31.i ], [ null, %.._crit_edge.i.loopexit_crit_edge34 ], [ %14, %.lr.ph.i ], [ %37, %22 ], [ %27, %29 ]
   store ptr %.lcssa.i, ptr %15, align 8
   store ptr %.029.i, ptr %.015.lcssa.i, align 8
   %.not.i = icmp eq ptr %16, null

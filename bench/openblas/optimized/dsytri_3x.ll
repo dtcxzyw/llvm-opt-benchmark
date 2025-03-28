@@ -274,7 +274,7 @@ define void @dsytri_3x_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br label %151
 
 thread-pre-split707:                              ; preds = %._crit_edge827, %.lr.ph831.split.us.preheader
-  %.us-phi833 = phi i32 [ %342, %.lr.ph831.split.us.preheader ], [ %341, %._crit_edge827 ]
+  %.us-phi833 = phi i32 [ %339, %.lr.ph831.split.us.preheader ], [ %342, %._crit_edge827 ]
   store i32 %338, ptr %11, align 4, !tbaa !3
   store i32 %.us-phi833, ptr %13, align 4, !tbaa !3
   br label %151
@@ -763,22 +763,22 @@ thread-pre-split707:                              ; preds = %._crit_edge827, %.l
 .lr.ph831:                                        ; preds = %332
   %338 = load i32, ptr %15, align 4, !tbaa !3
   %.not694823 = icmp slt i32 %338, 1
-  br i1 %.not694823, label %.lr.ph831.split.us.preheader, label %.lr.ph826.preheader
-
-.lr.ph826.preheader:                              ; preds = %.lr.ph831
-  %339 = zext nneg i32 %337 to i64
-  %340 = add nuw i32 %338, 1
-  %341 = add nuw i32 %337, 1
-  %wide.trip.count1075 = zext i32 %341 to i64
-  %wide.trip.count1070 = zext i32 %340 to i64
-  br label %.lr.ph826
+  br i1 %.not694823, label %.lr.ph831.split.us.preheader, label %.lr.ph831.split, !llvm.loop !30
 
 .lr.ph831.split.us.preheader:                     ; preds = %.lr.ph831
-  %342 = add nuw i32 %337, 1
+  %339 = add nuw i32 %337, 1
   br label %thread-pre-split707
 
-.lr.ph826:                                        ; preds = %.lr.ph826.preheader, %._crit_edge827
-  %indvars.iv1072 = phi i64 [ 1, %.lr.ph826.preheader ], [ %indvars.iv.next1073, %._crit_edge827 ]
+.lr.ph831.split:                                  ; preds = %.lr.ph831
+  %340 = zext nneg i32 %337 to i64
+  %341 = add nuw i32 %338, 1
+  %342 = add nuw i32 %337, 1
+  %wide.trip.count1075 = zext i32 %342 to i64
+  %wide.trip.count1070 = zext i32 %341 to i64
+  br label %.lr.ph826, !llvm.loop !30
+
+.lr.ph826:                                        ; preds = %.lr.ph831.split, %._crit_edge827
+  %indvars.iv1072 = phi i64 [ 1, %.lr.ph831.split ], [ %indvars.iv.next1073, %._crit_edge827 ]
   %invariant.gep1239 = getelementptr double, ptr %27, i64 %indvars.iv1072
   %invariant.gep1241 = getelementptr double, ptr %19, i64 %indvars.iv1072
   br label %343
@@ -788,7 +788,7 @@ thread-pre-split707:                              ; preds = %._crit_edge827, %.l
   %344 = mul nsw i64 %indvars.iv1067, %148
   %gep1240 = getelementptr double, ptr %invariant.gep1239, i64 %344
   %345 = load double, ptr %gep1240, align 8, !tbaa !7
-  %346 = add nuw nsw i64 %indvars.iv1067, %339
+  %346 = add nuw nsw i64 %indvars.iv1067, %340
   %347 = mul nsw i64 %346, %150
   %gep1242 = getelementptr double, ptr %invariant.gep1241, i64 %347
   store double %345, ptr %gep1242, align 8, !tbaa !7

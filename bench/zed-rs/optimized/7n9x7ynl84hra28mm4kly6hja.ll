@@ -9615,8 +9615,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %27 = load i8, ptr %26, align 8, !range !34, !alias.scope !1996, !noalias !1997, !noundef !16
-  %.not.i.i.i.i.i = icmp eq i8 %27, %13
-  br i1 %.not.i.i.i.i.i, label %"_ZN8terminal8Terminal14select_matches28_$u7b$$u7b$closure$u7d$$u7d$17he739bdfdb9f1af6fE.llvm.8621876355426791832.exit", label %.backedge.i.i.i
+  %28 = icmp eq i8 %27, %13
+  br i1 %28, label %"_ZN8terminal8Terminal14select_matches28_$u7b$$u7b$closure$u7d$$u7d$17he739bdfdb9f1af6fE.llvm.8621876355426791832.exit", label %.backedge.i.i.i
 
 .backedge.i.i.i:                                  ; preds = %25, %20, %14
   %.not10.i.i.i = icmp eq ptr %16, %8
@@ -10530,8 +10530,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %23 = load i8, ptr %22, align 8, !range !34, !alias.scope !2303, !noalias !2304, !noundef !16
-  %.not.i.i.i = icmp eq i8 %23, %9
-  br i1 %.not.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h337a77a853be0773E.llvm.8621876355426791832.exit", label %.backedge.i
+  %24 = icmp eq i8 %23, %9
+  br i1 %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h337a77a853be0773E.llvm.8621876355426791832.exit", label %.backedge.i
 
 .backedge.i:                                      ; preds = %21, %16, %10
   %.not10.i = icmp eq ptr %12, %4
@@ -14309,8 +14309,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %23 = load i8, ptr %22, align 8, !range !34, !alias.scope !3227, !noalias !3224, !noundef !16
-  %.not.i.i = icmp eq i8 %23, %9
-  br i1 %.not.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd6b1a995ef057baE.exit.sink.split", label %.backedge
+  %24 = icmp eq i8 %23, %9
+  br i1 %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd6b1a995ef057baE.exit.sink.split", label %.backedge
 
 .backedge:                                        ; preds = %16, %10, %21
   %.not10 = icmp eq ptr %12, %4
@@ -15536,8 +15536,8 @@ define hidden noundef zeroext i1 @"_ZN8terminal8Terminal14select_matches28_$u7b$
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %26 = load i8, ptr %25, align 8, !range !34, !alias.scope !3464, !noalias !3465, !noundef !16
-  %.not.i.i.i.i = icmp eq i8 %26, %12
-  br i1 %.not.i.i.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2e40ddc7610257bfE.llvm.8621876355426791832.exit", label %.backedge.i.i
+  %27 = icmp eq i8 %26, %12
+  br i1 %27, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2e40ddc7610257bfE.llvm.8621876355426791832.exit", label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %24, %19, %13
   %.not10.i.i = icmp eq ptr %15, %7

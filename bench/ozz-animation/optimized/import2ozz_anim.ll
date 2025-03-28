@@ -4013,7 +4013,7 @@ _ZNSt6vectorIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEEC2EmRKS4_.exit.i.i: ;
 
 ..critedge_crit_edge.i.i:                         ; preds = %1476
   %.pre42.i.i = load i64, ptr %1397, align 8, !tbaa !107, !noalias !123
-  br label %.critedge.i.i
+  br label %.critedge.i.i, !llvm.loop !135
 
 .loopexit.i:                                      ; preds = %.critedge.i.i, %_ZNSt6vectorIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEEC2EmRKS4_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #21

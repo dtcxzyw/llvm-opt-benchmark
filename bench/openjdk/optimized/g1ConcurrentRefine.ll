@@ -552,7 +552,7 @@ define hidden noundef zeroext i1 @_ZN31G1ConcurrentRefineThreadControl22ensure_t
   %13 = load ptr, ptr %0, align 8
   %14 = call noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentRefinej(ptr noundef %13, i32 noundef %20) #17
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread.i, label %.lr.ph30, !llvm.loop !8
+  br i1 %15, label %..thread.i.loopexit_crit_edge, label %.lr.ph30, !llvm.loop !8
 
 .lr.ph30:                                         ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 792
@@ -591,10 +591,13 @@ define hidden noundef zeroext i1 @_ZN31G1ConcurrentRefineThreadControl22ensure_t
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread.i, label %42
 
-.thread.i:                                        ; preds = %30, %.lr.ph14, %23, %12, %.lr.ph30, %.lr.ph30.preheader, %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi i32 [ %6, %.lr.ph.split.us ], [ %6, %.lr.ph.split ], [ %6, %.lr.ph30.preheader ], [ %20, %.lr.ph30 ], [ %20, %12 ], [ %26, %30 ], [ %26, %.lr.ph14 ], [ %44, %23 ]
-  %.us-phi10 = phi i1 [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ false, %.lr.ph30.preheader ], [ %15, %.lr.ph30 ], [ %15, %12 ], [ false, %30 ], [ true, %.lr.ph14 ], [ true, %23 ]
-  %.us-phi11 = phi ptr [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ], [ %8, %.lr.ph30.preheader ], [ %14, %.lr.ph30 ], [ null, %12 ], [ %28, %30 ], [ null, %.lr.ph14 ], [ null, %23 ]
+..thread.i.loopexit_crit_edge:                    ; preds = %12
+  br label %.thread.i, !llvm.loop !8
+
+.thread.i:                                        ; preds = %30, %.lr.ph14, %23, %.lr.ph30, %.lr.ph30.preheader, %..thread.i.loopexit_crit_edge, %.lr.ph.split, %.lr.ph.split.us
+  %.us-phi = phi i32 [ %6, %.lr.ph.split.us ], [ %6, %.lr.ph.split ], [ %20, %..thread.i.loopexit_crit_edge ], [ %6, %.lr.ph30.preheader ], [ %20, %.lr.ph30 ], [ %26, %30 ], [ %26, %.lr.ph14 ], [ %44, %23 ]
+  %.us-phi10 = phi i1 [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ true, %..thread.i.loopexit_crit_edge ], [ false, %.lr.ph30.preheader ], [ false, %.lr.ph30 ], [ false, %30 ], [ true, %.lr.ph14 ], [ true, %23 ]
+  %.us-phi11 = phi ptr [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ], [ null, %..thread.i.loopexit_crit_edge ], [ %8, %.lr.ph30.preheader ], [ %14, %.lr.ph30 ], [ %28, %30 ], [ null, %.lr.ph14 ], [ null, %23 ]
   %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %37, label %35

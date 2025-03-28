@@ -2046,7 +2046,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %118 = getelementptr i8, ptr %scevgep, i64 %117
   %scevgep376 = getelementptr i8, ptr %118, i64 -1
   %.not300380 = icmp ult ptr %10, %6
-  br i1 %.not300380, label %.lr.ph384, label %._crit_edge385
+  br i1 %.not300380, label %.lr.ph384, label %._crit_edge388
 
 .lr.ph384:                                        ; preds = %.thread
   %119 = and i8 %.2265323, %11
@@ -2056,7 +2056,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 121:                                              ; preds = %127
   %122 = getelementptr i8, ptr %.2273360383, i64 1
   %.not300 = icmp ult ptr %122, %6
-  br i1 %.not300, label %123, label %._crit_edge385, !llvm.loop !30
+  br i1 %.not300, label %123, label %._crit_edge388, !llvm.loop !30
 
 123:                                              ; preds = %.lr.ph384, %121
   %.2273360383 = phi ptr [ %10, %.lr.ph384 ], [ %122, %121 ]
@@ -2066,7 +2066,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %125 = zext i8 %124 to i32
   %126 = and i32 %125, 192
   %.not301 = icmp eq i32 %126, 128
-  br i1 %.not301, label %127, label %._crit_edge385
+  br i1 %.not301, label %127, label %._crit_edge388
 
 127:                                              ; preds = %123
   %128 = shl i32 %.0262362382, 6
@@ -2076,10 +2076,13 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %exitcond.not = icmp eq i32 %131, %.0266321
   br i1 %exitcond.not, label %._crit_edge385, label %121, !llvm.loop !30
 
-._crit_edge385:                                   ; preds = %123, %121, %127, %.thread
-  %.2273.lcssa = phi ptr [ %10, %.thread ], [ %.2273360383, %123 ], [ %122, %121 ], [ %scevgep376, %127 ]
-  %.1269 = phi i8 [ %11, %.thread ], [ %124, %127 ], [ %124, %121 ], [ %124, %123 ]
-  %.1 = phi i32 [ 65533, %.thread ], [ 65533, %123 ], [ 65533, %121 ], [ %130, %127 ]
+._crit_edge385:                                   ; preds = %127
+  br label %._crit_edge388, !llvm.loop !30
+
+._crit_edge388:                                   ; preds = %123, %121, %._crit_edge385, %.thread
+  %.2273.lcssa = phi ptr [ %scevgep376, %._crit_edge385 ], [ %10, %.thread ], [ %.2273360383, %123 ], [ %122, %121 ]
+  %.1269 = phi i8 [ %124, %._crit_edge385 ], [ %11, %.thread ], [ %124, %121 ], [ %124, %123 ]
+  %.1 = phi i32 [ %130, %._crit_edge385 ], [ 65533, %.thread ], [ 65533, %121 ], [ 65533, %123 ]
   %132 = tail call i32 @g_unichar_validate(i32 noundef %.1) #26
   %.not302 = icmp eq i32 %132, 0
   %spec.store.select = select i1 %.not302, i32 65533, i32 %.1
@@ -2092,7 +2095,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %.not303329 = icmp eq i32 %134, 0
   br i1 %.not303329, label %164, label %.thread356
 
-135:                                              ; preds = %._crit_edge385
+135:                                              ; preds = %._crit_edge388
   %136 = icmp ult i32 %spec.store.select, 128
   br i1 %136, label %.thread356, label %137
 
@@ -2163,10 +2166,10 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %163 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %163, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
-164:                                              ; preds = %.thread324, %._crit_edge385
-  %.2338 = phi i32 [ 65533, %.thread324 ], [ %spec.store.select, %._crit_edge385 ]
-  %.2270336 = phi i8 [ %11, %.thread324 ], [ %.1269, %._crit_edge385 ]
-  %.3274335 = phi ptr [ %10, %.thread324 ], [ %.2273.lcssa, %._crit_edge385 ]
+164:                                              ; preds = %.thread324, %._crit_edge388
+  %.2338 = phi i32 [ 65533, %.thread324 ], [ %spec.store.select, %._crit_edge388 ]
+  %.2270336 = phi i8 [ %11, %.thread324 ], [ %.1269, %._crit_edge388 ]
+  %.3274335 = phi ptr [ %10, %.thread324 ], [ %.2273.lcssa, %._crit_edge388 ]
   br i1 %3, label %165, label %173
 
 165:                                              ; preds = %164

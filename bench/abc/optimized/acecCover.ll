@@ -514,11 +514,14 @@ Gia_ObjIsXor.exit:                                ; preds = %Vec_BitStart.exit, 
   %.val134 = load i32, ptr %148, align 4, !tbaa !29
   %149 = sext i32 %.val134 to i64
   %150 = icmp slt i64 %indvars.iv.next215, %149
-  br i1 %150, label %.lr.ph182, label %.critedge, !llvm.loop !41
+  br i1 %150, label %.lr.ph182, label %..critedge.loopexit_crit_edge, !llvm.loop !41
 
-.critedge:                                        ; preds = %.lr.ph251, %.lr.ph182, %.lr.ph182.preheader, %._crit_edge
-  %.lcssa = phi ptr [ %131, %._crit_edge ], [ %131, %.lr.ph182.preheader ], [ %147, %.lr.ph182 ], [ %147, %.lr.ph251 ]
-  %.val134.lcssa = phi i32 [ %.val134178, %._crit_edge ], [ %.val134178, %.lr.ph182.preheader ], [ %.val134, %.lr.ph182 ], [ %.val134, %.lr.ph251 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph251
+  br label %.critedge, !llvm.loop !41
+
+.critedge:                                        ; preds = %.lr.ph182, %.lr.ph182.preheader, %..critedge.loopexit_crit_edge, %._crit_edge
+  %.lcssa = phi ptr [ %131, %._crit_edge ], [ %147, %..critedge.loopexit_crit_edge ], [ %131, %.lr.ph182.preheader ], [ %147, %.lr.ph182 ]
+  %.val134.lcssa = phi i32 [ %.val134178, %._crit_edge ], [ %.val134, %..critedge.loopexit_crit_edge ], [ %.val134178, %.lr.ph182.preheader ], [ %.val134, %.lr.ph182 ]
   %151 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store i32 0, ptr %152, align 4, !tbaa !29

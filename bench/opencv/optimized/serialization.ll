@@ -11889,7 +11889,7 @@ _ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEE
   ret ptr %0
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE5clearEv.exit, %_ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEEixERS7_.exit
-  %.07 = phi i64 [ %59, %_ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEEixERS7_.exit ], [ 0, %_ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE5clearEv.exit ]
+  %.08 = phi i64 [ %59, %_ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEEixERS7_.exit ], [ 0, %_ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE5clearEv.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #31
   store i32 0, ptr %5, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #31
@@ -11944,9 +11944,12 @@ _ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEE
   %52 = load i64, ptr %51, align 8, !tbaa !338
   %53 = urem i64 %52, %29
   %.not19.i.i.i.i = icmp eq i64 %53, %30
-  br i1 %.not19.i.i.i.i, label %43, label %.loopexit.i.i, !llvm.loop !340
+  br i1 %.not19.i.i.i.i, label %43, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !340
 
-.loopexit.i.i:                                    ; preds = %50, %.lr.ph.i.i.i.i, %.lr.ph
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %50
+  br label %.loopexit.i.i, !llvm.loop !340
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %.lr.ph
   %54 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
   store ptr null, ptr %54, align 8, !tbaa !329
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -11967,7 +11970,7 @@ _ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEE
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   store i32 %27, ptr %.1.i.i, align 4, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #31
-  %59 = add nuw nsw i64 %.07, 1
+  %59 = add nuw nsw i64 %.08, 1
   %60 = load i32, ptr %4, align 4, !tbaa !38
   %61 = zext i32 %60 to i64
   %62 = icmp samesign ult i64 %59, %61

@@ -48,14 +48,17 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   %.080 = getelementptr inbounds nuw i8, ptr %.080128193, i64 1
   %14 = load i8, ptr %.080, align 1
   %.not105 = icmp eq i8 %14, 0
-  br i1 %.not105, label %.critedge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not105, label %..critedge_crit_edge, label %.lr.ph, !llvm.loop !6
 
-.critedge:                                        ; preds = %.lr.ph196, %.lr.ph, %.lr.ph.preheader
-  %15 = phi i8 [ %7, %.lr.ph.preheader ], [ 0, %.lr.ph196 ], [ %14, %.lr.ph ]
-  %.pn113.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %.082.ptr127194, %.lr.ph ], [ %.082.ptr127194, %.lr.ph196 ]
-  %.081.lcssa = phi i1 [ true, %.lr.ph.preheader ], [ %13, %.lr.ph ], [ %13, %.lr.ph196 ]
-  %.082.ptr.lcssa = phi ptr [ %.082.ptr122, %.lr.ph.preheader ], [ %.082.ptr, %.lr.ph ], [ %.082.ptr, %.lr.ph196 ]
-  %.080.lcssa = phi ptr [ %.080123, %.lr.ph.preheader ], [ %.080, %.lr.ph ], [ %.080, %.lr.ph196 ]
+..critedge_crit_edge:                             ; preds = %.lr.ph196
+  br label %.critedge, !llvm.loop !6
+
+.critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader
+  %15 = phi i8 [ 0, %..critedge_crit_edge ], [ %7, %.lr.ph.preheader ], [ %14, %.lr.ph ]
+  %.pn113.lcssa = phi ptr [ %.082.ptr127194, %..critedge_crit_edge ], [ %1, %.lr.ph.preheader ], [ %.082.ptr127194, %.lr.ph ]
+  %.081.lcssa = phi i1 [ %13, %..critedge_crit_edge ], [ true, %.lr.ph.preheader ], [ %13, %.lr.ph ]
+  %.082.ptr.lcssa = phi ptr [ %.082.ptr, %..critedge_crit_edge ], [ %.082.ptr122, %.lr.ph.preheader ], [ %.082.ptr, %.lr.ph ]
+  %.080.lcssa = phi ptr [ %.080, %..critedge_crit_edge ], [ %.080123, %.lr.ph.preheader ], [ %.080, %.lr.ph ]
   %16 = load i8, ptr %.082.ptr.lcssa, align 1
   %.not107 = icmp ne i8 %16, 0
   %brmerge = select i1 %.not107, i1 true, i1 %.081.lcssa

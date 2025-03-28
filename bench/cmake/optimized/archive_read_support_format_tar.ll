@@ -6373,10 +6373,13 @@ readline.exit:                                    ; preds = %26, %40
 77:                                               ; preds = %68, %71, %74
   %.1 = phi i64 [ %76, %74 ], [ 9223372036854775807, %71 ], [ 9223372036854775807, %68 ]
   %78 = icmp sgt i64 %.0244369, 1
-  br i1 %78, label %.preheaderthread-pre-split, label %.loopexit, !llvm.loop !111
+  br i1 %78, label %.preheaderthread-pre-split, label %..loopexit.loopexit_crit_edge72, !llvm.loop !111
 
-.loopexit:                                        ; preds = %readline.exit, %59, %.preheaderthread-pre-split, %.lr.ph, %77, %readline.exit.thread
-  %.0 = phi i64 [ -30, %readline.exit.thread ], [ -20, %77 ], [ -20, %.lr.ph ], [ %.1, %.preheaderthread-pre-split ], [ -30, %readline.exit ], [ 0, %59 ]
+..loopexit.loopexit_crit_edge72:                  ; preds = %77
+  br label %.loopexit, !llvm.loop !111
+
+.loopexit:                                        ; preds = %readline.exit, %59, %.preheaderthread-pre-split, %.lr.ph, %..loopexit.loopexit_crit_edge72, %readline.exit.thread
+  %.0 = phi i64 [ -30, %readline.exit.thread ], [ -20, %..loopexit.loopexit_crit_edge72 ], [ -20, %.lr.ph ], [ %.1, %.preheaderthread-pre-split ], [ -30, %readline.exit ], [ 0, %59 ]
   ret i64 %.0
 }
 

@@ -219,7 +219,7 @@ define dso_local void @sparse_init() local_unnamed_addr #0 section ".init.text" 
   %20 = load i64, ptr %17, align 8
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.critedge.backedge, label %.critedge.backedge._crit_edge
+  br i1 %22, label %.critedge.backedge, label %split
 
 .critedge.backedge:                               ; preds = %8, %11, %5, %19, %15
   %23 = add i64 %2, 1
@@ -227,17 +227,20 @@ define dso_local void @sparse_init() local_unnamed_addr #0 section ".init.text" 
   %25 = icmp ugt i64 %23, %24
   br i1 %25, label %.critedge.backedge._crit_edge, label %1, !llvm.loop !14
 
-.critedge.backedge._crit_edge:                    ; preds = %19, %.critedge.backedge
-  %26 = phi i64 [ -1, %.critedge.backedge ], [ %2, %19 ]
+.critedge.backedge._crit_edge:                    ; preds = %.critedge.backedge
+  br label %split, !llvm.loop !14
+
+split:                                            ; preds = %19, %.critedge.backedge._crit_edge
+  %26 = phi i64 [ -1, %.critedge.backedge._crit_edge ], [ %2, %19 ]
   %27 = lshr i64 %26, 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #9
           to label %29 [label %29, label %28], !srcloc !5
 
-28:                                               ; preds = %.critedge.backedge._crit_edge
+28:                                               ; preds = %split
   br label %29
 
-29:                                               ; preds = %28, %.critedge.backedge._crit_edge, %.critedge.backedge._crit_edge
-  %30 = phi i64 [ 2048, %28 ], [ 131072, %.critedge.backedge._crit_edge ], [ 131072, %.critedge.backedge._crit_edge ]
+29:                                               ; preds = %28, %split, %split
+  %30 = phi i64 [ 2048, %28 ], [ 131072, %split ], [ 131072, %split ]
   %31 = icmp samesign ult i64 %27, %30
   br i1 %31, label %32, label %42, !prof !6
 

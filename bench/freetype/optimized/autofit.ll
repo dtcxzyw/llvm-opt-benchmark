@@ -8301,7 +8301,7 @@ define internal fastcc void @af_glyph_hints_align_strong_points(ptr noundef read
 
 ._crit_edge:                                      ; preds = %49
   %.pre = load i16, ptr %20, align 8, !tbaa !206
-  br label %split
+  br label %split, !llvm.loop !413
 
 split:                                            ; preds = %.preheader, %._crit_edge
   %51 = phi i16 [ %.pre, %._crit_edge ], [ %48, %.preheader ]

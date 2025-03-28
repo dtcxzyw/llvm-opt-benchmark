@@ -1035,7 +1035,7 @@ _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit.us: ; preds = %_ZN5o3dgc6VectorIh
   %293 = phi i64 [ %298, %295 ], [ %291, %289 ]
   %.05590117 = phi i64 [ %296, %295 ], [ 1, %289 ]
   %294 = icmp samesign ult i64 %.05590117, 512
-  br i1 %294, label %295, label %._crit_edge120, !llvm.loop !18
+  br i1 %294, label %295, label %._crit_edge121, !llvm.loop !18
 
 295:                                              ; preds = %.lr.ph119
   %296 = shl nuw nsw i64 %.05590117, 1
@@ -1044,8 +1044,11 @@ _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit.us: ; preds = %_ZN5o3dgc6VectorIh
   %299 = icmp ugt i64 %298, %293
   br i1 %299, label %._crit_edge120, label %.lr.ph119, !llvm.loop !18
 
-._crit_edge120:                                   ; preds = %.lr.ph119, %295, %289
-  %.054.lcssa = phi i64 [ 1, %289 ], [ %.05590117, %295 ], [ %.05590117, %.lr.ph119 ]
+._crit_edge121:                                   ; preds = %.lr.ph119
+  br label %._crit_edge120, !llvm.loop !18
+
+._crit_edge120:                                   ; preds = %295, %._crit_edge121, %289
+  %.054.lcssa = phi i64 [ %.05590117, %._crit_edge121 ], [ 1, %289 ], [ %.05590117, %295 ]
   %300 = call noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 noundef %10, i64 noundef %9, i64 noundef %.054.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %301 = load i64, ptr %5, align 8
   %.not101 = icmp eq i64 %301, 0

@@ -584,9 +584,12 @@ define noundef i32 @llama_set_adapter_lora(ptr noundef %0, ptr noundef %1, float
   %23 = ptrtoint ptr %22 to i64
   %24 = urem i64 %23, %7
   %.not19.i.i.i.i = icmp eq i64 %24, %8
-  br i1 %.not19.i.i.i.i, label %17, label %.loopexit.i.i, !llvm.loop !20
+  br i1 %.not19.i.i.i.i, label %17, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !20
 
-.loopexit.i.i:                                    ; preds = %20, %.lr.ph.i.i.i.i, %3
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %20
+  br label %.loopexit.i.i, !llvm.loop !20
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %3
   %25 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   store ptr null, ptr %25, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -667,22 +670,25 @@ define range(i32 -1, 1) i32 @llama_rm_adapter_lora(ptr noundef captures(address)
   %32 = ptrtoint ptr %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i, label %26, label %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.thread, !llvm.loop !20
+  br i1 %.not19.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !20
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
+  br label %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.thread, !llvm.loop !20
 
 _ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit: ; preds = %9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 584
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
-  %.pre17 = load ptr, ptr %3, align 8, !tbaa !15
-  %.pre18 = ptrtoint ptr %1 to i64
-  %.pre19 = urem i64 %.pre18, %.pre
+  %.pre19 = load ptr, ptr %3, align 8, !tbaa !15
+  %.pre20 = ptrtoint ptr %1 to i64
+  %.pre21 = urem i64 %.pre20, %.pre
   br label %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit
 
 _ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit: ; preds = %26, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit, %21
-  %.pre-phi20 = phi i64 [ %.pre19, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %17, %21 ], [ %17, %26 ]
-  %34 = phi ptr [ %.pre17, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %18, %21 ], [ %18, %26 ]
+  %.pre-phi22 = phi i64 [ %.pre21, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %17, %21 ], [ %17, %26 ]
+  %34 = phi ptr [ %.pre19, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %18, %21 ], [ %18, %26 ]
   %35 = phi i64 [ %.pre, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %16, %21 ], [ %16, %26 ]
   %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %22, %21 ], [ %28, %26 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %.pre-phi20
+  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %.pre-phi22
   %37 = load ptr, ptr %36, align 8, !tbaa !16
   br label %38
 
@@ -706,7 +712,7 @@ _ZNSt10_HashtableIP18llama_adapter_loraSt4pairIKS1_fESaIS4_ENSt8__detail10_Selec
   %45 = load ptr, ptr %44, align 8, !tbaa !18
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %35
-  %.not9.i.i.i.i.i = icmp eq i64 %47, %.pre-phi20
+  %.not9.i.i.i.i.i = icmp eq i64 %47, %.pre-phi22
   br i1 %.not9.i.i.i.i.i, label %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit, label %48
 
 48:                                               ; preds = %43
@@ -735,7 +741,7 @@ _ZNSt10_HashtableIP18llama_adapter_loraSt4pairIKS1_fESaIS4_ENSt8__detail10_Selec
   %57 = load ptr, ptr %56, align 8, !tbaa !18
   %58 = ptrtoint ptr %57 to i64
   %59 = urem i64 %58, %35
-  %.not17.i.i.i.i = icmp eq i64 %59, %.pre-phi20
+  %.not17.i.i.i.i = icmp eq i64 %59, %.pre-phi22
   br i1 %.not17.i.i.i.i, label %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit, label %60
 
 60:                                               ; preds = %55
@@ -752,8 +758,8 @@ _ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pai
   store i64 %64, ptr %4, align 8, !tbaa !26
   br label %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.thread
 
-_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %29, %8, %13, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit
-  %.0 = phi i32 [ 0, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit ], [ -1, %13 ], [ -1, %8 ], [ -1, %29 ], [ -1, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i, %13, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit
+  %.0 = phi i32 [ 0, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit ], [ -1, %13 ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %8 ], [ -1, %.lr.ph.i.i.i.i ]
   ret i32 %.0
 }
 

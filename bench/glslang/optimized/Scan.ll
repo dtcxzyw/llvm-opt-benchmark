@@ -2781,7 +2781,7 @@ _ZN7glslang13TInputScanner4peekEv.exit.i139:      ; preds = %340
 ._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit437_crit_edge: ; preds = %349
   %.pre513.pre = load i32, ptr %6, align 8
   %.pre514.pre = load i32, ptr %7, align 8
-  br label %_ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit
+  br label %_ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit, !llvm.loop !12
 
 _ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit: ; preds = %_ZN7glslang13TInputScanner4peekEv.exit.i139, %343, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit437_crit_edge, %335
   %351 = phi i32 [ %216, %335 ], [ %.pre514.pre, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit437_crit_edge ], [ %216, %343 ], [ %216, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]

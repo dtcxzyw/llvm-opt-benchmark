@@ -4698,9 +4698,12 @@ define linkonce_odr dso_local void @_ZN20RandomizeMarkVisitor5visitEP8AstClass(p
   %35 = ptrtoint ptr %34 to i64
   %36 = urem i64 %35, %19
   %.not19.i.i.i = icmp eq i64 %36, %20
-  br i1 %.not19.i.i.i, label %29, label %.loopexit.i, !llvm.loop !195
+  br i1 %.not19.i.i.i, label %29, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !195
 
-.loopexit.i:                                      ; preds = %32, %.lr.ph.i.i.i, %15
+..loopexit_crit_edge21.i.i.i:                     ; preds = %32
+  br label %.loopexit.i, !llvm.loop !195
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
   store ptr %16, ptr %3, align 8, !tbaa !196
   %37 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
@@ -7589,25 +7592,28 @@ define linkonce_odr dso_local void @_ZN20RandomizeMarkVisitor11markDerivedEPK8As
   %32 = ptrtoint ptr %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i, label %26, label %_ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit.thread, !llvm.loop !195
+  br i1 %.not19.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !195
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
+  br label %_ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit.thread, !llvm.loop !195
 
 _ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit: ; preds = %26, %8, %21
   %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %8 ], [ %28, %26 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 32
-  %.sroa.09.024 = load ptr, ptr %34, align 8, !tbaa !96
-  %.not25 = icmp eq ptr %.sroa.09.024, null
-  br i1 %.not25, label %_ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit.thread, label %.lr.ph
+  %.sroa.09.025 = load ptr, ptr %34, align 8, !tbaa !96
+  %.not26 = icmp eq ptr %.sroa.09.025, null
+  br i1 %.not26, label %_ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %.pre32 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
+  %.pre34 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
   br label %37
 
 37:                                               ; preds = %.lr.ph, %53
-  %38 = phi i32 [ %.pre32, %.lr.ph ], [ %54, %53 ]
-  %.sroa.09.026 = phi ptr [ %.sroa.09.024, %.lr.ph ], [ %.sroa.09.0, %53 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.09.026, i64 8
+  %38 = phi i32 [ %.pre34, %.lr.ph ], [ %54, %53 ]
+  %.sroa.09.027 = phi ptr [ %.sroa.09.025, %.lr.ph ], [ %.sroa.09.0, %53 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.09.027, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !189
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 112
   %42 = load i32, ptr %41, align 8, !tbaa !101
@@ -7635,11 +7641,11 @@ _ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4
 
 53:                                               ; preds = %52, %37
   %54 = phi i32 [ %.pre, %52 ], [ %38, %37 ]
-  %.sroa.09.0 = load ptr, ptr %.sroa.09.026, align 8, !tbaa !96
+  %.sroa.09.0 = load ptr, ptr %.sroa.09.027, align 8, !tbaa !96
   %.not = icmp eq ptr %.sroa.09.0, null
   br i1 %.not, label %_ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit.thread, label %37
 
-_ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %29, %7, %53, %_ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit, %12
+_ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %7, %53, %_ZNSt13unordered_mapIPK8AstClassSt13unordered_setIPS0_St4hashIS4_ESt8equal_toIS4_ESaIS4_EES5_IS2_ES7_IS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit, %..loopexit_crit_edge21.i.i.i.i, %12
   ret void
 }
 
@@ -8638,12 +8644,15 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIP8AstClassS1_SaIS1_
   %39 = ptrtoint ptr %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %.critedge, !llvm.loop !284
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !284
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %36, %23, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %36 ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %36 ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %36 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge, !llvm.loop !284
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr null, ptr %44, align 8, !tbaa !96
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -46029,10 +46038,13 @@ _ZN7AstNode9privateAsI9AstVarRefRP11AstNodeExprEEPT_PS_.exit: ; preds = %_ZN7Ast
   %.not125 = icmp eq ptr %104, %87
   %.not126 = icmp eq ptr %102, %88
   %or.cond = select i1 %.not125, i1 true, i1 %.not126
-  br i1 %or.cond, label %.critedge, label %.lr.ph149, !llvm.loop !734
+  br i1 %or.cond, label %.thread116..critedge.loopexit_crit_edge, label %.lr.ph149, !llvm.loop !734
 
-.critedge:                                        ; preds = %_ZN7AstNode9privateAsI9AstVarRefRP11AstNodeExprEEPT_PS_.exit, %_ZN7AstNode11privateCastI12AstMemberSelRP11AstNodeExprEEPT_PS_.exit, %_ZN7AstNode9privateAsI13AstMethodCallRP11AstNodeExprEEPT_PS_.exit, %_ZN7AstNode9privateAsI12AstMemberSelRP11AstNodeExprEEPT_PS_.exit, %.thread116, %.lr.ph149, %.lr.ph149.preheader, %._crit_edge
-  %.0.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph149.preheader ], [ %103, %.lr.ph149 ], [ %103, %.thread116 ], [ %.0148172, %_ZN7AstNode9privateAsI12AstMemberSelRP11AstNodeExprEEPT_PS_.exit ], [ %.0148172, %_ZN7AstNode9privateAsI13AstMethodCallRP11AstNodeExprEEPT_PS_.exit ], [ %.0148172, %_ZN7AstNode11privateCastI12AstMemberSelRP11AstNodeExprEEPT_PS_.exit ], [ %.0148172, %_ZN7AstNode9privateAsI9AstVarRefRP11AstNodeExprEEPT_PS_.exit ]
+.thread116..critedge.loopexit_crit_edge:          ; preds = %.thread116
+  br label %.critedge, !llvm.loop !734
+
+.critedge:                                        ; preds = %_ZN7AstNode9privateAsI9AstVarRefRP11AstNodeExprEEPT_PS_.exit, %_ZN7AstNode11privateCastI12AstMemberSelRP11AstNodeExprEEPT_PS_.exit, %_ZN7AstNode9privateAsI13AstMethodCallRP11AstNodeExprEEPT_PS_.exit, %_ZN7AstNode9privateAsI12AstMemberSelRP11AstNodeExprEEPT_PS_.exit, %.lr.ph149, %.lr.ph149.preheader, %.thread116..critedge.loopexit_crit_edge, %._crit_edge
+  %.0.lcssa = phi ptr [ null, %._crit_edge ], [ %103, %.thread116..critedge.loopexit_crit_edge ], [ null, %.lr.ph149.preheader ], [ %103, %.lr.ph149 ], [ %.0148172, %_ZN7AstNode9privateAsI12AstMemberSelRP11AstNodeExprEEPT_PS_.exit ], [ %.0148172, %_ZN7AstNode9privateAsI13AstMethodCallRP11AstNodeExprEEPT_PS_.exit ], [ %.0148172, %_ZN7AstNode11privateCastI12AstMemberSelRP11AstNodeExprEEPT_PS_.exit ], [ %.0148172, %_ZN7AstNode9privateAsI9AstVarRefRP11AstNodeExprEEPT_PS_.exit ]
   ret ptr %.0.lcssa
 }
 

@@ -8127,7 +8127,7 @@ define internal fastcc noundef i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr nou
   br i1 %.not52.i, label %33, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32
-  %.pre123 = add i32 %31, %5
+  %.pre125 = add i32 %31, %5
   br label %64
 
 33:                                               ; preds = %32
@@ -8179,7 +8179,7 @@ dissect_dcm_tag_open.exit.thread:                 ; preds = %37
   br label %.loopexit
 
 64:                                               ; preds = %._crit_edge, %45, %41
-  %.pre122.pre-phi = phi i32 [ %.pre123, %._crit_edge ], [ %11, %45 ], [ %11, %41 ]
+  %.pre124.pre-phi = phi i32 [ %.pre125, %._crit_edge ], [ %11, %45 ], [ %11, %41 ]
   %65 = phi ptr [ %28, %._crit_edge ], [ %.pre, %45 ], [ %28, %41 ]
   %.0.ph.i = phi i32 [ %31, %._crit_edge ], [ %6, %45 ], [ %6, %41 ]
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 76
@@ -8201,7 +8201,7 @@ dissect_dcm_tag_open.exit.thread:                 ; preds = %37
 
 dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
   %.1 = phi i1 [ true, %26 ], [ true, %29 ], [ false, %64 ]
-  %.047.i = phi i32 [ %5, %26 ], [ %5, %29 ], [ %.pre122.pre-phi, %64 ]
+  %.047.i = phi i32 [ %5, %26 ], [ %5, %29 ], [ %.pre124.pre-phi, %64 ]
   %80 = icmp ult i32 %.047.i, %11
   br i1 %80, label %.lr.ph, label %.loopexit
 
@@ -8410,11 +8410,14 @@ dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %195 = load ptr, ptr %194, align 8
   %.not.i107 = icmp eq ptr %195, null
-  br i1 %.not.i107, label %.critedge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i107, label %..critedge.i_crit_edge, label %.lr.ph.i, !llvm.loop !18
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph115, %.lr.ph.i.preheader
-  %.092.lcssa.i = phi ptr [ %4, %.lr.ph.i.preheader ], [ %190, %.lr.ph115 ], [ %190, %.lr.ph.i ]
-  %.088.lcssa.i = phi i32 [ %181, %.lr.ph.i.preheader ], [ %193, %.lr.ph115 ], [ %193, %.lr.ph.i ]
+..critedge.i_crit_edge:                           ; preds = %.lr.ph115
+  br label %.critedge.i, !llvm.loop !18
+
+.critedge.i:                                      ; preds = %.lr.ph.i, %..critedge.i_crit_edge, %.lr.ph.i.preheader
+  %.092.lcssa.i = phi ptr [ %190, %..critedge.i_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %190, %.lr.ph.i ]
+  %.088.lcssa.i = phi i32 [ %193, %..critedge.i_crit_edge ], [ %181, %.lr.ph.i.preheader ], [ %193, %.lr.ph.i ]
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %.lr.ph133.i

@@ -21082,9 +21082,12 @@ _ZN4Luau13CountMismatchD2Ev.exit102:              ; preds = %_ZNKSt7__cxx1112bas
   %169 = icmp ult i64 %162, %168
   br i1 %169, label %.lr.ph260, label %.critedge, !llvm.loop !489
 
-.critedge:                                        ; preds = %_ZN4Luau15SubtypingResultD2Ev.exit, %161, %.lr.ph, %105
-  %.lcssa190 = phi ptr [ %108, %105 ], [ %108, %.lr.ph ], [ %443, %161 ], [ %443, %_ZN4Luau15SubtypingResultD2Ev.exit ]
-  %.lcssa176 = phi i64 [ %109, %105 ], [ %109, %.lr.ph ], [ %445, %161 ], [ %445, %_ZN4Luau15SubtypingResultD2Ev.exit ]
+_ZN4Luau15SubtypingResultD2Ev.exit..critedge.loopexit_crit_edge: ; preds = %_ZN4Luau15SubtypingResultD2Ev.exit
+  br label %.critedge, !llvm.loop !489
+
+.critedge:                                        ; preds = %161, %.lr.ph, %_ZN4Luau15SubtypingResultD2Ev.exit..critedge.loopexit_crit_edge, %105
+  %.lcssa190 = phi ptr [ %108, %105 ], [ %443, %_ZN4Luau15SubtypingResultD2Ev.exit..critedge.loopexit_crit_edge ], [ %108, %.lr.ph ], [ %443, %161 ]
+  %.lcssa176 = phi i64 [ %109, %105 ], [ %445, %_ZN4Luau15SubtypingResultD2Ev.exit..critedge.loopexit_crit_edge ], [ %109, %.lr.ph ], [ %445, %161 ]
   %170 = load ptr, ptr %6, align 8, !tbaa !19
   %.not.i.i.i.i = icmp eq ptr %170, null
   br i1 %.not.i.i.i.i, label %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit, label %171
@@ -21800,7 +21803,7 @@ _ZN4Luau15SubtypingResultD2Ev.exit:               ; preds = %_ZSt8_DestroyIPN4Lu
   %446 = sub i64 %444, %445
   %447 = ashr exact i64 %446, 3
   %448 = icmp ult i64 %183, %447
-  br i1 %448, label %161, label %.critedge, !llvm.loop !489
+  br i1 %448, label %161, label %_ZN4Luau15SubtypingResultD2Ev.exit..critedge.loopexit_crit_edge, !llvm.loop !489
 
 449:                                              ; preds = %413, %315, %212
   %.pn83.pn.pn.pn = phi { ptr, i32 } [ %.pn83.pn.pn, %315 ], [ %213, %212 ], [ %.pn79.pn.pn, %413 ]

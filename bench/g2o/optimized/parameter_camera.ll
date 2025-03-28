@@ -541,9 +541,12 @@ define noundef zeroext i1 @_ZN3g2o15ParameterCamera4readERSi(ptr noundef nonnull
   %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, label %11, !llvm.loop !27
+  br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %11, !llvm.loop !27
 
-_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %17, %11
+..critedge_crit_edge.i:                           ; preds = %17
+  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !27
+
+_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %11, %..critedge_crit_edge.i
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = load <2 x double>, ptr %20, align 8, !tbaa !9
   %22 = fmul <2 x double> %21, %21

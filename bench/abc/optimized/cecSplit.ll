@@ -3105,10 +3105,13 @@ Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.ex
   %36 = load i32, ptr %4, align 8, !tbaa !28
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !105
+  br i1 %38, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !105
 
-.critedge:                                        ; preds = %35, %.lr.ph, %.lr.ph.preheader, %Vec_IntStart.exit
-  %.lcssa72 = phi i32 [ %.val56, %Vec_IntStart.exit ], [ %.val56, %.lr.ph.preheader ], [ %36, %.lr.ph ], [ %36, %35 ]
+..critedge.loopexit_crit_edge:                    ; preds = %35
+  br label %.critedge, !llvm.loop !105
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %Vec_IntStart.exit
+  %.lcssa72 = phi i32 [ %.val56, %Vec_IntStart.exit ], [ %36, %..critedge.loopexit_crit_edge ], [ %.val56, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %39 = getelementptr i8, ptr %0, i64 64
   %.val.i = load ptr, ptr %39, align 8, !tbaa !35
   %40 = getelementptr i8, ptr %.val.i, i64 4

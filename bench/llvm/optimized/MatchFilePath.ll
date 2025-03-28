@@ -97,13 +97,13 @@ define dso_local noundef zeroext i1 @_ZN5clang6format13matchFilePathEN4llvm9Stri
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 %47
   %50 = load i8, ptr %49, align 1, !tbaa !3
   %51 = icmp eq i8 %50, 42
-  br i1 %51, label %.lr.ph362, label %_ZNK4llvm9StringRef4findEcm.exit
+  br i1 %51, label %.lr.ph362, label %_ZNK4llvm9StringRef4findEcm.exit.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph362
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 %58
   %53 = load i8, ptr %52, align 1, !tbaa !3
   %54 = icmp eq i8 %53, 42
-  br i1 %54, label %.lr.ph362, label %_ZNK4llvm9StringRef4findEcm.exit.loopexit.loopexit, !llvm.loop !6
+  br i1 %54, label %.lr.ph362, label %_ZNK4llvm9StringRef4findEcm.exit.loopexit, !llvm.loop !6
 
 .lr.ph362:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.0129246361 = phi i32 [ %56, %.lr.ph ], [ 1, %.lr.ph.preheader ]
@@ -112,18 +112,25 @@ define dso_local noundef zeroext i1 @_ZN5clang6format13matchFilePathEN4llvm9Stri
   %57 = add i32 %55, 1
   %58 = zext i32 %57 to i64
   %59 = icmp ugt i64 %1, %58
-  br i1 %59, label %.lr.ph, label %_ZNK4llvm9StringRef4findEcm.exit.loopexit.loopexit, !llvm.loop !6
+  br i1 %59, label %.lr.ph, label %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge, !llvm.loop !6
 
-_ZNK4llvm9StringRef4findEcm.exit.loopexit.loopexit: ; preds = %.lr.ph362, %.lr.ph
-  %60 = icmp eq i32 %56, 2
+._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge: ; preds = %.lr.ph362
+  br label %_ZNK4llvm9StringRef4findEcm.exit.loopexit, !llvm.loop !6
+
+_ZNK4llvm9StringRef4findEcm.exit.loopexit:        ; preds = %.lr.ph, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge, %.lr.ph.preheader
+  %.0129.lcssa.ph = phi i32 [ %56, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ 1, %.lr.ph.preheader ], [ %56, %.lr.ph ]
+  %.4116.lcssa.ph = phi i32 [ %55, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ %.0112258, %.lr.ph.preheader ], [ %55, %.lr.ph ]
+  %.lcssa221.ph = phi i32 [ %57, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ %46, %.lr.ph.preheader ], [ %57, %.lr.ph ]
+  %.lcssa220.ph = phi i64 [ %58, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ %47, %.lr.ph.preheader ], [ %58, %.lr.ph ]
+  %60 = icmp eq i32 %.0129.lcssa.ph, 2
   %61 = select i1 %60, i8 %45, i8 0
   br label %_ZNK4llvm9StringRef4findEcm.exit
 
-_ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %.lr.ph.preheader, %_ZNK4llvm9StringRef4findEcm.exit.loopexit.loopexit, %44
-  %.0129.lcssa = phi i8 [ 0, %44 ], [ 0, %.lr.ph.preheader ], [ %61, %_ZNK4llvm9StringRef4findEcm.exit.loopexit.loopexit ]
-  %.4116.lcssa = phi i32 [ %.0112258, %44 ], [ %.0112258, %.lr.ph.preheader ], [ %55, %_ZNK4llvm9StringRef4findEcm.exit.loopexit.loopexit ]
-  %.lcssa221 = phi i32 [ %46, %44 ], [ %46, %.lr.ph.preheader ], [ %57, %_ZNK4llvm9StringRef4findEcm.exit.loopexit.loopexit ]
-  %.lcssa220 = phi i64 [ %47, %44 ], [ %47, %.lr.ph.preheader ], [ %58, %_ZNK4llvm9StringRef4findEcm.exit.loopexit.loopexit ]
+_ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef4findEcm.exit.loopexit, %44
+  %.0129.lcssa = phi i8 [ 0, %44 ], [ %61, %_ZNK4llvm9StringRef4findEcm.exit.loopexit ]
+  %.4116.lcssa = phi i32 [ %.0112258, %44 ], [ %.4116.lcssa.ph, %_ZNK4llvm9StringRef4findEcm.exit.loopexit ]
+  %.lcssa221 = phi i32 [ %46, %44 ], [ %.lcssa221.ph, %_ZNK4llvm9StringRef4findEcm.exit.loopexit ]
+  %.lcssa220 = phi i64 [ %47, %44 ], [ %.lcssa220.ph, %_ZNK4llvm9StringRef4findEcm.exit.loopexit ]
   %62 = sub nuw i64 %3, %18
   %63 = call ptr @memchr(ptr noundef nonnull %22, i32 noundef 47, i64 noundef %62) #4
   %.not.i.i = icmp eq ptr %63, null

@@ -22761,8 +22761,8 @@ define hidden void @_Z14GatherSamplersRN5glTF29AnimationE(ptr dead_on_unwind noa
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
-  %.not48 = icmp eq ptr %10, %11
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq ptr %10, %11
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -22773,7 +22773,7 @@ define hidden void @_Z14GatherSamplersRN5glTF29AnimationE(ptr dead_on_unwind noa
 15:                                               ; preds = %.lr.ph, %145
   %16 = phi ptr [ %11, %.lr.ph ], [ %149, %145 ]
   %17 = phi i64 [ 0, %.lr.ph ], [ %147, %145 ]
-  %.03947 = phi i32 [ 0, %.lr.ph ], [ %146, %145 ]
+  %.03948 = phi i32 [ 0, %.lr.ph ], [ %146, %145 ]
   %18 = getelementptr inbounds nuw %"struct.glTF2::Animation::Channel", ptr %16, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = icmp slt i32 %19, 0
@@ -22921,9 +22921,12 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit45.thread: ; preds = %48, %_ZNK
   %111 = zext i32 %110 to i64
   %112 = urem i64 %111, %95
   %.not19.i.i.i.i = icmp eq i64 %112, %96
-  br i1 %.not19.i.i.i.i, label %105, label %.loopexit.i.i, !llvm.loop !119
+  br i1 %.not19.i.i.i.i, label %105, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !119
 
-.loopexit.i.i:                                    ; preds = %108, %.lr.ph.i.i.i.i, %91
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %108
+  br label %.loopexit.i.i, !llvm.loop !119
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %91
   %113 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #40
           to label %.noexc unwind label %125
 
@@ -22995,7 +22998,7 @@ _ZNSt10_HashtableIjSt4pairIKj17AnimationSamplersESaIS3_ENSt8__detail10_Select1st
   br label %145
 
 145:                                              ; preds = %120, %133, %139, %127, %.loopexit, %45, %63, %76, %15, %21
-  %146 = add i32 %.03947, 1
+  %146 = add i32 %.03948, 1
   %147 = zext i32 %146 to i64
   %148 = load ptr, ptr %9, align 8
   %149 = load ptr, ptr %8, align 8
@@ -128330,12 +128333,15 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %39 = ptrtoint ptr %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %.critedge, !llvm.loop !1175
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !1175
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %36, %23, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %36 ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %36 ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %36 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge, !llvm.loop !1175
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

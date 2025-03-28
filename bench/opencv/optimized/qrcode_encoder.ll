@@ -10839,13 +10839,16 @@ _ZNSt14_Function_baseD2Ev.exit152:                ; preds = %_ZNSt14_Function_ba
   %345 = ptrtoint ptr %341 to i64
   %346 = sub i64 %344, %345
   %347 = sdiv exact i64 %346, 24
-  %.not.not.not.not.not = icmp uge i64 %342, %347
-  br i1 %.not.not.not.not.not, label %.critedge, label %.lr.ph276, !llvm.loop !316
+  %.not.not = icmp ult i64 %342, %347
+  br i1 %.not.not, label %.lr.ph276, label %..critedge.loopexit_crit_edge, !llvm.loop !316
 
-.critedge:                                        ; preds = %.lr.ph351, %.lr.ph276, %.lr.ph276.preheader, %.preheader
-  %.lcssa208 = phi ptr [ %310, %.preheader ], [ %310, %.lr.ph276.preheader ], [ %343, %.lr.ph276 ], [ %343, %.lr.ph351 ]
-  %.lcssa = phi ptr [ %311, %.preheader ], [ %311, %.lr.ph276.preheader ], [ %341, %.lr.ph276 ], [ %341, %.lr.ph351 ]
-  %.not.lcssa = phi i1 [ true, %.preheader ], [ false, %.lr.ph276.preheader ], [ %.not.not.not.not.not, %.lr.ph276 ], [ %.not.not.not.not.not, %.lr.ph351 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph351
+  br label %.critedge, !llvm.loop !316
+
+.critedge:                                        ; preds = %.lr.ph276, %.lr.ph276.preheader, %..critedge.loopexit_crit_edge, %.preheader
+  %.lcssa208 = phi ptr [ %310, %.preheader ], [ %343, %..critedge.loopexit_crit_edge ], [ %310, %.lr.ph276.preheader ], [ %343, %.lr.ph276 ]
+  %.lcssa = phi ptr [ %311, %.preheader ], [ %341, %..critedge.loopexit_crit_edge ], [ %311, %.lr.ph276.preheader ], [ %341, %.lr.ph276 ]
+  %.not.lcssa = phi i1 [ true, %.preheader ], [ true, %..critedge.loopexit_crit_edge ], [ false, %.lr.ph276.preheader ], [ false, %.lr.ph276 ]
   %.not4.i.i.i.i = icmp eq ptr %.lcssa, %.lcssa208
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIhSaIhEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 

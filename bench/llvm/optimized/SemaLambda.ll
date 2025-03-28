@@ -3872,11 +3872,14 @@ define dso_local void @_ZN5clang4Sema36ActOnLambdaExpressionAfterIntroducerERNS_
   %89 = load ptr, ptr %88, align 8
   %.not197516 = icmp eq ptr %89, null
   %.not197 = select i1 %.not.i, i1 true, i1 %.not197516
-  br i1 %.not197, label %.critedge, label %.lr.ph, !llvm.loop !1113
+  br i1 %.not197, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !1113
 
-.critedge:                                        ; preds = %.lr.ph560, %.lr.ph, %.lr.ph.preheader, %.preheader
-  %.0176.lcssa = phi ptr [ %70, %.preheader ], [ %70, %.lr.ph.preheader ], [ %84, %.lr.ph ], [ %84, %.lr.ph560 ]
-  %.lcssa = phi i32 [ %72, %.preheader ], [ %72, %.lr.ph.preheader ], [ %86, %.lr.ph ], [ %86, %.lr.ph560 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph560
+  br label %.critedge, !llvm.loop !1113
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader
+  %.0176.lcssa = phi ptr [ %70, %.preheader ], [ %84, %..critedge.loopexit_crit_edge ], [ %70, %.lr.ph.preheader ], [ %84, %.lr.ph ]
+  %.lcssa = phi i32 [ %72, %.preheader ], [ %86, %..critedge.loopexit_crit_edge ], [ %72, %.lr.ph.preheader ], [ %86, %.lr.ph ]
   %90 = and i32 %.lcssa, 512
   %.not517 = icmp eq i32 %90, 0
   br i1 %.not517, label %.critedge5, label %91

@@ -3246,13 +3246,16 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %166 = load ptr, ptr %165, align 8, !tbaa !43
   %.val162 = load i32, ptr %166, align 4, !tbaa !29
   %167 = icmp slt i32 %164, %.val162
-  br i1 %167, label %110, label %.critedge2.loopexit, !llvm.loop !108
+  br i1 %167, label %110, label %..critedge2.loopexit_crit_edge333, !llvm.loop !108
 
-.critedge2.loopexit:                              ; preds = %157, %.lr.ph260
-  %168 = phi ptr [ %103, %.lr.ph260 ], [ %158, %157 ]
-  %.val164300 = phi ptr [ %.val164298, %.lr.ph260 ], [ %158, %157 ]
-  %.1136.lcssa.ph = phi i32 [ %.0135266, %.lr.ph260 ], [ %.2137, %157 ]
-  %.1.lcssa.ph = phi i32 [ %.0268, %.lr.ph260 ], [ %116, %157 ]
+..critedge2.loopexit_crit_edge333:                ; preds = %157
+  br label %.critedge2.loopexit, !llvm.loop !108
+
+.critedge2.loopexit:                              ; preds = %..critedge2.loopexit_crit_edge333, %.lr.ph260
+  %168 = phi ptr [ %158, %..critedge2.loopexit_crit_edge333 ], [ %103, %.lr.ph260 ]
+  %.val164300 = phi ptr [ %158, %..critedge2.loopexit_crit_edge333 ], [ %.val164298, %.lr.ph260 ]
+  %.1136.lcssa.ph = phi i32 [ %.2137, %..critedge2.loopexit_crit_edge333 ], [ %.0135266, %.lr.ph260 ]
+  %.1.lcssa.ph = phi i32 [ %116, %..critedge2.loopexit_crit_edge333 ], [ %.0268, %.lr.ph260 ]
   %.pre305 = load i32, ptr %25, align 4, !tbaa !29
   br label %.critedge2
 

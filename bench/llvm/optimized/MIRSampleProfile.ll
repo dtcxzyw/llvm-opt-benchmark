@@ -4484,7 +4484,10 @@ _ZN4llvm10sampleprof10hash_valueERKNS0_10FunctionIdE.exit.i.thread: ; preds = %2
   %46 = load i64, ptr %45, align 8, !tbaa !55
   %47 = urem i64 %46, %31
   %.not19.i.i.i.i.i = icmp eq i64 %47, %32
-  br i1 %.not19.i.i.i.i.i, label %41, label %.thread, !llvm.loop !665
+  br i1 %.not19.i.i.i.i.i, label %41, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !665
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %44
+  br label %.thread, !llvm.loop !665
 
 _ZNK4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdES3_JEE4findERKS3_.exit: ; preds = %26, %41, %36
   %.sroa.0.0.i = phi ptr [ %37, %36 ], [ %43, %41 ], [ %.sroa.06.0.i.i.i, %26 ]
@@ -4509,9 +4512,9 @@ _ZNK4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdES3_JEE4findE
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   br label %67
 
-.thread:                                          ; preds = %25, %.lr.ph.i.i.i.i.i, %44, %_ZNK4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdES3_JEE4findERKS3_.exit, %_ZN4llvm10sampleprof10hash_valueERKNS0_10FunctionIdE.exit.i.thread, %18, %15
-  %.sroa.016.0 = phi ptr [ %1, %18 ], [ %1, %15 ], [ %1, %_ZN4llvm10sampleprof10hash_valueERKNS0_10FunctionIdE.exit.i.thread ], [ %49, %_ZNK4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdES3_JEE4findERKS3_.exit ], [ %1, %44 ], [ %1, %.lr.ph.i.i.i.i.i ], [ %1, %25 ]
-  %.sroa.6.0 = phi i64 [ %2, %18 ], [ %2, %15 ], [ %2, %_ZN4llvm10sampleprof10hash_valueERKNS0_10FunctionIdE.exit.i.thread ], [ %.sroa.4.0.i, %_ZNK4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdES3_JEE4findERKS3_.exit ], [ %2, %44 ], [ %2, %.lr.ph.i.i.i.i.i ], [ %2, %25 ]
+.thread:                                          ; preds = %25, %.lr.ph.i.i.i.i.i, %_ZNK4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdES3_JEE4findERKS3_.exit, %_ZN4llvm10sampleprof10hash_valueERKNS0_10FunctionIdE.exit.i.thread, %..loopexit_crit_edge21.i.i.i.i.i, %18, %15
+  %.sroa.016.0 = phi ptr [ %1, %18 ], [ %1, %15 ], [ %1, %..loopexit_crit_edge21.i.i.i.i.i ], [ %1, %_ZN4llvm10sampleprof10hash_valueERKNS0_10FunctionIdE.exit.i.thread ], [ %49, %_ZNK4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdES3_JEE4findERKS3_.exit ], [ %1, %.lr.ph.i.i.i.i.i ], [ %1, %25 ]
+  %.sroa.6.0 = phi i64 [ %2, %18 ], [ %2, %15 ], [ %2, %..loopexit_crit_edge21.i.i.i.i.i ], [ %2, %_ZN4llvm10sampleprof10hash_valueERKNS0_10FunctionIdE.exit.i.thread ], [ %.sroa.4.0.i, %_ZNK4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdES3_JEE4findERKS3_.exit ], [ %2, %.lr.ph.i.i.i.i.i ], [ %2, %25 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %57 = load ptr, ptr %56, align 8, !tbaa !345
   %.not65 = icmp eq ptr %57, null
@@ -4790,10 +4793,13 @@ _ZN4llvm10sampleprofL10hash_valueERKNS0_13SampleContextE.exit: ; preds = %7, %11
   %47 = load i64, ptr %46, align 8, !tbaa !685
   %48 = urem i64 %47, %24
   %.not19.i.i.i.i = icmp eq i64 %48, %25
-  br i1 %.not19.i.i.i.i, label %38, label %_ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS9_.exit, !llvm.loop !687
+  br i1 %.not19.i.i.i.i, label %38, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !687
 
-_ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS9_.exit: ; preds = %.lr.ph.i.i.i.i, %45, %38, %17, %18, %22, %29
-  %.sroa.0.0 = phi ptr [ %30, %29 ], [ null, %22 ], [ null, %17 ], [ %.sroa.06.0.i.i, %18 ], [ null, %.lr.ph.i.i.i.i ], [ null, %45 ], [ %44, %38 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %45
+  br label %_ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS9_.exit, !llvm.loop !687
+
+_ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS9_.exit: ; preds = %.lr.ph.i.i.i.i, %38, %17, %18, %..loopexit_crit_edge21.i.i.i.i, %22, %29
+  %.sroa.0.0 = phi ptr [ %30, %29 ], [ null, %22 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %17 ], [ %.sroa.06.0.i.i, %18 ], [ null, %.lr.ph.i.i.i.i ], [ %44, %38 ]
   ret ptr %.sroa.0.0
 }
 
@@ -11220,7 +11226,7 @@ _ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPK
 
 ..critedge2_crit_edge:                            ; preds = %115
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm35SampleProfileMaxPropagateIterationsE, i64 120), align 8
-  br label %.critedge2
+  br label %.critedge2, !llvm.loop !868
 
 .critedge2:                                       ; preds = %111, %..critedge2_crit_edge
   %117 = phi i32 [ %.pre, %..critedge2_crit_edge ], [ %113, %111 ]

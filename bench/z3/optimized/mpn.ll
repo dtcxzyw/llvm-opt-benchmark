@@ -1964,7 +1964,7 @@ _ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit: ; preds = %.lr.
   %indvars = trunc i64 %indvars.iv.next129142 to i32
   store i32 %indvars, ptr %17, align 8, !tbaa !20
   %164 = icmp eq i32 %indvars, 0
-  br i1 %164, label %.critedge4, label %159, !llvm.loop !36
+  br i1 %164, label %..critedge4.loopexit_crit_edge, label %159, !llvm.loop !36
 
 .loopexit:                                        ; preds = %116, %.noexc90
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1976,8 +1976,11 @@ _ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit: ; preds = %.lr.
           cleanup
   br label %199
 
-.critedge4:                                       ; preds = %.lr.ph143, %159, %.lr.ph119, %_ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit
-  %165 = phi i32 [ 0, %_ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit ], [ %.pr, %.lr.ph119 ], [ %indvars, %159 ], [ 0, %.lr.ph143 ]
+..critedge4.loopexit_crit_edge:                   ; preds = %.lr.ph143
+  br label %.critedge4, !llvm.loop !36
+
+.critedge4:                                       ; preds = %159, %.lr.ph119, %..critedge4.loopexit_crit_edge, %_ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit
+  %165 = phi i32 [ 0, %_ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit ], [ 0, %..critedge4.loopexit_crit_edge ], [ %.pr, %.lr.ph119 ], [ %indvars, %159 ]
   br label %88, !llvm.loop !37
 
 .critedge:                                        ; preds = %88, %90

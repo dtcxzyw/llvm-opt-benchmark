@@ -172512,11 +172512,14 @@ define internal fastcc i64 @_ZL32buildSingleCopyAssignRecursivelyRN5clang4SemaEN
   %78 = call noundef zeroext i1 @_ZNK5clang13CXXMethodDecl24isCopyAssignmentOperatorEv(ptr noundef nonnull align 8 dereferenceable(168) %70) #28
   %.pre240 = load ptr, ptr %41, align 8, !tbaa !29
   %.pre242 = load i32, ptr %43, align 8, !tbaa !30
-  br i1 %78, label %_ZN5clang12LookupResult6Filter5eraseEv.exit.us, label %.critedge.us, !llvm.loop !3069
+  br i1 %78, label %_ZN5clang12LookupResult6Filter5eraseEv.exit.us, label %..critedge.us_crit_edge, !llvm.loop !3069
 
-.critedge.us:                                     ; preds = %76, %.lr.ph.split.us
-  %79 = phi ptr [ %67, %.lr.ph.split.us ], [ %.pre240, %76 ]
-  %80 = phi i32 [ %68, %.lr.ph.split.us ], [ %.pre242, %76 ]
+..critedge.us_crit_edge:                          ; preds = %76
+  br label %.critedge.us, !llvm.loop !3069
+
+.critedge.us:                                     ; preds = %..critedge.us_crit_edge, %.lr.ph.split.us
+  %79 = phi ptr [ %.pre240, %..critedge.us_crit_edge ], [ %67, %.lr.ph.split.us ]
+  %80 = phi i32 [ %.pre242, %..critedge.us_crit_edge ], [ %68, %.lr.ph.split.us ]
   %81 = zext i32 %80 to i64
   %82 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %79, i64 %81
   %83 = getelementptr inbounds i8, ptr %82, i64 -8
@@ -172574,7 +172577,7 @@ _ZN5clang12LookupResult6Filter5eraseEv.exit.us:   ; preds = %87, %.critedge.us, 
 ..critedge_crit_edge:                             ; preds = %104
   %.pre = load ptr, ptr %41, align 8, !tbaa !29
   %.pre236 = load i32, ptr %43, align 8, !tbaa !30
-  br label %.critedge
+  br label %.critedge, !llvm.loop !3069
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph.split
   %106 = phi i32 [ %.pre236, %..critedge_crit_edge ], [ %92, %.lr.ph.split ]

@@ -7380,7 +7380,7 @@ PyByteArray_AS_STRING.exit45.i.i.i:               ; preds = %PyByteArray_AS_STRI
 ._crit_edge.i.i.i:                                ; preds = %128
   %.pre.i.i.i = ptrtoint ptr %133 to i64
   %.pre56.i.i.i = sub i64 %105, %.pre.i.i.i
-  br label %split.i.i.i
+  br label %split.i.i.i, !llvm.loop !156
 
 split.i.i.i:                                      ; preds = %PyByteArray_AS_STRING.exit45.i.i.i, %._crit_edge.i.i.i
   %.pre-phi57.i.i.i = phi i64 [ %.pre56.i.i.i, %._crit_edge.i.i.i ], [ %125, %PyByteArray_AS_STRING.exit45.i.i.i ]
@@ -7467,7 +7467,7 @@ return_self.exit.i72.i.i:                         ; preds = %stringlib_count.exi
 .._crit_edge.i70_crit_edge.i.i:                   ; preds = %158
   %.pre164.i.i = ptrtoint ptr %162 to i64
   %.pre165.i.i = sub i64 %153, %.pre164.i.i
-  br label %._crit_edge.i70.i.i
+  br label %._crit_edge.i70.i.i, !llvm.loop !157
 
 ._crit_edge.i70.i.i:                              ; preds = %.lr.ph.i68.i.i, %.._crit_edge.i70_crit_edge.i.i
   %.pre-phi166.i.i = phi i64 [ %.pre165.i.i, %.._crit_edge.i70_crit_edge.i.i ], [ %155, %.lr.ph.i68.i.i ]
@@ -7735,7 +7735,7 @@ PyByteArray_AS_STRING.exit64.i.i.i:               ; preds = %PyByteArray_AS_STRI
 ._crit_edge.i104.i.i:                             ; preds = %276
   %.pre.i105.i.i = ptrtoint ptr %.1.i103.i.i to i64
   %.pre75.i.i.i = sub i64 %238, %.pre.i105.i.i
-  br label %split.i106.i.i
+  br label %split.i106.i.i, !llvm.loop !160
 
 split.i106.i.i:                                   ; preds = %PyByteArray_AS_STRING.exit64.i.i.i, %._crit_edge.i104.i.i
   %.pre-phi76.i.i.i = phi i64 [ %.pre75.i.i.i, %._crit_edge.i104.i.i ], [ %267, %PyByteArray_AS_STRING.exit64.i.i.i ]
@@ -7843,7 +7843,7 @@ PyByteArray_AS_STRING.exit73.i.i.i:               ; preds = %299, %297
 ._crit_edge.i118.i.i:                             ; preds = %312
   %.pre.i119.i.i = ptrtoint ptr %.1.i117.i.i to i64
   %.pre82.i.i.i = sub i64 %303, %.pre.i119.i.i
-  br label %split.i120.i.i
+  br label %split.i120.i.i, !llvm.loop !161
 
 split.i120.i.i:                                   ; preds = %304, %._crit_edge.i118.i.i
   %.pre-phi83.i.i.i = phi i64 [ %.pre82.i.i.i, %._crit_edge.i118.i.i ], [ %307, %304 ]

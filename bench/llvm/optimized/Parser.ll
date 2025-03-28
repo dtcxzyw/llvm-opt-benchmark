@@ -2490,11 +2490,14 @@ define dso_local void @_ZN5clang6Parser16ConsumeExtraSemiENS0_13ExtraSemiKindENS
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %29, ptr noundef nonnull align 8 dereferenceable(20) %12) #21
   %30 = load i16, ptr %13, align 8, !tbaa !337
   %31 = icmp eq i16 %30, 63
-  br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !1116
+  br i1 %31, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !1116
 
-.critedge:                                        ; preds = %.lr.ph105, %.lr.ph, %.lr.ph.preheader, %16
-  %.sroa.015.0.lcssa = phi i32 [ %17, %16 ], [ %17, %.lr.ph.preheader ], [ %28, %.lr.ph ], [ %28, %.lr.ph105 ]
-  %.0.lcssa = phi i1 [ false, %16 ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph ], [ true, %.lr.ph105 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph105
+  br label %.critedge, !llvm.loop !1116
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %16
+  %.sroa.015.0.lcssa = phi i32 [ %17, %16 ], [ %28, %..critedge.loopexit_crit_edge ], [ %17, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %.0.lcssa = phi i1 [ false, %16 ], [ true, %..critedge.loopexit_crit_edge ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph ]
   %32 = icmp eq i32 %1, 0
   br i1 %32, label %33, label %116
 

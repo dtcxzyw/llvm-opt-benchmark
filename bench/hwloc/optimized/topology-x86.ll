@@ -4601,8 +4601,8 @@ cpuid_or_from_dump.exit.us:                       ; preds = %.lr.ph
 .lr.ph:                                           ; preds = %.split.us, %cpuid_or_from_dump.exit.us
   %19 = phi { i32, i64, i32, i32 } [ %14, %cpuid_or_from_dump.exit.us ], [ %8, %.split.us ]
   %.066135.us149 = phi i32 [ %13, %cpuid_or_from_dump.exit.us ], [ 0, %.split.us ]
-  %exitcond191.not = icmp eq i32 %.066135.us149, 31
-  br i1 %exitcond191.not, label %.thread.loopexit.split.us, label %cpuid_or_from_dump.exit.us, !llvm.loop !160
+  %exitcond193.not = icmp eq i32 %.066135.us149, 31
+  br i1 %exitcond193.not, label %.thread.loopexit.split.us, label %cpuid_or_from_dump.exit.us, !llvm.loop !160
 
 .split138.us.loopexit:                            ; preds = %cpuid_or_from_dump.exit.us
   %20 = extractvalue { i32, i64, i32, i32 } %19, 0
@@ -4761,8 +4761,8 @@ cpuid_or_from_dump.exit:                          ; preds = %45, %47
   br i1 %or.cond125.us164, label %.split159.us, label %.lr.ph167
 
 cpuid_or_from_dump.exit95.us:                     ; preds = %116
-  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
-  %89 = trunc nuw nsw i64 %indvars.iv.next195 to i32
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
+  %89 = trunc nuw nsw i64 %indvars.iv.next197 to i32
   %90 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, i32 %2, i32 %89) #22, !srcloc !86
   %91 = extractvalue { i32, i64, i32, i32 } %90, 2
   %92 = load i32, ptr %5, align 4, !tbaa !67
@@ -4774,7 +4774,7 @@ cpuid_or_from_dump.exit95.us:                     ; preds = %116
   br i1 %or.cond125.us, label %.split159.us, label %.lr.ph167, !llvm.loop !161
 
 .lr.ph167:                                        ; preds = %.split157.us, %cpuid_or_from_dump.exit95.us
-  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %cpuid_or_from_dump.exit95.us ], [ 0, %.split157.us ]
+  %indvars.iv196 = phi i64 [ %indvars.iv.next197, %cpuid_or_from_dump.exit95.us ], [ 0, %.split157.us ]
   %.pn = phi { i32, i64, i32, i32 } [ %90, %cpuid_or_from_dump.exit95.us ], [ %84, %.split157.us ]
   %95 = phi i32 [ %91, %cpuid_or_from_dump.exit95.us ], [ %85, %.split157.us ]
   %.068154.us166 = phi i32 [ %98, %cpuid_or_from_dump.exit95.us ], [ 0, %.split157.us ]
@@ -4789,7 +4789,7 @@ cpuid_or_from_dump.exit95.us:                     ; preds = %116
   %103 = and i32 %100, %102
   store i32 %97, ptr %73, align 4, !tbaa !105
   %104 = load ptr, ptr %70, align 8, !tbaa !100
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv194
+  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv196
   store i32 -1, ptr %105, align 4, !tbaa !67
   %trunc.us = trunc i32 %99 to i8
   switch i8 %trunc.us, label %115 [
@@ -4843,8 +4843,11 @@ cpuid_or_from_dump.exit95.us:                     ; preds = %116
   br label %116
 
 116:                                              ; preds = %115, %114, %113, %112, %110, %109, %107, %.lr.ph167
-  %exitcond197.not = icmp eq i64 %indvars.iv194, 31
-  br i1 %exitcond197.not, label %.split159.us, label %cpuid_or_from_dump.exit95.us, !llvm.loop !161
+  %exitcond199.not = icmp eq i64 %indvars.iv196, 31
+  br i1 %exitcond199.not, label %..split159.us_crit_edge, label %cpuid_or_from_dump.exit95.us, !llvm.loop !161
+
+..split159.us_crit_edge:                          ; preds = %116
+  br label %.split159.us, !llvm.loop !161
 
 .split157:                                        ; preds = %71, %176
   %indvars.iv = phi i64 [ %indvars.iv.next, %176 ], [ 0, %71 ]
@@ -5002,12 +5005,12 @@ cpuid_or_from_dump.exit95:                        ; preds = %137, %139
 
 176:                                              ; preds = %158, %171, %172, %168, %169, %175, %174, %166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond193.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond193.not, label %.split159.us, label %.split157, !llvm.loop !161
+  %exitcond195.not = icmp eq i64 %indvars.iv.next, 32
+  br i1 %exitcond195.not, label %.split159.us, label %.split157, !llvm.loop !161
 
-.split159.us:                                     ; preds = %176, %cpuid_or_from_dump.exit95, %116, %cpuid_or_from_dump.exit95.us, %cpuid_or_from_dump.exit95.thread, %.split157.us
-  %.us-phi160 = phi i32 [ 0, %.split157.us ], [ %.069153, %cpuid_or_from_dump.exit95.thread ], [ %97, %cpuid_or_from_dump.exit95.us ], [ %97, %116 ], [ %.069153, %cpuid_or_from_dump.exit95 ], [ %153, %176 ]
-  %.us-phi161 = phi i32 [ 0, %.split157.us ], [ %.068154, %cpuid_or_from_dump.exit95.thread ], [ %98, %cpuid_or_from_dump.exit95.us ], [ %98, %116 ], [ %.068154, %cpuid_or_from_dump.exit95 ], [ %154, %176 ]
+.split159.us:                                     ; preds = %176, %cpuid_or_from_dump.exit95, %cpuid_or_from_dump.exit95.us, %cpuid_or_from_dump.exit95.thread, %.split157.us, %..split159.us_crit_edge
+  %.us-phi160 = phi i32 [ %97, %..split159.us_crit_edge ], [ 0, %.split157.us ], [ %.069153, %cpuid_or_from_dump.exit95.thread ], [ %97, %cpuid_or_from_dump.exit95.us ], [ %.069153, %cpuid_or_from_dump.exit95 ], [ %153, %176 ]
+  %.us-phi161 = phi i32 [ %98, %..split159.us_crit_edge ], [ 0, %.split157.us ], [ %.068154, %cpuid_or_from_dump.exit95.thread ], [ %98, %cpuid_or_from_dump.exit95.us ], [ %.068154, %cpuid_or_from_dump.exit95 ], [ %154, %176 ]
   store i32 %.us-phi160, ptr %73, align 4, !tbaa !105
   %177 = lshr i32 %.us-phi160, %.us-phi161
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 8

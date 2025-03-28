@@ -577,7 +577,7 @@ async_job_free.exit:                              ; preds = %22
 .split5.i:                                        ; preds = %32
   %35 = tail call ptr @OPENSSL_sk_pop(ptr noundef nonnull %33) #8
   %cond.i = icmp eq ptr %35, null
-  br i1 %cond.i, label %async_empty_pool.exit, label %.split.i
+  br i1 %cond.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !38
 
 .split.i:                                         ; preds = %.split5.i, %.split.i
   %.sink14.i = phi ptr [ %39, %.split.i ], [ %35, %.split5.i ]
@@ -589,7 +589,7 @@ async_job_free.exit:                              ; preds = %22
   %38 = load ptr, ptr %10, align 8, !tbaa !32
   %39 = tail call ptr @OPENSSL_sk_pop(ptr noundef %38) #8
   %cond10.i = icmp eq ptr %39, null
-  br i1 %cond10.i, label %async_empty_pool.exit, label %.split.i
+  br i1 %cond10.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !38
 
 async_empty_pool.exit:                            ; preds = %.split.i, %32, %.split5.i
   %40 = load ptr, ptr %10, align 8, !tbaa !32
@@ -618,7 +618,7 @@ define internal void @async_delete_thread_state(ptr readnone captures(none) %0) 
 .split5.i:                                        ; preds = %3
   %6 = tail call ptr @OPENSSL_sk_pop(ptr noundef nonnull %4) #8
   %cond.i = icmp eq ptr %6, null
-  br i1 %cond.i, label %async_empty_pool.exit, label %.split.i
+  br i1 %cond.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !38
 
 .split.i:                                         ; preds = %.split5.i, %.split.i
   %.sink14.i = phi ptr [ %10, %.split.i ], [ %6, %.split5.i ]
@@ -630,7 +630,7 @@ define internal void @async_delete_thread_state(ptr readnone captures(none) %0) 
   %9 = load ptr, ptr %2, align 8, !tbaa !32
   %10 = tail call ptr @OPENSSL_sk_pop(ptr noundef %9) #8
   %cond10.i = icmp eq ptr %10, null
-  br i1 %cond10.i, label %async_empty_pool.exit, label %.split.i
+  br i1 %cond10.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !38
 
 async_empty_pool.exit:                            ; preds = %.split.i, %3, %.split5.i
   %11 = load ptr, ptr %2, align 8, !tbaa !32
@@ -837,3 +837,5 @@ attributes #10 = { noreturn nounwind }
 !35 = !{!21, !23, i64 1208}
 !36 = !{!33, !7, i64 16}
 !37 = !{!33, !7, i64 8}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.mustprogress"}

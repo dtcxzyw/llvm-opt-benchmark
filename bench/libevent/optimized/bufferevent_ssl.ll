@@ -1641,7 +1641,7 @@ define internal fastcc void @consider_reading(ptr noundef %0) unnamed_addr #0 {
 
 ._crit_edge55:                                    ; preds = %6
   %.pre = load i8, ptr %2, align 4
-  br label %split
+  br label %split, !llvm.loop !3
 
 split:                                            ; preds = %3, %._crit_edge55
   %8 = phi i8 [ %.pre, %._crit_edge55 ], [ %4, %3 ]
@@ -2626,7 +2626,7 @@ bufferevent_trigger_nolock_.exit:                 ; preds = %17, %13, %10
 
 bufferevent_trigger_nolock_.exit._crit_edge:      ; preds = %bufferevent_trigger_nolock_.exit
   %.pre = load i8, ptr %4, align 4
-  br label %split
+  br label %split, !llvm.loop !8
 
 split:                                            ; preds = %7, %bufferevent_trigger_nolock_.exit._crit_edge
   %18 = phi i8 [ %.pre, %bufferevent_trigger_nolock_.exit._crit_edge ], [ %8, %7 ]

@@ -36642,9 +36642,9 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %.15.vec.insert.i.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %44
 
-44:                                               ; preds = %76, %.noexc3
-  %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc3 ], [ %77, %76 ]
-  %.pn.i.i.i.i.i = phi i64 [ %40, %.noexc3 ], [ %78, %76 ]
+44:                                               ; preds = %77, %.noexc3
+  %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc3 ], [ %78, %77 ]
+  %.pn.i.i.i.i.i = phi i64 [ %40, %.noexc3 ], [ %79, %77 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i
   %45 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i33.i.i.i.i = load <16 x i8>, ptr %45, align 1, !noalias !6599
@@ -36657,7 +36657,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %48 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i.i, splat (i8 -1)
   %49 = bitcast <16 x i1> %48 to i16
   %.not.i.i.i.i.i = icmp eq i16 %49, 0
-  br i1 %.not.i.i.i.i.i, label %76, label %.loopexit14
+  br i1 %.not.i.i.i.i.i, label %77, label %.loopexit14
 
 .lr.ph.i.i.i.i:                                   ; preds = %44, %.backedge.i.i.i.i
   %.02337.i.i.i.i = phi i16 [ %53, %.backedge.i.i.i.i ], [ %47, %44 ]
@@ -36699,105 +36699,105 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 69:                                               ; preds = %.noexc6
   %70 = getelementptr inbounds i8, ptr %57, i64 -5
   %71 = load i8, ptr %70, align 1, !range !988, !alias.scope !6624, !noalias !6625, !noundef !5
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %29, %71
-  br i1 %.not.i.i.i.i.i.i.i.i, label %72, label %.backedge.i.i.i.i
+  %72 = icmp eq i8 %29, %71
+  br i1 %72, label %73, label %.backedge.i.i.i.i
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %57, i64 -6
-  %74 = load i8, ptr %73, align 2, !range !6590, !alias.scope !6624, !noalias !6625, !noundef !5
-  %75 = icmp eq i8 %36, %74
-  br i1 %75, label %79, label %.backedge.i.i.i.i
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds i8, ptr %57, i64 -6
+  %75 = load i8, ptr %74, align 2, !range !6590, !alias.scope !6624, !noalias !6625, !noundef !5
+  %76 = icmp eq i8 %36, %75
+  br i1 %76, label %80, label %.backedge.i.i.i.i
 
-.backedge.i.i.i.i:                                ; preds = %72, %69, %.noexc6, %.noexc5, %.noexc4
+.backedge.i.i.i.i:                                ; preds = %73, %69, %.noexc6, %.noexc5, %.noexc4
   %.not.i4.i.i.i.i = icmp eq i16 %53, 0
   br i1 %.not.i4.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-76:                                               ; preds = %._crit_edge.i.i.i.i
-  %77 = add i64 %.sroa.9.0.i.i.i.i.i, 16
-  %78 = add i64 %.sroa.01.0.i.i.i.i.i, %77
+77:                                               ; preds = %._crit_edge.i.i.i.i
+  %78 = add i64 %.sroa.9.0.i.i.i.i.i, 16
+  %79 = add i64 %.sroa.01.0.i.i.i.i.i, %78
   br label %44
 
-79:                                               ; preds = %72
-  %80 = getelementptr inbounds i8, ptr %57, i64 -4
-  %81 = load i32, ptr %80, align 4, !range !14, !noalias !6549, !noundef !5
+80:                                               ; preds = %73
+  %81 = getelementptr inbounds i8, ptr %57, i64 -4
+  %82 = load i32, ptr %81, align 4, !range !14, !noalias !6549, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !6626)
-  %82 = invoke noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %81)
+  %83 = invoke noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %82)
           to label %.noexc7 unwind label %.loopexit.split-lp
 
-.noexc7:                                          ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %84 = load i64, ptr %83, align 8, !alias.scope !6629, !noalias !6552, !noundef !5
-  %85 = icmp ult i64 %82, %84
-  br i1 %85, label %86, label %93, !prof !6292
+.noexc7:                                          ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %85 = load i64, ptr %84, align 8, !alias.scope !6629, !noalias !6552, !noundef !5
+  %86 = icmp ult i64 %83, %85
+  br i1 %86, label %87, label %94, !prof !6292
 
-86:                                               ; preds = %.noexc7
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = load ptr, ptr %87, align 8, !alias.scope !6629, !noalias !6552, !nonnull !5, !noundef !5
-  %89 = getelementptr inbounds [0 x ptr], ptr %88, i64 0, i64 %82
-  %90 = load ptr, ptr %89, align 8, !noalias !6629, !nonnull !5, !noundef !5
-  %91 = atomicrmw add ptr %90, i64 1 monotonic, align 8, !noalias !6629
-  %92 = icmp slt i64 %91, 0
-  br i1 %92, label %94, label %.loopexit14
+87:                                               ; preds = %.noexc7
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %89 = load ptr, ptr %88, align 8, !alias.scope !6629, !noalias !6552, !nonnull !5, !noundef !5
+  %90 = getelementptr inbounds [0 x ptr], ptr %89, i64 0, i64 %83
+  %91 = load ptr, ptr %90, align 8, !noalias !6629, !nonnull !5, !noundef !5
+  %92 = atomicrmw add ptr %91, i64 1 monotonic, align 8, !noalias !6629
+  %93 = icmp slt i64 %92, 0
+  br i1 %93, label %95, label %.loopexit14
 
-93:                                               ; preds = %.noexc7
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %82, i64 noundef %84, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.117.llvm.2095514371065220994) #26
+94:                                               ; preds = %.noexc7
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %83, i64 noundef %85, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.117.llvm.2095514371065220994) #26
           to label %.noexc8 unwind label %.loopexit.split-lp
 
-.noexc8:                                          ; preds = %93
+.noexc8:                                          ; preds = %94
   unreachable
 
-94:                                               ; preds = %86
+95:                                               ; preds = %87
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #26
           to label %.noexc9 unwind label %.loopexit.split-lp
 
-.noexc9:                                          ; preds = %94
+.noexc9:                                          ; preds = %95
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %60, %66
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %96
 
-.loopexit.split-lp:                               ; preds = %17, %.noexc, %.noexc2, %79, %93, %94
+.loopexit.split-lp:                               ; preds = %17, %.noexc, %.noexc2, %80, %94, %95
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %96
 
-95:                                               ; preds = %.loopexit.split-lp, %.loopexit
+96:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %96 = atomicrmw sub ptr %0, i64 16 release, align 8, !noalias !6630
-  %97 = and i64 %96, -14
-  %98 = icmp eq i64 %97, 18
-  br i1 %98, label %99, label %"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit"
+  %97 = atomicrmw sub ptr %0, i64 16 release, align 8, !noalias !6630
+  %98 = and i64 %97, -14
+  %99 = icmp eq i64 %98, 18
+  br i1 %99, label %100, label %"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit"
 
-99:                                               ; preds = %95
+100:                                              ; preds = %96
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %0)
-          to label %"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit" unwind label %106
+          to label %"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit" unwind label %107
 
-.loopexit14:                                      ; preds = %._crit_edge.i.i.i.i, %86, %13
-  %.sroa.3.0.i = phi i32 [ %81, %86 ], [ undef, %13 ], [ undef, %._crit_edge.i.i.i.i ]
-  %.sroa.0.0.i = phi ptr [ %90, %86 ], [ null, %13 ], [ null, %._crit_edge.i.i.i.i ]
-  %100 = atomicrmw sub ptr %0, i64 16 release, align 8, !noalias !6635
-  %101 = and i64 %100, -14
-  %102 = icmp eq i64 %101, 18
-  br i1 %102, label %103, label %"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit11"
+.loopexit14:                                      ; preds = %._crit_edge.i.i.i.i, %87, %13
+  %.sroa.3.0.i = phi i32 [ %82, %87 ], [ undef, %13 ], [ undef, %._crit_edge.i.i.i.i ]
+  %.sroa.0.0.i = phi ptr [ %91, %87 ], [ null, %13 ], [ null, %._crit_edge.i.i.i.i ]
+  %101 = atomicrmw sub ptr %0, i64 16 release, align 8, !noalias !6635
+  %102 = and i64 %101, -14
+  %103 = icmp eq i64 %102, 18
+  br i1 %103, label %104, label %"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit11"
 
-103:                                              ; preds = %.loopexit14
+104:                                              ; preds = %.loopexit14
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %0), !noalias !6635
   br label %"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit11"
 
-"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit11": ; preds = %.loopexit14, %103
-  %104 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i, 0
-  %105 = insertvalue { ptr, i32 } %104, i32 %.sroa.3.0.i, 1
-  ret { ptr, i32 } %105
+"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit11": ; preds = %.loopexit14, %104
+  %105 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i, 0
+  %106 = insertvalue { ptr, i32 } %105, i32 %.sroa.3.0.i, 1
+  ret { ptr, i32 } %106
 
-106:                                              ; preds = %99
-  %107 = landingpad { ptr, i32 }
+107:                                              ; preds = %100
+  %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27
   unreachable
 
-"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit": ; preds = %95, %99
+"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994.exit": ; preds = %96, %100
   resume { ptr, i32 } %lpad.phi
 }
 

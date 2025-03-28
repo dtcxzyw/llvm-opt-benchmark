@@ -97,7 +97,7 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef readonly captures(none) 
   %21 = sub nsw i32 %.val61.val.us, %.val60.us
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next123, %22
-  br i1 %23, label %.lr.ph90.split.us, label %.critedge2, !llvm.loop !34
+  br i1 %23, label %.lr.ph90.split.us, label %.critedge.us..critedge2.loopexit_crit_edge, !llvm.loop !34
 
 .lr.ph90.split.split.us:                          ; preds = %.lr.ph90
   %24 = getelementptr i8, ptr %0, i64 32
@@ -161,8 +161,11 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef readonly captures(none) 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph.split, !llvm.loop !37
 
-.critedge2:                                       ; preds = %.critedge.us96, %.critedge.us, %.lr.ph90.split.us, %.lr.ph90.split.us.preheader, %.critedge.preheader
-  %.val57105136 = phi i32 [ %.val56, %.critedge.preheader ], [ %.val56, %.lr.ph90.split.us.preheader ], [ %.val60.us, %.lr.ph90.split.us ], [ %.val60.us, %.critedge.us ], [ %.val56, %.critedge.us96 ]
+.critedge.us..critedge2.loopexit_crit_edge:       ; preds = %.critedge.us
+  br label %.critedge2, !llvm.loop !34
+
+.critedge2:                                       ; preds = %.critedge.us96, %.lr.ph90.split.us, %.lr.ph90.split.us.preheader, %.critedge.us..critedge2.loopexit_crit_edge, %.critedge.preheader
+  %.val57105136 = phi i32 [ %.val56, %.critedge.preheader ], [ %.val60.us, %.critedge.us..critedge2.loopexit_crit_edge ], [ %.val56, %.lr.ph90.split.us.preheader ], [ %.val60.us, %.lr.ph90.split.us ], [ %.val56, %.critedge.us96 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %58 = load i32, ptr %57, align 8, !tbaa !38
   %59 = icmp sgt i32 %58, 0

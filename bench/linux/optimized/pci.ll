@@ -951,15 +951,18 @@ define dso_local zeroext range(i16 0, 4093) i16 @pci_find_ext_capability(ptr nou
   %23 = icmp ne i32 %22, 0
   %24 = icmp eq i32 %16, 0
   %or.cond = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !10
+  br i1 %or.cond, label %..loopexit.loopexit_crit_edge4, label %.preheaderthread-pre-split, !llvm.loop !10
 
 .preheader..loopexit.loopexit_crit_edge:          ; preds = %.preheaderthread-pre-split
   %25 = trunc nuw nsw i32 %20 to i16
   %26 = and i16 %25, 4092
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %19, %.preheader.preheader, %.preheader..loopexit.loopexit_crit_edge, %7, %2
-  %27 = phi i16 [ 0, %2 ], [ 0, %7 ], [ %26, %.preheader..loopexit.loopexit_crit_edge ], [ 256, %.preheader.preheader ], [ 0, %19 ], [ 0, %.lr.ph ]
+..loopexit.loopexit_crit_edge4:                   ; preds = %19
+  br label %.loopexit, !llvm.loop !10
+
+.loopexit:                                        ; preds = %.lr.ph, %.preheader.preheader, %.preheader..loopexit.loopexit_crit_edge, %..loopexit.loopexit_crit_edge4, %7, %2
+  %27 = phi i16 [ 0, %2 ], [ 0, %7 ], [ %26, %.preheader..loopexit.loopexit_crit_edge ], [ 0, %..loopexit.loopexit_crit_edge4 ], [ 256, %.preheader.preheader ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
   ret i16 %27
 }
@@ -6360,15 +6363,18 @@ define dso_local void @pci_acs_init(ptr noundef %0) local_unnamed_addr #5 align 
   %22 = icmp ne i32 %21, 0
   %23 = icmp eq i32 %15, 0
   %or.cond = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !10
+  br i1 %or.cond, label %..loopexit.loopexit_crit_edge4, label %.preheaderthread-pre-split, !llvm.loop !10
 
 .preheader..loopexit.loopexit_crit_edge:          ; preds = %.preheaderthread-pre-split
   %24 = trunc nuw nsw i32 %19 to i16
   %25 = and i16 %24, 4092
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %18, %.preheader.preheader, %.preheader..loopexit.loopexit_crit_edge, %6, %1
-  %26 = phi i16 [ 0, %1 ], [ 0, %6 ], [ %25, %.preheader..loopexit.loopexit_crit_edge ], [ 256, %.preheader.preheader ], [ 0, %18 ], [ 0, %.lr.ph ]
+..loopexit.loopexit_crit_edge4:                   ; preds = %18
+  br label %.loopexit, !llvm.loop !10
+
+.loopexit:                                        ; preds = %.lr.ph, %.preheader.preheader, %.preheader..loopexit.loopexit_crit_edge, %..loopexit.loopexit_crit_edge4, %6, %1
+  %26 = phi i16 [ 0, %1 ], [ 0, %6 ], [ %25, %.preheader..loopexit.loopexit_crit_edge ], [ 0, %..loopexit.loopexit_crit_edge4 ], [ 256, %.preheader.preheader ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2034
   store i16 %26, ptr %27, align 2

@@ -18757,7 +18757,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit51.thread:   ; preds = %86, %81, %_ZNK11ast
 
 ..critedge_crit_edge:                             ; preds = %125
   %.pr.pre = load i32, ptr %24, align 8, !tbaa !520
-  br label %.critedge
+  br label %.critedge, !llvm.loop !522
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %116
   %.pr = phi i32 [ %.pr.pre, %..critedge_crit_edge ], [ %121, %116 ]

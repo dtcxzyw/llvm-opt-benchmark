@@ -498,18 +498,18 @@ sub_0:                                            ; preds = %147
 
 fgetline.exit.preheader:                          ; preds = %159
   %161 = call i64 @strcspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.53) #12
-  %sext.i127 = shl i64 %161, 32
-  %162 = ashr exact i64 %sext.i127, 32
+  %sext.i130 = shl i64 %161, 32
+  %162 = ashr exact i64 %sext.i130, 32
   %163 = getelementptr i8, ptr %7, i64 %162
   store i8 0, ptr %163, align 1
   %164 = and i64 %161, 2147483648
   %165 = icmp eq i64 %164, 0
-  br i1 %165, label %.lr.ph129, label %fgetline.exit.thread
+  br i1 %165, label %.lr.ph132, label %fgetline.exit.thread
 
-166:                                              ; preds = %.lr.ph129
+166:                                              ; preds = %.lr.ph132
   %167 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef %.035)
   %.not.i59 = icmp eq ptr %167, null
-  br i1 %.not.i59, label %fgetline.exit.thread, label %fgetline.exit, !llvm.loop !10
+  br i1 %.not.i59, label %.fgetline.exit.thread.loopexit_crit_edge, label %fgetline.exit, !llvm.loop !10
 
 fgetline.exit:                                    ; preds = %166
   %168 = call i64 @strcspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.53) #12
@@ -523,15 +523,21 @@ fgetline.exit:                                    ; preds = %166
 
 .critedge:                                        ; preds = %fgetline.exit
   %173 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.26)
-  br label %.lr.ph129
+  br label %.lr.ph132
 
-.lr.ph129:                                        ; preds = %fgetline.exit.preheader, %.critedge
+.lr.ph132:                                        ; preds = %fgetline.exit.preheader, %.critedge
   %174 = call fastcc i32 @test_filter(ptr noundef nonnull %7)
   %.not55 = icmp eq i32 %174, 0
-  br i1 %.not55, label %166, label %fgetline.exit.thread, !llvm.loop !10
+  br i1 %.not55, label %166, label %.fgetline.exit.thread_crit_edge79, !llvm.loop !10
 
-fgetline.exit.thread:                             ; preds = %166, %.lr.ph129, %fgetline.exit, %fgetline.exit.preheader, %159
-  %.3 = phi i32 [ 1, %159 ], [ 1, %fgetline.exit.preheader ], [ 0, %fgetline.exit ], [ %174, %.lr.ph129 ], [ 0, %166 ]
+.fgetline.exit.thread_crit_edge79:                ; preds = %.lr.ph132
+  br label %fgetline.exit.thread, !llvm.loop !10
+
+.fgetline.exit.thread.loopexit_crit_edge:         ; preds = %166
+  br label %fgetline.exit.thread, !llvm.loop !10
+
+fgetline.exit.thread:                             ; preds = %fgetline.exit, %fgetline.exit.preheader, %.fgetline.exit.thread.loopexit_crit_edge, %.fgetline.exit.thread_crit_edge79, %159
+  %.3 = phi i32 [ %174, %.fgetline.exit.thread_crit_edge79 ], [ 1, %159 ], [ 0, %.fgetline.exit.thread.loopexit_crit_edge ], [ 1, %fgetline.exit.preheader ], [ 0, %fgetline.exit ]
   %175 = call i32 @fclose(ptr noundef %.035)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #11
   br label %188

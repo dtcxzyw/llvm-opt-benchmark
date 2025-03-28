@@ -494,8 +494,8 @@ _ZN4llvm6Module19getOrInsertFunctionIJPNS_11PointerTypeEEEENS_14FunctionCalleeEN
 
 ._crit_edge.i:                                    ; preds = %177
   %.pre.i = load i32, ptr %117, align 8, !tbaa !151
-  %.not396.i = icmp eq i32 %.pre.i, 0
-  br i1 %.not396.i, label %._crit_edge.thread.i, label %179
+  %.not398.i = icmp eq i32 %.pre.i, 0
+  br i1 %.not398.i, label %._crit_edge.thread.i, label %179
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i: ; preds = %_ZN4llvm6Module19getOrInsertFunctionIJPNS_11PointerTypeEEEENS_14FunctionCalleeENS_9StringRefEPNS_4TypeEDpT_.exit26, %177
   %.sroa.0312.0345.i = phi ptr [ %.sroa.0312.0.i, %177 ], [ %.sroa.0312.0343.i, %_ZN4llvm6Module19getOrInsertFunctionIJPNS_11PointerTypeEEEENS_14FunctionCalleeENS_9StringRefEPNS_4TypeEDpT_.exit26 ]
@@ -630,11 +630,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10ReturnInstELb1EE9push_backES2_.exit.i: ;
   %188 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i, i64 -24
   %189 = load i8, ptr %188, align 8, !tbaa !166
   %190 = icmp eq i8 %189, 60
-  br i1 %190, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !193
+  br i1 %190, label %.lr.ph.i.i, label %..critedge.i.loopexit_crit_edge.i, !llvm.loop !193
 
-.critedge.i.i:                                    ; preds = %.lr.ph.i, %.lr.ph.i.i, %.lr.ph.i.preheader.i, %179
-  %.sroa.8.0.lcssa.i.i = phi i64 [ 1, %179 ], [ 1, %.lr.ph.i.preheader.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
-  %.sroa.05.0.lcssa.i.i = phi ptr [ %.sroa.05.011.i.i, %179 ], [ %.sroa.05.011.i.i, %.lr.ph.i.preheader.i ], [ %.sroa.05.0.i.i, %.lr.ph.i.i ], [ %.sroa.05.0.i.i, %.lr.ph.i ]
+..critedge.i.loopexit_crit_edge.i:                ; preds = %.lr.ph.i
+  br label %.critedge.i.i, !llvm.loop !193
+
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i, %..critedge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i, %179
+  %.sroa.8.0.lcssa.i.i = phi i64 [ 1, %179 ], [ 0, %..critedge.i.loopexit_crit_edge.i ], [ 1, %.lr.ph.i.preheader.i ], [ 0, %.lr.ph.i.i ]
+  %.sroa.05.0.lcssa.i.i = phi ptr [ %.sroa.05.011.i.i, %179 ], [ %.sroa.05.0.i.i, %..critedge.i.loopexit_crit_edge.i ], [ %.sroa.05.011.i.i, %.lr.ph.i.preheader.i ], [ %.sroa.05.0.i.i, %.lr.ph.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %192 = load i16, ptr %191, align 2, !tbaa !195
   %193 = and i16 %192, 1
@@ -2077,7 +2080,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
   br i1 %.not174.i, label %._crit_edge376.i, label %769
 
 ._crit_edge.thread.i:                             ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i, %._crit_edge.i, %_ZN4llvm6Module19getOrInsertFunctionIJPNS_11PointerTypeEEEENS_14FunctionCalleeENS_9StringRefEPNS_4TypeEDpT_.exit26
-  %.not.i388.i = phi i1 [ false, %._crit_edge.i ], [ true, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i ], [ false, %_ZN4llvm6Module19getOrInsertFunctionIJPNS_11PointerTypeEEEENS_14FunctionCalleeENS_9StringRefEPNS_4TypeEDpT_.exit26 ]
+  %.not.i389.i = phi i1 [ false, %._crit_edge.i ], [ true, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i ], [ false, %_ZN4llvm6Module19getOrInsertFunctionIJPNS_11PointerTypeEEEENS_14FunctionCalleeENS_9StringRefEPNS_4TypeEDpT_.exit26 ]
   %781 = load ptr, ptr %119, align 8, !tbaa !149
   %782 = icmp eq ptr %781, %120
   br i1 %782, label %_ZN4llvm9SetVectorIPNS_14LandingPadInstENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EED2Ev.exit.i, label %783
@@ -2114,7 +2117,7 @@ _ZN4llvm11SmallVectorIPNS_10InvokeInstELj16EED2Ev.exit.i: ; preds = %791, %_ZN4l
 
 _ZN12_GLOBAL__N_117SjLjEHPrepareImpl27setupEntryBlockAndCallSitesERN4llvm8FunctionE.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_10InvokeInstELj16EED2Ev.exit.i, %794
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %36) #17
-  ret i1 %.not.i388.i
+  ret i1 %.not.i389.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

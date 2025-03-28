@@ -3200,7 +3200,7 @@ define internal fastcc i32 @sg_finish_rem_req(ptr noundef captures(none) %0) unn
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %49
   %.pre.pre = load ptr, ptr %27, align 8
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %43, %..loopexit.loopexit_crit_edge, %38
   %55 = phi ptr [ %28, %38 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %45, %43 ]
@@ -3339,7 +3339,7 @@ define internal fastcc void @sg_remove_scat(ptr noundef captures(none) %0) unnam
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %24
   %.pre.pre = load ptr, ptr %2, align 8
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %18, %..loopexit.loopexit_crit_edge, %13
   %30 = phi ptr [ %3, %13 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %20, %18 ]
@@ -4803,7 +4803,7 @@ define internal void @sg_remove_sfp_usercontext(ptr noundef %0) #2 align 16 {
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %46
   %.pre.pre = load ptr, ptr %24, align 8
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %40, %..loopexit.loopexit_crit_edge, %35
   %52 = phi ptr [ %25, %35 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %42, %40 ]
@@ -4938,7 +4938,7 @@ define internal fastcc void @sg_build_reserve(ptr noundef nonnull captures(none)
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %32
   %.pre.pre = load ptr, ptr %4, align 8
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader, %..loopexit.loopexit_crit_edge, %24
   %38 = phi ptr [ %16, %24 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %28, %.preheader ]
@@ -5526,7 +5526,7 @@ define internal fastcc noundef ptr @sg_add_sfp(ptr noundef %0) unnamed_addr #2 a
 
 ..loopexit.loopexit_crit_edge.i:                  ; preds = %72
   %.pre.pre.i = load ptr, ptr %45, align 8
-  br label %.loopexit.i
+  br label %.loopexit.i, !llvm.loop !56
 
 .loopexit.i:                                      ; preds = %.preheader.i, %..loopexit.loopexit_crit_edge.i, %64
   %78 = phi ptr [ %56, %64 ], [ %.pre.pre.i, %..loopexit.loopexit_crit_edge.i ], [ %68, %.preheader.i ]

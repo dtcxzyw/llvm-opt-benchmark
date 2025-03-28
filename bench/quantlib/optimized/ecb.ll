@@ -3561,10 +3561,13 @@ if.end122:                                        ; preds = %if.then79, %_ZN5boo
   %and.i32 = and i64 %109, -2
   %110 = inttoptr i64 %and.i32 to ptr
   %cmp.not = icmp eq ptr %x.addr.3, %110
-  br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !92
+  br i1 %cmp.not, label %if.end122.while.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !92
 
-while.end:                                        ; preds = %if.end122, %land.rhs, %land.rhs.preheader, %entry
-  %.lcssa = phi ptr [ %3, %entry ], [ %3, %land.rhs.preheader ], [ %110, %land.rhs ], [ %110, %if.end122 ]
+if.end122.while.end.loopexit_crit_edge:           ; preds = %if.end122
+  br label %while.end, !llvm.loop !92
+
+while.end:                                        ; preds = %land.rhs, %land.rhs.preheader, %if.end122.while.end.loopexit_crit_edge, %entry
+  %.lcssa = phi ptr [ %3, %entry ], [ %110, %if.end122.while.end.loopexit_crit_edge ], [ %3, %land.rhs.preheader ], [ %110, %land.rhs ]
   %111 = load i64, ptr %.lcssa, align 8, !tbaa !8
   %or.i166 = or i64 %111, 1
   store i64 %or.i166, ptr %.lcssa, align 8, !tbaa !8

@@ -85,9 +85,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   %34 = load i64, ptr %33, align 8, !tbaa !4
   %35 = urem i64 %34, %19
   %.not19.i.i.i.i = icmp eq i64 %35, %20
-  br i1 %.not19.i.i.i.i, label %29, label %.loopexit, !llvm.loop !23
+  br i1 %.not19.i.i.i.i, label %29, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !23
 
-.loopexit:                                        ; preds = %32, %.lr.ph.i.i.i.i, %12, %17
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %32
+  br label %.loopexit, !llvm.loop !23
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %12, %17, %..loopexit_crit_edge21.i.i.i.i
   %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %37 unwind label %38
 
@@ -156,9 +159,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unord
   %20 = load i64, ptr %19, align 8, !tbaa !4
   %21 = urem i64 %20, %5
   %.not19.i.i.i = icmp eq i64 %21, %6
-  br i1 %.not19.i.i.i, label %15, label %.loopexit.i, !llvm.loop !23
+  br i1 %.not19.i.i.i, label %15, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !23
 
-.loopexit.i:                                      ; preds = %18, %.lr.ph.i.i.i, %2
+..loopexit_crit_edge21.i.i.i:                     ; preds = %18
+  br label %.loopexit.i, !llvm.loop !23
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %2
   %22 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   store ptr null, ptr %22, align 8, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -259,8 +265,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %5 = load ptr, ptr %0, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !27
-  %.not59 = icmp eq ptr %5, %7
-  br i1 %.not59, label %.loopexit, label %.lr.ph
+  %.not63 = icmp eq ptr %5, %7
+  br i1 %.not63, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -271,8 +277,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   br label %13
 
 13:                                               ; preds = %.lr.ph, %90
-  %.sroa.033.060 = phi ptr [ %5, %.lr.ph ], [ %84, %90 ]
-  %14 = load i64, ptr %.sroa.033.060, align 8, !tbaa !35
+  %.sroa.033.064 = phi ptr [ %5, %.lr.ph ], [ %84, %90 ]
+  %14 = load i64, ptr %.sroa.033.064, align 8, !tbaa !35
   %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %8) #13
   %.not.i.i19 = icmp eq i32 %15, 0
   br i1 %.not.i.i19, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit20, label %16
@@ -332,13 +338,16 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit20:        ; preds = %13
   %38 = load i64, ptr %37, align 8, !tbaa !4
   %39 = urem i64 %38, %23
   %.not19.i.i.i.i = icmp eq i64 %39, %24
-  br i1 %.not19.i.i.i.i, label %33, label %.critedge18, !llvm.loop !23
+  br i1 %.not19.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !23
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
+  br label %.critedge18, !llvm.loop !23
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit: ; preds = %33, %18, %28
   %.sroa.06.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i, %18 ], [ %35, %33 ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %41 = load i64, ptr %40, align 8, !tbaa !24
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.033.060, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.033.064, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !38
   %44 = icmp ult i64 %41, %43
   br i1 %44, label %.critedge18, label %48
@@ -420,7 +429,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   store i64 %78, ptr %10, align 8, !tbaa !8
   %79 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #13
   %80 = load ptr, ptr %0, align 8, !tbaa !27
-  %81 = ptrtoint ptr %.sroa.033.060 to i64
+  %81 = ptrtoint ptr %.sroa.033.064 to i64
   %82 = ptrtoint ptr %80 to i64
   %83 = sub i64 %81, %82
   %84 = getelementptr inbounds i8, ptr %80, i64 %83
@@ -441,10 +450,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN7rocksdb19LogsWithPrepTracker6LogCntE
   %91 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN7rocksdb19LogsWithPrepTracker6LogCntESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %86, %75 ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -16
   store ptr %92, ptr %6, align 8, !tbaa !41
-  %.not = icmp eq ptr %.sroa.033.060, %92
+  %.not = icmp eq ptr %.sroa.033.064, %92
   br i1 %.not, label %.loopexit, label %13, !llvm.loop !43
 
-.critedge18:                                      ; preds = %22, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit, %.lr.ph.i.i.i.i, %36, %.preheader
+.critedge18:                                      ; preds = %22, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit, %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i
   %93 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #13
   br label %.loopexit
 

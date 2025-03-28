@@ -5194,7 +5194,7 @@ define internal fastcc range(i32 -216, 1) i32 @fetch_name(i32 noundef %0, ptr no
 get_name_end_code_point.exit:                     ; preds = %7, %11, %12, %13, %14
   %.0.i = phi i32 [ 0, %14 ], [ 125, %13 ], [ 41, %12 ], [ 39, %11 ], [ 62, %7 ]
   %15 = icmp ult ptr %10, %2
-  br i1 %15, label %16, label %150
+  br i1 %15, label %16, label %151
 
 16:                                               ; preds = %get_name_end_code_point.exit
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -5231,7 +5231,7 @@ get_name_end_code_point.exit:                     ; preds = %7, %11, %12, %13, %
   %37 = sext i32 %36 to i64
   %38 = getelementptr i8, ptr %10, i64 %37
   %39 = icmp eq i32 %29, %.0.i
-  br i1 %39, label %150, label %40
+  br i1 %39, label %151, label %40
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -5278,11 +5278,11 @@ get_name_end_code_point.exit:                     ; preds = %7, %11, %12, %13, %
 55:                                               ; preds = %49
   %56 = load ptr, ptr %48, align 8, !tbaa !69
   %57 = tail call i32 %56(ptr noundef %.0172, ptr noundef nonnull %2, ptr noundef nonnull %9) #25
-  %.pre195 = load i32, ptr %17, align 8, !tbaa !68
+  %.pre196 = load i32, ptr %17, align 8, !tbaa !68
   br label %58
 
 58:                                               ; preds = %55, %52
-  %59 = phi i32 [ 1, %52 ], [ %.pre195, %55 ]
+  %59 = phi i32 [ 1, %52 ], [ %.pre196, %55 ]
   %60 = phi i32 [ %54, %52 ], [ %57, %55 ]
   %61 = load i32, ptr %30, align 4, !tbaa !45
   %62 = icmp eq i32 %59, %61
@@ -5333,7 +5333,7 @@ get_name_end_code_point.exit:                     ; preds = %7, %11, %12, %13, %
   %.1110 = phi ptr [ %.0172, %71 ], [ %2, %.preheader ], [ %.0172, %80 ]
   %.1 = phi ptr [ %68, %71 ], [ %38, %.preheader ], [ %68, %80 ]
   %.not139 = icmp eq i32 %.1116, %.0.i
-  br i1 %.not139, label %81, label %146
+  br i1 %.not139, label %81, label %147
 
 81:                                               ; preds = %.loopexit
   %.not140 = icmp eq i32 %.1122166, 0
@@ -5345,7 +5345,7 @@ get_name_end_code_point.exit:                     ; preds = %7, %11, %12, %13, %
 
 .thread156:                                       ; preds = %82
   store i32 0, ptr %5, align 4, !tbaa !11
-  br label %146
+  br label %147
 
 .lr.ph.i:                                         ; preds = %82
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -5400,7 +5400,7 @@ get_name_end_code_point.exit:                     ; preds = %7, %11, %12, %13, %
 
 onig_scan_unsigned_number.exit.thread:            ; preds = %106
   store i32 -1, ptr %5, align 4, !tbaa !11
-  br label %150
+  br label %151
 
 113:                                              ; preds = %106
   %114 = mul i32 %.03238.i, 10
@@ -5412,11 +5412,11 @@ onig_scan_unsigned_number.exit:                   ; preds = %100, %113
   %.031.i = phi i32 [ %.03238.i, %100 ], [ %115, %113 ]
   store i32 %.031.i, ptr %5, align 4, !tbaa !11
   %116 = icmp slt i32 %.031.i, 0
-  br i1 %116, label %150, label %117
+  br i1 %116, label %151, label %117
 
 117:                                              ; preds = %onig_scan_unsigned_number.exit
   %118 = icmp eq i32 %.031.i, 0
-  br i1 %118, label %146, label %119
+  br i1 %118, label %147, label %119
 
 119:                                              ; preds = %117
   %120 = mul nsw i32 %.031.i, %.0120151.ph
@@ -5426,77 +5426,82 @@ onig_scan_unsigned_number.exit:                   ; preds = %100, %113
 121:                                              ; preds = %119, %81
   store ptr %.1110, ptr %3, align 8, !tbaa !67
   store ptr %.1, ptr %1, align 8, !tbaa !67
-  br label %150
+  br label %151
 
 .thread:                                          ; preds = %47, %44, %77, %71
   %.1118 = phi i32 [ -215, %71 ], [ %.144, %77 ], [ -215, %44 ], [ -215, %47 ]
   %.2111 = phi ptr [ %.0172, %71 ], [ %.0172, %77 ], [ %2, %44 ], [ %2, %47 ]
   %.2 = phi ptr [ %68, %71 ], [ %68, %77 ], [ %38, %44 ], [ %38, %47 ]
   %.not141176 = icmp ult ptr %.2, %2
-  br i1 %.not141176, label %.lr.ph178, label %._crit_edge
+  br i1 %.not141176, label %.lr.ph178, label %._crit_edge181
 
 .lr.ph178:                                        ; preds = %.thread
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  br label %123
+  br label %124
 
-123:                                              ; preds = %139, %.lr.ph178
-  %.3177 = phi ptr [ %.2, %.lr.ph178 ], [ %142, %139 ]
-  %124 = load i32, ptr %17, align 8, !tbaa !68
-  %125 = icmp eq i32 %124, 1
-  br i1 %125, label %126, label %129
+123:                                              ; preds = %140
+  %.not141 = icmp ult ptr %143, %2
+  br i1 %.not141, label %124, label %._crit_edge181, !llvm.loop !119
 
-126:                                              ; preds = %123
-  %127 = load i8, ptr %.3177, align 1, !tbaa !13
-  %128 = zext i8 %127 to i32
-  br label %132
+124:                                              ; preds = %.lr.ph178, %123
+  %.3177 = phi ptr [ %.2, %.lr.ph178 ], [ %143, %123 ]
+  %125 = load i32, ptr %17, align 8, !tbaa !68
+  %126 = icmp eq i32 %125, 1
+  br i1 %126, label %127, label %130
 
-129:                                              ; preds = %123
-  %130 = load ptr, ptr %122, align 8, !tbaa !69
-  %131 = tail call i32 %130(ptr noundef %.3177, ptr noundef nonnull %2, ptr noundef nonnull %9) #25
-  %.pre196 = load i32, ptr %17, align 8, !tbaa !68
-  br label %132
+127:                                              ; preds = %124
+  %128 = load i8, ptr %.3177, align 1, !tbaa !13
+  %129 = zext i8 %128 to i32
+  br label %133
 
-132:                                              ; preds = %129, %126
-  %133 = phi i32 [ 1, %126 ], [ %.pre196, %129 ]
-  %134 = phi i32 [ %128, %126 ], [ %131, %129 ]
-  %135 = load i32, ptr %30, align 4, !tbaa !45
-  %136 = icmp eq i32 %133, %135
-  br i1 %136, label %139, label %137
+130:                                              ; preds = %124
+  %131 = load ptr, ptr %122, align 8, !tbaa !69
+  %132 = tail call i32 %131(ptr noundef %.3177, ptr noundef nonnull %2, ptr noundef nonnull %9) #25
+  %.pre197 = load i32, ptr %17, align 8, !tbaa !68
+  br label %133
 
-137:                                              ; preds = %132
-  %138 = tail call i32 @onigenc_mbclen(ptr noundef %.3177, ptr noundef nonnull %2, ptr noundef nonnull %9) #25
-  br label %139
+133:                                              ; preds = %130, %127
+  %134 = phi i32 [ 1, %127 ], [ %.pre197, %130 ]
+  %135 = phi i32 [ %129, %127 ], [ %132, %130 ]
+  %136 = load i32, ptr %30, align 4, !tbaa !45
+  %137 = icmp eq i32 %134, %136
+  br i1 %137, label %140, label %138
 
-139:                                              ; preds = %132, %137
-  %140 = phi i32 [ %138, %137 ], [ %133, %132 ]
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr i8, ptr %.3177, i64 %141
-  %143 = icmp ne i32 %134, %.0.i
-  %144 = icmp ne i32 %134, 41
-  %or.cond3.not199 = and i1 %143, %144
-  %.not141 = icmp ult ptr %142, %2
-  %or.cond184 = select i1 %or.cond3.not199, i1 %.not141, i1 false
-  br i1 %or.cond184, label %123, label %._crit_edge, !llvm.loop !119
+138:                                              ; preds = %133
+  %139 = tail call i32 @onigenc_mbclen(ptr noundef %.3177, ptr noundef nonnull %2, ptr noundef nonnull %9) #25
+  br label %140
 
-._crit_edge:                                      ; preds = %139, %.thread
-  %.5 = phi ptr [ %.2111, %.thread ], [ %.3177, %139 ]
-  %.4 = phi ptr [ %.2, %.thread ], [ %142, %139 ]
-  %145 = icmp ult ptr %.4, %2
-  %spec.select = select i1 %145, ptr %.5, ptr %2
-  br label %146
+140:                                              ; preds = %133, %138
+  %141 = phi i32 [ %139, %138 ], [ %134, %133 ]
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr i8, ptr %.3177, i64 %142
+  %144 = icmp eq i32 %135, %.0.i
+  %145 = icmp eq i32 %135, 41
+  %or.cond3 = or i1 %144, %145
+  br i1 %or.cond3, label %._crit_edge, label %123, !llvm.loop !119
 
-146:                                              ; preds = %.thread156, %._crit_edge, %117, %.loopexit
-  %.2119 = phi i32 [ -215, %.loopexit ], [ -215, %117 ], [ %.1118, %._crit_edge ], [ -215, %.thread156 ]
-  %.3112 = phi ptr [ %2, %.loopexit ], [ %.1110, %117 ], [ %spec.select, %._crit_edge ], [ %.1110, %.thread156 ]
-  %147 = load ptr, ptr %1, align 8, !tbaa !67
-  %148 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr %147, ptr %148, align 8, !tbaa !94
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %.3112, ptr %149, align 8, !tbaa !95
-  br label %150
+._crit_edge:                                      ; preds = %140
+  br label %._crit_edge181, !llvm.loop !119
 
-150:                                              ; preds = %onig_scan_unsigned_number.exit.thread, %onig_scan_unsigned_number.exit, %35, %get_name_end_code_point.exit, %146, %121
-  %.0114 = phi i32 [ %.2119, %146 ], [ 0, %121 ], [ -214, %get_name_end_code_point.exit ], [ -214, %35 ], [ -200, %onig_scan_unsigned_number.exit ], [ -200, %onig_scan_unsigned_number.exit.thread ]
+._crit_edge181:                                   ; preds = %123, %._crit_edge, %.thread
+  %.5 = phi ptr [ %.3177, %._crit_edge ], [ %.2111, %.thread ], [ %.3177, %123 ]
+  %.4 = phi ptr [ %143, %._crit_edge ], [ %.2, %.thread ], [ %143, %123 ]
+  %146 = icmp ult ptr %.4, %2
+  %spec.select = select i1 %146, ptr %.5, ptr %2
+  br label %147
+
+147:                                              ; preds = %.thread156, %._crit_edge181, %117, %.loopexit
+  %.2119 = phi i32 [ -215, %.loopexit ], [ -215, %117 ], [ %.1118, %._crit_edge181 ], [ -215, %.thread156 ]
+  %.3112 = phi ptr [ %2, %.loopexit ], [ %.1110, %117 ], [ %spec.select, %._crit_edge181 ], [ %.1110, %.thread156 ]
+  %148 = load ptr, ptr %1, align 8, !tbaa !67
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store ptr %148, ptr %149, align 8, !tbaa !94
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store ptr %.3112, ptr %150, align 8, !tbaa !95
+  br label %151
+
+151:                                              ; preds = %onig_scan_unsigned_number.exit.thread, %onig_scan_unsigned_number.exit, %35, %get_name_end_code_point.exit, %147, %121
+  %.0114 = phi i32 [ %.2119, %147 ], [ 0, %121 ], [ -214, %get_name_end_code_point.exit ], [ -214, %35 ], [ -200, %onig_scan_unsigned_number.exit ], [ -200, %onig_scan_unsigned_number.exit.thread ]
   ret i32 %.0114
 }
 

@@ -410,8 +410,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5arith6solver7
 _ZNK3euf13th_euf_solver12get_num_varsEv.exit:     ; preds = %13
   %17 = getelementptr inbounds i8, ptr %15, i64 -4
   %18 = load i32, ptr %17, align 4, !tbaa !3
-  %.not63 = icmp eq i32 %18, 0
-  br i1 %.not63, label %._crit_edge, label %.lr.ph
+  %.not64 = icmp eq i32 %18, 0
+  br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -490,7 +490,10 @@ _ZNK3euf13th_euf_solver12get_num_varsEv.exit:     ; preds = %13
   %62 = zext i32 %61 to i64
   %63 = urem i64 %62, %45
   %.not19.i.i.i.i.i.i = icmp eq i64 %63, %46
-  br i1 %.not19.i.i.i.i.i.i, label %56, label %_ZNK2lp10lar_solver17external_to_localEj.exit, !llvm.loop !59
+  br i1 %.not19.i.i.i.i.i.i, label %56, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !59
+
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %59
+  br label %_ZNK2lp10lar_solver17external_to_localEj.exit, !llvm.loop !59
 
 .loopexit.i:                                      ; preds = %56, %37, %50
   %.sroa.06.1.i.i.i.i = phi ptr [ %51, %50 ], [ %.sroa.06.0.i.i.i.i, %37 ], [ %58, %56 ]
@@ -498,8 +501,8 @@ _ZNK3euf13th_euf_solver12get_num_varsEv.exit:     ; preds = %13
   %65 = load i32, ptr %64, align 4, !tbaa !60
   br label %_ZNK2lp10lar_solver17external_to_localEj.exit
 
-_ZNK2lp10lar_solver17external_to_localEj.exit:    ; preds = %.lr.ph.i.i.i.i.i.i, %59, %35, %42, %.loopexit.i
-  %66 = phi i32 [ %65, %.loopexit.i ], [ -1, %42 ], [ -1, %35 ], [ -1, %59 ], [ -1, %.lr.ph.i.i.i.i.i.i ]
+_ZNK2lp10lar_solver17external_to_localEj.exit:    ; preds = %.lr.ph.i.i.i.i.i.i, %35, %42, %..loopexit_crit_edge21.i.i.i.i.i.i, %.loopexit.i
+  %66 = phi i32 [ %65, %.loopexit.i ], [ -1, %42 ], [ -1, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ -1, %35 ], [ -1, %.lr.ph.i.i.i.i.i.i ]
   %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 1)
   %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %indvars.iv)
   %69 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull @.str.3, i64 noundef 1)

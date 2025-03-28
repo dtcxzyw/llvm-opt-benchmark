@@ -6340,7 +6340,7 @@ oid_set_algo.exit:                                ; preds = %87, %.split.loop.ex
   %95 = load ptr, ptr %27, align 8, !tbaa !49
   %96 = call i32 %2(ptr noundef nonnull %7, ptr noundef %95, ptr noundef %5) #27
   %.not66 = icmp eq i32 %96, 0
-  br i1 %.not66, label %select.unfold, label %.thread, !llvm.loop !165
+  br i1 %.not66, label %select.unfold, label %..thread_crit_edge95, !llvm.loop !165
 
 97:                                               ; preds = %76, %strbuf_setlen.exit77
   br i1 %.not67, label %select.unfold, label %98
@@ -6356,8 +6356,11 @@ select.unfold:                                    ; preds = %98, %94, %97, %oid_
   %.not63 = icmp eq ptr %101, null
   br i1 %.not63, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %select.unfold, %94, %98, %strbuf_addch.exit
-  %.2 = phi i32 [ 0, %strbuf_addch.exit ], [ 0, %select.unfold ], [ %96, %94 ], [ %100, %98 ]
+..thread_crit_edge95:                             ; preds = %94
+  br label %.thread, !llvm.loop !165
+
+.thread:                                          ; preds = %select.unfold, %98, %..thread_crit_edge95, %strbuf_addch.exit
+  %.2 = phi i32 [ %96, %..thread_crit_edge95 ], [ 0, %strbuf_addch.exit ], [ 0, %select.unfold ], [ %100, %98 ]
   %102 = call i32 @closedir(ptr noundef nonnull %29)
   %103 = add i64 %55, -1
   %104 = load i64, ptr %1, align 8, !tbaa !72

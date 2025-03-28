@@ -45770,7 +45770,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_126AArch64InstructionSelector11emi
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 255
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.lr.ph, label %_ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit, !llvm.loop !2015
+  br i1 %43, label %.lr.ph, label %._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, !llvm.loop !2015
 
 .lr.ph:                                           ; preds = %38
   %.in = getelementptr inbounds nuw i8, ptr %192, i64 68
@@ -46126,12 +46126,18 @@ select.unfold.i:                                  ; preds = %_ZNK4llvm3LLT13getS
   %.sroa.094.1174.i = phi i64 [ %.sroa.094.2.i, %select.unfold.i ], [ %.sroa.094.0134.i472, %55 ], [ %.sroa.094.2.i, %176 ], [ %.sroa.094.2.i, %179 ], [ %.sroa.094.2.i, %172 ], [ %.sroa.094.2.i, %182 ], [ %.sroa.094.2.i, %186 ]
   %192 = call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %.sroa.055.1177.i, ptr noundef nonnull align 8 dereferenceable(504) %17) #25
   %.not.i = icmp eq ptr %192, null
-  br i1 %.not.i, label %_ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit, label %38, !llvm.loop !2015
+  br i1 %.not.i, label %.backedge.i._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, label %38, !llvm.loop !2015
 
-_ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit: ; preds = %38, %.lr.ph, %.lr.ph8, %51, %55, %141, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i, %171, %172, %182, %select.unfold.i, %.backedge.i, %.lr.ph.preheader, %.lr.ph.i, %6
-  %.342 = phi i8 [ %15, %6 ], [ %15, %.lr.ph.i ], [ %15, %.lr.ph.preheader ], [ %.241, %.backedge.i ], [ %.039437, %select.unfold.i ], [ %.039437, %182 ], [ %.039437, %172 ], [ %.039437, %171 ], [ %.039437, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i ], [ %.039437, %141 ], [ %.039437, %55 ], [ %.039437, %51 ], [ %.039437, %.lr.ph8 ], [ %.241, %.lr.ph ], [ %.241, %38 ]
-  %.3 = phi i64 [ %2, %6 ], [ %2, %.lr.ph.i ], [ %2, %.lr.ph.preheader ], [ %.2, %.backedge.i ], [ %.0446, %select.unfold.i ], [ %.0446, %182 ], [ %.0446, %172 ], [ %.0446, %171 ], [ %.0446, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i ], [ %.0446, %141 ], [ %.0446, %55 ], [ %.0446, %51 ], [ %.0446, %.lr.ph8 ], [ %.2, %.lr.ph ], [ %.2, %38 ]
-  %.sroa.059.5.i = phi i32 [ %1, %6 ], [ %1, %.lr.ph.i ], [ %1, %.lr.ph.preheader ], [ %.sroa.055.1177.i, %.backedge.i ], [ %.sroa.055.0136.i455, %select.unfold.i ], [ %.sroa.055.0136.i455, %182 ], [ %.sroa.055.0136.i455, %172 ], [ %.sroa.055.0136.i455, %171 ], [ %.sroa.055.0136.i455, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i ], [ %.sroa.055.0136.i455, %141 ], [ %.sroa.055.0136.i455, %55 ], [ %.sroa.055.0136.i455, %51 ], [ %.sroa.055.0136.i455, %.lr.ph8 ], [ %.sroa.055.1177.i, %.lr.ph ], [ %.sroa.055.1177.i, %38 ]
+.backedge.i._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge: ; preds = %.backedge.i
+  br label %_ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit, !llvm.loop !2015
+
+._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge: ; preds = %38
+  br label %_ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit, !llvm.loop !2015
+
+_ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit: ; preds = %.lr.ph, %.lr.ph8, %51, %55, %141, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i, %171, %172, %182, %select.unfold.i, %.lr.ph.preheader, %._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, %.lr.ph.i, %.backedge.i._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, %6
+  %.342 = phi i8 [ %15, %6 ], [ %.241, %.backedge.i._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %15, %.lr.ph.i ], [ %.241, %._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %15, %.lr.ph.preheader ], [ %.039437, %select.unfold.i ], [ %.039437, %182 ], [ %.039437, %172 ], [ %.039437, %171 ], [ %.039437, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i ], [ %.039437, %141 ], [ %.039437, %55 ], [ %.039437, %51 ], [ %.039437, %.lr.ph8 ], [ %.241, %.lr.ph ]
+  %.3 = phi i64 [ %2, %6 ], [ %.2, %.backedge.i._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %2, %.lr.ph.i ], [ %.2, %._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %2, %.lr.ph.preheader ], [ %.0446, %select.unfold.i ], [ %.0446, %182 ], [ %.0446, %172 ], [ %.0446, %171 ], [ %.0446, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i ], [ %.0446, %141 ], [ %.0446, %55 ], [ %.0446, %51 ], [ %.0446, %.lr.ph8 ], [ %.2, %.lr.ph ]
+  %.sroa.059.5.i = phi i32 [ %1, %6 ], [ %.sroa.055.1177.i, %.backedge.i._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %1, %.lr.ph.i ], [ %.sroa.055.1177.i, %._ZL13getTestBitRegN4llvm8RegisterERmRbRNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %1, %.lr.ph.preheader ], [ %.sroa.055.0136.i455, %select.unfold.i ], [ %.sroa.055.0136.i455, %182 ], [ %.sroa.055.0136.i455, %172 ], [ %.sroa.055.0136.i455, %171 ], [ %.sroa.055.0136.i455, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i ], [ %.sroa.055.0136.i455, %141 ], [ %.sroa.055.0136.i455, %55 ], [ %.sroa.055.0136.i455, %51 ], [ %.sroa.055.0136.i455, %.lr.ph8 ], [ %.sroa.055.1177.i, %.lr.ph ]
   %193 = icmp slt i32 %.sroa.059.5.i, 0
   br i1 %193, label %194, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 

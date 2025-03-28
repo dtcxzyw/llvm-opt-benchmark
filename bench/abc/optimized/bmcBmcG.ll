@@ -1007,11 +1007,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %55 = and i32 %.078153, 1
   br label %56
 
-56:                                               ; preds = %Gia_ManAppendCo.exit, %.lr.ph199
-  %.1148198 = phi i32 [ %55, %.lr.ph199 ], [ %155, %Gia_ManAppendCo.exit ]
-  %.val111149197 = phi ptr [ %.val111145, %.lr.ph199 ], [ %.val111, %Gia_ManAppendCo.exit ]
-  %indvars.iv196 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next, %Gia_ManAppendCo.exit ]
-  %.val99195 = phi ptr [ %.val99.pre, %.lr.ph199 ], [ %.val96, %Gia_ManAppendCo.exit ]
+.lr.ph:                                           ; preds = %Gia_ManAppendCo.exit
+  %.not87 = icmp eq ptr %.val96, null
+  br i1 %.not87, label %.critedge, label %56, !llvm.loop !60
+
+56:                                               ; preds = %.lr.ph199, %.lr.ph
+  %.1148198 = phi i32 [ %55, %.lr.ph199 ], [ %155, %.lr.ph ]
+  %.val111149197 = phi ptr [ %.val111145, %.lr.ph199 ], [ %.val111, %.lr.ph ]
+  %indvars.iv196 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next, %.lr.ph ]
+  %.val99195 = phi ptr [ %.val99.pre, %.lr.ph199 ], [ %.val96, %.lr.ph ]
   %57 = getelementptr i8, ptr %.val111149197, i64 8
   %.val100.val = load ptr, ptr %57, align 8, !tbaa !39
   %58 = getelementptr inbounds nuw i32, ptr %.val100.val, i64 %indvars.iv196
@@ -1175,14 +1179,15 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %.val111.val = load i32, ptr %158, align 4, !tbaa !38
   %159 = sub nsw i32 %.val111.val, %.val110
   %160 = sext i32 %159 to i64
-  %161 = icmp sge i64 %indvars.iv.next, %160
-  %.not87 = icmp eq ptr %.val96, null
-  %or.cond = or i1 %161, %.not87
-  br i1 %or.cond, label %.critedge, label %56, !llvm.loop !60
+  %161 = icmp slt i64 %indvars.iv.next, %160
+  br i1 %161, label %.lr.ph, label %Gia_ManAppendCo.exit..critedge.loopexit_crit_edge, !llvm.loop !60
 
-.critedge:                                        ; preds = %Gia_ManAppendCo.exit, %.lr.ph.preheader, %Vec_PtrPush.exit
-  %162 = phi ptr [ %49, %Vec_PtrPush.exit ], [ %49, %.lr.ph.preheader ], [ %147, %Gia_ManAppendCo.exit ]
-  %.1.lcssa = phi i32 [ %.078153, %Vec_PtrPush.exit ], [ %.078153, %.lr.ph.preheader ], [ %155, %Gia_ManAppendCo.exit ]
+Gia_ManAppendCo.exit..critedge.loopexit_crit_edge: ; preds = %Gia_ManAppendCo.exit
+  br label %.critedge, !llvm.loop !60
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %Gia_ManAppendCo.exit..critedge.loopexit_crit_edge, %Vec_PtrPush.exit
+  %162 = phi ptr [ %49, %Vec_PtrPush.exit ], [ %147, %Gia_ManAppendCo.exit..critedge.loopexit_crit_edge ], [ %49, %.lr.ph.preheader ], [ %147, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %.078153, %Vec_PtrPush.exit ], [ %155, %Gia_ManAppendCo.exit..critedge.loopexit_crit_edge ], [ %.078153, %.lr.ph.preheader ], [ %155, %.lr.ph ]
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !61

@@ -36260,8 +36260,8 @@ define linkonce_odr void @_ZN5arrow3ipc8internal15IpcFormatWriter17WriteDictiona
   %.sroa.7110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %.sroa.7110.0..sroa_idx, align 8, !tbaa !1845
   store i8 1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !1846, !alias.scope !1848
-  %.not125129 = icmp eq ptr %21, %24
-  br i1 %.not125129, label %.critedge85, label %.lr.ph
+  %.not125130 = icmp eq ptr %21, %24
+  br i1 %.not125130, label %.critedge85, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -36280,9 +36280,9 @@ define linkonce_odr void @_ZN5arrow3ipc8internal15IpcFormatWriter17WriteDictiona
   br label %41
 
 41:                                               ; preds = %.lr.ph, %.thread
-  %.sroa.0106.0130 = phi ptr [ %21, %.lr.ph ], [ %199, %.thread ]
-  %42 = load i64, ptr %.sroa.0106.0130, align 8, !tbaa !1851
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0130, i64 8
+  %.sroa.0106.0131 = phi ptr [ %21, %.lr.ph ], [ %199, %.thread ]
+  %42 = load i64, ptr %.sroa.0106.0131, align 8, !tbaa !1851
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0131, i64 8
   %44 = load i64, ptr %29, align 8, !tbaa !715
   %45 = urem i64 %42, %44
   %46 = load ptr, ptr %28, align 8, !tbaa !714
@@ -36313,9 +36313,12 @@ define linkonce_odr void @_ZN5arrow3ipc8internal15IpcFormatWriter17WriteDictiona
   %59 = load i64, ptr %58, align 8, !tbaa !295
   %60 = urem i64 %59, %44
   %.not19.i.i.i.i = icmp eq i64 %60, %45
-  br i1 %.not19.i.i.i.i, label %54, label %.loopexit.i.i, !llvm.loop !1855
+  br i1 %.not19.i.i.i.i, label %54, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !1855
 
-.loopexit.i.i:                                    ; preds = %57, %.lr.ph.i.i.i.i, %41
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %57
+  br label %.loopexit.i.i, !llvm.loop !1855
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #28
   store ptr %28, ptr %5, align 8, !tbaa !1856
   %61 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
@@ -36602,7 +36605,7 @@ _ZN5arrow6StatusD2Ev.exit98:                      ; preds = %.noexc94
   %163 = load ptr, ptr %43, align 8, !tbaa !120
   store ptr %163, ptr %.1.i.i, align 8, !tbaa !120
   %164 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0130, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0131, i64 16
   %166 = load ptr, ptr %165, align 8, !tbaa !129
   %167 = load ptr, ptr %164, align 8, !tbaa !129
   %.not.i.i.i99 = icmp eq ptr %166, %167
@@ -36693,7 +36696,7 @@ _ZN5arrow6Status7InvalidIJRA159_KcEEES0_DpOT_.exit.thread: ; preds = %162, %_ZNS
   br label %.thread
 
 .thread:                                          ; preds = %85, %_ZN5arrow6Status7InvalidIJRA159_KcEEES0_DpOT_.exit.thread, %68
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0130, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0131, i64 24
   %.not125 = icmp eq ptr %199, %24
   br i1 %.not125, label %.critedge85, label %41
 

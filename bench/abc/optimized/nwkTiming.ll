@@ -94,10 +94,13 @@ define void @Nwk_ManDelayTraceSortPins(ptr noundef readonly captures(none) %0, p
   %18 = load i32, ptr %4, align 4, !tbaa !29
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %10, label %.critedge, !llvm.loop !33
+  br i1 %20, label %10, label %..critedge_crit_edge75, !llvm.loop !33
 
-.critedge:                                        ; preds = %.lr.ph74, %10, %.lr.ph
-  %.val4351 = phi i32 [ %5, %.lr.ph ], [ %18, %10 ], [ %18, %.lr.ph74 ]
+..critedge_crit_edge75:                           ; preds = %.lr.ph74
+  br label %.critedge, !llvm.loop !33
+
+.critedge:                                        ; preds = %10, %..critedge_crit_edge75, %.lr.ph
+  %.val4351 = phi i32 [ %18, %..critedge_crit_edge75 ], [ %5, %.lr.ph ], [ %18, %10 ]
   %21 = icmp sgt i32 %.val4351, 1
   br i1 %21, label %.lr.ph54, label %.preheader
 
@@ -1069,7 +1072,7 @@ define float @Nwk_NodePropagateRequired(ptr noundef readonly captures(none) %0, 
 109:                                              ; preds = %.lr.ph142, %108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv141, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond115.not, label %.critedge, label %95, !llvm.loop !54
+  br i1 %exitcond115.not, label %..critedge.loopexit138_crit_edge143, label %95, !llvm.loop !54
 
 110:                                              ; preds = %120
   %111 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.next117
@@ -1096,10 +1099,16 @@ define float @Nwk_NodePropagateRequired(ptr noundef readonly captures(none) %0, 
 120:                                              ; preds = %.lr.ph147, %119
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116146, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %.critedge, label %110, !llvm.loop !55
+  br i1 %exitcond120.not, label %..critedge.loopexit137_crit_edge149, label %110, !llvm.loop !55
 
-.critedge:                                        ; preds = %95, %109, %110, %120, %39, %46, %24, %17, %.lr.ph, %.lr.ph99, %53, %.preheader, %32, %9
-  %.062 = phi float [ %11, %9 ], [ %35, %32 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %.lr.ph99 ], [ 0.000000e+00, %.lr.ph ], [ %11, %17 ], [ %11, %24 ], [ %35, %46 ], [ %35, %39 ], [ %116, %120 ], [ %116, %110 ], [ %100, %109 ], [ %100, %95 ]
+..critedge.loopexit137_crit_edge149:              ; preds = %120
+  br label %.critedge, !llvm.loop !55
+
+..critedge.loopexit138_crit_edge143:              ; preds = %109
+  br label %.critedge, !llvm.loop !54
+
+.critedge:                                        ; preds = %95, %110, %39, %46, %24, %17, %.lr.ph, %..critedge.loopexit138_crit_edge143, %.lr.ph99, %..critedge.loopexit137_crit_edge149, %53, %.preheader, %32, %9
+  %.062 = phi float [ %11, %9 ], [ %35, %32 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %53 ], [ %116, %..critedge.loopexit137_crit_edge149 ], [ 0.000000e+00, %.lr.ph99 ], [ %100, %..critedge.loopexit138_crit_edge143 ], [ 0.000000e+00, %.lr.ph ], [ %11, %17 ], [ %11, %24 ], [ %35, %46 ], [ %35, %39 ], [ %116, %110 ], [ %100, %95 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #12
   ret float %.062

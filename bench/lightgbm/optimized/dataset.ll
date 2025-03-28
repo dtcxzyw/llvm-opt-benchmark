@@ -22853,18 +22853,18 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM9BinMapper10ValueToBinEd(ptr nound
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
-  %.11446 = phi i32 [ %spec.select, %.lr.ph ], [ %.2, %24 ]
-  %.01545 = phi i32 [ 0, %.lr.ph ], [ %.116, %24 ]
-  %25 = add nsw i32 %.01545, -1
-  %26 = add i32 %25, %.11446
+  %.11448 = phi i32 [ %spec.select, %.lr.ph ], [ %.2, %24 ]
+  %.01547 = phi i32 [ 0, %.lr.ph ], [ %.116, %24 ]
+  %25 = add nsw i32 %.01547, -1
+  %26 = add i32 %25, %.11448
   %27 = lshr i32 %26, 1
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw double, ptr %23, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !91
   %31 = fcmp ugt double %.017, %30
   %32 = add nuw nsw i32 %27, 1
-  %.116 = select i1 %31, i32 %32, i32 %.01545
-  %.2 = select i1 %31, i32 %.11446, i32 %27
+  %.116 = select i1 %31, i32 %32, i32 %.01547
+  %.2 = select i1 %31, i32 %.11448, i32 %27
   %33 = icmp slt i32 %.116, %.2
   br i1 %33, label %24, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread, !llvm.loop !299
 
@@ -22930,17 +22930,20 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM9BinMapper10ValueToBinEd(ptr nound
   %67 = sext i32 %66 to i64
   %68 = urem i64 %67, %51
   %.not19.i.i.i.i.i = icmp eq i64 %68, %52
-  br i1 %.not19.i.i.i.i.i, label %61, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread, !llvm.loop !306
+  br i1 %.not19.i.i.i.i.i, label %61, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !306
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %64
+  br label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread, !llvm.loop !306
 
 .loopexit:                                        ; preds = %61, %44
   br i1 %.not.not.i.i.i, label %69, label %.loopexit..thread_crit_edge
 
 .loopexit..thread_crit_edge:                      ; preds = %.loopexit
-  %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.pre55 = load i64, ptr %.phi.trans.insert54, align 8, !tbaa !303
-  %.pre56 = load ptr, ptr %38, align 8, !tbaa !304
-  %.pre57 = zext nneg i32 %35 to i64
-  %.pre58 = urem i64 %.pre57, %.pre55
+  %.phi.trans.insert57 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.pre58 = load i64, ptr %.phi.trans.insert57, align 8, !tbaa !303
+  %.pre59 = load ptr, ptr %38, align 8, !tbaa !304
+  %.pre60 = zext nneg i32 %35 to i64
+  %.pre61 = urem i64 %.pre60, %.pre58
   br label %.thread
 
 69:                                               ; preds = %.loopexit
@@ -22948,22 +22951,22 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM9BinMapper10ValueToBinEd(ptr nound
   br label %71
 
 71:                                               ; preds = %72, %69
-  %.sroa.06.0.in.i.i.i25 = phi ptr [ %70, %69 ], [ %.sroa.06.0.i.i.i26, %72 ]
-  %.sroa.06.0.i.i.i26 = load ptr, ptr %.sroa.06.0.in.i.i.i25, align 8, !tbaa !301
-  %.not.i.i.i27 = icmp eq ptr %.sroa.06.0.i.i.i26, null
-  br i1 %.not.i.i.i27, label %.loopexit.i.i, label %72
+  %.sroa.06.0.in.i.i.i26 = phi ptr [ %70, %69 ], [ %.sroa.06.0.i.i.i27, %72 ]
+  %.sroa.06.0.i.i.i27 = load ptr, ptr %.sroa.06.0.in.i.i.i26, align 8, !tbaa !301
+  %.not.i.i.i28 = icmp eq ptr %.sroa.06.0.i.i.i27, null
+  br i1 %.not.i.i.i28, label %.loopexit.i.i, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i26, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i27, i64 8
   %74 = load i32, ptr %73, align 4, !tbaa !104
   %75 = icmp eq i32 %74, %35
   br i1 %75, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit, label %71, !llvm.loop !302
 
 .thread:                                          ; preds = %.loopexit..thread_crit_edge, %56
-  %.pre-phi59 = phi i64 [ %.pre58, %.loopexit..thread_crit_edge ], [ %52, %56 ]
-  %76 = phi ptr [ %.pre56, %.loopexit..thread_crit_edge ], [ %53, %56 ]
-  %77 = phi i64 [ %.pre55, %.loopexit..thread_crit_edge ], [ %51, %56 ]
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi59
+  %.pre-phi62 = phi i64 [ %.pre61, %.loopexit..thread_crit_edge ], [ %52, %56 ]
+  %76 = phi ptr [ %.pre59, %.loopexit..thread_crit_edge ], [ %53, %56 ]
+  %77 = phi i64 [ %.pre58, %.loopexit..thread_crit_edge ], [ %51, %56 ]
+  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi62
   %79 = load ptr, ptr %78, align 8, !tbaa !305
   %.not.i.i.i.i.i19 = icmp eq ptr %79, null
   br i1 %.not.i.i.i.i.i19, label %.loopexit.i.i, label %80
@@ -22990,21 +22993,24 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM9BinMapper10ValueToBinEd(ptr nound
   %90 = load i32, ptr %89, align 4, !tbaa !104
   %91 = sext i32 %90 to i64
   %92 = urem i64 %91, %77
-  %.not19.i.i.i.i.i23 = icmp eq i64 %92, %.pre-phi59
-  br i1 %.not19.i.i.i.i.i23, label %85, label %.loopexit.i.i, !llvm.loop !306
+  %.not19.i.i.i.i.i23 = icmp eq i64 %92, %.pre-phi62
+  br i1 %.not19.i.i.i.i.i23, label %85, label %..loopexit_crit_edge21.i.i.i.i.i24, !llvm.loop !306
 
-.loopexit.i.i:                                    ; preds = %88, %.lr.ph.i.i.i.i.i20, %71, %.thread
+..loopexit_crit_edge21.i.i.i.i.i24:               ; preds = %88
+  br label %.loopexit.i.i, !llvm.loop !306
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i20, %71, %..loopexit_crit_edge21.i.i.i.i.i24, %.thread
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.35) #39
   unreachable
 
 _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit: ; preds = %85, %72, %80
-  %.sroa.06.1.i.i.i24 = phi ptr [ %81, %80 ], [ %.sroa.06.0.i.i.i26, %72 ], [ %87, %85 ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i24, i64 12
+  %.sroa.06.1.i.i.i25 = phi ptr [ %81, %80 ], [ %.sroa.06.0.i.i.i27, %72 ], [ %87, %85 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i25, i64 12
   %94 = load i32, ptr %93, align 4, !tbaa !104
   br label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread
 
-_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread: ; preds = %64, %.lr.ph.i.i.i.i.i, %43, %24, %16, %48, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit, %34, %6, %12
-  %.0 = phi i32 [ %14, %12 ], [ 0, %6 ], [ %94, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit ], [ 0, %34 ], [ 0, %48 ], [ 0, %16 ], [ %.116, %24 ], [ 0, %43 ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %64 ]
+_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %43, %24, %16, %..loopexit_crit_edge21.i.i.i.i.i, %48, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit, %34, %6, %12
+  %.0 = phi i32 [ %14, %12 ], [ 0, %6 ], [ %94, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit ], [ 0, %34 ], [ 0, %48 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i ], [ 0, %16 ], [ %.116, %24 ], [ 0, %43 ], [ 0, %.lr.ph.i.i.i.i.i ]
   ret i32 %.0
 }
 

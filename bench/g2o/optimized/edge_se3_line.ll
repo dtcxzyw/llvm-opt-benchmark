@@ -671,7 +671,7 @@ _ZN3g2o8BaseEdgeILi4ENS_6Line3DEE12readParamIdsERSi.exit: ; preds = %.lr.ph.i, %
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !37
   %.phi.trans.insert.i = getelementptr i8, ptr %.pre.i, i64 -24
   %.pre11.i = load i64, ptr %.phi.trans.insert.i, align 8
-  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !89
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %27, %..critedge_crit_edge.i
   %36 = phi i64 [ %.pre11.i, %..critedge_crit_edge.i ], [ %30, %27 ]
@@ -716,7 +716,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEEEEbRSiRNS2_9D
   %.pre.i10 = load ptr, ptr %1, align 8, !tbaa !37
   %.phi.trans.insert.i11 = getelementptr i8, ptr %.pre.i10, i64 -24
   %.pre37.i = load i64, ptr %.phi.trans.insert.i11, align 8
-  br label %_ZN3g2o8BaseEdgeILi4ENS_6Line3DEE21readInformationMatrixERSi.exit
+  br label %_ZN3g2o8BaseEdgeILi4ENS_6Line3DEE21readInformationMatrixERSi.exit, !llvm.loop !90
 
 54:                                               ; preds = %48
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv32.i, 5

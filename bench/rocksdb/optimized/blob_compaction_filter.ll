@@ -1117,9 +1117,12 @@ define noundef i32 @_ZNK7rocksdb7blob_db29BlobIndexCompactionFilterBase8FilterV2
   %87 = load i64, ptr %86, align 8, !tbaa !111
   %88 = urem i64 %87, %72
   %.not19.i.i.i.i.i = icmp eq i64 %88, %73
-  br i1 %.not19.i.i.i.i.i, label %82, label %.loopexit, !llvm.loop !121
+  br i1 %.not19.i.i.i.i.i, label %82, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !121
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %85, %64, %69
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %85
+  br label %.loopexit, !llvm.loop !121
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %64, %69, %..loopexit_crit_edge21.i.i.i.i.i
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %90 = load i64, ptr %89, align 8, !tbaa !122
   %91 = add i64 %90, 1

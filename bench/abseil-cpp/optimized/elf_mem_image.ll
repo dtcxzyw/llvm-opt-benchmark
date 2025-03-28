@@ -518,11 +518,14 @@ define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerd
   %25 = load i16, ptr %24, align 4, !tbaa !43
   %26 = zext i16 %25 to i32
   %27 = icmp samesign ugt i32 %1, %26
-  br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !46
+  br i1 %27, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !46
 
-.critedge:                                        ; preds = %.lr.ph20, %.lr.ph, %.lr.ph.preheader, %10
-  %.0.lcssa = phi ptr [ %12, %10 ], [ %12, %.lr.ph.preheader ], [ %23, %.lr.ph ], [ %23, %.lr.ph20 ]
-  %.lcssa = phi i32 [ %15, %10 ], [ %15, %.lr.ph.preheader ], [ %26, %.lr.ph ], [ %26, %.lr.ph20 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph20
+  br label %.critedge, !llvm.loop !46
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %10
+  %.0.lcssa = phi ptr [ %12, %10 ], [ %23, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %23, %.lr.ph ]
+  %.lcssa = phi i32 [ %15, %10 ], [ %26, %..critedge.loopexit_crit_edge ], [ %15, %.lr.ph.preheader ], [ %26, %.lr.ph ]
   %28 = icmp eq i32 %1, %.lcssa
   %29 = select i1 %28, ptr %.0.lcssa, ptr null
   ret ptr %29
@@ -902,11 +905,14 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj.exit: ; preds = %28
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i16, ptr %62, align 4, !tbaa !43
   %64 = icmp ugt i16 %43, %63
-  br i1 %64, label %.lr.ph.i, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit, !llvm.loop !46
+  br i1 %64, label %.lr.ph.i, label %._ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit.loopexit_crit_edge, !llvm.loop !46
 
-_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit: ; preds = %.lr.ph, %.lr.ph.i, %.lr.ph.i.preheader, %49
-  %.0.lcssa.i = phi ptr [ %51, %49 ], [ %51, %.lr.ph.i.preheader ], [ %61, %.lr.ph.i ], [ %61, %.lr.ph ]
-  %.lcssa.i.in = phi i16 [ %53, %49 ], [ %53, %.lr.ph.i.preheader ], [ %63, %.lr.ph.i ], [ %63, %.lr.ph ]
+._ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit.loopexit_crit_edge: ; preds = %.lr.ph
+  br label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit, !llvm.loop !46
+
+_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit: ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %._ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit.loopexit_crit_edge, %49
+  %.0.lcssa.i = phi ptr [ %51, %49 ], [ %61, %._ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit.loopexit_crit_edge ], [ %51, %.lr.ph.i.preheader ], [ %61, %.lr.ph.i ]
+  %.lcssa.i.in = phi i16 [ %53, %49 ], [ %63, %._ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit.loopexit_crit_edge ], [ %53, %.lr.ph.i.preheader ], [ %63, %.lr.ph.i ]
   %65 = icmp eq i16 %.lcssa.i.in, %43
   br i1 %65, label %66, label %.thread
 

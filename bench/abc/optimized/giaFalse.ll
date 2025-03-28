@@ -2513,11 +2513,14 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
   %.val47 = load i32, ptr %103, align 4, !tbaa !30
   %104 = sext i32 %.val47 to i64
   %105 = icmp slt i64 %indvars.iv.next, %104
-  br i1 %105, label %21, label %.critedge, !llvm.loop !78
+  br i1 %105, label %21, label %Vec_FltPush.exit..critedge.loopexit_crit_edge, !llvm.loop !78
 
-.critedge:                                        ; preds = %Vec_FltPush.exit, %21, %.lr.ph, %Vec_FltAlloc.exit
-  %106 = phi ptr [ %.val55, %Vec_FltAlloc.exit ], [ %.val55, %.lr.ph ], [ %102, %21 ], [ %102, %Vec_FltPush.exit ]
-  %.val47.lcssa = phi i32 [ %.val55.val, %Vec_FltAlloc.exit ], [ %.val55.val, %.lr.ph ], [ %.val47, %21 ], [ %.val47, %Vec_FltPush.exit ]
+Vec_FltPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_FltPush.exit
+  br label %.critedge, !llvm.loop !78
+
+.critedge:                                        ; preds = %21, %.lr.ph, %Vec_FltPush.exit..critedge.loopexit_crit_edge, %Vec_FltAlloc.exit
+  %106 = phi ptr [ %.val55, %Vec_FltAlloc.exit ], [ %102, %Vec_FltPush.exit..critedge.loopexit_crit_edge ], [ %.val55, %.lr.ph ], [ %102, %21 ]
+  %.val47.lcssa = phi i32 [ %.val55.val, %Vec_FltAlloc.exit ], [ %.val47, %Vec_FltPush.exit..critedge.loopexit_crit_edge ], [ %.val55.val, %.lr.ph ], [ %.val47, %21 ]
   %107 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #21
   %spec.store.select.i57 = tail call i32 @llvm.smax.i32(i32 %.val47.lcssa, i32 16)
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4

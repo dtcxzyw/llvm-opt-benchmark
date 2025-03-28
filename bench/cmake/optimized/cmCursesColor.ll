@@ -98,13 +98,13 @@ define dso_local noundef signext i16 @_ZN13cmCursesColor8GetColorEcs(i8 noundef 
 
 .preheader66:                                     ; preds = %13
   %15 = load i8, ptr %14, align 1, !tbaa !18
-  %.not3769 = icmp eq i8 %15, 0
-  br i1 %.not3769, label %.critedge, label %.lr.ph
+  %.not3770 = icmp eq i8 %15, 0
+  br i1 %.not3770, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader66, %47
   %16 = phi i8 [ %48, %47 ], [ %15, %.preheader66 ]
-  %.070 = phi ptr [ %.149, %47 ], [ %14, %.preheader66 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.070, i64 1
+  %.071 = phi ptr [ %.149, %47 ], [ %14, %.preheader66 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.071, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !18
   %cond = icmp eq i8 %18, 61
   br i1 %cond, label %19, label %.critedge
@@ -116,34 +116,34 @@ define dso_local noundef signext i16 @_ZN13cmCursesColor8GetColorEcs(i8 noundef 
   store i32 %21, ptr %3, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  %22 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.070, i32 noundef 58) #17
+  %22 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.071, i32 noundef 58) #17
   %.not39 = icmp eq ptr %22, null
   br i1 %.not39, label %33, label %23
 
 23:                                               ; preds = %19
   %24 = ptrtoint ptr %22 to i64
-  %25 = ptrtoint ptr %.070 to i64
+  %25 = ptrtoint ptr %.071 to i64
   %26 = sub i64 %24, %25
   %27 = icmp ugt i64 %26, 12
   br i1 %27, label %.thread55, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %.070, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.071, i64 2
   %30 = add nsw i64 %26, -2
   %31 = call ptr @strncpy(ptr noundef nonnull %4, ptr noundef nonnull %29, i64 noundef %30) #16
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 1
   br label %.thread
 
 33:                                               ; preds = %19
-  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.070) #17
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.071) #17
   %35 = icmp ult i64 %34, 13
   br i1 %35, label %select.unfold, label %.thread55
 
 select.unfold:                                    ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %.070, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.071, i64 2
   %37 = add nsw i64 %34, -2
   %38 = call ptr @strncpy(ptr noundef nonnull %4, ptr noundef nonnull %36, i64 noundef %37) #16
-  %39 = getelementptr inbounds nuw i8, ptr %.070, i64 %34
+  %39 = getelementptr inbounds nuw i8, ptr %.071, i64 %34
   br label %.thread
 
 .thread:                                          ; preds = %select.unfold, %28
@@ -230,7 +230,10 @@ select.unfold:                                    ; preds = %33
   %73 = sext i8 %72 to i64
   %74 = urem i64 %73, %57
   %.not19.i.i.i.i = icmp eq i64 %74, %58
-  br i1 %.not19.i.i.i.i, label %67, label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread, !llvm.loop !28
+  br i1 %.not19.i.i.i.i, label %67, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !28
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %70
+  br label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread, !llvm.loop !28
 
 _ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit: ; preds = %67, %51, %62
   %.sroa.06.1.i.i = phi ptr [ %63, %62 ], [ %.sroa.06.0.i.i, %51 ], [ %69, %67 ]
@@ -238,8 +241,8 @@ _ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit:
   %76 = load i16, ptr %75, align 2, !tbaa !29
   br label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread
 
-_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %70, %.preheader, %55, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit
-  %77 = phi i16 [ %76, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit ], [ %1, %55 ], [ %1, %.preheader ], [ %1, %70 ], [ %1, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %55, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit
+  %77 = phi i16 [ %76, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit ], [ %1, %55 ], [ %1, %..loopexit_crit_edge21.i.i.i.i ], [ %1, %.preheader ], [ %1, %.lr.ph.i.i.i.i ]
   ret i16 %77
 }
 
@@ -405,11 +408,14 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIcSt4pairIKcsESaIS2_
   %42 = sext i8 %41 to i64
   %43 = urem i64 %42, %14
   %.not19.i.i = icmp eq i64 %43, %15
-  br i1 %.not19.i.i, label %36, label %.critedge28, !llvm.loop !28
+  br i1 %.not19.i.i, label %36, label %..loopexit_crit_edge21.i.i, !llvm.loop !28
 
-.critedge28:                                      ; preds = %.lr.ph.i.i, %39, %26, %.thread
-  %44 = phi i64 [ %30, %26 ], [ %15, %.thread ], [ %15, %39 ], [ %15, %.lr.ph.i.i ]
-  %45 = phi i64 [ %27, %26 ], [ %12, %.thread ], [ %12, %39 ], [ %12, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %39
+  br label %.critedge28, !llvm.loop !28
+
+.critedge28:                                      ; preds = %.lr.ph.i.i, %26, %..loopexit_crit_edge21.i.i, %.thread
+  %44 = phi i64 [ %30, %26 ], [ %15, %.thread ], [ %15, %..loopexit_crit_edge21.i.i ], [ %15, %.lr.ph.i.i ]
+  %45 = phi i64 [ %27, %26 ], [ %12, %.thread ], [ %12, %..loopexit_crit_edge21.i.i ], [ %12, %.lr.ph.i.i ]
   %46 = invoke ptr @_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %44, i64 noundef %45, ptr noundef nonnull %4, i64 noundef 1)
           to label %_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30
 

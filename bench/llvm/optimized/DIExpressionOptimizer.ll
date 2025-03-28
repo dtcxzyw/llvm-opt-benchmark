@@ -993,7 +993,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_back
 
 ._crit_edge:                                      ; preds = %465
   %.pre201 = load i64, ptr %19, align 8, !tbaa !8
-  br label %478
+  br label %478, !llvm.loop !23
 
 468:                                              ; preds = %465
   %469 = load ptr, ptr %22, align 8, !tbaa !10

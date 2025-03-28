@@ -513,7 +513,7 @@ define hidden noundef ptr @_ZN9metaspace13RootChunkArea5mergeEPNS_9MetachunkEPNS
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i8, ptr %45, align 8
   %.not = icmp eq i8 %46, %132
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %.not, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %33
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 25
@@ -521,10 +521,13 @@ define hidden noundef ptr @_ZN9metaspace13RootChunkArea5mergeEPNS_9MetachunkEPNS
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %.lr.ph76, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %33, %.lr.ph.preheader, %14
-  %.048.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph.preheader ], [ %.045., %33 ], [ %.045., %.lr.ph ]
-  %.lcssa62 = phi ptr [ %27, %14 ], [ %27, %.lr.ph.preheader ], [ %44, %33 ], [ %44, %.lr.ph ]
-  %.lcssa = phi ptr [ %28, %14 ], [ %28, %.lr.ph.preheader ], [ %45, %33 ], [ %45, %.lr.ph ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %33
+  br label %._crit_edge, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %14
+  %.048.lcssa = phi ptr [ null, %14 ], [ %.045., %.._crit_edge.loopexit_crit_edge ], [ null, %.lr.ph.preheader ], [ %.045., %.lr.ph ]
+  %.lcssa62 = phi ptr [ %27, %14 ], [ %44, %.._crit_edge.loopexit_crit_edge ], [ %27, %.lr.ph.preheader ], [ %44, %.lr.ph ]
+  %.lcssa = phi ptr [ %28, %14 ], [ %45, %.._crit_edge.loopexit_crit_edge ], [ %28, %.lr.ph.preheader ], [ %45, %.lr.ph ]
   %50 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not59 = icmp eq ptr %50, null
   br i1 %.not59, label %.thread, label %51

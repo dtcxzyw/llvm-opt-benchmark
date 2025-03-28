@@ -11683,7 +11683,7 @@ define internal fastcc noundef double @_ZN5osgeo4proj9operationL26find_zero_lcc_
 ._crit_edge:                                      ; preds = %36
   %.pre = fadd double %.344.ph, %.333.ph
   %.pre65 = fmul double %.pre, 5.000000e-01
-  br label %split
+  br label %split, !llvm.loop !373
 
 split:                                            ; preds = %7, %._crit_edge
   %.3 = phi double [ %.pre65, %._crit_edge ], [ %9, %7 ]

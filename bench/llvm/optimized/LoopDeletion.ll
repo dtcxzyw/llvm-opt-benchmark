@@ -3120,7 +3120,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 
 .thread-pre-split_crit_edge:                      ; preds = %181
   %.pr.pre = load i32, ptr %178, align 8, !tbaa !26
-  br label %thread-pre-split
+  br label %thread-pre-split, !llvm.loop !306
 
 190:                                              ; preds = %181
   %191 = call noundef ptr @_ZN4llvm15ScalarEvolution21getBackedgeTakenCountEPKNS_4LoopENS0_13ExitCountKindE(ptr noundef nonnull align 8 dereferenceable(1344) %1, ptr noundef %187, i32 noundef 1) #18

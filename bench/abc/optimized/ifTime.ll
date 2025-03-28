@@ -63,10 +63,13 @@ define void @If_CutSortInputPins(ptr noundef readonly captures(none) %0, ptr nou
   %28 = lshr i64 %27, 24
   %29 = and i64 %28, 255
   %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %15, label %.critedge, !llvm.loop !28
+  br i1 %30, label %15, label %..critedge.loopexit_crit_edge, !llvm.loop !28
 
-.critedge:                                        ; preds = %.lr.ph61, %15, %.lr.ph, %4
-  %31 = phi i64 [ %7, %4 ], [ %7, %.lr.ph ], [ %27, %15 ], [ %27, %.lr.ph61 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph61
+  br label %.critedge, !llvm.loop !28
+
+.critedge:                                        ; preds = %15, %.lr.ph, %..critedge.loopexit_crit_edge, %4
+  %31 = phi i64 [ %7, %4 ], [ %27, %..critedge.loopexit_crit_edge ], [ %7, %.lr.ph ], [ %27, %15 ]
   %32 = trunc i64 %31 to i32
   %33 = icmp ugt i32 %32, 33554431
   br i1 %33, label %.lr.ph47.preheader, label %._crit_edge48
@@ -223,7 +226,7 @@ define float @If_CutDelay(ptr noundef readonly captures(none) %0, ptr noundef re
   %.val123 = load ptr, ptr %44, align 8, !tbaa !3
   %45 = getelementptr i8, ptr %.val123, i64 8
   %.val123.val = load ptr, ptr %45, align 8, !tbaa !24
-  %wide.trip.count199 = and i64 %43, 255
+  %wide.trip.count200 = and i64 %43, 255
   br label %116
 
 46:                                               ; preds = %37
@@ -268,10 +271,13 @@ define float @If_CutDelay(ptr noundef readonly captures(none) %0, ptr noundef re
   store float %66, ptr %67, align 4, !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i139, 1
   %68 = icmp samesign ult i64 %indvars.iv.next.i, %55
-  br i1 %68, label %56, label %.critedge.i, !llvm.loop !28
+  br i1 %68, label %56, label %..critedge.i.loopexit_crit_edge142, !llvm.loop !28
 
-.critedge.i:                                      ; preds = %56, %.lr.ph140, %.lr.ph.i, %46
-  %69 = phi i64 [ %6, %46 ], [ %6, %.lr.ph.i ], [ %53, %.lr.ph140 ], [ %53, %56 ]
+..critedge.i.loopexit_crit_edge142:               ; preds = %.lr.ph140
+  br label %.critedge.i, !llvm.loop !28
+
+.critedge.i:                                      ; preds = %56, %.lr.ph.i, %..critedge.i.loopexit_crit_edge142, %46
+  %69 = phi i64 [ %6, %46 ], [ %53, %..critedge.i.loopexit_crit_edge142 ], [ %6, %.lr.ph.i ], [ %53, %56 ]
   %70 = trunc i64 %69 to i32
   %71 = icmp ugt i32 %70, 33554431
   %72 = lshr i32 %70, 24
@@ -337,37 +343,37 @@ define float @If_CutDelay(ptr noundef readonly captures(none) %0, ptr noundef re
   br i1 %105, label %.lr.ph47.i, label %If_CutSortInputPins.exit, !llvm.loop !34
 
 If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
-  %.pre-phi219 = phi i32 [ %72, %.critedge.i ], [ %102, %99 ]
+  %.pre-phi220 = phi i32 [ %72, %.critedge.i ], [ %102, %99 ]
   %.pre-phi = phi i32 [ %70, %.critedge.i ], [ %101, %99 ]
   %.not173 = icmp ult i32 %.pre-phi, 16777216
   br i1 %.not173, label %.critedge, label %.lr.ph146.preheader
 
 .lr.ph146.preheader:                              ; preds = %If_CutSortInputPins.exit
-  %umax192 = tail call i32 @llvm.umax.i32(i32 %.pre-phi219, i32 1)
-  %wide.trip.count193 = zext nneg i32 %umax192 to i64
+  %umax193 = tail call i32 @llvm.umax.i32(i32 %.pre-phi220, i32 1)
+  %wide.trip.count194 = zext nneg i32 %umax193 to i64
   br label %.lr.ph146
 
 .lr.ph146:                                        ; preds = %.lr.ph146.preheader, %.lr.ph146
-  %indvars.iv189 = phi i64 [ 0, %.lr.ph146.preheader ], [ %indvars.iv.next190, %.lr.ph146 ]
+  %indvars.iv190 = phi i64 [ 0, %.lr.ph146.preheader ], [ %indvars.iv.next191, %.lr.ph146 ]
   %.2145 = phi float [ 0xC415AF1D80000000, %.lr.ph146.preheader ], [ %115, %.lr.ph146 ]
-  %106 = getelementptr inbounds nuw [32 x i32], ptr @If_CutDelay.pPinPerm, i64 0, i64 %indvars.iv189
+  %106 = getelementptr inbounds nuw [32 x i32], ptr @If_CutDelay.pPinPerm, i64 0, i64 %indvars.iv190
   %107 = load i32, ptr %106, align 4, !tbaa !26
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds [32 x float], ptr @If_CutDelay.pPinDelays, i64 0, i64 %108
   %110 = load float, ptr %109, align 4, !tbaa !32
-  %111 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv189
+  %111 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv190
   %112 = load float, ptr %111, align 4, !tbaa !32
   %113 = fadd float %110, %112
   %114 = fcmp ogt float %.2145, %113
   %115 = select i1 %114, float %.2145, float %113
-  %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %exitcond194.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count193
-  br i1 %exitcond194.not, label %.critedge, label %.lr.ph146, !llvm.loop !44
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %exitcond195.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count194
+  br i1 %exitcond195.not, label %.critedge, label %.lr.ph146, !llvm.loop !44
 
 116:                                              ; preds = %.lr.ph150, %122
-  %indvars.iv195 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next196, %122 ]
+  %indvars.iv196 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next197, %122 ]
   %.3149 = phi float [ 0xC415AF1D80000000, %.lr.ph150 ], [ %128, %122 ]
-  %117 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv195
+  %117 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv196
   %118 = load i32, ptr %117, align 4, !tbaa !26
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds ptr, ptr %.val123.val, i64 %119
@@ -382,9 +388,9 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
   %126 = fadd float %124, %125
   %127 = fcmp ogt float %.3149, %126
   %128 = select i1 %127, float %.3149, float %126
-  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %exitcond200.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count199
-  br i1 %exitcond200.not, label %.critedge, label %116, !llvm.loop !45
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
+  %exitcond201.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count200
+  br i1 %exitcond201.not, label %.critedge, label %116, !llvm.loop !45
 
 129:                                              ; preds = %32
   %130 = and i64 %6, 8192
@@ -402,13 +408,13 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
   %.val122 = load ptr, ptr %133, align 8, !tbaa !3
   %134 = getelementptr i8, ptr %.val122, i64 8
   %.val122.val = load ptr, ptr %134, align 8, !tbaa !24
-  %wide.trip.count205 = and i64 %132, 255
+  %wide.trip.count206 = and i64 %132, 255
   br label %135
 
 135:                                              ; preds = %.lr.ph156, %141
-  %indvars.iv201 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next202, %141 ]
+  %indvars.iv202 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next203, %141 ]
   %.4155 = phi float [ 0xC415AF1D80000000, %.lr.ph156 ], [ %151, %141 ]
-  %136 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv201
+  %136 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv202
   %137 = load i32, ptr %136, align 4, !tbaa !26
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds ptr, ptr %.val122.val, i64 %138
@@ -417,7 +423,7 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
   br i1 %.not116, label %.critedge, label %141
 
 141:                                              ; preds = %135
-  %142 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv201
+  %142 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv202
   %143 = load i8, ptr %142, align 1, !tbaa !46
   %144 = icmp eq i8 %143, 120
   %145 = sitofp i8 %143 to float
@@ -427,9 +433,9 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
   %149 = fadd float %148, %146
   %150 = fcmp ogt float %.4155, %149
   %151 = select i1 %150, float %.4155, float %149
-  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %exitcond206.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count205
-  br i1 %exitcond206.not, label %.critedge, label %135, !llvm.loop !47
+  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
+  %exitcond207.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count206
+  br i1 %exitcond207.not, label %.critedge, label %135, !llvm.loop !47
 
 152:                                              ; preds = %129
   %153 = getelementptr inbounds nuw i8, ptr %34, i64 264
@@ -449,7 +455,7 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
   %158 = getelementptr i8, ptr %.val121, i64 8
   %.val121.val = load ptr, ptr %158, align 8, !tbaa !24
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %wide.trip.count211 = and i64 %156, 255
+  %wide.trip.count212 = and i64 %156, 255
   br label %163
 
 .preheader:                                       ; preds = %152
@@ -461,13 +467,13 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
   %.val = load ptr, ptr %161, align 8, !tbaa !3
   %162 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %162, align 8, !tbaa !24
-  %wide.trip.count217 = and i64 %160, 255
+  %wide.trip.count218 = and i64 %160, 255
   br label %184
 
 163:                                              ; preds = %.lr.ph162, %170
-  %indvars.iv207 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next208, %170 ]
+  %indvars.iv208 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next209, %170 ]
   %.5161 = phi float [ 0xC415AF1D80000000, %.lr.ph162 ], [ %183, %170 ]
-  %164 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv207
+  %164 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv208
   %165 = load i32, ptr %164, align 4, !tbaa !26
   %166 = ashr i32 %165, 8
   %167 = sext i32 %166 to i64
@@ -490,14 +496,14 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
   %181 = fcmp olt double %180, %178
   %182 = fptrunc double %180 to float
   %183 = select i1 %181, float %.5161, float %182
-  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %exitcond212.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count211
-  br i1 %exitcond212.not, label %.critedge, label %163, !llvm.loop !50
+  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
+  %exitcond213.not = icmp eq i64 %indvars.iv.next209, %wide.trip.count212
+  br i1 %exitcond213.not, label %.critedge, label %163, !llvm.loop !50
 
 184:                                              ; preds = %.lr.ph168, %190
-  %indvars.iv213 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next214, %190 ]
+  %indvars.iv214 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next215, %190 ]
   %.6167 = phi float [ 0xC415AF1D80000000, %.lr.ph168 ], [ %195, %190 ]
-  %185 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv213
+  %185 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv214
   %186 = load i32, ptr %185, align 4, !tbaa !26
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds ptr, ptr %.val.val, i64 %187
@@ -511,9 +517,9 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
   %193 = fadd float %192, 1.000000e+00
   %194 = fcmp ogt float %.6167, %193
   %195 = select i1 %194, float %.6167, float %193
-  %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
-  %exitcond218.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count217
-  br i1 %exitcond218.not, label %.critedge, label %184, !llvm.loop !51
+  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
+  %exitcond219.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count218
+  br i1 %exitcond219.not, label %.critedge, label %184, !llvm.loop !51
 
 .critedge:                                        ; preds = %22, %16, %.lr.ph146, %122, %116, %141, %135, %170, %163, %184, %190, %.preheader132, %If_CutSortInputPins.exit, %.preheader129, %.preheader127, %.preheader125, %.preheader
   %.1 = phi float [ 0xC415AF1D80000000, %.preheader ], [ 0xC415AF1D80000000, %.preheader125 ], [ 0xC415AF1D80000000, %.preheader127 ], [ 0xC415AF1D80000000, %.preheader129 ], [ 0xC415AF1D80000000, %If_CutSortInputPins.exit ], [ 0xC415AF1D80000000, %.preheader132 ], [ %.6167, %184 ], [ %195, %190 ], [ %183, %170 ], [ %.5161, %163 ], [ %151, %141 ], [ %.4155, %135 ], [ %128, %122 ], [ %.3149, %116 ], [ %115, %.lr.ph146 ], [ %31, %22 ], [ %.0135, %16 ]
@@ -644,10 +650,13 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr readnone captures(none)
   store float %69, ptr %70, align 4, !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i171, 1
   %71 = icmp samesign ult i64 %indvars.iv.next.i, %58
-  br i1 %71, label %59, label %.critedge.i, !llvm.loop !28
+  br i1 %71, label %59, label %..critedge.i.loopexit_crit_edge173, !llvm.loop !28
 
-.critedge.i:                                      ; preds = %59, %.lr.ph172, %.lr.ph.i, %49
-  %72 = phi i64 [ %7, %49 ], [ %7, %.lr.ph.i ], [ %56, %.lr.ph172 ], [ %56, %59 ]
+..critedge.i.loopexit_crit_edge173:               ; preds = %.lr.ph172
+  br label %.critedge.i, !llvm.loop !28
+
+.critedge.i:                                      ; preds = %59, %.lr.ph.i, %..critedge.i.loopexit_crit_edge173, %49
+  %72 = phi i64 [ %7, %49 ], [ %56, %..critedge.i.loopexit_crit_edge173 ], [ %7, %.lr.ph.i ], [ %56, %59 ]
   %73 = trunc i64 %72 to i32
   %74 = icmp ugt i32 %73, 33554431
   br i1 %74, label %.lr.ph47.preheader.i, label %If_CutSortInputPins.exit
@@ -729,11 +738,11 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   br label %113
 
 113:                                              ; preds = %.lr.ph176, %113
-  %indvars.iv200 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next201, %113 ]
-  %114 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv200
+  %indvars.iv201 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next202, %113 ]
+  %114 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv201
   %115 = load float, ptr %114, align 4, !tbaa !32
   %116 = fsub float %3, %115
-  %117 = getelementptr inbounds nuw [32 x i32], ptr @If_CutPropagateRequired.pPinPerm, i64 0, i64 %indvars.iv200
+  %117 = getelementptr inbounds nuw [32 x i32], ptr @If_CutPropagateRequired.pPinPerm, i64 0, i64 %indvars.iv201
   %118 = load i32, ptr %117, align 4, !tbaa !26
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds [0 x i32], ptr %45, i64 0, i64 %119
@@ -746,16 +755,16 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   %127 = fcmp olt float %126, %116
   %.153 = select i1 %127, float %126, float %116
   store float %.153, ptr %125, align 4, !tbaa !52
-  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %128 = load i64, ptr %6, align 4
   %129 = lshr i64 %128, 24
   %130 = and i64 %129, 255
-  %131 = icmp samesign ult i64 %indvars.iv.next201, %130
+  %131 = icmp samesign ult i64 %indvars.iv.next202, %130
   br i1 %131, label %113, label %.critedge, !llvm.loop !55
 
 132:                                              ; preds = %.lr.ph178, %138
-  %indvars.iv203 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next204, %138 ]
-  %133 = getelementptr inbounds nuw [0 x i32], ptr %45, i64 0, i64 %indvars.iv203
+  %indvars.iv204 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next205, %138 ]
+  %133 = getelementptr inbounds nuw [0 x i32], ptr %45, i64 0, i64 %indvars.iv204
   %134 = load i32, ptr %133, align 4, !tbaa !26
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds ptr, ptr %.val159.val, i64 %135
@@ -771,11 +780,11 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   %143 = fcmp olt float %140, %142
   %.154 = select i1 %143, float %140, float %142
   store float %.154, ptr %139, align 4, !tbaa !52
-  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %144 = load i64, ptr %6, align 4
   %145 = lshr i64 %144, 24
   %146 = and i64 %145, 255
-  %147 = icmp samesign ult i64 %indvars.iv.next204, %146
+  %147 = icmp samesign ult i64 %indvars.iv.next205, %146
   br i1 %147, label %132, label %.critedge, !llvm.loop !56
 
 148:                                              ; preds = %33
@@ -801,8 +810,8 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   br label %158
 
 158:                                              ; preds = %.lr.ph181, %177
-  %indvars.iv206 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next207, %177 ]
-  %159 = getelementptr inbounds nuw [0 x i32], ptr %155, i64 0, i64 %indvars.iv206
+  %indvars.iv207 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next208, %177 ]
+  %159 = getelementptr inbounds nuw [0 x i32], ptr %155, i64 0, i64 %indvars.iv207
   %160 = load i32, ptr %159, align 4, !tbaa !26
   %.val158 = load ptr, ptr %157, align 8, !tbaa !3
   %161 = getelementptr i8, ptr %.val158, i64 8
@@ -816,7 +825,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
 165:                                              ; preds = %158
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 52
   %167 = load float, ptr %166, align 4, !tbaa !52
-  %168 = trunc nuw nsw i64 %indvars.iv206 to i32
+  %168 = trunc nuw nsw i64 %indvars.iv207 to i32
   %169 = tail call float @If_LutDecPinRequired(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %168, float noundef %3) #11
   %170 = fsub float %3, %169
   %171 = fcmp olt float %167, %170
@@ -834,11 +843,11 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
 177:                                              ; preds = %174, %172
   %178 = phi float [ %173, %172 ], [ %176, %174 ]
   store float %178, ptr %166, align 4, !tbaa !52
-  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %179 = load i64, ptr %6, align 4
   %180 = lshr i64 %179, 24
   %181 = and i64 %180, 255
-  %182 = icmp samesign ult i64 %indvars.iv.next207, %181
+  %182 = icmp samesign ult i64 %indvars.iv.next208, %181
   br i1 %182, label %158, label %.critedge, !llvm.loop !59
 
 183:                                              ; preds = %151
@@ -914,8 +923,8 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   br label %216
 
 216:                                              ; preds = %.lr.ph184, %222
-  %indvars.iv209 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next210, %222 ]
-  %217 = getelementptr inbounds nuw [0 x i32], ptr %211, i64 0, i64 %indvars.iv209
+  %indvars.iv210 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next211, %222 ]
+  %217 = getelementptr inbounds nuw [0 x i32], ptr %211, i64 0, i64 %indvars.iv210
   %218 = load i32, ptr %217, align 4, !tbaa !26
   %219 = sext i32 %218 to i64
   %220 = getelementptr inbounds ptr, ptr %.val157.val, i64 %219
@@ -924,7 +933,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   br i1 %.not147, label %.critedge6, label %222
 
 222:                                              ; preds = %216
-  %223 = getelementptr inbounds nuw i8, ptr %.0121, i64 %indvars.iv209
+  %223 = getelementptr inbounds nuw i8, ptr %.0121, i64 %indvars.iv210
   %224 = load i8, ptr %223, align 1, !tbaa !46
   %225 = icmp eq i8 %224, 120
   %226 = sitofp i8 %224 to float
@@ -935,11 +944,11 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   %231 = fcmp olt float %230, %228
   %.155 = select i1 %231, float %230, float %228
   store float %.155, ptr %229, align 4, !tbaa !52
-  %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
+  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %232 = load i64, ptr %6, align 4
   %233 = lshr i64 %232, 24
   %234 = and i64 %233, 255
-  %235 = icmp samesign ult i64 %indvars.iv.next210, %234
+  %235 = icmp samesign ult i64 %indvars.iv.next211, %234
   br i1 %235, label %216, label %.critedge6, !llvm.loop !63
 
 .critedge6:                                       ; preds = %216, %222, %210
@@ -947,8 +956,8 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   br label %.critedge
 
 236:                                              ; preds = %.lr.ph187, %242
-  %indvars.iv212 = phi i64 [ 0, %.lr.ph187 ], [ %indvars.iv.next213, %242 ]
-  %237 = getelementptr inbounds nuw [0 x i32], ptr %185, i64 0, i64 %indvars.iv212
+  %indvars.iv213 = phi i64 [ 0, %.lr.ph187 ], [ %indvars.iv.next214, %242 ]
+  %237 = getelementptr inbounds nuw [0 x i32], ptr %185, i64 0, i64 %indvars.iv213
   %238 = load i32, ptr %237, align 4, !tbaa !26
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds ptr, ptr %.val.val, i64 %239
@@ -962,11 +971,11 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   %245 = fcmp olt float %244, %189
   %.156 = select i1 %245, float %244, float %189
   store float %.156, ptr %243, align 4, !tbaa !52
-  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
+  %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %246 = load i64, ptr %6, align 4
   %247 = lshr i64 %246, 24
   %248 = and i64 %247, 255
-  %249 = icmp samesign ult i64 %indvars.iv.next213, %248
+  %249 = icmp samesign ult i64 %indvars.iv.next214, %248
   br i1 %249, label %236, label %.critedge, !llvm.loop !64
 
 .critedge:                                        ; preds = %20, %14, %113, %138, %132, %177, %158, %236, %242, %.preheader166, %If_CutSortInputPins.exit, %.preheader163, %154, %.preheader, %.critedge6

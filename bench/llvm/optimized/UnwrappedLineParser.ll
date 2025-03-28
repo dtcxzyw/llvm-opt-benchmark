@@ -3074,11 +3074,14 @@ _ZN5clang6format15ScopedLineStateD2Ev.exit:       ; preds = %_ZNSt10unique_ptrIN
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 32
   %673 = load i8, ptr %672, align 8, !tbaa !31, !range !32, !noundef !33
   %674 = trunc nuw i8 %673 to i1
-  br i1 %674, label %.critedge, label %.lr.ph, !llvm.loop !380
+  br i1 %674, label %_ZN5clang6format15ScopedLineStateD2Ev.exit..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !380
 
-.critedge:                                        ; preds = %404, %404, %404, %404, %404, %404, %404, %404, %404, %404, %404, %404, %404, %404, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit, %.lr.ph, %_ZN5clang6format15ScopedLineStateD2Ev.exit, %462, %.lr.ph.preheader, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit"
-  %.120.in.lcssa = phi i1 [ %.0.i, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit" ], [ %.0.i, %.lr.ph.preheader ], [ false, %462 ], [ %.0.i43, %_ZN5clang6format15ScopedLineStateD2Ev.exit ], [ %.0.i43, %.lr.ph ], [ %.120.in202294, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit ], [ %.120.in202294, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ]
-  %.1.lcssa = phi i1 [ %386, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit" ], [ %386, %.lr.ph.preheader ], [ %.1203293, %462 ], [ %659, %_ZN5clang6format15ScopedLineStateD2Ev.exit ], [ %659, %.lr.ph ], [ %.1203293, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit ], [ %.1203293, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ]
+_ZN5clang6format15ScopedLineStateD2Ev.exit..critedge.loopexit_crit_edge: ; preds = %_ZN5clang6format15ScopedLineStateD2Ev.exit
+  br label %.critedge, !llvm.loop !380
+
+.critedge:                                        ; preds = %404, %404, %404, %404, %404, %404, %404, %404, %404, %404, %404, %404, %404, %404, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit, %.lr.ph, %462, %.lr.ph.preheader, %_ZN5clang6format15ScopedLineStateD2Ev.exit..critedge.loopexit_crit_edge, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit"
+  %.120.in.lcssa = phi i1 [ %.0.i, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit" ], [ %.0.i43, %_ZN5clang6format15ScopedLineStateD2Ev.exit..critedge.loopexit_crit_edge ], [ %.0.i, %.lr.ph.preheader ], [ false, %462 ], [ %.0.i43, %.lr.ph ], [ %.120.in202294, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit ], [ %.120.in202294, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ], [ %.120.in202294, %404 ]
+  %.1.lcssa = phi i1 [ %386, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit" ], [ %659, %_ZN5clang6format15ScopedLineStateD2Ev.exit..critedge.loopexit_crit_edge ], [ %386, %.lr.ph.preheader ], [ %.1203293, %462 ], [ %659, %.lr.ph ], [ %.1203293, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit ], [ %.1203293, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ], [ %.1203293, %404 ]
   %675 = load i32, ptr %23, align 8, !tbaa !80
   %.not.i50 = icmp eq i32 %675, 0
   br i1 %.not.i50, label %688, label %676
@@ -27311,10 +27314,13 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %7
   %45 = ptrtoint ptr %44 to i64
   %46 = urem i64 %45, %29
   %.not19.i.i.i.i = icmp eq i64 %46, %30
-  br i1 %.not19.i.i.i.i, label %39, label %_ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit, !llvm.loop !758
+  br i1 %.not19.i.i.i.i, label %39, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !758
 
-_ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit: ; preds = %39, %.lr.ph.i.i.i.i, %42, %20, %21, %25, %34
-  %.sroa.06.1.i.i = phi ptr [ null, %25 ], [ %35, %34 ], [ null, %20 ], [ %.sroa.06.0.i.i, %21 ], [ %41, %39 ], [ null, %.lr.ph.i.i.i.i ], [ null, %42 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %42
+  br label %_ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit, !llvm.loop !758
+
+_ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit: ; preds = %39, %.lr.ph.i.i.i.i, %20, %21, %25, %34, %..loopexit_crit_edge21.i.i.i.i
+  %.sroa.06.1.i.i = phi ptr [ null, %25 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %35, %34 ], [ null, %20 ], [ %.sroa.06.0.i.i, %21 ], [ %41, %39 ], [ null, %.lr.ph.i.i.i.i ]
   %47 = icmp eq ptr %.sroa.06.1.i.i, null
   br label %_ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit.thread
 

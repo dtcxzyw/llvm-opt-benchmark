@@ -429,7 +429,7 @@ egfx_get_conversation_data.exit:                  ; preds = %4, %17, %.thread.i
   %111 = getelementptr i8, ptr %.07.i7.i, i64 24
   %112 = load ptr, ptr %111, align 8
   %.not.i.i = icmp eq ptr %112, null
-  br i1 %.not.i.i, label %find_egfx_version.exit.i, label %113, !llvm.loop !6
+  br i1 %.not.i.i, label %.find_egfx_version.exit_crit_edge.i, label %113, !llvm.loop !6
 
 113:                                              ; preds = %.lr.ph9.i
   %114 = getelementptr i8, ptr %.07.i7.i, i64 16
@@ -437,8 +437,11 @@ egfx_get_conversation_data.exit:                  ; preds = %4, %17, %.thread.i
   %116 = icmp eq i32 %115, %105
   br i1 %116, label %find_egfx_version.exit.i, label %.lr.ph9.i, !llvm.loop !6
 
-find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph9.i, %.lr.ph15.i
-  %.05.i.i = phi ptr [ @.str.85, %.lr.ph15.i ], [ %112, %113 ], [ @.str.124, %.lr.ph9.i ]
+.find_egfx_version.exit_crit_edge.i:              ; preds = %.lr.ph9.i
+  br label %find_egfx_version.exit.i, !llvm.loop !6
+
+find_egfx_version.exit.i:                         ; preds = %113, %.find_egfx_version.exit_crit_edge.i, %.lr.ph15.i
+  %.05.i.i = phi ptr [ @.str.124, %.find_egfx_version.exit_crit_edge.i ], [ @.str.85, %.lr.ph15.i ], [ %112, %113 ]
   %117 = call ptr @proto_tree_add_subtree(ptr noundef %102, ptr noundef nonnull %.03558, i32 noundef %.113.i, i32 noundef %108, i32 noundef %109, ptr noundef null, ptr noundef nonnull %.05.i.i)
   %118 = load i32, ptr @hf_egfx_cap_version, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %118, ptr noundef nonnull %.03558, i32 noundef %.113.i, i32 noundef 4, i32 noundef -2147483648)

@@ -2431,7 +2431,10 @@ _ZNSt6vectorIN5folly17AsyncServerSocket12CallbackInfoESaIS2_EE12emplace_backIJRP
   %131 = zext i32 %130 to i64
   %132 = urem i64 %131, %115
   %.not19.i.i.i.i = icmp eq i64 %132, %116
-  br i1 %.not19.i.i.i.i, label %125, label %.critedge, !llvm.loop !231
+  br i1 %.not19.i.i.i.i, label %125, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !231
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %128
+  br label %.critedge, !llvm.loop !231
 
 _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit: ; preds = %125, %108
   br i1 %.not.not.i.i, label %133, label %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42_crit_edge
@@ -2439,9 +2442,9 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
 _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42_crit_edge: ; preds = %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 176
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !228
-  %.pre56 = load ptr, ptr %102, align 8, !tbaa !229
-  %.pre57 = zext i32 %100 to i64
-  %.pre58 = urem i64 %.pre57, %.pre
+  %.pre58 = load ptr, ptr %102, align 8, !tbaa !229
+  %.pre59 = zext i32 %100 to i64
+  %.pre60 = urem i64 %.pre59, %.pre
   br label %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42
 
 133:                                              ; preds = %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit
@@ -2461,10 +2464,10 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
   br i1 %139, label %.loopexit, label %135, !llvm.loop !227
 
 _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42: ; preds = %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42_crit_edge, %120
-  %.pre-phi59 = phi i64 [ %.pre58, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42_crit_edge ], [ %116, %120 ]
-  %140 = phi ptr [ %.pre56, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42_crit_edge ], [ %117, %120 ]
+  %.pre-phi61 = phi i64 [ %.pre60, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42_crit_edge ], [ %116, %120 ]
+  %140 = phi ptr [ %.pre58, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42_crit_edge ], [ %117, %120 ]
   %141 = phi i64 [ %.pre, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42_crit_edge ], [ %115, %120 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %140, i64 %.pre-phi59
+  %142 = getelementptr inbounds nuw ptr, ptr %140, i64 %.pre-phi61
   %143 = load ptr, ptr %142, align 8, !tbaa !230
   %.not.i.i.i.i.i22 = icmp eq ptr %143, null
   br i1 %.not.i.i.i.i.i22, label %.loopexit.i.i, label %144
@@ -2491,10 +2494,13 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
   %154 = load i32, ptr %153, align 4, !tbaa !24
   %155 = zext i32 %154 to i64
   %156 = urem i64 %155, %141
-  %.not19.i.i.i.i.i = icmp eq i64 %156, %.pre-phi59
-  br i1 %.not19.i.i.i.i.i, label %149, label %.loopexit.i.i, !llvm.loop !231
+  %.not19.i.i.i.i.i = icmp eq i64 %156, %.pre-phi61
+  br i1 %.not19.i.i.i.i.i, label %149, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !231
 
-.loopexit.i.i:                                    ; preds = %152, %.lr.ph.i.i.i.i.i23, %135, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %152
+  br label %.loopexit.i.i, !llvm.loop !231
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i23, %135, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread42
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.73) #53
           to label %.noexc unwind label %158
 
@@ -2512,7 +2518,7 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
           cleanup
   br label %189
 
-.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %128, %107, %112, %97, %.loopexit
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %107, %..loopexit_crit_edge21.i.i.i.i, %112, %97, %.loopexit
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %161 = load i32, ptr %160, align 8, !tbaa !232
   %162 = icmp slt i32 %161, 0
@@ -14799,11 +14805,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN5folly17AsyncServ
   %40 = zext i32 %39 to i64
   %41 = urem i64 %40, %12
   %.not19.i.i = icmp eq i64 %41, %13
-  br i1 %.not19.i.i, label %34, label %.critedge28, !llvm.loop !231
+  br i1 %.not19.i.i, label %34, label %..loopexit_crit_edge21.i.i, !llvm.loop !231
 
-.critedge28:                                      ; preds = %.lr.ph.i.i, %37, %24, %.thread
-  %42 = phi i64 [ %28, %24 ], [ %13, %.thread ], [ %13, %37 ], [ %13, %.lr.ph.i.i ]
-  %43 = phi i64 [ %25, %24 ], [ %10, %.thread ], [ %10, %37 ], [ %10, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %37
+  br label %.critedge28, !llvm.loop !231
+
+.critedge28:                                      ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread
+  %42 = phi i64 [ %28, %24 ], [ %13, %.thread ], [ %13, %..loopexit_crit_edge21.i.i ], [ %13, %.lr.ph.i.i ]
+  %43 = phi i64 [ %25, %24 ], [ %10, %.thread ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
   %44 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjN5folly17AsyncServerSocket12CallbackInfoEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %42, i64 noundef %43, ptr noundef nonnull %4, i64 noundef 1)
           to label %_ZNSt10_HashtableIjSt4pairIKjN5folly17AsyncServerSocket12CallbackInfoEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIjSt4pairIKjN5folly17AsyncServerSocket12CallbackInfoEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30
 
@@ -18734,7 +18743,10 @@ _ZNKSt8functionIFiPN5folly17AsyncServerSocketENS0_13NetworkSocketEEEclES2_S3_.ex
   %43 = zext i32 %42 to i64
   %44 = urem i64 %43, %27
   %.not19.i.i.i.i = icmp eq i64 %44, %28
-  br i1 %.not19.i.i.i.i, label %37, label %.loopexit, !llvm.loop !231
+  br i1 %.not19.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !231
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %40
+  br label %.loopexit, !llvm.loop !231
 
 _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit: ; preds = %37, %20
   br i1 %.not.not.i.i, label %45, label %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19_crit_edge
@@ -18742,9 +18754,9 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
 _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19_crit_edge: ; preds = %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 176
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !228
-  %.pre35 = load ptr, ptr %14, align 8, !tbaa !229
-  %.pre37 = zext nneg i32 %11 to i64
-  %.pre39 = urem i64 %.pre37, %.pre
+  %.pre37 = load ptr, ptr %14, align 8, !tbaa !229
+  %.pre39 = zext nneg i32 %11 to i64
+  %.pre41 = urem i64 %.pre39, %.pre
   br label %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19
 
 45:                                               ; preds = %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit
@@ -18764,10 +18776,10 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
   br i1 %51, label %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE2atERS8_.exit, label %47, !llvm.loop !227
 
 _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19: ; preds = %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19_crit_edge, %32
-  %.pre-phi40 = phi i64 [ %.pre39, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19_crit_edge ], [ %28, %32 ]
-  %52 = phi ptr [ %.pre35, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19_crit_edge ], [ %29, %32 ]
+  %.pre-phi42 = phi i64 [ %.pre41, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19_crit_edge ], [ %28, %32 ]
+  %52 = phi ptr [ %.pre37, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19_crit_edge ], [ %29, %32 ]
   %53 = phi i64 [ %.pre, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit._ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19_crit_edge ], [ %27, %32 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %.pre-phi40
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %.pre-phi42
   %55 = load ptr, ptr %54, align 8, !tbaa !230
   %.not.i.i.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %56
@@ -18794,10 +18806,13 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
   %66 = load i32, ptr %65, align 4, !tbaa !24
   %67 = zext i32 %66 to i64
   %68 = urem i64 %67, %53
-  %.not19.i.i.i.i.i = icmp eq i64 %68, %.pre-phi40
-  br i1 %.not19.i.i.i.i.i, label %61, label %.loopexit.i.i, !llvm.loop !231
+  %.not19.i.i.i.i.i = icmp eq i64 %68, %.pre-phi42
+  br i1 %.not19.i.i.i.i.i, label %61, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !231
 
-.loopexit.i.i:                                    ; preds = %64, %.lr.ph.i.i.i.i.i, %47, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %64
+  br label %.loopexit.i.i, !llvm.loop !231
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %47, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread19
   call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.73) #53
   unreachable
 
@@ -18807,11 +18822,11 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
   br label %95
 
 .loopexit.loopexit:                               ; preds = %19
-  %.pre36 = zext nneg i32 %11 to i64
+  %.pre38 = zext nneg i32 %11 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %40, %.lr.ph.i.i.i.i, %.loopexit.loopexit, %24
-  %.pre-phi = phi i64 [ %.pre36, %.loopexit.loopexit ], [ %25, %24 ], [ %25, %.lr.ph.i.i.i.i ], [ %25, %40 ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit, %24, %..loopexit_crit_edge21.i.i.i.i
+  %.pre-phi = phi i64 [ %.pre38, %.loopexit.loopexit ], [ %25, %24 ], [ %25, %..loopexit_crit_edge21.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %72 = load ptr, ptr %71, align 8, !tbaa !160

@@ -4981,15 +4981,18 @@ find_dependent_phvs_walker.exit.thread15:         ; preds = %10, %27, %find_depe
 
 49:                                               ; preds = %36
   %50 = call zeroext i1 @range_table_entry_walker_impl(ptr noundef nonnull %45, ptr noundef nonnull @find_dependent_phvs_walker, ptr noundef nonnull %4, i32 noundef 0) #7
-  br i1 %50, label %find_dependent_phvs_walker.exit.thread, label %.critedge, !llvm.loop !18
+  br i1 %50, label %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %49, %36
   %51 = call i32 @bms_next_member(ptr noundef %32, i32 noundef %37) #7
   %52 = icmp sgt i32 %51, -1
   br i1 %52, label %36, label %find_dependent_phvs_walker.exit.thread
 
-find_dependent_phvs_walker.exit.thread:           ; preds = %49, %.critedge, %find_dependent_phvs_walker.exit.thread15, %21, %27, %find_dependent_phvs_walker.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %find_dependent_phvs_walker.exit ], [ true, %27 ], [ true, %21 ], [ false, %find_dependent_phvs_walker.exit.thread15 ], [ true, %49 ], [ false, %.critedge ]
+.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge: ; preds = %49
+  br label %find_dependent_phvs_walker.exit.thread, !llvm.loop !18
+
+find_dependent_phvs_walker.exit.thread:           ; preds = %.critedge, %find_dependent_phvs_walker.exit.thread15, %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge, %21, %27, %find_dependent_phvs_walker.exit, %3
+  %.0 = phi i1 [ false, %3 ], [ true, %find_dependent_phvs_walker.exit ], [ true, %27 ], [ true, %21 ], [ true, %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge ], [ false, %find_dependent_phvs_walker.exit.thread15 ], [ false, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   ret i1 %.0
 }

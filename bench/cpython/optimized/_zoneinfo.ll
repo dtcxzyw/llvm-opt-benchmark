@@ -5420,7 +5420,7 @@ parse_digits.exit44.thread.i:                     ; preds = %.preheader.i58
 
 .lr.ph149.i.parse_digits.exit50.thread.i_crit_edge: ; preds = %.lr.ph149.i
   %.pre = load i8, ptr %scevgep197.i, align 1, !tbaa !20
-  br label %parse_digits.exit50.thread.i
+  br label %parse_digits.exit50.thread.i, !llvm.loop !133
 
 parse_digits.exit50.thread.i:                     ; preds = %232, %.lr.ph149.i.parse_digits.exit50.thread.i_crit_edge
   %246 = phi i8 [ %.pre, %.lr.ph149.i.parse_digits.exit50.thread.i_crit_edge ], [ %234, %232 ]

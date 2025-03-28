@@ -5262,7 +5262,7 @@ _ZN6vectorIN15static_features10to_processELb0EjE4backEv.exit: ; preds = %_ZNK6ve
 
 ._crit_edge:                                      ; preds = %23
   %.pre = load ptr, ptr %2, align 8, !tbaa !108
-  br label %35
+  br label %35, !llvm.loop !239
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 10

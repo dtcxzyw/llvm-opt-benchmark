@@ -914,35 +914,35 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   %14 = load volatile ptr, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !36
   %15 = icmp eq ptr %14, %13
-  br i1 %15, label %.lr.ph19, label %.loopexit
+  br i1 %15, label %.lr.ph22, label %.loopexit
 
 16:                                               ; preds = %42
   %17 = add nuw nsw i64 %34, 1
   %18 = icmp samesign ult i64 %34, 2
   %19 = icmp eq i64 %17, 3
-  br i1 %19, label %.loopexit, label %20, !llvm.loop !37
+  br i1 %19, label %..loopexit_crit_edge, label %20, !llvm.loop !37
 
 20:                                               ; preds = %16
   %21 = getelementptr [3 x %struct.dd_per_prio], ptr %7, i64 0, i64 %17
   %22 = load volatile ptr, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !36
   %23 = icmp eq ptr %22, %21
-  br i1 %23, label %24, label %.loopexit, !llvm.loop !37
+  br i1 %23, label %24, label %..loopexit_crit_edge7, !llvm.loop !37
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %26 = load volatile ptr, ptr %25, align 8
   %27 = icmp eq ptr %21, %26
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !37
+  br i1 %27, label %.lr.ph, label %..loopexit.loopexit_crit_edge28, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %29 = load volatile ptr, ptr %28, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !36
   %30 = icmp eq ptr %29, %28
-  br i1 %30, label %.lr.ph19, label %.loopexit, !llvm.loop !37
+  br i1 %30, label %.lr.ph22, label %.loopexit, !llvm.loop !37
 
-.lr.ph19:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %31 = phi ptr [ %28, %.lr.ph ], [ %13, %.lr.ph.preheader ]
   %32 = phi ptr [ %21, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %33 = phi i1 [ %18, %.lr.ph ], [ true, %.lr.ph.preheader ]
@@ -952,7 +952,7 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   %37 = icmp eq ptr %31, %36
   br i1 %37, label %38, label %.loopexit
 
-38:                                               ; preds = %.lr.ph19
+38:                                               ; preds = %.lr.ph22
   %39 = getelementptr i8, ptr %32, i64 48
   %40 = load volatile ptr, ptr %39, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !36
@@ -965,8 +965,17 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   %45 = icmp eq ptr %39, %44
   br i1 %45, label %16, label %.loopexit
 
-.loopexit:                                        ; preds = %42, %38, %.lr.ph19, %.lr.ph, %24, %20, %16, %.lr.ph.preheader, %.preheader, %1
-  %46 = phi i1 [ true, %1 ], [ true, %.preheader ], [ true, %.lr.ph.preheader ], [ %18, %16 ], [ %18, %20 ], [ %18, %24 ], [ %18, %.lr.ph ], [ %33, %.lr.ph19 ], [ %33, %38 ], [ %33, %42 ]
+..loopexit_crit_edge:                             ; preds = %16
+  br label %.loopexit, !llvm.loop !37
+
+..loopexit_crit_edge7:                            ; preds = %20
+  br label %.loopexit, !llvm.loop !37
+
+..loopexit.loopexit_crit_edge28:                  ; preds = %24
+  br label %.loopexit, !llvm.loop !37
+
+.loopexit:                                        ; preds = %42, %38, %.lr.ph22, %.lr.ph, %.lr.ph.preheader, %..loopexit.loopexit_crit_edge28, %.preheader, %..loopexit_crit_edge, %..loopexit_crit_edge7, %1
+  %46 = phi i1 [ true, %1 ], [ %18, %..loopexit_crit_edge7 ], [ %18, %..loopexit_crit_edge ], [ true, %.preheader ], [ %18, %..loopexit.loopexit_crit_edge28 ], [ true, %.lr.ph.preheader ], [ %18, %.lr.ph ], [ %33, %.lr.ph22 ], [ %33, %38 ], [ %33, %42 ]
   ret i1 %46
 }
 

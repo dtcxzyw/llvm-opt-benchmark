@@ -773,16 +773,16 @@ define noundef zeroext i1 @_ZN3g2o20EdgeSE2PointXYOffset4readERSi(ptr noundef no
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
   %17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %16)
-  br i1 %9, label %8, label %._ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit_crit_edge, !llvm.loop !136
+  br i1 %9, label %8, label %..critedge_crit_edge.i, !llvm.loop !136
 
-._ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit_crit_edge: ; preds = %15
+..critedge_crit_edge.i:                           ; preds = %15
   %.pre = load ptr, ptr %1, align 8, !tbaa !35
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 -24
   %.pre12 = load i64, ptr %.phi.trans.insert, align 8
-  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !136
 
-_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %8, %._ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit_crit_edge
-  %18 = phi i64 [ %.pre12, %._ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit_crit_edge ], [ %12, %8 ]
+_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %8, %..critedge_crit_edge.i
+  %18 = phi i64 [ %.pre12, %..critedge_crit_edge.i ], [ %12, %8 ]
   %19 = getelementptr inbounds i8, ptr %1, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load i32, ptr %20, align 8, !tbaa !127
@@ -822,13 +822,13 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   br i1 %38, label %39, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %44, %33
-  br i1 %26, label %25, label %.critedge2.i._ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit_crit_edge, !llvm.loop !137
+  br i1 %26, label %25, label %.critedge2..critedge_crit_edge.i, !llvm.loop !137
 
-.critedge2.i._ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit_crit_edge: ; preds = %.critedge2.i
+.critedge2..critedge_crit_edge.i:                 ; preds = %.critedge2.i
   %.pre13 = load ptr, ptr %1, align 8, !tbaa !35
   %.phi.trans.insert14 = getelementptr i8, ptr %.pre13, i64 -24
   %.pre15 = load i64, ptr %.phi.trans.insert14, align 8
-  br label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit
+  br label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit, !llvm.loop !137
 
 39:                                               ; preds = %33
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv32.i, 4
@@ -847,8 +847,8 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   %45 = icmp eq i64 %indvars.iv32.i, 0
   br i1 %45, label %33, label %.critedge2.i, !llvm.loop !138
 
-_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %25, %.critedge2.i._ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit_crit_edge
-  %46 = phi i64 [ %.pre15, %.critedge2.i._ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit_crit_edge ], [ %29, %25 ]
+_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %25, %.critedge2..critedge_crit_edge.i
+  %46 = phi i64 [ %.pre15, %.critedge2..critedge_crit_edge.i ], [ %29, %25 ]
   %47 = getelementptr inbounds i8, ptr %1, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i32, ptr %48, align 8, !tbaa !127

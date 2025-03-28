@@ -377,7 +377,7 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
   %70 = getelementptr i8, ptr %.011.i67.i, i64 24
   %71 = load ptr, ptr %70, align 8
   %.not9.i.i = icmp eq ptr %71, inttoptr (i64 -1 to ptr)
-  br i1 %.not9.i.i, label %ros_lookup_err_dissector.exit.i, label %.lr.ph.i58.i, !llvm.loop !8
+  br i1 %.not9.i.i, label %.ros_lookup_err_dissector.exit.loopexit_crit_edge.i, label %.lr.ph.i58.i, !llvm.loop !8
 
 .lr.ph.i58.i:                                     ; preds = %.lr.ph.i
   %72 = getelementptr i8, ptr %.011.i67.i, i64 16
@@ -385,8 +385,11 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
   %74 = icmp eq i32 %73, %.039.i
   br i1 %74, label %ros_lookup_err_dissector.exit.i, label %.lr.ph.i, !llvm.loop !8
 
-ros_lookup_err_dissector.exit.i:                  ; preds = %.lr.ph.i58.i, %.lr.ph.i, %.lr.ph.i58.preheader.i, %.preheader.i57.i, %63
-  %.06.i.i = phi ptr [ null, %63 ], [ null, %.preheader.i57.i ], [ %67, %.lr.ph.i58.preheader.i ], [ null, %.lr.ph.i ], [ %71, %.lr.ph.i58.i ]
+.ros_lookup_err_dissector.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %ros_lookup_err_dissector.exit.i, !llvm.loop !8
+
+ros_lookup_err_dissector.exit.i:                  ; preds = %.lr.ph.i58.i, %.ros_lookup_err_dissector.exit.loopexit_crit_edge.i, %.lr.ph.i58.preheader.i, %.preheader.i57.i, %63
+  %.06.i.i = phi ptr [ null, %63 ], [ null, %.preheader.i57.i ], [ null, %.ros_lookup_err_dissector.exit.loopexit_crit_edge.i ], [ %67, %.lr.ph.i58.preheader.i ], [ %71, %.lr.ph.i58.i ]
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %76 = load ptr, ptr %75, align 8
   br label %ros_lookup_opr_dissector.exit.i

@@ -1682,7 +1682,7 @@ _ZN2cv10AutoBufferIjLm264EEC2Em.exit307:          ; preds = %.noexc306, %._crit_
   %205 = getelementptr inbounds nuw %"class.cv::Vec.34", ptr %62, i64 %212
   %206 = load i32, ptr %205, align 4, !tbaa !21
   %.not293 = icmp ugt i32 %206, %27
-  br i1 %.not293, label %.critedge.loopexit, label %.lr.ph406, !llvm.loop !105
+  br i1 %.not293, label %.critedge, label %.lr.ph406, !llvm.loop !105
 
 .lr.ph406:                                        ; preds = %.lr.ph351.preheader, %.lr.ph351
   %.0266349405 = phi i32 [ %211, %.lr.ph351 ], [ %191, %.lr.ph351.preheader ]
@@ -1697,19 +1697,19 @@ _ZN2cv10AutoBufferIjLm264EEC2Em.exit307:          ; preds = %.noexc306, %._crit_
   %213 = getelementptr inbounds nuw i32, ptr %80, i64 %212
   %214 = load i32, ptr %213, align 4, !tbaa !21
   %215 = icmp eq i32 %214, 1
-  br i1 %215, label %.lr.ph351, label %.critedge.loopexit, !llvm.loop !105
+  br i1 %215, label %.lr.ph351, label %..critedge_crit_edge, !llvm.loop !105
 
-.critedge.loopexit:                               ; preds = %.lr.ph351, %.lr.ph406
-  %216 = icmp ult i32 %209, 2
-  br label %.critedge
+..critedge_crit_edge:                             ; preds = %.lr.ph406
+  br label %.critedge, !llvm.loop !105
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph351.preheader
-  %.0267.lcssa.ph = phi i32 [ %191, %.lr.ph351.preheader ], [ %.0266349405, %.critedge.loopexit ]
-  %.0265.lcssa.ph = phi i1 [ true, %.lr.ph351.preheader ], [ %216, %.critedge.loopexit ]
-  %217 = getelementptr inbounds nuw i8, ptr %150, i64 %192
-  %218 = load i8, ptr %217, align 1, !tbaa !100, !range !103, !noundef !104
-  %219 = trunc nuw i8 %218 to i1
-  %or.cond.not = select i1 %219, i1 %.0265.lcssa.ph, i1 false
+.critedge:                                        ; preds = %.lr.ph351, %..critedge_crit_edge, %.lr.ph351.preheader
+  %.0267.lcssa.ph = phi i32 [ %.0266349405, %..critedge_crit_edge ], [ %191, %.lr.ph351.preheader ], [ %.0266349405, %.lr.ph351 ]
+  %.0265.lcssa.ph = phi i32 [ %209, %..critedge_crit_edge ], [ 0, %.lr.ph351.preheader ], [ %209, %.lr.ph351 ]
+  %216 = getelementptr inbounds nuw i8, ptr %150, i64 %192
+  %217 = load i8, ptr %216, align 1, !tbaa !100, !range !103, !noundef !104
+  %218 = trunc nuw i8 %217 to i1
+  %219 = icmp ult i32 %.0265.lcssa.ph, 2
+  %or.cond.not = select i1 %218, i1 %219, i1 false
   br i1 %or.cond.not, label %224, label %220
 
 220:                                              ; preds = %.critedge

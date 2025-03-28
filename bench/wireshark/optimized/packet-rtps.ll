@@ -15109,7 +15109,7 @@ proto_item_set_generated.exit108:                 ; preds = %proto_item_set_gene
 
 ._crit_edge131:                                   ; preds = %76
   %.pre = load i32, ptr %8, align 4
-  br label %split
+  br label %split, !llvm.loop !58
 
 split:                                            ; preds = %73, %._crit_edge131
   %81 = phi i32 [ %.pre, %._crit_edge131 ], [ %75, %73 ]

@@ -1683,7 +1683,7 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i:      ; preds = %37, %36
 
 .._crit_edge.us_crit_edge:                        ; preds = %88
   %.pre = load i32, ptr %60, align 4, !tbaa !87
-  br label %._crit_edge.us
+  br label %._crit_edge.us, !llvm.loop !92
 
 ._crit_edge.us:                                   ; preds = %81, %.._crit_edge.us_crit_edge
   %89 = phi i32 [ %.pre, %.._crit_edge.us_crit_edge ], [ %74, %81 ]

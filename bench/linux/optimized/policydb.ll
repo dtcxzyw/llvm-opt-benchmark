@@ -2692,13 +2692,13 @@ thread-pre-split:                                 ; preds = %.loopexit68
 25:                                               ; preds = %.lr.ph122
   %26 = add i32 %19, 1
   %27 = icmp ult i32 %26, 2
-  br i1 %27, label %ocontext_destroy.exit.sink.split, label %28
+  br i1 %27, label %.thread50, label %28
 
 28:                                               ; preds = %25
   %29 = zext i32 %26 to i64
   %30 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %29, i32 noundef 11456) #26
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %ocontext_destroy.exit.sink.split, label %32
+  br i1 %31, label %.thread50, label %32
 
 32:                                               ; preds = %28
   %33 = zext i32 %19 to i64
@@ -2708,7 +2708,7 @@ thread-pre-split:                                 ; preds = %.loopexit68
 
 36:                                               ; preds = %32
   tail call void @kfree(ptr noundef nonnull %30) #22
-  br label %ocontext_destroy.exit.sink.split
+  br label %.thread50
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %1, align 8
@@ -2916,69 +2916,74 @@ thread-pre-split38:                               ; preds = %.loopexit
 .loopexit68:                                      ; preds = %.loopexit, %63
   %159 = add nuw i32 %16, 1
   %160 = icmp eq i32 %159, %8
-  br i1 %160, label %ocontext_destroy.exit, label %thread-pre-split, !llvm.loop !39
+  br i1 %160, label %.ocontext_destroy.exit.loopexit72_crit_edge128, label %thread-pre-split, !llvm.loop !39
 
 161:                                              ; preds = %.preheader
   %162 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.42, ptr noundef nonnull %30) #24
-  br label %ocontext_destroy.exit.sink.split
+  br label %.thread50
+
+.thread50:                                        ; preds = %25, %28, %161, %36
+  %163 = phi i32 [ -22, %161 ], [ -22, %36 ], [ -22, %25 ], [ -12, %28 ]
+  %164 = load ptr, ptr %23, align 8
+  tail call void @kfree(ptr noundef %164) #22
+  tail call void @kfree(ptr noundef nonnull %23) #22
+  br label %ocontext_destroy.exit
 
 .split98.us:                                      ; preds = %135, %.split.us
   %.us-phi100 = phi ptr [ %117, %.split.us ], [ %132, %135 ]
-  %163 = load ptr, ptr %23, align 8
-  %164 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43, ptr noundef %163, ptr noundef %.us-phi100) #24
+  %165 = load ptr, ptr %23, align 8
+  %166 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43, ptr noundef %165, ptr noundef %.us-phi100) #24
   br label %.thread61
 
 .thread61:                                        ; preds = %85, %82, %100, %94, %.split98.us, %93
   %.ph4865 = phi i32 [ -22, %.split98.us ], [ -22, %93 ], [ -22, %82 ], [ -12, %85 ], [ -22, %94 ], [ %106, %100 ]
-  %165 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %166 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  store i32 0, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %80, i64 44
-  store i32 0, ptr %167, align 4
-  store i32 0, ptr %165, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %80, i64 104
-  %169 = load ptr, ptr %168, align 8
-  tail call void @kfree(ptr noundef %169) #22
-  store ptr null, ptr %168, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %80, i64 52
-  store i32 0, ptr %170, align 4
-  %171 = getelementptr inbounds nuw i8, ptr %80, i64 64
-  tail call void @ebitmap_destroy(ptr noundef nonnull %171) #22
-  %172 = getelementptr i8, ptr %80, i64 88
-  tail call void @ebitmap_destroy(ptr noundef %172) #22
-  %173 = getelementptr inbounds nuw i8, ptr %80, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %173, i8 0, i64 48, i1 false)
-  %174 = getelementptr i8, ptr %80, i64 112
-  %175 = getelementptr i8, ptr %80, i64 120
-  store i32 0, ptr %175, align 8
-  %176 = getelementptr i8, ptr %80, i64 116
-  store i32 0, ptr %176, align 4
-  store i32 0, ptr %174, align 8
-  %177 = getelementptr i8, ptr %80, i64 176
-  %178 = load ptr, ptr %177, align 8
-  tail call void @kfree(ptr noundef %178) #22
-  store ptr null, ptr %177, align 8
-  %179 = getelementptr i8, ptr %80, i64 124
-  store i32 0, ptr %179, align 4
-  %180 = getelementptr i8, ptr %80, i64 136
-  tail call void @ebitmap_destroy(ptr noundef %180) #22
-  %181 = getelementptr i8, ptr %80, i64 160
-  tail call void @ebitmap_destroy(ptr noundef %181) #22
-  %182 = getelementptr i8, ptr %80, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(48) %182, i8 0, i64 48, i1 false)
-  br label %ocontext_destroy.exit.sink.split
-
-ocontext_destroy.exit.sink.split:                 ; preds = %28, %25, %36, %161, %.thread61
-  %.sink213 = phi ptr [ %80, %.thread61 ], [ %23, %161 ], [ %23, %36 ], [ %23, %25 ], [ %23, %28 ]
-  %.ph = phi i32 [ %.ph4865, %.thread61 ], [ -22, %161 ], [ -22, %36 ], [ -12, %28 ], [ -22, %25 ]
-  %183 = load ptr, ptr %.sink213, align 8
-  tail call void @kfree(ptr noundef %183) #22
-  tail call void @kfree(ptr noundef nonnull %.sink213) #22
+  %167 = getelementptr inbounds nuw i8, ptr %80, i64 40
+  %168 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  store i32 0, ptr %168, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %80, i64 44
+  store i32 0, ptr %169, align 4
+  store i32 0, ptr %167, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %80, i64 104
+  %171 = load ptr, ptr %170, align 8
+  tail call void @kfree(ptr noundef %171) #22
+  store ptr null, ptr %170, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %80, i64 52
+  store i32 0, ptr %172, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %80, i64 64
+  tail call void @ebitmap_destroy(ptr noundef nonnull %173) #22
+  %174 = getelementptr i8, ptr %80, i64 88
+  tail call void @ebitmap_destroy(ptr noundef %174) #22
+  %175 = getelementptr inbounds nuw i8, ptr %80, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %175, i8 0, i64 48, i1 false)
+  %176 = getelementptr i8, ptr %80, i64 112
+  %177 = getelementptr i8, ptr %80, i64 120
+  store i32 0, ptr %177, align 8
+  %178 = getelementptr i8, ptr %80, i64 116
+  store i32 0, ptr %178, align 4
+  store i32 0, ptr %176, align 8
+  %179 = getelementptr i8, ptr %80, i64 176
+  %180 = load ptr, ptr %179, align 8
+  tail call void @kfree(ptr noundef %180) #22
+  store ptr null, ptr %179, align 8
+  %181 = getelementptr i8, ptr %80, i64 124
+  store i32 0, ptr %181, align 4
+  %182 = getelementptr i8, ptr %80, i64 136
+  tail call void @ebitmap_destroy(ptr noundef %182) #22
+  %183 = getelementptr i8, ptr %80, i64 160
+  tail call void @ebitmap_destroy(ptr noundef %183) #22
+  %184 = getelementptr i8, ptr %80, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(48) %184, i8 0, i64 48, i1 false)
+  %185 = load ptr, ptr %80, align 8
+  tail call void @kfree(ptr noundef %185) #22
+  tail call void @kfree(ptr noundef nonnull %80) #22
   br label %ocontext_destroy.exit
 
-ocontext_destroy.exit:                            ; preds = %.loopexit69, %thread-pre-split, %.lr.ph122, %.loopexit68, %69, %thread-pre-split38, %.lr.ph, %ocontext_destroy.exit.sink.split, %12, %6, %2
-  %184 = phi i32 [ -22, %2 ], [ 0, %6 ], [ -22, %12 ], [ %.ph, %ocontext_destroy.exit.sink.split ], [ -22, %thread-pre-split38 ], [ -12, %.lr.ph ], [ -22, %69 ], [ -22, %.loopexit69 ], [ -22, %thread-pre-split ], [ -12, %.lr.ph122 ], [ 0, %.loopexit68 ]
-  ret i32 %184
+.ocontext_destroy.exit.loopexit72_crit_edge128:   ; preds = %.loopexit68
+  br label %ocontext_destroy.exit, !llvm.loop !39
+
+ocontext_destroy.exit:                            ; preds = %.loopexit69, %thread-pre-split, %.lr.ph122, %69, %thread-pre-split38, %.lr.ph, %12, %.ocontext_destroy.exit.loopexit72_crit_edge128, %6, %.thread50, %.thread61, %2
+  %186 = phi i32 [ -22, %2 ], [ %.ph4865, %.thread61 ], [ %163, %.thread50 ], [ 0, %6 ], [ 0, %.ocontext_destroy.exit.loopexit72_crit_edge128 ], [ -22, %12 ], [ -22, %thread-pre-split38 ], [ -12, %.lr.ph ], [ -22, %69 ], [ -22, %.loopexit69 ], [ -22, %thread-pre-split ], [ -12, %.lr.ph122 ]
+  ret i32 %186
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3562,10 +3567,13 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread, label %thread-pre-split, !llvm.loop !45
+  br i1 %34, label %..thread.loopexit_crit_edge, label %thread-pre-split, !llvm.loop !45
 
-.thread:                                          ; preds = %.lr.ph, %thread-pre-split, %.preheader, %.loopexit, %14
-  %35 = phi i32 [ 0, %14 ], [ -22, %.loopexit ], [ -22, %.preheader ], [ 0, %.lr.ph ], [ -22, %thread-pre-split ]
+..thread.loopexit_crit_edge:                      ; preds = %.lr.ph
+  br label %.thread, !llvm.loop !45
+
+.thread:                                          ; preds = %thread-pre-split, %.preheader, %..thread.loopexit_crit_edge, %.loopexit, %14
+  %35 = phi i32 [ 0, %14 ], [ -22, %.loopexit ], [ 0, %..thread.loopexit_crit_edge ], [ -22, %.preheader ], [ -22, %thread-pre-split ]
   ret i32 %35
 }
 
@@ -4840,7 +4848,7 @@ define internal fastcc i32 @genfs_write(ptr noundef readonly captures(none) %0, 
 .lr.ph33.preheader:                               ; preds = %.preheader24
   %26 = load ptr, ptr %23, align 8
   %27 = tail call i64 @strlen(ptr noundef %26) #22
-  %.4..4..4.gep.sroa_idx53 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.4..4..4.gep.sroa_idx49 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %.lr.ph33
 
 thread-pre-split:                                 ; preds = %.loopexit
@@ -5015,7 +5023,7 @@ thread-pre-split15:                               ; preds = %67
   %122 = phi i32 [ %.pre7.i, %..thread_crit_edge.i ], [ %113, %98 ]
   %123 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %114, %98 ]
   store i32 2, ptr %3, align 4
-  store i32 %123, ptr %.4..4..4.gep.sroa_idx53, align 4
+  store i32 %123, ptr %.4..4..4.gep.sroa_idx49, align 4
   br label %124
 
 124:                                              ; preds = %.thread.i, %121
@@ -5060,10 +5068,13 @@ thread-pre-split15:                               ; preds = %67
   %143 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %.thread11, label %thread-pre-split, !llvm.loop !52
+  br i1 %145, label %..thread11.loopexit25_crit_edge, label %thread-pre-split, !llvm.loop !52
 
-.thread11:                                        ; preds = %.loopexit, %thread-pre-split, %thread-pre-split12, %.lr.ph33, %.preheader, %thread-pre-split15, %83, %.lr.ph, %90, %.preheader24, %.thread22, %.loopexit28, %17
-  %146 = phi i32 [ 0, %17 ], [ -22, %.loopexit28 ], [ %.ph, %.thread22 ], [ -22, %.preheader24 ], [ -22, %90 ], [ -22, %.lr.ph ], [ -22, %83 ], [ -22, %thread-pre-split15 ], [ -22, %.preheader ], [ 0, %.loopexit ], [ -22, %thread-pre-split ], [ -22, %thread-pre-split12 ], [ -22, %.lr.ph33 ]
+..thread11.loopexit25_crit_edge:                  ; preds = %.loopexit
+  br label %.thread11, !llvm.loop !52
+
+.thread11:                                        ; preds = %thread-pre-split, %thread-pre-split12, %.lr.ph33, %.preheader, %thread-pre-split15, %83, %.lr.ph, %90, %.preheader24, %..thread11.loopexit25_crit_edge, %.thread22, %.loopexit28, %17
+  %146 = phi i32 [ 0, %17 ], [ -22, %.loopexit28 ], [ %.ph, %.thread22 ], [ 0, %..thread11.loopexit25_crit_edge ], [ -22, %.preheader24 ], [ -22, %90 ], [ -22, %.lr.ph ], [ -22, %83 ], [ -22, %thread-pre-split15 ], [ -22, %.preheader ], [ -22, %.lr.ph33 ], [ -22, %thread-pre-split12 ], [ -22, %thread-pre-split ]
   ret i32 %146
 }
 

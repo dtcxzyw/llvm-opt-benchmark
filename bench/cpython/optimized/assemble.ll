@@ -699,7 +699,7 @@ assemble_emit.exit:                               ; preds = %320
 .preheader.i.i:                                   ; preds = %329
   %335 = call i32 @PyDict_Next(ptr noundef nonnull %331, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
   %.not13.i.i = icmp eq i32 %335, 0
-  br i1 %.not13.i.i, label %.loopexit60.i, label %.lr.ph.i.i25
+  br i1 %.not13.i.i, label %.loopexit59.i, label %.lr.ph.i.i25
 
 .lr.ph.i.i25:                                     ; preds = %.preheader.i.i
   %336 = getelementptr inbounds nuw i8, ptr %333, i64 24
@@ -747,7 +747,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %352, %348
   store ptr %349, ptr %354, align 8, !tbaa !50
   %355 = call i32 @PyDict_Next(ptr noundef nonnull %331, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
   %.not.i.i26 = icmp eq i32 %355, 0
-  br i1 %.not.i.i26, label %.loopexit60.i, label %337, !llvm.loop !57
+  br i1 %.not.i.i26, label %.loopexit59.i, label %337, !llvm.loop !57
 
 .thread.i:                                        ; preds = %347, %344, %.critedge.i.i, %329
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
@@ -756,7 +756,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %352, %348
   store ptr null, ptr %15, align 8, !tbaa !50
   br label %Py_XDECREF.exit.i
 
-.loopexit60.i:                                    ; preds = %_Py_NewRef.exit.i.i, %.preheader.i.i
+.loopexit59.i:                                    ; preds = %_Py_NewRef.exit.i.i, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
@@ -765,7 +765,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %352, %348
   %357 = icmp slt i32 %356, 0
   br i1 %357, label %482, label %358
 
-358:                                              ; preds = %.loopexit60.i
+358:                                              ; preds = %.loopexit59.i
   %359 = call ptr @PyList_AsTuple(ptr noundef %2) #5
   store ptr %359, ptr %16, align 8, !tbaa !50
   %360 = icmp eq ptr %359, null
@@ -928,7 +928,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %352, %348
 441:                                              ; preds = %437
   %442 = call ptr @PyErr_Occurred() #5
   %.not53.i.i = icmp eq ptr %442, null
-  br i1 %.not53.i.i, label %.critedge61.i.i, label %compute_localsplus_info.exit.thread.i, !llvm.loop !67
+  br i1 %.not53.i.i, label %.critedge61.i.i, label %..critedge.loopexit_crit_edge79.i.i, !llvm.loop !67
 
 .critedge61.i.i:                                  ; preds = %441, %437
   %443 = add i32 %436, %439
@@ -939,7 +939,10 @@ _Py_NewRef.exit.i.i:                              ; preds = %352, %348
   %.not52.i.i = icmp eq i32 %446, 0
   br i1 %.not52.i.i, label %.loopexit.i, label %437
 
-compute_localsplus_info.exit.thread.i:            ; preds = %397, %392, %390, %424, %.lr.ph73.i.i, %441
+..critedge.loopexit_crit_edge79.i.i:              ; preds = %441
+  br label %compute_localsplus_info.exit.thread.i, !llvm.loop !67
+
+compute_localsplus_info.exit.thread.i:            ; preds = %397, %392, %390, %424, %.lr.ph73.i.i, %..critedge.loopexit_crit_edge79.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
@@ -1011,9 +1014,9 @@ compute_localsplus_info.exit.thread.i:            ; preds = %397, %392, %390, %4
   %481 = call ptr @_PyCode_New(ptr noundef nonnull %18) #5
   br label %482
 
-482:                                              ; preds = %479, %476, %.loopexit.i, %compute_localsplus_info.exit.thread.i, %377, %364, %361, %358, %.loopexit60.i
-  %.031.ph.i = phi ptr [ %378, %compute_localsplus_info.exit.thread.i ], [ %378, %479 ], [ %378, %476 ], [ %378, %.loopexit.i ], [ null, %377 ], [ null, %364 ], [ null, %361 ], [ null, %358 ], [ null, %.loopexit60.i ]
-  %.0.ph.i = phi ptr [ null, %compute_localsplus_info.exit.thread.i ], [ %481, %479 ], [ null, %476 ], [ null, %.loopexit.i ], [ null, %377 ], [ null, %364 ], [ null, %361 ], [ null, %358 ], [ null, %.loopexit60.i ]
+482:                                              ; preds = %479, %476, %.loopexit.i, %compute_localsplus_info.exit.thread.i, %377, %364, %361, %358, %.loopexit59.i
+  %.031.ph.i = phi ptr [ %378, %compute_localsplus_info.exit.thread.i ], [ %378, %479 ], [ %378, %476 ], [ %378, %.loopexit.i ], [ null, %377 ], [ null, %364 ], [ null, %361 ], [ null, %358 ], [ null, %.loopexit59.i ]
+  %.0.ph.i = phi ptr [ null, %compute_localsplus_info.exit.thread.i ], [ %481, %479 ], [ null, %476 ], [ null, %.loopexit.i ], [ null, %377 ], [ null, %364 ], [ null, %361 ], [ null, %358 ], [ null, %.loopexit59.i ]
   %.pr.i29 = load ptr, ptr %15, align 8, !tbaa !50
   %.not.i39.i = icmp eq ptr %.pr.i29, null
   br i1 %.not.i39.i, label %Py_XDECREF.exit.i, label %483

@@ -1794,10 +1794,13 @@ define hidden noundef ptr @_ZN17user_sort_factory15get_fresh_valueEP4sort(ptr no
   %58 = add i32 %57, 1
   store i32 %58, ptr %44, align 4, !tbaa !132
   %59 = icmp ugt i32 %58, %46
-  br i1 %59, label %_ZN14simple_factoryIjE15get_fresh_valueEP4sort.exit, label %53, !llvm.loop !146
+  br i1 %59, label %._crit_edge29.i, label %53, !llvm.loop !146
 
-_ZN14simple_factoryIjE15get_fresh_valueEP4sort.exit: ; preds = %53, %.lr.ph.split.i, %.lr.ph.split.us.i
-  %.0.i = phi ptr [ %48, %.lr.ph.split.us.i ], [ null, %.lr.ph.split.i ], [ %56, %53 ]
+._crit_edge29.i:                                  ; preds = %.lr.ph.split.i
+  br label %_ZN14simple_factoryIjE15get_fresh_valueEP4sort.exit, !llvm.loop !146
+
+_ZN14simple_factoryIjE15get_fresh_valueEP4sort.exit: ; preds = %53, %.lr.ph.split.us.i, %._crit_edge29.i
+  %.0.i = phi ptr [ null, %._crit_edge29.i ], [ %48, %.lr.ph.split.us.i ], [ %56, %53 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
   br label %_ZNK17user_sort_factory9is_finiteEP4sort.exit
 
@@ -1863,10 +1866,13 @@ define linkonce_odr hidden noundef ptr @_ZN14simple_factoryIjE15get_fresh_valueE
   %30 = add i32 %29, 1
   store i32 %30, ptr %16, align 4, !tbaa !132
   %31 = icmp ugt i32 %30, %18
-  br i1 %31, label %._crit_edge, label %25, !llvm.loop !146
+  br i1 %31, label %._crit_edge29, label %25, !llvm.loop !146
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %25, %.lr.ph.split.us
-  %.0 = phi ptr [ %20, %.lr.ph.split.us ], [ %28, %25 ], [ null, %.lr.ph.split ]
+._crit_edge29:                                    ; preds = %.lr.ph.split
+  br label %._crit_edge, !llvm.loop !146
+
+._crit_edge:                                      ; preds = %25, %.lr.ph.split.us, %._crit_edge29
+  %.0 = phi ptr [ null, %._crit_edge29 ], [ %20, %.lr.ph.split.us ], [ %28, %25 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
   ret ptr %.0
 }

@@ -3001,7 +3001,7 @@ _ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefi
 
 _ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefinitionsbiiRKNS_11ListOfListsIiEE.exit.thread260..critedge.loopexit_crit_edge: ; preds = %_ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefinitionsbiiRKNS_11ListOfListsIiEE.exit.thread260
   %.pre356.pre = load i32, ptr %437, align 4, !tbaa !147
-  br label %.critedge
+  br label %.critedge, !llvm.loop !209
 
 .critedge:                                        ; preds = %451, %_ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefinitionsbiiRKNS_11ListOfListsIiEE.exit.thread260..critedge.loopexit_crit_edge, %436
   %691 = phi i32 [ %438, %436 ], [ %.pre356.pre, %_ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefinitionsbiiRKNS_11ListOfListsIiEE.exit.thread260..critedge.loopexit_crit_edge ], [ %452, %451 ]

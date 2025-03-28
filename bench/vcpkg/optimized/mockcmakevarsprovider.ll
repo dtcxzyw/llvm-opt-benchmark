@@ -130,15 +130,18 @@ define dso_local ptr @_ZNK5vcpkg4Test20MockCMakeVarProvider24get_generic_triplet
   %37 = load i64, ptr %36, align 8, !tbaa !24
   %38 = urem i64 %37, %16
   %.not19.i.i.i.i.i = icmp eq i64 %38, %17
-  br i1 %.not19.i.i.i.i.i, label %29, label %_ZN5vcpkg4Util12lookup_valueISt13unordered_mapINS_7TripletES2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEESA_IS3_ESC_IS3_ESaISE_IKS3_SI_EEERS3_EENS_8OptionalIRKNT_11mapped_typeEEERKSR_OT0_.exit, !llvm.loop !26
+  br i1 %.not19.i.i.i.i.i, label %29, label %..loopexit_crit_edge22.i.i.i.i.i, !llvm.loop !26
+
+..loopexit_crit_edge22.i.i.i.i.i:                 ; preds = %35
+  br label %_ZN5vcpkg4Util12lookup_valueISt13unordered_mapINS_7TripletES2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEESA_IS3_ESC_IS3_ESaISE_IKS3_SI_EEERS3_EENS_8OptionalIRKNT_11mapped_typeEEERKSR_OT0_.exit, !llvm.loop !26
 
 _ZNKSt13unordered_mapIN5vcpkg7TripletES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEE4findERSJ_.exit.i: ; preds = %29, %9, %21
   %.sroa.06.1.i.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i.i, %9 ], [ %34, %29 ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   br label %_ZN5vcpkg4Util12lookup_valueISt13unordered_mapINS_7TripletES2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEESA_IS3_ESC_IS3_ESaISE_IKS3_SI_EEERS3_EENS_8OptionalIRKNT_11mapped_typeEEERKSR_OT0_.exit
 
-_ZN5vcpkg4Util12lookup_valueISt13unordered_mapINS_7TripletES2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEESA_IS3_ESC_IS3_ESaISE_IKS3_SI_EEERS3_EENS_8OptionalIRKNT_11mapped_typeEEERKSR_OT0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %35, %8, %12, %_ZNKSt13unordered_mapIN5vcpkg7TripletES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEE4findERSJ_.exit.i
-  %.sroa.05.0.i = phi ptr [ %39, %_ZNKSt13unordered_mapIN5vcpkg7TripletES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEE4findERSJ_.exit.i ], [ null, %12 ], [ null, %8 ], [ null, %35 ], [ null, %.lr.ph.i.i.i.i.i ]
+_ZN5vcpkg4Util12lookup_valueISt13unordered_mapINS_7TripletES2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEESA_IS3_ESC_IS3_ESaISE_IKS3_SI_EEERS3_EENS_8OptionalIRKNT_11mapped_typeEEERKSR_OT0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %8, %12, %..loopexit_crit_edge22.i.i.i.i.i, %_ZNKSt13unordered_mapIN5vcpkg7TripletES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEE4findERSJ_.exit.i
+  %.sroa.05.0.i = phi ptr [ %39, %_ZNKSt13unordered_mapIN5vcpkg7TripletES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEE4findERSJ_.exit.i ], [ null, %12 ], [ null, %..loopexit_crit_edge22.i.i.i.i.i ], [ null, %8 ], [ null, %.lr.ph.i.i.i.i.i ]
   ret ptr %.sroa.05.0.i
 }
 
@@ -893,14 +896,17 @@ _ZNSt10_HashtableIN5vcpkg7TripletESt4pairIKS1_St13unordered_mapINSt7__cxx1112bas
   %72 = load i64, ptr %71, align 8, !tbaa !24
   %73 = urem i64 %72, %48
   %.not19.i.i = icmp eq i64 %73, %49
-  br i1 %.not19.i.i, label %64, label %.critedge28, !llvm.loop !26
+  br i1 %.not19.i.i, label %64, label %..loopexit_crit_edge22.i.i, !llvm.loop !26
+
+..loopexit_crit_edge22.i.i:                       ; preds = %70
+  br label %.critedge28, !llvm.loop !26
 
 74:                                               ; preds = %.critedge
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %79
 
-.critedge28:                                      ; preds = %.lr.ph.i.i, %70, %51, %46
+.critedge28:                                      ; preds = %.lr.ph.i.i, %..loopexit_crit_edge22.i.i, %51, %46
   %76 = invoke ptr @_ZNSt10_HashtableIN5vcpkg7TripletESt4pairIKS1_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaIS2_IKSA_SA_EEEESaISJ_ENSt8__detail10_Select1stESD_IS1_ESB_IS1_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSL_10_Hash_nodeISJ_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %49, i64 noundef %45, ptr noundef nonnull %6, i64 noundef 1)
           to label %_ZNSt10_HashtableIN5vcpkg7TripletESt4pairIKS1_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaIS2_IKSA_SA_EEEESaISJ_ENSt8__detail10_Select1stESD_IS1_ESB_IS1_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %77
 

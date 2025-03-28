@@ -2122,10 +2122,13 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i120, %._cri
   %161 = load i32, ptr %11, align 8, !tbaa !45
   %162 = sext i32 %161 to i64
   %163 = icmp slt i64 %indvars.iv.next, %162
-  br i1 %163, label %156, label %.critedge, !llvm.loop !69
+  br i1 %163, label %156, label %..critedge.loopexit_crit_edge, !llvm.loop !69
 
-.critedge:                                        ; preds = %.lr.ph200, %156, %.lr.ph, %Vec_IntReverseOrder.exit
-  %.lcssa = phi i32 [ %151, %Vec_IntReverseOrder.exit ], [ %151, %.lr.ph ], [ %161, %156 ], [ %161, %.lr.ph200 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph200
+  br label %.critedge, !llvm.loop !69
+
+.critedge:                                        ; preds = %156, %.lr.ph, %..critedge.loopexit_crit_edge, %Vec_IntReverseOrder.exit
+  %.lcssa = phi i32 [ %151, %Vec_IntReverseOrder.exit ], [ %161, %..critedge.loopexit_crit_edge ], [ %151, %.lr.ph ], [ %161, %156 ]
   %164 = tail call ptr @Gia_ManStart(i32 noundef %.lcssa) #19
   %165 = load ptr, ptr %0, align 8, !tbaa !46
   %.not.i124 = icmp eq ptr %165, null

@@ -272,13 +272,16 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.val139 = load i32, ptr %106, align 4, !tbaa !37
   %107 = sext i32 %.val139 to i64
   %108 = icmp slt i64 %indvars.iv.next, %107
-  br i1 %108, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !52
+  br i1 %108, label %.lr.ph, label %Vec_IntPush.exit..critedge.loopexit_crit_edge, !llvm.loop !52
 
-.critedge.loopexit:                               ; preds = %.lr.ph, %Vec_IntPush.exit, %.lr.ph.preheader
-  %109 = phi i32 [ 1, %.lr.ph.preheader ], [ %104, %Vec_IntPush.exit ], [ %104, %.lr.ph ]
-  %.val160240 = phi ptr [ %.val156, %.lr.ph.preheader ], [ %.val158, %Vec_IntPush.exit ], [ %.val158, %.lr.ph ]
-  %.val169238 = phi ptr [ null, %.lr.ph.preheader ], [ null, %.lr.ph ], [ %.val157, %Vec_IntPush.exit ]
-  %.0.lcssa.ph = phi i32 [ %49, %.lr.ph.preheader ], [ %102, %Vec_IntPush.exit ], [ %102, %.lr.ph ]
+Vec_IntPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_IntPush.exit
+  br label %.critedge.loopexit, !llvm.loop !52
+
+.critedge.loopexit:                               ; preds = %.lr.ph, %Vec_IntPush.exit..critedge.loopexit_crit_edge, %.lr.ph.preheader
+  %109 = phi i32 [ %104, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ 1, %.lr.ph.preheader ], [ %104, %.lr.ph ]
+  %.val160240 = phi ptr [ %.val158, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ %.val156, %.lr.ph.preheader ], [ %.val158, %.lr.ph ]
+  %.val169238 = phi ptr [ %.val157, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ]
+  %.0.lcssa.ph = phi i32 [ %102, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ %49, %.lr.ph.preheader ], [ %102, %.lr.ph ]
   %.pre = load i32, ptr %29, align 8, !tbaa !43
   br label %.critedge
 
@@ -3078,10 +3081,13 @@ define i32 @Frc_ManPlaceDfsBoth(ptr noundef captures(none) initializes((48, 56))
   %.val.us.i = load i32, ptr %22, align 4, !tbaa !37
   %37 = sext i32 %.val.us.i to i64
   %38 = icmp slt i64 %indvars.iv.next43.i, %37
-  br i1 %38, label %.lr.ph38.split.us.i, label %Frc_ManCrossCut.exit, !llvm.loop !77
+  br i1 %38, label %.lr.ph38.split.us.i, label %.Frc_ManCrossCut.exit_crit_edge, !llvm.loop !77
 
-Frc_ManCrossCut.exit:                             ; preds = %.lr.ph38.split.us.i, %.lr.ph, %.lr.ph38.i
-  %39 = phi i32 [ %.val36.i, %.lr.ph38.i ], [ %.val.us.i, %.lr.ph ], [ %.val.us.i, %.lr.ph38.split.us.i ]
+.Frc_ManCrossCut.exit_crit_edge:                  ; preds = %.lr.ph
+  br label %Frc_ManCrossCut.exit, !llvm.loop !77
+
+Frc_ManCrossCut.exit:                             ; preds = %.lr.ph38.split.us.i, %.Frc_ManCrossCut.exit_crit_edge, %.lr.ph38.i
+  %39 = phi i32 [ %.val.us.i, %.Frc_ManCrossCut.exit_crit_edge ], [ %.val36.i, %.lr.ph38.i ], [ %.val.us.i, %.lr.ph38.split.us.i ]
   %40 = load i32, ptr %7, align 4, !tbaa !73
   %41 = icmp sgt i32 %39, 1
   br i1 %41, label %.lr.ph.i22, label %Vec_IntReverseOrder.exit
@@ -3181,10 +3187,13 @@ Vec_IntReverseOrder.exit:                         ; preds = %43, %.critedge.i, %
   %.val.us.i32 = load i32, ptr %22, align 4, !tbaa !37
   %88 = sext i32 %.val.us.i32 to i64
   %89 = icmp slt i64 %indvars.iv.next43.i31, %88
-  br i1 %89, label %.lr.ph38.split.us.i26, label %Frc_ManCrossCut.exit40.loopexit, !llvm.loop !77
+  br i1 %89, label %.lr.ph38.split.us.i26, label %.Frc_ManCrossCut.exit40.loopexit_crit_edge, !llvm.loop !77
 
-Frc_ManCrossCut.exit40.loopexit:                  ; preds = %.lr.ph38.split.us.i26, %.lr.ph98, %.lr.ph38.i25
-  %90 = phi i32 [ %.val36.i24, %.lr.ph38.i25 ], [ %.val.us.i32, %.lr.ph98 ], [ %.val.us.i32, %.lr.ph38.split.us.i26 ]
+.Frc_ManCrossCut.exit40.loopexit_crit_edge:       ; preds = %.lr.ph98
+  br label %Frc_ManCrossCut.exit40.loopexit, !llvm.loop !77
+
+Frc_ManCrossCut.exit40.loopexit:                  ; preds = %.lr.ph38.split.us.i26, %.Frc_ManCrossCut.exit40.loopexit_crit_edge, %.lr.ph38.i25
+  %90 = phi i32 [ %.val.us.i32, %.Frc_ManCrossCut.exit40.loopexit_crit_edge ], [ %.val36.i24, %.lr.ph38.i25 ], [ %.val.us.i32, %.lr.ph38.split.us.i26 ]
   %.pre = load i32, ptr %7, align 4, !tbaa !73
   br label %Frc_ManCrossCut.exit40
 
@@ -3397,10 +3406,13 @@ Frc_ManPlaceDfs.exit71.thread:                    ; preds = %.critedge.i52
   %.val.i61 = load i32, ptr %22, align 4, !tbaa !37
   %185 = sext i32 %.val.i61 to i64
   %186 = icmp slt i64 %indvars.iv.next.i60, %185
-  br i1 %186, label %.lr.ph36.i55, label %Frc_ManPlaceDfs.exit71, !llvm.loop !87
+  br i1 %186, label %.lr.ph36.i55, label %.Frc_ManPlaceDfs.exit71_crit_edge, !llvm.loop !87
 
-Frc_ManPlaceDfs.exit71:                           ; preds = %.lr.ph36.i55, %.lr.ph105, %.lr.ph36.i55.preheader
-  %187 = phi i32 [ %.val34.i54, %.lr.ph36.i55.preheader ], [ %.val.i61, %.lr.ph105 ], [ %.val.i61, %.lr.ph36.i55 ]
+.Frc_ManPlaceDfs.exit71_crit_edge:                ; preds = %.lr.ph105
+  br label %Frc_ManPlaceDfs.exit71, !llvm.loop !87
+
+Frc_ManPlaceDfs.exit71:                           ; preds = %.lr.ph36.i55, %.Frc_ManPlaceDfs.exit71_crit_edge, %.lr.ph36.i55.preheader
+  %187 = phi i32 [ %.val.i61, %.Frc_ManPlaceDfs.exit71_crit_edge ], [ %.val34.i54, %.lr.ph36.i55.preheader ], [ %.val.i61, %.lr.ph36.i55 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
   %188 = icmp sgt i32 %187, 1
   br i1 %188, label %.lr.ph.i72, label %Vec_IntReverseOrder.exit75
@@ -3564,11 +3576,14 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   %61 = add i32 %60, %.pre-phi184
   %62 = load i32, ptr %25, align 8, !tbaa !44
   %63 = icmp slt i32 %61, %62
-  br i1 %63, label %.lr.ph144, label %.critedge, !llvm.loop !91
+  br i1 %63, label %.lr.ph144, label %.critedge2..critedge_crit_edge, !llvm.loop !91
 
-.critedge:                                        ; preds = %.critedge2, %.lr.ph144, %.lr.ph144.preheader
-  %.093.lcssa = phi double [ 0.000000e+00, %.lr.ph144.preheader ], [ %59, %.lr.ph144 ], [ %59, %.critedge2 ]
-  %.lcssa135 = phi i32 [ %31, %.lr.ph144.preheader ], [ %62, %.lr.ph144 ], [ %62, %.critedge2 ]
+.critedge2..critedge_crit_edge:                   ; preds = %.critedge2
+  br label %.critedge, !llvm.loop !91
+
+.critedge:                                        ; preds = %.lr.ph144, %.critedge2..critedge_crit_edge, %.lr.ph144.preheader
+  %.093.lcssa = phi double [ %59, %.critedge2..critedge_crit_edge ], [ 0.000000e+00, %.lr.ph144.preheader ], [ %59, %.lr.ph144 ]
+  %.lcssa135 = phi i32 [ %62, %.critedge2..critedge_crit_edge ], [ %31, %.lr.ph144.preheader ], [ %62, %.lr.ph144 ]
   %64 = icmp sgt i32 %.lcssa135, 0
   br i1 %64, label %.lr.ph159, label %.critedge4
 

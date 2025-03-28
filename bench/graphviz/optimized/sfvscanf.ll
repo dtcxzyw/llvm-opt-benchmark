@@ -1118,7 +1118,7 @@ gv_isspace.exit769.thread:                        ; preds = %gv_isspace.exit769,
   %459 = load i8, ptr %458, align 1, !tbaa !3
   %460 = sext i8 %459 to i32
   %461 = icmp sgt i32 %.5621, %460
-  br i1 %461, label %446, label %.critedge49, !llvm.loop !39
+  br i1 %461, label %446, label %..critedge49.loopexit_crit_edge, !llvm.loop !39
 
 462:                                              ; preds = %472
   %463 = load i64, ptr %5, align 16, !tbaa !3
@@ -1145,12 +1145,18 @@ gv_isspace.exit769.thread:                        ; preds = %gv_isspace.exit769,
   %475 = load i8, ptr %474, align 1, !tbaa !3
   %476 = sext i8 %475 to i32
   %477 = icmp sgt i32 %.6622, %476
-  br i1 %477, label %462, label %.critedge49, !llvm.loop !40
+  br i1 %477, label %462, label %..critedge49.loopexit1296_crit_edge, !llvm.loop !40
 
-.critedge49:                                      ; preds = %.preheader843, %472, %462, %.lr.ph1423, %456, %446, %.lr.ph1435, %.preheader839, %439, %390, %394, %398, %384, %.critedge41, %360, %.thread800
-  %.13637 = phi i32 [ %.11635804, %.thread800 ], [ %.11635, %360 ], [ 35, %384 ], [ %395, %398 ], [ %395, %394 ], [ 35, %390 ], [ %379, %.critedge41 ], [ %.12636, %439 ], [ %.16640, %.preheader839 ], [ %453, %.lr.ph1435 ], [ %453, %446 ], [ %453, %456 ], [ %469, %.lr.ph1423 ], [ %469, %462 ], [ %469, %472 ], [ %.14638, %.preheader843 ]
-  %.11605 = phi i32 [ %.9603805, %.thread800 ], [ %.9603, %360 ], [ %378, %384 ], [ %393, %398 ], [ %393, %394 ], [ 0, %390 ], [ %378, %.critedge41 ], [ %440, %439 ], [ %420, %.preheader839 ], [ %452, %.lr.ph1435 ], [ %440, %446 ], [ %452, %456 ], [ %468, %.lr.ph1423 ], [ %420, %462 ], [ %468, %472 ], [ %368, %.preheader843 ]
-  %.23 = phi i32 [ %.20806, %.thread800 ], [ %.20, %360 ], [ %.25, %384 ], [ %.27, %398 ], [ %.27, %394 ], [ %.25, %390 ], [ %.25, %.critedge41 ], [ %.22, %439 ], [ %.28, %.preheader839 ], [ %.30, %.lr.ph1435 ], [ %.30, %446 ], [ %.30, %456 ], [ %.32, %.lr.ph1423 ], [ %.32, %462 ], [ %.32, %472 ], [ %.24, %.preheader843 ]
+..critedge49.loopexit_crit_edge:                  ; preds = %456
+  br label %.critedge49, !llvm.loop !39
+
+..critedge49.loopexit1296_crit_edge:              ; preds = %472
+  br label %.critedge49, !llvm.loop !40
+
+.critedge49:                                      ; preds = %.preheader843, %462, %.lr.ph1423, %446, %.lr.ph1435, %.preheader839, %..critedge49.loopexit1296_crit_edge, %439, %..critedge49.loopexit_crit_edge, %390, %394, %398, %384, %.critedge41, %360, %.thread800
+  %.13637 = phi i32 [ %.11635804, %.thread800 ], [ %.11635, %360 ], [ 35, %384 ], [ %395, %398 ], [ %395, %394 ], [ 35, %390 ], [ %379, %.critedge41 ], [ %453, %..critedge49.loopexit_crit_edge ], [ %.12636, %439 ], [ %469, %..critedge49.loopexit1296_crit_edge ], [ %.16640, %.preheader839 ], [ %453, %.lr.ph1435 ], [ %453, %446 ], [ %469, %.lr.ph1423 ], [ %469, %462 ], [ %.14638, %.preheader843 ]
+  %.11605 = phi i32 [ %.9603805, %.thread800 ], [ %.9603, %360 ], [ %378, %384 ], [ %393, %398 ], [ %393, %394 ], [ 0, %390 ], [ %378, %.critedge41 ], [ %452, %..critedge49.loopexit_crit_edge ], [ %440, %439 ], [ %468, %..critedge49.loopexit1296_crit_edge ], [ %420, %.preheader839 ], [ %452, %.lr.ph1435 ], [ %440, %446 ], [ %468, %.lr.ph1423 ], [ %420, %462 ], [ %368, %.preheader843 ]
+  %.23 = phi i32 [ %.20806, %.thread800 ], [ %.20, %360 ], [ %.25, %384 ], [ %.27, %398 ], [ %.27, %394 ], [ %.25, %390 ], [ %.25, %.critedge41 ], [ %.30, %..critedge49.loopexit_crit_edge ], [ %.22, %439 ], [ %.32, %..critedge49.loopexit1296_crit_edge ], [ %.28, %.preheader839 ], [ %.30, %.lr.ph1435 ], [ %.30, %446 ], [ %.32, %.lr.ph1423 ], [ %.32, %462 ], [ %.24, %.preheader843 ]
   %478 = and i32 %.4586.ph, 268435456
   %.not743 = icmp eq i32 %478, 0
   br i1 %.not743, label %482, label %479

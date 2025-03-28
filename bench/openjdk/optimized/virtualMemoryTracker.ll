@@ -1165,7 +1165,7 @@ define hidden noundef ptr @_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_
   %13 = getelementptr inbounds nuw i8, ptr %.01417, i64 48
   %.0 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph18
   %14 = load ptr, ptr %.0, align 8
@@ -1175,8 +1175,11 @@ define hidden noundef ptr @_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_
   %18 = icmp ult ptr %17, %6
   br i1 %18, label %.lr.ph18, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph18, %.lr.ph.preheader, %1
-  %.010.lcssa = phi ptr [ %3, %1 ], [ %3, %.lr.ph.preheader ], [ %12, %.lr.ph18 ], [ %12, %.lr.ph ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph18
+  br label %._crit_edge, !llvm.loop !15
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %1
+  %.010.lcssa = phi ptr [ %3, %1 ], [ %12, %.._crit_edge.loopexit_crit_edge ], [ %3, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   ret ptr %.010.lcssa
 }
 
@@ -3020,76 +3023,73 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN25SnapshotThreadStackWalker18d
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %15, i64 %17
   %19 = icmp ult ptr %18, %14
-  br i1 %19, label %.lr.ph.preheader, label %_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit
+  br i1 %19, label %.lr.ph, label %_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph.i.preheader
-  %20 = getelementptr inbounds nuw i8, ptr %.011.i, i64 48
-  %.0.i23 = load ptr, ptr %20, align 8
-  %.not.i24 = icmp eq ptr %.0.i23, null
-  br i1 %.not.i24, label %_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit, label %.lr.ph.i, !llvm.loop !15
-
-.lr.ph:                                           ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i25, i64 48
+.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %20 = phi ptr [ %25, %.lr.ph.i ], [ %18, %.lr.ph.i.preheader ]
+  %.014.i17 = phi ptr [ %.0.i, %.lr.ph.i ], [ %.011.i, %.lr.ph.i.preheader ]
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i17, i64 48
   %.0.i = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %._ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !15
 
-.lr.ph.i:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i25 = phi ptr [ %.0.i, %.lr.ph ], [ %.0.i23, %.lr.ph.preheader ]
-  %22 = phi ptr [ %26, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %23 = load ptr, ptr %.0.i25, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.i25, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 %25
-  %27 = icmp ult ptr %26, %14
-  br i1 %27, label %.lr.ph, label %_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit, !llvm.loop !15
+.lr.ph.i:                                         ; preds = %.lr.ph
+  %22 = load ptr, ptr %.0.i, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %22, i64 %24
+  %26 = icmp ult ptr %25, %14
+  br i1 %26, label %.lr.ph, label %_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit, !llvm.loop !15
 
-_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit: ; preds = %.lr.ph, %.lr.ph.i, %.lr.ph.preheader, %.lr.ph.i.preheader, %9
-  %.010.lcssa.i = phi ptr [ %11, %9 ], [ %11, %.lr.ph.i.preheader ], [ %18, %.lr.ph.preheader ], [ %22, %.lr.ph.i ], [ %26, %.lr.ph ]
-  %28 = ptrtoint ptr %14 to i64
-  %29 = ptrtoint ptr %.010.lcssa.i to i64
-  %30 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %31 = xor i64 %29, -1
-  %32 = add i64 %31, %28
-  %33 = add i64 %32, %30
-  %34 = sub i64 0, %30
-  %35 = and i64 %33, %34
+._ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit.loopexit_crit_edge: ; preds = %.lr.ph
+  br label %_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit, !llvm.loop !15
+
+_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit: ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %._ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit.loopexit_crit_edge, %9
+  %.010.lcssa.i = phi ptr [ %11, %9 ], [ %20, %._ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit.loopexit_crit_edge ], [ %11, %.lr.ph.i.preheader ], [ %20, %.lr.ph.i ]
+  %27 = ptrtoint ptr %14 to i64
+  %28 = ptrtoint ptr %.010.lcssa.i to i64
+  %29 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %30 = xor i64 %28, -1
+  %31 = add i64 %30, %27
+  %32 = add i64 %31, %29
+  %33 = sub i64 0, %29
+  %34 = and i64 %32, %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %36 = getelementptr inbounds i8, ptr %.010.lcssa.i, i64 %35
-  %.not.i1319 = icmp sgt i64 %35, 0
+  %35 = getelementptr inbounds i8, ptr %.010.lcssa.i, i64 %34
+  %.not.i1319 = icmp sgt i64 %34, 0
   br i1 %.not.i1319, label %.lr.ph21, label %_ZN14RegionIterator14next_committedERPhRm.exit.thread
 
 .lr.ph21:                                         ; preds = %_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit
-  %37 = ptrtoint ptr %36 to i64
-  br label %38
+  %36 = ptrtoint ptr %35 to i64
+  br label %37
 
-38:                                               ; preds = %.lr.ph21, %50
-  %.sroa.4.020 = phi ptr [ %.010.lcssa.i, %.lr.ph21 ], [ %45, %50 ]
-  %39 = ptrtoint ptr %.sroa.4.020 to i64
-  %40 = sub i64 %37, %39
-  %41 = call noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr noundef %.sroa.4.020, i64 noundef %40, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #14
-  br i1 %41, label %42, label %_ZN14RegionIterator14next_committedERPhRm.exit.thread
+37:                                               ; preds = %.lr.ph21, %49
+  %.sroa.4.020 = phi ptr [ %.010.lcssa.i, %.lr.ph21 ], [ %44, %49 ]
+  %38 = ptrtoint ptr %.sroa.4.020 to i64
+  %39 = sub i64 %36, %38
+  %40 = call noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr noundef %.sroa.4.020, i64 noundef %39, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  br i1 %40, label %41, label %_ZN14RegionIterator14next_committedERPhRm.exit.thread
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %3, align 8
-  %44 = load i64, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
-  %46 = icmp ult ptr %14, %45
-  br i1 %46, label %47, label %50
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %3, align 8
+  %43 = load i64, ptr %4, align 8
+  %44 = getelementptr inbounds i8, ptr %42, i64 %43
+  %45 = icmp ult ptr %14, %44
+  br i1 %45, label %46, label %49
 
-47:                                               ; preds = %42
-  %48 = ptrtoint ptr %43 to i64
-  %49 = sub i64 %28, %48
-  store i64 %49, ptr %4, align 8
-  br label %50
+46:                                               ; preds = %41
+  %47 = ptrtoint ptr %42 to i64
+  %48 = sub i64 %27, %47
+  store i64 %48, ptr %4, align 8
+  br label %49
 
-50:                                               ; preds = %47, %42
-  %51 = phi i64 [ %49, %47 ], [ %44, %42 ]
-  %52 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion20add_committed_regionEPhmRK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef %43, i64 noundef %51, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %.not.i13 = icmp ugt ptr %36, %45
-  br i1 %.not.i13, label %38, label %_ZN14RegionIterator14next_committedERPhRm.exit.thread, !llvm.loop !30
+49:                                               ; preds = %46, %41
+  %50 = phi i64 [ %48, %46 ], [ %43, %41 ]
+  %51 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion20add_committed_regionEPhmRK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef %42, i64 noundef %50, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %.not.i13 = icmp ugt ptr %35, %44
+  br i1 %.not.i13, label %37, label %_ZN14RegionIterator14next_committedERPhRm.exit.thread, !llvm.loop !30
 
-_ZN14RegionIterator14next_committedERPhRm.exit.thread: ; preds = %50, %38, %_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit, %2
+_ZN14RegionIterator14next_committedERPhRm.exit.thread: ; preds = %49, %37, %_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv.exit, %2
   ret i1 true
 }
 

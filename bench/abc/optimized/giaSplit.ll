@@ -2403,7 +2403,7 @@ Vec_IntPush.exit210:                              ; preds = %.Vec_IntGrow.exit10
   %249 = sext i32 %247 to i64
   %250 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val176, i64 %249
   %.not156 = icmp eq ptr %.val176, null
-  br i1 %.not156, label %.critedge11.loopexit, label %.preheader257, !llvm.loop !95
+  br i1 %.not156, label %.critedge11, label %.preheader257, !llvm.loop !95
 
 .preheader257:                                    ; preds = %.preheader257.lr.ph, %241
   %251 = phi ptr [ %240, %.preheader257.lr.ph ], [ %250, %241 ]
@@ -2603,16 +2603,16 @@ Vec_IntPush.exit224:                              ; preds = %.Vec_IntGrow.exit10
   %.val184 = load i32, ptr %343, align 4, !tbaa !35
   %344 = sext i32 %.val184 to i64
   %345 = icmp slt i64 %indvars.iv.next316, %344
-  br i1 %345, label %241, label %.critedge11.loopexit, !llvm.loop !95
+  br i1 %345, label %241, label %.critedge13..critedge11_crit_edge, !llvm.loop !95
 
-.critedge11.loopexit:                             ; preds = %241, %.critedge13
-  %346 = icmp sgt i32 %.val184, 0
-  br label %.critedge11
+.critedge13..critedge11_crit_edge:                ; preds = %.critedge13
+  br label %.critedge11, !llvm.loop !95
 
-.critedge11:                                      ; preds = %.critedge11.loopexit, %.lr.ph286
-  %.val182288.pre = phi i1 [ true, %.lr.ph286 ], [ %346, %.critedge11.loopexit ]
-  %347 = phi ptr [ %228, %.lr.ph286 ], [ %342, %.critedge11.loopexit ]
-  br i1 %.val182288.pre, label %.lr.ph290, label %.critedge15
+.critedge11:                                      ; preds = %241, %.critedge13..critedge11_crit_edge, %.lr.ph286
+  %.val182288.pre = phi i32 [ %.val184, %.critedge13..critedge11_crit_edge ], [ %.val184284, %.lr.ph286 ], [ %.val184, %241 ]
+  %346 = phi ptr [ %342, %.critedge13..critedge11_crit_edge ], [ %228, %.lr.ph286 ], [ %342, %241 ]
+  %347 = icmp sgt i32 %.val182288.pre, 0
+  br i1 %347, label %.lr.ph290, label %.critedge15
 
 .lr.ph290:                                        ; preds = %.critedge11
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2622,7 +2622,7 @@ Vec_IntPush.exit224:                              ; preds = %.Vec_IntGrow.exit10
 
 351:                                              ; preds = %.lr.ph290, %Vec_IntAppend.exit
   %indvars.iv318 = phi i64 [ 0, %.lr.ph290 ], [ %indvars.iv.next319, %Vec_IntAppend.exit ]
-  %352 = phi ptr [ %347, %.lr.ph290 ], [ %448, %Vec_IntAppend.exit ]
+  %352 = phi ptr [ %346, %.lr.ph290 ], [ %448, %Vec_IntAppend.exit ]
   %353 = getelementptr i8, ptr %352, i64 8
   %.val166 = load ptr, ptr %353, align 8, !tbaa !33
   %354 = getelementptr inbounds nuw i32, ptr %.val166, i64 %indvars.iv318

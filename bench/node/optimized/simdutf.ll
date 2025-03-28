@@ -3664,6 +3664,9 @@ entry:
   %cmp27.not.i = icmp eq i64 %len, 0
   br i1 %cmp27.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114latin1_to_utf87convertEPKcmPc.exit, label %while.body.i
 
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i, !llvm.loop !24
+
 while.body.i:                                     ; preds = %entry, %while.cond.backedge.i
   %utf8_output.addr.029.i = phi ptr [ %utf8_output.addr.0.be.i, %while.cond.backedge.i ], [ %utf8_output, %entry ]
   %pos.028.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %entry ]
@@ -3688,18 +3691,21 @@ if.then.i:                                        ; preds = %while.body.i
 
 while.cond7.preheader.i:                          ; preds = %if.then.i
   %cmp823.i = icmp ult i64 %pos.028.i, -16
-  br i1 %cmp823.i, label %while.body9.i, label %while.cond.backedge.i, !llvm.loop !24
+  br i1 %cmp823.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !24
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %utf8_output.addr.125.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %utf8_output.addr.029.i, %while.cond7.preheader.i ]
-  %pos.124.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.028.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !24
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %utf8_output.addr.125.i = phi ptr [ %utf8_output.addr.029.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.124.i = phi i64 [ %pos.028.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %pos.124.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.125.i, i64 1
   store i8 %1, ptr %utf8_output.addr.125.i, align 1
   %inc.i = add nuw i64 %pos.124.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !25
 
 if.end10.i:                                       ; preds = %if.then.i, %while.body.if.end10_crit_edge.i
   %2 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %0, %if.then.i ]
@@ -3726,9 +3732,9 @@ if.end27.i:                                       ; preds = %if.else.i, %if.then
   %pos.2.i = add i64 %pos.028.i, 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %while.body9.i, %if.end27.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %pos.2.i, %if.end27.i ], [ %pos.028.i, %while.cond7.preheader.i ], [ %add.i, %while.body9.i ]
-  %utf8_output.addr.0.be.i = phi ptr [ %utf8_output.addr.2.i, %if.end27.i ], [ %utf8_output.addr.029.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i:                            ; preds = %if.end27.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %pos.2.i, %if.end27.i ], [ %add.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.028.i, %while.cond7.preheader.i ]
+  %utf8_output.addr.0.be.i = phi ptr [ %utf8_output.addr.2.i, %if.end27.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %utf8_output.addr.029.i, %while.cond7.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %len
   br i1 %cmp.i, label %while.body.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114latin1_to_utf87convertEPKcmPc.exit, !llvm.loop !24
 
@@ -3828,6 +3834,9 @@ entry:
   %cmp35.not.i = icmp eq i64 %len, 0
   br i1 %cmp35.not.i, label %while.end48.i, label %while.body.i
 
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i, !llvm.loop !29
+
 while.body.i:                                     ; preds = %entry, %while.cond.backedge.i
   %latin_output.addr.037.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output, %entry ]
   %pos.036.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %entry ]
@@ -3852,18 +3861,21 @@ if.then.i:                                        ; preds = %while.body.i
 
 while.cond7.preheader.i:                          ; preds = %if.then.i
   %cmp831.i = icmp ult i64 %pos.036.i, -16
-  br i1 %cmp831.i, label %while.body9.i, label %while.cond.backedge.i, !llvm.loop !29
+  br i1 %cmp831.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !29
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %latin_output.addr.133.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ]
-  %pos.132.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.036.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !29
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %latin_output.addr.133.i = phi ptr [ %latin_output.addr.037.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.132.i = phi i64 [ %pos.036.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %pos.132.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.133.i, i64 1
   store i8 %1, ptr %latin_output.addr.133.i, align 1
   %inc.i = add nuw i64 %pos.132.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !30
 
 if.end10.i:                                       ; preds = %if.then.i, %while.body.if.end10_crit_edge.i
   %2 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %0, %if.then.i ]
@@ -3904,9 +3916,9 @@ if.end47.i:                                       ; preds = %if.end41.i, %if.end
   %latin_output.addr.2.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.037.i, i64 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %while.body9.i, %if.end47.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %add44.i, %if.end47.i ], [ %pos.036.i, %while.cond7.preheader.i ], [ %add.i, %while.body9.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end47.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i:                            ; preds = %if.end47.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add44.i, %if.end47.i ], [ %add.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.036.i, %while.cond7.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end47.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %len
   br i1 %cmp.i, label %while.body.i, label %while.end48.i, !llvm.loop !29
 
@@ -3927,6 +3939,9 @@ define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation34convert_ut
 entry:
   %cmp51.not.i = icmp eq i64 %len, 0
   br i1 %cmp51.not.i, label %while.end65.i, label %while.body.i
+
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i, !llvm.loop !31
 
 while.body.i:                                     ; preds = %entry, %while.cond.backedge.i
   %latin_output.addr.053.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output, %entry ]
@@ -3952,18 +3967,21 @@ if.then.i:                                        ; preds = %while.body.i
 
 while.cond7.preheader.i:                          ; preds = %if.then.i
   %cmp846.i = icmp ult i64 %pos.052.i, -16
-  br i1 %cmp846.i, label %while.body9.i, label %while.cond.backedge.i, !llvm.loop !31
+  br i1 %cmp846.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !31
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %latin_output.addr.148.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %latin_output.addr.053.i, %while.cond7.preheader.i ]
-  %pos.147.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.052.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !31
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %latin_output.addr.148.i = phi ptr [ %latin_output.addr.053.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.147.i = phi i64 [ %pos.052.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %pos.147.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.148.i, i64 1
   store i8 %1, ptr %latin_output.addr.148.i, align 1
   %inc.i = add nuw i64 %pos.147.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !32
 
 if.end10.i:                                       ; preds = %if.then.i, %while.body.if.end10_crit_edge.i
   %2 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %0, %if.then.i ]
@@ -4027,9 +4045,9 @@ if.end64.i:                                       ; preds = %if.end43.i, %if.end
   %latin_output.addr.2.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.053.i, i64 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %while.body9.i, %if.end64.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %add46.i, %if.end64.i ], [ %pos.052.i, %while.cond7.preheader.i ], [ %add.i, %while.body9.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end64.i ], [ %latin_output.addr.053.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i:                            ; preds = %if.end64.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add46.i, %if.end64.i ], [ %add.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.052.i, %while.cond7.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end64.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.053.i, %while.cond7.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %len
   br i1 %cmp.i, label %while.body.i, label %while.end65.i, !llvm.loop !31
 
@@ -4053,6 +4071,9 @@ define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation28convert_val
 entry:
   %cmp33.not.i = icmp eq i64 %len, 0
   br i1 %cmp33.not.i, label %while.end44.i, label %while.body.i
+
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i, !llvm.loop !33
 
 while.body.i:                                     ; preds = %entry, %while.cond.backedge.i
   %latin_output.addr.035.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output, %entry ]
@@ -4078,18 +4099,21 @@ if.then.i:                                        ; preds = %while.body.i
 
 while.cond7.preheader.i:                          ; preds = %if.then.i
   %cmp829.i = icmp ult i64 %pos.034.i, -16
-  br i1 %cmp829.i, label %while.body9.i, label %while.cond.backedge.i, !llvm.loop !33
+  br i1 %cmp829.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !33
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %latin_output.addr.131.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %latin_output.addr.035.i, %while.cond7.preheader.i ]
-  %pos.130.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.034.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !33
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %latin_output.addr.131.i = phi ptr [ %latin_output.addr.035.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.130.i = phi i64 [ %pos.034.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %pos.130.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.131.i, i64 1
   store i8 %1, ptr %latin_output.addr.131.i, align 1
   %inc.i = add nuw i64 %pos.130.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !34
 
 if.end10.i:                                       ; preds = %if.then.i, %while.body.if.end10_crit_edge.i
   %2 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %0, %if.then.i ]
@@ -4126,9 +4150,9 @@ if.end43.i:                                       ; preds = %if.end30.i, %if.end
   %latin_output.addr.2.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.035.i, i64 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %while.body9.i, %if.end43.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %add40.i, %if.end43.i ], [ %pos.034.i, %while.cond7.preheader.i ], [ %add.i, %while.body9.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end43.i ], [ %latin_output.addr.035.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i:                            ; preds = %if.end43.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add40.i, %if.end43.i ], [ %add.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.034.i, %while.cond7.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end43.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.035.i, %while.cond7.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %len
   br i1 %cmp.i, label %while.body.i, label %while.end44.i, !llvm.loop !33
 
@@ -4157,6 +4181,9 @@ entry:
   %cmp91.not = icmp eq i64 %len, 0
   br i1 %cmp91.not, label %while.end192, label %while.body
 
+while.cond7.while.cond.loopexit_crit_edge:        ; preds = %cond.end
+  br label %while.cond.backedge, !llvm.loop !35
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf16_output.addr.093 = phi ptr [ %utf16_output.addr.0.be, %while.cond.backedge ], [ %utf16_output, %entry ]
   %pos.092 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -4181,11 +4208,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond7.preheader:                            ; preds = %if.then
   %cmp887 = icmp ult i64 %pos.092, -16
-  br i1 %cmp887, label %cond.end, label %while.cond.backedge, !llvm.loop !35
+  br i1 %cmp887, label %cond.end.lr.ph, label %while.cond.backedge, !llvm.loop !35
 
-cond.end:                                         ; preds = %while.cond7.preheader, %cond.end
-  %utf16_output.addr.189 = phi ptr [ %incdec.ptr, %cond.end ], [ %utf16_output.addr.093, %while.cond7.preheader ]
-  %pos.188 = phi i64 [ %inc, %cond.end ], [ %pos.092, %while.cond7.preheader ]
+cond.end.lr.ph:                                   ; preds = %while.cond7.preheader
+  br label %cond.end, !llvm.loop !35
+
+cond.end:                                         ; preds = %cond.end.lr.ph, %cond.end
+  %utf16_output.addr.189 = phi ptr [ %utf16_output.addr.093, %cond.end.lr.ph ], [ %incdec.ptr, %cond.end ]
+  %pos.188 = phi i64 [ %pos.092, %cond.end.lr.ph ], [ %inc, %cond.end ]
   %arrayidx11 = getelementptr inbounds i8, ptr %buf, i64 %pos.188
   %1 = load i8, ptr %arrayidx11, align 1
   %conv12 = sext i8 %1 to i16
@@ -4193,7 +4223,7 @@ cond.end:                                         ; preds = %while.cond7.prehead
   store i16 %conv12, ptr %utf16_output.addr.189, align 2
   %inc = add nuw i64 %pos.188, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %cond.end, !llvm.loop !36
+  br i1 %exitcond.not, label %while.cond7.while.cond.loopexit_crit_edge, label %cond.end, !llvm.loop !36
 
 if.end13:                                         ; preds = %while.body.if.end13_crit_edge, %if.then
   %2 = phi i8 [ %.pre, %while.body.if.end13_crit_edge ], [ %0, %if.then ]
@@ -4355,9 +4385,9 @@ if.end183:                                        ; preds = %if.end147
   %add186 = add i64 %pos.092, 4
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %cond.end, %cond.end24, %if.end114, %if.end183, %if.end59, %while.cond7.preheader
-  %pos.0.be = phi i64 [ %pos.092, %while.cond7.preheader ], [ %inc27, %cond.end24 ], [ %add62, %if.end59 ], [ %add117, %if.end114 ], [ %add186, %if.end183 ], [ %add, %cond.end ]
-  %utf16_output.addr.0.be = phi ptr [ %utf16_output.addr.093, %while.cond7.preheader ], [ %incdec.ptr26, %cond.end24 ], [ %incdec.ptr61, %if.end59 ], [ %incdec.ptr116, %if.end114 ], [ %incdec.ptr185, %if.end183 ], [ %incdec.ptr, %cond.end ]
+while.cond.backedge:                              ; preds = %cond.end24, %if.end114, %if.end183, %if.end59, %while.cond7.preheader, %while.cond7.while.cond.loopexit_crit_edge
+  %pos.0.be = phi i64 [ %add, %while.cond7.while.cond.loopexit_crit_edge ], [ %pos.092, %while.cond7.preheader ], [ %inc27, %cond.end24 ], [ %add62, %if.end59 ], [ %add117, %if.end114 ], [ %add186, %if.end183 ]
+  %utf16_output.addr.0.be = phi ptr [ %incdec.ptr, %while.cond7.while.cond.loopexit_crit_edge ], [ %utf16_output.addr.093, %while.cond7.preheader ], [ %incdec.ptr26, %cond.end24 ], [ %incdec.ptr61, %if.end59 ], [ %incdec.ptr116, %if.end114 ], [ %incdec.ptr185, %if.end183 ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end192, !llvm.loop !35
 
@@ -4387,6 +4417,9 @@ entry:
   %cmp91.not = icmp eq i64 %len, 0
   br i1 %cmp91.not, label %while.end192, label %while.body
 
+while.cond7.while.cond.loopexit_crit_edge:        ; preds = %cond.end
+  br label %while.cond.backedge, !llvm.loop !37
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf16_output.addr.093 = phi ptr [ %utf16_output.addr.0.be, %while.cond.backedge ], [ %utf16_output, %entry ]
   %pos.092 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -4411,11 +4444,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond7.preheader:                            ; preds = %if.then
   %cmp887 = icmp ult i64 %pos.092, -16
-  br i1 %cmp887, label %cond.end, label %while.cond.backedge, !llvm.loop !37
+  br i1 %cmp887, label %cond.end.lr.ph, label %while.cond.backedge, !llvm.loop !37
 
-cond.end:                                         ; preds = %while.cond7.preheader, %cond.end
-  %utf16_output.addr.189 = phi ptr [ %incdec.ptr, %cond.end ], [ %utf16_output.addr.093, %while.cond7.preheader ]
-  %pos.188 = phi i64 [ %inc, %cond.end ], [ %pos.092, %while.cond7.preheader ]
+cond.end.lr.ph:                                   ; preds = %while.cond7.preheader
+  br label %cond.end, !llvm.loop !37
+
+cond.end:                                         ; preds = %cond.end.lr.ph, %cond.end
+  %utf16_output.addr.189 = phi ptr [ %utf16_output.addr.093, %cond.end.lr.ph ], [ %incdec.ptr, %cond.end ]
+  %pos.188 = phi i64 [ %pos.092, %cond.end.lr.ph ], [ %inc, %cond.end ]
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %pos.188
   %1 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %1 to i16
@@ -4424,7 +4460,7 @@ cond.end:                                         ; preds = %while.cond7.prehead
   store i16 %or.i, ptr %utf16_output.addr.189, align 2
   %inc = add nuw i64 %pos.188, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %cond.end, !llvm.loop !38
+  br i1 %exitcond.not, label %while.cond7.while.cond.loopexit_crit_edge, label %cond.end, !llvm.loop !38
 
 if.end13:                                         ; preds = %while.body.if.end13_crit_edge, %if.then
   %2 = phi i8 [ %.pre, %while.body.if.end13_crit_edge ], [ %0, %if.then ]
@@ -4591,9 +4627,9 @@ if.end183:                                        ; preds = %if.end147
   %add186 = add i64 %pos.092, 4
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %cond.end, %cond.end24, %if.end114, %if.end183, %if.end59, %while.cond7.preheader
-  %pos.0.be = phi i64 [ %pos.092, %while.cond7.preheader ], [ %inc27, %cond.end24 ], [ %add62, %if.end59 ], [ %add117, %if.end114 ], [ %add186, %if.end183 ], [ %add, %cond.end ]
-  %utf16_output.addr.0.be = phi ptr [ %utf16_output.addr.093, %while.cond7.preheader ], [ %incdec.ptr26, %cond.end24 ], [ %incdec.ptr61, %if.end59 ], [ %incdec.ptr116, %if.end114 ], [ %incdec.ptr185, %if.end183 ], [ %incdec.ptr, %cond.end ]
+while.cond.backedge:                              ; preds = %cond.end24, %if.end114, %if.end183, %if.end59, %while.cond7.preheader, %while.cond7.while.cond.loopexit_crit_edge
+  %pos.0.be = phi i64 [ %add, %while.cond7.while.cond.loopexit_crit_edge ], [ %pos.092, %while.cond7.preheader ], [ %inc27, %cond.end24 ], [ %add62, %if.end59 ], [ %add117, %if.end114 ], [ %add186, %if.end183 ]
+  %utf16_output.addr.0.be = phi ptr [ %incdec.ptr, %while.cond7.while.cond.loopexit_crit_edge ], [ %utf16_output.addr.093, %while.cond7.preheader ], [ %incdec.ptr26, %cond.end24 ], [ %incdec.ptr61, %if.end59 ], [ %incdec.ptr116, %if.end114 ], [ %incdec.ptr185, %if.end183 ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end192, !llvm.loop !37
 
@@ -4623,6 +4659,9 @@ entry:
   %cmp111.not = icmp eq i64 %len, 0
   br i1 %cmp111.not, label %while.end199, label %while.body
 
+while.cond7.while.cond.loopexit_crit_edge:        ; preds = %cond.end
+  br label %while.cond.backedge, !llvm.loop !39
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf16_output.addr.0113 = phi ptr [ %utf16_output.addr.0.be, %while.cond.backedge ], [ %utf16_output, %entry ]
   %pos.0112 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -4647,11 +4686,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond7.preheader:                            ; preds = %if.then
   %cmp8107 = icmp ult i64 %pos.0112, -16
-  br i1 %cmp8107, label %cond.end, label %while.cond.backedge, !llvm.loop !39
+  br i1 %cmp8107, label %cond.end.lr.ph, label %while.cond.backedge, !llvm.loop !39
 
-cond.end:                                         ; preds = %while.cond7.preheader, %cond.end
-  %utf16_output.addr.1109 = phi ptr [ %incdec.ptr, %cond.end ], [ %utf16_output.addr.0113, %while.cond7.preheader ]
-  %pos.1108 = phi i64 [ %inc, %cond.end ], [ %pos.0112, %while.cond7.preheader ]
+cond.end.lr.ph:                                   ; preds = %while.cond7.preheader
+  br label %cond.end, !llvm.loop !39
+
+cond.end:                                         ; preds = %cond.end.lr.ph, %cond.end
+  %utf16_output.addr.1109 = phi ptr [ %utf16_output.addr.0113, %cond.end.lr.ph ], [ %incdec.ptr, %cond.end ]
+  %pos.1108 = phi i64 [ %pos.0112, %cond.end.lr.ph ], [ %inc, %cond.end ]
   %arrayidx11 = getelementptr inbounds i8, ptr %buf, i64 %pos.1108
   %1 = load i8, ptr %arrayidx11, align 1
   %conv12 = sext i8 %1 to i16
@@ -4659,7 +4701,7 @@ cond.end:                                         ; preds = %while.cond7.prehead
   store i16 %conv12, ptr %utf16_output.addr.1109, align 2
   %inc = add nuw i64 %pos.1108, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %cond.end, !llvm.loop !40
+  br i1 %exitcond.not, label %while.cond7.while.cond.loopexit_crit_edge, label %cond.end, !llvm.loop !40
 
 if.end13:                                         ; preds = %while.body.if.end13_crit_edge, %if.then
   %2 = phi i8 [ %.pre, %while.body.if.end13_crit_edge ], [ %0, %if.then ]
@@ -4830,9 +4872,9 @@ if.else189:                                       ; preds = %if.else119
   %. = select i1 %cmp192, i32 3, i32 1
   br label %return
 
-while.cond.backedge:                              ; preds = %cond.end, %cond.end24, %if.end115, %if.end185, %if.end59, %while.cond7.preheader
-  %pos.0.be = phi i64 [ %pos.0112, %while.cond7.preheader ], [ %inc27, %cond.end24 ], [ %add62, %if.end59 ], [ %add118, %if.end115 ], [ %add188, %if.end185 ], [ %add, %cond.end ]
-  %utf16_output.addr.0.be = phi ptr [ %utf16_output.addr.0113, %while.cond7.preheader ], [ %incdec.ptr26, %cond.end24 ], [ %incdec.ptr61, %if.end59 ], [ %incdec.ptr117, %if.end115 ], [ %incdec.ptr187, %if.end185 ], [ %incdec.ptr, %cond.end ]
+while.cond.backedge:                              ; preds = %cond.end24, %if.end115, %if.end185, %if.end59, %while.cond7.preheader, %while.cond7.while.cond.loopexit_crit_edge
+  %pos.0.be = phi i64 [ %add, %while.cond7.while.cond.loopexit_crit_edge ], [ %pos.0112, %while.cond7.preheader ], [ %inc27, %cond.end24 ], [ %add62, %if.end59 ], [ %add118, %if.end115 ], [ %add188, %if.end185 ]
+  %utf16_output.addr.0.be = phi ptr [ %incdec.ptr, %while.cond7.while.cond.loopexit_crit_edge ], [ %utf16_output.addr.0113, %while.cond7.preheader ], [ %incdec.ptr26, %cond.end24 ], [ %incdec.ptr61, %if.end59 ], [ %incdec.ptr117, %if.end115 ], [ %incdec.ptr187, %if.end185 ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end199, !llvm.loop !39
 
@@ -4865,6 +4907,9 @@ entry:
   %cmp111.not = icmp eq i64 %len, 0
   br i1 %cmp111.not, label %while.end199, label %while.body
 
+while.cond7.while.cond.loopexit_crit_edge:        ; preds = %cond.end
+  br label %while.cond.backedge, !llvm.loop !41
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf16_output.addr.0113 = phi ptr [ %utf16_output.addr.0.be, %while.cond.backedge ], [ %utf16_output, %entry ]
   %pos.0112 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -4889,11 +4934,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond7.preheader:                            ; preds = %if.then
   %cmp8107 = icmp ult i64 %pos.0112, -16
-  br i1 %cmp8107, label %cond.end, label %while.cond.backedge, !llvm.loop !41
+  br i1 %cmp8107, label %cond.end.lr.ph, label %while.cond.backedge, !llvm.loop !41
 
-cond.end:                                         ; preds = %while.cond7.preheader, %cond.end
-  %utf16_output.addr.1109 = phi ptr [ %incdec.ptr, %cond.end ], [ %utf16_output.addr.0113, %while.cond7.preheader ]
-  %pos.1108 = phi i64 [ %inc, %cond.end ], [ %pos.0112, %while.cond7.preheader ]
+cond.end.lr.ph:                                   ; preds = %while.cond7.preheader
+  br label %cond.end, !llvm.loop !41
+
+cond.end:                                         ; preds = %cond.end.lr.ph, %cond.end
+  %utf16_output.addr.1109 = phi ptr [ %utf16_output.addr.0113, %cond.end.lr.ph ], [ %incdec.ptr, %cond.end ]
+  %pos.1108 = phi i64 [ %pos.0112, %cond.end.lr.ph ], [ %inc, %cond.end ]
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %pos.1108
   %1 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %1 to i16
@@ -4902,7 +4950,7 @@ cond.end:                                         ; preds = %while.cond7.prehead
   store i16 %or.i, ptr %utf16_output.addr.1109, align 2
   %inc = add nuw i64 %pos.1108, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %cond.end, !llvm.loop !42
+  br i1 %exitcond.not, label %while.cond7.while.cond.loopexit_crit_edge, label %cond.end, !llvm.loop !42
 
 if.end13:                                         ; preds = %while.body.if.end13_crit_edge, %if.then
   %2 = phi i8 [ %.pre, %while.body.if.end13_crit_edge ], [ %0, %if.then ]
@@ -5078,9 +5126,9 @@ if.else189:                                       ; preds = %if.else119
   %. = select i1 %cmp192, i32 3, i32 1
   br label %return
 
-while.cond.backedge:                              ; preds = %cond.end, %cond.end24, %if.end115, %if.end185, %if.end59, %while.cond7.preheader
-  %pos.0.be = phi i64 [ %pos.0112, %while.cond7.preheader ], [ %inc27, %cond.end24 ], [ %add62, %if.end59 ], [ %add118, %if.end115 ], [ %add188, %if.end185 ], [ %add, %cond.end ]
-  %utf16_output.addr.0.be = phi ptr [ %utf16_output.addr.0113, %while.cond7.preheader ], [ %incdec.ptr26, %cond.end24 ], [ %incdec.ptr61, %if.end59 ], [ %incdec.ptr117, %if.end115 ], [ %incdec.ptr187, %if.end185 ], [ %incdec.ptr, %cond.end ]
+while.cond.backedge:                              ; preds = %cond.end24, %if.end115, %if.end185, %if.end59, %while.cond7.preheader, %while.cond7.while.cond.loopexit_crit_edge
+  %pos.0.be = phi i64 [ %add, %while.cond7.while.cond.loopexit_crit_edge ], [ %pos.0112, %while.cond7.preheader ], [ %inc27, %cond.end24 ], [ %add62, %if.end59 ], [ %add118, %if.end115 ], [ %add188, %if.end185 ]
+  %utf16_output.addr.0.be = phi ptr [ %incdec.ptr, %while.cond7.while.cond.loopexit_crit_edge ], [ %utf16_output.addr.0113, %while.cond7.preheader ], [ %incdec.ptr26, %cond.end24 ], [ %incdec.ptr61, %if.end59 ], [ %incdec.ptr117, %if.end115 ], [ %incdec.ptr187, %if.end185 ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end199, !llvm.loop !41
 
@@ -5113,6 +5161,9 @@ entry:
   %cmp66.not = icmp eq i64 %len, 0
   br i1 %cmp66.not, label %while.end126, label %while.body
 
+while.cond5.while.cond.loopexit_crit_edge:        ; preds = %cond.end
+  br label %while.cond.backedge, !llvm.loop !43
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf16_output.addr.068 = phi ptr [ %utf16_output.addr.0.be, %while.cond.backedge ], [ %utf16_output, %entry ]
   %pos.067 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -5134,11 +5185,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond5.preheader:                            ; preds = %if.then
   %cmp662 = icmp ult i64 %pos.067, -8
-  br i1 %cmp662, label %cond.end, label %while.cond.backedge, !llvm.loop !43
+  br i1 %cmp662, label %cond.end.lr.ph, label %while.cond.backedge, !llvm.loop !43
 
-cond.end:                                         ; preds = %while.cond5.preheader, %cond.end
-  %utf16_output.addr.164 = phi ptr [ %incdec.ptr, %cond.end ], [ %utf16_output.addr.068, %while.cond5.preheader ]
-  %pos.163 = phi i64 [ %inc, %cond.end ], [ %pos.067, %while.cond5.preheader ]
+cond.end.lr.ph:                                   ; preds = %while.cond5.preheader
+  br label %cond.end, !llvm.loop !43
+
+cond.end:                                         ; preds = %cond.end.lr.ph, %cond.end
+  %utf16_output.addr.164 = phi ptr [ %utf16_output.addr.068, %cond.end.lr.ph ], [ %incdec.ptr, %cond.end ]
+  %pos.163 = phi i64 [ %pos.067, %cond.end.lr.ph ], [ %inc, %cond.end ]
   %arrayidx9 = getelementptr inbounds i8, ptr %buf, i64 %pos.163
   %1 = load i8, ptr %arrayidx9, align 1
   %conv10 = sext i8 %1 to i16
@@ -5146,7 +5200,7 @@ cond.end:                                         ; preds = %while.cond5.prehead
   store i16 %conv10, ptr %utf16_output.addr.164, align 2
   %inc = add nuw i64 %pos.163, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %cond.end, !llvm.loop !44
+  br i1 %exitcond.not, label %while.cond5.while.cond.loopexit_crit_edge, label %cond.end, !llvm.loop !44
 
 if.end11:                                         ; preds = %while.body.if.end11_crit_edge, %if.then
   %2 = phi i8 [ %.pre, %while.body.if.end11_crit_edge ], [ %0, %if.then ]
@@ -5258,9 +5312,9 @@ if.end117:                                        ; preds = %if.then82
   %add120 = add i64 %pos.067, 4
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %cond.end, %cond.end22, %if.end75, %if.end117, %if.end44, %while.cond5.preheader
-  %pos.0.be = phi i64 [ %pos.067, %while.cond5.preheader ], [ %inc25, %cond.end22 ], [ %add46, %if.end44 ], [ %add77, %if.end75 ], [ %add120, %if.end117 ], [ %add, %cond.end ]
-  %utf16_output.addr.0.be = phi ptr [ %utf16_output.addr.068, %while.cond5.preheader ], [ %incdec.ptr24, %cond.end22 ], [ %incdec.ptr45, %if.end44 ], [ %incdec.ptr76, %if.end75 ], [ %incdec.ptr119, %if.end117 ], [ %incdec.ptr, %cond.end ]
+while.cond.backedge:                              ; preds = %cond.end22, %if.end75, %if.end117, %if.end44, %while.cond5.preheader, %while.cond5.while.cond.loopexit_crit_edge
+  %pos.0.be = phi i64 [ %add, %while.cond5.while.cond.loopexit_crit_edge ], [ %pos.067, %while.cond5.preheader ], [ %inc25, %cond.end22 ], [ %add46, %if.end44 ], [ %add77, %if.end75 ], [ %add120, %if.end117 ]
+  %utf16_output.addr.0.be = phi ptr [ %incdec.ptr, %while.cond5.while.cond.loopexit_crit_edge ], [ %utf16_output.addr.068, %while.cond5.preheader ], [ %incdec.ptr24, %cond.end22 ], [ %incdec.ptr45, %if.end44 ], [ %incdec.ptr76, %if.end75 ], [ %incdec.ptr119, %if.end117 ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end126, !llvm.loop !43
 
@@ -5290,6 +5344,9 @@ entry:
   %cmp66.not = icmp eq i64 %len, 0
   br i1 %cmp66.not, label %while.end126, label %while.body
 
+while.cond5.while.cond.loopexit_crit_edge:        ; preds = %cond.end
+  br label %while.cond.backedge, !llvm.loop !45
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf16_output.addr.068 = phi ptr [ %utf16_output.addr.0.be, %while.cond.backedge ], [ %utf16_output, %entry ]
   %pos.067 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -5311,11 +5368,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond5.preheader:                            ; preds = %if.then
   %cmp662 = icmp ult i64 %pos.067, -8
-  br i1 %cmp662, label %cond.end, label %while.cond.backedge, !llvm.loop !45
+  br i1 %cmp662, label %cond.end.lr.ph, label %while.cond.backedge, !llvm.loop !45
 
-cond.end:                                         ; preds = %while.cond5.preheader, %cond.end
-  %utf16_output.addr.164 = phi ptr [ %incdec.ptr, %cond.end ], [ %utf16_output.addr.068, %while.cond5.preheader ]
-  %pos.163 = phi i64 [ %inc, %cond.end ], [ %pos.067, %while.cond5.preheader ]
+cond.end.lr.ph:                                   ; preds = %while.cond5.preheader
+  br label %cond.end, !llvm.loop !45
+
+cond.end:                                         ; preds = %cond.end.lr.ph, %cond.end
+  %utf16_output.addr.164 = phi ptr [ %utf16_output.addr.068, %cond.end.lr.ph ], [ %incdec.ptr, %cond.end ]
+  %pos.163 = phi i64 [ %pos.067, %cond.end.lr.ph ], [ %inc, %cond.end ]
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %pos.163
   %1 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %1 to i16
@@ -5324,7 +5384,7 @@ cond.end:                                         ; preds = %while.cond5.prehead
   store i16 %or.i, ptr %utf16_output.addr.164, align 2
   %inc = add nuw i64 %pos.163, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %cond.end, !llvm.loop !46
+  br i1 %exitcond.not, label %while.cond5.while.cond.loopexit_crit_edge, label %cond.end, !llvm.loop !46
 
 if.end11:                                         ; preds = %while.body.if.end11_crit_edge, %if.then
   %2 = phi i8 [ %.pre, %while.body.if.end11_crit_edge ], [ %0, %if.then ]
@@ -5441,9 +5501,9 @@ if.end117:                                        ; preds = %if.then82
   %add120 = add i64 %pos.067, 4
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %cond.end, %cond.end22, %if.end75, %if.end117, %if.end44, %while.cond5.preheader
-  %pos.0.be = phi i64 [ %pos.067, %while.cond5.preheader ], [ %inc25, %cond.end22 ], [ %add46, %if.end44 ], [ %add77, %if.end75 ], [ %add120, %if.end117 ], [ %add, %cond.end ]
-  %utf16_output.addr.0.be = phi ptr [ %utf16_output.addr.068, %while.cond5.preheader ], [ %incdec.ptr24, %cond.end22 ], [ %incdec.ptr45, %if.end44 ], [ %incdec.ptr76, %if.end75 ], [ %incdec.ptr119, %if.end117 ], [ %incdec.ptr, %cond.end ]
+while.cond.backedge:                              ; preds = %cond.end22, %if.end75, %if.end117, %if.end44, %while.cond5.preheader, %while.cond5.while.cond.loopexit_crit_edge
+  %pos.0.be = phi i64 [ %add, %while.cond5.while.cond.loopexit_crit_edge ], [ %pos.067, %while.cond5.preheader ], [ %inc25, %cond.end22 ], [ %add46, %if.end44 ], [ %add77, %if.end75 ], [ %add120, %if.end117 ]
+  %utf16_output.addr.0.be = phi ptr [ %incdec.ptr, %while.cond5.while.cond.loopexit_crit_edge ], [ %utf16_output.addr.068, %while.cond5.preheader ], [ %incdec.ptr24, %cond.end22 ], [ %incdec.ptr45, %if.end44 ], [ %incdec.ptr76, %if.end75 ], [ %incdec.ptr119, %if.end117 ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end126, !llvm.loop !45
 
@@ -5473,6 +5533,9 @@ entry:
   %cmp76.not = icmp eq i64 %len, 0
   br i1 %cmp76.not, label %while.end157, label %while.body
 
+while.cond7.while.cond.loopexit_crit_edge:        ; preds = %while.body9
+  br label %while.cond.backedge, !llvm.loop !47
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf32_output.addr.078 = phi ptr [ %utf32_output.addr.0.be, %while.cond.backedge ], [ %utf32_output, %entry ]
   %pos.077 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -5497,11 +5560,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond7.preheader:                            ; preds = %if.then
   %cmp872 = icmp ult i64 %pos.077, -16
-  br i1 %cmp872, label %while.body9, label %while.cond.backedge, !llvm.loop !47
+  br i1 %cmp872, label %while.body9.lr.ph, label %while.cond.backedge, !llvm.loop !47
 
-while.body9:                                      ; preds = %while.cond7.preheader, %while.body9
-  %utf32_output.addr.174 = phi ptr [ %incdec.ptr, %while.body9 ], [ %utf32_output.addr.078, %while.cond7.preheader ]
-  %pos.173 = phi i64 [ %inc, %while.body9 ], [ %pos.077, %while.cond7.preheader ]
+while.body9.lr.ph:                                ; preds = %while.cond7.preheader
+  br label %while.body9, !llvm.loop !47
+
+while.body9:                                      ; preds = %while.body9.lr.ph, %while.body9
+  %utf32_output.addr.174 = phi ptr [ %utf32_output.addr.078, %while.body9.lr.ph ], [ %incdec.ptr, %while.body9 ]
+  %pos.173 = phi i64 [ %pos.077, %while.body9.lr.ph ], [ %inc, %while.body9 ]
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %pos.173
   %1 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %1 to i32
@@ -5509,7 +5575,7 @@ while.body9:                                      ; preds = %while.cond7.prehead
   store i32 %conv, ptr %utf32_output.addr.174, align 4
   %inc = add nuw i64 %pos.173, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %while.body9, !llvm.loop !48
+  br i1 %exitcond.not, label %while.cond7.while.cond.loopexit_crit_edge, label %while.body9, !llvm.loop !48
 
 if.end10:                                         ; preds = %while.body.if.end10_crit_edge, %if.then
   %2 = phi i8 [ %.pre, %while.body.if.end10_crit_edge ], [ %0, %if.then ]
@@ -5650,9 +5716,9 @@ if.end156:                                        ; preds = %lor.lhs.false87, %i
   %utf32_output.addr.2 = getelementptr inbounds nuw i8, ptr %utf32_output.addr.078, i64 4
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %while.body9, %while.cond7.preheader, %if.end156
-  %pos.0.be = phi i64 [ %add45, %if.end156 ], [ %pos.077, %while.cond7.preheader ], [ %add, %while.body9 ]
-  %utf32_output.addr.0.be = phi ptr [ %utf32_output.addr.2, %if.end156 ], [ %utf32_output.addr.078, %while.cond7.preheader ], [ %incdec.ptr, %while.body9 ]
+while.cond.backedge:                              ; preds = %while.cond7.preheader, %while.cond7.while.cond.loopexit_crit_edge, %if.end156
+  %pos.0.be = phi i64 [ %add45, %if.end156 ], [ %add, %while.cond7.while.cond.loopexit_crit_edge ], [ %pos.077, %while.cond7.preheader ]
+  %utf32_output.addr.0.be = phi ptr [ %utf32_output.addr.2, %if.end156 ], [ %incdec.ptr, %while.cond7.while.cond.loopexit_crit_edge ], [ %utf32_output.addr.078, %while.cond7.preheader ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end157, !llvm.loop !47
 
@@ -5682,6 +5748,9 @@ entry:
   %cmp96.not = icmp eq i64 %len, 0
   br i1 %cmp96.not, label %while.end164, label %while.body
 
+while.cond7.while.cond.loopexit_crit_edge:        ; preds = %while.body9
+  br label %while.cond.backedge, !llvm.loop !49
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf32_output.addr.098 = phi ptr [ %utf32_output.addr.0.be, %while.cond.backedge ], [ %utf32_output, %entry ]
   %pos.097 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -5706,11 +5775,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond7.preheader:                            ; preds = %if.then
   %cmp892 = icmp ult i64 %pos.097, -16
-  br i1 %cmp892, label %while.body9, label %while.cond.backedge, !llvm.loop !49
+  br i1 %cmp892, label %while.body9.lr.ph, label %while.cond.backedge, !llvm.loop !49
 
-while.body9:                                      ; preds = %while.cond7.preheader, %while.body9
-  %utf32_output.addr.194 = phi ptr [ %incdec.ptr, %while.body9 ], [ %utf32_output.addr.098, %while.cond7.preheader ]
-  %pos.193 = phi i64 [ %inc, %while.body9 ], [ %pos.097, %while.cond7.preheader ]
+while.body9.lr.ph:                                ; preds = %while.cond7.preheader
+  br label %while.body9, !llvm.loop !49
+
+while.body9:                                      ; preds = %while.body9.lr.ph, %while.body9
+  %utf32_output.addr.194 = phi ptr [ %utf32_output.addr.098, %while.body9.lr.ph ], [ %incdec.ptr, %while.body9 ]
+  %pos.193 = phi i64 [ %pos.097, %while.body9.lr.ph ], [ %inc, %while.body9 ]
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %pos.193
   %1 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %1 to i32
@@ -5718,7 +5790,7 @@ while.body9:                                      ; preds = %while.cond7.prehead
   store i32 %conv, ptr %utf32_output.addr.194, align 4
   %inc = add nuw i64 %pos.193, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %while.body9, !llvm.loop !50
+  br i1 %exitcond.not, label %while.cond7.while.cond.loopexit_crit_edge, label %while.body9, !llvm.loop !50
 
 if.end10:                                         ; preds = %while.body.if.end10_crit_edge, %if.then
   %2 = phi i8 [ %.pre, %while.body.if.end10_crit_edge ], [ %0, %if.then ]
@@ -5865,9 +5937,9 @@ if.end163:                                        ; preds = %if.end148, %if.end8
   %utf32_output.addr.2 = getelementptr inbounds nuw i8, ptr %utf32_output.addr.098, i64 4
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %while.body9, %while.cond7.preheader, %if.end163
-  %pos.0.be = phi i64 [ %add45, %if.end163 ], [ %pos.097, %while.cond7.preheader ], [ %add, %while.body9 ]
-  %utf32_output.addr.0.be = phi ptr [ %utf32_output.addr.2, %if.end163 ], [ %utf32_output.addr.098, %while.cond7.preheader ], [ %incdec.ptr, %while.body9 ]
+while.cond.backedge:                              ; preds = %while.cond7.preheader, %while.cond7.while.cond.loopexit_crit_edge, %if.end163
+  %pos.0.be = phi i64 [ %add45, %if.end163 ], [ %add, %while.cond7.while.cond.loopexit_crit_edge ], [ %pos.097, %while.cond7.preheader ]
+  %utf32_output.addr.0.be = phi ptr [ %utf32_output.addr.2, %if.end163 ], [ %incdec.ptr, %while.cond7.while.cond.loopexit_crit_edge ], [ %utf32_output.addr.098, %while.cond7.preheader ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end164, !llvm.loop !49
 
@@ -5900,6 +5972,9 @@ entry:
   %cmp51.not = icmp eq i64 %len, 0
   br i1 %cmp51.not, label %while.end93, label %while.body
 
+while.cond5.while.cond.loopexit_crit_edge:        ; preds = %while.body7
+  br label %while.cond.backedge, !llvm.loop !51
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf32_output.addr.053 = phi ptr [ %utf32_output.addr.0.be, %while.cond.backedge ], [ %utf32_output, %entry ]
   %pos.052 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -5921,11 +5996,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond5.preheader:                            ; preds = %if.then
   %cmp647 = icmp ult i64 %pos.052, -8
-  br i1 %cmp647, label %while.body7, label %while.cond.backedge, !llvm.loop !51
+  br i1 %cmp647, label %while.body7.lr.ph, label %while.cond.backedge, !llvm.loop !51
 
-while.body7:                                      ; preds = %while.cond5.preheader, %while.body7
-  %utf32_output.addr.149 = phi ptr [ %incdec.ptr, %while.body7 ], [ %utf32_output.addr.053, %while.cond5.preheader ]
-  %pos.148 = phi i64 [ %inc, %while.body7 ], [ %pos.052, %while.cond5.preheader ]
+while.body7.lr.ph:                                ; preds = %while.cond5.preheader
+  br label %while.body7, !llvm.loop !51
+
+while.body7:                                      ; preds = %while.body7.lr.ph, %while.body7
+  %utf32_output.addr.149 = phi ptr [ %utf32_output.addr.053, %while.body7.lr.ph ], [ %incdec.ptr, %while.body7 ]
+  %pos.148 = phi i64 [ %pos.052, %while.body7.lr.ph ], [ %inc, %while.body7 ]
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %pos.148
   %1 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %1 to i32
@@ -5933,7 +6011,7 @@ while.body7:                                      ; preds = %while.cond5.prehead
   store i32 %conv, ptr %utf32_output.addr.149, align 4
   %inc = add nuw i64 %pos.148, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %while.body7, !llvm.loop !52
+  br i1 %exitcond.not, label %while.cond5.while.cond.loopexit_crit_edge, label %while.body7, !llvm.loop !52
 
 if.end8:                                          ; preds = %while.body.if.end8_crit_edge, %if.then
   %2 = phi i8 [ %.pre, %while.body.if.end8_crit_edge ], [ %0, %if.then ]
@@ -6024,9 +6102,9 @@ if.end92:                                         ; preds = %if.end92.sink.split
   %utf32_output.addr.2 = getelementptr inbounds nuw i8, ptr %utf32_output.addr.053, i64 4
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %while.body7, %while.cond5.preheader, %if.end92
-  %pos.0.be = phi i64 [ %add31, %if.end92 ], [ %pos.052, %while.cond5.preheader ], [ %add, %while.body7 ]
-  %utf32_output.addr.0.be = phi ptr [ %utf32_output.addr.2, %if.end92 ], [ %utf32_output.addr.053, %while.cond5.preheader ], [ %incdec.ptr, %while.body7 ]
+while.cond.backedge:                              ; preds = %while.cond5.preheader, %while.cond5.while.cond.loopexit_crit_edge, %if.end92
+  %pos.0.be = phi i64 [ %add31, %if.end92 ], [ %add, %while.cond5.while.cond.loopexit_crit_edge ], [ %pos.052, %while.cond5.preheader ]
+  %utf32_output.addr.0.be = phi ptr [ %utf32_output.addr.2, %if.end92 ], [ %incdec.ptr, %while.cond5.while.cond.loopexit_crit_edge ], [ %utf32_output.addr.053, %while.cond5.preheader ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end93, !llvm.loop !51
 
@@ -6262,6 +6340,9 @@ entry:
   %cmp42.not.i = icmp eq i64 %len, 0
   br i1 %cmp42.not.i, label %while.end60.i, label %while.body.i
 
+while.cond33.while.cond.loopexit_crit_edge.i:     ; preds = %cond.end.i
+  br label %while.cond.backedge.i, !llvm.loop !55
+
 while.body.i:                                     ; preds = %entry, %while.cond.backedge.i
   %latin_output.addr.044.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output, %entry ]
   %pos.043.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %entry ]
@@ -6292,11 +6373,14 @@ if.then.i:                                        ; preds = %while.body.i
 
 while.cond33.preheader.i:                         ; preds = %if.then.i
   %cmp3438.i = icmp ult i64 %pos.043.i, -16
-  br i1 %cmp3438.i, label %cond.end.i, label %while.cond.backedge.i, !llvm.loop !55
+  br i1 %cmp3438.i, label %cond.end.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !55
 
-cond.end.i:                                       ; preds = %while.cond33.preheader.i, %cond.end.i
-  %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
-  %pos.139.i = phi i64 [ %inc.i, %cond.end.i ], [ %pos.043.i, %while.cond33.preheader.i ]
+cond.end.lr.ph.i:                                 ; preds = %while.cond33.preheader.i
+  br label %cond.end.i, !llvm.loop !55
+
+cond.end.i:                                       ; preds = %cond.end.i, %cond.end.lr.ph.i
+  %latin_output.addr.140.i = phi ptr [ %latin_output.addr.044.i, %cond.end.lr.ph.i ], [ %incdec.ptr.i, %cond.end.i ]
+  %pos.139.i = phi i64 [ %pos.043.i, %cond.end.lr.ph.i ], [ %inc.i, %cond.end.i ]
   %arrayidx38.i = getelementptr inbounds i16, ptr %buf, i64 %pos.139.i
   %3 = load i16, ptr %arrayidx38.i, align 2
   %cond.i = trunc i16 %3 to i8
@@ -6304,7 +6388,7 @@ cond.end.i:                                       ; preds = %while.cond33.prehea
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
   %inc.i = add nuw i64 %pos.139.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %cond.end.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %while.cond33.while.cond.loopexit_crit_edge.i, label %cond.end.i, !llvm.loop !56
 
 cond.end48.i:                                     ; preds = %if.then.i, %while.body.cond.end48_crit_edge.i
   %4 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %2, %if.then.i ]
@@ -6318,9 +6402,9 @@ if.then53.i:                                      ; preds = %cond.end48.i
   %inc58.i = add i64 %pos.043.i, 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %cond.end.i, %if.then53.i, %while.cond33.preheader.i
-  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %pos.043.i, %while.cond33.preheader.i ], [ %add.i, %cond.end.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ], [ %incdec.ptr.i, %cond.end.i ]
+while.cond.backedge.i:                            ; preds = %if.then53.i, %while.cond33.preheader.i, %while.cond33.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %add.i, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %pos.043.i, %while.cond33.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %incdec.ptr.i, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %len
   br i1 %cmp.i, label %while.body.i, label %while.end60.i, !llvm.loop !55
 
@@ -6344,6 +6428,9 @@ define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation37convert_ut
 entry:
   %cmp42.not.i = icmp eq i64 %len, 0
   br i1 %cmp42.not.i, label %while.end60.i, label %while.body.i
+
+while.cond33.while.cond.loopexit_crit_edge.i:     ; preds = %cond.end.i
+  br label %while.cond.backedge.i, !llvm.loop !57
 
 while.body.i:                                     ; preds = %entry, %while.cond.backedge.i
   %latin_output.addr.044.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output, %entry ]
@@ -6379,11 +6466,14 @@ if.then.i:                                        ; preds = %while.body.i
 
 while.cond33.preheader.i:                         ; preds = %if.then.i
   %cmp3438.i = icmp ult i64 %pos.043.i, -16
-  br i1 %cmp3438.i, label %cond.end.i, label %while.cond.backedge.i, !llvm.loop !57
+  br i1 %cmp3438.i, label %cond.end.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !57
 
-cond.end.i:                                       ; preds = %while.cond33.preheader.i, %cond.end.i
-  %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
-  %pos.139.i = phi i64 [ %inc.i, %cond.end.i ], [ %pos.043.i, %while.cond33.preheader.i ]
+cond.end.lr.ph.i:                                 ; preds = %while.cond33.preheader.i
+  br label %cond.end.i, !llvm.loop !57
+
+cond.end.i:                                       ; preds = %cond.end.i, %cond.end.lr.ph.i
+  %latin_output.addr.140.i = phi ptr [ %latin_output.addr.044.i, %cond.end.lr.ph.i ], [ %incdec.ptr.i, %cond.end.i ]
+  %pos.139.i = phi i64 [ %pos.043.i, %cond.end.lr.ph.i ], [ %inc.i, %cond.end.i ]
   %arrayidx.i = getelementptr inbounds i16, ptr %buf, i64 %pos.139.i
   %6 = load i16, ptr %arrayidx.i, align 2
   %or.i.i = lshr i16 %6, 8
@@ -6392,7 +6482,7 @@ cond.end.i:                                       ; preds = %while.cond33.prehea
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
   %inc.i = add nuw i64 %pos.139.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %cond.end.i, !llvm.loop !58
+  br i1 %exitcond.not.i, label %while.cond33.while.cond.loopexit_crit_edge.i, label %cond.end.i, !llvm.loop !58
 
 cond.end48.i:                                     ; preds = %if.then.i, %while.body.cond.end48_crit_edge.i
   %7 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %5, %if.then.i ]
@@ -6407,9 +6497,9 @@ if.then53.i:                                      ; preds = %cond.end48.i
   %inc58.i = add i64 %pos.043.i, 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %cond.end.i, %if.then53.i, %while.cond33.preheader.i
-  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %pos.043.i, %while.cond33.preheader.i ], [ %add.i, %cond.end.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ], [ %incdec.ptr.i, %cond.end.i ]
+while.cond.backedge.i:                            ; preds = %if.then53.i, %while.cond33.preheader.i, %while.cond33.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %add.i, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %pos.043.i, %while.cond33.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %incdec.ptr.i, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %len
   br i1 %cmp.i, label %while.body.i, label %while.end60.i, !llvm.loop !57
 
@@ -6494,6 +6584,9 @@ entry:
   %cmp60.not = icmp eq i64 %len, 0
   br i1 %cmp60.not, label %while.end122, label %while.body
 
+while.cond6.while.cond.loopexit_crit_edge:        ; preds = %cond.end
+  br label %while.cond.backedge, !llvm.loop !61
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf8_output.addr.062 = phi ptr [ %utf8_output.addr.0.be, %while.cond.backedge ], [ %utf8_output, %entry ]
   %pos.061 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -6515,11 +6608,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond6.preheader:                            ; preds = %if.then
   %cmp756 = icmp ult i64 %pos.061, -4
-  br i1 %cmp756, label %cond.end, label %while.cond.backedge, !llvm.loop !61
+  br i1 %cmp756, label %cond.end.lr.ph, label %while.cond.backedge, !llvm.loop !61
 
-cond.end:                                         ; preds = %while.cond6.preheader, %cond.end
-  %utf8_output.addr.158 = phi ptr [ %incdec.ptr, %cond.end ], [ %utf8_output.addr.062, %while.cond6.preheader ]
-  %pos.157 = phi i64 [ %inc, %cond.end ], [ %pos.061, %while.cond6.preheader ]
+cond.end.lr.ph:                                   ; preds = %while.cond6.preheader
+  br label %cond.end, !llvm.loop !61
+
+cond.end:                                         ; preds = %cond.end.lr.ph, %cond.end
+  %utf8_output.addr.158 = phi ptr [ %utf8_output.addr.062, %cond.end.lr.ph ], [ %incdec.ptr, %cond.end ]
+  %pos.157 = phi i64 [ %pos.061, %cond.end.lr.ph ], [ %inc, %cond.end ]
   %arrayidx11 = getelementptr inbounds i16, ptr %buf, i64 %pos.157
   %1 = load i16, ptr %arrayidx11, align 2
   %cond = trunc i16 %1 to i8
@@ -6527,7 +6623,7 @@ cond.end:                                         ; preds = %while.cond6.prehead
   store i8 %cond, ptr %utf8_output.addr.158, align 1
   %inc = add nuw i64 %pos.157, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %cond.end, !llvm.loop !62
+  br i1 %exitcond.not, label %while.cond6.while.cond.loopexit_crit_edge, label %cond.end, !llvm.loop !62
 
 cond.end21:                                       ; preds = %while.body.cond.end21_crit_edge, %if.then
   %2 = phi i16 [ %.pre, %while.body.cond.end21_crit_edge ], [ %0, %if.then ]
@@ -6630,9 +6726,9 @@ if.end94:                                         ; preds = %cond.end86
   %add118 = add i64 %pos.061, 2
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %cond.end, %if.then26, %if.then49, %if.end94, %if.then33, %while.cond6.preheader
-  %pos.0.be = phi i64 [ %pos.061, %while.cond6.preheader ], [ %inc29, %if.then26 ], [ %inc44, %if.then33 ], [ %inc66, %if.then49 ], [ %add118, %if.end94 ], [ %add, %cond.end ]
-  %utf8_output.addr.0.be = phi ptr [ %utf8_output.addr.062, %while.cond6.preheader ], [ %incdec.ptr28, %if.then26 ], [ %incdec.ptr43, %if.then33 ], [ %incdec.ptr65, %if.then49 ], [ %incdec.ptr117, %if.end94 ], [ %incdec.ptr, %cond.end ]
+while.cond.backedge:                              ; preds = %if.then26, %if.then49, %if.end94, %if.then33, %while.cond6.preheader, %while.cond6.while.cond.loopexit_crit_edge
+  %pos.0.be = phi i64 [ %add, %while.cond6.while.cond.loopexit_crit_edge ], [ %pos.061, %while.cond6.preheader ], [ %inc29, %if.then26 ], [ %inc44, %if.then33 ], [ %inc66, %if.then49 ], [ %add118, %if.end94 ]
+  %utf8_output.addr.0.be = phi ptr [ %incdec.ptr, %while.cond6.while.cond.loopexit_crit_edge ], [ %utf8_output.addr.062, %while.cond6.preheader ], [ %incdec.ptr28, %if.then26 ], [ %incdec.ptr43, %if.then33 ], [ %incdec.ptr65, %if.then49 ], [ %incdec.ptr117, %if.end94 ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end122, !llvm.loop !61
 
@@ -6661,6 +6757,9 @@ entry:
   %cmp60.not = icmp eq i64 %len, 0
   br i1 %cmp60.not, label %while.end122, label %while.body
 
+while.cond6.while.cond.loopexit_crit_edge:        ; preds = %cond.end
+  br label %while.cond.backedge, !llvm.loop !63
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf8_output.addr.062 = phi ptr [ %utf8_output.addr.0.be, %while.cond.backedge ], [ %utf8_output, %entry ]
   %pos.061 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -6683,11 +6782,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond6.preheader:                            ; preds = %if.then
   %cmp756 = icmp ult i64 %pos.061, -4
-  br i1 %cmp756, label %cond.end, label %while.cond.backedge, !llvm.loop !63
+  br i1 %cmp756, label %cond.end.lr.ph, label %while.cond.backedge, !llvm.loop !63
 
-cond.end:                                         ; preds = %while.cond6.preheader, %cond.end
-  %utf8_output.addr.158 = phi ptr [ %incdec.ptr, %cond.end ], [ %utf8_output.addr.062, %while.cond6.preheader ]
-  %pos.157 = phi i64 [ %inc, %cond.end ], [ %pos.061, %while.cond6.preheader ]
+cond.end.lr.ph:                                   ; preds = %while.cond6.preheader
+  br label %cond.end, !llvm.loop !63
+
+cond.end:                                         ; preds = %cond.end.lr.ph, %cond.end
+  %utf8_output.addr.158 = phi ptr [ %utf8_output.addr.062, %cond.end.lr.ph ], [ %incdec.ptr, %cond.end ]
+  %pos.157 = phi i64 [ %pos.061, %cond.end.lr.ph ], [ %inc, %cond.end ]
   %arrayidx = getelementptr inbounds i16, ptr %buf, i64 %pos.157
   %1 = load i16, ptr %arrayidx, align 2
   %or.i = lshr i16 %1, 8
@@ -6696,7 +6798,7 @@ cond.end:                                         ; preds = %while.cond6.prehead
   store i8 %cond, ptr %utf8_output.addr.158, align 1
   %inc = add nuw i64 %pos.157, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %cond.end, !llvm.loop !64
+  br i1 %exitcond.not, label %while.cond6.while.cond.loopexit_crit_edge, label %cond.end, !llvm.loop !64
 
 cond.end21:                                       ; preds = %while.body.cond.end21_crit_edge, %if.then
   %2 = phi i16 [ %.pre, %while.body.cond.end21_crit_edge ], [ %0, %if.then ]
@@ -6801,9 +6903,9 @@ if.end94:                                         ; preds = %cond.end86
   %add118 = add i64 %pos.061, 2
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %cond.end, %if.then26, %if.then49, %if.end94, %if.then33, %while.cond6.preheader
-  %pos.0.be = phi i64 [ %pos.061, %while.cond6.preheader ], [ %inc29, %if.then26 ], [ %inc44, %if.then33 ], [ %inc66, %if.then49 ], [ %add118, %if.end94 ], [ %add, %cond.end ]
-  %utf8_output.addr.0.be = phi ptr [ %utf8_output.addr.062, %while.cond6.preheader ], [ %incdec.ptr28, %if.then26 ], [ %incdec.ptr43, %if.then33 ], [ %incdec.ptr65, %if.then49 ], [ %incdec.ptr117, %if.end94 ], [ %incdec.ptr, %cond.end ]
+while.cond.backedge:                              ; preds = %if.then26, %if.then49, %if.end94, %if.then33, %while.cond6.preheader, %while.cond6.while.cond.loopexit_crit_edge
+  %pos.0.be = phi i64 [ %add, %while.cond6.while.cond.loopexit_crit_edge ], [ %pos.061, %while.cond6.preheader ], [ %inc29, %if.then26 ], [ %inc44, %if.then33 ], [ %inc66, %if.then49 ], [ %add118, %if.end94 ]
+  %utf8_output.addr.0.be = phi ptr [ %incdec.ptr, %while.cond6.while.cond.loopexit_crit_edge ], [ %utf8_output.addr.062, %while.cond6.preheader ], [ %incdec.ptr28, %if.then26 ], [ %incdec.ptr43, %if.then33 ], [ %incdec.ptr65, %if.then49 ], [ %incdec.ptr117, %if.end94 ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end122, !llvm.loop !63
 
@@ -6832,6 +6934,9 @@ entry:
   %cmp64.not = icmp eq i64 %len, 0
   br i1 %cmp64.not, label %while.end122, label %while.body
 
+while.cond6.while.cond.loopexit_crit_edge:        ; preds = %cond.end
+  br label %while.cond.backedge, !llvm.loop !65
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf8_output.addr.066 = phi ptr [ %utf8_output.addr.0.be, %while.cond.backedge ], [ %utf8_output, %entry ]
   %pos.065 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -6853,11 +6958,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond6.preheader:                            ; preds = %if.then
   %cmp760 = icmp ult i64 %pos.065, -4
-  br i1 %cmp760, label %cond.end, label %while.cond.backedge, !llvm.loop !65
+  br i1 %cmp760, label %cond.end.lr.ph, label %while.cond.backedge, !llvm.loop !65
 
-cond.end:                                         ; preds = %while.cond6.preheader, %cond.end
-  %utf8_output.addr.162 = phi ptr [ %incdec.ptr, %cond.end ], [ %utf8_output.addr.066, %while.cond6.preheader ]
-  %pos.161 = phi i64 [ %inc, %cond.end ], [ %pos.065, %while.cond6.preheader ]
+cond.end.lr.ph:                                   ; preds = %while.cond6.preheader
+  br label %cond.end, !llvm.loop !65
+
+cond.end:                                         ; preds = %cond.end.lr.ph, %cond.end
+  %utf8_output.addr.162 = phi ptr [ %utf8_output.addr.066, %cond.end.lr.ph ], [ %incdec.ptr, %cond.end ]
+  %pos.161 = phi i64 [ %pos.065, %cond.end.lr.ph ], [ %inc, %cond.end ]
   %arrayidx11 = getelementptr inbounds i16, ptr %buf, i64 %pos.161
   %1 = load i16, ptr %arrayidx11, align 2
   %cond = trunc i16 %1 to i8
@@ -6865,7 +6973,7 @@ cond.end:                                         ; preds = %while.cond6.prehead
   store i8 %cond, ptr %utf8_output.addr.162, align 1
   %inc = add nuw i64 %pos.161, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %cond.end, !llvm.loop !66
+  br i1 %exitcond.not, label %while.cond6.while.cond.loopexit_crit_edge, label %cond.end, !llvm.loop !66
 
 cond.end21:                                       ; preds = %while.body.cond.end21_crit_edge, %if.then
   %2 = phi i16 [ %.pre, %while.body.cond.end21_crit_edge ], [ %0, %if.then ]
@@ -6968,9 +7076,9 @@ if.end94:                                         ; preds = %cond.end86
   %add118 = add i64 %pos.065, 2
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %cond.end, %if.then26, %if.then49, %if.end94, %if.then33, %while.cond6.preheader
-  %pos.0.be = phi i64 [ %pos.065, %while.cond6.preheader ], [ %inc29, %if.then26 ], [ %inc44, %if.then33 ], [ %inc66, %if.then49 ], [ %add118, %if.end94 ], [ %add, %cond.end ]
-  %utf8_output.addr.0.be = phi ptr [ %utf8_output.addr.066, %while.cond6.preheader ], [ %incdec.ptr28, %if.then26 ], [ %incdec.ptr43, %if.then33 ], [ %incdec.ptr65, %if.then49 ], [ %incdec.ptr117, %if.end94 ], [ %incdec.ptr, %cond.end ]
+while.cond.backedge:                              ; preds = %if.then26, %if.then49, %if.end94, %if.then33, %while.cond6.preheader, %while.cond6.while.cond.loopexit_crit_edge
+  %pos.0.be = phi i64 [ %add, %while.cond6.while.cond.loopexit_crit_edge ], [ %pos.065, %while.cond6.preheader ], [ %inc29, %if.then26 ], [ %inc44, %if.then33 ], [ %inc66, %if.then49 ], [ %add118, %if.end94 ]
+  %utf8_output.addr.0.be = phi ptr [ %incdec.ptr, %while.cond6.while.cond.loopexit_crit_edge ], [ %utf8_output.addr.066, %while.cond6.preheader ], [ %incdec.ptr28, %if.then26 ], [ %incdec.ptr43, %if.then33 ], [ %incdec.ptr65, %if.then49 ], [ %incdec.ptr117, %if.end94 ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end122, !llvm.loop !65
 
@@ -7002,6 +7110,9 @@ entry:
   %cmp64.not = icmp eq i64 %len, 0
   br i1 %cmp64.not, label %while.end122, label %while.body
 
+while.cond6.while.cond.loopexit_crit_edge:        ; preds = %cond.end
+  br label %while.cond.backedge, !llvm.loop !67
+
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %utf8_output.addr.066 = phi ptr [ %utf8_output.addr.0.be, %while.cond.backedge ], [ %utf8_output, %entry ]
   %pos.065 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
@@ -7024,11 +7135,14 @@ if.then:                                          ; preds = %while.body
 
 while.cond6.preheader:                            ; preds = %if.then
   %cmp760 = icmp ult i64 %pos.065, -4
-  br i1 %cmp760, label %cond.end, label %while.cond.backedge, !llvm.loop !67
+  br i1 %cmp760, label %cond.end.lr.ph, label %while.cond.backedge, !llvm.loop !67
 
-cond.end:                                         ; preds = %while.cond6.preheader, %cond.end
-  %utf8_output.addr.162 = phi ptr [ %incdec.ptr, %cond.end ], [ %utf8_output.addr.066, %while.cond6.preheader ]
-  %pos.161 = phi i64 [ %inc, %cond.end ], [ %pos.065, %while.cond6.preheader ]
+cond.end.lr.ph:                                   ; preds = %while.cond6.preheader
+  br label %cond.end, !llvm.loop !67
+
+cond.end:                                         ; preds = %cond.end.lr.ph, %cond.end
+  %utf8_output.addr.162 = phi ptr [ %utf8_output.addr.066, %cond.end.lr.ph ], [ %incdec.ptr, %cond.end ]
+  %pos.161 = phi i64 [ %pos.065, %cond.end.lr.ph ], [ %inc, %cond.end ]
   %arrayidx = getelementptr inbounds i16, ptr %buf, i64 %pos.161
   %1 = load i16, ptr %arrayidx, align 2
   %or.i = lshr i16 %1, 8
@@ -7037,7 +7151,7 @@ cond.end:                                         ; preds = %while.cond6.prehead
   store i8 %cond, ptr %utf8_output.addr.162, align 1
   %inc = add nuw i64 %pos.161, 1
   %exitcond.not = icmp eq i64 %inc, %add
-  br i1 %exitcond.not, label %while.cond.backedge, label %cond.end, !llvm.loop !68
+  br i1 %exitcond.not, label %while.cond6.while.cond.loopexit_crit_edge, label %cond.end, !llvm.loop !68
 
 cond.end21:                                       ; preds = %while.body.cond.end21_crit_edge, %if.then
   %2 = phi i16 [ %.pre, %while.body.cond.end21_crit_edge ], [ %0, %if.then ]
@@ -7142,9 +7256,9 @@ if.end94:                                         ; preds = %cond.end86
   %add118 = add i64 %pos.065, 2
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %cond.end, %if.then26, %if.then49, %if.end94, %if.then33, %while.cond6.preheader
-  %pos.0.be = phi i64 [ %pos.065, %while.cond6.preheader ], [ %inc29, %if.then26 ], [ %inc44, %if.then33 ], [ %inc66, %if.then49 ], [ %add118, %if.end94 ], [ %add, %cond.end ]
-  %utf8_output.addr.0.be = phi ptr [ %utf8_output.addr.066, %while.cond6.preheader ], [ %incdec.ptr28, %if.then26 ], [ %incdec.ptr43, %if.then33 ], [ %incdec.ptr65, %if.then49 ], [ %incdec.ptr117, %if.end94 ], [ %incdec.ptr, %cond.end ]
+while.cond.backedge:                              ; preds = %if.then26, %if.then49, %if.end94, %if.then33, %while.cond6.preheader, %while.cond6.while.cond.loopexit_crit_edge
+  %pos.0.be = phi i64 [ %add, %while.cond6.while.cond.loopexit_crit_edge ], [ %pos.065, %while.cond6.preheader ], [ %inc29, %if.then26 ], [ %inc44, %if.then33 ], [ %inc66, %if.then49 ], [ %add118, %if.end94 ]
+  %utf8_output.addr.0.be = phi ptr [ %incdec.ptr, %while.cond6.while.cond.loopexit_crit_edge ], [ %utf8_output.addr.066, %while.cond6.preheader ], [ %incdec.ptr28, %if.then26 ], [ %incdec.ptr43, %if.then33 ], [ %incdec.ptr65, %if.then49 ], [ %incdec.ptr117, %if.end94 ]
   %cmp = icmp ult i64 %pos.0.be, %len
   br i1 %cmp, label %while.body, label %while.end122, !llvm.loop !67
 
@@ -7169,6 +7283,9 @@ entry:
   %cmp58.not.i = icmp eq i64 %len, 0
   br i1 %cmp58.not.i, label %while.end114.i, label %while.body.i
 
+while.cond6.while.cond.loopexit_crit_edge.i:      ; preds = %cond.end.i
+  br label %while.cond.backedge.i, !llvm.loop !69
+
 while.body.i:                                     ; preds = %entry, %while.cond.backedge.i
   %utf8_output.addr.060.i = phi ptr [ %utf8_output.addr.0.be.i, %while.cond.backedge.i ], [ %utf8_output, %entry ]
   %pos.059.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %entry ]
@@ -7190,11 +7307,14 @@ if.then.i:                                        ; preds = %while.body.i
 
 while.cond6.preheader.i:                          ; preds = %if.then.i
   %cmp754.i = icmp ult i64 %pos.059.i, -4
-  br i1 %cmp754.i, label %cond.end.i, label %while.cond.backedge.i, !llvm.loop !69
+  br i1 %cmp754.i, label %cond.end.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !69
 
-cond.end.i:                                       ; preds = %while.cond6.preheader.i, %cond.end.i
-  %utf8_output.addr.156.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %utf8_output.addr.060.i, %while.cond6.preheader.i ]
-  %pos.155.i = phi i64 [ %inc.i, %cond.end.i ], [ %pos.059.i, %while.cond6.preheader.i ]
+cond.end.lr.ph.i:                                 ; preds = %while.cond6.preheader.i
+  br label %cond.end.i, !llvm.loop !69
+
+cond.end.i:                                       ; preds = %cond.end.i, %cond.end.lr.ph.i
+  %utf8_output.addr.156.i = phi ptr [ %utf8_output.addr.060.i, %cond.end.lr.ph.i ], [ %incdec.ptr.i, %cond.end.i ]
+  %pos.155.i = phi i64 [ %pos.059.i, %cond.end.lr.ph.i ], [ %inc.i, %cond.end.i ]
   %arrayidx11.i = getelementptr inbounds i16, ptr %buf, i64 %pos.155.i
   %1 = load i16, ptr %arrayidx11.i, align 2
   %cond.i = trunc i16 %1 to i8
@@ -7202,7 +7322,7 @@ cond.end.i:                                       ; preds = %while.cond6.prehead
   store i8 %cond.i, ptr %utf8_output.addr.156.i, align 1
   %inc.i = add nuw i64 %pos.155.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %cond.end.i, !llvm.loop !70
+  br i1 %exitcond.not.i, label %while.cond6.while.cond.loopexit_crit_edge.i, label %cond.end.i, !llvm.loop !70
 
 cond.end21.i:                                     ; preds = %if.then.i, %while.body.cond.end21_crit_edge.i
   %2 = phi i16 [ %.pre.i, %while.body.cond.end21_crit_edge.i ], [ %0, %if.then.i ]
@@ -7297,9 +7417,9 @@ cond.end82.i:                                     ; preds = %if.else67.i
   %add110.i = add i64 %pos.059.i, 2
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %cond.end.i, %cond.end82.i, %if.then49.i, %if.then33.i, %if.then26.i, %while.cond6.preheader.i
-  %pos.0.be.i = phi i64 [ %pos.059.i, %while.cond6.preheader.i ], [ %inc29.i, %if.then26.i ], [ %inc44.i, %if.then33.i ], [ %inc66.i, %if.then49.i ], [ %add110.i, %cond.end82.i ], [ %add.i, %cond.end.i ]
-  %utf8_output.addr.0.be.i = phi ptr [ %utf8_output.addr.060.i, %while.cond6.preheader.i ], [ %incdec.ptr28.i, %if.then26.i ], [ %incdec.ptr43.i, %if.then33.i ], [ %incdec.ptr65.i, %if.then49.i ], [ %incdec.ptr109.i, %cond.end82.i ], [ %incdec.ptr.i, %cond.end.i ]
+while.cond.backedge.i:                            ; preds = %cond.end82.i, %if.then49.i, %if.then33.i, %if.then26.i, %while.cond6.preheader.i, %while.cond6.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add.i, %while.cond6.while.cond.loopexit_crit_edge.i ], [ %pos.059.i, %while.cond6.preheader.i ], [ %inc29.i, %if.then26.i ], [ %inc44.i, %if.then33.i ], [ %inc66.i, %if.then49.i ], [ %add110.i, %cond.end82.i ]
+  %utf8_output.addr.0.be.i = phi ptr [ %incdec.ptr.i, %while.cond6.while.cond.loopexit_crit_edge.i ], [ %utf8_output.addr.060.i, %while.cond6.preheader.i ], [ %incdec.ptr28.i, %if.then26.i ], [ %incdec.ptr43.i, %if.then33.i ], [ %incdec.ptr65.i, %if.then49.i ], [ %incdec.ptr109.i, %cond.end82.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %len
   br i1 %cmp.i, label %while.body.i, label %while.end114.i, !llvm.loop !69
 
@@ -7320,6 +7440,9 @@ define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation29convert_val
 entry:
   %cmp58.not.i = icmp eq i64 %len, 0
   br i1 %cmp58.not.i, label %while.end114.i, label %while.body.i
+
+while.cond6.while.cond.loopexit_crit_edge.i:      ; preds = %cond.end.i
+  br label %while.cond.backedge.i, !llvm.loop !71
 
 while.body.i:                                     ; preds = %entry, %while.cond.backedge.i
   %utf8_output.addr.060.i = phi ptr [ %utf8_output.addr.0.be.i, %while.cond.backedge.i ], [ %utf8_output, %entry ]
@@ -7343,11 +7466,14 @@ if.then.i:                                        ; preds = %while.body.i
 
 while.cond6.preheader.i:                          ; preds = %if.then.i
   %cmp754.i = icmp ult i64 %pos.059.i, -4
-  br i1 %cmp754.i, label %cond.end.i, label %while.cond.backedge.i, !llvm.loop !71
+  br i1 %cmp754.i, label %cond.end.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !71
 
-cond.end.i:                                       ; preds = %while.cond6.preheader.i, %cond.end.i
-  %utf8_output.addr.156.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %utf8_output.addr.060.i, %while.cond6.preheader.i ]
-  %pos.155.i = phi i64 [ %inc.i, %cond.end.i ], [ %pos.059.i, %while.cond6.preheader.i ]
+cond.end.lr.ph.i:                                 ; preds = %while.cond6.preheader.i
+  br label %cond.end.i, !llvm.loop !71
+
+cond.end.i:                                       ; preds = %cond.end.i, %cond.end.lr.ph.i
+  %utf8_output.addr.156.i = phi ptr [ %utf8_output.addr.060.i, %cond.end.lr.ph.i ], [ %incdec.ptr.i, %cond.end.i ]
+  %pos.155.i = phi i64 [ %pos.059.i, %cond.end.lr.ph.i ], [ %inc.i, %cond.end.i ]
   %arrayidx.i = getelementptr inbounds i16, ptr %buf, i64 %pos.155.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %or.i.i = lshr i16 %1, 8
@@ -7356,7 +7482,7 @@ cond.end.i:                                       ; preds = %while.cond6.prehead
   store i8 %cond.i, ptr %utf8_output.addr.156.i, align 1
   %inc.i = add nuw i64 %pos.155.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %cond.end.i, !llvm.loop !72
+  br i1 %exitcond.not.i, label %while.cond6.while.cond.loopexit_crit_edge.i, label %cond.end.i, !llvm.loop !72
 
 cond.end21.i:                                     ; preds = %if.then.i, %while.body.cond.end21_crit_edge.i
   %2 = phi i16 [ %.pre.i, %while.body.cond.end21_crit_edge.i ], [ %0, %if.then.i ]
@@ -7453,9 +7579,9 @@ cond.end82.i:                                     ; preds = %if.else67.i
   %add110.i = add i64 %pos.059.i, 2
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %cond.end.i, %cond.end82.i, %if.then49.i, %if.then33.i, %if.then26.i, %while.cond6.preheader.i
-  %pos.0.be.i = phi i64 [ %pos.059.i, %while.cond6.preheader.i ], [ %inc29.i, %if.then26.i ], [ %inc44.i, %if.then33.i ], [ %inc66.i, %if.then49.i ], [ %add110.i, %cond.end82.i ], [ %add.i, %cond.end.i ]
-  %utf8_output.addr.0.be.i = phi ptr [ %utf8_output.addr.060.i, %while.cond6.preheader.i ], [ %incdec.ptr28.i, %if.then26.i ], [ %incdec.ptr43.i, %if.then33.i ], [ %incdec.ptr65.i, %if.then49.i ], [ %incdec.ptr109.i, %cond.end82.i ], [ %incdec.ptr.i, %cond.end.i ]
+while.cond.backedge.i:                            ; preds = %cond.end82.i, %if.then49.i, %if.then33.i, %if.then26.i, %while.cond6.preheader.i, %while.cond6.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add.i, %while.cond6.while.cond.loopexit_crit_edge.i ], [ %pos.059.i, %while.cond6.preheader.i ], [ %inc29.i, %if.then26.i ], [ %inc44.i, %if.then33.i ], [ %inc66.i, %if.then49.i ], [ %add110.i, %cond.end82.i ]
+  %utf8_output.addr.0.be.i = phi ptr [ %incdec.ptr.i, %while.cond6.while.cond.loopexit_crit_edge.i ], [ %utf8_output.addr.060.i, %while.cond6.preheader.i ], [ %incdec.ptr28.i, %if.then26.i ], [ %incdec.ptr43.i, %if.then33.i ], [ %incdec.ptr65.i, %if.then49.i ], [ %incdec.ptr109.i, %cond.end82.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %len
   br i1 %cmp.i, label %while.body.i, label %while.end114.i, !llvm.loop !71
 
@@ -11389,6 +11515,9 @@ if.end:                                           ; preds = %_ZN7simdutf7icelake
   %add.ptr2 = getelementptr inbounds i8, ptr %latin1_output, i64 %retval.0.i
   br label %while.body.i11
 
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i, !llvm.loop !31
+
 while.body.i11:                                   ; preds = %if.end, %while.cond.backedge.i
   %latin_output.addr.053.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %add.ptr2, %if.end ]
   %pos.052.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %if.end ]
@@ -11413,18 +11542,21 @@ if.then.i:                                        ; preds = %while.body.i11
 
 while.cond7.preheader.i:                          ; preds = %if.then.i
   %cmp846.i = icmp ult i64 %pos.052.i, -16
-  br i1 %cmp846.i, label %while.body9.i, label %while.cond.backedge.i, !llvm.loop !31
+  br i1 %cmp846.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !31
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %latin_output.addr.148.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %latin_output.addr.053.i, %while.cond7.preheader.i ]
-  %pos.147.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.052.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !31
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %latin_output.addr.148.i = phi ptr [ %latin_output.addr.053.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.147.i = phi i64 [ %pos.052.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr, i64 %pos.147.i
   %36 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.148.i, i64 1
   store i8 %36, ptr %latin_output.addr.148.i, align 1
   %inc.i = add nuw i64 %pos.147.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i12
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !32
 
 if.end10.i:                                       ; preds = %if.then.i, %while.body.if.end10_crit_edge.i
   %37 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %35, %if.then.i ]
@@ -11488,9 +11620,9 @@ if.end64.i:                                       ; preds = %if.end43.i, %if.end
   %latin_output.addr.2.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.053.i, i64 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %while.body9.i, %if.end64.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %add46.i, %if.end64.i ], [ %pos.052.i, %while.cond7.preheader.i ], [ %add.i12, %while.body9.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end64.i ], [ %latin_output.addr.053.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i:                            ; preds = %if.end64.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add46.i, %if.end64.i ], [ %add.i12, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.052.i, %while.cond7.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end64.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.053.i, %while.cond7.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %sub
   br i1 %cmp.i, label %while.body.i11, label %while.end65.i, !llvm.loop !31
 
@@ -26259,6 +26391,9 @@ if.then:                                          ; preds = %_ZN7simdutf7haswell
   %cmp27.not.i = icmp eq i64 %sub, 0
   br i1 %cmp27.not.i, label %if.end, label %while.body.i10
 
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i15, !llvm.loop !24
+
 while.body.i10:                                   ; preds = %if.then, %while.cond.backedge.i15
   %utf8_output.addr.029.i = phi ptr [ %utf8_output.addr.0.be.i16, %while.cond.backedge.i15 ], [ %utf8_output.addr.0.lcssa.i, %if.then ]
   %pos.028.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i15 ], [ 0, %if.then ]
@@ -26283,18 +26418,21 @@ if.then.i11:                                      ; preds = %while.body.i10
 
 while.cond7.preheader.i:                          ; preds = %if.then.i11
   %cmp823.i = icmp ult i64 %pos.028.i, -16
-  br i1 %cmp823.i, label %while.body9.i, label %while.cond.backedge.i15, !llvm.loop !24
+  br i1 %cmp823.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i15, !llvm.loop !24
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %utf8_output.addr.125.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %utf8_output.addr.029.i, %while.cond7.preheader.i ]
-  %pos.124.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.028.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !24
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %utf8_output.addr.125.i = phi ptr [ %utf8_output.addr.029.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.124.i = phi i64 [ %pos.028.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i18 = getelementptr inbounds i8, ptr %latin1_input.addr.0.lcssa.i, i64 %pos.124.i
   %25 = load i8, ptr %arrayidx.i18, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.125.i, i64 1
   store i8 %25, ptr %utf8_output.addr.125.i, align 1
   %inc.i = add nuw i64 %pos.124.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i15, label %while.body9.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !25
 
 if.end10.i:                                       ; preds = %if.then.i11, %while.body.if.end10_crit_edge.i
   %26 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %24, %if.then.i11 ]
@@ -26321,9 +26459,9 @@ if.end27.i:                                       ; preds = %if.else.i, %if.then
   %pos.2.i = add i64 %pos.028.i, 1
   br label %while.cond.backedge.i15
 
-while.cond.backedge.i15:                          ; preds = %while.body9.i, %if.end27.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %pos.2.i, %if.end27.i ], [ %pos.028.i, %while.cond7.preheader.i ], [ %add.i, %while.body9.i ]
-  %utf8_output.addr.0.be.i16 = phi ptr [ %utf8_output.addr.2.i, %if.end27.i ], [ %utf8_output.addr.029.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i15:                          ; preds = %if.end27.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %pos.2.i, %if.end27.i ], [ %add.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.028.i, %while.cond7.preheader.i ]
+  %utf8_output.addr.0.be.i16 = phi ptr [ %utf8_output.addr.2.i, %if.end27.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %utf8_output.addr.029.i, %while.cond7.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %sub
   br i1 %cmp.i, label %while.body.i10, label %if.end, !llvm.loop !24
 
@@ -26734,6 +26872,9 @@ if.then35.i:                                      ; preds = %if.end33.i
   %sub37.i = sub nuw i64 %len, %pos.i.0.lcssa
   br label %while.body.i409
 
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i, !llvm.loop !29
+
 while.body.i409:                                  ; preds = %if.then35.i, %while.cond.backedge.i
   %latin_output.addr.037.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output.addr.i.0.lcssa, %if.then35.i ]
   %pos.036.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %if.then35.i ]
@@ -26758,18 +26899,21 @@ if.then.i411:                                     ; preds = %while.body.i409
 
 while.cond7.preheader.i:                          ; preds = %if.then.i411
   %cmp831.i = icmp ult i64 %pos.036.i, -16
-  br i1 %cmp831.i, label %while.body9.i, label %while.cond.backedge.i, !llvm.loop !29
+  br i1 %cmp831.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !29
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %latin_output.addr.133.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ]
-  %pos.132.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.036.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !29
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %latin_output.addr.133.i = phi ptr [ %latin_output.addr.037.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.132.i = phi i64 [ %pos.036.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i421 = getelementptr inbounds i8, ptr %add.ptr36.i, i64 %pos.132.i
   %55 = load i8, ptr %arrayidx.i421, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.133.i, i64 1
   store i8 %55, ptr %latin_output.addr.133.i, align 1
   %inc.i = add nuw i64 %pos.132.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i410
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !30
 
 if.end10.i:                                       ; preds = %if.then.i411, %while.body.if.end10_crit_edge.i
   %56 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %54, %if.then.i411 ]
@@ -26810,9 +26954,9 @@ if.end47.i:                                       ; preds = %if.end41.i416, %if.
   %latin_output.addr.2.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.037.i, i64 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %while.body9.i, %if.end47.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %add44.i, %if.end47.i ], [ %pos.036.i, %while.cond7.preheader.i ], [ %add.i410, %while.body9.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end47.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i:                            ; preds = %if.end47.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add44.i, %if.end47.i ], [ %add.i410, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.036.i, %while.cond7.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end47.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ]
   %cmp.i417 = icmp ult i64 %pos.0.be.i, %sub37.i
   br i1 %cmp.i417, label %while.body.i409, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin17convertEPKcmPc.exit, !llvm.loop !29
 
@@ -27219,6 +27363,9 @@ if.then23.i:                                      ; preds = %while.end21.i
   %sub25.i = sub nuw i64 %size, %pos.i.0.lcssa
   br label %while.body.i69
 
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i, !llvm.loop !29
+
 while.body.i69:                                   ; preds = %if.then23.i, %while.cond.backedge.i
   %latin_output.addr.037.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output.addr.i.0.lcssa, %if.then23.i ]
   %pos.036.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %if.then23.i ]
@@ -27243,18 +27390,21 @@ if.then.i71:                                      ; preds = %while.body.i69
 
 while.cond7.preheader.i:                          ; preds = %if.then.i71
   %cmp831.i = icmp ult i64 %pos.036.i, -16
-  br i1 %cmp831.i, label %while.body9.i, label %while.cond.backedge.i, !llvm.loop !29
+  br i1 %cmp831.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !29
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %latin_output.addr.133.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ]
-  %pos.132.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.036.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !29
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %latin_output.addr.133.i = phi ptr [ %latin_output.addr.037.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.132.i = phi i64 [ %pos.036.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i80 = getelementptr inbounds i8, ptr %add.ptr24.i, i64 %pos.132.i
   %24 = load i8, ptr %arrayidx.i80, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.133.i, i64 1
   store i8 %24, ptr %latin_output.addr.133.i, align 1
   %inc.i = add nuw i64 %pos.132.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i70
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !30
 
 if.end10.i:                                       ; preds = %if.then.i71, %while.body.if.end10_crit_edge.i
   %25 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %23, %if.then.i71 ]
@@ -27295,9 +27445,9 @@ if.end47.i:                                       ; preds = %if.end41.i, %if.end
   %latin_output.addr.2.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.037.i, i64 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %while.body9.i, %if.end47.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %add44.i, %if.end47.i ], [ %pos.036.i, %while.cond7.preheader.i ], [ %add.i70, %while.body9.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end47.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i:                            ; preds = %if.end47.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add44.i, %if.end47.i ], [ %add.i70, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.036.i, %while.cond7.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end47.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ]
   %cmp.i76 = icmp ult i64 %pos.0.be.i, %sub25.i
   br i1 %cmp.i76, label %while.body.i69, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin17convertEPKcmPc.exit, !llvm.loop !29
 
@@ -30878,6 +31028,9 @@ if.then4:                                         ; preds = %if.end
   %sub = sub i64 %len, %sub.ptr.div34.i
   br label %while.body.i13
 
+while.cond33.while.cond.loopexit_crit_edge.i:     ; preds = %cond.end.i19
+  br label %while.cond.backedge.i, !llvm.loop !55
+
 while.body.i13:                                   ; preds = %if.then4, %while.cond.backedge.i
   %latin_output.addr.044.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output.addr.0.lcssa.i, %if.then4 ]
   %pos.043.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %if.then4 ]
@@ -30908,11 +31061,14 @@ if.then.i15:                                      ; preds = %while.body.i13
 
 while.cond33.preheader.i:                         ; preds = %if.then.i15
   %cmp3438.i = icmp ult i64 %pos.043.i, -16
-  br i1 %cmp3438.i, label %cond.end.i19, label %while.cond.backedge.i, !llvm.loop !55
+  br i1 %cmp3438.i, label %cond.end.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !55
 
-cond.end.i19:                                     ; preds = %while.cond33.preheader.i, %cond.end.i19
-  %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i20, %cond.end.i19 ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
-  %pos.139.i = phi i64 [ %inc.i, %cond.end.i19 ], [ %pos.043.i, %while.cond33.preheader.i ]
+cond.end.lr.ph.i:                                 ; preds = %while.cond33.preheader.i
+  br label %cond.end.i19, !llvm.loop !55
+
+cond.end.i19:                                     ; preds = %cond.end.i19, %cond.end.lr.ph.i
+  %latin_output.addr.140.i = phi ptr [ %latin_output.addr.044.i, %cond.end.lr.ph.i ], [ %incdec.ptr.i20, %cond.end.i19 ]
+  %pos.139.i = phi i64 [ %pos.043.i, %cond.end.lr.ph.i ], [ %inc.i, %cond.end.i19 ]
   %arrayidx38.i = getelementptr inbounds i16, ptr %add.ptr, i64 %pos.139.i
   %16 = load i16, ptr %arrayidx38.i, align 2
   %cond.i = trunc i16 %16 to i8
@@ -30920,7 +31076,7 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
   %inc.i = add nuw i64 %pos.139.i, 1
   %exitcond.not.i21 = icmp eq i64 %inc.i, %add.i14
-  br i1 %exitcond.not.i21, label %while.cond.backedge.i, label %cond.end.i19, !llvm.loop !56
+  br i1 %exitcond.not.i21, label %while.cond33.while.cond.loopexit_crit_edge.i, label %cond.end.i19, !llvm.loop !56
 
 cond.end48.i:                                     ; preds = %if.then.i15, %while.body.cond.end48_crit_edge.i
   %17 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %15, %if.then.i15 ]
@@ -30934,9 +31090,9 @@ if.then53.i:                                      ; preds = %cond.end48.i
   %inc58.i = add i64 %pos.043.i, 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %cond.end.i19, %if.then53.i, %while.cond33.preheader.i
-  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %pos.043.i, %while.cond33.preheader.i ], [ %add.i14, %cond.end.i19 ]
-  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ], [ %incdec.ptr.i20, %cond.end.i19 ]
+while.cond.backedge.i:                            ; preds = %if.then53.i, %while.cond33.preheader.i, %while.cond33.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %add.i14, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %pos.043.i, %while.cond33.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %incdec.ptr.i20, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %sub
   br i1 %cmp.i, label %while.body.i13, label %if.else, !llvm.loop !55
 
@@ -31051,6 +31207,9 @@ if.then4:                                         ; preds = %if.end
   %sub = sub i64 %len, %sub.ptr.div30.i
   br label %while.body.i13
 
+while.cond33.while.cond.loopexit_crit_edge.i:     ; preds = %cond.end.i19
+  br label %while.cond.backedge.i, !llvm.loop !57
+
 while.body.i13:                                   ; preds = %if.then4, %while.cond.backedge.i
   %latin_output.addr.044.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output.addr.0.lcssa.i, %if.then4 ]
   %pos.043.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %if.then4 ]
@@ -31085,11 +31244,14 @@ if.then.i15:                                      ; preds = %while.body.i13
 
 while.cond33.preheader.i:                         ; preds = %if.then.i15
   %cmp3438.i = icmp ult i64 %pos.043.i, -16
-  br i1 %cmp3438.i, label %cond.end.i19, label %while.cond.backedge.i, !llvm.loop !57
+  br i1 %cmp3438.i, label %cond.end.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !57
 
-cond.end.i19:                                     ; preds = %while.cond33.preheader.i, %cond.end.i19
-  %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i22, %cond.end.i19 ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
-  %pos.139.i = phi i64 [ %inc.i, %cond.end.i19 ], [ %pos.043.i, %while.cond33.preheader.i ]
+cond.end.lr.ph.i:                                 ; preds = %while.cond33.preheader.i
+  br label %cond.end.i19, !llvm.loop !57
+
+cond.end.i19:                                     ; preds = %cond.end.i19, %cond.end.lr.ph.i
+  %latin_output.addr.140.i = phi ptr [ %latin_output.addr.044.i, %cond.end.lr.ph.i ], [ %incdec.ptr.i22, %cond.end.i19 ]
+  %pos.139.i = phi i64 [ %pos.043.i, %cond.end.lr.ph.i ], [ %inc.i, %cond.end.i19 ]
   %arrayidx.i20 = getelementptr inbounds i16, ptr %add.ptr, i64 %pos.139.i
   %17 = load i16, ptr %arrayidx.i20, align 2
   %or.i.i21 = lshr i16 %17, 8
@@ -31098,7 +31260,7 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
   %inc.i = add nuw i64 %pos.139.i, 1
   %exitcond.not.i23 = icmp eq i64 %inc.i, %add.i14
-  br i1 %exitcond.not.i23, label %while.cond.backedge.i, label %cond.end.i19, !llvm.loop !58
+  br i1 %exitcond.not.i23, label %while.cond33.while.cond.loopexit_crit_edge.i, label %cond.end.i19, !llvm.loop !58
 
 cond.end48.i:                                     ; preds = %if.then.i15, %while.body.cond.end48_crit_edge.i
   %18 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %16, %if.then.i15 ]
@@ -31113,9 +31275,9 @@ if.then53.i:                                      ; preds = %cond.end48.i
   %inc58.i = add i64 %pos.043.i, 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %cond.end.i19, %if.then53.i, %while.cond33.preheader.i
-  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %pos.043.i, %while.cond33.preheader.i ], [ %add.i14, %cond.end.i19 ]
-  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ], [ %incdec.ptr.i22, %cond.end.i19 ]
+while.cond.backedge.i:                            ; preds = %if.then53.i, %while.cond33.preheader.i, %while.cond33.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %add.i14, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %pos.043.i, %while.cond33.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %incdec.ptr.i22, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %sub
   br i1 %cmp.i, label %while.body.i13, label %if.else, !llvm.loop !57
 
@@ -39325,6 +39487,9 @@ if.then:                                          ; preds = %_ZN7simdutf8westmer
   %cmp27.not.i = icmp eq i64 %sub, 0
   br i1 %cmp27.not.i, label %if.end, label %while.body.i7
 
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i10, !llvm.loop !24
+
 while.body.i7:                                    ; preds = %if.then, %while.cond.backedge.i10
   %utf8_output.addr.029.i = phi ptr [ %utf8_output.addr.0.be.i11, %while.cond.backedge.i10 ], [ %utf8_output.addr.1.i, %if.then ]
   %pos.028.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i10 ], [ 0, %if.then ]
@@ -39349,18 +39514,21 @@ if.then.i8:                                       ; preds = %while.body.i7
 
 while.cond7.preheader.i:                          ; preds = %if.then.i8
   %cmp823.i = icmp ult i64 %pos.028.i, -16
-  br i1 %cmp823.i, label %while.body9.i, label %while.cond.backedge.i10, !llvm.loop !24
+  br i1 %cmp823.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i10, !llvm.loop !24
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %utf8_output.addr.125.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %utf8_output.addr.029.i, %while.cond7.preheader.i ]
-  %pos.124.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.028.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !24
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %utf8_output.addr.125.i = phi ptr [ %utf8_output.addr.029.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.124.i = phi i64 [ %pos.028.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %latin_input.addr.1.i, i64 %pos.124.i
   %58 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.125.i, i64 1
   store i8 %58, ptr %utf8_output.addr.125.i, align 1
   %inc.i = add nuw i64 %pos.124.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i10, label %while.body9.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !25
 
 if.end10.i:                                       ; preds = %if.then.i8, %while.body.if.end10_crit_edge.i
   %59 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %57, %if.then.i8 ]
@@ -39387,9 +39555,9 @@ if.end27.i:                                       ; preds = %if.else.i9, %if.the
   %pos.2.i = add i64 %pos.028.i, 1
   br label %while.cond.backedge.i10
 
-while.cond.backedge.i10:                          ; preds = %while.body9.i, %if.end27.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %pos.2.i, %if.end27.i ], [ %pos.028.i, %while.cond7.preheader.i ], [ %add.i, %while.body9.i ]
-  %utf8_output.addr.0.be.i11 = phi ptr [ %utf8_output.addr.2.i, %if.end27.i ], [ %utf8_output.addr.029.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i10:                          ; preds = %if.end27.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %pos.2.i, %if.end27.i ], [ %add.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.028.i, %while.cond7.preheader.i ]
+  %utf8_output.addr.0.be.i11 = phi ptr [ %utf8_output.addr.2.i, %if.end27.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %utf8_output.addr.029.i, %while.cond7.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %sub
   br i1 %cmp.i, label %while.body.i7, label %if.end, !llvm.loop !24
 
@@ -39869,6 +40037,9 @@ if.then113.i:                                     ; preds = %if.end111.i
   %sub115.i = sub nuw i64 %len, %pos.i.0.lcssa
   br label %while.body.i283
 
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i, !llvm.loop !29
+
 while.body.i283:                                  ; preds = %if.then113.i, %while.cond.backedge.i
   %latin_output.addr.037.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output.addr.i.0.lcssa, %if.then113.i ]
   %pos.036.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %if.then113.i ]
@@ -39893,18 +40064,21 @@ if.then.i285:                                     ; preds = %while.body.i283
 
 while.cond7.preheader.i:                          ; preds = %if.then.i285
   %cmp831.i = icmp ult i64 %pos.036.i, -16
-  br i1 %cmp831.i, label %while.body9.i, label %while.cond.backedge.i, !llvm.loop !29
+  br i1 %cmp831.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !29
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %latin_output.addr.133.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ]
-  %pos.132.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.036.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !29
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %latin_output.addr.133.i = phi ptr [ %latin_output.addr.037.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.132.i = phi i64 [ %pos.036.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i295 = getelementptr inbounds i8, ptr %add.ptr114.i, i64 %pos.132.i
   %87 = load i8, ptr %arrayidx.i295, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.133.i, i64 1
   store i8 %87, ptr %latin_output.addr.133.i, align 1
   %inc.i = add nuw i64 %pos.132.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i284
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !30
 
 if.end10.i287:                                    ; preds = %if.then.i285, %while.body.if.end10_crit_edge.i
   %88 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %86, %if.then.i285 ]
@@ -39945,9 +40119,9 @@ if.end47.i:                                       ; preds = %if.end41.i, %if.end
   %latin_output.addr.2.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.037.i, i64 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %while.body9.i, %if.end47.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %add44.i, %if.end47.i ], [ %pos.036.i, %while.cond7.preheader.i ], [ %add.i284, %while.body9.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end47.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i:                            ; preds = %if.end47.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add44.i, %if.end47.i ], [ %add.i284, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.036.i, %while.cond7.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end47.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ]
   %cmp.i291 = icmp ult i64 %pos.0.be.i, %sub115.i
   br i1 %cmp.i291, label %while.body.i283, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin17convertEPKcmPc.exit, !llvm.loop !29
 
@@ -40428,6 +40602,9 @@ if.then23.i:                                      ; preds = %while.end21.i
   %sub25.i = sub nuw i64 %len, %pos.i.0.lcssa
   br label %while.body.i61
 
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i, !llvm.loop !29
+
 while.body.i61:                                   ; preds = %if.then23.i, %while.cond.backedge.i
   %latin_output.addr.037.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output.addr.i.0.lcssa, %if.then23.i ]
   %pos.036.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %if.then23.i ]
@@ -40452,18 +40629,21 @@ if.then.i63:                                      ; preds = %while.body.i61
 
 while.cond7.preheader.i:                          ; preds = %if.then.i63
   %cmp831.i = icmp ult i64 %pos.036.i, -16
-  br i1 %cmp831.i, label %while.body9.i, label %while.cond.backedge.i, !llvm.loop !29
+  br i1 %cmp831.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !29
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %latin_output.addr.133.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ]
-  %pos.132.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.036.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !29
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %latin_output.addr.133.i = phi ptr [ %latin_output.addr.037.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.132.i = phi i64 [ %pos.036.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i73 = getelementptr inbounds i8, ptr %add.ptr24.i, i64 %pos.132.i
   %32 = load i8, ptr %arrayidx.i73, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.133.i, i64 1
   store i8 %32, ptr %latin_output.addr.133.i, align 1
   %inc.i = add nuw i64 %pos.132.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i62
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !30
 
 if.end10.i65:                                     ; preds = %if.then.i63, %while.body.if.end10_crit_edge.i
   %33 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %31, %if.then.i63 ]
@@ -40504,9 +40684,9 @@ if.end47.i:                                       ; preds = %if.end41.i, %if.end
   %latin_output.addr.2.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.037.i, i64 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %while.body9.i, %if.end47.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %add44.i, %if.end47.i ], [ %pos.036.i, %while.cond7.preheader.i ], [ %add.i62, %while.body9.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end47.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i:                            ; preds = %if.end47.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add44.i, %if.end47.i ], [ %add.i62, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.036.i, %while.cond7.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end47.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.037.i, %while.cond7.preheader.i ]
   %cmp.i69 = icmp ult i64 %pos.0.be.i, %sub25.i
   br i1 %cmp.i69, label %while.body.i61, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin17convertEPKcmPc.exit, !llvm.loop !29
 
@@ -44822,6 +45002,9 @@ if.then4:                                         ; preds = %if.end
   %sub = sub i64 %len, %sub.ptr.div28.i
   br label %while.body.i13
 
+while.cond33.while.cond.loopexit_crit_edge.i:     ; preds = %cond.end.i19
+  br label %while.cond.backedge.i, !llvm.loop !55
+
 while.body.i13:                                   ; preds = %if.then4, %while.cond.backedge.i
   %latin_output.addr.044.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output.addr.0.lcssa.i, %if.then4 ]
   %pos.043.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %if.then4 ]
@@ -44852,11 +45035,14 @@ if.then.i15:                                      ; preds = %while.body.i13
 
 while.cond33.preheader.i:                         ; preds = %if.then.i15
   %cmp3438.i = icmp ult i64 %pos.043.i, -16
-  br i1 %cmp3438.i, label %cond.end.i19, label %while.cond.backedge.i, !llvm.loop !55
+  br i1 %cmp3438.i, label %cond.end.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !55
 
-cond.end.i19:                                     ; preds = %while.cond33.preheader.i, %cond.end.i19
-  %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i20, %cond.end.i19 ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
-  %pos.139.i = phi i64 [ %inc.i, %cond.end.i19 ], [ %pos.043.i, %while.cond33.preheader.i ]
+cond.end.lr.ph.i:                                 ; preds = %while.cond33.preheader.i
+  br label %cond.end.i19, !llvm.loop !55
+
+cond.end.i19:                                     ; preds = %cond.end.i19, %cond.end.lr.ph.i
+  %latin_output.addr.140.i = phi ptr [ %latin_output.addr.044.i, %cond.end.lr.ph.i ], [ %incdec.ptr.i20, %cond.end.i19 ]
+  %pos.139.i = phi i64 [ %pos.043.i, %cond.end.lr.ph.i ], [ %inc.i, %cond.end.i19 ]
   %arrayidx38.i = getelementptr inbounds i16, ptr %add.ptr, i64 %pos.139.i
   %11 = load i16, ptr %arrayidx38.i, align 2
   %cond.i = trunc i16 %11 to i8
@@ -44864,7 +45050,7 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
   %inc.i = add nuw i64 %pos.139.i, 1
   %exitcond.not.i21 = icmp eq i64 %inc.i, %add.i14
-  br i1 %exitcond.not.i21, label %while.cond.backedge.i, label %cond.end.i19, !llvm.loop !56
+  br i1 %exitcond.not.i21, label %while.cond33.while.cond.loopexit_crit_edge.i, label %cond.end.i19, !llvm.loop !56
 
 cond.end48.i:                                     ; preds = %if.then.i15, %while.body.cond.end48_crit_edge.i
   %12 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %10, %if.then.i15 ]
@@ -44878,9 +45064,9 @@ if.then53.i:                                      ; preds = %cond.end48.i
   %inc58.i = add i64 %pos.043.i, 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %cond.end.i19, %if.then53.i, %while.cond33.preheader.i
-  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %pos.043.i, %while.cond33.preheader.i ], [ %add.i14, %cond.end.i19 ]
-  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ], [ %incdec.ptr.i20, %cond.end.i19 ]
+while.cond.backedge.i:                            ; preds = %if.then53.i, %while.cond33.preheader.i, %while.cond33.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %add.i14, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %pos.043.i, %while.cond33.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %incdec.ptr.i20, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %sub
   br i1 %cmp.i, label %while.body.i13, label %if.else, !llvm.loop !55
 
@@ -44987,6 +45173,9 @@ if.then4:                                         ; preds = %if.end
   %sub = sub i64 %len, %sub.ptr.div26.i
   br label %while.body.i13
 
+while.cond33.while.cond.loopexit_crit_edge.i:     ; preds = %cond.end.i19
+  br label %while.cond.backedge.i, !llvm.loop !57
+
 while.body.i13:                                   ; preds = %if.then4, %while.cond.backedge.i
   %latin_output.addr.044.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output.addr.0.lcssa.i, %if.then4 ]
   %pos.043.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %if.then4 ]
@@ -45021,11 +45210,14 @@ if.then.i15:                                      ; preds = %while.body.i13
 
 while.cond33.preheader.i:                         ; preds = %if.then.i15
   %cmp3438.i = icmp ult i64 %pos.043.i, -16
-  br i1 %cmp3438.i, label %cond.end.i19, label %while.cond.backedge.i, !llvm.loop !57
+  br i1 %cmp3438.i, label %cond.end.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !57
 
-cond.end.i19:                                     ; preds = %while.cond33.preheader.i, %cond.end.i19
-  %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i22, %cond.end.i19 ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
-  %pos.139.i = phi i64 [ %inc.i, %cond.end.i19 ], [ %pos.043.i, %while.cond33.preheader.i ]
+cond.end.lr.ph.i:                                 ; preds = %while.cond33.preheader.i
+  br label %cond.end.i19, !llvm.loop !57
+
+cond.end.i19:                                     ; preds = %cond.end.i19, %cond.end.lr.ph.i
+  %latin_output.addr.140.i = phi ptr [ %latin_output.addr.044.i, %cond.end.lr.ph.i ], [ %incdec.ptr.i22, %cond.end.i19 ]
+  %pos.139.i = phi i64 [ %pos.043.i, %cond.end.lr.ph.i ], [ %inc.i, %cond.end.i19 ]
   %arrayidx.i20 = getelementptr inbounds i16, ptr %add.ptr, i64 %pos.139.i
   %12 = load i16, ptr %arrayidx.i20, align 2
   %or.i.i21 = lshr i16 %12, 8
@@ -45034,7 +45226,7 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
   %inc.i = add nuw i64 %pos.139.i, 1
   %exitcond.not.i23 = icmp eq i64 %inc.i, %add.i14
-  br i1 %exitcond.not.i23, label %while.cond.backedge.i, label %cond.end.i19, !llvm.loop !58
+  br i1 %exitcond.not.i23, label %while.cond33.while.cond.loopexit_crit_edge.i, label %cond.end.i19, !llvm.loop !58
 
 cond.end48.i:                                     ; preds = %if.then.i15, %while.body.cond.end48_crit_edge.i
   %13 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %11, %if.then.i15 ]
@@ -45049,9 +45241,9 @@ if.then53.i:                                      ; preds = %cond.end48.i
   %inc58.i = add i64 %pos.043.i, 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %cond.end.i19, %if.then53.i, %while.cond33.preheader.i
-  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %pos.043.i, %while.cond33.preheader.i ], [ %add.i14, %cond.end.i19 ]
-  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ], [ %incdec.ptr.i22, %cond.end.i19 ]
+while.cond.backedge.i:                            ; preds = %if.then53.i, %while.cond33.preheader.i, %while.cond33.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %inc58.i, %if.then53.i ], [ %add.i14, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %pos.043.i, %while.cond33.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %incdec.ptr57.i, %if.then53.i ], [ %incdec.ptr.i22, %while.cond33.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %sub
   br i1 %cmp.i, label %while.body.i13, label %if.else, !llvm.loop !57
 
@@ -53047,6 +53239,9 @@ if.end5:                                          ; preds = %for.body
   %cmp51.not.i = icmp eq i64 %add, 0
   br i1 %cmp51.not.i, label %.loopexit, label %while.body.i
 
+while.cond7.while.cond.loopexit_crit_edge.i:      ; preds = %while.body9.i
+  br label %while.cond.backedge.i, !llvm.loop !31
+
 while.body.i:                                     ; preds = %if.end5, %while.cond.backedge.i
   %latin_output.addr.053.i = phi ptr [ %latin_output.addr.0.be.i, %while.cond.backedge.i ], [ %latin1_output, %if.end5 ]
   %pos.052.i = phi i64 [ %pos.0.be.i, %while.cond.backedge.i ], [ 0, %if.end5 ]
@@ -53071,18 +53266,21 @@ if.then.i:                                        ; preds = %while.body.i
 
 while.cond7.preheader.i:                          ; preds = %if.then.i
   %cmp846.i = icmp ult i64 %pos.052.i, -16
-  br i1 %cmp846.i, label %while.body9.i, label %while.cond.backedge.i, !llvm.loop !31
+  br i1 %cmp846.i, label %while.body9.lr.ph.i, label %while.cond.backedge.i, !llvm.loop !31
 
-while.body9.i:                                    ; preds = %while.cond7.preheader.i, %while.body9.i
-  %latin_output.addr.148.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %latin_output.addr.053.i, %while.cond7.preheader.i ]
-  %pos.147.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.052.i, %while.cond7.preheader.i ]
+while.body9.lr.ph.i:                              ; preds = %while.cond7.preheader.i
+  br label %while.body9.i, !llvm.loop !31
+
+while.body9.i:                                    ; preds = %while.body9.i, %while.body9.lr.ph.i
+  %latin_output.addr.148.i = phi ptr [ %latin_output.addr.053.i, %while.body9.lr.ph.i ], [ %incdec.ptr.i, %while.body9.i ]
+  %pos.147.i = phi i64 [ %pos.052.i, %while.body9.lr.ph.i ], [ %inc.i, %while.body9.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx.le, i64 %pos.147.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.148.i, i64 1
   store i8 %2, ptr %latin_output.addr.148.i, align 1
   %inc.i = add nuw i64 %pos.147.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %while.cond7.while.cond.loopexit_crit_edge.i, label %while.body9.i, !llvm.loop !32
 
 if.end10.i:                                       ; preds = %if.then.i, %while.body.if.end10_crit_edge.i
   %3 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %1, %if.then.i ]
@@ -53146,9 +53344,9 @@ if.end64.i:                                       ; preds = %if.end43.i, %if.end
   %latin_output.addr.2.i = getelementptr inbounds nuw i8, ptr %latin_output.addr.053.i, i64 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %while.body9.i, %if.end64.i, %while.cond7.preheader.i
-  %pos.0.be.i = phi i64 [ %add46.i, %if.end64.i ], [ %pos.052.i, %while.cond7.preheader.i ], [ %add.i, %while.body9.i ]
-  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end64.i ], [ %latin_output.addr.053.i, %while.cond7.preheader.i ], [ %incdec.ptr.i, %while.body9.i ]
+while.cond.backedge.i:                            ; preds = %if.end64.i, %while.cond7.preheader.i, %while.cond7.while.cond.loopexit_crit_edge.i
+  %pos.0.be.i = phi i64 [ %add46.i, %if.end64.i ], [ %add.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %pos.052.i, %while.cond7.preheader.i ]
+  %latin_output.addr.0.be.i = phi ptr [ %latin_output.addr.2.i, %if.end64.i ], [ %incdec.ptr.i, %while.cond7.while.cond.loopexit_crit_edge.i ], [ %latin_output.addr.053.i, %while.cond7.preheader.i ]
   %cmp.i = icmp ult i64 %pos.0.be.i, %add
   br i1 %cmp.i, label %while.body.i, label %.loopexit, !llvm.loop !31
 

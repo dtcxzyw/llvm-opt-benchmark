@@ -5128,11 +5128,14 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIP11AstVarScopeSt4pa
   %49 = ptrtoint ptr %48 to i64
   %50 = urem i64 %49, %21
   %.not19.i.i = icmp eq i64 %50, %22
-  br i1 %.not19.i.i, label %43, label %.critedge29, !llvm.loop !203
+  br i1 %.not19.i.i, label %43, label %..loopexit_crit_edge21.i.i, !llvm.loop !203
 
-.critedge29:                                      ; preds = %.lr.ph.i.i, %46, %33, %.thread
-  %51 = phi i64 [ %37, %33 ], [ %22, %.thread ], [ %22, %46 ], [ %22, %.lr.ph.i.i ]
-  %52 = phi i64 [ %34, %33 ], [ %19, %.thread ], [ %19, %46 ], [ %19, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %46
+  br label %.critedge29, !llvm.loop !203
+
+.critedge29:                                      ; preds = %.lr.ph.i.i, %33, %..loopexit_crit_edge21.i.i, %.thread
+  %51 = phi i64 [ %37, %33 ], [ %22, %.thread ], [ %22, %..loopexit_crit_edge21.i.i ], [ %22, %.lr.ph.i.i ]
+  %52 = phi i64 [ %34, %33 ], [ %19, %.thread ], [ %19, %..loopexit_crit_edge21.i.i ], [ %19, %.lr.ph.i.i ]
   %53 = invoke ptr @_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %51, i64 noundef %52, ptr noundef nonnull %5, i64 noundef 1)
           to label %_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit31
 
@@ -5660,11 +5663,14 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIP11AstVarScopeSt4pa
   %41 = ptrtoint ptr %40 to i64
   %42 = urem i64 %41, %13
   %.not19.i.i = icmp eq i64 %42, %14
-  br i1 %.not19.i.i, label %35, label %.critedge28, !llvm.loop !203
+  br i1 %.not19.i.i, label %35, label %..loopexit_crit_edge21.i.i, !llvm.loop !203
 
-.critedge28:                                      ; preds = %.lr.ph.i.i, %38, %25, %.thread
-  %43 = phi i64 [ %29, %25 ], [ %14, %.thread ], [ %14, %38 ], [ %14, %.lr.ph.i.i ]
-  %44 = phi i64 [ %26, %25 ], [ %11, %.thread ], [ %11, %38 ], [ %11, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %38
+  br label %.critedge28, !llvm.loop !203
+
+.critedge28:                                      ; preds = %.lr.ph.i.i, %25, %..loopexit_crit_edge21.i.i, %.thread
+  %43 = phi i64 [ %29, %25 ], [ %14, %.thread ], [ %14, %..loopexit_crit_edge21.i.i ], [ %14, %.lr.ph.i.i ]
+  %44 = phi i64 [ %26, %25 ], [ %11, %.thread ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
   %45 = invoke ptr @_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %43, i64 noundef %44, ptr noundef nonnull %4, i64 noundef 1)
           to label %_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30
 
@@ -5758,11 +5764,14 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIP11AstVarScopeSt4pa
   %40 = ptrtoint ptr %39 to i64
   %41 = urem i64 %40, %12
   %.not19.i.i = icmp eq i64 %41, %13
-  br i1 %.not19.i.i, label %34, label %.critedge28, !llvm.loop !203
+  br i1 %.not19.i.i, label %34, label %..loopexit_crit_edge21.i.i, !llvm.loop !203
 
-.critedge28:                                      ; preds = %.lr.ph.i.i, %37, %24, %.thread
-  %42 = phi i64 [ %28, %24 ], [ %13, %.thread ], [ %13, %37 ], [ %13, %.lr.ph.i.i ]
-  %43 = phi i64 [ %25, %24 ], [ %10, %.thread ], [ %10, %37 ], [ %10, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %37
+  br label %.critedge28, !llvm.loop !203
+
+.critedge28:                                      ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread
+  %42 = phi i64 [ %28, %24 ], [ %13, %.thread ], [ %13, %..loopexit_crit_edge21.i.i ], [ %13, %.lr.ph.i.i ]
+  %43 = phi i64 [ %25, %24 ], [ %10, %.thread ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
   %44 = invoke ptr @_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %42, i64 noundef %43, ptr noundef nonnull %4, i64 noundef 1)
           to label %_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30
 
@@ -6272,11 +6281,14 @@ _ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10
   %53 = ptrtoint ptr %52 to i64
   %54 = urem i64 %53, %25
   %.not19.i.i = icmp eq i64 %54, %26
-  br i1 %.not19.i.i, label %47, label %.critedge29, !llvm.loop !203
+  br i1 %.not19.i.i, label %47, label %..loopexit_crit_edge21.i.i, !llvm.loop !203
 
-.critedge29:                                      ; preds = %.lr.ph.i.i, %50, %37, %.thread
-  %55 = phi i64 [ %41, %37 ], [ %26, %.thread ], [ %26, %50 ], [ %26, %.lr.ph.i.i ]
-  %56 = phi i64 [ %38, %37 ], [ %23, %.thread ], [ %23, %50 ], [ %23, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %50
+  br label %.critedge29, !llvm.loop !203
+
+.critedge29:                                      ; preds = %.lr.ph.i.i, %37, %..loopexit_crit_edge21.i.i, %.thread
+  %55 = phi i64 [ %41, %37 ], [ %26, %.thread ], [ %26, %..loopexit_crit_edge21.i.i ], [ %26, %.lr.ph.i.i ]
+  %56 = phi i64 [ %38, %37 ], [ %23, %.thread ], [ %23, %..loopexit_crit_edge21.i.i ], [ %23, %.lr.ph.i.i ]
   %57 = invoke ptr @_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %55, i64 noundef %56, ptr noundef nonnull %5, i64 noundef 1)
           to label %_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIP11AstVarScopeSt4pairIKS1_12LifeVarEntryESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit31
 
@@ -6375,9 +6387,9 @@ define linkonce_odr dso_local void @_ZN9LifeBlock10dualBranchEPS_S0_(ptr noundef
   %5 = alloca %"struct.std::__detail::_Node_iterator", align 8
   tail call void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.023.034 = load ptr, ptr %6, align 8, !tbaa !121
-  %.not2735 = icmp eq ptr %.sroa.023.034, null
-  br i1 %.not2735, label %._crit_edge, label %.lr.ph
+  %.sroa.023.035 = load ptr, ptr %6, align 8, !tbaa !121
+  %.not2736 = icmp eq ptr %.sroa.023.035, null
+  br i1 %.not2736, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
@@ -6385,11 +6397,11 @@ define linkonce_odr dso_local void @_ZN9LifeBlock10dualBranchEPS_S0_(ptr noundef
 
 ._crit_edge:                                      ; preds = %23, %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.019.037 = load ptr, ptr %8, align 8, !tbaa !121
-  %.not2838 = icmp eq ptr %.sroa.019.037, null
-  br i1 %.not2838, label %._crit_edge42, label %.lr.ph41
+  %.sroa.019.038 = load ptr, ptr %8, align 8, !tbaa !121
+  %.not2839 = icmp eq ptr %.sroa.019.038, null
+  br i1 %.not2839, label %._crit_edge43, label %.lr.ph42
 
-.lr.ph41:                                         ; preds = %._crit_edge
+.lr.ph42:                                         ; preds = %._crit_edge
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6398,14 +6410,14 @@ define linkonce_odr dso_local void @_ZN9LifeBlock10dualBranchEPS_S0_(ptr noundef
   br label %24
 
 14:                                               ; preds = %.lr.ph, %23
-  %.sroa.023.036 = phi ptr [ %.sroa.023.034, %.lr.ph ], [ %.sroa.023.0, %23 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.023.036, i64 32
+  %.sroa.023.037 = phi ptr [ %.sroa.023.035, %.lr.ph ], [ %.sroa.023.0, %23 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.023.037, i64 32
   %16 = load i8, ptr %15, align 8, !tbaa !199, !range !72, !noundef !73
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.023.036, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.023.037, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !179
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   store i64 1, ptr %21, align 8, !tbaa !14
@@ -6414,18 +6426,18 @@ define linkonce_odr dso_local void @_ZN9LifeBlock10dualBranchEPS_S0_(ptr noundef
   br label %23
 
 23:                                               ; preds = %18, %14
-  %.sroa.023.0 = load ptr, ptr %.sroa.023.036, align 8, !tbaa !121
+  %.sroa.023.0 = load ptr, ptr %.sroa.023.037, align 8, !tbaa !121
   %.not27 = icmp eq ptr %.sroa.023.0, null
   br i1 %.not27, label %._crit_edge, label %14
 
-._crit_edge42:                                    ; preds = %90, %._crit_edge
+._crit_edge43:                                    ; preds = %90, %._crit_edge
   ret void
 
-24:                                               ; preds = %.lr.ph41, %90
-  %.sroa.019.039 = phi ptr [ %.sroa.019.037, %.lr.ph41 ], [ %.sroa.019.0, %90 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.019.039, i64 8
+24:                                               ; preds = %.lr.ph42, %90
+  %.sroa.019.040 = phi ptr [ %.sroa.019.038, %.lr.ph42 ], [ %.sroa.019.0, %90 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.019.040, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !179
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.019.039, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.019.040, i64 32
   %28 = load i8, ptr %27, align 8, !tbaa !199, !range !72, !noundef !73
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %90
@@ -6563,7 +6575,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
   %88 = ptrtoint ptr %87 to i64
   %89 = urem i64 %88, %72
   %.not19.i.i.i.i = icmp eq i64 %89, %73
-  br i1 %.not19.i.i.i.i, label %82, label %_ZNSt13unordered_mapIP11AstVarScope12LifeVarEntrySt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS8_.exit.thread, !llvm.loop !203
+  br i1 %.not19.i.i.i.i, label %82, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !203
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %85
+  br label %_ZNSt13unordered_mapIP11AstVarScope12LifeVarEntrySt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS8_.exit.thread, !llvm.loop !203
 
 .loopexit:                                        ; preds = %82, %66, %77
   %.sroa.06.1.i.i = phi ptr [ %78, %77 ], [ %.sroa.06.0.i.i, %66 ], [ %84, %82 ]
@@ -6571,14 +6586,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
   call void @_ZN9LifeBlock17checkRemoveAssignERKNSt8__detail14_Node_iteratorISt4pairIKP11AstVarScope12LifeVarEntryELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZNSt13unordered_mapIP11AstVarScope12LifeVarEntrySt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS8_.exit.thread
 
-_ZNSt13unordered_mapIP11AstVarScope12LifeVarEntrySt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %85, %.preheader, %70, %.loopexit
+_ZNSt13unordered_mapIP11AstVarScope12LifeVarEntrySt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %70, %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   br label %90
 
 90:                                               ; preds = %_ZNSt13unordered_mapIP11AstVarScope12LifeVarEntrySt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS8_.exit.thread, %30, %24
-  %.sroa.019.0 = load ptr, ptr %.sroa.019.039, align 8, !tbaa !121
+  %.sroa.019.0 = load ptr, ptr %.sroa.019.040, align 8, !tbaa !121
   %.not28 = icmp eq ptr %.sroa.019.0, null
-  br i1 %.not28, label %._crit_edge42, label %24
+  br i1 %.not28, label %._crit_edge43, label %24
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -79784,13 +79784,13 @@ _ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit: ;
   %20 = zext nneg i32 %1 to i64
   br label %.preheader421
 
-.preheader421:                                    ; preds = %.preheader421.lr.ph, %465
-  %.0460 = phi i32 [ 0, %.preheader421.lr.ph ], [ %.1, %465 ]
-  %.0275459 = phi i32 [ %9, %.preheader421.lr.ph ], [ %.2.ph.ph, %465 ]
-  %.0277458 = phi i32 [ 0, %.preheader421.lr.ph ], [ %.1278.lcssa485, %465 ]
-  %.0285457 = phi i32 [ 1, %.preheader421.lr.ph ], [ %.2287, %465 ]
-  %.0405456 = phi i32 [ %8, %.preheader421.lr.ph ], [ %.sroa.speculated386, %465 ]
-  %.0406455 = phi i32 [ 0, %.preheader421.lr.ph ], [ %.2408.ph, %465 ]
+.preheader421:                                    ; preds = %.preheader421.lr.ph, %466
+  %.0460 = phi i32 [ 0, %.preheader421.lr.ph ], [ %.1, %466 ]
+  %.0275459 = phi i32 [ %9, %.preheader421.lr.ph ], [ %.2.ph.ph, %466 ]
+  %.0277458 = phi i32 [ 0, %.preheader421.lr.ph ], [ %.1278.lcssa485, %466 ]
+  %.0285457 = phi i32 [ 1, %.preheader421.lr.ph ], [ %.2287, %466 ]
+  %.0405456 = phi i32 [ %8, %.preheader421.lr.ph ], [ %.sroa.speculated386, %466 ]
+  %.0406455 = phi i32 [ 0, %.preheader421.lr.ph ], [ %.2408.ph, %466 ]
   %21 = icmp slt i32 %.0406455, %1
   br i1 %21, label %.lr.ph.preheader, label %.critedge
 
@@ -80077,10 +80077,13 @@ _ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328
   %150 = getelementptr inbounds i32, ptr %146, i64 %149
   br label %.outer420.outer
 
-.outer420.outer:                                  ; preds = %186, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328
-  %.0410.ph.ph = phi i32 [ 0, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328 ], [ %.2412, %186 ]
-  %.0280.ph.ph = phi ptr [ %146, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328 ], [ %154, %186 ]
-  %.2.ph.ph = phi i32 [ %.1276, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328 ], [ %.4, %186 ]
+..loopexit418_crit_edge:                          ; preds = %187
+  br label %.outer420.outer, !llvm.loop !3470
+
+.outer420.outer:                                  ; preds = %..loopexit418_crit_edge, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328
+  %.0410.ph.ph = phi i32 [ %.2412, %..loopexit418_crit_edge ], [ 0, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328 ]
+  %.0280.ph.ph = phi ptr [ %154, %..loopexit418_crit_edge ], [ %146, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328 ]
+  %.2.ph.ph = phi i32 [ %.4, %..loopexit418_crit_edge ], [ %.1276, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328 ]
   br label %.outer420
 
 .outer420:                                        ; preds = %.outer420.outer, %161
@@ -80090,7 +80093,7 @@ _ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328
 151:                                              ; preds = %.outer420, %153
   %.0280 = phi ptr [ %154, %153 ], [ %.0280.ph, %.outer420 ]
   %152 = icmp ult ptr %.0280, %150
-  br i1 %152, label %153, label %188
+  br i1 %152, label %153, label %189
 
 153:                                              ; preds = %151
   %154 = getelementptr inbounds nuw i8, ptr %.0280, i64 4
@@ -80106,602 +80109,602 @@ _ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit328
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !3441
   %164 = icmp sgt i32 %163, 0
-  br i1 %164, label %.lr.ph437.preheader, label %.outer420, !llvm.loop !3470
+  br i1 %164, label %.lr.ph437, label %.outer420, !llvm.loop !3470
 
-.lr.ph437.preheader:                              ; preds = %161
+.lr.ph437:                                        ; preds = %161
   %165 = load i32, ptr %157, align 4, !tbaa !3446
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i32, ptr %5, i64 %166
   %168 = sext i32 %163 to i64
   %169 = getelementptr inbounds i32, ptr %167, i64 %168
-  br label %.lr.ph437
+  br label %170, !llvm.loop !3470
 
-.lr.ph437:                                        ; preds = %.lr.ph437.preheader, %186
-  %.3436 = phi i32 [ %.4, %186 ], [ %.2.ph.ph, %.lr.ph437.preheader ]
-  %.0289435 = phi ptr [ %170, %186 ], [ %167, %.lr.ph437.preheader ]
-  %.1411434 = phi i32 [ %.2412, %186 ], [ %.0410.ph.ph, %.lr.ph437.preheader ]
-  %170 = getelementptr inbounds nuw i8, ptr %.0289435, i64 4
-  %171 = load i32, ptr %.0289435, align 4, !tbaa !12
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %172
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load i32, ptr %174, align 4, !tbaa !119
-  %176 = icmp sgt i32 %175, 0
-  br i1 %176, label %177, label %186
+170:                                              ; preds = %.lr.ph437, %187
+  %.3436 = phi i32 [ %.2.ph.ph, %.lr.ph437 ], [ %.4, %187 ]
+  %.0289435 = phi ptr [ %167, %.lr.ph437 ], [ %171, %187 ]
+  %.1411434 = phi i32 [ %.0410.ph.ph, %.lr.ph437 ], [ %.2412, %187 ]
+  %171 = getelementptr inbounds nuw i8, ptr %.0289435, i64 4
+  %172 = load i32, ptr %.0289435, align 4, !tbaa !12
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %173
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %176 = load i32, ptr %175, align 4, !tbaa !119
+  %177 = icmp sgt i32 %176, 0
+  br i1 %177, label %178, label %187
 
-177:                                              ; preds = %.lr.ph437
-  %178 = load i32, ptr %173, align 4, !tbaa !3437
-  %179 = icmp sgt i32 %178, -1
-  br i1 %179, label %180, label %186
+178:                                              ; preds = %170
+  %179 = load i32, ptr %174, align 4, !tbaa !3437
+  %180 = icmp sgt i32 %179, -1
+  br i1 %180, label %181, label %187
 
-180:                                              ; preds = %177
-  %181 = sub nsw i32 0, %175
-  store i32 %181, ptr %174, align 4, !tbaa !119
-  %182 = add nsw i32 %.3436, 1
-  %183 = sext i32 %.3436 to i64
-  %184 = getelementptr inbounds i32, ptr %5, i64 %183
-  store i32 %171, ptr %184, align 4, !tbaa !12
-  %185 = add nsw i32 %175, %.1411434
-  br label %186
+181:                                              ; preds = %178
+  %182 = sub nsw i32 0, %176
+  store i32 %182, ptr %175, align 4, !tbaa !119
+  %183 = add nsw i32 %.3436, 1
+  %184 = sext i32 %.3436 to i64
+  %185 = getelementptr inbounds i32, ptr %5, i64 %184
+  store i32 %172, ptr %185, align 4, !tbaa !12
+  %186 = add nsw i32 %176, %.1411434
+  br label %187
 
-186:                                              ; preds = %180, %177, %.lr.ph437
-  %.2412 = phi i32 [ %185, %180 ], [ %.1411434, %177 ], [ %.1411434, %.lr.ph437 ]
-  %.4 = phi i32 [ %182, %180 ], [ %.3436, %177 ], [ %.3436, %.lr.ph437 ]
-  %187 = icmp ult ptr %170, %169
-  br i1 %187, label %.lr.ph437, label %.outer420.outer, !llvm.loop !3471
+187:                                              ; preds = %181, %178, %170
+  %.2412 = phi i32 [ %186, %181 ], [ %.1411434, %178 ], [ %.1411434, %170 ]
+  %.4 = phi i32 [ %183, %181 ], [ %.3436, %178 ], [ %.3436, %170 ]
+  %188 = icmp ult ptr %171, %169
+  br i1 %188, label %170, label %..loopexit418_crit_edge, !llvm.loop !3471
 
-188:                                              ; preds = %151
+189:                                              ; preds = %151
   store i32 %42, ptr %41, align 4, !tbaa !119
   %.sroa.speculated386 = tail call i32 @llvm.smax.i32(i32 %.0405456, i32 %.0410.ph.ph)
-  %189 = load i32, ptr %32, align 4, !tbaa !3437
-  %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds i32, ptr %5, i64 %190
-  %192 = load i32, ptr %147, align 4, !tbaa !3439
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds i32, ptr %191, i64 %193
-  %195 = icmp sgt i32 %192, 0
-  br i1 %195, label %.lr.ph441, label %._crit_edge
+  %190 = load i32, ptr %32, align 4, !tbaa !3437
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds i32, ptr %5, i64 %191
+  %193 = load i32, ptr %147, align 4, !tbaa !3439
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds i32, ptr %192, i64 %194
+  %196 = icmp sgt i32 %193, 0
+  br i1 %196, label %.lr.ph441, label %._crit_edge
 
-.lr.ph441:                                        ; preds = %188, %.lr.ph441
-  %.1281440 = phi ptr [ %196, %.lr.ph441 ], [ %191, %188 ]
-  %196 = getelementptr inbounds nuw i8, ptr %.1281440, i64 4
-  %197 = load i32, ptr %.1281440, align 4, !tbaa !12
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds %"struct.Eigen::internal::Colamd::RowStructure", ptr %3, i64 %198, i32 3
-  store i32 -1, ptr %199, align 4, !tbaa !119
-  %200 = icmp ult ptr %196, %194
-  br i1 %200, label %.lr.ph441, label %._crit_edge, !llvm.loop !3472
+.lr.ph441:                                        ; preds = %189, %.lr.ph441
+  %.1281440 = phi ptr [ %197, %.lr.ph441 ], [ %192, %189 ]
+  %197 = getelementptr inbounds nuw i8, ptr %.1281440, i64 4
+  %198 = load i32, ptr %.1281440, align 4, !tbaa !12
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds %"struct.Eigen::internal::Colamd::RowStructure", ptr %3, i64 %199, i32 3
+  store i32 -1, ptr %200, align 4, !tbaa !119
+  %201 = icmp ult ptr %197, %195
+  br i1 %201, label %.lr.ph441, label %._crit_edge, !llvm.loop !3472
 
-._crit_edge:                                      ; preds = %.lr.ph441, %188
-  %201 = sub nsw i32 %.2.ph.ph, %.1276
-  %202 = icmp sgt i32 %201, 0
-  br i1 %202, label %.lr.ph447.preheader, label %.preheader.thread
+._crit_edge:                                      ; preds = %.lr.ph441, %189
+  %202 = sub nsw i32 %.2.ph.ph, %.1276
+  %203 = icmp sgt i32 %202, 0
+  br i1 %203, label %.lr.ph447.preheader, label %.preheader.thread
 
 .preheader.thread:                                ; preds = %._crit_edge
-  %203 = sext i32 %.1276 to i64
-  %204 = getelementptr inbounds i32, ptr %5, i64 %203
-  %205 = sext i32 %201 to i64
-  %206 = getelementptr inbounds i32, ptr %204, i64 %205
+  %204 = sext i32 %.1276 to i64
+  %205 = getelementptr inbounds i32, ptr %5, i64 %204
+  %206 = sext i32 %202 to i64
+  %207 = getelementptr inbounds i32, ptr %205, i64 %206
   br label %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit
 
 .lr.ph447.preheader:                              ; preds = %._crit_edge
-  %207 = load i32, ptr %32, align 4, !tbaa !3437
-  %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds i32, ptr %5, i64 %208
-  %210 = load i32, ptr %209, align 4, !tbaa !12
-  %211 = sext i32 %.1276 to i64
-  %212 = getelementptr inbounds i32, ptr %5, i64 %211
-  %213 = zext nneg i32 %201 to i64
-  %214 = getelementptr inbounds nuw i32, ptr %212, i64 %213
+  %208 = load i32, ptr %32, align 4, !tbaa !3437
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr inbounds i32, ptr %5, i64 %209
+  %211 = load i32, ptr %210, align 4, !tbaa !12
+  %212 = sext i32 %.1276 to i64
+  %213 = getelementptr inbounds i32, ptr %5, i64 %212
+  %214 = zext nneg i32 %202 to i64
+  %215 = getelementptr inbounds nuw i32, ptr %213, i64 %214
   br label %.lr.ph447
 
-.loopexit:                                        ; preds = %.backedge, %240
-  %215 = icmp ult ptr %216, %214
-  br i1 %215, label %.lr.ph447, label %.lr.ph451, !llvm.loop !3473
+.loopexit:                                        ; preds = %.backedge, %241
+  %216 = icmp ult ptr %217, %215
+  br i1 %216, label %.lr.ph447, label %.lr.ph451, !llvm.loop !3473
 
 .lr.ph447:                                        ; preds = %.lr.ph447.preheader, %.loopexit
-  %.1290445 = phi ptr [ %216, %.loopexit ], [ %212, %.lr.ph447.preheader ]
-  %216 = getelementptr inbounds nuw i8, ptr %.1290445, i64 4
-  %217 = load i32, ptr %.1290445, align 4, !tbaa !12
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %218
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %221 = load i32, ptr %220, align 4, !tbaa !119
-  %222 = sub i32 0, %221
-  store i32 %222, ptr %220, align 4, !tbaa !119
-  %223 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %224 = load i32, ptr %223, align 4, !tbaa !119
-  %225 = getelementptr inbounds nuw i8, ptr %219, i64 20
-  %226 = load i32, ptr %225, align 4, !tbaa !119
-  %227 = icmp eq i32 %224, -1
-  br i1 %227, label %228, label %233
+  %.1290445 = phi ptr [ %217, %.loopexit ], [ %213, %.lr.ph447.preheader ]
+  %217 = getelementptr inbounds nuw i8, ptr %.1290445, i64 4
+  %218 = load i32, ptr %.1290445, align 4, !tbaa !12
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %219
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
+  %222 = load i32, ptr %221, align 4, !tbaa !119
+  %223 = sub i32 0, %222
+  store i32 %223, ptr %221, align 4, !tbaa !119
+  %224 = getelementptr inbounds nuw i8, ptr %220, i64 16
+  %225 = load i32, ptr %224, align 4, !tbaa !119
+  %226 = getelementptr inbounds nuw i8, ptr %220, i64 20
+  %227 = load i32, ptr %226, align 4, !tbaa !119
+  %228 = icmp eq i32 %225, -1
+  br i1 %228, label %229, label %234
 
-228:                                              ; preds = %.lr.ph447
-  %229 = getelementptr inbounds nuw i8, ptr %219, i64 12
-  %230 = load i32, ptr %229, align 4, !tbaa !119
-  %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds i32, ptr %6, i64 %231
-  store i32 %226, ptr %232, align 4, !tbaa !12
-  br label %236
+229:                                              ; preds = %.lr.ph447
+  %230 = getelementptr inbounds nuw i8, ptr %220, i64 12
+  %231 = load i32, ptr %230, align 4, !tbaa !119
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr inbounds i32, ptr %6, i64 %232
+  store i32 %227, ptr %233, align 4, !tbaa !12
+  br label %237
 
-233:                                              ; preds = %.lr.ph447
-  %234 = sext i32 %224 to i64
-  %235 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %234, i32 5
-  store i32 %226, ptr %235, align 4, !tbaa !119
-  br label %236
+234:                                              ; preds = %.lr.ph447
+  %235 = sext i32 %225 to i64
+  %236 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %235, i32 5
+  store i32 %227, ptr %236, align 4, !tbaa !119
+  br label %237
 
-236:                                              ; preds = %233, %228
-  %.not312 = icmp eq i32 %226, -1
-  br i1 %.not312, label %240, label %237
+237:                                              ; preds = %234, %229
+  %.not312 = icmp eq i32 %227, -1
+  br i1 %.not312, label %241, label %238
 
-237:                                              ; preds = %236
-  %238 = sext i32 %226 to i64
-  %239 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %238, i32 4
-  store i32 %224, ptr %239, align 4, !tbaa !119
-  br label %240
+238:                                              ; preds = %237
+  %239 = sext i32 %227 to i64
+  %240 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %239, i32 4
+  store i32 %225, ptr %240, align 4, !tbaa !119
+  br label %241
 
-240:                                              ; preds = %237, %236
-  %241 = load i32, ptr %219, align 4, !tbaa !3437
-  %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds i32, ptr %5, i64 %242
-  %244 = getelementptr inbounds nuw i8, ptr %219, i64 4
-  %245 = load i32, ptr %244, align 4, !tbaa !3439
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds i32, ptr %243, i64 %246
-  %invariant.op = add i32 %221, %.1286
-  %248 = icmp sgt i32 %245, 0
-  br i1 %248, label %.lr.ph444, label %.loopexit
+241:                                              ; preds = %238, %237
+  %242 = load i32, ptr %220, align 4, !tbaa !3437
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds i32, ptr %5, i64 %243
+  %245 = getelementptr inbounds nuw i8, ptr %220, i64 4
+  %246 = load i32, ptr %245, align 4, !tbaa !3439
+  %247 = sext i32 %246 to i64
+  %248 = getelementptr inbounds i32, ptr %244, i64 %247
+  %invariant.op = add i32 %222, %.1286
+  %249 = icmp sgt i32 %246, 0
+  br i1 %249, label %.lr.ph444, label %.loopexit
 
-.lr.ph444:                                        ; preds = %240, %.backedge
-  %.2282442 = phi ptr [ %249, %.backedge ], [ %243, %240 ]
-  %249 = getelementptr inbounds nuw i8, ptr %.2282442, i64 4
-  %250 = load i32, ptr %.2282442, align 4, !tbaa !12
-  %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds %"struct.Eigen::internal::Colamd::RowStructure", ptr %3, i64 %251
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 12
-  %254 = load i32, ptr %253, align 4, !tbaa !119
-  %255 = icmp slt i32 %254, 0
-  br i1 %255, label %.backedge, label %256
+.lr.ph444:                                        ; preds = %241, %.backedge
+  %.2282442 = phi ptr [ %250, %.backedge ], [ %244, %241 ]
+  %250 = getelementptr inbounds nuw i8, ptr %.2282442, i64 4
+  %251 = load i32, ptr %.2282442, align 4, !tbaa !12
+  %252 = sext i32 %251 to i64
+  %253 = getelementptr inbounds %"struct.Eigen::internal::Colamd::RowStructure", ptr %3, i64 %252
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 12
+  %255 = load i32, ptr %254, align 4, !tbaa !119
+  %256 = icmp slt i32 %255, 0
+  br i1 %256, label %.backedge, label %257
 
-256:                                              ; preds = %.lr.ph444
-  %257 = sub nsw i32 %254, %.1286
-  %258 = icmp slt i32 %257, 0
-  br i1 %258, label %259, label %262
+257:                                              ; preds = %.lr.ph444
+  %258 = sub nsw i32 %255, %.1286
+  %259 = icmp slt i32 %258, 0
+  br i1 %259, label %260, label %263
 
-259:                                              ; preds = %256
-  %260 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  %261 = load i32, ptr %260, align 4, !tbaa !119
-  br label %262
+260:                                              ; preds = %257
+  %261 = getelementptr inbounds nuw i8, ptr %253, i64 8
+  %262 = load i32, ptr %261, align 4, !tbaa !119
+  br label %263
 
-262:                                              ; preds = %259, %256
-  %.0284 = phi i32 [ %261, %259 ], [ %257, %256 ]
-  %263 = icmp eq i32 %.0284, %222
+263:                                              ; preds = %260, %257
+  %.0284 = phi i32 [ %262, %260 ], [ %258, %257 ]
+  %264 = icmp eq i32 %.0284, %223
   %.reass = add i32 %.0284, %invariant.op
-  %storemerge = select i1 %263, i32 -1, i32 %.reass
-  store i32 %storemerge, ptr %253, align 4, !tbaa !119
+  %storemerge = select i1 %264, i32 -1, i32 %.reass
+  store i32 %storemerge, ptr %254, align 4, !tbaa !119
   br label %.backedge
 
-.backedge:                                        ; preds = %262, %.lr.ph444
-  %264 = icmp ult ptr %249, %247
-  br i1 %264, label %.lr.ph444, label %.loopexit, !llvm.loop !3474
+.backedge:                                        ; preds = %263, %.lr.ph444
+  %265 = icmp ult ptr %250, %248
+  br i1 %265, label %.lr.ph444, label %.loopexit, !llvm.loop !3474
 
-.lr.ph451:                                        ; preds = %.loopexit, %323
-  %.1278450 = phi i32 [ %.2279, %323 ], [ %43, %.loopexit ]
-  %.2291449 = phi ptr [ %290, %323 ], [ %212, %.loopexit ]
-  %.3413448 = phi i32 [ %.4414, %323 ], [ %.0410.ph.ph, %.loopexit ]
-  %265 = load i32, ptr %.2291449, align 4, !tbaa !12
-  %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %266
-  %268 = load i32, ptr %267, align 4, !tbaa !3437
-  %269 = sext i32 %268 to i64
-  %270 = getelementptr inbounds i32, ptr %5, i64 %269
-  %271 = getelementptr inbounds nuw i8, ptr %267, i64 4
-  %272 = load i32, ptr %271, align 4, !tbaa !3439
-  %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds i32, ptr %270, i64 %273
+.lr.ph451:                                        ; preds = %.loopexit, %324
+  %.1278450 = phi i32 [ %.2279, %324 ], [ %43, %.loopexit ]
+  %.2291449 = phi ptr [ %291, %324 ], [ %213, %.loopexit ]
+  %.3413448 = phi i32 [ %.4414, %324 ], [ %.0410.ph.ph, %.loopexit ]
+  %266 = load i32, ptr %.2291449, align 4, !tbaa !12
+  %267 = sext i32 %266 to i64
+  %268 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %267
+  %269 = load i32, ptr %268, align 4, !tbaa !3437
+  %270 = sext i32 %269 to i64
+  %271 = getelementptr inbounds i32, ptr %5, i64 %270
+  %272 = getelementptr inbounds nuw i8, ptr %268, i64 4
+  %273 = load i32, ptr %272, align 4, !tbaa !3439
+  %274 = sext i32 %273 to i64
+  %275 = getelementptr inbounds i32, ptr %271, i64 %274
   br label %.outer
 
-.outer:                                           ; preds = %284, %.lr.ph451
-  %.0409.ph = phi i32 [ %.sroa.speculated366, %284 ], [ 0, %.lr.ph451 ]
-  %.0295.ph = phi ptr [ %285, %284 ], [ %270, %.lr.ph451 ]
-  %.0293.ph = phi i32 [ %286, %284 ], [ 0, %.lr.ph451 ]
-  %.3283.ph = phi ptr [ %278, %284 ], [ %270, %.lr.ph451 ]
-  br label %275
+.outer:                                           ; preds = %285, %.lr.ph451
+  %.0409.ph = phi i32 [ %.sroa.speculated366, %285 ], [ 0, %.lr.ph451 ]
+  %.0295.ph = phi ptr [ %286, %285 ], [ %271, %.lr.ph451 ]
+  %.0293.ph = phi i32 [ %287, %285 ], [ 0, %.lr.ph451 ]
+  %.3283.ph = phi ptr [ %279, %285 ], [ %271, %.lr.ph451 ]
+  br label %276
 
-275:                                              ; preds = %.outer, %277
-  %.3283 = phi ptr [ %278, %277 ], [ %.3283.ph, %.outer ]
-  %276 = icmp ult ptr %.3283, %274
-  br i1 %276, label %277, label %289
+276:                                              ; preds = %.outer, %278
+  %.3283 = phi ptr [ %279, %278 ], [ %.3283.ph, %.outer ]
+  %277 = icmp ult ptr %.3283, %275
+  br i1 %277, label %278, label %290
 
-277:                                              ; preds = %275
-  %278 = getelementptr inbounds nuw i8, ptr %.3283, i64 4
-  %279 = load i32, ptr %.3283, align 4, !tbaa !12
-  %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds %"struct.Eigen::internal::Colamd::RowStructure", ptr %3, i64 %280, i32 3
-  %282 = load i32, ptr %281, align 4, !tbaa !119
-  %283 = icmp slt i32 %282, 0
-  br i1 %283, label %275, label %284, !llvm.loop !3475
+278:                                              ; preds = %276
+  %279 = getelementptr inbounds nuw i8, ptr %.3283, i64 4
+  %280 = load i32, ptr %.3283, align 4, !tbaa !12
+  %281 = sext i32 %280 to i64
+  %282 = getelementptr inbounds %"struct.Eigen::internal::Colamd::RowStructure", ptr %3, i64 %281, i32 3
+  %283 = load i32, ptr %282, align 4, !tbaa !119
+  %284 = icmp slt i32 %283, 0
+  br i1 %284, label %276, label %285, !llvm.loop !3475
 
-284:                                              ; preds = %277
-  %285 = getelementptr inbounds nuw i8, ptr %.0295.ph, i64 4
-  store i32 %279, ptr %.0295.ph, align 4, !tbaa !12
-  %286 = add i32 %279, %.0293.ph
-  %287 = sub i32 %.0409.ph, %.1286
-  %288 = add i32 %287, %282
-  %.sroa.speculated366 = tail call i32 @llvm.smin.i32(i32 %1, i32 %288)
+285:                                              ; preds = %278
+  %286 = getelementptr inbounds nuw i8, ptr %.0295.ph, i64 4
+  store i32 %280, ptr %.0295.ph, align 4, !tbaa !12
+  %287 = add i32 %280, %.0293.ph
+  %288 = sub i32 %.0409.ph, %.1286
+  %289 = add i32 %288, %283
+  %.sroa.speculated366 = tail call i32 @llvm.smin.i32(i32 %1, i32 %289)
   br label %.outer, !llvm.loop !3475
 
-289:                                              ; preds = %275
-  %290 = getelementptr inbounds nuw i8, ptr %.2291449, i64 4
-  %291 = load i32, ptr %267, align 4, !tbaa !3437
-  %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds i32, ptr %5, i64 %292
-  %294 = ptrtoint ptr %.0295.ph to i64
-  %295 = ptrtoint ptr %293 to i64
-  %296 = sub i64 %294, %295
-  %297 = lshr exact i64 %296, 2
-  %298 = trunc i64 %297 to i32
-  store i32 %298, ptr %271, align 4, !tbaa !3439
-  %299 = icmp eq i32 %298, 0
-  br i1 %299, label %300, label %306
+290:                                              ; preds = %276
+  %291 = getelementptr inbounds nuw i8, ptr %.2291449, i64 4
+  %292 = load i32, ptr %268, align 4, !tbaa !3437
+  %293 = sext i32 %292 to i64
+  %294 = getelementptr inbounds i32, ptr %5, i64 %293
+  %295 = ptrtoint ptr %.0295.ph to i64
+  %296 = ptrtoint ptr %294 to i64
+  %297 = sub i64 %295, %296
+  %298 = lshr exact i64 %297, 2
+  %299 = trunc i64 %298 to i32
+  store i32 %299, ptr %272, align 4, !tbaa !3439
+  %300 = icmp eq i32 %299, 0
+  br i1 %300, label %301, label %307
 
-300:                                              ; preds = %289
-  store i32 -1, ptr %267, align 4, !tbaa !3437
-  %301 = getelementptr inbounds nuw i8, ptr %267, i64 8
-  %302 = load i32, ptr %301, align 4, !tbaa !119
-  %303 = sub nsw i32 %.3413448, %302
-  %304 = getelementptr inbounds nuw i8, ptr %267, i64 12
-  store i32 %.1278450, ptr %304, align 4, !tbaa !119
-  %305 = add nsw i32 %302, %.1278450
-  br label %323
+301:                                              ; preds = %290
+  store i32 -1, ptr %268, align 4, !tbaa !3437
+  %302 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %303 = load i32, ptr %302, align 4, !tbaa !119
+  %304 = sub nsw i32 %.3413448, %303
+  %305 = getelementptr inbounds nuw i8, ptr %268, i64 12
+  store i32 %.1278450, ptr %305, align 4, !tbaa !119
+  %306 = add nsw i32 %303, %.1278450
+  br label %324
 
-306:                                              ; preds = %289
-  %307 = getelementptr inbounds nuw i8, ptr %267, i64 12
-  store i32 %.0409.ph, ptr %307, align 4, !tbaa !119
-  %308 = urem i32 %.0293.ph, %19
-  %309 = zext nneg i32 %308 to i64
-  %310 = getelementptr inbounds nuw i32, ptr %6, i64 %309
-  %311 = load i32, ptr %310, align 4, !tbaa !12
-  %312 = icmp sgt i32 %311, -1
-  br i1 %312, label %313, label %317
+307:                                              ; preds = %290
+  %308 = getelementptr inbounds nuw i8, ptr %268, i64 12
+  store i32 %.0409.ph, ptr %308, align 4, !tbaa !119
+  %309 = urem i32 %.0293.ph, %19
+  %310 = zext nneg i32 %309 to i64
+  %311 = getelementptr inbounds nuw i32, ptr %6, i64 %310
+  %312 = load i32, ptr %311, align 4, !tbaa !12
+  %313 = icmp sgt i32 %312, -1
+  br i1 %313, label %314, label %318
 
-313:                                              ; preds = %306
-  %314 = zext nneg i32 %311 to i64
-  %315 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %314, i32 4
-  %316 = load i32, ptr %315, align 4, !tbaa !119
-  store i32 %265, ptr %315, align 4, !tbaa !119
-  br label %320
+314:                                              ; preds = %307
+  %315 = zext nneg i32 %312 to i64
+  %316 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %315, i32 4
+  %317 = load i32, ptr %316, align 4, !tbaa !119
+  store i32 %266, ptr %316, align 4, !tbaa !119
+  br label %321
 
-317:                                              ; preds = %306
-  %318 = sub nsw i32 -2, %311
-  %319 = sub nsw i32 -2, %265
-  store i32 %319, ptr %310, align 4, !tbaa !12
-  br label %320
+318:                                              ; preds = %307
+  %319 = sub nsw i32 -2, %312
+  %320 = sub nsw i32 -2, %266
+  store i32 %320, ptr %311, align 4, !tbaa !12
+  br label %321
 
-320:                                              ; preds = %317, %313
-  %.0288 = phi i32 [ %316, %313 ], [ %318, %317 ]
-  %321 = getelementptr inbounds nuw i8, ptr %267, i64 20
-  store i32 %.0288, ptr %321, align 4, !tbaa !119
-  %322 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  store i32 %308, ptr %322, align 4, !tbaa !119
-  br label %323
+321:                                              ; preds = %318, %314
+  %.0288 = phi i32 [ %317, %314 ], [ %319, %318 ]
+  %322 = getelementptr inbounds nuw i8, ptr %268, i64 20
+  store i32 %.0288, ptr %322, align 4, !tbaa !119
+  %323 = getelementptr inbounds nuw i8, ptr %268, i64 16
+  store i32 %309, ptr %323, align 4, !tbaa !119
+  br label %324
 
-323:                                              ; preds = %320, %300
-  %.4414 = phi i32 [ %303, %300 ], [ %.3413448, %320 ]
-  %.2279 = phi i32 [ %305, %300 ], [ %.1278450, %320 ]
-  %324 = icmp ult ptr %290, %214
-  br i1 %324, label %.lr.ph451, label %.lr.ph108.i, !llvm.loop !3476
+324:                                              ; preds = %321, %301
+  %.4414 = phi i32 [ %304, %301 ], [ %.3413448, %321 ]
+  %.2279 = phi i32 [ %306, %301 ], [ %.1278450, %321 ]
+  %325 = icmp ult ptr %291, %215
+  br i1 %325, label %.lr.ph451, label %.lr.ph108.i, !llvm.loop !3476
 
-.lr.ph108.i:                                      ; preds = %323, %.backedge.i
-  %.070106.i = phi ptr [ %325, %.backedge.i ], [ %212, %323 ]
-  %325 = getelementptr inbounds nuw i8, ptr %.070106.i, i64 4
-  %326 = load i32, ptr %.070106.i, align 4, !tbaa !12
-  %327 = sext i32 %326 to i64
-  %328 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %327
-  %329 = load i32, ptr %328, align 4, !tbaa !3437
-  %330 = icmp slt i32 %329, 0
-  br i1 %330, label %.backedge.i, label %331
+.lr.ph108.i:                                      ; preds = %324, %.backedge.i
+  %.070106.i = phi ptr [ %326, %.backedge.i ], [ %213, %324 ]
+  %326 = getelementptr inbounds nuw i8, ptr %.070106.i, i64 4
+  %327 = load i32, ptr %.070106.i, align 4, !tbaa !12
+  %328 = sext i32 %327 to i64
+  %329 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %328
+  %330 = load i32, ptr %329, align 4, !tbaa !3437
+  %331 = icmp slt i32 %330, 0
+  br i1 %331, label %.backedge.i, label %332
 
-331:                                              ; preds = %.lr.ph108.i
-  %332 = getelementptr inbounds nuw i8, ptr %328, i64 16
-  %333 = load i32, ptr %332, align 4, !tbaa !119
-  %334 = sext i32 %333 to i64
-  %335 = getelementptr inbounds i32, ptr %6, i64 %334
-  %336 = load i32, ptr %335, align 4, !tbaa !12
-  %337 = icmp sgt i32 %336, -1
-  br i1 %337, label %338, label %342
+332:                                              ; preds = %.lr.ph108.i
+  %333 = getelementptr inbounds nuw i8, ptr %329, i64 16
+  %334 = load i32, ptr %333, align 4, !tbaa !119
+  %335 = sext i32 %334 to i64
+  %336 = getelementptr inbounds i32, ptr %6, i64 %335
+  %337 = load i32, ptr %336, align 4, !tbaa !12
+  %338 = icmp sgt i32 %337, -1
+  br i1 %338, label %339, label %343
 
-338:                                              ; preds = %331
-  %339 = zext nneg i32 %336 to i64
-  %340 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %339, i32 4
-  %341 = load i32, ptr %340, align 4, !tbaa !119
-  br label %344
+339:                                              ; preds = %332
+  %340 = zext nneg i32 %337 to i64
+  %341 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %340, i32 4
+  %342 = load i32, ptr %341, align 4, !tbaa !119
+  br label %345
 
-342:                                              ; preds = %331
-  %343 = sub nsw i32 -2, %336
-  br label %344
+343:                                              ; preds = %332
+  %344 = sub nsw i32 -2, %337
+  br label %345
 
-344:                                              ; preds = %342, %338
-  %.0.i = phi i32 [ %341, %338 ], [ %343, %342 ]
+345:                                              ; preds = %343, %339
+  %.0.i = phi i32 [ %342, %339 ], [ %344, %343 ]
   %.not104.i = icmp eq i32 %.0.i, -1
   br i1 %.not104.i, label %._crit_edge.i333, label %.lr.ph.i331
 
-.lr.ph.i331:                                      ; preds = %344, %._crit_edge96.i
-  %.072105.i = phi i32 [ %.pr.i, %._crit_edge96.i ], [ %.0.i, %344 ]
-  %345 = sext i32 %.072105.i to i64
-  %346 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %345
-  %347 = getelementptr inbounds nuw i8, ptr %346, i64 4
-  %348 = load i32, ptr %347, align 4, !tbaa !3439
-  %.fr110.i = freeze i32 %348
-  %349 = getelementptr inbounds nuw i8, ptr %346, i64 20
-  %.07190.i = load i32, ptr %349, align 4, !tbaa !119
+.lr.ph.i331:                                      ; preds = %345, %._crit_edge96.i
+  %.072105.i = phi i32 [ %.pr.i, %._crit_edge96.i ], [ %.0.i, %345 ]
+  %346 = sext i32 %.072105.i to i64
+  %347 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %346
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 4
+  %349 = load i32, ptr %348, align 4, !tbaa !3439
+  %.fr110.i = freeze i32 %349
+  %350 = getelementptr inbounds nuw i8, ptr %347, i64 20
+  %.07190.i = load i32, ptr %350, align 4, !tbaa !119
   %.not8091.i = icmp eq i32 %.07190.i, -1
   br i1 %.not8091.i, label %._crit_edge.i333, label %.lr.ph95.i
 
 .lr.ph95.i:                                       ; preds = %.lr.ph.i331
-  %350 = getelementptr inbounds nuw i8, ptr %346, i64 12
-  %351 = icmp sgt i32 %.fr110.i, 0
-  %352 = getelementptr inbounds nuw i8, ptr %346, i64 8
-  br i1 %351, label %.lr.ph95.split.us.i, label %.lr.ph95.split.i
+  %351 = getelementptr inbounds nuw i8, ptr %347, i64 12
+  %352 = icmp sgt i32 %.fr110.i, 0
+  %353 = getelementptr inbounds nuw i8, ptr %347, i64 8
+  br i1 %352, label %.lr.ph95.split.us.i, label %.lr.ph95.split.i
 
-.lr.ph95.split.us.i:                              ; preds = %.lr.ph95.i, %378
-  %.07193.us.i = phi i32 [ %.071.us.i, %378 ], [ %.07190.i, %.lr.ph95.i ]
-  %.07492.us.i = phi i32 [ %.1.us.i, %378 ], [ %.072105.i, %.lr.ph95.i ]
-  %353 = sext i32 %.07193.us.i to i64
-  %354 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %353
-  %355 = getelementptr inbounds nuw i8, ptr %354, i64 4
-  %356 = load i32, ptr %355, align 4, !tbaa !3439
-  %.not81.us.i = icmp eq i32 %356, %.fr110.i
-  br i1 %.not81.us.i, label %357, label %378
+.lr.ph95.split.us.i:                              ; preds = %.lr.ph95.i, %379
+  %.07193.us.i = phi i32 [ %.071.us.i, %379 ], [ %.07190.i, %.lr.ph95.i ]
+  %.07492.us.i = phi i32 [ %.1.us.i, %379 ], [ %.072105.i, %.lr.ph95.i ]
+  %354 = sext i32 %.07193.us.i to i64
+  %355 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %354
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 4
+  %357 = load i32, ptr %356, align 4, !tbaa !3439
+  %.not81.us.i = icmp eq i32 %357, %.fr110.i
+  br i1 %.not81.us.i, label %358, label %379
 
-357:                                              ; preds = %.lr.ph95.split.us.i
-  %358 = getelementptr inbounds nuw i8, ptr %354, i64 12
-  %359 = load i32, ptr %358, align 4, !tbaa !119
-  %360 = load i32, ptr %350, align 4, !tbaa !119
-  %.not82.us.i = icmp eq i32 %359, %360
-  br i1 %.not82.us.i, label %.lr.ph.us.i, label %378
+358:                                              ; preds = %.lr.ph95.split.us.i
+  %359 = getelementptr inbounds nuw i8, ptr %355, i64 12
+  %360 = load i32, ptr %359, align 4, !tbaa !119
+  %361 = load i32, ptr %351, align 4, !tbaa !119
+  %.not82.us.i = icmp eq i32 %360, %361
+  br i1 %.not82.us.i, label %.lr.ph.us.i, label %379
 
-.lr.ph.us.i:                                      ; preds = %357
-  %361 = load i32, ptr %346, align 4, !tbaa !3437
-  %362 = sext i32 %361 to i64
-  %363 = getelementptr inbounds i32, ptr %5, i64 %362
-  %364 = load i32, ptr %354, align 4, !tbaa !3437
-  %365 = sext i32 %364 to i64
-  %366 = getelementptr inbounds i32, ptr %5, i64 %365
-  br label %367
+.lr.ph.us.i:                                      ; preds = %358
+  %362 = load i32, ptr %347, align 4, !tbaa !3437
+  %363 = sext i32 %362 to i64
+  %364 = getelementptr inbounds i32, ptr %5, i64 %363
+  %365 = load i32, ptr %355, align 4, !tbaa !3437
+  %366 = sext i32 %365 to i64
+  %367 = getelementptr inbounds i32, ptr %5, i64 %366
+  br label %368
 
-367:                                              ; preds = %380, %.lr.ph.us.i
-  %.07387.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %383, %380 ]
-  %.07586.us.i = phi ptr [ %363, %.lr.ph.us.i ], [ %382, %380 ]
-  %.07685.us.i = phi ptr [ %366, %.lr.ph.us.i ], [ %381, %380 ]
-  %368 = load i32, ptr %.07586.us.i, align 4, !tbaa !12
-  %369 = load i32, ptr %.07685.us.i, align 4, !tbaa !12
-  %.not83.us.i = icmp eq i32 %368, %369
-  br i1 %.not83.us.i, label %380, label %._crit_edge.us.i
+368:                                              ; preds = %381, %.lr.ph.us.i
+  %.07387.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %384, %381 ]
+  %.07586.us.i = phi ptr [ %364, %.lr.ph.us.i ], [ %383, %381 ]
+  %.07685.us.i = phi ptr [ %367, %.lr.ph.us.i ], [ %382, %381 ]
+  %369 = load i32, ptr %.07586.us.i, align 4, !tbaa !12
+  %370 = load i32, ptr %.07685.us.i, align 4, !tbaa !12
+  %.not83.us.i = icmp eq i32 %369, %370
+  br i1 %.not83.us.i, label %381, label %._crit_edge.us.i
 
-._crit_edge.us.i:                                 ; preds = %367
+._crit_edge.us.i:                                 ; preds = %368
   %.not84.us.i = icmp eq i32 %.07387.us.i, %.fr110.i
-  br i1 %.not84.us.i, label %._crit_edge.us.thread.i, label %378
+  br i1 %.not84.us.i, label %._crit_edge.us.thread.i, label %379
 
-._crit_edge.us.thread.i:                          ; preds = %380, %._crit_edge.us.i
-  %370 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  %371 = load i32, ptr %370, align 4, !tbaa !119
-  %372 = load i32, ptr %352, align 4, !tbaa !119
-  %373 = add nsw i32 %372, %371
-  store i32 %373, ptr %352, align 4, !tbaa !119
-  store i32 %.072105.i, ptr %370, align 4, !tbaa !119
-  store i32 -2, ptr %354, align 4, !tbaa !3437
-  store i32 -1, ptr %358, align 4, !tbaa !119
-  %374 = getelementptr inbounds nuw i8, ptr %354, i64 20
-  %375 = load i32, ptr %374, align 4, !tbaa !119
-  %376 = sext i32 %.07492.us.i to i64
-  %377 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %376, i32 5
-  store i32 %375, ptr %377, align 4, !tbaa !119
-  br label %378
+._crit_edge.us.thread.i:                          ; preds = %381, %._crit_edge.us.i
+  %371 = getelementptr inbounds nuw i8, ptr %355, i64 8
+  %372 = load i32, ptr %371, align 4, !tbaa !119
+  %373 = load i32, ptr %353, align 4, !tbaa !119
+  %374 = add nsw i32 %373, %372
+  store i32 %374, ptr %353, align 4, !tbaa !119
+  store i32 %.072105.i, ptr %371, align 4, !tbaa !119
+  store i32 -2, ptr %355, align 4, !tbaa !3437
+  store i32 -1, ptr %359, align 4, !tbaa !119
+  %375 = getelementptr inbounds nuw i8, ptr %355, i64 20
+  %376 = load i32, ptr %375, align 4, !tbaa !119
+  %377 = sext i32 %.07492.us.i to i64
+  %378 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %377, i32 5
+  store i32 %376, ptr %378, align 4, !tbaa !119
+  br label %379
 
-378:                                              ; preds = %._crit_edge.us.thread.i, %._crit_edge.us.i, %357, %.lr.ph95.split.us.i
-  %.1.us.i = phi i32 [ %.07492.us.i, %._crit_edge.us.thread.i ], [ %.07193.us.i, %357 ], [ %.07193.us.i, %.lr.ph95.split.us.i ], [ %.07193.us.i, %._crit_edge.us.i ]
-  %379 = getelementptr inbounds nuw i8, ptr %354, i64 20
-  %.071.us.i = load i32, ptr %379, align 4, !tbaa !119
+379:                                              ; preds = %._crit_edge.us.thread.i, %._crit_edge.us.i, %358, %.lr.ph95.split.us.i
+  %.1.us.i = phi i32 [ %.07492.us.i, %._crit_edge.us.thread.i ], [ %.07193.us.i, %358 ], [ %.07193.us.i, %.lr.ph95.split.us.i ], [ %.07193.us.i, %._crit_edge.us.i ]
+  %380 = getelementptr inbounds nuw i8, ptr %355, i64 20
+  %.071.us.i = load i32, ptr %380, align 4, !tbaa !119
   %.not80.us.i = icmp eq i32 %.071.us.i, -1
   br i1 %.not80.us.i, label %._crit_edge96.i, label %.lr.ph95.split.us.i, !llvm.loop !3477
 
-380:                                              ; preds = %367
-  %381 = getelementptr inbounds nuw i8, ptr %.07685.us.i, i64 4
-  %382 = getelementptr inbounds nuw i8, ptr %.07586.us.i, i64 4
-  %383 = add nuw nsw i32 %.07387.us.i, 1
-  %exitcond.not.i334 = icmp eq i32 %383, %.fr110.i
-  br i1 %exitcond.not.i334, label %._crit_edge.us.thread.i, label %367, !llvm.loop !3478
+381:                                              ; preds = %368
+  %382 = getelementptr inbounds nuw i8, ptr %.07685.us.i, i64 4
+  %383 = getelementptr inbounds nuw i8, ptr %.07586.us.i, i64 4
+  %384 = add nuw nsw i32 %.07387.us.i, 1
+  %exitcond.not.i334 = icmp eq i32 %384, %.fr110.i
+  br i1 %exitcond.not.i334, label %._crit_edge.us.thread.i, label %368, !llvm.loop !3478
 
 .lr.ph95.split.i:                                 ; preds = %.lr.ph95.i
   %.not84.i = icmp eq i32 %.fr110.i, 0
   br i1 %.not84.i, label %.lr.ph95.split.split.us.i, label %._crit_edge96.i
 
-.lr.ph95.split.split.us.i:                        ; preds = %.lr.ph95.split.i, %401
-  %.07193.us97.i = phi i32 [ %.071.us102.i, %401 ], [ %.07190.i, %.lr.ph95.split.i ]
-  %.07492.us98.i = phi i32 [ %.1.us101.i, %401 ], [ %.072105.i, %.lr.ph95.split.i ]
-  %384 = sext i32 %.07193.us97.i to i64
-  %385 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %384
-  %386 = getelementptr inbounds nuw i8, ptr %385, i64 4
-  %387 = load i32, ptr %386, align 4, !tbaa !3439
-  %.not81.us99.i = icmp eq i32 %387, 0
-  br i1 %.not81.us99.i, label %388, label %401
+.lr.ph95.split.split.us.i:                        ; preds = %.lr.ph95.split.i, %402
+  %.07193.us97.i = phi i32 [ %.071.us102.i, %402 ], [ %.07190.i, %.lr.ph95.split.i ]
+  %.07492.us98.i = phi i32 [ %.1.us101.i, %402 ], [ %.072105.i, %.lr.ph95.split.i ]
+  %385 = sext i32 %.07193.us97.i to i64
+  %386 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %385
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 4
+  %388 = load i32, ptr %387, align 4, !tbaa !3439
+  %.not81.us99.i = icmp eq i32 %388, 0
+  br i1 %.not81.us99.i, label %389, label %402
 
-388:                                              ; preds = %.lr.ph95.split.split.us.i
-  %389 = getelementptr inbounds nuw i8, ptr %385, i64 12
-  %390 = load i32, ptr %389, align 4, !tbaa !119
-  %391 = load i32, ptr %350, align 4, !tbaa !119
-  %.not82.us100.i = icmp eq i32 %390, %391
-  br i1 %.not82.us100.i, label %392, label %401
+389:                                              ; preds = %.lr.ph95.split.split.us.i
+  %390 = getelementptr inbounds nuw i8, ptr %386, i64 12
+  %391 = load i32, ptr %390, align 4, !tbaa !119
+  %392 = load i32, ptr %351, align 4, !tbaa !119
+  %.not82.us100.i = icmp eq i32 %391, %392
+  br i1 %.not82.us100.i, label %393, label %402
 
-392:                                              ; preds = %388
-  %393 = getelementptr inbounds nuw i8, ptr %385, i64 8
-  %394 = load i32, ptr %393, align 4, !tbaa !119
-  %395 = load i32, ptr %352, align 4, !tbaa !119
-  %396 = add nsw i32 %395, %394
-  store i32 %396, ptr %352, align 4, !tbaa !119
-  store i32 %.072105.i, ptr %393, align 4, !tbaa !119
-  store i32 -2, ptr %385, align 4, !tbaa !3437
-  store i32 -1, ptr %389, align 4, !tbaa !119
-  %397 = getelementptr inbounds nuw i8, ptr %385, i64 20
-  %398 = load i32, ptr %397, align 4, !tbaa !119
-  %399 = sext i32 %.07492.us98.i to i64
-  %400 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %399, i32 5
-  store i32 %398, ptr %400, align 4, !tbaa !119
-  br label %401
+393:                                              ; preds = %389
+  %394 = getelementptr inbounds nuw i8, ptr %386, i64 8
+  %395 = load i32, ptr %394, align 4, !tbaa !119
+  %396 = load i32, ptr %353, align 4, !tbaa !119
+  %397 = add nsw i32 %396, %395
+  store i32 %397, ptr %353, align 4, !tbaa !119
+  store i32 %.072105.i, ptr %394, align 4, !tbaa !119
+  store i32 -2, ptr %386, align 4, !tbaa !3437
+  store i32 -1, ptr %390, align 4, !tbaa !119
+  %398 = getelementptr inbounds nuw i8, ptr %386, i64 20
+  %399 = load i32, ptr %398, align 4, !tbaa !119
+  %400 = sext i32 %.07492.us98.i to i64
+  %401 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %400, i32 5
+  store i32 %399, ptr %401, align 4, !tbaa !119
+  br label %402
 
-401:                                              ; preds = %392, %388, %.lr.ph95.split.split.us.i
-  %.1.us101.i = phi i32 [ %.07492.us98.i, %392 ], [ %.07193.us97.i, %388 ], [ %.07193.us97.i, %.lr.ph95.split.split.us.i ]
-  %402 = getelementptr inbounds nuw i8, ptr %385, i64 20
-  %.071.us102.i = load i32, ptr %402, align 4, !tbaa !119
+402:                                              ; preds = %393, %389, %.lr.ph95.split.split.us.i
+  %.1.us101.i = phi i32 [ %.07492.us98.i, %393 ], [ %.07193.us97.i, %389 ], [ %.07193.us97.i, %.lr.ph95.split.split.us.i ]
+  %403 = getelementptr inbounds nuw i8, ptr %386, i64 20
+  %.071.us102.i = load i32, ptr %403, align 4, !tbaa !119
   %.not80.us103.i = icmp eq i32 %.071.us102.i, -1
   br i1 %.not80.us103.i, label %._crit_edge96.i, label %.lr.ph95.split.split.us.i, !llvm.loop !3477
 
-._crit_edge96.i:                                  ; preds = %401, %378, %.lr.ph95.split.i
-  %.pr.i = load i32, ptr %349, align 4, !tbaa !119
+._crit_edge96.i:                                  ; preds = %402, %379, %.lr.ph95.split.i
+  %.pr.i = load i32, ptr %350, align 4, !tbaa !119
   %.not.i332 = icmp eq i32 %.pr.i, -1
   br i1 %.not.i332, label %._crit_edge.i333, label %.lr.ph.i331, !llvm.loop !3479
 
-._crit_edge.i333:                                 ; preds = %._crit_edge96.i, %.lr.ph.i331, %344
-  br i1 %337, label %403, label %406
+._crit_edge.i333:                                 ; preds = %._crit_edge96.i, %.lr.ph.i331, %345
+  br i1 %338, label %404, label %407
 
-403:                                              ; preds = %._crit_edge.i333
-  %404 = zext nneg i32 %336 to i64
-  %405 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %404, i32 4
-  store i32 -1, ptr %405, align 4, !tbaa !119
+404:                                              ; preds = %._crit_edge.i333
+  %405 = zext nneg i32 %337 to i64
+  %406 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %405, i32 4
+  store i32 -1, ptr %406, align 4, !tbaa !119
   br label %.backedge.i
 
-406:                                              ; preds = %._crit_edge.i333
-  store i32 -1, ptr %335, align 4, !tbaa !12
+407:                                              ; preds = %._crit_edge.i333
+  store i32 -1, ptr %336, align 4, !tbaa !12
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %406, %403, %.lr.ph108.i
-  %407 = icmp ult ptr %325, %214
-  br i1 %407, label %.lr.ph108.i, label %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit, !llvm.loop !3480
+.backedge.i:                                      ; preds = %407, %404, %.lr.ph108.i
+  %408 = icmp ult ptr %326, %215
+  br i1 %408, label %.lr.ph108.i, label %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit, !llvm.loop !3480
 
 _ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit: ; preds = %.backedge.i, %.preheader.thread
   %.1278.lcssa485 = phi i32 [ %43, %.preheader.thread ], [ %.2279, %.backedge.i ]
   %.3413.lcssa484 = phi i32 [ %.0410.ph.ph, %.preheader.thread ], [ %.4414, %.backedge.i ]
-  %408 = phi ptr [ %206, %.preheader.thread ], [ %214, %.backedge.i ]
-  %409 = phi ptr [ %204, %.preheader.thread ], [ %212, %.backedge.i ]
-  %.0294475478483 = phi i32 [ -1, %.preheader.thread ], [ %210, %.backedge.i ]
+  %409 = phi ptr [ %207, %.preheader.thread ], [ %215, %.backedge.i ]
+  %410 = phi ptr [ %205, %.preheader.thread ], [ %213, %.backedge.i ]
+  %.0294475478483 = phi i32 [ -1, %.preheader.thread ], [ %211, %.backedge.i ]
   store i32 -1, ptr %32, align 4, !tbaa !3437
-  %410 = add i32 %.1286, 1
-  %411 = add i32 %410, %.sroa.speculated386
-  %.not310 = icmp slt i32 %411, %11
+  %411 = add i32 %.1286, 1
+  %412 = add i32 %411, %.sroa.speculated386
+  %.not310 = icmp slt i32 %412, %11
   %brmerge = or i1 %.not.i, %.not310
-  %.mux = select i1 %.not310, i32 %411, i32 1
+  %.mux = select i1 %.not310, i32 %412, i32 1
   br i1 %brmerge, label %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343, label %.lr.ph.i338
 
-.lr.ph.i338:                                      ; preds = %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit, %416
-  %indvars.iv.i339 = phi i64 [ %indvars.iv.next.i340, %416 ], [ 0, %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit ]
-  %412 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::RowStructure", ptr %3, i64 %indvars.iv.i339, i32 3
-  %413 = load i32, ptr %412, align 4, !tbaa !119
-  %414 = icmp sgt i32 %413, -1
-  br i1 %414, label %415, label %416
+.lr.ph.i338:                                      ; preds = %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit, %417
+  %indvars.iv.i339 = phi i64 [ %indvars.iv.next.i340, %417 ], [ 0, %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit ]
+  %413 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::RowStructure", ptr %3, i64 %indvars.iv.i339, i32 3
+  %414 = load i32, ptr %413, align 4, !tbaa !119
+  %415 = icmp sgt i32 %414, -1
+  br i1 %415, label %416, label %417
 
-415:                                              ; preds = %.lr.ph.i338
-  store i32 0, ptr %412, align 4, !tbaa !119
-  br label %416
+416:                                              ; preds = %.lr.ph.i338
+  store i32 0, ptr %413, align 4, !tbaa !119
+  br label %417
 
-416:                                              ; preds = %415, %.lr.ph.i338
+417:                                              ; preds = %416, %.lr.ph.i338
   %indvars.iv.next.i340 = add nuw nsw i64 %indvars.iv.i339, 1
   %exitcond.not.i341 = icmp eq i64 %indvars.iv.next.i340, %wide.trip.count113.i
   br i1 %exitcond.not.i341, label %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343, label %.lr.ph.i338, !llvm.loop !3463
 
-_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343: ; preds = %416, %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit
-  %.2287 = phi i32 [ %.mux, %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit ], [ 1, %416 ]
+_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343: ; preds = %417, %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit
+  %.2287 = phi i32 [ %.mux, %_ZN5Eigen8internal6ColamdL17detect_super_colsIiEEvPNS1_12ColStructureIT_EEPS4_S7_S4_S4_.exit ], [ 1, %417 ]
   br label %.outer419
 
-.outer419:                                        ; preds = %451, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343
-  %.2408.ph = phi i32 [ %.sroa.speculated350, %451 ], [ %.1407.lcssa, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343 ]
-  %.0296.ph = phi ptr [ %427, %451 ], [ %409, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343 ]
-  %.3292.ph = phi ptr [ %420, %451 ], [ %409, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343 ]
-  br label %417
+.outer419:                                        ; preds = %452, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343
+  %.2408.ph = phi i32 [ %.sroa.speculated350, %452 ], [ %.1407.lcssa, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343 ]
+  %.0296.ph = phi ptr [ %428, %452 ], [ %410, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343 ]
+  %.3292.ph = phi ptr [ %421, %452 ], [ %410, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit343 ]
+  br label %418
 
-417:                                              ; preds = %.outer419, %419
-  %.3292 = phi ptr [ %420, %419 ], [ %.3292.ph, %.outer419 ]
-  %418 = icmp ult ptr %.3292, %408
-  br i1 %418, label %419, label %452
+418:                                              ; preds = %.outer419, %420
+  %.3292 = phi ptr [ %421, %420 ], [ %.3292.ph, %.outer419 ]
+  %419 = icmp ult ptr %.3292, %409
+  br i1 %419, label %420, label %453
 
-419:                                              ; preds = %417
-  %420 = getelementptr inbounds nuw i8, ptr %.3292, i64 4
-  %421 = load i32, ptr %.3292, align 4, !tbaa !12
-  %422 = sext i32 %421 to i64
-  %423 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %422
-  %424 = load i32, ptr %423, align 4, !tbaa !3437
-  %425 = icmp slt i32 %424, 0
-  br i1 %425, label %417, label %426, !llvm.loop !3481
+420:                                              ; preds = %418
+  %421 = getelementptr inbounds nuw i8, ptr %.3292, i64 4
+  %422 = load i32, ptr %.3292, align 4, !tbaa !12
+  %423 = sext i32 %422 to i64
+  %424 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %423
+  %425 = load i32, ptr %424, align 4, !tbaa !3437
+  %426 = icmp slt i32 %425, 0
+  br i1 %426, label %418, label %427, !llvm.loop !3481
 
-426:                                              ; preds = %419
-  %427 = getelementptr inbounds nuw i8, ptr %.0296.ph, i64 4
-  store i32 %421, ptr %.0296.ph, align 4, !tbaa !12
-  %428 = load i32, ptr %423, align 4, !tbaa !3437
-  %429 = getelementptr inbounds nuw i8, ptr %423, i64 4
-  %430 = load i32, ptr %429, align 4, !tbaa !3439
-  %431 = add nsw i32 %430, 1
-  store i32 %431, ptr %429, align 4, !tbaa !3439
-  %432 = add nsw i32 %430, %428
-  %433 = sext i32 %432 to i64
-  %434 = getelementptr inbounds i32, ptr %5, i64 %433
-  store i32 %.0294475478483, ptr %434, align 4, !tbaa !12
-  %435 = getelementptr inbounds nuw i8, ptr %423, i64 12
-  %436 = load i32, ptr %435, align 4, !tbaa !119
-  %437 = add nsw i32 %436, %.3413.lcssa484
-  %438 = getelementptr inbounds nuw i8, ptr %423, i64 8
-  %439 = load i32, ptr %438, align 4, !tbaa !119
-  %440 = add i32 %.1278.lcssa485, %439
-  %441 = sub i32 %1, %440
-  %442 = sub i32 %437, %439
-  %.sroa.speculated363 = tail call i32 @llvm.smin.i32(i32 %441, i32 %442)
-  store i32 %.sroa.speculated363, ptr %435, align 4, !tbaa !119
-  %443 = sext i32 %.sroa.speculated363 to i64
-  %444 = getelementptr inbounds i32, ptr %6, i64 %443
-  %445 = load i32, ptr %444, align 4, !tbaa !12
-  %446 = getelementptr inbounds nuw i8, ptr %423, i64 20
-  store i32 %445, ptr %446, align 4, !tbaa !119
-  %447 = getelementptr inbounds nuw i8, ptr %423, i64 16
-  store i32 -1, ptr %447, align 4, !tbaa !119
-  %.not311 = icmp eq i32 %445, -1
-  br i1 %.not311, label %451, label %448
+427:                                              ; preds = %420
+  %428 = getelementptr inbounds nuw i8, ptr %.0296.ph, i64 4
+  store i32 %422, ptr %.0296.ph, align 4, !tbaa !12
+  %429 = load i32, ptr %424, align 4, !tbaa !3437
+  %430 = getelementptr inbounds nuw i8, ptr %424, i64 4
+  %431 = load i32, ptr %430, align 4, !tbaa !3439
+  %432 = add nsw i32 %431, 1
+  store i32 %432, ptr %430, align 4, !tbaa !3439
+  %433 = add nsw i32 %431, %429
+  %434 = sext i32 %433 to i64
+  %435 = getelementptr inbounds i32, ptr %5, i64 %434
+  store i32 %.0294475478483, ptr %435, align 4, !tbaa !12
+  %436 = getelementptr inbounds nuw i8, ptr %424, i64 12
+  %437 = load i32, ptr %436, align 4, !tbaa !119
+  %438 = add nsw i32 %437, %.3413.lcssa484
+  %439 = getelementptr inbounds nuw i8, ptr %424, i64 8
+  %440 = load i32, ptr %439, align 4, !tbaa !119
+  %441 = add i32 %.1278.lcssa485, %440
+  %442 = sub i32 %1, %441
+  %443 = sub i32 %438, %440
+  %.sroa.speculated363 = tail call i32 @llvm.smin.i32(i32 %442, i32 %443)
+  store i32 %.sroa.speculated363, ptr %436, align 4, !tbaa !119
+  %444 = sext i32 %.sroa.speculated363 to i64
+  %445 = getelementptr inbounds i32, ptr %6, i64 %444
+  %446 = load i32, ptr %445, align 4, !tbaa !12
+  %447 = getelementptr inbounds nuw i8, ptr %424, i64 20
+  store i32 %446, ptr %447, align 4, !tbaa !119
+  %448 = getelementptr inbounds nuw i8, ptr %424, i64 16
+  store i32 -1, ptr %448, align 4, !tbaa !119
+  %.not311 = icmp eq i32 %446, -1
+  br i1 %.not311, label %452, label %449
 
-448:                                              ; preds = %426
-  %449 = sext i32 %445 to i64
-  %450 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %449, i32 4
-  store i32 %421, ptr %450, align 4, !tbaa !119
-  br label %451
+449:                                              ; preds = %427
+  %450 = sext i32 %446 to i64
+  %451 = getelementptr inbounds %"struct.Eigen::internal::Colamd::ColStructure", ptr %4, i64 %450, i32 4
+  store i32 %422, ptr %451, align 4, !tbaa !119
+  br label %452
 
-451:                                              ; preds = %448, %426
-  store i32 %421, ptr %444, align 4, !tbaa !12
+452:                                              ; preds = %449, %427
+  store i32 %422, ptr %445, align 4, !tbaa !12
   %.sroa.speculated350 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated363, i32 %.2408.ph)
   br label %.outer419, !llvm.loop !3481
 
-452:                                              ; preds = %417
-  %453 = icmp sgt i32 %.3413.lcssa484, 0
-  br i1 %453, label %454, label %465
+453:                                              ; preds = %418
+  %454 = icmp sgt i32 %.3413.lcssa484, 0
+  br i1 %454, label %455, label %466
 
-454:                                              ; preds = %452
-  %455 = sext i32 %.0294475478483 to i64
-  %456 = getelementptr inbounds %"struct.Eigen::internal::Colamd::RowStructure", ptr %3, i64 %455
-  store i32 %.1276, ptr %456, align 4, !tbaa !3446
-  %457 = ptrtoint ptr %.0296.ph to i64
-  %458 = ptrtoint ptr %409 to i64
-  %459 = sub i64 %457, %458
-  %460 = lshr exact i64 %459, 2
-  %461 = trunc i64 %460 to i32
-  %462 = getelementptr inbounds nuw i8, ptr %456, i64 4
-  store i32 %461, ptr %462, align 4, !tbaa !3441
-  %463 = getelementptr inbounds nuw i8, ptr %456, i64 8
-  store i32 %.3413.lcssa484, ptr %463, align 4, !tbaa !119
-  %464 = getelementptr inbounds nuw i8, ptr %456, i64 12
-  store i32 0, ptr %464, align 4, !tbaa !119
-  br label %465
+455:                                              ; preds = %453
+  %456 = sext i32 %.0294475478483 to i64
+  %457 = getelementptr inbounds %"struct.Eigen::internal::Colamd::RowStructure", ptr %3, i64 %456
+  store i32 %.1276, ptr %457, align 4, !tbaa !3446
+  %458 = ptrtoint ptr %.0296.ph to i64
+  %459 = ptrtoint ptr %410 to i64
+  %460 = sub i64 %458, %459
+  %461 = lshr exact i64 %460, 2
+  %462 = trunc i64 %461 to i32
+  %463 = getelementptr inbounds nuw i8, ptr %457, i64 4
+  store i32 %462, ptr %463, align 4, !tbaa !3441
+  %464 = getelementptr inbounds nuw i8, ptr %457, i64 8
+  store i32 %.3413.lcssa484, ptr %464, align 4, !tbaa !119
+  %465 = getelementptr inbounds nuw i8, ptr %457, i64 12
+  store i32 0, ptr %465, align 4, !tbaa !119
+  br label %466
 
-465:                                              ; preds = %454, %452
-  %466 = icmp slt i32 %.1278.lcssa485, %7
-  br i1 %466, label %.preheader421, label %._crit_edge461, !llvm.loop !3482
+466:                                              ; preds = %455, %453
+  %467 = icmp slt i32 %.1278.lcssa485, %7
+  br i1 %467, label %.preheader421, label %._crit_edge461, !llvm.loop !3482
 
-._crit_edge461:                                   ; preds = %465, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit
+._crit_edge461:                                   ; preds = %466, %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit
   ret void
 }
 

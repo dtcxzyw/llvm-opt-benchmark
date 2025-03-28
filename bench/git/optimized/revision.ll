@@ -5421,7 +5421,7 @@ st_mult.exit.i:                                   ; preds = %290
 ..critedge.loopexit_crit_edge.i:                  ; preds = %304
   %309 = trunc nsw i64 %indvars.iv.i to i32
   %.pre68.pre.i = load i32, ptr %263, align 4, !tbaa !165
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !254
 
 .critedge.loopexit.i:                             ; preds = %300
   %310 = trunc nsw i64 %indvars.iv.i to i32

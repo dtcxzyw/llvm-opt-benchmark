@@ -1003,10 +1003,13 @@ define ptr @Gia_ManVerifyCexAndMove(ptr noundef %0, ptr noundef readonly capture
   %167 = sub nsw i32 %.val135.val, %.val134
   %168 = sext i32 %167 to i64
   %169 = icmp slt i64 %indvars.iv.next231, %168
-  br i1 %169, label %.lr.ph208, label %.critedge10, !llvm.loop !72
+  br i1 %169, label %.lr.ph208, label %..critedge10.loopexit_crit_edge, !llvm.loop !72
 
-.critedge10:                                      ; preds = %.lr.ph255, %.lr.ph208, %.lr.ph208.preheader, %.critedge6._crit_edge
-  %.val158210 = phi i32 [ %.val134202, %.critedge6._crit_edge ], [ %.val134202, %.lr.ph208.preheader ], [ %.val134, %.lr.ph208 ], [ %.val134, %.lr.ph255 ]
+..critedge10.loopexit_crit_edge:                  ; preds = %.lr.ph255
+  br label %.critedge10, !llvm.loop !72
+
+.critedge10:                                      ; preds = %.lr.ph208, %.lr.ph208.preheader, %..critedge10.loopexit_crit_edge, %.critedge6._crit_edge
+  %.val158210 = phi i32 [ %.val134202, %.critedge6._crit_edge ], [ %.val134, %..critedge10.loopexit_crit_edge ], [ %.val134202, %.lr.ph208.preheader ], [ %.val134, %.lr.ph208 ]
   %.val159211 = load ptr, ptr %155, align 8, !tbaa !65
   %170 = getelementptr i8, ptr %.val159211, i64 4
   %.val159.val212 = load i32, ptr %170, align 4, !tbaa !62
@@ -1044,10 +1047,13 @@ define ptr @Gia_ManVerifyCexAndMove(ptr noundef %0, ptr noundef readonly capture
   %180 = sub nsw i32 %.val159.val, %.val158
   %181 = sext i32 %180 to i64
   %182 = icmp slt i64 %indvars.iv.next234, %181
-  br i1 %182, label %.lr.ph215, label %.critedge12, !llvm.loop !73
+  br i1 %182, label %.lr.ph215, label %..critedge12.loopexit_crit_edge, !llvm.loop !73
 
-.critedge12:                                      ; preds = %.lr.ph262, %.lr.ph215, %.lr.ph215.preheader, %.critedge10
-  %.val125217 = phi i32 [ %.val158210, %.critedge10 ], [ %.val158210, %.lr.ph215.preheader ], [ %.val158, %.lr.ph215 ], [ %.val158, %.lr.ph262 ]
+..critedge12.loopexit_crit_edge:                  ; preds = %.lr.ph262
+  br label %.critedge12, !llvm.loop !73
+
+.critedge12:                                      ; preds = %.lr.ph215, %.lr.ph215.preheader, %..critedge12.loopexit_crit_edge, %.critedge10
+  %.val125217 = phi i32 [ %.val158210, %.critedge10 ], [ %.val158, %..critedge12.loopexit_crit_edge ], [ %.val158210, %.lr.ph215.preheader ], [ %.val158, %.lr.ph215 ]
   %183 = icmp sgt i32 %.val125217, 0
   br i1 %183, label %.lr.ph221, label %.critedge14
 

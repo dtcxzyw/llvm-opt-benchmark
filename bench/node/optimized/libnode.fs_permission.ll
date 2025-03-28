@@ -712,58 +712,61 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   %conv.i.i.i.i.i.i.i.i = sext i8 %9 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %3
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %return, !llvm.loop !16
+  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !16
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
+  br label %return, !llvm.loop !16
 
 if.end11:                                         ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %10 = load ptr, ptr %second, align 8
   %call13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
-  %call1426 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
-  %cmp1527 = icmp ne i64 %call1426, 0
-  %cmp16.not28 = icmp ne i64 %call13, 0
-  %or.cond29 = and i1 %cmp16.not28, %cmp1527
-  br i1 %or.cond29, label %lor.lhs.false, label %return
+  %call1427 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
+  %cmp1528 = icmp ne i64 %call1427, 0
+  %cmp16.not29 = icmp ne i64 %call13, 0
+  %or.cond30 = and i1 %cmp16.not29, %cmp1528
+  br i1 %or.cond30, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end11, %for.inc
-  %i.031 = phi i64 [ %inc38, %for.inc ], [ 0, %if.end11 ]
-  %idx.addr.030 = phi i64 [ %idx.addr.1, %for.inc ], [ %idx, %if.end11 ]
-  %call18 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %i.031) #13
+  %i.032 = phi i64 [ %inc38, %for.inc ], [ 0, %if.end11 ]
+  %idx.addr.031 = phi i64 [ %idx.addr.1, %for.inc ], [ %idx, %if.end11 ]
+  %call18 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %i.032) #13
   %11 = load i8, ptr %call18, align 1
   %cmp19 = icmp eq i8 %11, 42
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %lor.lhs.false
   %call22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
-  %cmp23.not = icmp ult i64 %idx.addr.030, %call22
+  %cmp23.not = icmp ult i64 %idx.addr.031, %call22
   br i1 %cmp23.not, label %if.end29, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end21
-  %call25 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %i.031) #13
+  %call25 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %i.032) #13
   %12 = load i8, ptr %call25, align 1
   %cmp27 = icmp eq i8 %12, 47
   br i1 %cmp27, label %for.inc, label %if.end29
 
 if.end29:                                         ; preds = %land.lhs.true, %if.end21
-  %inc = add i64 %idx.addr.030, 1
-  %call30 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef %idx.addr.030) #13
+  %inc = add i64 %idx.addr.031, 1
+  %call30 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef %idx.addr.031) #13
   %13 = load i8, ptr %call30, align 1
-  %call33 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %i.031) #13
+  %call33 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %i.032) #13
   %14 = load i8, ptr %call33, align 1
   %cmp35.not = icmp eq i8 %13, %14
   br i1 %cmp35.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end29, %land.lhs.true
-  %idx.addr.1 = phi i64 [ %idx.addr.030, %land.lhs.true ], [ %inc, %if.end29 ]
-  %inc38 = add nuw i64 %i.031, 1
+  %idx.addr.1 = phi i64 [ %idx.addr.031, %land.lhs.true ], [ %inc, %if.end29 ]
+  %inc38 = add nuw i64 %i.032, 1
   %call14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
   %cmp15 = icmp ult i64 %inc38, %call14
   %cmp16.not = icmp ult i64 %inc38, %call13
   %or.cond = and i1 %cmp16.not, %cmp15
   br i1 %or.cond, label %lor.lhs.false, label %return, !llvm.loop !17
 
-return:                                           ; preds = %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %lor.lhs.false, %if.end29, %for.inc, %if.end11, %if.end15.i.i, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end15.i.i ], [ %10, %if.end11 ], [ %10, %lor.lhs.false ], [ null, %if.end29 ], [ %10, %for.inc ], [ null, %for.cond.i.i ], [ null, %lor.lhs.false.i.i.i.i ], [ null, %if.end3.i.i.i.i ]
+return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false, %if.end29, %for.inc, %if.end11, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end15.i.i ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ %10, %if.end11 ], [ %10, %lor.lhs.false ], [ null, %if.end29 ], [ %10, %for.inc ], [ null, %for.cond.i.i ], [ null, %if.end3.i.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -1073,9 +1076,12 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %conv.i.i.i.i.i.i = sext i8 %7 to i64
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i, %1
   %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i.i, %rem.i.i.i
-  br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end, !llvm.loop !16
+  br i1 %cmp.not.i.i, label %for.cond.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i, !llvm.loop !16
 
-if.end:                                           ; preds = %lor.lhs.false.i.i, %if.end3.i.i, %entry
+lor.lhs.false.return.loopexit_crit_edge.i.i:      ; preds = %lor.lhs.false.i.i
+  br label %if.end, !llvm.loop !16
+
+if.end:                                           ; preds = %if.end3.i.i, %entry, %lor.lhs.false.return.loopexit_crit_edge.i.i
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 8
   store i8 %0, ptr %add.ptr.i.i, align 8

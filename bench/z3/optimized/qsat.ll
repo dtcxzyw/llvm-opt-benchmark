@@ -15093,7 +15093,7 @@ _ZNK7obj_mapI4exprPS0_E8containsES1_.exit:        ; preds = %101, %109
 .backedge:                                        ; preds = %.backedgethread-pre-split, %269
   %119 = phi ptr [ %.pr227, %.backedgethread-pre-split ], [ %270, %269 ]
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !372
+  br i1 %120, label %.backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread_crit_edge, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !372
 
 121:                                              ; preds = %3
   %122 = landingpad { ptr, i32 }
@@ -15892,8 +15892,11 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; pr
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
           to label %.backedgethread-pre-split unwind label %.loopexit176
 
-_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %.backedge, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph
-  %.0.lcssa.ph = phi ptr [ null, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %89, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %89, %.backedge ]
+.backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread_crit_edge: ; preds = %.backedge
+  br label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, !llvm.loop !372
+
+_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %.backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread_crit_edge, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph
+  %.0.lcssa.ph = phi ptr [ %89, %.backedge._ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread_crit_edge ], [ null, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %89, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ]
   %426 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %427 = load i32, ptr %426, align 4, !tbaa !112
   %428 = load i32, ptr %25, align 8, !tbaa !15

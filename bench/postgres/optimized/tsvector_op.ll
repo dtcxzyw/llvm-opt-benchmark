@@ -3280,68 +3280,73 @@ define internal fastcc range(i32 -65535, 65536) i32 @add_pos(ptr noundef readonl
 
 .lr.ph29:                                         ; preds = %.lr.ph
   %45 = zext nneg i16 %.promoted to i64
-  br label %46
+  br label %48
 
-46:                                               ; preds = %.critedge2, %.lr.ph29
-  %indvars.iv28 = phi i64 [ %45, %.lr.ph29 ], [ %indvars.iv.next, %.critedge2 ]
-  %indvars.iv627 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next7, %.critedge2 ]
-  %47 = phi i16 [ %.promoted, %.lr.ph29 ], [ %67, %.critedge2 ]
-  %48 = icmp eq i64 %indvars.iv28, 0
-  br i1 %48, label %.critedge2, label %49
+46:                                               ; preds = %.critedge2
+  %47 = icmp samesign ult i64 %indvars.iv28, 255
+  br i1 %47, label %48, label %.critedge, !llvm.loop !33
 
-49:                                               ; preds = %46
-  %50 = add nuw nsw i64 %indvars.iv28, 4294967295
-  %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds nuw i16, ptr %40, i64 %51
-  %53 = load i16, ptr %52, align 2
-  %54 = and i16 %53, 16383
-  %.not56 = icmp eq i16 %54, 16383
+48:                                               ; preds = %.lr.ph29, %46
+  %indvars.iv28 = phi i64 [ %45, %.lr.ph29 ], [ %indvars.iv.next, %46 ]
+  %indvars.iv627 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next7, %46 ]
+  %49 = phi i16 [ %.promoted, %.lr.ph29 ], [ %69, %46 ]
+  %50 = icmp eq i64 %indvars.iv28, 0
+  br i1 %50, label %.critedge2, label %51
+
+51:                                               ; preds = %48
+  %52 = add nuw nsw i64 %indvars.iv28, 4294967295
+  %53 = and i64 %52, 4294967295
+  %54 = getelementptr inbounds nuw i16, ptr %40, i64 %53
+  %55 = load i16, ptr %54, align 2
+  %56 = and i16 %55, 16383
+  %.not56 = icmp eq i16 %56, 16383
   br i1 %.not56, label %.critedge, label %.critedge2
 
-.critedge2:                                       ; preds = %46, %49
-  %55 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv627
-  %56 = load i16, ptr %55, align 2
-  %57 = and i16 %56, -16384
-  %58 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv28
-  %59 = load i16, ptr %58, align 2
-  %60 = and i16 %59, 16383
-  %61 = or disjoint i16 %60, %57
-  store i16 %61, ptr %58, align 2
-  %62 = load i16, ptr %55, align 2
-  %63 = and i16 %62, 16383
-  %64 = zext nneg i16 %63 to i32
-  %65 = add nuw nsw i32 %3, %64
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %65, i32 16383)
+.critedge2:                                       ; preds = %48, %51
+  %57 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv627
+  %58 = load i16, ptr %57, align 2
+  %59 = and i16 %58, -16384
+  %60 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv28
+  %61 = load i16, ptr %60, align 2
+  %62 = and i16 %61, 16383
+  %63 = or disjoint i16 %62, %59
+  store i16 %63, ptr %60, align 2
+  %64 = load i16, ptr %57, align 2
+  %65 = and i16 %64, 16383
+  %66 = zext nneg i16 %65 to i32
+  %67 = add nuw nsw i32 %3, %66
+  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %67, i32 16383)
   %spec.select = trunc nuw nsw i32 %spec.select1 to i16
-  %66 = or disjoint i16 %57, %spec.select
-  store i16 %66, ptr %58, align 2
+  %68 = or disjoint i16 %59, %spec.select
+  store i16 %68, ptr %60, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv28, 1
-  %67 = trunc nuw nsw i64 %indvars.iv.next to i16
-  store i16 %67, ptr %17, align 2
+  %69 = trunc nuw nsw i64 %indvars.iv.next to i16
+  store i16 %69, ptr %17, align 2
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv627, 1
-  %exitcond.not = icmp ne i64 %indvars.iv.next7, %wide.trip.count
-  %68 = icmp samesign ult i64 %indvars.iv28, 255
-  %or.cond = select i1 %exitcond.not, i1 %68, i1 false
-  br i1 %or.cond, label %46, label %.critedge, !llvm.loop !33
+  %exitcond.not = icmp eq i64 %indvars.iv.next7, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge2..critedge_crit_edge, label %46, !llvm.loop !33
 
-.critedge:                                        ; preds = %.critedge2, %49, %.lr.ph
-  %69 = phi i16 [ %.promoted, %.lr.ph ], [ %67, %.critedge2 ], [ %47, %49 ]
-  %.not57 = icmp eq i16 %69, %.promoted
-  br i1 %.not57, label %.critedge.thread, label %70
+.critedge2..critedge_crit_edge:                   ; preds = %.critedge2
+  br label %.critedge, !llvm.loop !33
 
-70:                                               ; preds = %.critedge
-  %71 = load i32, ptr %2, align 4
-  %72 = or i32 %71, 1
-  store i32 %72, ptr %2, align 4
+.critedge:                                        ; preds = %46, %51, %.critedge2..critedge_crit_edge, %.lr.ph
+  %70 = phi i16 [ %69, %.critedge2..critedge_crit_edge ], [ %.promoted, %.lr.ph ], [ %69, %46 ], [ %49, %51 ]
+  %.not57 = icmp eq i16 %70, %.promoted
+  br i1 %.not57, label %.critedge.thread, label %71
+
+71:                                               ; preds = %.critedge
+  %72 = load i32, ptr %2, align 4
+  %73 = or i32 %72, 1
+  store i32 %73, ptr %2, align 4
   %.pre11 = load i16, ptr %17, align 2
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %43, %70, %.critedge
-  %73 = phi i16 [ %.pre11, %70 ], [ %.promoted, %.critedge ], [ %.promoted, %43 ]
-  %74 = zext i16 %.promoted to i32
-  %75 = zext i16 %73 to i32
-  %76 = sub nsw i32 %75, %74
-  ret i32 %76
+.critedge.thread:                                 ; preds = %43, %71, %.critedge
+  %74 = phi i16 [ %.pre11, %71 ], [ %.promoted, %.critedge ], [ %.promoted, %43 ]
+  %75 = zext i16 %.promoted to i32
+  %76 = zext i16 %74 to i32
+  %77 = sub nsw i32 %76, %75
+  ret i32 %77
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

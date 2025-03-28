@@ -145,7 +145,7 @@ define hidden void @_ZN9act_cache8dec_refsEv(ptr noundef nonnull readonly align 
   br i1 %11, label %.lr.ph.i.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
-  %.sroa.08.012.ph = phi ptr [ %3, %.lr.ph.i.i.preheader.i.i ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.08.013.ph = phi ptr [ %3, %.lr.ph.i.i.preheader.i.i ], [ %17, %.lr.ph.i.i.i.i ]
   br label %.lr.ph.outer
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i
@@ -159,18 +159,21 @@ define hidden void @_ZN9act_cache8dec_refsEv(ptr noundef nonnull readonly align 
   %16 = phi ptr [ %17, %.lr.ph.i.i.i.i ], [ %3, %.lr.ph.i.i.preheader.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.not.i.i.i.i = icmp eq ptr %17, %7
-  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i, !llvm.loop !36
+  br i1 %.not.i.i.i.i, label %._ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE8iteratorC2EPNSD_4cellESG_.exit.loopexit_crit_edge.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %.lr.ph.i.i, %41, %47, %1
+._ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE8iteratorC2EPNSD_4cellESG_.exit.loopexit_crit_edge.i.i: ; preds = %.lr.ph.i.i
+  br label %._crit_edge, !llvm.loop !36
+
+._crit_edge:                                      ; preds = %41, %47, %._ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE8iteratorC2EPNSD_4cellESG_.exit.loopexit_crit_edge.i.i, %1
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i7, %.lr.ph.preheader
-  %.sroa.08.012.ph30 = phi ptr [ %.sroa.08.012.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i7 ]
+  %.sroa.08.013.ph30 = phi ptr [ %.sroa.08.013.ph, %.lr.ph.preheader ], [ %.sroa.08.2, %.lr.ph.i.i7 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %_ZN11ast_manager7dec_refEP3ast.exit6
-  %.sroa.9.013 = phi ptr [ %39, %_ZN11ast_manager7dec_refEP3ast.exit6 ], [ %.sroa.08.012.ph30, %.lr.ph.outer ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.9.013, i64 8
+  %.sroa.9.014 = phi ptr [ %39, %_ZN11ast_manager7dec_refEP3ast.exit6 ], [ %.sroa.08.013.ph30, %.lr.ph.outer ]
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 8
   %19 = load ptr, ptr %0, align 8, !tbaa !37
   %20 = load ptr, ptr %18, align 8, !tbaa !38
   %.not.i = icmp eq ptr %20, null
@@ -191,7 +194,7 @@ define hidden void @_ZN9act_cache8dec_refsEv(ptr noundef nonnull readonly align 
 
 _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %.lr.ph, %21, %26
   %27 = phi ptr [ %19, %.lr.ph ], [ %19, %21 ], [ %.pre, %26 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.9.013, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.9.014, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, -8
@@ -212,12 +215,12 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %.lr.ph, %21, %26
   br label %_ZN11ast_manager7dec_refEP3ast.exit6
 
 _ZN11ast_manager7dec_refEP3ast.exit6:             ; preds = %_ZN11ast_manager7dec_refEP3ast.exit, %33, %38
-  %39 = load ptr, ptr %.sroa.9.013, align 8, !tbaa !33
+  %39 = load ptr, ptr %.sroa.9.014, align 8, !tbaa !33
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %.lr.ph
 
 41:                                               ; preds = %_ZN11ast_manager7dec_refEP3ast.exit6
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.ph30, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.ph30, i64 32
   %.not2.i.i = icmp eq ptr %42, %7
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i7
 

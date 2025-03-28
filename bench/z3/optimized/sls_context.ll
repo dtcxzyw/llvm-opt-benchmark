@@ -3116,16 +3116,16 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %._crit_edge
   br i1 %26, label %.preheader, label %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i
 
 _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i:    ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %._crit_edge101
-  %.val123 = phi ptr [ %.val.pre, %._crit_edge101 ], [ %13, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
-  %27 = getelementptr inbounds i8, ptr %.val123, i64 -4
+  %.val124 = phi ptr [ %.val.pre, %._crit_edge101 ], [ %13, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
+  %27 = getelementptr inbounds i8, ptr %.val124, i64 -4
   %28 = load i32, ptr %27, align 4, !tbaa !58
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.sat::literal", ptr %.val123, i64 %29
+  %30 = getelementptr inbounds nuw %"class.sat::literal", ptr %.val124, i64 %29
   %.not3.not.i = icmp eq i32 %28, 0
   br i1 %.not3.not.i, label %.preheader, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i, %.lr.ph.i
-  %.0114.i = phi ptr [ %35, %.lr.ph.i ], [ %.val123, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i ]
+  %.0114.i = phi ptr [ %35, %.lr.ph.i ], [ %.val124, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i ]
   %.sroa.0.0.copyload.i = load i32, ptr %.0114.i, align 4, !tbaa !58
   %.val.val.i = load ptr, ptr %4, align 8, !tbaa !148
   %31 = load ptr, ptr %.val.val.i, align 8, !tbaa !3
@@ -3484,9 +3484,9 @@ _ZN6vectorIiLb0EjE4backEv.exit.i72:               ; preds = %196
   br label %_ZN4heapIN3sls7context10less_depthEE9erase_minEv.exit
 
 _ZN4heapIN3sls7context10less_depthEE9erase_minEv.exit: ; preds = %203, %_ZN6vectorIiLb0EjE4backEv.exit.i72
-  %.pre-phi115 = phi i64 [ %205, %203 ], [ %216, %_ZN6vectorIiLb0EjE4backEv.exit.i72 ]
+  %.pre-phi116 = phi i64 [ %205, %203 ], [ %216, %_ZN6vectorIiLb0EjE4backEv.exit.i72 ]
   %220 = load ptr, ptr %44, align 8, !tbaa !51
-  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %.pre-phi115
+  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %.pre-phi116
   %222 = load ptr, ptr %221, align 8, !tbaa !61
   %223 = load i32, ptr %47, align 4, !tbaa !162
   %224 = add i32 %223, 1
@@ -3535,8 +3535,8 @@ _ZNK17scoped_ptr_vectorIN3sls6pluginEE3getEjPS1_.exit74: ; preds = %_ZNK6vectorI
   tail call void @_ZN3sls7context15repair_literalsEv(ptr noundef nonnull align 8 dereferenceable(321) %0)
   br label %245
 
-._crit_edge110:                                   ; preds = %264
-  br i1 %266, label %245, label %.critedge8
+._crit_edge110:                                   ; preds = %265
+  br i1 %267, label %245, label %.critedge8
 
 245:                                              ; preds = %.critedge, %._crit_edge110
   %246 = load i8, ptr %36, align 1, !tbaa !149, !range !150, !noundef !151
@@ -3556,31 +3556,34 @@ _ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit76: ; preds = %248
   %.not59106 = icmp eq i32 %252, 0
   br i1 %.not59106, label %.critedge8, label %.lr.ph109, !llvm.loop !165
 
-.lr.ph109:                                        ; preds = %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit76, %264
-  %.050108 = phi ptr [ %267, %264 ], [ %249, %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit76 ]
-  %.1107 = phi i1 [ %266, %264 ], [ false, %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit76 ]
-  %255 = load ptr, ptr %.050108, align 8, !tbaa !70
-  %.not60 = icmp eq ptr %255, null
-  br i1 %.not60, label %264, label %256
+.lr.ph109:                                        ; preds = %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit76
+  br label %255, !llvm.loop !165
 
-256:                                              ; preds = %.lr.ph109
-  %257 = load i8, ptr %36, align 1, !tbaa !149, !range !150, !noundef !151
-  %258 = trunc nuw i8 %257 to i1
-  br i1 %258, label %264, label %259
+255:                                              ; preds = %.lr.ph109, %265
+  %.050108 = phi ptr [ %249, %.lr.ph109 ], [ %268, %265 ]
+  %.1107 = phi i1 [ false, %.lr.ph109 ], [ %267, %265 ]
+  %256 = load ptr, ptr %.050108, align 8, !tbaa !70
+  %.not60 = icmp eq ptr %256, null
+  br i1 %.not60, label %265, label %257
 
-259:                                              ; preds = %256
-  %260 = load ptr, ptr %255, align 8, !tbaa !3
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 64
-  %262 = load ptr, ptr %261, align 8
-  %263 = tail call noundef zeroext i1 %262(ptr noundef nonnull align 8 dereferenceable(28) %255)
-  br label %264
+257:                                              ; preds = %255
+  %258 = load i8, ptr %36, align 1, !tbaa !149, !range !150, !noundef !151
+  %259 = trunc nuw i8 %258 to i1
+  br i1 %259, label %265, label %260
 
-264:                                              ; preds = %259, %256, %.lr.ph109
-  %265 = phi i1 [ false, %256 ], [ false, %.lr.ph109 ], [ %263, %259 ]
-  %266 = or i1 %.1107, %265
-  %267 = getelementptr inbounds nuw i8, ptr %.050108, i64 8
-  %.not59 = icmp eq ptr %267, %254
-  br i1 %.not59, label %._crit_edge110, label %.lr.ph109, !llvm.loop !165
+260:                                              ; preds = %257
+  %261 = load ptr, ptr %256, align 8, !tbaa !3
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 64
+  %263 = load ptr, ptr %262, align 8
+  %264 = tail call noundef zeroext i1 %263(ptr noundef nonnull align 8 dereferenceable(28) %256)
+  br label %265
+
+265:                                              ; preds = %260, %257, %255
+  %266 = phi i1 [ false, %257 ], [ false, %255 ], [ %264, %260 ]
+  %267 = or i1 %.1107, %266
+  %268 = getelementptr inbounds nuw i8, ptr %.050108, i64 8
+  %.not59 = icmp eq ptr %268, %254
+  br i1 %.not59, label %._crit_edge110, label %255, !llvm.loop !165
 
 .critedge8:                                       ; preds = %76, %248, %245, %._crit_edge110, %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit76
   ret void

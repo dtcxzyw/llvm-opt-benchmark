@@ -4203,7 +4203,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 .loopexit34..loopexit35.loopexit50_crit_edge:     ; preds = %.loopexit34
   %.pre62.pre = load i64, ptr %184, align 8
   %.pre63.pre = load i64, ptr %287, align 8
-  br label %.loopexit35
+  br label %.loopexit35, !llvm.loop !65
 
 .loopexit35:                                      ; preds = %328, %293, %314, %.loopexit34..loopexit35.loopexit50_crit_edge
   %565 = phi i64 [ %.pre63.pre, %.loopexit34..loopexit35.loopexit50_crit_edge ], [ %296, %314 ], [ %296, %293 ], [ %296, %328 ]

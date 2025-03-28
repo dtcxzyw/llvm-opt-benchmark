@@ -7670,7 +7670,7 @@ define internal fastcc range(i32 0, 2) i32 @analyze_cells(ptr noundef nonnull %0
 11:                                               ; preds = %.lr.ph
   %12 = call ptr @PyErr_Occurred() #6
   %.not21 = icmp eq ptr %12, null
-  br i1 %.not21, label %31, label %.thread, !llvm.loop !194
+  br i1 %.not21, label %31, label %..thread_crit_edge33, !llvm.loop !194
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %4, align 8, !tbaa !58
@@ -7709,8 +7709,11 @@ define internal fastcc range(i32 0, 2) i32 @analyze_cells(ptr noundef nonnull %0
   %.not20 = icmp eq i32 %32, 0
   br i1 %.not20, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %31, %11, %13, %18, %23, %27, %.preheader
-  %.017 = phi i32 [ 1, %.preheader ], [ 0, %27 ], [ 0, %23 ], [ 0, %18 ], [ 0, %13 ], [ 0, %11 ], [ 1, %31 ]
+..thread_crit_edge33:                             ; preds = %11
+  br label %.thread, !llvm.loop !194
+
+.thread:                                          ; preds = %31, %13, %18, %23, %27, %..thread_crit_edge33, %.preheader
+  %.017 = phi i32 [ 0, %..thread_crit_edge33 ], [ 1, %.preheader ], [ 0, %27 ], [ 0, %23 ], [ 0, %18 ], [ 0, %13 ], [ 1, %31 ]
   %33 = load i32, ptr %7, align 8, !tbaa !18
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit

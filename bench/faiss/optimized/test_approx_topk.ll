@@ -1222,10 +1222,13 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit: ; preds = %_ZNSt1
   %357 = sext i32 %356 to i64
   %358 = urem i64 %357, %320
   %.not19.i.i.i.i = icmp eq i64 %358, %343
-  br i1 %.not19.i.i.i.i, label %351, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit, !llvm.loop !50
+  br i1 %.not19.i.i.i.i, label %351, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !50
 
-_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit: ; preds = %354, %.lr.ph.i.i.i.i227, %351, %337, %.preheader, %346, %341
-  %.sroa.06.1.i.i = phi ptr [ null, %341 ], [ %347, %346 ], [ null, %.preheader ], [ %.sroa.06.0.i.i, %337 ], [ %353, %351 ], [ null, %.lr.ph.i.i.i.i227 ], [ null, %354 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %354
+  br label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit, !llvm.loop !50
+
+_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit: ; preds = %.lr.ph.i.i.i.i227, %351, %337, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %346, %341
+  %.sroa.06.1.i.i = phi ptr [ null, %341 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %347, %346 ], [ null, %.preheader ], [ %.sroa.06.0.i.i, %337 ], [ %353, %351 ], [ null, %.lr.ph.i.i.i.i227 ]
   %.not413 = icmp ne ptr %.sroa.06.1.i.i, null
   %359 = zext i1 %.not413 to i64
   %.489 = add i64 %.388586, %359
@@ -2378,10 +2381,13 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit: ; preds = %_ZNSt1
   %357 = sext i32 %356 to i64
   %358 = urem i64 %357, %320
   %.not19.i.i.i.i = icmp eq i64 %358, %343
-  br i1 %.not19.i.i.i.i, label %351, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit, !llvm.loop !50
+  br i1 %.not19.i.i.i.i, label %351, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !50
 
-_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit: ; preds = %354, %.lr.ph.i.i.i.i227, %351, %337, %.preheader, %346, %341
-  %.sroa.06.1.i.i = phi ptr [ null, %341 ], [ %347, %346 ], [ null, %.preheader ], [ %.sroa.06.0.i.i, %337 ], [ %353, %351 ], [ null, %.lr.ph.i.i.i.i227 ], [ null, %354 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %354
+  br label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit, !llvm.loop !50
+
+_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit: ; preds = %.lr.ph.i.i.i.i227, %351, %337, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %346, %341
+  %.sroa.06.1.i.i = phi ptr [ null, %341 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %347, %346 ], [ null, %.preheader ], [ %.sroa.06.0.i.i, %337 ], [ %353, %351 ], [ null, %.lr.ph.i.i.i.i227 ]
   %.not413 = icmp ne ptr %.sroa.06.1.i.i, null
   %359 = zext i1 %.not413 to i64
   %.489 = add i64 %.388586, %359
@@ -3534,10 +3540,13 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit: ; preds = %_ZNSt1
   %357 = sext i32 %356 to i64
   %358 = urem i64 %357, %320
   %.not19.i.i.i.i = icmp eq i64 %358, %343
-  br i1 %.not19.i.i.i.i, label %351, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit, !llvm.loop !50
+  br i1 %.not19.i.i.i.i, label %351, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !50
 
-_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit: ; preds = %354, %.lr.ph.i.i.i.i227, %351, %337, %.preheader, %346, %341
-  %.sroa.06.1.i.i = phi ptr [ null, %341 ], [ %347, %346 ], [ null, %.preheader ], [ %.sroa.06.0.i.i, %337 ], [ %353, %351 ], [ null, %.lr.ph.i.i.i.i227 ], [ null, %354 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %354
+  br label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit, !llvm.loop !50
+
+_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit: ; preds = %.lr.ph.i.i.i.i227, %351, %337, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %346, %341
+  %.sroa.06.1.i.i = phi ptr [ null, %341 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %347, %346 ], [ null, %.preheader ], [ %.sroa.06.0.i.i, %337 ], [ %353, %351 ], [ null, %.lr.ph.i.i.i.i227 ]
   %.not413 = icmp ne ptr %.sroa.06.1.i.i, null
   %359 = zext i1 %.not413 to i64
   %.489 = add i64 %.388586, %359
@@ -4690,10 +4699,13 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit: ; preds = %_ZNSt1
   %357 = sext i32 %356 to i64
   %358 = urem i64 %357, %320
   %.not19.i.i.i.i = icmp eq i64 %358, %343
-  br i1 %.not19.i.i.i.i, label %351, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit, !llvm.loop !50
+  br i1 %.not19.i.i.i.i, label %351, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !50
 
-_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit: ; preds = %354, %.lr.ph.i.i.i.i227, %351, %337, %.preheader, %346, %341
-  %.sroa.06.1.i.i = phi ptr [ null, %341 ], [ %347, %346 ], [ null, %.preheader ], [ %.sroa.06.0.i.i, %337 ], [ %353, %351 ], [ null, %.lr.ph.i.i.i.i227 ], [ null, %354 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %354
+  br label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit, !llvm.loop !50
+
+_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit: ; preds = %.lr.ph.i.i.i.i227, %351, %337, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %346, %341
+  %.sroa.06.1.i.i = phi ptr [ null, %341 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %347, %346 ], [ null, %.preheader ], [ %.sroa.06.0.i.i, %337 ], [ %353, %351 ], [ null, %.lr.ph.i.i.i.i227 ]
   %.not413 = icmp ne ptr %.sroa.06.1.i.i, null
   %359 = zext i1 %.not413 to i64
   %.489 = add i64 %.388586, %359
@@ -5628,12 +5640,15 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail
   %39 = sext i32 %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %.critedge, !llvm.loop !100
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !100
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %36, %23, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %36 ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %36 ], [ %8, %.lr.ph.i.i ]
-  %43 = phi i32 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %36 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge, !llvm.loop !100
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi i32 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
   store ptr null, ptr %44, align 8, !tbaa !44
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

@@ -959,7 +959,7 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %514 = and i32 %513, 131068
   %515 = sub nsw i32 %234, %514
   %516 = icmp sgt i32 %515, 3
-  br i1 %516, label %.lr.ph72, label %.critedge56, !llvm.loop !10
+  br i1 %516, label %.lr.ph72, label %..critedge56_crit_edge, !llvm.loop !10
 
 517:                                              ; preds = %209, %191, %163
   %518 = phi ptr [ %161, %163 ], [ %189, %191 ], [ %207, %209 ]
@@ -976,8 +976,11 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #11
   br label %.loopexit
 
-.critedge56:                                      ; preds = %.lr.ph72, %509, %.lr.ph72.preheader
-  %.lcssa = phi i32 [ 0, %.lr.ph72.preheader ], [ %510, %509 ], [ %510, %.lr.ph72 ]
+..critedge56_crit_edge:                           ; preds = %509
+  br label %.critedge56, !llvm.loop !10
+
+.critedge56:                                      ; preds = %.lr.ph72, %..critedge56_crit_edge, %.lr.ph72.preheader
+  %.lcssa = phi i32 [ %510, %..critedge56_crit_edge ], [ 0, %.lr.ph72.preheader ], [ %510, %.lr.ph72 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #11
   %522 = icmp eq i32 %.lcssa, 0

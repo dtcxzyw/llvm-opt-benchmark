@@ -546,7 +546,7 @@ push.exit.i:                                      ; preds = %190, %196, %gv_allo
 
 .extractMax.exit.thread.loopexit_crit_edge.i:     ; preds = %244
   %.val.pre.pre.i = load ptr, ptr %7, align 8, !tbaa !9
-  br label %find_closest_pairs.exit
+  br label %find_closest_pairs.exit, !llvm.loop !29
 
 find_closest_pairs.exit:                          ; preds = %136, %.preheader.i, %.extractMax.exit.thread.loopexit_crit_edge.i
   %.sroa.0.2 = phi ptr [ %.sroa.0.1, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ null, %.preheader.i ], [ %.sroa.0.0, %136 ]

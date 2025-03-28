@@ -179,7 +179,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 Vec_IntPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_IntPush.exit
   %.val204.pre.pre = load i32, ptr %42, align 4, !tbaa !29
-  br label %.critedge.loopexit
+  br label %.critedge.loopexit, !llvm.loop !52
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %Vec_IntPush.exit..critedge.loopexit_crit_edge
   %.val204.pre = phi i32 [ %.val204.pre.pre, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ %.val204.pre.pre382, %.lr.ph ]
@@ -749,10 +749,13 @@ sat_solver_add_buffer.exit288:                    ; preds = %.lr.ph394, %351
   %355 = sub nsw i32 %.val243.val, %.val242
   %356 = sext i32 %355 to i64
   %357 = icmp slt i64 %indvars.iv.next365, %356
-  br i1 %357, label %.lr.ph344, label %.critedge10, !llvm.loop !68
+  br i1 %357, label %.lr.ph344, label %sat_solver_add_buffer.exit288..critedge10.loopexit_crit_edge, !llvm.loop !68
 
-.critedge10:                                      ; preds = %sat_solver_add_buffer.exit288, %.lr.ph344, %.lr.ph344.preheader, %.critedge8
-  %.val201346 = phi i32 [ %.val242340, %.critedge8 ], [ %.val242340, %.lr.ph344.preheader ], [ %.val242, %.lr.ph344 ], [ %.val242, %sat_solver_add_buffer.exit288 ]
+sat_solver_add_buffer.exit288..critedge10.loopexit_crit_edge: ; preds = %sat_solver_add_buffer.exit288
+  br label %.critedge10, !llvm.loop !68
+
+.critedge10:                                      ; preds = %.lr.ph344, %.lr.ph344.preheader, %sat_solver_add_buffer.exit288..critedge10.loopexit_crit_edge, %.critedge8
+  %.val201346 = phi i32 [ %.val242340, %.critedge8 ], [ %.val242, %sat_solver_add_buffer.exit288..critedge10.loopexit_crit_edge ], [ %.val242340, %.lr.ph344.preheader ], [ %.val242, %.lr.ph344 ]
   %358 = icmp sgt i32 %.val201346, 0
   br i1 %358, label %.lr.ph349, label %.critedge12
 
@@ -1656,10 +1659,13 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %61, %69, %Gia_ObjIs
   %.val69 = load i32, ptr %3, align 4, !tbaa !29
   %83 = sext i32 %.val69 to i64
   %84 = icmp slt i64 %indvars.iv.next131, %83
-  br i1 %84, label %56, label %.critedge2, !llvm.loop !82
+  br i1 %84, label %56, label %Gia_ObjIsRo.exit.thread..critedge2.loopexit_crit_edge, !llvm.loop !82
 
-.critedge2:                                       ; preds = %Gia_ObjIsRo.exit.thread, %56, %.lr.ph116, %.critedge
-  %.val68123139 = phi i32 [ %.val69114, %.critedge ], [ %.val69114, %.lr.ph116 ], [ %.val69, %56 ], [ %.val69, %Gia_ObjIsRo.exit.thread ]
+Gia_ObjIsRo.exit.thread..critedge2.loopexit_crit_edge: ; preds = %Gia_ObjIsRo.exit.thread
+  br label %.critedge2, !llvm.loop !82
+
+.critedge2:                                       ; preds = %56, %.lr.ph116, %Gia_ObjIsRo.exit.thread..critedge2.loopexit_crit_edge, %.critedge
+  %.val68123139 = phi i32 [ %.val69114, %.critedge ], [ %.val69, %Gia_ObjIsRo.exit.thread..critedge2.loopexit_crit_edge ], [ %.val69114, %.lr.ph116 ], [ %.val69, %56 ]
   %.val118 = load i32, ptr %5, align 8, !tbaa !3
   %85 = icmp sgt i32 %.val118, 0
   br i1 %85, label %.lr.ph121, label %.critedge4

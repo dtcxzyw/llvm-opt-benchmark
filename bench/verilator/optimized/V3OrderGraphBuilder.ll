@@ -1571,9 +1571,12 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP9AstActive(ptr
   %74 = ptrtoint ptr %73 to i64
   %75 = urem i64 %74, %58
   %.not19.i.i.i.i.i = icmp eq i64 %75, %59
-  br i1 %.not19.i.i.i.i.i, label %68, label %.loopexit.i.i, !llvm.loop !103
+  br i1 %.not19.i.i.i.i.i, label %68, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !103
 
-.loopexit.i.i:                                    ; preds = %71, %.lr.ph.i.i.i.i.i, %50, %55
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %71
+  br label %.loopexit.i.i, !llvm.loop !103
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %50, %..loopexit_crit_edge21.i.i.i.i.i, %55
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.21) #27
           to label %.noexc unwind label %91
 

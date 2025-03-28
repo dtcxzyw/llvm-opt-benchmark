@@ -3157,7 +3157,7 @@ define internal i32 @fib_nl_dumprule(ptr noundef %0, ptr noundef captures(none) 
 
 ._crit_edge:                                      ; preds = %101
   %.pre26 = sext i32 %102 to i64
-  br label %split
+  br label %split, !llvm.loop !42
 
 split:                                            ; preds = %92, %._crit_edge, %80
   %105 = phi i64 [ 0, %80 ], [ %.pre26, %._crit_edge ], [ %89, %92 ]
@@ -3228,7 +3228,7 @@ split:                                            ; preds = %92, %._crit_edge, %
 
 ._crit_edge19:                                    ; preds = %144
   %.pre24 = sext i32 %145 to i64
-  br label %split20
+  br label %split20, !llvm.loop !42
 
 split20:                                          ; preds = %135, %._crit_edge19, %126
   %148 = phi i64 [ 0, %126 ], [ %.pre24, %._crit_edge19 ], [ %132, %135 ]
@@ -3258,7 +3258,7 @@ split20:                                          ; preds = %135, %._crit_edge19
 
 ._crit_edge21:                                    ; preds = %155
   %.pre23 = sext i32 %156 to i64
-  br label %split22
+  br label %split22, !llvm.loop !43
 
 split22:                                          ; preds = %153, %._crit_edge21, %108
   %159 = phi i64 [ 0, %108 ], [ %.pre23, %._crit_edge21 ], [ %119, %153 ]

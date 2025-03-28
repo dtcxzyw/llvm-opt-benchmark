@@ -490,10 +490,13 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
 23:                                               ; preds = %20
   %24 = add nuw nsw i32 %.053121, 1
   %exitcond146.not = icmp eq i32 %24, 8
-  br i1 %exitcond146.not, label %.lr.ph, label %20, !llvm.loop !42
+  br i1 %exitcond146.not, label %..critedge2_crit_edge, label %20, !llvm.loop !42
 
-.lr.ph:                                           ; preds = %23, %20
-  %.053.lcssa = phi i32 [ 8, %23 ], [ %.053121, %20 ]
+..critedge2_crit_edge:                            ; preds = %23
+  br label %.lr.ph, !llvm.loop !42
+
+.lr.ph:                                           ; preds = %20, %..critedge2_crit_edge
+  %.053.lcssa = phi i32 [ 8, %..critedge2_crit_edge ], [ %.053121, %20 ]
   %25 = shl nuw i32 1, %.0.lcssa
   %26 = shl nuw i32 1, %.053.lcssa
   %27 = add nuw nsw i32 %.053.lcssa, %.0.lcssa
@@ -609,14 +612,14 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
   %79 = phi i32 [ %102, %.lr.ph135 ], [ %77, %.lr.ph135.preheader ]
-  %indvars.iv.next158174 = phi i64 [ %indvars.iv.next158, %.lr.ph135 ], [ 1, %.lr.ph135.preheader ]
-  %.1133173 = phi i32 [ %92, %.lr.ph135 ], [ %.054.lcssa, %.lr.ph135.preheader ]
-  %indvars.iv157172 = phi i64 [ %indvars.iv.next158174, %.lr.ph135 ], [ 0, %.lr.ph135.preheader ]
-  %80 = trunc i64 %indvars.iv157172 to i32
+  %indvars.iv.next158176 = phi i64 [ %indvars.iv.next158, %.lr.ph135 ], [ 1, %.lr.ph135.preheader ]
+  %.1133175 = phi i32 [ %92, %.lr.ph135 ], [ %.054.lcssa, %.lr.ph135.preheader ]
+  %indvars.iv157174 = phi i64 [ %indvars.iv.next158176, %.lr.ph135 ], [ 0, %.lr.ph135.preheader ]
+  %80 = trunc i64 %indvars.iv157174 to i32
   %81 = sub i32 %80, %52
   %.sroa.speculated85 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
   %82 = add nsw i32 %79, -1
-  %83 = trunc i64 %indvars.iv157172 to i32
+  %83 = trunc i64 %indvars.iv157174 to i32
   %84 = add i32 %52, %83
   %.sroa.speculated80 = tail call i32 @llvm.smin.i32(i32 %82, i32 %84)
   %85 = sext i32 %.sroa.speculated80 to i64
@@ -625,9 +628,9 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %88 = zext nneg i32 %.sroa.speculated85 to i64
   %89 = getelementptr inbounds nuw i32, ptr %30, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !44
-  %91 = add i32 %87, %.1133173
+  %91 = add i32 %87, %.1133175
   %92 = sub i32 %91, %90
-  %93 = add nuw nsw i64 %indvars.iv.next158174, %68
+  %93 = add nuw nsw i64 %indvars.iv.next158176, %68
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !43
   %96 = zext i8 %95 to i32
@@ -637,20 +640,20 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %100 = zext i1 %99 to i8
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 %93
   store i8 %100, ptr %101, align 1, !tbaa !43
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv.next158174, 1
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv.next158176, 1
   %102 = load i32, ptr %4, align 4, !tbaa !29
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next158, %103
   br i1 %104, label %.lr.ph135, label %._crit_edge136.loopexit
 
 ._crit_edge136.loopexit:                          ; preds = %.lr.ph135, %.lr.ph135.preheader
-  %.lcssa171 = phi i32 [ %77, %.lr.ph135.preheader ], [ %102, %.lr.ph135 ]
+  %.lcssa172 = phi i32 [ %77, %.lr.ph135.preheader ], [ %102, %.lr.ph135 ]
   %.pre = load i32, ptr %8, align 8, !tbaa !30
   br label %._crit_edge136
 
 ._crit_edge136:                                   ; preds = %._crit_edge136.loopexit, %._crit_edge
   %105 = phi i32 [ %54, %._crit_edge ], [ %.pre, %._crit_edge136.loopexit ]
-  %106 = phi i32 [ %55, %._crit_edge ], [ %.lcssa171, %._crit_edge136.loopexit ]
+  %106 = phi i32 [ %55, %._crit_edge ], [ %.lcssa172, %._crit_edge136.loopexit ]
   %107 = add nuw nsw i32 %storemerge62141, 1
   %108 = icmp slt i32 %107, %105
   br i1 %108, label %109, label %._crit_edge143
@@ -673,20 +676,20 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %116 = sext i32 %113 to i64
   %117 = zext nneg i32 %115 to i64
   %wide.trip.count163 = zext nneg i32 %106 to i64
-  %invariant.gep167 = getelementptr inbounds nuw i8, ptr %1, i64 %117
-  %invariant.gep169 = getelementptr i8, ptr %1, i64 %116
+  %invariant.gep168 = getelementptr inbounds nuw i8, ptr %1, i64 %117
+  %invariant.gep170 = getelementptr i8, ptr %1, i64 %116
   br label %.lr.ph140
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
   %indvars.iv160 = phi i64 [ 0, %.lr.ph140.preheader ], [ %indvars.iv.next161, %.lr.ph140 ]
-  %gep168 = getelementptr inbounds nuw i8, ptr %invariant.gep167, i64 %indvars.iv160
-  %118 = load i8, ptr %gep168, align 1, !tbaa !43
+  %gep169 = getelementptr inbounds nuw i8, ptr %invariant.gep168, i64 %indvars.iv160
+  %118 = load i8, ptr %gep169, align 1, !tbaa !43
   %119 = zext i8 %118 to i32
   %120 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv160
   %121 = load i32, ptr %120, align 4, !tbaa !44
   %122 = sub i32 %121, %119
-  %gep170 = getelementptr i8, ptr %invariant.gep169, i64 %indvars.iv160
-  %123 = load i8, ptr %gep170, align 1, !tbaa !43
+  %gep171 = getelementptr i8, ptr %invariant.gep170, i64 %indvars.iv160
+  %123 = load i8, ptr %gep171, align 1, !tbaa !43
   %124 = zext i8 %123 to i32
   %125 = add i32 %122, %124
   store i32 %125, ptr %120, align 4, !tbaa !44

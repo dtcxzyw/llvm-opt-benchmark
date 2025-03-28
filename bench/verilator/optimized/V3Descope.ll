@@ -6931,8 +6931,11 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %143 = icmp eq i32 %bcmp.i146, 0
   br i1 %143, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit147.thread, label %.critedge
 
-.critedge:                                        ; preds = %133, %_ZN8AstCFunc9addStmtspEP7AstNode.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit147, %.lr.ph594, %.preheader
-  %.sroa.0309.1.lcssa = phi ptr [ %.sroa.0309.0600, %.preheader ], [ %.sroa.0309.0600, %.lr.ph594 ], [ %.sroa.0309.1593837, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit147 ], [ %.sroa.0299.0592838, %_ZN8AstCFunc9addStmtspEP7AstNode.exit ], [ %.sroa.0299.0592838, %133 ]
+_ZN8AstCFunc9addStmtspEP7AstNode.exit..critedge.loopexit_crit_edge: ; preds = %_ZN8AstCFunc9addStmtspEP7AstNode.exit
+  br label %.critedge, !llvm.loop !250
+
+.critedge:                                        ; preds = %133, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit147, %.lr.ph594, %_ZN8AstCFunc9addStmtspEP7AstNode.exit..critedge.loopexit_crit_edge, %.preheader
+  %.sroa.0309.1.lcssa = phi ptr [ %.sroa.0309.0600, %.preheader ], [ %.sroa.0299.0592838, %_ZN8AstCFunc9addStmtspEP7AstNode.exit..critedge.loopexit_crit_edge ], [ %.sroa.0309.0600, %.lr.ph594 ], [ %.sroa.0309.1593837, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit147 ], [ %.sroa.0299.0592838, %133 ]
   %144 = invoke noundef i32 @_ZL5debugv()
           to label %526 unwind label %107
 
@@ -8040,7 +8043,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233: ; preds = %51
 _ZN8AstCFunc9addStmtspEP7AstNode.exit:            ; preds = %524, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit228
   %525 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0299.0592838) #26
   %.not339 = icmp eq ptr %525, %17
-  br i1 %.not339, label %.critedge, label %133, !llvm.loop !250
+  br i1 %.not339, label %_ZN8AstCFunc9addStmtspEP7AstNode.exit..critedge.loopexit_crit_edge, label %133, !llvm.loop !250
 
 526:                                              ; preds = %.critedge
   %527 = icmp sgt i32 %144, 8

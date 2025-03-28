@@ -2732,21 +2732,21 @@ _ZN4cvc58internal6Random9getRandomEv.exit.split:  ; preds = %_ZN4cvc58internal6R
   %36 = urem i64 %16, %20
   %37 = getelementptr inbounds nuw ptr, ptr %21, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !137
-  %.not.i.i.i.i14 = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i14, label %.loopexit, label %.lr.ph
+  %.not.i.i.i.i15 = icmp eq ptr %38, null
+  br i1 %.not.i.i.i.i15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4cvc58internal6Random9getRandomEv.exit.split, %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit
   %39 = phi ptr [ %56, %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ], [ %38, %_ZN4cvc58internal6Random9getRandomEv.exit.split ]
   %40 = phi i64 [ %54, %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ], [ %36, %_ZN4cvc58internal6Random9getRandomEv.exit.split ]
-  %.015 = phi i64 [ %spec.select, %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ], [ %16, %_ZN4cvc58internal6Random9getRandomEv.exit.split ]
+  %.016 = phi i64 [ %spec.select, %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ], [ %16, %_ZN4cvc58internal6Random9getRandomEv.exit.split ]
   %41 = load ptr, ptr %39, align 8, !tbaa !120
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !100
-  %44 = icmp eq i64 %.015, %43
+  %44 = icmp eq i64 %.016, %43
   br i1 %44, label %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit, label %.lr.ph.i.i.i.i
 
 45:                                               ; preds = %48
-  %46 = icmp eq i64 %.015, %50
+  %46 = icmp eq i64 %.016, %50
   br i1 %46, label %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !138
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph, %45
@@ -2760,10 +2760,13 @@ _ZN4cvc58internal6Random9getRandomEv.exit.split:  ; preds = %_ZN4cvc58internal6R
   %50 = load i64, ptr %49, align 8, !tbaa !100
   %51 = urem i64 %50, %20
   %.not19.i.i.i.i = icmp eq i64 %51, %40
-  br i1 %.not19.i.i.i.i, label %45, label %.loopexit, !llvm.loop !138
+  br i1 %.not19.i.i.i.i, label %45, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !138
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %48
+  br label %.loopexit, !llvm.loop !138
 
 _ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit: ; preds = %45, %.lr.ph
-  %52 = add i64 %.015, 1
+  %52 = add i64 %.016, 1
   %53 = icmp eq i64 %52, %28
   %spec.select = select i1 %53, i64 0, i64 %52
   %54 = urem i64 %spec.select, %20
@@ -2772,9 +2775,9 @@ _ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit: ; preds = %
   %.not.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph, !llvm.loop !136
 
-.loopexit:                                        ; preds = %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit, %48, %.lr.ph.i.i.i.i, %29, %_ZN4cvc58internal6Random9getRandomEv.exit.split
-  %.013 = phi i64 [ %16, %_ZN4cvc58internal6Random9getRandomEv.exit.split ], [ %.0.us, %29 ], [ %.015, %.lr.ph.i.i.i.i ], [ %.015, %48 ], [ %spec.select, %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ]
-  ret i64 %.013
+.loopexit:                                        ; preds = %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit, %.lr.ph.i.i.i.i, %29, %_ZN4cvc58internal6Random9getRandomEv.exit.split, %..loopexit_crit_edge21.i.i.i.i
+  %.014 = phi i64 [ %.016, %..loopexit_crit_edge21.i.i.i.i ], [ %16, %_ZN4cvc58internal6Random9getRandomEv.exit.split ], [ %.0.us, %29 ], [ %.016, %.lr.ph.i.i.i.i ], [ %spec.select, %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ]
+  ret i64 %.014
 }
 
 declare void @_ZN4cvc58internal6theory11quantifiers9ExprMiner15convertToSkolemENS0_12NodeTemplateILb1EEE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) local_unnamed_addr #0
@@ -3761,11 +3764,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %36 = load i64, ptr %35, align 8, !tbaa !100
   %37 = urem i64 %36, %9
   %.not19.i.i = icmp eq i64 %37, %10
-  br i1 %.not19.i.i, label %31, label %.critedge, !llvm.loop !145
+  br i1 %.not19.i.i, label %31, label %..loopexit_crit_edge21.i.i, !llvm.loop !145
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %34, %22, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %34 ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %34 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %34
+  br label %.critedge, !llvm.loop !145
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   store ptr null, ptr %40, align 8, !tbaa !120
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -4307,11 +4313,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %36 = load i64, ptr %35, align 8, !tbaa !100
   %37 = urem i64 %36, %9
   %.not19.i.i = icmp eq i64 %37, %10
-  br i1 %.not19.i.i, label %31, label %.critedge, !llvm.loop !145
+  br i1 %.not19.i.i, label %31, label %..loopexit_crit_edge21.i.i, !llvm.loop !145
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %34, %22, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %34 ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %34 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %34
+  br label %.critedge, !llvm.loop !145
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   store ptr null, ptr %40, align 8, !tbaa !120
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

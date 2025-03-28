@@ -90,8 +90,8 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
 .cont58.thread:                                   ; preds = %5
   store ptr %0, ptr %1, align 8
   %8 = load i8, ptr %0, align 1
-  %.not91.i100 = icmp eq i8 %8, 0
-  br i1 %.not91.i100, label %._crit_edge.i.thread, label %.lr.ph.i.split.preheader
+  %.not91.i101 = icmp eq i8 %8, 0
+  br i1 %.not91.i101, label %._crit_edge.i.thread, label %.lr.ph.i.split.preheader
 
 .lr.ph.i.split.preheader:                         ; preds = %.cont58.thread
   %9 = tail call ptr @__ctype_b_loc() #15
@@ -120,7 +120,10 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   %21 = getelementptr inbounds nuw i8, ptr %storemerge92.i.us87, i64 1
   %22 = load i8, ptr %21, align 1
   %.not.i.us = icmp eq i8 %22, 0
-  br i1 %.not.i.us, label %._crit_edge.i, label %16, !llvm.loop !3
+  br i1 %.not.i.us, label %.cont55.us.._crit_edge.i.loopexit.split.us_crit_edge, label %16, !llvm.loop !3
+
+.cont55.us.._crit_edge.i.loopexit.split.us_crit_edge: ; preds = %.cont55.us
+  br label %._crit_edge.i, !llvm.loop !3
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i.split.preheader, %.else57
   %23 = phi i8 [ %30, %.else57 ], [ %8, %.lr.ph.i.split.preheader ]
@@ -144,17 +147,17 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   %storemerge.lcssa.i.ph = phi ptr [ %0, %.cont58.thread ], [ %storemerge92.i, %.lr.ph.i.split ], [ %29, %.else57 ]
   %31 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %storemerge.lcssa.i.ph, ptr noundef nonnull @.str.1, i64 noundef 3) #14
   %32 = icmp eq i32 %31, 0
-  %.else.val54105 = load ptr, ptr %1, align 8
+  %.else.val54106 = load ptr, ptr %1, align 8
   br i1 %32, label %.cont12, label %62
 
-._crit_edge.i:                                    ; preds = %16, %.cont55.us, %.lr.ph.i.split.us, %.cont58
-  %.1 = phi ptr [ %0, %.cont58 ], [ %0, %.lr.ph.i.split.us ], [ %21, %.cont55.us ], [ %21, %16 ]
+._crit_edge.i:                                    ; preds = %16, %.cont55.us.._crit_edge.i.loopexit.split.us_crit_edge, %.lr.ph.i.split.us, %.cont58
+  %.1 = phi ptr [ %0, %.cont58 ], [ %21, %.cont55.us.._crit_edge.i.loopexit.split.us_crit_edge ], [ %0, %.lr.ph.i.split.us ], [ %21, %16 ]
   %33 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.1, ptr noundef nonnull @.str.1, i64 noundef 3) #14
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.cont12.thread, label %62
 
 .cont12:                                          ; preds = %._crit_edge.i.thread
-  %35 = getelementptr inbounds nuw i8, ptr %.else.val54105, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %.else.val54106, i64 3
   store ptr %35, ptr %1, align 8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 49152, ptr %36, align 8
@@ -168,8 +171,8 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 49152, ptr %39, align 8
   %40 = load i8, ptr %38, align 1
-  %.not84109.i108 = icmp eq i8 %40, 0
-  br i1 %.not84109.i108, label %set_var_from_str.exit, label %.lr.ph111.i.thread
+  %.not84109.i109 = icmp eq i8 %40, 0
+  br i1 %.not84109.i109, label %set_var_from_str.exit, label %.lr.ph111.i.thread
 
 .lr.ph111.i.thread:                               ; preds = %.cont12.thread
   %41 = tail call ptr @__ctype_b_loc() #15
@@ -219,8 +222,8 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   br i1 %.not84.i, label %set_var_from_str.exit, label %.lr.ph111.i.split, !llvm.loop !5
 
 62:                                               ; preds = %._crit_edge.i.thread, %._crit_edge.i
-  %.1103 = phi ptr [ %.1, %._crit_edge.i ], [ %0, %._crit_edge.i.thread ]
-  %63 = phi ptr [ %.1, %._crit_edge.i ], [ %.else.val54105, %._crit_edge.i.thread ]
+  %.1104 = phi ptr [ %.1, %._crit_edge.i ], [ %0, %._crit_edge.i.thread ]
+  %63 = phi ptr [ %.1, %._crit_edge.i ], [ %.else.val54106, %._crit_edge.i.thread ]
   %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #16
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %66 = load ptr, ptr %65, align 8
@@ -254,7 +257,7 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   br label %.cont49
 
 .cont49:                                          ; preds = %71, %.else51
-  %79 = phi ptr [ %.1103, %71 ], [ %.else.val52, %.else51 ]
+  %79 = phi ptr [ %.1104, %71 ], [ %.else.val52, %.else51 ]
   %80 = load i8, ptr %79, align 1
   switch i8 %80, label %85 [
     i8 43, label %thread-pre-split115.i
@@ -269,7 +272,7 @@ thread-pre-split115.i:                            ; preds = %81, %.cont49
   br i1 %.not, label %thread-pre-split115.i.then, label %thread-pre-split115.i.else
 
 thread-pre-split115.i.then:                       ; preds = %thread-pre-split115.i
-  %82 = getelementptr inbounds nuw i8, ptr %.1103, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.1104, i64 1
   br label %thread-pre-split115.i.cont
 
 thread-pre-split115.i.else:                       ; preds = %thread-pre-split115.i
@@ -280,12 +283,12 @@ thread-pre-split115.i.else:                       ; preds = %thread-pre-split115
 
 thread-pre-split115.i.cont:                       ; preds = %thread-pre-split115.i.else, %thread-pre-split115.i.then
   %84 = phi ptr [ %82, %thread-pre-split115.i.then ], [ %83, %thread-pre-split115.i.else ]
-  %.13 = phi ptr [ %82, %thread-pre-split115.i.then ], [ %.1103, %thread-pre-split115.i.else ]
+  %.13 = phi ptr [ %82, %thread-pre-split115.i.then ], [ %.1104, %thread-pre-split115.i.else ]
   %.pr116.i = load i8, ptr %84, align 1
   br label %85
 
 85:                                               ; preds = %thread-pre-split115.i.cont, %.cont49
-  %.2 = phi ptr [ %.1103, %.cont49 ], [ %.13, %thread-pre-split115.i.cont ]
+  %.2 = phi ptr [ %.1104, %.cont49 ], [ %.13, %thread-pre-split115.i.cont ]
   %86 = phi i8 [ %80, %.cont49 ], [ %.pr116.i, %thread-pre-split115.i.cont ]
   %87 = phi ptr [ %79, %.cont49 ], [ %84, %thread-pre-split115.i.cont ]
   %88 = icmp eq i8 %86, 46

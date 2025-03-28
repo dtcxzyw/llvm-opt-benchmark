@@ -18446,7 +18446,7 @@ _ZNK8uint_set8containsEj.exit.thread.i.i:         ; preds = %_ZNK6vectorIjLb0EjE
 
 ._ZN8uint_set8iterator8scan_idxEv.exit.i.thread_crit_edge: ; preds = %145
   %.pre721 = lshr i32 %.sroa.5511.12.extract.trunc, 5
-  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i
+  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i, !llvm.loop !247
 
 _ZN8uint_set8iterator8scan_idxEv.exit.i:          ; preds = %132, %_ZNK8uint_set8containsEj.exit.thread.us.i.i, %_ZN7zstringD2Ev.exit174
   %.sroa.5511.2 = phi i64 [ %.sroa.5511.8.insert.insert, %_ZN7zstringD2Ev.exit174 ], [ %.sroa.5511.8.insert.insert545, %132 ], [ %.sroa.5511.10, %_ZNK8uint_set8containsEj.exit.thread.us.i.i ]
@@ -18757,7 +18757,7 @@ _ZNK8uint_set8containsEj.exit.thread.i.i267:      ; preds = %_ZNK6vectorIjLb0EjE
 
 ._ZN8uint_set8iterator8scan_idxEv.exit.i270.thread_crit_edge: ; preds = %254
   %.pre719 = lshr i32 %.sroa.5473.12.extract.trunc, 5
-  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i271
+  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i271, !llvm.loop !247
 
 _ZN8uint_set8iterator8scan_idxEv.exit.i270:       ; preds = %241, %_ZNK8uint_set8containsEj.exit.thread.us.i.i303, %_ZN7zstringD2Ev.exit180
   %.sroa.5473.2 = phi i64 [ %.sroa.5473.8.insert.insert, %_ZN7zstringD2Ev.exit180 ], [ %.sroa.5473.8.insert.insert507, %241 ], [ %.sroa.5473.10, %_ZNK8uint_set8containsEj.exit.thread.us.i.i303 ]
@@ -19156,7 +19156,7 @@ _ZNK8uint_set8containsEj.exit.thread.i.i312:      ; preds = %_ZNK6vectorIjLb0EjE
 
 ._ZN8uint_set8iterator8scan_idxEv.exit.i315.thread_crit_edge: ; preds = %393
   %.pre717 = lshr i32 %.sroa.5435.12.extract.trunc, 5
-  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i316
+  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i316, !llvm.loop !247
 
 _ZN8uint_set8iterator8scan_idxEv.exit.i315:       ; preds = %380, %_ZNK8uint_set8containsEj.exit.thread.us.i.i348, %373
   %.sroa.5435.2 = phi i64 [ %.sroa.5435.8.insert.insert, %373 ], [ %.sroa.5435.8.insert.insert469, %380 ], [ %.sroa.5435.10, %_ZNK8uint_set8containsEj.exit.thread.us.i.i348 ]
@@ -19676,7 +19676,7 @@ _ZNK8uint_set8containsEj.exit.thread.i.i357:      ; preds = %_ZNK6vectorIjLb0EjE
 
 ._ZN8uint_set8iterator8scan_idxEv.exit.i360.thread_crit_edge: ; preds = %565
   %.pre716 = lshr i32 %.sroa.5.12.extract.trunc, 5
-  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i361
+  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i1.i361, !llvm.loop !247
 
 _ZN8uint_set8iterator8scan_idxEv.exit.i360:       ; preds = %552, %_ZNK8uint_set8containsEj.exit.thread.us.i.i393, %545
   %.sroa.5.2 = phi i64 [ %.sroa.5.8.insert.insert, %545 ], [ %.sroa.5.8.insert.insert431, %552 ], [ %.sroa.5.10, %_ZNK8uint_set8containsEj.exit.thread.us.i.i393 ]
@@ -37222,7 +37222,7 @@ _ZN7zstringD2Ev.exit143:                          ; preds = %_ZN7obj_refI4expr11
 
 _ZN7zstringD2Ev.exit143._ZNK8seq_util3rex8is_emptyEPK4expr.exit._crit_edge.loopexit_crit_edge: ; preds = %_ZN7zstringD2Ev.exit143
   %.pre.pre = load ptr, ptr %6, align 8, !tbaa !176
-  br label %_ZNK8seq_util3rex8is_emptyEPK4expr.exit._crit_edge
+  br label %_ZNK8seq_util3rex8is_emptyEPK4expr.exit._crit_edge, !llvm.loop !311
 
 266:                                              ; preds = %_ZNK8seq_util3rex8is_emptyEPK4expr.exit.thread
   %267 = landingpad { ptr, i32 }

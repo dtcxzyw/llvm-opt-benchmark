@@ -15263,10 +15263,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
   %803 = trunc nsw i64 %indvars.iv.next.i435 to i32
   store i32 %803, ptr %778, align 4
   %exitcond.not.i436 = icmp eq i64 %indvars.iv.next.i435, %wide.trip.count.i432
-  br i1 %exitcond.not.i436, label %.noexc341, label %.lr.ph19.i, !llvm.loop !55
+  br i1 %exitcond.not.i436, label %..noexc341.loopexit_crit_edge, label %.lr.ph19.i, !llvm.loop !55
 
-.noexc341:                                        ; preds = %.lr.ph706, %.lr.ph19.i, %.lr.ph19.preheader.i, %.noexc.i252..noexc341_crit_edge, %._crit_edge.i, %.preheader.i431
-  %804 = phi i32 [ %.pre658, %.noexc.i252..noexc341_crit_edge ], [ 0, %._crit_edge.i ], [ 0, %.preheader.i431 ], [ 0, %.lr.ph19.preheader.i ], [ %803, %.lr.ph19.i ], [ %803, %.lr.ph706 ]
+..noexc341.loopexit_crit_edge:                    ; preds = %.lr.ph706
+  br label %.noexc341, !llvm.loop !55
+
+.noexc341:                                        ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i, %..noexc341.loopexit_crit_edge, %.noexc.i252..noexc341_crit_edge, %._crit_edge.i, %.preheader.i431
+  %804 = phi i32 [ %.pre658, %.noexc.i252..noexc341_crit_edge ], [ 0, %._crit_edge.i ], [ 0, %.preheader.i431 ], [ %803, %..noexc341.loopexit_crit_edge ], [ 0, %.lr.ph19.preheader.i ], [ %803, %.lr.ph19.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %805 = getelementptr inbounds nuw i8, ptr %730, i64 68
   %806 = getelementptr inbounds nuw i8, ptr %730, i64 72
@@ -15968,10 +15971,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i469: ; pred
   %1060 = trunc nsw i64 %indvars.iv.next.i479 to i32
   store i32 %1060, ptr %1035, align 4
   %exitcond.not.i480 = icmp eq i64 %indvars.iv.next.i479, %wide.trip.count.i474
-  br i1 %exitcond.not.i480, label %.noexc383, label %.lr.ph19.i475, !llvm.loop !55
+  br i1 %exitcond.not.i480, label %..noexc383.loopexit_crit_edge, label %.lr.ph19.i475, !llvm.loop !55
 
-.noexc383:                                        ; preds = %.lr.ph710, %.lr.ph19.i475, %.lr.ph19.preheader.i473, %.noexc.i273..noexc383_crit_edge, %._crit_edge.i470, %.preheader.i472
-  %1061 = phi i32 [ %.pre660, %.noexc.i273..noexc383_crit_edge ], [ 0, %._crit_edge.i470 ], [ 0, %.preheader.i472 ], [ 0, %.lr.ph19.preheader.i473 ], [ %1060, %.lr.ph19.i475 ], [ %1060, %.lr.ph710 ]
+..noexc383.loopexit_crit_edge:                    ; preds = %.lr.ph710
+  br label %.noexc383, !llvm.loop !55
+
+.noexc383:                                        ; preds = %.lr.ph19.i475, %.lr.ph19.preheader.i473, %..noexc383.loopexit_crit_edge, %.noexc.i273..noexc383_crit_edge, %._crit_edge.i470, %.preheader.i472
+  %1061 = phi i32 [ %.pre660, %.noexc.i273..noexc383_crit_edge ], [ 0, %._crit_edge.i470 ], [ 0, %.preheader.i472 ], [ %1060, %..noexc383.loopexit_crit_edge ], [ 0, %.lr.ph19.preheader.i473 ], [ %1060, %.lr.ph19.i475 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !59
   %1062 = getelementptr inbounds nuw i8, ptr %987, i64 68
   %1063 = getelementptr inbounds nuw i8, ptr %987, i64 72

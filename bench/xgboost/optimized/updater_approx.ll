@@ -106065,7 +106065,10 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   %104 = zext i32 %103 to i64
   %105 = urem i64 %104, %88
   %.not19.i.i.i.i.i = icmp eq i64 %105, %89
-  br i1 %.not19.i.i.i.i.i, label %98, label %_ZNSt6vectorImSaImEED2Ev.exit, !llvm.loop !3157
+  br i1 %.not19.i.i.i.i.i, label %98, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !3157
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %101
+  br label %_ZNSt6vectorImSaImEED2Ev.exit, !llvm.loop !3157
 
 _ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit: ; preds = %98, %81, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit, %93
   br i1 %64, label %106, label %172
@@ -106291,7 +106294,7 @@ _ZNSt6vectorImSaImEED2Ev.exit62:                  ; preds = %169, %.body
   %188 = call { double, double } @_ZNK7xgboost4tree13HistEvaluator14EnumerateSplitILin1EEENS0_9GradStatsERKNS_6common13HistogramCutsENS4_4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEEjiRKNS0_13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEEEPNS0_19SplitEntryContainerIS3_EE(ptr noundef nonnull align 8 dereferenceable(208) %8, ptr noundef nonnull align 8 dereferenceable(32) %186, i64 %23, ptr %24, i32 noundef %54, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull %17)
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %101, %.lr.ph.i.i.i.i.i, %80, %85, %165, %164, %128, %185, %172
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i, %80, %..loopexit_crit_edge21.i.i.i.i.i, %85, %165, %164, %128, %185, %172
   %189 = add nuw i64 %.0137, 1
   %exitcond.not = icmp eq i64 %189, %3
   br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !3164

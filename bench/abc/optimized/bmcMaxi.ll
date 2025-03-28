@@ -77,10 +77,13 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %13
   %22 = add nuw nsw i32 %.0199275, 1
   %.val141 = load i32, ptr %6, align 8, !tbaa !3
   %23 = icmp slt i32 %22, %.val141
-  br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !33
+  br i1 %23, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !33
 
-.critedge:                                        ; preds = %.lr.ph276, %.lr.ph, %.lr.ph.preheader
-  %.val142201 = phi i32 [ %.val141198, %.lr.ph.preheader ], [ %.val141, %.lr.ph ], [ %.val141, %.lr.ph276 ]
+..critedge_crit_edge:                             ; preds = %.lr.ph276
+  br label %.critedge, !llvm.loop !33
+
+.critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader
+  %.val142201 = phi i32 [ %.val141, %..critedge_crit_edge ], [ %.val141198, %.lr.ph.preheader ], [ %.val141, %.lr.ph ]
   %24 = icmp sgt i32 %.val142201, 0
   br i1 %24, label %.lr.ph203.preheader, label %.critedge2.thread
 
@@ -100,15 +103,18 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %13
   %25 = add nuw nsw i32 %.1202280, 1
   %.val142 = load i32, ptr %6, align 8, !tbaa !3
   %26 = icmp slt i32 %25, %.val142
-  br i1 %26, label %.lr.ph203, label %.critedge2, !llvm.loop !35
+  br i1 %26, label %.lr.ph203, label %..critedge2_crit_edge, !llvm.loop !35
 
 .critedge2.thread:                                ; preds = %.critedge, %Abc_UtilStrsav.exit
   %.val143205.ph = phi i32 [ %.val142201, %.critedge ], [ %.val141198, %Abc_UtilStrsav.exit ]
   %27 = getelementptr i8, ptr %0, i64 64
   br label %.critedge4
 
-.critedge2:                                       ; preds = %.lr.ph281, %.lr.ph203, %.lr.ph203.preheader
-  %.val143205 = phi i32 [ %.val142201, %.lr.ph203.preheader ], [ %.val142, %.lr.ph203 ], [ %.val142, %.lr.ph281 ]
+..critedge2_crit_edge:                            ; preds = %.lr.ph281
+  br label %.critedge2, !llvm.loop !35
+
+.critedge2:                                       ; preds = %.lr.ph203, %..critedge2_crit_edge, %.lr.ph203.preheader
+  %.val143205 = phi i32 [ %.val142, %..critedge2_crit_edge ], [ %.val142201, %.lr.ph203.preheader ], [ %.val142, %.lr.ph203 ]
   %28 = getelementptr i8, ptr %0, i64 64
   %29 = icmp sgt i32 %.val143205, 0
   br i1 %29, label %.lr.ph208, label %.critedge4
@@ -384,10 +390,13 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %164 = sub nsw i32 %.val157.val, %.val156
   %165 = sext i32 %164 to i64
   %166 = icmp slt i64 %indvars.iv.next239, %165
-  br i1 %166, label %.lr.ph215, label %.critedge6, !llvm.loop !41
+  br i1 %166, label %.lr.ph215, label %Gia_ManAppendCi.exit..critedge6.loopexit_crit_edge, !llvm.loop !41
 
-.critedge6:                                       ; preds = %Gia_ManAppendCi.exit, %.lr.ph215, %.lr.ph215.preheader, %.preheader197
-  %.val145262 = phi i32 [ %.val145265, %.preheader197 ], [ %.val145265, %.lr.ph215.preheader ], [ %.val156, %.lr.ph215 ], [ %.val156, %Gia_ManAppendCi.exit ]
+Gia_ManAppendCi.exit..critedge6.loopexit_crit_edge: ; preds = %Gia_ManAppendCi.exit
+  br label %.critedge6, !llvm.loop !41
+
+.critedge6:                                       ; preds = %.lr.ph215, %.lr.ph215.preheader, %Gia_ManAppendCi.exit..critedge6.loopexit_crit_edge, %.preheader197
+  %.val145262 = phi i32 [ %.val145265, %.preheader197 ], [ %.val156, %Gia_ManAppendCi.exit..critedge6.loopexit_crit_edge ], [ %.val145265, %.lr.ph215.preheader ], [ %.val156, %.lr.ph215 ]
   %167 = load i32, ptr %8, align 8, !tbaa !28
   %168 = icmp sgt i32 %167, 0
   br i1 %168, label %.lr.ph218, label %.critedge8
@@ -1022,7 +1031,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 Vec_IntPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_IntPush.exit
   %.val161.pre.pre = load i32, ptr %65, align 4, !tbaa !37
-  br label %.critedge.loopexit
+  br label %.critedge.loopexit, !llvm.loop !79
 
 .critedge.loopexit:                               ; preds = %78, %Vec_IntPush.exit..critedge.loopexit_crit_edge
   %.val161.pre = phi i32 [ %.val161.pre.pre, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ %.val161.pre.pre309, %78 ]

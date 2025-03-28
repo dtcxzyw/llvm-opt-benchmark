@@ -7125,7 +7125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
   %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 0, i64 %31
   %35 = load i8, ptr %34, align 1, !tbaa !7
   %36 = icmp eq i8 %33, %35
-  br i1 %36, label %.lr.ph77, label %.critedge.loopexit, !llvm.loop !266
+  br i1 %36, label %.lr.ph77, label %.critedge, !llvm.loop !266
 
 .lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %37 = phi i8 [ %33, %.lr.ph ], [ %28, %.lr.ph.preheader ]
@@ -7137,16 +7137,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
   %41 = zext i8 %40 to i32
   %42 = shl nuw nsw i32 %41, 3
   %43 = icmp samesign ult i32 %42, %27
-  br i1 %43, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !266
+  br i1 %43, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !266
 
-.critedge.loopexit:                               ; preds = %.lr.ph, %.lr.ph77
-  %44 = trunc i32 %42 to i8
-  br label %.critedge
+..critedge_crit_edge:                             ; preds = %.lr.ph77
+  br label %.critedge, !llvm.loop !266
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader
-  %.lcssa.ph = phi i8 [ 0, %.lr.ph.preheader ], [ %44, %.critedge.loopexit ]
-  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %.sroa.speculated45, i8 %.lcssa.ph)
-  %45 = icmp ugt i8 %.sroa.speculated45, %.lcssa.ph
+.critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader
+  %.lcssa.ph = phi i32 [ %42, %..critedge_crit_edge ], [ 0, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %44 = trunc i32 %.lcssa.ph to i8
+  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %.sroa.speculated45, i8 %44)
+  %45 = icmp ugt i8 %.sroa.speculated45, %44
   br i1 %45, label %.lr.ph70, label %.critedge4
 
 .lr.ph70:                                         ; preds = %.critedge, %57

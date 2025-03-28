@@ -7004,10 +7004,13 @@ define linkonce_odr void @_ZN4llvm29GenericUniformityAnalysisImplINS_17GenericSS
   %.03337 = phi ptr [ %19, %15 ], [ %2, %10 ]
   %19 = load ptr, ptr %.03337, align 8, !tbaa !338
   %.not27 = icmp eq ptr %19, null
-  br i1 %.not27, label %.critedge, label %15, !llvm.loop !530
+  br i1 %.not27, label %..critedge_crit_edge39, label %15, !llvm.loop !530
 
-.critedge:                                        ; preds = %.lr.ph38, %15, %10
-  %.023.lcssa = phi ptr [ %2, %10 ], [ %.03337, %15 ], [ %.03337, %.lr.ph38 ]
+..critedge_crit_edge39:                           ; preds = %.lr.ph38
+  br label %.critedge, !llvm.loop !530
+
+.critedge:                                        ; preds = %15, %..critedge_crit_edge39, %10
+  %.023.lcssa = phi ptr [ %.03337, %..critedge_crit_edge39 ], [ %2, %10 ], [ %.03337, %15 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %22 = load i8, ptr %21, align 4, !tbaa !285, !range !281, !noalias !531, !noundef !282

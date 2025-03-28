@@ -24895,9 +24895,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit8: ; preds = %86
   %109 = ptrtoint ptr %108 to i64
   %110 = urem i64 %109, %93
   %.not19.i.i.i.i = icmp eq i64 %110, %94
-  br i1 %.not19.i.i.i.i, label %103, label %.loopexit.i.i, !llvm.loop !671
+  br i1 %.not19.i.i.i.i, label %103, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !671
 
-.loopexit.i.i:                                    ; preds = %106, %.lr.ph.i.i.i.i, %89
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %106
+  br label %.loopexit.i.i, !llvm.loop !671
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %89
   %111 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
           to label %.noexc9 unwind label %61
 
@@ -31037,9 +31040,12 @@ define linkonce_odr dso_local void @_ZN16TaskStateVisitor15remapFuncClasspEP12As
   %24 = ptrtoint ptr %23 to i64
   %25 = urem i64 %24, %8
   %.not19.i.i.i.i = icmp eq i64 %25, %9
-  br i1 %.not19.i.i.i.i, label %18, label %.loopexit.i.i, !llvm.loop !671
+  br i1 %.not19.i.i.i.i, label %18, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !671
 
-.loopexit.i.i:                                    ; preds = %21, %.lr.ph.i.i.i.i, %3
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %21
+  br label %.loopexit.i.i, !llvm.loop !671
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %3
   %26 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   store ptr null, ptr %26, align 8, !tbaa !617
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -35747,9 +35753,12 @@ define linkonce_odr dso_local noundef ptr @_ZN16TaskStateVisitor9getClasspEP12As
   %22 = ptrtoint ptr %21 to i64
   %23 = urem i64 %22, %6
   %.not19.i.i.i.i = icmp eq i64 %23, %7
-  br i1 %.not19.i.i.i.i, label %16, label %.loopexit.i.i, !llvm.loop !671
+  br i1 %.not19.i.i.i.i, label %16, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !671
 
-.loopexit.i.i:                                    ; preds = %19, %.lr.ph.i.i.i.i, %2
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %19
+  br label %.loopexit.i.i, !llvm.loop !671
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %2
   %24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   store ptr null, ptr %24, align 8, !tbaa !617
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8

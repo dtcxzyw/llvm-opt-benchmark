@@ -8736,7 +8736,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 
 .thread-pre-split_crit_edge:                      ; preds = %30
   %.pr.pre = load i32, ptr %10, align 8, !tbaa !26
-  br label %thread-pre-split
+  br label %thread-pre-split, !llvm.loop !625
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %8, align 8, !tbaa !306

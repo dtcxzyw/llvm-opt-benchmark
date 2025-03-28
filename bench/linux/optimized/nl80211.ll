@@ -3625,7 +3625,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_wiphy(ptr noundef %0
 
 ._crit_edge112:                                   ; preds = %378
   %.pre113 = trunc nsw i64 %379 to i32
-  br label %split
+  br label %split, !llvm.loop !63
 
 split:                                            ; preds = %367, %._crit_edge112, %340
   %382 = phi i32 [ %345, %340 ], [ %.pre92.pre, %._crit_edge112 ], [ %.pre92.pre, %367 ]

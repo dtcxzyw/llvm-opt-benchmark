@@ -1579,7 +1579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57.i: ; preds = %_
   %.pre70.i = ptrtoint ptr %.pre64.i to i64
   %.pre72.i = sub i64 %.pre69.i, %.pre70.i
   %.pre74.i = trunc i64 %.pre72.i to i32
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !46
 
 .preheader.i:                                     ; preds = %.critedge.i, %.noexc147
   %.02860.i = phi i32 [ %573, %.noexc147 ], [ %568, %.critedge.i ]

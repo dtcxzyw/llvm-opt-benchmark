@@ -12415,12 +12415,12 @@ _ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignE
   %2051 = getelementptr inbounds nuw i8, ptr %2035, i64 40
   br label %2052
 
-thread-pre-split.loopexit.i.i:                    ; preds = %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE12emplace_backIJRS2_EEES5_DpOT_.exit27.i.i
+.thread-pre-split_crit_edge.i.i:                  ; preds = %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE12emplace_backIJRS2_EEES5_DpOT_.exit27.i.i
   %.pr.pre.i.i = load i32, ptr %765, align 8, !tbaa !124
-  br label %thread-pre-split.i.i
+  br label %thread-pre-split.i.i, !llvm.loop !543
 
-thread-pre-split.i.i:                             ; preds = %2052, %thread-pre-split.loopexit.i.i
-  %.pr.i.i = phi i32 [ %.pr.pre.i.i, %thread-pre-split.loopexit.i.i ], [ %2059, %2052 ]
+thread-pre-split.i.i:                             ; preds = %2052, %.thread-pre-split_crit_edge.i.i
+  %.pr.i.i = phi i32 [ %.pr.pre.i.i, %.thread-pre-split_crit_edge.i.i ], [ %2059, %2052 ]
   %.not.i23.i.i = icmp eq i32 %.pr.i.i, 0
   br i1 %.not.i23.i.i, label %2114, label %2052
 
@@ -12442,7 +12442,7 @@ thread-pre-split.i.i:                             ; preds = %2052, %thread-pre-s
 .lr.ph.i127.i:                                    ; preds = %2052
   %2063 = getelementptr inbounds i8, ptr %2058, i64 -8
   %wide.trip.count.i.i = zext nneg i32 %2062 to i64
-  br label %2064
+  br label %2064, !llvm.loop !543
 
 2064:                                             ; preds = %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE12emplace_backIJRS2_EEES5_DpOT_.exit27.i.i, %.lr.ph.i127.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i127.i ], [ %indvars.iv.next.i.i, %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE12emplace_backIJRS2_EEES5_DpOT_.exit27.i.i ]
@@ -12556,7 +12556,7 @@ _ZN4llvm15SmallVectorImplIPNS_11InstructionEE12emplace_backIJRS2_EEES5_DpOT_.exi
 _ZN4llvm15SmallVectorImplIPNS_11InstructionEE12emplace_backIJRS2_EEES5_DpOT_.exit27.i.i: ; preds = %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE12emplace_backIJRS2_EEES5_DpOT_.exit27.sink.split.i.i, %2084, %2080, %_ZNK4llvm4User10getOperandEj.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %thread-pre-split.loopexit.i.i, label %2064, !llvm.loop !548
+  br i1 %exitcond.not.i.i, label %.thread-pre-split_crit_edge.i.i, label %2064, !llvm.loop !548
 
 2114:                                             ; preds = %thread-pre-split.i.i
   %2115 = getelementptr inbounds nuw i8, ptr %2035, i64 24

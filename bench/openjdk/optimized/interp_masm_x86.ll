@@ -6472,7 +6472,7 @@ define hidden void @_ZN25InterpreterMacroAssembler17profile_null_seenE8Register(
 
 ._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i: ; preds = %26
   %.pre.i.i.i = load i8, ptr %22, align 1
-  br label %_ZN7BitData23null_seen_byte_constantEv.exit
+  br label %_ZN7BitData23null_seen_byte_constantEv.exit, !llvm.loop !11
 
 _ZN7BitData23null_seen_byte_constantEv.exit:      ; preds = %23, %._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i
   %29 = phi i8 [ %.pre.i.i.i, %._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i ], [ %24, %23 ]

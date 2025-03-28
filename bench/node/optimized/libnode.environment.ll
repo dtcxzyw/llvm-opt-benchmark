@@ -774,14 +774,17 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %16 = ptrtoint ptr %15 to i64
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %16, %9
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %do.end8.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i
+  br label %do.end8.i, !llvm.loop !8
 
 do.body6.i:                                       ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvmE4args) #12
   tail call void @abort() #22
   unreachable
 
-do.end8.i:                                        ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i
+do.end8.i:                                        ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, %if.end15.i.i.i.i
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPvSt4pairIKS1_mESaIS4_ENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 8 dereferenceable(56) %allocations_.i, ptr noundef nonnull align 8 dereferenceable(8) %data.addr.i)
   store i64 %size, ptr %call.i.i, align 8
   br label %_ZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvm.exit
@@ -857,14 +860,17 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   %10 = ptrtoint ptr %9 to i64
   %rem.i.i.i.i.i.i.i.i = urem i64 %10, %3
   %cmp.not.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %do.end8, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i
+  br label %do.end8, !llvm.loop !8
 
 do.body6:                                         ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvmE4args) #12
   tail call void @abort() #22
   unreachable
 
-do.end8:                                          ; preds = %if.end3.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
+do.end8:                                          ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPvSt4pairIKS1_mESaIS4_ENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 8 dereferenceable(56) %allocations_, ptr noundef nonnull align 8 dereferenceable(8) %data.addr)
   store i64 %size, ptr %call.i, align 8
   br label %return
@@ -953,14 +959,17 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %13 = ptrtoint ptr %12 to i64
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %13, %6
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %do.end8.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i
+  br label %do.end8.i, !llvm.loop !8
 
 do.body6.i:                                       ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvmE4args) #12
   tail call void @abort() #22
   unreachable
 
-do.end8.i:                                        ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i
+do.end8.i:                                        ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, %if.end15.i.i.i.i
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPvSt4pairIKS1_mESaIS4_ENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 8 dereferenceable(56) %allocations_.i, ptr noundef nonnull align 8 dereferenceable(8) %data.addr.i)
   store i64 %size, ptr %call.i.i, align 8
   br label %_ZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvm.exit
@@ -1052,9 +1061,12 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   %10 = ptrtoint ptr %9 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %10, %3
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %do.body11, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !8
 
-do.body11:                                        ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
+  br label %do.body11, !llvm.loop !8
+
+do.body11:                                        ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node29DebuggingArrayBufferAllocator25UnregisterPointerInternalEPvmE4args) #12
   tail call void @abort() #22
   unreachable
@@ -1198,7 +1210,7 @@ if.end4:                                          ; preds = %_ZN4node24NodeArray
 
 if.end4.do.body.i_crit_edge:                      ; preds = %if.end4
   %_M_element_count.i.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %.pre37 = load i64, ptr %_M_element_count.i.i.i.i.i.phi.trans.insert, align 8
+  %.pre39 = load i64, ptr %_M_element_count.i.i.i.i.i.phi.trans.insert, align 8
   br label %do.body.i
 
 if.then6:                                         ; preds = %if.end4
@@ -1258,9 +1270,12 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   %13 = ptrtoint ptr %12 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %13, %6
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %do.body17, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !8
 
-do.body17:                                        ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
+  br label %do.body17, !llvm.loop !8
+
+do.body17:                                        ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node29DebuggingArrayBufferAllocator10ReallocateEPvmmE4args) #12
   tail call void @abort() #22
   unreachable
@@ -1268,14 +1283,14 @@ do.body17:                                        ; preds = %lor.lhs.false.i.i.i
 do.end20.loopexit:                                ; preds = %for.body.i.i
   %_M_bucket_count.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 80
   %.pre = load i64, ptr %_M_bucket_count.i.i.i.i.phi.trans.insert, align 8
-  %.pre36 = load ptr, ptr %allocations_, align 8
-  %.pre38 = ptrtoint ptr %data to i64
-  %.pre39 = urem i64 %.pre38, %.pre
+  %.pre38 = load ptr, ptr %allocations_, align 8
+  %.pre40 = ptrtoint ptr %data to i64
+  %.pre41 = urem i64 %.pre40, %.pre
   br label %do.end20
 
 do.end20:                                         ; preds = %for.cond.i.i.i.i, %do.end20.loopexit, %if.end.i.i.i.i
-  %rem.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre39, %do.end20.loopexit ], [ %rem.i.i.i.i.i, %if.end.i.i.i.i ], [ %rem.i.i.i.i.i, %for.cond.i.i.i.i ]
-  %14 = phi ptr [ %.pre36, %do.end20.loopexit ], [ %7, %if.end.i.i.i.i ], [ %7, %for.cond.i.i.i.i ]
+  %rem.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre41, %do.end20.loopexit ], [ %rem.i.i.i.i.i, %if.end.i.i.i.i ], [ %rem.i.i.i.i.i, %for.cond.i.i.i.i ]
+  %14 = phi ptr [ %.pre38, %do.end20.loopexit ], [ %7, %if.end.i.i.i.i ], [ %7, %for.cond.i.i.i.i ]
   %15 = phi i64 [ %.pre, %do.end20.loopexit ], [ %6, %if.end.i.i.i.i ], [ %6, %for.cond.i.i.i.i ]
   %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %do.end20.loopexit ], [ %9, %if.end.i.i.i.i ], [ %11, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i6 = getelementptr inbounds ptr, ptr %14, i64 %rem.i.i.i.i.i.i.pre-phi
@@ -1355,7 +1370,7 @@ _ZNSt13unordered_mapIPvmSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEE5eraseENS
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end4.do.body.i_crit_edge, %_ZNSt13unordered_mapIPvmSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEE5eraseENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEE.exit
-  %27 = phi i64 [ %.pre37, %if.end4.do.body.i_crit_edge ], [ %dec.i.i.i.i, %_ZNSt13unordered_mapIPvmSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEE5eraseENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEE.exit ]
+  %27 = phi i64 [ %.pre39, %if.end4.do.body.i_crit_edge ], [ %dec.i.i.i.i, %_ZNSt13unordered_mapIPvmSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEE5eraseENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEE.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.addr.i)
   store ptr %call2.i, ptr %data.addr.i, align 8
   %allocations_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1412,14 +1427,17 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %37 = ptrtoint ptr %36 to i64
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %37, %30
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i13
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %_ZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvm.exit, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i
+  br label %_ZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvm.exit, !llvm.loop !8
 
 do.body6.i:                                       ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvmE4args) #12
   tail call void @abort() #22
   unreachable
 
-_ZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvm.exit: ; preds = %if.end3.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i, %for.cond.i.i.i.i15, %if.end15.i.i.i.i
+_ZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvm.exit: ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i15, %if.end15.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPvSt4pairIKS1_mESaIS4_ENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 8 dereferenceable(56) %allocations_.i, ptr noundef nonnull align 8 dereferenceable(8) %data.addr.i)
   store i64 %size, ptr %call.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i)
@@ -1500,14 +1518,17 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %11 = ptrtoint ptr %10 to i64
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %11, %4
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %do.end8.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i
+  br label %do.end8.i, !llvm.loop !8
 
 do.body6.i:                                       ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvmE4args) #12
   tail call void @abort() #22
   unreachable
 
-do.end8.i:                                        ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i
+do.end8.i:                                        ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, %if.end15.i.i.i.i
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPvSt4pairIKS1_mESaIS4_ENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 8 dereferenceable(56) %allocations_.i, ptr noundef nonnull align 8 dereferenceable(8) %data.addr.i)
   store i64 %size, ptr %call.i.i, align 8
   br label %_ZN4node29DebuggingArrayBufferAllocator23RegisterPointerInternalEPvm.exit
@@ -4179,9 +4200,12 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %9 = ptrtoint ptr %8 to i64
   %rem.i.i.i.i.i = urem i64 %9, %2
   %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i.i, %rem.i.i.i
-  br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end, !llvm.loop !8
+  br i1 %cmp.not.i.i, label %for.cond.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i, !llvm.loop !8
 
-if.end:                                           ; preds = %lor.lhs.false.i.i, %if.end3.i.i, %entry
+lor.lhs.false.return.loopexit_crit_edge.i.i:      ; preds = %lor.lhs.false.i.i
+  br label %if.end, !llvm.loop !8
+
+if.end:                                           ; preds = %if.end3.i.i, %entry, %lor.lhs.false.return.loopexit_crit_edge.i.i
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 8
   store ptr %0, ptr %add.ptr.i.i, align 8

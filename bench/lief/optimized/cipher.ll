@@ -65,7 +65,7 @@ define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_a
   %5 = getelementptr inbounds nuw i8, ptr %.0811, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph12
   %7 = getelementptr inbounds nuw i8, ptr %.0811, i64 16
@@ -73,8 +73,11 @@ define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_a
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %._crit_edge, label %.lr.ph12, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph12, %.lr.ph, %.lr.ph.preheader, %1
-  %.lcssa = phi ptr [ null, %1 ], [ %2, %.lr.ph.preheader ], [ %6, %.lr.ph ], [ null, %.lr.ph12 ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph12
+  br label %._crit_edge, !llvm.loop !14
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %1
+  %.lcssa = phi ptr [ null, %1 ], [ null, %.._crit_edge.loopexit_crit_edge ], [ %2, %.lr.ph.preheader ], [ %6, %.lr.ph ]
   ret ptr %.lcssa
 }
 

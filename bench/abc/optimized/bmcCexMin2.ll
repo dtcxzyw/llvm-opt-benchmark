@@ -828,10 +828,13 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %514 = sub nsw i32 %.val212.val, %.val211
   %515 = sext i32 %514 to i64
   %516 = icmp slt i64 %indvars.iv.next351, %515
-  br i1 %516, label %.lr.ph327, label %.critedge13, !llvm.loop !50
+  br i1 %516, label %.lr.ph327, label %..critedge13.loopexit_crit_edge, !llvm.loop !50
 
-.critedge13:                                      ; preds = %.lr.ph379, %.lr.ph327, %.lr.ph327.preheader, %.preheader
-  %.val241329 = phi i32 [ %.val211322, %.preheader ], [ %.val211322, %.lr.ph327.preheader ], [ %.val211, %.lr.ph327 ], [ %.val211, %.lr.ph379 ]
+..critedge13.loopexit_crit_edge:                  ; preds = %.lr.ph379
+  br label %.critedge13, !llvm.loop !50
+
+.critedge13:                                      ; preds = %.lr.ph327, %.lr.ph327.preheader, %..critedge13.loopexit_crit_edge, %.preheader
+  %.val241329 = phi i32 [ %.val211322, %.preheader ], [ %.val211, %..critedge13.loopexit_crit_edge ], [ %.val211322, %.lr.ph327.preheader ], [ %.val211, %.lr.ph327 ]
   %517 = icmp sgt i32 %.val241329, 0
   %518 = add nsw i32 %.1172335, -1
   br i1 %517, label %.lr.ph333, label %.preheader283.backedge

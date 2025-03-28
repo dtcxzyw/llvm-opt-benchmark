@@ -1267,7 +1267,7 @@ thread-pre-split:                                 ; preds = %.lr.ph.split, %thre
 
 .lr.ph.i:                                         ; preds = %.lr.ph2290
   %.not.i = icmp eq i32 %228, 0
-  br i1 %.not.i, label %_ZL21stbsp__strlen_limitedPKcj.exit, label %.lr.ph1695, !llvm.loop !16
+  br i1 %.not.i, label %.lr.ph.i._ZL21stbsp__strlen_limitedPKcj.exit.loopexit_crit_edge, label %.lr.ph1695, !llvm.loop !16
 
 .lr.ph1695:                                       ; preds = %.lr.ph.i
   %225 = load i8, ptr %227, align 1, !tbaa !3
@@ -1334,8 +1334,11 @@ thread-pre-split:                                 ; preds = %.lr.ph.split, %thre
   %247 = ptrtoint ptr %.4.lcssa.i to i64
   br label %_ZL21stbsp__strlen_limitedPKcj.exit
 
-_ZL21stbsp__strlen_limitedPKcj.exit:              ; preds = %.lr.ph.i, %.lr.ph1695, %.lr.ph1695.preheader, %.lr.ph.preheader.i, %.critedge.i
-  %.pn.i = phi i64 [ %247, %.critedge.i ], [ %222, %.lr.ph.preheader.i ], [ %218, %.lr.ph1695.preheader ], [ %229, %.lr.ph1695 ], [ %222, %.lr.ph.i ]
+.lr.ph.i._ZL21stbsp__strlen_limitedPKcj.exit.loopexit_crit_edge: ; preds = %.lr.ph.i
+  br label %_ZL21stbsp__strlen_limitedPKcj.exit, !llvm.loop !16
+
+_ZL21stbsp__strlen_limitedPKcj.exit:              ; preds = %.lr.ph1695, %.lr.ph1695.preheader, %.lr.ph.i._ZL21stbsp__strlen_limitedPKcj.exit.loopexit_crit_edge, %.lr.ph.preheader.i, %.critedge.i
+  %.pn.i = phi i64 [ %247, %.critedge.i ], [ %222, %.lr.ph.preheader.i ], [ %222, %.lr.ph.i._ZL21stbsp__strlen_limitedPKcj.exit.loopexit_crit_edge ], [ %218, %.lr.ph1695.preheader ], [ %229, %.lr.ph1695 ]
   %.0.in.i = sub i64 %.pn.i, %218
   %.0.i = trunc i64 %.0.in.i to i32
   store i32 %.0.i, ptr %10, align 4, !tbaa !6
@@ -7140,7 +7143,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit:
 
 ..thread._crit_edge.loopexit_crit_edge:           ; preds = %104
   %.pre.pre = load i64, ptr %9, align 8, !tbaa !64, !noalias !172
-  br label %.thread._crit_edge
+  br label %.thread._crit_edge, !llvm.loop !171
 
 .thread._crit_edge:                               ; preds = %.thread, %..thread._crit_edge.loopexit_crit_edge, %.preheader
   %106 = phi i64 [ %10, %.preheader ], [ %.pre.pre, %..thread._crit_edge.loopexit_crit_edge ], [ %74, %.thread ]

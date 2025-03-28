@@ -3801,7 +3801,7 @@ define dso_local range(i32 0, 2) i32 @cpudl_find(ptr noundef readonly captures(n
 
 ..threadthread-pre-split_crit_edge:               ; preds = %38
   %.pr.pre = load i64, ptr %2, align 8
-  br label %.thread
+  br label %.thread, !llvm.loop !136
 
 .thread:                                          ; preds = %16, %24, %..threadthread-pre-split_crit_edge
   %44 = phi i32 [ %40, %..threadthread-pre-split_crit_edge ], [ %18, %24 ], [ %18, %16 ]
@@ -3992,7 +3992,7 @@ define internal fastcc void @cpudl_heapify(ptr noundef readonly captures(none) %
 
 ._crit_edge6:                                     ; preds = %30
   %.pre7 = load ptr, ptr %4, align 8
-  br label %split
+  br label %split, !llvm.loop !143
 
 split:                                            ; preds = %20, %._crit_edge6
   %45 = phi ptr [ %.pre7, %._crit_edge6 ], [ %24, %20 ]
@@ -4193,7 +4193,7 @@ define dso_local void @cpudl_set(ptr noundef %0, i32 noundef %1, i64 noundef %2)
 
 ._crit_edge:                                      ; preds = %42
   %.pre = load ptr, ptr %11, align 8
-  br label %split
+  br label %split, !llvm.loop !143
 
 split:                                            ; preds = %.preheader, %._crit_edge
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %36, %.preheader ]

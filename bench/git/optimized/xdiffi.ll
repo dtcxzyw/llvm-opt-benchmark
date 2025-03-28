@@ -897,20 +897,23 @@ group_next.exit130:                               ; preds = %group_next.exit130.
 
 group_previous.exit:                              ; preds = %63
   %66 = icmp sgt i64 %.sroa.0162.7.ph, 0
-  br i1 %66, label %.lr.ph, label %group_slide_up.exit, !llvm.loop !60
+  br i1 %66, label %.lr.ph, label %group_previous.exit.group_slide_up.exit.loopexit_crit_edge, !llvm.loop !60
 
 67:                                               ; preds = %.loopexit255
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 837, ptr noundef nonnull @.str.1) #10
   unreachable
 
-group_slide_up.exit:                              ; preds = %.lr.ph, %group_previous.exit, %.lr.ph.preheader, %.preheader261
-  %68 = phi ptr [ %25, %.preheader261 ], [ %25, %.lr.ph.preheader ], [ %62, %group_previous.exit ], [ %62, %.lr.ph ]
-  %69 = phi ptr [ %26, %.preheader261 ], [ %26, %.lr.ph.preheader ], [ %54, %group_previous.exit ], [ %54, %.lr.ph ]
-  %70 = phi ptr [ %27, %.preheader261 ], [ %27, %.lr.ph.preheader ], [ %54, %group_previous.exit ], [ %54, %.lr.ph ]
-  %.sroa.0162.3.lcssa = phi i64 [ %.sroa.0162.2, %.preheader261 ], [ %.sroa.0162.2, %.lr.ph.preheader ], [ %.sroa.0162.7.ph, %group_previous.exit ], [ %.sroa.0162.7.ph, %.lr.ph ]
-  %.sroa.21.3.lcssa = phi i64 [ %.sroa.21.2, %.preheader261 ], [ %.sroa.21.2, %.lr.ph.preheader ], [ %52, %group_previous.exit ], [ %52, %.lr.ph ]
-  %.sroa.0146.3.lcssa = phi i64 [ %.sroa.0146.2, %.preheader261 ], [ %.sroa.0146.2, %.lr.ph.preheader ], [ %storemerge.i, %group_previous.exit ], [ %storemerge.i, %.lr.ph ]
-  %.sroa.15.3.lcssa = phi i64 [ %.sroa.15.2, %.preheader261 ], [ %.sroa.15.2, %.lr.ph.preheader ], [ %61, %group_previous.exit ], [ %61, %.lr.ph ]
+group_previous.exit.group_slide_up.exit.loopexit_crit_edge: ; preds = %group_previous.exit
+  br label %group_slide_up.exit, !llvm.loop !60
+
+group_slide_up.exit:                              ; preds = %.lr.ph, %.lr.ph.preheader, %group_previous.exit.group_slide_up.exit.loopexit_crit_edge, %.preheader261
+  %68 = phi ptr [ %25, %.preheader261 ], [ %62, %group_previous.exit.group_slide_up.exit.loopexit_crit_edge ], [ %25, %.lr.ph.preheader ], [ %62, %.lr.ph ]
+  %69 = phi ptr [ %26, %.preheader261 ], [ %54, %group_previous.exit.group_slide_up.exit.loopexit_crit_edge ], [ %26, %.lr.ph.preheader ], [ %54, %.lr.ph ]
+  %70 = phi ptr [ %27, %.preheader261 ], [ %54, %group_previous.exit.group_slide_up.exit.loopexit_crit_edge ], [ %27, %.lr.ph.preheader ], [ %54, %.lr.ph ]
+  %.sroa.0162.3.lcssa = phi i64 [ %.sroa.0162.2, %.preheader261 ], [ %.sroa.0162.7.ph, %group_previous.exit.group_slide_up.exit.loopexit_crit_edge ], [ %.sroa.0162.2, %.lr.ph.preheader ], [ %.sroa.0162.7.ph, %.lr.ph ]
+  %.sroa.21.3.lcssa = phi i64 [ %.sroa.21.2, %.preheader261 ], [ %52, %group_previous.exit.group_slide_up.exit.loopexit_crit_edge ], [ %.sroa.21.2, %.lr.ph.preheader ], [ %52, %.lr.ph ]
+  %.sroa.0146.3.lcssa = phi i64 [ %.sroa.0146.2, %.preheader261 ], [ %storemerge.i, %group_previous.exit.group_slide_up.exit.loopexit_crit_edge ], [ %.sroa.0146.2, %.lr.ph.preheader ], [ %storemerge.i, %.lr.ph ]
+  %.sroa.15.3.lcssa = phi i64 [ %.sroa.15.2, %.preheader261 ], [ %61, %group_previous.exit.group_slide_up.exit.loopexit_crit_edge ], [ %.sroa.15.2, %.lr.ph.preheader ], [ %61, %.lr.ph ]
   %71 = icmp sgt i64 %.sroa.15.3.lcssa, %.sroa.0146.3.lcssa
   %spec.select = select i1 %71, i64 %.sroa.21.3.lcssa, i64 -1
   %72 = load i64, ptr %14, align 8, !tbaa !63

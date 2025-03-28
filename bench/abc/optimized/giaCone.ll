@@ -541,12 +541,12 @@ define void @Opa_ManPerform(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %15, ptr %19, align 8, !tbaa !36
   %20 = getelementptr i8, ptr %0, i64 32
   %21 = icmp sgt i32 %6, 0
-  br i1 %21, label %.lr.ph.i.preheader, label %.critedge
+  br i1 %21, label %.lr.ph.i.preheader, label %Opa_ManStart.exit
 
 .lr.ph.i.preheader:                               ; preds = %1
   %.val29.i59 = load ptr, ptr %20, align 8, !tbaa !12
   %.not.i60 = icmp eq ptr %.val29.i59, null
-  br i1 %.not.i60, label %.critedge, label %.lr.ph
+  br i1 %.not.i60, label %Opa_ManStart.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %Vec_IntPush.exit45.i
   %.val29.i = load ptr, ptr %20, align 8, !tbaa !12
@@ -711,13 +711,17 @@ Vec_IntPush.exit45.i:                             ; preds = %88, %Vec_IntGrow.ex
   %96 = sub nsw i32 %.val34.val.i, %.val33.i
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next.i, %97
-  br i1 %98, label %.lr.ph.i, label %Opa_ManStart.exit, !llvm.loop !44
+  br i1 %98, label %.lr.ph.i, label %Vec_IntPush.exit45.i.Opa_ManStart.exit.loopexit_crit_edge, !llvm.loop !44
 
-Opa_ManStart.exit:                                ; preds = %Vec_IntPush.exit45.i, %.lr.ph.i
-  %.val40.pre = load i32, ptr %16, align 4, !tbaa !33
+Vec_IntPush.exit45.i.Opa_ManStart.exit.loopexit_crit_edge: ; preds = %Vec_IntPush.exit45.i
+  br label %Opa_ManStart.exit, !llvm.loop !44
+
+Opa_ManStart.exit:                                ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %Vec_IntPush.exit45.i.Opa_ManStart.exit.loopexit_crit_edge, %1
+  %.lcssa.i = phi i32 [ %6, %1 ], [ %96, %Vec_IntPush.exit45.i.Opa_ManStart.exit.loopexit_crit_edge ], [ %6, %.lr.ph.i.preheader ], [ %96, %.lr.ph.i ]
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %96, ptr %99, align 8, !tbaa !42
-  %100 = icmp sgt i32 %.val40.pre, 0
+  store i32 %.lcssa.i, ptr %99, align 8, !tbaa !42
+  %.val40 = load i32, ptr %16, align 4, !tbaa !33
+  %100 = icmp sgt i32 %.val40, 0
   br i1 %100, label %.lr.ph69, label %.critedge
 
 101:                                              ; preds = %170
@@ -730,12 +734,12 @@ Opa_ManStart.exit:                                ; preds = %Vec_IntPush.exit45.
   br i1 %105, label %.lr.ph69, label %.critedge, !llvm.loop !45
 
 .lr.ph69:                                         ; preds = %Opa_ManStart.exit, %101
-  %106 = phi i32 [ %171, %101 ], [ %96, %Opa_ManStart.exit ]
+  %106 = phi i32 [ %171, %101 ], [ %.lcssa.i, %Opa_ManStart.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %Opa_ManStart.exit ]
   %107 = phi ptr [ %103, %101 ], [ %16, %Opa_ManStart.exit ]
   %108 = phi ptr [ %102, %101 ], [ %15, %Opa_ManStart.exit ]
   %.068 = phi i32 [ %.1, %101 ], [ 0, %Opa_ManStart.exit ]
-  %.03067 = phi i32 [ %.131, %101 ], [ %.val40.pre, %Opa_ManStart.exit ]
+  %.03067 = phi i32 [ %.131, %101 ], [ %.val40, %Opa_ManStart.exit ]
   %109 = getelementptr i8, ptr %108, i64 8
   %.val41 = load ptr, ptr %109, align 8, !tbaa !35
   %110 = getelementptr inbounds nuw i32, ptr %.val41, i64 %indvars.iv
@@ -887,7 +891,7 @@ Opa_ManPrint2.exit:                               ; preds = %152, %122
   %or.cond = select i1 %172, i1 true, i1 %173
   br i1 %or.cond, label %.critedge, label %101
 
-.critedge:                                        ; preds = %.lr.ph69, %170, %101, %.lr.ph.i.preheader, %1, %Opa_ManStart.exit
+.critedge:                                        ; preds = %.lr.ph69, %170, %101, %Opa_ManStart.exit
   %putchar = tail call i32 @putchar(i32 10)
   %174 = load ptr, ptr %19, align 8, !tbaa !36
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
@@ -1165,7 +1169,7 @@ define range(i32 -2147483648, 2147483647) i32 @Gia_ManConeMark(ptr noundef %0, i
 .lr.ph:                                           ; preds = %.lr.ph42
   %.val25 = load ptr, ptr %3, align 8, !tbaa !12
   %.not = icmp eq ptr %.val25, null
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph42, !llvm.loop !51
+  br i1 %.not, label %.critedge, label %.lr.ph42, !llvm.loop !51
 
 .lr.ph42:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.val2541 = phi ptr [ %.val25, %.lr.ph ], [ %.val2538, %.lr.ph.preheader ]
@@ -1182,25 +1186,25 @@ define range(i32 -2147483648, 2147483647) i32 @Gia_ManConeMark(ptr noundef %0, i
   %22 = sext i32 %.val22.pre.pre to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
   %or.cond = select i1 %.not21, i1 %23, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !51
+  br i1 %or.cond, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !51
 
-.critedge.loopexit:                               ; preds = %.lr.ph, %.lr.ph42
-  %24 = add nsw i32 %.val22.pre.pre, -1
-  br label %.critedge
+..critedge_crit_edge:                             ; preds = %.lr.ph42
+  br label %.critedge, !llvm.loop !51
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader
-  %.val22.pre = phi i32 [ 0, %.lr.ph.preheader ], [ %24, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader
+  %.val22.pre = phi i32 [ %.val22.pre.pre, %..critedge_crit_edge ], [ 1, %.lr.ph.preheader ], [ %.val22.pre.pre, %.lr.ph ]
   %.pre = load ptr, ptr %12, align 8, !tbaa !35
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %25
+  br i1 %.not.i, label %Vec_IntFree.exit, label %24
 
-25:                                               ; preds = %.critedge
+24:                                               ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %.pre) #23
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge, %25
+Vec_IntFree.exit:                                 ; preds = %.critedge, %24
+  %25 = add nsw i32 %.val22.pre, -1
   tail call void @free(ptr noundef nonnull %9) #23
-  ret i32 %.val22.pre
+  ret i32 %25
 }
 
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #3
@@ -1331,10 +1335,13 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %55 = sext i32 %.val31.pre.pre to i64
   %56 = icmp slt i64 %indvars.iv.next49, %55
   %or.cond = select i1 %.not29, i1 %56, i1 false
-  br i1 %or.cond, label %.lr.ph44, label %.critedge2.loopexit, !llvm.loop !53
+  br i1 %or.cond, label %.lr.ph44, label %..critedge2.loopexit_crit_edge, !llvm.loop !53
 
-.critedge2.loopexit:                              ; preds = %.lr.ph44, %.lr.ph62, %.lr.ph44.preheader
-  %.val31.pre = phi i32 [ %.val3242, %.lr.ph44.preheader ], [ %.val31.pre.pre, %.lr.ph62 ], [ %.val31.pre.pre, %.lr.ph44 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph62
+  br label %.critedge2.loopexit, !llvm.loop !53
+
+.critedge2.loopexit:                              ; preds = %.lr.ph44, %..critedge2.loopexit_crit_edge, %.lr.ph44.preheader
+  %.val31.pre = phi i32 [ %.val31.pre.pre, %..critedge2.loopexit_crit_edge ], [ %.val3242, %.lr.ph44.preheader ], [ %.val31.pre.pre, %.lr.ph44 ]
   %.pre = load ptr, ptr %6, align 8, !tbaa !35
   br label %.critedge2
 

@@ -69,7 +69,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef readnone captures(
   %8 = getelementptr inbounds nuw i8, ptr %.04044, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %.preheader37, label %.preheader37._crit_edge, !llvm.loop !4
+  br i1 %10, label %.preheader37, label %._crit_edge, !llvm.loop !4
 
 .preheader37:                                     ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.04044, i64 32
@@ -78,8 +78,11 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef readnone captures(
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.preheader37._crit_edge, label %.lr.ph, !llvm.loop !4
 
-.preheader37._crit_edge:                          ; preds = %.lr.ph, %.preheader37, %.preheader37.preheader
-  %.lcssa38 = phi i32 [ 0, %.preheader37.preheader ], [ %9, %.preheader37 ], [ %9, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph
+  br label %.preheader37._crit_edge, !llvm.loop !4
+
+.preheader37._crit_edge:                          ; preds = %.preheader37, %._crit_edge, %.preheader37.preheader
+  %.lcssa38 = phi i32 [ %9, %._crit_edge ], [ 0, %.preheader37.preheader ], [ %9, %.preheader37 ]
   %15 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef %.lcssa38) #7
   br label %42
 

@@ -6525,13 +6525,16 @@ utf8_to_unicode.exit.thread:                      ; preds = %44, %37, %81, %108,
   %115 = getelementptr inbounds nuw i8, ptr %.037118165, i64 %114
   %116 = sub i64 %.149117166, %114
   %117 = icmp eq i64 %116, 0
-  br i1 %117, label %utf8_to_unicode.exit.thread87, label %.lr.ph, !llvm.loop !117
+  br i1 %117, label %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge, label %.lr.ph, !llvm.loop !117
 
-utf8_to_unicode.exit.thread87:                    ; preds = %utf8_to_unicode.exit.thread, %.lr.ph, %108, %utf8_to_unicode.exit, %81, %59, %39, %49, %54, %66, %71, %76, %.lr.ph.preheader
-  %.149.lcssa = phi i64 [ %.048184, %.lr.ph.preheader ], [ %.149117166, %utf8_to_unicode.exit ], [ %.149117166, %108 ], [ %116, %.lr.ph ], [ 0, %utf8_to_unicode.exit.thread ], [ %.149117166, %81 ], [ %.149117166, %59 ], [ %.149117166, %39 ], [ %.149117166, %49 ], [ %.149117166, %54 ], [ %.149117166, %66 ], [ %.149117166, %71 ], [ %.149117166, %76 ]
-  %.037.lcssa = phi ptr [ %.042186, %.lr.ph.preheader ], [ %.037118165, %utf8_to_unicode.exit ], [ %.037118165, %108 ], [ %115, %.lr.ph ], [ %115, %utf8_to_unicode.exit.thread ], [ %.037118165, %81 ], [ %.037118165, %59 ], [ %.037118165, %39 ], [ %.037118165, %49 ], [ %.037118165, %54 ], [ %.037118165, %66 ], [ %.037118165, %71 ], [ %.037118165, %76 ]
-  %.0.i91 = phi i32 [ 0, %.lr.ph.preheader ], [ %112, %utf8_to_unicode.exit ], [ -3, %108 ], [ 0, %.lr.ph ], [ 0, %utf8_to_unicode.exit.thread ], [ -4, %81 ], [ -3, %59 ], [ -1, %39 ], [ -1, %49 ], [ -2, %54 ], [ -1, %66 ], [ -2, %71 ], [ -3, %76 ]
-  %.57390 = phi i32 [ %.066183, %.lr.ph.preheader ], [ 65533, %utf8_to_unicode.exit ], [ %110, %108 ], [ %.57385, %.lr.ph ], [ %.57385, %utf8_to_unicode.exit.thread ], [ 65533, %81 ], [ 65533, %59 ], [ 65533, %39 ], [ 65533, %49 ], [ 65533, %54 ], [ 65533, %66 ], [ 65533, %71 ], [ 65533, %76 ]
+utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge: ; preds = %utf8_to_unicode.exit.thread
+  br label %utf8_to_unicode.exit.thread87, !llvm.loop !117
+
+utf8_to_unicode.exit.thread87:                    ; preds = %.lr.ph, %108, %utf8_to_unicode.exit, %81, %59, %39, %49, %54, %66, %71, %76, %.lr.ph.preheader, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge
+  %.149.lcssa = phi i64 [ 0, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ %.048184, %.lr.ph.preheader ], [ %.149117166, %utf8_to_unicode.exit ], [ %.149117166, %108 ], [ %116, %.lr.ph ], [ %.149117166, %81 ], [ %.149117166, %59 ], [ %.149117166, %39 ], [ %.149117166, %49 ], [ %.149117166, %54 ], [ %.149117166, %66 ], [ %.149117166, %71 ], [ %.149117166, %76 ]
+  %.037.lcssa = phi ptr [ %115, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ %.042186, %.lr.ph.preheader ], [ %.037118165, %utf8_to_unicode.exit ], [ %.037118165, %108 ], [ %115, %.lr.ph ], [ %.037118165, %81 ], [ %.037118165, %59 ], [ %.037118165, %39 ], [ %.037118165, %49 ], [ %.037118165, %54 ], [ %.037118165, %66 ], [ %.037118165, %71 ], [ %.037118165, %76 ]
+  %.0.i91 = phi i32 [ 0, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %112, %utf8_to_unicode.exit ], [ -3, %108 ], [ 0, %.lr.ph ], [ -4, %81 ], [ -3, %59 ], [ -1, %39 ], [ -1, %49 ], [ -2, %54 ], [ -1, %66 ], [ -2, %71 ], [ -3, %76 ]
+  %.57390 = phi i32 [ %.57385, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ %.066183, %.lr.ph.preheader ], [ 65533, %utf8_to_unicode.exit ], [ %110, %108 ], [ %.57385, %.lr.ph ], [ 65533, %81 ], [ 65533, %59 ], [ 65533, %39 ], [ 65533, %49 ], [ 65533, %54 ], [ 65533, %66 ], [ 65533, %71 ], [ 65533, %76 ]
   %118 = icmp ugt ptr %.037.lcssa, %.042186
   br i1 %118, label %119, label %135
 

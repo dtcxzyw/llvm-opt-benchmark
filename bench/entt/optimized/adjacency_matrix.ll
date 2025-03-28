@@ -15412,10 +15412,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %148 = phi i64 [ %149, %.lr.ph.i.i.i126 ], [ %143, %.lr.ph.i.i.i126.preheader ]
   %149 = add i64 %148, 1
   %.not.i.i.i128 = icmp eq i64 %149, 9
-  br i1 %.not.i.i.i128, label %.loopexit, label %.lr.ph.i.i.i126, !llvm.loop !49
+  br i1 %.not.i.i.i128, label %..loopexit_crit_edge, label %.lr.ph.i.i.i126, !llvm.loop !49
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph.i.i.i126, %.lr.ph.i.i.i126.preheader
-  %150 = phi i64 [ %143, %.lr.ph.i.i.i126.preheader ], [ 9, %.lr.ph ], [ %149, %.lr.ph.i.i.i126 ]
+..loopexit_crit_edge:                             ; preds = %.lr.ph
+  br label %.loopexit, !llvm.loop !49
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i126, %..loopexit_crit_edge, %.lr.ph.i.i.i126.preheader
+  %150 = phi i64 [ 9, %..loopexit_crit_edge ], [ %143, %.lr.ph.i.i.i126.preheader ], [ %149, %.lr.ph.i.i.i126 ]
   store i64 %150, ptr %.sroa.10220.0..sroa_idx223, align 8
   br label %151
 
@@ -15794,26 +15797,26 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.10220.0..sroa_idx223.promoted = load i64, ptr %.sroa.10220.0..sroa_idx223, align 8
   %274 = getelementptr inbounds i64, ptr %27, i64 %273
   %275 = load i64, ptr %274, align 8, !tbaa !20
-  %.not1.i.i289 = icmp eq i64 %275, 0
-  br i1 %.not1.i.i289, label %.lr.ph290, label %._crit_edge
+  %.not1.i.i293 = icmp eq i64 %275, 0
+  br i1 %.not1.i.i293, label %.lr.ph294, label %._crit_edge
 
-276:                                              ; preds = %.lr.ph290
+276:                                              ; preds = %.lr.ph294
   %277 = getelementptr inbounds i64, ptr %27, i64 %280
   %278 = load i64, ptr %277, align 8, !tbaa !20
   %.not1.i.i = icmp eq i64 %278, 0
-  br i1 %.not1.i.i, label %.lr.ph290, label %._crit_edge, !llvm.loop !49
+  br i1 %.not1.i.i, label %.lr.ph294, label %._crit_edge, !llvm.loop !49
 
-.lr.ph290:                                        ; preds = %.lr.ph.i.i, %276
+.lr.ph294:                                        ; preds = %.lr.ph.i.i, %276
   %279 = phi i64 [ %280, %276 ], [ %273, %.lr.ph.i.i ]
   %280 = add i64 %279, 1
   %.not.i.i172 = icmp eq i64 %280, 9
-  br i1 %.not.i.i172, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread281, label %276, !llvm.loop !49
+  br i1 %.not.i.i172, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread282, label %276, !llvm.loop !49
 
-_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread281: ; preds = %.lr.ph290
+_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread282: ; preds = %.lr.ph294
   store i64 %280, ptr %.sroa.10220.0..sroa_idx223, align 8
   br label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread
 
-_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread: ; preds = %272, %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread281
+_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread: ; preds = %272, %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread282
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #24
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %23)
           to label %_ZN7testing8internal8EqHelper7CompareIN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEESE_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSO_RKSG_RKSH_.exit175 unwind label %284
@@ -16452,10 +16455,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %142 = phi i64 [ %143, %.lr.ph.i.i.i102 ], [ %137, %.lr.ph.i.i.i102.preheader ]
   %143 = add i64 %142, 1
   %.not.i.i.i104 = icmp eq i64 %143, 4
-  br i1 %.not.i.i.i104, label %.loopexit, label %.lr.ph.i.i.i102, !llvm.loop !49
+  br i1 %.not.i.i.i104, label %..loopexit_crit_edge, label %.lr.ph.i.i.i102, !llvm.loop !49
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph.i.i.i102, %.lr.ph.i.i.i102.preheader
-  %144 = phi i64 [ %137, %.lr.ph.i.i.i102.preheader ], [ 4, %.lr.ph ], [ %143, %.lr.ph.i.i.i102 ]
+..loopexit_crit_edge:                             ; preds = %.lr.ph
+  br label %.loopexit, !llvm.loop !49
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i102, %..loopexit_crit_edge, %.lr.ph.i.i.i102.preheader
+  %144 = phi i64 [ 4, %..loopexit_crit_edge ], [ %137, %.lr.ph.i.i.i102.preheader ], [ %143, %.lr.ph.i.i.i102 ]
   store i64 %144, ptr %.sroa.10163.0..sroa_idx166, align 8
   %145 = icmp eq i64 %144, 4
   br label %146
@@ -17302,10 +17308,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %160 = phi i64 [ %161, %.lr.ph.i.i.i150 ], [ %155, %.lr.ph.i.i.i150.preheader ]
   %161 = add i64 %160, 1
   %.not.i.i.i152 = icmp eq i64 %161, 9
-  br i1 %.not.i.i.i152, label %.loopexit364, label %.lr.ph.i.i.i150, !llvm.loop !49
+  br i1 %.not.i.i.i152, label %..loopexit364_crit_edge, label %.lr.ph.i.i.i150, !llvm.loop !49
 
-.loopexit364:                                     ; preds = %.lr.ph, %.lr.ph.i.i.i150, %.lr.ph.i.i.i150.preheader
-  %162 = phi i64 [ %155, %.lr.ph.i.i.i150.preheader ], [ 9, %.lr.ph ], [ %161, %.lr.ph.i.i.i150 ]
+..loopexit364_crit_edge:                          ; preds = %.lr.ph
+  br label %.loopexit364, !llvm.loop !49
+
+.loopexit364:                                     ; preds = %.lr.ph.i.i.i150, %..loopexit364_crit_edge, %.lr.ph.i.i.i150.preheader
+  %162 = phi i64 [ 9, %..loopexit364_crit_edge ], [ %155, %.lr.ph.i.i.i150.preheader ], [ %161, %.lr.ph.i.i.i150 ]
   store i64 %162, ptr %.sroa.10308.0..sroa_idx311, align 8
   br label %163
 
@@ -17684,29 +17693,32 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.10308.0..sroa_idx311.promoted = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
   %286 = getelementptr inbounds i64, ptr %37, i64 %285
   %287 = load i64, ptr %286, align 8, !tbaa !20
-  %.not1.i.i386 = icmp eq i64 %287, 0
-  br i1 %.not1.i.i386, label %.lr.ph387, label %.loopexit363.loopexit
+  %.not1.i.i388 = icmp eq i64 %287, 0
+  br i1 %.not1.i.i388, label %.lr.ph389, label %.loopexit363.loopexit
 
-288:                                              ; preds = %.lr.ph387
+288:                                              ; preds = %.lr.ph389
   %289 = getelementptr inbounds i64, ptr %37, i64 %292
   %290 = load i64, ptr %289, align 8, !tbaa !20
   %.not1.i.i = icmp eq i64 %290, 0
-  br i1 %.not1.i.i, label %.lr.ph387, label %.loopexit363.loopexit, !llvm.loop !49
+  br i1 %.not1.i.i, label %.lr.ph389, label %.loopexit363.loopexit, !llvm.loop !49
 
-.lr.ph387:                                        ; preds = %.lr.ph.i.i, %288
+.lr.ph389:                                        ; preds = %.lr.ph.i.i, %288
   %291 = phi i64 [ %292, %288 ], [ %285, %.lr.ph.i.i ]
   %292 = add i64 %291, 1
   %.not.i.i196 = icmp eq i64 %292, 9
-  br i1 %.not.i.i196, label %.loopexit363.loopexit, label %288, !llvm.loop !49
+  br i1 %.not.i.i196, label %..loopexit363.loopexit_crit_edge391, label %288, !llvm.loop !49
 
-.loopexit363.loopexit:                            ; preds = %.lr.ph387, %288, %.lr.ph.i.i
-  %293 = phi i64 [ %.sroa.10308.0..sroa_idx311.promoted, %.lr.ph.i.i ], [ %292, %288 ], [ %292, %.lr.ph387 ]
-  %.ph378 = phi i64 [ %285, %.lr.ph.i.i ], [ 9, %.lr.ph387 ], [ %292, %288 ]
+..loopexit363.loopexit_crit_edge391:              ; preds = %.lr.ph389
+  br label %.loopexit363.loopexit, !llvm.loop !49
+
+.loopexit363.loopexit:                            ; preds = %288, %..loopexit363.loopexit_crit_edge391, %.lr.ph.i.i
+  %293 = phi i64 [ %292, %..loopexit363.loopexit_crit_edge391 ], [ %.sroa.10308.0..sroa_idx311.promoted, %.lr.ph.i.i ], [ %292, %288 ]
+  %.ph379 = phi i64 [ 9, %..loopexit363.loopexit_crit_edge391 ], [ %285, %.lr.ph.i.i ], [ %292, %288 ]
   store i64 %293, ptr %.sroa.10308.0..sroa_idx311, align 8
   br label %.loopexit363
 
 .loopexit363:                                     ; preds = %.loopexit363.loopexit, %284
-  %294 = phi i64 [ 9, %284 ], [ %.ph378, %.loopexit363.loopexit ]
+  %294 = phi i64 [ 9, %284 ], [ %.ph379, %.loopexit363.loopexit ]
   %295 = udiv i64 %294, 3
   %296 = urem i64 %294, 3
   store i64 %295, ptr %24, align 8
@@ -17716,8 +17728,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i64 1, ptr %25, align 8
   %298 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 2, ptr %298, align 8
-  %.off367 = add i64 %294, -3
-  %299 = icmp ult i64 %.off367, 3
+  %.off368 = add i64 %294, -3
+  %299 = icmp ult i64 %.off368, 3
   %300 = icmp eq i64 %296, 2
   %301 = and i1 %299, %300
   br i1 %301, label %302, label %303
@@ -17895,27 +17907,30 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not2.i.i222, label %.loopexit, label %.lr.ph.i.i223
 
 .lr.ph.i.i223:                                    ; preds = %354
-  %.sroa.10308.0..sroa_idx311.promoted380 = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
+  %.sroa.10308.0..sroa_idx311.promoted381 = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
   %356 = getelementptr inbounds i64, ptr %37, i64 %355
   %357 = load i64, ptr %356, align 8, !tbaa !20
-  %.not1.i.i224392 = icmp eq i64 %357, 0
-  br i1 %.not1.i.i224392, label %.lr.ph393, label %.loopexit.loopexit
+  %.not1.i.i224394 = icmp eq i64 %357, 0
+  br i1 %.not1.i.i224394, label %.lr.ph395, label %.loopexit.loopexit
 
-358:                                              ; preds = %.lr.ph393
+358:                                              ; preds = %.lr.ph395
   %359 = getelementptr inbounds i64, ptr %37, i64 %362
   %360 = load i64, ptr %359, align 8, !tbaa !20
   %.not1.i.i224 = icmp eq i64 %360, 0
-  br i1 %.not1.i.i224, label %.lr.ph393, label %.loopexit.loopexit, !llvm.loop !49
+  br i1 %.not1.i.i224, label %.lr.ph395, label %.loopexit.loopexit, !llvm.loop !49
 
-.lr.ph393:                                        ; preds = %.lr.ph.i.i223, %358
+.lr.ph395:                                        ; preds = %.lr.ph.i.i223, %358
   %361 = phi i64 [ %362, %358 ], [ %355, %.lr.ph.i.i223 ]
   %362 = add i64 %361, 1
   %.not.i.i225 = icmp eq i64 %362, 9
-  br i1 %.not.i.i225, label %.loopexit.loopexit, label %358, !llvm.loop !49
+  br i1 %.not.i.i225, label %..loopexit.loopexit_crit_edge398, label %358, !llvm.loop !49
 
-.loopexit.loopexit:                               ; preds = %.lr.ph393, %358, %.lr.ph.i.i223
-  %363 = phi i64 [ %.sroa.10308.0..sroa_idx311.promoted380, %.lr.ph.i.i223 ], [ %362, %358 ], [ %362, %.lr.ph393 ]
-  %.ph = phi i64 [ %355, %.lr.ph.i.i223 ], [ 9, %.lr.ph393 ], [ %362, %358 ]
+..loopexit.loopexit_crit_edge398:                 ; preds = %.lr.ph395
+  br label %.loopexit.loopexit, !llvm.loop !49
+
+.loopexit.loopexit:                               ; preds = %358, %..loopexit.loopexit_crit_edge398, %.lr.ph.i.i223
+  %363 = phi i64 [ %362, %..loopexit.loopexit_crit_edge398 ], [ %.sroa.10308.0..sroa_idx311.promoted381, %.lr.ph.i.i223 ], [ %362, %358 ]
+  %.ph = phi i64 [ 9, %..loopexit.loopexit_crit_edge398 ], [ %355, %.lr.ph.i.i223 ], [ %362, %358 ]
   store i64 %363, ptr %.sroa.10308.0..sroa_idx311, align 8
   br label %.loopexit
 
@@ -17930,8 +17945,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i64 2, ptr %30, align 8
   %368 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 1, ptr %368, align 8
-  %.off368 = add i64 %364, -6
-  %369 = icmp ult i64 %.off368, 3
+  %.off369 = add i64 %364, -6
+  %369 = icmp ult i64 %.off369, 3
   %370 = icmp eq i64 %366, 1
   %371 = and i1 %369, %370
   br i1 %371, label %372, label %373
@@ -18109,35 +18124,35 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not2.i.i252, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread, label %.lr.ph.i.i253
 
 .lr.ph.i.i253:                                    ; preds = %424
-  %.sroa.10308.0..sroa_idx311.promoted381 = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
+  %.sroa.10308.0..sroa_idx311.promoted382 = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
   %426 = getelementptr inbounds i64, ptr %37, i64 %425
   %427 = load i64, ptr %426, align 8, !tbaa !20
-  %.not1.i.i254399 = icmp eq i64 %427, 0
-  br i1 %.not1.i.i254399, label %.lr.ph400, label %._crit_edge
+  %.not1.i.i254401 = icmp eq i64 %427, 0
+  br i1 %.not1.i.i254401, label %.lr.ph402, label %._crit_edge
 
-428:                                              ; preds = %.lr.ph400
+428:                                              ; preds = %.lr.ph402
   %429 = getelementptr inbounds i64, ptr %37, i64 %432
   %430 = load i64, ptr %429, align 8, !tbaa !20
   %.not1.i.i254 = icmp eq i64 %430, 0
-  br i1 %.not1.i.i254, label %.lr.ph400, label %._crit_edge, !llvm.loop !49
+  br i1 %.not1.i.i254, label %.lr.ph402, label %._crit_edge, !llvm.loop !49
 
-.lr.ph400:                                        ; preds = %.lr.ph.i.i253, %428
+.lr.ph402:                                        ; preds = %.lr.ph.i.i253, %428
   %431 = phi i64 [ %432, %428 ], [ %425, %.lr.ph.i.i253 ]
   %432 = add i64 %431, 1
   %.not.i.i255 = icmp eq i64 %432, 9
-  br i1 %.not.i.i255, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread373, label %428, !llvm.loop !49
+  br i1 %.not.i.i255, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread374, label %428, !llvm.loop !49
 
-_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread373: ; preds = %.lr.ph400
+_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread374: ; preds = %.lr.ph402
   store i64 %432, ptr %.sroa.10308.0..sroa_idx311, align 8
   br label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread
 
-_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread: ; preds = %424, %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread373
+_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread: ; preds = %424, %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread374
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #24
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %33)
           to label %_ZN7testing8internal8EqHelper7CompareIN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEESE_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSO_RKSG_RKSH_.exit259 unwind label %436
 
 ._crit_edge:                                      ; preds = %428, %.lr.ph.i.i253
-  %.lcssa = phi i64 [ %.sroa.10308.0..sroa_idx311.promoted381, %.lr.ph.i.i253 ], [ %432, %428 ]
+  %.lcssa = phi i64 [ %.sroa.10308.0..sroa_idx311.promoted382, %.lr.ph.i.i253 ], [ %432, %428 ]
   store i64 %.lcssa, ptr %.sroa.10308.0..sroa_idx311, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #24
   store ptr %37, ptr %34, align 8, !tbaa !105
@@ -18776,10 +18791,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %148 = phi i64 [ %149, %.lr.ph.i.i.i114 ], [ %143, %.lr.ph.i.i.i114.preheader ]
   %149 = add i64 %148, 1
   %.not.i.i.i116 = icmp eq i64 %149, 4
-  br i1 %.not.i.i.i116, label %.loopexit265, label %.lr.ph.i.i.i114, !llvm.loop !49
+  br i1 %.not.i.i.i116, label %..loopexit265_crit_edge, label %.lr.ph.i.i.i114, !llvm.loop !49
 
-.loopexit265:                                     ; preds = %.lr.ph, %.lr.ph.i.i.i114, %.lr.ph.i.i.i114.preheader
-  %150 = phi i64 [ %143, %.lr.ph.i.i.i114.preheader ], [ 4, %.lr.ph ], [ %149, %.lr.ph.i.i.i114 ]
+..loopexit265_crit_edge:                          ; preds = %.lr.ph
+  br label %.loopexit265, !llvm.loop !49
+
+.loopexit265:                                     ; preds = %.lr.ph.i.i.i114, %..loopexit265_crit_edge, %.lr.ph.i.i.i114.preheader
+  %150 = phi i64 [ 4, %..loopexit265_crit_edge ], [ %143, %.lr.ph.i.i.i114.preheader ], [ %149, %.lr.ph.i.i.i114 ]
   store i64 %150, ptr %.sroa.10211.0..sroa_idx214, align 8
   br label %151
 
@@ -18974,24 +18992,27 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.10211.0..sroa_idx214.promoted = load i64, ptr %.sroa.10211.0..sroa_idx214, align 8
   %211 = getelementptr inbounds i64, ptr %27, i64 %210
   %212 = load i64, ptr %211, align 8, !tbaa !20, !noalias !246
-  %.not1.i.i.i139269 = icmp eq i64 %212, 0
-  br i1 %.not1.i.i.i139269, label %.lr.ph270, label %.loopexit.loopexit
+  %.not1.i.i.i139272 = icmp eq i64 %212, 0
+  br i1 %.not1.i.i.i139272, label %.lr.ph273, label %.loopexit.loopexit
 
-213:                                              ; preds = %.lr.ph270
+213:                                              ; preds = %.lr.ph273
   %214 = getelementptr inbounds i64, ptr %27, i64 %217
   %215 = load i64, ptr %214, align 8, !tbaa !20, !noalias !246
   %.not1.i.i.i139 = icmp eq i64 %215, 0
-  br i1 %.not1.i.i.i139, label %.lr.ph270, label %.loopexit.loopexit, !llvm.loop !49
+  br i1 %.not1.i.i.i139, label %.lr.ph273, label %.loopexit.loopexit, !llvm.loop !49
 
-.lr.ph270:                                        ; preds = %.lr.ph.i.i.i138, %213
+.lr.ph273:                                        ; preds = %.lr.ph.i.i.i138, %213
   %216 = phi i64 [ %217, %213 ], [ %210, %.lr.ph.i.i.i138 ]
   %217 = add i64 %216, 1
   %.not.i.i.i140 = icmp eq i64 %217, 4
-  br i1 %.not.i.i.i140, label %.loopexit.loopexit, label %213, !llvm.loop !49
+  br i1 %.not.i.i.i140, label %..loopexit.loopexit_crit_edge275, label %213, !llvm.loop !49
 
-.loopexit.loopexit:                               ; preds = %.lr.ph270, %213, %.lr.ph.i.i.i138
-  %218 = phi i64 [ %.sroa.10211.0..sroa_idx214.promoted, %.lr.ph.i.i.i138 ], [ %217, %213 ], [ %217, %.lr.ph270 ]
-  %219 = phi i1 [ false, %.lr.ph.i.i.i138 ], [ %.not.i.i.i140, %213 ], [ %.not.i.i.i140, %.lr.ph270 ]
+..loopexit.loopexit_crit_edge275:                 ; preds = %.lr.ph273
+  br label %.loopexit.loopexit, !llvm.loop !49
+
+.loopexit.loopexit:                               ; preds = %213, %..loopexit.loopexit_crit_edge275, %.lr.ph.i.i.i138
+  %218 = phi i64 [ %217, %..loopexit.loopexit_crit_edge275 ], [ %.sroa.10211.0..sroa_idx214.promoted, %.lr.ph.i.i.i138 ], [ %217, %213 ]
+  %219 = phi i1 [ true, %..loopexit.loopexit_crit_edge275 ], [ false, %.lr.ph.i.i.i138 ], [ false, %213 ]
   store i64 %218, ptr %.sroa.10211.0..sroa_idx214, align 8
   br label %.loopexit
 

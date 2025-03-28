@@ -2196,11 +2196,11 @@ define internal fastcc i32 @bid_keyword_list(ptr noundef readonly captures(none)
 
 .lr.phthread-pre-split:                           ; preds = %.critedge4
   %10 = add nsw i64 %.166120, -1
-  %.pr189 = load i8, ptr %13, align 1, !tbaa !38
+  %.pr197 = load i8, ptr %13, align 1, !tbaa !38
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.phthread-pre-split
-  %11 = phi i8 [ %.pr189, %.lr.phthread-pre-split ], [ %9, %8 ]
+  %11 = phi i8 [ %.pr197, %.lr.phthread-pre-split ], [ %9, %8 ]
   %12 = phi i1 [ true, %.lr.phthread-pre-split ], [ false, %8 ]
   %.161121 = phi ptr [ %13, %.lr.phthread-pre-split ], [ %.060143, %8 ]
   %.166120 = phi i64 [ %10, %.lr.phthread-pre-split ], [ %.065142, %8 ]
@@ -2456,14 +2456,17 @@ bid_keyword.exit:                                 ; preds = %bid_keycmp.exit.us.
   %.not79127 = phi i1 [ true, %73 ], [ false, %.preheader ]
   %75 = load i8, ptr %.464128, align 1, !tbaa !38
   switch i8 %75, label %73 [
-    i8 32, label %.critedge9
-    i8 9, label %.critedge9
+    i8 32, label %..critedge9_crit_edge
+    i8 9, label %..critedge9_crit_edge
   ], !llvm.loop !106
 
-.critedge9:                                       ; preds = %.lr.ph130, %.lr.ph130, %.preheader
-  %.not79.lcssa = phi i1 [ false, %.preheader ], [ %.not79127, %.lr.ph130 ], [ %.not79127, %.lr.ph130 ]
-  %.464.lcssa = phi ptr [ %.464125, %.preheader ], [ %.464128, %.lr.ph130 ], [ %.464128, %.lr.ph130 ]
-  %.469.lcssa = phi i64 [ %.469126, %.preheader ], [ %.469129, %.lr.ph130 ], [ %.469129, %.lr.ph130 ]
+..critedge9_crit_edge:                            ; preds = %.lr.ph130, %.lr.ph130
+  br label %.critedge9, !llvm.loop !106
+
+.critedge9:                                       ; preds = %..critedge9_crit_edge, %.preheader
+  %.not79.lcssa = phi i1 [ %.not79127, %..critedge9_crit_edge ], [ false, %.preheader ]
+  %.464.lcssa = phi ptr [ %.464128, %..critedge9_crit_edge ], [ %.464125, %.preheader ]
+  %.469.lcssa = phi i64 [ %.469129, %..critedge9_crit_edge ], [ %.469126, %.preheader ]
   %or.cond11.not = or i1 %7, %.not79.lcssa
   br i1 %or.cond11.not, label %select.unfold, label %.critedge
 

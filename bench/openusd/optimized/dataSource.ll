@@ -508,7 +508,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
 
 ._crit_edge:                                      ; preds = %175
   %.pre = load ptr, ptr %4, align 8
-  br label %split
+  br label %split, !llvm.loop !9
 
 split:                                            ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit, %._crit_edge
   %177 = phi ptr [ %.pre, %._crit_edge ], [ null, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit ]

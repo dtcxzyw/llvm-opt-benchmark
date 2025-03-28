@@ -2564,7 +2564,7 @@ thread-pre-split:                                 ; preds = %switch.lookup, %218
 
 ._crit_edge253:                                   ; preds = %287
   %.pre = load ptr, ptr %21, align 8
-  br label %split
+  br label %split, !llvm.loop !20
 
 split:                                            ; preds = %284, %._crit_edge253
   %292 = phi ptr [ %.pre, %._crit_edge253 ], [ null, %284 ]

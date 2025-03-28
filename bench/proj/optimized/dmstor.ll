@@ -215,7 +215,7 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
   %.143.ph97 = phi double [ %.0.i, %60 ], [ %65, %.thread ], [ %74, %70 ]
   %77 = phi ptr [ %61, %60 ], [ %50, %.thread ], [ %75, %70 ]
   %.pre93 = load i8, ptr %77, align 1, !tbaa !10
-  br label %split
+  br label %split, !llvm.loop !19
 
 split:                                            ; preds = %34, %._crit_edge
   %78 = phi i8 [ %.pre93, %._crit_edge ], [ %36, %34 ]

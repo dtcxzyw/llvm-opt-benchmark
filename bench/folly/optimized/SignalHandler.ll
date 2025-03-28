@@ -901,7 +901,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_112dumpTimeInfoEv.exit.i: ; preds = %_ZN5folly
   %124 = getelementptr inbounds nuw i8, ptr %.022196.i37.i, i64 176
   %125 = load ptr, ptr %124, align 8, !tbaa !54
   %.not.i.i = icmp eq ptr %125, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !72
+  br i1 %.not.i.i, label %.._crit_edge.i.loopexit_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !72
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph38.i
   %126 = getelementptr inbounds nuw i8, ptr %.022196.i37.i, i64 168
@@ -909,8 +909,11 @@ _ZN5folly10symbolizer12_GLOBAL__N_112dumpTimeInfoEv.exit.i: ; preds = %_ZN5folly
   %128 = icmp eq i32 %127, %0
   br i1 %128, label %._crit_edge.i.i, label %.lr.ph38.i, !llvm.loop !72
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph38.i, %.lr.ph.i.preheader.i, %_ZN5folly10symbolizer12_GLOBAL__N_112dumpTimeInfoEv.exit.i
-  %.lcssa194.i.i = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_112dumpTimeInfoEv.exit.i ], [ %121, %.lr.ph.i.preheader.i ], [ %125, %.lr.ph.i.i ], [ null, %.lr.ph38.i ]
+.._crit_edge.i.loopexit_crit_edge.i:              ; preds = %.lr.ph38.i
+  br label %._crit_edge.i.i, !llvm.loop !72
+
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.._crit_edge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i, %_ZN5folly10symbolizer12_GLOBAL__N_112dumpTimeInfoEv.exit.i
+  %.lcssa194.i.i = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_112dumpTimeInfoEv.exit.i ], [ null, %.._crit_edge.i.loopexit_crit_edge.i ], [ %121, %.lr.ph.i.preheader.i ], [ %125, %.lr.ph.i.i ]
   %129 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !48
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !27
@@ -1537,9 +1540,9 @@ _ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit108.i.i: ; preds = %_ZN5folly
   br i1 %415, label %switch.lookup, label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 416:                                              ; preds = %412
-  %switch.tableidx147 = add i32 %413, -1
-  %417 = icmp ult i32 %switch.tableidx147, 8
-  br i1 %417, label %switch.lookup146, label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
+  %switch.tableidx155 = add i32 %413, -1
+  %417 = icmp ult i32 %switch.tableidx155, 8
+  br i1 %417, label %switch.lookup154, label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 418:                                              ; preds = %412
   %switch.selectcmp.i.i.i.i = icmp eq i32 %413, 2
@@ -1549,9 +1552,9 @@ _ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit108.i.i: ; preds = %_ZN5folly
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 419:                                              ; preds = %412
-  %switch.tableidx151 = add i32 %413, -1
-  %420 = icmp ult i32 %switch.tableidx151, 3
-  br i1 %420, label %switch.lookup150, label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
+  %switch.tableidx159 = add i32 %413, -1
+  %420 = icmp ult i32 %switch.tableidx159, 3
+  br i1 %420, label %switch.lookup158, label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 421:                                              ; preds = %412
   %switch.selectcmp.i10.i.i.i = icmp eq i32 %413, 2
@@ -1561,14 +1564,14 @@ _ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit108.i.i: ; preds = %_ZN5folly
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 422:                                              ; preds = %412
-  %switch.tableidx155 = add i32 %413, -1
-  %423 = icmp ult i32 %switch.tableidx155, 6
-  br i1 %423, label %switch.lookup154, label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
+  %switch.tableidx163 = add i32 %413, -1
+  %423 = icmp ult i32 %switch.tableidx163, 6
+  br i1 %423, label %switch.lookup162, label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 424:                                              ; preds = %412
-  %switch.tableidx159 = add i32 %413, -1
-  %425 = icmp ult i32 %switch.tableidx159, 6
-  br i1 %425, label %switch.lookup158, label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
+  %switch.tableidx167 = add i32 %413, -1
+  %425 = icmp ult i32 %switch.tableidx167, 6
+  br i1 %425, label %switch.lookup166, label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 switch.lookup:                                    ; preds = %414
   %426 = zext nneg i32 %switch.tableidx to i64
@@ -1576,32 +1579,32 @@ switch.lookup:                                    ; preds = %414
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
-switch.lookup146:                                 ; preds = %416
-  %427 = zext nneg i32 %switch.tableidx147 to i64
-  %switch.gep148 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.23, i64 0, i64 %427
-  %switch.load149 = load ptr, ptr %switch.gep148, align 8
-  br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
-
-switch.lookup150:                                 ; preds = %419
-  %428 = zext nneg i32 %switch.tableidx151 to i64
-  %switch.gep152 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.24, i64 0, i64 %428
-  %switch.load153 = load ptr, ptr %switch.gep152, align 8
-  br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
-
-switch.lookup154:                                 ; preds = %422
-  %429 = zext nneg i32 %switch.tableidx155 to i64
-  %switch.gep156 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.25, i64 0, i64 %429
+switch.lookup154:                                 ; preds = %416
+  %427 = zext nneg i32 %switch.tableidx155 to i64
+  %switch.gep156 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.23, i64 0, i64 %427
   %switch.load157 = load ptr, ptr %switch.gep156, align 8
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
-switch.lookup158:                                 ; preds = %424
-  %430 = zext nneg i32 %switch.tableidx159 to i64
-  %switch.gep160 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.26, i64 0, i64 %430
+switch.lookup158:                                 ; preds = %419
+  %428 = zext nneg i32 %switch.tableidx159 to i64
+  %switch.gep160 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.24, i64 0, i64 %428
   %switch.load161 = load ptr, ptr %switch.gep160, align 8
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
-_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i: ; preds = %424, %switch.lookup158, %422, %switch.lookup154, %419, %switch.lookup150, %416, %switch.lookup146, %414, %switch.lookup, %421, %418, %412
-  %.0.i.i.i = phi ptr [ %switch.select2.i13.i.i.i, %421 ], [ %switch.select2.i.i.i.i, %418 ], [ null, %412 ], [ %switch.load, %switch.lookup ], [ null, %414 ], [ %switch.load149, %switch.lookup146 ], [ null, %416 ], [ %switch.load153, %switch.lookup150 ], [ null, %419 ], [ %switch.load157, %switch.lookup154 ], [ null, %422 ], [ %switch.load161, %switch.lookup158 ], [ null, %424 ]
+switch.lookup162:                                 ; preds = %422
+  %429 = zext nneg i32 %switch.tableidx163 to i64
+  %switch.gep164 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.25, i64 0, i64 %429
+  %switch.load165 = load ptr, ptr %switch.gep164, align 8
+  br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
+
+switch.lookup166:                                 ; preds = %424
+  %430 = zext nneg i32 %switch.tableidx167 to i64
+  %switch.gep168 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.26, i64 0, i64 %430
+  %switch.load169 = load ptr, ptr %switch.gep168, align 8
+  br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
+
+_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i: ; preds = %424, %switch.lookup166, %422, %switch.lookup162, %419, %switch.lookup158, %416, %switch.lookup154, %414, %switch.lookup, %421, %418, %412
+  %.0.i.i.i = phi ptr [ %switch.select2.i13.i.i.i, %421 ], [ %switch.select2.i.i.i.i, %418 ], [ null, %412 ], [ %switch.load, %switch.lookup ], [ null, %414 ], [ %switch.load157, %switch.lookup154 ], [ null, %416 ], [ %switch.load161, %switch.lookup158 ], [ null, %419 ], [ %switch.load165, %switch.lookup162 ], [ null, %422 ], [ %switch.load169, %switch.lookup166 ], [ null, %424 ]
   %431 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !48
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 16
   %433 = load ptr, ptr %432, align 8, !tbaa !27

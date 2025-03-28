@@ -5769,15 +5769,15 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$serde_json..value..Value$u20$as$u20
     i64 2, label %14
     i64 3, label %16
     i64 4, label %18
-    i64 5, label %66
+    i64 5, label %67
     i64 0, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
   ]
 
-"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit": ; preds = %61, %.preheader.split, %66, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h25a8ecfc2932a015E.llvm.3612665634329711074.exit.i, %.sink.split.i.i, %52, %48, %45, %41, %37, %33, %25, %11, %12, %14, %16, %18, %2, %20
-  %.sroa.0.0.shrunk = phi i1 [ %.not, %20 ], [ false, %2 ], [ true, %18 ], [ true, %16 ], [ true, %14 ], [ true, %12 ], [ true, %11 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ false, %25 ], [ %51, %48 ], [ false, %45 ], [ false, %52 ], [ false, %66 ], [ true, %.sink.split.i.i ], [ false, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h25a8ecfc2932a015E.llvm.3612665634329711074.exit.i ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %61 ]
+"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit": ; preds = %62, %.preheader.split, %67, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h25a8ecfc2932a015E.llvm.3612665634329711074.exit.i, %.sink.split.i.i, %53, %49, %46, %42, %38, %34, %26, %11, %12, %14, %16, %18, %2, %20
+  %.sroa.0.0.shrunk = phi i1 [ %25, %20 ], [ false, %2 ], [ true, %18 ], [ true, %16 ], [ true, %14 ], [ true, %12 ], [ true, %11 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ false, %26 ], [ %52, %49 ], [ false, %46 ], [ false, %53 ], [ false, %67 ], [ true, %.sink.split.i.i ], [ false, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h25a8ecfc2932a015E.llvm.3612665634329711074.exit.i ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %62 ]
   ret i1 %.sroa.0.0.shrunk
 
-default.unreachable:                              ; preds = %30, %11
+default.unreachable:                              ; preds = %31, %11
   unreachable
 
 12:                                               ; preds = %11
@@ -5786,140 +5786,140 @@ default.unreachable:                              ; preds = %30, %11
 
 14:                                               ; preds = %11
   %15 = icmp eq i64 %7, -9223372036854775806
-  br i1 %15, label %25, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
+  br i1 %15, label %26, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
 16:                                               ; preds = %11
   %17 = icmp eq i64 %7, -9223372036854775805
-  br i1 %17, label %45, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
+  br i1 %17, label %46, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
 18:                                               ; preds = %11
   %19 = icmp eq i64 %7, -9223372036854775804
-  br i1 %19, label %52, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
+  br i1 %19, label %53, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i8, ptr %21, align 8, !range !143, !noundef !20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i8, ptr %23, align 8, !range !143, !noundef !20
-  %.not = icmp eq i8 %22, %24
+  %25 = icmp eq i8 %22, %24
   br label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-25:                                               ; preds = %14
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+26:                                               ; preds = %14
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1648)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1651)
-  %28 = load i64, ptr %26, align 8, !range !152, !alias.scope !1648, !noalias !1651, !noundef !20
-  %29 = load i64, ptr %27, align 8, !range !152, !alias.scope !1651, !noalias !1648, !noundef !20
-  %.not.i = icmp eq i64 %28, %29
-  br i1 %.not.i, label %30, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
+  %29 = load i64, ptr %27, align 8, !range !152, !alias.scope !1648, !noalias !1651, !noundef !20
+  %30 = load i64, ptr %28, align 8, !range !152, !alias.scope !1651, !noalias !1648, !noundef !20
+  %.not.i = icmp eq i64 %29, %30
+  br i1 %.not.i, label %31, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  switch i64 %28, label %default.unreachable [
-    i64 0, label %33
-    i64 1, label %37
-    i64 2, label %41
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  switch i64 %29, label %default.unreachable [
+    i64 0, label %34
+    i64 1, label %38
+    i64 2, label %42
   ]
 
-33:                                               ; preds = %30
-  %34 = load i64, ptr %31, align 8, !alias.scope !1648, !noalias !1651, !noundef !20
-  %35 = load i64, ptr %32, align 8, !alias.scope !1651, !noalias !1648, !noundef !20
-  %36 = icmp eq i64 %34, %35
+34:                                               ; preds = %31
+  %35 = load i64, ptr %32, align 8, !alias.scope !1648, !noalias !1651, !noundef !20
+  %36 = load i64, ptr %33, align 8, !alias.scope !1651, !noalias !1648, !noundef !20
+  %37 = icmp eq i64 %35, %36
   br label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-37:                                               ; preds = %30
-  %38 = load i64, ptr %31, align 8, !alias.scope !1648, !noalias !1651, !noundef !20
-  %39 = load i64, ptr %32, align 8, !alias.scope !1651, !noalias !1648, !noundef !20
-  %40 = icmp eq i64 %38, %39
+38:                                               ; preds = %31
+  %39 = load i64, ptr %32, align 8, !alias.scope !1648, !noalias !1651, !noundef !20
+  %40 = load i64, ptr %33, align 8, !alias.scope !1651, !noalias !1648, !noundef !20
+  %41 = icmp eq i64 %39, %40
   br label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-41:                                               ; preds = %30
-  %42 = load double, ptr %31, align 8, !alias.scope !1648, !noalias !1651, !noundef !20
-  %43 = load double, ptr %32, align 8, !alias.scope !1651, !noalias !1648, !noundef !20
-  %44 = fcmp oeq double %42, %43
+42:                                               ; preds = %31
+  %43 = load double, ptr %32, align 8, !alias.scope !1648, !noalias !1651, !noundef !20
+  %44 = load double, ptr %33, align 8, !alias.scope !1651, !noalias !1648, !noundef !20
+  %45 = fcmp oeq double %43, %44
   br label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-45:                                               ; preds = %16
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val2 = load i64, ptr %46, align 8, !noundef !20
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val4 = load i64, ptr %47, align 8, !noundef !20
+46:                                               ; preds = %16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val2 = load i64, ptr %47, align 8, !noundef !20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val4 = load i64, ptr %48, align 8, !noundef !20
   %.not.i.i = icmp eq i64 %.val2, %.val4
-  br i1 %.not.i.i, label %48, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
+  br i1 %.not.i.i, label %49, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val3 = load ptr, ptr %49, align 8, !nonnull !20, !noundef !20
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val = load ptr, ptr %50, align 8, !nonnull !20, !noundef !20
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val3 = load ptr, ptr %50, align 8, !nonnull !20, !noundef !20
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val = load ptr, ptr %51, align 8, !nonnull !20, !noundef !20
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val3, i64 %.val2), !alias.scope !1653
-  %51 = icmp eq i32 %bcmp.i.i, 0
+  %52 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-52:                                               ; preds = %18
+53:                                               ; preds = %18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1657)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1660)
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load ptr, ptr %53, align 8, !alias.scope !1657, !noalias !1660, !nonnull !20, !noundef !20
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %56 = load i64, ptr %55, align 8, !alias.scope !1657, !noalias !1660, !noundef !20
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %58 = load ptr, ptr %57, align 8, !alias.scope !1660, !noalias !1657, !nonnull !20, !noundef !20
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %60 = load i64, ptr %59, align 8, !alias.scope !1660, !noalias !1657, !noundef !20
-  %.not.i6 = icmp eq i64 %56, %60
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %55 = load ptr, ptr %54, align 8, !alias.scope !1657, !noalias !1660, !nonnull !20, !noundef !20
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %57 = load i64, ptr %56, align 8, !alias.scope !1657, !noalias !1660, !noundef !20
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %59 = load ptr, ptr %58, align 8, !alias.scope !1660, !noalias !1657, !nonnull !20, !noundef !20
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %61 = load i64, ptr %60, align 8, !alias.scope !1660, !noalias !1657, !noundef !20
+  %.not.i6 = icmp eq i64 %57, %61
   br i1 %.not.i6, label %.preheader.split, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-.preheader.split:                                 ; preds = %52, %61
-  %.sroa.01.0.i = phi i64 [ %62, %61 ], [ 0, %52 ]
-  %exitcond.not = icmp eq i64 %.sroa.01.0.i, %56
-  br i1 %exitcond.not, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit", label %61
+.preheader.split:                                 ; preds = %53, %62
+  %.sroa.01.0.i = phi i64 [ %63, %62 ], [ 0, %53 ]
+  %exitcond.not = icmp eq i64 %.sroa.01.0.i, %57
+  br i1 %exitcond.not, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit", label %62
 
-61:                                               ; preds = %.preheader.split
-  %62 = add i64 %.sroa.01.0.i, 1
-  %63 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %54, i64 0, i64 %.sroa.01.0.i
-  %64 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %58, i64 0, i64 %.sroa.01.0.i
-  %65 = tail call noundef zeroext i1 @"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %64), !noalias !1662
-  br i1 %65, label %.preheader.split, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
+62:                                               ; preds = %.preheader.split
+  %63 = add i64 %.sroa.01.0.i, 1
+  %64 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %55, i64 0, i64 %.sroa.01.0.i
+  %65 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %59, i64 0, i64 %.sroa.01.0.i
+  %66 = tail call noundef zeroext i1 @"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %65), !noalias !1662
+  br i1 %66, label %.preheader.split, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-66:                                               ; preds = %11
+67:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1663)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1666)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = load i64, ptr %67, align 8, !alias.scope !1663, !noalias !1666, !noundef !20
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %70 = load i64, ptr %69, align 8, !alias.scope !1666, !noalias !1663, !noundef !20
-  %.not.i5 = icmp eq i64 %68, %70
-  br i1 %.not.i5, label %71, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %69 = load i64, ptr %68, align 8, !alias.scope !1663, !noalias !1666, !noundef !20
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %71 = load i64, ptr %70, align 8, !alias.scope !1666, !noalias !1663, !noundef !20
+  %.not.i5 = icmp eq i64 %69, %71
+  br i1 %.not.i5, label %72, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %73 = load ptr, ptr %72, align 8, !alias.scope !1663, !noalias !1666, !nonnull !20, !noundef !20
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %75 = load i64, ptr %74, align 8, !alias.scope !1663, !noalias !1666, !noundef !20
-  %76 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %73, i64 %75
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %74 = load ptr, ptr %73, align 8, !alias.scope !1663, !noalias !1666, !nonnull !20, !noundef !20
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %76 = load i64, ptr %75, align 8, !alias.scope !1663, !noalias !1666, !noundef !20
+  %77 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %74, i64 %76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1668
   store ptr %1, ptr %3, align 8, !noalias !1669
-  br label %77
+  br label %78
 
-77:                                               ; preds = %79, %71
-  %.sroa.0.0 = phi ptr [ %73, %71 ], [ %80, %79 ]
-  %78 = icmp eq ptr %.sroa.0.0, %76
-  br i1 %78, label %.sink.split.i.i, label %79
+78:                                               ; preds = %80, %72
+  %.sroa.0.0 = phi ptr [ %74, %72 ], [ %81, %80 ]
+  %79 = icmp eq ptr %.sroa.0.0, %77
+  br i1 %79, label %.sink.split.i.i, label %80
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 104
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
-  %82 = call fastcc noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h42a94c050a2df803E"(ptr noalias noundef align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef readonly align 8 dereferenceable(72) %81), !noalias !1663
-  br i1 %82, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h25a8ecfc2932a015E.llvm.3612665634329711074.exit.i, label %77
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 104
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
+  %83 = call fastcc noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h42a94c050a2df803E"(ptr noalias noundef align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef readonly align 8 dereferenceable(72) %82), !noalias !1663
+  br i1 %83, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h25a8ecfc2932a015E.llvm.3612665634329711074.exit.i, label %78
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h25a8ecfc2932a015E.llvm.3612665634329711074.exit.i: ; preds = %79
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h25a8ecfc2932a015E.llvm.3612665634329711074.exit.i: ; preds = %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !1668
   br label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 
-.sink.split.i.i:                                  ; preds = %77
+.sink.split.i.i:                                  ; preds = %78
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !1668
   br label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit"
 }

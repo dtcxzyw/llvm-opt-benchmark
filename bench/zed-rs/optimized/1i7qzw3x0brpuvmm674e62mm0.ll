@@ -33430,75 +33430,75 @@ define hidden void @"_ZN13project_panel12ProjectPanel3new28_$u7b$$u7b$closure$u7
   %.sroa.11.0.copyload = load i8, ptr %.sroa.11.0..sroa_idx, align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %9 = load i8, ptr %8, align 1, !range !95, !alias.scope !5806, !noalias !5809, !noundef !19
-  %.not.i = icmp eq i8 %9, %.sroa.5.0.copyload
-  %10 = load float, ptr %0, align 4
-  %11 = fcmp oeq float %10, %.sroa.0.0.copyload
-  %or.cond = select i1 %.not.i, i1 %11, i1 false
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %13 = load i8, ptr %12, align 2, !range !95
-  %14 = icmp eq i8 %13, %.sroa.6.0.copyload
-  %or.cond24 = select i1 %or.cond, i1 %14, i1 false
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %16 = load i8, ptr %15, align 1, !range !95
-  %.not2.i = icmp eq i8 %16, %.sroa.7.0.copyload
-  %or.cond26 = select i1 %or.cond24, i1 %.not2.i, i1 false
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %18 = load i8, ptr %17, align 4, !range !95
-  %.not3.i = icmp eq i8 %18, %.sroa.8.0.copyload
-  %or.cond28 = select i1 %or.cond26, i1 %.not3.i, i1 false
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %20 = load i8, ptr %19, align 1, !range !95
-  %.not4.i = icmp eq i8 %20, %.sroa.9.0.copyload
-  %or.cond30 = select i1 %or.cond28, i1 %.not4.i, i1 false
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %22 = load float, ptr %21, align 4
-  %23 = fcmp oeq float %22, %.sroa.3.0.copyload
-  %or.cond33 = select i1 %or.cond30, i1 %23, i1 false
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %25 = load i8, ptr %24, align 2, !range !95
-  %.not5.i = icmp eq i8 %25, %.sroa.10.0.copyload
-  %or.cond35 = select i1 %or.cond33, i1 %.not5.i, i1 false
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %27 = load i8, ptr %26, align 1, !range !95
-  %.not6.i = icmp eq i8 %27, %.sroa.11.0.copyload
-  %or.cond37 = select i1 %or.cond35, i1 %.not6.i, i1 false
-  br i1 %or.cond37, label %28, label %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit.thread"
+  %10 = icmp eq i8 %9, %.sroa.5.0.copyload
+  %11 = load float, ptr %0, align 4
+  %12 = fcmp oeq float %11, %.sroa.0.0.copyload
+  %or.cond = select i1 %10, i1 %12, i1 false
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %14 = load i8, ptr %13, align 2, !range !95
+  %15 = icmp eq i8 %14, %.sroa.6.0.copyload
+  %or.cond24 = select i1 %or.cond, i1 %15, i1 false
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %17 = load i8, ptr %16, align 1, !range !95
+  %18 = icmp eq i8 %17, %.sroa.7.0.copyload
+  %or.cond27 = select i1 %or.cond24, i1 %18, i1 false
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %20 = load i8, ptr %19, align 4, !range !95
+  %21 = icmp eq i8 %20, %.sroa.8.0.copyload
+  %or.cond30 = select i1 %or.cond27, i1 %21, i1 false
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %23 = load i8, ptr %22, align 1, !range !95
+  %24 = icmp eq i8 %23, %.sroa.9.0.copyload
+  %or.cond33 = select i1 %or.cond30, i1 %24, i1 false
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %26 = load float, ptr %25, align 4
+  %27 = fcmp oeq float %26, %.sroa.3.0.copyload
+  %or.cond36 = select i1 %or.cond33, i1 %27, i1 false
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %29 = load i8, ptr %28, align 2, !range !95
+  %30 = icmp eq i8 %29, %.sroa.10.0.copyload
+  %or.cond39 = select i1 %or.cond36, i1 %30, i1 false
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %32 = load i8, ptr %31, align 1, !range !95
+  %33 = icmp eq i8 %32, %.sroa.11.0.copyload
+  %or.cond42 = select i1 %or.cond39, i1 %33, i1 false
+  br i1 %or.cond42, label %34, label %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit.thread"
 
-28:                                               ; preds = %3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i8, ptr %29, align 4, !range !5811, !alias.scope !5806, !noalias !5809, !noundef !19
-  %31 = icmp eq i8 %30, 4
-  br i1 %31, label %32, label %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit"
+34:                                               ; preds = %3
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load i8, ptr %35, align 4, !range !5811, !alias.scope !5806, !noalias !5809, !noundef !19
+  %37 = icmp eq i8 %36, 4
+  br i1 %37, label %38, label %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit"
 
-32:                                               ; preds = %28
-  %33 = icmp eq i8 %.sroa.4.0.copyload, 4
-  br i1 %33, label %40, label %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit.thread"
+38:                                               ; preds = %34
+  %39 = icmp eq i8 %.sroa.4.0.copyload, 4
+  br i1 %39, label %46, label %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit.thread"
 
-"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit": ; preds = %28
-  %34 = icmp eq i8 %30, %.sroa.4.0.copyload
-  br i1 %34, label %40, label %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit.thread"
+"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit": ; preds = %34
+  %40 = icmp eq i8 %36, %.sroa.4.0.copyload
+  br i1 %40, label %46, label %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit.thread"
 
-"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit.thread": ; preds = %3, %32, %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit"
+"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit.thread": ; preds = %3, %38, %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit"
   store float %.sroa.0.0.copyload, ptr %0, align 4
-  store float %.sroa.3.0.copyload, ptr %21, align 4
+  store float %.sroa.3.0.copyload, ptr %25, align 4
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx4, align 4
   store i8 %.sroa.5.0.copyload, ptr %8, align 1
-  store i8 %.sroa.6.0.copyload, ptr %12, align 2
-  store i8 %.sroa.7.0.copyload, ptr %15, align 1
-  store i8 %.sroa.8.0.copyload, ptr %17, align 4
-  store i8 %.sroa.9.0.copyload, ptr %19, align 1
-  store i8 %.sroa.10.0.copyload, ptr %24, align 2
-  store i8 %.sroa.11.0.copyload, ptr %26, align 1
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %36 = load ptr, ptr %35, align 8, !nonnull !19, !align !87, !noundef !19
-  %37 = load i32, ptr %36, align 8, !range !115, !noundef !19
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %39 = load i32, ptr %38, align 4, !noundef !19
-  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %37, i32 noundef %39)
-  br label %40
+  store i8 %.sroa.6.0.copyload, ptr %13, align 2
+  store i8 %.sroa.7.0.copyload, ptr %16, align 1
+  store i8 %.sroa.8.0.copyload, ptr %19, align 4
+  store i8 %.sroa.9.0.copyload, ptr %22, align 1
+  store i8 %.sroa.10.0.copyload, ptr %28, align 2
+  store i8 %.sroa.11.0.copyload, ptr %31, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %42 = load ptr, ptr %41, align 8, !nonnull !19, !align !87, !noundef !19
+  %43 = load i32, ptr %42, align 8, !range !115, !noundef !19
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %45 = load i32, ptr %44, align 4, !noundef !19
+  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %43, i32 noundef %45)
+  br label %46
 
-40:                                               ; preds = %32, %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit", %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit.thread"
+46:                                               ; preds = %38, %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit", %"_ZN100_$LT$project_panel..project_panel_settings..ProjectPanelSettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfcf4825056ec4861E.llvm.11390358235319253704.exit.thread"
   ret void
 }
 
@@ -35842,90 +35842,90 @@ define hidden noundef zeroext i1 @"_ZN100_$LT$project_panel..project_panel_setti
   %4 = load i8, ptr %3, align 1, !range !95, !noundef !19
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %6 = load i8, ptr %5, align 1, !range !95, !noundef !19
-  %.not = icmp eq i8 %4, %6
-  br i1 %.not, label %7, label %54
+  %7 = icmp eq i8 %4, %6
+  br i1 %7, label %8, label %60
 
-7:                                                ; preds = %2
-  %8 = load float, ptr %0, align 4, !noundef !19
-  %9 = load float, ptr %1, align 4, !noundef !19
-  %10 = fcmp oeq float %8, %9
-  br i1 %10, label %11, label %54
+8:                                                ; preds = %2
+  %9 = load float, ptr %0, align 4, !noundef !19
+  %10 = load float, ptr %1, align 4, !noundef !19
+  %11 = fcmp oeq float %9, %10
+  br i1 %11, label %12, label %60
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %13 = load i8, ptr %12, align 2, !range !95, !noundef !19
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %15 = load i8, ptr %14, align 2, !range !95, !noundef !19
-  %16 = icmp eq i8 %13, %15
-  br i1 %16, label %17, label %54
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %14 = load i8, ptr %13, align 2, !range !95, !noundef !19
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %16 = load i8, ptr %15, align 2, !range !95, !noundef !19
+  %17 = icmp eq i8 %14, %16
+  br i1 %17, label %18, label %60
 
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %19 = load i8, ptr %18, align 1, !range !95, !noundef !19
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %21 = load i8, ptr %20, align 1, !range !95, !noundef !19
-  %.not2 = icmp eq i8 %19, %21
-  br i1 %.not2, label %22, label %54
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %20 = load i8, ptr %19, align 1, !range !95, !noundef !19
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 11
+  %22 = load i8, ptr %21, align 1, !range !95, !noundef !19
+  %23 = icmp eq i8 %20, %22
+  br i1 %23, label %24, label %60
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i8, ptr %23, align 4, !range !95, !noundef !19
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i8, ptr %25, align 4, !range !95, !noundef !19
-  %.not3 = icmp eq i8 %24, %26
-  br i1 %.not3, label %27, label %54
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %28 = load i8, ptr %27, align 4, !range !95, !noundef !19
+  %29 = icmp eq i8 %26, %28
+  br i1 %29, label %30, label %60
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %29 = load i8, ptr %28, align 1, !range !95, !noundef !19
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %31 = load i8, ptr %30, align 1, !range !95, !noundef !19
-  %.not4 = icmp eq i8 %29, %31
-  br i1 %.not4, label %32, label %54
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %32 = load i8, ptr %31, align 1, !range !95, !noundef !19
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 13
+  %34 = load i8, ptr %33, align 1, !range !95, !noundef !19
+  %35 = icmp eq i8 %32, %34
+  br i1 %35, label %36, label %60
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %34 = load float, ptr %33, align 4, !noundef !19
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %36 = load float, ptr %35, align 4, !noundef !19
-  %37 = fcmp oeq float %34, %36
-  br i1 %37, label %38, label %54
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %38 = load float, ptr %37, align 4, !noundef !19
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %40 = load float, ptr %39, align 4, !noundef !19
+  %41 = fcmp oeq float %38, %40
+  br i1 %41, label %42, label %60
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %40 = load i8, ptr %39, align 2, !range !95, !noundef !19
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %42 = load i8, ptr %41, align 2, !range !95, !noundef !19
-  %.not5 = icmp eq i8 %40, %42
-  br i1 %.not5, label %43, label %54
+42:                                               ; preds = %36
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %44 = load i8, ptr %43, align 2, !range !95, !noundef !19
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %46 = load i8, ptr %45, align 2, !range !95, !noundef !19
+  %47 = icmp eq i8 %44, %46
+  br i1 %47, label %48, label %60
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %45 = load i8, ptr %44, align 1, !range !95, !noundef !19
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  %47 = load i8, ptr %46, align 1, !range !95, !noundef !19
-  %.not6 = icmp eq i8 %45, %47
-  br i1 %.not6, label %48, label %54
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %50 = load i8, ptr %49, align 1, !range !95, !noundef !19
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 15
+  %52 = load i8, ptr %51, align 1, !range !95, !noundef !19
+  %53 = icmp eq i8 %50, %52
+  br i1 %53, label %54, label %60
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load i8, ptr %49, align 4, !range !5811, !noundef !19
-  %51 = icmp eq i8 %50, 4
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %53 = load i8, ptr %52, align 4, !range !5811, !noundef !19
-  br i1 %51, label %55, label %57
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = load i8, ptr %55, align 4, !range !5811, !noundef !19
+  %57 = icmp eq i8 %56, 4
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %59 = load i8, ptr %58, align 4, !range !5811, !noundef !19
+  br i1 %57, label %61, label %63
 
-54:                                               ; preds = %57, %55, %7, %11, %2, %17, %22, %27, %32, %38, %43
-  %.sroa.0.0 = phi i1 [ false, %43 ], [ false, %38 ], [ false, %32 ], [ false, %27 ], [ false, %22 ], [ false, %17 ], [ false, %2 ], [ false, %11 ], [ false, %7 ], [ %56, %55 ], [ %58, %57 ]
+60:                                               ; preds = %63, %61, %8, %12, %2, %18, %24, %30, %36, %42, %48
+  %.sroa.0.0 = phi i1 [ false, %48 ], [ false, %42 ], [ false, %36 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ false, %2 ], [ false, %12 ], [ false, %8 ], [ %62, %61 ], [ %64, %63 ]
   ret i1 %.sroa.0.0
 
-55:                                               ; preds = %48
-  %56 = icmp eq i8 %53, 4
-  br label %54
+61:                                               ; preds = %54
+  %62 = icmp eq i8 %59, 4
+  br label %60
 
-57:                                               ; preds = %48
-  %58 = icmp eq i8 %50, %53
-  br label %54
+63:                                               ; preds = %54
+  %64 = icmp eq i8 %56, %59
+  br label %60
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

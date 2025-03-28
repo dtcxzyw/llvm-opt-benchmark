@@ -10395,7 +10395,7 @@ virtio_virtqueue_reset_region_cache.exit.i:       ; preds = %12, %9
 
 virtio_virtqueue_reset_region_cache.exit._crit_edge.i: ; preds = %virtio_virtqueue_reset_region_cache.exit.i
   %.pre.i = load ptr, ptr %3, align 8
-  br label %split.i
+  br label %split.i, !llvm.loop !63
 
 split.i:                                          ; preds = %.preheader.i, %virtio_virtqueue_reset_region_cache.exit._crit_edge.i
   %14 = phi ptr [ %.pre.i, %virtio_virtqueue_reset_region_cache.exit._crit_edge.i ], [ %5, %.preheader.i ]

@@ -2773,7 +2773,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_14DomTreeUpdater
 
 _ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
   %.pre37.pre = load ptr, ptr %4, align 8, !tbaa !3
-  br label %.critedge3.loopexit
+  br label %.critedge3.loopexit, !llvm.loop !167
 
 .critedge3.loopexit:                              ; preds = %.lr.ph32, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge
   %.pre37 = phi ptr [ %.pre37.pre, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge ], [ %.pre37.pre38, %.lr.ph32 ]
@@ -2995,7 +2995,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_14DomTreeUpdater
 
 _ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
   %.pre37.pre = load ptr, ptr %4, align 8, !tbaa !3
-  br label %.critedge3.loopexit
+  br label %.critedge3.loopexit, !llvm.loop !170
 
 .critedge3.loopexit:                              ; preds = %.lr.ph32, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge
   %.pre37 = phi ptr [ %.pre37.pre, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge ], [ %.pre37.pre38, %.lr.ph32 ]

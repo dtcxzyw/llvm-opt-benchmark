@@ -1666,7 +1666,7 @@ Abc_SclEvalPerformLegal.exit.thread:              ; preds = %434, %457, %477, %A
 
 Abc_SclEvalPerformLegal.exit.thread._crit_edge:   ; preds = %Abc_SclEvalPerformLegal.exit.thread
   %.val84.pre = load ptr, ptr %1, align 8, !tbaa !3
-  br label %split
+  br label %split, !llvm.loop !89
 
 split:                                            ; preds = %390, %Abc_SclEvalPerformLegal.exit.thread._crit_edge
   %.val84 = phi ptr [ %.val84.pre, %Abc_SclEvalPerformLegal.exit.thread._crit_edge ], [ %.val84.pre160, %390 ]

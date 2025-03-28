@@ -3566,8 +3566,11 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %Size.i.i.i.i.i, align 8
   br label %while.body
 
-while.condthread-pre-split:                       ; preds = %for.inc, %while.body
-  %.pr = phi i32 [ %sub.i.i, %while.body ], [ %20, %for.inc ]
+for.cond.while.condthread-pre-split_crit_edge:    ; preds = %for.inc
+  br label %while.condthread-pre-split, !llvm.loop !35
+
+while.condthread-pre-split:                       ; preds = %for.cond.while.condthread-pre-split_crit_edge, %while.body
+  %.pr = phi i32 [ %20, %for.cond.while.condthread-pre-split_crit_edge ], [ %sub.i.i, %while.body ]
   %tobool.not.i = icmp eq i32 %.pr, 0
   br i1 %tobool.not.i, label %while.end, label %while.body
 
@@ -3592,11 +3595,14 @@ while.body:                                       ; preds = %if.end, %while.cond
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not7 = icmp eq ptr %8, %9
-  br i1 %cmp.i.not7, label %while.condthread-pre-split, label %for.body, !llvm.loop !35
+  br i1 %cmp.i.not7, label %while.condthread-pre-split, label %for.body.lr.ph, !llvm.loop !35
 
-for.body:                                         ; preds = %while.body, %for.inc
-  %10 = phi i32 [ %20, %for.inc ], [ %sub.i.i, %while.body ]
-  %__begin0.sroa.0.08 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %8, %while.body ]
+for.body.lr.ph:                                   ; preds = %while.body
+  br label %for.body, !llvm.loop !35
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %10 = phi i32 [ %sub.i.i, %for.body.lr.ph ], [ %20, %for.inc ]
+  %__begin0.sroa.0.08 = phi ptr [ %8, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %11 = load ptr, ptr %__begin0.sroa.0.08, align 8
   %Level13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load i32, ptr %Level13, align 8
@@ -3634,7 +3640,7 @@ for.inc:                                          ; preds = %for.body, %_ZN4llvh
   %20 = phi i32 [ %10, %for.body ], [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELb1EE9push_backERKS5_.exit ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.08, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %9
-  br i1 %cmp.i.not, label %while.condthread-pre-split, label %for.body, !llvm.loop !35
+  br i1 %cmp.i.not, label %for.cond.while.condthread-pre-split_crit_edge, label %for.body, !llvm.loop !35
 
 while.end:                                        ; preds = %while.condthread-pre-split
   %21 = load ptr, ptr %WorkStack, align 8

@@ -7472,7 +7472,7 @@ _ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i: ; preds = %39
 
 ._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge: ; preds = %56
   %.pre23.pre = load i8, ptr %51, align 1
-  br label %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i
+  br label %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i, !llvm.loop !8
 
 _ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i: ; preds = %52, %._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge, %_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i
   %59 = phi i8 [ %38, %_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i ], [ %.pre23.pre, %._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge ], [ %53, %52 ]
@@ -8390,7 +8390,7 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit:         ; preds = %2
 
 ._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i: ; preds = %40
   %.pre.i.i = load i8, ptr %35, align 1
-  br label %_ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit.i.i
+  br label %_ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit.i.i, !llvm.loop !8
 
 _ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit.i.i: ; preds = %36, %._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i
   %43 = phi i8 [ %.pre.i.i, %._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i ], [ %37, %36 ]
@@ -8461,7 +8461,7 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit.thread:  ; preds = %_ZN19MethodUsedPred
 
 ._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge: ; preds = %75
   %.pre28 = load i8, ptr %70, align 1
-  br label %_ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i
+  br label %_ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i, !llvm.loop !8
 
 _ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i: ; preds = %71, %._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge
   %78 = phi i8 [ %.pre28, %._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge ], [ %72, %71 ]

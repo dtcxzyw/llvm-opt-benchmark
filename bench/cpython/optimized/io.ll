@@ -105,18 +105,21 @@ _mpd_strneq.exit:                                 ; preds = %20
   switch i8 %25, label %.preheader.i [
     i8 0, label %221
     i8 48, label %thread-pre-split
-  ]
+  ], !llvm.loop !14
 
 thread-pre-split:                                 ; preds = %_mpd_strneq.exit, %thread-pre-split
   %.0.i184 = phi ptr [ %26, %thread-pre-split ], [ %24, %_mpd_strneq.exit ]
   %26 = getelementptr i8, ptr %.0.i184, i64 1
   %.pr = load i8, ptr %26, align 1, !tbaa !11
   %27 = icmp eq i8 %.pr, 48
-  br i1 %27, label %thread-pre-split, label %.preheader.i, !llvm.loop !14
+  br i1 %27, label %thread-pre-split, label %..preheader.i_crit_edge, !llvm.loop !14
 
-.preheader.i:                                     ; preds = %thread-pre-split, %_mpd_strneq.exit
-  %28 = phi i8 [ %25, %_mpd_strneq.exit ], [ %.pr, %thread-pre-split ]
-  %.0.i.lcssa = phi ptr [ %24, %_mpd_strneq.exit ], [ %26, %thread-pre-split ]
+..preheader.i_crit_edge:                          ; preds = %thread-pre-split
+  br label %.preheader.i, !llvm.loop !14
+
+.preheader.i:                                     ; preds = %_mpd_strneq.exit, %..preheader.i_crit_edge
+  %28 = phi i8 [ %.pr, %..preheader.i_crit_edge ], [ %25, %_mpd_strneq.exit ]
+  %.0.i.lcssa = phi ptr [ %26, %..preheader.i_crit_edge ], [ %24, %_mpd_strneq.exit ]
   %29 = tail call ptr @__ctype_b_loc() #19
   %30 = load ptr, ptr %29, align 8, !tbaa !15
   br label %31
@@ -182,18 +185,21 @@ _mpd_strneq.exit107:                              ; preds = %55
   switch i8 %60, label %.preheader.i109 [
     i8 0, label %221
     i8 48, label %thread-pre-split158
-  ]
+  ], !llvm.loop !14
 
 thread-pre-split158:                              ; preds = %_mpd_strneq.exit107, %thread-pre-split158
   %.0.i108183 = phi ptr [ %61, %thread-pre-split158 ], [ %59, %_mpd_strneq.exit107 ]
   %61 = getelementptr i8, ptr %.0.i108183, i64 1
   %.pr159 = load i8, ptr %61, align 1, !tbaa !11
   %62 = icmp eq i8 %.pr159, 48
-  br i1 %62, label %thread-pre-split158, label %.preheader.i109, !llvm.loop !14
+  br i1 %62, label %thread-pre-split158, label %..preheader.i109_crit_edge, !llvm.loop !14
 
-.preheader.i109:                                  ; preds = %thread-pre-split158, %_mpd_strneq.exit107
-  %63 = phi i8 [ %60, %_mpd_strneq.exit107 ], [ %.pr159, %thread-pre-split158 ]
-  %.0.i108.lcssa = phi ptr [ %59, %_mpd_strneq.exit107 ], [ %61, %thread-pre-split158 ]
+..preheader.i109_crit_edge:                       ; preds = %thread-pre-split158
+  br label %.preheader.i109, !llvm.loop !14
+
+.preheader.i109:                                  ; preds = %_mpd_strneq.exit107, %..preheader.i109_crit_edge
+  %63 = phi i8 [ %.pr159, %..preheader.i109_crit_edge ], [ %60, %_mpd_strneq.exit107 ]
+  %.0.i108.lcssa = phi ptr [ %61, %..preheader.i109_crit_edge ], [ %59, %_mpd_strneq.exit107 ]
   %64 = tail call ptr @__ctype_b_loc() #19
   %65 = load ptr, ptr %64, align 8, !tbaa !15
   br label %66

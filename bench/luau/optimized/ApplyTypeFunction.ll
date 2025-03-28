@@ -1375,9 +1375,12 @@ define dso_local noundef zeroext i1 @_ZN4Luau17ApplyTypeFunction7isDirtyEPKNS_4T
   %32 = ptrtoint ptr %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i.i, label %26, label %.loopexit, !llvm.loop !26
+  br i1 %.not19.i.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !26
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %29, %7, %12
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %29
+  br label %.loopexit, !llvm.loop !26
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %7, %12, %..loopexit_crit_edge21.i.i.i.i.i
   %.not.i.i6 = icmp eq ptr %1, null
   br i1 %.not.i.i6, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit.thread, label %34
 
@@ -1460,10 +1463,13 @@ define dso_local noundef zeroext i1 @_ZN4Luau17ApplyTypeFunction7isDirtyEPKNS_11
   %32 = ptrtoint ptr %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i.i, label %26, label %_ZNKSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE5countERS9_.exit, !llvm.loop !95
+  br i1 %.not19.i.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !95
 
-_ZNKSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE5countERS9_.exit: ; preds = %26, %.lr.ph.i.i.i.i.i, %29, %7, %8, %12, %21
-  %.sroa.06.1.i.i.i = phi ptr [ null, %12 ], [ %22, %21 ], [ %.sroa.06.0.i.i.i, %8 ], [ null, %7 ], [ null, %29 ], [ null, %.lr.ph.i.i.i.i.i ], [ %28, %26 ]
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %29
+  br label %_ZNKSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE5countERS9_.exit, !llvm.loop !95
+
+_ZNKSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE5countERS9_.exit: ; preds = %26, %.lr.ph.i.i.i.i.i, %7, %8, %12, %21, %..loopexit_crit_edge21.i.i.i.i.i
+  %.sroa.06.1.i.i.i = phi ptr [ null, %12 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %22, %21 ], [ %.sroa.06.0.i.i.i, %8 ], [ null, %7 ], [ null, %.lr.ph.i.i.i.i.i ], [ %28, %26 ]
   %.not.i.i = icmp ne ptr %.sroa.06.1.i.i.i, null
   ret i1 %.not.i.i
 }
@@ -1535,9 +1541,12 @@ define dso_local noundef ptr @_ZN4Luau17ApplyTypeFunction5cleanEPKNS_4TypeE(ptr 
   %22 = ptrtoint ptr %21 to i64
   %23 = urem i64 %22, %6
   %.not19.i.i.i.i = icmp eq i64 %23, %7
-  br i1 %.not19.i.i.i.i, label %16, label %.loopexit.i.i, !llvm.loop !26
+  br i1 %.not19.i.i.i.i, label %16, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !26
 
-.loopexit.i.i:                                    ; preds = %19, %.lr.ph.i.i.i.i, %2
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %19
+  br label %.loopexit.i.i, !llvm.loop !26
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %2
   %24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   store ptr null, ptr %24, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -1596,9 +1605,12 @@ define dso_local noundef ptr @_ZN4Luau17ApplyTypeFunction5cleanEPKNS_11TypePackV
   %22 = ptrtoint ptr %21 to i64
   %23 = urem i64 %22, %6
   %.not19.i.i.i.i = icmp eq i64 %23, %7
-  br i1 %.not19.i.i.i.i, label %16, label %.loopexit.i.i, !llvm.loop !95
+  br i1 %.not19.i.i.i.i, label %16, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !95
 
-.loopexit.i.i:                                    ; preds = %19, %.lr.ph.i.i.i.i, %2
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %19
+  br label %.loopexit.i.i, !llvm.loop !95
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %2
   %24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   store ptr null, ptr %24, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8

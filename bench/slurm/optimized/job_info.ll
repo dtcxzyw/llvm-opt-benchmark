@@ -4145,7 +4145,7 @@ _xlate_signal_name.exit.i:                        ; preds = %226, %220
 
 ..thread28_crit_edge.i.us.i:                      ; preds = %266
   %.pre.i54.us.i = load i32, ptr %264, align 4
-  br label %.thread28.i.us.i
+  br label %.thread28.i.us.i, !llvm.loop !30
 
 .thread28.i.us.i:                                 ; preds = %263, %..thread28_crit_edge.i.us.i
   %271 = phi i32 [ %.pre.i54.us.i, %..thread28_crit_edge.i.us.i ], [ %265, %263 ]
@@ -4196,7 +4196,7 @@ _cancel_step_id.exit.us.i:                        ; preds = %260, %275, %272
 
 ..thread27_crit_edge.i.us.i:                      ; preds = %282
   %.pre.i.us.i = load i32, ptr %280, align 4
-  br label %.thread27.i.us.i
+  br label %.thread27.i.us.i, !llvm.loop !31
 
 .thread27.i.us.i:                                 ; preds = %279, %..thread27_crit_edge.i.us.i
   %287 = phi i32 [ %.pre.i.us.i, %..thread27_crit_edge.i.us.i ], [ %281, %279 ]

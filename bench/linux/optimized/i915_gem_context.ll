@@ -1406,7 +1406,7 @@ thread-pre-split:                                 ; preds = %.loopexit61
   %123 = getelementptr inbounds nuw i8, ptr %112, i64 204
   %124 = load volatile i32, ptr %123, align 4
   %125 = icmp eq i32 %124, 0
-  br i1 %125, label %.lr.ph76.backedge, label %.lr.ph71, !prof !15
+  br i1 %125, label %.lr.ph76.backedge, label %.lr.ph71, !prof !15, !llvm.loop !50
 
 .lr.ph76.backedge:                                ; preds = %132, %122, %.loopexit55
   br label %.lr.ph76, !llvm.loop !50

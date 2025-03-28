@@ -898,7 +898,7 @@ Gia_ObjLevel.exit466:                             ; preds = %279, %._crit_edge.i
   %408 = sext i32 %407 to i64
   %409 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val399, i64 %408
   %.not349 = icmp eq ptr %.val399, null
-  br i1 %.not349, label %.critedge12.loopexit, label %410, !llvm.loop !53
+  br i1 %.not349, label %.critedge12, label %410, !llvm.loop !53
 
 410:                                              ; preds = %.lr.ph663, %.lr.ph572
   %411 = phi ptr [ %404, %.lr.ph663 ], [ %409, %.lr.ph572 ]
@@ -1030,20 +1030,20 @@ Gia_ObjLevel.exit483:                             ; preds = %410, %._crit_edge.i
   %.val387 = load i32, ptr %474, align 4, !tbaa !29
   %475 = sext i32 %.val387 to i64
   %476 = icmp slt i64 %indvars.iv.next612, %475
-  br i1 %476, label %.lr.ph572, label %.critedge12.loopexit, !llvm.loop !53
+  br i1 %476, label %.lr.ph572, label %..critedge12_crit_edge, !llvm.loop !53
 
-.critedge12.loopexit:                             ; preds = %.lr.ph572, %472
-  %477 = icmp sgt i32 %.val387, 0
-  br label %.critedge12
+..critedge12_crit_edge:                           ; preds = %472
+  br label %.critedge12, !llvm.loop !53
 
-.critedge12:                                      ; preds = %.critedge12.loopexit, %.lr.ph572.preheader
-  %.val388574.pre = phi i1 [ true, %.lr.ph572.preheader ], [ %477, %.critedge12.loopexit ]
-  %478 = phi ptr [ %398, %.lr.ph572.preheader ], [ %473, %.critedge12.loopexit ]
-  br i1 %.val388574.pre, label %.lr.ph577, label %.critedge14
+.critedge12:                                      ; preds = %.lr.ph572, %..critedge12_crit_edge, %.lr.ph572.preheader
+  %.val388574.pre = phi i32 [ %.val387, %..critedge12_crit_edge ], [ %.val387570, %.lr.ph572.preheader ], [ %.val387, %.lr.ph572 ]
+  %477 = phi ptr [ %473, %..critedge12_crit_edge ], [ %398, %.lr.ph572.preheader ], [ %473, %.lr.ph572 ]
+  %478 = icmp sgt i32 %.val388574.pre, 0
+  br i1 %478, label %.lr.ph577, label %.critedge14
 
 .lr.ph577:                                        ; preds = %.critedge12, %552
   %indvars.iv614 = phi i64 [ %indvars.iv.next615, %552 ], [ 0, %.critedge12 ]
-  %479 = phi ptr [ %553, %552 ], [ %478, %.critedge12 ]
+  %479 = phi ptr [ %553, %552 ], [ %477, %.critedge12 ]
   %.0306576 = phi i32 [ %.1307, %552 ], [ -1, %.critedge12 ]
   %.val401 = load ptr, ptr %190, align 8, !tbaa !30
   %480 = getelementptr i8, ptr %479, i64 8
@@ -2155,7 +2155,7 @@ Gia_ObjIsMux.exit436.thread:                      ; preds = %Gia_ObjIsXor.exit43
 .lr.ph505:                                        ; preds = %.lr.ph580
   %.val385 = load ptr, ptr %141, align 8, !tbaa !30
   %.not334 = icmp eq ptr %.val385, null
-  br i1 %.not334, label %.critedge12.loopexit, label %.lr.ph580, !llvm.loop !70
+  br i1 %.not334, label %.critedge12, label %.lr.ph580, !llvm.loop !70
 
 .lr.ph580:                                        ; preds = %.lr.ph505.preheader, %.lr.ph505
   %284 = phi ptr [ %289, %.lr.ph505 ], [ %281, %.lr.ph505.preheader ]
@@ -2171,23 +2171,23 @@ Gia_ObjIsMux.exit436.thread:                      ; preds = %Gia_ObjIsXor.exit43
   %.val371 = load i32, ptr %290, align 4, !tbaa !29
   %291 = sext i32 %.val371 to i64
   %292 = icmp slt i64 %indvars.iv.next543, %291
-  br i1 %292, label %.lr.ph505, label %.critedge12.loopexit, !llvm.loop !70
+  br i1 %292, label %.lr.ph505, label %..critedge12_crit_edge, !llvm.loop !70
 
-.critedge12.loopexit:                             ; preds = %.lr.ph505, %.lr.ph580
-  %293 = icmp sgt i32 %.val371, 0
-  br label %.critedge12
+..critedge12_crit_edge:                           ; preds = %.lr.ph580
+  br label %.critedge12, !llvm.loop !70
 
-.critedge12:                                      ; preds = %.critedge12.loopexit, %.lr.ph505.preheader
-  %.val370507.pre = phi i1 [ true, %.lr.ph505.preheader ], [ %293, %.critedge12.loopexit ]
-  %294 = phi ptr [ %281, %.lr.ph505.preheader ], [ %289, %.critedge12.loopexit ]
-  br i1 %.val370507.pre, label %.lr.ph510.preheader, label %.critedge14
+.critedge12:                                      ; preds = %.lr.ph505, %..critedge12_crit_edge, %.lr.ph505.preheader
+  %.val370507.pre = phi i32 [ %.val371, %..critedge12_crit_edge ], [ %.val371503, %.lr.ph505.preheader ], [ %.val371, %.lr.ph505 ]
+  %293 = phi ptr [ %289, %..critedge12_crit_edge ], [ %281, %.lr.ph505.preheader ], [ %289, %.lr.ph505 ]
+  %294 = icmp sgt i32 %.val370507.pre, 0
+  br i1 %294, label %.lr.ph510.preheader, label %.critedge14
 
 .lr.ph510.preheader:                              ; preds = %.critedge12
   %.val383.pre = load ptr, ptr %141, align 8, !tbaa !30
   br label %.lr.ph510
 
 .lr.ph510:                                        ; preds = %.lr.ph510.preheader, %304
-  %295 = phi ptr [ %294, %.lr.ph510.preheader ], [ %305, %304 ]
+  %295 = phi ptr [ %293, %.lr.ph510.preheader ], [ %305, %304 ]
   %.val393559 = phi ptr [ %.val383.pre, %.lr.ph510.preheader ], [ %.val393, %304 ]
   %indvars.iv545 = phi i64 [ 0, %.lr.ph510.preheader ], [ %indvars.iv.next546, %304 ]
   %.0291508 = phi i32 [ -1, %.lr.ph510.preheader ], [ %310, %304 ]
@@ -3103,7 +3103,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %Gia_ObjIsXor.exit.t
 .lr.ph660:                                        ; preds = %.lr.ph746
   %.val527 = load ptr, ptr %121, align 8, !tbaa !30
   %.not444 = icmp eq ptr %.val527, null
-  br i1 %.not444, label %.critedge10.loopexit, label %.lr.ph746, !llvm.loop !84
+  br i1 %.not444, label %.critedge10, label %.lr.ph746, !llvm.loop !84
 
 .lr.ph746:                                        ; preds = %.lr.ph660.preheader, %.lr.ph660
   %300 = phi ptr [ %305, %.lr.ph660 ], [ %297, %.lr.ph660.preheader ]
@@ -3119,23 +3119,23 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %Gia_ObjIsXor.exit.t
   %.val488 = load i32, ptr %306, align 4, !tbaa !29
   %307 = sext i32 %.val488 to i64
   %308 = icmp slt i64 %indvars.iv.next701, %307
-  br i1 %308, label %.lr.ph660, label %.critedge10.loopexit, !llvm.loop !84
+  br i1 %308, label %.lr.ph660, label %..critedge10_crit_edge, !llvm.loop !84
 
-.critedge10.loopexit:                             ; preds = %.lr.ph660, %.lr.ph746
-  %309 = icmp sgt i32 %.val488, 0
-  br label %.critedge10
+..critedge10_crit_edge:                           ; preds = %.lr.ph746
+  br label %.critedge10, !llvm.loop !84
 
-.critedge10:                                      ; preds = %.critedge10.loopexit, %.lr.ph660.preheader
-  %.val487662.pre = phi i1 [ true, %.lr.ph660.preheader ], [ %309, %.critedge10.loopexit ]
-  %310 = phi ptr [ %297, %.lr.ph660.preheader ], [ %305, %.critedge10.loopexit ]
-  br i1 %.val487662.pre, label %.lr.ph665.preheader, label %.critedge12
+.critedge10:                                      ; preds = %.lr.ph660, %..critedge10_crit_edge, %.lr.ph660.preheader
+  %.val487662.pre = phi i32 [ %.val488, %..critedge10_crit_edge ], [ %.val488658, %.lr.ph660.preheader ], [ %.val488, %.lr.ph660 ]
+  %309 = phi ptr [ %305, %..critedge10_crit_edge ], [ %297, %.lr.ph660.preheader ], [ %305, %.lr.ph660 ]
+  %310 = icmp sgt i32 %.val487662.pre, 0
+  br i1 %310, label %.lr.ph665.preheader, label %.critedge12
 
 .lr.ph665.preheader:                              ; preds = %.critedge10
   %.val525.pre = load ptr, ptr %121, align 8, !tbaa !30
   br label %.lr.ph665
 
 .lr.ph665:                                        ; preds = %.lr.ph665.preheader, %320
-  %311 = phi ptr [ %310, %.lr.ph665.preheader ], [ %321, %320 ]
+  %311 = phi ptr [ %309, %.lr.ph665.preheader ], [ %321, %320 ]
   %.val539727 = phi ptr [ %.val525.pre, %.lr.ph665.preheader ], [ %.val539, %320 ]
   %indvars.iv703 = phi i64 [ 0, %.lr.ph665.preheader ], [ %indvars.iv.next704, %320 ]
   %.0664 = phi i32 [ -1, %.lr.ph665.preheader ], [ %326, %320 ]
@@ -3174,7 +3174,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %Gia_ObjIsXor.exit.t
   br i1 %329, label %.lr.ph665, label %.critedge12, !llvm.loop !85
 
 .critedge12:                                      ; preds = %.lr.ph665, %320, %.critedge8, %.critedge10
-  %330 = phi ptr [ %310, %.critedge10 ], [ %297, %.critedge8 ], [ %311, %.lr.ph665 ], [ %321, %320 ]
+  %330 = phi ptr [ %309, %.critedge10 ], [ %297, %.critedge8 ], [ %311, %.lr.ph665 ], [ %321, %320 ]
   %331 = load ptr, ptr %12, align 8, !tbaa !51
   %332 = getelementptr i8, ptr %331, i64 4
   %.val486667 = load i32, ptr %332, align 4, !tbaa !29

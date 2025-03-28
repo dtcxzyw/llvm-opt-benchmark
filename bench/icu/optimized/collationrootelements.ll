@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootElements23lastCEWithPrimaryBeforeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %74, label %4
+  br i1 %3, label %75, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8, !tbaa !3
@@ -19,9 +19,9 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
   %12 = icmp slt i32 %11, %10
   br i1 %12, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
 
-.lr.ph:                                           ; preds = %4, %._crit_edge62.i
-  %.038.i36 = phi i32 [ %.033..038.i, %._crit_edge62.i ], [ %10, %4 ]
-  %.041.i35 = phi i32 [ %.041..033.i, %._crit_edge62.i ], [ %7, %4 ]
+.lr.ph:                                           ; preds = %4, %39
+  %.038.i36 = phi i32 [ %.033..038.i, %39 ], [ %10, %4 ]
+  %.041.i35 = phi i32 [ %.041..033.i, %39 ], [ %7, %4 ]
   %13 = add nsw i32 %.038.i36, %.041.i35
   %14 = sdiv i32 %13, 2
   %15 = sext i32 %14 to i64
@@ -29,7 +29,7 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
   %17 = load i32, ptr %16, align 4, !tbaa !10
   %18 = and i32 %17, 128
   %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %._crit_edge62.i, label %.preheader52.i
+  br i1 %.not.i, label %39, label %.preheader52.i
 
 .preheader52.i:                                   ; preds = %.lr.ph
   %.02953.i = add nsw i32 %14, 1
@@ -52,110 +52,110 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
   %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = and i32 %25, 128
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %._crit_edge62.loopexit90.i, label %21, !llvm.loop !12
+  br i1 %27, label %._crit_edge56.i, label %21, !llvm.loop !12
+
+._crit_edge56.i:                                  ; preds = %.lr.ph.i
+  %28 = trunc nsw i64 %indvars.iv.i to i32
+  br label %39
 
 .preheader.i:                                     ; preds = %21, %.preheader52.i
   %.13059.i = add nsw i32 %14, -1
-  %28 = icmp eq i32 %.13059.i, %.041.i35
-  br i1 %28, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.preheader.i
+  %29 = icmp eq i32 %.13059.i, %.041.i35
+  br i1 %29, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.preheader.i
 
 .lr.ph61.preheader.i:                             ; preds = %.preheader.i
-  %29 = sext i32 %.13059.i to i64
+  %30 = sext i32 %.13059.i to i64
   br label %.lr.ph61.i
 
-30:                                               ; preds = %.lr.ph61.i
-  %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, -1
-  %31 = trunc nsw i64 %indvars.iv.next71.i to i32
-  %32 = icmp eq i32 %.041.i35, %31
-  br i1 %32, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !14
+31:                                               ; preds = %.lr.ph61.i
+  %indvars.iv.next75.i = add nsw i64 %indvars.iv74.i, -1
+  %32 = trunc nsw i64 %indvars.iv.next75.i to i32
+  %33 = icmp eq i32 %.041.i35, %32
+  br i1 %33, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !14
 
-.lr.ph61.i:                                       ; preds = %30, %.lr.ph61.preheader.i
-  %indvars.iv70.i = phi i64 [ %29, %.lr.ph61.preheader.i ], [ %indvars.iv.next71.i, %30 ]
-  %33 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv70.i
-  %34 = load i32, ptr %33, align 4, !tbaa !10
-  %35 = and i32 %34, 128
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %._crit_edge62.loopexit.i, label %30, !llvm.loop !14
+.lr.ph61.i:                                       ; preds = %31, %.lr.ph61.preheader.i
+  %indvars.iv74.i = phi i64 [ %30, %.lr.ph61.preheader.i ], [ %indvars.iv.next75.i, %31 ]
+  %34 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv74.i
+  %35 = load i32, ptr %34, align 4, !tbaa !10
+  %36 = and i32 %35, 128
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %._crit_edge62.i, label %31, !llvm.loop !14
 
-._crit_edge62.loopexit.i:                         ; preds = %.lr.ph61.i
-  %37 = trunc nsw i64 %indvars.iv70.i to i32
-  br label %._crit_edge62.i
+._crit_edge62.i:                                  ; preds = %.lr.ph61.i
+  %38 = trunc nsw i64 %indvars.iv74.i to i32
+  br label %39
 
-._crit_edge62.loopexit90.i:                       ; preds = %.lr.ph.i
-  %38 = trunc nsw i64 %indvars.iv.i to i32
-  br label %._crit_edge62.i
+39:                                               ; preds = %._crit_edge62.i, %._crit_edge56.i, %.lr.ph
+  %.033.i = phi i32 [ %38, %._crit_edge62.i ], [ %14, %.lr.ph ], [ %28, %._crit_edge56.i ]
+  %.031.i = phi i32 [ %35, %._crit_edge62.i ], [ %17, %.lr.ph ], [ %25, %._crit_edge56.i ]
+  %40 = and i32 %.031.i, -256
+  %41 = icmp ult i32 %1, %40
+  %.041..033.i = select i1 %41, i32 %.041.i35, i32 %.033.i
+  %.033..038.i = select i1 %41, i32 %.033.i, i32 %.038.i36
+  %42 = add nsw i32 %.041..033.i, 1
+  %43 = icmp slt i32 %42, %.033..038.i
+  br i1 %43, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
 
-._crit_edge62.i:                                  ; preds = %._crit_edge62.loopexit90.i, %._crit_edge62.loopexit.i, %.lr.ph
-  %.033.i = phi i32 [ %14, %.lr.ph ], [ %37, %._crit_edge62.loopexit.i ], [ %38, %._crit_edge62.loopexit90.i ]
-  %.031.i = phi i32 [ %17, %.lr.ph ], [ %34, %._crit_edge62.loopexit.i ], [ %25, %._crit_edge62.loopexit90.i ]
-  %39 = and i32 %.031.i, -256
-  %40 = icmp ult i32 %1, %39
-  %.041..033.i = select i1 %40, i32 %.041.i35, i32 %.033.i
-  %.033..038.i = select i1 %40, i32 %.033.i, i32 %.038.i36
-  %41 = add nsw i32 %.041..033.i, 1
-  %42 = icmp slt i32 %41, %.033..038.i
-  br i1 %42, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
+_ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, %31, %4
+  %.041.i34 = phi i32 [ %7, %4 ], [ %.041.i35, %31 ], [ %.041.i35, %.preheader.i ], [ %.041..033.i, %39 ]
+  %44 = sext i32 %.041.i34 to i64
+  %45 = getelementptr inbounds i32, ptr %5, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !10
+  %47 = and i32 %46, -256
+  %48 = icmp eq i32 %1, %47
+  br i1 %48, label %49, label %.preheader
 
-_ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %._crit_edge62.i, %30, %4
-  %.041.i34 = phi i32 [ %7, %4 ], [ %.041.i35, %30 ], [ %.041.i35, %.preheader.i ], [ %.041..033.i, %._crit_edge62.i ]
-  %43 = sext i32 %.041.i34 to i64
-  %44 = getelementptr inbounds i32, ptr %5, i64 %43
-  %45 = load i32, ptr %44, align 4, !tbaa !10
-  %46 = and i32 %45, -256
-  %47 = icmp eq i32 %1, %46
-  br i1 %47, label %48, label %.preheader
+49:                                               ; preds = %_ZNK6icu_7721CollationRootElements5findPEj.exit
+  %50 = getelementptr i8, ptr %45, i64 -4
+  %51 = load i32, ptr %50, align 4, !tbaa !10
+  %52 = and i32 %51, 128
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %56
 
-48:                                               ; preds = %_ZNK6icu_7721CollationRootElements5findPEj.exit
-  %49 = getelementptr i8, ptr %44, i64 -4
-  %50 = load i32, ptr %49, align 4, !tbaa !10
-  %51 = and i32 %50, 128
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %55
-
-53:                                               ; preds = %48
-  %54 = and i32 %50, -256
+54:                                               ; preds = %49
+  %55 = and i32 %51, -256
   br label %.loopexit
 
-55:                                               ; preds = %48
-  %56 = add i32 %.041.i34, -2
-  %57 = sext i32 %56 to i64
-  br label %58
+56:                                               ; preds = %49
+  %57 = add i32 %.041.i34, -2
+  %58 = sext i32 %57 to i64
+  br label %59
 
-58:                                               ; preds = %58, %55
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %58 ], [ %57, %55 ]
-  %59 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv47
-  %60 = load i32, ptr %59, align 4, !tbaa !10
-  %61 = and i32 %60, 128
-  %62 = icmp eq i32 %61, 0
+59:                                               ; preds = %59, %56
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %59 ], [ %58, %56 ]
+  %60 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv47
+  %61 = load i32, ptr %60, align 4, !tbaa !10
+  %62 = and i32 %61, 128
+  %63 = icmp eq i32 %62, 0
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, -1
-  br i1 %62, label %63, label %58, !llvm.loop !15
+  br i1 %63, label %64, label %59, !llvm.loop !15
 
-63:                                               ; preds = %58
-  %64 = and i32 %60, -256
+64:                                               ; preds = %59
+  %65 = and i32 %61, -256
   br label %.loopexit
 
 .preheader:                                       ; preds = %_ZNK6icu_7721CollationRootElements5findPEj.exit, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %43, %_ZNK6icu_7721CollationRootElements5findPEj.exit ]
-  %.1 = phi i32 [ %66, %.preheader ], [ 83887360, %_ZNK6icu_7721CollationRootElements5findPEj.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %44, %_ZNK6icu_7721CollationRootElements5findPEj.exit ]
+  %.1 = phi i32 [ %67, %.preheader ], [ 83887360, %_ZNK6icu_7721CollationRootElements5findPEj.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
-  %66 = load i32, ptr %65, align 4, !tbaa !10
-  %67 = and i32 %66, 128
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !16
+  %66 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
+  %67 = load i32, ptr %66, align 4, !tbaa !10
+  %68 = and i32 %67, 128
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %.loopexit, label %.preheader, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.preheader, %53, %63
-  %.022 = phi i32 [ %54, %53 ], [ %64, %63 ], [ %46, %.preheader ]
-  %.0 = phi i32 [ 83887360, %53 ], [ %50, %63 ], [ %.1, %.preheader ]
-  %69 = zext i32 %.022 to i64
-  %70 = shl nuw i64 %69, 32
-  %71 = and i32 %.0, -129
-  %72 = zext i32 %71 to i64
-  %73 = or disjoint i64 %70, %72
-  br label %74
+.loopexit:                                        ; preds = %.preheader, %54, %64
+  %.022 = phi i32 [ %55, %54 ], [ %65, %64 ], [ %47, %.preheader ]
+  %.0 = phi i32 [ 83887360, %54 ], [ %51, %64 ], [ %.1, %.preheader ]
+  %70 = zext i32 %.022 to i64
+  %71 = shl nuw i64 %70, 32
+  %72 = and i32 %.0, -129
+  %73 = zext i32 %72 to i64
+  %74 = or disjoint i64 %71, %73
+  br label %75
 
-74:                                               ; preds = %2, %.loopexit
-  %.023 = phi i64 [ %73, %.loopexit ], [ 0, %2 ]
+75:                                               ; preds = %2, %.loopexit
+  %.023 = phi i64 [ %74, %.loopexit ], [ 0, %2 ]
   ret i64 %.023
 }
 
@@ -169,23 +169,23 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
   %8 = add nsw i32 %7, -1
   %9 = add nsw i32 %5, 1
   %10 = icmp slt i32 %9, %8
-  br i1 %10, label %.lr.ph111, label %._crit_edge62.thread86
+  br i1 %10, label %.lr.ph108, label %.thread86
 
-.lr.ph111:                                        ; preds = %2, %._crit_edge62
-  %.038110 = phi i32 [ %.033..038, %._crit_edge62 ], [ %8, %2 ]
-  %.041109 = phi i32 [ %.041..033, %._crit_edge62 ], [ %5, %2 ]
-  %11 = add nsw i32 %.038110, %.041109
+.lr.ph108:                                        ; preds = %2, %37
+  %.038107 = phi i32 [ %.033..038, %37 ], [ %8, %2 ]
+  %.041106 = phi i32 [ %.041..033, %37 ], [ %5, %2 ]
+  %11 = add nsw i32 %.038107, %.041106
   %12 = sdiv i32 %11, 2
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i32, ptr %3, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !10
   %16 = and i32 %15, 128
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %._crit_edge62, label %.preheader52
+  br i1 %.not, label %37, label %.preheader52
 
-.preheader52:                                     ; preds = %.lr.ph111
+.preheader52:                                     ; preds = %.lr.ph108
   %.02953 = add nsw i32 %12, 1
-  %17 = icmp eq i32 %.02953, %.038110
+  %17 = icmp eq i32 %.02953, %.038107
   br i1 %17, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader52
@@ -195,7 +195,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %20 = trunc nsw i64 %indvars.iv.next to i32
-  %21 = icmp eq i32 %.038110, %20
+  %21 = icmp eq i32 %.038107, %20
   br i1 %21, label %.preheader, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
@@ -204,60 +204,60 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
   %23 = load i32, ptr %22, align 4, !tbaa !10
   %24 = and i32 %23, 128
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %._crit_edge62.loopexit90, label %19, !llvm.loop !12
+  br i1 %25, label %._crit_edge56, label %19, !llvm.loop !12
+
+._crit_edge56:                                    ; preds = %.lr.ph
+  %26 = trunc nsw i64 %indvars.iv to i32
+  br label %37
 
 .preheader:                                       ; preds = %19, %.preheader52
   %.13059 = add nsw i32 %12, -1
-  %26 = icmp eq i32 %.13059, %.041109
-  br i1 %26, label %._crit_edge62.thread86, label %.lr.ph61.preheader
+  %27 = icmp eq i32 %.13059, %.041106
+  br i1 %27, label %.thread86, label %.lr.ph61.preheader
 
 .lr.ph61.preheader:                               ; preds = %.preheader
   %narrow = add nsw i32 %12, -1
-  %27 = sext i32 %narrow to i64
+  %28 = sext i32 %narrow to i64
   br label %.lr.ph61
 
-28:                                               ; preds = %.lr.ph61
-  %indvars.iv.next71 = add nsw i64 %indvars.iv70, -1
-  %29 = trunc nsw i64 %indvars.iv.next71 to i32
-  %30 = icmp eq i32 %.041109, %29
-  br i1 %30, label %._crit_edge62.thread86, label %.lr.ph61, !llvm.loop !14
+29:                                               ; preds = %.lr.ph61
+  %indvars.iv.next75 = add nsw i64 %indvars.iv74, -1
+  %30 = trunc nsw i64 %indvars.iv.next75 to i32
+  %31 = icmp eq i32 %.041106, %30
+  br i1 %31, label %.thread86, label %.lr.ph61, !llvm.loop !14
 
-.lr.ph61:                                         ; preds = %.lr.ph61.preheader, %28
-  %indvars.iv70 = phi i64 [ %27, %.lr.ph61.preheader ], [ %indvars.iv.next71, %28 ]
-  %31 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv70
-  %32 = load i32, ptr %31, align 4, !tbaa !10
-  %33 = and i32 %32, 128
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %._crit_edge62.loopexit, label %28, !llvm.loop !14
+.lr.ph61:                                         ; preds = %.lr.ph61.preheader, %29
+  %indvars.iv74 = phi i64 [ %28, %.lr.ph61.preheader ], [ %indvars.iv.next75, %29 ]
+  %32 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv74
+  %33 = load i32, ptr %32, align 4, !tbaa !10
+  %34 = and i32 %33, 128
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %._crit_edge62, label %29, !llvm.loop !14
 
-._crit_edge62.loopexit:                           ; preds = %.lr.ph61
-  %35 = trunc nsw i64 %indvars.iv70 to i32
-  br label %._crit_edge62
+._crit_edge62:                                    ; preds = %.lr.ph61
+  %36 = trunc nsw i64 %indvars.iv74 to i32
+  br label %37
 
-._crit_edge62.loopexit90:                         ; preds = %.lr.ph
-  %36 = trunc nsw i64 %indvars.iv to i32
-  br label %._crit_edge62
+37:                                               ; preds = %.lr.ph108, %._crit_edge56, %._crit_edge62
+  %.033 = phi i32 [ %36, %._crit_edge62 ], [ %12, %.lr.ph108 ], [ %26, %._crit_edge56 ]
+  %.031 = phi i32 [ %33, %._crit_edge62 ], [ %15, %.lr.ph108 ], [ %23, %._crit_edge56 ]
+  %38 = and i32 %.031, -256
+  %39 = icmp ult i32 %1, %38
+  %.041..033 = select i1 %39, i32 %.041106, i32 %.033
+  %.033..038 = select i1 %39, i32 %.033, i32 %.038107
+  %40 = add nsw i32 %.041..033, 1
+  %41 = icmp slt i32 %40, %.033..038
+  br i1 %41, label %.lr.ph108, label %.thread86
 
-._crit_edge62:                                    ; preds = %._crit_edge62.loopexit90, %._crit_edge62.loopexit, %.lr.ph111
-  %.033 = phi i32 [ %12, %.lr.ph111 ], [ %35, %._crit_edge62.loopexit ], [ %36, %._crit_edge62.loopexit90 ]
-  %.031 = phi i32 [ %15, %.lr.ph111 ], [ %32, %._crit_edge62.loopexit ], [ %23, %._crit_edge62.loopexit90 ]
-  %37 = and i32 %.031, -256
-  %38 = icmp ult i32 %1, %37
-  %.041..033 = select i1 %38, i32 %.041109, i32 %.033
-  %.033..038 = select i1 %38, i32 %.033, i32 %.038110
-  %39 = add nsw i32 %.041..033, 1
-  %40 = icmp slt i32 %39, %.033..038
-  br i1 %40, label %.lr.ph111, label %._crit_edge62.thread86
-
-._crit_edge62.thread86:                           ; preds = %._crit_edge62, %.preheader, %28, %2
-  %.041108 = phi i32 [ %5, %2 ], [ %.041109, %28 ], [ %.041109, %.preheader ], [ %.041..033, %._crit_edge62 ]
-  ret i32 %.041108
+.thread86:                                        ; preds = %37, %.preheader, %29, %2
+  %.041105 = phi i32 [ %5, %2 ], [ %.041106, %29 ], [ %.041106, %.preheader ], [ %.041..033, %37 ]
+  ret i32 %.041105
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElements25firstCEWithPrimaryAtLeastEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %54, label %4
+  br i1 %3, label %55, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8, !tbaa !3
@@ -270,9 +270,9 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
   %12 = icmp slt i32 %11, %10
   br i1 %12, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
 
-.lr.ph:                                           ; preds = %4, %._crit_edge62.i
-  %.038.i21 = phi i32 [ %.033..038.i, %._crit_edge62.i ], [ %10, %4 ]
-  %.041.i20 = phi i32 [ %.041..033.i, %._crit_edge62.i ], [ %7, %4 ]
+.lr.ph:                                           ; preds = %4, %39
+  %.038.i21 = phi i32 [ %.033..038.i, %39 ], [ %10, %4 ]
+  %.041.i20 = phi i32 [ %.041..033.i, %39 ], [ %7, %4 ]
   %13 = add nsw i32 %.038.i21, %.041.i20
   %14 = sdiv i32 %13, 2
   %15 = sext i32 %14 to i64
@@ -280,7 +280,7 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
   %17 = load i32, ptr %16, align 4, !tbaa !10
   %18 = and i32 %17, 128
   %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %._crit_edge62.i, label %.preheader52.i
+  br i1 %.not.i, label %39, label %.preheader52.i
 
 .preheader52.i:                                   ; preds = %.lr.ph
   %.02953.i = add nsw i32 %14, 1
@@ -303,77 +303,77 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
   %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = and i32 %25, 128
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %._crit_edge62.loopexit90.i, label %21, !llvm.loop !12
+  br i1 %27, label %._crit_edge56.i, label %21, !llvm.loop !12
+
+._crit_edge56.i:                                  ; preds = %.lr.ph.i
+  %28 = trunc nsw i64 %indvars.iv.i to i32
+  br label %39
 
 .preheader.i:                                     ; preds = %21, %.preheader52.i
   %.13059.i = add nsw i32 %14, -1
-  %28 = icmp eq i32 %.13059.i, %.041.i20
-  br i1 %28, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.preheader.i
+  %29 = icmp eq i32 %.13059.i, %.041.i20
+  br i1 %29, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.preheader.i
 
 .lr.ph61.preheader.i:                             ; preds = %.preheader.i
-  %29 = sext i32 %.13059.i to i64
+  %30 = sext i32 %.13059.i to i64
   br label %.lr.ph61.i
 
-30:                                               ; preds = %.lr.ph61.i
-  %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, -1
-  %31 = trunc nsw i64 %indvars.iv.next71.i to i32
-  %32 = icmp eq i32 %.041.i20, %31
-  br i1 %32, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !14
+31:                                               ; preds = %.lr.ph61.i
+  %indvars.iv.next75.i = add nsw i64 %indvars.iv74.i, -1
+  %32 = trunc nsw i64 %indvars.iv.next75.i to i32
+  %33 = icmp eq i32 %.041.i20, %32
+  br i1 %33, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !14
 
-.lr.ph61.i:                                       ; preds = %30, %.lr.ph61.preheader.i
-  %indvars.iv70.i = phi i64 [ %29, %.lr.ph61.preheader.i ], [ %indvars.iv.next71.i, %30 ]
-  %33 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv70.i
-  %34 = load i32, ptr %33, align 4, !tbaa !10
-  %35 = and i32 %34, 128
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %._crit_edge62.loopexit.i, label %30, !llvm.loop !14
+.lr.ph61.i:                                       ; preds = %31, %.lr.ph61.preheader.i
+  %indvars.iv74.i = phi i64 [ %30, %.lr.ph61.preheader.i ], [ %indvars.iv.next75.i, %31 ]
+  %34 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv74.i
+  %35 = load i32, ptr %34, align 4, !tbaa !10
+  %36 = and i32 %35, 128
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %._crit_edge62.i, label %31, !llvm.loop !14
 
-._crit_edge62.loopexit.i:                         ; preds = %.lr.ph61.i
-  %37 = trunc nsw i64 %indvars.iv70.i to i32
-  br label %._crit_edge62.i
+._crit_edge62.i:                                  ; preds = %.lr.ph61.i
+  %38 = trunc nsw i64 %indvars.iv74.i to i32
+  br label %39
 
-._crit_edge62.loopexit90.i:                       ; preds = %.lr.ph.i
-  %38 = trunc nsw i64 %indvars.iv.i to i32
-  br label %._crit_edge62.i
+39:                                               ; preds = %._crit_edge62.i, %._crit_edge56.i, %.lr.ph
+  %.033.i = phi i32 [ %38, %._crit_edge62.i ], [ %14, %.lr.ph ], [ %28, %._crit_edge56.i ]
+  %.031.i = phi i32 [ %35, %._crit_edge62.i ], [ %17, %.lr.ph ], [ %25, %._crit_edge56.i ]
+  %40 = and i32 %.031.i, -256
+  %41 = icmp ult i32 %1, %40
+  %.041..033.i = select i1 %41, i32 %.041.i20, i32 %.033.i
+  %.033..038.i = select i1 %41, i32 %.033.i, i32 %.038.i21
+  %42 = add nsw i32 %.041..033.i, 1
+  %43 = icmp slt i32 %42, %.033..038.i
+  br i1 %43, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
 
-._crit_edge62.i:                                  ; preds = %._crit_edge62.loopexit90.i, %._crit_edge62.loopexit.i, %.lr.ph
-  %.033.i = phi i32 [ %14, %.lr.ph ], [ %37, %._crit_edge62.loopexit.i ], [ %38, %._crit_edge62.loopexit90.i ]
-  %.031.i = phi i32 [ %17, %.lr.ph ], [ %34, %._crit_edge62.loopexit.i ], [ %25, %._crit_edge62.loopexit90.i ]
-  %39 = and i32 %.031.i, -256
-  %40 = icmp ult i32 %1, %39
-  %.041..033.i = select i1 %40, i32 %.041.i20, i32 %.033.i
-  %.033..038.i = select i1 %40, i32 %.033.i, i32 %.038.i21
-  %41 = add nsw i32 %.041..033.i, 1
-  %42 = icmp slt i32 %41, %.033..038.i
-  br i1 %42, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
-
-_ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %._crit_edge62.i, %30, %4
-  %.041.i19 = phi i32 [ %7, %4 ], [ %.041.i20, %30 ], [ %.041.i20, %.preheader.i ], [ %.041..033.i, %._crit_edge62.i ]
-  %43 = sext i32 %.041.i19 to i64
-  %44 = getelementptr inbounds i32, ptr %5, i64 %43
-  %45 = load i32, ptr %44, align 4, !tbaa !10
-  %46 = and i32 %45, -256
-  %.not = icmp eq i32 %1, %46
+_ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, %31, %4
+  %.041.i19 = phi i32 [ %7, %4 ], [ %.041.i20, %31 ], [ %.041.i20, %.preheader.i ], [ %.041..033.i, %39 ]
+  %44 = sext i32 %.041.i19 to i64
+  %45 = getelementptr inbounds i32, ptr %5, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !10
+  %47 = and i32 %46, -256
+  %.not = icmp eq i32 %1, %47
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK6icu_7721CollationRootElements5findPEj.exit, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %43, %_ZNK6icu_7721CollationRootElements5findPEj.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %44, %_ZNK6icu_7721CollationRootElements5findPEj.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %47 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
-  %48 = load i32, ptr %47, align 4, !tbaa !10
-  %49 = and i32 %48, 128
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.loopexit, label %.preheader, !llvm.loop !17
+  %48 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
+  %49 = load i32, ptr %48, align 4, !tbaa !10
+  %50 = and i32 %49, 128
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %_ZNK6icu_7721CollationRootElements5findPEj.exit
-  %.08 = phi i32 [ %1, %_ZNK6icu_7721CollationRootElements5findPEj.exit ], [ %48, %.preheader ]
-  %51 = zext i32 %.08 to i64
-  %52 = shl nuw i64 %51, 32
-  %53 = or disjoint i64 %52, 83887360
-  br label %54
+  %.08 = phi i32 [ %1, %_ZNK6icu_7721CollationRootElements5findPEj.exit ], [ %49, %.preheader ]
+  %52 = zext i32 %.08 to i64
+  %53 = shl nuw i64 %52, 32
+  %54 = or disjoint i64 %53, 83887360
+  br label %55
 
-54:                                               ; preds = %2, %.loopexit
-  %.09 = phi i64 [ %53, %.loopexit ], [ 0, %2 ]
+55:                                               ; preds = %2, %.loopexit
+  %.09 = phi i64 [ %54, %.loopexit ], [ 0, %2 ]
   ret i64 %.09
 }
 
@@ -389,9 +389,9 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
   %11 = icmp slt i32 %10, %9
   br i1 %11, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
 
-.lr.ph.i:                                         ; preds = %3, %._crit_edge62.i.i
-  %.038.i11.i = phi i32 [ %.033..038.i.i, %._crit_edge62.i.i ], [ %9, %3 ]
-  %.041.i10.i = phi i32 [ %.041..033.i.i, %._crit_edge62.i.i ], [ %6, %3 ]
+.lr.ph.i:                                         ; preds = %3, %38
+  %.038.i11.i = phi i32 [ %.033..038.i.i, %38 ], [ %9, %3 ]
+  %.041.i10.i = phi i32 [ %.041..033.i.i, %38 ], [ %6, %3 ]
   %12 = add nsw i32 %.041.i10.i, %.038.i11.i
   %13 = sdiv i32 %12, 2
   %14 = sext i32 %13 to i64
@@ -399,7 +399,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
   %16 = load i32, ptr %15, align 4, !tbaa !10
   %17 = and i32 %16, 128
   %.not.i.i = icmp eq i32 %17, 0
-  br i1 %.not.i.i, label %._crit_edge62.i.i, label %.preheader52.i.i
+  br i1 %.not.i.i, label %38, label %.preheader52.i.i
 
 .preheader52.i.i:                                 ; preds = %.lr.ph.i
   %.02953.i.i = add nsw i32 %13, 1
@@ -422,99 +422,99 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %25 = and i32 %24, 128
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %._crit_edge62.loopexit90.i.i, label %20, !llvm.loop !12
+  br i1 %26, label %._crit_edge56.i.i, label %20, !llvm.loop !12
+
+._crit_edge56.i.i:                                ; preds = %.lr.ph.i.i
+  %27 = trunc nsw i64 %indvars.iv.i.i to i32
+  br label %38
 
 .preheader.i.i:                                   ; preds = %20, %.preheader52.i.i
   %.13059.i.i = add nsw i32 %13, -1
-  %27 = icmp eq i32 %.13059.i.i, %.041.i10.i
-  br i1 %27, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.preheader.i.i
+  %28 = icmp eq i32 %.13059.i.i, %.041.i10.i
+  br i1 %28, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.preheader.i.i
 
 .lr.ph61.preheader.i.i:                           ; preds = %.preheader.i.i
-  %28 = sext i32 %.13059.i.i to i64
+  %29 = sext i32 %.13059.i.i to i64
   br label %.lr.ph61.i.i
 
-29:                                               ; preds = %.lr.ph61.i.i
-  %indvars.iv.next71.i.i = add nsw i64 %indvars.iv70.i.i, -1
-  %30 = trunc nsw i64 %indvars.iv.next71.i.i to i32
-  %31 = icmp eq i32 %.041.i10.i, %30
-  br i1 %31, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !14
+30:                                               ; preds = %.lr.ph61.i.i
+  %indvars.iv.next75.i.i = add nsw i64 %indvars.iv74.i.i, -1
+  %31 = trunc nsw i64 %indvars.iv.next75.i.i to i32
+  %32 = icmp eq i32 %.041.i10.i, %31
+  br i1 %32, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !14
 
-.lr.ph61.i.i:                                     ; preds = %29, %.lr.ph61.preheader.i.i
-  %indvars.iv70.i.i = phi i64 [ %28, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next71.i.i, %29 ]
-  %32 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv70.i.i
-  %33 = load i32, ptr %32, align 4, !tbaa !10
-  %34 = and i32 %33, 128
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %._crit_edge62.loopexit.i.i, label %29, !llvm.loop !14
+.lr.ph61.i.i:                                     ; preds = %30, %.lr.ph61.preheader.i.i
+  %indvars.iv74.i.i = phi i64 [ %29, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next75.i.i, %30 ]
+  %33 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv74.i.i
+  %34 = load i32, ptr %33, align 4, !tbaa !10
+  %35 = and i32 %34, 128
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %._crit_edge62.i.i, label %30, !llvm.loop !14
 
-._crit_edge62.loopexit.i.i:                       ; preds = %.lr.ph61.i.i
-  %36 = trunc nsw i64 %indvars.iv70.i.i to i32
-  br label %._crit_edge62.i.i
+._crit_edge62.i.i:                                ; preds = %.lr.ph61.i.i
+  %37 = trunc nsw i64 %indvars.iv74.i.i to i32
+  br label %38
 
-._crit_edge62.loopexit90.i.i:                     ; preds = %.lr.ph.i.i
-  %37 = trunc nsw i64 %indvars.iv.i.i to i32
-  br label %._crit_edge62.i.i
+38:                                               ; preds = %._crit_edge62.i.i, %._crit_edge56.i.i, %.lr.ph.i
+  %.033.i.i = phi i32 [ %37, %._crit_edge62.i.i ], [ %13, %.lr.ph.i ], [ %27, %._crit_edge56.i.i ]
+  %.031.i.i = phi i32 [ %34, %._crit_edge62.i.i ], [ %16, %.lr.ph.i ], [ %24, %._crit_edge56.i.i ]
+  %39 = and i32 %.031.i.i, -256
+  %40 = icmp ult i32 %1, %39
+  %.041..033.i.i = select i1 %40, i32 %.041.i10.i, i32 %.033.i.i
+  %.033..038.i.i = select i1 %40, i32 %.033.i.i, i32 %.038.i11.i
+  %41 = add nsw i32 %.041..033.i.i, 1
+  %42 = icmp slt i32 %41, %.033..038.i.i
+  br i1 %42, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
 
-._crit_edge62.i.i:                                ; preds = %._crit_edge62.loopexit90.i.i, %._crit_edge62.loopexit.i.i, %.lr.ph.i
-  %.033.i.i = phi i32 [ %13, %.lr.ph.i ], [ %36, %._crit_edge62.loopexit.i.i ], [ %37, %._crit_edge62.loopexit90.i.i ]
-  %.031.i.i = phi i32 [ %16, %.lr.ph.i ], [ %33, %._crit_edge62.loopexit.i.i ], [ %24, %._crit_edge62.loopexit90.i.i ]
-  %38 = and i32 %.031.i.i, -256
-  %39 = icmp ult i32 %1, %38
-  %.041..033.i.i = select i1 %39, i32 %.041.i10.i, i32 %.033.i.i
-  %.033..038.i.i = select i1 %39, i32 %.033.i.i, i32 %.038.i11.i
-  %40 = add nsw i32 %.041..033.i.i, 1
-  %41 = icmp slt i32 %40, %.033..038.i.i
-  br i1 %41, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
+_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %38, %30, %3
+  %.041.i9.i = phi i32 [ %6, %3 ], [ %.041.i10.i, %30 ], [ %.041..033.i.i, %38 ], [ %.041.i10.i, %.preheader.i.i ]
+  %43 = sext i32 %.041.i9.i to i64
+  %44 = getelementptr inbounds i32, ptr %4, i64 %43
+  %45 = load i32, ptr %44, align 4, !tbaa !10
+  %46 = and i32 %45, -256
+  %47 = icmp eq i32 %1, %46
+  br i1 %47, label %48, label %56
 
-_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %._crit_edge62.i.i, %29, %3
-  %.041.i9.i = phi i32 [ %6, %3 ], [ %.041.i10.i, %29 ], [ %.041..033.i.i, %._crit_edge62.i.i ], [ %.041.i10.i, %.preheader.i.i ]
-  %42 = sext i32 %.041.i9.i to i64
-  %43 = getelementptr inbounds i32, ptr %4, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !10
-  %45 = and i32 %44, -256
-  %46 = icmp eq i32 %1, %45
-  br i1 %46, label %47, label %55
+48:                                               ; preds = %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
+  %49 = and i32 %45, 127
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %.preheader, label %60
 
-47:                                               ; preds = %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
-  %48 = and i32 %44, 127
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.preheader, label %59
-
-.preheader:                                       ; preds = %47, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %42, %47 ]
+.preheader:                                       ; preds = %48, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %43, %48 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %50 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next
-  %51 = load i32, ptr %50, align 4, !tbaa !10
-  %52 = and i32 %51, 128
-  %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %53, label %.preheader, !llvm.loop !18
+  %51 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next
+  %52 = load i32, ptr %51, align 4, !tbaa !10
+  %53 = and i32 %52, 128
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %54, label %.preheader, !llvm.loop !18
 
-53:                                               ; preds = %.preheader
-  %54 = and i32 %51, -256
-  br label %66
+54:                                               ; preds = %.preheader
+  %55 = and i32 %52, -256
+  br label %67
 
-55:                                               ; preds = %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
-  %56 = getelementptr i8, ptr %43, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !10
-  %58 = and i32 %57, 127
-  br label %59
+56:                                               ; preds = %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
+  %57 = getelementptr i8, ptr %44, i64 4
+  %58 = load i32, ptr %57, align 4, !tbaa !10
+  %59 = and i32 %58, 127
+  br label %60
 
-59:                                               ; preds = %47, %55
-  %.019 = phi i32 [ %48, %47 ], [ %58, %55 ]
-  %60 = and i32 %1, 65535
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %64
+60:                                               ; preds = %48, %56
+  %.019 = phi i32 [ %49, %48 ], [ %59, %56 ]
+  %61 = and i32 %1, 65535
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %65
 
-62:                                               ; preds = %59
-  %63 = tail call noundef i32 @_ZN6icu_779Collation26decTwoBytePrimaryByOneStepEjai(i32 noundef %1, i8 noundef signext %2, i32 noundef %.019)
-  br label %66
+63:                                               ; preds = %60
+  %64 = tail call noundef i32 @_ZN6icu_779Collation26decTwoBytePrimaryByOneStepEjai(i32 noundef %1, i8 noundef signext %2, i32 noundef %.019)
+  br label %67
 
-64:                                               ; preds = %59
-  %65 = tail call noundef i32 @_ZN6icu_779Collation28decThreeBytePrimaryByOneStepEjai(i32 noundef %1, i8 noundef signext %2, i32 noundef %.019)
-  br label %66
+65:                                               ; preds = %60
+  %66 = tail call noundef i32 @_ZN6icu_779Collation28decThreeBytePrimaryByOneStepEjai(i32 noundef %1, i8 noundef signext %2, i32 noundef %.019)
+  br label %67
 
-66:                                               ; preds = %64, %62, %53
-  %.0 = phi i32 [ %54, %53 ], [ %63, %62 ], [ %65, %64 ]
+67:                                               ; preds = %65, %63, %54
+  %.0 = phi i32 [ %55, %54 ], [ %64, %63 ], [ %66, %65 ]
   ret i32 %.0
 }
 
@@ -530,9 +530,9 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements11findPrimaryEj(ptr nounde
   %10 = icmp slt i32 %9, %8
   br i1 %10, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
 
-.lr.ph:                                           ; preds = %2, %._crit_edge62.i
-  %.038.i11 = phi i32 [ %.033..038.i, %._crit_edge62.i ], [ %8, %2 ]
-  %.041.i10 = phi i32 [ %.041..033.i, %._crit_edge62.i ], [ %5, %2 ]
+.lr.ph:                                           ; preds = %2, %37
+  %.038.i11 = phi i32 [ %.033..038.i, %37 ], [ %8, %2 ]
+  %.041.i10 = phi i32 [ %.041..033.i, %37 ], [ %5, %2 ]
   %11 = add nsw i32 %.038.i11, %.041.i10
   %12 = sdiv i32 %11, 2
   %13 = sext i32 %12 to i64
@@ -540,7 +540,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements11findPrimaryEj(ptr nounde
   %15 = load i32, ptr %14, align 4, !tbaa !10
   %16 = and i32 %15, 128
   %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %._crit_edge62.i, label %.preheader52.i
+  br i1 %.not.i, label %37, label %.preheader52.i
 
 .preheader52.i:                                   ; preds = %.lr.ph
   %.02953.i = add nsw i32 %12, 1
@@ -563,52 +563,52 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements11findPrimaryEj(ptr nounde
   %23 = load i32, ptr %22, align 4, !tbaa !10
   %24 = and i32 %23, 128
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %._crit_edge62.loopexit90.i, label %19, !llvm.loop !12
+  br i1 %25, label %._crit_edge56.i, label %19, !llvm.loop !12
+
+._crit_edge56.i:                                  ; preds = %.lr.ph.i
+  %26 = trunc nsw i64 %indvars.iv.i to i32
+  br label %37
 
 .preheader.i:                                     ; preds = %19, %.preheader52.i
   %.13059.i = add nsw i32 %12, -1
-  %26 = icmp eq i32 %.13059.i, %.041.i10
-  br i1 %26, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.preheader.i
+  %27 = icmp eq i32 %.13059.i, %.041.i10
+  br i1 %27, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.preheader.i
 
 .lr.ph61.preheader.i:                             ; preds = %.preheader.i
-  %27 = sext i32 %.13059.i to i64
+  %28 = sext i32 %.13059.i to i64
   br label %.lr.ph61.i
 
-28:                                               ; preds = %.lr.ph61.i
-  %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, -1
-  %29 = trunc nsw i64 %indvars.iv.next71.i to i32
-  %30 = icmp eq i32 %.041.i10, %29
-  br i1 %30, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !14
+29:                                               ; preds = %.lr.ph61.i
+  %indvars.iv.next75.i = add nsw i64 %indvars.iv74.i, -1
+  %30 = trunc nsw i64 %indvars.iv.next75.i to i32
+  %31 = icmp eq i32 %.041.i10, %30
+  br i1 %31, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !14
 
-.lr.ph61.i:                                       ; preds = %28, %.lr.ph61.preheader.i
-  %indvars.iv70.i = phi i64 [ %27, %.lr.ph61.preheader.i ], [ %indvars.iv.next71.i, %28 ]
-  %31 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv70.i
-  %32 = load i32, ptr %31, align 4, !tbaa !10
-  %33 = and i32 %32, 128
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %._crit_edge62.loopexit.i, label %28, !llvm.loop !14
+.lr.ph61.i:                                       ; preds = %29, %.lr.ph61.preheader.i
+  %indvars.iv74.i = phi i64 [ %28, %.lr.ph61.preheader.i ], [ %indvars.iv.next75.i, %29 ]
+  %32 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv74.i
+  %33 = load i32, ptr %32, align 4, !tbaa !10
+  %34 = and i32 %33, 128
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %._crit_edge62.i, label %29, !llvm.loop !14
 
-._crit_edge62.loopexit.i:                         ; preds = %.lr.ph61.i
-  %35 = trunc nsw i64 %indvars.iv70.i to i32
-  br label %._crit_edge62.i
+._crit_edge62.i:                                  ; preds = %.lr.ph61.i
+  %36 = trunc nsw i64 %indvars.iv74.i to i32
+  br label %37
 
-._crit_edge62.loopexit90.i:                       ; preds = %.lr.ph.i
-  %36 = trunc nsw i64 %indvars.iv.i to i32
-  br label %._crit_edge62.i
+37:                                               ; preds = %._crit_edge62.i, %._crit_edge56.i, %.lr.ph
+  %.033.i = phi i32 [ %36, %._crit_edge62.i ], [ %12, %.lr.ph ], [ %26, %._crit_edge56.i ]
+  %.031.i = phi i32 [ %33, %._crit_edge62.i ], [ %15, %.lr.ph ], [ %23, %._crit_edge56.i ]
+  %38 = and i32 %.031.i, -256
+  %39 = icmp ult i32 %1, %38
+  %.041..033.i = select i1 %39, i32 %.041.i10, i32 %.033.i
+  %.033..038.i = select i1 %39, i32 %.033.i, i32 %.038.i11
+  %40 = add nsw i32 %.041..033.i, 1
+  %41 = icmp slt i32 %40, %.033..038.i
+  br i1 %41, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
 
-._crit_edge62.i:                                  ; preds = %._crit_edge62.loopexit90.i, %._crit_edge62.loopexit.i, %.lr.ph
-  %.033.i = phi i32 [ %12, %.lr.ph ], [ %35, %._crit_edge62.loopexit.i ], [ %36, %._crit_edge62.loopexit90.i ]
-  %.031.i = phi i32 [ %15, %.lr.ph ], [ %32, %._crit_edge62.loopexit.i ], [ %23, %._crit_edge62.loopexit90.i ]
-  %37 = and i32 %.031.i, -256
-  %38 = icmp ult i32 %1, %37
-  %.041..033.i = select i1 %38, i32 %.041.i10, i32 %.033.i
-  %.033..038.i = select i1 %38, i32 %.033.i, i32 %.038.i11
-  %39 = add nsw i32 %.041..033.i, 1
-  %40 = icmp slt i32 %39, %.033..038.i
-  br i1 %40, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
-
-_ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %._crit_edge62.i, %28, %2
-  %.041.i9 = phi i32 [ %5, %2 ], [ %.041.i10, %28 ], [ %.041.i10, %.preheader.i ], [ %.041..033.i, %._crit_edge62.i ]
+_ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %37, %29, %2
+  %.041.i9 = phi i32 [ %5, %2 ], [ %.041.i10, %29 ], [ %.041.i10, %.preheader.i ], [ %.041..033.i, %37 ]
   ret i32 %.041.i9
 }
 
@@ -628,7 +628,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !10
-  br label %56
+  br label %57
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -640,9 +640,9 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
   %19 = icmp slt i32 %18, %17
   br i1 %19, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
 
-.lr.ph.i:                                         ; preds = %12, %._crit_edge62.i.i
-  %.038.i11.i = phi i32 [ %.033..038.i.i, %._crit_edge62.i.i ], [ %17, %12 ]
-  %.041.i10.i = phi i32 [ %.041..033.i.i, %._crit_edge62.i.i ], [ %14, %12 ]
+.lr.ph.i:                                         ; preds = %12, %46
+  %.038.i11.i = phi i32 [ %.033..038.i.i, %46 ], [ %17, %12 ]
+  %.041.i10.i = phi i32 [ %.041..033.i.i, %46 ], [ %14, %12 ]
   %20 = add nsw i32 %.041.i10.i, %.038.i11.i
   %21 = sdiv i32 %20, 2
   %22 = sext i32 %21 to i64
@@ -650,7 +650,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %25 = and i32 %24, 128
   %.not.i.i = icmp eq i32 %25, 0
-  br i1 %.not.i.i, label %._crit_edge62.i.i, label %.preheader52.i.i
+  br i1 %.not.i.i, label %46, label %.preheader52.i.i
 
 .preheader52.i.i:                                 ; preds = %.lr.ph.i
   %.02953.i.i = add nsw i32 %21, 1
@@ -673,86 +673,86 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
   %32 = load i32, ptr %31, align 4, !tbaa !10
   %33 = and i32 %32, 128
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %._crit_edge62.loopexit90.i.i, label %28, !llvm.loop !12
+  br i1 %34, label %._crit_edge56.i.i, label %28, !llvm.loop !12
+
+._crit_edge56.i.i:                                ; preds = %.lr.ph.i.i
+  %35 = trunc nsw i64 %indvars.iv.i.i to i32
+  br label %46
 
 .preheader.i.i:                                   ; preds = %28, %.preheader52.i.i
   %.13059.i.i = add nsw i32 %21, -1
-  %35 = icmp eq i32 %.13059.i.i, %.041.i10.i
-  br i1 %35, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.preheader.i.i
+  %36 = icmp eq i32 %.13059.i.i, %.041.i10.i
+  br i1 %36, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.preheader.i.i
 
 .lr.ph61.preheader.i.i:                           ; preds = %.preheader.i.i
-  %36 = sext i32 %.13059.i.i to i64
+  %37 = sext i32 %.13059.i.i to i64
   br label %.lr.ph61.i.i
 
-37:                                               ; preds = %.lr.ph61.i.i
-  %indvars.iv.next71.i.i = add nsw i64 %indvars.iv70.i.i, -1
-  %38 = trunc nsw i64 %indvars.iv.next71.i.i to i32
-  %39 = icmp eq i32 %.041.i10.i, %38
-  br i1 %39, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !14
+38:                                               ; preds = %.lr.ph61.i.i
+  %indvars.iv.next75.i.i = add nsw i64 %indvars.iv74.i.i, -1
+  %39 = trunc nsw i64 %indvars.iv.next75.i.i to i32
+  %40 = icmp eq i32 %.041.i10.i, %39
+  br i1 %40, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !14
 
-.lr.ph61.i.i:                                     ; preds = %37, %.lr.ph61.preheader.i.i
-  %indvars.iv70.i.i = phi i64 [ %36, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next71.i.i, %37 ]
-  %40 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv70.i.i
-  %41 = load i32, ptr %40, align 4, !tbaa !10
-  %42 = and i32 %41, 128
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %._crit_edge62.loopexit.i.i, label %37, !llvm.loop !14
+.lr.ph61.i.i:                                     ; preds = %38, %.lr.ph61.preheader.i.i
+  %indvars.iv74.i.i = phi i64 [ %37, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next75.i.i, %38 ]
+  %41 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv74.i.i
+  %42 = load i32, ptr %41, align 4, !tbaa !10
+  %43 = and i32 %42, 128
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %._crit_edge62.i.i, label %38, !llvm.loop !14
 
-._crit_edge62.loopexit.i.i:                       ; preds = %.lr.ph61.i.i
-  %44 = trunc nsw i64 %indvars.iv70.i.i to i32
-  br label %._crit_edge62.i.i
+._crit_edge62.i.i:                                ; preds = %.lr.ph61.i.i
+  %45 = trunc nsw i64 %indvars.iv74.i.i to i32
+  br label %46
 
-._crit_edge62.loopexit90.i.i:                     ; preds = %.lr.ph.i.i
-  %45 = trunc nsw i64 %indvars.iv.i.i to i32
-  br label %._crit_edge62.i.i
+46:                                               ; preds = %._crit_edge62.i.i, %._crit_edge56.i.i, %.lr.ph.i
+  %.033.i.i = phi i32 [ %45, %._crit_edge62.i.i ], [ %21, %.lr.ph.i ], [ %35, %._crit_edge56.i.i ]
+  %.031.i.i = phi i32 [ %42, %._crit_edge62.i.i ], [ %24, %.lr.ph.i ], [ %32, %._crit_edge56.i.i ]
+  %47 = and i32 %.031.i.i, -256
+  %48 = icmp ult i32 %1, %47
+  %.041..033.i.i = select i1 %48, i32 %.041.i10.i, i32 %.033.i.i
+  %.033..038.i.i = select i1 %48, i32 %.033.i.i, i32 %.038.i11.i
+  %49 = add nsw i32 %.041..033.i.i, 1
+  %50 = icmp slt i32 %49, %.033..038.i.i
+  br i1 %50, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
 
-._crit_edge62.i.i:                                ; preds = %._crit_edge62.loopexit90.i.i, %._crit_edge62.loopexit.i.i, %.lr.ph.i
-  %.033.i.i = phi i32 [ %21, %.lr.ph.i ], [ %44, %._crit_edge62.loopexit.i.i ], [ %45, %._crit_edge62.loopexit90.i.i ]
-  %.031.i.i = phi i32 [ %24, %.lr.ph.i ], [ %41, %._crit_edge62.loopexit.i.i ], [ %32, %._crit_edge62.loopexit90.i.i ]
-  %46 = and i32 %.031.i.i, -256
-  %47 = icmp ult i32 %1, %46
-  %.041..033.i.i = select i1 %47, i32 %.041.i10.i, i32 %.033.i.i
-  %.033..038.i.i = select i1 %47, i32 %.033.i.i, i32 %.038.i11.i
-  %48 = add nsw i32 %.041..033.i.i, 1
-  %49 = icmp slt i32 %48, %.033..038.i.i
-  br i1 %49, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
+_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %46, %38, %12
+  %.041.i9.i = phi i32 [ %14, %12 ], [ %.041.i10.i, %38 ], [ %.041..033.i.i, %46 ], [ %.041.i10.i, %.preheader.i.i ]
+  %51 = add nsw i32 %.041.i9.i, 1
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i32, ptr %5, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !10
+  %55 = and i32 %54, 128
+  %56 = icmp eq i32 %55, 0
+  %..i = tail call i32 @llvm.umin.i32(i32 %54, i32 83887360)
+  %.0.i = select i1 %56, i32 83887360, i32 %..i
+  br label %57
 
-_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %._crit_edge62.i.i, %37, %12
-  %.041.i9.i = phi i32 [ %14, %12 ], [ %.041.i10.i, %37 ], [ %.041..033.i.i, %._crit_edge62.i.i ], [ %.041.i10.i, %.preheader.i.i ]
-  %50 = add nsw i32 %.041.i9.i, 1
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %5, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !10
-  %54 = and i32 %53, 128
-  %55 = icmp eq i32 %54, 0
-  %..i = tail call i32 @llvm.umin.i32(i32 %53, i32 83887360)
-  %.0.i = select i1 %55, i32 83887360, i32 %..i
-  br label %56
-
-56:                                               ; preds = %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, %6
-  %.011 = phi i32 [ %8, %6 ], [ %50, %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit ]
+57:                                               ; preds = %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, %6
+  %.011 = phi i32 [ %8, %6 ], [ %51, %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit ]
   %.09 = phi i32 [ 0, %6 ], [ 256, %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit ]
   %.0.in = phi i32 [ %11, %6 ], [ %.0.i, %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit ]
   %.121 = lshr i32 %.0.in, 16
-  %57 = icmp ugt i32 %2, %.121
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %58 = icmp ugt i32 %2, %.121
+  br i1 %58, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %56
-  %58 = sext i32 %.011 to i64
-  br label %59
+.lr.ph:                                           ; preds = %57
+  %59 = sext i32 %.011 to i64
+  br label %60
 
-59:                                               ; preds = %.lr.ph, %59
-  %indvars.iv = phi i64 [ %58, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %.123 = phi i32 [ %.121, %.lr.ph ], [ %.1, %59 ]
+60:                                               ; preds = %.lr.ph, %60
+  %indvars.iv = phi i64 [ %59, %.lr.ph ], [ %indvars.iv.next, %60 ]
+  %.123 = phi i32 [ %.121, %.lr.ph ], [ %.1, %60 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %60 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
-  %61 = load i32, ptr %60, align 4, !tbaa !10
-  %.1 = lshr i32 %61, 16
-  %62 = icmp ugt i32 %2, %.1
-  br i1 %62, label %59, label %._crit_edge, !llvm.loop !19
+  %61 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %62 = load i32, ptr %61, align 4, !tbaa !10
+  %.1 = lshr i32 %62, 16
+  %63 = icmp ugt i32 %2, %.1
+  br i1 %63, label %60, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %59, %56
-  %.110.lcssa = phi i32 [ %.09, %56 ], [ %.123, %59 ]
+._crit_edge:                                      ; preds = %60, %57
+  %.110.lcssa = phi i32 [ %.09, %57 ], [ %.123, %60 ]
   ret i32 %.110.lcssa
 }
 
@@ -786,7 +786,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
   %10 = getelementptr inbounds i32, ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !10
   %12 = and i32 %11, -129
-  br label %59
+  br label %60
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %0, align 8, !tbaa !3
@@ -799,9 +799,9 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
   %21 = icmp slt i32 %20, %19
   br i1 %21, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
 
-.lr.ph.i:                                         ; preds = %13, %._crit_edge62.i.i
-  %.038.i11.i = phi i32 [ %.033..038.i.i, %._crit_edge62.i.i ], [ %19, %13 ]
-  %.041.i10.i = phi i32 [ %.041..033.i.i, %._crit_edge62.i.i ], [ %16, %13 ]
+.lr.ph.i:                                         ; preds = %13, %48
+  %.038.i11.i = phi i32 [ %.033..038.i.i, %48 ], [ %19, %13 ]
+  %.041.i10.i = phi i32 [ %.041..033.i.i, %48 ], [ %16, %13 ]
   %22 = add nsw i32 %.041.i10.i, %.038.i11.i
   %23 = sdiv i32 %22, 2
   %24 = sext i32 %23 to i64
@@ -809,7 +809,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
   %26 = load i32, ptr %25, align 4, !tbaa !10
   %27 = and i32 %26, 128
   %.not.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i, label %._crit_edge62.i.i, label %.preheader52.i.i
+  br i1 %.not.i.i, label %48, label %.preheader52.i.i
 
 .preheader52.i.i:                                 ; preds = %.lr.ph.i
   %.02953.i.i = add nsw i32 %23, 1
@@ -832,95 +832,95 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
   %34 = load i32, ptr %33, align 4, !tbaa !10
   %35 = and i32 %34, 128
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %._crit_edge62.loopexit90.i.i, label %30, !llvm.loop !12
+  br i1 %36, label %._crit_edge56.i.i, label %30, !llvm.loop !12
+
+._crit_edge56.i.i:                                ; preds = %.lr.ph.i.i
+  %37 = trunc nsw i64 %indvars.iv.i.i to i32
+  br label %48
 
 .preheader.i.i:                                   ; preds = %30, %.preheader52.i.i
   %.13059.i.i = add nsw i32 %23, -1
-  %37 = icmp eq i32 %.13059.i.i, %.041.i10.i
-  br i1 %37, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.preheader.i.i
+  %38 = icmp eq i32 %.13059.i.i, %.041.i10.i
+  br i1 %38, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.preheader.i.i
 
 .lr.ph61.preheader.i.i:                           ; preds = %.preheader.i.i
-  %38 = sext i32 %.13059.i.i to i64
+  %39 = sext i32 %.13059.i.i to i64
   br label %.lr.ph61.i.i
 
-39:                                               ; preds = %.lr.ph61.i.i
-  %indvars.iv.next71.i.i = add nsw i64 %indvars.iv70.i.i, -1
-  %40 = trunc nsw i64 %indvars.iv.next71.i.i to i32
-  %41 = icmp eq i32 %.041.i10.i, %40
-  br i1 %41, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !14
+40:                                               ; preds = %.lr.ph61.i.i
+  %indvars.iv.next75.i.i = add nsw i64 %indvars.iv74.i.i, -1
+  %41 = trunc nsw i64 %indvars.iv.next75.i.i to i32
+  %42 = icmp eq i32 %.041.i10.i, %41
+  br i1 %42, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !14
 
-.lr.ph61.i.i:                                     ; preds = %39, %.lr.ph61.preheader.i.i
-  %indvars.iv70.i.i = phi i64 [ %38, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next71.i.i, %39 ]
-  %42 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv70.i.i
-  %43 = load i32, ptr %42, align 4, !tbaa !10
-  %44 = and i32 %43, 128
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %._crit_edge62.loopexit.i.i, label %39, !llvm.loop !14
+.lr.ph61.i.i:                                     ; preds = %40, %.lr.ph61.preheader.i.i
+  %indvars.iv74.i.i = phi i64 [ %39, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next75.i.i, %40 ]
+  %43 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv74.i.i
+  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %45 = and i32 %44, 128
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %._crit_edge62.i.i, label %40, !llvm.loop !14
 
-._crit_edge62.loopexit.i.i:                       ; preds = %.lr.ph61.i.i
-  %46 = trunc nsw i64 %indvars.iv70.i.i to i32
-  br label %._crit_edge62.i.i
+._crit_edge62.i.i:                                ; preds = %.lr.ph61.i.i
+  %47 = trunc nsw i64 %indvars.iv74.i.i to i32
+  br label %48
 
-._crit_edge62.loopexit90.i.i:                     ; preds = %.lr.ph.i.i
-  %47 = trunc nsw i64 %indvars.iv.i.i to i32
-  br label %._crit_edge62.i.i
+48:                                               ; preds = %._crit_edge62.i.i, %._crit_edge56.i.i, %.lr.ph.i
+  %.033.i.i = phi i32 [ %47, %._crit_edge62.i.i ], [ %23, %.lr.ph.i ], [ %37, %._crit_edge56.i.i ]
+  %.031.i.i = phi i32 [ %44, %._crit_edge62.i.i ], [ %26, %.lr.ph.i ], [ %34, %._crit_edge56.i.i ]
+  %49 = and i32 %.031.i.i, -256
+  %50 = icmp ult i32 %1, %49
+  %.041..033.i.i = select i1 %50, i32 %.041.i10.i, i32 %.033.i.i
+  %.033..038.i.i = select i1 %50, i32 %.033.i.i, i32 %.038.i11.i
+  %51 = add nsw i32 %.041..033.i.i, 1
+  %52 = icmp slt i32 %51, %.033..038.i.i
+  br i1 %52, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
 
-._crit_edge62.i.i:                                ; preds = %._crit_edge62.loopexit90.i.i, %._crit_edge62.loopexit.i.i, %.lr.ph.i
-  %.033.i.i = phi i32 [ %23, %.lr.ph.i ], [ %46, %._crit_edge62.loopexit.i.i ], [ %47, %._crit_edge62.loopexit90.i.i ]
-  %.031.i.i = phi i32 [ %26, %.lr.ph.i ], [ %43, %._crit_edge62.loopexit.i.i ], [ %34, %._crit_edge62.loopexit90.i.i ]
-  %48 = and i32 %.031.i.i, -256
-  %49 = icmp ult i32 %1, %48
-  %.041..033.i.i = select i1 %49, i32 %.041.i10.i, i32 %.033.i.i
-  %.033..038.i.i = select i1 %49, i32 %.033.i.i, i32 %.038.i11.i
-  %50 = add nsw i32 %.041..033.i.i, 1
-  %51 = icmp slt i32 %50, %.033..038.i.i
-  br i1 %51, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
+_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %48, %40, %13
+  %.041.i9.i = phi i32 [ %16, %13 ], [ %.041.i10.i, %40 ], [ %.041..033.i.i, %48 ], [ %.041.i10.i, %.preheader.i.i ]
+  %53 = add nsw i32 %.041.i9.i, 1
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i32, ptr %14, i64 %54
+  %56 = load i32, ptr %55, align 4, !tbaa !10
+  %57 = and i32 %56, 128
+  %58 = icmp eq i32 %57, 0
+  %59 = and i32 %56, -129
+  %..i = tail call i32 @llvm.umin.i32(i32 %59, i32 83887360)
+  %.0.i = select i1 %58, i32 83887360, i32 %..i
+  br label %60
 
-_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %._crit_edge62.i.i, %39, %13
-  %.041.i9.i = phi i32 [ %16, %13 ], [ %.041.i10.i, %39 ], [ %.041..033.i.i, %._crit_edge62.i.i ], [ %.041.i10.i, %.preheader.i.i ]
-  %52 = add nsw i32 %.041.i9.i, 1
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %14, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !10
-  %56 = and i32 %55, 128
-  %57 = icmp eq i32 %56, 0
-  %58 = and i32 %55, -129
-  %..i = tail call i32 @llvm.umin.i32(i32 %58, i32 83887360)
-  %.0.i = select i1 %57, i32 83887360, i32 %..i
-  br label %59
-
-59:                                               ; preds = %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, %6
-  %60 = phi ptr [ %8, %6 ], [ %14, %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit ]
+60:                                               ; preds = %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, %6
+  %61 = phi ptr [ %8, %6 ], [ %14, %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit ]
   %.117 = phi i32 [ %.016, %6 ], [ 256, %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit ]
   %.014 = phi i32 [ %12, %6 ], [ %.0.i, %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit ]
-  %.1 = phi i32 [ %.0, %6 ], [ %52, %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit ]
-  %61 = shl i32 %2, 16
-  %62 = or i32 %61, %3
-  %63 = icmp ugt i32 %62, %.014
-  br i1 %63, label %.lr.ph, label %._crit_edge
+  %.1 = phi i32 [ %.0, %6 ], [ %53, %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit ]
+  %62 = shl i32 %2, 16
+  %63 = or i32 %62, %3
+  %64 = icmp ugt i32 %63, %.014
+  br i1 %64, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %59
-  %64 = sext i32 %.1 to i64
-  br label %65
+.lr.ph:                                           ; preds = %60
+  %65 = sext i32 %.1 to i64
+  br label %66
 
-65:                                               ; preds = %.lr.ph, %65
-  %indvars.iv = phi i64 [ %64, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %.11528 = phi i32 [ %.014, %.lr.ph ], [ %70, %65 ]
-  %.21827 = phi i32 [ %.117, %.lr.ph ], [ %spec.select, %65 ]
-  %66 = lshr i32 %.11528, 16
-  %67 = icmp eq i32 %66, %2
-  %spec.select = select i1 %67, i32 %.11528, i32 %.21827
+66:                                               ; preds = %.lr.ph, %66
+  %indvars.iv = phi i64 [ %65, %.lr.ph ], [ %indvars.iv.next, %66 ]
+  %.11528 = phi i32 [ %.014, %.lr.ph ], [ %71, %66 ]
+  %.21827 = phi i32 [ %.117, %.lr.ph ], [ %spec.select, %66 ]
+  %67 = lshr i32 %.11528, 16
+  %68 = icmp eq i32 %67, %2
+  %spec.select = select i1 %68, i32 %.11528, i32 %.21827
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %68 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv
-  %69 = load i32, ptr %68, align 4, !tbaa !10
-  %70 = and i32 %69, -129
-  %71 = icmp ugt i32 %62, %70
-  br i1 %71, label %65, label %._crit_edge, !llvm.loop !20
+  %69 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv
+  %70 = load i32, ptr %69, align 4, !tbaa !10
+  %71 = and i32 %70, -129
+  %72 = icmp ugt i32 %63, %71
+  br i1 %72, label %66, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %65, %59
-  %.218.lcssa = phi i32 [ %.117, %59 ], [ %spec.select, %65 ]
-  %72 = and i32 %.218.lcssa, 65535
-  ret i32 %72
+._crit_edge:                                      ; preds = %66, %60
+  %.218.lcssa = phi i32 [ %.117, %60 ], [ %spec.select, %66 ]
+  %73 = and i32 %.218.lcssa, 65535
+  ret i32 %73
 }
 
 ; Function Attrs: mustprogress uwtable

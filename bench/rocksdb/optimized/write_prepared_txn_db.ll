@@ -6778,9 +6778,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unord
   %20 = load i64, ptr %19, align 8, !tbaa !36
   %21 = urem i64 %20, %5
   %.not19.i.i.i = icmp eq i64 %21, %6
-  br i1 %.not19.i.i.i, label %15, label %.loopexit.i, !llvm.loop !435
+  br i1 %.not19.i.i.i, label %15, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !435
 
-.loopexit.i:                                      ; preds = %18, %.lr.ph.i.i.i, %2
+..loopexit_crit_edge21.i.i.i:                     ; preds = %18
+  br label %.loopexit.i, !llvm.loop !435
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %2
   %22 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   store ptr null, ptr %22, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -7033,8 +7036,8 @@ _ZN7rocksdb9WriteLockD2Ev.exit:                   ; preds = %._crit_edge
   ret void
 
 20:                                               ; preds = %.lr.ph, %95
-  %.038 = phi i64 [ 0, %.lr.ph ], [ %96, %95 ]
-  %21 = add i64 %.038, %1
+  %.039 = phi i64 [ 0, %.lr.ph ], [ %96, %95 ]
+  %21 = add i64 %.039, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %21, ptr %4, align 8, !tbaa !36
   %22 = load atomic i64, ptr %8 acquire, align 8
@@ -7120,20 +7123,23 @@ _ZNSt3setImSt4lessImESaImEE5eraseERKm.exit:       ; preds = %35
   %58 = load i64, ptr %57, align 8, !tbaa !36
   %59 = urem i64 %58, %43
   %.not19.i.i.i.i = icmp eq i64 %59, %44
-  br i1 %.not19.i.i.i.i, label %53, label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread, !llvm.loop !435
+  br i1 %.not19.i.i.i.i, label %53, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !435
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %56
+  br label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread, !llvm.loop !435
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.loopexit: ; preds = %38
   %.pre = load i64, ptr %14, align 8, !tbaa !432
-  %.pre43 = load ptr, ptr %12, align 8, !tbaa !433
-  %.pre44 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre43, i64 %.pre44
-  %.pre45 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !434
+  %.pre45 = load ptr, ptr %12, align 8, !tbaa !433
+  %.pre46 = urem i64 %21, %.pre
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre45, i64 %.pre46
+  %.pre47 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !434
   br label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit: ; preds = %53, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.loopexit, %48
-  %60 = phi ptr [ %.pre45, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.loopexit ], [ %47, %48 ], [ %47, %53 ]
-  %.pre-phi = phi i64 [ %.pre44, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.loopexit ], [ %44, %48 ], [ %44, %53 ]
-  %61 = phi ptr [ %.pre43, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.loopexit ], [ %45, %48 ], [ %45, %53 ]
+  %60 = phi ptr [ %.pre47, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.loopexit ], [ %47, %48 ], [ %47, %53 ]
+  %.pre-phi = phi i64 [ %.pre46, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.loopexit ], [ %44, %48 ], [ %44, %53 ]
+  %61 = phi ptr [ %.pre45, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.loopexit ], [ %45, %48 ], [ %45, %53 ]
   %62 = phi i64 [ %.pre, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.loopexit ], [ %43, %48 ], [ %43, %53 ]
   %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.loopexit ], [ %49, %48 ], [ %55, %53 ]
   %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %.pre-phi
@@ -7213,7 +7219,7 @@ _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5eraseENSt8__det
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
   br label %97
 
-_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %56, %.preheader, %42, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5eraseENSt8__detail14_Node_iteratorIS6_Lb0ELb0EEE.exit
+_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %42, %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5eraseENSt8__detail14_Node_iteratorIS6_Lb0ELb0EEE.exit
   %92 = load i64, ptr %10, align 8, !tbaa !48
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %94, label %95
@@ -7223,7 +7229,7 @@ _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.
   br label %95
 
 95:                                               ; preds = %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread, %94, %32
-  %96 = add nuw i64 %.038, 1
+  %96 = add nuw i64 %.039, 1
   %exitcond.not = icmp eq i64 %96, %2
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !442
 
@@ -14011,7 +14017,10 @@ _ZNKSt3setImSt4lessImESaImEE4findERKm.exit:       ; preds = %_ZNKSt8_Rb_treeImmS
   %103 = load i64, ptr %102, align 8, !tbaa !36
   %104 = urem i64 %103, %88
   %.not19.i.i.i.i = icmp eq i64 %104, %89
-  br i1 %.not19.i.i.i.i, label %98, label %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread, !llvm.loop !435
+  br i1 %.not19.i.i.i.i, label %98, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !435
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %101
+  br label %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread, !llvm.loop !435
 
 105:                                              ; preds = %_ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit
   %106 = landingpad { ptr, i32 }
@@ -14055,10 +14064,10 @@ _ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11C
   %127 = load atomic i64, ptr %16 acquire, align 8
   br label %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread
 
-_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %101, %.preheader, %87, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit, %_ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11CommitEntryE.exit56, %123
-  %cond = phi i1 [ false, %123 ], [ true, %_ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11CommitEntryE.exit56 ], [ false, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %87 ], [ false, %.preheader ], [ false, %101 ], [ false, %.lr.ph.i.i.i.i ]
-  %.331 = phi i64 [ %39, %123 ], [ %127, %_ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11CommitEntryE.exit56 ], [ %39, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ %39, %87 ], [ %39, %.preheader ], [ %39, %101 ], [ %39, %.lr.ph.i.i.i.i ]
-  %.5 = phi i1 [ %126, %123 ], [ %.1, %_ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11CommitEntryE.exit56 ], [ %109, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %87 ], [ false, %.preheader ], [ false, %101 ], [ false, %.lr.ph.i.i.i.i ]
+_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %87, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit, %_ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11CommitEntryE.exit56, %123
+  %cond = phi i1 [ false, %123 ], [ true, %_ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11CommitEntryE.exit56 ], [ false, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %87 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %.preheader ], [ false, %.lr.ph.i.i.i.i ]
+  %.331 = phi i64 [ %39, %123 ], [ %127, %_ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11CommitEntryE.exit56 ], [ %39, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ %39, %87 ], [ %39, %..loopexit_crit_edge21.i.i.i.i ], [ %39, %.preheader ], [ %39, %.lr.ph.i.i.i.i ]
+  %.5 = phi i1 [ %126, %123 ], [ %.1, %_ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11CommitEntryE.exit56 ], [ %109, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %87 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %.preheader ], [ false, %.lr.ph.i.i.i.i ]
   invoke void @_ZN7rocksdb4port7RWMutex10ReadUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %22)
           to label %_ZN7rocksdb8ReadLockD2Ev.exit unwind label %128
 

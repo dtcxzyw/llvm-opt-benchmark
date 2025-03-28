@@ -2531,7 +2531,7 @@ eval_nodes_cpus_to_use.exit.i96:                  ; preds = %816, %771
 
 ._crit_edge357.i:                                 ; preds = %857
   %.pre358.i = load i16, ptr %616, align 8
-  br label %863
+  br label %863, !llvm.loop !29
 
 863:                                              ; preds = %._crit_edge357.i, %._crit_edge360.i
   %.pre-phi362.i = phi i64 [ %.pre361.i, %._crit_edge360.i ], [ %859, %._crit_edge357.i ]

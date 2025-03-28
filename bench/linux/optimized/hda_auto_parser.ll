@@ -2165,7 +2165,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
 
 .thread.us.lr.ph:                                 ; preds = %.split.us
   %44 = load i32, ptr %19, align 8
-  br i1 %3, label %.thread.us.lr.ph.split, label %.critedge
+  br i1 %3, label %.thread.us.lr.ph.split, label %.critedge, !llvm.loop !23
 
 .thread.us.lr.ph.split:                           ; preds = %.thread.us.lr.ph
   %45 = zext i32 %33 to i64
@@ -2185,11 +2185,14 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.thread.us.lr.ph.split ], [ %indvars.iv.next, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = icmp eq i64 %indvars.iv.next, %45
-  br i1 %52, label %.critedge, label %46, !llvm.loop !23
+  br i1 %52, label %.thread.us..split14.us_crit_edge.split, label %46, !llvm.loop !23
+
+.thread.us..split14.us_crit_edge.split:           ; preds = %.thread.us
+  br label %.critedge, !llvm.loop !23
 
 ..split14.us_crit_edge:                           ; preds = %46
-  %.not31 = icmp ugt i32 %33, %47
-  br i1 %.not31, label %.critedge20, label %.critedge
+  %.not30 = icmp ugt i32 %33, %47
+  br i1 %.not30, label %.critedge20, label %.critedge
 
 .split:                                           ; preds = %35, %.thread
   %53 = phi i1 [ %85, %.thread ], [ false, %35 ]
@@ -2248,7 +2251,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
   %.us-phi = phi i1 [ %85, %.thread ], [ %53, %67 ], [ %53, %.loopexit ]
   br i1 %.us-phi, label %.critedge, label %.critedge20
 
-.critedge:                                        ; preds = %.thread.us.lr.ph, %..split14.us_crit_edge, %30, %.split14.us, %.thread.us
+.critedge:                                        ; preds = %.thread.us.lr.ph, %..split14.us_crit_edge, %30, %.split14.us, %.thread.us..split14.us_crit_edge.split
   %87 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %88 = load i32, ptr %87, align 8
   store i32 %88, ptr %5, align 4

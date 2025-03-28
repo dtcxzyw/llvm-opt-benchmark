@@ -525,16 +525,19 @@ define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConver
   %or.cond = select i1 %.not, i1 %23, i1 false
   br i1 %or.cond, label %36, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph187, %.preheader, %thread-pre-split, %2
-  %.1117 = phi i32 [ %.6, %thread-pre-split ], [ %20, %2 ], [ %.6, %.preheader ], [ %.6, %.lr.ph187 ]
-  %.1105 = phi ptr [ %.3107, %thread-pre-split ], [ %12, %2 ], [ %.3107, %.preheader ], [ %.3107, %.lr.ph187 ]
-  %.1 = phi ptr [ %.4.lcssa, %thread-pre-split ], [ %8, %2 ], [ %.4163, %.preheader ], [ %.4163, %.lr.ph187 ]
+..loopexit_crit_edge:                             ; preds = %160
+  br label %.loopexit, !llvm.loop !53
+
+.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %thread-pre-split, %2
+  %.1117 = phi i32 [ %.6, %thread-pre-split ], [ %20, %2 ], [ %.6, %..loopexit_crit_edge ], [ %.6, %.preheader ]
+  %.1105 = phi ptr [ %.3107, %thread-pre-split ], [ %12, %2 ], [ %.3107, %..loopexit_crit_edge ], [ %.3107, %.preheader ]
+  %.1 = phi ptr [ %.4.lcssa, %thread-pre-split ], [ %8, %2 ], [ %.4163, %..loopexit_crit_edge ], [ %.4163, %.preheader ]
   %24 = icmp ult ptr %.1105, %14
-  br i1 %24, label %25, label %170
+  br i1 %24, label %25, label %171
 
 25:                                               ; preds = %.loopexit
   %26 = icmp ult ptr %.1, %10
-  br i1 %26, label %27, label %169
+  br i1 %26, label %27, label %170
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %.1105, i64 2
@@ -567,7 +570,7 @@ define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConver
 .thread:                                          ; preds = %38
   store i32 12, ptr %1, align 4, !tbaa !13
   store i32 %.0128, ptr %21, align 4, !tbaa !52
-  br label %170
+  br label %171
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %.0104, i64 2
@@ -579,12 +582,12 @@ define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConver
 
 48:                                               ; preds = %36
   store i32 %.0128, ptr %21, align 4, !tbaa !52
-  br label %170
+  br label %171
 
 49:                                               ; preds = %33
   store i32 12, ptr %1, align 4, !tbaa !13
   store i32 %30, ptr %21, align 4, !tbaa !52
-  br label %170
+  br label %171
 
 50:                                               ; preds = %43, %27
   %.1129 = phi i32 [ %47, %43 ], [ %30, %27 ]
@@ -884,7 +887,7 @@ _ZL8getStatei.exit:                               ; preds = %switch.hole_check25
   %105 = getelementptr inbounds nuw [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %100, i64 %indvars.iv.next
   %106 = load i8, ptr %105, align 1, !tbaa !34
   %.not140 = icmp eq i8 %106, 0
-  br i1 %.not140, label %_ZL8getStatei.exit.thread.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %.not140, label %_ZL8getStatei.exit.thread.loopexit, label %.lr.ph, !llvm.loop !54
 
 _ZL8getStatei.exit.thread.loopexit:               ; preds = %.lr.ph
   %107 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -925,7 +928,7 @@ _ZL8getStatei.exit.thread:                        ; preds = %_ZL8getStatei.exit.
   %118 = getelementptr inbounds nuw [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %indvars.iv202, i64 %indvars.iv.next206
   %119 = load i8, ptr %118, align 1, !tbaa !34
   %.not142 = icmp eq i8 %119, 0
-  br i1 %.not142, label %.loopexit158.loopexit, label %.lr.ph175, !llvm.loop !54
+  br i1 %.not142, label %.loopexit158.loopexit, label %.lr.ph175, !llvm.loop !55
 
 .loopexit158.loopexit:                            ; preds = %.lr.ph175
   %sext = shl i64 %indvars.iv.next208, 32
@@ -935,7 +938,7 @@ _ZL8getStatei.exit.thread:                        ; preds = %_ZL8getStatei.exit.
 .loopexit158:                                     ; preds = %.loopexit158.loopexit, %112
   %.2123 = phi i64 [ 0, %112 ], [ %120, %.loopexit158.loopexit ]
   %.5 = phi i32 [ %.3119, %112 ], [ %113, %.loopexit158.loopexit ]
-  %121 = load i32, ptr %4, align 4, !tbaa !55
+  %121 = load i32, ptr %4, align 4, !tbaa !56
   br label %122
 
 122:                                              ; preds = %.loopexit158, %122
@@ -949,12 +952,12 @@ _ZL8getStatei.exit.thread:                        ; preds = %_ZL8getStatei.exit.
   %126 = getelementptr inbounds [7 x i8], ptr %3, i64 0, i64 %indvars.iv209
   store i8 %125, ptr %126, align 1, !tbaa !34
   %127 = icmp samesign ugt i32 %.0110.in178, 1
-  br i1 %127, label %122, label %.loopexit155.loopexit188, !llvm.loop !56
+  br i1 %127, label %122, label %.loopexit155.loopexit188, !llvm.loop !57
 
 128:                                              ; preds = %.preheader159
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next203, 12
-  br i1 %exitcond.not, label %.loopexit155, label %.preheader159, !llvm.loop !57
+  br i1 %exitcond.not, label %.loopexit155, label %.preheader159, !llvm.loop !58
 
 129:                                              ; preds = %_ZL8getStatei.exit.thread
   %130 = trunc i32 %.1129 to i8
@@ -973,7 +976,7 @@ _ZL8getStatei.exit.thread:                        ; preds = %_ZL8getStatei.exit.
   br i1 %139, label %.preheader154, label %.loopexit155
 
 .preheader154:                                    ; preds = %134
-  %140 = load i32, ptr %4, align 4, !tbaa !55
+  %140 = load i32, ptr %4, align 4, !tbaa !56
   %141 = zext i32 %.0121 to i64
   br label %142
 
@@ -988,7 +991,7 @@ _ZL8getStatei.exit.thread:                        ; preds = %_ZL8getStatei.exit.
   %146 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv212
   store i8 %145, ptr %146, align 1, !tbaa !34
   %147 = icmp samesign ugt i32 %.1111.in180, 1
-  br i1 %147, label %142, label %.loopexit155.loopexit, !llvm.loop !58
+  br i1 %147, label %142, label %.loopexit155.loopexit, !llvm.loop !59
 
 .loopexit155.loopexit:                            ; preds = %142
   %148 = trunc nuw i64 %indvars.iv.next213 to i32
@@ -1021,7 +1024,7 @@ _ZL8getStatei.exit.thread:                        ; preds = %_ZL8getStatei.exit.
   store i8 %154, ptr %.4182, align 1, !tbaa !34
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count
-  br i1 %exitcond218.not, label %thread-pre-split, label %.lr.ph183, !llvm.loop !59
+  br i1 %exitcond218.not, label %thread-pre-split, label %.lr.ph183, !llvm.loop !60
 
 .critedge:                                        ; preds = %.lr.ph183
   %156 = trunc nuw nsw i64 %indvars.iv215 to i32
@@ -1033,44 +1036,44 @@ thread-pre-split:                                 ; preds = %152, %.loopexit155
   %.4.lcssa = phi ptr [ %.3, %.loopexit155 ], [ %155, %152 ]
   %.pr = load i32, ptr %1, align 4, !tbaa !13
   %157 = icmp eq i32 %.pr, 15
-  br i1 %157, label %.preheader, label %.loopexit, !llvm.loop !60
+  br i1 %157, label %.preheader, label %.loopexit, !llvm.loop !53
 
 .preheader:                                       ; preds = %thread-pre-split, %.critedge
   %.2114165 = phi i32 [ %.2114.lcssa, %thread-pre-split ], [ %156, %.critedge ]
   %.4163 = phi ptr [ %.4.lcssa, %thread-pre-split ], [ %.4182, %.critedge ]
   %158 = icmp slt i32 %.2114165, %.5126
-  br i1 %158, label %.lr.ph187.preheader, label %.loopexit, !llvm.loop !60
+  br i1 %158, label %.lr.ph187, label %.loopexit, !llvm.loop !53
 
-.lr.ph187.preheader:                              ; preds = %.preheader
+.lr.ph187:                                        ; preds = %.preheader
   %159 = zext nneg i32 %.2114165 to i64
   %wide.trip.count222 = zext i32 %.5126 to i64
-  br label %.lr.ph187
+  br label %160, !llvm.loop !53
 
-.lr.ph187:                                        ; preds = %.lr.ph187.preheader, %.lr.ph187
-  %indvars.iv219 = phi i64 [ %159, %.lr.ph187.preheader ], [ %indvars.iv.next220, %.lr.ph187 ]
-  %160 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv219
-  %161 = load i8, ptr %160, align 1, !tbaa !34
-  %162 = load ptr, ptr %5, align 8, !tbaa !45
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 104
-  %164 = getelementptr inbounds nuw i8, ptr %162, i64 91
-  %165 = load i8, ptr %164, align 1, !tbaa !61
-  %166 = add i8 %165, 1
-  store i8 %166, ptr %164, align 1, !tbaa !61
-  %167 = sext i8 %165 to i64
-  %168 = getelementptr inbounds [32 x i8], ptr %163, i64 0, i64 %167
-  store i8 %161, ptr %168, align 1, !tbaa !34
+160:                                              ; preds = %.lr.ph187, %160
+  %indvars.iv219 = phi i64 [ %159, %.lr.ph187 ], [ %indvars.iv.next220, %160 ]
+  %161 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv219
+  %162 = load i8, ptr %161, align 1, !tbaa !34
+  %163 = load ptr, ptr %5, align 8, !tbaa !45
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 104
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 91
+  %166 = load i8, ptr %165, align 1, !tbaa !61
+  %167 = add i8 %166, 1
+  store i8 %167, ptr %165, align 1, !tbaa !61
+  %168 = sext i8 %166 to i64
+  %169 = getelementptr inbounds [32 x i8], ptr %164, i64 0, i64 %168
+  store i8 %162, ptr %169, align 1, !tbaa !34
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
-  br i1 %exitcond223.not, label %.loopexit, label %.lr.ph187, !llvm.loop !62
+  br i1 %exitcond223.not, label %..loopexit_crit_edge, label %160, !llvm.loop !62
 
-169:                                              ; preds = %25
+170:                                              ; preds = %25
   store i32 15, ptr %1, align 4, !tbaa !13
-  br label %170
+  br label %171
 
-170:                                              ; preds = %.thread, %169, %49, %48, %.loopexit
-  %.2118 = phi i32 [ %.1117, %49 ], [ %.1117, %169 ], [ %.1117, %.loopexit ], [ %.0116, %48 ], [ %.0116, %.thread ]
-  %.2106 = phi ptr [ %28, %49 ], [ %.1105, %169 ], [ %.1105, %.loopexit ], [ %.0104, %48 ], [ %.0104, %.thread ]
-  %.2 = phi ptr [ %.1, %49 ], [ %.1, %169 ], [ %.1, %.loopexit ], [ %.0103, %48 ], [ %.0103, %.thread ]
+171:                                              ; preds = %.thread, %170, %49, %48, %.loopexit
+  %.2118 = phi i32 [ %.1117, %49 ], [ %.1117, %170 ], [ %.1117, %.loopexit ], [ %.0116, %48 ], [ %.0116, %.thread ]
+  %.2106 = phi ptr [ %28, %49 ], [ %.1105, %170 ], [ %.1105, %.loopexit ], [ %.0104, %48 ], [ %.0104, %.thread ]
+  %.2 = phi ptr [ %.1, %49 ], [ %.1, %170 ], [ %.1, %.loopexit ], [ %.0103, %48 ], [ %.0103, %.thread ]
   store i32 %.2118, ptr %19, align 8, !tbaa !20
   store ptr %.2106, ptr %11, align 8, !tbaa !49
   store ptr %.2, ptr %7, align 8, !tbaa !47
@@ -1223,8 +1226,8 @@ attributes #11 = { nounwind willreturn memory(read) }
 !52 = !{!4, !10, i64 84}
 !53 = distinct !{!53, !19}
 !54 = distinct !{!54, !19}
-!55 = !{!10, !10, i64 0}
-!56 = distinct !{!56, !19}
+!55 = distinct !{!55, !19}
+!56 = !{!10, !10, i64 0}
 !57 = distinct !{!57, !19}
 !58 = distinct !{!58, !19}
 !59 = distinct !{!59, !19}

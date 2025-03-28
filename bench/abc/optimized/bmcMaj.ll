@@ -20791,7 +20791,7 @@ Mini_AigNodeIsPo.exit.thread:                     ; preds = %234, %241, %Mini_Ai
 .lr.ph196:                                        ; preds = %.lr.ph231
   %.val148 = load ptr, ptr %31, align 8, !tbaa !427
   %.not115 = icmp eq ptr %.val148, null
-  br i1 %.not115, label %.critedge6.loopexit, label %.lr.ph231, !llvm.loop !455
+  br i1 %.not115, label %.critedge6, label %.lr.ph231, !llvm.loop !455
 
 .lr.ph231:                                        ; preds = %.lr.ph196.preheader, %.lr.ph196
   %.val148230 = phi ptr [ %.val148, %.lr.ph196 ], [ %.val148227, %.lr.ph196.preheader ]
@@ -20814,16 +20814,16 @@ Mini_AigNodeIsPo.exit.thread:                     ; preds = %234, %241, %Mini_Ai
   %.val119 = load i32, ptr %266, align 4, !tbaa !37
   %267 = sext i32 %.val119 to i64
   %268 = icmp slt i64 %indvars.iv.next216, %267
-  br i1 %268, label %.lr.ph196, label %.critedge6.loopexit, !llvm.loop !455
+  br i1 %268, label %.lr.ph196, label %..critedge6_crit_edge, !llvm.loop !455
 
-.critedge6.loopexit:                              ; preds = %.lr.ph196, %.lr.ph231
-  %269 = icmp sgt i32 %.val119, 0
-  br label %.critedge6
+..critedge6_crit_edge:                            ; preds = %.lr.ph231
+  br label %.critedge6, !llvm.loop !455
 
-.critedge6:                                       ; preds = %.critedge6.loopexit, %.lr.ph196.preheader
-  %.val198.pre = phi i1 [ true, %.lr.ph196.preheader ], [ %269, %.critedge6.loopexit ]
-  %270 = phi ptr [ %231, %.lr.ph196.preheader ], [ %265, %.critedge6.loopexit ]
-  br i1 %.val198.pre, label %.lr.ph200, label %Vec_IntFree.exit
+.critedge6:                                       ; preds = %.lr.ph196, %..critedge6_crit_edge, %.lr.ph196.preheader
+  %.val198.pre = phi i32 [ %.val119, %..critedge6_crit_edge ], [ %.val119194, %.lr.ph196.preheader ], [ %.val119, %.lr.ph196 ]
+  %269 = phi ptr [ %265, %..critedge6_crit_edge ], [ %231, %.lr.ph196.preheader ], [ %265, %.lr.ph196 ]
+  %270 = icmp sgt i32 %.val198.pre, 0
+  br i1 %270, label %.lr.ph200, label %Vec_IntFree.exit
 
 .lr.ph200:                                        ; preds = %.critedge6
   %271 = getelementptr i8, ptr %14, i64 32
@@ -20833,7 +20833,7 @@ Mini_AigNodeIsPo.exit.thread:                     ; preds = %234, %241, %Mini_Ai
 
 274:                                              ; preds = %.lr.ph200, %Gia_ManAppendCo.exit
   %indvars.iv218 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next219, %Gia_ManAppendCo.exit ]
-  %275 = phi ptr [ %270, %.lr.ph200 ], [ %356, %Gia_ManAppendCo.exit ]
+  %275 = phi ptr [ %269, %.lr.ph200 ], [ %356, %Gia_ManAppendCo.exit ]
   %.val150 = load ptr, ptr %31, align 8, !tbaa !427
   %.not116 = icmp eq ptr %.val150, null
   br i1 %.not116, label %Vec_IntFree.exit, label %276

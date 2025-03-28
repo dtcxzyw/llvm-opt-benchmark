@@ -4636,7 +4636,7 @@ split:                                            ; preds = %_ZNK11ast_manager6i
 
 ..critedge_crit_edge:                             ; preds = %split
   %.pre152 = load ptr, ptr %15, align 8, !tbaa !191
-  br label %.critedge
+  br label %.critedge, !llvm.loop !216
 
 _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %177, %_ZN8goal2sat3imp14process_cachedEP3appbb.exit.thread, %_ZNK11ast_manager6is_notEPK4expr.exit70, %_ZNK11ast_manager6is_notEPK4expr.exit
   %212 = getelementptr inbounds nuw i8, ptr %111, i64 24

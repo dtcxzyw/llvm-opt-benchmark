@@ -89515,8 +89515,8 @@ define noundef zeroext i1 @"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner
   %123 = getelementptr i8, ptr %5, i64 33
   %.val34 = load i8, ptr %123, align 1
   %124 = icmp eq i8 %.val31, %.val33
-  %.not.i = icmp eq i8 %.val32, %.val34
-  %spec.select.i35 = select i1 %124, i1 %.not.i, i1 false
+  %125 = icmp eq i8 %.val32, %.val34
+  %spec.select.i35 = select i1 %124, i1 %125, i1 false
   br label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 }
 

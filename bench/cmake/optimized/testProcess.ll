@@ -334,28 +334,34 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %108) #15
   %110 = icmp ne i32 %.0.i, 0
   %111 = icmp slt i32 %.0.i, 5
-  %or.cond5.i33 = and i1 %110, %111
-  br i1 %or.cond5.i33, label %runChild2.exit.thread, label %.loopexit.sink.split
+  %or.cond5.i34 = and i1 %110, %111
+  br i1 %or.cond5.i34, label %runChild2.exit.thread, label %runChild2.exit.thread36
+
+runChild2.exit.thread36:                          ; preds = %.thread
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  br label %runChild2.exit..loopexit_crit_edge
 
 runChild2.exit.thread:                            ; preds = %104, %.thread
   %112 = load ptr, ptr @stderr, align 8, !tbaa !4
   %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.23, i32 noundef %.0.i, i32 noundef 5) #15
-  br label %.loopexit.sink.split
-
-runChild2.exit:                                   ; preds = %104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  br i1 %.not22, label %24, label %.loopexit, !llvm.loop !9
-
-.loopexit.sink.split:                             ; preds = %.thread, %runChild2.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %runChild2.exit, %.loopexit.sink.split, %.preheader
-  %.1 = phi i32 [ 1, %.preheader ], [ 1, %.loopexit.sink.split ], [ 0, %24 ], [ 1, %runChild2.exit ]
+runChild2.exit:                                   ; preds = %104
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  br i1 %.not22, label %24, label %runChild2.exit..loopexit_crit_edge, !llvm.loop !9
+
+runChild2.exit..loopexit_crit_edge:               ; preds = %runChild2.exit, %runChild2.exit.thread36
+  br label %.loopexit, !llvm.loop !9
+
+.loopexit:                                        ; preds = %24, %.preheader, %runChild2.exit..loopexit_crit_edge, %runChild2.exit.thread
+  %.1 = phi i32 [ 1, %runChild2.exit.thread ], [ 1, %runChild2.exit..loopexit_crit_edge ], [ 1, %.preheader ], [ 0, %24 ]
   call void @cmsysProcess_Delete(ptr noundef nonnull %17) #13
   br label %114
 

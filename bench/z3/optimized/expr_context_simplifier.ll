@@ -5853,7 +5853,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4exprL
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.ph, i64 -4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !48
   %.pre949 = add i32 %.pre, -1
-  br label %.critedge
+  br label %.critedge, !llvm.loop !215
 
 203:                                              ; preds = %.outer, %_ZNK7obj_mapI4expr5lboolE8containsEPS0_.exit
   %indvars.iv934 = phi i64 [ %indvars.iv.next935, %_ZNK7obj_mapI4expr5lboolE8containsEPS0_.exit ], [ %indvars.iv934.ph, %.outer ]

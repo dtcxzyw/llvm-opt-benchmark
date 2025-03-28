@@ -1997,7 +1997,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 ..thread.loopexit_crit_edge:                      ; preds = %282
   %.pre.pre = load ptr, ptr %19, align 8, !tbaa !32
-  br label %.thread
+  br label %.thread, !llvm.loop !102
 
 291:                                              ; preds = %281
   %292 = landingpad { ptr, i32 }

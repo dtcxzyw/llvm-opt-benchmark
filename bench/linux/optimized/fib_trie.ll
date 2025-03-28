@@ -1975,7 +1975,7 @@ define dso_local i32 @fib_table_lookup(ptr noundef %0, ptr noundef %1, ptr nound
 ..loopexit25_crit_edge:                           ; preds = %83
   %.pre164 = load i32, ptr %87, align 8
   %.pre165 = xor i32 %.pre164, %10
-  br label %.loopexit25
+  br label %.loopexit25, !llvm.loop !47
 
 .loopexit27:                                      ; preds = %54, %._crit_edge.split.us, %._crit_edge.split.us81, %392, %.loopexit26, %83, %73, %.loopexit25
   %89 = phi i32 [ %85, %83 ], [ %65, %73 ], [ %65, %.loopexit25 ], [ %137, %.loopexit26 ], [ %137, %392 ], [ %137, %._crit_edge.split.us81 ], [ %137, %._crit_edge.split.us ], [ %58, %54 ]

@@ -5062,7 +5062,7 @@ define dso_local noundef range(i32 0, 2) i32 @cpupri_find_fitness(ptr noundef %0
 
 ..thread14thread-pre-split.us_crit_edge:          ; preds = %49
   %.pr.us.pre = load i64, ptr %2, align 8
-  br label %.thread14.us
+  br label %.thread14.us, !llvm.loop !108
 
 .thread14.us:                                     ; preds = %.preheader.us, %41, %..thread14thread-pre-split.us_crit_edge
   %53 = phi i64 [ %.pr.us.pre, %..thread14thread-pre-split.us_crit_edge ], [ %37, %41 ], [ %37, %.preheader.us ]

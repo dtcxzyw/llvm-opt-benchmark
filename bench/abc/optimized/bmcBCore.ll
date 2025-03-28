@@ -710,7 +710,7 @@ Vec_IntPush.exit166:
 63:                                               ; preds = %.lr.ph228
   %.val121 = load ptr, ptr %22, align 8, !tbaa !34
   %.not114 = icmp eq ptr %.val121, null
-  br i1 %.not114, label %.critedge.loopexit, label %.lr.ph228, !llvm.loop !46
+  br i1 %.not114, label %.critedge, label %.lr.ph228, !llvm.loop !46
 
 .lr.ph228:                                        ; preds = %.lr.ph, %63
   %.val121227 = phi ptr [ %.val121, %63 ], [ %.val121224, %.lr.ph ]
@@ -729,23 +729,23 @@ Vec_IntPush.exit166:
   %.0107.val125 = load i32, ptr %60, align 4, !tbaa !3
   %71 = sext i32 %.0107.val125 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %63, label %.critedge.loopexit, !llvm.loop !46
+  br i1 %72, label %63, label %..critedge_crit_edge229, !llvm.loop !46
 
-.critedge.loopexit:                               ; preds = %63, %.lr.ph228
-  %73 = icmp sgt i32 %.0107.val125, 0
-  br label %.critedge
+..critedge_crit_edge229:                          ; preds = %.lr.ph228
+  br label %.critedge, !llvm.loop !46
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph
-  %.0107.val124179211 = phi i1 [ true, %.lr.ph ], [ %73, %.critedge.loopexit ]
-  %74 = icmp eq i32 %.0108188, %1
-  br i1 %74, label %77, label %.preheader175
+.critedge:                                        ; preds = %63, %..critedge_crit_edge229, %.lr.ph
+  %.0107.val124179211 = phi i32 [ %.0107.val125, %..critedge_crit_edge229 ], [ %.0107.val125176, %.lr.ph ], [ %.0107.val125, %63 ]
+  %73 = icmp eq i32 %.0108188, %1
+  br i1 %73, label %77, label %.preheader175
 
 .critedge.thread:                                 ; preds = %51
-  %75 = icmp eq i32 %.0108188, %1
-  br i1 %75, label %77, label %.critedge2
+  %74 = icmp eq i32 %.0108188, %1
+  br i1 %74, label %77, label %.critedge2
 
 .preheader175:                                    ; preds = %.critedge
-  br i1 %.0107.val124179211, label %.lr.ph181, label %.critedge2
+  %75 = icmp sgt i32 %.0107.val124179211, 0
+  br i1 %75, label %.lr.ph181, label %.critedge2
 
 .lr.ph181:                                        ; preds = %.preheader175
   %76 = getelementptr i8, ptr %.0107189, i64 8

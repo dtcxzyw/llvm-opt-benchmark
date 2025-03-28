@@ -325,7 +325,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 ..critedge34_crit_edge:                           ; preds = %54
   %.pre = load ptr, ptr %39, align 8, !tbaa !15
-  br label %.critedge34
+  br label %.critedge34, !llvm.loop !51
 
 .critedge34:                                      ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %..critedge34_crit_edge
   %55 = phi ptr [ %.pre, %..critedge34_crit_edge ], [ %40, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]

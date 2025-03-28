@@ -2782,7 +2782,7 @@ _ZNK4goal3depEj.exit:                             ; preds = %_ZNK11ast_manager3g
   %.pre117.pre = load ptr, ptr %1, align 8, !tbaa !176
   %.phi.trans.insert118.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre117.pre, i64 120
   %.pre119.pre = load i32, ptr %.phi.trans.insert118.phi.trans.insert, align 8
-  br label %._crit_edge
+  br label %._crit_edge, !llvm.loop !204
 
 ._crit_edge:                                      ; preds = %71, %38, %.._crit_edge.loopexit_crit_edge, %_ZNK4goal4sizeEv.exit
   %210 = phi i32 [ %43, %_ZNK4goal4sizeEv.exit ], [ %.pre119.pre, %.._crit_edge.loopexit_crit_edge ], [ %43, %38 ], [ %74, %71 ]

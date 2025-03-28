@@ -311,7 +311,10 @@ define noundef double @_ZN3g2o26MarginalCovarianceCholesky12computeEntryEii(ptr 
   %36 = sext i32 %35 to i64
   %37 = urem i64 %36, %20
   %.not19.i.i.i.i = icmp eq i64 %37, %21
-  br i1 %.not19.i.i.i.i, label %30, label %.loopexit, !llvm.loop !44
+  br i1 %.not19.i.i.i.i, label %30, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !44
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %33
+  br label %.loopexit, !llvm.loop !44
 
 _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit: ; preds = %30, %13, %25
   %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %13 ], [ %32, %30 ]
@@ -319,16 +322,16 @@ _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit:
   %39 = load double, ptr %38, align 8, !tbaa !45
   br label %111
 
-.loopexit:                                        ; preds = %33, %.lr.ph.i.i.i.i, %12, %17
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %12, %17, %..loopexit_crit_edge21.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !32
   %42 = sext i32 %1 to i64
   %43 = getelementptr inbounds i32, ptr %41, i64 %42
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = load i32, ptr %43, align 4, !tbaa !37
-  %.03151 = add nsw i32 %45, 1
+  %.03154 = add nsw i32 %45, 1
   %46 = load i32, ptr %44, align 4, !tbaa !37
-  %47 = icmp slt i32 %.03151, %46
+  %47 = icmp slt i32 %.03154, %46
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit
@@ -345,7 +348,7 @@ _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit:
 
 53:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ %51, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %.03052 = phi double [ 0.000000e+00, %.lr.ph ], [ %67, %62 ]
+  %.03055 = phi double [ 0.000000e+00, %.lr.ph ], [ %67, %62 ]
   %54 = load ptr, ptr %48, align 8, !tbaa !33
   %55 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !37
@@ -365,7 +368,7 @@ _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit:
   %64 = load ptr, ptr %49, align 8, !tbaa !34
   %65 = getelementptr inbounds double, ptr %64, i64 %indvars.iv
   %66 = load double, ptr %65, align 8, !tbaa !38
-  %67 = tail call double @llvm.fmuladd.f64(double %63, double %66, double %.03052)
+  %67 = tail call double @llvm.fmuladd.f64(double %63, double %66, double %.03055)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %68 = load i32, ptr %44, align 4, !tbaa !37
   %69 = sext i32 %68 to i64
@@ -425,9 +428,12 @@ _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit:
   %104 = sext i32 %103 to i64
   %105 = urem i64 %104, %88
   %.not19.i.i.i.i39 = icmp eq i64 %105, %89
-  br i1 %.not19.i.i.i.i39, label %98, label %.loopexit.i.i, !llvm.loop !44
+  br i1 %.not19.i.i.i.i39, label %98, label %..loopexit_crit_edge21.i.i.i.i40, !llvm.loop !44
 
-.loopexit.i.i:                                    ; preds = %101, %.lr.ph.i.i.i.i36, %85
+..loopexit_crit_edge21.i.i.i.i40:                 ; preds = %101
+  br label %.loopexit.i.i, !llvm.loop !44
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i36, %..loopexit_crit_edge21.i.i.i.i40, %85
   %106 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   store ptr null, ptr %106, align 8, !tbaa !29
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8

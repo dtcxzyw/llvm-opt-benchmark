@@ -4941,7 +4941,10 @@ _ZNSt3setImSt4lessImESaImEE5eraseERKm.exit.i:     ; preds = %175
   %202 = load i64, ptr %201, align 8
   %203 = urem i64 %202, %187
   %.not19.i.i.i.i.i.i = icmp eq i64 %203, %188
-  br i1 %.not19.i.i.i.i.i.i, label %197, label %.loopexit25.i, !llvm.loop !243
+  br i1 %.not19.i.i.i.i.i.i, label %197, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !243
+
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %200
+  br label %.loopexit25.i, !llvm.loop !243
 
 .loopexit26.i:                                    ; preds = %197, %182, %192
   br label %_ZN3ue2L21handle_pending_vertexEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEmRSt3setImSt4lessImESaImEERSB_IPKNS_11GoughSSAVarESC_ISJ_ESaISJ_EE.exit.i, !llvm.loop !244
@@ -4963,7 +4966,7 @@ _ZNSt3setImSt4lessImESaImEE5eraseERKm.exit.i:     ; preds = %175
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #22
   br label %.body
 
-.loopexit25.i:                                    ; preds = %200, %.lr.ph.i.i.i.i.i.i, %.preheader, %186
+.loopexit25.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i.i, %186
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   store ptr %6, ptr %5, align 8
   %205 = invoke { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKmSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeImLb0EEEEEEEESt4pairINS1_14_Node_iteratorImLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -5775,11 +5778,14 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail
   %36 = load i64, ptr %35, align 8
   %37 = urem i64 %36, %9
   %.not19.i.i = icmp eq i64 %37, %10
-  br i1 %.not19.i.i, label %31, label %.critedge, !llvm.loop !275
+  br i1 %.not19.i.i, label %31, label %..loopexit_crit_edge21.i.i, !llvm.loop !275
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %34, %22, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %34 ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %34 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %34
+  br label %.critedge, !llvm.loop !275
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr null, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

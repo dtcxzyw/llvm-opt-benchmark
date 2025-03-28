@@ -14209,9 +14209,12 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8__detail12_Insert_baseIiSt4pairIKi
   %24 = sext i32 %23 to i64
   %25 = urem i64 %24, %8
   %.not19.i.i = icmp eq i64 %25, %9
-  br i1 %.not19.i.i, label %18, label %.critedge, !llvm.loop !686
+  br i1 %.not19.i.i, label %18, label %..loopexit_crit_edge21.i.i, !llvm.loop !686
 
-.critedge:                                        ; preds = %21, %.lr.ph.i.i, %4
+..loopexit_crit_edge21.i.i:                       ; preds = %21
+  br label %.critedge, !llvm.loop !686
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %4, %..loopexit_crit_edge21.i.i
   %26 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   store ptr null, ptr %26, align 8, !tbaa !574
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8

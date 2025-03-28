@@ -9525,7 +9525,7 @@ _job_runnable_test3.exit.i:                       ; preds = %470
 
 ._crit_edge1300.i:                                ; preds = %830
   %.pre1301.i = load ptr, ptr %4, align 8
-  br label %833
+  br label %833, !llvm.loop !27
 
 833:                                              ; preds = %._crit_edge1300.i, %827, %824, %819
   %834 = phi ptr [ %.pre1301.i, %._crit_edge1300.i ], [ %820, %827 ], [ %820, %824 ], [ %820, %819 ]

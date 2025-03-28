@@ -639,10 +639,13 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   %30 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %29, i64 0, i64 %indvars.iv.next
   %31 = load ptr, ptr %30, align 8, !tbaa !52
   %.not53 = icmp eq ptr %31, null
-  br i1 %.not53, label %.critedge, label %.lr.ph, !llvm.loop !61
+  br i1 %.not53, label %.critedge2..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !61
 
-.critedge:                                        ; preds = %.lr.ph, %.critedge2, %23, %25, %.lr.ph.preheader, %.preheader
-  %.1.lcssa = phi ptr [ %.04372, %.preheader ], [ %.04372, %.lr.ph.preheader ], [ %.16077, %25 ], [ %.16077, %23 ], [ %28, %.critedge2 ], [ %28, %.lr.ph ]
+.critedge2..critedge.loopexit_crit_edge:          ; preds = %.critedge2
+  br label %.critedge, !llvm.loop !61
+
+.critedge:                                        ; preds = %.lr.ph, %23, %25, %.lr.ph.preheader, %.critedge2..critedge.loopexit_crit_edge, %.preheader
+  %.1.lcssa = phi ptr [ %.04372, %.preheader ], [ %28, %.critedge2..critedge.loopexit_crit_edge ], [ %.04372, %.lr.ph.preheader ], [ %.16077, %25 ], [ %.16077, %23 ], [ %28, %.lr.ph ]
   %32 = getelementptr inbounds [32 x ptr], ptr %5, i64 0, i64 %indvars.iv.next
   store ptr %.1.lcssa, ptr %32, align 8, !tbaa !51
   %33 = icmp sgt i64 %indvars.iv, 1

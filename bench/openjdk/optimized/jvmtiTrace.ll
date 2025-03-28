@@ -647,7 +647,7 @@ define hidden noundef nonnull ptr @_ZN10JvmtiTrace9enum_nameEPPKcPKii(ptr nounde
   %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph16
   %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
@@ -655,8 +655,11 @@ define hidden noundef nonnull ptr @_ZN10JvmtiTrace9enum_nameEPPKcPKii(ptr nounde
   %11 = icmp eq i32 %10, %2
   br i1 %11, label %._crit_edge, label %.lr.ph16, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph16, %.lr.ph, %.lr.ph.preheader, %3
-  %.08 = phi ptr [ @.str.20, %3 ], [ %4, %.lr.ph.preheader ], [ %8, %.lr.ph ], [ @.str.20, %.lr.ph16 ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph16
+  br label %._crit_edge, !llvm.loop !11
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %3
+  %.08 = phi ptr [ @.str.20, %3 ], [ @.str.20, %.._crit_edge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %8, %.lr.ph ]
   ret ptr %.08
 }
 

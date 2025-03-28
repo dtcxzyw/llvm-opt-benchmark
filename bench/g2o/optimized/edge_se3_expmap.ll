@@ -300,9 +300,12 @@ define noundef zeroext i1 @_ZN3g2o13EdgeSE3Expmap4readERSi(ptr noundef nonnull a
   %13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, label %5, !llvm.loop !61
+  br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %5, !llvm.loop !61
 
-_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %11, %5
+..critedge_crit_edge.i:                           ; preds = %11
+  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !61
+
+_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %5, %..critedge_crit_edge.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #23
   %.sroa.13.32.copyload = load <2 x double>, ptr %3, align 16, !tbaa !3
   %.sroa.15.32..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -450,7 +453,7 @@ _ZN3g2o7SE3QuatC2IN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEERKNS2_10MatrixBaseIT_E
   %.pre.i9 = load ptr, ptr %1, align 8, !tbaa !37
   %.phi.trans.insert.i10 = getelementptr i8, ptr %.pre.i9, i64 -24
   %.pre37.i = load i64, ptr %.phi.trans.insert.i10, align 8
-  br label %_ZN3g2o8BaseEdgeILi6ENS_7SE3QuatEE21readInformationMatrixERSi.exit
+  br label %_ZN3g2o8BaseEdgeILi6ENS_7SE3QuatEE21readInformationMatrixERSi.exit, !llvm.loop !67
 
 93:                                               ; preds = %87
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv32.i, 48

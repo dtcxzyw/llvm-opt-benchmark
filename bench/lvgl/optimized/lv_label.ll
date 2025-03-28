@@ -246,7 +246,7 @@ lv_label_revert_dots.exit:                        ; preds = %52, %.critedge.i
 
 ..critedge_crit_edge.i:                           ; preds = %87
   %.pre.i = load ptr, ptr %69, align 8, !tbaa !3
-  br label %.critedge.i78
+  br label %.critedge.i78, !llvm.loop !28
 
 .critedge.i78:                                    ; preds = %80, %..critedge_crit_edge.i
   %88 = phi ptr [ %.pre.i, %..critedge_crit_edge.i ], [ %81, %80 ]
@@ -2157,7 +2157,7 @@ calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit
 ._crit_edge:                                      ; preds = %95
   %.pre = load i32, ptr %7, align 4, !tbaa !48
   %.pre140 = add i32 %.pre, %.076125
-  br label %121
+  br label %121, !llvm.loop !69
 
 102:                                              ; preds = %95, %94
   %103 = load i32, ptr %8, align 4, !tbaa !48
@@ -2670,7 +2670,7 @@ define internal fastcc void @lv_label_set_dots(ptr noundef %0, i32 noundef %1) u
 
 ..critedge_crit_edge:                             ; preds = %21
   %.pre = load ptr, ptr %9, align 8, !tbaa !3
-  br label %.critedge
+  br label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %14, %..critedge_crit_edge
   %22 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %15, %14 ]

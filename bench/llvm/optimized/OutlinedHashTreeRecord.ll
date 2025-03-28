@@ -998,17 +998,17 @@ define dso_local void @_ZN4llvm22OutlinedHashTreeRecord21convertFromStableDataER
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not4054 = icmp eq ptr %9, %10
-  br i1 %.not4054, label %._crit_edge58, label %.lr.ph57
+  %.not4055 = icmp eq ptr %9, %10
+  br i1 %.not4055, label %._crit_edge59, label %.lr.ph58
 
-.lr.ph57:                                         ; preds = %2
+.lr.ph58:                                         ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %20
 
-._crit_edge58:                                    ; preds = %._crit_edge, %2
+._crit_edge59:                                    ; preds = %._crit_edge, %2
   %15 = load ptr, ptr %3, align 8, !tbaa !74
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !77
@@ -1018,18 +1018,18 @@ define dso_local void @_ZN4llvm22OutlinedHashTreeRecord21convertFromStableDataER
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
   ret void
 
-20:                                               ; preds = %.lr.ph57, %._crit_edge
-  %.sroa.037.055 = phi ptr [ %9, %.lr.ph57 ], [ %42, %._crit_edge ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.037.055, i64 32
+20:                                               ; preds = %.lr.ph58, %._crit_edge
+  %.sroa.037.056 = phi ptr [ %9, %.lr.ph58 ], [ %42, %._crit_edge ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.037.056, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
   %22 = load i32, ptr %21, align 8, !tbaa !78
   store i32 %22, ptr %5, align 4, !tbaa !16
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.037.055, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.037.056, i64 40
   %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_8HashNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %25 = load ptr, ptr %24, align 8, !tbaa !43
   %26 = load i64, ptr %23, align 8, !tbaa !18
   store i64 %26, ptr %25, align 8, !tbaa !80
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.037.055, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.037.056, i64 48
   %28 = load i32, ptr %27, align 8, !tbaa !19
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %31, label %29
@@ -1043,12 +1043,12 @@ define dso_local void @_ZN4llvm22OutlinedHashTreeRecord21convertFromStableDataER
 
 31:                                               ; preds = %29, %20
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.037.055, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.037.056, i64 56
   %34 = load ptr, ptr %33, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.037.055, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.037.056, i64 64
   %36 = load ptr, ptr %35, align 8, !tbaa !29
-  %.not4152 = icmp eq ptr %34, %36
-  br i1 %.not4152, label %._crit_edge, label %.lr.ph
+  %.not4153 = icmp eq ptr %34, %36
+  br i1 %.not4153, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -1060,13 +1060,13 @@ define dso_local void @_ZN4llvm22OutlinedHashTreeRecord21convertFromStableDataER
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev.exit, %31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  %42 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.037.055) #18
+  %42 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.037.056) #18
   %.not40 = icmp eq ptr %42, %10
-  br i1 %.not40, label %._crit_edge58, label %20
+  br i1 %.not40, label %._crit_edge59, label %20
 
 43:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev.exit
-  %.sroa.032.053 = phi ptr [ %34, %.lr.ph ], [ %207, %_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev.exit ]
-  %44 = load i32, ptr %.sroa.032.053, align 4, !tbaa !16
+  %.sroa.032.054 = phi ptr [ %34, %.lr.ph ], [ %207, %_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev.exit ]
+  %44 = load i32, ptr %.sroa.032.054, align 4, !tbaa !16
   %45 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21, !noalias !90
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 64
@@ -1285,9 +1285,12 @@ _ZNKSt3mapIjN4llvm14HashNodeStableESt4lessIjESaISt4pairIKjS1_EEE2atERS5_.exit: ;
   %146 = load i64, ptr %145, align 8, !tbaa !18
   %147 = urem i64 %146, %131
   %.not19.i.i.i = icmp eq i64 %147, %132
-  br i1 %.not19.i.i.i, label %141, label %.loopexit.i, !llvm.loop !101
+  br i1 %.not19.i.i.i, label %141, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !101
 
-.loopexit.i:                                      ; preds = %144, %.lr.ph.i.i.i, %_ZNKSt3mapIjN4llvm14HashNodeStableESt4lessIjESaISt4pairIKjS1_EEE2atERS5_.exit
+..loopexit_crit_edge21.i.i.i:                     ; preds = %144
+  br label %.loopexit.i, !llvm.loop !101
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %_ZNKSt3mapIjN4llvm14HashNodeStableESt4lessIjESaISt4pairIKjS1_EEE2atERS5_.exit
   %148 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i64 %130, ptr %149, align 8, !tbaa !102
@@ -1450,7 +1453,7 @@ _ZNKSt14default_deleteIN4llvm8HashNodeEEclEPS1_.exit.i.i.i.i: ; preds = %_ZNSt8_
   br label %_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm8HashNodeEEclEPS1_.exit.i.i.i.i, %_ZNSt8__detail9_Map_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEESaIS9_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_.exit
-  %207 = getelementptr inbounds nuw i8, ptr %.sroa.032.053, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.032.054, i64 4
   %.not41 = icmp eq ptr %207, %36
   br i1 %.not41, label %._crit_edge, label %43
 }

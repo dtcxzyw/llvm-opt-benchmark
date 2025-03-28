@@ -2130,11 +2130,14 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   %105 = add i32 %63, %.0422435
   %106 = and i8 %67, 64
   %.not399.not = icmp eq i8 %106, 0
-  br i1 %.not399.not, label %55, label %.critedge, !llvm.loop !22
+  br i1 %.not399.not, label %55, label %..critedge_crit_edge, !llvm.loop !22
 
-.critedge:                                        ; preds = %55, %104, %49
-  %.1375.lcssa = phi ptr [ %.0374, %49 ], [ %64, %104 ], [ %64, %55 ]
-  %.0.lcssa = phi i32 [ 0, %49 ], [ %105, %104 ], [ %105, %55 ]
+..critedge_crit_edge:                             ; preds = %104
+  br label %.critedge, !llvm.loop !22
+
+.critedge:                                        ; preds = %55, %..critedge_crit_edge, %49
+  %.1375.lcssa = phi ptr [ %64, %..critedge_crit_edge ], [ %.0374, %49 ], [ %64, %55 ]
+  %.0.lcssa = phi i32 [ %105, %..critedge_crit_edge ], [ 0, %49 ], [ %105, %55 ]
   %107 = or disjoint i32 %.0371, 2
   %108 = add i32 %107, %.0.lcssa
   br label %271
@@ -2410,11 +2413,14 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   %267 = add i32 %217, %.2419429
   %268 = and i8 %221, 64
   %.not394.not = icmp eq i8 %268, 0
-  br i1 %.not394.not, label %209, label %.critedge7, !llvm.loop !23
+  br i1 %.not394.not, label %209, label %..critedge7.loopexit_crit_edge, !llvm.loop !23
 
-.critedge7:                                       ; preds = %266, %209, %203, %187
-  %.9 = phi ptr [ %.6, %187 ], [ %.6, %203 ], [ %218, %209 ], [ %218, %266 ]
-  %.1 = phi i32 [ 0, %187 ], [ 0, %203 ], [ %267, %209 ], [ %267, %266 ]
+..critedge7.loopexit_crit_edge:                   ; preds = %266
+  br label %.critedge7, !llvm.loop !23
+
+.critedge7:                                       ; preds = %209, %203, %..critedge7.loopexit_crit_edge, %187
+  %.9 = phi ptr [ %.6, %187 ], [ %218, %..critedge7.loopexit_crit_edge ], [ %.6, %203 ], [ %218, %209 ]
+  %.1 = phi i32 [ 0, %187 ], [ %267, %..critedge7.loopexit_crit_edge ], [ 0, %203 ], [ %267, %209 ]
   %269 = add nuw nsw i32 %.2373, 4
   %270 = add i32 %269, %.1
   br label %271

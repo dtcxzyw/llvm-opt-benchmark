@@ -198,9 +198,12 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv11GCPUContext7outM
   %32 = load i64, ptr %31, align 8, !tbaa !24
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %.loopexit.i.i, !llvm.loop !30
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !30
 
-.loopexit.i.i:                                    ; preds = %30, %.lr.ph.i.i.i.i.i, %9, %14
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
+  br label %.loopexit.i.i, !llvm.loop !30
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i.i, %14
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.2) #17
   unreachable
 
@@ -347,9 +350,12 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GCPUContext7outV
   %32 = load i64, ptr %31, align 8, !tbaa !24
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %.loopexit.i.i, !llvm.loop !30
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !30
 
-.loopexit.i.i:                                    ; preds = %30, %.lr.ph.i.i.i.i.i, %9, %14
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
+  br label %.loopexit.i.i, !llvm.loop !30
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i.i, %14
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.2) #17
   unreachable
 
@@ -440,9 +446,12 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GCPUContext9outV
   %32 = load i64, ptr %31, align 8, !tbaa !24
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %.loopexit.i.i, !llvm.loop !30
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !30
 
-.loopexit.i.i:                                    ; preds = %30, %.lr.ph.i.i.i.i.i, %9, %14
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
+  br label %.loopexit.i.i, !llvm.loop !30
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i.i, %14
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.2) #17
   unreachable
 
@@ -532,9 +541,12 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GCPUContext12out
   %32 = load i64, ptr %31, align 8, !tbaa !24
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %.loopexit.i.i, !llvm.loop !30
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !30
 
-.loopexit.i.i:                                    ; preds = %30, %.lr.ph.i.i.i.i.i, %9, %14
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
+  br label %.loopexit.i.i, !llvm.loop !30
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i.i, %14
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.2) #17
   unreachable
 
@@ -624,9 +636,12 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11GCPUContext8outF
   %32 = load i64, ptr %31, align 8, !tbaa !24
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %.loopexit.i.i, !llvm.loop !30
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !30
 
-.loopexit.i.i:                                    ; preds = %30, %.lr.ph.i.i.i.i.i, %9, %14
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
+  br label %.loopexit.i.i, !llvm.loop !30
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i.i, %14
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.2) #17
   unreachable
 

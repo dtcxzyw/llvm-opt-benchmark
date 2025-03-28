@@ -13898,11 +13898,14 @@ _ZN4llvm8DebugLocD2Ev.exit667:                    ; preds = %_ZN4llvm10MIMetadat
   %.val468 = phi ptr [ %.val468.pre, %_ZN4llvm8DebugLocD2Ev.exit667 ], [ %.val468.pre1512, %_ZN4llvm8DebugLocD2Ev.exit659 ], [ %.val468.pre1513, %1221 ]
   %.6 = phi i8 [ 1, %_ZN4llvm8DebugLocD2Ev.exit667 ], [ 1, %_ZN4llvm8DebugLocD2Ev.exit659 ], [ %.514601573, %1221 ]
   %1266 = icmp eq ptr %.val468, %1161
-  br i1 %1266, label %._crit_edge, label %1182, !llvm.loop !1366
+  br i1 %1266, label %.._crit_edge.loopexit_crit_edge1581, label %1182, !llvm.loop !1366
 
-._crit_edge:                                      ; preds = %1186, %1182, %1265, %.lr.ph, %1160
-  %.0409.lcssa = phi i1 [ false, %1160 ], [ false, %.lr.ph ], [ true, %1265 ], [ true, %1182 ], [ %.040914591574, %1186 ]
-  %.5.lcssa = phi i8 [ %.41322, %1160 ], [ %.41322, %.lr.ph ], [ %.6, %1265 ], [ %.6, %1182 ], [ %.514601573, %1186 ]
+.._crit_edge.loopexit_crit_edge1581:              ; preds = %1265
+  br label %._crit_edge, !llvm.loop !1366
+
+._crit_edge:                                      ; preds = %1186, %1182, %.lr.ph, %.._crit_edge.loopexit_crit_edge1581, %1160
+  %.0409.lcssa = phi i1 [ false, %1160 ], [ true, %.._crit_edge.loopexit_crit_edge1581 ], [ false, %.lr.ph ], [ true, %1182 ], [ %.040914591574, %1186 ]
+  %.5.lcssa = phi i8 [ %.41322, %1160 ], [ %.6, %.._crit_edge.loopexit_crit_edge1581 ], [ %.41322, %.lr.ph ], [ %.6, %1182 ], [ %.514601573, %1186 ]
   %brmerge446 = or i1 %302, %262
   br i1 %brmerge446, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit668.thread, label %1267
 

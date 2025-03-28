@@ -5706,9 +5706,9 @@ define noundef i32 @ggml_backend_sched_graph_compute_async(ptr noundef %0, ptr n
   br i1 %5, label %25, label %7
 
 7:                                                ; preds = %2
-  br i1 %6, label %.thread, label %.thread75
+  br i1 %6, label %.thread, label %.thread77
 
-.thread75:                                        ; preds = %7
+.thread77:                                        ; preds = %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @ggml_hash_set_reset(ptr noundef nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -5736,7 +5736,7 @@ define noundef i32 @ggml_backend_sched_graph_compute_async(ptr noundef %0, ptr n
 25:                                               ; preds = %2
   br i1 %6, label %.thread, label %26
 
-26:                                               ; preds = %.thread75, %25
+26:                                               ; preds = %.thread77, %25
   %27 = tail call zeroext i1 @ggml_backend_sched_alloc_graph(ptr noundef nonnull %0, ptr noundef %1)
   br i1 %27, label %.thread, label %_ZL33ggml_backend_sched_compute_splitsP18ggml_backend_sched.exit
 
@@ -5763,8 +5763,8 @@ define noundef i32 @ggml_backend_sched_graph_compute_async(ptr noundef %0, ptr n
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   br label %44
 
-44:                                               ; preds = %245, %.lr.ph222.i
-  %indvars.iv254.i = phi i64 [ 0, %.lr.ph222.i ], [ %indvars.iv.next255.i, %245 ]
+44:                                               ; preds = %244, %.lr.ph222.i
+  %indvars.iv254.i = phi i64 [ 0, %.lr.ph222.i ], [ %indvars.iv.next255.i, %244 ]
   %45 = getelementptr inbounds nuw %struct.ggml_backend_sched_split, ptr %29, i64 %indvars.iv254.i
   %46 = load i32, ptr %45, align 8, !tbaa !175
   %47 = sext i32 %46 to i64
@@ -6057,8 +6057,8 @@ ggml_backend_event_synchronize.exit147.i:         ; preds = %180
   %.not132.i = icmp eq i32 %196, 0
   br i1 %.not132.i, label %.thread155.i, label %_ZL33ggml_backend_sched_compute_splitsP18ggml_backend_sched.exit
 
-197:                                              ; preds = %230, %.lr.ph218.i
-  %.0116217.i = phi i32 [ 0, %.lr.ph218.i ], [ %219, %230 ]
+197:                                              ; preds = %229, %.lr.ph218.i
+  %.0116217.i = phi i32 [ 0, %.lr.ph218.i ], [ %218, %229 ]
   %198 = load ptr, ptr %62, align 8, !tbaa !211
   %199 = sext i32 %.0116217.i to i64
   %200 = getelementptr inbounds ptr, ptr %198, i64 %199
@@ -6072,14 +6072,14 @@ ggml_backend_event_synchronize.exit147.i:         ; preds = %180
   %205 = load i32, ptr %59, align 4, !tbaa !209
   %206 = add nsw i32 %205, -1
   %207 = icmp slt i32 %.0116217.i, %206
-  br i1 %207, label %.lr.ph, label %.critedge.i
+  br i1 %207, label %.lr.ph, label %.critedge.loopexit.i
 
 .lr.ph210.i:                                      ; preds = %.lr.ph
   %208 = load i32, ptr %59, align 4, !tbaa !209
   %209 = add nsw i32 %208, -1
   %210 = sext i32 %209 to i64
   %211 = icmp slt i64 %indvars.iv.next252.i, %210
-  br i1 %211, label %.lr.ph, label %.critedge.loopexit.i.loopexit, !llvm.loop !213
+  br i1 %211, label %.lr.ph, label %.critedge.loopexit.i, !llvm.loop !213
 
 .lr.ph:                                           ; preds = %.lr.ph210.i.preheader, %.lr.ph210.i
   %indvars.iv251.i39 = phi i64 [ %indvars.iv.next252.i, %.lr.ph210.i ], [ %199, %.lr.ph210.i.preheader ]
@@ -6090,102 +6090,108 @@ ggml_backend_event_synchronize.exit147.i:         ; preds = %180
   %215 = load ptr, ptr %42, align 8, !tbaa !208
   %216 = load ptr, ptr %43, align 8, !tbaa !212
   %217 = call noundef zeroext i1 %215(ptr noundef %214, i1 noundef zeroext true, ptr noundef %216)
-  br i1 %217, label %.critedge.loopexit.i.loopexit, label %.lr.ph210.i, !llvm.loop !213
+  br i1 %217, label %..critedge.loopexit.i_crit_edge, label %.lr.ph210.i, !llvm.loop !213
 
-.critedge.loopexit.i.loopexit:                    ; preds = %.lr.ph, %.lr.ph210.i
-  %218 = trunc i64 %indvars.iv.next252.i to i32
+..critedge.loopexit.i_crit_edge:                  ; preds = %.lr.ph
+  br label %.critedge.loopexit.i, !llvm.loop !213
+
+.critedge.loopexit.i:                             ; preds = %.lr.ph210.i, %..critedge.loopexit.i_crit_edge, %.lr.ph210.i.preheader
+  %.lcssa32 = phi i1 [ true, %..critedge.loopexit.i_crit_edge ], [ false, %.lr.ph210.i.preheader ], [ false, %.lr.ph210.i ]
+  %.0115.lcssa.ph.i = phi ptr [ %214, %..critedge.loopexit.i_crit_edge ], [ %201, %.lr.ph210.i.preheader ], [ %214, %.lr.ph210.i ]
+  %.0113.lcssa.ph.in.i = phi i64 [ %indvars.iv.next252.i, %..critedge.loopexit.i_crit_edge ], [ %199, %.lr.ph210.i.preheader ], [ %indvars.iv.next252.i, %.lr.ph210.i ]
+  %.0113.lcssa.ph.i = trunc i64 %.0113.lcssa.ph.in.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.lr.ph210.i.preheader, %.critedge.loopexit.i.loopexit, %197
-  %.0115.lcssa.i = phi ptr [ %201, %197 ], [ %201, %.lr.ph210.i.preheader ], [ %214, %.critedge.loopexit.i.loopexit ]
-  %.0114.in.lcssa.i = phi i1 [ true, %197 ], [ false, %.lr.ph210.i.preheader ], [ %217, %.critedge.loopexit.i.loopexit ]
-  %.0113.lcssa.i = phi i32 [ %.0116217.i, %197 ], [ %.0116217.i, %.lr.ph210.i.preheader ], [ %218, %.critedge.loopexit.i.loopexit ]
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %197
+  %.0115.lcssa.i = phi ptr [ %201, %197 ], [ %.0115.lcssa.ph.i, %.critedge.loopexit.i ]
+  %.0114.in.lcssa.i = phi i1 [ true, %197 ], [ %.lcssa32, %.critedge.loopexit.i ]
+  %.0113.lcssa.i = phi i32 [ %.0116217.i, %197 ], [ %.0113.lcssa.ph.i, %.critedge.loopexit.i ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #26
-  %219 = add nsw i32 %.0113.lcssa.i, 1
-  call void @ggml_graph_view(ptr dead_on_unwind nonnull writable sret(%struct.ggml_cgraph) align 8 %3, ptr noundef nonnull %58, i32 noundef %.0116217.i, i32 noundef %219)
-  %220 = load ptr, ptr %63, align 8, !tbaa !70
-  %221 = call noundef i32 %220(ptr noundef %49, ptr noundef nonnull %3)
-  %.not133.i = icmp eq i32 %221, 0
-  br i1 %.not133.i, label %222, label %233
+  %218 = add nsw i32 %.0113.lcssa.i, 1
+  call void @ggml_graph_view(ptr dead_on_unwind nonnull writable sret(%struct.ggml_cgraph) align 8 %3, ptr noundef nonnull %58, i32 noundef %.0116217.i, i32 noundef %218)
+  %219 = load ptr, ptr %63, align 8, !tbaa !70
+  %220 = call noundef i32 %219(ptr noundef %49, ptr noundef nonnull %3)
+  %.not133.i = icmp eq i32 %220, 0
+  br i1 %.not133.i, label %221, label %232
 
-222:                                              ; preds = %.critedge.i
-  %223 = load ptr, ptr %64, align 8, !tbaa !66
-  %224 = icmp eq ptr %223, null
-  br i1 %224, label %ggml_backend_synchronize.exit149.i, label %225
+221:                                              ; preds = %.critedge.i
+  %222 = load ptr, ptr %64, align 8, !tbaa !66
+  %223 = icmp eq ptr %222, null
+  br i1 %223, label %ggml_backend_synchronize.exit149.i, label %224
 
-225:                                              ; preds = %222
-  call void %223(ptr noundef nonnull %49)
+224:                                              ; preds = %221
+  call void %222(ptr noundef nonnull %49)
   br label %ggml_backend_synchronize.exit149.i
 
-ggml_backend_synchronize.exit149.i:               ; preds = %225, %222
-  br i1 %.0114.in.lcssa.i, label %226, label %230
+ggml_backend_synchronize.exit149.i:               ; preds = %224, %221
+  br i1 %.0114.in.lcssa.i, label %225, label %229
 
-226:                                              ; preds = %ggml_backend_synchronize.exit149.i
-  %227 = load ptr, ptr %42, align 8, !tbaa !208
-  %228 = load ptr, ptr %43, align 8, !tbaa !212
-  %229 = call noundef zeroext i1 %227(ptr noundef %.0115.lcssa.i, i1 noundef zeroext false, ptr noundef %228)
-  br i1 %229, label %230, label %.thread159.i
+225:                                              ; preds = %ggml_backend_synchronize.exit149.i
+  %226 = load ptr, ptr %42, align 8, !tbaa !208
+  %227 = load ptr, ptr %43, align 8, !tbaa !212
+  %228 = call noundef zeroext i1 %226(ptr noundef %.0115.lcssa.i, i1 noundef zeroext false, ptr noundef %227)
+  br i1 %228, label %229, label %.thread159.i
 
-.thread159.i:                                     ; preds = %226
+.thread159.i:                                     ; preds = %225
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #26
   br label %.thread155.i
 
-230:                                              ; preds = %226, %ggml_backend_synchronize.exit149.i
+229:                                              ; preds = %225, %ggml_backend_synchronize.exit149.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #26
-  %231 = load i32, ptr %59, align 4, !tbaa !209
-  %232 = icmp slt i32 %219, %231
-  br i1 %232, label %197, label %.thread155.i, !llvm.loop !214
+  %230 = load i32, ptr %59, align 4, !tbaa !209
+  %231 = icmp slt i32 %218, %230
+  br i1 %231, label %197, label %.thread155.i, !llvm.loop !214
 
-233:                                              ; preds = %.critedge.i
+232:                                              ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #26
   br label %_ZL33ggml_backend_sched_compute_splitsP18ggml_backend_sched.exit
 
-.thread155.i:                                     ; preds = %230, %.thread159.i, %193, %.preheader.i
-  %234 = load i32, ptr %50, align 8, !tbaa !179
-  %235 = icmp sgt i32 %234, 0
-  br i1 %235, label %236, label %245
+.thread155.i:                                     ; preds = %229, %.thread159.i, %193, %.preheader.i
+  %233 = load i32, ptr %50, align 8, !tbaa !179
+  %234 = icmp sgt i32 %233, 0
+  br i1 %234, label %235, label %244
 
-236:                                              ; preds = %.thread155.i
-  %237 = load i32, ptr %40, align 4, !tbaa !183
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds [16 x [4 x ptr]], ptr %41, i64 0, i64 %47, i64 %238
-  %240 = load ptr, ptr %239, align 8, !tbaa !137
-  %.not134.i = icmp eq ptr %240, null
-  br i1 %.not134.i, label %245, label %241
+235:                                              ; preds = %.thread155.i
+  %236 = load i32, ptr %40, align 4, !tbaa !183
+  %237 = sext i32 %236 to i64
+  %238 = getelementptr inbounds [16 x [4 x ptr]], ptr %41, i64 0, i64 %47, i64 %237
+  %239 = load ptr, ptr %238, align 8, !tbaa !137
+  %.not134.i = icmp eq ptr %239, null
+  br i1 %.not134.i, label %244, label %240
 
-241:                                              ; preds = %236
-  %242 = getelementptr inbounds nuw i8, ptr %49, i64 96
-  %243 = load ptr, ptr %242, align 8, !tbaa !82
-  %.not.i150.i = icmp eq ptr %243, null
-  br i1 %.not.i150.i, label %244, label %ggml_backend_event_record.exit.i
+240:                                              ; preds = %235
+  %241 = getelementptr inbounds nuw i8, ptr %49, i64 96
+  %242 = load ptr, ptr %241, align 8, !tbaa !82
+  %.not.i150.i = icmp eq ptr %242, null
+  br i1 %.not.i150.i, label %243, label %ggml_backend_event_record.exit.i
 
-244:                                              ; preds = %241
+243:                                              ; preds = %240
   call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 429, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14) #24
   unreachable
 
-ggml_backend_event_record.exit.i:                 ; preds = %241
-  call void %243(ptr noundef nonnull %49, ptr noundef nonnull %240)
-  br label %245
+ggml_backend_event_record.exit.i:                 ; preds = %240
+  call void %242(ptr noundef nonnull %49, ptr noundef nonnull %239)
+  br label %244
 
-245:                                              ; preds = %ggml_backend_event_record.exit.i, %236, %.thread155.i
+244:                                              ; preds = %ggml_backend_event_record.exit.i, %235, %.thread155.i
   %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
-  %246 = load i32, ptr %30, align 8, !tbaa !150
-  %247 = sext i32 %246 to i64
-  %.not135.i = icmp slt i64 %indvars.iv.next255.i, %247
+  %245 = load i32, ptr %30, align 8, !tbaa !150
+  %246 = sext i32 %245 to i64
+  %.not135.i = icmp slt i64 %indvars.iv.next255.i, %246
   br i1 %.not135.i, label %44, label %.thread169.i, !llvm.loop !215
 
-.thread169.i:                                     ; preds = %245, %.thread
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 444
-  %249 = load i32, ptr %248, align 4, !tbaa !183
-  %250 = add nsw i32 %249, 1
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %252 = load i32, ptr %251, align 8, !tbaa !116
-  %253 = srem i32 %250, %252
-  store i32 %253, ptr %248, align 4, !tbaa !183
+.thread169.i:                                     ; preds = %244, %.thread
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 444
+  %248 = load i32, ptr %247, align 4, !tbaa !183
+  %249 = add nsw i32 %248, 1
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %251 = load i32, ptr %250, align 8, !tbaa !116
+  %252 = srem i32 %249, %251
+  store i32 %252, ptr %247, align 4, !tbaa !183
   br label %_ZL33ggml_backend_sched_compute_splitsP18ggml_backend_sched.exit
 
-_ZL33ggml_backend_sched_compute_splitsP18ggml_backend_sched.exit: ; preds = %193, %.thread169.i, %233, %26
-  %.0 = phi i32 [ -2, %26 ], [ 0, %.thread169.i ], [ %221, %233 ], [ %196, %193 ]
+_ZL33ggml_backend_sched_compute_splitsP18ggml_backend_sched.exit: ; preds = %193, %.thread169.i, %232, %26
+  %.0 = phi i32 [ -2, %26 ], [ 0, %.thread169.i ], [ %220, %232 ], [ %196, %193 ]
   ret i32 %.0
 }
 

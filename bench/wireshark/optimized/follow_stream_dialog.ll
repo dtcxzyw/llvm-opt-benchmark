@@ -12835,11 +12835,14 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i338:   ; preds = %465
   store i8 32, ptr %474, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.critedge4, label %430, !llvm.loop !168
+  br i1 %exitcond.not, label %..critedge4_crit_edge, label %430, !llvm.loop !168
 
-.critedge4:                                       ; preds = %430, %471
-  %.0163.lcssa = phi i32 [ 8, %471 ], [ %431, %430 ]
-  %.0160.lcssa = phi i32 [ %472, %471 ], [ %.0160711, %430 ]
+..critedge4_crit_edge:                            ; preds = %471
+  br label %.critedge4, !llvm.loop !168
+
+.critedge4:                                       ; preds = %430, %..critedge4_crit_edge
+  %.0163.lcssa = phi i32 [ 8, %..critedge4_crit_edge ], [ %431, %430 ]
+  %.0160.lcssa = phi i32 [ %472, %..critedge4_crit_edge ], [ %.0160711, %430 ]
   %475 = add i32 %.0163.lcssa, %.1712
   %476 = zext i32 %475 to i64
   %477 = icmp eq i64 %2, %476

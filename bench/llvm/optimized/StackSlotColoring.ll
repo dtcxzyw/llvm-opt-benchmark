@@ -1348,7 +1348,10 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit.i:    ; preds = %141
   %191 = sext i32 %190 to i64
   %192 = urem i64 %191, %175
   %.not19.i.i.i.i.i.i.i = icmp eq i64 %192, %176
-  br i1 %.not19.i.i.i.i.i.i.i, label %185, label %_ZNK4llvm10LiveStacks11hasIntervalEi.exit.thread.i, !llvm.loop !330
+  br i1 %.not19.i.i.i.i.i.i.i, label %185, label %..loopexit_crit_edge21.i.i.i.i.i.i.i, !llvm.loop !330
+
+..loopexit_crit_edge21.i.i.i.i.i.i.i:             ; preds = %188
+  br label %_ZNK4llvm10LiveStacks11hasIntervalEi.exit.thread.i, !llvm.loop !330
 
 _ZNK4llvm10LiveStacks11hasIntervalEi.exit.i:      ; preds = %185, %167
   br i1 %.not.not.i.i.i.i.i, label %193, label %_ZNK4llvm10LiveStacks11hasIntervalEi.exit.thread57.i
@@ -1408,7 +1411,7 @@ _ZN4llvm10LiveStacks11getIntervalEi.exit.i:       ; preds = %.lr.ph.i.i.i.i.i.i,
   store float %212, ptr %210, align 4, !tbaa !333
   br label %_ZNK4llvm10LiveStacks11hasIntervalEi.exit.thread.i
 
-_ZNK4llvm10LiveStacks11hasIntervalEi.exit.thread.i: ; preds = %188, %.lr.ph.i.i.i.i.i.i.i, %166, %207, %_ZN4llvm10LiveStacks11getIntervalEi.exit.i, %171, %156, %152
+_ZNK4llvm10LiveStacks11hasIntervalEi.exit.thread.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %166, %207, %_ZN4llvm10LiveStacks11getIntervalEi.exit.i, %..loopexit_crit_edge21.i.i.i.i.i.i.i, %171, %156, %152
   %213 = getelementptr inbounds nuw i8, ptr %.03570.i, i64 32
   %.not.i = icmp eq ptr %213, %136
   br i1 %.not.i, label %._crit_edge.i, label %152

@@ -4398,7 +4398,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %72, %79, %82, %84, 
 
 ._crit_edge:                                      ; preds = %154
   %.pre208 = load ptr, ptr %18, align 8, !tbaa !42
-  br label %split
+  br label %split, !llvm.loop !122
 
 split:                                            ; preds = %45, %50, %._crit_edge
   %155 = phi ptr [ %.pre208, %._crit_edge ], [ %46, %50 ], [ %46, %45 ]

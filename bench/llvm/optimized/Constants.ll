@@ -6745,7 +6745,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Constant17isThreadDependentEv(ptr
 
 .loopexit.i..critedge.i_crit_edge:                ; preds = %.loopexit.i
   %.pre86.i.pre = load ptr, ptr %3, align 8, !tbaa !25
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !278
 
 .lr.ph81.i:                                       ; preds = %.loopexit.i, %1
   %14 = phi i32 [ %13, %.loopexit.i ], [ 1, %1 ]
@@ -6936,7 +6936,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Constant20isDLLImportDependentEv(
 
 .loopexit.i..critedge.i_crit_edge:                ; preds = %.loopexit.i
   %.pre86.i.pre = load ptr, ptr %3, align 8, !tbaa !25
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !278
 
 .lr.ph81.i:                                       ; preds = %.loopexit.i, %1
   %14 = phi i32 [ %13, %.loopexit.i ], [ 1, %1 ]

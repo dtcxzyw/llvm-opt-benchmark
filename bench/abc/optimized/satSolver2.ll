@@ -4223,12 +4223,15 @@ Prf_ManAddSaved.exit:                             ; preds = %Vec_IntPush.exit.i,
   %253 = load ptr, ptr %252, align 8, !tbaa !35
   %.val264 = load i32, ptr %253, align 4, !tbaa !27
   %254 = icmp slt i32 %250, %.val264
-  br i1 %254, label %142, label %.critedge4.loopexit, !llvm.loop !138
+  br i1 %254, label %142, label %..critedge4.loopexit_crit_edge474, !llvm.loop !138
 
-.critedge4.loopexit:                              ; preds = %244, %.lr.ph393
-  %.val261442 = phi ptr [ %.val261440, %.lr.ph393 ], [ %251, %244 ]
-  %.5208.lcssa.ph = phi i32 [ %.4207400, %.lr.ph393 ], [ %.6, %244 ]
-  %.4.lcssa.ph = phi i32 [ %.3402, %.lr.ph393 ], [ %147, %244 ]
+..critedge4.loopexit_crit_edge474:                ; preds = %244
+  br label %.critedge4.loopexit, !llvm.loop !138
+
+.critedge4.loopexit:                              ; preds = %..critedge4.loopexit_crit_edge474, %.lr.ph393
+  %.val261442 = phi ptr [ %251, %..critedge4.loopexit_crit_edge474 ], [ %.val261440, %.lr.ph393 ]
+  %.5208.lcssa.ph = phi i32 [ %.6, %..critedge4.loopexit_crit_edge474 ], [ %.4207400, %.lr.ph393 ]
+  %.4.lcssa.ph = phi i32 [ %147, %..critedge4.loopexit_crit_edge474 ], [ %.3402, %.lr.ph393 ]
   %.pre446 = load i32, ptr %31, align 4, !tbaa !27
   br label %.critedge4
 
@@ -9267,7 +9270,7 @@ var_add_tag.exit64:                               ; preds = %split, %veci_push.e
 
 ..critedge.loopexit_crit_edge:                    ; preds = %151
   %.pre78.pre.pre = load ptr, ptr %3, align 8, !tbaa !23
-  br label %.critedge
+  br label %.critedge, !llvm.loop !210
 
 .critedge:                                        ; preds = %77, %..critedge.loopexit_crit_edge, %.preheader
   %.pre78 = phi ptr [ %.val52, %.preheader ], [ %.pre78.pre.pre, %..critedge.loopexit_crit_edge ], [ %.pre78.pre.pre81, %77 ]

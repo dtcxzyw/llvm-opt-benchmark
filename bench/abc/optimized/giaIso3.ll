@@ -429,7 +429,7 @@ Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.si
 
 Vec_IntPush.exit.i.Gia_Iso3Save.exit.loopexit_crit_edge: ; preds = %Vec_IntPush.exit.i
   %.val.i18.pre.pre = load i32, ptr %35, align 4, !tbaa !36
-  br label %Gia_Iso3Save.exit
+  br label %Gia_Iso3Save.exit, !llvm.loop !42
 
 Gia_Iso3Save.exit:                                ; preds = %.lr.ph.i13, %Vec_IntPush.exit.i.Gia_Iso3Save.exit.loopexit_crit_edge
   %70 = phi ptr [ %.pre.i14.i, %Vec_IntPush.exit.i.Gia_Iso3Save.exit.loopexit_crit_edge ], [ %43, %.lr.ph.i13 ]

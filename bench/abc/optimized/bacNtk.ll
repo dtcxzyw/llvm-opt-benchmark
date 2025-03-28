@@ -2317,14 +2317,17 @@ Bac_ObjNameType.exit324.thread:                   ; preds = %.lr.ph385.preheader
   %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414515, 1
   %469 = trunc nuw i64 %indvars.iv.next415 to i32
   %470 = icmp sgt i32 %.val158, %469
-  br i1 %470, label %.lr.ph385, label %.critedge2, !llvm.loop !59
+  br i1 %470, label %.lr.ph385, label %..critedge2.loopexit_crit_edge, !llvm.loop !59
 
-.critedge2:                                       ; preds = %468, %.lr.ph385, %.lr.ph385.preheader, %..critedge2_crit_edge, %Bac_ObjNameId.exit316
-  %indvars.iv.next418.pre-phi = phi i64 [ %.pre491, %..critedge2_crit_edge ], [ %453, %Bac_ObjNameId.exit316 ], [ %453, %.lr.ph385.preheader ], [ %453, %.lr.ph385 ], [ %453, %468 ]
-  %.val159 = phi i32 [ %.val159481, %..critedge2_crit_edge ], [ %.val158383, %Bac_ObjNameId.exit316 ], [ %.val158383, %.lr.ph385.preheader ], [ %.val158, %.lr.ph385 ], [ %.val158, %468 ]
-  %.val7.i.i320475 = phi ptr [ %.val7.i.i320474, %..critedge2_crit_edge ], [ %.val7.i.i320474, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320474, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ], [ %.val7.i.i320478, %468 ]
-  %.val8.i.i315471 = phi ptr [ %.val8.i.i315, %..critedge2_crit_edge ], [ %.val8.i.i315, %Bac_ObjNameId.exit316 ], [ %.val8.i.i315, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ], [ %.val7.i.i320478, %468 ]
-  %.val7.i.i312465 = phi ptr [ %.val7.i.i312, %..critedge2_crit_edge ], [ %.val7.i.i312468, %Bac_ObjNameId.exit316 ], [ %.val7.i.i312468, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ], [ %.val7.i.i320478, %468 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %468
+  br label %.critedge2, !llvm.loop !59
+
+.critedge2:                                       ; preds = %.lr.ph385, %.lr.ph385.preheader, %..critedge2.loopexit_crit_edge, %..critedge2_crit_edge, %Bac_ObjNameId.exit316
+  %indvars.iv.next418.pre-phi = phi i64 [ %.pre491, %..critedge2_crit_edge ], [ %453, %Bac_ObjNameId.exit316 ], [ %453, %..critedge2.loopexit_crit_edge ], [ %453, %.lr.ph385.preheader ], [ %453, %.lr.ph385 ]
+  %.val159 = phi i32 [ %.val159481, %..critedge2_crit_edge ], [ %.val158383, %Bac_ObjNameId.exit316 ], [ %.val158, %..critedge2.loopexit_crit_edge ], [ %.val158383, %.lr.ph385.preheader ], [ %.val158, %.lr.ph385 ]
+  %.val7.i.i320475 = phi ptr [ %.val7.i.i320474, %..critedge2_crit_edge ], [ %.val7.i.i320474, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i320474, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ]
+  %.val8.i.i315471 = phi ptr [ %.val8.i.i315, %..critedge2_crit_edge ], [ %.val8.i.i315, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val8.i.i315, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ]
+  %.val7.i.i312465 = phi ptr [ %.val7.i.i312, %..critedge2_crit_edge ], [ %.val7.i.i312468, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i312468, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ]
   %471 = sext i32 %.val159 to i64
   %472 = icmp slt i64 %indvars.iv.next418.pre-phi, %471
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
@@ -3908,7 +3911,7 @@ Bac_BoxNtk.exit.thread.i:                         ; preds = %Bac_BoxSetNtkId.exi
   %.val.i139 = load i32, ptr %28, align 4, !tbaa !33
   %196 = sext i32 %.val.i139 to i64
   %197 = icmp slt i64 %indvars.iv.next99.i, %196
-  br i1 %197, label %.lr.ph95.i, label %.critedge2, !llvm.loop !78
+  br i1 %197, label %.lr.ph95.i, label %..critedge2.loopexit334_crit_edge, !llvm.loop !78
 
 .lr.ph247:                                        ; preds = %Bac_ObjSetCopy.exit187
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285346, 1
@@ -4389,11 +4392,17 @@ Bac_ObjSetCopy.exit187:                           ; preds = %Bac_ObjAlloc.exit17
   %.val114 = load i32, ptr %28, align 4, !tbaa !33
   %401 = trunc nuw i64 %indvars.iv.next282 to i32
   %402 = icmp sgt i32 %.val114, %401
-  br i1 %402, label %.lr.ph247, label %.critedge2, !llvm.loop !79
+  br i1 %402, label %.lr.ph247, label %Bac_ObjSetCopy.exit187..critedge2.loopexit_crit_edge, !llvm.loop !79
 
-.critedge2:                                       ; preds = %.lr.ph95.i, %.lr.ph341, %.lr.ph247, %Bac_ObjSetCopy.exit187, %.lr.ph95.i.preheader, %.lr.ph247.preheader, %..critedge2_crit_edge, %.preheader238, %Bac_BoxNtk.exit.thread.i
-  %indvars.iv.next284.pre-phi = phi i64 [ %.pre327, %..critedge2_crit_edge ], [ %97, %.preheader238 ], [ %187, %Bac_BoxNtk.exit.thread.i ], [ %97, %.lr.ph247.preheader ], [ %187, %.lr.ph95.i.preheader ], [ %97, %Bac_ObjSetCopy.exit187 ], [ %97, %.lr.ph247 ], [ %187, %.lr.ph341 ], [ %187, %.lr.ph95.i ]
-  %.val115 = phi i32 [ %.val115318, %..critedge2_crit_edge ], [ %.val115318, %.preheader238 ], [ %.val93.i, %Bac_BoxNtk.exit.thread.i ], [ %.val115318, %.lr.ph247.preheader ], [ %.val93.i, %.lr.ph95.i.preheader ], [ %.val114, %Bac_ObjSetCopy.exit187 ], [ %.val114, %.lr.ph247 ], [ %.val.i139, %.lr.ph341 ], [ %.val.i139, %.lr.ph95.i ]
+Bac_ObjSetCopy.exit187..critedge2.loopexit_crit_edge: ; preds = %Bac_ObjSetCopy.exit187
+  br label %.critedge2, !llvm.loop !79
+
+..critedge2.loopexit334_crit_edge:                ; preds = %.lr.ph341
+  br label %.critedge2, !llvm.loop !78
+
+.critedge2:                                       ; preds = %.lr.ph95.i, %.lr.ph247, %.lr.ph95.i.preheader, %..critedge2.loopexit334_crit_edge, %.lr.ph247.preheader, %Bac_ObjSetCopy.exit187..critedge2.loopexit_crit_edge, %..critedge2_crit_edge, %.preheader238, %Bac_BoxNtk.exit.thread.i
+  %indvars.iv.next284.pre-phi = phi i64 [ %.pre327, %..critedge2_crit_edge ], [ %97, %.preheader238 ], [ %187, %Bac_BoxNtk.exit.thread.i ], [ %97, %Bac_ObjSetCopy.exit187..critedge2.loopexit_crit_edge ], [ %97, %.lr.ph247.preheader ], [ %187, %..critedge2.loopexit334_crit_edge ], [ %187, %.lr.ph95.i.preheader ], [ %97, %.lr.ph247 ], [ %187, %.lr.ph95.i ]
+  %.val115 = phi i32 [ %.val115318, %..critedge2_crit_edge ], [ %.val115318, %.preheader238 ], [ %.val93.i, %Bac_BoxNtk.exit.thread.i ], [ %.val114, %Bac_ObjSetCopy.exit187..critedge2.loopexit_crit_edge ], [ %.val115318, %.lr.ph247.preheader ], [ %.val.i139, %..critedge2.loopexit334_crit_edge ], [ %.val93.i, %.lr.ph95.i.preheader ], [ %.val114, %.lr.ph247 ], [ %.val.i139, %.lr.ph95.i ]
   %403 = sext i32 %.val115 to i64
   %404 = icmp slt i64 %indvars.iv.next284.pre-phi, %403
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
@@ -4756,14 +4765,17 @@ Bac_ObjSetFanin.exit223:                          ; preds = %.lr.ph357, %._crit_
   %.val112 = load i32, ptr %28, align 4, !tbaa !33
   %549 = trunc nuw i64 %indvars.iv.next304 to i32
   %550 = icmp sgt i32 %.val112, %549
-  br i1 %550, label %.lr.ph265, label %.critedge4, !llvm.loop !83
+  br i1 %550, label %.lr.ph265, label %Bac_ObjSetFanin.exit223..critedge4.loopexit_crit_edge, !llvm.loop !83
 
 .critedge4.loopexit276:                           ; preds = %.lr.ph255, %Bac_ObjSetFanin.exit
   %.val113.pre = load i32, ptr %28, align 4, !tbaa !33
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.lr.ph265, %Bac_ObjSetFanin.exit223, %.lr.ph265.preheader, %.critedge4.loopexit276, %.preheader, %Bac_BoxNtk.exit, %405
-  %.val113 = phi i32 [ %.val113.pre, %.critedge4.loopexit276 ], [ %.val113323, %.preheader ], [ %.val112262, %Bac_BoxNtk.exit ], [ %.val113323, %405 ], [ %.val112262, %.lr.ph265.preheader ], [ %.val112, %Bac_ObjSetFanin.exit223 ], [ %.val112, %.lr.ph265 ]
+Bac_ObjSetFanin.exit223..critedge4.loopexit_crit_edge: ; preds = %Bac_ObjSetFanin.exit223
+  br label %.critedge4, !llvm.loop !83
+
+.critedge4:                                       ; preds = %.lr.ph265, %.lr.ph265.preheader, %Bac_ObjSetFanin.exit223..critedge4.loopexit_crit_edge, %.critedge4.loopexit276, %.preheader, %Bac_BoxNtk.exit, %405
+  %.val113 = phi i32 [ %.val113.pre, %.critedge4.loopexit276 ], [ %.val113323, %.preheader ], [ %.val112262, %Bac_BoxNtk.exit ], [ %.val113323, %405 ], [ %.val112, %Bac_ObjSetFanin.exit223..critedge4.loopexit_crit_edge ], [ %.val112262, %.lr.ph265.preheader ], [ %.val112, %.lr.ph265 ]
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %551 = sext i32 %.val113 to i64
   %552 = icmp slt i64 %indvars.iv.next294, %551

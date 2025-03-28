@@ -27596,7 +27596,10 @@ define noundef ptr @_ZN7rocksdb15BlockBasedTable29PartitionedIndexIteratorState2
   %32 = load i64, ptr %31, align 8, !tbaa !299
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i, label %27, label %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit.thread, !llvm.loop !1021
+  br i1 %.not19.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !1021
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %30
+  br label %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit.thread, !llvm.loop !1021
 
 _ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit: ; preds = %27, %11, %22
   %.sroa.06.1.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i, %11 ], [ %29, %27 ]
@@ -27627,8 +27630,8 @@ _ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_t
   %58 = tail call noundef ptr @_ZN7rocksdb5Block16NewIndexIteratorEPKNS_10ComparatorEmPNS_14IndexBlockIterEPNS_10StatisticsEbbbbbbPNS_16BlockPrefixIndexE(ptr noundef nonnull align 8 dereferenceable(84) %39, ptr noundef %43, i64 noundef %45, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext %48, i1 noundef zeroext %51, i1 noundef zeroext %54, i1 noundef zeroext false, i1 noundef zeroext %57, ptr noundef null)
   br label %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit.thread
 
-_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %30, %10, %15, %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit
-  %.0 = phi ptr [ %58, %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit ], [ null, %15 ], [ null, %10 ], [ null, %30 ], [ null, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %10, %..loopexit_crit_edge21.i.i.i.i, %15, %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit
+  %.0 = phi ptr [ %58, %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit ], [ null, %15 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %10 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 

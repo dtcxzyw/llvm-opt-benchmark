@@ -1228,7 +1228,10 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   %100 = ptrtoint ptr %99 to i64
   %101 = urem i64 %100, %84
   %.not19.i.i.i.i.i = icmp eq i64 %101, %85
-  br i1 %.not19.i.i.i.i.i, label %94, label %.loopexit, !llvm.loop !148
+  br i1 %.not19.i.i.i.i.i, label %94, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !148
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %97
+  br label %.loopexit, !llvm.loop !148
 
 .loopexit39:                                      ; preds = %94, %77, %89
   %102 = getelementptr inbounds nuw i8, ptr %71, i64 24
@@ -1272,7 +1275,7 @@ _ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
   resume { ptr, i32 } %117
 
-.loopexit:                                        ; preds = %97, %.lr.ph.i.i.i.i.i, %76, %81
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %76, %..loopexit_crit_edge21.i.i.i.i.i, %81
   %118 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %119 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %120 = load ptr, ptr %119, align 8, !tbaa !149
@@ -2442,9 +2445,12 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly18threadlocal_detail14ThreadEnt
   %32 = ptrtoint ptr %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i, label %26, label %.loopexit, !llvm.loop !148
+  br i1 %.not19.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !148
 
-.loopexit:                                        ; preds = %29, %.lr.ph.i.i.i.i, %8, %13
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
+  br label %.loopexit, !llvm.loop !148
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !154
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2548,9 +2554,12 @@ _ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE9push_backERKS3_.
   %85 = ptrtoint ptr %84 to i64
   %86 = urem i64 %85, %69
   %.not19.i.i.i.i6 = icmp eq i64 %86, %70
-  br i1 %.not19.i.i.i.i6, label %79, label %.loopexit.i.i, !llvm.loop !148
+  br i1 %.not19.i.i.i.i6, label %79, label %..loopexit_crit_edge21.i.i.i.i7, !llvm.loop !148
 
-.loopexit.i.i:                                    ; preds = %82, %.lr.ph.i.i.i.i3, %_ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE9push_backERKS3_.exit
+..loopexit_crit_edge21.i.i.i.i7:                  ; preds = %82
+  br label %.loopexit.i.i, !llvm.loop !148
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i3, %..loopexit_crit_edge21.i.i.i.i7, %_ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE9push_backERKS3_.exit
   %87 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #40
   store ptr null, ptr %87, align 8, !tbaa !142
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -3209,9 +3218,12 @@ _ZN5folly16SynchronizedBaseINS_12SynchronizedINS_18threadlocal_detail14ThreadEnt
   %120 = ptrtoint ptr %119 to i64
   %121 = urem i64 %120, %104
   %.not19.i.i.i.i.i.i.i = icmp eq i64 %121, %105
-  br i1 %.not19.i.i.i.i.i.i.i, label %114, label %.loopexit.i.i, !llvm.loop !148
+  br i1 %.not19.i.i.i.i.i.i.i, label %114, label %..loopexit_crit_edge21.i.i.i.i.i.i.i, !llvm.loop !148
 
-.loopexit.i.i:                                    ; preds = %117, %.lr.ph.i.i.i.i.i.i.i, %95, %100
+..loopexit_crit_edge21.i.i.i.i.i.i.i:             ; preds = %117
+  br label %.loopexit.i.i, !llvm.loop !148
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i, %95, %..loopexit_crit_edge21.i.i.i.i.i.i.i, %100
   %122 = load ptr, ptr %55, align 8, !tbaa !121
   invoke void @_ZN5folly18threadlocal_detail14StaticMetaBase24ensureThreadEntryIsInSetEPNS0_11ThreadEntryERNS_12SynchronizedINS0_14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEERNS_9LockedPtrISA_NS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE2ELNSD_23SynchronizedMutexMethodE0EEEEE(ptr noundef nonnull align 8 dereferenceable(128) %122, ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull align 8 dereferenceable(84) %69, ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %.loopexit15.i.i unwind label %123
@@ -5145,12 +5157,15 @@ _ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTa
   %36 = phi ptr [ %37, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.i.i.i ], [ %22, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.lr.ph.i.i.i ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.not.i.i.i15 = icmp eq ptr %37, %24
-  br i1 %.not.i.i.i15, label %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor5beginEv.exit, label %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.i.i.i, !llvm.loop !320
+  br i1 %.not.i.i.i15, label %._ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8IteratorC2EPKS5_b.exit.loopexit_crit_edge.i, label %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.i.i.i, !llvm.loop !320
 
-_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor5beginEv.exit: ; preds = %.lr.ph.i, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.i.i.i, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE16accessAllThreadsEv.exit, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.lr.ph.i.i.i
-  %.sroa.9.1 = phi ptr [ %22, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE16accessAllThreadsEv.exit ], [ %22, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.lr.ph.i.i.i ], [ %37, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.i.i.i ], [ %37, %.lr.ph.i ]
-  %.not44 = icmp eq ptr %.sroa.9.1, %24
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+._ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8IteratorC2EPKS5_b.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor5beginEv.exit, !llvm.loop !320
+
+_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor5beginEv.exit: ; preds = %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.i.i.i, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE16accessAllThreadsEv.exit, %._ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8IteratorC2EPKS5_b.exit.loopexit_crit_edge.i, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.lr.ph.i.i.i
+  %.sroa.9.1 = phi ptr [ %22, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE16accessAllThreadsEv.exit ], [ %37, %._ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8IteratorC2EPKS5_b.exit.loopexit_crit_edge.i ], [ %22, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.lr.ph.i.i.i ], [ %37, %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.i.i.i ]
+  %.not45 = icmp eq ptr %.sroa.9.1, %24
+  br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor5beginEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -5296,25 +5311,25 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20, !noalias !324
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #20, !noalias !324
   %91 = load ptr, ptr %10, align 8, !tbaa !214
-  %.not.i.i1948 = icmp eq ptr %91, null
-  %.neg.i.i49 = select i1 %.not.i.i1948, i64 0, i64 -96
-  %92 = getelementptr inbounds i8, ptr %91, i64 %.neg.i.i49
+  %.not.i.i1950 = icmp eq ptr %91, null
+  %.neg.i.i51 = select i1 %.not.i.i1950, i64 0, i64 -96
+  %92 = getelementptr inbounds i8, ptr %91, i64 %.neg.i.i51
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 64
   %94 = load i64, ptr %93, align 8, !tbaa !286
   br label %137
 
 95:                                               ; preds = %.lr.ph, %_ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8IteratorppEv.exit
-  %.046 = phi i64 [ 128, %.lr.ph ], [ %103, %_ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8IteratorppEv.exit ]
-  %.sroa.9.045 = phi ptr [ %.sroa.9.1, %.lr.ph ], [ %.sroa.9.3, %_ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8IteratorppEv.exit ]
-  %96 = load ptr, ptr %.sroa.9.045, align 8, !tbaa !143
+  %.047 = phi i64 [ 128, %.lr.ph ], [ %103, %_ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8IteratorppEv.exit ]
+  %.sroa.9.046 = phi ptr [ %.sroa.9.1, %.lr.ph ], [ %.sroa.9.3, %_ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8IteratorppEv.exit ]
+  %96 = load ptr, ptr %.sroa.9.046, align 8, !tbaa !143
   %97 = load ptr, ptr %96, align 8, !tbaa !227
   %98 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %97, i64 %40
   %99 = load ptr, ptr %98, align 8, !tbaa !238
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %101 = load i64, ptr %100, align 8, !tbaa !286
-  %102 = add i64 %.046, 96
+  %102 = add i64 %.047, 96
   %103 = add i64 %102, %101
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.9.045, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.9.046, i64 8
   %.not2.i.i.i21 = icmp eq ptr %104, %24
   br i1 %.not2.i.i.i21, label %_ZN5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8IteratorppEv.exit, label %_ZNK5folly14ThreadLocalPtrINS_8SysArenaENS_17ThreadCachedArena17ThreadLocalPtrTagEvE8Accessor8Iterator5validEv.exit.i.i.i23
 

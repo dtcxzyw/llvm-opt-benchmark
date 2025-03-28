@@ -3508,7 +3508,7 @@ pmix_pointer_array_get_item.exit.i94.preheader:   ; preds = %70
   %76 = phi ptr [ null, %.thread ], [ %92, %104 ]
   %77 = load i32, ptr %27, align 8, !tbaa !26
   %.not.i.i93 = icmp sgt i32 %77, 9
-  br i1 %.not.i.i93, label %pmix_pointer_array_get_item.exit.i94, label %._crit_edge, !prof !76, !llvm.loop !64
+  br i1 %.not.i.i93, label %pmix_pointer_array_get_item.exit.i94, label %.lr.ph.i91.._crit_edge_crit_edge, !prof !76, !llvm.loop !64
 
 pmix_pointer_array_get_item.exit.i94:             ; preds = %.lr.ph.i91
   %78 = load ptr, ptr %28, align 8, !tbaa !30
@@ -3583,9 +3583,12 @@ pmix_pointer_array_get_item.exit34.i97:           ; preds = %94
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
   br label %pmix20_bfrop_unpack_int32.exit.thread
 
-._crit_edge:                                      ; preds = %pmix_pointer_array_get_item.exit.i94.preheader, %.lr.ph.i91, %pmix_pointer_array_get_item.exit.i94, %.lr.ph347
-  %111 = phi ptr [ %76, %.lr.ph.i91 ], [ %76, %pmix_pointer_array_get_item.exit.i94 ], [ %83, %.lr.ph347 ], [ null, %pmix_pointer_array_get_item.exit.i94.preheader ]
-  %.0.i90.ph = phi i32 [ -16, %.lr.ph.i91 ], [ -16, %pmix_pointer_array_get_item.exit.i94 ], [ %86, %.lr.ph347 ], [ -16, %pmix_pointer_array_get_item.exit.i94.preheader ]
+.lr.ph.i91.._crit_edge_crit_edge:                 ; preds = %.lr.ph.i91
+  br label %._crit_edge, !llvm.loop !64
+
+._crit_edge:                                      ; preds = %pmix_pointer_array_get_item.exit.i94.preheader, %pmix_pointer_array_get_item.exit.i94, %.lr.ph347, %.lr.ph.i91.._crit_edge_crit_edge
+  %111 = phi ptr [ %76, %.lr.ph.i91.._crit_edge_crit_edge ], [ %76, %pmix_pointer_array_get_item.exit.i94 ], [ %83, %.lr.ph347 ], [ null, %pmix_pointer_array_get_item.exit.i94.preheader ]
+  %.0.i90.ph = phi i32 [ -16, %.lr.ph.i91.._crit_edge_crit_edge ], [ -16, %pmix_pointer_array_get_item.exit.i94 ], [ %86, %.lr.ph347 ], [ -16, %pmix_pointer_array_get_item.exit.i94.preheader ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
   %.not89 = icmp eq ptr %111, null
@@ -3689,7 +3692,7 @@ pmix_pointer_array_get_item.exit.i109.preheader:  ; preds = %141
   %147 = phi ptr [ null, %.thread326 ], [ %163, %175 ]
   %148 = load i32, ptr %27, align 8, !tbaa !26
   %.not.i.i108 = icmp sgt i32 %148, 9
-  br i1 %.not.i.i108, label %pmix_pointer_array_get_item.exit.i109, label %._crit_edge171, !prof !76, !llvm.loop !64
+  br i1 %.not.i.i108, label %pmix_pointer_array_get_item.exit.i109, label %.lr.ph.i106.._crit_edge171_crit_edge, !prof !76, !llvm.loop !64
 
 pmix_pointer_array_get_item.exit.i109:            ; preds = %.lr.ph.i106
   %149 = load ptr, ptr %28, align 8, !tbaa !30
@@ -3764,9 +3767,12 @@ pmix_pointer_array_get_item.exit34.i112:          ; preds = %165
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   br label %pmix20_bfrop_unpack_int32.exit.thread
 
-._crit_edge171:                                   ; preds = %pmix_pointer_array_get_item.exit.i109.preheader, %.lr.ph.i106, %pmix_pointer_array_get_item.exit.i109, %.lr.ph356
-  %182 = phi ptr [ %147, %.lr.ph.i106 ], [ %147, %pmix_pointer_array_get_item.exit.i109 ], [ %154, %.lr.ph356 ], [ null, %pmix_pointer_array_get_item.exit.i109.preheader ]
-  %.0.i105.ph = phi i32 [ -16, %.lr.ph.i106 ], [ -16, %pmix_pointer_array_get_item.exit.i109 ], [ %157, %.lr.ph356 ], [ -16, %pmix_pointer_array_get_item.exit.i109.preheader ]
+.lr.ph.i106.._crit_edge171_crit_edge:             ; preds = %.lr.ph.i106
+  br label %._crit_edge171, !llvm.loop !64
+
+._crit_edge171:                                   ; preds = %pmix_pointer_array_get_item.exit.i109.preheader, %pmix_pointer_array_get_item.exit.i109, %.lr.ph356, %.lr.ph.i106.._crit_edge171_crit_edge
+  %182 = phi ptr [ %147, %.lr.ph.i106.._crit_edge171_crit_edge ], [ %147, %pmix_pointer_array_get_item.exit.i109 ], [ %154, %.lr.ph356 ], [ null, %pmix_pointer_array_get_item.exit.i109.preheader ]
+  %.0.i105.ph = phi i32 [ -16, %.lr.ph.i106.._crit_edge171_crit_edge ], [ -16, %pmix_pointer_array_get_item.exit.i109 ], [ %157, %.lr.ph356 ], [ -16, %pmix_pointer_array_get_item.exit.i109.preheader ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   %.not87 = icmp eq ptr %182, null

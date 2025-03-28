@@ -117,10 +117,13 @@ define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i4
   %59 = getelementptr inbounds nuw i8, ptr %.0283845, i64 %58
   %.028 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %60 = icmp ult ptr %.028, %17
-  br i1 %60, label %44, label %.critedge, !llvm.loop !4
+  br i1 %60, label %44, label %..critedge.loopexit_crit_edge, !llvm.loop !4
 
-.critedge:                                        ; preds = %.lr.ph47, %44, %.lr.ph, %18
-  %.130.lcssa = phi ptr [ %11, %18 ], [ %11, %.lr.ph ], [ %.0283845, %44 ], [ %.0283845, %.lr.ph47 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph47
+  br label %.critedge, !llvm.loop !4
+
+.critedge:                                        ; preds = %44, %.lr.ph, %..critedge.loopexit_crit_edge, %18
+  %.130.lcssa = phi ptr [ %11, %18 ], [ %.0283845, %..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %.0283845, %44 ]
   %61 = ptrtoint ptr %17 to i64
   %62 = ptrtoint ptr %.130.lcssa to i64
   %63 = sub i64 %61, %62

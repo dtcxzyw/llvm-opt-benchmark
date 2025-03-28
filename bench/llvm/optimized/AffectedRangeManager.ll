@@ -69,7 +69,7 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %30 = load i8, ptr %29, align 8, !tbaa !60, !range !61, !noundef !62
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %.preheader, label %63
+  br i1 %31, label %.preheader, label %64
 
 .preheader:                                       ; preds = %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit
   %.045 = getelementptr inbounds nuw i8, ptr %.02756, i64 8
@@ -82,82 +82,93 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, 1
-  %.not3459 = icmp eq i8 %36, 0
-  br i1 %.not3459, label %.lr.ph61, label %.critedge, !llvm.loop !63
+  %.not3469 = icmp eq i8 %36, 0
+  br i1 %.not3469, label %.lr.ph71, label %..critedge_crit_edge50, !llvm.loop !63
 
-.lr.ph61:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %37 = phi ptr [ %38, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.04860 = phi ptr [ %.0, %.lr.ph ], [ %.045, %.lr.ph.preheader ]
-  %.0 = getelementptr inbounds nuw i8, ptr %.04860, i64 8
+.lr.ph71:                                         ; preds = %.lr.ph.preheader
+  br label %37, !llvm.loop !63
+
+37:                                               ; preds = %.lr.ph71, %.lr.ph
+  %38 = phi ptr [ %32, %.lr.ph71 ], [ %39, %.lr.ph ]
+  %.04870 = phi ptr [ %.045, %.lr.ph71 ], [ %.0, %.lr.ph ]
+  %.0 = getelementptr inbounds nuw i8, ptr %.04870, i64 8
   %.not33 = icmp eq ptr %.0, %7
   br i1 %.not33, label %.critedge, label %.lr.ph, !llvm.loop !63
 
-.lr.ph:                                           ; preds = %.lr.ph61
-  %38 = load ptr, ptr %.0, align 8, !tbaa !10
-  %39 = load ptr, ptr %38, align 8, !tbaa !12
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, 1
-  %.not34 = icmp eq i8 %42, 0
-  br i1 %.not34, label %.lr.ph61, label %.critedge, !llvm.loop !63
+.lr.ph:                                           ; preds = %37
+  %39 = load ptr, ptr %.0, align 8, !tbaa !10
+  %40 = load ptr, ptr %39, align 8, !tbaa !12
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  %42 = load i8, ptr %41, align 8
+  %43 = and i8 %42, 1
+  %.not34 = icmp eq i8 %43, 0
+  br i1 %.not34, label %37, label %.lr.ph...critedge_crit_edge50_crit_edge, !llvm.loop !63
 
-.critedge:                                        ; preds = %.lr.ph61, %.lr.ph, %.lr.ph.preheader, %.preheader
-  %.pn.lcssa = phi ptr [ %11, %.preheader ], [ %11, %.lr.ph.preheader ], [ %37, %.lr.ph ], [ %37, %.lr.ph61 ]
-  %.0.lcssa = phi ptr [ %7, %.preheader ], [ %.045, %.lr.ph.preheader ], [ %.0, %.lr.ph ], [ %7, %.lr.ph61 ]
+.lr.ph...critedge_crit_edge50_crit_edge:          ; preds = %.lr.ph
+  br label %..critedge_crit_edge50, !llvm.loop !63
+
+..critedge_crit_edge50:                           ; preds = %.lr.ph...critedge_crit_edge50_crit_edge, %.lr.ph.preheader
+  %.048.lcssa = phi ptr [ %.0, %.lr.ph...critedge_crit_edge50_crit_edge ], [ %.045, %.lr.ph.preheader ]
+  %.pn47.lcssa = phi ptr [ %38, %.lr.ph...critedge_crit_edge50_crit_edge ], [ %11, %.lr.ph.preheader ]
+  br label %.critedge, !llvm.loop !63
+
+.critedge:                                        ; preds = %37, %..critedge_crit_edge50, %.preheader
+  %.pn.lcssa = phi ptr [ %.pn47.lcssa, %..critedge_crit_edge50 ], [ %11, %.preheader ], [ %38, %37 ]
+  %.0.lcssa = phi ptr [ %.048.lcssa, %..critedge_crit_edge50 ], [ %7, %.preheader ], [ %7, %37 ]
   %.026.in.le = getelementptr inbounds nuw i8, ptr %.pn.lcssa, i64 8
   %.026.le = load ptr, ptr %.026.in.le, align 8, !tbaa !65
-  %43 = load ptr, ptr %11, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %.sroa.0.0.copyload.i.i35 = load i32, ptr %44, align 4, !tbaa !22
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %46 = load i32, ptr %45, align 8
-  %.sroa.010.0.i = add i32 %46, %.sroa.0.0.copyload.i.i35
-  %47 = getelementptr inbounds nuw i8, ptr %.026.le, i64 60
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %47, align 4, !tbaa !22
-  %48 = getelementptr inbounds nuw i8, ptr %.026.le, i64 32
-  %49 = load i64, ptr %48, align 8, !tbaa !66
-  %50 = trunc i64 %49 to i32
-  %51 = add i32 %.sroa.0.0.copyload.i.i.i, %50
-  %52 = load ptr, ptr %8, align 8, !tbaa !3
-  %53 = load i32, ptr %9, align 8, !tbaa !9
-  %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"class.clang::CharSourceRange", ptr %52, i64 %54
-  %.not22.not.i.i36 = icmp eq i32 %53, 0
+  %44 = load ptr, ptr %11, align 8, !tbaa !12
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
+  %.sroa.0.0.copyload.i.i35 = load i32, ptr %45, align 4, !tbaa !22
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 80
+  %47 = load i32, ptr %46, align 8
+  %.sroa.010.0.i = add i32 %47, %.sroa.0.0.copyload.i.i35
+  %48 = getelementptr inbounds nuw i8, ptr %.026.le, i64 60
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %48, align 4, !tbaa !22
+  %49 = getelementptr inbounds nuw i8, ptr %.026.le, i64 32
+  %50 = load i64, ptr %49, align 8, !tbaa !66
+  %51 = trunc i64 %50 to i32
+  %52 = add i32 %.sroa.0.0.copyload.i.i.i, %51
+  %53 = load ptr, ptr %8, align 8, !tbaa !3
+  %54 = load i32, ptr %9, align 8, !tbaa !9
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw %"class.clang::CharSourceRange", ptr %53, i64 %55
+  %.not22.not.i.i36 = icmp eq i32 %54, 0
   br i1 %.not22.not.i.i36, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread, label %.lr.ph.i.i37
 
 .lr.ph.i.i37:                                     ; preds = %.critedge, %.critedge.i.i42
-  %.01623.i.i38 = phi ptr [ %62, %.critedge.i.i42 ], [ %52, %.critedge ]
-  %56 = load ptr, ptr %0, align 8, !tbaa !51
+  %.01623.i.i38 = phi ptr [ %63, %.critedge.i.i42 ], [ %53, %.critedge ]
+  %57 = load ptr, ptr %0, align 8, !tbaa !51
   %.sroa.0.0.copyload.i.i19.i.i39 = load i32, ptr %.01623.i.i38, align 4, !tbaa !22
-  %57 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %56, i32 %51, i32 %.sroa.0.0.copyload.i.i19.i.i39) #3
-  br i1 %57, label %.critedge.i.i42, label %58
+  %58 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %57, i32 %52, i32 %.sroa.0.0.copyload.i.i19.i.i39) #3
+  br i1 %58, label %.critedge.i.i42, label %59
 
-58:                                               ; preds = %.lr.ph.i.i37
-  %59 = load ptr, ptr %0, align 8, !tbaa !51
-  %60 = getelementptr inbounds nuw i8, ptr %.01623.i.i38, i64 4
-  %.sroa.0.0.copyload.i.i20.i.i40 = load i32, ptr %60, align 4, !tbaa !22
-  %61 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %59, i32 %.sroa.0.0.copyload.i.i20.i.i40, i32 %.sroa.010.0.i) #3
-  br i1 %61, label %.critedge.i.i42, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit
+59:                                               ; preds = %.lr.ph.i.i37
+  %60 = load ptr, ptr %0, align 8, !tbaa !51
+  %61 = getelementptr inbounds nuw i8, ptr %.01623.i.i38, i64 4
+  %.sroa.0.0.copyload.i.i20.i.i40 = load i32, ptr %61, align 4, !tbaa !22
+  %62 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %60, i32 %.sroa.0.0.copyload.i.i20.i.i40, i32 %.sroa.010.0.i) #3
+  br i1 %62, label %.critedge.i.i42, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit
 
-.critedge.i.i42:                                  ; preds = %58, %.lr.ph.i.i37
-  %62 = getelementptr inbounds nuw i8, ptr %.01623.i.i38, i64 12
-  %.not.not.i.i43 = icmp eq ptr %62, %55
+.critedge.i.i42:                                  ; preds = %59, %.lr.ph.i.i37
+  %63 = getelementptr inbounds nuw i8, ptr %.01623.i.i38, i64 12
+  %.not.not.i.i43 = icmp eq ptr %63, %56
   br i1 %.not.not.i.i43, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread, label %.lr.ph.i.i37
 
-_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit: ; preds = %58
+_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit: ; preds = %59
   tail call void @_ZN5clang6format20AffectedRangeManager17markAllAsAffectedEPKPNS0_13AnnotatedLineES5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %.02756, ptr noundef nonnull %.0.lcssa)
   br label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread
 
-63:                                               ; preds = %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit
-  %64 = tail call noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17nonPPLineAffectedEPNS0_13AnnotatedLineEPKS2_RN4llvm15SmallVectorImplIS3_EE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %11, ptr noundef %.02855, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %spec.select = select i1 %64, i1 true, i1 %.03054
-  %65 = getelementptr inbounds nuw i8, ptr %.02756, i64 8
+64:                                               ; preds = %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit
+  %65 = tail call noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17nonPPLineAffectedEPNS0_13AnnotatedLineEPKS2_RN4llvm15SmallVectorImplIS3_EE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %11, ptr noundef %.02855, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %spec.select = select i1 %65, i1 true, i1 %.03054
+  %66 = getelementptr inbounds nuw i8, ptr %.02756, i64 8
   br label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread
 
-_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread: ; preds = %.critedge.i.i42, %.critedge, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit, %63
-  %.2 = phi i1 [ %spec.select, %63 ], [ true, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit ], [ %.03054, %.critedge ], [ %.03054, %.critedge.i.i42 ]
-  %.129 = phi ptr [ %11, %63 ], [ %.02855, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit ], [ %.02855, %.critedge ], [ %.02855, %.critedge.i.i42 ]
-  %.1 = phi ptr [ %65, %63 ], [ %.0.lcssa, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit ], [ %.0.lcssa, %.critedge ], [ %.0.lcssa, %.critedge.i.i42 ]
+_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread: ; preds = %.critedge.i.i42, %.critedge, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit, %64
+  %.2 = phi i1 [ %spec.select, %64 ], [ true, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit ], [ %.03054, %.critedge ], [ %.03054, %.critedge.i.i42 ]
+  %.129 = phi ptr [ %11, %64 ], [ %.02855, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit ], [ %.02855, %.critedge ], [ %.02855, %.critedge.i.i42 ]
+  %.1 = phi ptr [ %66, %64 ], [ %.0.lcssa, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit ], [ %.0.lcssa, %.critedge ], [ %.0.lcssa, %.critedge.i.i42 ]
   %.not = icmp eq ptr %.1, %7
   br i1 %.not, label %._crit_edge, label %10
 

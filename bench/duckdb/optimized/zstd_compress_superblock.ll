@@ -531,7 +531,7 @@ _ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi
   %.pre494.i = ptrtoint ptr %.4204.ph.i to i64
   %.pre495.i = sub i64 %36, %.pre494.i
   %.pre496.i = ashr exact i64 %.pre495.i, 3
-  br label %.thread380.loopexit.i
+  br label %.thread380.loopexit.i, !llvm.loop !83
 
 .thread380.loopexit.i:                            ; preds = %_ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i, %..thread380.loopexit_crit_edge.i
   %.pre492.pre-phi.i = phi i64 [ %.pre496.i, %..thread380.loopexit_crit_edge.i ], [ %167, %_ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i ]

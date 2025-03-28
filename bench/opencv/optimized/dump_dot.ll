@@ -11095,9 +11095,12 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   %123 = load i64, ptr %122, align 8, !tbaa !47
   %124 = urem i64 %123, %100
   %.not19.i.i.i.i.i = icmp eq i64 %124, %101
-  br i1 %.not19.i.i.i.i.i, label %114, label %.loopexit.i.i, !llvm.loop !393
+  br i1 %.not19.i.i.i.i.i, label %114, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !393
 
-.loopexit.i.i:                                    ; preds = %121, %.lr.ph.i.i.i.i.i, %91, %96
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %121
+  br label %.loopexit.i.i, !llvm.loop !393
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %91, %..loopexit_crit_edge21.i.i.i.i.i, %96
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.35) #27
           to label %.noexc10 unwind label %180
 
@@ -17348,11 +17351,14 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN2cv6GShapeESt4pairIKS
   %47 = load i64, ptr %46, align 8, !tbaa !47
   %48 = urem i64 %47, %11
   %.not19.i.i = icmp eq i64 %48, %12
-  br i1 %.not19.i.i, label %38, label %.critedge, !llvm.loop !508
+  br i1 %.not19.i.i, label %38, label %..loopexit_crit_edge21.i.i, !llvm.loop !508
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %45, %24, %.thread30
-  %49 = phi i64 [ %28, %24 ], [ %12, %.thread30 ], [ %12, %45 ], [ %12, %.lr.ph.i.i ]
-  %50 = phi i64 [ %25, %24 ], [ %9, %.thread30 ], [ %9, %45 ], [ %9, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %45
+  br label %.critedge, !llvm.loop !508
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread30
+  %49 = phi i64 [ %28, %24 ], [ %12, %.thread30 ], [ %12, %..loopexit_crit_edge21.i.i ], [ %12, %.lr.ph.i.i ]
+  %50 = phi i64 [ %25, %24 ], [ %9, %.thread30 ], [ %9, %..loopexit_crit_edge21.i.i ], [ %9, %.lr.ph.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %52 = load ptr, ptr %3, align 8, !tbaa !509

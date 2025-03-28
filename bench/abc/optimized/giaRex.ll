@@ -300,7 +300,7 @@ Vec_IntFind.exit:                                 ; preds = %51, %41, %._crit_ed
 
 ..critedge8.loopexit_crit_edge:                   ; preds = %124
   %.val107.pre.pre = load ptr, ptr %31, align 8, !tbaa !40
-  br label %.critedge8
+  br label %.critedge8, !llvm.loop !42
 
 .critedge8:                                       ; preds = %.lr.ph135, %..critedge8.loopexit_crit_edge, %.critedge6
   %.val107 = phi ptr [ %.val107150, %.critedge6 ], [ %.val107.pre.pre, %..critedge8.loopexit_crit_edge ], [ %.val107.pre.pre152, %.lr.ph135 ]

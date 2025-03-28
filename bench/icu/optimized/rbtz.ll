@@ -2350,7 +2350,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findNex
   %60 = phi ptr [ %64, %.lr.ph ], [ %56, %.lr.ph.preheader ]
   %.079129137 = phi i32 [ %62, %.lr.ph ], [ %54, %.lr.ph.preheader ]
   %61 = icmp sgt i32 %.079129137, 1
-  br i1 %61, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !52
+  br i1 %61, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !52
 
 .lr.ph:                                           ; preds = %.lr.ph138
   %62 = add nsw i32 %.079129137, -1
@@ -2363,8 +2363,11 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findNex
   %or.cond94 = or i1 %66, %or.cond93
   br i1 %or.cond94, label %._crit_edge.loopexit, label %.lr.ph138, !llvm.loop !52
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph138, %.lr.ph, %.lr.ph.preheader
-  %.0.lcssa.ph = phi ptr [ %24, %.lr.ph.preheader ], [ %60, %.lr.ph ], [ %60, %.lr.ph138 ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph138
+  br label %._crit_edge.loopexit, !llvm.loop !52
+
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %.._crit_edge.loopexit_crit_edge, %.lr.ph.preheader
+  %.0.lcssa.ph = phi ptr [ %60, %.._crit_edge.loopexit_crit_edge ], [ %24, %.lr.ph.preheader ], [ %60, %.lr.ph ]
   %.pre133 = load double, ptr %.0.lcssa.ph, align 8, !tbaa !39
   br label %._crit_edge
 

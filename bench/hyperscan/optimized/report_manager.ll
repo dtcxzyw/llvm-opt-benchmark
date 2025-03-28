@@ -820,8 +820,8 @@ define hidden void @_ZN3ue213ReportManager11assignDkeysEPKNS_9RoseBuildE(ptr nou
   store i32 0, ptr %6, align 4
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
-  %.not39 = icmp eq ptr %16, %17
-  br i1 %.not39, label %._crit_edge, label %.lr.ph
+  %.not40 = icmp eq ptr %16, %17
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
@@ -911,8 +911,8 @@ _ZNSt3mapIjN3ue28flat_setIjSt4lessIjESaIjEEES3_SaISt4pairIKjS5_EEE11lower_boundE
 41:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
   %.pre = load i32, ptr %6, align 4
-  %.pre42 = load ptr, ptr %15, align 8
-  %.pre43 = load ptr, ptr %14, align 8
+  %.pre44 = load ptr, ptr %15, align 8
+  %.pre45 = load ptr, ptr %14, align 8
   br label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit
 
 42:                                               ; preds = %.critedge.i
@@ -927,8 +927,8 @@ _ZNSt3mapIjN3ue28flat_setIjSt4lessIjESaIjEEES3_SaISt4pairIKjS5_EEE11lower_boundE
   br label %56
 
 _ZN3ue2L16isExternalReportERKNS_6ReportE.exit:    ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %41
-  %46 = phi ptr [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %.pre43, %41 ]
-  %47 = phi ptr [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %.pre42, %41 ]
+  %46 = phi ptr [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %21, %.lr.ph ], [ %.pre45, %41 ]
+  %47 = phi ptr [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %22, %.lr.ph ], [ %.pre44, %41 ]
   %48 = phi i32 [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %23, %.lr.ph ], [ %.pre, %41 ]
   %49 = add i32 %48, 1
   store i32 %49, ptr %6, align 4
@@ -947,28 +947,28 @@ _ZN3ue2L16isExternalReportERKNS_6ReportE.exit:    ; preds = %.lr.ph, %.lr.ph, %.
 
 57:                                               ; preds = %._crit_edge
   %58 = load ptr, ptr %11, align 8
-  %.not34 = icmp eq ptr %58, %9
-  br i1 %.not34, label %._crit_edge38, label %.lr.ph37
+  %.not35 = icmp eq ptr %58, %9
+  br i1 %.not35, label %._crit_edge39, label %.lr.ph38
 
-.lr.ph37:                                         ; preds = %57
+.lr.ph38:                                         ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 288
   br label %72
 
-._crit_edge38:                                    ; preds = %111, %57
+._crit_edge39:                                    ; preds = %111, %57
   %62 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3ue213RoseDedupeAuxESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3ue213RoseDedupeAuxEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN3ue213RoseDedupeAuxEEclEPS1_.exit.i: ; preds = %._crit_edge38
+_ZNKSt14default_deleteIN3ue213RoseDedupeAuxEEclEPS1_.exit.i: ; preds = %._crit_edge39
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef nonnull align 8 dereferenceable(8) %62) #21
   br label %_ZNSt10unique_ptrIN3ue213RoseDedupeAuxESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3ue213RoseDedupeAuxESt14default_deleteIS1_EED2Ev.exit: ; preds = %._crit_edge38, %_ZNKSt14default_deleteIN3ue213RoseDedupeAuxEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN3ue213RoseDedupeAuxESt14default_deleteIS1_EED2Ev.exit: ; preds = %._crit_edge39, %_ZNKSt14default_deleteIN3ue213RoseDedupeAuxEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
   %66 = load ptr, ptr %10, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESt10_Select1stIS8_ES5_SaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %66)
@@ -990,12 +990,12 @@ _ZNSt3mapIjN3ue28flat_setIjSt4lessIjESaIjEEES3_SaISt4pairIKjS5_EEED2Ev.exit: ; p
           cleanup
   br label %_ZNSt10unique_ptrIN3ue213RoseDedupeAuxESt14default_deleteIS1_EED2Ev.exit26
 
-72:                                               ; preds = %.lr.ph37, %111
-  %.sroa.027.035 = phi ptr [ %58, %.lr.ph37 ], [ %112, %111 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 32
+72:                                               ; preds = %.lr.ph38, %111
+  %.sroa.027.036 = phi ptr [ %58, %.lr.ph38 ], [ %112, %111 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.027.036, i64 32
   %74 = load i32, ptr %73, align 8
   %75 = load ptr, ptr %8, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.027.036, i64 40
   %77 = load ptr, ptr %75, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
@@ -1044,9 +1044,12 @@ _ZNSt3mapIjN3ue28flat_setIjSt4lessIjESaIjEEES3_SaISt4pairIKjS5_EEED2Ev.exit: ; p
   %103 = zext i32 %102 to i64
   %104 = urem i64 %103, %87
   %.not19.i.i.i.i = icmp eq i64 %104, %88
-  br i1 %.not19.i.i.i.i, label %97, label %.loopexit.i.i, !llvm.loop !22
+  br i1 %.not19.i.i.i.i, label %97, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !22
 
-.loopexit.i.i:                                    ; preds = %100, %.lr.ph.i.i.i.i22, %84
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %100
+  br label %.loopexit.i.i, !llvm.loop !22
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i22, %..loopexit_crit_edge21.i.i.i.i, %84
   %105 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
           to label %.noexc23 unwind label %113
 
@@ -1073,9 +1076,9 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   br label %111
 
 111:                                              ; preds = %81, %.loopexit
-  %112 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.027.035) #25
+  %112 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.027.036) #25
   %.not = icmp eq ptr %112, %9
-  br i1 %.not, label %._crit_edge38, label %72
+  br i1 %.not, label %._crit_edge39, label %72
 
 113:                                              ; preds = %.loopexit.i.i
   %114 = landingpad { ptr, i32 }
@@ -1310,7 +1313,10 @@ define hidden noundef i32 @_ZNK3ue213ReportManager7getDkeyERKNS_6ReportE(ptr nou
   %36 = zext i32 %35 to i64
   %37 = urem i64 %36, %20
   %.not19.i.i.i.i = icmp eq i64 %37, %21
-  br i1 %.not19.i.i.i.i, label %30, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, !llvm.loop !22
+  br i1 %.not19.i.i.i.i, label %30, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !22
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %33
+  br label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, !llvm.loop !22
 
 _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit: ; preds = %30, %12, %25
   %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %12 ], [ %32, %30 ]
@@ -1324,8 +1330,8 @@ switch.hole_check:                                ; preds = %2
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %4
 
-_ZN3ue2L16isExternalReportERKNS_6ReportE.exit:    ; preds = %.lr.ph.i.i.i.i, %33, %11, %switch.hole_check, %16, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
-  %.0 = phi i32 [ %39, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ -1, %16 ], [ -1, %switch.hole_check ], [ -1, %11 ], [ -1, %33 ], [ -1, %.lr.ph.i.i.i.i ]
+_ZN3ue2L16isExternalReportERKNS_6ReportE.exit:    ; preds = %.lr.ph.i.i.i.i, %11, %switch.hole_check, %..loopexit_crit_edge21.i.i.i.i, %16, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
+  %.0 = phi i32 [ %39, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ -1, %16 ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %switch.hole_check ], [ -1, %11 ], [ -1, %.lr.ph.i.i.i.i ]
   ret i32 %.0
 }
 
@@ -1391,7 +1397,10 @@ define hidden void @_ZN3ue213ReportManager17registerExtReportEjRKNS_20external_r
   %36 = zext i32 %35 to i64
   %37 = urem i64 %36, %20
   %.not19.i.i.i.i = icmp eq i64 %37, %21
-  br i1 %.not19.i.i.i.i, label %30, label %.loopexit, !llvm.loop !49
+  br i1 %.not19.i.i.i.i, label %30, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !49
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %33
+  br label %.loopexit, !llvm.loop !49
 
 _ZNSt13unordered_mapIjN3ue220external_report_infoESt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE4findERS7_.exit: ; preds = %30, %13, %25
   %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %13 ], [ %32, %30 ]
@@ -1522,7 +1531,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %74
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %5) #21
   resume { ptr, i32 } %.pn.pn
 
-.loopexit:                                        ; preds = %33, %.lr.ph.i.i.i.i, %12, %17
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %12, %17, %..loopexit_crit_edge21.i.i.i.i
   %84 = call { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRjRKS3_EEES0_INS6_14_Node_iteratorIS4_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(8) %2)
   %.pre = load i8, ptr %2, align 4, !range !18
   br label %85
@@ -1679,9 +1688,12 @@ define hidden noundef i32 @_ZNK3ue213ReportManager16getProgramOffsetEj(ptr nound
   %32 = zext i32 %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i.i, label %26, label %.loopexit.i.i, !llvm.loop !22
+  br i1 %.not19.i.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !22
 
-.loopexit.i.i:                                    ; preds = %29, %.lr.ph.i.i.i.i.i, %7, %12
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %29
+  br label %.loopexit.i.i, !llvm.loop !22
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %7, %..loopexit_crit_edge21.i.i.i.i.i, %12
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.19) #22
   unreachable
 
@@ -3614,11 +3626,14 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN3ue220exte
   %41 = zext i32 %40 to i64
   %42 = urem i64 %41, %13
   %.not19.i.i = icmp eq i64 %42, %14
-  br i1 %.not19.i.i, label %35, label %.critedge28, !llvm.loop !49
+  br i1 %.not19.i.i, label %35, label %..loopexit_crit_edge21.i.i, !llvm.loop !49
 
-.critedge28:                                      ; preds = %.lr.ph.i.i, %38, %25, %.thread
-  %43 = phi i64 [ %29, %25 ], [ %14, %.thread ], [ %14, %38 ], [ %14, %.lr.ph.i.i ]
-  %44 = phi i64 [ %26, %25 ], [ %11, %.thread ], [ %11, %38 ], [ %11, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %38
+  br label %.critedge28, !llvm.loop !49
+
+.critedge28:                                      ; preds = %.lr.ph.i.i, %25, %..loopexit_crit_edge21.i.i, %.thread
+  %43 = phi i64 [ %29, %25 ], [ %14, %.thread ], [ %14, %..loopexit_crit_edge21.i.i ], [ %14, %.lr.ph.i.i ]
+  %44 = phi i64 [ %26, %25 ], [ %11, %.thread ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
   %45 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %43, i64 noundef %44, ptr noundef nonnull %4, i64 noundef 1)
           to label %_ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30
 
@@ -3911,11 +3926,14 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_
   %41 = zext i32 %40 to i64
   %42 = urem i64 %41, %13
   %.not19.i.i = icmp eq i64 %42, %14
-  br i1 %.not19.i.i, label %35, label %.critedge28, !llvm.loop !22
+  br i1 %.not19.i.i, label %35, label %..loopexit_crit_edge21.i.i, !llvm.loop !22
 
-.critedge28:                                      ; preds = %.lr.ph.i.i, %38, %25, %.thread
-  %43 = phi i64 [ %29, %25 ], [ %14, %.thread ], [ %14, %38 ], [ %14, %.lr.ph.i.i ]
-  %44 = phi i64 [ %26, %25 ], [ %11, %.thread ], [ %11, %38 ], [ %11, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %38
+  br label %.critedge28, !llvm.loop !22
+
+.critedge28:                                      ; preds = %.lr.ph.i.i, %25, %..loopexit_crit_edge21.i.i, %.thread
+  %43 = phi i64 [ %29, %25 ], [ %14, %.thread ], [ %14, %..loopexit_crit_edge21.i.i ], [ %14, %.lr.ph.i.i ]
+  %44 = phi i64 [ %26, %25 ], [ %11, %.thread ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
   %45 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %43, i64 noundef %44, ptr noundef nonnull %4, i64 noundef 1)
           to label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30
 

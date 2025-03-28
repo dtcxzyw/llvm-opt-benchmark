@@ -287,8 +287,14 @@ get_options.exit:                                 ; preds = %30
   %.not3546.i = icmp eq i32 %106, 0
   br i1 %.not3546.i, label %.critedge40.i, label %.lr.ph.i, !llvm.loop !56
 
-.critedge40.i:                                    ; preds = %.lr.ph.i, %.critedge44.i
-  %107 = phi ptr [ %104, %.critedge44.i ], [ %117, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %.critedge44.i
+  br label %113, !llvm.loop !56
+
+..critedge40_crit_edge.i:                         ; preds = %113
+  br label %.critedge40.i, !llvm.loop !56
+
+.critedge40.i:                                    ; preds = %..critedge40_crit_edge.i, %.critedge44.i
+  %107 = phi ptr [ %118, %..critedge40_crit_edge.i ], [ %104, %.critedge44.i ]
   %108 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %107, i64 %indvars.iv50.i, i32 12
   %109 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %108) #12
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
@@ -297,68 +303,68 @@ get_options.exit:                                 ; preds = %30
   %112 = icmp samesign ult i64 %indvars.iv.next51.i, %111
   br i1 %112, label %.critedge44.i, label %threads_stop.exit, !llvm.loop !57
 
-.lr.ph.i:                                         ; preds = %.critedge44.i, %.lr.ph.i
-  %113 = phi ptr [ %118, %.lr.ph.i ], [ %105, %.critedge44.i ]
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 480
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 440
-  %116 = call i32 @pthread_cond_wait(ptr noundef nonnull %114, ptr noundef nonnull %115) #12
-  %117 = load ptr, ptr %87, align 8, !tbaa !48
-  %118 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %117, i64 %indvars.iv50.i
-  %119 = load i32, ptr %118, align 8, !tbaa !50
-  %.not35.i = icmp eq i32 %119, 0
-  br i1 %.not35.i, label %.critedge40.i, label %.lr.ph.i, !llvm.loop !58
+113:                                              ; preds = %113, %.lr.ph.i
+  %114 = phi ptr [ %105, %.lr.ph.i ], [ %119, %113 ]
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 480
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 440
+  %117 = call i32 @pthread_cond_wait(ptr noundef nonnull %115, ptr noundef nonnull %116) #12
+  %118 = load ptr, ptr %87, align 8, !tbaa !48
+  %119 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %118, i64 %indvars.iv50.i
+  %120 = load i32, ptr %119, align 8, !tbaa !50
+  %.not35.i = icmp eq i32 %120, 0
+  br i1 %.not35.i, label %..critedge40_crit_edge.i, label %113, !llvm.loop !58
 
 threads_stop.exit:                                ; preds = %.critedge40.i, %._crit_edge.i, %84, %82
-  %120 = getelementptr inbounds nuw i8, ptr %.097, i64 344
-  %121 = load i32, ptr %13, align 4, !tbaa !20
-  %122 = call i32 @lzma_outq_init(ptr noundef nonnull %120, ptr noundef %1, i32 noundef %121) #12
-  %.not108 = icmp eq i32 %122, 0
-  br i1 %.not108, label %123, label %get_options.exit.thread
+  %121 = getelementptr inbounds nuw i8, ptr %.097, i64 344
+  %122 = load i32, ptr %13, align 4, !tbaa !20
+  %123 = call i32 @lzma_outq_init(ptr noundef nonnull %121, ptr noundef %1, i32 noundef %122) #12
+  %.not108 = icmp eq i32 %123, 0
+  br i1 %.not108, label %124, label %get_options.exit.thread
 
-123:                                              ; preds = %threads_stop.exit
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %125 = load i32, ptr %124, align 8, !tbaa !59
-  %126 = getelementptr inbounds nuw i8, ptr %.097, i64 416
-  store i32 %125, ptr %126, align 8, !tbaa !60
-  %127 = getelementptr inbounds nuw i8, ptr %.097, i64 16
-  call void @lzma_filters_free(ptr noundef nonnull %127, ptr noundef %1) #12
-  %128 = getelementptr inbounds nuw i8, ptr %.097, i64 96
+124:                                              ; preds = %threads_stop.exit
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %126 = load i32, ptr %125, align 8, !tbaa !59
+  %127 = getelementptr inbounds nuw i8, ptr %.097, i64 416
+  store i32 %126, ptr %127, align 8, !tbaa !60
+  %128 = getelementptr inbounds nuw i8, ptr %.097, i64 16
   call void @lzma_filters_free(ptr noundef nonnull %128, ptr noundef %1) #12
-  %129 = call i32 @lzma_filters_copy(ptr noundef nonnull %storemerge.i, ptr noundef nonnull %127, ptr noundef %1) #12
-  %.not109 = icmp eq i32 %129, 0
-  br i1 %.not109, label %130, label %get_options.exit.thread
+  %129 = getelementptr inbounds nuw i8, ptr %.097, i64 96
+  call void @lzma_filters_free(ptr noundef nonnull %129, ptr noundef %1) #12
+  %130 = call i32 @lzma_filters_copy(ptr noundef nonnull %storemerge.i, ptr noundef nonnull %128, ptr noundef %1) #12
+  %.not109 = icmp eq i32 %130, 0
+  br i1 %.not109, label %131, label %get_options.exit.thread
 
-130:                                              ; preds = %123
-  %131 = getelementptr inbounds nuw i8, ptr %.097, i64 176
-  %132 = load ptr, ptr %131, align 8, !tbaa !42
-  call void @lzma_index_end(ptr noundef %132, ptr noundef %1) #12
-  %133 = call ptr @lzma_index_init(ptr noundef %1) #12
-  store ptr %133, ptr %131, align 8, !tbaa !42
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %get_options.exit.thread, label %135
+131:                                              ; preds = %124
+  %132 = getelementptr inbounds nuw i8, ptr %.097, i64 176
+  %133 = load ptr, ptr %132, align 8, !tbaa !42
+  call void @lzma_index_end(ptr noundef %133, ptr noundef %1) #12
+  %134 = call ptr @lzma_index_init(ptr noundef %1) #12
+  store ptr %134, ptr %132, align 8, !tbaa !42
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %get_options.exit.thread, label %136
 
-135:                                              ; preds = %130
-  %136 = getelementptr inbounds nuw i8, ptr %.097, i64 264
-  store i32 0, ptr %136, align 8, !tbaa !61
-  %137 = load i32, ptr %36, align 8, !tbaa !24
-  %138 = getelementptr inbounds nuw i8, ptr %.097, i64 280
-  store i32 %137, ptr %138, align 8, !tbaa !62
-  %139 = getelementptr inbounds nuw i8, ptr %.097, i64 320
-  %140 = call i32 @lzma_stream_header_encode(ptr noundef nonnull %136, ptr noundef nonnull %139) #12
-  %.not110 = icmp eq i32 %140, 0
-  br i1 %.not110, label %141, label %get_options.exit.thread
+136:                                              ; preds = %131
+  %137 = getelementptr inbounds nuw i8, ptr %.097, i64 264
+  store i32 0, ptr %137, align 8, !tbaa !61
+  %138 = load i32, ptr %36, align 8, !tbaa !24
+  %139 = getelementptr inbounds nuw i8, ptr %.097, i64 280
+  store i32 %138, ptr %139, align 8, !tbaa !62
+  %140 = getelementptr inbounds nuw i8, ptr %.097, i64 320
+  %141 = call i32 @lzma_stream_header_encode(ptr noundef nonnull %137, ptr noundef nonnull %140) #12
+  %.not110 = icmp eq i32 %141, 0
+  br i1 %.not110, label %142, label %get_options.exit.thread
 
-141:                                              ; preds = %135
-  %142 = getelementptr inbounds nuw i8, ptr %.097, i64 336
-  store i64 0, ptr %142, align 8, !tbaa !63
-  %143 = getelementptr inbounds nuw i8, ptr %.097, i64 456
-  store i64 0, ptr %143, align 8, !tbaa !64
-  %144 = getelementptr inbounds nuw i8, ptr %.097, i64 464
-  store i64 12, ptr %144, align 8, !tbaa !65
+142:                                              ; preds = %136
+  %143 = getelementptr inbounds nuw i8, ptr %.097, i64 336
+  store i64 0, ptr %143, align 8, !tbaa !63
+  %144 = getelementptr inbounds nuw i8, ptr %.097, i64 456
+  store i64 0, ptr %144, align 8, !tbaa !64
+  %145 = getelementptr inbounds nuw i8, ptr %.097, i64 464
+  store i64 12, ptr %145, align 8, !tbaa !65
   br label %get_options.exit.thread
 
-get_options.exit.thread:                          ; preds = %30, %28, %19, %10, %12, %8, %50, %54, %141, %threads_stop.exit, %123, %135, %44, %75, %130, %39, %35, %get_options.exit
-  %.1 = phi i32 [ 8, %get_options.exit ], [ 11, %35 ], [ 3, %39 ], [ 5, %50 ], [ 5, %54 ], [ 0, %141 ], [ %140, %135 ], [ %129, %123 ], [ %122, %threads_stop.exit ], [ 5, %44 ], [ 5, %75 ], [ 5, %130 ], [ 8, %28 ], [ 8, %19 ], [ 8, %10 ], [ 8, %12 ], [ 11, %8 ], [ 5, %30 ]
+get_options.exit.thread:                          ; preds = %30, %28, %19, %10, %12, %8, %50, %54, %142, %threads_stop.exit, %124, %136, %44, %75, %131, %39, %35, %get_options.exit
+  %.1 = phi i32 [ 8, %get_options.exit ], [ 11, %35 ], [ 3, %39 ], [ 5, %50 ], [ 5, %54 ], [ 0, %142 ], [ %141, %136 ], [ %130, %124 ], [ %123, %threads_stop.exit ], [ 5, %44 ], [ 5, %75 ], [ 5, %131 ], [ 8, %28 ], [ 8, %19 ], [ 8, %10 ], [ 8, %12 ], [ 11, %8 ], [ 5, %30 ]
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #12
   ret i32 %.1
 }
@@ -1146,9 +1152,12 @@ define internal void @get_progress(ptr noundef %0, ptr noundef captures(none) in
 
 .critedge33.lr.ph:                                ; preds = %.critedge35
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  br label %.critedge33
+  br label %.critedge33, !llvm.loop !92
 
-.critedge:                                        ; preds = %.critedge33, %.critedge35
+..critedge_crit_edge:                             ; preds = %.critedge33
+  br label %.critedge, !llvm.loop !92
+
+.critedge:                                        ; preds = %..critedge_crit_edge, %.critedge35
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #12
   ret void
 
@@ -1174,7 +1183,7 @@ define internal void @get_progress(ptr noundef %0, ptr noundef captures(none) in
   %28 = load i32, ptr %9, align 4, !tbaa !49
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %27, %29
-  br i1 %30, label %.critedge33, label %.critedge, !llvm.loop !95
+  br i1 %30, label %.critedge33, label %..critedge_crit_edge, !llvm.loop !95
 }
 
 ; Function Attrs: nounwind uwtable

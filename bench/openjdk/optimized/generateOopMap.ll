@@ -2884,21 +2884,21 @@ define hidden void @_ZN14GenerateOopMap17do_interpretationEv(ptr noundef nonnull
 
 10:                                               ; preds = %7
   tail call void @_ZN14GenerateOopMap17init_basic_blocksEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
-  %.pre8 = load i8, ptr %4, align 8
+  %.pre10 = load i8, ptr %4, align 8
   br label %11
 
 11:                                               ; preds = %10, %7
-  %12 = phi i8 [ %.pre8, %10 ], [ %8, %7 ]
+  %12 = phi i8 [ %.pre10, %10 ], [ %8, %7 ]
   %13 = trunc i8 %12 to i1
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %11
   tail call void @_ZN14GenerateOopMap24setup_method_entry_stateEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
-  %.pre9 = load i8, ptr %4, align 8
+  %.pre11 = load i8, ptr %4, align 8
   br label %15
 
 15:                                               ; preds = %14, %11
-  %16 = phi i8 [ %.pre9, %14 ], [ %12, %11 ]
+  %16 = phi i8 [ %.pre11, %14 ], [ %12, %11 ]
   %17 = trunc i8 %16 to i1
   br i1 %17, label %_ZN14GenerateOopMap10interp_allEv.exit, label %18
 
@@ -2941,17 +2941,20 @@ define hidden void @_ZN14GenerateOopMap17do_interpretationEv(ptr noundef nonnull
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i1, 1
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %35, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !26
+  br i1 %35, label %.lr.ph.i, label %..critedge2.i_crit_edge, !llvm.loop !26
 
-.critedge2.i:                                     ; preds = %.lr.ph.i, %32
+..critedge2.i_crit_edge:                          ; preds = %32
+  br label %.critedge2.i, !llvm.loop !26
+
+.critedge2.i:                                     ; preds = %.lr.ph.i, %..critedge2.i_crit_edge
   br i1 %.2.i, label %19, label %.critedge2.i._ZN14GenerateOopMap10interp_allEv.exit.loopexit_crit_edge
 
 .critedge2.i._ZN14GenerateOopMap10interp_allEv.exit.loopexit_crit_edge: ; preds = %.critedge2.i
-  %.pre10.pre = load i8, ptr %4, align 8
+  %.pre12.pre = load i8, ptr %4, align 8
   br label %_ZN14GenerateOopMap10interp_allEv.exit
 
 _ZN14GenerateOopMap10interp_allEv.exit:           ; preds = %19, %.critedge2.i._ZN14GenerateOopMap10interp_allEv.exit.loopexit_crit_edge, %15
-  %36 = phi i8 [ %16, %15 ], [ %.pre10.pre, %.critedge2.i._ZN14GenerateOopMap10interp_allEv.exit.loopexit_crit_edge ], [ %21, %19 ]
+  %36 = phi i8 [ %16, %15 ], [ %.pre12.pre, %.critedge2.i._ZN14GenerateOopMap10interp_allEv.exit.loopexit_crit_edge ], [ %21, %19 ]
   %37 = trunc i8 %36 to i1
   br i1 %37, label %39, label %38
 
@@ -3334,12 +3337,15 @@ define hidden void @_ZN14GenerateOopMap10interp_allEv(ptr noundef nonnull align 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv19, 1
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %.critedge2, !llvm.loop !26
+  br i1 %23, label %.lr.ph, label %..critedge2_crit_edge, !llvm.loop !26
 
-.critedge2:                                       ; preds = %20, %.lr.ph, %.lr.ph.preheader
-  %24 = phi i32 [ %5, %.lr.ph.preheader ], [ %21, %.lr.ph ], [ %21, %20 ]
-  %25 = phi i32 [ %6, %.lr.ph.preheader ], [ %21, %.lr.ph ], [ %21, %20 ]
-  %.1.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.2, %.lr.ph ], [ %.2, %20 ]
+..critedge2_crit_edge:                            ; preds = %20
+  br label %.critedge2, !llvm.loop !26
+
+.critedge2:                                       ; preds = %.lr.ph, %..critedge2_crit_edge, %.lr.ph.preheader
+  %24 = phi i32 [ %21, %..critedge2_crit_edge ], [ %5, %.lr.ph.preheader ], [ %21, %.lr.ph ]
+  %25 = phi i32 [ %21, %..critedge2_crit_edge ], [ %6, %.lr.ph.preheader ], [ %21, %.lr.ph ]
+  %.1.lcssa = phi i1 [ %.2, %..critedge2_crit_edge ], [ false, %.lr.ph.preheader ], [ %.2, %.lr.ph ]
   br i1 %.1.lcssa, label %4, label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %4

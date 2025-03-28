@@ -3470,7 +3470,7 @@ read_buf.exit:                                    ; preds = %125, %148
 
 ._crit_edge:                                      ; preds = %165
   %.pre282 = load ptr, ptr %0, align 8, !tbaa !18
-  br label %split
+  br label %split, !llvm.loop !107
 
 split:                                            ; preds = %44, %22, %._crit_edge
   %166 = phi ptr [ %.pre282, %._crit_edge ], [ %26, %22 ], [ %26, %44 ]

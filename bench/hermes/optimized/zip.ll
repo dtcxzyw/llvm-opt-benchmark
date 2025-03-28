@@ -3319,7 +3319,7 @@ do.end1083:                                       ; preds = %do.end1083.sink.spl
 do.end1083.if.end1093_crit_edge:                  ; preds = %do.end1083
   %.pre955 = add i32 %dist.55, -16
   %.pre956 = zext i32 %.pre955 to i64
-  br label %if.end1093
+  br label %if.end1093, !llvm.loop !32
 
 if.end1093:                                       ; preds = %do.end1083.if.end1093_crit_edge, %if.end1045
   %idxprom1105.pre-phi = phi i64 [ %.pre956, %do.end1083.if.end1093_crit_edge ], [ %idxprom1047, %if.end1045 ]
@@ -5285,7 +5285,7 @@ land.rhs140:                                      ; preds = %land.lhs.true133
 land.rhs140.do.end.loopexit_crit_edge:            ; preds = %land.rhs140
   %.pre.pre = load i8, ptr %scevgep295, align 1
   %.pre298.pre = load i8, ptr %scevgep297, align 1
-  br label %do.end
+  br label %do.end, !llvm.loop !58
 
 do.end.split.loop.exit219:                        ; preds = %land.lhs.true126
   %incdec.ptr127.le = getelementptr inbounds nuw i8, ptr %p.0, i64 6

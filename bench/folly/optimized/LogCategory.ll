@@ -3486,8 +3486,8 @@ _ZN5folly16SynchronizedBaseINS_12SynchronizedISt6vectorISt10shared_ptrINS_10LogH
   %17 = load ptr, ptr %16, align 8, !tbaa !94
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8, !tbaa !94
-  %.not20 = icmp eq ptr %17, %19
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not21 = icmp eq ptr %17, %19
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5folly16SynchronizedBaseINS_12SynchronizedISt6vectorISt10shared_ptrINS_10LogHandlerEESaIS5_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE5wlockEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3520,10 +3520,10 @@ _ZN5folly9LockedPtrINS_12SynchronizedISt6vectorISt10shared_ptrINS_10LogHandlerEE
   ret void
 
 30:                                               ; preds = %.lr.ph, %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit
-  %.sroa.012.021 = phi ptr [ %17, %.lr.ph ], [ %94, %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit ]
+  %.sroa.012.022 = phi ptr [ %17, %.lr.ph ], [ %94, %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit ]
   %31 = load i64, ptr %20, align 8, !tbaa !148
   %.not.not.i.i.i = icmp eq i64 %31, 0
-  %32 = load ptr, ptr %.sroa.012.021, align 8
+  %32 = load ptr, ptr %.sroa.012.022, align 8
   br i1 %.not.not.i.i.i, label %.preheader, label %37
 
 .preheader:                                       ; preds = %30, %33
@@ -3571,14 +3571,17 @@ _ZN5folly9LockedPtrINS_12SynchronizedISt6vectorISt10shared_ptrINS_10LogHandlerEE
   %55 = ptrtoint ptr %54 to i64
   %56 = urem i64 %55, %39
   %.not19.i.i.i.i.i = icmp eq i64 %56, %40
-  br i1 %.not19.i.i.i.i.i, label %49, label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit, !llvm.loop !160
+  br i1 %.not19.i.i.i.i.i, label %49, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !160
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %52
+  br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit, !llvm.loop !160
 
 .loopexit:                                        ; preds = %49, %33, %44
   %.sroa.06.1.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.06.0.i.i.i, %33 ], [ %51, %49 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !86
-  store ptr %58, ptr %.sroa.012.021, align 8, !tbaa !86
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 8
+  store ptr %58, ptr %.sroa.012.022, align 8, !tbaa !86
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.012.022, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !45
   %62 = load ptr, ptr %59, align 8, !tbaa !45
@@ -3659,8 +3662,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
   store ptr %61, ptr %59, align 8, !tbaa !45
   br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit
 
-_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i, %52, %.preheader, %37, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %.loopexit
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 16
+_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i, %37, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %.loopexit
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.012.022, i64 16
   %.not = icmp eq ptr %94, %19
   br i1 %.not, label %._crit_edge, label %30
 }

@@ -2177,11 +2177,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %158 = getelementptr i8, ptr %157, i64 4
   %.val222 = load i32, ptr %158, align 4, !tbaa !49
   %159 = icmp slt i32 %156, %.val222
-  br i1 %159, label %76, label %.critedge.loopexit, !llvm.loop !89
+  br i1 %159, label %76, label %Vec_IntPush.exit..critedge.loopexit_crit_edge, !llvm.loop !89
 
-.critedge.loopexit:                               ; preds = %76, %Vec_IntPush.exit, %.lr.ph
-  %.val227396 = phi ptr [ %71, %.lr.ph ], [ %157, %Vec_IntPush.exit ], [ %157, %76 ]
-  %160 = phi ptr [ %68, %.lr.ph ], [ %152, %Vec_IntPush.exit ], [ %152, %76 ]
+Vec_IntPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_IntPush.exit
+  br label %.critedge.loopexit, !llvm.loop !89
+
+.critedge.loopexit:                               ; preds = %76, %Vec_IntPush.exit..critedge.loopexit_crit_edge, %.lr.ph
+  %.val227396 = phi ptr [ %157, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ %71, %.lr.ph ], [ %157, %76 ]
+  %160 = phi ptr [ %152, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ %68, %.lr.ph ], [ %152, %76 ]
   %.val221.pre = load i32, ptr %48, align 4, !tbaa !49
   %.pre = load i32, ptr %66, align 4, !tbaa !49
   br label %.critedge

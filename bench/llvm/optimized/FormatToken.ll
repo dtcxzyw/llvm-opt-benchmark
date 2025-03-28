@@ -1056,12 +1056,15 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread: ; preds = %.
   %93 = load i8, ptr %92, align 8
   %94 = and i8 %93, 1
   %.not84 = icmp eq i8 %94, 0
-  br i1 %.not84, label %.critedge, label %82, !llvm.loop !210
+  br i1 %.not84, label %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread..critedge.loopexit_crit_edge, label %82, !llvm.loop !210
 
-.critedge:                                        ; preds = %82, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103, %.lr.ph174, %.preheader
-  %.273.lcssa = phi i1 [ %.071187, %.preheader ], [ %.071187, %.lr.ph174 ], [ %.273172238, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103 ], [ %78, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread ], [ %78, %82 ]
-  %.2.lcssa = phi ptr [ %.1188, %.preheader ], [ %.1188, %.lr.ph174 ], [ %.2173237, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103 ], [ %.pre225, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread ], [ %.pre225, %82 ]
-  %.lcssa = phi i8 [ %76, %.preheader ], [ %76, %.lr.ph174 ], [ %86, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103 ], [ %93, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread ], [ %93, %82 ]
+_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread..critedge.loopexit_crit_edge: ; preds = %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread
+  br label %.critedge, !llvm.loop !210
+
+.critedge:                                        ; preds = %82, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103, %.lr.ph174, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread..critedge.loopexit_crit_edge, %.preheader
+  %.273.lcssa = phi i1 [ %.071187, %.preheader ], [ %78, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread..critedge.loopexit_crit_edge ], [ %.071187, %.lr.ph174 ], [ %.273172238, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103 ], [ %78, %82 ]
+  %.2.lcssa = phi ptr [ %.1188, %.preheader ], [ %.pre225, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread..critedge.loopexit_crit_edge ], [ %.1188, %.lr.ph174 ], [ %.2173237, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103 ], [ %.pre225, %82 ]
+  %.lcssa = phi i8 [ %76, %.preheader ], [ %93, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103.thread..critedge.loopexit_crit_edge ], [ %76, %.lr.ph174 ], [ %86, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit103 ], [ %93, %82 ]
   %95 = load i64, ptr %51, align 8, !tbaa !207
   %96 = add i64 %95, 1
   %97 = load i64, ptr %52, align 8, !tbaa !208

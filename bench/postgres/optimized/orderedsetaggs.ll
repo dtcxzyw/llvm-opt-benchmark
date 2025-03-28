@@ -962,13 +962,13 @@ define dso_local i64 @percentile_disc_multi_final(ptr noundef captures(none) %0)
 .lr.ph.preheader:                                 ; preds = %40
   %54 = load i64, ptr %44, align 8
   %55 = icmp sgt i64 %54, 0
-  br i1 %55, label %._crit_edge, label %.lr.ph77
+  br i1 %55, label %._crit_edge.loopexit, label %.lr.ph77
 
 .lr.ph:                                           ; preds = %.lr.ph77
   %56 = getelementptr inbounds nuw %struct.pct_info, ptr %44, i64 %indvars.iv.next
   %57 = load i64, ptr %56, align 8
   %58 = icmp sgt i64 %57, 0
-  br i1 %58, label %._crit_edge.loopexit.loopexit, label %.lr.ph77, !llvm.loop !10
+  br i1 %58, label %._crit_edge.loopexit, label %.lr.ph77, !llvm.loop !10
 
 .lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv76 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
@@ -983,15 +983,20 @@ define dso_local i64 @percentile_disc_multi_final(ptr noundef captures(none) %0)
   %64 = load i32, ptr %4, align 4
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %.lr.ph, label %._crit_edge.loopexit.loopexit, !llvm.loop !10
+  br i1 %66, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !10
 
-._crit_edge.loopexit.loopexit:                    ; preds = %.lr.ph, %.lr.ph77
-  %67 = trunc i64 %indvars.iv.next to i32
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph77
+  br label %._crit_edge.loopexit, !llvm.loop !10
+
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %.._crit_edge.loopexit_crit_edge, %.lr.ph.preheader
+  %67 = phi i32 [ %64, %.._crit_edge.loopexit_crit_edge ], [ %52, %.lr.ph.preheader ], [ %64, %.lr.ph ]
+  %.055.lcssa.ph.in = phi i64 [ %indvars.iv.next, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.055.lcssa.ph = trunc i64 %.055.lcssa.ph.in to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %._crit_edge.loopexit.loopexit, %40
-  %68 = phi i32 [ %52, %40 ], [ %52, %.lr.ph.preheader ], [ %64, %._crit_edge.loopexit.loopexit ]
-  %.055.lcssa = phi i32 [ 0, %40 ], [ 0, %.lr.ph.preheader ], [ %67, %._crit_edge.loopexit.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %40
+  %68 = phi i32 [ %52, %40 ], [ %67, %._crit_edge.loopexit ]
+  %.055.lcssa = phi i32 [ 0, %40 ], [ %.055.lcssa.ph, %._crit_edge.loopexit ]
   %69 = icmp slt i32 %.055.lcssa, %68
   br i1 %69, label %70, label %.loopexit
 
@@ -1330,13 +1335,13 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
 .lr.ph.preheader:                                 ; preds = %45
   %59 = load i64, ptr %49, align 8
   %60 = icmp sgt i64 %59, 0
-  br i1 %60, label %._crit_edge, label %.lr.ph2
+  br i1 %60, label %._crit_edge.loopexit, label %.lr.ph2
 
 .lr.ph:                                           ; preds = %.lr.ph2
   %61 = getelementptr inbounds nuw %struct.pct_info, ptr %49, i64 %indvars.iv.next
   %62 = load i64, ptr %61, align 8
   %63 = icmp sgt i64 %62, 0
-  br i1 %63, label %._crit_edge.loopexit.loopexit, label %.lr.ph2, !llvm.loop !13
+  br i1 %63, label %._crit_edge.loopexit, label %.lr.ph2, !llvm.loop !13
 
 .lr.ph2:                                          ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv1 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
@@ -1351,15 +1356,20 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
   %69 = load i32, ptr %8, align 4
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %.lr.ph, label %._crit_edge.loopexit.loopexit, !llvm.loop !13
+  br i1 %71, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !13
 
-._crit_edge.loopexit.loopexit:                    ; preds = %.lr.ph, %.lr.ph2
-  %72 = trunc i64 %indvars.iv.next to i32
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph2
+  br label %._crit_edge.loopexit, !llvm.loop !13
+
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %.._crit_edge.loopexit_crit_edge, %.lr.ph.preheader
+  %72 = phi i32 [ %69, %.._crit_edge.loopexit_crit_edge ], [ %57, %.lr.ph.preheader ], [ %69, %.lr.ph ]
+  %.070.lcssa.ph.in = phi i64 [ %indvars.iv.next, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.070.lcssa.ph = trunc i64 %.070.lcssa.ph.in to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %._crit_edge.loopexit.loopexit, %45
-  %73 = phi i32 [ %57, %45 ], [ %57, %.lr.ph.preheader ], [ %69, %._crit_edge.loopexit.loopexit ]
-  %.070.lcssa = phi i32 [ 0, %45 ], [ 0, %.lr.ph.preheader ], [ %72, %._crit_edge.loopexit.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %45
+  %73 = phi i32 [ %57, %45 ], [ %72, %._crit_edge.loopexit ]
+  %.070.lcssa = phi i32 [ 0, %45 ], [ %.070.lcssa.ph, %._crit_edge.loopexit ]
   %74 = icmp slt i32 %.070.lcssa, %73
   br i1 %74, label %75, label %.loopexit
 

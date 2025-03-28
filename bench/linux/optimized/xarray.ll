@@ -5016,7 +5016,7 @@ define dso_local ptr @xa_find_after(ptr noundef %0, ptr noundef captures(none) %
 
 35:                                               ; preds = %24, %.lr.ph7
   %36 = ptrtoint ptr %22 to i64
-  switch i64 %36, label %.split4.us [
+  switch i64 %36, label %..split4.us_crit_edge [
     i64 1030, label %38
     i64 1026, label %37
   ], !llvm.loop !78
@@ -5032,6 +5032,9 @@ define dso_local ptr @xa_find_after(ptr noundef %0, ptr noundef captures(none) %
   %42 = and i64 %41, 3
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %.lr.ph7, label %.split4.us, !llvm.loop !78
+
+..split4.us_crit_edge:                            ; preds = %35
+  br label %.split4.us, !llvm.loop !78
 
 .split:                                           ; preds = %13
   %44 = call ptr @xas_find(ptr noundef nonnull %5, i64 noundef %2)
@@ -5070,7 +5073,7 @@ define dso_local ptr @xa_find_after(ptr noundef %0, ptr noundef captures(none) %
 
 69:                                               ; preds = %52, %.lr.ph
   %70 = ptrtoint ptr %50 to i64
-  switch i64 %70, label %.split4.us [
+  switch i64 %70, label %..split4_crit_edge [
     i64 1030, label %63
     i64 1026, label %71
   ], !llvm.loop !78
@@ -5079,8 +5082,11 @@ define dso_local ptr @xa_find_after(ptr noundef %0, ptr noundef captures(none) %
   store ptr inttoptr (i64 3 to ptr), ptr %10, align 8
   br label %63
 
-.split4.us:                                       ; preds = %69, %63, %35, %38, %.split, %.split.us
-  %.us-phi = phi ptr [ %16, %.split.us ], [ %44, %.split ], [ %22, %35 ], [ %39, %38 ], [ %50, %69 ], [ %64, %63 ]
+..split4_crit_edge:                               ; preds = %69
+  br label %.split4.us, !llvm.loop !78
+
+.split4.us:                                       ; preds = %63, %38, %.split, %..split4_crit_edge, %.split.us, %..split4.us_crit_edge
+  %.us-phi = phi ptr [ %22, %..split4.us_crit_edge ], [ %16, %.split.us ], [ %50, %..split4_crit_edge ], [ %44, %.split ], [ %39, %38 ], [ %64, %63 ]
   tail call void @__rcu_read_unlock() #8
   %72 = icmp eq ptr %.us-phi, null
   br i1 %72, label %75, label %73

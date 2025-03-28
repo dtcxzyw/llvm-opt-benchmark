@@ -28123,7 +28123,7 @@ define void @stbir__resample_vertical_scatter(ptr noundef readonly captures(none
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %35
   %.pre.pre = load ptr, ptr %8, align 16, !tbaa !707
-  br label %._crit_edge
+  br label %._crit_edge, !llvm.loop !932
 
 ._crit_edge:                                      ; preds = %29, %.._crit_edge.loopexit_crit_edge
   %36 = phi ptr [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %32, %29 ]
@@ -28390,7 +28390,7 @@ define void @stbir__vertical_scatter_loop(ptr noundef %0, ptr noundef %1, i32 no
 .._crit_edge.loopexit_crit_edge.i:                ; preds = %123
   %.pre.pre.i = load ptr, ptr %4, align 16, !tbaa !707
   %.pre = load float, ptr %.pre.pre.i, align 4, !tbaa !50
-  br label %._crit_edge.i
+  br label %._crit_edge.i, !llvm.loop !932
 
 ._crit_edge.i:                                    ; preds = %117, %.._crit_edge.loopexit_crit_edge.i
   %124 = phi float [ %.pre, %.._crit_edge.loopexit_crit_edge.i ], [ %121, %117 ]

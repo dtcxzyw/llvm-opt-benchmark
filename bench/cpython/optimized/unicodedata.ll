@@ -3756,7 +3756,7 @@ _PyUnicode_DATA.exit:                             ; preds = %11, %13
 
 .preheader.lr.ph.lr.ph.lr.ph:                     ; preds = %.preheader213
   %cond = icmp eq i16 %9, 2
-  %cond293 = icmp eq i16 %9, 2
+  %cond295 = icmp eq i16 %9, 2
   br label %.preheader.lr.ph
 
 .thread:                                          ; preds = %_PyUnicode_DATA.exit, %17
@@ -3880,7 +3880,7 @@ PyUnicode_READ.exit157.thread:                    ; preds = %63
   %67 = getelementptr i32, ptr %.0.i, i64 %52
   %68 = load i32, ptr %67, align 4, !tbaa !26
   %69 = icmp ult i32 %68, 4470
-  br i1 %69, label %.thread289, label %PyUnicode_READ.exit155.thread
+  br i1 %69, label %.thread291, label %PyUnicode_READ.exit155.thread
 
 70:                                               ; preds = %PyUnicode_READ.exit157
   %71 = getelementptr i16, ptr %.0.i, i64 %52
@@ -3888,13 +3888,13 @@ PyUnicode_READ.exit157.thread:                    ; preds = %63
   %73 = zext i16 %72 to i32
   br label %PyUnicode_READ.exit159
 
-.thread289:                                       ; preds = %PyUnicode_READ.exit157.thread
+.thread291:                                       ; preds = %PyUnicode_READ.exit157.thread
   %74 = getelementptr i32, ptr %.0.i, i64 %52
   %75 = load i32, ptr %74, align 4, !tbaa !26
   br label %PyUnicode_READ.exit159
 
-PyUnicode_READ.exit159:                           ; preds = %70, %.thread289
-  %.0.i158 = phi i32 [ %73, %70 ], [ %75, %.thread289 ]
+PyUnicode_READ.exit159:                           ; preds = %70, %.thread291
+  %.0.i158 = phi i32 [ %73, %70 ], [ %75, %.thread291 ]
   %76 = mul nuw nsw i32 %.0.i153, 21
   %77 = add i32 %.0.i158, %76
   %78 = mul i32 %77, 28
@@ -3904,7 +3904,7 @@ PyUnicode_READ.exit159:                           ; preds = %70, %.thread289
   br i1 %81, label %82, label %PyUnicode_READ.exit161.thread
 
 82:                                               ; preds = %PyUnicode_READ.exit159
-  br i1 %cond293, label %83, label %87
+  br i1 %cond295, label %83, label %87
 
 83:                                               ; preds = %82
   %84 = getelementptr i16, ptr %.0.i, i64 %80
@@ -3935,7 +3935,7 @@ PyUnicode_READ.exit163.thread:                    ; preds = %91
   %95 = getelementptr i32, ptr %.0.i, i64 %80
   %96 = load i32, ptr %95, align 4, !tbaa !26
   %97 = icmp ult i32 %96, 4547
-  br i1 %97, label %.thread291, label %PyUnicode_READ.exit161.thread
+  br i1 %97, label %.thread293, label %PyUnicode_READ.exit161.thread
 
 98:                                               ; preds = %PyUnicode_READ.exit163
   %99 = getelementptr i16, ptr %.0.i, i64 %80
@@ -3943,13 +3943,13 @@ PyUnicode_READ.exit163.thread:                    ; preds = %91
   %101 = zext i16 %100 to i32
   br label %PyUnicode_READ.exit165
 
-.thread291:                                       ; preds = %PyUnicode_READ.exit163.thread
+.thread293:                                       ; preds = %PyUnicode_READ.exit163.thread
   %102 = getelementptr i32, ptr %.0.i, i64 %80
   %103 = load i32, ptr %102, align 4, !tbaa !26
   br label %PyUnicode_READ.exit165
 
-PyUnicode_READ.exit165:                           ; preds = %98, %.thread291
-  %.0.i164 = phi i32 [ %101, %98 ], [ %103, %.thread291 ]
+PyUnicode_READ.exit165:                           ; preds = %98, %.thread293
+  %.0.i164 = phi i32 [ %101, %98 ], [ %103, %.thread293 ]
   %104 = add i32 %78, -2644035
   %105 = add i32 %104, %.0.i164
   %106 = add i64 %.1236, 3
@@ -4138,7 +4138,7 @@ find_nfc_index.exit177:                           ; preds = %.lr.ph.i173
 
 find_nfc_index.exit177.thread:                    ; preds = %175, %174, %194, %find_nfc_index.exit177
   %193 = icmp eq i8 %169, 0
-  br i1 %193, label %.thread201, label %231, !llvm.loop !63
+  br i1 %193, label %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge, label %231, !llvm.loop !63
 
 194:                                              ; preds = %find_nfc_index.exit177
   %195 = mul i32 %.0127239, 72
@@ -4201,11 +4201,14 @@ find_nfc_index.exit184:                           ; preds = %.lr.ph.i180
   %.1123 = phi i32 [ %.0122240, %find_nfc_index.exit184 ], [ %.0122240, %173 ], [ %170, %find_nfc_index.exit177.thread ]
   %.4 = phi i32 [ %210, %find_nfc_index.exit184 ], [ %.2120241, %173 ], [ %.2120241, %find_nfc_index.exit177.thread ]
   %.1116 = add nsw i64 %.0115242, 1
-  %exitcond287.not = icmp eq i64 %.1116, %.val
-  br i1 %exitcond287.not, label %.thread201, label %.lr.ph243
+  %exitcond289.not = icmp eq i64 %.1116, %.val
+  br i1 %exitcond289.not, label %.thread201, label %.lr.ph243
 
-.thread201:                                       ; preds = %231, %171, %find_nfc_index.exit177.thread, %209, %find_nfc_index.exit184, %213
-  %.3 = phi i32 [ %210, %213 ], [ %.4, %231 ], [ %.2120241, %171 ], [ %.2120241, %find_nfc_index.exit177.thread ], [ %210, %209 ], [ %210, %find_nfc_index.exit184 ]
+find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge: ; preds = %find_nfc_index.exit177.thread
+  br label %.thread201, !llvm.loop !63
+
+.thread201:                                       ; preds = %231, %171, %209, %find_nfc_index.exit184, %213, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge
+  %.3 = phi i32 [ %.2120241, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge ], [ %210, %213 ], [ %.4, %231 ], [ %.2120241, %171 ], [ %210, %209 ], [ %210, %find_nfc_index.exit184 ]
   %232 = add i64 %.1125235, 1
   br label %.preheader.lr.ph.backedge
 

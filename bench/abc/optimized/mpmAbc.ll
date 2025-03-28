@@ -1736,10 +1736,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %181 = lshr i32 %180, 27
   %182 = zext nneg i32 %181 to i64
   %183 = icmp samesign ult i64 %indvars.iv.next, %182
-  br i1 %183, label %121, label %.critedge2, !llvm.loop !90
+  br i1 %183, label %121, label %Vec_IntPush.exit..critedge2.loopexit_crit_edge, !llvm.loop !90
 
-.critedge2:                                       ; preds = %Vec_IntPush.exit, %121, %.lr.ph, %87
-  %.lcssa = phi i32 [ %112, %87 ], [ %112, %.lr.ph ], [ %180, %121 ], [ %180, %Vec_IntPush.exit ]
+Vec_IntPush.exit..critedge2.loopexit_crit_edge:   ; preds = %Vec_IntPush.exit
+  br label %.critedge2, !llvm.loop !90
+
+.critedge2:                                       ; preds = %121, %.lr.ph, %Vec_IntPush.exit..critedge2.loopexit_crit_edge, %87
+  %.lcssa = phi i32 [ %112, %87 ], [ %180, %Vec_IntPush.exit..critedge2.loopexit_crit_edge ], [ %112, %.lr.ph ], [ %180, %121 ]
   %184 = load ptr, ptr %56, align 8, !tbaa !91
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 44
   %186 = load i32, ptr %185, align 4, !tbaa !92

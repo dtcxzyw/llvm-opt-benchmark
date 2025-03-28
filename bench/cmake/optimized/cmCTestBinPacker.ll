@@ -7040,12 +7040,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit16: ; preds = %
   %106 = getelementptr inbounds nuw i8, ptr %.04460, i64 32
   %.sroa.0.0.copyload.i2.i.i = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i2.i.i
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !435
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !435
 
-.critedge:                                        ; preds = %105, %.lr.ph, %.lr.ph.preheader, %6
-  %.in = phi ptr [ %.sroa.0.0.copyload.i2.i.i42, %6 ], [ %.sroa.0.0.copyload.i2.i.i42, %.lr.ph.preheader ], [ %.sroa.0.0.copyload.i2.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i2.i.i, %105 ]
-  %.in68 = phi ptr [ %.sroa.0.0.copyload.i.i.i41, %6 ], [ %.sroa.0.0.copyload.i.i.i41, %.lr.ph.preheader ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i, %105 ]
-  %.0.lcssa = phi ptr [ %4, %6 ], [ %4, %.lr.ph.preheader ], [ %106, %.lr.ph ], [ %106, %105 ]
+..critedge.loopexit_crit_edge:                    ; preds = %105
+  br label %.critedge, !llvm.loop !435
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %6
+  %.in = phi ptr [ %.sroa.0.0.copyload.i2.i.i42, %6 ], [ %.sroa.0.0.copyload.i2.i.i, %..critedge.loopexit_crit_edge ], [ %.sroa.0.0.copyload.i2.i.i42, %.lr.ph.preheader ], [ %.sroa.0.0.copyload.i2.i.i, %.lr.ph ]
+  %.in68 = phi ptr [ %.sroa.0.0.copyload.i.i.i41, %6 ], [ %.sroa.0.0.copyload.i.i.i, %..critedge.loopexit_crit_edge ], [ %.sroa.0.0.copyload.i.i.i41, %.lr.ph.preheader ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %4, %6 ], [ %106, %..critedge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %106, %.lr.ph ]
   %107 = ptrtoint ptr %.in68 to i64
   %108 = ptrtoint ptr %.in to i64
   %109 = load i64, ptr %2, align 8, !tbaa !37
@@ -13871,12 +13874,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit16: ; preds = %
   %106 = getelementptr inbounds nuw i8, ptr %.04460, i64 32
   %.sroa.0.0.copyload.i2.i.i = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i2.i.i
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !775
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !775
 
-.critedge:                                        ; preds = %105, %.lr.ph, %.lr.ph.preheader, %6
-  %.in = phi ptr [ %.sroa.0.0.copyload.i2.i.i42, %6 ], [ %.sroa.0.0.copyload.i2.i.i42, %.lr.ph.preheader ], [ %.sroa.0.0.copyload.i2.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i2.i.i, %105 ]
-  %.in68 = phi ptr [ %.sroa.0.0.copyload.i.i.i41, %6 ], [ %.sroa.0.0.copyload.i.i.i41, %.lr.ph.preheader ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i, %105 ]
-  %.0.lcssa = phi ptr [ %4, %6 ], [ %4, %.lr.ph.preheader ], [ %106, %.lr.ph ], [ %106, %105 ]
+..critedge.loopexit_crit_edge:                    ; preds = %105
+  br label %.critedge, !llvm.loop !775
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %6
+  %.in = phi ptr [ %.sroa.0.0.copyload.i2.i.i42, %6 ], [ %.sroa.0.0.copyload.i2.i.i, %..critedge.loopexit_crit_edge ], [ %.sroa.0.0.copyload.i2.i.i42, %.lr.ph.preheader ], [ %.sroa.0.0.copyload.i2.i.i, %.lr.ph ]
+  %.in68 = phi ptr [ %.sroa.0.0.copyload.i.i.i41, %6 ], [ %.sroa.0.0.copyload.i.i.i, %..critedge.loopexit_crit_edge ], [ %.sroa.0.0.copyload.i.i.i41, %.lr.ph.preheader ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %4, %6 ], [ %106, %..critedge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %106, %.lr.ph ]
   %107 = ptrtoint ptr %.in68 to i64
   %108 = ptrtoint ptr %.in to i64
   %109 = load i64, ptr %2, align 8, !tbaa !37

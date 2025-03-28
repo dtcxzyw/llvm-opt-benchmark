@@ -1351,7 +1351,10 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal12OracleCaller16isOracleFunct
   %45 = load i64, ptr %44, align 8, !tbaa !157, !noalias !149
   %46 = urem i64 %45, %22
   %.not19.i.i.i.i.i.i.i.i.i = icmp eq i64 %46, %23
-  br i1 %.not19.i.i.i.i.i.i.i.i.i, label %36, label %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory26OracleInterfaceAttributeIdES2_EEEEbRKT_.exit, !llvm.loop !159
+  br i1 %.not19.i.i.i.i.i.i.i.i.i, label %36, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i, !llvm.loop !159
+
+..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i:         ; preds = %43
+  br label %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory26OracleInterfaceAttributeIdES2_EEEEbRKT_.exit, !llvm.loop !159
 
 _ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i: ; preds = %36, %13, %27
   %.sroa.06.1.i.i.i.i.i.i.i = phi ptr [ %28, %27 ], [ %.sroa.06.0.i.i.i.i.i.i.i, %13 ], [ %42, %36 ]
@@ -1362,8 +1365,8 @@ _ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12N
   %51 = icmp ne ptr %48, %50
   br label %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory26OracleInterfaceAttributeIdES2_EEEEbRKT_.exit
 
-_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory26OracleInterfaceAttributeIdES2_EEEEbRKT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %43, %12, %17, %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i
-  %.0.i.i.i.i = phi i1 [ false, %17 ], [ %51, %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i ], [ false, %12 ], [ false, %43 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory26OracleInterfaceAttributeIdES2_EEEEbRKT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %12, %17, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i, %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i
+  %.0.i.i.i.i = phi i1 [ false, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i ], [ false, %17 ], [ %51, %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   ret i1 %.0.i.i.i.i
 }
 
@@ -1450,7 +1453,10 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal12OracleCaller19isOracleFunct
   %53 = load i64, ptr %52, align 8, !tbaa !157, !noalias !162
   %54 = urem i64 %53, %30
   %.not19.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %54, %31
-  br i1 %.not19.i.i.i.i.i.i.i.i.i.i, label %44, label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit, !llvm.loop !159
+  br i1 %.not19.i.i.i.i.i.i.i.i.i.i, label %44, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i, !llvm.loop !159
+
+..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i:       ; preds = %51
+  br label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit, !llvm.loop !159
 
 _ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i: ; preds = %44, %21, %35
   %.sroa.06.1.i.i.i.i.i.i.i.i = phi ptr [ %36, %35 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i, %21 ], [ %50, %44 ]
@@ -1462,12 +1468,12 @@ _ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12N
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !160, !noalias !162
   %59 = icmp ne ptr %56, %58
-  %.pre37 = load ptr, ptr %2, align 8, !tbaa !18
+  %.pre42 = load ptr, ptr %2, align 8, !tbaa !18
   br label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit
 
-_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit: ; preds = %51, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %20, %.noexc, %25
-  %60 = phi ptr [ %10, %25 ], [ %.pre37, %.noexc ], [ %10, %20 ], [ %10, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %10, %51 ]
-  %.0.i.i.i.i.i = phi i1 [ false, %25 ], [ %59, %.noexc ], [ false, %20 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ false, %51 ]
+_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %20, %.noexc, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i, %25
+  %60 = phi ptr [ %10, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i ], [ %10, %25 ], [ %.pre42, %.noexc ], [ %10, %20 ], [ %10, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi i1 [ false, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i ], [ false, %25 ], [ %59, %.noexc ], [ false, %20 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, 1152920405095219200
   %.not.i.i = icmp eq i64 %62, 1152920405095219200
@@ -1541,16 +1547,16 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %81, %86, %88
   br label %99
 
 99:                                               ; preds = %100, %97
-  %.sroa.06.0.in.i.i.i.i.i.i.i.i14 = phi ptr [ %98, %97 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i15, %100 ]
-  %.sroa.06.0.i.i.i.i.i.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i.i.i.i14, align 8, !tbaa !152, !noalias !165
-  %.not.i.i.i.i.i.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i.i.i.i.i.i15, null
-  br i1 %.not.i.i.i.i.i.i.i.i16, label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit18, label %100
+  %.sroa.06.0.in.i.i.i.i.i.i.i.i15 = phi ptr [ %98, %97 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i16, %100 ]
+  %.sroa.06.0.i.i.i.i.i.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i.i.i.i15, align 8, !tbaa !152, !noalias !165
+  %.not.i.i.i.i.i.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i.i.i.i.i.i16, null
+  br i1 %.not.i.i.i.i.i.i.i.i17, label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit19, label %100
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i.i.i.i.i15, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i.i.i.i.i16, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !105, !noalias !165
   %103 = icmp eq ptr %4, %102
-  br i1 %103, label %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i12, label %99, !llvm.loop !153
+  br i1 %103, label %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i13, label %99, !llvm.loop !153
 
 104:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %105 = getelementptr inbounds nuw i8, ptr %93, i64 176
@@ -1563,7 +1569,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %81, %86, %88
   %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %110
   %113 = load ptr, ptr %112, align 8, !tbaa !156, !noalias !165
   %.not.i.i.i.i.i.i.i.i.i.i6 = icmp eq ptr %113, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i6, label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit18, label %114
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i6, label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit19, label %114
 
 114:                                              ; preds = %104
   %115 = load ptr, ptr %113, align 8, !tbaa !152, !noalias !165
@@ -1574,7 +1580,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %81, %86, %88
   %120 = load ptr, ptr %116, align 8, !noalias !165
   %121 = icmp eq ptr %4, %120
   %122 = select i1 %119, i1 %121, i1 false
-  br i1 %122, label %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i12, label %.lr.ph.i.i.i.i.i.i.i.i.i.i7
+  br i1 %122, label %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i13, label %.lr.ph.i.i.i.i.i.i.i.i.i.i7
 
 123:                                              ; preds = %130
   %124 = getelementptr inbounds nuw i8, ptr %129, i64 8
@@ -1582,43 +1588,46 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %81, %86, %88
   %126 = load ptr, ptr %124, align 8, !noalias !165
   %127 = icmp eq ptr %4, %126
   %128 = select i1 %125, i1 %127, i1 false
-  br i1 %128, label %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i12, label %.lr.ph.i.i.i.i.i.i.i.i.i.i7, !llvm.loop !159
+  br i1 %128, label %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i13, label %.lr.ph.i.i.i.i.i.i.i.i.i.i7, !llvm.loop !159
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i7:                      ; preds = %114, %123
   %.020.i.i.i.i.i.i.i.i.i.i8 = phi ptr [ %129, %123 ], [ %115, %114 ]
   %129 = load ptr, ptr %.020.i.i.i.i.i.i.i.i.i.i8, align 8, !tbaa !152, !noalias !165
   %.not18.i.i.i.i.i.i.i.i.i.i9 = icmp eq ptr %129, null
-  br i1 %.not18.i.i.i.i.i.i.i.i.i.i9, label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit18, label %130
+  br i1 %.not18.i.i.i.i.i.i.i.i.i.i9, label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit19, label %130
 
 130:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i7
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 40
   %132 = load i64, ptr %131, align 8, !tbaa !157, !noalias !165
   %133 = urem i64 %132, %109
   %.not19.i.i.i.i.i.i.i.i.i.i10 = icmp eq i64 %133, %110
-  br i1 %.not19.i.i.i.i.i.i.i.i.i.i10, label %123, label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit18, !llvm.loop !159
+  br i1 %.not19.i.i.i.i.i.i.i.i.i.i10, label %123, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i11, !llvm.loop !159
 
-_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i12: ; preds = %123, %100, %114
-  %.sroa.06.1.i.i.i.i.i.i.i.i13 = phi ptr [ %115, %114 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i15, %100 ], [ %129, %123 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i13, i64 16
+..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i11:     ; preds = %130
+  br label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit19, !llvm.loop !159
+
+_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i13: ; preds = %123, %100, %114
+  %.sroa.06.1.i.i.i.i.i.i.i.i14 = phi ptr [ %115, %114 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i16, %100 ], [ %129, %123 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i14, i64 16
   %135 = invoke ptr @_ZNK4cvc58internal4expr4attr8AttrHashINS0_12NodeTemplateILb1EEEE5IdMap4findEm(ptr noundef nonnull align 8 dereferenceable(24) %134, i64 noundef %94)
-          to label %.noexc17 unwind label %152
+          to label %.noexc18 unwind label %152
 
-.noexc17:                                         ; preds = %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i12
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i13, i64 24
+.noexc18:                                         ; preds = %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i13
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i14, i64 24
   %137 = load ptr, ptr %136, align 8, !tbaa !160, !noalias !165
   %138 = icmp ne ptr %135, %137
   %.pre = load ptr, ptr %3, align 8, !tbaa !18
-  br label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit18
+  br label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit19
 
-_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit18: ; preds = %130, %.lr.ph.i.i.i.i.i.i.i.i.i.i7, %99, %.noexc17, %104
-  %139 = phi ptr [ %4, %104 ], [ %.pre, %.noexc17 ], [ %4, %99 ], [ %4, %.lr.ph.i.i.i.i.i.i.i.i.i.i7 ], [ %4, %130 ]
-  %.0.i.i.i.i.i11 = phi i1 [ false, %104 ], [ %138, %.noexc17 ], [ false, %99 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i.i7 ], [ false, %130 ]
+_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit19: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i7, %99, %.noexc18, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i11, %104
+  %139 = phi ptr [ %4, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i11 ], [ %4, %104 ], [ %.pre, %.noexc18 ], [ %4, %99 ], [ %4, %.lr.ph.i.i.i.i.i.i.i.i.i.i7 ]
+  %.0.i.i.i.i.i12 = phi i1 [ false, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i11 ], [ false, %104 ], [ %138, %.noexc18 ], [ false, %99 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i.i7 ]
   %140 = load i64, ptr %139, align 8
   %141 = and i64 %140, 1152920405095219200
-  %.not.i.i19 = icmp eq i64 %141, 1152920405095219200
-  br i1 %.not.i.i19, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %142, !prof !107
+  %.not.i.i20 = icmp eq i64 %141, 1152920405095219200
+  br i1 %.not.i.i20, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %142, !prof !107
 
-142:                                              ; preds = %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit18
+142:                                              ; preds = %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit19
   %143 = add i64 %140, 1152920405095219200
   %144 = and i64 %143, 1152920405095219200
   %145 = and i64 %140, -1152920405095219201
@@ -1638,13 +1647,13 @@ _ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit
   tail call void @__clang_call_terminate(ptr %151) #20
   unreachable
 
-152:                                              ; preds = %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i12
+152:                                              ; preds = %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i.i.i.i.i.i13
   %153 = landingpad { ptr, i32 }
           cleanup
   br label %154
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %148, %142, %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit18, %69, %63, %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit
-  %.03 = phi i1 [ %.0.i.i.i.i.i, %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit ], [ %.0.i.i.i.i.i, %63 ], [ %.0.i.i.i.i.i, %69 ], [ %.0.i.i.i.i.i11, %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit18 ], [ %.0.i.i.i.i.i11, %142 ], [ %.0.i.i.i.i.i11, %148 ]
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %148, %142, %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit19, %69, %63, %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit
+  %.03 = phi i1 [ %.0.i.i.i.i.i, %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit ], [ %.0.i.i.i.i.i, %63 ], [ %.0.i.i.i.i.i, %69 ], [ %.0.i.i.i.i.i12, %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit19 ], [ %.0.i.i.i.i.i12, %142 ], [ %.0.i.i.i.i.i12, %148 ]
   ret i1 %.03
 
 154:                                              ; preds = %152, %73
@@ -3073,7 +3082,10 @@ define linkonce_odr hidden void @_ZNK4cvc58internal4expr4attr16AttributeManager1
   %44 = load i64, ptr %43, align 8, !tbaa !157, !noalias !192
   %45 = urem i64 %44, %21
   %.not19.i.i.i.i.i = icmp eq i64 %45, %22
-  br i1 %.not19.i.i.i.i.i, label %35, label %.loopexit, !llvm.loop !159
+  br i1 %.not19.i.i.i.i.i, label %35, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !159
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %42
+  br label %.loopexit, !llvm.loop !159
 
 _ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i: ; preds = %35, %12, %26
   %.sroa.06.1.i.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i.i, %12 ], [ %41, %35 ]
@@ -3084,7 +3096,7 @@ _ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12N
   %50 = icmp eq ptr %47, %49
   br i1 %50, label %.loopexit, label %62
 
-.loopexit:                                        ; preds = %42, %.lr.ph.i.i.i.i.i, %11, %16, %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %11, %..loopexit_crit_edge21.i.i.i.i.i, %16, %_ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINS1_12NodeTemplateILb1EEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSF_.exit.i
   %51 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %53, label %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit, !prof !170
@@ -3190,11 +3202,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashINS0_12NodeTemplateILb1EEEE8IteratorIKS6_NS
           to label %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit_crit_edge unwind label %109
 
 ._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit_crit_edge: ; preds = %95
-  %.pre23 = load i64, ptr %68, align 8
+  %.pre25 = load i64, ptr %68, align 8
   br label %_ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit
 
 _ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit: ; preds = %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit_crit_edge, %93, %88
-  %97 = phi i64 [ %.pre23, %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit_crit_edge ], [ %83, %93 ], [ %92, %88 ]
+  %97 = phi i64 [ %.pre25, %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit_crit_edge ], [ %83, %93 ], [ %92, %88 ]
   %98 = and i64 %97, 1152920405095219200
   %.not.i.i.i4 = icmp eq i64 %98, 1152920405095219200
   br i1 %.not.i.i.i4, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %99, !prof !107

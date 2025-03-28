@@ -13664,9 +13664,12 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt13u
   %16 = ptrtoint ptr %.val23.i.i.i to i64
   %17 = urem i64 %16, %.val21.i
   %.not19.i.i.i = icmp eq i64 %17, %4
-  br i1 %.not19.i.i.i, label %11, label %.loopexit.i, !llvm.loop !444
+  br i1 %.not19.i.i.i, label %11, label %..loopexit_crit_edge6.i.i.i, !llvm.loop !444
 
-.loopexit.i:                                      ; preds = %14, %.lr.ph.i.i.i, %1
+..loopexit_crit_edge6.i.i.i:                      ; preds = %14
+  br label %.loopexit.i, !llvm.loop !444
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge6.i.i.i, %1
   %18 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
   store ptr null, ptr %18, align 8, !tbaa !194
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8

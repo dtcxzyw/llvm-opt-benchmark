@@ -14364,7 +14364,7 @@ default.unreachable25:                            ; preds = %2
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc9a53d241c45b22bE.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc9a53d241c45b22bE.exit": ; preds = %35, %32, %28, %25, %5, %7, %9, %11, %13, %15, %17, %57, %51, %45, %39, %19
-  %.0.shrunk = phi i1 [ %.not, %57 ], [ %56, %51 ], [ %50, %45 ], [ %44, %39 ], [ %24, %19 ], [ false, %17 ], [ false, %15 ], [ false, %13 ], [ false, %11 ], [ false, %9 ], [ false, %7 ], [ false, %5 ], [ %31, %28 ], [ false, %25 ], [ %38, %35 ], [ false, %32 ]
+  %.0.shrunk = phi i1 [ %62, %57 ], [ %56, %51 ], [ %50, %45 ], [ %44, %39 ], [ %24, %19 ], [ false, %17 ], [ false, %15 ], [ false, %13 ], [ false, %11 ], [ false, %9 ], [ false, %7 ], [ false, %5 ], [ %31, %28 ], [ false, %25 ], [ %38, %35 ], [ false, %32 ]
   ret i1 %.0.shrunk
 
 25:                                               ; preds = %7
@@ -14430,7 +14430,7 @@ default.unreachable25:                            ; preds = %2
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %60 = load i8, ptr %58, align 1, !range !10, !noundef !12
   %61 = load i8, ptr %59, align 1, !range !10, !noundef !12
-  %.not = icmp eq i8 %60, %61
+  %62 = icmp eq i8 %60, %61
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc9a53d241c45b22bE.exit"
 }
 

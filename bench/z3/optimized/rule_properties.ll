@@ -3235,7 +3235,7 @@ _ZNK7obj_mapI9func_declPN7datalog4ruleEE5beginEv.exit.thread: ; preds = %7
 
 ._ZNK7obj_mapI9func_declPN7datalog4ruleEE5beginEv.exit_crit_edge: ; preds = %16
   %.pre = load ptr, ptr %13, align 8, !tbaa !160
-  br label %_ZNK7obj_mapI9func_declPN7datalog4ruleEE5beginEv.exit
+  br label %_ZNK7obj_mapI9func_declPN7datalog4ruleEE5beginEv.exit, !llvm.loop !161
 
 _ZNK7obj_mapI9func_declPN7datalog4ruleEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %._ZNK7obj_mapI9func_declPN7datalog4ruleEE5beginEv.exit_crit_edge
   %18 = phi ptr [ %.pre, %._ZNK7obj_mapI9func_declPN7datalog4ruleEE5beginEv.exit_crit_edge ], [ %15, %.lr.ph.i.i.i.i ]
@@ -5939,11 +5939,11 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.lr.ph: ; preds = %308
   %311 = getelementptr inbounds i8, ptr %309, i64 -4
   %.promoted = load i32, ptr %311, align 4, !tbaa !78
   %312 = icmp ugt i32 %.promoted, %.sroa.5266.0.copyload
-  br i1 %312, label %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.preheader, label %.backedge, !llvm.loop !282
+  br i1 %312, label %.lr.ph405, label %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183._ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.thread.loopexit_crit_edge, !llvm.loop !282
 
-_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.preheader: ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.lr.ph
+.lr.ph405:                                        ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.lr.ph
   store i32 %.sroa.5266.0.copyload, ptr %311, align 4, !tbaa !78
-  br label %.backedge
+  br label %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183._ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.thread.loopexit_crit_edge, !llvm.loop !282
 
 313:                                              ; preds = %101
   %314 = landingpad { ptr, i32 }
@@ -6757,8 +6757,11 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit211:     ; preds = %_ZNK11ast_manager5i
           cleanup
   br label %701
 
-.backedge:                                        ; preds = %.thread329, %.loopexit371, %_ZN6vectorIP4exprLb0EjE3endEv.exit, %308, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.lr.ph, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.preheader
-  %.6447 = phi i1 [ %.5406, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %.5406, %308 ], [ %.5406, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.lr.ph ], [ %.5406, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.preheader ], [ %.5406, %.loopexit371 ], [ %.10338, %.thread329 ]
+_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183._ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.thread.loopexit_crit_edge: ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.lr.ph, %.lr.ph405
+  br label %.backedge, !llvm.loop !282
+
+.backedge:                                        ; preds = %.thread329, %.loopexit371, %_ZN6vectorIP4exprLb0EjE3endEv.exit, %308, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183._ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.thread.loopexit_crit_edge
+  %.6447 = phi i1 [ %.5406, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %.5406, %308 ], [ %.5406, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183._ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.thread.loopexit_crit_edge ], [ %.5406, %.loopexit371 ], [ %.10338, %.thread329 ]
   %678 = load ptr, ptr %22, align 8, !tbaa !271
   %679 = icmp eq ptr %678, null
   br i1 %679, label %_ZN6vectorISt5tupleIJP4exprjbEELb1EjED2Ev.exit, label %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit, !llvm.loop !282

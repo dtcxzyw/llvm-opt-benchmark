@@ -3093,7 +3093,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6icu_775Edits8Iterator9findIndexEiaR10UE
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  br label %21
+  br label %21, !llvm.loop !53
 
 21:                                               ; preds = %.lr.ph, %.critedge
   %22 = phi i32 [ %17, %.lr.ph ], [ %64, %.critedge ]
@@ -3160,7 +3160,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6icu_775Edits8Iterator9findIndexEiaR10UE
   %63 = tail call noundef signext i8 @_ZN6icu_775Edits8Iterator8previousER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %64 = load i32, ptr %.054.in, align 8, !tbaa !12
   %.not67 = icmp slt i32 %1, %64
-  br i1 %.not67, label %21, label %.loopexit, !llvm.loop !53
+  br i1 %.not67, label %21, label %..loopexit74_crit_edge, !llvm.loop !53
 
 65:                                               ; preds = %14
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -3241,8 +3241,11 @@ define noundef range(i32 -1, 2) i32 @_ZN6icu_775Edits8Iterator9findIndexEiaR10UE
   %.not65 = icmp eq i8 %104, 0
   br i1 %.not65, label %.loopexit, label %75, !llvm.loop !54
 
-.loopexit:                                        ; preds = %.critedge, %103, %75, %.preheader, %72, %.thread72, %47, %69, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %47 ], [ 0, %69 ], [ 0, %.thread72 ], [ 1, %72 ], [ 0, %.preheader ], [ 1, %103 ], [ 0, %75 ], [ 0, %.critedge ]
+..loopexit74_crit_edge:                           ; preds = %.critedge
+  br label %.loopexit, !llvm.loop !53
+
+.loopexit:                                        ; preds = %103, %75, %.preheader, %..loopexit74_crit_edge, %72, %.thread72, %47, %69, %4
+  %.0 = phi i32 [ -1, %4 ], [ 0, %47 ], [ 0, %69 ], [ 0, %.thread72 ], [ 1, %72 ], [ 0, %..loopexit74_crit_edge ], [ 0, %.preheader ], [ 1, %103 ], [ 0, %75 ]
   ret i32 %.0
 }
 

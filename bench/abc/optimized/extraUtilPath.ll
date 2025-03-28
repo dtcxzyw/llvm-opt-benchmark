@@ -3888,11 +3888,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %spec.select = select i1 %78, i64 %.3.lcssa, i64 %.081147176
   %79 = add nuw nsw i32 %.1149174, 1
   %exitcond166.not = icmp eq i32 %79, 1000
-  br i1 %exitcond166.not, label %.thread, label %59, !llvm.loop !118
+  br i1 %exitcond166.not, label %.critedge2._crit_edge..thread_crit_edge, label %59, !llvm.loop !118
 
-.thread:                                          ; preds = %.critedge2._crit_edge, %59, %.critedge, %.critedge.thread, %.preheader135
-  %.081.lcssa = phi i64 [ 0, %.preheader135 ], [ %spec.select, %.critedge2._crit_edge ], [ %spec.select, %59 ], [ %.081147176, %.critedge ], [ %.081147176, %.critedge.thread ]
-  %.079.lcssa = phi i64 [ 0, %.preheader135 ], [ %.3.lcssa, %.critedge2._crit_edge ], [ %.3.lcssa, %59 ], [ %.079148175, %.critedge ], [ %.079148175, %.critedge.thread ]
+.critedge2._crit_edge..thread_crit_edge:          ; preds = %.critedge2._crit_edge
+  br label %.thread, !llvm.loop !118
+
+.thread:                                          ; preds = %59, %.critedge, %.critedge.thread, %.critedge2._crit_edge..thread_crit_edge, %.preheader135
+  %.081.lcssa = phi i64 [ %spec.select, %.critedge2._crit_edge..thread_crit_edge ], [ 0, %.preheader135 ], [ %spec.select, %59 ], [ %.081147176, %.critedge ], [ %.081147176, %.critedge.thread ]
+  %.079.lcssa = phi i64 [ %.3.lcssa, %.critedge2._crit_edge..thread_crit_edge ], [ 0, %.preheader135 ], [ %.3.lcssa, %59 ], [ %.079148175, %.critedge ], [ %.079148175, %.critedge.thread ]
   %80 = sub i64 %.079.lcssa, %.081.lcssa
   br label %81
 

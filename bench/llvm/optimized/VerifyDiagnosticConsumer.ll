@@ -2511,12 +2511,15 @@ _ZN12_GLOBAL__N_111ParseHelper4NextEN4llvm9StringRefE.exit236: ; preds = %_ZN12_
   %439 = add i32 %437, %438
   %440 = getelementptr inbounds nuw i8, ptr %storemerge8.i25, i64 1
   %exitcond.not.i = icmp eq ptr %440, %427
-  br i1 %exitcond.not.i, label %.critedge.i237, label %.lr.ph.i, !llvm.loop !438
+  br i1 %exitcond.not.i, label %..critedge.i237_crit_edge, label %.lr.ph.i, !llvm.loop !438
 
-.critedge.i237:                                   ; preds = %.lr.ph.i, %.lr.ph26, %.lr.ph.preheader.i
-  %441 = phi ptr [ %.promoted, %.lr.ph.preheader.i ], [ %440, %.lr.ph26 ], [ %440, %.lr.ph.i ]
-  %storemerge.lcssa.i = phi ptr [ %426, %.lr.ph.preheader.i ], [ %440, %.lr.ph.i ], [ %scevgep.i, %.lr.ph26 ]
-  %.0.lcssa.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %439, %.lr.ph26 ], [ %439, %.lr.ph.i ]
+..critedge.i237_crit_edge:                        ; preds = %.lr.ph26
+  br label %.critedge.i237, !llvm.loop !438
+
+.critedge.i237:                                   ; preds = %.lr.ph.i, %..critedge.i237_crit_edge, %.lr.ph.preheader.i
+  %441 = phi ptr [ %440, %..critedge.i237_crit_edge ], [ %.promoted, %.lr.ph.preheader.i ], [ %440, %.lr.ph.i ]
+  %storemerge.lcssa.i = phi ptr [ %scevgep.i, %..critedge.i237_crit_edge ], [ %426, %.lr.ph.preheader.i ], [ %440, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %439, %..critedge.i237_crit_edge ], [ 0, %.lr.ph.preheader.i ], [ %439, %.lr.ph.i ]
   store ptr %441, ptr %60, align 8
   %.not.i238 = icmp ne ptr %storemerge.lcssa.i, %426
   %442 = icmp ult i32 %.0.lcssa.i, %422
@@ -2582,12 +2585,15 @@ _ZN12_GLOBAL__N_111ParseHelper4NextEN4llvm9StringRefE.exit236.thread: ; preds = 
   %461 = add i32 %459, %460
   %462 = getelementptr inbounds nuw i8, ptr %storemerge8.i24334, i64 1
   %exitcond.not.i249 = icmp eq ptr %462, %161
-  br i1 %exitcond.not.i249, label %.critedge.i245, label %.lr.ph.i241, !llvm.loop !438
+  br i1 %exitcond.not.i249, label %..critedge.i245_crit_edge, label %.lr.ph.i241, !llvm.loop !438
 
-.critedge.i245:                                   ; preds = %.lr.ph.i241, %.lr.ph35, %.lr.ph.preheader.i239
-  %463 = phi ptr [ %.promoted886, %.lr.ph.preheader.i239 ], [ %462, %.lr.ph35 ], [ %462, %.lr.ph.i241 ]
-  %storemerge.lcssa.i246 = phi ptr [ %.ptr, %.lr.ph.preheader.i239 ], [ %462, %.lr.ph.i241 ], [ %scevgep.i240, %.lr.ph35 ]
-  %.0.lcssa.i247 = phi i32 [ 0, %.lr.ph.preheader.i239 ], [ %461, %.lr.ph35 ], [ %461, %.lr.ph.i241 ]
+..critedge.i245_crit_edge:                        ; preds = %.lr.ph35
+  br label %.critedge.i245, !llvm.loop !438
+
+.critedge.i245:                                   ; preds = %.lr.ph.i241, %..critedge.i245_crit_edge, %.lr.ph.preheader.i239
+  %463 = phi ptr [ %462, %..critedge.i245_crit_edge ], [ %.promoted886, %.lr.ph.preheader.i239 ], [ %462, %.lr.ph.i241 ]
+  %storemerge.lcssa.i246 = phi ptr [ %scevgep.i240, %..critedge.i245_crit_edge ], [ %.ptr, %.lr.ph.preheader.i239 ], [ %462, %.lr.ph.i241 ]
+  %.0.lcssa.i247 = phi i32 [ %461, %..critedge.i245_crit_edge ], [ 0, %.lr.ph.preheader.i239 ], [ %461, %.lr.ph.i241 ]
   store ptr %463, ptr %60, align 8
   %.not.i248 = icmp eq ptr %storemerge.lcssa.i246, %.ptr
   br i1 %.not.i248, label %470, label %_ZN12_GLOBAL__N_111ParseHelper4NextERj.exit250
@@ -2762,12 +2768,15 @@ _ZNK5clang13SourceManager13translateFileENS_12FileEntryRefE.exit: ; preds = %.pr
   %523 = add i32 %521, %522
   %524 = getelementptr inbounds nuw i8, ptr %storemerge8.i28044, i64 1
   %exitcond.not.i286 = icmp eq ptr %524, %511
-  br i1 %exitcond.not.i286, label %.critedge.i282, label %.lr.ph.i278, !llvm.loop !438
+  br i1 %exitcond.not.i286, label %..critedge.i282_crit_edge, label %.lr.ph.i278, !llvm.loop !438
 
-.critedge.i282:                                   ; preds = %.lr.ph.i278, %.lr.ph45, %.lr.ph.preheader.i276
-  %525 = phi ptr [ %.promoted887, %.lr.ph.preheader.i276 ], [ %524, %.lr.ph45 ], [ %524, %.lr.ph.i278 ]
-  %storemerge.lcssa.i283 = phi ptr [ %510, %.lr.ph.preheader.i276 ], [ %524, %.lr.ph.i278 ], [ %scevgep.i277, %.lr.ph45 ]
-  %.0.lcssa.i284 = phi i32 [ 0, %.lr.ph.preheader.i276 ], [ %523, %.lr.ph45 ], [ %523, %.lr.ph.i278 ]
+..critedge.i282_crit_edge:                        ; preds = %.lr.ph45
+  br label %.critedge.i282, !llvm.loop !438
+
+.critedge.i282:                                   ; preds = %.lr.ph.i278, %..critedge.i282_crit_edge, %.lr.ph.preheader.i276
+  %525 = phi ptr [ %524, %..critedge.i282_crit_edge ], [ %.promoted887, %.lr.ph.preheader.i276 ], [ %524, %.lr.ph.i278 ]
+  %storemerge.lcssa.i283 = phi ptr [ %scevgep.i277, %..critedge.i282_crit_edge ], [ %510, %.lr.ph.preheader.i276 ], [ %524, %.lr.ph.i278 ]
+  %.0.lcssa.i284 = phi i32 [ %523, %..critedge.i282_crit_edge ], [ 0, %.lr.ph.preheader.i276 ], [ %523, %.lr.ph.i278 ]
   store ptr %525, ptr %60, align 8
   %.not.i285 = icmp ne ptr %storemerge.lcssa.i283, %510
   %526 = icmp ne i32 %.0.lcssa.i284, 0
@@ -3060,11 +3069,14 @@ _ZN12_GLOBAL__N_111ParseHelper4NextEN4llvm9StringRefE.exit230.thread: ; preds = 
   %642 = phi ptr [ %643, %.lr.ph.i303 ], [ %.promoted.i301, %.lr.ph.i303.preheader ]
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 1
   %exitcond.not.i305 = icmp eq ptr %643, %630
-  br i1 %exitcond.not.i305, label %_ZN12_GLOBAL__N_111ParseHelper14SkipWhitespaceEv.exit.loopexit, label %.lr.ph.i303, !llvm.loop !439
+  br i1 %exitcond.not.i305, label %._ZN12_GLOBAL__N_111ParseHelper14SkipWhitespaceEv.exit.loopexit_crit_edge, label %.lr.ph.i303, !llvm.loop !439
 
-_ZN12_GLOBAL__N_111ParseHelper14SkipWhitespaceEv.exit.loopexit: ; preds = %.lr.ph.i303, %.lr.ph53, %.lr.ph.i303.preheader
-  %644 = phi ptr [ %.promoted888, %.lr.ph.i303.preheader ], [ %643, %.lr.ph53 ], [ %643, %.lr.ph.i303 ]
-  %.ph865 = phi ptr [ %.promoted.i301, %.lr.ph.i303.preheader ], [ %643, %.lr.ph53 ], [ %643, %.lr.ph.i303 ]
+._ZN12_GLOBAL__N_111ParseHelper14SkipWhitespaceEv.exit.loopexit_crit_edge: ; preds = %.lr.ph53
+  br label %_ZN12_GLOBAL__N_111ParseHelper14SkipWhitespaceEv.exit.loopexit, !llvm.loop !439
+
+_ZN12_GLOBAL__N_111ParseHelper14SkipWhitespaceEv.exit.loopexit: ; preds = %.lr.ph.i303, %._ZN12_GLOBAL__N_111ParseHelper14SkipWhitespaceEv.exit.loopexit_crit_edge, %.lr.ph.i303.preheader
+  %644 = phi ptr [ %643, %._ZN12_GLOBAL__N_111ParseHelper14SkipWhitespaceEv.exit.loopexit_crit_edge ], [ %.promoted888, %.lr.ph.i303.preheader ], [ %643, %.lr.ph.i303 ]
+  %.ph865 = phi ptr [ %643, %._ZN12_GLOBAL__N_111ParseHelper14SkipWhitespaceEv.exit.loopexit_crit_edge ], [ %.promoted.i301, %.lr.ph.i303.preheader ], [ %643, %.lr.ph.i303 ]
   store ptr %644, ptr %58, align 8
   br label %_ZN12_GLOBAL__N_111ParseHelper14SkipWhitespaceEv.exit
 
@@ -3637,7 +3649,7 @@ _ZN4llvm11SmallStringILj8EEpLEc.exit:             ; preds = %861, %864
 
 _ZN4llvm11SmallStringILj8EEpLEc.exit..critedge.loopexit_crit_edge: ; preds = %_ZN4llvm11SmallStringILj8EEpLEc.exit
   %.pre809.pre = load ptr, ptr %57, align 8, !tbaa !394
-  br label %.critedge.loopexit
+  br label %.critedge.loopexit, !llvm.loop !445
 
 .critedge.loopexit:                               ; preds = %.lr.ph763, %_ZN12_GLOBAL__N_111ParseHelper4NextEN4llvm9StringRefE.exit365, %_ZN4llvm11SmallStringILj8EEpLEc.exit..critedge.loopexit_crit_edge
   %.pre809 = phi ptr [ %.pre809.pre, %_ZN4llvm11SmallStringILj8EEpLEc.exit..critedge.loopexit_crit_edge ], [ %855, %_ZN12_GLOBAL__N_111ParseHelper4NextEN4llvm9StringRefE.exit365 ], [ %855, %.lr.ph763 ]

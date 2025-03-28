@@ -7545,7 +7545,7 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit._crit_edge: ; preds = %_ZN4llvm
   %.pre86 = load i64, ptr %26, align 8
   %.pre87 = load i64, ptr %27, align 8
   %210 = icmp eq i32 %.pre, 0
-  br label %split
+  br label %split, !llvm.loop !578
 
 split:                                            ; preds = %74, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit._crit_edge
   %211 = phi i64 [ %.pre87, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit._crit_edge ], [ %78, %74 ]

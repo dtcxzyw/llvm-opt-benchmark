@@ -22585,7 +22585,7 @@ define dso_local noundef zeroext i1 @_ZN3tev22BackgroundImagesLoader18publishSor
   %23 = load ptr, ptr %5, align 8
   %24 = load ptr, ptr %6, align 8
   %25 = icmp eq ptr %23, %24
-  br i1 %25, label %.critedge, label %26, !llvm.loop !610
+  br i1 %25, label %..critedge.loopexit_crit_edge, label %26, !llvm.loop !610
 
 26:                                               ; preds = %22
   %27 = load i32, ptr %23, align 8
@@ -22801,8 +22801,11 @@ _ZN3tev13ImageAdditionD2Ev.exit:                  ; preds = %_ZNSt3__16vectorINS
   invoke void @_ZNSt3__114priority_queueIN3tev13ImageAdditionENS_6vectorIS2_NS_9allocatorIS2_EEEENS2_10ComparatorEE3popEv(ptr noundef nonnull align 8 dereferenceable(25) %5)
           to label %22 unwind label %97, !llvm.loop !610
 
-.critedge:                                        ; preds = %22, %26, %.lr.ph, %1
-  %.04.lcssa = phi i1 [ false, %1 ], [ false, %.lr.ph ], [ true, %26 ], [ true, %22 ]
+..critedge.loopexit_crit_edge:                    ; preds = %22
+  br label %.critedge, !llvm.loop !610
+
+.critedge:                                        ; preds = %26, %.lr.ph, %..critedge.loopexit_crit_edge, %1
+  %.04.lcssa = phi i1 [ false, %1 ], [ true, %..critedge.loopexit_crit_edge ], [ false, %.lr.ph ], [ true, %26 ]
   call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #29
   ret i1 %.04.lcssa
 

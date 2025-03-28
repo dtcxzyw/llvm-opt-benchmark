@@ -8014,7 +8014,7 @@ define internal fastcc void @remove_subset_prefix(ptr noundef nonnull captures(n
   %10 = load i8, ptr %9, align 1, !tbaa !167
   %11 = add i8 %10, -65
   %or.cond39 = icmp ult i8 %11, 26
-  br i1 %or.cond39, label %.lr.ph70, label %.critedge.loopexit, !llvm.loop !571
+  br i1 %or.cond39, label %.lr.ph70, label %.critedge, !llvm.loop !571
 
 .lr.ph70:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.04669 = phi i32 [ %43, %.lr.ph ], [ 0, %.lr.ph.preheader ]
@@ -8025,7 +8025,7 @@ define internal fastcc void @remove_subset_prefix(ptr noundef nonnull captures(n
   %16 = load i8, ptr %15, align 1, !tbaa !167
   %17 = add i8 %16, -65
   %or.cond40 = icmp ult i8 %17, 26
-  br i1 %or.cond40, label %18, label %.critedge.loopexit
+  br i1 %or.cond40, label %18, label %.critedge
 
 18:                                               ; preds = %.lr.ph70
   %19 = add i32 %.04669, 3
@@ -8034,7 +8034,7 @@ define internal fastcc void @remove_subset_prefix(ptr noundef nonnull captures(n
   %22 = load i8, ptr %21, align 1, !tbaa !167
   %23 = add i8 %22, -65
   %or.cond41 = icmp ult i8 %23, 26
-  br i1 %or.cond41, label %24, label %.critedge.loopexit
+  br i1 %or.cond41, label %24, label %.critedge
 
 24:                                               ; preds = %18
   %25 = add i32 %.04669, 4
@@ -8043,7 +8043,7 @@ define internal fastcc void @remove_subset_prefix(ptr noundef nonnull captures(n
   %28 = load i8, ptr %27, align 1, !tbaa !167
   %29 = add i8 %28, -65
   %or.cond42 = icmp ult i8 %29, 26
-  br i1 %or.cond42, label %30, label %.critedge.loopexit
+  br i1 %or.cond42, label %30, label %.critedge
 
 30:                                               ; preds = %24
   %31 = add i32 %.04669, 5
@@ -8052,7 +8052,7 @@ define internal fastcc void @remove_subset_prefix(ptr noundef nonnull captures(n
   %34 = load i8, ptr %33, align 1, !tbaa !167
   %35 = add i8 %34, -65
   %or.cond43 = icmp ult i8 %35, 26
-  br i1 %or.cond43, label %36, label %.critedge.loopexit
+  br i1 %or.cond43, label %36, label %.critedge
 
 36:                                               ; preds = %30
   %37 = add i32 %.04669, 6
@@ -8060,7 +8060,7 @@ define internal fastcc void @remove_subset_prefix(ptr noundef nonnull captures(n
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !167
   %41 = icmp eq i8 %40, 43
-  br i1 %41, label %42, label %.critedge.loopexit
+  br i1 %41, label %42, label %.critedge
 
 42:                                               ; preds = %36
   %43 = add i32 %.04669, 7
@@ -8069,18 +8069,16 @@ define internal fastcc void @remove_subset_prefix(ptr noundef nonnull captures(n
   %46 = load i8, ptr %45, align 1, !tbaa !167
   %47 = add i8 %46, -65
   %or.cond = icmp ult i8 %47, 26
-  br i1 %or.cond, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !571
+  br i1 %or.cond, label %.lr.ph, label %..critedge_crit_edge72, !llvm.loop !571
 
-.critedge.loopexit:                               ; preds = %36, %42, %.lr.ph, %.lr.ph70, %18, %24, %30
-  %.lcssa44.ph.ph = phi i64 [ %12, %30 ], [ %12, %24 ], [ %12, %18 ], [ %12, %.lr.ph70 ], [ %44, %.lr.ph ], [ %44, %42 ], [ %12, %36 ]
-  %.0.lcssa.ph.ph = phi i32 [ %.04669, %30 ], [ %.04669, %24 ], [ %.04669, %18 ], [ %.04669, %.lr.ph70 ], [ %43, %.lr.ph ], [ %43, %42 ], [ %.04669, %36 ]
-  %48 = icmp eq i32 %.0.lcssa.ph.ph, 0
-  br label %.critedge
+..critedge_crit_edge72:                           ; preds = %42
+  br label %.critedge, !llvm.loop !571
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader
-  %.lcssa44.ph = phi i64 [ 0, %.lr.ph.preheader ], [ %.lcssa44.ph.ph, %.critedge.loopexit ]
-  %.0.lcssa.ph = phi i1 [ true, %.lr.ph.preheader ], [ %48, %.critedge.loopexit ]
-  br i1 %.0.lcssa.ph, label %.critedge.thread, label %49
+.critedge:                                        ; preds = %30, %24, %18, %.lr.ph70, %.lr.ph, %36, %..critedge_crit_edge72, %.lr.ph.preheader
+  %.lcssa44.ph = phi i64 [ %44, %..critedge_crit_edge72 ], [ 0, %.lr.ph.preheader ], [ %12, %30 ], [ %12, %24 ], [ %12, %18 ], [ %12, %.lr.ph70 ], [ %44, %.lr.ph ], [ %12, %36 ]
+  %.0.lcssa.ph = phi i32 [ %43, %..critedge_crit_edge72 ], [ 0, %.lr.ph.preheader ], [ %.04669, %30 ], [ %.04669, %24 ], [ %.04669, %18 ], [ %.04669, %.lr.ph70 ], [ %43, %.lr.ph ], [ %.04669, %36 ]
+  %48 = icmp eq i32 %.0.lcssa.ph, 0
+  br i1 %48, label %.critedge.thread, label %49
 
 49:                                               ; preds = %.critedge
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 %.lcssa44.ph

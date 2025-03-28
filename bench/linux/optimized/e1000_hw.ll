@@ -6736,7 +6736,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr noundef 
   %27 = zext i16 %26 to i32
   %28 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %4)
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %._crit_edge, !llvm.loop !44
+  br i1 %29, label %30, label %._crit_edge8, !llvm.loop !44
 
 30:                                               ; preds = %24
   %31 = load i16, ptr %4, align 2
@@ -6782,8 +6782,11 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr noundef 
   %57 = add i16 %.pre, 10
   br label %.sink.split
 
-._crit_edge:                                      ; preds = %24, %30
-  %58 = phi i32 [ %28, %24 ], [ -2, %30 ]
+._crit_edge8:                                     ; preds = %24
+  %58 = icmp samesign ugt i64 %35, 2
+  br i1 %58, label %63, label %.thread
+
+._crit_edge:                                      ; preds = %30
   %59 = icmp samesign ugt i64 %35, 2
   br i1 %59, label %63, label %.thread
 
@@ -6798,11 +6801,11 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr noundef 
   store i16 %.sink, ptr %2, align 2
   br label %63
 
-63:                                               ; preds = %.sink.split, %._crit_edge, %3
+63:                                               ; preds = %.sink.split, %._crit_edge8, %._crit_edge, %3
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %7, %63, %._crit_edge, %16, %13
-  %64 = phi i32 [ 0, %63 ], [ %58, %._crit_edge ], [ %14, %13 ], [ -2, %16 ], [ %8, %7 ], [ -2, %.preheader ]
+.thread:                                          ; preds = %.preheader, %._crit_edge8, %7, %63, %._crit_edge, %16, %13
+  %64 = phi i32 [ 0, %63 ], [ -2, %._crit_edge ], [ %14, %13 ], [ -2, %16 ], [ %8, %7 ], [ %28, %._crit_edge8 ], [ -2, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
   ret i32 %64
 }

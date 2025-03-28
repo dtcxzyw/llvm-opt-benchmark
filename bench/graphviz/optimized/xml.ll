@@ -312,10 +312,13 @@ xml_core.exit:                                    ; preds = %xml_isentity.exit.t
   %.1 = phi ptr [ %17, %.thread.i ], [ %131, %128 ], [ %17, %67 ], [ %17, %64 ], [ %17, %61 ], [ %17, %59 ], [ %17, %56 ], [ %17, %51 ], [ %17, %48 ], [ %17, %46 ], [ %17, %xml_isentity.exit.thread.i ]
   %.0.i = phi i32 [ %133, %.thread.i ], [ %132, %128 ], [ %68, %67 ], [ %65, %64 ], [ %62, %61 ], [ %60, %59 ], [ %57, %56 ], [ %52, %51 ], [ %49, %48 ], [ %47, %46 ], [ %45, %xml_isentity.exit.thread.i ]
   %134 = icmp sgt i32 %.0.i, -1
-  br i1 %134, label %13, label %._crit_edge, !llvm.loop !6
+  br i1 %134, label %13, label %xml_core.exit._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %xml_core.exit, %13, %4
-  %.2 = phi i32 [ 0, %4 ], [ %.0.i, %13 ], [ %.0.i, %xml_core.exit ]
+xml_core.exit._crit_edge:                         ; preds = %xml_core.exit
+  br label %._crit_edge, !llvm.loop !6
+
+._crit_edge:                                      ; preds = %13, %xml_core.exit._crit_edge, %4
+  %.2 = phi i32 [ %.0.i, %xml_core.exit._crit_edge ], [ 0, %4 ], [ %.0.i, %13 ]
   ret i32 %.2
 }
 

@@ -2468,7 +2468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit.i26: ; pred
 
 .backedge.._crit_edge.loopexit_crit_edge.i:       ; preds = %.backedge.i
   %.pre7.pre.i = load i64, ptr %58, align 8, !tbaa !35
-  br label %._crit_edge.i18
+  br label %._crit_edge.i18, !llvm.loop !50
 
 197:                                              ; preds = %169
   %198 = sext i8 %172 to i32

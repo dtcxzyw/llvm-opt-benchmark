@@ -3328,14 +3328,17 @@ define linkonce_odr hidden void @_ZN10polynomial5cache3imp21reset_psc_chain_cach
   %16 = phi ptr [ %17, %.lr.ph.i.i.i ], [ %3, %.lr.ph.i.i.preheader.i ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.not.i.i.i = icmp eq ptr %17, %7
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i, !llvm.loop !141
+  br i1 %.not.i.i.i, label %._ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i, label %.lr.ph.i.i.i, !llvm.loop !141
+
+._ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %._crit_edge, !llvm.loop !141
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
   %.sroa.04.1 = phi ptr [ %3, %.lr.ph.i.i.preheader.i ], [ %17, %.lr.ph.i.i.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %55, %61, %1
+._crit_edge:                                      ; preds = %55, %61, %._ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i, %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %20 = load i32, ptr %19, align 4, !tbaa !42
   %21 = icmp eq i32 %20, 0
@@ -3391,12 +3394,12 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE5re
   ret void
 
 _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer: ; preds = %.lr.ph.i.i, %.lr.ph
-  %.sroa.04.08.ph = phi ptr [ %.sroa.04.1, %.lr.ph ], [ %.sroa.04.2, %.lr.ph.i.i ]
+  %.sroa.04.09.ph = phi ptr [ %.sroa.04.1, %.lr.ph ], [ %.sroa.04.2, %.lr.ph.i.i ]
   br label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit
 
 _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit: ; preds = %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer, %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit
-  %.sroa.9.09 = phi ptr [ %53, %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit ], [ %.sroa.04.08.ph, %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer ]
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.9.09, i64 8
+  %.sroa.9.010 = phi ptr [ %53, %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit ], [ %.sroa.04.09.ph, %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer ]
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.9.010, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !89
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !87
@@ -3415,12 +3418,12 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8it
 _ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit: ; preds = %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit, %46
   %52 = load ptr, ptr %18, align 8, !tbaa !81
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %52, i64 noundef 40, ptr noundef nonnull %43)
-  %53 = load ptr, ptr %.sroa.9.09, align 8, !tbaa !35
+  %53 = load ptr, ptr %.sroa.9.010, align 8, !tbaa !35
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit
 
 55:                                               ; preds = %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.ph, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.ph, i64 16
   %.not2.i.i = icmp eq ptr %56, %7
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
@@ -3467,14 +3470,17 @@ define linkonce_odr hidden void @_ZN10polynomial5cache3imp18reset_factor_cacheEv
   %16 = phi ptr [ %17, %.lr.ph.i.i.i ], [ %3, %.lr.ph.i.i.preheader.i ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.not.i.i.i = icmp eq ptr %17, %7
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i, !llvm.loop !145
+  br i1 %.not.i.i.i, label %._ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i, label %.lr.ph.i.i.i, !llvm.loop !145
+
+._ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %._crit_edge, !llvm.loop !145
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
   %.sroa.04.1 = phi ptr [ %3, %.lr.ph.i.i.preheader.i ], [ %17, %.lr.ph.i.i.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %55, %61, %1
+._crit_edge:                                      ; preds = %55, %61, %._ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i, %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %20 = load i32, ptr %19, align 4, !tbaa !57
   %21 = icmp eq i32 %20, 0
@@ -3530,12 +3536,12 @@ _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE5reset
   ret void
 
 _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer: ; preds = %.lr.ph.i.i, %.lr.ph
-  %.sroa.04.08.ph = phi ptr [ %.sroa.04.1, %.lr.ph ], [ %.sroa.04.2, %.lr.ph.i.i ]
+  %.sroa.04.09.ph = phi ptr [ %.sroa.04.1, %.lr.ph ], [ %.sroa.04.2, %.lr.ph.i.i ]
   br label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit
 
 _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit: ; preds = %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer, %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit
-  %.sroa.9.09 = phi ptr [ %53, %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit ], [ %.sroa.04.08.ph, %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer ]
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.9.09, i64 8
+  %.sroa.9.010 = phi ptr [ %53, %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit ], [ %.sroa.04.09.ph, %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer ]
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.9.010, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !98
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %45 = load i32, ptr %44, align 4, !tbaa !96
@@ -3554,12 +3560,12 @@ _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8itera
 _ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit: ; preds = %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit, %46
   %52 = load ptr, ptr %18, align 8, !tbaa !81
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %52, i64 noundef 24, ptr noundef nonnull %43)
-  %53 = load ptr, ptr %.sroa.9.09, align 8, !tbaa !50
+  %53 = load ptr, ptr %.sroa.9.010, align 8, !tbaa !50
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit
 
 55:                                               ; preds = %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.ph, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.ph, i64 16
   %.not2.i.i = icmp eq ptr %56, %7
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 

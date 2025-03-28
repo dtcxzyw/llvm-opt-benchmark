@@ -588,7 +588,10 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   tail call void @_ZdaPv(ptr noundef nonnull %36) #14
   store ptr null, ptr %37, align 8
   %exitcond.not = icmp eq i64 %indvars.iv, 7
-  br i1 %exitcond.not, label %.split87.us, label %33, !llvm.loop !11
+  br i1 %exitcond.not, label %..split87.us_crit_edge, label %33, !llvm.loop !11
+
+..split87.us_crit_edge:                           ; preds = %.lr.ph91
+  br label %.split87.us, !llvm.loop !11
 
 .split:                                           ; preds = %27, %55
   %.05685 = phi i32 [ %56, %55 ], [ 0, %27 ]
@@ -647,8 +650,8 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   %exitcond124.not = icmp eq i32 %56, 8
   br i1 %exitcond124.not, label %.split87.us, label %.split, !llvm.loop !11
 
-.split87.us:                                      ; preds = %.lr.ph91, %33, %55, %.split, %.split.us
-  %.us-phi = phi i1 [ %.160, %.split.us ], [ %.283, %.split ], [ %.4, %55 ], [ true, %33 ], [ true, %.lr.ph91 ]
+.split87.us:                                      ; preds = %33, %55, %.split, %.split.us, %..split87.us_crit_edge
+  %.us-phi = phi i1 [ true, %..split87.us_crit_edge ], [ %.160, %.split.us ], [ %.283, %.split ], [ %.4, %55 ], [ true, %33 ]
   %57 = load i32, ptr %3, align 8
   %.fr114 = freeze i32 %57
   %58 = and i32 %.fr114, 8
@@ -676,7 +679,10 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   tail call void @_ZdaPv(ptr noundef nonnull %65) #14
   store ptr null, ptr %66, align 8
   %exitcond130.not = icmp eq i64 %indvars.iv125, 7
-  br i1 %exitcond130.not, label %.split104.us, label %62, !llvm.loop !13
+  br i1 %exitcond130.not, label %..split104.us_crit_edge, label %62, !llvm.loop !13
+
+..split104.us_crit_edge:                          ; preds = %.lr.ph109
+  br label %.split104.us, !llvm.loop !13
 
 .split102:                                        ; preds = %.split87.us, %85
   %.053101 = phi i32 [ %86, %85 ], [ 0, %.split87.us ]
@@ -736,8 +742,8 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   %exitcond136.not = icmp eq i32 %86, 8
   br i1 %exitcond136.not, label %.split104.us, label %.split102, !llvm.loop !13
 
-.split104.us:                                     ; preds = %.lr.ph109, %62, %85, %.split102, %.split102.us
-  %.us-phi105 = phi i1 [ %.us-phi, %.split102.us ], [ %.599, %.split102 ], [ %.7, %85 ], [ true, %62 ], [ true, %.lr.ph109 ]
+.split104.us:                                     ; preds = %62, %85, %.split102, %.split102.us, %..split104.us_crit_edge
+  %.us-phi105 = phi i1 [ true, %..split104.us_crit_edge ], [ %.us-phi, %.split102.us ], [ %.599, %.split102 ], [ %.7, %85 ], [ true, %62 ]
   %87 = load i32, ptr %3, align 8
   %88 = and i32 %87, 32
   %.not74 = icmp eq i32 %88, 0
@@ -1580,12 +1586,15 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %39 = ptrtoint ptr %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %.critedge, !llvm.loop !28
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !28
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %36, %23, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %36 ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %36 ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %36 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge, !llvm.loop !28
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

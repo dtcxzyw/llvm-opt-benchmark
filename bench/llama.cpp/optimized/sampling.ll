@@ -4099,8 +4099,8 @@ _ZNSt13unordered_mapIc19common_sampler_typeSt4hashIcESt8equal_toIcESaISt4pairIKc
 
 29:                                               ; preds = %_ZNSt13unordered_mapIc19common_sampler_typeSt4hashIcESt8equal_toIcESaISt4pairIKcS0_EEEC2ESt16initializer_listIS7_EmRKS2_RKS4_RKS8_.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not69 = icmp eq i64 %26, 0
-  br i1 %.not69, label %._crit_edge, label %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i
+  %.not71 = icmp eq i64 %26, 0
+  br i1 %.not71, label %._crit_edge, label %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i: ; preds = %29
   %31 = shl nuw nsw i64 %26, 2
@@ -4122,10 +4122,10 @@ _ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i: ; preds
   br label %55
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit, %29
-  %.lcssa48 = phi ptr [ null, %29 ], [ %110, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit ]
+  %.lcssa49 = phi ptr [ null, %29 ], [ %110, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit ]
   %.lcssa = phi ptr [ null, %29 ], [ %111, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit ]
   store ptr %.lcssa, ptr %30, align 8
-  store ptr %.lcssa48, ptr %0, align 8
+  store ptr %.lcssa49, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !177
   %.not5.i.i.i.i = icmp eq ptr %42, null
@@ -4167,12 +4167,12 @@ _ZNSt13unordered_mapIc19common_sampler_typeSt4hashIcESt8equal_toIcESaISt4pairIKc
 
 55:                                               ; preds = %.lr.ph, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit
   %56 = phi ptr [ %32, %.lr.ph ], [ %109, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit ]
-  %.sroa.020.052 = phi ptr [ %35, %.lr.ph ], [ %112, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit ]
+  %.sroa.020.053 = phi ptr [ %35, %.lr.ph ], [ %112, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit ]
   %57 = phi ptr [ %34, %.lr.ph ], [ %111, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit ]
   %58 = phi ptr [ %32, %.lr.ph ], [ %110, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit ]
   %59 = load i64, ptr %37, align 8, !tbaa !182
   %.not.not.i.i = icmp eq i64 %59, 0
-  %60 = load i8, ptr %.sroa.020.052, align 1
+  %60 = load i8, ptr %.sroa.020.053, align 1
   br i1 %.not.not.i.i, label %.preheader, label %65
 
 .preheader:                                       ; preds = %55, %61
@@ -4220,7 +4220,10 @@ _ZNSt13unordered_mapIc19common_sampler_typeSt4hashIcESt8equal_toIcESaISt4pairIKc
   %83 = sext i8 %82 to i64
   %84 = urem i64 %83, %67
   %.not19.i.i.i.i = icmp eq i64 %84, %68
-  br i1 %.not19.i.i.i.i, label %77, label %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit, !llvm.loop !185
+  br i1 %.not19.i.i.i.i, label %77, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !185
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %80
+  br label %_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit, !llvm.loop !185
 
 _ZNSt13unordered_mapIc19common_sampler_typeSt4hashIcESt8equal_toIcESaISt4pairIKcS0_EEE4findERS6_.exit: ; preds = %77, %61, %72
   %.sroa.06.1.i.i = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i, %61 ], [ %79, %77 ]
@@ -4301,11 +4304,11 @@ _ZNSt6vectorI19common_sampler_typeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_
           cleanup
   br label %113
 
-_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit: ; preds = %.lr.ph.i.i.i.i13, %80, %.preheader, %65, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %86
-  %109 = phi ptr [ %56, %65 ], [ %106, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %88, %86 ], [ %56, %.preheader ], [ %56, %80 ], [ %56, %.lr.ph.i.i.i.i13 ]
-  %110 = phi ptr [ %58, %65 ], [ %101, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %58, %86 ], [ %58, %.preheader ], [ %58, %80 ], [ %58, %.lr.ph.i.i.i.i13 ]
-  %111 = phi ptr [ %57, %65 ], [ %108, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %57, %86 ], [ %57, %.preheader ], [ %57, %80 ], [ %57, %.lr.ph.i.i.i.i13 ]
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.020.052, i64 1
+_ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit: ; preds = %.lr.ph.i.i.i.i13, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %65, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %86
+  %109 = phi ptr [ %56, %..loopexit_crit_edge21.i.i.i.i ], [ %56, %65 ], [ %106, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %88, %86 ], [ %56, %.preheader ], [ %56, %.lr.ph.i.i.i.i13 ]
+  %110 = phi ptr [ %58, %..loopexit_crit_edge21.i.i.i.i ], [ %58, %65 ], [ %101, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %58, %86 ], [ %58, %.preheader ], [ %58, %.lr.ph.i.i.i.i13 ]
+  %111 = phi ptr [ %57, %..loopexit_crit_edge21.i.i.i.i ], [ %57, %65 ], [ %108, %_ZNSt6vectorI19common_sampler_typeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %57, %86 ], [ %57, %.preheader ], [ %57, %.lr.ph.i.i.i.i13 ]
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.020.053, i64 1
   %.not = icmp eq ptr %112, %36
   br i1 %.not, label %._crit_edge, label %55
 
@@ -4322,10 +4325,10 @@ _ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit: ; preds = %.lr.
   br label %_ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit: ; preds = %.thread, %113, %114
-  %.pn75 = phi { ptr, i32 } [ %54, %.thread ], [ %.pn, %113 ], [ %.pn, %114 ]
+  %.pn77 = phi { ptr, i32 } [ %54, %.thread ], [ %.pn, %113 ], [ %.pn, %114 ]
   call void @_ZNSt13unordered_mapIc19common_sampler_typeSt4hashIcESt8equal_toIcESaISt4pairIKcS0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #23
-  resume { ptr, i32 } %.pn75
+  resume { ptr, i32 } %.pn77
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -6059,12 +6062,15 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIcSt4pairIKc19common_sampler_t
   %39 = sext i8 %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %.critedge, !llvm.loop !221
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !221
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %36, %23, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %36 ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %36 ], [ %8, %.lr.ph.i.i ]
-  %43 = phi i8 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %36 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge, !llvm.loop !221
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi i8 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   store ptr null, ptr %45, align 8, !tbaa !170

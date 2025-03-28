@@ -2493,15 +2493,18 @@ define internal void @dissect_dvbci_payload_hc(i32 noundef %0, i32 %1, ptr nound
   %76 = add i32 %75, %.01.i99
   %77 = sub i32 %76, %66
   %78 = icmp slt i32 %77, %71
-  br i1 %78, label %.lr.ph.i, label %dissect_desc_loop.exit, !llvm.loop !16
+  br i1 %78, label %.lr.ph.i, label %.dissect_desc_loop.exit.loopexit_crit_edge, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %79 = tail call i32 @proto_mpeg_descriptor_dissect(ptr noundef %2, i32 noundef %76, ptr noundef %6)
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %dissect_desc_loop.exit, label %.lr.ph, !llvm.loop !16
 
-dissect_desc_loop.exit:                           ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.preheader.i, %59
-  %.lcssa.i = phi i32 [ 2, %59 ], [ 2, %.lr.ph.preheader.i ], [ %77, %.lr.ph ], [ %77, %.lr.ph.i ]
+.dissect_desc_loop.exit.loopexit_crit_edge:       ; preds = %.lr.ph
+  br label %dissect_desc_loop.exit, !llvm.loop !16
+
+dissect_desc_loop.exit:                           ; preds = %.lr.ph.i, %.lr.ph.preheader.i, %.dissect_desc_loop.exit.loopexit_crit_edge, %59
+  %.lcssa.i = phi i32 [ 2, %59 ], [ %77, %.dissect_desc_loop.exit.loopexit_crit_edge ], [ 2, %.lr.ph.preheader.i ], [ %77, %.lr.ph.i ]
   %81 = icmp slt i32 %.lcssa.i, 0
   %82 = and i8 %60, 1
   %.not = icmp eq i8 %82, 0

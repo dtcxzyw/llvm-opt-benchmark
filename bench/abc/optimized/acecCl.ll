@@ -511,7 +511,7 @@ Abc_UtilStrsav.exit58:                            ; preds = %Abc_UtilStrsav.exit
 .lr.ph64:                                         ; preds = %.lr.ph85
   %.val51 = load ptr, ptr %21, align 8, !tbaa !11
   %.not43 = icmp eq ptr %.val51, null
-  br i1 %.not43, label %.critedge2.loopexit, label %.lr.ph85, !llvm.loop !45
+  br i1 %.not43, label %.critedge2, label %.lr.ph85, !llvm.loop !45
 
 .lr.ph85:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
   %.val5184 = phi ptr [ %.val51, %.lr.ph64 ], [ %.val5181, %.lr.ph64.preheader ]
@@ -534,20 +534,20 @@ Abc_UtilStrsav.exit58:                            ; preds = %Abc_UtilStrsav.exit
   %.val45 = load i32, ptr %53, align 4, !tbaa !41
   %54 = sext i32 %.val45 to i64
   %55 = icmp slt i64 %indvars.iv.next72, %54
-  br i1 %55, label %.lr.ph64, label %.critedge2.loopexit, !llvm.loop !45
+  br i1 %55, label %.lr.ph64, label %..critedge2_crit_edge, !llvm.loop !45
 
-.critedge2.loopexit:                              ; preds = %.lr.ph64, %.lr.ph85
-  %56 = icmp sgt i32 %.val45, 0
-  br label %.critedge2
+..critedge2_crit_edge:                            ; preds = %.lr.ph85
+  br label %.critedge2, !llvm.loop !45
 
-.critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph64.preheader
-  %.val4666.pre = phi i1 [ true, %.lr.ph64.preheader ], [ %56, %.critedge2.loopexit ]
-  %57 = phi ptr [ %40, %.lr.ph64.preheader ], [ %52, %.critedge2.loopexit ]
-  br i1 %.val4666.pre, label %.lr.ph68, label %.critedge4
+.critedge2:                                       ; preds = %.lr.ph64, %..critedge2_crit_edge, %.lr.ph64.preheader
+  %.val4666.pre = phi i32 [ %.val45, %..critedge2_crit_edge ], [ %.val4562, %.lr.ph64.preheader ], [ %.val45, %.lr.ph64 ]
+  %56 = phi ptr [ %52, %..critedge2_crit_edge ], [ %40, %.lr.ph64.preheader ], [ %52, %.lr.ph64 ]
+  %57 = icmp sgt i32 %.val4666.pre, 0
+  br i1 %57, label %.lr.ph68, label %.critedge4
 
 .lr.ph68:                                         ; preds = %.critedge2, %59
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %59 ], [ 0, %.critedge2 ]
-  %58 = phi ptr [ %76, %59 ], [ %57, %.critedge2 ]
+  %58 = phi ptr [ %76, %59 ], [ %56, %.critedge2 ]
   %.val53 = load ptr, ptr %21, align 8, !tbaa !11
   %.not44 = icmp eq ptr %.val53, null
   br i1 %.not44, label %.critedge4, label %59

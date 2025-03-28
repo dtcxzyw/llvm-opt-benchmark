@@ -21602,9 +21602,12 @@ define linkonce_odr void @_ZN8LightGBM4Tree19PredictContribByMapERKSt13unordered
   %24 = sext i32 %23 to i64
   %25 = urem i64 %24, %8
   %.not19.i.i.i.i = icmp eq i64 %25, %9
-  br i1 %.not19.i.i.i.i, label %18, label %.loopexit.i.i, !llvm.loop !712
+  br i1 %.not19.i.i.i.i, label %18, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !712
 
-.loopexit.i.i:                                    ; preds = %21, %.lr.ph.i.i.i.i, %4
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %21
+  br label %.loopexit.i.i, !llvm.loop !712
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %4
   %26 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
   store ptr null, ptr %26, align 8, !tbaa !399
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8

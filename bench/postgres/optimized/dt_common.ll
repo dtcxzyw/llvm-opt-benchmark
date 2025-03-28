@@ -4718,7 +4718,7 @@ define internal fastcc range(i32 0, 2) i32 @pgtypes_defmt_scan(ptr noundef nonnu
   %17 = getelementptr inbounds i8, ptr %3, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 37
-  br i1 %19, label %.lr.ph.i, label %.critedge.i, !llvm.loop !39
+  br i1 %19, label %.lr.ph.i, label %..critedge.i.loopexit_crit_edge, !llvm.loop !39
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %20 = or disjoint i32 %15, 1
@@ -4728,8 +4728,11 @@ define internal fastcc range(i32 0, 2) i32 @pgtypes_defmt_scan(ptr noundef nonnu
   %.not45.i = icmp eq i8 %23, 0
   br i1 %.not45.i, label %.critedge.i, label %.lr.ph, !llvm.loop !39
 
-.critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.i, %.lr.ph.i.preheader, %11
-  %.lcssa54.i = phi i64 [ 0, %11 ], [ 0, %.lr.ph.i.preheader ], [ %16, %.lr.ph.i ], [ %16, %.lr.ph ]
+..critedge.i.loopexit_crit_edge:                  ; preds = %.lr.ph
+  br label %.critedge.i, !llvm.loop !39
+
+.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %11
+  %.lcssa54.i = phi i64 [ 0, %11 ], [ %16, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %16, %.lr.ph.i ]
   %24 = getelementptr inbounds i8, ptr %3, i64 %.lcssa54.i
   %25 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %24, i32 noundef 37) #16
   %.not46.i = icmp eq ptr %25, null

@@ -11140,7 +11140,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr %.0.val, ptr noundef %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.llvm::SmallVector.654", align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %51, label %.lr.ph.preheader
+  br i1 %.not, label %52, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #17
@@ -11184,7 +11184,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 256
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(12) %.0.val, ptr noundef %14) #17
-  br i1 %21, label %thread-pre-splitthread-pre-split, label %.critedge, !llvm.loop !457
+  br i1 %21, label %thread-pre-splitthread-pre-split, label %..critedge_crit_edge, !llvm.loop !457
 
 22:                                               ; preds = %.lr.ph
   %23 = load ptr, ptr %.0.val, align 8, !tbaa !376
@@ -11235,22 +11235,25 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   store i32 %48, ptr %4, align 8, !tbaa !456
   br label %thread-pre-split
 
-.critedge:                                        ; preds = %thread-pre-split, %27, %16
-  %.not.i.lcssa.ph = phi i1 [ true, %thread-pre-split ], [ false, %27 ], [ false, %16 ]
-  %.pre = load ptr, ptr %2, align 8, !tbaa !454
-  %49 = icmp eq ptr %.pre, %3
-  br i1 %49, label %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit, label %50
+..critedge_crit_edge:                             ; preds = %16
+  br label %.critedge, !llvm.loop !457
 
-50:                                               ; preds = %.critedge
-  call void @free(ptr noundef %.pre) #17
+.critedge:                                        ; preds = %thread-pre-split, %27, %..critedge_crit_edge
+  %.not.i.lcssa = phi i1 [ false, %..critedge_crit_edge ], [ false, %27 ], [ true, %thread-pre-split ]
+  %49 = load ptr, ptr %2, align 8, !tbaa !454
+  %50 = icmp eq ptr %49, %3
+  br i1 %50, label %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit, label %51
+
+51:                                               ; preds = %.critedge
+  call void @free(ptr noundef %49) #17
   br label %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit: ; preds = %.critedge, %50
+_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit: ; preds = %.critedge, %51
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #17
-  br label %51
+  br label %52
 
-51:                                               ; preds = %1, %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit
-  %.0 = phi i1 [ %.not.i.lcssa.ph, %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit ], [ true, %1 ]
+52:                                               ; preds = %1, %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit
+  %.0 = phi i1 [ %.not.i.lcssa, %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -86557,7 +86560,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr %.0.val, ptr noundef %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.llvm::SmallVector.654", align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %51, label %.lr.ph.preheader
+  br i1 %.not, label %52, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #17
@@ -86601,7 +86604,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 256
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(12) %.0.val, ptr noundef %14) #17
-  br i1 %21, label %thread-pre-splitthread-pre-split, label %.critedge, !llvm.loop !984
+  br i1 %21, label %thread-pre-splitthread-pre-split, label %..critedge_crit_edge, !llvm.loop !984
 
 22:                                               ; preds = %.lr.ph
   %23 = load ptr, ptr %.0.val, align 8, !tbaa !376
@@ -86652,22 +86655,25 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   store i32 %48, ptr %4, align 8, !tbaa !456
   br label %thread-pre-split
 
-.critedge:                                        ; preds = %thread-pre-split, %27, %16
-  %.not.i.lcssa.ph = phi i1 [ true, %thread-pre-split ], [ false, %27 ], [ false, %16 ]
-  %.pre = load ptr, ptr %2, align 8, !tbaa !454
-  %49 = icmp eq ptr %.pre, %3
-  br i1 %49, label %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit, label %50
+..critedge_crit_edge:                             ; preds = %16
+  br label %.critedge, !llvm.loop !984
 
-50:                                               ; preds = %.critedge
-  call void @free(ptr noundef %.pre) #17
+.critedge:                                        ; preds = %thread-pre-split, %27, %..critedge_crit_edge
+  %.not.i.lcssa = phi i1 [ false, %..critedge_crit_edge ], [ false, %27 ], [ true, %thread-pre-split ]
+  %49 = load ptr, ptr %2, align 8, !tbaa !454
+  %50 = icmp eq ptr %49, %3
+  br i1 %50, label %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit, label %51
+
+51:                                               ; preds = %.critedge
+  call void @free(ptr noundef %49) #17
   br label %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit: ; preds = %.critedge, %50
+_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit: ; preds = %.critedge, %51
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #17
-  br label %51
+  br label %52
 
-51:                                               ; preds = %1, %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit
-  %.0 = phi i1 [ %.not.i.lcssa.ph, %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit ], [ true, %1 ]
+52:                                               ; preds = %1, %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit
+  %.0 = phi i1 [ %.not.i.lcssa, %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit ], [ true, %1 ]
   ret i1 %.0
 }
 

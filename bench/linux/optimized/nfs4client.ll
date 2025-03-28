@@ -1105,15 +1105,18 @@ define dso_local ptr @nfs4_create_server(ptr noundef readonly captures(none) %0)
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %._crit_edge, label %.preheader11, !llvm.loop !24
 
+._crit_edge:                                      ; preds = %80
+  br label %split, !llvm.loop !24
+
 .preheader11:                                     ; preds = %77, %80
   %83 = phi i32 [ %81, %80 ], [ 31, %77 ]
   %84 = shl nuw i32 1, %83
   %85 = and i32 %84, %73
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %80, label %._crit_edge
+  br i1 %86, label %80, label %split
 
-._crit_edge:                                      ; preds = %.preheader11, %80
-  %87 = phi i32 [ 0, %80 ], [ %83, %.preheader11 ]
+split:                                            ; preds = %.preheader11, %._crit_edge
+  %87 = phi i32 [ 0, %._crit_edge ], [ %83, %.preheader11 ]
   %88 = shl nuw i32 1, %87
   br label %91
 
@@ -1121,8 +1124,8 @@ define dso_local ptr @nfs4_create_server(ptr noundef readonly captures(none) %0)
   %90 = and i32 %73, 2093056
   br label %91
 
-91:                                               ; preds = %89, %._crit_edge, %77
-  %92 = phi i32 [ %90, %89 ], [ %88, %._crit_edge ], [ %73, %77 ]
+91:                                               ; preds = %89, %split, %77
+  %92 = phi i32 [ %90, %89 ], [ %88, %split ], [ %73, %77 ]
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i32 %92, ptr %93, align 8
   br label %94
@@ -1155,15 +1158,18 @@ define dso_local ptr @nfs4_create_server(ptr noundef readonly captures(none) %0)
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %._crit_edge12, label %.preheader, !llvm.loop !24
 
+._crit_edge12:                                    ; preds = %111
+  br label %split13, !llvm.loop !24
+
 .preheader:                                       ; preds = %108, %111
   %114 = phi i32 [ %112, %111 ], [ 31, %108 ]
   %115 = shl nuw i32 1, %114
   %116 = and i32 %115, %104
   %117 = icmp eq i32 %116, 0
-  br i1 %117, label %111, label %._crit_edge12
+  br i1 %117, label %111, label %split13
 
-._crit_edge12:                                    ; preds = %.preheader, %111
-  %118 = phi i32 [ 0, %111 ], [ %114, %.preheader ]
+split13:                                          ; preds = %.preheader, %._crit_edge12
+  %118 = phi i32 [ 0, %._crit_edge12 ], [ %114, %.preheader ]
   %119 = shl nuw i32 1, %118
   br label %122
 
@@ -1171,8 +1177,8 @@ define dso_local ptr @nfs4_create_server(ptr noundef readonly captures(none) %0)
   %121 = and i32 %104, 2093056
   br label %122
 
-122:                                              ; preds = %120, %._crit_edge12, %108
-  %123 = phi i32 [ %121, %120 ], [ %119, %._crit_edge12 ], [ %104, %108 ]
+122:                                              ; preds = %120, %split13, %108
+  %123 = phi i32 [ %121, %120 ], [ %119, %split13 ], [ %104, %108 ]
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 %123, ptr %124, align 8
   br label %125

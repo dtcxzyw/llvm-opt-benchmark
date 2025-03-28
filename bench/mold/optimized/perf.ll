@@ -3999,13 +3999,16 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
   %119 = load i64, ptr %7, align 8
   %120 = icmp ne i64 %118, %119
   %.not3.i = select i1 %117, i1 true, i1 %120
-  br i1 %.not3.i, label %24, label %.critedge, !llvm.loop !202
+  br i1 %.not3.i, label %24, label %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit..critedge.loopexit_crit_edge, !llvm.loop !202
 
-.critedge:                                        ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit, %24, %.lr.ph, %5
-  %.0.lcssa = phi ptr [ %4, %5 ], [ %4, %.lr.ph ], [ %114, %24 ], [ %114, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit ]
-  %.lcssa52 = phi ptr [ %8, %5 ], [ %8, %.lr.ph ], [ %115, %24 ], [ %115, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit ]
-  %.lcssa51 = phi i64 [ %11, %5 ], [ %11, %.lr.ph ], [ %118, %24 ], [ %118, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit ]
-  %.lcssa50 = phi i64 [ %11, %5 ], [ %12, %.lr.ph ], [ %119, %24 ], [ %118, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit ]
+_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit..critedge.loopexit_crit_edge: ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit
+  br label %.critedge, !llvm.loop !202
+
+.critedge:                                        ; preds = %24, %.lr.ph, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit..critedge.loopexit_crit_edge, %5
+  %.0.lcssa = phi ptr [ %4, %5 ], [ %114, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit..critedge.loopexit_crit_edge ], [ %4, %.lr.ph ], [ %114, %24 ]
+  %.lcssa52 = phi ptr [ %8, %5 ], [ %115, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit..critedge.loopexit_crit_edge ], [ %8, %.lr.ph ], [ %115, %24 ]
+  %.lcssa51 = phi i64 [ %11, %5 ], [ %118, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %118, %24 ]
+  %.lcssa50 = phi i64 [ %11, %5 ], [ %118, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit..critedge.loopexit_crit_edge ], [ %12, %.lr.ph ], [ %119, %24 ]
   %121 = load ptr, ptr %2, align 8, !tbaa !127
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !130

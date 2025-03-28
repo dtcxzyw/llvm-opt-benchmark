@@ -15140,10 +15140,13 @@ define internal fastcc i32 @mb_find_extent(ptr noundef readonly captures(none) %
   %103 = load i16, ptr %30, align 8
   %104 = zext i16 %103 to i64
   %105 = icmp samesign ugt i64 %66, %104
-  br i1 %105, label %mb_find_order_for_block.exit, label %.preheader10, !llvm.loop !352
+  br i1 %105, label %.mb_find_order_for_block.exit_crit_edge, label %.preheader10, !llvm.loop !352
 
-mb_find_order_for_block.exit:                     ; preds = %87, %101
-  %106 = phi i32 [ 0, %101 ], [ %94, %87 ]
+.mb_find_order_for_block.exit_crit_edge:          ; preds = %101
+  br label %mb_find_order_for_block.exit, !llvm.loop !352
+
+mb_find_order_for_block.exit:                     ; preds = %87, %.mb_find_order_for_block.exit_crit_edge
+  %106 = phi i32 [ 0, %.mb_find_order_for_block.exit_crit_edge ], [ %94, %87 ]
   %107 = shl nuw i32 1, %106
   %108 = add i32 %107, -1
   %109 = and i32 %108, %1
@@ -15313,10 +15316,13 @@ mb_find_order_for_block.exit:                     ; preds = %87, %101
   %215 = load i16, ptr %30, align 8
   %216 = zext i16 %215 to i64
   %217 = icmp samesign ugt i64 %178, %216
-  br i1 %217, label %mb_find_order_for_block.exit7, label %.preheader, !llvm.loop !352
+  br i1 %217, label %.mb_find_order_for_block.exit7_crit_edge, label %.preheader, !llvm.loop !352
 
-mb_find_order_for_block.exit7:                    ; preds = %199, %213
-  %218 = phi i32 [ 0, %213 ], [ %206, %199 ]
+.mb_find_order_for_block.exit7_crit_edge:         ; preds = %213
+  br label %mb_find_order_for_block.exit7, !llvm.loop !352
+
+mb_find_order_for_block.exit7:                    ; preds = %199, %.mb_find_order_for_block.exit7_crit_edge
+  %218 = phi i32 [ 0, %.mb_find_order_for_block.exit7_crit_edge ], [ %206, %199 ]
   %219 = ashr i32 %155, %218
   %220 = shl nuw i32 1, %218
   %221 = load i32, ptr %111, align 4

@@ -486,9 +486,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTe
   %126 = load i64, ptr %125, align 8
   %127 = urem i64 %126, %99
   %.not17.i.i.i.i.i.i = icmp eq i64 %127, %100
-  br i1 %.not17.i.i.i.i.i.i, label %115, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not17.i.i.i.i.i.i, label %115, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %124, %.lr.ph.i.i.i.i.i.i, %85, %92
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %124
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i, %85, %..loopexit_crit_edge21.i.i.i.i.i.i, %92
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__6TfTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %.noexc.i unwind label %155
 
@@ -1862,7 +1865,10 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16HioRankedTypeMa
   %57 = load i64, ptr %56, align 8
   %58 = urem i64 %57, %30
   %.not17.i.i.i.i = icmp eq i64 %58, %31
-  br i1 %.not17.i.i.i.i, label %46, label %.critedge, !llvm.loop !7
+  br i1 %.not17.i.i.i.i, label %46, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !7
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %55
+  br label %.critedge, !llvm.loop !7
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_16HioRankedTypeMap7_MappedENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit: ; preds = %46, %17, %35
   %.sroa.06.1.i.i = phi ptr [ %36, %35 ], [ %.sroa.06.0.i.i, %17 ], [ %54, %46 ]
@@ -1871,7 +1877,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_16HioRanked
   %61 = icmp slt i32 %60, %3
   br i1 %61, label %.critedge, label %63
 
-.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %55, %16, %23, %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_16HioRankedTypeMap7_MappedENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %16, %..loopexit_crit_edge21.i.i.i.i, %23, %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_16HioRankedTypeMap7_MappedENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit
   %62 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_16HioRankedTypeMap7_MappedEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   store ptr %6, ptr %62, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -2121,9 +2127,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(12) ptr @_ZNSt8__det
   %39 = load i64, ptr %38, align 8
   %40 = urem i64 %39, %12
   %.not17.i.i = icmp eq i64 %40, %13
-  br i1 %.not17.i.i, label %28, label %.loopexit, !llvm.loop !7
+  br i1 %.not17.i.i, label %28, label %..loopexit_crit_edge21.i.i, !llvm.loop !7
 
-.loopexit:                                        ; preds = %37, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %37
+  br label %.loopexit, !llvm.loop !7
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   store ptr %1, ptr %4, align 8
   store ptr %0, ptr %3, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8

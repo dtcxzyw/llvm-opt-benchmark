@@ -1055,6 +1055,9 @@ find_pol_handle.exit.thread:                      ; preds = %23, %12, %.preheade
   %.not22.i44 = icmp ugt i32 %49, %.pre.pre
   br i1 %.not22.i44, label %.critedge.i, label %.lr.ph, !llvm.loop !11
 
+.lr.ph:                                           ; preds = %.lr.ph.i36.preheader
+  br label %57, !llvm.loop !11
+
 50:                                               ; preds = %37
   %51 = call ptr @wmem_file_scope()
   %52 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %51, i64 noundef 8) #10
@@ -1067,30 +1070,33 @@ find_pol_handle.exit.thread:                      ; preds = %23, %12, %.preheade
   %56 = call ptr @wmem_map_insert(ptr noundef %55, ptr noundef %54, ptr noundef %52)
   br label %add_pol_handle.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.i36.preheader, %.lr.ph.i36
-  %.026.i45 = phi ptr [ %.0.i37, %.lr.ph.i36 ], [ %.023.i, %.lr.ph.i36.preheader ]
+57:                                               ; preds = %.lr.ph, %.lr.ph.i36
+  %.026.i45 = phi ptr [ %.023.i, %.lr.ph ], [ %.0.i37, %.lr.ph.i36 ]
   %.0.i37 = load ptr, ptr %.026.i45, align 8
   %.not.i38 = icmp eq ptr %.0.i37, null
   br i1 %.not.i38, label %.critedge.thread.i, label %.lr.ph.i36, !llvm.loop !11
 
-.lr.ph.i36:                                       ; preds = %.lr.ph
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i37, i64 16
-  %58 = load i32, ptr %57, align 8
-  %.not22.i = icmp ugt i32 %58, %.pre.pre
-  br i1 %.not22.i, label %.critedge.i, label %.lr.ph, !llvm.loop !11
+.lr.ph.i36:                                       ; preds = %57
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i37, i64 16
+  %59 = load i32, ptr %58, align 8
+  %.not22.i = icmp ugt i32 %59, %.pre.pre
+  br i1 %.not22.i, label %.lr.ph.i36..critedge.i_crit_edge, label %57, !llvm.loop !11
 
-.critedge.i:                                      ; preds = %.lr.ph.i36, %.lr.ph.i36.preheader
-  %.026.i.lcssa = phi ptr [ %.023.i, %.lr.ph.i36.preheader ], [ %.0.i37, %.lr.ph.i36 ]
-  %.02025.i.lcssa = phi ptr [ null, %.lr.ph.i36.preheader ], [ %.026.i45, %.lr.ph.i36 ]
-  %59 = icmp eq ptr %.02025.i.lcssa, null
-  %spec.select.i = select i1 %59, ptr %16, ptr %.02025.i.lcssa
+.lr.ph.i36..critedge.i_crit_edge:                 ; preds = %.lr.ph.i36
+  br label %.critedge.i, !llvm.loop !11
+
+.critedge.i:                                      ; preds = %.lr.ph.i36..critedge.i_crit_edge, %.lr.ph.i36.preheader
+  %.026.i.lcssa = phi ptr [ %.0.i37, %.lr.ph.i36..critedge.i_crit_edge ], [ %.023.i, %.lr.ph.i36.preheader ]
+  %.02025.i.lcssa = phi ptr [ %.026.i45, %.lr.ph.i36..critedge.i_crit_edge ], [ null, %.lr.ph.i36.preheader ]
+  %60 = icmp eq ptr %.02025.i.lcssa, null
+  %spec.select.i = select i1 %60, ptr %16, ptr %.02025.i.lcssa
   br label %.critedge.thread.i
 
-.critedge.thread.i:                               ; preds = %.lr.ph, %.critedge.i, %.preheader.i35
-  %.020.lcssa38.sink.i = phi ptr [ %16, %.preheader.i35 ], [ %spec.select.i, %.critedge.i ], [ %.026.i45, %.lr.ph ]
-  %.0.lcssa33.i = phi ptr [ null, %.preheader.i35 ], [ %.026.i.lcssa, %.critedge.i ], [ null, %.lr.ph ]
-  store ptr %39, ptr %.020.lcssa38.sink.i, align 8
-  store ptr %.0.lcssa33.i, ptr %39, align 8
+.critedge.thread.i:                               ; preds = %57, %.critedge.i, %.preheader.i35
+  %.020.lcssa41.sink.i = phi ptr [ %16, %.preheader.i35 ], [ %spec.select.i, %.critedge.i ], [ %.026.i45, %57 ]
+  %.0.lcssa36.i = phi ptr [ null, %.preheader.i35 ], [ %.026.i.lcssa, %.critedge.i ], [ null, %57 ]
+  store ptr %39, ptr %.020.lcssa41.sink.i, align 8
+  store ptr %.0.lcssa36.i, ptr %39, align 8
   br label %add_pol_handle.exit
 
 add_pol_handle.exit:                              ; preds = %26, %.critedge.thread.i, %50, %33, %34, %10, %3
@@ -1197,6 +1203,9 @@ define hidden void @dcerpc_store_polhnd_name(ptr noundef readonly captures(none)
   %.not22.i35 = icmp ugt i32 %41, %39
   br i1 %.not22.i35, label %.critedge.i, label %.lr.ph, !llvm.loop !11
 
+.lr.ph:                                           ; preds = %.lr.ph.i27.preheader
+  br label %49, !llvm.loop !11
+
 42:                                               ; preds = %.loopexit
   %43 = call ptr @wmem_file_scope()
   %44 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %43, i64 noundef 8) #10
@@ -1209,30 +1218,33 @@ define hidden void @dcerpc_store_polhnd_name(ptr noundef readonly captures(none)
   %48 = call ptr @wmem_map_insert(ptr noundef %47, ptr noundef %46, ptr noundef %44)
   br label %add_pol_handle.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.i27.preheader, %.lr.ph.i27
-  %.026.i36 = phi ptr [ %.0.i28, %.lr.ph.i27 ], [ %.023.i, %.lr.ph.i27.preheader ]
+49:                                               ; preds = %.lr.ph, %.lr.ph.i27
+  %.026.i36 = phi ptr [ %.023.i, %.lr.ph ], [ %.0.i28, %.lr.ph.i27 ]
   %.0.i28 = load ptr, ptr %.026.i36, align 8
   %.not.i29 = icmp eq ptr %.0.i28, null
   br i1 %.not.i29, label %.critedge.thread.i, label %.lr.ph.i27, !llvm.loop !11
 
-.lr.ph.i27:                                       ; preds = %.lr.ph
-  %49 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 16
-  %50 = load i32, ptr %49, align 8
-  %.not22.i = icmp ugt i32 %50, %39
-  br i1 %.not22.i, label %.critedge.i, label %.lr.ph, !llvm.loop !11
+.lr.ph.i27:                                       ; preds = %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 16
+  %51 = load i32, ptr %50, align 8
+  %.not22.i = icmp ugt i32 %51, %39
+  br i1 %.not22.i, label %.lr.ph.i27..critedge.i_crit_edge, label %49, !llvm.loop !11
 
-.critedge.i:                                      ; preds = %.lr.ph.i27, %.lr.ph.i27.preheader
-  %.026.i.lcssa = phi ptr [ %.023.i, %.lr.ph.i27.preheader ], [ %.0.i28, %.lr.ph.i27 ]
-  %.02025.i.lcssa = phi ptr [ null, %.lr.ph.i27.preheader ], [ %.026.i36, %.lr.ph.i27 ]
-  %51 = icmp eq ptr %.02025.i.lcssa, null
-  %spec.select.i = select i1 %51, ptr %16, ptr %.02025.i.lcssa
+.lr.ph.i27..critedge.i_crit_edge:                 ; preds = %.lr.ph.i27
+  br label %.critedge.i, !llvm.loop !11
+
+.critedge.i:                                      ; preds = %.lr.ph.i27..critedge.i_crit_edge, %.lr.ph.i27.preheader
+  %.026.i.lcssa = phi ptr [ %.0.i28, %.lr.ph.i27..critedge.i_crit_edge ], [ %.023.i, %.lr.ph.i27.preheader ]
+  %.02025.i.lcssa = phi ptr [ %.026.i36, %.lr.ph.i27..critedge.i_crit_edge ], [ null, %.lr.ph.i27.preheader ]
+  %52 = icmp eq ptr %.02025.i.lcssa, null
+  %spec.select.i = select i1 %52, ptr %16, ptr %.02025.i.lcssa
   br label %.critedge.thread.i
 
-.critedge.thread.i:                               ; preds = %.lr.ph, %.critedge.i, %.preheader.i26
-  %.020.lcssa38.sink.i = phi ptr [ %16, %.preheader.i26 ], [ %spec.select.i, %.critedge.i ], [ %.026.i36, %.lr.ph ]
-  %.0.lcssa33.i = phi ptr [ null, %.preheader.i26 ], [ %.026.i.lcssa, %.critedge.i ], [ null, %.lr.ph ]
-  store ptr %29, ptr %.020.lcssa38.sink.i, align 8
-  store ptr %.0.lcssa33.i, ptr %29, align 8
+.critedge.thread.i:                               ; preds = %49, %.critedge.i, %.preheader.i26
+  %.020.lcssa41.sink.i = phi ptr [ %16, %.preheader.i26 ], [ %spec.select.i, %.critedge.i ], [ %.026.i36, %49 ]
+  %.0.lcssa36.i = phi ptr [ null, %.preheader.i26 ], [ %.026.i.lcssa, %.critedge.i ], [ null, %49 ]
+  store ptr %29, ptr %.020.lcssa41.sink.i, align 8
+  store ptr %.0.lcssa36.i, ptr %29, align 8
   br label %add_pol_handle.exit
 
 add_pol_handle.exit:                              ; preds = %.critedge.thread.i, %42, %10, %3, %24

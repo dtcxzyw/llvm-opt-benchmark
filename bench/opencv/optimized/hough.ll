@@ -12510,10 +12510,13 @@ define linkonce_odr hidden void @_ZNK2cv24HoughCirclesAccumInvokerclERKNS_5Range
   store i32 %174, ptr %172, align 4, !tbaa !50
   %175 = load i32, ptr %61, align 4, !tbaa !179
   %.not88.us.not = icmp slt i32 %.069108.us140, %175
-  br i1 %.not88.us.not, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !342
+  br i1 %.not88.us.not, label %.lr.ph.us, label %.critedge93.us.._crit_edge.us.loopexit_crit_edge, !llvm.loop !342
 
-._crit_edge.us:                                   ; preds = %.lr.ph.us, %.critedge93.us, %.lr.ph.us.preheader, %.split.us123
-  %176 = phi i32 [ %148, %.split.us123 ], [ %148, %.lr.ph.us.preheader ], [ %175, %.critedge93.us ], [ %175, %.lr.ph.us ]
+.critedge93.us.._crit_edge.us.loopexit_crit_edge: ; preds = %.critedge93.us
+  br label %._crit_edge.us, !llvm.loop !342
+
+._crit_edge.us:                                   ; preds = %.lr.ph.us, %.lr.ph.us.preheader, %.critedge93.us.._crit_edge.us.loopexit_crit_edge, %.split.us123
+  %176 = phi i32 [ %148, %.split.us123 ], [ %175, %.critedge93.us.._crit_edge.us.loopexit_crit_edge ], [ %148, %.lr.ph.us.preheader ], [ %175, %.lr.ph.us ]
   %177 = sub nsw i32 0, %.077110.us121
   %178 = sub nsw i32 0, %.076111.us120
   br i1 %149, label %.split.us123, label %.loopexit.us, !llvm.loop !343

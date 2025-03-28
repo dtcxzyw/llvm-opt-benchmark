@@ -3040,16 +3040,19 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpO
   %1039 = sub i64 %1037, %1038
   %1040 = ashr exact i64 %1039, 3
   %1041 = icmp ult i64 %755, %1040
-  br i1 %1041, label %.lr.ph843, label %.critedge3.loopexit, !llvm.loop !29
+  br i1 %1041, label %.lr.ph843, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit..critedge3.loopexit_crit_edge, !llvm.loop !29
 
-.critedge3.loopexit:                              ; preds = %.lr.ph843, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit, %.lr.ph843.preheader
-  %.sroa.40.0.lcssa.ph = phi ptr [ null, %.lr.ph843.preheader ], [ %.sroa.40.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit ], [ %.sroa.40.1, %.lr.ph843 ]
-  %.sroa.15468.0.lcssa.ph = phi ptr [ null, %.lr.ph843.preheader ], [ %.sroa.15468.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit ], [ %.sroa.15468.1, %.lr.ph843 ]
-  %.sroa.0460.0.lcssa.ph = phi ptr [ null, %.lr.ph843.preheader ], [ %.sroa.0460.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit ], [ %.sroa.0460.1, %.lr.ph843 ]
-  %.sroa.40514.0.lcssa.ph = phi ptr [ null, %.lr.ph843.preheader ], [ %.sroa.40514.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit ], [ %.sroa.40514.1, %.lr.ph843 ]
-  %.sroa.15501.0.lcssa.ph = phi ptr [ null, %.lr.ph843.preheader ], [ %.sroa.15501.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit ], [ %.sroa.15501.1, %.lr.ph843 ]
-  %.sroa.0493.0.lcssa.ph = phi ptr [ null, %.lr.ph843.preheader ], [ %.sroa.0493.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit ], [ %.sroa.0493.1, %.lr.ph843 ]
-  %.lcssa692.ph = phi i64 [ %739, %.lr.ph843.preheader ], [ %1040, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit ], [ %1040, %.lr.ph843 ]
+_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit..critedge3.loopexit_crit_edge: ; preds = %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit
+  br label %.critedge3.loopexit, !llvm.loop !29
+
+.critedge3.loopexit:                              ; preds = %.lr.ph843, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit..critedge3.loopexit_crit_edge, %.lr.ph843.preheader
+  %.sroa.40.0.lcssa.ph = phi ptr [ %.sroa.40.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit..critedge3.loopexit_crit_edge ], [ null, %.lr.ph843.preheader ], [ %.sroa.40.1, %.lr.ph843 ]
+  %.sroa.15468.0.lcssa.ph = phi ptr [ %.sroa.15468.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit..critedge3.loopexit_crit_edge ], [ null, %.lr.ph843.preheader ], [ %.sroa.15468.1, %.lr.ph843 ]
+  %.sroa.0460.0.lcssa.ph = phi ptr [ %.sroa.0460.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit..critedge3.loopexit_crit_edge ], [ null, %.lr.ph843.preheader ], [ %.sroa.0460.1, %.lr.ph843 ]
+  %.sroa.40514.0.lcssa.ph = phi ptr [ %.sroa.40514.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit..critedge3.loopexit_crit_edge ], [ null, %.lr.ph843.preheader ], [ %.sroa.40514.1, %.lr.ph843 ]
+  %.sroa.15501.0.lcssa.ph = phi ptr [ %.sroa.15501.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit..critedge3.loopexit_crit_edge ], [ null, %.lr.ph843.preheader ], [ %.sroa.15501.1, %.lr.ph843 ]
+  %.sroa.0493.0.lcssa.ph = phi ptr [ %.sroa.0493.1, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit..critedge3.loopexit_crit_edge ], [ null, %.lr.ph843.preheader ], [ %.sroa.0493.1, %.lr.ph843 ]
+  %.lcssa692.ph = phi i64 [ %1040, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12emplace_backIJNS0_8TypeCodeEEEERS1_DpOT_.exit..critedge3.loopexit_crit_edge ], [ %739, %.lr.ph843.preheader ], [ %1040, %.lr.ph843 ]
   %1042 = add nsw i64 %.lcssa692.ph, 1
   br label %.critedge3
 

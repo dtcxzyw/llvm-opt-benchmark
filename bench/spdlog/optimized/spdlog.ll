@@ -11019,9 +11019,9 @@ define dso_local void @_ZNK6spdlog17pattern_formatter5cloneEv(ptr dead_on_unwind
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.sroa.017.022 = load ptr, ptr %12, align 8, !tbaa !161
-  %.not23 = icmp eq ptr %.sroa.017.022, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  %.sroa.017.023 = load ptr, ptr %12, align 8, !tbaa !161
+  %.not24 = icmp eq ptr %.sroa.017.023, null
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11036,9 +11036,9 @@ define dso_local void @_ZNK6spdlog17pattern_formatter5cloneEv(ptr dead_on_unwind
           to label %_ZNSt10unique_ptrIN6spdlog17pattern_formatterESt14default_deleteIS1_EED2Ev.exit unwind label %84
 
 17:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.exit
-  %.sroa.017.024 = phi ptr [ %.sroa.017.022, %.lr.ph ], [ %.sroa.017.0, %_ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.exit ]
+  %.sroa.017.025 = phi ptr [ %.sroa.017.023, %.lr.ph ], [ %.sroa.017.0, %_ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #37
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.017.024, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.017.025, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !194
   %20 = load ptr, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -11047,7 +11047,7 @@ define dso_local void @_ZNK6spdlog17pattern_formatter5cloneEv(ptr dead_on_unwind
           to label %23 unwind label %59
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.017.024, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.017.025, i64 8
   %25 = load i8, ptr %24, align 1, !tbaa !17
   %26 = sext i8 %25 to i64
   %27 = load i64, ptr %8, align 8, !tbaa !192
@@ -11081,9 +11081,12 @@ define dso_local void @_ZNK6spdlog17pattern_formatter5cloneEv(ptr dead_on_unwind
   %43 = sext i8 %42 to i64
   %44 = urem i64 %43, %27
   %.not19.i.i.i.i = icmp eq i64 %44, %28
-  br i1 %.not19.i.i.i.i, label %37, label %.loopexit.i.i, !llvm.loop !269
+  br i1 %.not19.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !269
 
-.loopexit.i.i:                                    ; preds = %40, %.lr.ph.i.i.i.i, %23
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %40
+  br label %.loopexit.i.i, !llvm.loop !269
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #37
   store ptr %4, ptr %3, align 8, !tbaa !270
   %45 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #45
@@ -11138,7 +11141,7 @@ _ZNKSt14default_deleteIN6spdlog21custom_flag_formatterEEclEPS1_.exit.i: ; preds 
 
 _ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.exit: ; preds = %.loopexit, %_ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EEaSEOS4_.exit, %_ZNKSt14default_deleteIN6spdlog21custom_flag_formatterEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #37
-  %.sroa.017.0 = load ptr, ptr %.sroa.017.024, align 8, !tbaa !161
+  %.sroa.017.0 = load ptr, ptr %.sroa.017.025, align 8, !tbaa !161
   %.not = icmp eq ptr %.sroa.017.0, null
   br i1 %.not, label %._crit_edge, label %17
 
@@ -11992,7 +11995,10 @@ define linkonce_odr dso_local void @_ZN6spdlog17pattern_formatter12handle_flag_I
   %86 = sext i8 %85 to i64
   %87 = urem i64 %86, %70
   %.not19.i.i.i.i = icmp eq i64 %87, %71
-  br i1 %.not19.i.i.i.i, label %80, label %.loopexit, !llvm.loop !269
+  br i1 %.not19.i.i.i.i, label %80, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !269
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %83
+  br label %.loopexit, !llvm.loop !269
 
 _ZNSt13unordered_mapIcSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS2_EESt4hashIcESt8equal_toIcESaISt4pairIKcS5_EEE4findERSB_.exit: ; preds = %80, %62, %75
   %.sroa.06.1.i.i = phi ptr [ %76, %75 ], [ %.sroa.06.0.i.i, %62 ], [ %82, %80 ]
@@ -12074,9 +12080,9 @@ _ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteI
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %115, %.noexc12 ], [ %120, %.lr.ph.i.i.i.i.i.i.i ]
   %121 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
   %.not.i23.i.i.i = icmp eq ptr %103, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread822, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit
+  br i1 %.not.i23.i.i.i, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread824, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread822: ; preds = %_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
+_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread824: ; preds = %_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
   store ptr %115, ptr %95, align 8, !tbaa !235
   store ptr %121, ptr %96, align 8, !tbaa !236
   %122 = getelementptr inbounds nuw %"class.std::unique_ptr.97", ptr %115, i64 %113
@@ -12100,7 +12106,7 @@ _ZNKSt14default_deleteIN6spdlog21custom_flag_formatterEEclEPS1_.exit.i: ; preds 
   call void %126(ptr noundef nonnull align 8 dereferenceable(24) %.pre.pre) #37
   br label %_ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread822, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN6spdlog21custom_flag_formatterEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread824, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN6spdlog21custom_flag_formatterEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #37
   br label %931
 
@@ -12126,7 +12132,7 @@ _ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #37
   br label %932
 
-.loopexit:                                        ; preds = %83, %.lr.ph.i.i.i.i, %61, %66
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %61, %66, %..loopexit_crit_edge21.i.i.i.i
   switch i8 %1, label %872 [
     i8 43, label %135
     i8 110, label %150
@@ -14786,7 +14792,10 @@ define linkonce_odr dso_local void @_ZN6spdlog17pattern_formatter12handle_flag_I
   %86 = sext i8 %85 to i64
   %87 = urem i64 %86, %70
   %.not19.i.i.i.i = icmp eq i64 %87, %71
-  br i1 %.not19.i.i.i.i, label %80, label %.loopexit, !llvm.loop !269
+  br i1 %.not19.i.i.i.i, label %80, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !269
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %83
+  br label %.loopexit, !llvm.loop !269
 
 _ZNSt13unordered_mapIcSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS2_EESt4hashIcESt8equal_toIcESaISt4pairIKcS5_EEE4findERSB_.exit: ; preds = %80, %62, %75
   %.sroa.06.1.i.i = phi ptr [ %76, %75 ], [ %.sroa.06.0.i.i, %62 ], [ %82, %80 ]
@@ -14868,9 +14877,9 @@ _ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteI
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %115, %.noexc12 ], [ %120, %.lr.ph.i.i.i.i.i.i.i ]
   %121 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
   %.not.i23.i.i.i = icmp eq ptr %103, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread822, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit
+  br i1 %.not.i23.i.i.i, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread824, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread822: ; preds = %_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
+_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread824: ; preds = %_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
   store ptr %115, ptr %95, align 8, !tbaa !235
   store ptr %121, ptr %96, align 8, !tbaa !236
   %122 = getelementptr inbounds nuw %"class.std::unique_ptr.97", ptr %115, i64 %113
@@ -14894,7 +14903,7 @@ _ZNKSt14default_deleteIN6spdlog21custom_flag_formatterEEclEPS1_.exit.i: ; preds 
   call void %126(ptr noundef nonnull align 8 dereferenceable(24) %.pre.pre) #37
   br label %_ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread822, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN6spdlog21custom_flag_formatterEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread824, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN6spdlog21custom_flag_formatterEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #37
   br label %931
 
@@ -14920,7 +14929,7 @@ _ZNSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #37
   br label %932
 
-.loopexit:                                        ; preds = %83, %.lr.ph.i.i.i.i, %61, %66
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %61, %66, %..loopexit_crit_edge21.i.i.i.i
   switch i8 %1, label %872 [
     i8 43, label %135
     i8 110, label %150

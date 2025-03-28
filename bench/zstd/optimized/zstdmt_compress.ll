@@ -2530,10 +2530,13 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %355, %ZSTDMT_writeL
   %393 = getelementptr inbounds nuw i8, ptr %390, i64 8
   %394 = load i64, ptr %393, align 8, !tbaa !83
   %395 = icmp eq i64 %392, %394
-  br i1 %395, label %.lr.ph.i82, label %.loopexit.i, !llvm.loop !152
+  br i1 %395, label %.lr.ph.i82, label %..loopexit.i.loopexit_crit_edge, !llvm.loop !152
 
-.loopexit.i:                                      ; preds = %.lr.ph.i82, %.lr.ph, %.lr.ph.i82.preheader, %.preheader.i, %366, %..loopexit_crit_edge.i
-  %396 = phi ptr [ %.pre.i83, %..loopexit_crit_edge.i ], [ %.pre124.i, %.preheader.i ], [ %.pre124.i, %366 ], [ %.pre124.i, %.lr.ph.i82.preheader ], [ %389, %.lr.ph ], [ %389, %.lr.ph.i82 ]
+..loopexit.i.loopexit_crit_edge:                  ; preds = %.lr.ph
+  br label %.loopexit.i, !llvm.loop !152
+
+.loopexit.i:                                      ; preds = %.lr.ph.i82, %.lr.ph.i82.preheader, %..loopexit.i.loopexit_crit_edge, %.preheader.i, %366, %..loopexit_crit_edge.i
+  %396 = phi ptr [ %.pre.i83, %..loopexit_crit_edge.i ], [ %.pre124.i, %.preheader.i ], [ %.pre124.i, %366 ], [ %389, %..loopexit.i.loopexit_crit_edge ], [ %.pre124.i, %.lr.ph.i82.preheader ], [ %389, %.lr.ph.i82 ]
   %397 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %396, i64 %363
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
   %399 = load i64, ptr %398, align 8, !tbaa !83
@@ -2738,12 +2741,12 @@ ZSTDMT_releaseBuffer.exit.i:                      ; preds = %511, %509, %499, %4
   %522 = load i32, ptr %356, align 4, !tbaa !82
   %523 = add i32 %522, 1
   store i32 %523, ptr %356, align 4, !tbaa !82
-  %.phi.trans.insert110 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %514, i64 %363, i32 17
-  %.pre111 = load i64, ptr %.phi.trans.insert110, align 8, !tbaa !85
+  %.phi.trans.insert111 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %514, i64 %363, i32 17
+  %.pre112 = load i64, ptr %.phi.trans.insert111, align 8, !tbaa !85
   br label %524
 
 524:                                              ; preds = %ZSTDMT_releaseBuffer.exit.i, %475
-  %525 = phi i64 [ %481, %475 ], [ %.pre111, %ZSTDMT_releaseBuffer.exit.i ]
+  %525 = phi i64 [ %481, %475 ], [ %.pre112, %ZSTDMT_releaseBuffer.exit.i ]
   %526 = icmp ugt i64 %.0104132.i, %525
   br i1 %526, label %527, label %.thread
 

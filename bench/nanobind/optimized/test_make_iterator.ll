@@ -2317,10 +2317,13 @@ define linkonce_odr noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcS
   %20 = load i64, ptr %19, align 8, !tbaa !72
   %21 = urem i64 %20, %18
   %.not19 = icmp eq i64 %21, %1
-  br i1 %.not19, label %13, label %.loopexit, !llvm.loop !103
+  br i1 %.not19, label %13, label %..loopexit_crit_edge21, !llvm.loop !103
 
-.loopexit:                                        ; preds = %.lr.ph, %17, %13, %8, %4
-  %.016 = phi ptr [ null, %4 ], [ %7, %8 ], [ null, %.lr.ph ], [ null, %17 ], [ %.020, %13 ]
+..loopexit_crit_edge21:                           ; preds = %17
+  br label %.loopexit, !llvm.loop !103
+
+.loopexit:                                        ; preds = %.lr.ph, %13, %8, %..loopexit_crit_edge21, %4
+  %.016 = phi ptr [ null, %4 ], [ null, %..loopexit_crit_edge21 ], [ %7, %8 ], [ null, %.lr.ph ], [ %.020, %13 ]
   ret ptr %.016
 }
 

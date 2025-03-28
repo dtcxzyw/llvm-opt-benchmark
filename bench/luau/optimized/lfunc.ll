@@ -149,49 +149,53 @@ define hidden noundef ptr @_Z14luaF_findupvalP9lua_StateP10lua_TValue(ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !56
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !58
 
-.critedge.loopexit:                               ; preds = %.lr.ph, %14
+..critedge.loopexit_crit_edge:                    ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  br label %.critedge, !llvm.loop !58
+
+.critedge.loopexit:                               ; preds = %.lr.ph
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %2
-  %.033.lcssa = phi ptr [ %5, %2 ], [ %5, %.lr.ph.preheader ], [ %17, %.critedge.loopexit ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %19 = load i8, ptr %18, align 4, !tbaa !4
-  %20 = tail call noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 noundef 40, i8 noundef zeroext %19)
-  %21 = load ptr, ptr %3, align 8, !tbaa !19
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load i8, ptr %22, align 8, !tbaa !20
-  %24 = and i8 %23, 3
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  store i8 %24, ptr %25, align 1, !tbaa !59
-  store i8 12, ptr %20, align 8, !tbaa !60
-  %26 = load i8, ptr %18, align 4, !tbaa !4
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  store i8 %26, ptr %27, align 2, !tbaa !61
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 3
-  store i8 0, ptr %28, align 1, !tbaa !62
-  %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %1, ptr %29, align 8, !tbaa !57
-  %30 = load ptr, ptr %.033.lcssa, align 8, !tbaa !56
-  %31 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr %30, ptr %32, align 8, !tbaa !53
-  store ptr %20, ptr %.033.lcssa, align 8, !tbaa !56
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 2816
-  store ptr %33, ptr %31, align 8, !tbaa !53
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 2840
-  %35 = load ptr, ptr %34, align 8, !tbaa !53
-  %36 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr %35, ptr %36, align 8, !tbaa !53
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %20, ptr %37, align 8, !tbaa !53
-  store ptr %20, ptr %34, align 8, !tbaa !53
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %2
+  %.033.lcssa = phi ptr [ %5, %2 ], [ %17, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %18, %.critedge.loopexit ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %20 = load i8, ptr %19, align 4, !tbaa !4
+  %21 = tail call noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 noundef 40, i8 noundef zeroext %20)
+  %22 = load ptr, ptr %3, align 8, !tbaa !19
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %24 = load i8, ptr %23, align 8, !tbaa !20
+  %25 = and i8 %24, 3
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  store i8 %25, ptr %26, align 1, !tbaa !59
+  store i8 12, ptr %21, align 8, !tbaa !60
+  %27 = load i8, ptr %19, align 4, !tbaa !4
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 2
+  store i8 %27, ptr %28, align 2, !tbaa !61
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 3
+  store i8 0, ptr %29, align 1, !tbaa !62
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %1, ptr %30, align 8, !tbaa !57
+  %31 = load ptr, ptr %.033.lcssa, align 8, !tbaa !56
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store ptr %31, ptr %33, align 8, !tbaa !53
+  store ptr %21, ptr %.033.lcssa, align 8, !tbaa !56
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 2816
+  store ptr %34, ptr %32, align 8, !tbaa !53
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 2840
+  %36 = load ptr, ptr %35, align 8, !tbaa !53
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store ptr %36, ptr %37, align 8, !tbaa !53
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store ptr %21, ptr %38, align 8, !tbaa !53
+  store ptr %21, ptr %35, align 8, !tbaa !53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph48, %.critedge
-  %.0 = phi ptr [ %20, %.critedge ], [ %12, %.lr.ph48 ]
+  %.0 = phi ptr [ %21, %.critedge ], [ %12, %.lr.ph48 ]
   ret ptr %.0
 }
 

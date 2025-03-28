@@ -374,6 +374,9 @@ qos_push.exit.i:                                  ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx.i.i, i8 0, i64 24, i1 false)
   br i1 %10, label %.lr.ph.i, label %qos_traverse_graph.exit
 
+.thread-pre-split.loopexit_crit_edge.i:           ; preds = %89
+  br label %thread-pre-split.backedgethread-pre-split.i, !llvm.loop !8
+
 .lr.ph.i:                                         ; preds = %qos_push.exit.i, %thread-pre-split.backedge.i
   %.pr49.i = phi i32 [ %.pr.i, %thread-pre-split.backedge.i ], [ %7, %qos_push.exit.i ]
   %11 = zext nneg i32 %.pr49.i to i64
@@ -429,7 +432,7 @@ qos_pop.exit30.i:                                 ; preds = %26
   %36 = icmp eq i32 %35, 3
   br i1 %36, label %38, label %thread-pre-split.backedge.i
 
-thread-pre-split.backedgethread-pre-split.i:      ; preds = %89, %55, %qos_reverse_path.exit.i
+thread-pre-split.backedgethread-pre-split.i:      ; preds = %55, %qos_reverse_path.exit.i, %.thread-pre-split.loopexit_crit_edge.i
   %.pr.pr.i = load i32, ptr @qos_node_tos, align 4
   br label %thread-pre-split.backedge.i
 
@@ -478,7 +481,7 @@ qos_reverse_path.exit.i:                          ; preds = %.lr.ph.i.i, %38
 
 .lr.ph47.i:                                       ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  br label %58
+  br label %58, !llvm.loop !8
 
 58:                                               ; preds = %89, %.lr.ph47.i
   %.045.i = phi ptr [ %56, %.lr.ph47.i ], [ %60, %89 ]
@@ -543,7 +546,7 @@ qos_push.exit35.i:                                ; preds = %80
 
 89:                                               ; preds = %qos_push.exit35.i, %76, %72
   %.not28.i = icmp eq ptr %60, null
-  br i1 %.not28.i, label %thread-pre-split.backedgethread-pre-split.i, label %58, !llvm.loop !10
+  br i1 %.not28.i, label %.thread-pre-split.loopexit_crit_edge.i, label %58, !llvm.loop !10
 
 qos_traverse_graph.exit:                          ; preds = %thread-pre-split.backedge.i, %qos_pop.exit.i, %qos_push.exit.i
   ret void

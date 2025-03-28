@@ -2021,13 +2021,16 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__det
   %40 = zext i32 %39 to i64
   %41 = urem i64 %40, %13
   %.not19.i.i = icmp eq i64 %41, %14
-  br i1 %.not19.i.i, label %34, label %.critedge18, !llvm.loop !123
+  br i1 %.not19.i.i, label %34, label %..loopexit_crit_edge21.i.i, !llvm.loop !123
 
-.critedge18:                                      ; preds = %.lr.ph.i.i, %37, %.critedge, %.critedge.thread
-  %42 = phi i64 [ %28, %.critedge ], [ %14, %.critedge.thread ], [ %14, %37 ], [ %14, %.lr.ph.i.i ]
-  %43 = phi i64 [ %27, %.critedge ], [ %13, %.critedge.thread ], [ %13, %37 ], [ %13, %.lr.ph.i.i ]
-  %44 = phi ptr [ %26, %.critedge ], [ %12, %.critedge.thread ], [ %12, %37 ], [ %12, %.lr.ph.i.i ]
-  %45 = phi i64 [ %25, %.critedge ], [ %11, %.critedge.thread ], [ %11, %37 ], [ %11, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %37
+  br label %.critedge18, !llvm.loop !123
+
+.critedge18:                                      ; preds = %.lr.ph.i.i, %.critedge, %..loopexit_crit_edge21.i.i, %.critedge.thread
+  %42 = phi i64 [ %28, %.critedge ], [ %14, %.critedge.thread ], [ %14, %..loopexit_crit_edge21.i.i ], [ %14, %.lr.ph.i.i ]
+  %43 = phi i64 [ %27, %.critedge ], [ %13, %.critedge.thread ], [ %13, %..loopexit_crit_edge21.i.i ], [ %13, %.lr.ph.i.i ]
+  %44 = phi ptr [ %26, %.critedge ], [ %12, %.critedge.thread ], [ %12, %..loopexit_crit_edge21.i.i ], [ %12, %.lr.ph.i.i ]
+  %45 = phi i64 [ %25, %.critedge ], [ %11, %.critedge.thread ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %46, i64 noundef %43, i64 noundef %10, i64 noundef 1) #17
   %48 = extractvalue { i8, i64 } %47, 0

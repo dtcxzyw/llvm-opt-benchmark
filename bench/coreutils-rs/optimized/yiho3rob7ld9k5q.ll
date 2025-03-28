@@ -35338,94 +35338,94 @@ define internal fastcc void @_ZN5uu_ls12StyleManager11apply_style17h079b911a63be
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9036)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9039)
   %87 = load i8, ptr %2, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
-  %.not.i.i = icmp eq i8 %15, %87
-  br i1 %.not.i.i, label %88, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+  %88 = icmp eq i8 %15, %87
+  br i1 %88, label %89, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
 
-88:                                               ; preds = %.thread16.i
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %90 = load i8, ptr %89, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
-  %91 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %92 = load i8, ptr %91, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
-  %.not1.i.i = icmp eq i8 %90, %92
-  br i1 %.not1.i.i, label %93, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+89:                                               ; preds = %.thread16.i
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %91 = load i8, ptr %90, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %93 = load i8, ptr %92, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
+  %94 = icmp eq i8 %91, %93
+  br i1 %94, label %95, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
 
-93:                                               ; preds = %88
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %95 = load i8, ptr %94, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %97 = load i8, ptr %96, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
-  %.not2.i.i = icmp eq i8 %95, %97
-  br i1 %.not2.i.i, label %98, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+95:                                               ; preds = %89
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %97 = load i8, ptr %96, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %99 = load i8, ptr %98, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
+  %100 = icmp eq i8 %97, %99
+  br i1 %100, label %101, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %100 = load i8, ptr %99, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %102 = load i8, ptr %101, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
-  %.not3.i.i = icmp eq i8 %100, %102
-  br i1 %.not3.i.i, label %103, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+101:                                              ; preds = %95
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %103 = load i8, ptr %102, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %105 = load i8, ptr %104, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
+  %106 = icmp eq i8 %103, %105
+  br i1 %106, label %107, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
 
-103:                                              ; preds = %98
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %105 = load i8, ptr %104, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %107 = load i8, ptr %106, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
-  %.not4.i.i = icmp eq i8 %105, %107
-  br i1 %.not4.i.i, label %108, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+107:                                              ; preds = %101
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %109 = load i8, ptr %108, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %111 = load i8, ptr %110, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
+  %112 = icmp eq i8 %109, %111
+  br i1 %112, label %113, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
 
-108:                                              ; preds = %103
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %110 = load i8, ptr %109, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  %112 = load i8, ptr %111, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
-  %.not5.i.i = icmp eq i8 %110, %112
-  br i1 %.not5.i.i, label %113, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
-
-113:                                              ; preds = %108
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 6
+113:                                              ; preds = %107
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %115 = load i8, ptr %114, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %117 = load i8, ptr %116, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
-  %.not6.i.i = icmp eq i8 %115, %117
-  br i1 %.not6.i.i, label %118, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+  %118 = icmp eq i8 %115, %117
+  br i1 %118, label %119, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %120 = load i8, ptr %119, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  %122 = load i8, ptr %121, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
-  %.not7.i.i = icmp eq i8 %120, %122
-  br i1 %.not7.i.i, label %"_ZN67_$LT$lscolors..style..FontStyle$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc5bffa9bf73ea14E.exit.i", label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+119:                                              ; preds = %113
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %121 = load i8, ptr %120, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %123 = load i8, ptr %122, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
+  %124 = icmp eq i8 %121, %123
+  br i1 %124, label %125, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
 
-"_ZN67_$LT$lscolors..style..FontStyle$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc5bffa9bf73ea14E.exit.i": ; preds = %118
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %124 = load i8, ptr %123, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
-  %125 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %126 = load i8, ptr %125, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
-  %.not8.i.i = icmp eq i8 %124, %126
-  br i1 %.not8.i.i, label %127, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+125:                                              ; preds = %119
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %127 = load i8, ptr %126, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 7
+  %129 = load i8, ptr %128, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
+  %130 = icmp eq i8 %127, %129
+  br i1 %130, label %"_ZN67_$LT$lscolors..style..FontStyle$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc5bffa9bf73ea14E.exit.i", label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
 
-127:                                              ; preds = %"_ZN67_$LT$lscolors..style..FontStyle$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc5bffa9bf73ea14E.exit.i"
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %129 = load i8, ptr %128, align 1, !range !9011, !alias.scope !9017, !noalias !9020, !noundef !4
-  %130 = icmp eq i8 %129, 18
-  %131 = getelementptr inbounds nuw i8, ptr %2, i64 17
-  %132 = load i8, ptr %131, align 1, !range !9011, !alias.scope !9020, !noalias !9017, !noundef !4
-  %133 = icmp eq i8 %132, 18
-  %brmerge.i = or i1 %130, %133
-  br i1 %brmerge.i, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit", label %134
+"_ZN67_$LT$lscolors..style..FontStyle$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc5bffa9bf73ea14E.exit.i": ; preds = %125
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %132 = load i8, ptr %131, align 1, !range !355, !alias.scope !9042, !noalias !9041, !noundef !4
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %134 = load i8, ptr %133, align 1, !range !355, !alias.scope !9041, !noalias !9042, !noundef !4
+  %135 = icmp eq i8 %132, %134
+  br i1 %135, label %136, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
 
-134:                                              ; preds = %127
-  %135 = tail call fastcc noundef zeroext i1 @"_ZN63_$LT$lscolors..style..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17he68a0b777f9d1387E"(ptr noalias noundef readonly align 1 dereferenceable(4) %128, ptr noalias noundef readonly align 1 dereferenceable(4) %131), !alias.scope !9043
-  br i1 %135, label %235, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+136:                                              ; preds = %"_ZN67_$LT$lscolors..style..FontStyle$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc5bffa9bf73ea14E.exit.i"
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %138 = load i8, ptr %137, align 1, !range !9011, !alias.scope !9017, !noalias !9020, !noundef !4
+  %139 = icmp eq i8 %138, 18
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 17
+  %141 = load i8, ptr %140, align 1, !range !9011, !alias.scope !9020, !noalias !9017, !noundef !4
+  %142 = icmp eq i8 %141, 18
+  %brmerge.i = or i1 %139, %142
+  br i1 %brmerge.i, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit", label %143
 
-"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit": ; preds = %127
-  %.mux.i = and i1 %130, %133
-  br i1 %.mux.i, label %235, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+143:                                              ; preds = %136
+  %144 = tail call fastcc noundef zeroext i1 @"_ZN63_$LT$lscolors..style..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17he68a0b777f9d1387E"(ptr noalias noundef readonly align 1 dereferenceable(4) %137, ptr noalias noundef readonly align 1 dereferenceable(4) %140), !alias.scope !9043
+  br i1 %144, label %244, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
 
-"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread": ; preds = %"._ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread_crit_edge", %.thread16.i, %88, %93, %98, %103, %108, %113, %118, %69, %75, %66, %31, %81, %58, %23, %59, %60, %"_ZN67_$LT$lscolors..style..FontStyle$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc5bffa9bf73ea14E.exit.i", %134, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit"
-  %136 = phi i8 [ %.pre, %"._ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread_crit_edge" ], [ %21, %.thread16.i ], [ %21, %88 ], [ %21, %93 ], [ %21, %98 ], [ %21, %103 ], [ %21, %108 ], [ %21, %113 ], [ %21, %118 ], [ %21, %69 ], [ %21, %75 ], [ %21, %66 ], [ %21, %31 ], [ %21, %81 ], [ %21, %58 ], [ %21, %23 ], [ %21, %59 ], [ %21, %60 ], [ %21, %"_ZN67_$LT$lscolors..style..FontStyle$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc5bffa9bf73ea14E.exit.i" ], [ %21, %134 ], [ %21, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit" ]
-  switch i8 %136, label %default.unreachable [
+"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit": ; preds = %136
+  %.mux.i = and i1 %139, %142
+  br i1 %.mux.i, label %244, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+
+"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread": ; preds = %"._ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread_crit_edge", %.thread16.i, %89, %95, %101, %107, %113, %119, %125, %69, %75, %66, %31, %81, %58, %23, %59, %60, %"_ZN67_$LT$lscolors..style..FontStyle$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc5bffa9bf73ea14E.exit.i", %143, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit"
+  %145 = phi i8 [ %.pre, %"._ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread_crit_edge" ], [ %21, %.thread16.i ], [ %21, %89 ], [ %21, %95 ], [ %21, %101 ], [ %21, %107 ], [ %21, %113 ], [ %21, %119 ], [ %21, %125 ], [ %21, %69 ], [ %21, %75 ], [ %21, %66 ], [ %21, %31 ], [ %21, %81 ], [ %21, %58 ], [ %21, %23 ], [ %21, %59 ], [ %21, %60 ], [ %21, %"_ZN67_$LT$lscolors..style..FontStyle$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc5bffa9bf73ea14E.exit.i" ], [ %21, %143 ], [ %21, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit" ]
+  switch i8 %145, label %default.unreachable [
     i8 18, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48"
     i8 0, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit.i"
     i8 1, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit.i"
@@ -35447,32 +35447,32 @@ define internal fastcc void @_ZN5uu_ls12StyleManager11apply_style17h079b911a63be
     i8 17, label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread"
   ]
 
-default.unreachable:                              ; preds = %167, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
+default.unreachable:                              ; preds = %176, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
   unreachable
 
 "_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread49": ; preds = %25, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
-  %137 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %138 = load i8, ptr %137, align 1, !alias.scope !9044, !noalias !9015, !noundef !4
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %147 = load i8, ptr %146, align 1, !alias.scope !9044, !noalias !9015, !noundef !4
   br label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit.i"
 
 "_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread": ; preds = %46, %40, %34, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
-  %139 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %140 = load i8, ptr %139, align 1, !alias.scope !9044, !noalias !9015, !noundef !4
-  %141 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  %142 = load i8, ptr %141, align 1, !alias.scope !9044, !noalias !9015, !noundef !4
-  %143 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %144 = load i8, ptr %143, align 1, !alias.scope !9044, !noalias !9015, !noundef !4
-  %145 = zext i8 %144 to i32
-  %146 = shl nuw nsw i32 %145, 16
-  %147 = zext i8 %142 to i32
-  %148 = shl nuw nsw i32 %147, 8
+  %148 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %149 = load i8, ptr %148, align 1, !alias.scope !9044, !noalias !9015, !noundef !4
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 11
+  %151 = load i8, ptr %150, align 1, !alias.scope !9044, !noalias !9015, !noundef !4
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %153 = load i8, ptr %152, align 1, !alias.scope !9044, !noalias !9015, !noundef !4
+  %154 = zext i8 %153 to i32
+  %155 = shl nuw nsw i32 %154, 16
+  %156 = zext i8 %151 to i32
+  %157 = shl nuw nsw i32 %156, 8
   br label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit.i"
 
 "_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit.i": ; preds = %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread49", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
-  %149 = phi i8 [ 17, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread" ], [ 16, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread49" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ]
-  %.sroa.22.0.i.i = phi i32 [ %146, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread49" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ]
-  %.sroa.21.0.i.i = phi i32 [ %148, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread49" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ]
-  %.sroa.19.0.i.i = phi i8 [ %140, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread" ], [ %138, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread49" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ]
+  %158 = phi i8 [ 17, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread" ], [ 16, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread49" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ]
+  %.sroa.22.0.i.i = phi i32 [ %155, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread49" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ]
+  %.sroa.21.0.i.i = phi i32 [ %157, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread49" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ]
+  %.sroa.19.0.i.i = phi i8 [ %149, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread" ], [ %147, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread49" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ]
   %.sroa.21.0.insert.insert.i.i = or i32 %.sroa.21.0.i.i, %.sroa.22.0.i.i
   %.sroa.19.0.insert.ext.i.i = zext i8 %.sroa.19.0.i.i to i32
   %.sroa.19.0.insert.insert.i.i = or disjoint i32 %.sroa.21.0.insert.insert.i.i, %.sroa.19.0.insert.ext.i.i
@@ -35480,12 +35480,12 @@ default.unreachable:                              ; preds = %167, %"_ZN63_$LT$ls
   br label %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48"
 
 "_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48": ; preds = %24, %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit.i", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread"
-  %150 = phi i8 [ %149, %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit.i" ], [ %136, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 18, %24 ]
+  %159 = phi i8 [ %158, %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit.i" ], [ %145, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ 18, %24 ]
   %.sroa.5.sroa.0.0.i = phi i24 [ %.sroa.420.0.extract.trunc.i, %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit.i" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread" ], [ undef, %24 ]
-  %151 = getelementptr inbounds nuw i8, ptr %2, i64 13
-  %152 = load i8, ptr %151, align 1, !range !9011, !alias.scope !9012, !noalias !9015, !noundef !4
-  switch i8 %152, label %default.unreachable [
-    i8 18, label %167
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 13
+  %161 = load i8, ptr %160, align 1, !range !9011, !alias.scope !9012, !noalias !9015, !noundef !4
+  switch i8 %161, label %default.unreachable [
+    i8 18, label %176
     i8 0, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i"
     i8 1, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i"
     i8 2, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i"
@@ -35502,60 +35502,60 @@ default.unreachable:                              ; preds = %167, %"_ZN63_$LT$ls
     i8 13, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i"
     i8 14, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i"
     i8 15, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i"
-    i8 16, label %153
-    i8 17, label %156
+    i8 16, label %162
+    i8 17, label %165
   ]
 
-153:                                              ; preds = %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48"
-  %154 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  %155 = load i8, ptr %154, align 1, !alias.scope !9047, !noalias !9015, !noundef !4
+162:                                              ; preds = %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48"
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 14
+  %164 = load i8, ptr %163, align 1, !alias.scope !9047, !noalias !9015, !noundef !4
   br label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i"
 
-156:                                              ; preds = %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48"
-  %157 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  %158 = load i8, ptr %157, align 1, !alias.scope !9047, !noalias !9015, !noundef !4
-  %159 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  %160 = load i8, ptr %159, align 1, !alias.scope !9047, !noalias !9015, !noundef !4
-  %161 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %162 = load i8, ptr %161, align 1, !alias.scope !9047, !noalias !9015, !noundef !4
-  %163 = zext i8 %162 to i32
-  %164 = shl nuw nsw i32 %163, 16
-  %165 = zext i8 %160 to i32
-  %166 = shl nuw nsw i32 %165, 8
+165:                                              ; preds = %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48"
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 14
+  %167 = load i8, ptr %166, align 1, !alias.scope !9047, !noalias !9015, !noundef !4
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 15
+  %169 = load i8, ptr %168, align 1, !alias.scope !9047, !noalias !9015, !noundef !4
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %171 = load i8, ptr %170, align 1, !alias.scope !9047, !noalias !9015, !noundef !4
+  %172 = zext i8 %171 to i32
+  %173 = shl nuw nsw i32 %172, 16
+  %174 = zext i8 %169 to i32
+  %175 = shl nuw nsw i32 %174, 8
   br label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i"
 
-"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i": ; preds = %156, %153, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48"
-  %.sroa.22.0.i25.i = phi i32 [ %164, %156 ], [ 0, %153 ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ]
-  %.sroa.21.0.i26.i = phi i32 [ %166, %156 ], [ 0, %153 ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ]
-  %.sroa.19.0.i27.i = phi i8 [ %158, %156 ], [ %155, %153 ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ]
+"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i": ; preds = %165, %162, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48"
+  %.sroa.22.0.i25.i = phi i32 [ %173, %165 ], [ 0, %162 ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ]
+  %.sroa.21.0.i26.i = phi i32 [ %175, %165 ], [ 0, %162 ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ 0, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ]
+  %.sroa.19.0.i27.i = phi i8 [ %167, %165 ], [ %164, %162 ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ]
   %.sroa.21.0.insert.insert.i28.i = or i32 %.sroa.21.0.i26.i, %.sroa.22.0.i25.i
   %.sroa.19.0.insert.ext.i29.i = zext i8 %.sroa.19.0.i27.i to i32
   %.sroa.19.0.insert.insert.i31.i = or disjoint i32 %.sroa.21.0.insert.insert.i28.i, %.sroa.19.0.insert.ext.i29.i
   %.sroa.422.0.extract.trunc.i = trunc nuw i32 %.sroa.19.0.insert.insert.i31.i to i24
-  br label %167
+  br label %176
 
-167:                                              ; preds = %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48"
+176:                                              ; preds = %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i", %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48"
   %.sroa.55.sroa.0.0.i = phi i24 [ %.sroa.422.0.extract.trunc.i, %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit35.i" ], [ undef, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit.thread.thread48" ]
-  %168 = load i8, ptr %2, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
-  %169 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %170 = load i8, ptr %169, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %172 = load i8, ptr %171, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
-  %173 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %174 = load i8, ptr %173, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %176 = load i8, ptr %175, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
-  %177 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  %178 = load i8, ptr %177, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
-  %179 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  %180 = load i8, ptr %179, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
-  %181 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  %182 = load i8, ptr %181, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
-  %183 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %184 = load i8, ptr %183, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
-  %185 = getelementptr inbounds nuw i8, ptr %2, i64 17
-  %186 = load i8, ptr %185, align 1, !range !9011, !alias.scope !9012, !noalias !9015, !noundef !4
-  switch i8 %186, label %default.unreachable [
+  %177 = load i8, ptr %2, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %179 = load i8, ptr %178, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
+  %180 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %181 = load i8, ptr %180, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %183 = load i8, ptr %182, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %185 = load i8, ptr %184, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
+  %186 = getelementptr inbounds nuw i8, ptr %2, i64 5
+  %187 = load i8, ptr %186, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
+  %188 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %189 = load i8, ptr %188, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
+  %190 = getelementptr inbounds nuw i8, ptr %2, i64 7
+  %191 = load i8, ptr %190, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
+  %192 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %193 = load i8, ptr %192, align 1, !range !355, !alias.scope !9012, !noalias !9015, !noundef !4
+  %194 = getelementptr inbounds nuw i8, ptr %2, i64 17
+  %195 = load i8, ptr %194, align 1, !range !9011, !alias.scope !9012, !noalias !9015, !noundef !4
+  switch i8 %195, label %default.unreachable [
     i8 18, label %"_ZN61_$LT$lscolors..style..Style$u20$as$u20$core..clone..Clone$GT$5clone17h7374d464e61e1ad3E.exit"
     i8 0, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i"
     i8 1, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i"
@@ -35573,120 +35573,120 @@ default.unreachable:                              ; preds = %167, %"_ZN63_$LT$ls
     i8 13, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i"
     i8 14, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i"
     i8 15, label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i"
-    i8 16, label %187
-    i8 17, label %190
+    i8 16, label %196
+    i8 17, label %199
   ]
 
-187:                                              ; preds = %167
-  %188 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %189 = load i8, ptr %188, align 1, !alias.scope !9050, !noalias !9015, !noundef !4
+196:                                              ; preds = %176
+  %197 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %198 = load i8, ptr %197, align 1, !alias.scope !9050, !noalias !9015, !noundef !4
   br label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i"
 
-190:                                              ; preds = %167
-  %191 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %192 = load i8, ptr %191, align 1, !alias.scope !9050, !noalias !9015, !noundef !4
-  %193 = getelementptr inbounds nuw i8, ptr %2, i64 19
-  %194 = load i8, ptr %193, align 1, !alias.scope !9050, !noalias !9015, !noundef !4
-  %195 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %196 = load i8, ptr %195, align 1, !alias.scope !9050, !noalias !9015, !noundef !4
-  %197 = zext i8 %196 to i32
-  %198 = shl nuw nsw i32 %197, 16
-  %199 = zext i8 %194 to i32
-  %200 = shl nuw nsw i32 %199, 8
+199:                                              ; preds = %176
+  %200 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %201 = load i8, ptr %200, align 1, !alias.scope !9050, !noalias !9015, !noundef !4
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 19
+  %203 = load i8, ptr %202, align 1, !alias.scope !9050, !noalias !9015, !noundef !4
+  %204 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %205 = load i8, ptr %204, align 1, !alias.scope !9050, !noalias !9015, !noundef !4
+  %206 = zext i8 %205 to i32
+  %207 = shl nuw nsw i32 %206, 16
+  %208 = zext i8 %203 to i32
+  %209 = shl nuw nsw i32 %208, 8
   br label %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i"
 
-"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i": ; preds = %190, %187, %167, %167, %167, %167, %167, %167, %167, %167, %167, %167, %167, %167, %167, %167, %167, %167
-  %.sroa.22.0.i36.i = phi i32 [ %198, %190 ], [ 0, %187 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ]
-  %.sroa.21.0.i37.i = phi i32 [ %200, %190 ], [ 0, %187 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ], [ 0, %167 ]
-  %.sroa.19.0.i38.i = phi i8 [ %192, %190 ], [ %189, %187 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ], [ undef, %167 ]
+"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i": ; preds = %199, %196, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176, %176
+  %.sroa.22.0.i36.i = phi i32 [ %207, %199 ], [ 0, %196 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ]
+  %.sroa.21.0.i37.i = phi i32 [ %209, %199 ], [ 0, %196 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ]
+  %.sroa.19.0.i38.i = phi i8 [ %201, %199 ], [ %198, %196 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ], [ undef, %176 ]
   %.sroa.21.0.insert.insert.i39.i = or i32 %.sroa.21.0.i37.i, %.sroa.22.0.i36.i
   %.sroa.19.0.insert.ext.i40.i = zext i8 %.sroa.19.0.i38.i to i32
   %.sroa.19.0.insert.insert.i42.i = or disjoint i32 %.sroa.21.0.insert.insert.i39.i, %.sroa.19.0.insert.ext.i40.i
   %.sroa.424.0.extract.trunc.i = trunc nuw i32 %.sroa.19.0.insert.insert.i42.i to i24
   br label %"_ZN61_$LT$lscolors..style..Style$u20$as$u20$core..clone..Clone$GT$5clone17h7374d464e61e1ad3E.exit"
 
-"_ZN61_$LT$lscolors..style..Style$u20$as$u20$core..clone..Clone$GT$5clone17h7374d464e61e1ad3E.exit": ; preds = %167, %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i"
-  %.sroa.511.sroa.0.0.i = phi i24 [ %.sroa.424.0.extract.trunc.i, %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i" ], [ undef, %167 ]
-  store i8 %168, ptr %1, align 1
+"_ZN61_$LT$lscolors..style..Style$u20$as$u20$core..clone..Clone$GT$5clone17h7374d464e61e1ad3E.exit": ; preds = %176, %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i"
+  %.sroa.511.sroa.0.0.i = phi i24 [ %.sroa.424.0.extract.trunc.i, %"_ZN61_$LT$lscolors..style..Color$u20$as$u20$core..clone..Clone$GT$5clone17h9156642f11424160E.exit46.i" ], [ undef, %176 ]
+  store i8 %177, ptr %1, align 1
   %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %170, ptr %.sroa.433.0..sroa_idx, align 1
+  store i8 %179, ptr %.sroa.433.0..sroa_idx, align 1
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %172, ptr %.sroa.534.0..sroa_idx, align 1
+  store i8 %181, ptr %.sroa.534.0..sroa_idx, align 1
   %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %174, ptr %.sroa.635.0..sroa_idx, align 1
+  store i8 %183, ptr %.sroa.635.0..sroa_idx, align 1
   %.sroa.736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %176, ptr %.sroa.736.0..sroa_idx, align 1
+  store i8 %185, ptr %.sroa.736.0..sroa_idx, align 1
   %.sroa.837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 %178, ptr %.sroa.837.0..sroa_idx, align 1
+  store i8 %187, ptr %.sroa.837.0..sroa_idx, align 1
   %.sroa.938.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i8 %180, ptr %.sroa.938.0..sroa_idx, align 1
+  store i8 %189, ptr %.sroa.938.0..sroa_idx, align 1
   %.sroa.1039.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %182, ptr %.sroa.1039.0..sroa_idx, align 1
+  store i8 %191, ptr %.sroa.1039.0..sroa_idx, align 1
   %.sroa.1140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 %184, ptr %.sroa.1140.0..sroa_idx, align 1
+  store i8 %193, ptr %.sroa.1140.0..sroa_idx, align 1
   %.sroa.1241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 %150, ptr %.sroa.1241.0..sroa_idx, align 1
+  store i8 %159, ptr %.sroa.1241.0..sroa_idx, align 1
   %.sroa.1342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i24 %.sroa.5.sroa.0.0.i, ptr %.sroa.1342.0..sroa_idx, align 1
   %.sroa.1443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 13
-  store i8 %152, ptr %.sroa.1443.0..sroa_idx, align 1
+  store i8 %161, ptr %.sroa.1443.0..sroa_idx, align 1
   %.sroa.1544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 14
   store i24 %.sroa.55.sroa.0.0.i, ptr %.sroa.1544.0..sroa_idx, align 1
   %.sroa.1645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 17
-  store i8 %186, ptr %.sroa.1645.0..sroa_idx, align 1
+  store i8 %195, ptr %.sroa.1645.0..sroa_idx, align 1
   %.sroa.1746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 18
   store i24 %.sroa.511.sroa.0.0.i, ptr %.sroa.1746.0..sroa_idx, align 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11)
   call void @_ZN8lscolors5style5Style21to_nu_ansi_term_style17hcf24e4bb09fd2d98E(ptr noalias noundef nonnull sret({ i8, i8, i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } }) align 1 captures(none) dereferenceable(17) %11, ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %2)
-  %201 = getelementptr inbounds nuw i8, ptr %11, i64 9
-  %202 = load i32, ptr %201, align 1
-  %203 = getelementptr inbounds nuw i8, ptr %11, i64 13
-  %204 = load i32, ptr %203, align 1
-  %205 = load i8, ptr %11, align 1, !range !355, !noundef !4
-  %206 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %207 = load i8, ptr %206, align 1, !range !355, !noundef !4
-  %208 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %209 = load i8, ptr %208, align 1, !range !355, !noundef !4
-  %210 = getelementptr inbounds nuw i8, ptr %11, i64 3
-  %211 = load i8, ptr %210, align 1, !range !355, !noundef !4
-  %212 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %213 = load i8, ptr %212, align 1, !range !355, !noundef !4
-  %214 = getelementptr inbounds nuw i8, ptr %11, i64 5
-  %215 = load i8, ptr %214, align 1, !range !355, !noundef !4
-  %216 = getelementptr inbounds nuw i8, ptr %11, i64 6
-  %217 = load i8, ptr %216, align 1, !range !355, !noundef !4
-  %218 = getelementptr inbounds nuw i8, ptr %11, i64 7
-  %219 = load i8, ptr %218, align 1, !range !355, !noundef !4
-  %220 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store i8 %205, ptr %220, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %11, i64 9
+  %211 = load i32, ptr %210, align 1
+  %212 = getelementptr inbounds nuw i8, ptr %11, i64 13
+  %213 = load i32, ptr %212, align 1
+  %214 = load i8, ptr %11, align 1, !range !355, !noundef !4
+  %215 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %216 = load i8, ptr %215, align 1, !range !355, !noundef !4
+  %217 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  %218 = load i8, ptr %217, align 1, !range !355, !noundef !4
+  %219 = getelementptr inbounds nuw i8, ptr %11, i64 3
+  %220 = load i8, ptr %219, align 1, !range !355, !noundef !4
+  %221 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %222 = load i8, ptr %221, align 1, !range !355, !noundef !4
+  %223 = getelementptr inbounds nuw i8, ptr %11, i64 5
+  %224 = load i8, ptr %223, align 1, !range !355, !noundef !4
+  %225 = getelementptr inbounds nuw i8, ptr %11, i64 6
+  %226 = load i8, ptr %225, align 1, !range !355, !noundef !4
+  %227 = getelementptr inbounds nuw i8, ptr %11, i64 7
+  %228 = load i8, ptr %227, align 1, !range !355, !noundef !4
+  %229 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  store i8 %214, ptr %229, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 49
-  store i8 %207, ptr %.sroa.4.0..sroa_idx, align 1
+  store i8 %216, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 50
-  store i8 %209, ptr %.sroa.5.0..sroa_idx, align 2
+  store i8 %218, ptr %.sroa.5.0..sroa_idx, align 2
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 51
-  store i8 %211, ptr %.sroa.6.0..sroa_idx, align 1
+  store i8 %220, ptr %.sroa.6.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 52
-  store i8 %213, ptr %.sroa.7.0..sroa_idx, align 4
+  store i8 %222, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 53
-  store i8 %215, ptr %.sroa.8.0..sroa_idx, align 1
+  store i8 %224, ptr %.sroa.8.0..sroa_idx, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 54
-  store i8 %217, ptr %.sroa.9.0..sroa_idx, align 2
+  store i8 %226, ptr %.sroa.9.0..sroa_idx, align 2
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 55
-  store i8 %219, ptr %.sroa.10.0..sroa_idx, align 1
+  store i8 %228, ptr %.sroa.10.0..sroa_idx, align 1
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i8 1, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 57
-  store i32 %202, ptr %.sroa.12.0..sroa_idx, align 1
+  store i32 %211, ptr %.sroa.12.0..sroa_idx, align 1
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 61
-  store i32 %204, ptr %.sroa.13.0..sroa_idx, align 1
+  store i32 %213, ptr %.sroa.13.0..sroa_idx, align 1
   store i64 -9223372036854775808, ptr %12, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %3, ptr %.sroa.47.0..sroa_idx, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %4, ptr %.sroa.58.0..sroa_idx, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 -9223372036854775806, ptr %221, align 8
+  %230 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 -9223372036854775806, ptr %230, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !9053
   store i64 0, ptr %10, align 8, !noalias !9053
   %.sroa.4.0..sroa_idx.i15 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -35694,59 +35694,59 @@ default.unreachable:                              ; preds = %167, %"_ZN63_$LT$ls
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !9053
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !9053
-  %222 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i32 0, ptr %222, align 4, !noalias !9053
-  %223 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 32, ptr %223, align 8, !noalias !9053
-  %224 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i8 3, ptr %224, align 8, !noalias !9053
+  %231 = getelementptr inbounds nuw i8, ptr %9, i64 52
+  store i32 0, ptr %231, align 4, !noalias !9053
+  %232 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store i32 32, ptr %232, align 8, !noalias !9053
+  %233 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store i8 3, ptr %233, align 8, !noalias !9053
   store i64 0, ptr %9, align 8, !noalias !9053
-  %225 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 0, ptr %225, align 8, !noalias !9053
-  %226 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %10, ptr %226, align 8, !noalias !9053
-  %227 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr @anon.7f23f6c34cb6e5d8a27f7f3e5b6b341a.29, ptr %227, align 8, !noalias !9053
-  %228 = invoke noundef zeroext i1 @"_ZN90_$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h3429ea6b2ea55ecdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %12, ptr noalias noundef nonnull align 8 dereferenceable(64) %9)
-          to label %231 unwind label %229, !noalias !9057
+  %234 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 0, ptr %234, align 8, !noalias !9053
+  %235 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr %10, ptr %235, align 8, !noalias !9053
+  %236 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store ptr @anon.7f23f6c34cb6e5d8a27f7f3e5b6b341a.29, ptr %236, align 8, !noalias !9053
+  %237 = invoke noundef zeroext i1 @"_ZN90_$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h3429ea6b2ea55ecdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %12, ptr noalias noundef nonnull align 8 dereferenceable(64) %9)
+          to label %240 unwind label %238, !noalias !9057
 
-229:                                              ; preds = %232, %"_ZN61_$LT$lscolors..style..Style$u20$as$u20$core..clone..Clone$GT$5clone17h7374d464e61e1ad3E.exit"
-  %230 = landingpad { ptr, i32 }
+238:                                              ; preds = %241, %"_ZN61_$LT$lscolors..style..Style$u20$as$u20$core..clone..Clone$GT$5clone17h7374d464e61e1ad3E.exit"
+  %239 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #22
-          to label %.body unwind label %233, !noalias !9057
+          to label %.body unwind label %242, !noalias !9057
 
-231:                                              ; preds = %"_ZN61_$LT$lscolors..style..Style$u20$as$u20$core..clone..Clone$GT$5clone17h7374d464e61e1ad3E.exit"
+240:                                              ; preds = %"_ZN61_$LT$lscolors..style..Style$u20$as$u20$core..clone..Clone$GT$5clone17h7374d464e61e1ad3E.exit"
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !9053
-  br i1 %228, label %232, label %257
+  br i1 %237, label %241, label %266
 
-232:                                              ; preds = %231
+241:                                              ; preds = %240
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.7f23f6c34cb6e5d8a27f7f3e5b6b341a.30, i64 noundef 55, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f23f6c34cb6e5d8a27f7f3e5b6b341a.77, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f23f6c34cb6e5d8a27f7f3e5b6b341a.32) #20
-          to label %.noexc.i unwind label %229, !noalias !9057
+          to label %.noexc.i unwind label %238, !noalias !9057
 
-.noexc.i:                                         ; preds = %232
+.noexc.i:                                         ; preds = %241
   unreachable
 
-233:                                              ; preds = %229
-  %234 = landingpad { ptr, i32 }
+242:                                              ; preds = %238
+  %243 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23, !noalias !9057
   unreachable
 
-235:                                              ; preds = %134, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit"
+244:                                              ; preds = %143, %"_ZN63_$LT$lscolors..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf845323c0c7c3608E.exit"
   call void @_ZN8lscolors5style5Style21to_nu_ansi_term_style17hcf24e4bb09fd2d98E(ptr noalias noundef nonnull sret({ i8, i8, i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } }) align 1 captures(none) dereferenceable(17) %13, ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %2)
-  %236 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i8 0, ptr %236, align 1
+  %245 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i8 0, ptr %245, align 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14)
-  %237 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %237, ptr noundef nonnull align 1 dereferenceable(17) %13, i64 17, i1 false)
+  %246 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %246, ptr noundef nonnull align 1 dereferenceable(17) %13, i64 17, i1 false)
   store i64 -9223372036854775808, ptr %14, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %3, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %4, ptr %.sroa.53.0..sroa_idx, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 -9223372036854775806, ptr %238, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i64 -9223372036854775806, ptr %247, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !9058
   store i64 0, ptr %8, align 8, !noalias !9058
   %.sroa.4.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -35754,76 +35754,76 @@ default.unreachable:                              ; preds = %167, %"_ZN63_$LT$ls
   %.sroa.5.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i17, align 8, !noalias !9058
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !9058
-  %239 = getelementptr inbounds nuw i8, ptr %7, i64 52
-  store i32 0, ptr %239, align 4, !noalias !9058
-  %240 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i32 32, ptr %240, align 8, !noalias !9058
-  %241 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i8 3, ptr %241, align 8, !noalias !9058
+  %248 = getelementptr inbounds nuw i8, ptr %7, i64 52
+  store i32 0, ptr %248, align 4, !noalias !9058
+  %249 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store i32 32, ptr %249, align 8, !noalias !9058
+  %250 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store i8 3, ptr %250, align 8, !noalias !9058
   store i64 0, ptr %7, align 8, !noalias !9058
-  %242 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 0, ptr %242, align 8, !noalias !9058
-  %243 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %8, ptr %243, align 8, !noalias !9058
-  %244 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr @anon.7f23f6c34cb6e5d8a27f7f3e5b6b341a.29, ptr %244, align 8, !noalias !9058
-  %245 = invoke noundef zeroext i1 @"_ZN90_$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h3429ea6b2ea55ecdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %14, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
-          to label %248 unwind label %246, !noalias !9062
+  %251 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 0, ptr %251, align 8, !noalias !9058
+  %252 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %8, ptr %252, align 8, !noalias !9058
+  %253 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr @anon.7f23f6c34cb6e5d8a27f7f3e5b6b341a.29, ptr %253, align 8, !noalias !9058
+  %254 = invoke noundef zeroext i1 @"_ZN90_$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h3429ea6b2ea55ecdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %14, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+          to label %257 unwind label %255, !noalias !9062
 
-246:                                              ; preds = %249, %235
-  %247 = landingpad { ptr, i32 }
+255:                                              ; preds = %258, %244
+  %256 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #22
-          to label %.body19 unwind label %250, !noalias !9062
+          to label %.body19 unwind label %259, !noalias !9062
 
-248:                                              ; preds = %235
+257:                                              ; preds = %244
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !9058
-  br i1 %245, label %249, label %252
+  br i1 %254, label %258, label %261
 
-249:                                              ; preds = %248
+258:                                              ; preds = %257
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.7f23f6c34cb6e5d8a27f7f3e5b6b341a.30, i64 noundef 55, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f23f6c34cb6e5d8a27f7f3e5b6b341a.77, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f23f6c34cb6e5d8a27f7f3e5b6b341a.32) #20
-          to label %.noexc.i18 unwind label %246, !noalias !9062
+          to label %.noexc.i18 unwind label %255, !noalias !9062
 
-.noexc.i18:                                       ; preds = %249
+.noexc.i18:                                       ; preds = %258
   unreachable
 
-250:                                              ; preds = %246
-  %251 = landingpad { ptr, i32 }
+259:                                              ; preds = %255
+  %260 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23, !noalias !9062
   unreachable
 
-.body19:                                          ; preds = %246
+.body19:                                          ; preds = %255
   invoke void @"_ZN4core3ptr72drop_in_place$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$GT$17hbbe88035778c0f03E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %14) #22
-          to label %256 unwind label %254
+          to label %265 unwind label %263
 
-252:                                              ; preds = %248
+261:                                              ; preds = %257
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !9058
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !9063
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !9058
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !9058
   call void @"_ZN4core3ptr72drop_in_place$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$GT$17hbbe88035778c0f03E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %14)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14)
-  br label %253
+  br label %262
 
-253:                                              ; preds = %257, %252
+262:                                              ; preds = %266, %261
   ret void
 
-254:                                              ; preds = %.body, %.body19
-  %255 = landingpad { ptr, i32 }
+263:                                              ; preds = %.body, %.body19
+  %264 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-256:                                              ; preds = %.body, %.body19
-  %.pn = phi { ptr, i32 } [ %247, %.body19 ], [ %230, %.body ]
+265:                                              ; preds = %.body, %.body19
+  %.pn = phi { ptr, i32 } [ %256, %.body19 ], [ %239, %.body ]
   resume { ptr, i32 } %.pn
 
-.body:                                            ; preds = %229
+.body:                                            ; preds = %238
   invoke void @"_ZN4core3ptr72drop_in_place$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$GT$17hbbe88035778c0f03E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12) #22
-          to label %256 unwind label %254
+          to label %265 unwind label %263
 
-257:                                              ; preds = %231
+266:                                              ; preds = %240
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !9053
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !9064
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !9053
@@ -35831,7 +35831,7 @@ default.unreachable:                              ; preds = %167, %"_ZN63_$LT$ls
   call void @"_ZN4core3ptr72drop_in_place$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$GT$17hbbe88035778c0f03E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12)
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
-  br label %253
+  br label %262
 }
 
 ; Function Attrs: nonlazybind uwtable

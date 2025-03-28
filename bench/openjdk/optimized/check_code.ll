@@ -2666,7 +2666,7 @@ free_all_code.exit:                               ; preds = %1094, %1091, %1095
 
 ..loopexit.loopexit_crit_edge.i:                  ; preds = %1125
   %.pre.pre.i = load ptr, ptr %1098, align 8
-  br label %finalize_class_hash.exit
+  br label %finalize_class_hash.exit, !llvm.loop !27
 
 finalize_class_hash.exit:                         ; preds = %.preheader.i155, %._crit_edge.i154, %..loopexit.loopexit_crit_edge.i
   %1126 = phi ptr [ null, %._crit_edge.i154 ], [ %.pre.pre.i, %..loopexit.loopexit_crit_edge.i ], [ %1121, %.preheader.i155 ]

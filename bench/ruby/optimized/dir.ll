@@ -2598,17 +2598,17 @@ define internal fastcc ptr @glob_make_pattern(ptr noundef %0, ptr noundef %1, i3
 .lr.ph.preheader:                                 ; preds = %4
   %7 = load i8, ptr %0, align 1, !tbaa !19
   %.not151 = icmp eq i8 %7, 0
-  br i1 %.not151, label %.critedge, label %.lr.ph155
+  br i1 %.not151, label %.critedge.loopexit, label %.lr.ph155
 
-.lr.ph:                                           ; preds = %63
+.lr.ph:                                           ; preds = %62
   %8 = load i8, ptr %.3, align 1, !tbaa !19
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %.critedge, label %.lr.ph155, !llvm.loop !120
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph155, !llvm.loop !120
 
 .lr.ph155:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %9 = phi i8 [ %8, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %.079120154 = phi i32 [ %.180, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.076121153 = phi ptr [ %64, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %.076121153 = phi ptr [ %63, %.lr.ph ], [ %5, %.lr.ph.preheader ]
   %.075122152 = phi ptr [ %.3, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %10 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #25
   %.not94 = icmp eq ptr %10, null
@@ -2665,7 +2665,7 @@ define internal fastcc ptr @glob_make_pattern(ptr noundef %0, ptr noundef %1, i3
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 4, ptr %35, align 8, !tbaa !123
   store ptr null, ptr %10, align 8, !tbaa !32
-  br label %63
+  br label %62
 
 36:                                               ; preds = %19, %15, %11
   %37 = tail call fastcc ptr @find_dirsep(ptr noundef nonnull %.075122152, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3)
@@ -2709,7 +2709,7 @@ rb_mul_size_overflow.exit.i.i:                    ; preds = %.critedge5
 glob_alloc_n.exit:                                ; preds = %.critedge5
   %54 = tail call noalias noundef ptr @malloc(i64 noundef %52) #25
   %.not97 = icmp eq ptr %54, null
-  br i1 %.not97, label %62, label %55
+  br i1 %.not97, label %61, label %55
 
 55:                                               ; preds = %glob_alloc_n.exit
   %.not.i = icmp eq ptr %.077, %.075122152
@@ -2728,67 +2728,77 @@ glob_alloc_n.exit:                                ; preds = %.critedge5
   store ptr %54, ptr %10, align 8, !tbaa !32
   %60 = load i8, ptr %.077, align 1, !tbaa !19
   %.not98 = icmp ne i8 %60, 0
+  %.384 = zext i1 %.not98 to i32
   %.5.idx = zext i1 %.not98 to i64
   %.5 = getelementptr i8, ptr %.077, i64 %.5.idx
-  %61 = select i1 %.not98, i32 6, i32 5
-  br label %63
+  br label %62
 
-62:                                               ; preds = %glob_alloc_n.exit
+61:                                               ; preds = %glob_alloc_n.exit
   tail call void @free(ptr noundef %10) #22
   br label %.loopexit
 
-63:                                               ; preds = %.thread, %.critedge2
-  %.182 = phi i32 [ 6, %.critedge2 ], [ %61, %.thread ]
+62:                                               ; preds = %.thread, %.critedge2
+  %.182 = phi i32 [ 1, %.critedge2 ], [ %.384, %.thread ]
   %.180 = phi i32 [ 1, %.critedge2 ], [ %.079120154, %.thread ]
   %.3 = phi ptr [ %.2, %.critedge2 ], [ %.5, %.thread ]
   store ptr %10, ptr %.076121153, align 8, !tbaa !28
-  %64 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %65 = icmp ult ptr %.3, %1
-  br i1 %65, label %.lr.ph, label %.critedge, !llvm.loop !120
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %64 = icmp ult ptr %.3, %1
+  br i1 %64, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !120
 
-.critedge:                                        ; preds = %.lr.ph.preheader, %63, %.lr.ph, %4
-  %.081.lcssa = phi i32 [ 5, %4 ], [ 5, %.lr.ph.preheader ], [ %.182, %63 ], [ %.182, %.lr.ph ]
-  %.076.lcssa = phi ptr [ %5, %4 ], [ %5, %.lr.ph.preheader ], [ %64, %63 ], [ %64, %.lr.ph ]
-  %66 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #25
-  %.not92 = icmp eq ptr %66, null
-  br i1 %.not92, label %.loopexit, label %67
+..critedge.loopexit_crit_edge:                    ; preds = %62
+  br label %.critedge.loopexit, !llvm.loop !120
 
-67:                                               ; preds = %.critedge
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i32 %.081.lcssa, ptr %68, align 8, !tbaa !123
-  store ptr null, ptr %66, align 8, !tbaa !32
-  store ptr %66, ptr %.076.lcssa, align 8, !tbaa !28
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store ptr null, ptr %69, align 8, !tbaa !30
+.critedge.loopexit:                               ; preds = %.lr.ph, %..critedge.loopexit_crit_edge, %.lr.ph.preheader
+  %.081.lcssa.ph = phi i32 [ %.182, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %.182, %.lr.ph ]
+  %.076.lcssa.ph = phi ptr [ %63, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %63, %.lr.ph ]
+  %65 = icmp eq i32 %.081.lcssa.ph, 0
+  %66 = select i1 %65, i32 5, i32 6
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %4
+  %.081.lcssa = phi i32 [ 5, %4 ], [ %66, %.critedge.loopexit ]
+  %.076.lcssa = phi ptr [ %5, %4 ], [ %.076.lcssa.ph, %.critedge.loopexit ]
+  %67 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #25
+  %.not92 = icmp eq ptr %67, null
+  br i1 %.not92, label %.loopexit, label %68
+
+68:                                               ; preds = %.critedge
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store i32 %.081.lcssa, ptr %69, align 8, !tbaa !123
+  store ptr null, ptr %67, align 8, !tbaa !32
+  store ptr %67, ptr %.076.lcssa, align 8, !tbaa !28
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store ptr null, ptr %70, align 8, !tbaa !30
   %.0..0..0..0. = load ptr, ptr %5, align 8, !tbaa !28
   br label %glob_free_pattern.exit
 
-.loopexit:                                        ; preds = %.lr.ph155, %62, %.critedge
-  %.076113 = phi ptr [ %.076121153, %62 ], [ %.076.lcssa, %.critedge ], [ %.076121153, %.lr.ph155 ]
+.loopexit:                                        ; preds = %.lr.ph155, %61, %.critedge
+  %.076113 = phi ptr [ %.076121153, %61 ], [ %.076.lcssa, %.critedge ], [ %.076121153, %.lr.ph155 ]
   store ptr null, ptr %.076113, align 8, !tbaa !28
   %.0..0..0..0.85 = load ptr, ptr %5, align 8, !tbaa !28
   %.not8.i = icmp eq ptr %.0..0..0..0.85, null
   br i1 %.not8.i, label %glob_free_pattern.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.loopexit, %74
-  %.09.i = phi ptr [ %71, %74 ], [ %.0..0..0..0.85, %.loopexit ]
-  %70 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !30
-  %72 = load ptr, ptr %.09.i, align 8, !tbaa !32
-  %.not7.i = icmp eq ptr %72, null
-  br i1 %.not7.i, label %74, label %73
+.lr.ph.i:                                         ; preds = %.loopexit, %75
+  %.09.i = phi ptr [ %72, %75 ], [ %.0..0..0..0.85, %.loopexit ]
+  %71 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !30
+  %73 = load ptr, ptr %.09.i, align 8, !tbaa !32
+  %.not7.i = icmp eq ptr %73, null
+  br i1 %.not7.i, label %75, label %74
 
-73:                                               ; preds = %.lr.ph.i
-  tail call void @free(ptr noundef nonnull %72) #22
-  br label %74
+74:                                               ; preds = %.lr.ph.i
+  tail call void @free(ptr noundef nonnull %73) #22
+  br label %75
 
-74:                                               ; preds = %73, %.lr.ph.i
+75:                                               ; preds = %74, %.lr.ph.i
   tail call void @free(ptr noundef nonnull %.09.i) #22
-  %.not.i100 = icmp eq ptr %71, null
+  %.not.i100 = icmp eq ptr %72, null
   br i1 %.not.i100, label %glob_free_pattern.exit, label %.lr.ph.i, !llvm.loop !33
 
-glob_free_pattern.exit:                           ; preds = %74, %.loopexit, %67
-  %.074 = phi ptr [ %.0..0..0..0., %67 ], [ null, %.loopexit ], [ null, %74 ]
+glob_free_pattern.exit:                           ; preds = %75, %.loopexit, %68
+  %.074 = phi ptr [ %.0..0..0..0., %68 ], [ null, %.loopexit ], [ null, %75 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret ptr %.074
 }

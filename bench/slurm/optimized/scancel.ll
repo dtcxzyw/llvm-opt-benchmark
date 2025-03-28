@@ -1616,7 +1616,7 @@ _log_signal_job_msg.exit:                         ; preds = %_log_signal_job_msg
 
 ..thread52_crit_edge:                             ; preds = %74
   %.pre = load i32, ptr %68, align 4
-  br label %.thread52
+  br label %.thread52, !llvm.loop !24
 
 .thread52:                                        ; preds = %67, %..thread52_crit_edge
   %78 = phi i32 [ %.pre, %..thread52_crit_edge ], [ %69, %67 ]
@@ -3141,7 +3141,7 @@ define internal noalias noundef ptr @_cancel_step_id(ptr noundef %0) #4 {
 
 ..thread58_crit_edge:                             ; preds = %82
   %.pre = load i32, ptr %76, align 4
-  br label %.thread58
+  br label %.thread58, !llvm.loop !33
 
 .thread58:                                        ; preds = %75, %..thread58_crit_edge
   %86 = phi i32 [ %.pre, %..thread58_crit_edge ], [ %77, %75 ]

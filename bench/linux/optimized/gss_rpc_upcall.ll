@@ -280,7 +280,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
 
 ..loopexit18.loopexit_crit_edge:                  ; preds = %54
   %.pre.pre = load ptr, ptr %28, align 8
-  br label %.sink.split
+  br label %.sink.split, !llvm.loop !9
 
 .loopexit20:                                      ; preds = %33, %30
   %59 = load i32, ptr @sunrpc_net_id, align 4

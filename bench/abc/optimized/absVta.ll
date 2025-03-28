@@ -1526,10 +1526,13 @@ Vta_ManObj.exit:                                  ; preds = %.lr.ph, %47
   %.val398 = load i32, ptr %43, align 4, !tbaa !15
   %71 = sext i32 %.val398 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %47, label %.critedge2, !llvm.loop !102
+  br i1 %72, label %47, label %..critedge2.loopexit_crit_edge791, !llvm.loop !102
 
-.critedge2:                                       ; preds = %47, %Vta_ManObj.exit, %53, %.lr.ph, %Vta_ManCollectNodes.exit
-  %.val398.lcssa = phi i32 [ %.val398641, %Vta_ManCollectNodes.exit ], [ %.val398641, %.lr.ph ], [ %.val398, %53 ], [ %.val398643789, %Vta_ManObj.exit ], [ %.val398, %47 ]
+..critedge2.loopexit_crit_edge791:                ; preds = %53
+  br label %.critedge2, !llvm.loop !102
+
+.critedge2:                                       ; preds = %47, %Vta_ManObj.exit, %.lr.ph, %..critedge2.loopexit_crit_edge791, %Vta_ManCollectNodes.exit
+  %.val398.lcssa = phi i32 [ %.val398641, %Vta_ManCollectNodes.exit ], [ %.val398, %..critedge2.loopexit_crit_edge791 ], [ %.val398641, %.lr.ph ], [ %.val398643789, %Vta_ManObj.exit ], [ %.val398, %47 ]
   %.val426 = load ptr, ptr %41, align 8, !tbaa !3
   %73 = sext i32 %.val398.lcssa to i64
   %74 = getelementptr i32, ptr %.val426, i64 %73
@@ -2265,10 +2268,13 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %376, %Gia_ObjIsRo.e
   %.val396 = load i32, ptr %43, align 4, !tbaa !15
   %433 = sext i32 %.val396 to i64
   %434 = icmp slt i64 %indvars.iv.next715, %433
-  br i1 %434, label %.lr.ph667, label %.critedge14, !llvm.loop !108
+  br i1 %434, label %.lr.ph667, label %.critedge12..critedge14.loopexit_crit_edge, !llvm.loop !108
 
-.critedge14:                                      ; preds = %.lr.ph667, %.critedge12, %Vta_ManObj.exit474, %.lr.ph667.preheader, %.critedge2, %.critedge12.preheader
-  %.val396.lcssa = phi i32 [ %.val396664.pr, %.critedge12.preheader ], [ %.val397, %.critedge2 ], [ %.val396664.pr, %.lr.ph667.preheader ], [ %.val396666796, %Vta_ManObj.exit474 ], [ %.val396, %.critedge12 ], [ %.val396, %.lr.ph667 ]
+.critedge12..critedge14.loopexit_crit_edge:       ; preds = %.critedge12
+  br label %.critedge14, !llvm.loop !108
+
+.critedge14:                                      ; preds = %.lr.ph667, %Vta_ManObj.exit474, %.lr.ph667.preheader, %.critedge12..critedge14.loopexit_crit_edge, %.critedge2, %.critedge12.preheader
+  %.val396.lcssa = phi i32 [ %.val396664.pr, %.critedge12.preheader ], [ %.val397, %.critedge2 ], [ %.val396, %.critedge12..critedge14.loopexit_crit_edge ], [ %.val396664.pr, %.lr.ph667.preheader ], [ %.val396666796, %Vta_ManObj.exit474 ], [ %.val396, %.lr.ph667 ]
   %.val428 = load ptr, ptr %41, align 8, !tbaa !3
   %435 = sext i32 %.val396.lcssa to i64
   %436 = getelementptr i32, ptr %.val428, i64 %435

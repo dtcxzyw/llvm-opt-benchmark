@@ -4035,7 +4035,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr noundef capture
 ._crit_edge2044:                                  ; preds = %566
   %.pre2045 = add i32 %.55980, -16
   %.pre2047 = zext i32 %.pre2045 to i64
-  br label %572
+  br label %572, !llvm.loop !52
 
 572:                                              ; preds = %._crit_edge2044, %551
   %.pre-phi2048 = phi i64 [ %.pre2047, %._crit_edge2044 ], [ %553, %551 ]
@@ -5980,7 +5980,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19tdefl_compress_fastP16t
 ..critedge3.loopexit_crit_edge:                   ; preds = %107
   %.pre.pre = load i8, ptr %scevgep397, align 1
   %.pre400.pre = load i8, ptr %scevgep399, align 1
-  br label %.critedge3
+  br label %.critedge3, !llvm.loop !90
 
 .critedge3.split.loop.exit310:                    ; preds = %95
   %109 = getelementptr inbounds nuw i8, ptr %.0230, i64 6

@@ -457,7 +457,7 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
 
 .preheader72.us:                                  ; preds = %13
   %35 = getelementptr inbounds nuw i8, ptr %.058.ph74.us, i64 24
-  br label %.preheader.us
+  br label %.preheader.us, !llvm.loop !31
 
 36:                                               ; preds = %10, %.outer73.us
   %37 = tail call ptr @fgets(ptr noundef %7, i32 noundef 100000, ptr noundef nonnull %2)

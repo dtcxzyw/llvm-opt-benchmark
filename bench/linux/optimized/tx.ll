@@ -6997,7 +6997,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_tx_h_rate_ctrl(ptr
   %139 = phi i64 [ %140, %142 ], [ 0, %128 ]
   %140 = add nuw nsw i64 %139, 1
   %141 = icmp eq i64 %140, %131
-  br i1 %141, label %._crit_edge, label %142, !llvm.loop !116
+  br i1 %141, label %._crit_edge8, label %142, !llvm.loop !116
 
 142:                                              ; preds = %.lr.ph
   %143 = shl nuw i64 2, %139
@@ -7005,7 +7005,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_tx_h_rate_ctrl(ptr
   %145 = icmp eq i64 %144, 0
   br i1 %145, label %.lr.ph, label %._crit_edge, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %.lr.ph, %142
+._crit_edge8:                                     ; preds = %.lr.ph
+  br label %._crit_edge, !llvm.loop !116
+
+._crit_edge:                                      ; preds = %142, %._crit_edge8
   %146 = icmp samesign ult i64 %140, %131
   br i1 %146, label %.critedge10, label %.critedge, !prof !9
 

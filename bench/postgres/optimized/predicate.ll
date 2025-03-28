@@ -861,7 +861,7 @@ define dso_local ptr @GetSerializableTransactionSnapshot(ptr noundef %0) local_u
 ..critedge.loopexit_crit_edge.i:                  ; preds = %37
   %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %43, i64 156
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %..critedge.loopexit_crit_edge.i, %.lr.ph9.i
   %49 = phi i32 [ %26, %.lr.ph9.i ], [ %.pre.pre.i, %..critedge.loopexit_crit_edge.i ], [ %34, %.lr.ph.i ]

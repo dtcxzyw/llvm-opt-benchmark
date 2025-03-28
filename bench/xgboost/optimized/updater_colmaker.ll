@@ -33246,8 +33246,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131: ; preds = %_ZSt
   %29 = load ptr, ptr %28, align 8, !tbaa !100
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %31 = load ptr, ptr %30, align 8, !tbaa !100
-  %.not164176 = icmp eq ptr %29, %31
-  br i1 %.not164176, label %._crit_edge, label %.lr.ph
+  %.not165177 = icmp eq ptr %29, %31
+  br i1 %.not165177, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
@@ -33258,15 +33258,15 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131: ; preds = %_ZSt
   br label %37
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %.sroa.0155.0177 = phi ptr [ %36, %.lr.ph ], [ %29, %27 ]
-  %32 = load i32, ptr %.sroa.0155.0177, align 4, !tbaa !93
+  %.sroa.0156.0178 = phi ptr [ %36, %.lr.ph ], [ %29, %27 ]
+  %32 = load i32, ptr %.sroa.0156.0178, align 4, !tbaa !93
   %33 = sext i32 %32 to i64
   %34 = load ptr, ptr %6, align 8, !tbaa !605
   %35 = getelementptr inbounds nuw %"struct.xgboost::tree::ColMaker::ThreadEntry", ptr %34, i64 %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0155.0177, i64 4
-  %.not164 = icmp eq ptr %36, %31
-  br i1 %.not164, label %._crit_edge, label %.lr.ph
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0156.0178, i64 4
+  %.not165 = icmp eq ptr %36, %31
+  br i1 %.not165, label %._crit_edge, label %.lr.ph
 
 37:                                               ; preds = %37, %._crit_edge
   %.idx = phi i64 [ 0, %._crit_edge ], [ %.add, %37 ]
@@ -33301,9 +33301,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131: ; preds = %_ZSt
   %.idx125.pn = shl nsw i64 %.idx125.pn.in, 8
   %.0 = getelementptr inbounds i8, ptr %1, i64 %.idx125.pn
   %.not183 = icmp eq i64 %.idx125.pn.in, 0
-  br i1 %.not183, label %.preheader168, label %.preheader172.lr.ph
+  br i1 %.not183, label %.preheader169, label %.preheader173.lr.ph
 
-.preheader172.lr.ph:                              ; preds = %52
+.preheader173.lr.ph:                              ; preds = %52
   %53 = shl nsw i32 %3, 5
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = sext i32 %3 to i64
@@ -33312,29 +33312,29 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131: ; preds = %_ZSt
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %59 = zext i32 %4 to i64
   %60 = sext i32 %53 to i64
-  br label %.preheader172
+  br label %.preheader173
 
-.preheader172:                                    ; preds = %.preheader172.lr.ph, %126
-  %.0113184 = phi ptr [ %1, %.preheader172.lr.ph ], [ %127, %126 ]
+.preheader173:                                    ; preds = %.preheader173.lr.ph, %126
+  %.0113184 = phi ptr [ %1, %.preheader173.lr.ph ], [ %127, %126 ]
   %61 = load ptr, ptr %54, align 8, !tbaa !527
   %62 = load ptr, ptr %5, align 8, !tbaa !700
   br label %67
 
-.preheader168:                                    ; preds = %126, %52
+.preheader169:                                    ; preds = %126, %52
   %.not126185 = icmp eq ptr %.0, %2
-  br i1 %.not126185, label %._crit_edge194, label %.lr.ph188
+  br i1 %.not126185, label %._crit_edge193, label %.lr.ph188
 
-.lr.ph188:                                        ; preds = %.preheader168
+.lr.ph188:                                        ; preds = %.preheader169
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load ptr, ptr %63, align 8, !tbaa !527
   %65 = load ptr, ptr %5, align 8, !tbaa !700
   %66 = sext i32 %3 to i64
   br label %133
 
-67:                                               ; preds = %.preheader172, %67
-  %indvars.iv = phi i64 [ 0, %.preheader172 ], [ %indvars.iv.next, %67 ]
-  %.0116178 = phi ptr [ %.0113184, %.preheader172 ], [ %76, %67 ]
-  %68 = load i32, ptr %.0116178, align 4, !tbaa !677
+67:                                               ; preds = %.preheader173, %67
+  %indvars.iv = phi i64 [ 0, %.preheader173 ], [ %indvars.iv.next, %67 ]
+  %.0116179 = phi ptr [ %.0113184, %.preheader173 ], [ %76, %67 ]
+  %68 = load i32, ptr %.0116179, align 4, !tbaa !677
   %69 = zext i32 %68 to i64
   %70 = getelementptr inbounds nuw i32, ptr %61, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !93
@@ -33345,19 +33345,19 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131: ; preds = %_ZSt
   %75 = load i64, ptr %73, align 4
   store i64 %75, ptr %74, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = getelementptr inbounds %"struct.xgboost::Entry", ptr %.0116178, i64 %55
+  %76 = getelementptr inbounds %"struct.xgboost::Entry", ptr %.0116179, i64 %55
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.preheader171, label %67, !llvm.loop !930
+  br i1 %exitcond.not, label %.preheader172, label %67, !llvm.loop !930
 
-.preheader171:                                    ; preds = %67, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159
-  %indvars.iv208 = phi i64 [ %indvars.iv.next209, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159 ], [ 0, %67 ]
-  %.1117180 = phi ptr [ %125, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159 ], [ %.0113184, %67 ]
-  %77 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv208
+.preheader172:                                    ; preds = %67, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160
+  %indvars.iv207 = phi i64 [ %indvars.iv.next208, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160 ], [ 0, %67 ]
+  %.1117181 = phi ptr [ %125, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160 ], [ %.0113184, %67 ]
+  %77 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv207
   %78 = load i32, ptr %77, align 4, !tbaa !93
   %79 = icmp slt i32 %78, 0
-  br i1 %79, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159, label %80
+  br i1 %79, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160, label %80
 
-80:                                               ; preds = %.preheader171
+80:                                               ; preds = %.preheader172
   %81 = load i8, ptr %56, align 4, !tbaa !278, !range !103, !noundef !104
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit
@@ -33392,7 +33392,7 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   %.sroa.06.0.in.i.i.i = phi ptr [ %96, %95 ], [ %.sroa.06.0.i.i.i, %98 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8, !tbaa !361
   %.not.i.i3.i = icmp eq ptr %.sroa.06.0.i.i.i, null
-  br i1 %.not.i.i3.i, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159, label %98
+  br i1 %.not.i.i3.i, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160, label %98
 
 98:                                               ; preds = %97
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i, i64 8
@@ -33408,7 +33408,7 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
   %108 = load ptr, ptr %107, align 8, !tbaa !629
   %.not.i.i.i.i.i = icmp eq ptr %108, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159, label %109
+  br i1 %.not.i.i.i.i.i, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160, label %109
 
 109:                                              ; preds = %102
   %110 = load ptr, ptr %108, align 8, !tbaa !361
@@ -33425,7 +33425,7 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   %.020.i.i.i.i.i = phi ptr [ %116, %114 ], [ %110, %109 ]
   %116 = load ptr, ptr %.020.i.i.i.i.i, align 8, !tbaa !361
   %.not18.i.i.i.i.i = icmp eq ptr %116, null
-  br i1 %.not18.i.i.i.i.i, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159, label %117
+  br i1 %.not18.i.i.i.i.i, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160, label %117
 
 117:                                              ; preds = %.lr.ph.i.i.i.i.i
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -33433,28 +33433,31 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   %120 = zext i32 %119 to i64
   %121 = urem i64 %120, %104
   %.not19.i.i.i.i.i = icmp eq i64 %121, %105
-  br i1 %.not19.i.i.i.i.i, label %114, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159, !llvm.loop !932
+  br i1 %.not19.i.i.i.i.i, label %114, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !932
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %117
+  br label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160, !llvm.loop !932
 
 _ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit: ; preds = %114, %98, %80, %109
-  %122 = getelementptr inbounds nuw [32 x %"class.xgboost::detail::GradientPairInternal"], ptr %12, i64 0, i64 %indvars.iv208
+  %122 = getelementptr inbounds nuw [32 x %"class.xgboost::detail::GradientPairInternal"], ptr %12, i64 0, i64 %indvars.iv207
   %.sroa.027.0.copyload = load <2 x float>, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %.1117180, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %.1117181, i64 4
   %124 = load float, ptr %123, align 4, !tbaa !679
   call void @_ZNK7xgboost4tree8ColMaker7Builder17UpdateEnumerationEiNS_6detail20GradientPairInternalIfEEfijRNS0_9GradStatsERSt6vectorINS1_11ThreadEntryESaIS9_EERKNS0_13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEEE(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %78, <2 x float> %.sroa.027.0.copyload, float noundef %124, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  br label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159
+  br label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160
 
-_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159: ; preds = %117, %.lr.ph.i.i.i.i.i, %97, %102, %.preheader171, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit
-  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %125 = getelementptr inbounds %"struct.xgboost::Entry", ptr %.1117180, i64 %55
-  %exitcond211.not = icmp eq i64 %indvars.iv.next209, 32
-  br i1 %exitcond211.not, label %126, label %.preheader171, !llvm.loop !933
+_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160: ; preds = %.lr.ph.i.i.i.i.i, %97, %..loopexit_crit_edge21.i.i.i.i.i, %102, %.preheader172, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit
+  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
+  %125 = getelementptr inbounds %"struct.xgboost::Entry", ptr %.1117181, i64 %55
+  %exitcond210.not = icmp eq i64 %indvars.iv.next208, 32
+  br i1 %exitcond210.not, label %126, label %.preheader172, !llvm.loop !933
 
-126:                                              ; preds = %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159
+126:                                              ; preds = %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread160
   %127 = getelementptr inbounds %"struct.xgboost::Entry", ptr %.0113184, i64 %60
   %.not = icmp eq ptr %127, %.0
-  br i1 %.not, label %.preheader168, label %.preheader172, !llvm.loop !934
+  br i1 %.not, label %.preheader169, label %.preheader173, !llvm.loop !934
 
-.lr.ph193:                                        ; preds = %133
+.lr.ph192:                                        ; preds = %133
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -33463,35 +33466,35 @@ _ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit.thread159: ; preds 
   br label %143
 
 133:                                              ; preds = %.lr.ph188, %133
-  %indvars.iv212 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next213, %133 ]
+  %indvars.iv211 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next212, %133 ]
   %.1114186 = phi ptr [ %.0, %.lr.ph188 ], [ %142, %133 ]
   %134 = load i32, ptr %.1114186, align 4, !tbaa !677
   %135 = zext i32 %134 to i64
   %136 = getelementptr inbounds nuw i32, ptr %64, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !93
-  %138 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv212
+  %138 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv211
   store i32 %137, ptr %138, align 4, !tbaa !93
   %139 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %65, i64 %135
-  %140 = getelementptr inbounds nuw [32 x %"class.xgboost::detail::GradientPairInternal"], ptr %12, i64 0, i64 %indvars.iv212
+  %140 = getelementptr inbounds nuw [32 x %"class.xgboost::detail::GradientPairInternal"], ptr %12, i64 0, i64 %indvars.iv211
   %141 = load i64, ptr %139, align 4
   store i64 %141, ptr %140, align 8
-  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %142 = getelementptr inbounds %"struct.xgboost::Entry", ptr %.1114186, i64 %66
   %.not126 = icmp eq ptr %142, %2
-  br i1 %.not126, label %.lr.ph193, label %133, !llvm.loop !935
+  br i1 %.not126, label %.lr.ph192, label %133, !llvm.loop !935
 
-143:                                              ; preds = %.lr.ph193, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162
-  %indvars.iv215 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next216, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162 ]
-  %.2115190 = phi ptr [ %.0, %.lr.ph193 ], [ %192, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162 ]
-  %144 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv215
+143:                                              ; preds = %.lr.ph192, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163
+  %indvars.iv214 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next215, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163 ]
+  %.2115190 = phi ptr [ %.0, %.lr.ph192 ], [ %192, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163 ]
+  %144 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv214
   %145 = load i32, ptr %144, align 4, !tbaa !93
   %146 = icmp slt i32 %145, 0
-  br i1 %146, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162, label %147
+  br i1 %146, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163, label %147
 
 147:                                              ; preds = %143
   %148 = load i8, ptr %128, align 4, !tbaa !278, !range !103, !noundef !104
   %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %150, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146
+  br i1 %149, label %150, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147
 
 150:                                              ; preds = %147
   %151 = zext nneg i32 %145 to i64
@@ -33520,16 +33523,16 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   br label %164
 
 164:                                              ; preds = %165, %162
-  %.sroa.06.0.in.i.i.i143 = phi ptr [ %163, %162 ], [ %.sroa.06.0.i.i.i144, %165 ]
-  %.sroa.06.0.i.i.i144 = load ptr, ptr %.sroa.06.0.in.i.i.i143, align 8, !tbaa !361
-  %.not.i.i3.i145 = icmp eq ptr %.sroa.06.0.i.i.i144, null
-  br i1 %.not.i.i3.i145, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162, label %165
+  %.sroa.06.0.in.i.i.i144 = phi ptr [ %163, %162 ], [ %.sroa.06.0.i.i.i145, %165 ]
+  %.sroa.06.0.i.i.i145 = load ptr, ptr %.sroa.06.0.in.i.i.i144, align 8, !tbaa !361
+  %.not.i.i3.i146 = icmp eq ptr %.sroa.06.0.i.i.i145, null
+  br i1 %.not.i.i3.i146, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163, label %165
 
 165:                                              ; preds = %164
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i144, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i145, i64 8
   %167 = load i32, ptr %166, align 4, !tbaa !93
   %168 = icmp eq i32 %4, %167
-  br i1 %168, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146, label %164, !llvm.loop !931
+  br i1 %168, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147, label %164, !llvm.loop !931
 
 169:                                              ; preds = %_ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exit.i134
   %170 = getelementptr inbounds nuw i8, ptr %159, i64 8
@@ -33539,24 +33542,24 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %172
   %175 = load ptr, ptr %174, align 8, !tbaa !629
   %.not.i.i.i.i.i136 = icmp eq ptr %175, null
-  br i1 %.not.i.i.i.i.i136, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162, label %176
+  br i1 %.not.i.i.i.i.i136, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163, label %176
 
 176:                                              ; preds = %169
   %177 = load ptr, ptr %175, align 8, !tbaa !361
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load i32, ptr %178, align 4, !tbaa !93
   %180 = icmp eq i32 %4, %179
-  br i1 %180, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146, label %.lr.ph.i.i.i.i.i137
+  br i1 %180, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147, label %.lr.ph.i.i.i.i.i137
 
 181:                                              ; preds = %184
   %182 = icmp eq i32 %4, %186
-  br i1 %182, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146, label %.lr.ph.i.i.i.i.i137, !llvm.loop !932
+  br i1 %182, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147, label %.lr.ph.i.i.i.i.i137, !llvm.loop !932
 
 .lr.ph.i.i.i.i.i137:                              ; preds = %176, %181
   %.020.i.i.i.i.i138 = phi ptr [ %183, %181 ], [ %177, %176 ]
   %183 = load ptr, ptr %.020.i.i.i.i.i138, align 8, !tbaa !361
   %.not18.i.i.i.i.i139 = icmp eq ptr %183, null
-  br i1 %.not18.i.i.i.i.i139, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162, label %184
+  br i1 %.not18.i.i.i.i.i139, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163, label %184
 
 184:                                              ; preds = %.lr.ph.i.i.i.i.i137
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
@@ -33564,29 +33567,32 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE2atEm.exi
   %187 = zext i32 %186 to i64
   %188 = urem i64 %187, %171
   %.not19.i.i.i.i.i140 = icmp eq i64 %188, %172
-  br i1 %.not19.i.i.i.i.i140, label %181, label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162, !llvm.loop !932
+  br i1 %.not19.i.i.i.i.i140, label %181, label %..loopexit_crit_edge21.i.i.i.i.i141, !llvm.loop !932
 
-_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146: ; preds = %181, %165, %147, %176
-  %189 = getelementptr inbounds nuw [32 x %"class.xgboost::detail::GradientPairInternal"], ptr %12, i64 0, i64 %indvars.iv215
+..loopexit_crit_edge21.i.i.i.i.i141:              ; preds = %184
+  br label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163, !llvm.loop !932
+
+_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147: ; preds = %181, %165, %147, %176
+  %189 = getelementptr inbounds nuw [32 x %"class.xgboost::detail::GradientPairInternal"], ptr %12, i64 0, i64 %indvars.iv214
   %.sroa.0.0.copyload = load <2 x float>, ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %.2115190, i64 4
   %191 = load float, ptr %190, align 4, !tbaa !679
   call void @_ZNK7xgboost4tree8ColMaker7Builder17UpdateEnumerationEiNS_6detail20GradientPairInternalIfEEfijRNS0_9GradStatsERSt6vectorINS1_11ThreadEntryESaIS9_EERKNS0_13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEEE(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %145, <2 x float> %.sroa.0.0.copyload, float noundef %191, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  br label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162
+  br label %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163
 
-_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162: ; preds = %184, %.lr.ph.i.i.i.i.i137, %164, %169, %143, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
+_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163: ; preds = %.lr.ph.i.i.i.i.i137, %164, %..loopexit_crit_edge21.i.i.i.i.i141, %169, %143, %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147
+  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %192 = getelementptr inbounds %"struct.xgboost::Entry", ptr %.2115190, i64 %132
   %.not127 = icmp eq ptr %192, %2
-  br i1 %.not127, label %._crit_edge194, label %143, !llvm.loop !936
+  br i1 %.not127, label %._crit_edge193, label %143, !llvm.loop !936
 
-._crit_edge194:                                   ; preds = %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162, %.preheader168
+._crit_edge193:                                   ; preds = %_ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit147.thread163, %.preheader169
   %193 = load ptr, ptr %28, align 8, !tbaa !100
   %194 = load ptr, ptr %30, align 8, !tbaa !100
-  %.not165195 = icmp eq ptr %193, %194
-  br i1 %.not165195, label %._crit_edge199, label %.lr.ph198
+  %.not166194 = icmp eq ptr %193, %194
+  br i1 %.not166194, label %._crit_edge198, label %.lr.ph197
 
-.lr.ph198:                                        ; preds = %._crit_edge194
+.lr.ph197:                                        ; preds = %._crit_edge193
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %196 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %197 = icmp eq i32 %3, -1
@@ -33594,15 +33600,15 @@ _ZNK7xgboost32FeatureInteractionConstraintHost5QueryEij.exit146.thread162: ; pre
   %199 = or i32 %4, -2147483648
   br label %200
 
-._crit_edge199:                                   ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit, %._crit_edge194
+._crit_edge198:                                   ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit, %._crit_edge193
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #22
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
   ret void
 
-200:                                              ; preds = %.lr.ph198, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
-  %.sroa.0151.0196 = phi ptr [ %193, %.lr.ph198 ], [ %273, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %201 = load i32, ptr %.sroa.0151.0196, align 4, !tbaa !93
+200:                                              ; preds = %.lr.ph197, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
+  %.sroa.0152.0195 = phi ptr [ %193, %.lr.ph197 ], [ %273, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+  %201 = load i32, ptr %.sroa.0152.0195, align 4, !tbaa !93
   %202 = sext i32 %201 to i64
   %203 = load ptr, ptr %6, align 8, !tbaa !605
   %204 = getelementptr inbounds nuw %"struct.xgboost::tree::ColMaker::ThreadEntry", ptr %203, i64 %202
@@ -33688,41 +33694,41 @@ _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: 
   %261 = getelementptr inbounds nuw i8, ptr %204, i64 28
   %262 = load i32, ptr %261, align 4, !tbaa !545
   %263 = and i32 %262, 2147483647
-  %.not.i.i147 = icmp ugt i32 %263, %4
+  %.not.i.i148 = icmp ugt i32 %263, %4
   %264 = load float, ptr %255, align 8, !tbaa !635
-  br i1 %.not.i.i147, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i149, label %265
+  br i1 %.not.i.i148, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i150, label %265
 
 265:                                              ; preds = %260
   %266 = fcmp ogt float %254, %264
   br i1 %266, label %268, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
-_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i149: ; preds = %260
+_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i150: ; preds = %260
   %267 = fcmp ule float %264, %254
   br i1 %267, label %268, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
-268:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i149, %265
+268:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i150, %265
   store float %254, ptr %255, align 8, !tbaa !635
   store i32 %4, ptr %261, align 4, !tbaa !545
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.sink.split
 
 _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.sink.split: ; preds = %246, %268
   %.sink = phi float [ %257, %268 ], [ %235, %246 ]
-  %.sink226 = phi ptr [ %204, %268 ], [ %10, %246 ]
-  %.sink225 = phi ptr [ %10, %268 ], [ %204, %246 ]
+  %.sink225 = phi ptr [ %204, %268 ], [ %10, %246 ]
+  %.sink224 = phi ptr [ %10, %268 ], [ %204, %246 ]
   %269 = getelementptr inbounds nuw i8, ptr %204, i64 32
   store float %.sink, ptr %269, align 8, !tbaa !636
   %270 = getelementptr inbounds nuw i8, ptr %204, i64 64
   store i8 0, ptr %270, align 8, !tbaa !637
   %271 = getelementptr inbounds nuw i8, ptr %204, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %271, ptr noundef nonnull align 8 dereferenceable(16) %.sink226, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %271, ptr noundef nonnull align 8 dereferenceable(16) %.sink225, i64 16, i1 false)
   %272 = getelementptr inbounds nuw i8, ptr %204, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 8 dereferenceable(16) %.sink225, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 8 dereferenceable(16) %.sink224, i64 16, i1 false)
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit: ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.sink.split, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i149, %265, %247, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %243, %227, %200
-  %273 = getelementptr inbounds nuw i8, ptr %.sroa.0151.0196, i64 4
-  %.not165 = icmp eq ptr %273, %194
-  br i1 %.not165, label %._crit_edge199, label %200
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit: ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.sink.split, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i150, %265, %247, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %243, %227, %200
+  %273 = getelementptr inbounds nuw i8, ptr %.sroa.0152.0195, i64 4
+  %.not166 = icmp eq ptr %273, %194
+  br i1 %.not166, label %._crit_edge198, label %200
 
 274:                                              ; preds = %24
   %275 = landingpad { ptr, i32 }

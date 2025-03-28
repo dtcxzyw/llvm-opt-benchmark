@@ -533,7 +533,7 @@ Wlc_StdinCollectStop.exit.thread:                 ; preds = %42, %Wlc_StdinColle
 
 Wlc_StdinCollectStop.exit.thread.Wlc_StdinCollectStop.exit._crit_edge.loopexit_crit_edge: ; preds = %Wlc_StdinCollectStop.exit.thread
   %.pre.pre = load i32, ptr %5, align 4, !tbaa !17
-  br label %Wlc_StdinCollectStop.exit._crit_edge
+  br label %Wlc_StdinCollectStop.exit._crit_edge, !llvm.loop !35
 
 Wlc_StdinCollectStop.exit._crit_edge:             ; preds = %Wlc_StdinCollectStop.exit, %Wlc_StdinCollectStop.exit.thread.Wlc_StdinCollectStop.exit._crit_edge.loopexit_crit_edge
   %.pre = phi i32 [ %.pre.pre, %Wlc_StdinCollectStop.exit.thread.Wlc_StdinCollectStop.exit._crit_edge.loopexit_crit_edge ], [ %.val, %Wlc_StdinCollectStop.exit ]

@@ -78680,7 +78680,7 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS
   br i1 %28, label %.lr.ph.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
-  %.sroa.013.019.ph = phi ptr [ %20, %.lr.ph.i.i.preheader.i ], [ %34, %.lr.ph.i.i.i ]
+  %.sroa.013.020.ph = phi ptr [ %20, %.lr.ph.i.i.preheader.i ], [ %34, %.lr.ph.i.i.i ]
   br label %.lr.ph.outer
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i
@@ -78694,36 +78694,39 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS
   %33 = phi ptr [ %34, %.lr.ph.i.i.i ], [ %20, %.lr.ph.i.i.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.not.i.i.i = icmp eq ptr %34, %24
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i, !llvm.loop !590
+  br i1 %.not.i.i.i, label %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i, label %.lr.ph.i.i.i, !llvm.loop !590
+
+._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %._crit_edge, !llvm.loop !590
 
 ._crit_edge.loopexit:                             ; preds = %96, %102
   %.pre = load ptr, ptr %19, align 8, !tbaa !361
-  %.pre21 = load ptr, ptr %4, align 8, !tbaa !361
-  %.pre22 = load i32, ptr %8, align 8, !tbaa !14
-  %.pre23 = load i32, ptr %6, align 4, !tbaa !14
-  %.pre24 = load i32, ptr %7, align 8, !tbaa !14
-  %.pre25 = load i32, ptr %21, align 4, !tbaa !14
-  %.pre26 = load i32, ptr %12, align 4, !tbaa !14
-  %.pre27 = load i32, ptr %13, align 8, !tbaa !14
-  %.pre28 = load i32, ptr %14, align 4, !tbaa !14
-  %.pre29 = load i32, ptr %18, align 8, !tbaa !14
-  %.pre30 = load ptr, ptr %16, align 8, !tbaa !361
-  %.pre31 = load ptr, ptr %17, align 8, !tbaa !361
+  %.pre23 = load ptr, ptr %4, align 8, !tbaa !361
+  %.pre24 = load i32, ptr %8, align 8, !tbaa !14
+  %.pre25 = load i32, ptr %6, align 4, !tbaa !14
+  %.pre26 = load i32, ptr %7, align 8, !tbaa !14
+  %.pre27 = load i32, ptr %21, align 4, !tbaa !14
+  %.pre28 = load i32, ptr %12, align 4, !tbaa !14
+  %.pre29 = load i32, ptr %13, align 8, !tbaa !14
+  %.pre30 = load i32, ptr %14, align 4, !tbaa !14
+  %.pre31 = load i32, ptr %18, align 8, !tbaa !14
+  %.pre32 = load ptr, ptr %16, align 8, !tbaa !361
+  %.pre33 = load ptr, ptr %17, align 8, !tbaa !361
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit, %._crit_edge.loopexit
-  %35 = phi ptr [ %.pre31, %._crit_edge.loopexit ], [ null, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ null, %.lr.ph.i ]
-  %36 = phi ptr [ %.pre30, %._crit_edge.loopexit ], [ %15, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ %15, %.lr.ph.i ]
-  %37 = phi i32 [ %.pre29, %._crit_edge.loopexit ], [ 0, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 0, %.lr.ph.i ]
-  %38 = phi i32 [ %.pre28, %._crit_edge.loopexit ], [ 0, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 0, %.lr.ph.i ]
-  %39 = phi i32 [ %.pre27, %._crit_edge.loopexit ], [ 0, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 0, %.lr.ph.i ]
-  %40 = phi i32 [ %.pre26, %._crit_edge.loopexit ], [ 8, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 8, %.lr.ph.i ]
-  %41 = phi i32 [ %.pre25, %._crit_edge.loopexit ], [ 0, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ %22, %.lr.ph.i ]
-  %42 = phi i32 [ %.pre24, %._crit_edge.loopexit ], [ 2, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 2, %.lr.ph.i ]
-  %43 = phi i32 [ %.pre23, %._crit_edge.loopexit ], [ 8, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 8, %.lr.ph.i ]
-  %44 = phi i32 [ %.pre22, %._crit_edge.loopexit ], [ 10, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 10, %.lr.ph.i ]
-  %45 = phi ptr [ %.pre21, %._crit_edge.loopexit ], [ %9, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ %9, %.lr.ph.i ]
-  %46 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %20, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ %20, %.lr.ph.i ]
+._crit_edge:                                      ; preds = %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit, %._crit_edge.loopexit
+  %35 = phi ptr [ %.pre33, %._crit_edge.loopexit ], [ null, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ null, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %36 = phi ptr [ %.pre32, %._crit_edge.loopexit ], [ %15, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ %15, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %37 = phi i32 [ %.pre31, %._crit_edge.loopexit ], [ 0, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 0, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %38 = phi i32 [ %.pre30, %._crit_edge.loopexit ], [ 0, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 0, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %39 = phi i32 [ %.pre29, %._crit_edge.loopexit ], [ 0, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 0, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %40 = phi i32 [ %.pre28, %._crit_edge.loopexit ], [ 8, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 8, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %41 = phi i32 [ %.pre27, %._crit_edge.loopexit ], [ 0, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ %22, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %42 = phi i32 [ %.pre26, %._crit_edge.loopexit ], [ 2, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 2, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %43 = phi i32 [ %.pre25, %._crit_edge.loopexit ], [ 8, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 8, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %44 = phi i32 [ %.pre24, %._crit_edge.loopexit ], [ 10, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ 10, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %45 = phi ptr [ %.pre23, %._crit_edge.loopexit ], [ %9, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ %9, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
+  %46 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %20, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ], [ %20, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i ]
   store ptr %45, ptr %19, align 8, !tbaa !361
   store ptr %46, ptr %4, align 8, !tbaa !361
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -78779,13 +78782,13 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEED2Ev.exit: 
   ret void
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.i.i, %.lr.ph.preheader
-  %.sroa.013.019.ph48 = phi ptr [ %.sroa.013.019.ph, %.lr.ph.preheader ], [ %.sroa.013.2, %.lr.ph.i.i ]
+  %.sroa.013.020.ph48 = phi ptr [ %.sroa.013.020.ph, %.lr.ph.preheader ], [ %.sroa.013.2, %.lr.ph.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %93
-  %.sroa.10.020 = phi ptr [ %94, %93 ], [ %.sroa.013.019.ph48, %.lr.ph.outer ]
+  %.sroa.10.021 = phi ptr [ %94, %93 ], [ %.sroa.013.020.ph48, %.lr.ph.outer ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.10.020, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.10.021, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !124
   store ptr %69, ptr %5, align 8, !tbaa !124
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
@@ -78847,12 +78850,12 @@ _ZN10polynomial8monomial4sortEv.exit.i:           ; preds = %.noexc11, %.lr.ph
 
 93:                                               ; preds = %91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
-  %94 = load ptr, ptr %.sroa.10.020, align 8, !tbaa !333
+  %94 = load ptr, ptr %.sroa.10.021, align 8, !tbaa !333
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %.lr.ph
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.013.019.ph48, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.013.020.ph48, i64 16
   %.not2.i.i = icmp eq ptr %97, %24
   br i1 %.not2.i.i, label %._crit_edge.loopexit, label %.lr.ph.i.i
 
@@ -91798,14 +91801,17 @@ _ZN10polynomial16monomial_manager7dec_refEPNS_8monomialE.exit: ; preds = %1, %7
   %22 = phi ptr [ %23, %.lr.ph.i.i.i ], [ %9, %.lr.ph.i.i.preheader.i ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.not.i.i.i = icmp eq ptr %23, %13
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i, !llvm.loop !590
+  br i1 %.not.i.i.i, label %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i, label %.lr.ph.i.i.i, !llvm.loop !590
+
+._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
+  br label %._crit_edge, !llvm.loop !590
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
   %.sroa.013.1 = phi ptr [ %9, %.lr.ph.i.i.preheader.i ], [ %23, %.lr.ph.i.i.i ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %59, %65, %_ZN10polynomial16monomial_manager7dec_refEPNS_8monomialE.exit
+._crit_edge:                                      ; preds = %59, %65, %._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i, %_ZN10polynomial16monomial_manager7dec_refEPNS_8monomialE.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %26 = load i32, ptr %25, align 4, !tbaa !339
   %27 = icmp eq i32 %26, 0
@@ -91861,12 +91867,12 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8finalizeEv
   br label %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE5resetEv.exit
 
 _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer: ; preds = %.lr.ph.i.i, %.lr.ph
-  %.sroa.013.017.ph = phi ptr [ %.sroa.013.1, %.lr.ph ], [ %.sroa.013.2, %.lr.ph.i.i ]
+  %.sroa.013.018.ph = phi ptr [ %.sroa.013.1, %.lr.ph ], [ %.sroa.013.2, %.lr.ph.i.i ]
   br label %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit
 
 _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit: ; preds = %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer, %56
-  %.sroa.9.018 = phi ptr [ %57, %56 ], [ %.sroa.013.017.ph, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer ]
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.9.018, i64 8
+  %.sroa.9.019 = phi ptr [ %57, %56 ], [ %.sroa.013.018.ph, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit.outer ]
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.9.019, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !124
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4, !tbaa !22
@@ -91878,12 +91884,12 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorpp
           to label %56 unwind label %.loopexit
 
 56:                                               ; preds = %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit
-  %57 = load ptr, ptr %.sroa.9.018, align 8, !tbaa !333
+  %57 = load ptr, ptr %.sroa.9.019, align 8, !tbaa !333
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorppEv.exit
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.013.017.ph, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.013.018.ph, i64 16
   %.not2.i.i = icmp eq ptr %60, %13
   br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 

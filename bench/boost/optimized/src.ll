@@ -61568,18 +61568,18 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail6p
 12:                                               ; preds = %10
   store i8 1, ptr %2, align 1, !tbaa !158
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br label %.preheader337
+  br label %.preheader339
 
 14:                                               ; preds = %10
   store i8 0, ptr %2, align 1, !tbaa !158
-  br label %.preheader337
+  br label %.preheader339
 
-.preheader337:                                    ; preds = %14, %12
+.preheader339:                                    ; preds = %14, %12
   %.1.ph = phi ptr [ %0, %14 ], [ %13, %12 ]
   br label %15
 
-15:                                               ; preds = %.preheader337, %15
-  %.1 = phi ptr [ %20, %15 ], [ %.1.ph, %.preheader337 ]
+15:                                               ; preds = %.preheader339, %15
+  %.1 = phi ptr [ %20, %15 ], [ %.1.ph, %.preheader339 ]
   %16 = load i8, ptr %.1, align 1, !tbaa !15
   %17 = icmp eq i8 %16, 48
   %18 = icmp ne ptr %.1, %1
@@ -61631,11 +61631,14 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail6p
   %36 = add nuw nsw i64 %.0212276325, 1
   %37 = load i8, ptr %35, align 1, !tbaa !15
   %38 = tail call noundef zeroext i1 %_ZN5boost4json6detail8charconv6detail15is_integer_charEc._ZN5boost4json6detail8charconv6detail11is_hex_charEc(i8 noundef signext %37) #48, !callees !765
-  br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !766
+  br i1 %38, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !766
 
-.critedge:                                        ; preds = %.lr.ph, %.lr.ph326, %28
-  %.0212.lcssa = phi i64 [ 0, %28 ], [ %36, %.lr.ph326 ], [ %36, %.lr.ph ]
-  %.2.lcssa = phi ptr [ %.1, %28 ], [ %35, %.lr.ph326 ], [ %35, %.lr.ph ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph326
+  br label %.critedge, !llvm.loop !766
+
+.critedge:                                        ; preds = %.lr.ph, %..critedge.loopexit_crit_edge, %28
+  %.0212.lcssa = phi i64 [ 0, %28 ], [ %36, %..critedge.loopexit_crit_edge ], [ %36, %.lr.ph ]
+  %.2.lcssa = phi ptr [ %.1, %28 ], [ %35, %..critedge.loopexit_crit_edge ], [ %35, %.lr.ph ]
   %39 = icmp eq ptr %.2.lcssa, %1
   br i1 %39, label %40, label %48
 

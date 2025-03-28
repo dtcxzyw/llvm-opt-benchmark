@@ -28276,7 +28276,7 @@ define internal fastcc range(i32 -1, 2) i32 @x_endian_match(ptr noundef %0, i32 
 numberOfBitSet.exit42:                            ; preds = %15
   %30 = add i32 %.fr113, 8
   %31 = icmp eq i32 %30, %7
-  br i1 %31, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %31, label %.backedge, label %numberOfBitSet.exit42..thread.loopexit114_crit_edge, !llvm.loop !27
 
 32:                                               ; preds = %6, %6
   %33 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 12)
@@ -28311,15 +28311,15 @@ numberOfBitSet.exit42:                            ; preds = %15
 numberOfBitSet.exit37:                            ; preds = %36
   %51 = add i32 %.fr111, 3
   %52 = icmp eq i32 %51, %7
-  br i1 %52, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %52, label %.backedge, label %numberOfBitSet.exit37..thread.loopexit114_crit_edge, !llvm.loop !27
 
 53:                                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
   %54 = icmp eq i16 %.fr, 2
-  br i1 %54, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %54, label %.backedge, label %..thread.loopexit114_crit_edge164, !llvm.loop !27
 
 55:                                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
   %56 = icmp eq i16 %.fr, 4
-  br i1 %56, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %56, label %.backedge, label %..thread.loopexit114_crit_edge162, !llvm.loop !27
 
 57:                                               ; preds = %6
   %58 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 10)
@@ -28354,7 +28354,7 @@ numberOfBitSet.exit37:                            ; preds = %36
 numberOfBitSet.exit32:                            ; preds = %61
   %76 = add i32 %.fr109, 3
   %77 = icmp eq i32 %76, %7
-  br i1 %77, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %77, label %.backedge, label %numberOfBitSet.exit32..thread.loopexit114_crit_edge, !llvm.loop !27
 
 78:                                               ; preds = %6, %6
   %79 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 6)
@@ -28372,7 +28372,7 @@ numberOfBitSet.exit32:                            ; preds = %61
   %86 = add nuw nsw i32 %spec.select.i.i, %85
   %.fr107 = freeze i32 %86
   %87 = icmp eq i32 %.fr107, %7
-  br i1 %87, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %87, label %.backedge, label %..thread.loopexit114_crit_edge169, !llvm.loop !27
 
 88:                                               ; preds = %6
   %89 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 17)
@@ -28406,23 +28406,23 @@ numberOfBitSet.exit32:                            ; preds = %61
   %105 = add nsw i32 %spec.select.i127.i, %104
   %.fr106 = freeze i32 %105
   %106 = icmp eq i32 %.fr106, %7
-  br i1 %106, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %106, label %.backedge, label %..thread.loopexit114_crit_edge171, !llvm.loop !27
 
 107:                                              ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6
   %108 = icmp eq i16 %.fr, 3
-  br i1 %108, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %108, label %.backedge, label %..thread.loopexit114_crit_edge160, !llvm.loop !27
 
 109:                                              ; preds = %6, %6, %6, %6, %6
   %110 = icmp eq i16 %.fr, 6
-  br i1 %110, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %110, label %.backedge, label %..thread.loopexit114_crit_edge158, !llvm.loop !27
 
 111:                                              ; preds = %6
   %112 = icmp eq i16 %.fr, 11
-  br i1 %112, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %112, label %.backedge, label %..thread.loopexit114_crit_edge156, !llvm.loop !27
 
 113:                                              ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
   %114 = icmp eq i16 %.fr, 1
-  br i1 %114, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %114, label %.backedge, label %..thread.loopexit114_crit_edge154, !llvm.loop !27
 
 115:                                              ; preds = %6, %6, %6
   %116 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 10)
@@ -28440,11 +28440,11 @@ numberOfBitSet.exit32:                            ; preds = %61
   %123 = add nuw nsw i32 %spec.select.i129.i, %122
   %.fr105 = freeze i32 %123
   %124 = icmp eq i32 %.fr105, %7
-  br i1 %124, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %124, label %.backedge, label %..thread.loopexit114_crit_edge173, !llvm.loop !27
 
 125:                                              ; preds = %6
   %.not205 = icmp eq i16 %.fr, 1
-  br i1 %.not205, label %.thread, label %.backedge, !llvm.loop !27
+  br i1 %.not205, label %..thread.loopexit114_crit_edge152, label %.backedge, !llvm.loop !27
 
 126:                                              ; preds = %6, %6, %6
   %127 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 8)
@@ -28462,7 +28462,7 @@ numberOfBitSet.exit32:                            ; preds = %61
   %134 = add nuw nsw i32 %spec.select.i131.i, %133
   %.fr104 = freeze i32 %134
   %135 = icmp eq i32 %.fr104, %7
-  br i1 %135, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %135, label %.backedge, label %..thread.loopexit114_crit_edge175, !llvm.loop !27
 
 136:                                              ; preds = %6
   %137 = icmp eq i16 %.fr, 1
@@ -28525,7 +28525,7 @@ listOfStringLengthConsistent.exit:                ; preds = %149, %156, %.prehea
   %.021.lcssa.i = phi i32 [ %141, %.preheader.i ], [ %158, %156 ], [ %.02145.i, %149 ]
   %.021.lcssa.i.fr = freeze i32 %.021.lcssa.i
   %160 = icmp slt i32 %.021.lcssa.i.fr, 4
-  br i1 %160, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %160, label %.backedge, label %listOfStringLengthConsistent.exit..thread.loopexit114_crit_edge, !llvm.loop !27
 
 161:                                              ; preds = %6
   %162 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 16)
@@ -28560,7 +28560,7 @@ listOfStringLengthConsistent.exit:                ; preds = %149, %156, %.prehea
 numberOfBitSet.exit26:                            ; preds = %165
   %180 = add i32 %.fr103, 4
   %181 = icmp eq i32 %180, %7
-  br i1 %181, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %181, label %.backedge, label %numberOfBitSet.exit26..thread.loopexit114_crit_edge, !llvm.loop !27
 
 182:                                              ; preds = %6
   %183 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 12)
@@ -28578,26 +28578,26 @@ numberOfBitSet.exit26:                            ; preds = %165
   %190 = add nuw nsw i32 %spec.select.i133.i, %189
   %.fr101 = freeze i32 %190
   %191 = icmp eq i32 %.fr101, %7
-  br i1 %191, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %191, label %.backedge, label %..thread.loopexit114_crit_edge178, !llvm.loop !27
 
 192:                                              ; preds = %6, %6, %6, %6
   %193 = icmp ugt i16 %.fr, 2
   %194 = and i32 %7, 1
   %195 = icmp ne i32 %194, 0
   %196 = and i1 %193, %195
-  br i1 %196, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %196, label %.backedge, label %..thread.loopexit114_crit_edge149, !llvm.loop !27
 
 197:                                              ; preds = %6
   %198 = icmp eq i16 %.fr, 7
-  br i1 %198, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %198, label %.backedge, label %..thread.loopexit114_crit_edge147, !llvm.loop !27
 
 199:                                              ; preds = %6, %6, %6
   %200 = icmp eq i16 %.fr, 8
-  br i1 %200, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %200, label %.backedge, label %..thread.loopexit114_crit_edge145, !llvm.loop !27
 
 201:                                              ; preds = %6, %6, %6
   %202 = icmp ugt i16 %.fr, 2
-  br i1 %202, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %202, label %.backedge, label %..thread.loopexit114_crit_edge143, !llvm.loop !27
 
 203:                                              ; preds = %6, %6
   %204 = icmp ugt i16 %.fr, 2
@@ -28607,31 +28607,31 @@ numberOfBitSet.exit26:                            ; preds = %165
   %.lhs.trunc144.i = add i16 %.fr, -3
   %206 = urem i16 %.lhs.trunc144.i, 3
   %207 = icmp eq i16 %206, 0
-  br i1 %207, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %207, label %.backedge, label %..thread.loopexit114_crit_edge180, !llvm.loop !27
 
 208:                                              ; preds = %6, %6
   %209 = icmp ugt i16 %.fr, 3
-  br i1 %209, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %209, label %.backedge, label %..thread.loopexit114_crit_edge141, !llvm.loop !27
 
 210:                                              ; preds = %6
   %211 = icmp ugt i16 %.fr, 5
-  br i1 %211, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %211, label %.backedge, label %..thread.loopexit114_crit_edge139, !llvm.loop !27
 
 212:                                              ; preds = %6, %6
   %213 = icmp eq i16 %.fr, 5
-  br i1 %213, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %213, label %.backedge, label %..thread.loopexit114_crit_edge137, !llvm.loop !27
 
 214:                                              ; preds = %6
   %215 = icmp ugt i16 %.fr, 3
-  br i1 %215, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %215, label %.backedge, label %..thread.loopexit114_crit_edge182, !llvm.loop !27
 
 216:                                              ; preds = %6
   %217 = icmp ugt i16 %.fr, 3
-  br i1 %217, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %217, label %.backedge, label %..thread.loopexit114_crit_edge184, !llvm.loop !27
 
 218:                                              ; preds = %6
   %219 = icmp ugt i16 %.fr, 3
-  br i1 %219, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %219, label %.backedge, label %..thread.loopexit114_crit_edge135, !llvm.loop !27
 
 220:                                              ; preds = %6
   %221 = icmp ugt i16 %.fr, 2
@@ -28641,7 +28641,7 @@ numberOfBitSet.exit26:                            ; preds = %165
   %.lhs.trunc146.i = add i16 %.fr, -2
   %223 = urem i16 %.lhs.trunc146.i, 3
   %224 = icmp eq i16 %223, 0
-  br i1 %224, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %224, label %.backedge, label %..thread.loopexit114_crit_edge186, !llvm.loop !27
 
 225:                                              ; preds = %6
   %226 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 14)
@@ -28659,11 +28659,11 @@ numberOfBitSet.exit26:                            ; preds = %165
   %233 = add nuw nsw i32 %spec.select.i135.i, %232
   %.fr100 = freeze i32 %233
   %234 = icmp eq i32 %.fr100, %7
-  br i1 %234, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %234, label %.backedge, label %..thread.loopexit114_crit_edge188, !llvm.loop !27
 
 235:                                              ; preds = %6
   %.not99 = icmp eq i16 %.fr, 1
-  br i1 %.not99, label %.thread, label %.backedge, !llvm.loop !27
+  br i1 %.not99, label %..thread.loopexit114_crit_edge133, label %.backedge, !llvm.loop !27
 
 236:                                              ; preds = %6
   %237 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 6)
@@ -28678,7 +28678,7 @@ numberOfBitSet.exit26:                            ; preds = %165
   %.fr204 = freeze i32 %243
   %244 = add i32 %.fr204, 2
   %245 = icmp eq i32 %244, %7
-  br i1 %245, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %245, label %.backedge, label %..thread.loopexit114_crit_edge190, !llvm.loop !27
 
 246:                                              ; preds = %6
   %247 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 6)
@@ -28713,7 +28713,7 @@ numberOfBitSet.exit26:                            ; preds = %165
 numberOfBitSet.exit:                              ; preds = %250
   %265 = add i32 %.fr202, 2
   %266 = icmp eq i32 %265, %7
-  br i1 %266, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %266, label %.backedge, label %numberOfBitSet.exit..thread.loopexit114_crit_edge, !llvm.loop !27
 
 267:                                              ; preds = %6
   %268 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.020115, i32 noundef 10)
@@ -28730,7 +28730,7 @@ numberOfBitSet.exit:                              ; preds = %250
   %274 = add nuw nsw i32 %spec.select.i137.i, %273
   %.fr197 = freeze i32 %274
   %275 = icmp eq i32 %.fr197, %7
-  br i1 %275, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %275, label %.backedge, label %..thread.loopexit114_crit_edge131, !llvm.loop !27
 
 276:                                              ; preds = %6
   %277 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
@@ -28739,7 +28739,7 @@ numberOfBitSet.exit:                              ; preds = %250
   %279 = shl nuw nsw i32 %278, 1
   %280 = or disjoint i32 %279, 1
   %281 = icmp eq i32 %280, %7
-  br i1 %281, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %281, label %.backedge, label %..thread.loopexit114_crit_edge129, !llvm.loop !27
 
 consistentWithOrder.exit:                         ; preds = %267
   %282 = add i32 %.020115, 8
@@ -28748,10 +28748,118 @@ consistentWithOrder.exit:                         ; preds = %267
   %284 = zext i16 %.fr200 to i32
   %285 = add nuw nsw i32 %284, 3
   %286 = icmp eq i32 %285, %7
-  br i1 %286, label %.backedge, label %.thread, !llvm.loop !27
+  br i1 %286, label %.backedge, label %consistentWithOrder.exit..thread.loopexit114_crit_edge, !llvm.loop !27
 
-.thread:                                          ; preds = %.backedge, %.lr.ph, %90, %136, %203, %220, %140, %consistentWithOrder.exit, %276, %269, %235, %218, %212, %210, %208, %201, %199, %197, %192, %listOfStringLengthConsistent.exit, %125, %113, %111, %109, %107, %55, %53, %numberOfBitSet.exit42, %numberOfBitSet.exit37, %numberOfBitSet.exit32, %80, %94, %117, %128, %numberOfBitSet.exit26, %184, %205, %214, %216, %222, %227, %238, %numberOfBitSet.exit, %151, %2
-  %.2 = phi i32 [ 0, %2 ], [ -1, %151 ], [ 1, %.backedge ], [ -1, %.lr.ph ], [ -1, %90 ], [ -1, %136 ], [ -1, %203 ], [ -1, %220 ], [ -1, %140 ], [ -1, %consistentWithOrder.exit ], [ -1, %276 ], [ -1, %269 ], [ -1, %235 ], [ -1, %218 ], [ -1, %212 ], [ -1, %210 ], [ -1, %208 ], [ -1, %201 ], [ -1, %199 ], [ -1, %197 ], [ -1, %192 ], [ -1, %listOfStringLengthConsistent.exit ], [ -1, %125 ], [ -1, %113 ], [ -1, %111 ], [ -1, %109 ], [ -1, %107 ], [ -1, %55 ], [ -1, %53 ], [ -1, %numberOfBitSet.exit42 ], [ -1, %numberOfBitSet.exit37 ], [ -1, %numberOfBitSet.exit32 ], [ -1, %80 ], [ -1, %94 ], [ -1, %117 ], [ -1, %128 ], [ -1, %numberOfBitSet.exit26 ], [ -1, %184 ], [ -1, %205 ], [ -1, %214 ], [ -1, %216 ], [ -1, %222 ], [ -1, %227 ], [ -1, %238 ], [ -1, %numberOfBitSet.exit ]
+consistentWithOrder.exit..thread.loopexit114_crit_edge: ; preds = %consistentWithOrder.exit
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge129:                ; preds = %276
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge131:                ; preds = %269
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge133:                ; preds = %235
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge135:                ; preds = %218
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge137:                ; preds = %212
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge139:                ; preds = %210
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge141:                ; preds = %208
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge143:                ; preds = %201
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge145:                ; preds = %199
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge147:                ; preds = %197
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge149:                ; preds = %192
+  br label %.thread, !llvm.loop !27
+
+listOfStringLengthConsistent.exit..thread.loopexit114_crit_edge: ; preds = %listOfStringLengthConsistent.exit
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge152:                ; preds = %125
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge154:                ; preds = %113
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge156:                ; preds = %111
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge158:                ; preds = %109
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge160:                ; preds = %107
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge162:                ; preds = %55
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge164:                ; preds = %53
+  br label %.thread, !llvm.loop !27
+
+numberOfBitSet.exit42..thread.loopexit114_crit_edge: ; preds = %numberOfBitSet.exit42
+  br label %.thread, !llvm.loop !27
+
+numberOfBitSet.exit37..thread.loopexit114_crit_edge: ; preds = %numberOfBitSet.exit37
+  br label %.thread, !llvm.loop !27
+
+numberOfBitSet.exit32..thread.loopexit114_crit_edge: ; preds = %numberOfBitSet.exit32
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge169:                ; preds = %80
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge171:                ; preds = %94
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge173:                ; preds = %117
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge175:                ; preds = %128
+  br label %.thread, !llvm.loop !27
+
+numberOfBitSet.exit26..thread.loopexit114_crit_edge: ; preds = %numberOfBitSet.exit26
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge178:                ; preds = %184
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge180:                ; preds = %205
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge182:                ; preds = %214
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge184:                ; preds = %216
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge186:                ; preds = %222
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge188:                ; preds = %227
+  br label %.thread, !llvm.loop !27
+
+..thread.loopexit114_crit_edge190:                ; preds = %238
+  br label %.thread, !llvm.loop !27
+
+numberOfBitSet.exit..thread.loopexit114_crit_edge: ; preds = %numberOfBitSet.exit
+  br label %.thread, !llvm.loop !27
+
+.thread:                                          ; preds = %.backedge, %.lr.ph, %90, %136, %203, %220, %140, %151, %2, %consistentWithOrder.exit..thread.loopexit114_crit_edge, %..thread.loopexit114_crit_edge129, %..thread.loopexit114_crit_edge131, %..thread.loopexit114_crit_edge133, %..thread.loopexit114_crit_edge135, %..thread.loopexit114_crit_edge137, %..thread.loopexit114_crit_edge139, %..thread.loopexit114_crit_edge141, %..thread.loopexit114_crit_edge143, %..thread.loopexit114_crit_edge145, %..thread.loopexit114_crit_edge147, %..thread.loopexit114_crit_edge149, %listOfStringLengthConsistent.exit..thread.loopexit114_crit_edge, %..thread.loopexit114_crit_edge152, %..thread.loopexit114_crit_edge154, %..thread.loopexit114_crit_edge156, %..thread.loopexit114_crit_edge158, %..thread.loopexit114_crit_edge160, %..thread.loopexit114_crit_edge162, %..thread.loopexit114_crit_edge164, %numberOfBitSet.exit42..thread.loopexit114_crit_edge, %numberOfBitSet.exit37..thread.loopexit114_crit_edge, %numberOfBitSet.exit32..thread.loopexit114_crit_edge, %..thread.loopexit114_crit_edge169, %..thread.loopexit114_crit_edge171, %..thread.loopexit114_crit_edge173, %..thread.loopexit114_crit_edge175, %numberOfBitSet.exit26..thread.loopexit114_crit_edge, %..thread.loopexit114_crit_edge178, %..thread.loopexit114_crit_edge180, %..thread.loopexit114_crit_edge182, %..thread.loopexit114_crit_edge184, %..thread.loopexit114_crit_edge186, %..thread.loopexit114_crit_edge188, %..thread.loopexit114_crit_edge190, %numberOfBitSet.exit..thread.loopexit114_crit_edge
+  %.2 = phi i32 [ -1, %numberOfBitSet.exit..thread.loopexit114_crit_edge ], [ -1, %..thread.loopexit114_crit_edge190 ], [ -1, %..thread.loopexit114_crit_edge188 ], [ -1, %..thread.loopexit114_crit_edge186 ], [ -1, %..thread.loopexit114_crit_edge184 ], [ -1, %..thread.loopexit114_crit_edge182 ], [ -1, %..thread.loopexit114_crit_edge180 ], [ -1, %..thread.loopexit114_crit_edge178 ], [ -1, %numberOfBitSet.exit26..thread.loopexit114_crit_edge ], [ -1, %..thread.loopexit114_crit_edge175 ], [ -1, %..thread.loopexit114_crit_edge173 ], [ -1, %..thread.loopexit114_crit_edge171 ], [ -1, %..thread.loopexit114_crit_edge169 ], [ -1, %numberOfBitSet.exit32..thread.loopexit114_crit_edge ], [ -1, %numberOfBitSet.exit37..thread.loopexit114_crit_edge ], [ -1, %numberOfBitSet.exit42..thread.loopexit114_crit_edge ], [ -1, %..thread.loopexit114_crit_edge164 ], [ -1, %..thread.loopexit114_crit_edge162 ], [ -1, %..thread.loopexit114_crit_edge160 ], [ -1, %..thread.loopexit114_crit_edge158 ], [ -1, %..thread.loopexit114_crit_edge156 ], [ -1, %..thread.loopexit114_crit_edge154 ], [ -1, %..thread.loopexit114_crit_edge152 ], [ -1, %listOfStringLengthConsistent.exit..thread.loopexit114_crit_edge ], [ -1, %..thread.loopexit114_crit_edge149 ], [ -1, %..thread.loopexit114_crit_edge147 ], [ -1, %..thread.loopexit114_crit_edge145 ], [ -1, %..thread.loopexit114_crit_edge143 ], [ -1, %..thread.loopexit114_crit_edge141 ], [ -1, %..thread.loopexit114_crit_edge139 ], [ -1, %..thread.loopexit114_crit_edge137 ], [ -1, %..thread.loopexit114_crit_edge135 ], [ -1, %..thread.loopexit114_crit_edge133 ], [ -1, %..thread.loopexit114_crit_edge131 ], [ -1, %..thread.loopexit114_crit_edge129 ], [ -1, %consistentWithOrder.exit..thread.loopexit114_crit_edge ], [ 0, %2 ], [ -1, %151 ], [ 1, %.backedge ], [ -1, %.lr.ph ], [ -1, %90 ], [ -1, %136 ], [ -1, %203 ], [ -1, %220 ], [ -1, %140 ]
   ret i32 %.2
 }
 

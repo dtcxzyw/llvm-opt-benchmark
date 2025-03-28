@@ -697,8 +697,8 @@ define dso_local void @free_pgtables(ptr noundef %0, ptr noundef %1, ptr noundef
   %7 = add i64 %4, -1
   br label %8
 
-8:                                                ; preds = %104, %6
-  %9 = phi ptr [ %2, %6 ], [ %105, %104 ]
+8:                                                ; preds = %105, %6
+  %9 = phi ptr [ %2, %6 ], [ %106, %105 ]
   %10 = load i64, ptr %9, align 8
   %11 = tail call ptr @mas_find(ptr noundef %1, i64 noundef %7) #18
   %12 = icmp eq ptr %11, inttoptr (i64 1030 to ptr)
@@ -809,7 +809,7 @@ define dso_local void @free_pgtables(ptr noundef %0, ptr noundef %1, ptr noundef
   %72 = load i64, ptr %71, align 8
   %73 = add i64 %72, 2097152
   %74 = icmp ugt i64 %70, %73
-  br i1 %74, label %.loopexit11, label %48, !llvm.loop !24
+  br i1 %74, label %..loopexit_crit_edge, label %48, !llvm.loop !24
 
 75:                                               ; preds = %28
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -824,7 +824,7 @@ define dso_local void @free_pgtables(ptr noundef %0, ptr noundef %1, ptr noundef
 81:                                               ; preds = %79, %75
   %82 = phi i64 [ %80, %79 ], [ %4, %75 ]
   tail call void @free_pgd_range(ptr noundef %0, i64 noundef %10, i64 noundef %77, i64 noundef %3, i64 noundef %82)
-  br label %104
+  br label %105
 
 83:                                               ; preds = %98
   %84 = load i64, ptr %99, align 8
@@ -832,7 +832,7 @@ define dso_local void @free_pgtables(ptr noundef %0, ptr noundef %1, ptr noundef
   %86 = load i64, ptr %85, align 8
   %87 = add i64 %86, 2097152
   %88 = icmp ugt i64 %84, %87
-  br i1 %88, label %.loopexit11, label %89, !llvm.loop !24
+  br i1 %88, label %..loopexit_crit_edge, label %89, !llvm.loop !24
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %99, i64 32
@@ -857,21 +857,27 @@ define dso_local void @free_pgtables(ptr noundef %0, ptr noundef %1, ptr noundef
   %100 = icmp eq ptr %99, null
   br i1 %100, label %.loopexit11, label %83, !llvm.loop !24
 
-.loopexit11:                                      ; preds = %98, %89, %83, %67, %48, %69, %35, %.preheader, %33
-  %.ph.pn = phi ptr [ %9, %33 ], [ %9, %35 ], [ %9, %.preheader ], [ %45, %69 ], [ %45, %48 ], [ %45, %67 ], [ %94, %83 ], [ %94, %89 ], [ %94, %98 ]
-  %101 = phi ptr [ null, %33 ], [ %15, %35 ], [ %15, %.preheader ], [ null, %67 ], [ %55, %48 ], [ %55, %69 ], [ null, %98 ], [ %99, %89 ], [ %99, %83 ]
-  %102 = phi i64 [ %4, %33 ], [ %36, %35 ], [ %36, %.preheader ], [ %4, %67 ], [ %70, %48 ], [ %70, %69 ], [ %4, %98 ], [ %84, %89 ], [ %84, %83 ]
+..loopexit_crit_edge:                             ; preds = %83, %69
+  %101 = phi i64 [ %70, %69 ], [ %84, %83 ]
+  %.us-phi19 = phi ptr [ %45, %69 ], [ %94, %83 ]
+  %.us-phi20 = phi ptr [ %55, %69 ], [ %99, %83 ]
+  br label %.loopexit11, !llvm.loop !24
+
+.loopexit11:                                      ; preds = %98, %89, %67, %48, %35, %..loopexit_crit_edge, %.preheader, %33
+  %.ph.pn = phi ptr [ %9, %33 ], [ %9, %35 ], [ %.us-phi19, %..loopexit_crit_edge ], [ %9, %.preheader ], [ %45, %48 ], [ %45, %67 ], [ %94, %89 ], [ %94, %98 ]
+  %102 = phi ptr [ null, %33 ], [ %15, %35 ], [ %.us-phi20, %..loopexit_crit_edge ], [ %15, %.preheader ], [ null, %67 ], [ %55, %48 ], [ null, %98 ], [ %99, %89 ]
+  %103 = phi i64 [ %4, %33 ], [ %36, %35 ], [ %101, %..loopexit_crit_edge ], [ %36, %.preheader ], [ %4, %67 ], [ %70, %48 ], [ %4, %98 ], [ %84, %89 ]
   %.in = getelementptr inbounds nuw i8, ptr %.ph.pn, i64 8
-  %103 = load i64, ptr %.in, align 8
-  tail call void @free_pgd_range(ptr noundef %0, i64 noundef %10, i64 noundef %103, i64 noundef %3, i64 noundef %102)
-  br label %104
+  %104 = load i64, ptr %.in, align 8
+  tail call void @free_pgd_range(ptr noundef %0, i64 noundef %10, i64 noundef %104, i64 noundef %3, i64 noundef %103)
+  br label %105
 
-104:                                              ; preds = %.loopexit11, %81
-  %105 = phi ptr [ %15, %81 ], [ %101, %.loopexit11 ]
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %8, !llvm.loop !25
+105:                                              ; preds = %.loopexit11, %81
+  %106 = phi ptr [ %15, %81 ], [ %102, %.loopexit11 ]
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %108, label %8, !llvm.loop !25
 
-107:                                              ; preds = %104
+108:                                              ; preds = %105
   ret void
 }
 

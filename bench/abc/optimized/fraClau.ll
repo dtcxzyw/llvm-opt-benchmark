@@ -2885,10 +2885,13 @@ Vec_IntComplement.exit:                           ; preds = %.lr.ph.i105, %Fra_C
   %.1.i117 = phi i32 [ %.025.i111168, %.lr.ph170 ], [ %.025.i111168, %195 ], [ %198, %197 ]
   %.val20.i118 = load i32, ptr %168, align 4, !tbaa !21
   %204 = icmp slt i32 %.1.i117, %.val20.i118
-  br i1 %204, label %183, label %Fra_ClauPrintClause.exit120.thread, !llvm.loop !93
+  br i1 %204, label %183, label %.Fra_ClauPrintClause.exit120.thread.loopexit_crit_edge, !llvm.loop !93
 
-Fra_ClauPrintClause.exit120.thread:               ; preds = %203, %183, %.lr.ph.i110, %174, %176
-  %.val92 = phi i32 [ %.val92.pre, %174 ], [ %.val92.pre, %176 ], [ %.val92.pre, %.lr.ph.i110 ], [ %.val20.i118, %183 ], [ %.val20.i118, %203 ]
+.Fra_ClauPrintClause.exit120.thread.loopexit_crit_edge: ; preds = %203
+  br label %Fra_ClauPrintClause.exit120.thread, !llvm.loop !93
+
+Fra_ClauPrintClause.exit120.thread:               ; preds = %183, %.lr.ph.i110, %.Fra_ClauPrintClause.exit120.thread.loopexit_crit_edge, %174, %176
+  %.val92 = phi i32 [ %.val92.pre, %174 ], [ %.val92.pre, %176 ], [ %.val20.i118, %.Fra_ClauPrintClause.exit120.thread.loopexit_crit_edge ], [ %.val92.pre, %.lr.ph.i110 ], [ %.val20.i118, %183 ]
   %205 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.val92)
   br label %Fra_ClauPrintClause.exit120.thread134
 

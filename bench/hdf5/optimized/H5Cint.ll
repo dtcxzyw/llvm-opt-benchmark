@@ -2371,7 +2371,7 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
   %5 = trunc nuw i8 %4 to i1
   %6 = xor i1 %5, true
   %7 = select i1 %3, i1 true, i1 %6
-  br i1 %7, label %8, label %125, !prof !41
+  br i1 %7, label %8, label %126, !prof !41
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2385,7 +2385,7 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
   br label %16
 
 16:                                               ; preds = %8, %.loopexit
-  %.01821 = phi i32 [ 1, %8 ], [ %124, %.loopexit ]
+  %.01821 = phi i32 [ 1, %8 ], [ %125, %.loopexit ]
   switch i32 %.01821, label %37 [
     i32 1, label %41
     i32 2, label %17
@@ -2453,9 +2453,9 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.split.thread.i, label %.critedge.split.i
 
-._crit_edge.i:                                    ; preds = %87
+._crit_edge.i:                                    ; preds = %88
   %.253.pre.pre.i = load ptr, ptr %54, align 8, !tbaa !117
-  br i1 %.24662.i, label %.split.i, label %.critedge.split.i, !llvm.loop !148
+  br i1 %.24663.i, label %.split.i, label %.critedge.split.i, !llvm.loop !148
 
 .critedge.split.i:                                ; preds = %.critedge.i, %._crit_edge.i
   %.04349.i = phi ptr [ %.253.pre.pre.i, %._crit_edge.i ], [ %55, %.critedge.i ]
@@ -2463,74 +2463,77 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   br i1 %.not4750.i, label %.split.thread.i, label %.lr.ph.i, !llvm.loop !150
 
-.lr.ph.i:                                         ; preds = %.critedge.split.i, %87
-  %.04352.i = phi ptr [ %.043.i, %87 ], [ %.04349.i, %.critedge.split.i ]
-  %.14551.i = phi i1 [ %.24662.i, %87 ], [ true, %.critedge.split.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %.04352.i, i64 58
-  %58 = load i8, ptr %57, align 2, !tbaa !122, !range !39, !noundef !40
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %.thread.i.thread, label %60
+.lr.ph.i:                                         ; preds = %.critedge.split.i
+  br label %57, !llvm.loop !150
 
-60:                                               ; preds = %.lr.ph.i
-  %61 = getelementptr inbounds nuw i8, ptr %.04352.i, i64 64
-  %62 = load i32, ptr %61, align 8, !tbaa !118
-  %63 = icmp eq i32 %62, %.01821
-  br i1 %63, label %64, label %.thread.i.thread
+57:                                               ; preds = %88, %.lr.ph.i
+  %.04352.i = phi ptr [ %.04349.i, %.lr.ph.i ], [ %.043.i, %88 ]
+  %.14551.i = phi i1 [ true, %.lr.ph.i ], [ %.24663.i, %88 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.04352.i, i64 58
+  %59 = load i8, ptr %58, align 2, !tbaa !122, !range !39, !noundef !40
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %.thread.i.thread, label %61
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %.04352.i, i64 32
-  %66 = load i8, ptr %65, align 8, !tbaa !151, !range !39, !noundef !40
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %.thread.i.thread, label %68
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %.04352.i, i64 64
+  %63 = load i32, ptr %62, align 8, !tbaa !118
+  %64 = icmp eq i32 %63, %.01821
+  br i1 %64, label %65, label %.thread.i.thread
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %.04352.i, i64 96
-  %70 = load i32, ptr %69, align 8, !tbaa !152
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %.thread.i.thread
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %.04352.i, i64 32
+  %67 = load i8, ptr %66, align 8, !tbaa !151, !range !39, !noundef !40
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %.thread.i.thread, label %69
 
-72:                                               ; preds = %68
-  %73 = tail call i32 @H5C__serialize_single_entry(ptr noundef %0, ptr noundef nonnull %50, ptr noundef nonnull %.04352.i) #5
-  %74 = icmp slt i32 %73, 0
-  br i1 %74, label %75, label %79
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %.04352.i, i64 96
+  %71 = load i32, ptr %70, align 8, !tbaa !152
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %.thread.i.thread
 
-75:                                               ; preds = %72
-  %76 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !36
-  %77 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8, !tbaa !36
-  %78 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2405, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.39) #5
+73:                                               ; preds = %69
+  %74 = tail call i32 @H5C__serialize_single_entry(ptr noundef %0, ptr noundef nonnull %50, ptr noundef nonnull %.04352.i) #5
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %76, label %80
+
+76:                                               ; preds = %73
+  %77 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !36
+  %78 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8, !tbaa !36
+  %79 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2405, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.39) #5
   br label %H5C__serialize_ring.exit
 
-79:                                               ; preds = %72
+80:                                               ; preds = %73
   %.pre.i = load i64, ptr %51, align 8, !tbaa !130
-  %80 = icmp sgt i64 %.pre.i, 0
-  br i1 %80, label %84, label %.thread.i
+  %81 = icmp sgt i64 %.pre.i, 0
+  br i1 %81, label %85, label %.thread.i
 
-.thread.i:                                        ; preds = %79
+.thread.i:                                        ; preds = %80
   %.pre = load i64, ptr %52, align 8, !tbaa !131
-  %81 = icmp sgt i64 %.pre, 0
-  br i1 %81, label %84, label %.thread.i.thread
+  %82 = icmp sgt i64 %.pre, 0
+  br i1 %82, label %85, label %.thread.i.thread
 
-.thread.i.thread:                                 ; preds = %.lr.ph.i, %64, %68, %60, %.thread.i
-  %.24664.i24 = phi i1 [ false, %.thread.i ], [ %.14551.i, %.lr.ph.i ], [ %.14551.i, %64 ], [ false, %68 ], [ %.14551.i, %60 ]
-  %82 = load i64, ptr %53, align 8, !tbaa !132
-  %83 = icmp sgt i64 %82, 0
-  br i1 %83, label %84, label %85
+.thread.i.thread:                                 ; preds = %57, %65, %69, %61, %.thread.i
+  %.24665.i24 = phi i1 [ false, %.thread.i ], [ %.14551.i, %57 ], [ %.14551.i, %65 ], [ false, %69 ], [ %.14551.i, %61 ]
+  %83 = load i64, ptr %53, align 8, !tbaa !132
+  %84 = icmp sgt i64 %83, 0
+  br i1 %84, label %85, label %86
 
-84:                                               ; preds = %.thread.i.thread, %.thread.i, %79
-  %.24663.i = phi i1 [ %.24664.i24, %.thread.i.thread ], [ false, %.thread.i ], [ false, %79 ]
+85:                                               ; preds = %.thread.i.thread, %.thread.i, %80
+  %.24664.i = phi i1 [ %.24665.i24, %.thread.i.thread ], [ false, %.thread.i ], [ false, %80 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
-  br label %87
+  br label %88
 
-85:                                               ; preds = %.thread.i.thread
-  %86 = getelementptr inbounds nuw i8, ptr %.04352.i, i64 120
-  br label %87
+86:                                               ; preds = %.thread.i.thread
+  %87 = getelementptr inbounds nuw i8, ptr %.04352.i, i64 120
+  br label %88
 
-87:                                               ; preds = %85, %84
-  %.24662.i = phi i1 [ %.24663.i, %84 ], [ %.24664.i24, %85 ]
-  %.1.in.i = phi ptr [ %54, %84 ], [ %86, %85 ]
+88:                                               ; preds = %86, %85
+  %.24663.i = phi i1 [ %.24664.i, %85 ], [ %.24665.i24, %86 ]
+  %.1.in.i = phi ptr [ %54, %85 ], [ %87, %86 ]
   %.043.i = load ptr, ptr %.1.in.i, align 8, !tbaa !117
   %.not47.i = icmp eq ptr %.043.i, null
-  br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !153
+  br i1 %.not47.i, label %._crit_edge.i, label %57, !llvm.loop !153
 
 .split.thread.i:                                  ; preds = %.critedge.split.i, %.critedge.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
@@ -2541,80 +2544,80 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   br i1 %.not54.i, label %.loopexit, label %.lr.ph57.i
 
-.lr.ph57.i:                                       ; preds = %.split.i, %119
-  %.255.i = phi ptr [ %.2.i, %119 ], [ %.253.pre.pre.i, %.split.i ]
-  %88 = getelementptr inbounds nuw i8, ptr %.255.i, i64 64
-  %89 = load i32, ptr %88, align 8, !tbaa !118
-  %90 = icmp eq i32 %89, %.01821
-  br i1 %90, label %91, label %119
+.lr.ph57.i:                                       ; preds = %.split.i, %120
+  %.255.i = phi ptr [ %.2.i, %120 ], [ %.253.pre.pre.i, %.split.i ]
+  %89 = getelementptr inbounds nuw i8, ptr %.255.i, i64 64
+  %90 = load i32, ptr %89, align 8, !tbaa !118
+  %91 = icmp eq i32 %90, %.01821
+  br i1 %91, label %92, label %120
 
-91:                                               ; preds = %.lr.ph57.i
-  %92 = getelementptr inbounds nuw i8, ptr %.255.i, i64 58
-  %93 = load i8, ptr %92, align 2, !tbaa !122, !range !39, !noundef !40
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %119
+92:                                               ; preds = %.lr.ph57.i
+  %93 = getelementptr inbounds nuw i8, ptr %.255.i, i64 58
+  %94 = load i8, ptr %93, align 2, !tbaa !122, !range !39, !noundef !40
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %96, label %120
 
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %.255.i, i64 32
-  %97 = load i8, ptr %96, align 8, !tbaa !151, !range !39, !noundef !40
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %119, label %99
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %.255.i, i64 32
+  %98 = load i8, ptr %97, align 8, !tbaa !151, !range !39, !noundef !40
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %120, label %100
 
-99:                                               ; preds = %95
-  %100 = tail call i32 @H5C__serialize_single_entry(ptr noundef %0, ptr noundef %50, ptr noundef nonnull %.255.i) #5
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %106
+100:                                              ; preds = %96
+  %101 = tail call i32 @H5C__serialize_single_entry(ptr noundef %0, ptr noundef %50, ptr noundef nonnull %.255.i) #5
+  %102 = icmp slt i32 %101, 0
+  br i1 %102, label %103, label %107
 
-102:                                              ; preds = %99
-  %103 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !36
-  %104 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8, !tbaa !36
-  %105 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2467, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.39) #5
+103:                                              ; preds = %100
+  %104 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !36
+  %105 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8, !tbaa !36
+  %106 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2467, i64 noundef %104, i64 noundef %105, ptr noundef nonnull @.str.39) #5
   br label %H5C__serialize_ring.exit
 
-106:                                              ; preds = %99
-  %107 = load i64, ptr %51, align 8, !tbaa !130
-  %108 = icmp sgt i64 %107, 0
-  br i1 %108, label %115, label %109
+107:                                              ; preds = %100
+  %108 = load i64, ptr %51, align 8, !tbaa !130
+  %109 = icmp sgt i64 %108, 0
+  br i1 %109, label %116, label %110
 
-109:                                              ; preds = %106
-  %110 = load i64, ptr %52, align 8, !tbaa !131
-  %111 = icmp sgt i64 %110, 0
-  br i1 %111, label %115, label %112
+110:                                              ; preds = %107
+  %111 = load i64, ptr %52, align 8, !tbaa !131
+  %112 = icmp sgt i64 %111, 0
+  br i1 %112, label %116, label %113
 
-112:                                              ; preds = %109
-  %113 = load i64, ptr %53, align 8, !tbaa !132
-  %114 = icmp sgt i64 %113, 0
-  br i1 %114, label %115, label %119
+113:                                              ; preds = %110
+  %114 = load i64, ptr %53, align 8, !tbaa !132
+  %115 = icmp sgt i64 %114, 0
+  br i1 %115, label %116, label %120
 
-115:                                              ; preds = %112, %109, %106
-  %116 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !36
-  %117 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !36
-  %118 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2474, i64 noundef %116, i64 noundef %117, ptr noundef nonnull @.str.40) #5
+116:                                              ; preds = %113, %110, %107
+  %117 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !36
+  %118 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !36
+  %119 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2474, i64 noundef %117, i64 noundef %118, ptr noundef nonnull @.str.40) #5
   br label %H5C__serialize_ring.exit
 
-119:                                              ; preds = %112, %95, %91, %.lr.ph57.i
-  %120 = getelementptr inbounds nuw i8, ptr %.255.i, i64 120
-  %.2.i = load ptr, ptr %120, align 8, !tbaa !117
+120:                                              ; preds = %113, %96, %92, %.lr.ph57.i
+  %121 = getelementptr inbounds nuw i8, ptr %.255.i, i64 120
+  %.2.i = load ptr, ptr %121, align 8, !tbaa !117
   %.not.i = icmp eq ptr %.2.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph57.i, !llvm.loop !154
 
-H5C__serialize_ring.exit:                         ; preds = %115, %102, %75
-  %121 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !36
-  %122 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8, !tbaa !36
-  %123 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_cache, i32 noundef 2222, i64 noundef %121, i64 noundef %122, ptr noundef nonnull @.str.24) #5
+H5C__serialize_ring.exit:                         ; preds = %116, %103, %76
+  %122 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !36
+  %123 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8, !tbaa !36
+  %124 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_cache, i32 noundef 2222, i64 noundef %122, i64 noundef %123, ptr noundef nonnull @.str.24) #5
   br label %.loopexit20
 
-.loopexit:                                        ; preds = %119, %41, %.split.i, %.split.thread.i
-  %124 = add nuw nsw i32 %.01821, 1
-  %exitcond.not = icmp eq i32 %124, 6
+.loopexit:                                        ; preds = %120, %41, %.split.i, %.split.thread.i
+  %125 = add nuw nsw i32 %.01821, 1
+  %exitcond.not = icmp eq i32 %125, 6
   br i1 %exitcond.not, label %.loopexit20, label %16, !llvm.loop !155
 
 .loopexit20:                                      ; preds = %.loopexit, %H5C__serialize_ring.exit, %37, %33, %23
   %.1 = phi i32 [ -1, %37 ], [ -1, %H5C__serialize_ring.exit ], [ -1, %33 ], [ -1, %23 ], [ 0, %.loopexit ]
   store i8 0, ptr %13, align 8, !tbaa !145
-  br label %125
+  br label %126
 
-125:                                              ; preds = %.loopexit20, %1
+126:                                              ; preds = %.loopexit20, %1
   %.0 = phi i32 [ %.1, %.loopexit20 ], [ 0, %1 ]
   ret i32 %.0
 }

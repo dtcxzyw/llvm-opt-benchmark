@@ -83084,7 +83084,7 @@ _ZN6duckdb11SegmentTreeINS_8RowGroupELb1EE15LoadAllSegmentsERNS_11SegmentLockE.e
   %.pre17.i = ptrtoint ptr %.pre15.i to i64
   %.pre19.i = sub i64 %.pre16.i, %.pre17.i
   %.pre21.i = ashr exact i64 %.pre19.i, 4
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !2246
 
 .critedge.i:                                      ; preds = %22, %..critedge_crit_edge.i
   %.pre-phi22.i = phi i64 [ %.pre21.i, %..critedge_crit_edge.i ], [ %28, %22 ]
@@ -83274,7 +83274,7 @@ _ZN6duckdb11SegmentTreeINS_8RowGroupELb1EE15LoadAllSegmentsERNS_11SegmentLockE.e
   %.pre17.i.i = ptrtoint ptr %.pre15.i.i to i64
   %.pre19.i.i = sub i64 %.pre16.i.i, %.pre17.i.i
   %.pre21.i.i = ashr exact i64 %.pre19.i.i, 4
-  br label %.critedge.i.i
+  br label %.critedge.i.i, !llvm.loop !2246
 
 .critedge.i.i:                                    ; preds = %51, %..critedge_crit_edge.i.i
   %.pre-phi22.i.i = phi i64 [ %.pre21.i.i, %..critedge_crit_edge.i.i ], [ %57, %51 ]
@@ -84895,7 +84895,7 @@ _ZNKSt14default_deleteIN6duckdb8RowGroupEEclEPS1_.exit.i11.i: ; preds = %_ZN6duc
   %.pre17.i.i = ptrtoint ptr %.pre15.i.i to i64
   %.pre19.i.i = sub i64 %.pre16.i.i, %.pre17.i.i
   %.pre21.i.i = ashr exact i64 %.pre19.i.i, 4
-  br label %.critedge.i.i
+  br label %.critedge.i.i, !llvm.loop !2246
 
 .critedge.i.i:                                    ; preds = %.noexc18, %.preheader13.i.i, %..critedge_crit_edge.i.i
   %.pre-phi22.i.i = phi i64 [ %.pre21.i.i, %..critedge_crit_edge.i.i ], [ %59, %.preheader13.i.i ], [ %191, %.noexc18 ]
@@ -85633,7 +85633,7 @@ _ZNKSt14default_deleteIN6duckdb8RowGroupEEclEPS1_.exit.i11.i: ; preds = %103
   %.pre17.i = ptrtoint ptr %.pre15.i to i64
   %.pre19.i = sub i64 %.pre16.i, %.pre17.i
   %.pre21.i = ashr exact i64 %.pre19.i, 4
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !2246
 
 .critedge.i:                                      ; preds = %.noexc27, %.preheader13.i, %..critedge_crit_edge.i
   %.pre-phi22.i = phi i64 [ %.pre21.i, %..critedge_crit_edge.i ], [ %60, %.preheader13.i ], [ %109, %.noexc27 ]
@@ -87586,7 +87586,7 @@ _ZNKSt14default_deleteIN6duckdb8RowGroupEEclEPS1_.exit.i11.i: ; preds = %99
   %.pre17.i.i = ptrtoint ptr %.pre15.i.i to i64
   %.pre19.i.i = sub i64 %.pre16.i.i, %.pre17.i.i
   %.pre21.i.i = ashr exact i64 %.pre19.i.i, 4
-  br label %.critedge.i.i
+  br label %.critedge.i.i, !llvm.loop !2246
 
 .critedge.i.i:                                    ; preds = %.noexc49, %.preheader13.i.i, %..critedge_crit_edge.i.i
   %.pre-phi22.i.i = phi i64 [ %.pre21.i.i, %..critedge_crit_edge.i.i ], [ %58, %.preheader13.i.i ], [ %105, %.noexc49 ]
@@ -87978,7 +87978,7 @@ _ZN6duckdb11SegmentTreeINS_8RowGroupELb1EE15LoadAllSegmentsERNS_11SegmentLockE.e
   %.pre17.i.i = ptrtoint ptr %.pre15.i.i to i64
   %.pre19.i.i = sub i64 %.pre16.i.i, %.pre17.i.i
   %.pre21.i.i = ashr exact i64 %.pre19.i.i, 4
-  br label %.critedge.i.i
+  br label %.critedge.i.i, !llvm.loop !2246
 
 .critedge.i.i:                                    ; preds = %50, %..critedge_crit_edge.i.i
   %.pre-phi22.i.i = phi i64 [ %.pre21.i.i, %..critedge_crit_edge.i.i ], [ %56, %50 ]
@@ -88180,7 +88180,7 @@ _ZN6duckdb11SegmentTreeINS_8RowGroupELb1EE15LoadAllSegmentsERNS_11SegmentLockE.e
   %.pre17.i = ptrtoint ptr %.pre15.i to i64
   %.pre19.i = sub i64 %.pre16.i, %.pre17.i
   %.pre21.i = ashr exact i64 %.pre19.i, 4
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !2246
 
 .critedge.i:                                      ; preds = %52, %..critedge_crit_edge.i
   %.pre-phi22.i = phi i64 [ %.pre21.i, %..critedge_crit_edge.i ], [ %58, %52 ]
@@ -88479,7 +88479,7 @@ _ZN6duckdb11SegmentTreeINS_8RowGroupELb1EE15LoadAllSegmentsERNS_11SegmentLockE.e
   %.pre17.i.i = ptrtoint ptr %.pre15.i.i to i64
   %.pre19.i.i = sub i64 %.pre16.i.i, %.pre17.i.i
   %.pre21.i.i = ashr exact i64 %.pre19.i.i, 4
-  br label %.critedge.i.i
+  br label %.critedge.i.i, !llvm.loop !2246
 
 .critedge.i.i:                                    ; preds = %50, %..critedge_crit_edge.i.i
   %.pre-phi22.i.i = phi i64 [ %.pre21.i.i, %..critedge_crit_edge.i.i ], [ %56, %50 ]
@@ -90727,11 +90727,14 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %4
   %77 = load i64, ptr %76, align 8, !tbaa !19
   %78 = urem i64 %77, %55
   %.not19.i.i.i.i = icmp eq i64 %78, %56
-  br i1 %.not19.i.i.i.i, label %72, label %.critedge.i.i, !llvm.loop !2437
+  br i1 %.not19.i.i.i.i, label %72, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !2437
 
-.critedge.i.i:                                    ; preds = %75, %.lr.ph.i.i.i.i, %64, %.thread36.i.i
-  %79 = phi i64 [ %65, %64 ], [ %55, %.thread36.i.i ], [ %55, %.lr.ph.i.i.i.i ], [ %55, %75 ]
-  %80 = phi i64 [ %66, %64 ], [ %56, %.thread36.i.i ], [ %56, %.lr.ph.i.i.i.i ], [ %56, %75 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %75
+  br label %.critedge.i.i, !llvm.loop !2437
+
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %64, %.thread36.i.i
+  %79 = phi i64 [ %65, %64 ], [ %55, %.thread36.i.i ], [ %55, %..loopexit_crit_edge21.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i ]
+  %80 = phi i64 [ %66, %64 ], [ %56, %.thread36.i.i ], [ %56, %..loopexit_crit_edge21.i.i.i.i ], [ %56, %.lr.ph.i.i.i.i ]
   %81 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #45
           to label %.noexc8.i unwind label %.loopexit.i
 
@@ -99146,7 +99149,7 @@ _ZNKSt14default_deleteIN6duckdb8RowGroupEEclEPS1_.exit.i11.i: ; preds = %_ZN6duc
   %.pre17.i.i = ptrtoint ptr %.pre15.i.i to i64
   %.pre19.i.i = sub i64 %.pre16.i.i, %.pre17.i.i
   %.pre21.i.i = ashr exact i64 %.pre19.i.i, 4
-  br label %.critedge.i.i
+  br label %.critedge.i.i, !llvm.loop !2246
 
 .critedge.i.i:                                    ; preds = %.noexc79, %.preheader13.i.i, %..critedge_crit_edge.i.i
   %.pre-phi22.i.i = phi i64 [ %.pre21.i.i, %..critedge_crit_edge.i.i ], [ %141, %.preheader13.i.i ], [ %274, %.noexc79 ]
@@ -102801,7 +102804,7 @@ _ZN6duckdb11SegmentTreeINS_8RowGroupELb1EE15LoadAllSegmentsERNS_11SegmentLockE.e
   %.pre17.i = ptrtoint ptr %.pre15.i to i64
   %.pre19.i = sub i64 %.pre16.i, %.pre17.i
   %.pre21.i = ashr exact i64 %.pre19.i, 4
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !2246
 
 .critedge.i:                                      ; preds = %24, %..critedge_crit_edge.i
   %.pre-phi22.i = phi i64 [ %.pre21.i, %..critedge_crit_edge.i ], [ %30, %24 ]

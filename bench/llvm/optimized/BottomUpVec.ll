@@ -1699,7 +1699,7 @@ _ZN4llvm9sandboxir8VecUtils9getLowestENS_8ArrayRefIPNS0_5ValueEEEPNS0_10BasicBlo
   %storemerge3.i24 = phi ptr [ %29, %.lr.ph.i8 ], [ %.0.i, %.lr.ph.i8.preheader ]
   %29 = tail call noundef ptr @_ZNK4llvm9sandboxir11Instruction11getNextNodeEv(ptr noundef nonnull align 8 dereferenceable(36) %storemerge3.i24) #20
   %.not.i9 = icmp eq ptr %29, null
-  br i1 %.not.i9, label %_ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit, label %.lr.ph.i8, !llvm.loop !178
+  br i1 %.not.i9, label %._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit_crit_edge, label %.lr.ph.i8, !llvm.loop !178
 
 _ZN4llvm9sandboxir8VecUtils9getLowestENS_8ArrayRefIPNS0_5ValueEEEPNS0_10BasicBlockE.exit.thread: ; preds = %4, %_ZN4llvm9sandboxir8VecUtils9getLowestENS_8ArrayRefIPNS0_5ValueEEEPNS0_10BasicBlockE.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
@@ -1736,10 +1736,13 @@ _ZN4llvm9sandboxir8VecUtils9getLowestENS_8ArrayRefIPNS0_5ValueEEEPNS0_10BasicBlo
   %storemerge3.i1326 = phi ptr [ %42, %.lr.ph.i11 ], [ %39, %37 ]
   %42 = call noundef ptr @_ZNK4llvm9sandboxir11Instruction11getNextNodeEv(ptr noundef nonnull align 8 dereferenceable(36) %storemerge3.i1326) #20
   %.not.i15 = icmp eq ptr %42, null
-  br i1 %.not.i15, label %_ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit16, label %.lr.ph.i11, !llvm.loop !178
+  br i1 %.not.i15, label %._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit16_crit_edge, label %.lr.ph.i11, !llvm.loop !178
 
-_ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit16: ; preds = %.lr.ph27, %.lr.ph.i11, %37
-  %.0.lcssa.i14 = phi ptr [ %39, %37 ], [ %storemerge3.i1326, %.lr.ph.i11 ], [ %storemerge3.i1326, %.lr.ph27 ]
+._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit16_crit_edge: ; preds = %.lr.ph27
+  br label %_ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit16, !llvm.loop !178
+
+_ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit16: ; preds = %.lr.ph.i11, %._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit16_crit_edge, %37
+  %.0.lcssa.i14 = phi ptr [ %storemerge3.i1326, %._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit16_crit_edge ], [ %39, %37 ], [ %storemerge3.i1326, %.lr.ph.i11 ]
   call void @_ZNK4llvm9sandboxir11Instruction11getIteratorEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::sandboxir::BBIterator") align 8 %8, ptr noundef nonnull align 8 dereferenceable(36) %.0.lcssa.i14) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
@@ -1752,8 +1755,11 @@ _ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit16: ; pred
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #20
   br label %46
 
-_ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit: ; preds = %.lr.ph.i8, %.lr.ph, %.lr.ph.i8.preheader
-  %.0.lcssa.i = phi ptr [ %.0.i, %.lr.ph.i8.preheader ], [ %storemerge3.i24, %.lr.ph ], [ %storemerge3.i24, %.lr.ph.i8 ]
+._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit_crit_edge: ; preds = %.lr.ph
+  br label %_ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit, !llvm.loop !178
+
+_ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit: ; preds = %.lr.ph.i8, %._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit_crit_edge, %.lr.ph.i8.preheader
+  %.0.lcssa.i = phi ptr [ %storemerge3.i24, %._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit_crit_edge ], [ %.0.i, %.lr.ph.i8.preheader ], [ %storemerge3.i24, %.lr.ph.i8 ]
   call void @_ZNK4llvm9sandboxir11Instruction11getIteratorEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::sandboxir::BBIterator") align 8 %10, ptr noundef nonnull align 8 dereferenceable(36) %.0.lcssa.i) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)

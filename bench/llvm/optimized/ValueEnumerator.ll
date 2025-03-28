@@ -5651,7 +5651,7 @@ _ZNSt6vectorIPKN4llvm8MetadataESaIS3_EE9push_backERKS3_.exit: ; preds = %149, %_
 
 ..critedge.loopexit_crit_edge:                    ; preds = %180
   %.pre93.pre = load ptr, ptr %8, align 8, !tbaa !405
-  br label %.critedge.loopexit
+  br label %.critedge.loopexit, !llvm.loop !410
 
 181:                                              ; preds = %.critedge
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 216

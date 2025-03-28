@@ -7753,15 +7753,18 @@ define dso_local range(i32 0, 2) i32 @anyOtherSlaveWaitRdb(ptr noundef readnone 
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 268
   %10 = load i32, ptr %9, align 4, !tbaa !94
   %11 = icmp eq i32 %10, 7
-  br i1 %11, label %._crit_edge, label %.critedge, !llvm.loop !205
+  br i1 %11, label %._crit_edge10, label %.critedge, !llvm.loop !205
 
 .critedge:                                        ; preds = %8, %.lr.ph
   %12 = call ptr @listNext(ptr noundef nonnull %2) #26
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %8, %.critedge, %1
-  %.2 = phi i32 [ 0, %1 ], [ 0, %.critedge ], [ 1, %8 ]
+._crit_edge10:                                    ; preds = %8
+  br label %._crit_edge, !llvm.loop !205
+
+._crit_edge:                                      ; preds = %.critedge, %._crit_edge10, %1
+  %.2 = phi i32 [ 1, %._crit_edge10 ], [ 0, %1 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
   ret i32 %.2
 }

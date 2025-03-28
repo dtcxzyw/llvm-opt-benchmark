@@ -1728,7 +1728,7 @@ define range(i32 -2, 2) i32 @Sbd_ManCollectConstants(ptr noundef %0, ptr noundef
 ..critedge_crit_edge.i.us:                        ; preds = %30
   %.pre.i.us = load i32, ptr %0, align 8, !tbaa !63
   %.pre19.i.us = sext i32 %.pre.i.us to i64
-  br label %.critedge.i.us
+  br label %.critedge.i.us, !llvm.loop !65
 
 .critedge.i.us:                                   ; preds = %25, %..critedge_crit_edge.i.us
   %.pre-phi.i.us = phi i64 [ %.pre19.i.us, %..critedge_crit_edge.i.us ], [ %28, %25 ]
@@ -1796,7 +1796,7 @@ sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %.l
 ..critedge_crit_edge.i:                           ; preds = %58
   %.pre.i = load i32, ptr %0, align 8, !tbaa !63
   %.pre19.i = sext i32 %.pre.i to i64
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !65
 
 .critedge.i:                                      ; preds = %53, %..critedge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre19.i, %..critedge_crit_edge.i ], [ %56, %53 ]
@@ -1936,7 +1936,7 @@ define range(i32 -2, 2) i32 @Sbd_ManCollectConstantsNew(ptr noundef %0, ptr noun
 ..critedge_crit_edge.i.us:                        ; preds = %31
   %.pre.i.us = load i32, ptr %0, align 8, !tbaa !63
   %.pre19.i.us = sext i32 %.pre.i.us to i64
-  br label %.critedge.i.us
+  br label %.critedge.i.us, !llvm.loop !65
 
 .critedge.i.us:                                   ; preds = %26, %..critedge_crit_edge.i.us
   %.pre-phi.i.us = phi i64 [ %.pre19.i.us, %..critedge_crit_edge.i.us ], [ %29, %26 ]

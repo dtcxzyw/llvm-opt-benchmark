@@ -4513,7 +4513,7 @@ Vec_IntPush.exit205..critedge_crit_edge:          ; preds = %Vec_IntPush.exit205
   %.phi.trans.insert = getelementptr i8, ptr %.val174.pre, i64 4
   %.val174.val.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !37
   %.pre364 = sub nsw i32 %.val174.val.pre, %.val173.pre
-  br label %.critedge
+  br label %.critedge, !llvm.loop !166
 
 .critedge:                                        ; preds = %144, %Vec_IntPush.exit205..critedge_crit_edge
   %.pre-phi = phi i32 [ %.pre364, %Vec_IntPush.exit205..critedge_crit_edge ], [ %147, %144 ]

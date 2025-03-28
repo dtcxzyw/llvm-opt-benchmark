@@ -6321,11 +6321,14 @@ Sbl_ManFindCut.exit.thread:                       ; preds = %1462, %.critedge8, 
   %.val172 = load i32, ptr %1502, align 4, !tbaa !46
   %1503 = sext i32 %.val172 to i64
   %1504 = icmp slt i64 %indvars.iv.next340, %1503
-  br i1 %1504, label %1302, label %.critedge6, !llvm.loop !160
+  br i1 %1504, label %1302, label %Sbl_ManFindCut.exit.thread..critedge6.loopexit_crit_edge, !llvm.loop !160
 
-.critedge6:                                       ; preds = %Sbl_ManFindCut.exit.thread, %1302, %.lr.ph316, %.critedge4
-  %.lcssa = phi ptr [ %1290, %.critedge4 ], [ %1290, %.lr.ph316 ], [ %1501, %1302 ], [ %1501, %Sbl_ManFindCut.exit.thread ]
-  %.val172.lcssa = phi i32 [ %.val172313, %.critedge4 ], [ %.val172313, %.lr.ph316 ], [ %.val172, %1302 ], [ %.val172, %Sbl_ManFindCut.exit.thread ]
+Sbl_ManFindCut.exit.thread..critedge6.loopexit_crit_edge: ; preds = %Sbl_ManFindCut.exit.thread
+  br label %.critedge6, !llvm.loop !160
+
+.critedge6:                                       ; preds = %1302, %.lr.ph316, %Sbl_ManFindCut.exit.thread..critedge6.loopexit_crit_edge, %.critedge4
+  %.lcssa = phi ptr [ %1290, %.critedge4 ], [ %1501, %Sbl_ManFindCut.exit.thread..critedge6.loopexit_crit_edge ], [ %1290, %.lr.ph316 ], [ %1501, %1302 ]
+  %.val172.lcssa = phi i32 [ %.val172313, %.critedge4 ], [ %.val172, %Sbl_ManFindCut.exit.thread..critedge6.loopexit_crit_edge ], [ %.val172313, %.lr.ph316 ], [ %.val172, %1302 ]
   %1505 = load ptr, ptr %10, align 8, !tbaa !50
   %1506 = getelementptr i8, ptr %1505, i64 4
   %.val165 = load i32, ptr %1506, align 4, !tbaa !46
@@ -6865,10 +6868,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val30 = load i32, ptr %52, align 4, !tbaa !46
   %53 = sext i32 %.val30 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph, label %.critedge, !llvm.loop !176
+  br i1 %54, label %.lr.ph, label %Vec_IntPush.exit..critedge.loopexit_crit_edge, !llvm.loop !176
 
-.critedge:                                        ; preds = %Vec_IntPush.exit, %.lr.ph, %.lr.ph.preheader, %1
-  %55 = phi ptr [ %6, %1 ], [ %6, %.lr.ph.preheader ], [ %49, %.lr.ph ], [ %49, %Vec_IntPush.exit ]
+Vec_IntPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_IntPush.exit
+  br label %.critedge, !llvm.loop !176
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %Vec_IntPush.exit..critedge.loopexit_crit_edge, %1
+  %55 = phi ptr [ %6, %1 ], [ %49, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ %6, %.lr.ph.preheader ], [ %49, %.lr.ph ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %57 = load ptr, ptr %56, align 8, !tbaa !51
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4

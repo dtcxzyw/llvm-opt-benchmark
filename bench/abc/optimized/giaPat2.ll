@@ -211,7 +211,7 @@ Min_ManStart.exit:                                ; preds = %2, %6
   %38 = getelementptr i8, ptr %1, i64 8
   %.val83134 = load ptr, ptr %11, align 8, !tbaa !3
   %.not63135 = icmp eq ptr %.val83134, null
-  br i1 %.not63135, label %.lr.ph105, label %.lr.ph138
+  br i1 %.not63135, label %.critedge6, label %.lr.ph138
 
 .preheader:                                       ; preds = %.critedge
   %39 = load i32, ptr %3, align 8, !tbaa !31
@@ -335,7 +335,7 @@ Min_ManAppendCo.exit:                             ; preds = %86, %100
 106:                                              ; preds = %.lr.ph138
   %.val83 = load ptr, ptr %11, align 8, !tbaa !3
   %.not63 = icmp eq ptr %.val83, null
-  br i1 %.not63, label %.critedge6.loopexit, label %.lr.ph138, !llvm.loop !47
+  br i1 %.not63, label %.critedge6, label %.lr.ph138, !llvm.loop !47
 
 .lr.ph138:                                        ; preds = %.lr.ph101, %106
   %.val83137 = phi ptr [ %.val83, %106 ], [ %.val83134, %.lr.ph101 ]
@@ -360,13 +360,17 @@ Min_ManAppendCo.exit:                             ; preds = %86, %100
   %.val70 = load i32, ptr %35, align 4, !tbaa !30
   %118 = sext i32 %.val70 to i64
   %119 = icmp slt i64 %indvars.iv.next117, %118
-  br i1 %119, label %106, label %.critedge6.loopexit, !llvm.loop !47
+  br i1 %119, label %106, label %..critedge6_crit_edge139, !llvm.loop !47
 
-.critedge6.loopexit:                              ; preds = %106, %.lr.ph138
-  %120 = icmp sgt i32 %.val70, 0
+..critedge6_crit_edge139:                         ; preds = %.lr.ph138
+  br label %.critedge6, !llvm.loop !47
+
+.critedge6:                                       ; preds = %106, %..critedge6_crit_edge139, %.lr.ph101
+  %.val71103129 = phi i32 [ %.val70, %..critedge6_crit_edge139 ], [ %.val7099, %.lr.ph101 ], [ %.val70, %106 ]
+  %120 = icmp sgt i32 %.val71103129, 0
   br i1 %120, label %.lr.ph105, label %.critedge4
 
-.lr.ph105:                                        ; preds = %.lr.ph101, %.critedge6.loopexit
+.lr.ph105:                                        ; preds = %.critedge6
   %121 = getelementptr i8, ptr %0, i64 72
   %122 = getelementptr i8, ptr %1, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -421,7 +425,7 @@ Min_ManAppendCo.exit92:                           ; preds = %127, %149
   %151 = icmp slt i64 %indvars.iv.next120, %150
   br i1 %151, label %126, label %.critedge4, !llvm.loop !48
 
-.critedge4:                                       ; preds = %Min_ManAppendCo.exit92, %126, %Min_ManAppendCo.exit, %79, %.preheader95, %.critedge6.loopexit, %.critedge2
+.critedge4:                                       ; preds = %Min_ManAppendCo.exit92, %126, %Min_ManAppendCo.exit, %79, %.preheader95, %.critedge6, %.critedge2
   ret ptr %4
 }
 
@@ -4185,44 +4189,48 @@ define noundef i32 @Min_ManRemoveItem(ptr noundef readonly captures(none) %0, i3
 
 .lr.ph.preheader:                                 ; preds = %4
   %9 = sext i32 %3 to i64
-  %10 = sext i32 %2 to i64
-  %11 = add i32 %2, -1
+  %10 = add nsw i64 %9, -1
+  %11 = sext i32 %2 to i64
   br label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
-  %.not.not = icmp sgt i64 %indvars.iv, %10
-  br i1 %.not.not, label %.lr.ph, label %.critedge, !llvm.loop !97
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %.not.not = icmp sgt i64 %indvars.iv, %11
+  br i1 %.not.not, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !97
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
-  %indvars.iv.in = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv, %12 ]
-  %indvars.iv = add nsw i64 %indvars.iv.in, -1
+  %indvars.iv = phi i64 [ %10, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val16, i64 %indvars.iv
   %14 = getelementptr i8, ptr %13, i64 4
   %.val = load i32, ptr %14, align 4, !tbaa !30
   %15 = icmp sgt i32 %.val, 0
-  br i1 %15, label %.critedge.loopexit.split.loop.exit26, label %12, !llvm.loop !97
+  br i1 %15, label %..critedge_crit_edge22, label %12, !llvm.loop !97
 
-.critedge.loopexit.split.loop.exit26:             ; preds = %.lr.ph
+..critedge_crit_edge22:                           ; preds = %.lr.ph
   %16 = trunc nsw i64 %indvars.iv to i32
+  br label %.critedge, !llvm.loop !97
+
+.critedge.loopexit:                               ; preds = %12
+  %17 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %12, %.critedge.loopexit.split.loop.exit26, %4
-  %.0.lcssa = phi i32 [ %.018, %4 ], [ %16, %.critedge.loopexit.split.loop.exit26 ], [ %11, %12 ]
-  %.1 = phi ptr [ null, %4 ], [ %13, %.critedge.loopexit.split.loop.exit26 ], [ %13, %12 ]
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 0, ptr %17, align 4, !tbaa !30
-  %18 = icmp slt i32 %1, %.0.lcssa
-  br i1 %18, label %19, label %20
+.critedge:                                        ; preds = %.critedge.loopexit, %..critedge_crit_edge22, %4
+  %.0.lcssa = phi i32 [ %16, %..critedge_crit_edge22 ], [ %.018, %4 ], [ %17, %.critedge.loopexit ]
+  %.1 = phi ptr [ %13, %..critedge_crit_edge22 ], [ null, %4 ], [ %13, %.critedge.loopexit ]
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 0, ptr %18, align 4, !tbaa !30
+  %19 = icmp slt i32 %1, %.0.lcssa
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %.critedge
+20:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !98
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.1, i64 16, i1 false), !tbaa.struct !98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !98
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %.critedge
+21:                                               ; preds = %20, %.critedge
   ret i32 -1
 }
 
@@ -4247,7 +4255,7 @@ define i32 @Min_ManAccumulate(ptr noundef readonly captures(none) %0, i32 nounde
 
 14:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %92 ]
-  %.045 = phi i32 [ 0, %.lr.ph ], [ %.1, %92 ]
+  %.046 = phi i32 [ 0, %.lr.ph ], [ %.1, %92 ]
   %.val28 = load ptr, ptr %7, align 8, !tbaa !95
   %15 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val28, i64 %indvars.iv
   %16 = getelementptr i8, ptr %15, i64 4
@@ -4338,7 +4346,7 @@ Vec_IntPush.exit.i:                               ; preds = %44, %Vec_IntGrow.ex
   br i1 %52, label %20, label %Vec_IntAppend.exit, !llvm.loop !66
 
 Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i, %18
-  %53 = add nsw i32 %.045, 1
+  %53 = add nsw i32 %.046, 1
   br label %.critedge
 
 54:                                               ; preds = %14
@@ -4409,21 +4417,21 @@ Vec_IntTwoCountCommon.exit:                       ; preds = %76, %54
   br i1 %.not.not.i, label %.lr.ph.i36, label %.critedge.i, !llvm.loop !97
 
 .lr.ph.i36:                                       ; preds = %.lr.ph.i36.preheader, %83
-  %indvars.iv.in.i = phi i64 [ %indvars.iv.i37, %83 ], [ %10, %.lr.ph.i36.preheader ]
-  %indvars.iv.i37 = add nsw i64 %indvars.iv.in.i, -1
+  %indvars.iv.i37.in = phi i64 [ %indvars.iv.i37, %83 ], [ %10, %.lr.ph.i36.preheader ]
+  %indvars.iv.i37 = add nsw i64 %indvars.iv.i37.in, -1
   %84 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val28, i64 %indvars.iv.i37
   %85 = getelementptr i8, ptr %84, i64 4
   %.val.i38 = load i32, ptr %85, align 4, !tbaa !30
   %86 = icmp sgt i32 %.val.i38, 0
-  br i1 %86, label %.critedge.loopexit.split.loop.exit26.i, label %83, !llvm.loop !97
+  br i1 %86, label %..critedge_crit_edge22.i, label %83, !llvm.loop !97
 
-.critedge.loopexit.split.loop.exit26.i:           ; preds = %.lr.ph.i36
+..critedge_crit_edge22.i:                         ; preds = %.lr.ph.i36
   %87 = trunc nsw i64 %indvars.iv.i37 to i32
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !97
 
-.critedge.i:                                      ; preds = %83, %.critedge.loopexit.split.loop.exit26.i
-  %.0.lcssa.i34 = phi i32 [ %87, %.critedge.loopexit.split.loop.exit26.i ], [ %12, %83 ]
-  %.1.i35 = phi ptr [ %84, %.critedge.loopexit.split.loop.exit26.i ], [ %scevgep, %83 ]
+.critedge.i:                                      ; preds = %83, %..critedge_crit_edge22.i
+  %.0.lcssa.i34 = phi i32 [ %87, %..critedge_crit_edge22.i ], [ %12, %83 ]
+  %.1.i35 = phi ptr [ %84, %..critedge_crit_edge22.i ], [ %scevgep, %83 ]
   store i32 0, ptr %16, align 4, !tbaa !30
   %88 = sext i32 %.0.lcssa.i34 to i64
   %89 = icmp slt i64 %indvars.iv, %88
@@ -4438,18 +4446,18 @@ Vec_IntTwoCountCommon.exit:                       ; preds = %76, %54
   br label %Min_ManRemoveItem.exit
 
 Min_ManRemoveItem.exit:                           ; preds = %.critedge.i, %90
-  %91 = add nsw i32 %.045, -1
+  %91 = add nsw i32 %.046, -1
   br label %92
 
 92:                                               ; preds = %81, %Min_ManRemoveItem.exit
-  %.1 = phi i32 [ %91, %Min_ManRemoveItem.exit ], [ %.045, %81 ]
+  %.1 = phi i32 [ %91, %Min_ManRemoveItem.exit ], [ %.046, %81 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !101
 
 .critedge:                                        ; preds = %Vec_IntTwoCountCommon.exit, %92, %4, %Vec_IntAppend.exit
-  %.022 = phi i32 [ %53, %Vec_IntAppend.exit ], [ 1000000000, %4 ], [ %.045, %Vec_IntTwoCountCommon.exit ], [ 1000000000, %92 ]
+  %.022 = phi i32 [ %53, %Vec_IntAppend.exit ], [ 1000000000, %4 ], [ %.046, %Vec_IntTwoCountCommon.exit ], [ 1000000000, %92 ]
   ret i32 %.022
 }
 

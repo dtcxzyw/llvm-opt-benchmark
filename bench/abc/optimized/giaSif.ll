@@ -4852,7 +4852,7 @@ define range(i32 0, 2) i32 @Gia_ManSifCheckPeriod(ptr noundef readonly captures(
   %13 = getelementptr i8, ptr %1, i64 8
   %14 = load i32, ptr %.val127.val, align 4, !tbaa !29
   %.not209 = icmp eq i32 %14, 0
-  br i1 %.not209, label %.lr.ph153, label %.lr.ph211.preheader
+  br i1 %.not209, label %.critedge, label %.lr.ph211.preheader
 
 .lr.ph211.preheader:                              ; preds = %.lr.ph
   %.val118 = load ptr, ptr %13, align 8, !tbaa !39
@@ -4862,7 +4862,7 @@ define range(i32 0, 2) i32 @Gia_ManSifCheckPeriod(ptr noundef readonly captures(
   %16 = getelementptr inbounds nuw i32, ptr %.val127.val, i64 %indvars.iv.next
   %17 = load i32, ptr %16, align 4, !tbaa !29
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph211, !llvm.loop !108
+  br i1 %.not, label %.critedge, label %.lr.ph211, !llvm.loop !108
 
 .lr.ph211:                                        ; preds = %.lr.ph211.preheader, %15
   %18 = phi i32 [ %17, %15 ], [ %14, %.lr.ph211.preheader ]
@@ -4875,13 +4875,17 @@ define range(i32 0, 2) i32 @Gia_ManSifCheckPeriod(ptr noundef readonly captures(
   %.val109 = load i32, ptr %10, align 4, !tbaa !42
   %22 = sext i32 %.val109 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %15, label %.critedge.loopexit, !llvm.loop !108
+  br i1 %23, label %15, label %..critedge_crit_edge212, !llvm.loop !108
 
-.critedge.loopexit:                               ; preds = %15, %.lr.ph211
-  %24 = icmp sgt i32 %.val109, 0
+..critedge_crit_edge212:                          ; preds = %.lr.ph211
+  br label %.critedge, !llvm.loop !108
+
+.critedge:                                        ; preds = %15, %..critedge_crit_edge212, %.lr.ph
+  %.val108151198 = phi i32 [ %.val109, %..critedge_crit_edge212 ], [ %.val109145, %.lr.ph ], [ %.val109, %15 ]
+  %24 = icmp sgt i32 %.val108151198, 0
   br i1 %24, label %.lr.ph153, label %.critedge2
 
-.lr.ph153:                                        ; preds = %.lr.ph, %.critedge.loopexit
+.lr.ph153:                                        ; preds = %.critedge
   %25 = getelementptr i8, ptr %9, i64 8
   %.val125.val = load ptr, ptr %25, align 8, !tbaa !39
   %26 = getelementptr i8, ptr %1, i64 8
@@ -4908,7 +4912,7 @@ define range(i32 0, 2) i32 @Gia_ManSifCheckPeriod(ptr noundef readonly captures(
   %37 = icmp slt i64 %indvars.iv.next176, %36
   br i1 %37, label %27, label %.critedge2, !llvm.loop !109
 
-.critedge2:                                       ; preds = %27, %30, %6, %.critedge.loopexit
+.critedge2:                                       ; preds = %27, %30, %6, %.critedge
   %38 = getelementptr i8, ptr %0, i64 24
   %.val119 = load i32, ptr %38, align 8, !tbaa !44
   %39 = sub nsw i32 0, %4
@@ -5219,7 +5223,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   %29 = getelementptr i8, ptr %1, i64 8
   %30 = load i32, ptr %.val69.val, align 4, !tbaa !29
   %.not112 = icmp eq i32 %30, 0
-  br i1 %.not112, label %.lr.ph87, label %.lr.ph114.preheader
+  br i1 %.not112, label %.critedge, label %.lr.ph114.preheader
 
 .lr.ph114.preheader:                              ; preds = %.lr.ph
   %.val64 = load ptr, ptr %29, align 8, !tbaa !39
@@ -5229,7 +5233,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   %32 = getelementptr inbounds nuw i32, ptr %.val69.val, i64 %indvars.iv.next
   %33 = load i32, ptr %32, align 4, !tbaa !29
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph114, !llvm.loop !123
+  br i1 %.not, label %.critedge, label %.lr.ph114, !llvm.loop !123
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %31
   %34 = phi i32 [ %33, %31 ], [ %30, %.lr.ph114.preheader ]
@@ -5242,13 +5246,17 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   %.val60 = load i32, ptr %26, align 4, !tbaa !42
   %38 = sext i32 %.val60 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %31, label %.critedge.loopexit, !llvm.loop !123
+  br i1 %39, label %31, label %..critedge_crit_edge115, !llvm.loop !123
 
-.critedge.loopexit:                               ; preds = %31, %.lr.ph114
-  %40 = icmp sgt i32 %.val60, 0
+..critedge_crit_edge115:                          ; preds = %.lr.ph114
+  br label %.critedge, !llvm.loop !123
+
+.critedge:                                        ; preds = %31, %..critedge_crit_edge115, %.lr.ph
+  %.val5985109 = phi i32 [ %.val60, %..critedge_crit_edge115 ], [ %.val6079, %.lr.ph ], [ %.val60, %31 ]
+  %40 = icmp sgt i32 %.val5985109, 0
   br i1 %40, label %.lr.ph87, label %.critedge2
 
-.lr.ph87:                                         ; preds = %.lr.ph, %.critedge.loopexit
+.lr.ph87:                                         ; preds = %.critedge
   %41 = getelementptr i8, ptr %25, i64 8
   %.val67.val = load ptr, ptr %41, align 8, !tbaa !39
   %42 = getelementptr i8, ptr %1, i64 8
@@ -5275,7 +5283,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   %53 = icmp slt i64 %indvars.iv.next100, %52
   br i1 %53, label %43, label %.critedge2, !llvm.loop !124
 
-.critedge2:                                       ; preds = %43, %46, %Vec_IntFill.exit, %.critedge.loopexit
+.critedge2:                                       ; preds = %43, %46, %Vec_IntFill.exit, %.critedge
   %54 = getelementptr i8, ptr %0, i64 32
   %55 = load i32, ptr %6, align 8, !tbaa !44
   %56 = icmp sgt i32 %55, 0

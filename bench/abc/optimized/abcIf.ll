@@ -2374,10 +2374,13 @@ define ptr @Abc_NodeFromIf_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %35 = lshr i64 %34, 24
   %36 = and i64 %35, 255
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %24, label %.critedge, !llvm.loop !162
+  br i1 %37, label %24, label %..critedge.loopexit_crit_edge, !llvm.loop !162
 
-.critedge:                                        ; preds = %.lr.ph318, %24, %.lr.ph, %13
-  %.lcssa = phi i64 [ %16, %13 ], [ %16, %.lr.ph ], [ %34, %24 ], [ %34, %.lr.ph318 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph318
+  br label %.critedge, !llvm.loop !162
+
+.critedge:                                        ; preds = %24, %.lr.ph, %..critedge.loopexit_crit_edge, %13
+  %.lcssa = phi i64 [ %16, %13 ], [ %34, %..critedge.loopexit_crit_edge ], [ %16, %.lr.ph ], [ %34, %24 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %39 = load ptr, ptr %38, align 8, !tbaa !139
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 1064

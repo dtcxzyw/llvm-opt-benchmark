@@ -975,7 +975,7 @@ define internal i32 @maildir_filename_cmp(ptr noundef %0, ptr noundef %1) #9 {
 
 ..critedge.loopexit_crit_edge:                    ; preds = %31
   %.pre31.pre = load ptr, ptr %4, align 8, !tbaa !4
-  br label %.critedge
+  br label %.critedge, !llvm.loop !36
 
 .critedge.loopexitsplit:                          ; preds = %.lr.ph
   %34 = zext i8 %6 to i32

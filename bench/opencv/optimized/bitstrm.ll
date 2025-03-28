@@ -3033,14 +3033,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  br i1 %44, label %.critedge, label %._crit_edge, !llvm.loop !60
+  br i1 %44, label %.critedge, label %._crit_edge41, !llvm.loop !60
 
 .critedge:                                        ; preds = %40, %36
   %.not36 = icmp eq i32 %.131, 0
   br i1 %.not36, label %._crit_edge, label %22
 
-._crit_edge:                                      ; preds = %40, %.critedge, %.preheader
-  %.not36.lcssa = phi i1 [ true, %.preheader ], [ true, %.critedge ], [ false, %40 ]
+._crit_edge41:                                    ; preds = %40
+  br label %._crit_edge, !llvm.loop !60
+
+._crit_edge:                                      ; preds = %.critedge, %._crit_edge41, %.preheader
+  %.not36.lcssa = phi i1 [ false, %._crit_edge41 ], [ true, %.preheader ], [ true, %.critedge ]
   ret i1 %.not36.lcssa
 }
 

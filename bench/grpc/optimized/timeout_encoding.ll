@@ -822,11 +822,14 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   %29 = add nsw i32 %22, %28
   %30 = getelementptr inbounds nuw i8, ptr %.14780118, i64 1
   %.not52 = icmp eq ptr %30, %11
-  br i1 %.not52, label %.critedge2, label %.lr.ph82, !llvm.loop !17
+  br i1 %.not52, label %..critedge2_crit_edge, label %.lr.ph82, !llvm.loop !17
 
-.critedge2:                                       ; preds = %.lr.ph82, %27, %.lr.ph82.preheader
-  %.147.lcssa = phi ptr [ %.046.lcssa, %.lr.ph82.preheader ], [ %30, %27 ], [ %30, %.lr.ph82 ]
-  %.0.lcssa = phi i32 [ 0, %.lr.ph82.preheader ], [ %29, %27 ], [ %29, %.lr.ph82 ]
+..critedge2_crit_edge:                            ; preds = %27
+  br label %.critedge2, !llvm.loop !17
+
+.critedge2:                                       ; preds = %.lr.ph82, %..critedge2_crit_edge, %.lr.ph82.preheader
+  %.147.lcssa = phi ptr [ %30, %..critedge2_crit_edge ], [ %.046.lcssa, %.lr.ph82.preheader ], [ %30, %.lr.ph82 ]
+  %.0.lcssa = phi i32 [ %29, %..critedge2_crit_edge ], [ 0, %.lr.ph82.preheader ], [ %29, %.lr.ph82 ]
   %.not5490 = icmp eq ptr %.147.lcssa, %11
   %or.cond93 = or i1 %or.cond55116, %.not5490
   br i1 %or.cond93, label %_ZN9grpc_core12_GLOBAL__N_110IsAllSpaceEPKhS2_.exit, label %.lr.ph92

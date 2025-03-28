@@ -525,11 +525,11 @@ Super2_LibAddGate.exit154.i:                      ; preds = %245, %229
   %254 = sext i32 %221 to i64
   %255 = getelementptr inbounds ptr, ptr %251, i64 %254
   store ptr %231, ptr %255, align 8, !tbaa !20
-  %.pre88 = load ptr, ptr %16, align 8, !tbaa !11
+  %.pre98 = load ptr, ptr %16, align 8, !tbaa !11
   br label %256
 
 256:                                              ; preds = %Super2_LibAddGate.exit154.i, %211
-  %257 = phi ptr [ %.pre88, %Super2_LibAddGate.exit154.i ], [ %212, %211 ]
+  %257 = phi ptr [ %.pre98, %Super2_LibAddGate.exit154.i ], [ %212, %211 ]
   %258 = phi ptr [ %247, %Super2_LibAddGate.exit154.i ], [ %213, %211 ]
   %259 = phi i32 [ %248, %Super2_LibAddGate.exit154.i ], [ %214, %211 ]
   %260 = phi ptr [ %249, %Super2_LibAddGate.exit154.i ], [ %215, %211 ]
@@ -689,20 +689,23 @@ Super2_LibAddGate.exit168.i:                      ; preds = %340, %321
   store i32 %360, ptr %122, align 4, !tbaa !40
   %361 = load i32, ptr %.073, align 8, !tbaa !38
   %362 = icmp slt i32 %360, %361
-  br i1 %362, label %153, label %.critedge4.i, !llvm.loop !41
+  br i1 %362, label %153, label %..critedge4.i.loopexit_crit_edge60, !llvm.loop !41
 
-.critedge4.i:                                     ; preds = %153, %347, %.lr.ph173.i, %145
-  %363 = phi i32 [ %124, %145 ], [ %124, %.lr.ph173.i ], [ %358, %347 ], [ %358, %153 ]
-  %364 = phi ptr [ %125, %145 ], [ %125, %.lr.ph173.i ], [ %348, %347 ], [ %348, %153 ]
-  %365 = phi i32 [ %126, %145 ], [ %126, %.lr.ph173.i ], [ %349, %347 ], [ %349, %153 ]
-  %366 = phi ptr [ %127, %145 ], [ %127, %.lr.ph173.i ], [ %350, %347 ], [ %350, %153 ]
-  %367 = phi i32 [ %128, %145 ], [ %128, %.lr.ph173.i ], [ %351, %347 ], [ %351, %153 ]
-  %368 = phi ptr [ %129, %145 ], [ %129, %.lr.ph173.i ], [ %352, %347 ], [ %352, %153 ]
-  %369 = phi i32 [ %130, %145 ], [ %130, %.lr.ph173.i ], [ %353, %347 ], [ %353, %153 ]
-  %370 = phi ptr [ %131, %145 ], [ %131, %.lr.ph173.i ], [ %354, %347 ], [ %354, %153 ]
-  %371 = phi i32 [ %132, %145 ], [ %132, %.lr.ph173.i ], [ %355, %347 ], [ %355, %153 ]
-  %372 = phi i32 [ %133, %145 ], [ %133, %.lr.ph173.i ], [ %356, %347 ], [ %356, %153 ]
-  %.lcssa.i = phi i32 [ %146, %145 ], [ %146, %.lr.ph173.i ], [ %361, %347 ], [ %361, %153 ]
+..critedge4.i.loopexit_crit_edge60:               ; preds = %347
+  br label %.critedge4.i, !llvm.loop !41
+
+.critedge4.i:                                     ; preds = %153, %.lr.ph173.i, %..critedge4.i.loopexit_crit_edge60, %145
+  %363 = phi i32 [ %124, %145 ], [ %358, %..critedge4.i.loopexit_crit_edge60 ], [ %124, %.lr.ph173.i ], [ %358, %153 ]
+  %364 = phi ptr [ %125, %145 ], [ %348, %..critedge4.i.loopexit_crit_edge60 ], [ %125, %.lr.ph173.i ], [ %348, %153 ]
+  %365 = phi i32 [ %126, %145 ], [ %349, %..critedge4.i.loopexit_crit_edge60 ], [ %126, %.lr.ph173.i ], [ %349, %153 ]
+  %366 = phi ptr [ %127, %145 ], [ %350, %..critedge4.i.loopexit_crit_edge60 ], [ %127, %.lr.ph173.i ], [ %350, %153 ]
+  %367 = phi i32 [ %128, %145 ], [ %351, %..critedge4.i.loopexit_crit_edge60 ], [ %128, %.lr.ph173.i ], [ %351, %153 ]
+  %368 = phi ptr [ %129, %145 ], [ %352, %..critedge4.i.loopexit_crit_edge60 ], [ %129, %.lr.ph173.i ], [ %352, %153 ]
+  %369 = phi i32 [ %130, %145 ], [ %353, %..critedge4.i.loopexit_crit_edge60 ], [ %130, %.lr.ph173.i ], [ %353, %153 ]
+  %370 = phi ptr [ %131, %145 ], [ %354, %..critedge4.i.loopexit_crit_edge60 ], [ %131, %.lr.ph173.i ], [ %354, %153 ]
+  %371 = phi i32 [ %132, %145 ], [ %355, %..critedge4.i.loopexit_crit_edge60 ], [ %132, %.lr.ph173.i ], [ %355, %153 ]
+  %372 = phi i32 [ %133, %145 ], [ %356, %..critedge4.i.loopexit_crit_edge60 ], [ %133, %.lr.ph173.i ], [ %356, %153 ]
+  %.lcssa.i = phi i32 [ %146, %145 ], [ %361, %..critedge4.i.loopexit_crit_edge60 ], [ %146, %.lr.ph173.i ], [ %361, %153 ]
   %373 = add nsw i32 %.lcssa.i, 1
   store i32 %373, ptr %.073, align 8, !tbaa !38
   %374 = load i32, ptr %69, align 4, !tbaa !16

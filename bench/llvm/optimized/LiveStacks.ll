@@ -362,9 +362,12 @@ define dso_local noundef nonnull align 8 dereferenceable(120) ptr @_ZN4llvm10Liv
   %39 = sext i32 %38 to i64
   %40 = urem i64 %39, %23
   %.not19.i.i.i.i = icmp eq i64 %40, %24
-  br i1 %.not19.i.i.i.i, label %33, label %.loopexit, !llvm.loop !189
+  br i1 %.not19.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !189
 
-.loopexit:                                        ; preds = %36, %.lr.ph.i.i.i.i, %15, %20
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
+  br label %.loopexit, !llvm.loop !189
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %15, %20, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   store ptr %4, ptr %5, align 8, !tbaa !190, !alias.scope !191
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
@@ -2140,13 +2143,16 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiN4llvm12LiveInterv
   %61 = sext i32 %60 to i64
   %62 = urem i64 %61, %34
   %.not19.i.i = icmp eq i64 %62, %35
-  br i1 %.not19.i.i, label %55, label %.critedge19, !llvm.loop !189
+  br i1 %.not19.i.i, label %55, label %..loopexit_crit_edge21.i.i, !llvm.loop !189
 
-.critedge19:                                      ; preds = %.lr.ph.i.i, %58, %.critedge, %.critedge.thread
-  %63 = phi i64 [ %49, %.critedge ], [ %35, %.critedge.thread ], [ %35, %58 ], [ %35, %.lr.ph.i.i ]
-  %64 = phi i64 [ %48, %.critedge ], [ %34, %.critedge.thread ], [ %34, %58 ], [ %34, %.lr.ph.i.i ]
-  %65 = phi ptr [ %47, %.critedge ], [ %33, %.critedge.thread ], [ %33, %58 ], [ %33, %.lr.ph.i.i ]
-  %66 = phi i64 [ %46, %.critedge ], [ %32, %.critedge.thread ], [ %32, %58 ], [ %32, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %58
+  br label %.critedge19, !llvm.loop !189
+
+.critedge19:                                      ; preds = %.lr.ph.i.i, %.critedge, %..loopexit_crit_edge21.i.i, %.critedge.thread
+  %63 = phi i64 [ %49, %.critedge ], [ %35, %.critedge.thread ], [ %35, %..loopexit_crit_edge21.i.i ], [ %35, %.lr.ph.i.i ]
+  %64 = phi i64 [ %48, %.critedge ], [ %34, %.critedge.thread ], [ %34, %..loopexit_crit_edge21.i.i ], [ %34, %.lr.ph.i.i ]
+  %65 = phi ptr [ %47, %.critedge ], [ %33, %.critedge.thread ], [ %33, %..loopexit_crit_edge21.i.i ], [ %33, %.lr.ph.i.i ]
+  %66 = phi i64 [ %46, %.critedge ], [ %32, %.critedge.thread ], [ %32, %..loopexit_crit_edge21.i.i ], [ %32, %.lr.ph.i.i ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %68 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef %64, i64 noundef %31, i64 noundef 1) #15
   %69 = extractvalue { i8, i64 } %68, 0

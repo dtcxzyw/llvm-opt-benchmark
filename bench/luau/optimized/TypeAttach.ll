@@ -2168,9 +2168,12 @@ define linkonce_odr dso_local noundef ptr @_ZNK4Luau26TypePackRehydrationVisitor
   %29 = ptrtoint ptr %28 to i64
   %30 = urem i64 %29, %13
   %.not19.i.i.i.i.i = icmp eq i64 %30, %14
-  br i1 %.not19.i.i.i.i.i, label %23, label %.loopexit.i.i.i, !llvm.loop !123
+  br i1 %.not19.i.i.i.i.i, label %23, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !123
 
-.loopexit.i.i.i:                                  ; preds = %26, %.lr.ph.i.i.i.i.i, %2
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %26
+  br label %.loopexit.i.i.i, !llvm.loop !123
+
+.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i.i, %2
   %31 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   store ptr null, ptr %31, align 8, !tbaa !94
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -3227,9 +3230,12 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau22TypeRehydrationVisitorclERK
   %33 = ptrtoint ptr %32 to i64
   %34 = urem i64 %33, %17
   %.not19.i.i.i.i.i = icmp eq i64 %34, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %.loopexit.i.i.i, !llvm.loop !123
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !123
 
-.loopexit.i.i.i:                                  ; preds = %30, %.lr.ph.i.i.i.i.i, %2
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
+  br label %.loopexit.i.i.i, !llvm.loop !123
+
+.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i.i, %2
   %35 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   store ptr null, ptr %35, align 8, !tbaa !94
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8

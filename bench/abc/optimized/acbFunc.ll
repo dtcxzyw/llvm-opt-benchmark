@@ -12276,7 +12276,7 @@ define void @Acb_CollectIntNodes(ptr noundef %0, ptr noundef initializes((4, 8))
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val46, i64 %33
   %.not36 = icmp eq ptr %.val46, null
-  br i1 %.not36, label %.critedge2.loopexit, label %35, !llvm.loop !255
+  br i1 %.not36, label %.critedge2, label %35, !llvm.loop !255
 
 35:                                               ; preds = %.lr.ph, %.lr.ph55
   %36 = phi ptr [ %23, %.lr.ph ], [ %34, %.lr.ph55 ]
@@ -12301,19 +12301,19 @@ define void @Acb_CollectIntNodes(ptr noundef %0, ptr noundef initializes((4, 8))
   %.val39 = load i32, ptr %44, align 4, !tbaa !19
   %45 = sext i32 %.val39 to i64
   %46 = icmp slt i64 %indvars.iv.next63, %45
-  br i1 %46, label %.lr.ph55, label %.critedge2.loopexit, !llvm.loop !255
+  br i1 %46, label %.lr.ph55, label %.critedge..critedge2_crit_edge, !llvm.loop !255
 
-.critedge2.loopexit:                              ; preds = %.lr.ph55, %.critedge
-  %47 = icmp sgt i32 %.val39, 0
-  br label %.critedge2
+.critedge..critedge2_crit_edge:                   ; preds = %.critedge
+  br label %.critedge2, !llvm.loop !255
 
-.critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph55.preheader
-  %.val56.pre = phi i1 [ true, %.lr.ph55.preheader ], [ %47, %.critedge2.loopexit ]
-  %48 = phi ptr [ %17, %.lr.ph55.preheader ], [ %43, %.critedge2.loopexit ]
-  br i1 %.val56.pre, label %.lr.ph58, label %.critedge4
+.critedge2:                                       ; preds = %.lr.ph55, %.critedge..critedge2_crit_edge, %.lr.ph55.preheader
+  %.val56.pre = phi i32 [ %.val39, %.critedge..critedge2_crit_edge ], [ %.val3953, %.lr.ph55.preheader ], [ %.val39, %.lr.ph55 ]
+  %47 = phi ptr [ %43, %.critedge..critedge2_crit_edge ], [ %17, %.lr.ph55.preheader ], [ %43, %.lr.ph55 ]
+  %48 = icmp sgt i32 %.val56.pre, 0
+  br i1 %48, label %.lr.ph58, label %.critedge4
 
 .lr.ph58:                                         ; preds = %.critedge2, %62
-  %49 = phi ptr [ %63, %62 ], [ %48, %.critedge2 ]
+  %49 = phi ptr [ %63, %62 ], [ %47, %.critedge2 ]
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %62 ], [ 0, %.critedge2 ]
   %.val44 = load ptr, ptr %6, align 8, !tbaa !63
   %50 = getelementptr i8, ptr %49, i64 8

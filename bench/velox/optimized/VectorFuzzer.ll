@@ -17745,7 +17745,10 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   %33 = load i64, ptr %add.ptr7.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i = urem i64 %33, %27
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.end32, !llvm.loop !268
+  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !268
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
+  br label %if.end32, !llvm.loop !268
 
 if.then29:                                        ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i, %for.body.i.i
   store i32 %22, ptr %arrayidx, align 4
@@ -17761,7 +17764,7 @@ lpad.body:                                        ; preds = %_ZNSt10_HashtableIm
   call void @_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %set) #37
   resume { ptr, i32 } %eh.lpad-body
 
-if.end32:                                         ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i
+if.end32:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
   br i1 %cmp.not.not.i.i, label %for.cond.i, label %if.end13.thread.i
 
 if.end13.thread.i:                                ; preds = %if.end32
@@ -17812,10 +17815,13 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end3.i.i.i
   %40 = load i64, ptr %add.ptr7.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %40, %.pre
   %cmp.not.i.i.i24 = icmp eq i64 %rem.i.i.i.i.i.i, %.pre71
-  br i1 %cmp.not.i.i.i24, label %for.cond.i.i.i, label %if.end25.i, !llvm.loop !270
+  br i1 %cmp.not.i.i.i24, label %for.cond.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i, !llvm.loop !270
 
-if.end25.i:                                       ; preds = %lor.lhs.false.i.i.i, %if.end3.i.i.i, %if.end15.i.i, %if.end13.i, %if.end13.thread.i
-  %rem.i.i.i24.i = phi i64 [ %rem.i.i.i.i, %if.end13.i ], [ %.pre71, %if.end13.thread.i ], [ %rem.i.i.i.i.i, %if.end15.i.i ], [ %.pre71, %if.end3.i.i.i ], [ %.pre71, %lor.lhs.false.i.i.i ]
+lor.lhs.false.return.loopexit_crit_edge.i.i.i:    ; preds = %lor.lhs.false.i.i.i
+  br label %if.end25.i, !llvm.loop !270
+
+if.end25.i:                                       ; preds = %if.end3.i.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i, %if.end13.i, %if.end13.thread.i
+  %rem.i.i.i24.i = phi i64 [ %rem.i.i.i.i, %if.end13.i ], [ %.pre71, %if.end13.thread.i ], [ %.pre71, %lor.lhs.false.return.loopexit_crit_edge.i.i.i ], [ %rem.i.i.i.i.i, %if.end15.i.i ], [ %.pre71, %if.end3.i.i.i ]
   %call5.i.i.i.i.i.i29 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #35
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad
 

@@ -104280,13 +104280,13 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$hir_ty..mir..ProjectionElem$LT$V$C$
   switch i8 %3, label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit" [
     i8 1, label %7
     i8 2, label %34
-    i8 6, label %63
+    i8 6, label %64
     i8 4, label %40
-    i8 5, label %51
+    i8 5, label %52
   ]
 
-"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit": ; preds = %27, %16, %7, %51, %40, %6, %2, %57, %46, %63, %34
-  %.0.shrunk = phi i1 [ %66, %63 ], [ %62, %57 ], [ %.not, %46 ], [ %39, %34 ], [ false, %2 ], [ true, %6 ], [ false, %40 ], [ false, %51 ], [ %.0.i5.i, %27 ], [ %.0.i.i, %16 ], [ false, %7 ]
+"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit": ; preds = %27, %16, %7, %52, %40, %6, %2, %58, %46, %64, %34
+  %.0.shrunk = phi i1 [ %67, %64 ], [ %63, %58 ], [ %51, %46 ], [ %39, %34 ], [ false, %2 ], [ true, %6 ], [ false, %40 ], [ false, %52 ], [ %.0.i5.i, %27 ], [ %.0.i.i, %16 ], [ false, %7 ]
   ret i1 %.0.shrunk
 
 7:                                                ; preds = %6
@@ -104360,31 +104360,31 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$hir_ty..mir..ProjectionElem$LT$V$C$
   %48 = load i8, ptr %47, align 1, !range !525, !noundef !4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %50 = load i8, ptr %49, align 1, !range !525, !noundef !4
-  %.not = icmp eq i8 %48, %50
+  %51 = icmp eq i8 %48, %50
   br label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit"
 
-51:                                               ; preds = %6
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load i64, ptr %52, align 8, !noundef !4
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load i64, ptr %54, align 8, !noundef !4
-  %56 = icmp eq i64 %53, %55
-  br i1 %56, label %57, label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit"
+52:                                               ; preds = %6
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = load i64, ptr %53, align 8, !noundef !4
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %56 = load i64, ptr %55, align 8, !noundef !4
+  %57 = icmp eq i64 %54, %56
+  br i1 %57, label %58, label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit"
 
-57:                                               ; preds = %51
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i64, ptr %58, align 8, !noundef !4
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %61 = load i64, ptr %60, align 8, !noundef !4
-  %62 = icmp eq i64 %59, %61
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %60 = load i64, ptr %59, align 8, !noundef !4
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %62 = load i64, ptr %61, align 8, !noundef !4
+  %63 = icmp eq i64 %60, %62
   br label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit"
 
-63:                                               ; preds = %6
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val = load ptr, ptr %64, align 8, !nonnull !4, !noundef !4
-  %.val3 = load ptr, ptr %65, align 8, !nonnull !4, !noundef !4
-  %66 = icmp eq ptr %.val, %.val3
+64:                                               ; preds = %6
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val = load ptr, ptr %65, align 8, !nonnull !4, !noundef !4
+  %.val3 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
+  %67 = icmp eq ptr %.val, %.val3
   br label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd6fad33cc74d2e53E.exit"
 }
 

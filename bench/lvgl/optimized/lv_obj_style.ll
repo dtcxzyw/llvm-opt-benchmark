@@ -1832,7 +1832,7 @@ define void @lv_obj_set_local_style_prop(ptr noundef %0, i8 noundef zeroext %1, 
 
 .._crit_edge60.loopexit_crit_edge.i:              ; preds = %45
   %.pre.pre.i = load ptr, ptr %27, align 8, !tbaa !38
-  br label %._crit_edge60.i
+  br label %._crit_edge60.i, !llvm.loop !94
 
 ._crit_edge60.loopexitsplit.i:                    ; preds = %.lr.ph59.i
   %49 = and i64 %indvars.iv67.i, 4294967295

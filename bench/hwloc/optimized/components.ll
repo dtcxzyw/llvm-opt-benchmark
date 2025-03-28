@@ -99,7 +99,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 
 12:                                               ; preds = %9, %hwloc_disc_component_register.exit
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %hwloc_disc_component_register.exit ]
-  %13 = phi ptr [ @hwloc_noos_component, %9 ], [ %139, %hwloc_disc_component_register.exit ]
+  %13 = phi ptr [ @hwloc_noos_component, %9 ], [ %140, %hwloc_disc_component_register.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i64, ptr %14, align 8, !tbaa !9
   %.not25 = icmp eq i64 %15, 0
@@ -158,7 +158,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
   %45 = load i32, ptr %44, align 8, !tbaa !16
   switch i32 %45, label %hwloc_disc_component_register.exit [
     i32 0, label %46
-    i32 1, label %135
+    i32 1, label %136
   ]
 
 46:                                               ; preds = %43
@@ -326,36 +326,39 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load ptr, ptr %131, align 8, !tbaa !23
   %.not56.i = icmp eq ptr %132, null
-  br i1 %.not56.i, label %._crit_edge10.i.loopexit, label %126, !llvm.loop !28
+  br i1 %.not56.i, label %.._crit_edge10.i.loopexit_crit_edge35, label %126, !llvm.loop !28
 
-._crit_edge10.i.loopexit:                         ; preds = %.lr.ph, %126
-  %.lcssa.i.ph = phi ptr [ %132, %126 ], [ null, %.lr.ph ]
+.._crit_edge10.i.loopexit_crit_edge35:            ; preds = %.lr.ph
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 32
+  br label %._crit_edge10.i, !llvm.loop !28
+
+._crit_edge10.i.loopexit:                         ; preds = %126
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 32
   br label %._crit_edge10.i
 
-._crit_edge10.i:                                  ; preds = %._crit_edge10.i.loopexit, %.lr.ph9.i, %119
-  %.1.lcssa.i = phi ptr [ @hwloc_disc_components, %119 ], [ @hwloc_disc_components, %.lr.ph9.i ], [ %133, %._crit_edge10.i.loopexit ]
-  %.lcssa.i = phi ptr [ null, %119 ], [ %120, %.lr.ph9.i ], [ %.lcssa.i.ph, %._crit_edge10.i.loopexit ]
-  %134 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store ptr %.lcssa.i, ptr %134, align 8, !tbaa !25
+._crit_edge10.i:                                  ; preds = %._crit_edge10.i.loopexit, %.lr.ph9.i, %.._crit_edge10.i.loopexit_crit_edge35, %119
+  %.1.lcssa.i = phi ptr [ @hwloc_disc_components, %119 ], [ %133, %.._crit_edge10.i.loopexit_crit_edge35 ], [ @hwloc_disc_components, %.lr.ph9.i ], [ %134, %._crit_edge10.i.loopexit ]
+  %.lcssa.i = phi ptr [ null, %119 ], [ null, %.._crit_edge10.i.loopexit_crit_edge35 ], [ %120, %.lr.ph9.i ], [ %132, %._crit_edge10.i.loopexit ]
+  %135 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  store ptr %.lcssa.i, ptr %135, align 8, !tbaa !25
   store ptr %48, ptr %.1.lcssa.i, align 8, !tbaa !23
   br label %hwloc_disc_component_register.exit
 
-135:                                              ; preds = %43
-  %136 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %137 = load ptr, ptr %136, align 8, !tbaa !17
-  tail call void @hwloc_xml_callbacks_register(ptr noundef %137) #21
+136:                                              ; preds = %43
+  %137 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %138 = load ptr, ptr %137, align 8, !tbaa !17
+  tail call void @hwloc_xml_callbacks_register(ptr noundef %138) #21
   br label %hwloc_disc_component_register.exit
 
-hwloc_disc_component_register.exit:               ; preds = %._crit_edge10.i, %104, %103, %76, %73, %65, %63, %53, %51, %43, %135, %29, %31, %16, %19
+hwloc_disc_component_register.exit:               ; preds = %._crit_edge10.i, %104, %103, %76, %73, %65, %63, %53, %51, %43, %136, %29, %31, %16, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %138 = getelementptr inbounds nuw [12 x ptr], ptr @hwloc_static_components, i64 0, i64 %indvars.iv.next
-  %139 = load ptr, ptr %138, align 8, !tbaa !29
+  %139 = getelementptr inbounds nuw [12 x ptr], ptr @hwloc_static_components, i64 0, i64 %indvars.iv.next
+  %140 = load ptr, ptr %139, align 8, !tbaa !29
   %.not24 = icmp eq i64 %indvars.iv.next, 11
   br i1 %.not24, label %.loopexit, label %12, !llvm.loop !31
 
 .loopexit:                                        ; preds = %hwloc_disc_component_register.exit, %0
-  %140 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @hwloc_components_mutex) #21
+  %141 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @hwloc_components_mutex) #21
   ret void
 }
 

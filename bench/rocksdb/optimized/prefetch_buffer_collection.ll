@@ -86,9 +86,12 @@ define noundef ptr @_ZN7rocksdb24PrefetchBufferCollection25GetOrCreatePrefetchBu
   %23 = load i64, ptr %22, align 8, !tbaa !19
   %24 = urem i64 %23, %8
   %.not19.i.i.i.i = icmp eq i64 %24, %9
-  br i1 %.not19.i.i.i.i, label %18, label %.loopexit.i.i, !llvm.loop !20
+  br i1 %.not19.i.i.i.i, label %18, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !20
 
-.loopexit.i.i:                                    ; preds = %21, %.lr.ph.i.i.i.i, %2
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %21
+  br label %.loopexit.i.i, !llvm.loop !20
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
   store ptr %6, ptr %3, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8

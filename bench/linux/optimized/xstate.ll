@@ -2384,7 +2384,7 @@ define internal fastcc noundef zeroext i1 @paranoid_xstate_size_valid(i32 nounde
 
 ..thread_crit_edge:                               ; preds = %31
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
-  br label %.thread
+  br label %.thread, !llvm.loop !112
 
 .thread:                                          ; preds = %8, %14, %..thread_crit_edge
   %35 = phi i64 [ %.pre, %..thread_crit_edge ], [ %10, %14 ], [ %10, %8 ]

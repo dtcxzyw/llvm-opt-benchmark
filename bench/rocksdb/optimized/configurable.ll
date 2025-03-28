@@ -3284,7 +3284,7 @@ define void @_ZN7rocksdb18ConfigurableHelper20ConfigureSomeOptionsERKNS_13Config
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %38 = icmp sgt i32 %.237, 0
-  br i1 %38, label %39, label %.critedge, !llvm.loop !134
+  br i1 %38, label %39, label %.loopexit..critedge_crit_edge, !llvm.loop !134
 
 39:                                               ; preds = %.loopexit
   %40 = load i64, ptr %23, align 8, !tbaa !77
@@ -3742,21 +3742,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #21
   br label %245
 
-.critedge:                                        ; preds = %39, %.loopexit, %_ZN7rocksdb6StatusD2Ev.exit, %6
-  %.sroa.10.1 = phi i8 [ 0, %6 ], [ %.sroa.10.3, %39 ], [ %.sroa.10.3, %.loopexit ], [ %.sroa.10.0178, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.13.1 = phi i8 [ 0, %6 ], [ %.sroa.13.3, %39 ], [ %.sroa.13.3, %.loopexit ], [ %.sroa.13.0179, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.16137.1 = phi i8 [ 0, %6 ], [ %.sroa.16137.3, %39 ], [ %.sroa.16137.3, %.loopexit ], [ %.sroa.16137.0180, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.22138.1 = phi ptr [ null, %6 ], [ %.sroa.22138.4, %39 ], [ %.sroa.22138.4, %.loopexit ], [ %.sroa.22138.0181, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.7.1 = phi i8 [ 0, %6 ], [ %.sroa.7.3, %39 ], [ %.sroa.7.3, %.loopexit ], [ %.sroa.7.0182, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.19.1 = phi i8 [ 0, %6 ], [ %.sroa.19.3, %39 ], [ %.sroa.19.3, %.loopexit ], [ %.sroa.19.0183, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.0.1 = phi i8 [ 0, %6 ], [ %.sroa.0.3, %39 ], [ %.sroa.0.3, %.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.8.1 = phi i8 [ 0, %6 ], [ %.sroa.8.3, %39 ], [ %.sroa.8.3, %.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.12.1 = phi i8 [ 0, %6 ], [ %.sroa.12.3, %39 ], [ %.sroa.12.3, %.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.16.1 = phi i8 [ 0, %6 ], [ %.sroa.16.3, %39 ], [ %.sroa.16.3, %.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.20.1 = phi i8 [ 0, %6 ], [ %.sroa.20.3, %39 ], [ %.sroa.20.3, %.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.28131.1 = phi ptr [ null, %6 ], [ %.sroa.28131.4, %39 ], [ %.sroa.28131.4, %.loopexit ], [ null, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.0136.1 = phi i8 [ 0, %6 ], [ %.sroa.0136.3, %39 ], [ %.sroa.0136.3, %.loopexit ], [ %.sroa.0136.0185, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %.sroa.24.1 = phi i8 [ 0, %6 ], [ %.sroa.24.3, %39 ], [ %.sroa.24.3, %.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+.loopexit..critedge_crit_edge:                    ; preds = %.loopexit
+  br label %.critedge, !llvm.loop !134
+
+.critedge:                                        ; preds = %39, %_ZN7rocksdb6StatusD2Ev.exit, %.loopexit..critedge_crit_edge, %6
+  %.sroa.10.1 = phi i8 [ %.sroa.10.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.10.3, %39 ], [ %.sroa.10.0178, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.13.1 = phi i8 [ %.sroa.13.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.13.3, %39 ], [ %.sroa.13.0179, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.16137.1 = phi i8 [ %.sroa.16137.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.16137.3, %39 ], [ %.sroa.16137.0180, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.22138.1 = phi ptr [ %.sroa.22138.4, %.loopexit..critedge_crit_edge ], [ null, %6 ], [ %.sroa.22138.4, %39 ], [ %.sroa.22138.0181, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.7.1 = phi i8 [ %.sroa.7.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.7.3, %39 ], [ %.sroa.7.0182, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.19.1 = phi i8 [ %.sroa.19.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.19.3, %39 ], [ %.sroa.19.0183, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.0.3, %39 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.8.1 = phi i8 [ %.sroa.8.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.8.3, %39 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.12.1 = phi i8 [ %.sroa.12.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.12.3, %39 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.16.1 = phi i8 [ %.sroa.16.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.16.3, %39 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.20.1 = phi i8 [ %.sroa.20.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.20.3, %39 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.28131.1 = phi ptr [ %.sroa.28131.4, %.loopexit..critedge_crit_edge ], [ null, %6 ], [ %.sroa.28131.4, %39 ], [ null, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.0136.1 = phi i8 [ %.sroa.0136.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.0136.3, %39 ], [ %.sroa.0136.0185, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %.sroa.24.1 = phi i8 [ %.sroa.24.3, %.loopexit..critedge_crit_edge ], [ 0, %6 ], [ %.sroa.24.3, %39 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
   %178 = load ptr, ptr %20, align 8, !tbaa !145
   %.not119128 = icmp eq ptr %178, null
   br i1 %.not119128, label %._crit_edge, label %.lr.ph130

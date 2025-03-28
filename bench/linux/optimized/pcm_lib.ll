@@ -4706,18 +4706,21 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %232 = load volatile i64, ptr %148, align 8
   %233 = and i64 %232, 131072
   %234 = icmp eq i64 %233, 0
-  br i1 %234, label %.lr.ph, label %.critedge.loopexit164, !prof !36, !llvm.loop !34
+  br i1 %234, label %.lr.ph, label %..critedge.loopexit_crit_edge153, !prof !36, !llvm.loop !34
+
+..critedge.loopexit_crit_edge153:                 ; preds = %231
+  br label %.critedge, !llvm.loop !34
 
 .critedge.loopexit:                               ; preds = %224
   br label %.critedge
 
-.critedge.loopexit164:                            ; preds = %224, %.lr.ph, %220, %229, %231
-  %.ph = phi i32 [ -512, %.lr.ph ], [ 0, %220 ], [ -5, %229 ], [ -512, %231 ], [ -32, %224 ]
+.critedge.loopexit164:                            ; preds = %224, %.lr.ph, %220, %229
+  %.ph = phi i32 [ -512, %.lr.ph ], [ 0, %220 ], [ -5, %229 ], [ -32, %224 ]
   br label %.critedge
 
-.critedge:                                        ; preds = %224, %224, %224, %.critedge.loopexit164, %.lr.ph.preheader, %.critedge.loopexit, %228, %174
-  %235 = phi i64 [ 0, %174 ], [ %spec.select, %228 ], [ 0, %.lr.ph.preheader ], [ %221, %.critedge.loopexit ], [ %221, %.critedge.loopexit164 ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ]
-  %236 = phi i32 [ -512, %174 ], [ %spec.select134, %228 ], [ -512, %.lr.ph.preheader ], [ -86, %.critedge.loopexit ], [ %.ph, %.critedge.loopexit164 ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ]
+.critedge:                                        ; preds = %224, %224, %224, %.critedge.loopexit164, %.lr.ph.preheader, %..critedge.loopexit_crit_edge153, %.critedge.loopexit, %228, %174
+  %235 = phi i64 [ 0, %174 ], [ %spec.select, %228 ], [ %221, %..critedge.loopexit_crit_edge153 ], [ 0, %.lr.ph.preheader ], [ %221, %.critedge.loopexit ], [ %221, %.critedge.loopexit164 ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ]
+  %236 = phi i32 [ -512, %174 ], [ %spec.select134, %228 ], [ -512, %..critedge.loopexit_crit_edge153 ], [ -512, %.lr.ph.preheader ], [ -86, %.critedge.loopexit ], [ %.ph, %.critedge.loopexit164 ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ]
   %237 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 0, ptr nonnull elementtype(i32) %149) #20, !srcloc !37
   call void @remove_wait_queue(ptr noundef nonnull %151, ptr noundef nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #20

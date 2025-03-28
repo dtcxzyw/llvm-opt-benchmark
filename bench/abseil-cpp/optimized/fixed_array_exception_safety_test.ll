@@ -1504,9 +1504,12 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal18Constructo
   %29 = ptrtoint ptr %28 to i64
   %30 = urem i64 %29, %13
   %.not19.i.i.i.i = icmp eq i64 %30, %14
-  br i1 %.not19.i.i.i.i, label %23, label %.loopexit.i.i, !llvm.loop !68
+  br i1 %.not19.i.i.i.i, label %23, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !68
 
-.loopexit.i.i:                                    ; preds = %26, %.lr.ph.i.i.i.i, %10
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %26
+  br label %.loopexit.i.i, !llvm.loop !68
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
   store ptr %9, ptr %3, align 8, !tbaa !69
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2344,7 +2347,10 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal18Constructo
   %37 = ptrtoint ptr %36 to i64
   %38 = urem i64 %37, %21
   %.not19.i.i.i.i = icmp eq i64 %38, %22
-  br i1 %.not19.i.i.i.i, label %31, label %_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread, !llvm.loop !68
+  br i1 %.not19.i.i.i.i, label %31, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !68
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %34
+  br label %_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread, !llvm.loop !68
 
 _ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit: ; preds = %31, %14, %26
   %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
@@ -2547,7 +2553,7 @@ _ZN7testing7MessageD2Ev.exit25:                   ; preds = %_ZNSt7__cxx1112basi
   store i8 0, ptr %39, align 8, !tbaa !78
   br label %_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread
 
-_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %34, %13, %18, %107, %1
+_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %13, %..loopexit_crit_edge21.i.i.i.i, %18, %107, %1
   ret void
 }
 

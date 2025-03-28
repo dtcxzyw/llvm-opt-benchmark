@@ -22759,10 +22759,13 @@ _ZN3vcg3tri14TrivialSamplerI6CMeshOE5resetEv.exit61: ; preds = %.critedge2, %68
   %70 = fmul float %69, 5.000000e-01
   tail call void @_ZN3vcg3tri15SurfaceSamplingI6CMeshONS0_14TrivialSamplerIS2_EEE18PoissonDiskPruningERS4_RS2_fRNS5_16PoissonDiskParamE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1, float noundef %70, ptr noundef nonnull align 8 dereferenceable(88) %4)
   %exitcond.not = icmp eq i32 %63, %6
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !149
+  br i1 %exitcond.not, label %_ZN3vcg3tri14TrivialSamplerI6CMeshOE5resetEv.exit61..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !149
 
-.critedge:                                        ; preds = %.lr.ph, %_ZN3vcg3tri14TrivialSamplerI6CMeshOE5resetEv.exit61, %.lr.ph.preheader, %.preheader
-  %.050.lcssa = phi float [ %51, %.preheader ], [ %51, %.lr.ph.preheader ], [ %70, %_ZN3vcg3tri14TrivialSamplerI6CMeshOE5resetEv.exit61 ], [ %70, %.lr.ph ]
+_ZN3vcg3tri14TrivialSamplerI6CMeshOE5resetEv.exit61..critedge.loopexit_crit_edge: ; preds = %_ZN3vcg3tri14TrivialSamplerI6CMeshOE5resetEv.exit61
+  br label %.critedge, !llvm.loop !149
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %_ZN3vcg3tri14TrivialSamplerI6CMeshOE5resetEv.exit61..critedge.loopexit_crit_edge, %.preheader
+  %.050.lcssa = phi float [ %51, %.preheader ], [ %70, %_ZN3vcg3tri14TrivialSamplerI6CMeshOE5resetEv.exit61..critedge.loopexit_crit_edge ], [ %51, %.lr.ph.preheader ], [ %70, %.lr.ph ]
   store float %.050.lcssa, ptr %3, align 4
   ret void
 }
@@ -43084,12 +43087,15 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertD
   %120 = fcmp ule float %3, 0.000000e+00
   br i1 %120, label %.split, label %.outer.split.preheader
 
-.loopexit194:                                     ; preds = %503, %244
-  %.sroa.27.2.lcssa = phi ptr [ %.sroa.27.1.ph367, %244 ], [ %.sroa.27.4, %503 ]
-  %.sroa.11.2.lcssa = phi ptr [ %165, %244 ], [ %.sroa.11.4, %503 ]
-  %.sroa.0166.3.lcssa = phi ptr [ %.sroa.0166.2.ph369, %244 ], [ %.sroa.0166.5, %503 ]
-  %.157.lcssa = phi float [ %.056.ph.fr371, %244 ], [ %502, %503 ]
-  %.1.lcssa = phi ptr [ %.054.ph370, %244 ], [ %.3, %503 ]
+..loopexit194_crit_edge:                          ; preds = %503
+  br label %.loopexit194, !llvm.loop !427
+
+.loopexit194:                                     ; preds = %..loopexit194_crit_edge, %244
+  %.sroa.27.2.lcssa = phi ptr [ %.sroa.27.4, %..loopexit194_crit_edge ], [ %.sroa.27.1.ph367, %244 ]
+  %.sroa.11.2.lcssa = phi ptr [ %.sroa.11.4, %..loopexit194_crit_edge ], [ %165, %244 ]
+  %.sroa.0166.3.lcssa = phi ptr [ %.sroa.0166.5, %..loopexit194_crit_edge ], [ %.sroa.0166.2.ph369, %244 ]
+  %.157.lcssa = phi float [ %502, %..loopexit194_crit_edge ], [ %.056.ph.fr371, %244 ]
+  %.1.lcssa = phi ptr [ %.3, %..loopexit194_crit_edge ], [ %.054.ph370, %244 ]
   %121 = fcmp uge float %.157.lcssa, %3
   br i1 %121, label %.split, label %.outer.split.preheader
 
@@ -43366,7 +43372,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8
   %256 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %257 = getelementptr inbounds nuw i8, ptr %166, i64 12
   %258 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  br label %.preheader192
+  br label %.preheader192, !llvm.loop !427
 
 .preheader192:                                    ; preds = %.preheader192.lr.ph, %503
   %.sroa.0123.0265 = phi ptr [ %.sroa.0123.0257, %.preheader192.lr.ph ], [ %.sroa.0123.0, %503 ]
@@ -43807,7 +43813,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertD
   %517 = sext i8 %516 to i32
   %.sroa.0123.0 = load ptr, ptr %514, align 8
   %.not69 = icmp eq ptr %.sroa.0123.0, null
-  br i1 %.not69, label %.loopexit194, label %.preheader192, !llvm.loop !433
+  br i1 %.not69, label %..loopexit194_crit_edge, label %.preheader192, !llvm.loop !433
 
 .split:                                           ; preds = %.loopexit194, %.outer.split, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertDistESt6vectorIS7_SaIS7_EEEENS6_4predEEvT_SE_T0_.exit
   %.sroa.0166.2.ph363 = phi ptr [ %.sroa.0166.0.lcssa, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertDistESt6vectorIS7_SaIS7_EEEENS6_4predEEvT_SE_T0_.exit ], [ %.sroa.0166.2.ph369, %.outer.split ], [ %.sroa.0166.3.lcssa, %.loopexit194 ]
@@ -63609,12 +63615,15 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertD
   %120 = fcmp ule float %3, 0.000000e+00
   br i1 %120, label %.split, label %.outer.split.preheader
 
-.loopexit194:                                     ; preds = %544, %244
-  %.sroa.27.2.lcssa = phi ptr [ %.sroa.27.1.ph368, %244 ], [ %.sroa.27.4, %544 ]
-  %.sroa.11.2.lcssa = phi ptr [ %165, %244 ], [ %.sroa.11.4, %544 ]
-  %.sroa.0166.3.lcssa = phi ptr [ %.sroa.0166.2.ph370, %244 ], [ %.sroa.0166.5, %544 ]
-  %.157.lcssa = phi float [ %.056.ph.fr372, %244 ], [ %543, %544 ]
-  %.1.lcssa = phi ptr [ %.054.ph371, %244 ], [ %.3, %544 ]
+..loopexit194_crit_edge:                          ; preds = %544
+  br label %.loopexit194, !llvm.loop !644
+
+.loopexit194:                                     ; preds = %..loopexit194_crit_edge, %244
+  %.sroa.27.2.lcssa = phi ptr [ %.sroa.27.4, %..loopexit194_crit_edge ], [ %.sroa.27.1.ph368, %244 ]
+  %.sroa.11.2.lcssa = phi ptr [ %.sroa.11.4, %..loopexit194_crit_edge ], [ %165, %244 ]
+  %.sroa.0166.3.lcssa = phi ptr [ %.sroa.0166.5, %..loopexit194_crit_edge ], [ %.sroa.0166.2.ph370, %244 ]
+  %.157.lcssa = phi float [ %543, %..loopexit194_crit_edge ], [ %.056.ph.fr372, %244 ]
+  %.1.lcssa = phi ptr [ %.3, %..loopexit194_crit_edge ], [ %.054.ph371, %244 ]
   %121 = fcmp uge float %.157.lcssa, %3
   br i1 %121, label %.split, label %.outer.split.preheader
 
@@ -63891,7 +63900,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8
   %256 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %257 = getelementptr inbounds nuw i8, ptr %166, i64 12
   %258 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  br label %.preheader192
+  br label %.preheader192, !llvm.loop !644
 
 .preheader192:                                    ; preds = %.preheader192.lr.ph, %544
   %.sroa.0123.0265 = phi ptr [ %.sroa.0123.0257, %.preheader192.lr.ph ], [ %.sroa.0123.0, %544 ]
@@ -64374,7 +64383,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertD
   %558 = sext i8 %557 to i32
   %.sroa.0123.0 = load ptr, ptr %555, align 8
   %.not69 = icmp eq ptr %.sroa.0123.0, null
-  br i1 %.not69, label %.loopexit194, label %.preheader192, !llvm.loop !650
+  br i1 %.not69, label %..loopexit194_crit_edge, label %.preheader192, !llvm.loop !650
 
 .split:                                           ; preds = %.loopexit194, %.outer.split, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertDistESt6vectorIS7_SaIS7_EEEENS6_4predEEvT_SE_T0_.exit
   %.sroa.0166.2.ph364 = phi ptr [ %.sroa.0166.0.lcssa, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertDistESt6vectorIS7_SaIS7_EEEENS6_4predEEvT_SE_T0_.exit ], [ %.sroa.0166.2.ph370, %.outer.split ], [ %.sroa.0166.3.lcssa, %.loopexit194 ]
@@ -72029,12 +72038,15 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertD
   %125 = fcmp ule float %3, 0.000000e+00
   br i1 %125, label %.split, label %.outer.split.preheader
 
-.loopexit160:                                     ; preds = %521, %251
-  %.sroa.27.2.lcssa = phi ptr [ %.sroa.27.1.ph337, %251 ], [ %.sroa.27.4, %521 ]
-  %.sroa.11.2.lcssa = phi ptr [ %170, %251 ], [ %.sroa.11.4, %521 ]
-  %.sroa.0134.3.lcssa = phi ptr [ %.sroa.0134.2.ph339, %251 ], [ %.sroa.0134.5, %521 ]
-  %.157.lcssa = phi float [ %.056.ph.fr341, %251 ], [ %520, %521 ]
-  %.1.lcssa = phi ptr [ %.054.ph340, %251 ], [ %.3, %521 ]
+..loopexit160_crit_edge:                          ; preds = %521
+  br label %.loopexit160, !llvm.loop !709
+
+.loopexit160:                                     ; preds = %..loopexit160_crit_edge, %251
+  %.sroa.27.2.lcssa = phi ptr [ %.sroa.27.4, %..loopexit160_crit_edge ], [ %.sroa.27.1.ph337, %251 ]
+  %.sroa.11.2.lcssa = phi ptr [ %.sroa.11.4, %..loopexit160_crit_edge ], [ %170, %251 ]
+  %.sroa.0134.3.lcssa = phi ptr [ %.sroa.0134.5, %..loopexit160_crit_edge ], [ %.sroa.0134.2.ph339, %251 ]
+  %.157.lcssa = phi float [ %520, %..loopexit160_crit_edge ], [ %.056.ph.fr341, %251 ]
+  %.1.lcssa = phi ptr [ %.3, %..loopexit160_crit_edge ], [ %.054.ph340, %251 ]
   %126 = fcmp uge float %.157.lcssa, %3
   br i1 %126, label %.split, label %.outer.split.preheader
 
@@ -72306,23 +72318,23 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8
   %260 = getelementptr inbounds i8, ptr %258, i64 %259
   %.sroa.0114.0221 = load ptr, ptr %260, align 8
   %.not69222 = icmp eq ptr %.sroa.0114.0221, null
-  br i1 %.not69222, label %.loopexit160, label %.preheader158.preheader, !llvm.loop !709
+  br i1 %.not69222, label %.loopexit160, label %.preheader158.lr.ph, !llvm.loop !709
 
-.preheader158.preheader:                          ; preds = %251
+.preheader158.lr.ph:                              ; preds = %251
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load i32, ptr %261, align 4
-  br label %.preheader158
+  br label %.preheader158, !llvm.loop !709
 
-.preheader158:                                    ; preds = %.preheader158.preheader, %521
-  %263 = phi float [ %517, %521 ], [ %249, %.preheader158.preheader ]
-  %264 = phi ptr [ %519, %521 ], [ %240, %.preheader158.preheader ]
-  %.sroa.0114.0229 = phi ptr [ %.sroa.0114.0, %521 ], [ %.sroa.0114.0221, %.preheader158.preheader ]
-  %.1228 = phi ptr [ %.3, %521 ], [ %.054.ph340, %.preheader158.preheader ]
-  %.157227 = phi float [ %520, %521 ], [ %.056.ph.fr341, %.preheader158.preheader ]
-  %.sroa.0134.3226 = phi ptr [ %.sroa.0134.5, %521 ], [ %.sroa.0134.2.ph339, %.preheader158.preheader ]
-  %.sroa.11.2225 = phi ptr [ %.sroa.11.4, %521 ], [ %170, %.preheader158.preheader ]
-  %.sroa.27.2224 = phi ptr [ %.sroa.27.4, %521 ], [ %.sroa.27.1.ph337, %.preheader158.preheader ]
-  %.sroa.8.0223 = phi i32 [ %535, %521 ], [ %262, %.preheader158.preheader ]
+.preheader158:                                    ; preds = %.preheader158.lr.ph, %521
+  %263 = phi float [ %249, %.preheader158.lr.ph ], [ %517, %521 ]
+  %264 = phi ptr [ %240, %.preheader158.lr.ph ], [ %519, %521 ]
+  %.sroa.0114.0229 = phi ptr [ %.sroa.0114.0221, %.preheader158.lr.ph ], [ %.sroa.0114.0, %521 ]
+  %.1228 = phi ptr [ %.054.ph340, %.preheader158.lr.ph ], [ %.3, %521 ]
+  %.157227 = phi float [ %.056.ph.fr341, %.preheader158.lr.ph ], [ %520, %521 ]
+  %.sroa.0134.3226 = phi ptr [ %.sroa.0134.2.ph339, %.preheader158.lr.ph ], [ %.sroa.0134.5, %521 ]
+  %.sroa.11.2225 = phi ptr [ %170, %.preheader158.lr.ph ], [ %.sroa.11.4, %521 ]
+  %.sroa.27.2224 = phi ptr [ %.sroa.27.1.ph337, %.preheader158.lr.ph ], [ %.sroa.27.4, %521 ]
+  %.sroa.8.0223 = phi i32 [ %262, %.preheader158.lr.ph ], [ %535, %521 ]
   %265 = add nsw i32 %.sroa.8.0223, 2
   %266 = srem i32 %265, 3
   %267 = getelementptr inbounds nuw i8, ptr %.sroa.0114.0229, i64 8
@@ -72718,7 +72730,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertD
   %535 = sext i8 %534 to i32
   %.sroa.0114.0 = load ptr, ptr %532, align 8
   %.not69 = icmp eq ptr %.sroa.0114.0, null
-  br i1 %.not69, label %.loopexit160, label %.preheader158, !llvm.loop !715
+  br i1 %.not69, label %..loopexit160_crit_edge, label %.preheader158, !llvm.loop !715
 
 .split:                                           ; preds = %.loopexit160, %.outer.split, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertDistESt6vectorIS7_SaIS7_EEEENS6_4predEEvT_SE_T0_.exit
   %.sroa.0134.2.ph333 = phi ptr [ %.sroa.0134.0.lcssa, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicI6CMeshOE8VertDistESt6vectorIS7_SaIS7_EEEENS6_4predEEvT_SE_T0_.exit ], [ %.sroa.0134.2.ph339, %.outer.split ], [ %.sroa.0134.3.lcssa, %.loopexit160 ]

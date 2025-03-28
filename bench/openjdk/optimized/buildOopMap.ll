@@ -1692,7 +1692,10 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %476, %483
   %489 = icmp samesign ult i64 %indvars.iv.next, %488
   br i1 %489, label %476, label %.preheader118, !llvm.loop !32
 
-.loopexit:                                        ; preds = %_ZN10Block_List4pushEP5Block.exit111, %.loopexit117
+..loopexit_crit_edge:                             ; preds = %_ZN10Block_List4pushEP5Block.exit111
+  br label %.loopexit, !llvm.loop !33
+
+.loopexit:                                        ; preds = %..loopexit_crit_edge, %.loopexit117
   %.promoted = load i32, ptr %32, align 8
   %.not130 = icmp eq i32 %.promoted, 0
   br i1 %.not130, label %.outer._crit_edge, label %.lr.ph131
@@ -1926,7 +1929,7 @@ _ZN7OopFlow4makeEP5ArenaiP7Compile.exit109:       ; preds = %.thread._ZN7OopFlow
 
 .lr.ph145:                                        ; preds = %.loopexit117
   %599 = getelementptr inbounds nuw i8, ptr %499, i64 64
-  br label %600
+  br label %600, !llvm.loop !33
 
 600:                                              ; preds = %.lr.ph145, %_ZN10Block_List4pushEP5Block.exit111
   %indvars.iv172 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next173, %_ZN10Block_List4pushEP5Block.exit111 ]
@@ -1953,7 +1956,7 @@ _ZN10Block_List4pushEP5Block.exit111:             ; preds = %600, %607
   %611 = load i32, ptr %597, align 8
   %612 = zext i32 %611 to i64
   %613 = icmp samesign ult i64 %indvars.iv.next173, %612
-  br i1 %613, label %600, label %.loopexit, !llvm.loop !36
+  br i1 %613, label %600, label %..loopexit_crit_edge, !llvm.loop !36
 
 .outer._crit_edge:                                ; preds = %.loopexit, %.backedge, %.preheader118
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #11

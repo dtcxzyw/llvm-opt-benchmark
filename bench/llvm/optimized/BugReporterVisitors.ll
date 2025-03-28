@@ -33970,7 +33970,7 @@ _ZNK5clang9FieldDecl13getFieldIndexEv.exit:       ; preds = %_ZNK5clang9FieldDec
   %120 = lshr i32 %119, 4
   %121 = add nsw i32 %120, -1
   %.not36 = icmp ult i32 %121, %100
-  br i1 %.not36, label %122, label %.critedge38, !llvm.loop !1981
+  br i1 %.not36, label %122, label %_ZNK5clang9FieldDecl13getFieldIndexEv.exit..critedge38.loopexit_crit_edge, !llvm.loop !1981
 
 122:                                              ; preds = %_ZNK5clang9FieldDecl13getFieldIndexEv.exit
   %123 = load i32, ptr %110, align 4
@@ -34018,7 +34018,7 @@ _ZNK5clang9FieldDecl13getFieldIndexEv.exit57:     ; preds = %_ZNK5clang9FieldDec
   store ptr %.sroa.0.0.copyload.i59, ptr %5, align 8
   store i8 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
   %142 = call noundef zeroext i1 @_ZNK5clang4ento4SVal10isConstantEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #25
-  br i1 %142, label %143, label %.critedge38.sink.split, !llvm.loop !1981
+  br i1 %142, label %143, label %.critedge40
 
 143:                                              ; preds = %140
   %144 = call noundef ptr @_ZNK5clang4ento4SVal12getAsIntegerEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #25
@@ -34031,7 +34031,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i:        ; preds = %143
   %148 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %144) #24
   %149 = sub i32 %146, %148
   %150 = icmp ugt i32 %149, 64
-  br i1 %150, label %.critedge38.sink.split, label %_ZNK4llvm5APInt15getLimitedValueEm.exit, !llvm.loop !1981
+  br i1 %150, label %.critedge42, label %_ZNK4llvm5APInt15getLimitedValueEm.exit
 
 _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %143, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
   %151 = load ptr, ptr %144, align 8
@@ -34039,7 +34039,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %143, %_ZNK4llvm5API
   %.0.i.i.i60 = load i64, ptr %.0.in.i.i.i, align 8, !tbaa !60
   %152 = and i64 %99, 4294967295
   %.not35 = icmp ult i64 %.0.i.i.i60, %152
-  br i1 %.not35, label %153, label %.critedge38.sink.split, !llvm.loop !1981
+  br i1 %.not35, label %153, label %.critedge42
 
 153:                                              ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit
   %154 = load ptr, ptr %92, align 8, !tbaa !1853
@@ -34048,6 +34048,14 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %143, %_ZNK4llvm5API
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
   br label %.critedge45, !llvm.loop !1981
 
+.critedge40:                                      ; preds = %140
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  br label %.critedge38, !llvm.loop !1981
+
+.critedge42:                                      ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, %_ZNK4llvm5APInt15getLimitedValueEm.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  br label %.critedge38, !llvm.loop !1981
+
 .critedge45:                                      ; preds = %138, %153, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit57
   %.171 = phi ptr [ %.07077, %138 ], [ %156, %153 ], [ %137, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit57 ]
   %157 = load ptr, ptr %27, align 8, !tbaa !1976
@@ -34055,12 +34063,11 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %143, %_ZNK4llvm5API
   %159 = icmp eq ptr %157, %158
   br i1 %159, label %.critedge38, label %70
 
-.critedge38.sink.split:                           ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, %140
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  br label %.critedge38
+_ZNK5clang9FieldDecl13getFieldIndexEv.exit..critedge38.loopexit_crit_edge: ; preds = %_ZNK5clang9FieldDecl13getFieldIndexEv.exit
+  br label %.critedge38, !llvm.loop !1981
 
-.critedge38:                                      ; preds = %.critedge45, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit, %_ZNSt5stackIPKN5clang4ento16TypedValueRegionESt5dequeIS4_SaIS4_EEE3popEv.exit, %.critedge38.sink.split, %.preheader, %split
-  %.1 = phi ptr [ null, %split ], [ %0, %.preheader ], [ null, %.critedge38.sink.split ], [ %.171, %.critedge45 ], [ null, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit ], [ null, %_ZNSt5stackIPKN5clang4ento16TypedValueRegionESt5dequeIS4_SaIS4_EEE3popEv.exit ]
+.critedge38:                                      ; preds = %.critedge45, %_ZNSt5stackIPKN5clang4ento16TypedValueRegionESt5dequeIS4_SaIS4_EEE3popEv.exit, %.preheader, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit..critedge38.loopexit_crit_edge, %.critedge40, %.critedge42, %split
+  %.1 = phi ptr [ null, %split ], [ null, %.critedge40 ], [ null, %.critedge42 ], [ null, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit..critedge38.loopexit_crit_edge ], [ %0, %.preheader ], [ %.171, %.critedge45 ], [ null, %_ZNSt5stackIPKN5clang4ento16TypedValueRegionESt5dequeIS4_SaIS4_EEE3popEv.exit ]
   %160 = load ptr, ptr %4, align 8, !tbaa !1967
   %.not.i.i.i61 = icmp eq ptr %160, null
   br i1 %.not.i.i.i61, label %_ZNSt5stackIPKN5clang4ento16TypedValueRegionESt5dequeIS4_SaIS4_EEED2Ev.exit, label %161

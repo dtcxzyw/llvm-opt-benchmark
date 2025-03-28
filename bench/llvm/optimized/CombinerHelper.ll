@@ -11536,7 +11536,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14CombinerHelper37matchCombineUnme
   %22 = getelementptr inbounds nuw i8, ptr %33, i64 68
   %23 = load i16, ptr %22, align 4, !tbaa !228
   %24 = icmp eq i16 %23, 82
-  br i1 %24, label %.lr.ph, label %_ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit, !llvm.loop !458
+  br i1 %24, label %.lr.ph, label %.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, !llvm.loop !458
 
 .lr.ph:                                           ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -11552,10 +11552,16 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %32 = load i32, ptr %31, align 4, !tbaa !204
   %33 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %14, i32 %32) #30
   %.not.i.i.i.not.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.not.i.i.i, label %_ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit, label %.lr.ph.i, !llvm.loop !458
+  br i1 %.not.i.i.i.not.i.i.i, label %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !458
 
-_ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i, %.lr.ph.preheader, %.lr.ph.i.preheader, %3
-  %storemerge.lcssa.i = phi i32 [ %12, %3 ], [ %12, %.lr.ph.i.preheader ], [ %12, %.lr.ph.preheader ], [ %32, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i ], [ %32, %.lr.ph ], [ %32, %.lr.ph.i ]
+_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge: ; preds = %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i
+  br label %_ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit, !llvm.loop !458
+
+.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge: ; preds = %.lr.ph.i
+  br label %_ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit, !llvm.loop !458
+
+_ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit: ; preds = %.lr.ph, %.lr.ph.preheader, %.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, %.lr.ph.i.preheader, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, %3
+  %storemerge.lcssa.i = phi i32 [ %12, %3 ], [ %32, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %12, %.lr.ph.i.preheader ], [ %32, %.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %34 = load ptr, ptr %13, align 8, !tbaa !227
   %35 = tail call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %storemerge.lcssa.i, ptr noundef nonnull align 8 dereferenceable(504) %34) #30
   %.not.i.i.i = icmp eq ptr %35, null
@@ -17127,11 +17133,14 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEE6resizeEm.exit: ; preds = %.critedge, %.
   %113 = load ptr, ptr %8, align 8, !tbaa !227
   %114 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %113, i32 %112) #30
   %.not.i.i.i.not.i.i = icmp eq ptr %114, null
-  br i1 %.not.i.i.i.not.i.i, label %._crit_edge, label %.lr.ph, !llvm.loop !500
+  br i1 %.not.i.i.i.not.i.i, label %.._crit_edge.loopexit_crit_edge121, label %.lr.ph, !llvm.loop !500
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph117, %108, %86, %92, %.lr.ph.preheader, %_ZN4llvm15SmallVectorImplINS_8RegisterEE6resizeEm.exit
-  %115 = phi ptr [ undef, %_ZN4llvm15SmallVectorImplINS_8RegisterEE6resizeEm.exit ], [ undef, %.lr.ph.preheader ], [ %91, %92 ], [ null, %86 ], [ %91, %108 ], [ %80, %.lr.ph117 ], [ %91, %.lr.ph ]
-  %.027.lcssa = phi ptr [ %1, %_ZN4llvm15SmallVectorImplINS_8RegisterEE6resizeEm.exit ], [ %1, %.lr.ph.preheader ], [ %.02757116, %92 ], [ %.02757116, %86 ], [ %91, %108 ], [ %.02757116, %.lr.ph117 ], [ %91, %.lr.ph ]
+.._crit_edge.loopexit_crit_edge121:               ; preds = %108
+  br label %._crit_edge, !llvm.loop !500
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph117, %86, %92, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge121, %_ZN4llvm15SmallVectorImplINS_8RegisterEE6resizeEm.exit
+  %115 = phi ptr [ undef, %_ZN4llvm15SmallVectorImplINS_8RegisterEE6resizeEm.exit ], [ %91, %.._crit_edge.loopexit_crit_edge121 ], [ undef, %.lr.ph.preheader ], [ %91, %92 ], [ null, %86 ], [ %80, %.lr.ph117 ], [ %91, %.lr.ph ]
+  %.027.lcssa = phi ptr [ %1, %_ZN4llvm15SmallVectorImplINS_8RegisterEE6resizeEm.exit ], [ %91, %.._crit_edge.loopexit_crit_edge121 ], [ %1, %.lr.ph.preheader ], [ %.02757116, %92 ], [ %.02757116, %86 ], [ %.02757116, %.lr.ph117 ], [ %91, %.lr.ph ]
   %116 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 68
   %117 = load i16, ptr %116, align 4, !tbaa !228
   %118 = icmp eq i16 %117, 234

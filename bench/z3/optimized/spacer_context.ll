@@ -33912,11 +33912,14 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   store i32 %83, ptr %80, align 4, !tbaa !100
   %84 = load ptr, ptr %45, align 8, !tbaa !308
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %_ZNK6spacer16pred_transformer8sig_sizeEv.exit37, label %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread, !llvm.loop !722
+  br i1 %85, label %._ZNK6spacer16pred_transformer8sig_sizeEv.exit37.loopexit_crit_edge, label %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread, !llvm.loop !722
 
-_ZNK6spacer16pred_transformer8sig_sizeEv.exit37:  ; preds = %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread, %77, %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread.preheader, %40
-  %86 = phi ptr [ null, %40 ], [ null, %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread.preheader ], [ %79, %77 ], [ %79, %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread ]
-  %.0.i.i.i36 = phi i32 [ 0, %40 ], [ %49, %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread.preheader ], [ 0, %77 ], [ %51, %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread ]
+._ZNK6spacer16pred_transformer8sig_sizeEv.exit37.loopexit_crit_edge: ; preds = %77
+  br label %_ZNK6spacer16pred_transformer8sig_sizeEv.exit37, !llvm.loop !722
+
+_ZNK6spacer16pred_transformer8sig_sizeEv.exit37:  ; preds = %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread, %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread.preheader, %._ZNK6spacer16pred_transformer8sig_sizeEv.exit37.loopexit_crit_edge, %40
+  %86 = phi ptr [ null, %40 ], [ %79, %._ZNK6spacer16pred_transformer8sig_sizeEv.exit37.loopexit_crit_edge ], [ null, %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread.preheader ], [ %79, %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread ]
+  %.0.i.i.i36 = phi i32 [ 0, %40 ], [ 0, %._ZNK6spacer16pred_transformer8sig_sizeEv.exit37.loopexit_crit_edge ], [ %49, %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread.preheader ], [ %51, %_ZNK6spacer16pred_transformer8sig_sizeEv.exit.thread ]
   %87 = load ptr, ptr %41, align 8, !tbaa !572
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %88 = load ptr, ptr %.in, align 8, !tbaa !161

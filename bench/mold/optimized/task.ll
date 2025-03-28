@@ -1245,7 +1245,10 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %1, %5
   %39 = ptrtoint ptr %38 to i64
   %40 = urem i64 %39, %23
   %.not19.i.i.i.i = icmp eq i64 %40, %24
-  br i1 %.not19.i.i.i.i, label %33, label %.loopexit21, !llvm.loop !189
+  br i1 %.not19.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !189
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
+  br label %.loopexit21, !llvm.loop !189
 
 _ZNSt13unordered_mapIPN3tbb6detail2d126wait_tree_vertex_interfaceEPNS2_16reference_vertexESt4hashIS4_ESt8equal_toIS4_ENS2_13tbb_allocatorISt4pairIKS4_S6_EEEE4findERSD_.exit: ; preds = %33, %16, %28
   %.sroa.06.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i, %16 ], [ %35, %33 ]
@@ -1253,23 +1256,23 @@ _ZNSt13unordered_mapIPN3tbb6detail2d126wait_tree_vertex_interfaceEPNS2_16referen
   %42 = load ptr, ptr %41, align 8, !tbaa !190
   br label %103
 
-.loopexit21:                                      ; preds = %36, %.lr.ph.i.i.i.i, %15, %20
+.loopexit21:                                      ; preds = %.lr.ph.i.i.i.i, %15, %20, %..loopexit_crit_edge21.i.i.i.i
   %43 = icmp ugt i64 %12, 1000
   br i1 %43, label %44, label %.loopexit
 
 44:                                               ; preds = %.loopexit21
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %46 = load ptr, ptr %45, align 8, !tbaa !193
-  %.not26 = icmp eq ptr %46, null
-  br i1 %.not26, label %.loopexit, label %.lr.ph
+  %.not27 = icmp eq ptr %46, null
+  br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 80
   br label %48
 
 48:                                               ; preds = %.lr.ph, %97
-  %.sroa.012.027 = phi ptr [ %46, %.lr.ph ], [ %.sroa.012.1, %97 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.012.027, i64 16
+  %.sroa.012.028 = phi ptr [ %46, %.lr.ph ], [ %.sroa.012.1, %97 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.012.028, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !190
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load atomic i64, ptr %51 acquire, align 8
@@ -1278,7 +1281,7 @@ _ZNSt13unordered_mapIPN3tbb6detail2d126wait_tree_vertex_interfaceEPNS2_16referen
   br i1 %54, label %55, label %95
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.012.027, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.012.028, i64 8
   %57 = load ptr, ptr %49, align 8, !tbaa !190
   %58 = load ptr, ptr %57, align 8, !tbaa !166
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -1298,12 +1301,12 @@ _ZNSt13unordered_mapIPN3tbb6detail2d126wait_tree_vertex_interfaceEPNS2_16referen
 69:                                               ; preds = %69, %55
   %.0.i.i.i.i = phi ptr [ %68, %55 ], [ %70, %69 ]
   %70 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !186
-  %.not.i.i.i.i10 = icmp eq ptr %70, %.sroa.012.027
+  %.not.i.i.i.i10 = icmp eq ptr %70, %.sroa.012.028
   br i1 %.not.i.i.i.i10, label %_ZNSt10_HashtableIPN3tbb6detail2d126wait_tree_vertex_interfaceESt4pairIKS4_PNS2_16reference_vertexEENS2_13tbb_allocatorIS9_EENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeIS9_Lb0EEE.exit.i.i.i, label %69, !llvm.loop !194
 
 _ZNSt10_HashtableIPN3tbb6detail2d126wait_tree_vertex_interfaceESt4pairIKS4_PNS2_16reference_vertexEENS2_13tbb_allocatorIS9_EENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeIS9_Lb0EEE.exit.i.i.i: ; preds = %69
   %71 = icmp eq ptr %.0.i.i.i.i, %68
-  %72 = load ptr, ptr %.sroa.012.027, align 8, !tbaa !186
+  %72 = load ptr, ptr %.sroa.012.028, align 8, !tbaa !186
   %.not18.i.i.i.i11 = icmp eq ptr %72, null
   br i1 %71, label %73, label %84
 
@@ -1352,16 +1355,16 @@ _ZNSt10_HashtableIPN3tbb6detail2d126wait_tree_vertex_interfaceESt4pairIKS4_PNS2_
   br label %_ZNSt13unordered_mapIPN3tbb6detail2d126wait_tree_vertex_interfaceEPNS2_16reference_vertexESt4hashIS4_ESt8equal_toIS4_ENS2_13tbb_allocatorISt4pairIKS4_S6_EEEE5eraseENSt8__detail14_Node_iteratorISE_Lb0ELb0EEE.exit
 
 _ZNSt13unordered_mapIPN3tbb6detail2d126wait_tree_vertex_interfaceEPNS2_16reference_vertexESt4hashIS4_ESt8equal_toIS4_ENS2_13tbb_allocatorISt4pairIKS4_S6_EEEE5eraseENSt8__detail14_Node_iteratorISE_Lb0ELb0EEE.exit: ; preds = %74, %83, %84, %85, %90
-  %92 = load ptr, ptr %.sroa.012.027, align 8, !tbaa !186
+  %92 = load ptr, ptr %.sroa.012.028, align 8, !tbaa !186
   store ptr %92, ptr %.0.i.i.i.i, align 8, !tbaa !186
-  tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %.sroa.012.027)
+  tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %.sroa.012.028)
   %93 = load i64, ptr %11, align 8, !tbaa !185
   %94 = add i64 %93, -1
   store i64 %94, ptr %11, align 8, !tbaa !185
   br label %97
 
 95:                                               ; preds = %48
-  %96 = load ptr, ptr %.sroa.012.027, align 8, !tbaa !186
+  %96 = load ptr, ptr %.sroa.012.028, align 8, !tbaa !186
   br label %97
 
 97:                                               ; preds = %95, %_ZNSt13unordered_mapIPN3tbb6detail2d126wait_tree_vertex_interfaceEPNS2_16reference_vertexESt4hashIS4_ESt8equal_toIS4_ENS2_13tbb_allocatorISt4pairIKS4_S6_EEEE5eraseENSt8__detail14_Node_iteratorISE_Lb0ELb0EEE.exit
@@ -1926,9 +1929,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__deta
   %24 = ptrtoint ptr %23 to i64
   %25 = urem i64 %24, %8
   %.not19.i.i = icmp eq i64 %25, %9
-  br i1 %.not19.i.i, label %18, label %.loopexit, !llvm.loop !189
+  br i1 %.not19.i.i, label %18, label %..loopexit_crit_edge21.i.i, !llvm.loop !189
 
-.loopexit:                                        ; preds = %21, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %21
+  br label %.loopexit, !llvm.loop !189
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   store ptr %0, ptr %4, align 8, !tbaa !213
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8

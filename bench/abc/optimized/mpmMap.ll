@@ -2224,7 +2224,7 @@ Mpm_ObjRecycleCuts.exit.i:                        ; preds = %.critedge.loopexit.
 
 ..critedge_crit_edge.i:                           ; preds = %450
   %.val.i.i.i.pre.i = load i32, ptr %5, align 4
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !103
 
 .critedge.i:                                      ; preds = %397, %Mig_ObjHasFanin.exit.i170, %..critedge_crit_edge.i
   %.val.i.i.i.i177 = phi i32 [ %.val.i.i.i.pre.i, %..critedge_crit_edge.i ], [ %.val.i.i.i.pre70.i, %Mig_ObjHasFanin.exit.i170 ], [ %.val.i.i.i.pre70.i, %397 ]

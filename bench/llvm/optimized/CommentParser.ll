@@ -241,7 +241,7 @@ _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i: ; preds = %._cri
 
 _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge: ; preds = %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i
   %.pre = load ptr, ptr %12, align 8, !tbaa !48
-  br label %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit
+  br label %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit, !llvm.loop !54
 
 _ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit: ; preds = %16, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge
   %45 = phi i32 [ %44, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge ], [ %18, %16 ]
@@ -313,16 +313,16 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %58
 .lr.ph:                                           ; preds = %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit, %66, %68
   %79 = load i32, ptr %7, align 4, !tbaa !39
   %80 = load i32, ptr %9, align 8, !tbaa !23
-  %.not4273 = icmp ugt i32 %80, %79
-  br i1 %.not4273, label %.lr.ph74, label %.critedge
+  %.not4275 = icmp ugt i32 %80, %79
+  br i1 %.not4275, label %.lr.ph76, label %.critedge
 
 81:                                               ; preds = %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit35
   %82 = load i32, ptr %7, align 4, !tbaa !39
   %83 = load i32, ptr %9, align 8, !tbaa !23
   %.not42 = icmp ugt i32 %83, %82
-  br i1 %.not42, label %.lr.ph74, label %.critedge, !llvm.loop !61
+  br i1 %.not42, label %.lr.ph76, label %.critedge, !llvm.loop !61
 
-.lr.ph74:                                         ; preds = %.lr.ph, %81
+.lr.ph76:                                         ; preds = %.lr.ph, %81
   %84 = load ptr, ptr %12, align 8, !tbaa !48
   %85 = load i8, ptr %84, align 1, !tbaa !49
   %86 = load i64, ptr %49, align 8, !tbaa !59
@@ -331,13 +331,13 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %58
   %.not.i.i.i28 = icmp ugt i64 %87, %88
   br i1 %.not.i.i.i28, label %89, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit30, !prof !62
 
-89:                                               ; preds = %.lr.ph74
+89:                                               ; preds = %.lr.ph76
   call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %48, i64 noundef %87, i64 noundef 1) #13
   %.pre.i29 = load i64, ptr %49, align 8, !tbaa !59
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit30
 
-_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit30: ; preds = %.lr.ph74, %89
-  %90 = phi i64 [ %86, %.lr.ph74 ], [ %.pre.i29, %89 ]
+_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit30: ; preds = %.lr.ph76, %89
+  %90 = phi i64 [ %86, %.lr.ph76 ], [ %.pre.i29, %89 ]
   %91 = load ptr, ptr %6, align 8, !tbaa !56
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %90
   store i8 %85, ptr %92, align 1
@@ -387,10 +387,13 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit30: ; preds = %.lr.ph74
 
 _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit35: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit30, %103, %105
   %116 = icmp eq i8 %85, %3
-  br i1 %116, label %.critedge, label %81, !llvm.loop !61
+  br i1 %116, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit35..critedge_crit_edge, label %81, !llvm.loop !61
 
-.critedge:                                        ; preds = %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit35, %81, %.lr.ph
-  %.124 = phi i8 [ 0, %.lr.ph ], [ %3, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit35 ], [ %85, %81 ]
+_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit35..critedge_crit_edge: ; preds = %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit35
+  br label %.critedge, !llvm.loop !61
+
+.critedge:                                        ; preds = %81, %.lr.ph, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit35..critedge_crit_edge
+  %.124 = phi i8 [ %3, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit35..critedge_crit_edge ], [ 0, %.lr.ph ], [ %85, %81 ]
   %.not = icmp eq i8 %.124, %3
   br i1 %.not, label %117, label %.critedge.thread
 
@@ -564,7 +567,7 @@ _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i: ; preds = %._cri
 
 _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge: ; preds = %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i
   %.pre = load ptr, ptr %10, align 8, !tbaa !48
-  br label %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit
+  br label %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit, !llvm.loop !54
 
 _ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit: ; preds = %14, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge
   %43 = phi i32 [ %42, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge ], [ %16, %14 ]
@@ -1068,7 +1071,7 @@ _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i: ; preds = %._cri
 
 _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge: ; preds = %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i
   %.pre = load ptr, ptr %10, align 8, !tbaa !48
-  br label %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit
+  br label %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit, !llvm.loop !54
 
 _ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit: ; preds = %14, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge
   %43 = phi i32 [ %42, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge ], [ %16, %14 ]
@@ -1496,7 +1499,7 @@ _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i: ; preds = %._cri
 
 _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge: ; preds = %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i
   %.pre = load ptr, ptr %10, align 8, !tbaa !48
-  br label %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit
+  br label %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit, !llvm.loop !54
 
 _ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit: ; preds = %14, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge
   %43 = phi i32 [ %42, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge ], [ %16, %14 ]

@@ -4763,7 +4763,7 @@ fWhoIsRequest.exit.i.i.i:                         ; preds = %fDevice_Instance.ex
 329:                                              ; preds = %327, %325, %323, %319, %317
   %.4.i.i.i.i = phi i32 [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %320, %319 ], [ %318, %317 ]
   %.not77.i.i.i.i = icmp ugt i32 %.4.i.i.i.i, %.388.i.i.i.i
-  br i1 %.not77.i.i.i.i, label %303, label %.loopexit.i.i.i.i, !llvm.loop !12
+  br i1 %.not77.i.i.i.i, label %303, label %..loopexit_crit_edge90.i.i.i.i, !llvm.loop !12
 
 .thread.i.i.i.i:                                  ; preds = %294
   %330 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.094.i.i.i.i, ptr noundef nonnull @ei_bacapp_bad_tag)
@@ -4773,10 +4773,13 @@ fWhoIsRequest.exit.i.i.i:                         ; preds = %fDevice_Instance.ex
   %332 = tail call fastcc i32 @fBooleanTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %.07393.i.i.i.i, ptr noundef nonnull @.str.3801)
   br label %.loopexit.i.i.i.i
 
-.loopexit.i.i.i.i:                                ; preds = %329, %303, %331, %310, %296, %292, %290
-  %.2.i70.i.i.i = phi i32 [ %332, %331 ], [ %312, %310 ], [ %293, %292 ], [ %291, %290 ], [ %300, %296 ], [ %.4.i.i.i.i, %303 ], [ %.4.i.i.i.i, %329 ]
-  %.071.i.i.i.i = phi i32 [ %.07393.i.i.i.i, %331 ], [ %.388.i.i.i.i, %310 ], [ %.07393.i.i.i.i, %292 ], [ %.07393.i.i.i.i, %290 ], [ %.07393.i.i.i.i, %296 ], [ %.388.i.i.i.i, %303 ], [ %.388.i.i.i.i, %329 ]
-  %.1.i.i.i.i = phi ptr [ %.094.i.i.i.i, %331 ], [ %168, %310 ], [ %.094.i.i.i.i, %292 ], [ %.094.i.i.i.i, %290 ], [ %298, %296 ], [ %298, %303 ], [ %298, %329 ]
+..loopexit_crit_edge90.i.i.i.i:                   ; preds = %329
+  br label %.loopexit.i.i.i.i, !llvm.loop !12
+
+.loopexit.i.i.i.i:                                ; preds = %303, %..loopexit_crit_edge90.i.i.i.i, %331, %310, %296, %292, %290
+  %.2.i70.i.i.i = phi i32 [ %332, %331 ], [ %312, %310 ], [ %293, %292 ], [ %291, %290 ], [ %.4.i.i.i.i, %..loopexit_crit_edge90.i.i.i.i ], [ %300, %296 ], [ %.4.i.i.i.i, %303 ]
+  %.071.i.i.i.i = phi i32 [ %.07393.i.i.i.i, %331 ], [ %.388.i.i.i.i, %310 ], [ %.07393.i.i.i.i, %292 ], [ %.07393.i.i.i.i, %290 ], [ %.388.i.i.i.i, %..loopexit_crit_edge90.i.i.i.i ], [ %.07393.i.i.i.i, %296 ], [ %.388.i.i.i.i, %303 ]
+  %.1.i.i.i.i = phi ptr [ %.094.i.i.i.i, %331 ], [ %168, %310 ], [ %.094.i.i.i.i, %292 ], [ %.094.i.i.i.i, %290 ], [ %298, %..loopexit_crit_edge90.i.i.i.i ], [ %298, %296 ], [ %298, %303 ]
   %.not78.i.i.i.i = icmp ugt i32 %.2.i70.i.i.i, %.071.i.i.i.i
   br i1 %.not78.i.i.i.i, label %.backedge.i.i.i.i, label %fWriteGroupRequest.exit.i.i.i
 
@@ -5347,11 +5350,14 @@ fPropertyReference.exit.i.i.i.i:                  ; preds = %562, %556, %552, %.
 572:                                              ; preds = %566, %fPropertyReference.exit.i.i.i.i, %542
   %.4.i.i.i42.i = phi i32 [ %571, %566 ], [ %564, %fPropertyReference.exit.i.i.i.i ], [ %543, %542 ]
   %.not.i39.i.i.i = icmp ugt i32 %.4.i.i.i42.i, %.387.i.i.i.i
-  br i1 %.not.i39.i.i.i, label %530, label %.loopexit.i.i.i40.i, !llvm.loop !18
+  br i1 %.not.i39.i.i.i, label %530, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !18
 
-.loopexit.i.i.i40.i:                              ; preds = %572, %530, %537, %525, %523, %517
-  %.2.i37.i.i.i = phi i32 [ %539, %537 ], [ %522, %517 ], [ %524, %523 ], [ %527, %525 ], [ %.4.i.i.i42.i, %530 ], [ %.4.i.i.i42.i, %572 ]
-  %.0.i38.i.i.i = phi i32 [ %.387.i.i.i.i, %537 ], [ %.067.i.i.i.i, %517 ], [ %.067.i.i.i.i, %523 ], [ %.067.i.i.i.i, %525 ], [ %.387.i.i.i.i, %530 ], [ %.387.i.i.i.i, %572 ]
+..loopexit_crit_edge.i.i.i.i:                     ; preds = %572
+  br label %.loopexit.i.i.i40.i, !llvm.loop !18
+
+.loopexit.i.i.i40.i:                              ; preds = %530, %..loopexit_crit_edge.i.i.i.i, %537, %525, %523, %517
+  %.2.i37.i.i.i = phi i32 [ %539, %537 ], [ %522, %517 ], [ %524, %523 ], [ %.4.i.i.i42.i, %..loopexit_crit_edge.i.i.i.i ], [ %527, %525 ], [ %.4.i.i.i42.i, %530 ]
+  %.0.i38.i.i.i = phi i32 [ %.387.i.i.i.i, %537 ], [ %.067.i.i.i.i, %517 ], [ %.067.i.i.i.i, %523 ], [ %.387.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ], [ %.067.i.i.i.i, %525 ], [ %.387.i.i.i.i, %530 ]
   %.not70.i.i.i.i = icmp ugt i32 %.2.i37.i.i.i, %.0.i38.i.i.i
   br i1 %.not70.i.i.i.i, label %503, label %fSubscribeCOVPropertyMultipleError.exit.i.i.i, !llvm.loop !20
 
@@ -8352,9 +8358,9 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
     i32 461, label %612
     i32 491, label %612
     i32 196, label %626
-    i32 212, label %.preheader1526
-    i32 214, label %.preheader1526
-    i32 218, label %.preheader1526
+    i32 212, label %.preheader1554
+    i32 214, label %.preheader1554
+    i32 218, label %.preheader1554
     i32 152, label %678
     i32 23, label %723
     i32 116, label %725
@@ -8487,7 +8493,7 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
     i32 85, label %2842
   ]
 
-.preheader1526:                                   ; preds = %232, %232, %232
+.preheader1554:                                   ; preds = %232, %232, %232
   br label %657
 
 234:                                              ; preds = %232, %232
@@ -8505,12 +8511,12 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %207) #6
   %239 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0808)
   %240 = icmp sgt i32 %239, 0
-  br i1 %240, label %.lr.ph1234, label %fActionList.exit
+  br i1 %240, label %.lr.ph1238, label %fActionList.exit
 
-.lr.ph1234:                                       ; preds = %238, %.backedge1031
-  %.0.i1232 = phi ptr [ %.0.i.be, %.backedge1031 ], [ %2, %238 ]
-  %.031.i1231 = phi i32 [ %.031.i.be, %.backedge1031 ], [ %.0808, %238 ]
-  %241 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.031.i1231, ptr noundef nonnull %205, ptr noundef nonnull %206, ptr noundef nonnull %207)
+.lr.ph1238:                                       ; preds = %238, %.backedge1031
+  %.0.i1236 = phi ptr [ %.0.i.be, %.backedge1031 ], [ %2, %238 ]
+  %.031.i1235 = phi i32 [ %.031.i.be, %.backedge1031 ], [ %.0808, %238 ]
+  %241 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.031.i1235, ptr noundef nonnull %205, ptr noundef nonnull %206, ptr noundef nonnull %207)
   %242 = load i8, ptr %206, align 1
   %243 = and i8 %242, 7
   switch i8 %243, label %256 [
@@ -8518,14 +8524,14 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
     i8 6, label %251
   ]
 
-244:                                              ; preds = %.lr.ph1234
+244:                                              ; preds = %.lr.ph1238
   %245 = load i8, ptr %205, align 1
   %.not33.i = icmp eq i8 %245, 0
   br i1 %.not33.i, label %246, label %fActionList.exit
 
 246:                                              ; preds = %244
-  %247 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i1232, i32 noundef %.031.i1231, ptr noundef nonnull %205, ptr noundef nonnull %206, ptr noundef nonnull %207)
-  %248 = add i32 %241, %.031.i1231
+  %247 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i1236, i32 noundef %.031.i1235, ptr noundef nonnull %205, ptr noundef nonnull %206, ptr noundef nonnull %207)
+  %248 = add i32 %241, %.031.i1235
   br label %.backedge1031
 
 .backedge1031:                                    ; preds = %246, %292
@@ -8533,18 +8539,18 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
   %.0.i.be = phi ptr [ %2, %246 ], [ %.1.i, %292 ]
   %249 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.031.i.be)
   %250 = icmp sgt i32 %249, 0
-  br i1 %250, label %.lr.ph1234, label %fActionList.exit, !llvm.loop !38
+  br i1 %250, label %.lr.ph1238, label %fActionList.exit, !llvm.loop !38
 
-251:                                              ; preds = %.lr.ph1234
+251:                                              ; preds = %.lr.ph1238
   %252 = load i32, ptr @ett_bacapp_tag, align 4
-  %253 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.031.i1231, i32 noundef 1, i32 noundef %252, ptr noundef null, ptr noundef nonnull @.str.2691)
-  %254 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %253, i32 noundef %.031.i1231, ptr noundef nonnull %205, ptr noundef nonnull %206, ptr noundef nonnull %207)
-  %255 = add i32 %254, %.031.i1231
+  %253 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.031.i1235, i32 noundef 1, i32 noundef %252, ptr noundef null, ptr noundef nonnull @.str.2691)
+  %254 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %253, i32 noundef %.031.i1235, ptr noundef nonnull %205, ptr noundef nonnull %206, ptr noundef nonnull %207)
+  %255 = add i32 %254, %.031.i1235
   br label %256
 
-256:                                              ; preds = %.lr.ph1234, %251
-  %.2.i = phi i32 [ %255, %251 ], [ %.031.i1231, %.lr.ph1234 ]
-  %.1.i = phi ptr [ %253, %251 ], [ %.0.i1232, %.lr.ph1234 ]
+256:                                              ; preds = %.lr.ph1238, %251
+  %.2.i = phi i32 [ %255, %251 ], [ %.031.i1235, %.lr.ph1238 ]
+  %.1.i = phi ptr [ %253, %251 ], [ %.0.i1236, %.lr.ph1238 ]
   %257 = load i8, ptr %205, align 1
   %cond.i = icmp eq i8 %257, 0
   br i1 %cond.i, label %258, label %292
@@ -8556,32 +8562,32 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
   store i32 -1, ptr @propertyArrayIndex, align 4
   %259 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.2.i)
   %260 = icmp sgt i32 %259, 0
-  br i1 %260, label %.lr.ph1223, label %fActionCommand.exit
+  br i1 %260, label %.lr.ph1227, label %fActionCommand.exit
 
-.lr.ph1223:                                       ; preds = %258, %.backedge
-  %.053.i10121221 = phi i32 [ %.053.i1012.be, %.backedge ], [ %.2.i, %258 ]
-  %261 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.053.i10121221, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22)
+.lr.ph1227:                                       ; preds = %258, %.backedge
+  %.053.i10121225 = phi i32 [ %.053.i1012.be, %.backedge ], [ %.2.i, %258 ]
+  %261 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.053.i10121225, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22)
   %262 = load i8, ptr %21, align 1
   %263 = and i8 %262, 7
   %264 = icmp eq i8 %263, 7
   %265 = load i8, ptr %20, align 1
   br i1 %264, label %266, label %272
 
-266:                                              ; preds = %.lr.ph1223
+266:                                              ; preds = %.lr.ph1227
   %267 = icmp eq i8 %265, 0
   br i1 %267, label %fActionCommand.exit, label %268
 
 268:                                              ; preds = %266
-  %269 = add i32 %261, %.053.i10121221
+  %269 = add i32 %261, %.053.i10121225
   br label %.backedge
 
 .backedge:                                        ; preds = %268, %291
   %.053.i1012.be = phi i32 [ %269, %268 ], [ %.2.i1014, %291 ]
   %270 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.053.i1012.be)
   %271 = icmp sgt i32 %270, 0
-  br i1 %271, label %.lr.ph1223, label %fActionCommand.exit, !llvm.loop !39
+  br i1 %271, label %.lr.ph1227, label %fActionCommand.exit, !llvm.loop !39
 
-272:                                              ; preds = %.lr.ph1223
+272:                                              ; preds = %.lr.ph1227
   switch i8 %265, label %fActionCommand.exit [
     i8 0, label %273
     i8 1, label %275
@@ -8595,48 +8601,48 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
   ]
 
 273:                                              ; preds = %272
-  %274 = call fastcc i32 @fObjectIdentifier(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121221, ptr noundef nonnull @.str.2675)
+  %274 = call fastcc i32 @fObjectIdentifier(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121225, ptr noundef nonnull @.str.2675)
   br label %291
 
 275:                                              ; preds = %272
-  %276 = call fastcc i32 @fObjectIdentifier(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121221, ptr noundef nonnull @.str.2598)
+  %276 = call fastcc i32 @fObjectIdentifier(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121225, ptr noundef nonnull @.str.2598)
   br label %291
 
 277:                                              ; preds = %272
-  %278 = call fastcc i32 @fPropertyIdentifier(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121221)
+  %278 = call fastcc i32 @fPropertyIdentifier(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121225)
   br label %291
 
 279:                                              ; preds = %272
-  %280 = call fastcc i32 @fPropertyArrayIndex(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121221)
+  %280 = call fastcc i32 @fPropertyArrayIndex(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121225)
   br label %291
 
 281:                                              ; preds = %272
-  %282 = call fastcc i32 @fPropertyValue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121221, i8 noundef zeroext %262)
+  %282 = call fastcc i32 @fPropertyValue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121225, i8 noundef zeroext %262)
   br label %291
 
 283:                                              ; preds = %272
-  %284 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121221, ptr noundef nonnull @.str.2682)
+  %284 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121225, ptr noundef nonnull @.str.2682)
   br label %291
 
 285:                                              ; preds = %272
-  %286 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121221, ptr noundef nonnull @.str.2692)
+  %286 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121225, ptr noundef nonnull @.str.2692)
   br label %291
 
 287:                                              ; preds = %272
-  %288 = call fastcc i32 @fBooleanTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121221, ptr noundef nonnull @.str.2693)
+  %288 = call fastcc i32 @fBooleanTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121225, ptr noundef nonnull @.str.2693)
   br label %291
 
 289:                                              ; preds = %272
-  %290 = call fastcc i32 @fBooleanTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121221, ptr noundef nonnull @.str.2694)
+  %290 = call fastcc i32 @fBooleanTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.1.i, i32 noundef %.053.i10121225, ptr noundef nonnull @.str.2694)
   br label %291
 
 291:                                              ; preds = %289, %287, %285, %283, %281, %279, %277, %275, %273
   %.2.i1014 = phi i32 [ %290, %289 ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ]
-  %.not.i1015 = icmp ugt i32 %.2.i1014, %.053.i10121221
+  %.not.i1015 = icmp ugt i32 %.2.i1014, %.053.i10121225
   br i1 %.not.i1015, label %.backedge, label %fActionCommand.exit
 
 fActionCommand.exit:                              ; preds = %291, %272, %266, %.backedge, %258
-  %.052.i1013 = phi i32 [ %.2.i, %258 ], [ %.2.i1014, %291 ], [ %.053.i10121221, %272 ], [ %.053.i10121221, %266 ], [ %.053.i1012.be, %.backedge ]
+  %.052.i1013 = phi i32 [ %.2.i, %258 ], [ %.2.i1014, %291 ], [ %.053.i10121225, %272 ], [ %.053.i10121225, %266 ], [ %.053.i1012.be, %.backedge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #6
@@ -8644,11 +8650,11 @@ fActionCommand.exit:                              ; preds = %291, %272, %266, %.
 
 292:                                              ; preds = %fActionCommand.exit, %256
   %.3.i = phi i32 [ %.052.i1013, %fActionCommand.exit ], [ %.2.i, %256 ]
-  %.not.i = icmp ugt i32 %.3.i, %.031.i1231
+  %.not.i = icmp ugt i32 %.3.i, %.031.i1235
   br i1 %.not.i, label %.backedge1031, label %fActionList.exit
 
 fActionList.exit:                                 ; preds = %292, %244, %.backedge1031, %238
-  %.030.i = phi i32 [ %.0808, %238 ], [ %.3.i, %292 ], [ %.031.i1231, %244 ], [ %.031.i.be, %.backedge1031 ]
+  %.030.i = phi i32 [ %.0808, %238 ], [ %.3.i, %292 ], [ %.031.i1235, %244 ], [ %.031.i.be, %.backedge1031 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %207) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %206) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %205) #6
@@ -9013,7 +9019,7 @@ fPriorityArray.exit:                              ; preds = %411, %454
   br label %465
 
 465:                                              ; preds = %507, %464
-  %.0.i = phi i32 [ %.0808, %464 ], [ %.2.i1329, %507 ]
+  %.0.i = phi i32 [ %.0808, %464 ], [ %.2.i1341, %507 ]
   %466 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0.i)
   %467 = icmp sgt i32 %466, 0
   br i1 %467, label %468, label %fSpecialEvent.exit
@@ -9063,31 +9069,31 @@ fPriorityArray.exit:                              ; preds = %411, %454
   br label %490
 
 490:                                              ; preds = %498, %487
-  %.0.i.i1331 = phi i32 [ %489, %487 ], [ %500, %498 ]
-  %491 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0.i.i1331)
+  %.0.i.i1343 = phi i32 [ %489, %487 ], [ %500, %498 ]
+  %491 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0.i.i1343)
   %492 = icmp sgt i32 %491, 0
   br i1 %492, label %493, label %fTimeValue.exit.i
 
 493:                                              ; preds = %490
-  %494 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i.i1331, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %494 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i.i1343, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %495 = load i8, ptr %12, align 1
   %496 = and i8 %495, 7
   %497 = icmp eq i8 %496, 7
   br i1 %497, label %fTimeValue.exit.i, label %498
 
 498:                                              ; preds = %493
-  %499 = call fastcc i32 @fTime(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i.i1331, ptr noundef nonnull @.str.3056)
+  %499 = call fastcc i32 @fTime(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i.i1343, ptr noundef nonnull @.str.3056)
   %500 = call fastcc i32 @fApplicationTypesEnumeratedSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %499, ptr noundef nonnull @.str.3059, ptr noundef null, i32 noundef 0)
-  %.not.i.i1333 = icmp ugt i32 %500, %.0.i.i1331
-  br i1 %.not.i.i1333, label %490, label %fTimeValue.exit.i, !llvm.loop !42
+  %.not.i.i1345 = icmp ugt i32 %500, %.0.i.i1343
+  br i1 %.not.i.i1345, label %490, label %fTimeValue.exit.i, !llvm.loop !42
 
 fTimeValue.exit.i:                                ; preds = %498, %493, %490
-  %.018.i.i1332 = phi i32 [ %.0.i.i1331, %493 ], [ %500, %498 ], [ %.0.i.i1331, %490 ]
+  %.018.i.i1344 = phi i32 [ %.0.i.i1343, %493 ], [ %500, %498 ], [ %.0.i.i1343, %490 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
-  %501 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.018.i.i1332, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
-  %502 = add i32 %501, %.018.i.i1332
+  %501 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.018.i.i1344, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %502 = add i32 %501, %.018.i.i1344
   br label %507
 
 503:                                              ; preds = %485
@@ -9099,12 +9105,12 @@ fTimeValue.exit.i:                                ; preds = %498, %493, %490
   br label %507
 
 507:                                              ; preds = %505, %fTimeValue.exit.i, %483, %477
-  %.2.i1329 = phi i32 [ %506, %505 ], [ %502, %fTimeValue.exit.i ], [ %484, %483 ], [ %482, %477 ]
-  %.not.i1330 = icmp ugt i32 %.2.i1329, %.0.i
-  br i1 %.not.i1330, label %465, label %fSpecialEvent.exit, !llvm.loop !43
+  %.2.i1341 = phi i32 [ %506, %505 ], [ %502, %fTimeValue.exit.i ], [ %484, %483 ], [ %482, %477 ]
+  %.not.i1342 = icmp ugt i32 %.2.i1341, %.0.i
+  br i1 %.not.i1342, label %465, label %fSpecialEvent.exit, !llvm.loop !43
 
 fSpecialEvent.exit:                               ; preds = %465, %468, %473, %475, %507, %503
-  %.048.i = phi i32 [ %.0.i, %503 ], [ %.0.i, %473 ], [ %.0.i, %468 ], [ %.2.i1329, %507 ], [ %.0.i, %465 ], [ %.0.i, %475 ]
+  %.048.i = phi i32 [ %.0.i, %503 ], [ %.0.i, %473 ], [ %.0.i, %468 ], [ %.2.i1341, %507 ], [ %.0.i, %465 ], [ %.0.i, %475 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
@@ -9144,18 +9150,18 @@ fSpecialEvent.exit:                               ; preds = %465, %468, %473, %4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
-  %spec.select.i1334 = call i32 @llvm.smax.i32(i32 %522, i32 1)
+  %spec.select.i1346 = call i32 @llvm.smax.i32(i32 %522, i32 1)
   br label %527
 
 527:                                              ; preds = %fDailySchedule.exit.i, %526
-  %.019.i1335 = phi i32 [ %.0808, %526 ], [ %.036.i.i, %fDailySchedule.exit.i ]
-  %.1.i1336 = phi i32 [ %spec.select.i1334, %526 ], [ %537, %fDailySchedule.exit.i ]
-  %528 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.019.i1335)
+  %.019.i1347 = phi i32 [ %.0808, %526 ], [ %.036.i.i, %fDailySchedule.exit.i ]
+  %.1.i1348 = phi i32 [ %spec.select.i1346, %526 ], [ %537, %fDailySchedule.exit.i ]
+  %528 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.019.i1347)
   %529 = icmp sgt i32 %528, 0
   br i1 %529, label %530, label %fWeeklySchedule.exit
 
 530:                                              ; preds = %527
-  %531 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.019.i1335, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %531 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.019.i1347, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %532 = load i8, ptr %9, align 1
   %533 = and i8 %532, 7
   %534 = icmp eq i8 %533, 7
@@ -9163,13 +9169,13 @@ fSpecialEvent.exit:                               ; preds = %465, %468, %473, %4
 
 535:                                              ; preds = %530
   %536 = load i32, ptr @ett_bacapp_value, align 4
-  %537 = add i32 %.1.i1336, 1
-  %538 = call ptr @val_to_str(i32 noundef %.1.i1336, ptr noundef nonnull @day_of_week, ptr noundef nonnull @.str.3061)
-  %539 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.019.i1335, i32 noundef 0, i32 noundef %536, ptr noundef null, ptr noundef %538)
+  %537 = add i32 %.1.i1348, 1
+  %538 = call ptr @val_to_str(i32 noundef %.1.i1348, ptr noundef nonnull @day_of_week, ptr noundef nonnull @.str.3061)
+  %539 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.019.i1347, i32 noundef 0, i32 noundef %536, ptr noundef null, ptr noundef %538)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  %540 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.019.i1335, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %540 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.019.i1347, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %541 = load i8, ptr %6, align 1
   %542 = and i8 %541, 7
   %543 = icmp eq i8 %542, 6
@@ -9179,30 +9185,30 @@ fSpecialEvent.exit:                               ; preds = %465, %468, %473, %4
   br i1 %or.cond.i.i, label %546, label %592
 
 546:                                              ; preds = %535
-  %547 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %539, i32 noundef %.019.i1335, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %548 = add i32 %547, %.019.i1335
+  %547 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %539, i32 noundef %.019.i1347, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %548 = add i32 %547, %.019.i1347
   br label %549
 
 549:                                              ; preds = %fTimeValue.exit.i.i, %546
-  %.0.i.i1339 = phi i32 [ %548, %546 ], [ %.018.i.i.i, %fTimeValue.exit.i.i ]
-  %550 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0.i.i1339)
+  %.0.i.i1351 = phi i32 [ %548, %546 ], [ %.018.i.i.i, %fTimeValue.exit.i.i ]
+  %550 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0.i.i1351)
   %551 = icmp sgt i32 %550, 0
   br i1 %551, label %552, label %fDailySchedule.exit.i
 
 552:                                              ; preds = %549
-  %553 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i.i1339, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %553 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i.i1351, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %554 = load i8, ptr %6, align 1
   %555 = and i8 %554, 7
   %556 = icmp eq i8 %555, 7
-  br i1 %556, label %.loopexit.sink.split.i.i, label %.preheader.i1340
+  br i1 %556, label %.loopexit.sink.split.i.i, label %.preheader.i1352
 
-.preheader.i1340:                                 ; preds = %552, %589
-  %.0.i.i.i = phi i32 [ %591, %589 ], [ %.0.i.i1339, %552 ]
+.preheader.i1352:                                 ; preds = %552, %589
+  %.0.i.i.i = phi i32 [ %591, %589 ], [ %.0.i.i1351, %552 ]
   %557 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0.i.i.i)
   %558 = icmp sgt i32 %557, 0
   br i1 %558, label %559, label %fTimeValue.exit.i.i
 
-559:                                              ; preds = %.preheader.i1340
+559:                                              ; preds = %.preheader.i1352
   %560 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.0.i.i.i)
   %561 = and i8 %560, 7
   %562 = zext nneg i8 %561 to i32
@@ -9215,12 +9221,12 @@ fSpecialEvent.exit:                               ; preds = %465, %468, %473, %4
   br label %567
 
 567:                                              ; preds = %564, %559
-  %.0107.i.i1342 = phi i32 [ 2, %564 ], [ 1, %559 ]
+  %.0107.i.i1354 = phi i32 [ 2, %564 ], [ 1, %559 ]
   %568 = icmp eq i8 %561, 5
   br i1 %568, label %569, label %581
 
 569:                                              ; preds = %567
-  %570 = add i32 %.0107.i.i1342, %.0.i.i.i
+  %570 = add i32 %.0107.i.i1354, %.0.i.i.i
   %571 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %570)
   switch i8 %571, label %579 [
     i8 -2, label %572
@@ -9243,31 +9249,31 @@ fSpecialEvent.exit:                               ; preds = %465, %468, %473, %4
   br label %581
 
 581:                                              ; preds = %579, %576, %572, %567
-  %.0.i1343 = phi i32 [ %580, %579 ], [ %578, %576 ], [ %575, %572 ], [ %562, %567 ]
+  %.0.i1355 = phi i32 [ %580, %579 ], [ %578, %576 ], [ %575, %572 ], [ %562, %567 ]
   %582 = call i32 @tvb_reported_length(ptr noundef nonnull %0)
-  %583 = icmp ugt i32 %.0.i1343, %582
-  br i1 %583, label %584, label %fTagHeaderTree.exit.i1344
+  %583 = icmp ugt i32 %.0.i1355, %582
+  br i1 %583, label %584, label %fTagHeaderTree.exit.i1356
 
 584:                                              ; preds = %581
   %585 = call i32 @tvb_reported_length(ptr noundef nonnull %0)
-  %586 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_bacapp_bad_length, ptr noundef nonnull @.str.2604, i32 noundef %.0.i1343, i32 noundef %585)
-  br label %fTagHeaderTree.exit.i1344
+  %586 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_bacapp_bad_length, ptr noundef nonnull @.str.2604, i32 noundef %.0.i1355, i32 noundef %585)
+  br label %fTagHeaderTree.exit.i1356
 
-fTagHeaderTree.exit.i1344:                        ; preds = %584, %581
+fTagHeaderTree.exit.i1356:                        ; preds = %584, %581
   %587 = and i8 %560, 15
   %588 = icmp eq i8 %587, 15
   br i1 %588, label %fTimeValue.exit.i.i, label %589
 
-589:                                              ; preds = %fTagHeaderTree.exit.i1344
+589:                                              ; preds = %fTagHeaderTree.exit.i1356
   %590 = call fastcc i32 @fTime(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %539, i32 noundef %.0.i.i.i, ptr noundef nonnull @.str.3056)
   %591 = call fastcc i32 @fApplicationTypesEnumeratedSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %539, i32 noundef %590, ptr noundef nonnull @.str.3059, ptr noundef null, i32 noundef 0)
   %.not.i.i.i = icmp ugt i32 %591, %.0.i.i.i
-  br i1 %.not.i.i.i, label %.preheader.i1340, label %fTimeValue.exit.i.i, !llvm.loop !42
+  br i1 %.not.i.i.i, label %.preheader.i1352, label %fTimeValue.exit.i.i, !llvm.loop !42
 
-fTimeValue.exit.i.i:                              ; preds = %589, %fTagHeaderTree.exit.i1344, %.preheader.i1340
-  %.018.i.i.i = phi i32 [ %.0.i.i.i, %fTagHeaderTree.exit.i1344 ], [ %591, %589 ], [ %.0.i.i.i, %.preheader.i1340 ]
-  %.not.i.i1341 = icmp ugt i32 %.018.i.i.i, %.0.i.i1339
-  br i1 %.not.i.i1341, label %549, label %fDailySchedule.exit.i, !llvm.loop !44
+fTimeValue.exit.i.i:                              ; preds = %589, %fTagHeaderTree.exit.i1356, %.preheader.i1352
+  %.018.i.i.i = phi i32 [ %.0.i.i.i, %fTagHeaderTree.exit.i1356 ], [ %591, %589 ], [ %.0.i.i.i, %.preheader.i1352 ]
+  %.not.i.i1353 = icmp ugt i32 %.018.i.i.i, %.0.i.i1351
+  br i1 %.not.i.i1353, label %549, label %fDailySchedule.exit.i, !llvm.loop !44
 
 592:                                              ; preds = %535
   %593 = load i32, ptr %7, align 4
@@ -9282,21 +9288,21 @@ fDailySchedule.exit.thread.i:                     ; preds = %592
   br label %fWeeklySchedule.exit
 
 .loopexit.sink.split.i.i:                         ; preds = %552, %592
-  %.sink43.i.i = phi i32 [ %.019.i1335, %592 ], [ %.0.i.i1339, %552 ]
+  %.sink43.i.i = phi i32 [ %.019.i1347, %592 ], [ %.0.i.i1351, %552 ]
   %595 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %539, i32 noundef %.sink43.i.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %596 = add i32 %595, %.sink43.i.i
   br label %fDailySchedule.exit.i
 
 fDailySchedule.exit.i:                            ; preds = %fTimeValue.exit.i.i, %549, %.loopexit.sink.split.i.i
-  %.036.i.i = phi i32 [ %596, %.loopexit.sink.split.i.i ], [ %.0.i.i1339, %549 ], [ %.018.i.i.i, %fTimeValue.exit.i.i ]
+  %.036.i.i = phi i32 [ %596, %.loopexit.sink.split.i.i ], [ %.0.i.i1351, %549 ], [ %.018.i.i.i, %fTimeValue.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
-  %.not.i1338 = icmp ugt i32 %.036.i.i, %.019.i1335
-  br i1 %.not.i1338, label %527, label %fWeeklySchedule.exit, !llvm.loop !45
+  %.not.i1350 = icmp ugt i32 %.036.i.i, %.019.i1347
+  br i1 %.not.i1350, label %527, label %fWeeklySchedule.exit, !llvm.loop !45
 
 fWeeklySchedule.exit:                             ; preds = %527, %530, %fDailySchedule.exit.i, %fDailySchedule.exit.thread.i
-  %.021.i = phi i32 [ %.019.i1335, %fDailySchedule.exit.thread.i ], [ %.019.i1335, %530 ], [ %.036.i.i, %fDailySchedule.exit.i ], [ %.019.i1335, %527 ]
+  %.021.i = phi i32 [ %.019.i1347, %fDailySchedule.exit.thread.i ], [ %.019.i1347, %530 ], [ %.036.i.i, %fDailySchedule.exit.i ], [ %.019.i1347, %527 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
@@ -9449,8 +9455,8 @@ fRestartReason.exit:                              ; preds = %651, %654
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %188) #6
   br label %fDestination.exit.thread
 
-657:                                              ; preds = %.preheader1526, %677
-  %.0.i839 = phi i32 [ %.2.i840, %677 ], [ %.0808, %.preheader1526 ]
+657:                                              ; preds = %.preheader1554, %677
+  %.0.i839 = phi i32 [ %.2.i840, %677 ], [ %.0808, %.preheader1554 ]
   %658 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0.i839)
   %659 = icmp sgt i32 %658, 0
   br i1 %659, label %660, label %fDestination.exit.thread
@@ -9639,136 +9645,136 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
   %738 = icmp sgt i32 %737, 0
   %739 = icmp ugt i32 %735, %.0808
   %740 = and i1 %739, %738
-  br i1 %740, label %.lr.ph1094, label %.thread
+  br i1 %740, label %.lr.ph1098, label %.thread
 
 .preheader1064:                                   ; preds = %727
   %741 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %742 = icmp sgt i32 %741, 0
   %743 = icmp ugt i32 %735, %.0808
   %744 = and i1 %743, %742
-  br i1 %744, label %.lr.ph1104, label %.thread
+  br i1 %744, label %.lr.ph1108, label %.thread
 
 .preheader1062:                                   ; preds = %727
   %745 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %746 = icmp sgt i32 %745, 0
   %747 = icmp ugt i32 %735, %.0808
   %748 = and i1 %747, %746
-  br i1 %748, label %.lr.ph1107, label %.thread
+  br i1 %748, label %.lr.ph1111, label %.thread
 
 .preheader1060:                                   ; preds = %727
   %749 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %750 = icmp sgt i32 %749, 0
   %751 = icmp ugt i32 %735, %.0808
   %752 = and i1 %751, %750
-  br i1 %752, label %.lr.ph1119, label %.thread
+  br i1 %752, label %.lr.ph1123, label %.thread
 
 .preheader1058:                                   ; preds = %727
   %753 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %754 = icmp sgt i32 %753, 0
   %755 = icmp ugt i32 %735, %.0808
   %756 = and i1 %755, %754
-  br i1 %756, label %.lr.ph1122, label %.thread
+  br i1 %756, label %.lr.ph1126, label %.thread
 
 .preheader1056:                                   ; preds = %727
   %757 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %758 = icmp sgt i32 %757, 0
   %759 = icmp ugt i32 %735, %.0808
   %760 = and i1 %759, %758
-  br i1 %760, label %.lr.ph1125, label %.thread
+  br i1 %760, label %.lr.ph1129, label %.thread
 
 .preheader1054:                                   ; preds = %727
   %761 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %762 = icmp sgt i32 %761, 0
   %763 = icmp ugt i32 %735, %.0808
   %764 = and i1 %763, %762
-  br i1 %764, label %.lr.ph1128, label %.thread
+  br i1 %764, label %.lr.ph1132, label %.thread
 
 .preheader1052:                                   ; preds = %727
   %765 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %766 = icmp sgt i32 %765, 0
   %767 = icmp ugt i32 %735, %.0808
   %768 = and i1 %767, %766
-  br i1 %768, label %.lr.ph1140, label %.thread
+  br i1 %768, label %.lr.ph1144, label %.thread
 
 .preheader1050:                                   ; preds = %727
   %769 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %770 = icmp sgt i32 %769, 0
   %771 = icmp ugt i32 %735, %.0808
   %772 = and i1 %771, %770
-  br i1 %772, label %.lr.ph1143, label %.thread
+  br i1 %772, label %.lr.ph1147, label %.thread
 
 .preheader1048:                                   ; preds = %727
   %773 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %774 = icmp sgt i32 %773, 0
   %775 = icmp ugt i32 %735, %.0808
   %776 = and i1 %775, %774
-  br i1 %776, label %.lr.ph1146, label %.thread
+  br i1 %776, label %.lr.ph1150, label %.thread
 
 .preheader1044:                                   ; preds = %727
   %777 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %778 = icmp sgt i32 %777, 0
   %779 = icmp ugt i32 %735, %.0808
   %780 = and i1 %779, %778
-  br i1 %780, label %.lr.ph1174, label %.thread
+  br i1 %780, label %.lr.ph1178, label %.thread
 
 .preheader1042:                                   ; preds = %727
   %781 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %782 = icmp sgt i32 %781, 0
   %783 = icmp ugt i32 %735, %.0808
   %784 = and i1 %783, %782
-  br i1 %784, label %.lr.ph1177, label %.thread
+  br i1 %784, label %.lr.ph1181, label %.thread
 
 .preheader1040:                                   ; preds = %727
   %785 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %786 = icmp sgt i32 %785, 0
   %787 = icmp ugt i32 %735, %.0808
   %788 = and i1 %787, %786
-  br i1 %788, label %.lr.ph1180, label %.thread
+  br i1 %788, label %.lr.ph1184, label %.thread
 
 .preheader1038:                                   ; preds = %727
   %789 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %790 = icmp sgt i32 %789, 0
   %791 = icmp ugt i32 %735, %.0808
   %792 = and i1 %791, %790
-  br i1 %792, label %.lr.ph1183, label %.thread
+  br i1 %792, label %.lr.ph1187, label %.thread
 
 .preheader1036:                                   ; preds = %727
   %793 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %794 = icmp sgt i32 %793, 0
   %795 = icmp ugt i32 %735, %.0808
   %796 = and i1 %795, %794
-  br i1 %796, label %.lr.ph1188, label %.thread
+  br i1 %796, label %.lr.ph1192, label %.thread
 
 .preheader1034:                                   ; preds = %727
   %797 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %798 = icmp sgt i32 %797, 0
   %799 = icmp ugt i32 %735, %.0808
   %800 = and i1 %799, %798
-  br i1 %800, label %.lr.ph1191, label %.thread
+  br i1 %800, label %.lr.ph1195, label %.thread
 
 .preheader1032:                                   ; preds = %727
   %801 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %802 = icmp sgt i32 %801, 0
   %803 = icmp ugt i32 %735, %.0808
   %804 = and i1 %803, %802
-  br i1 %804, label %.lr.ph1203, label %.thread
+  br i1 %804, label %.lr.ph1207, label %.thread
 
 .preheader:                                       ; preds = %727
   %805 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %735)
   %806 = icmp sgt i32 %805, 0
   %807 = icmp ugt i32 %735, %.0808
   %808 = and i1 %807, %806
-  br i1 %808, label %.lr.ph1217, label %.thread
+  br i1 %808, label %.lr.ph1221, label %.thread
 
-.lr.ph1217:                                       ; preds = %.preheader, %838
-  %.1611.i1216 = phi i32 [ %.2612.i, %838 ], [ %735, %.preheader ]
-  %809 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.1611.i1216, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1221:                                       ; preds = %.preheader, %838
+  %.1611.i1220 = phi i32 [ %.2612.i, %838 ], [ %735, %.preheader ]
+  %809 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.1611.i1220, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %810 = load i8, ptr %177, align 1
   %811 = and i8 %810, 7
   %812 = icmp eq i8 %811, 7
   br i1 %812, label %.thread, label %813
 
-813:                                              ; preds = %.lr.ph1217
+813:                                              ; preds = %.lr.ph1221
   %814 = load i8, ptr %176, align 1
   switch i8 %814, label %838 [
     i8 0, label %815
@@ -9777,63 +9783,63 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
   ]
 
 815:                                              ; preds = %813
-  %816 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.1611.i1216, ptr noundef nonnull @.str.3284)
+  %816 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.1611.i1220, ptr noundef nonnull @.str.3284)
   br label %838
 
 817:                                              ; preds = %813
-  %818 = call fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.1611.i1216, ptr noundef nonnull @.str.3285, ptr noundef null, i1 noundef zeroext false)
+  %818 = call fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.1611.i1220, ptr noundef nonnull @.str.3285, ptr noundef null, i1 noundef zeroext false)
   br label %838
 
 819:                                              ; preds = %813
-  %820 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.1611.i1216, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %821 = add i32 %820, %.1611.i1216
+  %820 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.1611.i1220, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %821 = add i32 %820, %.1611.i1220
   %822 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %821)
   %823 = icmp sgt i32 %822, 0
-  %824 = icmp ugt i32 %821, %.1611.i1216
+  %824 = icmp ugt i32 %821, %.1611.i1220
   %825 = and i1 %824, %823
-  br i1 %825, label %.lr.ph1209, label %._crit_edge1210
+  br i1 %825, label %.lr.ph1213, label %._crit_edge1214
 
-.lr.ph1209:                                       ; preds = %819, %830
-  %.3613.i1207 = phi i32 [ %831, %830 ], [ %821, %819 ]
-  %826 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.3613.i1207, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1213:                                       ; preds = %819, %830
+  %.3613.i1211 = phi i32 [ %831, %830 ], [ %821, %819 ]
+  %826 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.3613.i1211, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %827 = load i8, ptr %177, align 1
   %828 = and i8 %827, 7
   %829 = icmp eq i8 %828, 7
-  br i1 %829, label %._crit_edge1210, label %830
+  br i1 %829, label %._crit_edge1214, label %830
 
-830:                                              ; preds = %.lr.ph1209
-  %831 = call fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.3613.i1207, ptr noundef nonnull @.str.3252, ptr noundef null, i1 noundef zeroext false)
+830:                                              ; preds = %.lr.ph1213
+  %831 = call fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.3613.i1211, ptr noundef nonnull @.str.3252, ptr noundef null, i1 noundef zeroext false)
   %832 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %831)
   %833 = icmp sgt i32 %832, 0
-  %834 = icmp ugt i32 %831, %.3613.i1207
+  %834 = icmp ugt i32 %831, %.3613.i1211
   %835 = and i1 %834, %833
-  br i1 %835, label %.lr.ph1209, label %._crit_edge1210, !llvm.loop !49
+  br i1 %835, label %.lr.ph1213, label %._crit_edge1214, !llvm.loop !49
 
-._crit_edge1210:                                  ; preds = %830, %.lr.ph1209, %819
-  %.3613.i.lcssa = phi i32 [ %821, %819 ], [ %831, %830 ], [ %.3613.i1207, %.lr.ph1209 ]
-  %.3.i851 = phi i32 [ %.1611.i1216, %819 ], [ %.3613.i1207, %.lr.ph1209 ], [ %.3613.i1207, %830 ]
+._crit_edge1214:                                  ; preds = %830, %.lr.ph1213, %819
+  %.3613.i.lcssa = phi i32 [ %821, %819 ], [ %831, %830 ], [ %.3613.i1211, %.lr.ph1213 ]
+  %.3.i851 = phi i32 [ %.1611.i1220, %819 ], [ %.3613.i1211, %.lr.ph1213 ], [ %.3613.i1211, %830 ]
   %836 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.3613.i.lcssa, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %837 = add i32 %836, %.3613.i.lcssa
   br label %838
 
-838:                                              ; preds = %._crit_edge1210, %817, %815, %813
-  %.2612.i = phi i32 [ %.1611.i1216, %813 ], [ %837, %._crit_edge1210 ], [ %818, %817 ], [ %816, %815 ]
-  %.1.i852 = phi i32 [ %.1611.i1216, %813 ], [ %.3.i851, %._crit_edge1210 ], [ %.1611.i1216, %817 ], [ %.1611.i1216, %815 ]
+838:                                              ; preds = %._crit_edge1214, %817, %815, %813
+  %.2612.i = phi i32 [ %.1611.i1220, %813 ], [ %837, %._crit_edge1214 ], [ %818, %817 ], [ %816, %815 ]
+  %.1.i852 = phi i32 [ %.1611.i1220, %813 ], [ %.3.i851, %._crit_edge1214 ], [ %.1611.i1220, %817 ], [ %.1611.i1220, %815 ]
   %839 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.2612.i)
   %840 = icmp sgt i32 %839, 0
   %841 = icmp ugt i32 %.2612.i, %.1.i852
   %842 = and i1 %841, %840
-  br i1 %842, label %.lr.ph1217, label %.thread, !llvm.loop !50
+  br i1 %842, label %.lr.ph1221, label %.thread, !llvm.loop !50
 
-.lr.ph1203:                                       ; preds = %.preheader1032, %870
-  %.4614.i1202 = phi i32 [ %.5615.i, %870 ], [ %735, %.preheader1032 ]
-  %843 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.4614.i1202, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1207:                                       ; preds = %.preheader1032, %870
+  %.4614.i1206 = phi i32 [ %.5615.i, %870 ], [ %735, %.preheader1032 ]
+  %843 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.4614.i1206, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %844 = load i8, ptr %177, align 1
   %845 = and i8 %844, 7
   %846 = icmp eq i8 %845, 7
   br i1 %846, label %.thread, label %847
 
-847:                                              ; preds = %.lr.ph1203
+847:                                              ; preds = %.lr.ph1207
   %848 = load i8, ptr %176, align 1
   switch i8 %848, label %870 [
     i8 0, label %849
@@ -9841,66 +9847,66 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
   ]
 
 849:                                              ; preds = %847
-  %850 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.4614.i1202, ptr noundef nonnull @.str.3284)
+  %850 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.4614.i1206, ptr noundef nonnull @.str.3284)
   br label %870
 
 851:                                              ; preds = %847
-  %852 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.4614.i1202, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %853 = add i32 %852, %.4614.i1202
+  %852 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.4614.i1206, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %853 = add i32 %852, %.4614.i1206
   %854 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %853)
   %855 = icmp sgt i32 %854, 0
-  %856 = icmp ugt i32 %853, %.4614.i1202
+  %856 = icmp ugt i32 %853, %.4614.i1206
   %857 = and i1 %856, %855
-  br i1 %857, label %.lr.ph1195, label %._crit_edge1196
+  br i1 %857, label %.lr.ph1199, label %._crit_edge1200
 
-.lr.ph1195:                                       ; preds = %851, %862
-  %.6616.i1193 = phi i32 [ %863, %862 ], [ %853, %851 ]
-  %858 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.6616.i1193, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1199:                                       ; preds = %851, %862
+  %.6616.i1197 = phi i32 [ %863, %862 ], [ %853, %851 ]
+  %858 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.6616.i1197, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %859 = load i8, ptr %177, align 1
   %860 = and i8 %859, 7
   %861 = icmp eq i8 %860, 7
-  br i1 %861, label %._crit_edge1196, label %862
+  br i1 %861, label %._crit_edge1200, label %862
 
-862:                                              ; preds = %.lr.ph1195
-  %863 = call fastcc i32 @fBACnetPropertyStates(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.6616.i1193)
+862:                                              ; preds = %.lr.ph1199
+  %863 = call fastcc i32 @fBACnetPropertyStates(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.6616.i1197)
   %864 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %863)
   %865 = icmp sgt i32 %864, 0
-  %866 = icmp ugt i32 %863, %.6616.i1193
+  %866 = icmp ugt i32 %863, %.6616.i1197
   %867 = and i1 %866, %865
-  br i1 %867, label %.lr.ph1195, label %._crit_edge1196, !llvm.loop !51
+  br i1 %867, label %.lr.ph1199, label %._crit_edge1200, !llvm.loop !51
 
-._crit_edge1196:                                  ; preds = %862, %.lr.ph1195, %851
-  %.6616.i.lcssa = phi i32 [ %853, %851 ], [ %863, %862 ], [ %.6616.i1193, %.lr.ph1195 ]
-  %.7.i = phi i32 [ %.4614.i1202, %851 ], [ %.6616.i1193, %.lr.ph1195 ], [ %.6616.i1193, %862 ]
+._crit_edge1200:                                  ; preds = %862, %.lr.ph1199, %851
+  %.6616.i.lcssa = phi i32 [ %853, %851 ], [ %863, %862 ], [ %.6616.i1197, %.lr.ph1199 ]
+  %.7.i = phi i32 [ %.4614.i1206, %851 ], [ %.6616.i1197, %.lr.ph1199 ], [ %.6616.i1197, %862 ]
   %868 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.6616.i.lcssa, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %869 = add i32 %868, %.6616.i.lcssa
   br label %870
 
-870:                                              ; preds = %._crit_edge1196, %849, %847
-  %.5615.i = phi i32 [ %.4614.i1202, %847 ], [ %869, %._crit_edge1196 ], [ %850, %849 ]
-  %.5.i = phi i32 [ %.4614.i1202, %847 ], [ %.7.i, %._crit_edge1196 ], [ %.4614.i1202, %849 ]
+870:                                              ; preds = %._crit_edge1200, %849, %847
+  %.5615.i = phi i32 [ %.4614.i1206, %847 ], [ %869, %._crit_edge1200 ], [ %850, %849 ]
+  %.5.i = phi i32 [ %.4614.i1206, %847 ], [ %.7.i, %._crit_edge1200 ], [ %.4614.i1206, %849 ]
   %871 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.5615.i)
   %872 = icmp sgt i32 %871, 0
   %873 = icmp ugt i32 %.5615.i, %.5.i
   %874 = and i1 %873, %872
-  br i1 %874, label %.lr.ph1203, label %.thread, !llvm.loop !52
+  br i1 %874, label %.lr.ph1207, label %.thread, !llvm.loop !52
 
-.lr.ph1191:                                       ; preds = %.preheader1034, %891
-  %.7617.i1190 = phi i32 [ %.8618.i, %891 ], [ %735, %.preheader1034 ]
-  %875 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.7617.i1190)
+.lr.ph1195:                                       ; preds = %.preheader1034, %891
+  %.7617.i1194 = phi i32 [ %.8618.i, %891 ], [ %735, %.preheader1034 ]
+  %875 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.7617.i1194)
   %876 = lshr i8 %875, 4
   switch i8 %876, label %891 [
     i8 0, label %877
     i8 1, label %879
   ]
 
-877:                                              ; preds = %.lr.ph1191
-  %878 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.7617.i1190, ptr noundef nonnull @.str.3284)
+877:                                              ; preds = %.lr.ph1195
+  %878 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.7617.i1194, ptr noundef nonnull @.str.3284)
   br label %891
 
-879:                                              ; preds = %.lr.ph1191
-  %880 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.7617.i1190, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %881 = add i32 %880, %.7617.i1190
+879:                                              ; preds = %.lr.ph1195
+  %880 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.7617.i1194, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %881 = add i32 %880, %.7617.i1194
   %882 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %881)
   %883 = lshr i8 %882, 4
   switch i8 %883, label %888 [
@@ -9922,17 +9928,17 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
   %890 = add i32 %889, %.9619.i
   br label %891
 
-891:                                              ; preds = %888, %877, %.lr.ph1191
-  %.8618.i = phi i32 [ %.7617.i1190, %.lr.ph1191 ], [ %890, %888 ], [ %878, %877 ]
+891:                                              ; preds = %888, %877, %.lr.ph1195
+  %.8618.i = phi i32 [ %.7617.i1194, %.lr.ph1195 ], [ %890, %888 ], [ %878, %877 ]
   %892 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.8618.i)
   %893 = icmp sgt i32 %892, 0
-  %894 = icmp ugt i32 %.8618.i, %.7617.i1190
+  %894 = icmp ugt i32 %.8618.i, %.7617.i1194
   %895 = and i1 %894, %893
-  br i1 %895, label %.lr.ph1191, label %.thread, !llvm.loop !53
+  br i1 %895, label %.lr.ph1195, label %.thread, !llvm.loop !53
 
-.lr.ph1188:                                       ; preds = %.preheader1036, %906
-  %.10620.i1187 = phi i32 [ %.11621.i, %906 ], [ %735, %.preheader1036 ]
-  %896 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.10620.i1187)
+.lr.ph1192:                                       ; preds = %.preheader1036, %906
+  %.10620.i1191 = phi i32 [ %.11621.i, %906 ], [ %735, %.preheader1036 ]
+  %896 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.10620.i1191)
   %897 = lshr i8 %896, 4
   store i8 %897, ptr %176, align 1
   switch i8 %897, label %906 [
@@ -9940,35 +9946,35 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
     i8 1, label %900
   ]
 
-898:                                              ; preds = %.lr.ph1188
-  %899 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.10620.i1187, ptr noundef nonnull @.str.3284)
+898:                                              ; preds = %.lr.ph1192
+  %899 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.10620.i1191, ptr noundef nonnull @.str.3284)
   br label %906
 
-900:                                              ; preds = %.lr.ph1188
-  %901 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.10620.i1187, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %902 = add i32 %901, %.10620.i1187
+900:                                              ; preds = %.lr.ph1192
+  %901 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.10620.i1191, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %902 = add i32 %901, %.10620.i1191
   %903 = call fastcc i32 @fDeviceObjectPropertyReference(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %902)
   %904 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %903, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %905 = add i32 %904, %903
   br label %906
 
-906:                                              ; preds = %900, %898, %.lr.ph1188
-  %.11621.i = phi i32 [ %.10620.i1187, %.lr.ph1188 ], [ %905, %900 ], [ %899, %898 ]
+906:                                              ; preds = %900, %898, %.lr.ph1192
+  %.11621.i = phi i32 [ %.10620.i1191, %.lr.ph1192 ], [ %905, %900 ], [ %899, %898 ]
   %907 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.11621.i)
   %908 = icmp sgt i32 %907, 0
-  %909 = icmp ugt i32 %.11621.i, %.10620.i1187
+  %909 = icmp ugt i32 %.11621.i, %.10620.i1191
   %910 = and i1 %909, %908
-  br i1 %910, label %.lr.ph1188, label %.thread, !llvm.loop !54
+  br i1 %910, label %.lr.ph1192, label %.thread, !llvm.loop !54
 
-.lr.ph1183:                                       ; preds = %.preheader1038, %931
-  %.12622.i1182 = phi i32 [ %.13623.i, %931 ], [ %735, %.preheader1038 ]
-  %911 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.12622.i1182, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1187:                                       ; preds = %.preheader1038, %931
+  %.12622.i1186 = phi i32 [ %.13623.i, %931 ], [ %735, %.preheader1038 ]
+  %911 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.12622.i1186, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %912 = load i8, ptr %177, align 1
   %913 = and i8 %912, 7
   %914 = icmp eq i8 %913, 7
   br i1 %914, label %.thread, label %915
 
-915:                                              ; preds = %.lr.ph1183
+915:                                              ; preds = %.lr.ph1187
   %916 = load i8, ptr %176, align 1
   switch i8 %916, label %931 [
     i8 0, label %917
@@ -9979,40 +9985,40 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
   ]
 
 917:                                              ; preds = %915
-  %918 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.12622.i1182, ptr noundef nonnull @.str.3284)
+  %918 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.12622.i1186, ptr noundef nonnull @.str.3284)
   br label %931
 
 919:                                              ; preds = %915
-  %920 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.12622.i1182, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %921 = add i32 %920, %.12622.i1182
+  %920 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.12622.i1186, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %921 = add i32 %920, %.12622.i1186
   %922 = call fastcc i32 @fDeviceObjectPropertyReference(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %921)
   %923 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %922, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %924 = add i32 %923, %922
   br label %931
 
 925:                                              ; preds = %915
-  %926 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.12622.i1182, ptr noundef nonnull @.str.3287)
+  %926 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.12622.i1186, ptr noundef nonnull @.str.3287)
   br label %931
 
 927:                                              ; preds = %915
-  %928 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.12622.i1182, ptr noundef nonnull @.str.3288)
+  %928 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.12622.i1186, ptr noundef nonnull @.str.3288)
   br label %931
 
 929:                                              ; preds = %915
-  %930 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.12622.i1182, ptr noundef nonnull @.str.3107)
+  %930 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.12622.i1186, ptr noundef nonnull @.str.3107)
   br label %931
 
 931:                                              ; preds = %929, %927, %925, %919, %917, %915
-  %.13623.i = phi i32 [ %.12622.i1182, %915 ], [ %930, %929 ], [ %928, %927 ], [ %926, %925 ], [ %924, %919 ], [ %918, %917 ]
+  %.13623.i = phi i32 [ %.12622.i1186, %915 ], [ %930, %929 ], [ %928, %927 ], [ %926, %925 ], [ %924, %919 ], [ %918, %917 ]
   %932 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.13623.i)
   %933 = icmp sgt i32 %932, 0
-  %934 = icmp ugt i32 %.13623.i, %.12622.i1182
+  %934 = icmp ugt i32 %.13623.i, %.12622.i1186
   %935 = and i1 %934, %933
-  br i1 %935, label %.lr.ph1183, label %.thread, !llvm.loop !55
+  br i1 %935, label %.lr.ph1187, label %.thread, !llvm.loop !55
 
-.lr.ph1180:                                       ; preds = %.preheader1040, %946
-  %.14624.i1179 = phi i32 [ %.15625.i, %946 ], [ %735, %.preheader1040 ]
-  %936 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.14624.i1179)
+.lr.ph1184:                                       ; preds = %.preheader1040, %946
+  %.14624.i1183 = phi i32 [ %.15625.i, %946 ], [ %735, %.preheader1040 ]
+  %936 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.14624.i1183)
   %937 = lshr i8 %936, 4
   switch i8 %937, label %946 [
     i8 0, label %938
@@ -10021,58 +10027,58 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
     i8 3, label %944
   ]
 
-938:                                              ; preds = %.lr.ph1180
-  %939 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.14624.i1179, ptr noundef nonnull @.str.3284)
+938:                                              ; preds = %.lr.ph1184
+  %939 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.14624.i1183, ptr noundef nonnull @.str.3284)
   br label %946
 
-940:                                              ; preds = %.lr.ph1180
-  %941 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.14624.i1179, ptr noundef nonnull @.str.3289)
+940:                                              ; preds = %.lr.ph1184
+  %941 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.14624.i1183, ptr noundef nonnull @.str.3289)
   br label %946
 
-942:                                              ; preds = %.lr.ph1180
-  %943 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.14624.i1179, ptr noundef nonnull @.str.3290)
+942:                                              ; preds = %.lr.ph1184
+  %943 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.14624.i1183, ptr noundef nonnull @.str.3290)
   br label %946
 
-944:                                              ; preds = %.lr.ph1180
-  %945 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.14624.i1179, ptr noundef nonnull @.str.3107)
+944:                                              ; preds = %.lr.ph1184
+  %945 = call fastcc i32 @fRealTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.14624.i1183, ptr noundef nonnull @.str.3107)
   br label %946
 
-946:                                              ; preds = %944, %942, %940, %938, %.lr.ph1180
-  %.15625.i = phi i32 [ %.14624.i1179, %.lr.ph1180 ], [ %945, %944 ], [ %943, %942 ], [ %941, %940 ], [ %939, %938 ]
+946:                                              ; preds = %944, %942, %940, %938, %.lr.ph1184
+  %.15625.i = phi i32 [ %.14624.i1183, %.lr.ph1184 ], [ %945, %944 ], [ %943, %942 ], [ %941, %940 ], [ %939, %938 ]
   %947 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.15625.i)
   %948 = icmp sgt i32 %947, 0
-  %949 = icmp ugt i32 %.15625.i, %.14624.i1179
+  %949 = icmp ugt i32 %.15625.i, %.14624.i1183
   %950 = and i1 %949, %948
-  br i1 %950, label %.lr.ph1180, label %.thread, !llvm.loop !56
+  br i1 %950, label %.lr.ph1184, label %.thread, !llvm.loop !56
 
 951:                                              ; preds = %727
   %952 = call fastcc i32 @fBACnetPropertyValue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %735)
   br label %.thread
 
-.lr.ph1177:                                       ; preds = %.preheader1042, %956
-  %.16626.i1176 = phi i32 [ %957, %956 ], [ %735, %.preheader1042 ]
-  %953 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.16626.i1176)
+.lr.ph1181:                                       ; preds = %.preheader1042, %956
+  %.16626.i1180 = phi i32 [ %957, %956 ], [ %735, %.preheader1042 ]
+  %953 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.16626.i1180)
   %954 = lshr i8 %953, 4
   switch i8 %954, label %fEventParameter.exit [
     i8 0, label %956
     i8 1, label %955
   ]
 
-955:                                              ; preds = %.lr.ph1177
+955:                                              ; preds = %.lr.ph1181
   br label %956
 
-956:                                              ; preds = %.lr.ph1177, %955
-  %.str.3292.sink = phi ptr [ @.str.3292, %955 ], [ @.str.3291, %.lr.ph1177 ]
-  %957 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.16626.i1176, ptr noundef nonnull %.str.3292.sink)
+956:                                              ; preds = %.lr.ph1181, %955
+  %.str.3292.sink = phi ptr [ @.str.3292, %955 ], [ @.str.3291, %.lr.ph1181 ]
+  %957 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.16626.i1180, ptr noundef nonnull %.str.3292.sink)
   %958 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %957)
   %959 = icmp sgt i32 %958, 0
-  %960 = icmp ugt i32 %957, %.16626.i1176
+  %960 = icmp ugt i32 %957, %.16626.i1180
   %961 = and i1 %960, %959
-  br i1 %961, label %.lr.ph1177, label %.thread, !llvm.loop !57
+  br i1 %961, label %.lr.ph1181, label %.thread, !llvm.loop !57
 
-.lr.ph1174:                                       ; preds = %.preheader1044, %1010
-  %.18628.i1173 = phi i32 [ %.19629.i, %1010 ], [ %735, %.preheader1044 ]
-  %962 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.18628.i1173)
+.lr.ph1178:                                       ; preds = %.preheader1044, %1010
+  %.18628.i1177 = phi i32 [ %.19629.i, %1010 ], [ %735, %.preheader1044 ]
+  %962 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.18628.i1177)
   %963 = lshr i8 %962, 4
   switch i8 %963, label %1010 [
     i8 0, label %964
@@ -10081,90 +10087,90 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
     i8 3, label %1004
   ]
 
-964:                                              ; preds = %.lr.ph1174
-  %965 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.18628.i1173, ptr noundef nonnull @.str.3284)
+964:                                              ; preds = %.lr.ph1178
+  %965 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.18628.i1177, ptr noundef nonnull @.str.3284)
   br label %1010
 
-966:                                              ; preds = %.lr.ph1174
-  %967 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.18628.i1173, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %968 = add i32 %967, %.18628.i1173
+966:                                              ; preds = %.lr.ph1178
+  %967 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.18628.i1177, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %968 = add i32 %967, %.18628.i1177
   %969 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %968)
   %970 = icmp sgt i32 %969, 0
-  %971 = icmp ugt i32 %968, %.18628.i1173
+  %971 = icmp ugt i32 %968, %.18628.i1177
   %972 = and i1 %971, %970
-  br i1 %972, label %.lr.ph1166, label %._crit_edge1167
+  br i1 %972, label %.lr.ph1170, label %._crit_edge1171
 
-.lr.ph1166:                                       ; preds = %966, %977
-  %.20630.i1164 = phi i32 [ %978, %977 ], [ %968, %966 ]
-  %973 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.20630.i1164, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1170:                                       ; preds = %966, %977
+  %.20630.i1168 = phi i32 [ %978, %977 ], [ %968, %966 ]
+  %973 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.20630.i1168, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %974 = load i8, ptr %177, align 1
   %975 = and i8 %974, 7
   %976 = icmp eq i8 %975, 7
-  br i1 %976, label %._crit_edge1167, label %977
+  br i1 %976, label %._crit_edge1171, label %977
 
-977:                                              ; preds = %.lr.ph1166
-  %978 = call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.20630.i1164, ptr noundef nonnull @.str.3293, ptr noundef nonnull @BACnetLifeSafetyState, i32 noundef 256)
+977:                                              ; preds = %.lr.ph1170
+  %978 = call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.20630.i1168, ptr noundef nonnull @.str.3293, ptr noundef nonnull @BACnetLifeSafetyState, i32 noundef 256)
   %979 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %978)
   %980 = icmp sgt i32 %979, 0
-  %981 = icmp ugt i32 %978, %.20630.i1164
+  %981 = icmp ugt i32 %978, %.20630.i1168
   %982 = and i1 %981, %980
-  br i1 %982, label %.lr.ph1166, label %._crit_edge1167, !llvm.loop !58
+  br i1 %982, label %.lr.ph1170, label %._crit_edge1171, !llvm.loop !58
 
-._crit_edge1167:                                  ; preds = %977, %.lr.ph1166, %966
-  %.20630.i.lcssa = phi i32 [ %968, %966 ], [ %978, %977 ], [ %.20630.i1164, %.lr.ph1166 ]
-  %.16.i = phi i32 [ %.18628.i1173, %966 ], [ %.20630.i1164, %.lr.ph1166 ], [ %.20630.i1164, %977 ]
+._crit_edge1171:                                  ; preds = %977, %.lr.ph1170, %966
+  %.20630.i.lcssa = phi i32 [ %968, %966 ], [ %978, %977 ], [ %.20630.i1168, %.lr.ph1170 ]
+  %.16.i = phi i32 [ %.18628.i1177, %966 ], [ %.20630.i1168, %.lr.ph1170 ], [ %.20630.i1168, %977 ]
   %983 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.20630.i.lcssa, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %984 = add i32 %983, %.20630.i.lcssa
   br label %1010
 
-985:                                              ; preds = %.lr.ph1174
-  %986 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.18628.i1173, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %987 = add i32 %986, %.18628.i1173
+985:                                              ; preds = %.lr.ph1178
+  %986 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.18628.i1177, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %987 = add i32 %986, %.18628.i1177
   %988 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %987)
   %989 = icmp sgt i32 %988, 0
-  %990 = icmp ugt i32 %987, %.18628.i1173
+  %990 = icmp ugt i32 %987, %.18628.i1177
   %991 = and i1 %990, %989
-  br i1 %991, label %.lr.ph1157, label %._crit_edge1158
+  br i1 %991, label %.lr.ph1161, label %._crit_edge1162
 
-.lr.ph1157:                                       ; preds = %985, %996
-  %.21631.i1155 = phi i32 [ %997, %996 ], [ %987, %985 ]
-  %992 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.21631.i1155, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1161:                                       ; preds = %985, %996
+  %.21631.i1159 = phi i32 [ %997, %996 ], [ %987, %985 ]
+  %992 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.21631.i1159, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %993 = load i8, ptr %177, align 1
   %994 = and i8 %993, 7
   %995 = icmp eq i8 %994, 7
-  br i1 %995, label %._crit_edge1158, label %996
+  br i1 %995, label %._crit_edge1162, label %996
 
-996:                                              ; preds = %.lr.ph1157
-  %997 = call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.21631.i1155, ptr noundef nonnull @.str.3294, ptr noundef nonnull @BACnetLifeSafetyState, i32 noundef 256)
+996:                                              ; preds = %.lr.ph1161
+  %997 = call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.21631.i1159, ptr noundef nonnull @.str.3294, ptr noundef nonnull @BACnetLifeSafetyState, i32 noundef 256)
   %998 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %997)
   %999 = icmp sgt i32 %998, 0
-  %1000 = icmp ugt i32 %997, %.21631.i1155
+  %1000 = icmp ugt i32 %997, %.21631.i1159
   %1001 = and i1 %1000, %999
-  br i1 %1001, label %.lr.ph1157, label %._crit_edge1158, !llvm.loop !59
+  br i1 %1001, label %.lr.ph1161, label %._crit_edge1162, !llvm.loop !59
 
-._crit_edge1158:                                  ; preds = %996, %.lr.ph1157, %985
-  %.21631.i.lcssa = phi i32 [ %987, %985 ], [ %997, %996 ], [ %.21631.i1155, %.lr.ph1157 ]
-  %.18.i = phi i32 [ %.18628.i1173, %985 ], [ %.21631.i1155, %.lr.ph1157 ], [ %.21631.i1155, %996 ]
+._crit_edge1162:                                  ; preds = %996, %.lr.ph1161, %985
+  %.21631.i.lcssa = phi i32 [ %987, %985 ], [ %997, %996 ], [ %.21631.i1159, %.lr.ph1161 ]
+  %.18.i = phi i32 [ %.18628.i1177, %985 ], [ %.21631.i1159, %.lr.ph1161 ], [ %.21631.i1159, %996 ]
   %1002 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.21631.i.lcssa, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1003 = add i32 %1002, %.21631.i.lcssa
   br label %1010
 
-1004:                                             ; preds = %.lr.ph1174
-  %1005 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.18628.i1173, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %1006 = add i32 %1005, %.18628.i1173
+1004:                                             ; preds = %.lr.ph1178
+  %1005 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.18628.i1177, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %1006 = add i32 %1005, %.18628.i1177
   %1007 = call fastcc i32 @fDeviceObjectPropertyReference(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %1006)
   %1008 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %1007, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1009 = add i32 %1008, %1007
   br label %1010
 
-1010:                                             ; preds = %1004, %._crit_edge1158, %._crit_edge1167, %964, %.lr.ph1174
-  %.19629.i = phi i32 [ %.18628.i1173, %.lr.ph1174 ], [ %1009, %1004 ], [ %1003, %._crit_edge1158 ], [ %984, %._crit_edge1167 ], [ %965, %964 ]
-  %.14.i = phi i32 [ %.18628.i1173, %.lr.ph1174 ], [ %.18628.i1173, %1004 ], [ %.18.i, %._crit_edge1158 ], [ %.16.i, %._crit_edge1167 ], [ %.18628.i1173, %964 ]
+1010:                                             ; preds = %1004, %._crit_edge1162, %._crit_edge1171, %964, %.lr.ph1178
+  %.19629.i = phi i32 [ %.18628.i1177, %.lr.ph1178 ], [ %1009, %1004 ], [ %1003, %._crit_edge1162 ], [ %984, %._crit_edge1171 ], [ %965, %964 ]
+  %.14.i = phi i32 [ %.18628.i1177, %.lr.ph1178 ], [ %.18628.i1177, %1004 ], [ %.18.i, %._crit_edge1162 ], [ %.16.i, %._crit_edge1171 ], [ %.18628.i1177, %964 ]
   %1011 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.19629.i)
   %1012 = icmp sgt i32 %1011, 0
   %1013 = icmp ugt i32 %.19629.i, %.14.i
   %1014 = and i1 %1013, %1012
-  br i1 %1014, label %.lr.ph1174, label %.thread, !llvm.loop !60
+  br i1 %1014, label %.lr.ph1178, label %.thread, !llvm.loop !60
 
 .preheader1046:                                   ; preds = %727, %1060
   %.22632.i = phi i32 [ %.23633.i, %1060 ], [ %735, %727 ]
@@ -10199,26 +10205,26 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
   %1030 = icmp sgt i32 %1029, 0
   %1031 = icmp ugt i32 %1028, %.22632.i
   %1032 = and i1 %1031, %1030
-  br i1 %1032, label %.lr.ph1150, label %._crit_edge1151
+  br i1 %1032, label %.lr.ph1154, label %._crit_edge1155
 
-.lr.ph1150:                                       ; preds = %1026, %1053
-  %.24634.i1148 = phi i32 [ %.25635.i, %1053 ], [ %1028, %1026 ]
-  %1033 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.24634.i1148, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1154:                                       ; preds = %1026, %1053
+  %.24634.i1152 = phi i32 [ %.25635.i, %1053 ], [ %1028, %1026 ]
+  %1033 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.24634.i1152, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1034 = load i8, ptr %177, align 1
   %1035 = and i8 %1034, 7
   %1036 = icmp eq i8 %1035, 7
   %1037 = load i8, ptr %176, align 1
   %1038 = icmp eq i8 %1037, 2
   %or.cond.i848 = select i1 %1036, i1 %1038, i1 false
-  br i1 %or.cond.i848, label %._crit_edge1151, label %1039
+  br i1 %or.cond.i848, label %._crit_edge1155, label %1039
 
-1039:                                             ; preds = %.lr.ph1150
+1039:                                             ; preds = %.lr.ph1154
   %1040 = and i8 %1034, 8
   %.not1027 = icmp eq i8 %1040, 0
   br i1 %.not1027, label %1041, label %1043
 
 1041:                                             ; preds = %1039
-  %1042 = call fastcc i32 @fApplicationTypesEnumeratedSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.24634.i1148, ptr noundef nonnull @.str.3115, ptr noundef null, i32 noundef 0)
+  %1042 = call fastcc i32 @fApplicationTypesEnumeratedSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.24634.i1152, ptr noundef nonnull @.str.3115, ptr noundef null, i32 noundef 0)
   br label %1053
 
 1043:                                             ; preds = %1039
@@ -10226,27 +10232,27 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
   br i1 %1044, label %1045, label %1051
 
 1045:                                             ; preds = %1043
-  %1046 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.24634.i1148, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %1047 = add i32 %1046, %.24634.i1148
+  %1046 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.24634.i1152, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %1047 = add i32 %1046, %.24634.i1152
   %1048 = call fastcc i32 @fDeviceObjectPropertyReference(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %1047)
   %1049 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %1048, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1050 = add i32 %1049, %1048
   br label %1053
 
 1051:                                             ; preds = %1043
-  %1052 = call fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.24634.i1148)
+  %1052 = call fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.24634.i1152)
   br label %1053
 
 1053:                                             ; preds = %1051, %1045, %1041
   %.25635.i = phi i32 [ %1050, %1045 ], [ %1052, %1051 ], [ %1042, %1041 ]
   %1054 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.25635.i)
   %1055 = icmp sgt i32 %1054, 0
-  %1056 = icmp ugt i32 %.25635.i, %.24634.i1148
+  %1056 = icmp ugt i32 %.25635.i, %.24634.i1152
   %1057 = and i1 %1056, %1055
-  br i1 %1057, label %.lr.ph1150, label %._crit_edge1151, !llvm.loop !61
+  br i1 %1057, label %.lr.ph1154, label %._crit_edge1155, !llvm.loop !61
 
-._crit_edge1151:                                  ; preds = %1053, %.lr.ph1150, %1026
-  %.24634.i.lcssa = phi i32 [ %1028, %1026 ], [ %.25635.i, %1053 ], [ %.24634.i1148, %.lr.ph1150 ]
+._crit_edge1155:                                  ; preds = %1053, %.lr.ph1154, %1026
+  %.24634.i.lcssa = phi i32 [ %1028, %1026 ], [ %.25635.i, %1053 ], [ %.24634.i1152, %.lr.ph1154 ]
   %1058 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.24634.i.lcssa, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1059 = add i32 %1058, %.24634.i.lcssa
   br label %.thread
@@ -10256,34 +10262,34 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
   %.not.i847 = icmp ugt i32 %.23633.i, %.22632.i
   br i1 %.not.i847, label %.preheader1046, label %.thread, !llvm.loop !62
 
-.lr.ph1146:                                       ; preds = %.preheader1048, %1065
-  %.26636.i1145 = phi i32 [ %.27637.i, %1065 ], [ %735, %.preheader1048 ]
-  %1061 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.26636.i1145)
+.lr.ph1150:                                       ; preds = %.preheader1048, %1065
+  %.26636.i1149 = phi i32 [ %.27637.i, %1065 ], [ %735, %.preheader1048 ]
+  %1061 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.26636.i1149)
   %1062 = lshr i8 %1061, 4
   switch i8 %1062, label %1065 [
     i8 0, label %.sink.split
     i8 1, label %1063
   ]
 
-1063:                                             ; preds = %.lr.ph1146
+1063:                                             ; preds = %.lr.ph1150
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph1146, %1063
-  %.str.3296.sink = phi ptr [ @.str.3296, %1063 ], [ @.str.3295, %.lr.ph1146 ]
-  %1064 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.26636.i1145, ptr noundef nonnull %.str.3296.sink)
+.sink.split:                                      ; preds = %.lr.ph1150, %1063
+  %.str.3296.sink = phi ptr [ @.str.3296, %1063 ], [ @.str.3295, %.lr.ph1150 ]
+  %1064 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.26636.i1149, ptr noundef nonnull %.str.3296.sink)
   br label %1065
 
-1065:                                             ; preds = %.sink.split, %.lr.ph1146
-  %.27637.i = phi i32 [ %.26636.i1145, %.lr.ph1146 ], [ %1064, %.sink.split ]
+1065:                                             ; preds = %.sink.split, %.lr.ph1150
+  %.27637.i = phi i32 [ %.26636.i1149, %.lr.ph1150 ], [ %1064, %.sink.split ]
   %1066 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.27637.i)
   %1067 = icmp sgt i32 %1066, 0
-  %1068 = icmp ugt i32 %.27637.i, %.26636.i1145
+  %1068 = icmp ugt i32 %.27637.i, %.26636.i1149
   %1069 = and i1 %1068, %1067
-  br i1 %1069, label %.lr.ph1146, label %.thread, !llvm.loop !63
+  br i1 %1069, label %.lr.ph1150, label %.thread, !llvm.loop !63
 
-.lr.ph1143:                                       ; preds = %.preheader1050, %1078
-  %.28638.i1142 = phi i32 [ %.29639.i, %1078 ], [ %735, %.preheader1050 ]
-  %1070 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.28638.i1142)
+.lr.ph1147:                                       ; preds = %.preheader1050, %1078
+  %.28638.i1146 = phi i32 [ %.29639.i, %1078 ], [ %735, %.preheader1050 ]
+  %1070 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.28638.i1146)
   %1071 = lshr i8 %1070, 4
   switch i8 %1071, label %1078 [
     i8 0, label %1072
@@ -10291,85 +10297,85 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
     i8 2, label %1076
   ]
 
-1072:                                             ; preds = %.lr.ph1143
-  %1073 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.28638.i1142, ptr noundef nonnull @.str.3284)
+1072:                                             ; preds = %.lr.ph1147
+  %1073 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.28638.i1146, ptr noundef nonnull @.str.3284)
   br label %1078
 
-1074:                                             ; preds = %.lr.ph1143
-  %1075 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.28638.i1142, ptr noundef nonnull @.str.3297)
+1074:                                             ; preds = %.lr.ph1147
+  %1075 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.28638.i1146, ptr noundef nonnull @.str.3297)
   br label %1078
 
-1076:                                             ; preds = %.lr.ph1143
-  %1077 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.28638.i1142, ptr noundef nonnull @.str.3298)
+1076:                                             ; preds = %.lr.ph1147
+  %1077 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.28638.i1146, ptr noundef nonnull @.str.3298)
   br label %1078
 
-1078:                                             ; preds = %1076, %1074, %1072, %.lr.ph1143
-  %.29639.i = phi i32 [ %.28638.i1142, %.lr.ph1143 ], [ %1077, %1076 ], [ %1075, %1074 ], [ %1073, %1072 ]
+1078:                                             ; preds = %1076, %1074, %1072, %.lr.ph1147
+  %.29639.i = phi i32 [ %.28638.i1146, %.lr.ph1147 ], [ %1077, %1076 ], [ %1075, %1074 ], [ %1073, %1072 ]
   %1079 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.29639.i)
   %1080 = icmp sgt i32 %1079, 0
-  %1081 = icmp ugt i32 %.29639.i, %.28638.i1142
+  %1081 = icmp ugt i32 %.29639.i, %.28638.i1146
   %1082 = and i1 %1081, %1080
-  br i1 %1082, label %.lr.ph1143, label %.thread, !llvm.loop !64
+  br i1 %1082, label %.lr.ph1147, label %.thread, !llvm.loop !64
 
-.lr.ph1140:                                       ; preds = %.preheader1052, %1108
-  %.30640.i1139 = phi i32 [ %.32642.i, %1108 ], [ %735, %.preheader1052 ]
-  %1083 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.30640.i1139)
+.lr.ph1144:                                       ; preds = %.preheader1052, %1108
+  %.30640.i1143 = phi i32 [ %.32642.i, %1108 ], [ %735, %.preheader1052 ]
+  %1083 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.30640.i1143)
   %1084 = lshr i8 %1083, 4
   switch i8 %1084, label %1108 [
     i8 0, label %1085
     i8 1, label %1102
   ]
 
-1085:                                             ; preds = %.lr.ph1140
-  %1086 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.30640.i1139, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %1087 = add i32 %1086, %.30640.i1139
+1085:                                             ; preds = %.lr.ph1144
+  %1086 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.30640.i1143, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %1087 = add i32 %1086, %.30640.i1143
   %1088 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1087)
   %1089 = icmp sgt i32 %1088, 0
-  %1090 = icmp ugt i32 %1087, %.30640.i1139
+  %1090 = icmp ugt i32 %1087, %.30640.i1143
   %1091 = and i1 %1090, %1089
-  br i1 %1091, label %.lr.ph1132, label %.sink.split1326
+  br i1 %1091, label %.lr.ph1136, label %.sink.split1338
 
-.lr.ph1132:                                       ; preds = %1085, %1096
-  %.31641.i1130 = phi i32 [ %1097, %1096 ], [ %1087, %1085 ]
-  %1092 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.31641.i1130, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1136:                                       ; preds = %1085, %1096
+  %.31641.i1134 = phi i32 [ %1097, %1096 ], [ %1087, %1085 ]
+  %1092 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.31641.i1134, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1093 = load i8, ptr %177, align 1
   %1094 = and i8 %1093, 7
   %1095 = icmp eq i8 %1094, 7
-  br i1 %1095, label %.sink.split1326, label %1096
+  br i1 %1095, label %.sink.split1338, label %1096
 
-1096:                                             ; preds = %.lr.ph1132
-  %1097 = call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.31641.i1130, ptr noundef nonnull @.str.3116, ptr noundef nonnull @BACnetAccessEvent, i32 noundef 512)
+1096:                                             ; preds = %.lr.ph1136
+  %1097 = call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.31641.i1134, ptr noundef nonnull @.str.3116, ptr noundef nonnull @BACnetAccessEvent, i32 noundef 512)
   %1098 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1097)
   %1099 = icmp sgt i32 %1098, 0
-  %1100 = icmp ugt i32 %1097, %.31641.i1130
+  %1100 = icmp ugt i32 %1097, %.31641.i1134
   %1101 = and i1 %1100, %1099
-  br i1 %1101, label %.lr.ph1132, label %.sink.split1326, !llvm.loop !65
+  br i1 %1101, label %.lr.ph1136, label %.sink.split1338, !llvm.loop !65
 
-1102:                                             ; preds = %.lr.ph1140
-  %1103 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.30640.i1139, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %1104 = add i32 %1103, %.30640.i1139
+1102:                                             ; preds = %.lr.ph1144
+  %1103 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.30640.i1143, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %1104 = add i32 %1103, %.30640.i1143
   %1105 = call fastcc i32 @fDeviceObjectPropertyReference(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %1104)
-  br label %.sink.split1326
+  br label %.sink.split1338
 
-.sink.split1326:                                  ; preds = %.lr.ph1132, %1096, %1085, %1102
-  %.sink1328 = phi i32 [ %1105, %1102 ], [ %1087, %1085 ], [ %1097, %1096 ], [ %.31641.i1130, %.lr.ph1132 ]
-  %.27.i.ph = phi i32 [ %.30640.i1139, %1102 ], [ %.30640.i1139, %1085 ], [ %.31641.i1130, %1096 ], [ %.31641.i1130, %.lr.ph1132 ]
-  %1106 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.sink1328, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %1107 = add i32 %1106, %.sink1328
+.sink.split1338:                                  ; preds = %.lr.ph1136, %1096, %1085, %1102
+  %.sink1340 = phi i32 [ %1105, %1102 ], [ %1087, %1085 ], [ %1097, %1096 ], [ %.31641.i1134, %.lr.ph1136 ]
+  %.27.i.ph = phi i32 [ %.30640.i1143, %1102 ], [ %.30640.i1143, %1085 ], [ %.31641.i1134, %1096 ], [ %.31641.i1134, %.lr.ph1136 ]
+  %1106 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.sink1340, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %1107 = add i32 %1106, %.sink1340
   br label %1108
 
-1108:                                             ; preds = %.sink.split1326, %.lr.ph1140
-  %.32642.i = phi i32 [ %.30640.i1139, %.lr.ph1140 ], [ %1107, %.sink.split1326 ]
-  %.27.i = phi i32 [ %.30640.i1139, %.lr.ph1140 ], [ %.27.i.ph, %.sink.split1326 ]
+1108:                                             ; preds = %.sink.split1338, %.lr.ph1144
+  %.32642.i = phi i32 [ %.30640.i1143, %.lr.ph1144 ], [ %1107, %.sink.split1338 ]
+  %.27.i = phi i32 [ %.30640.i1143, %.lr.ph1144 ], [ %.27.i.ph, %.sink.split1338 ]
   %1109 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.32642.i)
   %1110 = icmp sgt i32 %1109, 0
   %1111 = icmp ugt i32 %.32642.i, %.27.i
   %1112 = and i1 %1111, %1110
-  br i1 %1112, label %.lr.ph1140, label %.thread, !llvm.loop !66
+  br i1 %1112, label %.lr.ph1144, label %.thread, !llvm.loop !66
 
-.lr.ph1128:                                       ; preds = %.preheader1054, %1123
-  %.33643.i1127 = phi i32 [ %.34644.i, %1123 ], [ %735, %.preheader1054 ]
-  %1113 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.33643.i1127)
+.lr.ph1132:                                       ; preds = %.preheader1054, %1123
+  %.33643.i1131 = phi i32 [ %.34644.i, %1123 ], [ %735, %.preheader1054 ]
+  %1113 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.33643.i1131)
   %1114 = lshr i8 %1113, 4
   switch i8 %1114, label %1123 [
     i8 0, label %1115
@@ -10378,33 +10384,33 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
     i8 3, label %1121
   ]
 
-1115:                                             ; preds = %.lr.ph1128
-  %1116 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.33643.i1127, ptr noundef nonnull @.str.3284)
+1115:                                             ; preds = %.lr.ph1132
+  %1116 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.33643.i1131, ptr noundef nonnull @.str.3284)
   br label %1123
 
-1117:                                             ; preds = %.lr.ph1128
-  %1118 = call fastcc i32 @fDoubleTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.33643.i1127, ptr noundef nonnull @.str.3289)
+1117:                                             ; preds = %.lr.ph1132
+  %1118 = call fastcc i32 @fDoubleTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.33643.i1131, ptr noundef nonnull @.str.3289)
   br label %1123
 
-1119:                                             ; preds = %.lr.ph1128
-  %1120 = call fastcc i32 @fDoubleTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.33643.i1127, ptr noundef nonnull @.str.3290)
+1119:                                             ; preds = %.lr.ph1132
+  %1120 = call fastcc i32 @fDoubleTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.33643.i1131, ptr noundef nonnull @.str.3290)
   br label %1123
 
-1121:                                             ; preds = %.lr.ph1128
-  %1122 = call fastcc i32 @fDoubleTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.33643.i1127, ptr noundef nonnull @.str.3107)
+1121:                                             ; preds = %.lr.ph1132
+  %1122 = call fastcc i32 @fDoubleTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.33643.i1131, ptr noundef nonnull @.str.3107)
   br label %1123
 
-1123:                                             ; preds = %1121, %1119, %1117, %1115, %.lr.ph1128
-  %.34644.i = phi i32 [ %.33643.i1127, %.lr.ph1128 ], [ %1122, %1121 ], [ %1120, %1119 ], [ %1118, %1117 ], [ %1116, %1115 ]
+1123:                                             ; preds = %1121, %1119, %1117, %1115, %.lr.ph1132
+  %.34644.i = phi i32 [ %.33643.i1131, %.lr.ph1132 ], [ %1122, %1121 ], [ %1120, %1119 ], [ %1118, %1117 ], [ %1116, %1115 ]
   %1124 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.34644.i)
   %1125 = icmp sgt i32 %1124, 0
-  %1126 = icmp ugt i32 %.34644.i, %.33643.i1127
+  %1126 = icmp ugt i32 %.34644.i, %.33643.i1131
   %1127 = and i1 %1126, %1125
-  br i1 %1127, label %.lr.ph1128, label %.thread, !llvm.loop !67
+  br i1 %1127, label %.lr.ph1132, label %.thread, !llvm.loop !67
 
-.lr.ph1125:                                       ; preds = %.preheader1056, %1138
-  %.35645.i1124 = phi i32 [ %.36646.i, %1138 ], [ %735, %.preheader1056 ]
-  %1128 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.35645.i1124)
+.lr.ph1129:                                       ; preds = %.preheader1056, %1138
+  %.35645.i1128 = phi i32 [ %.36646.i, %1138 ], [ %735, %.preheader1056 ]
+  %1128 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.35645.i1128)
   %1129 = lshr i8 %1128, 4
   switch i8 %1129, label %1138 [
     i8 0, label %1130
@@ -10413,33 +10419,33 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
     i8 3, label %1136
   ]
 
-1130:                                             ; preds = %.lr.ph1125
-  %1131 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.35645.i1124, ptr noundef nonnull @.str.3284)
+1130:                                             ; preds = %.lr.ph1129
+  %1131 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.35645.i1128, ptr noundef nonnull @.str.3284)
   br label %1138
 
-1132:                                             ; preds = %.lr.ph1125
-  %1133 = call fastcc i32 @fSignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.35645.i1124, ptr noundef nonnull @.str.3289)
+1132:                                             ; preds = %.lr.ph1129
+  %1133 = call fastcc i32 @fSignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.35645.i1128, ptr noundef nonnull @.str.3289)
   br label %1138
 
-1134:                                             ; preds = %.lr.ph1125
-  %1135 = call fastcc i32 @fSignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.35645.i1124, ptr noundef nonnull @.str.3290)
+1134:                                             ; preds = %.lr.ph1129
+  %1135 = call fastcc i32 @fSignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.35645.i1128, ptr noundef nonnull @.str.3290)
   br label %1138
 
-1136:                                             ; preds = %.lr.ph1125
-  %1137 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.35645.i1124, ptr noundef nonnull @.str.3107)
+1136:                                             ; preds = %.lr.ph1129
+  %1137 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.35645.i1128, ptr noundef nonnull @.str.3107)
   br label %1138
 
-1138:                                             ; preds = %1136, %1134, %1132, %1130, %.lr.ph1125
-  %.36646.i = phi i32 [ %.35645.i1124, %.lr.ph1125 ], [ %1137, %1136 ], [ %1135, %1134 ], [ %1133, %1132 ], [ %1131, %1130 ]
+1138:                                             ; preds = %1136, %1134, %1132, %1130, %.lr.ph1129
+  %.36646.i = phi i32 [ %.35645.i1128, %.lr.ph1129 ], [ %1137, %1136 ], [ %1135, %1134 ], [ %1133, %1132 ], [ %1131, %1130 ]
   %1139 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.36646.i)
   %1140 = icmp sgt i32 %1139, 0
-  %1141 = icmp ugt i32 %.36646.i, %.35645.i1124
+  %1141 = icmp ugt i32 %.36646.i, %.35645.i1128
   %1142 = and i1 %1141, %1140
-  br i1 %1142, label %.lr.ph1125, label %.thread, !llvm.loop !68
+  br i1 %1142, label %.lr.ph1129, label %.thread, !llvm.loop !68
 
-.lr.ph1122:                                       ; preds = %.preheader1058, %1153
-  %.37647.i1121 = phi i32 [ %.38648.i, %1153 ], [ %735, %.preheader1058 ]
-  %1143 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.37647.i1121)
+.lr.ph1126:                                       ; preds = %.preheader1058, %1153
+  %.37647.i1125 = phi i32 [ %.38648.i, %1153 ], [ %735, %.preheader1058 ]
+  %1143 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.37647.i1125)
   %1144 = lshr i8 %1143, 4
   switch i8 %1144, label %1153 [
     i8 0, label %1145
@@ -10448,130 +10454,130 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
     i8 3, label %1151
   ]
 
-1145:                                             ; preds = %.lr.ph1122
-  %1146 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.37647.i1121, ptr noundef nonnull @.str.3284)
+1145:                                             ; preds = %.lr.ph1126
+  %1146 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.37647.i1125, ptr noundef nonnull @.str.3284)
   br label %1153
 
-1147:                                             ; preds = %.lr.ph1122
-  %1148 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.37647.i1121, ptr noundef nonnull @.str.3289)
+1147:                                             ; preds = %.lr.ph1126
+  %1148 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.37647.i1125, ptr noundef nonnull @.str.3289)
   br label %1153
 
-1149:                                             ; preds = %.lr.ph1122
-  %1150 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.37647.i1121, ptr noundef nonnull @.str.3290)
+1149:                                             ; preds = %.lr.ph1126
+  %1150 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.37647.i1125, ptr noundef nonnull @.str.3290)
   br label %1153
 
-1151:                                             ; preds = %.lr.ph1122
-  %1152 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.37647.i1121, ptr noundef nonnull @.str.3107)
+1151:                                             ; preds = %.lr.ph1126
+  %1152 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.37647.i1125, ptr noundef nonnull @.str.3107)
   br label %1153
 
-1153:                                             ; preds = %1151, %1149, %1147, %1145, %.lr.ph1122
-  %.38648.i = phi i32 [ %.37647.i1121, %.lr.ph1122 ], [ %1152, %1151 ], [ %1150, %1149 ], [ %1148, %1147 ], [ %1146, %1145 ]
+1153:                                             ; preds = %1151, %1149, %1147, %1145, %.lr.ph1126
+  %.38648.i = phi i32 [ %.37647.i1125, %.lr.ph1126 ], [ %1152, %1151 ], [ %1150, %1149 ], [ %1148, %1147 ], [ %1146, %1145 ]
   %1154 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.38648.i)
   %1155 = icmp sgt i32 %1154, 0
-  %1156 = icmp ugt i32 %.38648.i, %.37647.i1121
+  %1156 = icmp ugt i32 %.38648.i, %.37647.i1125
   %1157 = and i1 %1156, %1155
-  br i1 %1157, label %.lr.ph1122, label %.thread, !llvm.loop !69
+  br i1 %1157, label %.lr.ph1126, label %.thread, !llvm.loop !69
 
-.lr.ph1119:                                       ; preds = %.preheader1060, %1181
-  %.39649.i1118 = phi i32 [ %.40650.i, %1181 ], [ %735, %.preheader1060 ]
-  %1158 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.39649.i1118)
+.lr.ph1123:                                       ; preds = %.preheader1060, %1181
+  %.39649.i1122 = phi i32 [ %.40650.i, %1181 ], [ %735, %.preheader1060 ]
+  %1158 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.39649.i1122)
   %1159 = lshr i8 %1158, 4
   switch i8 %1159, label %1181 [
     i8 0, label %1160
     i8 1, label %1162
   ]
 
-1160:                                             ; preds = %.lr.ph1119
-  %1161 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.39649.i1118, ptr noundef nonnull @.str.3284)
+1160:                                             ; preds = %.lr.ph1123
+  %1161 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.39649.i1122, ptr noundef nonnull @.str.3284)
   br label %1181
 
-1162:                                             ; preds = %.lr.ph1119
-  %1163 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.39649.i1118, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %1164 = add i32 %1163, %.39649.i1118
+1162:                                             ; preds = %.lr.ph1123
+  %1163 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.39649.i1122, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %1164 = add i32 %1163, %.39649.i1122
   %1165 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1164)
   %1166 = icmp sgt i32 %1165, 0
-  %1167 = icmp ugt i32 %1164, %.39649.i1118
+  %1167 = icmp ugt i32 %1164, %.39649.i1122
   %1168 = and i1 %1167, %1166
-  br i1 %1168, label %.lr.ph1111, label %._crit_edge1112
+  br i1 %1168, label %.lr.ph1115, label %._crit_edge1116
 
-.lr.ph1111:                                       ; preds = %1162, %1173
-  %.41.i1109 = phi i32 [ %1174, %1173 ], [ %1164, %1162 ]
-  %1169 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.41.i1109, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1115:                                       ; preds = %1162, %1173
+  %.41.i1113 = phi i32 [ %1174, %1173 ], [ %1164, %1162 ]
+  %1169 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.41.i1113, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1170 = load i8, ptr %177, align 1
   %1171 = and i8 %1170, 7
   %1172 = icmp eq i8 %1171, 7
-  br i1 %1172, label %._crit_edge1112, label %1173
+  br i1 %1172, label %._crit_edge1116, label %1173
 
-1173:                                             ; preds = %.lr.ph1111
-  %1174 = call fastcc i32 @fCharacterStringBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.41.i1109, ptr noundef nonnull @.str.3294, i1 noundef zeroext false, i1 noundef zeroext false)
+1173:                                             ; preds = %.lr.ph1115
+  %1174 = call fastcc i32 @fCharacterStringBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.41.i1113, ptr noundef nonnull @.str.3294, i1 noundef zeroext false, i1 noundef zeroext false)
   %1175 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1174)
   %1176 = icmp sgt i32 %1175, 0
-  %1177 = icmp ugt i32 %1174, %.41.i1109
+  %1177 = icmp ugt i32 %1174, %.41.i1113
   %1178 = and i1 %1177, %1176
-  br i1 %1178, label %.lr.ph1111, label %._crit_edge1112, !llvm.loop !70
+  br i1 %1178, label %.lr.ph1115, label %._crit_edge1116, !llvm.loop !70
 
-._crit_edge1112:                                  ; preds = %1173, %.lr.ph1111, %1162
-  %.41.i.lcssa = phi i32 [ %1164, %1162 ], [ %1174, %1173 ], [ %.41.i1109, %.lr.ph1111 ]
-  %.34.i = phi i32 [ %.39649.i1118, %1162 ], [ %.41.i1109, %.lr.ph1111 ], [ %.41.i1109, %1173 ]
+._crit_edge1116:                                  ; preds = %1173, %.lr.ph1115, %1162
+  %.41.i.lcssa = phi i32 [ %1164, %1162 ], [ %1174, %1173 ], [ %.41.i1113, %.lr.ph1115 ]
+  %.34.i = phi i32 [ %.39649.i1122, %1162 ], [ %.41.i1113, %.lr.ph1115 ], [ %.41.i1113, %1173 ]
   %1179 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.41.i.lcssa, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1180 = add i32 %1179, %.41.i.lcssa
   br label %1181
 
-1181:                                             ; preds = %._crit_edge1112, %1160, %.lr.ph1119
-  %.40650.i = phi i32 [ %.39649.i1118, %.lr.ph1119 ], [ %1180, %._crit_edge1112 ], [ %1161, %1160 ]
-  %.32.i = phi i32 [ %.39649.i1118, %.lr.ph1119 ], [ %.34.i, %._crit_edge1112 ], [ %.39649.i1118, %1160 ]
+1181:                                             ; preds = %._crit_edge1116, %1160, %.lr.ph1123
+  %.40650.i = phi i32 [ %.39649.i1122, %.lr.ph1123 ], [ %1180, %._crit_edge1116 ], [ %1161, %1160 ]
+  %.32.i = phi i32 [ %.39649.i1122, %.lr.ph1123 ], [ %.34.i, %._crit_edge1116 ], [ %.39649.i1122, %1160 ]
   %1182 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.40650.i)
   %1183 = icmp sgt i32 %1182, 0
   %1184 = icmp ugt i32 %.40650.i, %.32.i
   %1185 = and i1 %1184, %1183
-  br i1 %1185, label %.lr.ph1119, label %.thread, !llvm.loop !71
+  br i1 %1185, label %.lr.ph1123, label %.thread, !llvm.loop !71
 
-.lr.ph1107:                                       ; preds = %.preheader1062, %1192
-  %.42.i1106 = phi i32 [ %.43.i, %1192 ], [ %735, %.preheader1062 ]
-  %1186 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.42.i1106)
+.lr.ph1111:                                       ; preds = %.preheader1062, %1192
+  %.42.i1110 = phi i32 [ %.43.i, %1192 ], [ %735, %.preheader1062 ]
+  %1186 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.42.i1110)
   %1187 = lshr i8 %1186, 4
   switch i8 %1187, label %1192 [
     i8 0, label %1188
     i8 1, label %1190
   ]
 
-1188:                                             ; preds = %.lr.ph1107
-  %1189 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.42.i1106, ptr noundef nonnull @.str.3284)
+1188:                                             ; preds = %.lr.ph1111
+  %1189 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.42.i1110, ptr noundef nonnull @.str.3284)
   br label %1192
 
-1190:                                             ; preds = %.lr.ph1107
-  %1191 = call fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.42.i1106, ptr noundef nonnull @.str.3299, ptr noundef nonnull @BACnetStatusFlags, i1 noundef zeroext false)
+1190:                                             ; preds = %.lr.ph1111
+  %1191 = call fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.42.i1110, ptr noundef nonnull @.str.3299, ptr noundef nonnull @BACnetStatusFlags, i1 noundef zeroext false)
   br label %1192
 
-1192:                                             ; preds = %1190, %1188, %.lr.ph1107
-  %.43.i = phi i32 [ %.42.i1106, %.lr.ph1107 ], [ %1191, %1190 ], [ %1189, %1188 ]
+1192:                                             ; preds = %1190, %1188, %.lr.ph1111
+  %.43.i = phi i32 [ %.42.i1110, %.lr.ph1111 ], [ %1191, %1190 ], [ %1189, %1188 ]
   %1193 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.43.i)
   %1194 = icmp sgt i32 %1193, 0
-  %1195 = icmp ugt i32 %.43.i, %.42.i1106
+  %1195 = icmp ugt i32 %.43.i, %.42.i1110
   %1196 = and i1 %1195, %1194
-  br i1 %1196, label %.lr.ph1107, label %.thread, !llvm.loop !72
+  br i1 %1196, label %.lr.ph1111, label %.thread, !llvm.loop !72
 
-.lr.ph1094:                                       ; preds = %.preheader1066, %1200
-  %.44.i1093 = phi i32 [ %.45.i, %1200 ], [ %735, %.preheader1066 ]
-  %1197 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.44.i1093)
+.lr.ph1098:                                       ; preds = %.preheader1066, %1200
+  %.44.i1097 = phi i32 [ %.45.i, %1200 ], [ %735, %.preheader1066 ]
+  %1197 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.44.i1097)
   %cond.i846 = icmp ult i8 %1197, 16
   br i1 %cond.i846, label %1198, label %1200
 
-1198:                                             ; preds = %.lr.ph1094
-  %1199 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.44.i1093, ptr noundef nonnull @.str.3284)
+1198:                                             ; preds = %.lr.ph1098
+  %1199 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.44.i1097, ptr noundef nonnull @.str.3284)
   br label %1200
 
-1200:                                             ; preds = %1198, %.lr.ph1094
-  %.45.i = phi i32 [ %1199, %1198 ], [ %.44.i1093, %.lr.ph1094 ]
+1200:                                             ; preds = %1198, %.lr.ph1098
+  %.45.i = phi i32 [ %1199, %1198 ], [ %.44.i1097, %.lr.ph1098 ]
   %1201 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.45.i)
   %1202 = icmp sgt i32 %1201, 0
-  %1203 = icmp ugt i32 %.45.i, %.44.i1093
+  %1203 = icmp ugt i32 %.45.i, %.44.i1097
   %1204 = and i1 %1203, %1202
-  br i1 %1204, label %.lr.ph1094, label %.thread, !llvm.loop !73
+  br i1 %1204, label %.lr.ph1098, label %.thread, !llvm.loop !73
 
-.lr.ph1104:                                       ; preds = %.preheader1064, %1234
-  %.46.i1103 = phi i32 [ %.47.i, %1234 ], [ %735, %.preheader1064 ]
-  %1205 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.46.i1103)
+.lr.ph1108:                                       ; preds = %.preheader1064, %1234
+  %.46.i1107 = phi i32 [ %.47.i, %1234 ], [ %735, %.preheader1064 ]
+  %1205 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.46.i1107)
   %1206 = lshr i8 %1205, 4
   switch i8 %1206, label %1234 [
     i8 0, label %1207
@@ -10579,67 +10585,67 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
     i8 2, label %1228
   ]
 
-1207:                                             ; preds = %.lr.ph1104
-  %1208 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.46.i1103, ptr noundef nonnull @.str.3284)
+1207:                                             ; preds = %.lr.ph1108
+  %1208 = call fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.46.i1107, ptr noundef nonnull @.str.3284)
   br label %1234
 
-1209:                                             ; preds = %.lr.ph1104
-  %1210 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.46.i1103, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %1211 = add i32 %1210, %.46.i1103
+1209:                                             ; preds = %.lr.ph1108
+  %1210 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.46.i1107, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %1211 = add i32 %1210, %.46.i1107
   %1212 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1211)
   %1213 = icmp sgt i32 %1212, 0
-  %1214 = icmp ugt i32 %1211, %.46.i1103
+  %1214 = icmp ugt i32 %1211, %.46.i1107
   %1215 = and i1 %1214, %1213
-  br i1 %1215, label %.lr.ph1097, label %._crit_edge
+  br i1 %1215, label %.lr.ph1101, label %._crit_edge
 
-.lr.ph1097:                                       ; preds = %1209, %1220
-  %.48.i1096 = phi i32 [ %1221, %1220 ], [ %1211, %1209 ]
-  %1216 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.48.i1096, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+.lr.ph1101:                                       ; preds = %1209, %1220
+  %.48.i1100 = phi i32 [ %1221, %1220 ], [ %1211, %1209 ]
+  %1216 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.48.i1100, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1217 = load i8, ptr %177, align 1
   %1218 = and i8 %1217, 7
   %1219 = icmp eq i8 %1218, 7
   br i1 %1219, label %._crit_edge, label %1220
 
-1220:                                             ; preds = %.lr.ph1097
-  %1221 = call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.48.i1096, ptr noundef nonnull @.str.3294, ptr noundef nonnull @BACnetTimerState, i32 noundef 0)
+1220:                                             ; preds = %.lr.ph1101
+  %1221 = call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.48.i1100, ptr noundef nonnull @.str.3294, ptr noundef nonnull @BACnetTimerState, i32 noundef 0)
   %1222 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1221)
   %1223 = icmp sgt i32 %1222, 0
-  %1224 = icmp ugt i32 %1221, %.48.i1096
+  %1224 = icmp ugt i32 %1221, %.48.i1100
   %1225 = and i1 %1224, %1223
-  br i1 %1225, label %.lr.ph1097, label %._crit_edge, !llvm.loop !74
+  br i1 %1225, label %.lr.ph1101, label %._crit_edge, !llvm.loop !74
 
-._crit_edge:                                      ; preds = %1220, %.lr.ph1097, %1209
-  %.48.i.lcssa = phi i32 [ %1211, %1209 ], [ %1221, %1220 ], [ %.48.i1096, %.lr.ph1097 ]
-  %.40.i = phi i32 [ %.46.i1103, %1209 ], [ %.48.i1096, %.lr.ph1097 ], [ %.48.i1096, %1220 ]
+._crit_edge:                                      ; preds = %1220, %.lr.ph1101, %1209
+  %.48.i.lcssa = phi i32 [ %1211, %1209 ], [ %1221, %1220 ], [ %.48.i1100, %.lr.ph1101 ]
+  %.40.i = phi i32 [ %.46.i1107, %1209 ], [ %.48.i1100, %.lr.ph1101 ], [ %.48.i1100, %1220 ]
   %1226 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.48.i.lcssa, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1227 = add i32 %1226, %.48.i.lcssa
   br label %1234
 
-1228:                                             ; preds = %.lr.ph1104
-  %1229 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.46.i1103, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
-  %1230 = add i32 %1229, %.46.i1103
+1228:                                             ; preds = %.lr.ph1108
+  %1229 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.46.i1107, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
+  %1230 = add i32 %1229, %.46.i1107
   %1231 = call fastcc i32 @fDeviceObjectPropertyReference(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %1230)
   %1232 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %1231, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1233 = add i32 %1232, %1231
   br label %1234
 
-1234:                                             ; preds = %1228, %._crit_edge, %1207, %.lr.ph1104
-  %.47.i = phi i32 [ %.46.i1103, %.lr.ph1104 ], [ %1233, %1228 ], [ %1227, %._crit_edge ], [ %1208, %1207 ]
-  %.38.i = phi i32 [ %.46.i1103, %.lr.ph1104 ], [ %.46.i1103, %1228 ], [ %.40.i, %._crit_edge ], [ %.46.i1103, %1207 ]
+1234:                                             ; preds = %1228, %._crit_edge, %1207, %.lr.ph1108
+  %.47.i = phi i32 [ %.46.i1107, %.lr.ph1108 ], [ %1233, %1228 ], [ %1227, %._crit_edge ], [ %1208, %1207 ]
+  %.38.i = phi i32 [ %.46.i1107, %.lr.ph1108 ], [ %.46.i1107, %1228 ], [ %.40.i, %._crit_edge ], [ %.46.i1107, %1207 ]
   %1235 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.47.i)
   %1236 = icmp sgt i32 %1235, 0
   %1237 = icmp ugt i32 %.47.i, %.38.i
   %1238 = and i1 %1237, %1236
-  br i1 %1238, label %.lr.ph1104, label %.thread, !llvm.loop !75
+  br i1 %1238, label %.lr.ph1108, label %.thread, !llvm.loop !75
 
-.thread:                                          ; preds = %1200, %1234, %1192, %1181, %1153, %1138, %1123, %1108, %1078, %1065, %1019, %1060, %.preheader1046, %1010, %956, %946, %931, %.lr.ph1183, %906, %891, %870, %.lr.ph1203, %838, %.lr.ph1217, %.preheader1066, %.preheader1064, %.preheader1062, %.preheader1060, %.preheader1058, %.preheader1056, %.preheader1054, %.preheader1052, %.preheader1050, %.preheader1048, %.preheader1044, %.preheader1042, %.preheader1040, %.preheader1038, %.preheader1036, %.preheader1034, %.preheader1032, %.preheader, %._crit_edge1151, %951, %727
-  %.0610.i = phi i32 [ %735, %727 ], [ %952, %951 ], [ %1059, %._crit_edge1151 ], [ %735, %.preheader ], [ %735, %.preheader1032 ], [ %735, %.preheader1034 ], [ %735, %.preheader1036 ], [ %735, %.preheader1038 ], [ %735, %.preheader1040 ], [ %735, %.preheader1042 ], [ %735, %.preheader1044 ], [ %735, %.preheader1048 ], [ %735, %.preheader1050 ], [ %735, %.preheader1052 ], [ %735, %.preheader1054 ], [ %735, %.preheader1056 ], [ %735, %.preheader1058 ], [ %735, %.preheader1060 ], [ %735, %.preheader1062 ], [ %735, %.preheader1064 ], [ %735, %.preheader1066 ], [ %.1611.i1216, %.lr.ph1217 ], [ %.2612.i, %838 ], [ %.4614.i1202, %.lr.ph1203 ], [ %.5615.i, %870 ], [ %.8618.i, %891 ], [ %.11621.i, %906 ], [ %.12622.i1182, %.lr.ph1183 ], [ %.13623.i, %931 ], [ %.15625.i, %946 ], [ %957, %956 ], [ %.19629.i, %1010 ], [ %.23633.i, %1060 ], [ %.22632.i, %.preheader1046 ], [ %.22632.i, %1019 ], [ %.27637.i, %1065 ], [ %.29639.i, %1078 ], [ %.32642.i, %1108 ], [ %.34644.i, %1123 ], [ %.36646.i, %1138 ], [ %.38648.i, %1153 ], [ %.40650.i, %1181 ], [ %.43.i, %1192 ], [ %.47.i, %1234 ], [ %.45.i, %1200 ]
+.thread:                                          ; preds = %1200, %1234, %1192, %1181, %1153, %1138, %1123, %1108, %1078, %1065, %1019, %1060, %.preheader1046, %1010, %956, %946, %931, %.lr.ph1187, %906, %891, %870, %.lr.ph1207, %838, %.lr.ph1221, %.preheader1066, %.preheader1064, %.preheader1062, %.preheader1060, %.preheader1058, %.preheader1056, %.preheader1054, %.preheader1052, %.preheader1050, %.preheader1048, %.preheader1044, %.preheader1042, %.preheader1040, %.preheader1038, %.preheader1036, %.preheader1034, %.preheader1032, %.preheader, %._crit_edge1155, %951, %727
+  %.0610.i = phi i32 [ %735, %727 ], [ %952, %951 ], [ %1059, %._crit_edge1155 ], [ %735, %.preheader ], [ %735, %.preheader1032 ], [ %735, %.preheader1034 ], [ %735, %.preheader1036 ], [ %735, %.preheader1038 ], [ %735, %.preheader1040 ], [ %735, %.preheader1042 ], [ %735, %.preheader1044 ], [ %735, %.preheader1048 ], [ %735, %.preheader1050 ], [ %735, %.preheader1052 ], [ %735, %.preheader1054 ], [ %735, %.preheader1056 ], [ %735, %.preheader1058 ], [ %735, %.preheader1060 ], [ %735, %.preheader1062 ], [ %735, %.preheader1064 ], [ %735, %.preheader1066 ], [ %.1611.i1220, %.lr.ph1221 ], [ %.2612.i, %838 ], [ %.4614.i1206, %.lr.ph1207 ], [ %.5615.i, %870 ], [ %.8618.i, %891 ], [ %.11621.i, %906 ], [ %.12622.i1186, %.lr.ph1187 ], [ %.13623.i, %931 ], [ %.15625.i, %946 ], [ %957, %956 ], [ %.19629.i, %1010 ], [ %.23633.i, %1060 ], [ %.22632.i, %.preheader1046 ], [ %.22632.i, %1019 ], [ %.27637.i, %1065 ], [ %.29639.i, %1078 ], [ %.32642.i, %1108 ], [ %.34644.i, %1123 ], [ %.36646.i, %1138 ], [ %.38648.i, %1153 ], [ %.40650.i, %1181 ], [ %.43.i, %1192 ], [ %.47.i, %1234 ], [ %.45.i, %1200 ]
   %1239 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %733, i32 noundef %.0610.i, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1240 = add i32 %1239, %.0610.i
   br label %fEventParameter.exit
 
-fEventParameter.exit:                             ; preds = %.lr.ph1177, %727, %.thread
-  %.0651.i = phi i32 [ %1240, %.thread ], [ %735, %727 ], [ %.16626.i1176, %.lr.ph1177 ]
+fEventParameter.exit:                             ; preds = %.lr.ph1181, %727, %.thread
+  %.0651.i = phi i32 [ %1240, %.thread ], [ %735, %727 ], [ %.16626.i1180, %.lr.ph1181 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %178) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %177) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %176) #6
@@ -12390,7 +12396,7 @@ fDeviceObjectReference.exit.i917:                 ; preds = %fTagHeaderTree.exit
 2065:                                             ; preds = %2063, %fDeviceObjectReference.exit.i917
   %.3.i914 = phi i32 [ %2064, %2063 ], [ %2062, %fDeviceObjectReference.exit.i917 ]
   %.not.i915 = icmp ugt i32 %.3.i914, %.277.i
-  br i1 %.not.i915, label %1947, label %.loopexit.i910, !llvm.loop !98
+  br i1 %.not.i915, label %1947, label %..loopexit_crit_edge.i, !llvm.loop !98
 
 2066:                                             ; preds = %1940
   %2067 = call fastcc i32 @fBooleanTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.052.i, ptr noundef nonnull @.str.3537)
@@ -12400,9 +12406,12 @@ fDeviceObjectReference.exit.i917:                 ; preds = %fTagHeaderTree.exit
   %2069 = call fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.052.i, ptr noundef nonnull @.str.3538)
   br label %.loopexit.i910
 
-.loopexit.i910:                                   ; preds = %2065, %1947, %2068, %2066, %1954, %1942
-  %.4.i911 = phi i32 [ %2069, %2068 ], [ %2067, %2066 ], [ %1956, %1954 ], [ %1944, %1942 ], [ %.3.i914, %1947 ], [ %.3.i914, %2065 ]
-  %.1.i912 = phi i32 [ %.052.i, %2068 ], [ %.052.i, %2066 ], [ %.277.i, %1954 ], [ %.052.i, %1942 ], [ %.277.i, %1947 ], [ %.277.i, %2065 ]
+..loopexit_crit_edge.i:                           ; preds = %2065
+  br label %.loopexit.i910, !llvm.loop !98
+
+.loopexit.i910:                                   ; preds = %1947, %..loopexit_crit_edge.i, %2068, %2066, %1954, %1942
+  %.4.i911 = phi i32 [ %2069, %2068 ], [ %2067, %2066 ], [ %1956, %1954 ], [ %.3.i914, %..loopexit_crit_edge.i ], [ %1944, %1942 ], [ %.3.i914, %1947 ]
+  %.1.i912 = phi i32 [ %.052.i, %2068 ], [ %.052.i, %2066 ], [ %.277.i, %1954 ], [ %.277.i, %..loopexit_crit_edge.i ], [ %.052.i, %1942 ], [ %.277.i, %1947 ]
   %.not54.i = icmp ugt i32 %.4.i911, %.1.i912
   br i1 %.not54.i, label %1932, label %fAuthenticationPolicy.exit, !llvm.loop !99
 
@@ -12428,8 +12437,8 @@ fAuthenticationPolicy.exit:                       ; preds = %1932, %1935, %1940,
   br i1 %2076, label %.lr.ph, label %fTimerStateChangeValue.exit
 
 .lr.ph:                                           ; preds = %2072, %2111
-  %.050.i1088 = phi i32 [ %.1.i927, %2111 ], [ %.0808, %2072 ]
-  %2077 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.050.i1088, ptr noundef nonnull %116, ptr noundef nonnull %117, ptr noundef nonnull %118)
+  %.050.i1092 = phi i32 [ %.1.i927, %2111 ], [ %.0808, %2072 ]
+  %2077 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.050.i1092, ptr noundef nonnull %116, ptr noundef nonnull %117, ptr noundef nonnull %118)
   %2078 = load i8, ptr %117, align 1
   %2079 = and i8 %2078, 7
   %2080 = icmp eq i8 %2079, 7
@@ -12454,16 +12463,16 @@ fAuthenticationPolicy.exit:                       ; preds = %1932, %1935, %1940,
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #6
   %2086 = load i32, ptr @ett_bacapp_tag, align 4
-  %2087 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.050.i1088, i32 noundef 1, i32 noundef %2086, ptr noundef null, ptr noundef nonnull @.str.2605, ptr noundef nonnull @.str.3547)
-  %2088 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2087, i32 noundef %.050.i1088, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19)
-  %2089 = add i32 %.050.i1088, 1
+  %2087 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.050.i1092, i32 noundef 1, i32 noundef %2086, ptr noundef null, ptr noundef nonnull @.str.2605, ptr noundef nonnull @.str.3547)
+  %2088 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2087, i32 noundef %.050.i1092, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19)
+  %2089 = add i32 %.050.i1092, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #6
   br label %2111
 
 2090:                                             ; preds = %2083
-  %2091 = add i32 %2077, %.050.i1088
+  %2091 = add i32 %2077, %.050.i1092
   %2092 = load i32, ptr @propertyIdentifier, align 4
   store i32 -1, ptr @propertyIdentifier, align 4
   %2093 = call fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %2091)
@@ -12473,7 +12482,7 @@ fAuthenticationPolicy.exit:                       ; preds = %1932, %1935, %1940,
   br label %2111
 
 2096:                                             ; preds = %2083
-  %2097 = add i32 %2077, %.050.i1088
+  %2097 = add i32 %2077, %.050.i1092
   %2098 = load i32, ptr @ett_bacapp_value, align 4
   %2099 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %2097, i32 noundef 10, i32 noundef %2098, ptr noundef null, ptr noundef nonnull @.str.3548)
   %2100 = call fastcc i32 @fDate(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2099, i32 noundef %2097, ptr noundef nonnull @.str.3055)
@@ -12483,26 +12492,26 @@ fAuthenticationPolicy.exit:                       ; preds = %1932, %1935, %1940,
   br label %2111
 
 2104:                                             ; preds = %2083
-  %2105 = add i32 %2077, %.050.i1088
+  %2105 = add i32 %2077, %.050.i1092
   %2106 = call fastcc i32 @fLightingCommand(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %2105, ptr noundef nonnull @.str.3549)
   %2107 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %2106, ptr noundef nonnull %116, ptr noundef nonnull %117, ptr noundef nonnull %118)
   %2108 = add i32 %2107, %2106
   br label %2111
 
 2109:                                             ; preds = %2081
-  %2110 = call fastcc i32 @fApplicationTypesEnumeratedSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.050.i1088, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %2110 = call fastcc i32 @fApplicationTypesEnumeratedSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.050.i1092, ptr noundef null, ptr noundef null, i32 noundef 0)
   br label %2111
 
 2111:                                             ; preds = %2109, %2104, %2096, %2090, %2085
   %.1.i927 = phi i32 [ %2108, %2104 ], [ %2103, %2096 ], [ %2095, %2090 ], [ %2089, %2085 ], [ %2110, %2109 ]
   %2112 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.1.i927)
   %2113 = icmp sgt i32 %2112, 0
-  %2114 = icmp ugt i32 %.1.i927, %.050.i1088
+  %2114 = icmp ugt i32 %.1.i927, %.050.i1092
   %2115 = and i1 %2114, %2113
   br i1 %2115, label %.lr.ph, label %fTimerStateChangeValue.exit, !llvm.loop !100
 
 fTimerStateChangeValue.exit:                      ; preds = %2083, %.lr.ph, %2111, %2072
-  %.050.i.lcssa = phi i32 [ %.0808, %2072 ], [ %.050.i1088, %2083 ], [ %.050.i1088, %.lr.ph ], [ %.1.i927, %2111 ]
+  %.050.i.lcssa = phi i32 [ %.0808, %2072 ], [ %.050.i1092, %2083 ], [ %.050.i1092, %.lr.ph ], [ %.1.i927, %2111 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %118) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %117) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %116) #6
@@ -13139,12 +13148,12 @@ fLandingDoorStatus.exit:                          ; preds = %2347, %2354
   %2389 = add i32 %2388, %.0100.i
   %2390 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2389)
   %2391 = icmp sgt i32 %2390, 0
-  br i1 %2391, label %.lr.ph125.i, label %._crit_edge126.i
+  br i1 %2391, label %.lr.ph125.i, label %._crit_edge129.i
 
 2392:                                             ; preds = %2449
   %2393 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.5105.i)
   %2394 = icmp sgt i32 %2393, 0
-  br i1 %2394, label %.lr.ph125.i, label %._crit_edge126.i, !llvm.loop !107
+  br i1 %2394, label %.lr.ph125.i, label %._crit_edge129.i, !llvm.loop !107
 
 .lr.ph125.i:                                      ; preds = %2387, %2392
   %.3103123.i = phi i32 [ %.5105.i, %2392 ], [ %2389, %2387 ]
@@ -13152,7 +13161,7 @@ fLandingDoorStatus.exit:                          ; preds = %2347, %2354
   %2396 = load i8, ptr %81, align 1
   %2397 = and i8 %2396, 7
   %2398 = icmp eq i8 %2397, 7
-  br i1 %2398, label %._crit_edge126.i, label %2399
+  br i1 %2398, label %._crit_edge129.i, label %2399
 
 2399:                                             ; preds = %.lr.ph125.i
   %2400 = load i8, ptr %80, align 1
@@ -13170,22 +13179,22 @@ fLandingDoorStatus.exit:                          ; preds = %2347, %2354
   %2405 = add i32 %2404, %.3103123.i
   %2406 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2405)
   %2407 = icmp sgt i32 %2406, 0
-  br i1 %2407, label %.lr.ph.i974, label %._crit_edge.i970
+  br i1 %2407, label %.lr.ph.i973, label %._crit_edge117.i
 
 2408:                                             ; preds = %2446
-  %2409 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.8.i975)
+  %2409 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.8.i974)
   %2410 = icmp sgt i32 %2409, 0
-  br i1 %2410, label %.lr.ph.i974, label %._crit_edge.i970, !llvm.loop !108
+  br i1 %2410, label %.lr.ph.i973, label %._crit_edge117.i, !llvm.loop !108
 
-.lr.ph.i974:                                      ; preds = %2403, %2408
-  %.6115.i = phi i32 [ %.8.i975, %2408 ], [ %2405, %2403 ]
+.lr.ph.i973:                                      ; preds = %2403, %2408
+  %.6115.i = phi i32 [ %.8.i974, %2408 ], [ %2405, %2403 ]
   %2411 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.6115.i, ptr noundef nonnull %80, ptr noundef nonnull %81, ptr noundef nonnull %82)
   %2412 = load i8, ptr %81, align 1
   %2413 = and i8 %2412, 7
   %2414 = icmp eq i8 %2413, 7
-  br i1 %2414, label %._crit_edge.i970, label %2415
+  br i1 %2414, label %._crit_edge117.i, label %2415
 
-2415:                                             ; preds = %.lr.ph.i974
+2415:                                             ; preds = %.lr.ph.i973
   %2416 = load i8, ptr %80, align 1
   switch i8 %2416, label %fCOVMultipleSubscription.exit [
     i8 0, label %2417
@@ -13265,33 +13274,39 @@ fPropertyReference.exit.i:                        ; preds = %2430, %2427, %2423,
   br label %2446
 
 2446:                                             ; preds = %2444, %2434, %fPropertyReference.exit.i
-  %.8.i975 = phi i32 [ %2445, %2444 ], [ %2443, %2434 ], [ %2433, %fPropertyReference.exit.i ]
-  %.not.i976 = icmp ugt i32 %.8.i975, %.6115.i
-  br i1 %.not.i976, label %2408, label %._crit_edge.i970, !llvm.loop !108
+  %.8.i974 = phi i32 [ %2445, %2444 ], [ %2443, %2434 ], [ %2433, %fPropertyReference.exit.i ]
+  %.not.i975 = icmp ugt i32 %.8.i974, %.6115.i
+  br i1 %.not.i975, label %2408, label %._crit_edge.i976, !llvm.loop !108
 
-._crit_edge.i970:                                 ; preds = %2446, %.lr.ph.i974, %2408, %2403
-  %.7.i971 = phi i32 [ %2405, %2403 ], [ %.8.i975, %2446 ], [ %.6115.i, %.lr.ph.i974 ], [ %.8.i975, %2408 ]
-  %.5.i972 = phi i32 [ %.3103123.i, %2403 ], [ %.6115.i, %2408 ], [ %.6115.i, %.lr.ph.i974 ], [ %.6115.i, %2446 ]
-  %2447 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.7.i971, ptr noundef nonnull %80, ptr noundef nonnull %81, ptr noundef nonnull %82)
-  %2448 = add i32 %2447, %.7.i971
+._crit_edge.i976:                                 ; preds = %2446
+  br label %._crit_edge117.i, !llvm.loop !108
+
+._crit_edge117.i:                                 ; preds = %.lr.ph.i973, %2408, %._crit_edge.i976, %2403
+  %.7.i970 = phi i32 [ %.8.i974, %._crit_edge.i976 ], [ %2405, %2403 ], [ %.6115.i, %.lr.ph.i973 ], [ %.8.i974, %2408 ]
+  %.5.i971 = phi i32 [ %.6115.i, %._crit_edge.i976 ], [ %.3103123.i, %2403 ], [ %.6115.i, %2408 ], [ %.6115.i, %.lr.ph.i973 ]
+  %2447 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.7.i970, ptr noundef nonnull %80, ptr noundef nonnull %81, ptr noundef nonnull %82)
+  %2448 = add i32 %2447, %.7.i970
   br label %2449
 
-2449:                                             ; preds = %._crit_edge.i970, %2401
-  %.5105.i = phi i32 [ %2448, %._crit_edge.i970 ], [ %2402, %2401 ]
-  %.3.i973 = phi i32 [ %.5.i972, %._crit_edge.i970 ], [ %.3103123.i, %2401 ]
-  %.not107.i = icmp ugt i32 %.5105.i, %.3.i973
+2449:                                             ; preds = %._crit_edge117.i, %2401
+  %.5105.i = phi i32 [ %2448, %._crit_edge117.i ], [ %2402, %2401 ]
+  %.3.i972 = phi i32 [ %.5.i971, %._crit_edge117.i ], [ %.3103123.i, %2401 ]
+  %.not107.i = icmp ugt i32 %.5105.i, %.3.i972
   br i1 %.not107.i, label %2392, label %._crit_edge126.i, !llvm.loop !107
 
-._crit_edge126.i:                                 ; preds = %2449, %.lr.ph125.i, %2392, %2387
-  %.4104.i = phi i32 [ %2389, %2387 ], [ %.5105.i, %2449 ], [ %.3103123.i, %.lr.ph125.i ], [ %.5105.i, %2392 ]
-  %.2.i968 = phi i32 [ %.0100.i, %2387 ], [ %.3.i973, %2449 ], [ %.3103123.i, %.lr.ph125.i ], [ %.3.i973, %2392 ]
+._crit_edge126.i:                                 ; preds = %2449
+  br label %._crit_edge129.i, !llvm.loop !107
+
+._crit_edge129.i:                                 ; preds = %.lr.ph125.i, %2392, %._crit_edge126.i, %2387
+  %.4104.i = phi i32 [ %.5105.i, %._crit_edge126.i ], [ %2389, %2387 ], [ %.3103123.i, %.lr.ph125.i ], [ %.5105.i, %2392 ]
+  %.2.i968 = phi i32 [ %.3.i972, %._crit_edge126.i ], [ %.0100.i, %2387 ], [ %.3103123.i, %.lr.ph125.i ], [ %.3.i972, %2392 ]
   %2450 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.4104.i, ptr noundef nonnull %80, ptr noundef nonnull %81, ptr noundef nonnull %82)
   %2451 = add i32 %2450, %.4104.i
   br label %2452
 
-2452:                                             ; preds = %._crit_edge126.i, %2385, %2383, %2381, %2375
-  %.2102.i = phi i32 [ %2451, %._crit_edge126.i ], [ %2386, %2385 ], [ %2384, %2383 ], [ %2382, %2381 ], [ %2380, %2375 ]
-  %.0.i969 = phi i32 [ %.2.i968, %._crit_edge126.i ], [ %.0100.i, %2385 ], [ %.0100.i, %2383 ], [ %.0100.i, %2381 ], [ %.0100.i, %2375 ]
+2452:                                             ; preds = %._crit_edge129.i, %2385, %2383, %2381, %2375
+  %.2102.i = phi i32 [ %2451, %._crit_edge129.i ], [ %2386, %2385 ], [ %2384, %2383 ], [ %2382, %2381 ], [ %2380, %2375 ]
+  %.0.i969 = phi i32 [ %.2.i968, %._crit_edge129.i ], [ %.0100.i, %2385 ], [ %.0100.i, %2383 ], [ %.0100.i, %2381 ], [ %.0100.i, %2375 ]
   %.not108.i = icmp ugt i32 %.2102.i, %.0.i969
   br i1 %.not108.i, label %2365, label %fCOVMultipleSubscription.exit, !llvm.loop !109
 
@@ -14176,7 +14191,7 @@ fSCHubFunctionConnection.exit:                    ; preds = %2771, %2774, %2779,
 
 2866:                                             ; preds = %2842
   %.not822 = icmp eq i8 %228, 0
-  br i1 %.not822, label %2867, label %fDestination.exit.thread1282
+  br i1 %.not822, label %2867, label %fDestination.exit.thread1290
 
 2867:                                             ; preds = %2866
   %2868 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0808, ptr noundef nonnull %208, ptr noundef nonnull %209, ptr noundef nonnull %210)
@@ -14195,27 +14210,27 @@ fSCHubFunctionConnection.exit:                    ; preds = %2771, %2774, %2779,
 
 fDestination.exit:                                ; preds = %232
   %.not825 = icmp eq i8 %228, 0
-  br i1 %.not825, label %2897, label %fDestination.exit.thread1282
+  br i1 %.not825, label %2897, label %fDestination.exit.thread1290
 
-fDestination.exit.thread1282:                     ; preds = %2866, %fDestination.exit
+fDestination.exit.thread1290:                     ; preds = %2866, %fDestination.exit
   switch i8 %229, label %2885 [
     i8 6, label %2877
     i8 7, label %2881
   ]
 
-2877:                                             ; preds = %fDestination.exit.thread1282
+2877:                                             ; preds = %fDestination.exit.thread1290
   %2878 = add i32 %.0809, 1
   %2879 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0808, ptr noundef nonnull %208, ptr noundef nonnull %209, ptr noundef nonnull %210)
   %2880 = add i32 %2879, %.0808
   br label %fDestination.exit.thread
 
-2881:                                             ; preds = %fDestination.exit.thread1282
+2881:                                             ; preds = %fDestination.exit.thread1290
   %2882 = add i32 %.0809, -1
   %2883 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0808, ptr noundef nonnull %208, ptr noundef nonnull %209, ptr noundef nonnull %210)
   %2884 = add i32 %2883, %.0808
   br label %fDestination.exit.thread
 
-2885:                                             ; preds = %fDestination.exit.thread1282
+2885:                                             ; preds = %fDestination.exit.thread1290
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #6
@@ -19181,22 +19196,22 @@ define internal fastcc i32 @fConfirmedCOVNotificationMultipleRequest(ptr noundef
   %11 = load i8, ptr %6, align 1
   %12 = and i8 %11, 7
   %13 = icmp eq i8 %12, 7
-  br i1 %13, label %.lr.ph281, label %.lr.ph._crit_edge
+  br i1 %13, label %.lr.ph308, label %.lr.ph._crit_edge
 
-.lr.ph281:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph308:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %14 = phi i32 [ %18, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %.0118165280 = phi i32 [ %15, %.lr.ph ], [ %.0118.ph, %.lr.ph.preheader ]
-  %15 = add i32 %14, %.0118165280
+  %.0118165307 = phi i32 [ %15, %.lr.ph ], [ %.0118.ph, %.lr.ph.preheader ]
+  %15 = add i32 %14, %.0118165307
   %16 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %15)
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %.thread129, !llvm.loop !164
 
-.lr.ph:                                           ; preds = %.lr.ph281
+.lr.ph:                                           ; preds = %.lr.ph308
   %18 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %19 = load i8, ptr %6, align 1
   %20 = and i8 %19, 7
   %21 = icmp eq i8 %20, 7
-  br i1 %21, label %.lr.ph281, label %.lr.ph._crit_edge, !llvm.loop !164
+  br i1 %21, label %.lr.ph308, label %.lr.ph._crit_edge, !llvm.loop !164
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.0112166.lcssa = phi ptr [ %.0112.ph, %.lr.ph.preheader ], [ %2, %.lr.ph ]
@@ -19336,31 +19351,37 @@ define internal fastcc i32 @fConfirmedCOVNotificationMultipleRequest(ptr noundef
 90:                                               ; preds = %88, %86, %84, %82
   %.6 = phi i32 [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ]
   %.not = icmp ugt i32 %.6, %.5168
-  br i1 %.not, label %70, label %.loopexit, !llvm.loop !166
+  br i1 %.not, label %70, label %..loopexit_crit_edge172, !llvm.loop !166
 
-.loopexit:                                        ; preds = %70, %90, %63, %77, %59
-  %.4 = phi i32 [ %79, %77 ], [ %60, %59 ], [ %67, %63 ], [ %.6, %90 ], [ %.6, %70 ]
-  %.2116 = phi i32 [ %.5168, %77 ], [ %.3121175, %59 ], [ %.3121175, %63 ], [ %.5168, %90 ], [ %.5168, %70 ]
-  %.3 = phi ptr [ %65, %77 ], [ %.2176, %59 ], [ %65, %63 ], [ %65, %90 ], [ %65, %70 ]
+..loopexit_crit_edge172:                          ; preds = %90
+  br label %.loopexit, !llvm.loop !166
+
+.loopexit:                                        ; preds = %70, %63, %..loopexit_crit_edge172, %77, %59
+  %.4 = phi i32 [ %79, %77 ], [ %60, %59 ], [ %.6, %..loopexit_crit_edge172 ], [ %67, %63 ], [ %.6, %70 ]
+  %.2116 = phi i32 [ %.5168, %77 ], [ %.3121175, %59 ], [ %.5168, %..loopexit_crit_edge172 ], [ %.3121175, %63 ], [ %.5168, %70 ]
+  %.3 = phi ptr [ %65, %77 ], [ %.2176, %59 ], [ %65, %..loopexit_crit_edge172 ], [ %65, %63 ], [ %65, %70 ]
   %.not123 = icmp ugt i32 %.4, %.2116
-  br i1 %.not123, label %47, label %.loopexit135, !llvm.loop !165
+  br i1 %.not123, label %47, label %..loopexit135_crit_edge181, !llvm.loop !165
 
-.loopexit135:                                     ; preds = %47, %.loopexit, %40, %54, %29, %27, %25, %23
-  %.2120 = phi i32 [ %56, %54 ], [ %37, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %44, %40 ], [ %.4, %.loopexit ], [ %.4, %47 ]
-  %.0114 = phi i32 [ %.3121175, %54 ], [ %.0118165.lcssa, %29 ], [ %.0118165.lcssa, %27 ], [ %.0118165.lcssa, %25 ], [ %.0118165.lcssa, %23 ], [ %.0118165.lcssa, %40 ], [ %.2116, %.loopexit ], [ %.2116, %47 ]
-  %.1113 = phi ptr [ %2, %54 ], [ %.0112166.lcssa, %29 ], [ %.0112166.lcssa, %27 ], [ %.0112166.lcssa, %25 ], [ %.0112166.lcssa, %23 ], [ %42, %40 ], [ %42, %.loopexit ], [ %42, %47 ]
-  %.1 = phi ptr [ %.2176, %54 ], [ %.0.ph, %29 ], [ %.0.ph, %27 ], [ %.0.ph, %25 ], [ %.0.ph, %23 ], [ %.0.ph, %40 ], [ %.3, %.loopexit ], [ %.3, %47 ]
+..loopexit135_crit_edge181:                       ; preds = %.loopexit
+  br label %.loopexit135, !llvm.loop !165
+
+.loopexit135:                                     ; preds = %47, %40, %..loopexit135_crit_edge181, %54, %29, %27, %25, %23
+  %.2120 = phi i32 [ %56, %54 ], [ %37, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %.4, %..loopexit135_crit_edge181 ], [ %44, %40 ], [ %.4, %47 ]
+  %.0114 = phi i32 [ %.3121175, %54 ], [ %.0118165.lcssa, %29 ], [ %.0118165.lcssa, %27 ], [ %.0118165.lcssa, %25 ], [ %.0118165.lcssa, %23 ], [ %.2116, %..loopexit135_crit_edge181 ], [ %.0118165.lcssa, %40 ], [ %.2116, %47 ]
+  %.1113 = phi ptr [ %2, %54 ], [ %.0112166.lcssa, %29 ], [ %.0112166.lcssa, %27 ], [ %.0112166.lcssa, %25 ], [ %.0112166.lcssa, %23 ], [ %42, %..loopexit135_crit_edge181 ], [ %42, %40 ], [ %42, %47 ]
+  %.1 = phi ptr [ %.2176, %54 ], [ %.0.ph, %29 ], [ %.0.ph, %27 ], [ %.0.ph, %25 ], [ %.0.ph, %23 ], [ %.3, %..loopexit135_crit_edge181 ], [ %.0.ph, %40 ], [ %.3, %47 ]
   %.not124 = icmp ugt i32 %.2120, %.0114
   br i1 %.not124, label %.outer, label %.thread129, !llvm.loop !164
 
 .thread129.sink.split:                            ; preds = %38, %61
-  %.2176.lcssa244.sink = phi ptr [ %.2176, %61 ], [ %.0112166.lcssa, %38 ]
+  %.2176.lcssa258.sink = phi ptr [ %.2176, %61 ], [ %.0112166.lcssa, %38 ]
   %.0122.ph = phi i32 [ %.3121175, %61 ], [ %.0118165.lcssa, %38 ]
-  %91 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.2176.lcssa244.sink, ptr noundef nonnull @ei_bacapp_bad_tag)
+  %91 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.2176.lcssa258.sink, ptr noundef nonnull @ei_bacapp_bad_tag)
   br label %.thread129
 
-.thread129:                                       ; preds = %.outer, %.loopexit135, %.lr.ph._crit_edge, %.lr.ph281, %57, %80, %.thread129.sink.split
-  %.0122 = phi i32 [ %.0122.ph, %.thread129.sink.split ], [ %.5168, %80 ], [ %.3121175, %57 ], [ %15, %.lr.ph281 ], [ %.0118.ph, %.outer ], [ %.0118165.lcssa, %.lr.ph._crit_edge ], [ %.2120, %.loopexit135 ]
+.thread129:                                       ; preds = %.outer, %.loopexit135, %.lr.ph._crit_edge, %.lr.ph308, %57, %80, %.thread129.sink.split
+  %.0122 = phi i32 [ %.0122.ph, %.thread129.sink.split ], [ %.5168, %80 ], [ %.3121175, %57 ], [ %15, %.lr.ph308 ], [ %.0118.ph, %.outer ], [ %.0118165.lcssa, %.lr.ph._crit_edge ], [ %.2120, %.loopexit135 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
@@ -20804,22 +20825,22 @@ define internal fastcc i32 @fSubscribeCOVPropertyMultipleRequest(ptr noundef non
   %18 = load i8, ptr %12, align 1
   %19 = and i8 %18, 7
   %20 = icmp eq i8 %19, 7
-  br i1 %20, label %.lr.ph323, label %.lr.ph._crit_edge
+  br i1 %20, label %.lr.ph350, label %.lr.ph._crit_edge
 
-.lr.ph323:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph350:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi i32 [ %25, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %.0116179322 = phi i32 [ %22, %.lr.ph ], [ %.0116.ph, %.lr.ph.preheader ]
-  %22 = add i32 %21, %.0116179322
+  %.0116179349 = phi i32 [ %22, %.lr.ph ], [ %.0116.ph, %.lr.ph.preheader ]
+  %22 = add i32 %21, %.0116179349
   %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %22)
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph, label %.thread125.thread, !llvm.loop !183
 
-.lr.ph:                                           ; preds = %.lr.ph323
+.lr.ph:                                           ; preds = %.lr.ph350
   %25 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %22, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %26 = load i8, ptr %12, align 1
   %27 = and i8 %26, 7
   %28 = icmp eq i8 %27, 7
-  br i1 %28, label %.lr.ph323, label %.lr.ph._crit_edge, !llvm.loop !183
+  br i1 %28, label %.lr.ph350, label %.lr.ph._crit_edge, !llvm.loop !183
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.0110180.lcssa = phi ptr [ %.0110.ph, %.lr.ph.preheader ], [ %2, %.lr.ph ]
@@ -21014,31 +21035,37 @@ fPropertyReference.exit:                          ; preds = %.split.i, %90, %94,
 115:                                              ; preds = %fPropertyReference.exit, %113, %103
   %.6 = phi i32 [ %114, %113 ], [ %112, %103 ], [ %102, %fPropertyReference.exit ]
   %.not = icmp ugt i32 %.6, %.5182
-  br i1 %.not, label %70, label %.loopexit, !llvm.loop !185
+  br i1 %.not, label %70, label %..loopexit_crit_edge186, !llvm.loop !185
 
-.loopexit:                                        ; preds = %70, %115, %63, %77, %59
-  %.4 = phi i32 [ %79, %77 ], [ %60, %59 ], [ %67, %63 ], [ %.6, %115 ], [ %.6, %70 ]
-  %.2114 = phi i32 [ %.5182, %77 ], [ %.3119189, %59 ], [ %.3119189, %63 ], [ %.5182, %115 ], [ %.5182, %70 ]
-  %.3 = phi ptr [ %65, %77 ], [ %.2190, %59 ], [ %65, %63 ], [ %65, %115 ], [ %65, %70 ]
+..loopexit_crit_edge186:                          ; preds = %115
+  br label %.loopexit, !llvm.loop !185
+
+.loopexit:                                        ; preds = %70, %63, %..loopexit_crit_edge186, %77, %59
+  %.4 = phi i32 [ %79, %77 ], [ %60, %59 ], [ %.6, %..loopexit_crit_edge186 ], [ %67, %63 ], [ %.6, %70 ]
+  %.2114 = phi i32 [ %.5182, %77 ], [ %.3119189, %59 ], [ %.5182, %..loopexit_crit_edge186 ], [ %.3119189, %63 ], [ %.5182, %70 ]
+  %.3 = phi ptr [ %65, %77 ], [ %.2190, %59 ], [ %65, %..loopexit_crit_edge186 ], [ %65, %63 ], [ %65, %70 ]
   %.not121 = icmp ugt i32 %.4, %.2114
-  br i1 %.not121, label %47, label %.thread125, !llvm.loop !184
+  br i1 %.not121, label %47, label %..thread125.loopexit_crit_edge195, !llvm.loop !184
 
-.thread125:                                       ; preds = %47, %.loopexit, %40, %54, %36, %34, %32, %30
-  %.2118 = phi i32 [ %56, %54 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %44, %40 ], [ %.4, %.loopexit ], [ %.4, %47 ]
-  %.0112 = phi i32 [ %.3119189, %54 ], [ %.0116179.lcssa, %36 ], [ %.0116179.lcssa, %34 ], [ %.0116179.lcssa, %32 ], [ %.0116179.lcssa, %30 ], [ %.0116179.lcssa, %40 ], [ %.2114, %.loopexit ], [ %.2114, %47 ]
-  %.1111 = phi ptr [ %2, %54 ], [ %.0110180.lcssa, %36 ], [ %.0110180.lcssa, %34 ], [ %.0110180.lcssa, %32 ], [ %.0110180.lcssa, %30 ], [ %42, %40 ], [ %42, %.loopexit ], [ %42, %47 ]
-  %.1 = phi ptr [ %.2190, %54 ], [ %.0.ph, %36 ], [ %.0.ph, %34 ], [ %.0.ph, %32 ], [ %.0.ph, %30 ], [ %.0.ph, %40 ], [ %.3, %.loopexit ], [ %.3, %47 ]
+..thread125.loopexit_crit_edge195:                ; preds = %.loopexit
+  br label %.thread125, !llvm.loop !184
+
+.thread125:                                       ; preds = %47, %40, %..thread125.loopexit_crit_edge195, %54, %36, %34, %32, %30
+  %.2118 = phi i32 [ %56, %54 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %.4, %..thread125.loopexit_crit_edge195 ], [ %44, %40 ], [ %.4, %47 ]
+  %.0112 = phi i32 [ %.3119189, %54 ], [ %.0116179.lcssa, %36 ], [ %.0116179.lcssa, %34 ], [ %.0116179.lcssa, %32 ], [ %.0116179.lcssa, %30 ], [ %.2114, %..thread125.loopexit_crit_edge195 ], [ %.0116179.lcssa, %40 ], [ %.2114, %47 ]
+  %.1111 = phi ptr [ %2, %54 ], [ %.0110180.lcssa, %36 ], [ %.0110180.lcssa, %34 ], [ %.0110180.lcssa, %32 ], [ %.0110180.lcssa, %30 ], [ %42, %..thread125.loopexit_crit_edge195 ], [ %42, %40 ], [ %42, %47 ]
+  %.1 = phi ptr [ %.2190, %54 ], [ %.0.ph, %36 ], [ %.0.ph, %34 ], [ %.0.ph, %32 ], [ %.0.ph, %30 ], [ %.3, %..thread125.loopexit_crit_edge195 ], [ %.0.ph, %40 ], [ %.3, %47 ]
   %.not122 = icmp ugt i32 %.2118, %.0112
   br i1 %.not122, label %.outer, label %.thread125.thread, !llvm.loop !183
 
 .thread125.thread.sink.split:                     ; preds = %38, %61, %82
-  %.2190.lcssa275.sink = phi ptr [ %65, %82 ], [ %.2190, %61 ], [ %.0110180.lcssa, %38 ]
+  %.2190.lcssa289.sink = phi ptr [ %65, %82 ], [ %.2190, %61 ], [ %.0110180.lcssa, %38 ]
   %.0120.ph = phi i32 [ %.5182, %82 ], [ %.3119189, %61 ], [ %.0116179.lcssa, %38 ]
-  %116 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.2190.lcssa275.sink, ptr noundef nonnull @ei_bacapp_bad_tag)
+  %116 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.2190.lcssa289.sink, ptr noundef nonnull @ei_bacapp_bad_tag)
   br label %.thread125.thread
 
-.thread125.thread:                                ; preds = %.outer, %.thread125, %.lr.ph._crit_edge, %.lr.ph323, %57, %80, %.thread125.thread.sink.split
-  %.0120 = phi i32 [ %.0120.ph, %.thread125.thread.sink.split ], [ %.5182, %80 ], [ %.3119189, %57 ], [ %22, %.lr.ph323 ], [ %.0116.ph, %.outer ], [ %.0116179.lcssa, %.lr.ph._crit_edge ], [ %.2118, %.thread125 ]
+.thread125.thread:                                ; preds = %.outer, %.thread125, %.lr.ph._crit_edge, %.lr.ph350, %57, %80, %.thread125.thread.sink.split
+  %.0120 = phi i32 [ %.0120.ph, %.thread125.thread.sink.split ], [ %.5182, %80 ], [ %.3119189, %57 ], [ %22, %.lr.ph350 ], [ %.0116.ph, %.outer ], [ %.0116179.lcssa, %.lr.ph._crit_edge ], [ %.2118, %.thread125 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6

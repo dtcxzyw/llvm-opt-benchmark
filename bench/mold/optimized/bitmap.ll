@@ -235,8 +235,8 @@ mi_bitmap_mask_.exit.i.us41:                      ; preds = %.lr.ph.split.split.
   br i1 %6, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.loopexit20.us71
-  %.01231.us51 = phi i64 [ %64, %.loopexit20.us71 ], [ 0, %.lr.ph.split.split ]
-  %.01330.us52 = phi i64 [ %65, %.loopexit20.us71 ], [ %2, %.lr.ph.split.split ]
+  %.01231.us51 = phi i64 [ %65, %.loopexit20.us71 ], [ 0, %.lr.ph.split.split ]
+  %.01330.us52 = phi i64 [ %66, %.loopexit20.us71 ], [ %2, %.lr.ph.split.split ]
   %.not.us53 = icmp ult i64 %.01330.us52, %1
   %spec.store.select.us54 = select i1 %.not.us53, i64 %.01330.us52, i64 0
   %52 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us54
@@ -256,81 +256,87 @@ mi_bitmap_mask_.exit.i.us55:                      ; preds = %.lr.ph.split.split.
   %59 = extractvalue { i64, i1 } %58, 1
   br i1 %59, label %_mi_bitmap_try_find_claim_field.exit, label %.lr.ph127, !llvm.loop !3
 
-.lr.ph127:                                        ; preds = %.lr.ph.split.i.us59.preheader, %.lr.ph127
-  %60 = phi { i64, i1 } [ %62, %.lr.ph127 ], [ %58, %.lr.ph.split.i.us59.preheader ]
-  %61 = extractvalue { i64, i1 } %60, 0
-  %62 = cmpxchg ptr %57, i64 %61, i64 %61 acq_rel acquire, align 8
-  %63 = extractvalue { i64, i1 } %62, 1
-  br i1 %63, label %_mi_bitmap_try_find_claim_field.exit, label %.lr.ph127, !llvm.loop !3
+.lr.ph127:                                        ; preds = %.lr.ph.split.i.us59.preheader
+  br label %60, !llvm.loop !3
+
+60:                                               ; preds = %.lr.ph127, %60
+  %61 = phi { i64, i1 } [ %58, %.lr.ph127 ], [ %63, %60 ]
+  %62 = extractvalue { i64, i1 } %61, 0
+  %63 = cmpxchg ptr %57, i64 %62, i64 %62 acq_rel acquire, align 8
+  %64 = extractvalue { i64, i1 } %63, 1
+  br i1 %64, label %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge, label %60, !llvm.loop !3
 
 .loopexit20.us71:                                 ; preds = %mi_bitmap_mask_.exit.i.us55, %.lr.ph.split.split.split.us
-  %64 = add nuw i64 %.01231.us51, 1
-  %65 = add i64 %spec.store.select.us54, 1
-  %exitcond94.not = icmp eq i64 %64, %1
+  %65 = add nuw i64 %.01231.us51, 1
+  %66 = add i64 %spec.store.select.us54, 1
+  %exitcond94.not = icmp eq i64 %65, %1
   br i1 %exitcond94.not, label %.critedge, label %.lr.ph.split.split.split.us, !llvm.loop !9
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.loopexit20
-  %.01231 = phi i64 [ %88, %.loopexit20 ], [ 0, %.lr.ph.split.split ]
-  %.01330 = phi i64 [ %89, %.loopexit20 ], [ %2, %.lr.ph.split.split ]
+  %.01231 = phi i64 [ %89, %.loopexit20 ], [ 0, %.lr.ph.split.split ]
+  %.01330 = phi i64 [ %90, %.loopexit20 ], [ %2, %.lr.ph.split.split ]
   %.not = icmp ult i64 %.01330, %1
   %spec.store.select = select i1 %.not, i64 %.01330, i64 0
-  %66 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select
-  %67 = load atomic i64, ptr %66 monotonic, align 8
-  %68 = icmp eq i64 %67, -1
-  br i1 %68, label %.loopexit20, label %mi_bitmap_mask_.exit.i
+  %67 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select
+  %68 = load atomic i64, ptr %67 monotonic, align 8
+  %69 = icmp eq i64 %68, -1
+  br i1 %69, label %.loopexit20, label %mi_bitmap_mask_.exit.i
 
 mi_bitmap_mask_.exit.i:                           ; preds = %.lr.ph.split.split.split
-  %69 = xor i64 %67, -1
-  %70 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %69, i1 true)
-  %.not.not50.i = icmp ugt i64 %70, %8
+  %70 = xor i64 %68, -1
+  %71 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %70, i1 true)
+  %.not.not50.i = icmp ugt i64 %71, %8
   br i1 %.not.not50.i, label %.loopexit20, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %mi_bitmap_mask_.exit.i
-  %71 = shl i64 %7, %70
+  %72 = shl i64 %7, %71
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %85
-  %.03353.i = phi i64 [ %.235.i, %85 ], [ %67, %.lr.ph.i ]
-  %.03852.i = phi i64 [ %.139.i, %85 ], [ %70, %.lr.ph.i ]
-  %.04051.i = phi i64 [ %.141.i, %85 ], [ %71, %.lr.ph.i ]
-  %72 = and i64 %.04051.i, %.03353.i
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %79
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %86
+  %.03353.i = phi i64 [ %.235.i, %86 ], [ %68, %.lr.ph.i ]
+  %.03852.i = phi i64 [ %.139.i, %86 ], [ %71, %.lr.ph.i ]
+  %.04051.i = phi i64 [ %.141.i, %86 ], [ %72, %.lr.ph.i ]
+  %73 = and i64 %.04051.i, %.03353.i
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %75, label %80
 
-74:                                               ; preds = %.lr.ph.split.i
-  %75 = or i64 %.04051.i, %.03353.i
-  %76 = cmpxchg ptr %66, i64 %.03353.i, i64 %75 acq_rel acquire, align 8
-  %77 = extractvalue { i64, i1 } %76, 1
-  %78 = extractvalue { i64, i1 } %76, 0
-  br i1 %77, label %_mi_bitmap_try_find_claim_field.exit, label %85, !llvm.loop !3
+75:                                               ; preds = %.lr.ph.split.i
+  %76 = or i64 %.04051.i, %.03353.i
+  %77 = cmpxchg ptr %67, i64 %.03353.i, i64 %76 acq_rel acquire, align 8
+  %78 = extractvalue { i64, i1 } %77, 1
+  %79 = extractvalue { i64, i1 } %77, 0
+  br i1 %78, label %_mi_bitmap_try_find_claim_field.exit, label %86, !llvm.loop !3
 
-79:                                               ; preds = %.lr.ph.split.i
-  %80 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %72, i1 true)
-  %81 = add i64 %.03852.i, %80
-  %82 = sub i64 64, %81
-  %83 = add i64 %82, %.03852.i
-  %84 = shl i64 %.04051.i, %82
-  br label %85
+80:                                               ; preds = %.lr.ph.split.i
+  %81 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %73, i1 true)
+  %82 = add i64 %.03852.i, %81
+  %83 = sub i64 64, %82
+  %84 = add i64 %83, %.03852.i
+  %85 = shl i64 %.04051.i, %83
+  br label %86
 
-85:                                               ; preds = %79, %74
-  %.141.i = phi i64 [ %84, %79 ], [ %.04051.i, %74 ]
-  %.139.i = phi i64 [ %83, %79 ], [ %.03852.i, %74 ]
-  %.235.i = phi i64 [ %.03353.i, %79 ], [ %78, %74 ]
+86:                                               ; preds = %80, %75
+  %.141.i = phi i64 [ %85, %80 ], [ %.04051.i, %75 ]
+  %.139.i = phi i64 [ %84, %80 ], [ %.03852.i, %75 ]
+  %.235.i = phi i64 [ %.03353.i, %80 ], [ %79, %75 ]
   %.not.not.i = icmp ugt i64 %.139.i, %8
   br i1 %.not.not.i, label %.loopexit20, label %.lr.ph.split.i
 
-_mi_bitmap_try_find_claim_field.exit:             ; preds = %74, %.lr.ph127, %44, %21, %.lr.ph.split.i.us59.preheader
-  %spec.store.select28 = phi i64 [ %spec.store.select.us54, %.lr.ph.split.i.us59.preheader ], [ %spec.store.select.us, %21 ], [ %spec.store.select.us40, %44 ], [ %spec.store.select.us54, %.lr.ph127 ], [ %spec.store.select, %74 ]
-  %.us-phi.i = phi i64 [ %56, %.lr.ph.split.i.us59.preheader ], [ %.03852.us.i.us, %21 ], [ %.03852.i.us, %44 ], [ %56, %.lr.ph127 ], [ %.03852.i, %74 ]
-  %86 = shl i64 %spec.store.select28, 6
-  %87 = add i64 %.us-phi.i, %86
-  store i64 %87, ptr %4, align 8, !tbaa !5
+._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge: ; preds = %60
+  br label %_mi_bitmap_try_find_claim_field.exit, !llvm.loop !3
+
+_mi_bitmap_try_find_claim_field.exit:             ; preds = %75, %44, %21, %.lr.ph.split.i.us59.preheader, %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge
+  %spec.store.select28 = phi i64 [ %spec.store.select.us54, %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge ], [ %spec.store.select.us54, %.lr.ph.split.i.us59.preheader ], [ %spec.store.select.us, %21 ], [ %spec.store.select.us40, %44 ], [ %spec.store.select, %75 ]
+  %.us-phi.i = phi i64 [ %56, %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge ], [ %56, %.lr.ph.split.i.us59.preheader ], [ %.03852.us.i.us, %21 ], [ %.03852.i.us, %44 ], [ %.03852.i, %75 ]
+  %87 = shl i64 %spec.store.select28, 6
+  %88 = add i64 %.us-phi.i, %87
+  store i64 %88, ptr %4, align 8, !tbaa !5
   br label %.critedge
 
-.loopexit20:                                      ; preds = %85, %.lr.ph.split.split.split, %mi_bitmap_mask_.exit.i
-  %88 = add nuw i64 %.01231, 1
-  %89 = add i64 %spec.store.select, 1
-  %exitcond.not = icmp eq i64 %88, %1
+.loopexit20:                                      ; preds = %86, %.lr.ph.split.split.split, %mi_bitmap_mask_.exit.i
+  %89 = add nuw i64 %.01231, 1
+  %90 = add i64 %spec.store.select, 1
+  %exitcond.not = icmp eq i64 %89, %1
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split.split, !llvm.loop !9
 
 .critedge:                                        ; preds = %.loopexit20, %.loopexit20.us71, %.loopexit20.us, %.loopexit.us, %5, %_mi_bitmap_try_find_claim_field.exit

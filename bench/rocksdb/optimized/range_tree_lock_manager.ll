@@ -1988,7 +1988,7 @@ define void @_ZN7rocksdb20RangeTreeLockManager16GetLockTreeForCFEj(ptr dead_on_u
   %.sroa.06.0.in.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %26 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !186
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, null
-  br i1 %.not.i.i, label %.loopexit43, label %26
+  br i1 %.not.i.i, label %.loopexit44, label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
@@ -2005,7 +2005,7 @@ define void @_ZN7rocksdb20RangeTreeLockManager16GetLockTreeForCFEj(ptr dead_on_u
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %34
   %37 = load ptr, ptr %36, align 8, !tbaa !188
   %.not.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i, label %.loopexit43, label %38
+  br i1 %.not.i.i.i.i, label %.loopexit44, label %38
 
 38:                                               ; preds = %30
   %39 = load ptr, ptr %37, align 8, !tbaa !186
@@ -2022,7 +2022,7 @@ define void @_ZN7rocksdb20RangeTreeLockManager16GetLockTreeForCFEj(ptr dead_on_u
   %.020.i.i.i.i = phi ptr [ %45, %43 ], [ %39, %38 ]
   %45 = load ptr, ptr %.020.i.i.i.i, align 8, !tbaa !186
   %.not18.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not18.i.i.i.i, label %.loopexit43, label %46
+  br i1 %.not18.i.i.i.i, label %.loopexit44, label %46
 
 46:                                               ; preds = %.lr.ph.i.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -2030,7 +2030,10 @@ define void @_ZN7rocksdb20RangeTreeLockManager16GetLockTreeForCFEj(ptr dead_on_u
   %49 = zext i32 %48 to i64
   %50 = urem i64 %49, %33
   %.not19.i.i.i.i = icmp eq i64 %50, %34
-  br i1 %.not19.i.i.i.i, label %43, label %.loopexit43, !llvm.loop !189
+  br i1 %.not19.i.i.i.i, label %43, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !189
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %46
+  br label %.loopexit44, !llvm.loop !189
 
 _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit: ; preds = %43, %26, %38
   %.sroa.06.1.i.i = phi ptr [ %39, %38 ], [ %.sroa.06.0.i.i, %26 ], [ %45, %43 ]
@@ -2060,7 +2063,7 @@ _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESa
   %63 = atomicrmw volatile add ptr %57, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit
 
-.loopexit43:                                      ; preds = %46, %.lr.ph.i.i.i.i, %25, %30
+.loopexit44:                                      ; preds = %.lr.ph.i.i.i.i, %25, %30, %..loopexit_crit_edge21.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 512
   tail call void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %64)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 480
@@ -2068,23 +2071,23 @@ _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESa
   %.not.not.i.i9 = icmp eq i64 %66, 0
   br i1 %.not.not.i.i9, label %67, label %74
 
-67:                                               ; preds = %.loopexit43
+67:                                               ; preds = %.loopexit44
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 472
   br label %69
 
 69:                                               ; preds = %70, %67
-  %.sroa.06.0.in.i.i16 = phi ptr [ %68, %67 ], [ %.sroa.06.0.i.i17, %70 ]
-  %.sroa.06.0.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i16, align 8, !tbaa !186
-  %.not.i.i18 = icmp eq ptr %.sroa.06.0.i.i17, null
-  br i1 %.not.i.i18, label %.loopexit, label %70
+  %.sroa.06.0.in.i.i17 = phi ptr [ %68, %67 ], [ %.sroa.06.0.i.i18, %70 ]
+  %.sroa.06.0.i.i18 = load ptr, ptr %.sroa.06.0.in.i.i17, align 8, !tbaa !186
+  %.not.i.i19 = icmp eq ptr %.sroa.06.0.i.i18, null
+  br i1 %.not.i.i19, label %.loopexit, label %70
 
 70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i17, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i18, i64 8
   %72 = load i32, ptr %71, align 4, !tbaa !24
   %73 = icmp eq i32 %2, %72
-  br i1 %73, label %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit19, label %69, !llvm.loop !187
+  br i1 %73, label %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit20, label %69, !llvm.loop !187
 
-74:                                               ; preds = %.loopexit43
+74:                                               ; preds = %.loopexit44
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %76 = zext i32 %2 to i64
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 464
@@ -2101,11 +2104,11 @@ _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESa
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 4, !tbaa !24
   %87 = icmp eq i32 %2, %86
-  br i1 %87, label %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit19, label %.lr.ph.i.i.i.i11
+  br i1 %87, label %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit20, label %.lr.ph.i.i.i.i11
 
 88:                                               ; preds = %91
   %89 = icmp eq i32 %2, %93
-  br i1 %89, label %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit19, label %.lr.ph.i.i.i.i11, !llvm.loop !189
+  br i1 %89, label %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit20, label %.lr.ph.i.i.i.i11, !llvm.loop !189
 
 .lr.ph.i.i.i.i11:                                 ; preds = %83, %88
   %.020.i.i.i.i12 = phi ptr [ %90, %88 ], [ %84, %83 ]
@@ -2119,28 +2122,31 @@ _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESa
   %94 = zext i32 %93 to i64
   %95 = urem i64 %94, %78
   %.not19.i.i.i.i14 = icmp eq i64 %95, %79
-  br i1 %.not19.i.i.i.i14, label %88, label %.loopexit, !llvm.loop !189
+  br i1 %.not19.i.i.i.i14, label %88, label %..loopexit_crit_edge21.i.i.i.i15, !llvm.loop !189
 
-.loopexit:                                        ; preds = %91, %.lr.ph.i.i.i.i11, %69, %74
+..loopexit_crit_edge21.i.i.i.i15:                 ; preds = %91
+  br label %.loopexit, !llvm.loop !189
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i11, %69, %74, %..loopexit_crit_edge21.i.i.i.i15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit25
+  br label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit26
 
-_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit19: ; preds = %88, %70, %83
-  %.sroa.06.1.i.i15 = phi ptr [ %84, %83 ], [ %.sroa.06.0.i.i17, %70 ], [ %90, %88 ]
+_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit20: ; preds = %88, %70, %83
+  %.sroa.06.1.i.i16 = phi ptr [ %84, %83 ], [ %.sroa.06.0.i.i18, %70 ], [ %90, %88 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i15, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i16, i64 16
   store i32 %2, ptr %4, align 8, !tbaa !190
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %98 = load ptr, ptr %96, align 8, !tbaa !46
   store ptr %98, ptr %97, align 8, !tbaa !46
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i15, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i16, i64 24
   %101 = load ptr, ptr %100, align 8, !tbaa !23
   store ptr %101, ptr %99, align 8, !tbaa !23
-  %.not.i.i.i.i20 = icmp eq ptr %101, null
-  br i1 %.not.i.i.i.i20, label %_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEEC2IRjRS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit, label %102
+  %.not.i.i.i.i21 = icmp eq ptr %101, null
+  br i1 %.not.i.i.i.i21, label %_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEEC2IRjRS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit, label %102
 
-102:                                              ; preds = %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit19
+102:                                              ; preds = %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit20
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %104 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
   %.not.i.i.i.i.i = icmp eq i8 %104, 0
@@ -2156,14 +2162,14 @@ _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESa
   %109 = atomicrmw volatile add ptr %103, i32 1 acq_rel, align 4
   br label %_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEEC2IRjRS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
 
-_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEEC2IRjRS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit: ; preds = %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit19, %105, %108
+_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEEC2IRjRS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit: ; preds = %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit20, %105, %108
   %110 = invoke { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku8locktreeEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS6_EEES0_INS8_14_Node_iteratorIS6_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE6insertEOSA_.exit unwind label %144
 
 _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE6insertEOSA_.exit: ; preds = %_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEEC2IRjRS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
   %111 = load ptr, ptr %99, align 8, !tbaa !23
-  %.not.i.i.i21 = icmp eq ptr %111, null
-  br i1 %.not.i.i.i21, label %_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEED2Ev.exit, label %112
+  %.not.i.i.i22 = icmp eq ptr %111, null
+  br i1 %.not.i.i.i22, label %_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEED2Ev.exit, label %112
 
 112:                                              ; preds = %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE6insertEOSA_.exit
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -2188,8 +2194,8 @@ _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESa
 
 125:                                              ; preds = %112
   %126 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
-  %.not.i.i.i.i22 = icmp eq i8 %126, 0
-  br i1 %.not.i.i.i.i22, label %129, label %127
+  %.not.i.i.i.i23 = icmp eq i8 %126, 0
+  br i1 %.not.i.i.i.i23, label %129, label %127
 
 127:                                              ; preds = %125
   %128 = add nsw i32 %116, -1
@@ -2216,24 +2222,24 @@ _ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEED2Ev.exit: ; preds = %_ZNSt13unord
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %135 = load ptr, ptr %100, align 8, !tbaa !23
   store ptr %135, ptr %134, align 8, !tbaa !23
-  %.not.i.i.i23 = icmp eq ptr %135, null
-  br i1 %.not.i.i.i23, label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit25, label %136
+  %.not.i.i.i24 = icmp eq ptr %135, null
+  br i1 %.not.i.i.i24, label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit26, label %136
 
 136:                                              ; preds = %_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEED2Ev.exit
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %138 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
-  %.not.i.i.i.i24 = icmp eq i8 %138, 0
-  br i1 %.not.i.i.i.i24, label %142, label %139
+  %.not.i.i.i.i25 = icmp eq i8 %138, 0
+  br i1 %.not.i.i.i.i25, label %142, label %139
 
 139:                                              ; preds = %136
   %140 = load i32, ptr %137, align 4, !tbaa !24
   %141 = add nsw i32 %140, 1
   store i32 %141, ptr %137, align 4, !tbaa !24
-  br label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit25
+  br label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit26
 
 142:                                              ; preds = %136
   %143 = atomicrmw volatile add ptr %137, i32 1 acq_rel, align 4
-  br label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit25
+  br label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit26
 
 144:                                              ; preds = %_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEEC2IRjRS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
   %145 = landingpad { ptr, i32 }
@@ -2241,13 +2247,13 @@ _ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEED2Ev.exit: ; preds = %_ZNSt13unord
   call void @_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %64)
-          to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit26 unwind label %149
+          to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit27 unwind label %149
 
-_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit25: ; preds = %142, %139, %_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEED2Ev.exit, %.loopexit
+_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit26: ; preds = %142, %139, %_ZNSt4pairIKjSt10shared_ptrIN4toku8locktreeEEED2Ev.exit, %.loopexit
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %64)
           to label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit unwind label %146
 
-146:                                              ; preds = %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit25
+146:                                              ; preds = %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit26
   %147 = landingpad { ptr, i32 }
           catch ptr null
   %148 = extractvalue { ptr, i32 } %147, 0
@@ -2261,10 +2267,10 @@ _ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit25: ; preds = %142, %139, %_ZNSt
   call void @__clang_call_terminate(ptr %151) #29
   unreachable
 
-_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit26:    ; preds = %144
+_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit27:    ; preds = %144
   resume { ptr, i32 } %145
 
-_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit: ; preds = %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit25, %62, %59, %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
+_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit: ; preds = %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit26, %62, %59, %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
   ret void
 }
 
@@ -5453,9 +5459,12 @@ define void @_ZN7rocksdb20RangeTreeLockManager15AddColumnFamilyEPKNS_18ColumnFam
   %40 = zext i32 %39 to i64
   %41 = urem i64 %40, %24
   %.not19.i.i.i.i = icmp eq i64 %41, %25
-  br i1 %.not19.i.i.i.i, label %34, label %.loopexit, !llvm.loop !189
+  br i1 %.not19.i.i.i.i, label %34, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !189
 
-.loopexit:                                        ; preds = %37, %.lr.ph.i.i.i.i, %16, %21
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %37
+  br label %.loopexit, !llvm.loop !189
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %16, %21, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #26
   %42 = load ptr, ptr %1, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -5813,7 +5822,10 @@ define void @_ZN7rocksdb20RangeTreeLockManager18RemoveColumnFamilyEPKNS_18Column
   %38 = zext i32 %37 to i64
   %39 = urem i64 %38, %22
   %.not19.i.i.i.i = icmp eq i64 %39, %23
-  br i1 %.not19.i.i.i.i, label %32, label %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, !llvm.loop !189
+  br i1 %.not19.i.i.i.i, label %32, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !189
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %35
+  br label %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, !llvm.loop !189
 
 _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.loopexit: ; preds = %14, %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -5821,10 +5833,10 @@ _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESa
   %.pre41 = load ptr, ptr %9, align 8, !tbaa !181
   br label %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
 
-_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit: ; preds = %35, %.lr.ph.i.i.i.i, %32, %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.loopexit, %27, %19
-  %40 = phi ptr [ %24, %19 ], [ %24, %27 ], [ %.pre41, %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.loopexit ], [ %24, %32 ], [ %24, %.lr.ph.i.i.i.i ], [ %24, %35 ]
-  %41 = phi i64 [ %22, %19 ], [ %22, %27 ], [ %.pre, %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.loopexit ], [ %22, %32 ], [ %22, %.lr.ph.i.i.i.i ], [ %22, %35 ]
-  %.sroa.06.1.i.i = phi ptr [ null, %19 ], [ %28, %27 ], [ %.sroa.06.0.i.i, %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.loopexit ], [ null, %35 ], [ null, %.lr.ph.i.i.i.i ], [ %34, %32 ]
+_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit: ; preds = %.lr.ph.i.i.i.i, %32, %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.loopexit, %..loopexit_crit_edge21.i.i.i.i, %27, %19
+  %40 = phi ptr [ %24, %19 ], [ %24, %..loopexit_crit_edge21.i.i.i.i ], [ %24, %27 ], [ %.pre41, %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.loopexit ], [ %24, %32 ], [ %24, %.lr.ph.i.i.i.i ]
+  %41 = phi i64 [ %22, %19 ], [ %22, %..loopexit_crit_edge21.i.i.i.i ], [ %22, %27 ], [ %.pre, %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.loopexit ], [ %22, %32 ], [ %22, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ null, %19 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %28, %27 ], [ %.sroa.06.0.i.i, %_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.loopexit ], [ null, %.lr.ph.i.i.i.i ], [ %34, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 8
   %43 = load i32, ptr %42, align 4, !tbaa !24
   %44 = zext i32 %43 to i64
@@ -8339,7 +8351,10 @@ _ZNKSt10_HashtableIjSt4pairIKjN7rocksdb13RangeLockInfoEESaIS4_ENSt8__detail10_Se
   %53 = zext i32 %52 to i64
   %54 = urem i64 %53, %29
   %.not19.i = icmp eq i64 %54, %30
-  br i1 %.not19.i, label %47, label %.loopexit, !llvm.loop !354
+  br i1 %.not19.i, label %47, label %..loopexit_crit_edge21.i, !llvm.loop !354
+
+..loopexit_crit_edge21.i:                         ; preds = %50
+  br label %.loopexit, !llvm.loop !354
 
 _ZNKSt10_HashtableIjSt4pairIKjN7rocksdb13RangeLockInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_find_before_nodeEmRS1_m.exit: ; preds = %47, %41
   %55 = phi ptr [ %42, %41 ], [ %49, %47 ]
@@ -8373,7 +8388,7 @@ _ZNKSt10_HashtableIjSt4pairIKjN7rocksdb13RangeLockInfoEESaIS4_ENSt8__detail10_Se
   store ptr %3, ptr %70, align 8, !tbaa !188
   br label %_ZNSt10_HashtableIjSt4pairIKjN7rocksdb13RangeLockInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE22_M_insert_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb0EEE.exit
 
-.loopexit:                                        ; preds = %50, %.lr.ph.i
+.loopexit:                                        ; preds = %.lr.ph.i, %..loopexit_crit_edge21.i
   %71 = load ptr, ptr %40, align 8, !tbaa !186
   store ptr %71, ptr %3, align 8, !tbaa !186
   %72 = load ptr, ptr %39, align 8, !tbaa !188
@@ -11965,11 +11980,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4t
   %46 = zext i32 %45 to i64
   %47 = urem i64 %46, %18
   %.not19.i.i = icmp eq i64 %47, %19
-  br i1 %.not19.i.i, label %40, label %.critedge27, !llvm.loop !189
+  br i1 %.not19.i.i, label %40, label %..loopexit_crit_edge21.i.i, !llvm.loop !189
 
-.critedge27:                                      ; preds = %.lr.ph.i.i, %43, %30, %.thread
-  %48 = phi i64 [ %34, %30 ], [ %19, %.thread ], [ %19, %43 ], [ %19, %.lr.ph.i.i ]
-  %49 = phi i64 [ %31, %30 ], [ %16, %.thread ], [ %16, %43 ], [ %16, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %43
+  br label %.critedge27, !llvm.loop !189
+
+.critedge27:                                      ; preds = %.lr.ph.i.i, %30, %..loopexit_crit_edge21.i.i, %.thread
+  %48 = phi i64 [ %34, %30 ], [ %19, %.thread ], [ %19, %..loopexit_crit_edge21.i.i ], [ %19, %.lr.ph.i.i ]
+  %49 = phi i64 [ %31, %30 ], [ %16, %.thread ], [ %16, %..loopexit_crit_edge21.i.i ], [ %16, %.lr.ph.i.i ]
   %50 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku8locktreeEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %48, i64 noundef %49, ptr noundef nonnull %5, i64 noundef 1)
           to label %_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku8locktreeEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %51
 
@@ -12521,7 +12539,10 @@ _ZNKSt10_HashtableIjSt4pairIKjN7rocksdb11KeyLockInfoEESaIS4_ENSt8__detail10_Sele
   %53 = zext i32 %52 to i64
   %54 = urem i64 %53, %29
   %.not19.i = icmp eq i64 %54, %30
-  br i1 %.not19.i, label %47, label %.loopexit, !llvm.loop !431
+  br i1 %.not19.i, label %47, label %..loopexit_crit_edge21.i, !llvm.loop !431
+
+..loopexit_crit_edge21.i:                         ; preds = %50
+  br label %.loopexit, !llvm.loop !431
 
 _ZNKSt10_HashtableIjSt4pairIKjN7rocksdb11KeyLockInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_find_before_nodeEmRS1_m.exit: ; preds = %47, %41
   %55 = phi ptr [ %42, %41 ], [ %49, %47 ]
@@ -12555,7 +12576,7 @@ _ZNKSt10_HashtableIjSt4pairIKjN7rocksdb11KeyLockInfoEESaIS4_ENSt8__detail10_Sele
   store ptr %3, ptr %70, align 8, !tbaa !188
   br label %_ZNSt10_HashtableIjSt4pairIKjN7rocksdb11KeyLockInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE22_M_insert_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb0EEE.exit
 
-.loopexit:                                        ; preds = %50, %.lr.ph.i
+.loopexit:                                        ; preds = %.lr.ph.i, %..loopexit_crit_edge21.i
   %71 = load ptr, ptr %40, align 8, !tbaa !186
   store ptr %71, ptr %3, align 8, !tbaa !186
   %72 = load ptr, ptr %39, align 8, !tbaa !188

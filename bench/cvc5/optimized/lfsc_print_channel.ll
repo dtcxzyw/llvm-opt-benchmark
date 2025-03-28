@@ -2020,7 +2020,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc516ProofRewriteRu
   br i1 %.not38, label %.thread..critedge_crit_edge, label %19
 
 .thread..critedge_crit_edge:                      ; preds = %.thread
-  %.pre45 = load i32, ptr %1, align 4, !tbaa !74
+  %.pre47 = load i32, ptr %1, align 4, !tbaa !74
   br label %.critedge
 
 19:                                               ; preds = %.thread
@@ -2028,7 +2028,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc516ProofRewriteRu
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %17
   %22 = load ptr, ptr %21, align 8, !tbaa !109
   %.not.i.i = icmp eq ptr %22, null
-  %.pre46 = load i32, ptr %1, align 4, !tbaa !74
+  %.pre48 = load i32, ptr %1, align 4, !tbaa !74
   br i1 %.not.i.i, label %.critedge, label %23
 
 23:                                               ; preds = %19
@@ -2038,7 +2038,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc516ProofRewriteRu
   %27 = load i64, ptr %26, align 8, !tbaa !110
   %28 = icmp eq i64 %14, %27
   %29 = load i32, ptr %25, align 4
-  %30 = icmp eq i32 %.pre46, %29
+  %30 = icmp eq i32 %.pre48, %29
   %31 = select i1 %28, i1 %30, i1 false
   br i1 %31, label %_ZNKSt10_HashtableIN4cvc516ProofRewriteRuleES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
 
@@ -2046,7 +2046,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc516ProofRewriteRu
   %33 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %34 = icmp eq i64 %14, %41
   %35 = load i32, ptr %33, align 4
-  %36 = icmp eq i32 %.pre46, %35
+  %36 = icmp eq i32 %.pre48, %35
   %37 = select i1 %34, i1 %36, i1 false
   br i1 %37, label %_ZNKSt10_HashtableIN4cvc516ProofRewriteRuleES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i, !llvm.loop !112
 
@@ -2061,10 +2061,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc516ProofRewriteRu
   %41 = load i64, ptr %40, align 8, !tbaa !110
   %42 = urem i64 %41, %16
   %.not19.i.i = icmp eq i64 %42, %17
-  br i1 %.not19.i.i, label %32, label %.critedge, !llvm.loop !112
+  br i1 %.not19.i.i, label %32, label %..loopexit_crit_edge21.i.i, !llvm.loop !112
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %39, %.thread..critedge_crit_edge, %19
-  %43 = phi i32 [ %.pre45, %.thread..critedge_crit_edge ], [ %.pre46, %19 ], [ %.pre46, %39 ], [ %.pre46, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %39
+  br label %.critedge, !llvm.loop !112
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %.thread..critedge_crit_edge, %..loopexit_crit_edge21.i.i, %19
+  %43 = phi i32 [ %.pre47, %.thread..critedge_crit_edge ], [ %.pre48, %..loopexit_crit_edge21.i.i ], [ %.pre48, %19 ], [ %.pre48, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   store ptr null, ptr %44, align 8, !tbaa !105
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

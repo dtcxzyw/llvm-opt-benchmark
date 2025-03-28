@@ -443,10 +443,13 @@ Cbs_ManPropagateOne.exit.thread:                  ; preds = %93, %94, %78, %66, 
   %129 = load i32, ptr %4, align 4, !tbaa !44
   %130 = sext i32 %129 to i64
   %131 = icmp slt i64 %indvars.iv.next, %130
-  br i1 %131, label %.lr.ph, label %.critedge, !llvm.loop !47
+  br i1 %131, label %.lr.ph, label %Cbs_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge, !llvm.loop !47
 
-.critedge:                                        ; preds = %Cbs_ManPropagateOne.exit.thread, %.lr.ph, %.lr.ph.preheader, %9
-  %.lcssa = phi i32 [ %11, %9 ], [ %11, %.lr.ph.preheader ], [ %129, %.lr.ph ], [ %129, %Cbs_ManPropagateOne.exit.thread ]
+Cbs_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge: ; preds = %Cbs_ManPropagateOne.exit.thread
+  br label %.critedge, !llvm.loop !47
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %Cbs_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge, %9
+  %.lcssa = phi i32 [ %11, %9 ], [ %129, %Cbs_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge ], [ %11, %.lr.ph.preheader ], [ %129, %.lr.ph ]
   store i32 %.lcssa, ptr %3, align 8, !tbaa !43
   %132 = load i32, ptr %8, align 8, !tbaa !52
   %133 = load i32, ptr %6, align 4, !tbaa !53
@@ -587,11 +590,14 @@ Cbs_ManPropagateTwo.exit.thread:                  ; preds = %192, %193, %Cbs_Var
   %209 = load i32, ptr %6, align 4, !tbaa !53
   %210 = sext i32 %209 to i64
   %211 = icmp slt i64 %indvars.iv.next81, %210
-  br i1 %211, label %.lr.ph70, label %.critedge2, !llvm.loop !54
+  br i1 %211, label %.lr.ph70, label %Cbs_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge, !llvm.loop !54
 
-.critedge2:                                       ; preds = %Cbs_ManPropagateTwo.exit.thread, %.lr.ph70, %.lr.ph70.preheader, %.critedge
-  %.0.lcssa = phi i32 [ %132, %.critedge ], [ %132, %.lr.ph70.preheader ], [ %.1, %.lr.ph70 ], [ %.1, %Cbs_ManPropagateTwo.exit.thread ]
-  %.lcssa59 = phi i32 [ %133, %.critedge ], [ %133, %.lr.ph70.preheader ], [ %209, %.lr.ph70 ], [ %209, %Cbs_ManPropagateTwo.exit.thread ]
+Cbs_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge: ; preds = %Cbs_ManPropagateTwo.exit.thread
+  br label %.critedge2, !llvm.loop !54
+
+.critedge2:                                       ; preds = %.lr.ph70, %.lr.ph70.preheader, %Cbs_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge, %.critedge
+  %.0.lcssa = phi i32 [ %132, %.critedge ], [ %.1, %Cbs_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge ], [ %132, %.lr.ph70.preheader ], [ %.1, %.lr.ph70 ]
+  %.lcssa59 = phi i32 [ %133, %.critedge ], [ %209, %Cbs_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge ], [ %133, %.lr.ph70.preheader ], [ %209, %.lr.ph70 ]
   %212 = icmp eq i32 %.0.lcssa, %.lcssa59
   br i1 %212, label %.loopexit, label %213
 

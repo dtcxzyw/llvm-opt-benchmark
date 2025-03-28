@@ -30322,10 +30322,10 @@ define dso_local noundef ptr @_ZN5clang6driver5tools24renderEscapedCommandLineER
 
 _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i, %2
   %.sroa.040.1 = phi ptr [ %15, %2 ], [ %15, %.lr.ph.i.i.preheader.i ], [ %23, %.lr.ph.i.i.i ]
-  %.not5455 = icmp eq ptr %.sroa.040.1, %19
-  br i1 %.not5455, label %._crit_edge, label %.lr.ph
+  %.not5456 = icmp eq ptr %.sroa.040.1, %19
+  br i1 %.not5456, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, %_ZNK4llvm3opt7ArgList5beginEv.exit
+._crit_edge:                                      ; preds = %.lr.ph.i, %.lr.ph, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, %59, %_ZNK4llvm3opt7ArgList5beginEv.exit
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %4) #22
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %24, ptr %4, align 8, !tbaa !211
@@ -30396,22 +30396,22 @@ _ZN5clang6driver5tools26escapeSpacesAndBackslashesEPKcRN4llvm15SmallVectorImplIc
   %50 = load i32, ptr %12, align 8, !tbaa !30
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
-  %.not57 = icmp eq i32 %50, 0
-  br i1 %.not57, label %._crit_edge60, label %.lr.ph59
+  %.not58 = icmp eq i32 %50, 0
+  br i1 %.not58, label %._crit_edge61, label %.lr.ph60
 
-.lr.ph59:                                         ; preds = %_ZN5clang6driver5tools26escapeSpacesAndBackslashesEPKcRN4llvm15SmallVectorImplIcEE.exit
+.lr.ph60:                                         ; preds = %_ZN5clang6driver5tools26escapeSpacesAndBackslashesEPKcRN4llvm15SmallVectorImplIcEE.exit
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %73
 
 .lr.ph:                                           ; preds = %_ZNK4llvm3opt7ArgList5beginEv.exit, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit
-  %.sroa.040.056 = phi ptr [ %.sroa.040.3, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit ], [ %.sroa.040.1, %_ZNK4llvm3opt7ArgList5beginEv.exit ]
-  %56 = load ptr, ptr %.sroa.040.056, align 8, !tbaa !50
+  %.sroa.040.057 = phi ptr [ %.sroa.040.2, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit ], [ %.sroa.040.1, %_ZNK4llvm3opt7ArgList5beginEv.exit ]
+  %56 = load ptr, ptr %.sroa.040.057, align 8, !tbaa !50
   call void @_ZNK4llvm3opt3Arg6renderERKNS0_7ArgListERNS_11SmallVectorIPKcLj16EEE(ptr noundef nonnull align 8 dereferenceable(88) %56, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(144) %3) #22
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.040.056, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.040.057, i64 8
   %.not2.i.i = icmp eq ptr %57, %19
-  br i1 %.not2.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %59
   %.sroa.040.2 = phi ptr [ %60, %59 ], [ %57, %.lr.ph ]
@@ -30422,19 +30422,18 @@ _ZN5clang6driver5tools26escapeSpacesAndBackslashesEPKcRN4llvm15SmallVectorImplIc
 59:                                               ; preds = %.lr.ph.i.i
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.040.2, i64 8
   %.not.i.i = icmp eq ptr %60, %19
-  br i1 %.not.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, label %.lr.ph.i.i, !llvm.loop !1377
+  br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.i.i, !llvm.loop !1377
 
-_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i, %59, %.lr.ph
-  %.sroa.040.3 = phi ptr [ %57, %.lr.ph ], [ %.sroa.040.2, %.lr.ph.i.i ], [ %60, %59 ]
-  %.not54 = icmp eq ptr %.sroa.040.3, %19
+_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i
+  %.not54 = icmp eq ptr %.sroa.040.2, %19
   br i1 %.not54, label %._crit_edge, label %.lr.ph
 
-._crit_edge60.loopexit:                           ; preds = %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit
+._crit_edge61.loopexit:                           ; preds = %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit
   %.pre = load i64, ptr %25, align 8, !tbaa !212
-  br label %._crit_edge60
+  br label %._crit_edge61
 
-._crit_edge60:                                    ; preds = %._crit_edge60.loopexit, %_ZN5clang6driver5tools26escapeSpacesAndBackslashesEPKcRN4llvm15SmallVectorImplIcEE.exit
-  %61 = phi i64 [ %.pre, %._crit_edge60.loopexit ], [ %.pre10.i, %_ZN5clang6driver5tools26escapeSpacesAndBackslashesEPKcRN4llvm15SmallVectorImplIcEE.exit ]
+._crit_edge61:                                    ; preds = %._crit_edge61.loopexit, %_ZN5clang6driver5tools26escapeSpacesAndBackslashesEPKcRN4llvm15SmallVectorImplIcEE.exit
+  %61 = phi i64 [ %.pre, %._crit_edge61.loopexit ], [ %.pre10.i, %_ZN5clang6driver5tools26escapeSpacesAndBackslashesEPKcRN4llvm15SmallVectorImplIcEE.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 5, ptr %62, align 8, !tbaa !170
@@ -30450,11 +30449,11 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i, %5
   %68 = icmp eq ptr %67, %24
   br i1 %68, label %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit, label %69
 
-69:                                               ; preds = %._crit_edge60
+69:                                               ; preds = %._crit_edge61
   call void @free(ptr noundef %67) #22
   br label %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit
 
-_ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %._crit_edge60, %69
+_ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %._crit_edge61, %69
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %4) #22
   %70 = load ptr, ptr %3, align 8, !tbaa !21
   %71 = icmp eq ptr %70, %11
@@ -30468,9 +30467,9 @@ _ZN4llvm11SmallVectorIPKcLj16EED2Ev.exit:         ; preds = %_ZN4llvm11SmallVect
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
   ret ptr %66
 
-73:                                               ; preds = %.lr.ph59, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit
-  %.058 = phi ptr [ %49, %.lr.ph59 ], [ %119, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit ]
-  %74 = load ptr, ptr %.058, align 8, !tbaa !24
+73:                                               ; preds = %.lr.ph60, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit
+  %.059 = phi ptr [ %49, %.lr.ph60 ], [ %119, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit ]
+  %74 = load ptr, ptr %.059, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #22
   store ptr %53, ptr %5, align 8, !tbaa !211
   store i64 0, ptr %54, align 8, !tbaa !212
@@ -30591,9 +30590,9 @@ _ZN4llvm11SmallStringILj256EEpLENS_9StringRefE.exit35: ; preds = %_ZN4llvm15Smal
 
 _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZN4llvm11SmallStringILj256EEpLENS_9StringRefE.exit35, %118
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #22
-  %119 = getelementptr inbounds nuw i8, ptr %.058, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %.not = icmp eq ptr %119, %52
-  br i1 %.not, label %._crit_edge60.loopexit, label %73
+  br i1 %.not, label %._crit_edge61.loopexit, label %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

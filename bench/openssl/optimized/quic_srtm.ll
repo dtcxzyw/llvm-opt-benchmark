@@ -302,104 +302,110 @@ srtm_find.exit:                                   ; preds = %.lr.ph.i
   %52 = getelementptr inbounds nuw i8, ptr %.01314.i82, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !18
   %.not.i54 = icmp eq ptr %53, null
-  br i1 %.not.i54, label %sorted_insert_seq_num.exit.loopexit, label %48, !llvm.loop !27
+  br i1 %.not.i54, label %.sorted_insert_seq_num.exit_crit_edge84, label %48, !llvm.loop !27
 
-sorted_insert_seq_num.exit.loopexit:              ; preds = %48, %.lr.ph
-  %.ph95 = phi ptr [ %53, %48 ], [ null, %.lr.ph ]
+.sorted_insert_seq_num.exit_crit_edge84:          ; preds = %.lr.ph
   %54 = getelementptr inbounds nuw i8, ptr %.01314.i82, i64 8
+  br label %sorted_insert_seq_num.exit, !llvm.loop !27
+
+sorted_insert_seq_num.exit.loopexit:              ; preds = %48
+  %55 = getelementptr inbounds nuw i8, ptr %.01314.i82, i64 8
   br label %sorted_insert_seq_num.exit
 
-sorted_insert_seq_num.exit:                       ; preds = %sorted_insert_seq_num.exit.loopexit, %43
-  %55 = phi ptr [ %14, %43 ], [ %.ph95, %sorted_insert_seq_num.exit.loopexit ]
-  %.0.lcssa.i53 = phi ptr [ %7, %43 ], [ %54, %sorted_insert_seq_num.exit.loopexit ]
-  %56 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %55, ptr %56, align 8, !tbaa !18
+sorted_insert_seq_num.exit:                       ; preds = %sorted_insert_seq_num.exit.loopexit, %.sorted_insert_seq_num.exit_crit_edge84, %43
+  %56 = phi ptr [ null, %.sorted_insert_seq_num.exit_crit_edge84 ], [ %14, %43 ], [ %53, %sorted_insert_seq_num.exit.loopexit ]
+  %.0.lcssa.i53 = phi ptr [ %54, %.sorted_insert_seq_num.exit_crit_edge84 ], [ %7, %43 ], [ %55, %sorted_insert_seq_num.exit.loopexit ]
+  %57 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %56, ptr %57, align 8, !tbaa !18
   store ptr %23, ptr %.0.lcssa.i53, align 8, !tbaa !26
   %.0..0..0. = load ptr, ptr %7, align 8, !tbaa !26
   %.not44 = icmp eq ptr %.0..0..0., %14
-  br i1 %.not44, label %srtm_check_lh.exit, label %57
+  br i1 %.not44, label %srtm_check_lh.exit, label %58
 
-57:                                               ; preds = %sorted_insert_seq_num.exit
-  %58 = load ptr, ptr %12, align 8, !tbaa !11
-  %59 = call ptr @OPENSSL_LH_insert(ptr noundef %58, ptr noundef %.0..0..0.) #9
-  %60 = load ptr, ptr %12, align 8, !tbaa !11
-  %61 = call i32 @OPENSSL_LH_error(ptr noundef %60) #9
-  %.not.i55 = icmp eq i32 %61, 0
-  br i1 %.not.i55, label %srtm_check_lh.exit, label %62
+58:                                               ; preds = %sorted_insert_seq_num.exit
+  %59 = load ptr, ptr %12, align 8, !tbaa !11
+  %60 = call ptr @OPENSSL_LH_insert(ptr noundef %59, ptr noundef %.0..0..0.) #9
+  %61 = load ptr, ptr %12, align 8, !tbaa !11
+  %62 = call i32 @OPENSSL_LH_error(ptr noundef %61) #9
+  %.not.i55 = icmp eq i32 %62, 0
+  br i1 %.not.i55, label %srtm_check_lh.exit, label %63
 
-62:                                               ; preds = %57
-  %63 = load i8, ptr %8, align 8
-  %64 = or i8 %63, 1
-  store i8 %64, ptr %8, align 8
+63:                                               ; preds = %58
+  %64 = load i8, ptr %8, align 8
+  %65 = or i8 %64, 1
+  store i8 %65, ptr %8, align 8
   call void @CRYPTO_free(ptr noundef nonnull %23, ptr noundef nonnull @.str, i32 noundef 318) #9
   br label %srtm_check_lh.exit60
 
-srtm_check_lh.exit:                               ; preds = %57, %35, %sorted_insert_seq_num.exit
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !12
-  %67 = call ptr @OPENSSL_LH_retrieve(ptr noundef %66, ptr noundef nonnull %23) #9
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %76
+srtm_check_lh.exit:                               ; preds = %58, %35, %sorted_insert_seq_num.exit
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !12
+  %68 = call ptr @OPENSSL_LH_retrieve(ptr noundef %67, ptr noundef nonnull %23) #9
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %77
 
-69:                                               ; preds = %srtm_check_lh.exit
-  %70 = load ptr, ptr %65, align 8, !tbaa !12
-  %71 = call ptr @OPENSSL_LH_insert(ptr noundef %70, ptr noundef nonnull %23) #9
-  %72 = load ptr, ptr %65, align 8, !tbaa !12
-  %73 = call i32 @OPENSSL_LH_error(ptr noundef %72) #9
-  %.not.i58 = icmp eq i32 %73, 0
+70:                                               ; preds = %srtm_check_lh.exit
+  %71 = load ptr, ptr %66, align 8, !tbaa !12
+  %72 = call ptr @OPENSSL_LH_insert(ptr noundef %71, ptr noundef nonnull %23) #9
+  %73 = load ptr, ptr %66, align 8, !tbaa !12
+  %74 = call i32 @OPENSSL_LH_error(ptr noundef %73) #9
+  %.not.i58 = icmp eq i32 %74, 0
   br i1 %.not.i58, label %srtm_check_lh.exit60, label %srtm_check_lh.exit60.thread
 
-srtm_check_lh.exit60.thread:                      ; preds = %69
-  %74 = load i8, ptr %8, align 8
-  %75 = or i8 %74, 1
-  store i8 %75, ptr %8, align 8
+srtm_check_lh.exit60.thread:                      ; preds = %70
+  %75 = load i8, ptr %8, align 8
+  %76 = or i8 %75, 1
+  store i8 %76, ptr %8, align 8
   br label %srtm_check_lh.exit60
 
-76:                                               ; preds = %srtm_check_lh.exit
-  %77 = load ptr, ptr %26, align 8, !tbaa !13
-  store ptr %67, ptr %7, align 8, !tbaa !26
-  %78 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !13
-  %80 = icmp ugt ptr %79, %77
-  br i1 %80, label %.lr.ph88, label %sorted_insert_srt.exit
+77:                                               ; preds = %srtm_check_lh.exit
+  %78 = load ptr, ptr %26, align 8, !tbaa !13
+  store ptr %68, ptr %7, align 8, !tbaa !26
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %80 = load ptr, ptr %79, align 8, !tbaa !13
+  %81 = icmp ugt ptr %80, %78
+  br i1 %81, label %.lr.ph88, label %sorted_insert_srt.exit
 
-81:                                               ; preds = %.lr.ph88
-  %82 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !13
-  %84 = icmp ugt ptr %83, %77
-  br i1 %84, label %.lr.ph88, label %sorted_insert_srt.exit, !llvm.loop !28
+82:                                               ; preds = %.lr.ph88
+  %83 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %84 = load ptr, ptr %83, align 8, !tbaa !13
+  %85 = icmp ugt ptr %84, %78
+  br i1 %85, label %.lr.ph88, label %sorted_insert_srt.exit, !llvm.loop !28
 
-.lr.ph88:                                         ; preds = %76, %81
-  %.01314.i6287 = phi ptr [ %85, %81 ], [ %67, %76 ]
-  %85 = load ptr, ptr %.01314.i6287, align 8, !tbaa !29
-  %.not.i64 = icmp eq ptr %85, null
-  br i1 %.not.i64, label %sorted_insert_srt.exit, label %81, !llvm.loop !28
+.lr.ph88:                                         ; preds = %77, %82
+  %.01314.i6287 = phi ptr [ %86, %82 ], [ %68, %77 ]
+  %86 = load ptr, ptr %.01314.i6287, align 8, !tbaa !29
+  %.not.i64 = icmp eq ptr %86, null
+  br i1 %.not.i64, label %.sorted_insert_srt.exit_crit_edge91, label %82, !llvm.loop !28
 
-sorted_insert_srt.exit:                           ; preds = %.lr.ph88, %81, %76
-  %86 = phi ptr [ %67, %76 ], [ %85, %81 ], [ null, %.lr.ph88 ]
-  %.0.lcssa.i63 = phi ptr [ %7, %76 ], [ %.01314.i6287, %81 ], [ %.01314.i6287, %.lr.ph88 ]
-  store ptr %86, ptr %23, align 8, !tbaa !29
+.sorted_insert_srt.exit_crit_edge91:              ; preds = %.lr.ph88
+  br label %sorted_insert_srt.exit, !llvm.loop !28
+
+sorted_insert_srt.exit:                           ; preds = %82, %.sorted_insert_srt.exit_crit_edge91, %77
+  %87 = phi ptr [ null, %.sorted_insert_srt.exit_crit_edge91 ], [ %68, %77 ], [ %86, %82 ]
+  %.0.lcssa.i63 = phi ptr [ %.01314.i6287, %.sorted_insert_srt.exit_crit_edge91 ], [ %7, %77 ], [ %.01314.i6287, %82 ]
+  store ptr %87, ptr %23, align 8, !tbaa !29
   store ptr %23, ptr %.0.lcssa.i63, align 8, !tbaa !26
   %.0..0..0.68 = load ptr, ptr %7, align 8, !tbaa !26
-  %.not47 = icmp eq ptr %.0..0..0.68, %67
-  br i1 %.not47, label %srtm_check_lh.exit60, label %87
+  %.not47 = icmp eq ptr %.0..0..0.68, %68
+  br i1 %.not47, label %srtm_check_lh.exit60, label %88
 
-87:                                               ; preds = %sorted_insert_srt.exit
-  %88 = load ptr, ptr %65, align 8, !tbaa !12
-  %89 = call ptr @OPENSSL_LH_insert(ptr noundef %88, ptr noundef %.0..0..0.68) #9
-  %90 = load ptr, ptr %65, align 8, !tbaa !12
-  %91 = call i32 @OPENSSL_LH_error(ptr noundef %90) #9
-  %.not.i65 = icmp eq i32 %91, 0
+88:                                               ; preds = %sorted_insert_srt.exit
+  %89 = load ptr, ptr %66, align 8, !tbaa !12
+  %90 = call ptr @OPENSSL_LH_insert(ptr noundef %89, ptr noundef %.0..0..0.68) #9
+  %91 = load ptr, ptr %66, align 8, !tbaa !12
+  %92 = call i32 @OPENSSL_LH_error(ptr noundef %91) #9
+  %.not.i65 = icmp eq i32 %92, 0
   br i1 %.not.i65, label %srtm_check_lh.exit60, label %srtm_check_lh.exit67.thread
 
-srtm_check_lh.exit67.thread:                      ; preds = %87
-  %92 = load i8, ptr %8, align 8
-  %93 = or i8 %92, 1
-  store i8 %93, ptr %8, align 8
+srtm_check_lh.exit67.thread:                      ; preds = %88
+  %93 = load i8, ptr %8, align 8
+  %94 = or i8 %93, 1
+  store i8 %94, ptr %8, align 8
   br label %srtm_check_lh.exit60
 
-srtm_check_lh.exit60:                             ; preds = %sorted_insert_srt.exit, %69, %87, %srtm_check_lh.exit67.thread, %srtm_check_lh.exit60.thread, %srtm_find.exit, %.loopexit, %4, %62, %40, %33
-  %.0 = phi i32 [ 0, %40 ], [ 0, %62 ], [ 0, %33 ], [ 0, %4 ], [ 0, %srtm_find.exit ], [ 0, %.loopexit ], [ 0, %srtm_check_lh.exit60.thread ], [ 0, %srtm_check_lh.exit67.thread ], [ 1, %87 ], [ 1, %69 ], [ 1, %sorted_insert_srt.exit ]
+srtm_check_lh.exit60:                             ; preds = %sorted_insert_srt.exit, %70, %88, %srtm_check_lh.exit67.thread, %srtm_check_lh.exit60.thread, %srtm_find.exit, %.loopexit, %4, %63, %40, %33
+  %.0 = phi i32 [ 0, %40 ], [ 0, %63 ], [ 0, %33 ], [ 0, %4 ], [ 0, %srtm_find.exit ], [ 0, %.loopexit ], [ 0, %srtm_check_lh.exit60.thread ], [ 0, %srtm_check_lh.exit67.thread ], [ 1, %88 ], [ 1, %70 ], [ 1, %sorted_insert_srt.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret i32 %.0
 }

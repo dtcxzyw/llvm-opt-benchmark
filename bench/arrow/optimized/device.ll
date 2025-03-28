@@ -4686,9 +4686,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZN5arrow12_GLOBAL_
   %47 = sext i8 %46 to i64
   %48 = urem i64 %47, %31
   %.not19.i.i.i.i.i = icmp eq i64 %48, %32
-  br i1 %.not19.i.i.i.i.i, label %41, label %.loopexit.i, !llvm.loop !239
+  br i1 %.not19.i.i.i.i.i, label %41, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !239
 
-.loopexit.i:                                      ; preds = %44, %.lr.ph.i.i.i.i.i, %22, %27
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %44
+  br label %.loopexit.i, !llvm.loop !239
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %22, %..loopexit_crit_edge21.i.i.i.i.i, %27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25, !noalias !224
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #25, !noalias !224
   %49 = sext i8 %1 to i32
@@ -5556,9 +5559,12 @@ define linkonce_odr { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN5arrow20DeviceAll
   %25 = sext i8 %24 to i64
   %26 = urem i64 %25, %9
   %.not19.i.i = icmp eq i64 %26, %10
-  br i1 %.not19.i.i, label %19, label %.critedge, !llvm.loop !239
+  br i1 %.not19.i.i, label %19, label %..loopexit_crit_edge21.i.i, !llvm.loop !239
 
-.critedge:                                        ; preds = %22, %.lr.ph.i.i, %4
+..loopexit_crit_edge21.i.i:                       ; preds = %22
+  br label %.critedge, !llvm.loop !239
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %4, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
   store ptr %0, ptr %5, align 8, !tbaa !254
   %27 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28

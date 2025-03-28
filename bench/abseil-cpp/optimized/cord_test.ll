@@ -90441,7 +90441,7 @@ _ZN7testing15AssertionResultD2Ev.exit694:         ; preds = %1321, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #39
   %1337 = load i64, ptr %498, align 8, !tbaa !181
   %.not = icmp eq i64 %1337, 0
-  br i1 %.not, label %.critedge, label %688, !llvm.loop !1210
+  br i1 %.not, label %_ZN7testing15AssertionResultD2Ev.exit694..critedge.loopexit_crit_edge, label %688, !llvm.loop !1210
 
 1338:                                             ; preds = %_ZN7testing7MessageD2Ev.exit689, %1296
   %.pn153.pn.pn = phi { ptr, i32 } [ %.pn153.pn, %_ZN7testing7MessageD2Ev.exit689 ], [ %1297, %1296 ]
@@ -90458,8 +90458,11 @@ _ZN7testing15AssertionResultD2Ev.exit694:         ; preds = %1321, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #39
   br label %1547
 
-.critedge:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit694, %688, %.lr.ph863, %_ZNK4absl4Cord11chunk_beginEv.exit387
-  %1341 = phi i64 [ 0, %_ZNK4absl4Cord11chunk_beginEv.exit387 ], [ 0, %.lr.ph863 ], [ %1336, %688 ], [ %1336, %_ZN7testing15AssertionResultD2Ev.exit694 ]
+_ZN7testing15AssertionResultD2Ev.exit694..critedge.loopexit_crit_edge: ; preds = %_ZN7testing15AssertionResultD2Ev.exit694
+  br label %.critedge, !llvm.loop !1210
+
+.critedge:                                        ; preds = %688, %.lr.ph863, %_ZN7testing15AssertionResultD2Ev.exit694..critedge.loopexit_crit_edge, %_ZNK4absl4Cord11chunk_beginEv.exit387
+  %1341 = phi i64 [ 0, %_ZNK4absl4Cord11chunk_beginEv.exit387 ], [ %1336, %_ZN7testing15AssertionResultD2Ev.exit694..critedge.loopexit_crit_edge ], [ 0, %.lr.ph863 ], [ %1336, %688 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71) #39
   %1342 = load i64, ptr %3, align 8, !tbaa !23, !noalias !1236
   %1343 = icmp eq i64 %1342, %1341

@@ -436,7 +436,7 @@ define void @Nwk_ManLevel_rec(ptr noundef captures(none) %0) local_unnamed_addr 
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.next
   %37 = load ptr, ptr %36, align 8, !tbaa !28
   %.not46 = icmp eq ptr %37, null
-  br i1 %.not46, label %.critedge.loopexit.loopexit, label %.lr.ph84, !llvm.loop !43
+  br i1 %.not46, label %.critedge.loopexit, label %.lr.ph84, !llvm.loop !43
 
 .lr.ph84:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %38 = phi ptr [ %37, %.lr.ph ], [ %34, %.lr.ph.preheader ]
@@ -450,23 +450,23 @@ define void @Nwk_ManLevel_rec(ptr noundef captures(none) %0) local_unnamed_addr 
   %40 = load i32, ptr %30, align 4, !tbaa !19
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph, label %.critedge.loopexit.loopexit, !llvm.loop !43
+  br i1 %42, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !43
 
-.critedge.loopexit.loopexit:                      ; preds = %.lr.ph84, %.lr.ph
-  %43 = icmp sgt i32 %40, 0
-  %44 = zext i1 %43 to i32
-  br label %.critedge.loopexit
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph84
+  br label %.critedge.loopexit, !llvm.loop !43
 
-.critedge.loopexit:                               ; preds = %.critedge.loopexit.loopexit, %.lr.ph.preheader
-  %.3.lcssa.ph = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select61, %.critedge.loopexit.loopexit ]
-  %.lcssa.ph = phi i32 [ 1, %.lr.ph.preheader ], [ %44, %.critedge.loopexit.loopexit ]
+.critedge.loopexit:                               ; preds = %.lr.ph, %..critedge.loopexit_crit_edge, %.lr.ph.preheader
+  %.3.lcssa.ph = phi i32 [ %spec.select61, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %spec.select61, %.lr.ph ]
+  %.lcssa.ph = phi i32 [ %40, %..critedge.loopexit_crit_edge ], [ %31, %.lr.ph.preheader ], [ %40, %.lr.ph ]
   %.val.pre = load i32, ptr %8, align 8
+  %43 = icmp sgt i32 %.lcssa.ph, 0
+  %44 = zext i1 %43 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %28
   %.val = phi i32 [ %.val53, %28 ], [ %.val.pre, %.critedge.loopexit ]
   %.3.lcssa = phi i32 [ 0, %28 ], [ %.3.lcssa.ph, %.critedge.loopexit ]
-  %.lcssa = phi i32 [ 0, %28 ], [ %.lcssa.ph, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ 0, %28 ], [ %44, %.critedge.loopexit ]
   %45 = and i32 %.val, 7
   %.not65 = icmp eq i32 %45, 3
   br i1 %.not65, label %46, label %._crit_edge

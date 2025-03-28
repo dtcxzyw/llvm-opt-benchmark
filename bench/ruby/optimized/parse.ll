@@ -34715,7 +34715,7 @@ rb_parser_str_buf_cat.exit.i:                     ; preds = %ruby_nonempty_memcp
 
 .lr.ph.i:                                         ; preds = %rb_parser_str_buf_cat.exit.i
   %.promoted.i = load i64, ptr %216, align 8, !tbaa !24
-  br label %252
+  br label %252, !llvm.loop !556
 
 252:                                              ; preds = %rb_parser_str_buf_cat.exit110.i, %.lr.ph.i
   %253 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %280, %rb_parser_str_buf_cat.exit110.i ]
@@ -34772,7 +34772,7 @@ rb_parser_str_buf_cat.exit110.i:                  ; preds = %ruby_nonempty_memcp
   %280 = phi i64 [ %253, %268 ], [ %273, %ruby_nonempty_memcpy.exit.i102.i ]
   %281 = getelementptr i8, ptr %.1876.i, i64 1
   %.not.i30 = icmp eq i32 %254, 0
-  br i1 %.not.i30, label %rb_parser_str_buf_cat.exit129.i, label %252, !llvm.loop !557
+  br i1 %.not.i30, label %.rb_parser_str_buf_cat.exit129.loopexit_crit_edge.i, label %252, !llvm.loop !557
 
 282:                                              ; preds = %224
   %283 = load ptr, ptr %223, align 8, !tbaa !558
@@ -35004,9 +35004,12 @@ ruby_nonempty_memcpy.exit.i139.i:                 ; preds = %360
   store i8 0, ptr %374, align 1, !tbaa !25
   br label %rb_parser_str_buf_cat.exit129.i
 
-rb_parser_str_buf_cat.exit129.i:                  ; preds = %rb_parser_str_buf_cat.exit110.i, %ruby_nonempty_memcpy.exit.i139.i, %364, %rb_parser_str_buf_cat.exit138.i, %escaped_char.exit.i, %ruby_nonempty_memcpy.exit.i121.i, %324, %rb_parser_str_buf_cat.exit120.i, %rb_parser_str_buf_cat.exit.i
-  %.290.i = phi ptr [ %286, %rb_parser_str_buf_cat.exit120.i ], [ %286, %324 ], [ %286, %ruby_nonempty_memcpy.exit.i121.i ], [ %286, %rb_parser_str_buf_cat.exit138.i ], [ %286, %364 ], [ %286, %ruby_nonempty_memcpy.exit.i139.i ], [ %.0888.i, %escaped_char.exit.i ], [ %.0888.i, %rb_parser_str_buf_cat.exit.i ], [ %281, %rb_parser_str_buf_cat.exit110.i ]
-  %.2.i = phi ptr [ %286, %rb_parser_str_buf_cat.exit120.i ], [ %286, %324 ], [ %286, %ruby_nonempty_memcpy.exit.i121.i ], [ %286, %rb_parser_str_buf_cat.exit138.i ], [ %286, %364 ], [ %286, %ruby_nonempty_memcpy.exit.i139.i ], [ %286, %escaped_char.exit.i ], [ %.0869.i, %rb_parser_str_buf_cat.exit.i ], [ %281, %rb_parser_str_buf_cat.exit110.i ]
+.rb_parser_str_buf_cat.exit129.loopexit_crit_edge.i: ; preds = %rb_parser_str_buf_cat.exit110.i
+  br label %rb_parser_str_buf_cat.exit129.i, !llvm.loop !556
+
+rb_parser_str_buf_cat.exit129.i:                  ; preds = %.rb_parser_str_buf_cat.exit129.loopexit_crit_edge.i, %ruby_nonempty_memcpy.exit.i139.i, %364, %rb_parser_str_buf_cat.exit138.i, %escaped_char.exit.i, %ruby_nonempty_memcpy.exit.i121.i, %324, %rb_parser_str_buf_cat.exit120.i, %rb_parser_str_buf_cat.exit.i
+  %.290.i = phi ptr [ %286, %rb_parser_str_buf_cat.exit120.i ], [ %286, %324 ], [ %286, %ruby_nonempty_memcpy.exit.i121.i ], [ %286, %rb_parser_str_buf_cat.exit138.i ], [ %286, %364 ], [ %286, %ruby_nonempty_memcpy.exit.i139.i ], [ %.0888.i, %escaped_char.exit.i ], [ %281, %.rb_parser_str_buf_cat.exit129.loopexit_crit_edge.i ], [ %.0888.i, %rb_parser_str_buf_cat.exit.i ]
+  %.2.i = phi ptr [ %286, %rb_parser_str_buf_cat.exit120.i ], [ %286, %324 ], [ %286, %ruby_nonempty_memcpy.exit.i121.i ], [ %286, %rb_parser_str_buf_cat.exit138.i ], [ %286, %364 ], [ %286, %ruby_nonempty_memcpy.exit.i139.i ], [ %286, %escaped_char.exit.i ], [ %281, %.rb_parser_str_buf_cat.exit129.loopexit_crit_edge.i ], [ %.0869.i, %rb_parser_str_buf_cat.exit.i ]
   %375 = icmp ult ptr %.2.i, %212
   br i1 %375, label %224, label %._crit_edge.i
 
@@ -42571,22 +42574,22 @@ parser_is_identchar.exit136..split_crit_edge:     ; preds = %parser_is_identchar
   store ptr %249, ptr %5, align 8, !tbaa !184
   %250 = load ptr, ptr %7, align 8, !tbaa !52
   %251 = icmp ugt ptr %249, %250
-  br i1 %251, label %252, label %.critedge
+  br i1 %251, label %252, label %.critedge, !llvm.loop !622
 
 252:                                              ; preds = %.split
   %253 = load i8, ptr %249, align 1, !tbaa !25
   %254 = icmp eq i8 %253, 10
-  br i1 %254, label %255, label %.critedge
+  br i1 %254, label %255, label %.critedge, !llvm.loop !622
 
 255:                                              ; preds = %252
   %256 = getelementptr i8, ptr %246, i64 -2
   %257 = load i8, ptr %256, align 1, !tbaa !25
   %258 = icmp eq i8 %257, 13
-  br i1 %258, label %259, label %.critedge
+  br i1 %258, label %259, label %.critedge, !llvm.loop !622
 
 259:                                              ; preds = %255
   store ptr %256, ptr %5, align 8, !tbaa !184
-  br label %.critedge
+  br label %.critedge, !llvm.loop !622
 
 .critedge:                                        ; preds = %nextc0.exit120, %.critedge.i125, %259, %255, %252, %.split
   %.073157 = phi i32 [ %.073158, %.split ], [ %.073158, %252 ], [ %.073158, %255 ], [ %.073158, %259 ], [ %.073158, %.critedge.i125 ], [ %.073, %nextc0.exit120 ]
@@ -46003,22 +46006,22 @@ tokadd.exit132:                                   ; preds = %268, %276
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %311 = load ptr, ptr %310, align 8, !tbaa !52
   %312 = icmp ugt ptr %309, %311
-  br i1 %312, label %313, label %.critedge
+  br i1 %312, label %313, label %.critedge, !llvm.loop !628
 
 313:                                              ; preds = %.split
   %314 = load i8, ptr %309, align 1, !tbaa !25
   %315 = icmp eq i8 %314, 10
-  br i1 %315, label %316, label %.critedge
+  br i1 %315, label %316, label %.critedge, !llvm.loop !628
 
 316:                                              ; preds = %313
   %317 = getelementptr i8, ptr %306, i64 -2
   %318 = load i8, ptr %317, align 1, !tbaa !25
   %319 = icmp eq i8 %318, 13
-  br i1 %319, label %320, label %.critedge
+  br i1 %319, label %320, label %.critedge, !llvm.loop !628
 
 320:                                              ; preds = %316
   store ptr %317, ptr %6, align 8, !tbaa !184
-  br label %.critedge
+  br label %.critedge, !llvm.loop !628
 
 .critedge:                                        ; preds = %.critedge.i134, %320, %316, %313, %.split
   %321 = and i32 %1, 128
@@ -54091,70 +54094,75 @@ define internal fastcc void @aryset_check(ptr noundef captures(none) %0, ptr nou
   %25 = getelementptr inbounds nuw i8, ptr %.06176, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !182
   %.not31 = icmp eq ptr %26, null
-  br i1 %.not31, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !673
+  br i1 %.not31, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !673
 
-.critedge.loopexit:                               ; preds = %.lr.ph77, %.lr.ph
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph77
   %27 = getelementptr inbounds nuw i8, ptr %.06176, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !180
+  br label %.critedge, !llvm.loop !673
+
+.critedge.loopexit:                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds nuw i8, ptr %.06176, i64 32
+  %30 = load ptr, ptr %29, align 8, !tbaa !180
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %20
-  %.023 = phi ptr [ %22, %20 ], [ null, %.lr.ph.preheader ], [ %28, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %20
+  %.023 = phi ptr [ %22, %20 ], [ %28, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph.preheader ], [ %30, %.critedge.loopexit ]
   %.not32 = icmp eq ptr %.023, null
-  br i1 %.not32, label %parser_yyerror.exit, label %29
+  br i1 %.not32, label %parser_yyerror.exit, label %31
 
-29:                                               ; preds = %.critedge
+31:                                               ; preds = %.critedge
   %.023.val = load i64, ptr %.023, align 8, !tbaa !72
-  %30 = and i64 %.023.val, 32512
-  %31 = icmp eq i64 %30, 11520
-  br i1 %31, label %32, label %parser_yyerror.exit
+  %32 = and i64 %.023.val, 32512
+  %33 = icmp eq i64 %32, 11520
+  br i1 %33, label %34, label %parser_yyerror.exit
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %.023, i64 40
-  %34 = load i64, ptr %33, align 8, !tbaa !127
-  %.not33 = icmp eq i64 %34, 0
-  br i1 %.not33, label %35, label %parser_yyerror.exit
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %.023, i64 40
+  %36 = load i64, ptr %35, align 8, !tbaa !127
+  %.not33 = icmp eq i64 %36, 0
+  br i1 %.not33, label %37, label %parser_yyerror.exit
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %.023, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.894)
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %38 = load i32, ptr %37, align 4, !tbaa !31
-  %39 = load i32, ptr %36, align 4, !tbaa !53
-  %40 = icmp eq i32 %39, %38
-  br i1 %40, label %41, label %parser_yyerror.exit
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %.023, i64 8
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.894)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %40 = load i32, ptr %39, align 4, !tbaa !31
+  %41 = load i32, ptr %38, align 4, !tbaa !53
+  %42 = icmp eq i32 %41, %40
+  br i1 %42, label %43, label %parser_yyerror.exit
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %43 = load ptr, ptr %42, align 8, !tbaa !185
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %45 = load i64, ptr %44, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %45, ptr noundef nonnull %36, i32 noundef %38, ptr noundef %43)
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %45 = load ptr, ptr %44, align 8, !tbaa !185
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %47 = load i64, ptr %46, align 8, !tbaa !186
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %47, ptr noundef nonnull %38, i32 noundef %40, ptr noundef %45)
   br label %parser_yyerror.exit
 
-parser_yyerror.exit:                              ; preds = %13, %6, %41, %35, %32, %29, %.critedge
-  %.024395072 = phi ptr [ %.02445, %41 ], [ %.02445, %35 ], [ %.02445, %32 ], [ %.02445, %29 ], [ %.02445, %.critedge ], [ %8, %6 ], [ %.02445, %13 ]
+parser_yyerror.exit:                              ; preds = %13, %6, %43, %37, %34, %31, %.critedge
+  %.024395072 = phi ptr [ %.02445, %43 ], [ %.02445, %37 ], [ %.02445, %34 ], [ %.02445, %31 ], [ %.02445, %.critedge ], [ %8, %6 ], [ %.02445, %13 ]
   %.not34 = icmp eq ptr %.024395072, null
-  br i1 %.not34, label %parser_yyerror.exit35, label %46
+  br i1 %.not34, label %parser_yyerror.exit35, label %48
 
-46:                                               ; preds = %parser_yyerror.exit
-  %47 = getelementptr inbounds nuw i8, ptr %.024395072, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.895)
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %49 = load i32, ptr %48, align 4, !tbaa !31
-  %50 = load i32, ptr %47, align 4, !tbaa !53
-  %51 = icmp eq i32 %50, %49
-  br i1 %51, label %52, label %parser_yyerror.exit35
+48:                                               ; preds = %parser_yyerror.exit
+  %49 = getelementptr inbounds nuw i8, ptr %.024395072, i64 8
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %49, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.895)
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %51 = load i32, ptr %50, align 4, !tbaa !31
+  %52 = load i32, ptr %49, align 4, !tbaa !53
+  %53 = icmp eq i32 %52, %51
+  br i1 %53, label %54, label %parser_yyerror.exit35
 
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !185
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %56 = load i64, ptr %55, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %56, ptr noundef nonnull %47, i32 noundef %49, ptr noundef %54)
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %56 = load ptr, ptr %55, align 8, !tbaa !185
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %58 = load i64, ptr %57, align 8, !tbaa !186
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %58, ptr noundef nonnull %49, i32 noundef %51, ptr noundef %56)
   br label %parser_yyerror.exit35
 
-parser_yyerror.exit35:                            ; preds = %2, %52, %46, %parser_yyerror.exit
+parser_yyerror.exit35:                            ; preds = %2, %54, %48, %parser_yyerror.exit
   ret void
 }
 

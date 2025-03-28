@@ -8811,7 +8811,7 @@ define hidden noundef zeroext i1 @"_ZN56_$LT$worktree..Entry$u20$as$u20$core..cm
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !9
   %11 = icmp eq i64 %8, %10
-  br i1 %11, label %12, label %112
+  br i1 %11, label %12, label %117
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 85
@@ -8819,7 +8819,7 @@ define hidden noundef zeroext i1 @"_ZN56_$LT$worktree..Entry$u20$as$u20$core..cm
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 85
   %16 = load i8, ptr %15, align 1, !range !2126, !noundef !9
   %17 = icmp eq i8 %14, %16
-  br i1 %17, label %18, label %112
+  br i1 %17, label %18, label %117
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8839,7 +8839,7 @@ define hidden noundef zeroext i1 @"_ZN56_$LT$worktree..Entry$u20$as$u20$core..cm
   %29 = call noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha36201ee67cb5509E.llvm.14110235212462412740"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br i1 %29, label %30, label %112
+  br i1 %29, label %30, label %117
 
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -8847,7 +8847,7 @@ define hidden noundef zeroext i1 @"_ZN56_$LT$worktree..Entry$u20$as$u20$core..cm
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load i64, ptr %33, align 8, !noundef !9
   %35 = icmp eq i64 %32, %34
-  br i1 %35, label %36, label %112
+  br i1 %35, label %36, label %117
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8859,10 +8859,10 @@ define hidden noundef zeroext i1 @"_ZN56_$LT$worktree..Entry$u20$as$u20$core..cm
   br i1 %39, label %43, label %44
 
 43:                                               ; preds = %36
-  br i1 %42, label %45, label %112
+  br i1 %42, label %45, label %117
 
 44:                                               ; preds = %36
-  br i1 %42, label %112, label %52
+  br i1 %42, label %117, label %52
 
 45:                                               ; preds = %52, %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8879,102 +8879,102 @@ define hidden noundef zeroext i1 @"_ZN56_$LT$worktree..Entry$u20$as$u20$core..cm
   %55 = icmp eq i64 %53, %54
   %56 = icmp eq i32 %38, %41
   %or.cond = and i1 %56, %55
-  br i1 %or.cond, label %45, label %112
+  br i1 %or.cond, label %45, label %117
 
 57:                                               ; preds = %45
-  br i1 %51, label %59, label %112
+  br i1 %51, label %59, label %117
 
 58:                                               ; preds = %45
-  br i1 %51, label %112, label %64
+  br i1 %51, label %117, label %65
 
-59:                                               ; preds = %57, %64
+59:                                               ; preds = %57, %65
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %61 = load i8, ptr %60, align 8, !range !95, !noundef !9
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %63 = load i8, ptr %62, align 8, !range !95, !noundef !9
-  %.not = icmp eq i8 %61, %63
-  br i1 %.not, label %70, label %112
+  %64 = icmp eq i8 %61, %63
+  br i1 %64, label %71, label %117
 
-64:                                               ; preds = %58
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %66 = load i64, ptr %65, align 8, !noundef !9
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %68 = load i64, ptr %67, align 8, !noundef !9
+65:                                               ; preds = %58
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %67 = load i64, ptr %66, align 8, !noundef !9
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %69 = load i64, ptr %68, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %47, i64 noundef %66)
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %47, i64 noundef %67)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %68)
-  %69 = call noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha36201ee67cb5509E.llvm.14110235212462412740"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %69)
+  %70 = call noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha36201ee67cb5509E.llvm.14110235212462412740"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  br i1 %69, label %59, label %112
+  br i1 %70, label %59, label %117
 
-70:                                               ; preds = %59
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %72 = load i8, ptr %71, align 1, !range !95, !noundef !9
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 81
-  %74 = load i8, ptr %73, align 1, !range !95, !noundef !9
-  %.not4 = icmp eq i8 %72, %74
-  br i1 %.not4, label %75, label %112
+71:                                               ; preds = %59
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 81
+  %73 = load i8, ptr %72, align 1, !range !95, !noundef !9
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 81
+  %75 = load i8, ptr %74, align 1, !range !95, !noundef !9
+  %76 = icmp eq i8 %73, %75
+  br i1 %76, label %77, label %117
 
-75:                                               ; preds = %70
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %77 = load i8, ptr %76, align 2, !range !95, !noundef !9
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 82
+77:                                               ; preds = %71
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %79 = load i8, ptr %78, align 2, !range !95, !noundef !9
-  %.not5 = icmp eq i8 %77, %79
-  br i1 %.not5, label %80, label %112
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 82
+  %81 = load i8, ptr %80, align 2, !range !95, !noundef !9
+  %82 = icmp eq i8 %79, %81
+  br i1 %82, label %83, label %117
 
-80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 86
-  %82 = load i8, ptr %81, align 2, !range !2126, !noundef !9
-  %83 = icmp eq i8 %82, 3
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 86
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 86
   %85 = load i8, ptr %84, align 2, !range !2126, !noundef !9
-  br i1 %83, label %86, label %88
+  %86 = icmp eq i8 %85, 3
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 86
+  %88 = load i8, ptr %87, align 2, !range !2126, !noundef !9
+  br i1 %86, label %89, label %91
 
-86:                                               ; preds = %80
-  %87 = icmp eq i8 %85, 3
-  br i1 %87, label %90, label %112
+89:                                               ; preds = %83
+  %90 = icmp eq i8 %88, 3
+  br i1 %90, label %93, label %117
 
-88:                                               ; preds = %80
-  %89 = icmp eq i8 %82, %85
-  br i1 %89, label %90, label %112
+91:                                               ; preds = %83
+  %92 = icmp eq i8 %85, %88
+  br i1 %92, label %93, label %117
 
-90:                                               ; preds = %88, %86
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 83
-  %92 = load i8, ptr %91, align 1, !range !95, !noundef !9
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 83
-  %94 = load i8, ptr %93, align 1, !range !95, !noundef !9
-  %.not6 = icmp eq i8 %92, %94
-  br i1 %.not6, label %95, label %112
+93:                                               ; preds = %91, %89
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 83
+  %95 = load i8, ptr %94, align 1, !range !95, !noundef !9
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 83
+  %97 = load i8, ptr %96, align 1, !range !95, !noundef !9
+  %98 = icmp eq i8 %95, %97
+  br i1 %98, label %99, label %117
 
-95:                                               ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %97 = load i64, ptr %96, align 8, !noundef !9
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %99 = load i64, ptr %98, align 8, !noundef !9
-  %100 = icmp eq i64 %97, %99
-  br i1 %100, label %101, label %112
-
-101:                                              ; preds = %95
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 72
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %101 = load i64, ptr %100, align 8, !noundef !9
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %103 = load i64, ptr %102, align 8, !noundef !9
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %105 = load i64, ptr %104, align 8, !noundef !9
-  %106 = icmp eq i64 %103, %105
-  br i1 %106, label %107, label %112
+  %104 = icmp eq i64 %101, %103
+  br i1 %104, label %105, label %117
 
-107:                                              ; preds = %101
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %109 = load i8, ptr %108, align 4, !range !95, !noundef !9
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %111 = load i8, ptr %110, align 4, !range !95, !noundef !9
-  %.not7 = icmp eq i8 %109, %111
-  br label %112
+105:                                              ; preds = %99
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %107 = load i64, ptr %106, align 8, !noundef !9
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %109 = load i64, ptr %108, align 8, !noundef !9
+  %110 = icmp eq i64 %107, %109
+  br i1 %110, label %111, label %117
 
-112:                                              ; preds = %2, %12, %18, %64, %101, %30, %43, %44, %52, %57, %58, %59, %70, %75, %86, %88, %90, %95, %107
-  %.sroa.0.0 = phi i1 [ %.not7, %107 ], [ false, %95 ], [ false, %90 ], [ false, %88 ], [ false, %86 ], [ false, %75 ], [ false, %70 ], [ false, %59 ], [ false, %58 ], [ false, %57 ], [ false, %52 ], [ false, %44 ], [ false, %43 ], [ false, %30 ], [ false, %101 ], [ false, %64 ], [ false, %18 ], [ false, %12 ], [ false, %2 ]
+111:                                              ; preds = %105
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %113 = load i8, ptr %112, align 4, !range !95, !noundef !9
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %115 = load i8, ptr %114, align 4, !range !95, !noundef !9
+  %116 = icmp eq i8 %113, %115
+  br label %117
+
+117:                                              ; preds = %2, %12, %18, %65, %105, %30, %43, %44, %52, %57, %58, %59, %71, %77, %89, %91, %93, %99, %111
+  %.sroa.0.0 = phi i1 [ %116, %111 ], [ false, %99 ], [ false, %93 ], [ false, %91 ], [ false, %89 ], [ false, %77 ], [ false, %71 ], [ false, %59 ], [ false, %58 ], [ false, %57 ], [ false, %52 ], [ false, %44 ], [ false, %43 ], [ false, %30 ], [ false, %105 ], [ false, %65 ], [ false, %18 ], [ false, %12 ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 

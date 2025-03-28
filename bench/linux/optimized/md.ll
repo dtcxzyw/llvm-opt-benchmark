@@ -17563,7 +17563,7 @@ define internal i64 @array_state_store(ptr noundef %0, ptr noundef readonly capt
 
 ._crit_edge:                                      ; preds = %18
   %.pre = load i8, ptr %20, align 1
-  br label %25
+  br label %25, !llvm.loop !159
 
 split:                                            ; preds = %12
   %23 = icmp eq i8 %13, 10

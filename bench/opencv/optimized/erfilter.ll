@@ -1816,10 +1816,13 @@ _ZNSt6vectorIPN2cv4text6ERStatESaIS3_EE9push_backEOS3_.exit387: ; preds = %114, 
   %147 = icmp sgt i32 %109, 0
   %148 = select i1 %147, i32 %66, i32 0
   %spec.select845 = sub nsw i32 %.0690, %148
-  br label %162
+  br label %162, !llvm.loop !111
 
-.preheader861:                                    ; preds = %.thread, %_ZNSt6vectorIPN2cv4text6ERStatESaIS3_EE9push_backEOS3_.exit387
-  %.1253.lcssa = phi i32 [ %.0252, %_ZNSt6vectorIPN2cv4text6ERStatESaIS3_EE9push_backEOS3_.exit387 ], [ %.7259718, %.thread ]
+..preheader861_crit_edge:                         ; preds = %.thread
+  br label %.preheader861, !llvm.loop !111
+
+.preheader861:                                    ; preds = %..preheader861_crit_edge, %_ZNSt6vectorIPN2cv4text6ERStatESaIS3_EE9push_backEOS3_.exit387
+  %.1253.lcssa = phi i32 [ %.7259718, %..preheader861_crit_edge ], [ %.0252, %_ZNSt6vectorIPN2cv4text6ERStatESaIS3_EE9push_backEOS3_.exit387 ]
   %149 = icmp sgt i32 %109, 0
   %150 = sub i32 %.0690, %66
   %.7307 = select i1 %149, i32 %150, i32 -1
@@ -2209,7 +2212,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   %.7259718 = phi i32 [ %spec.select, %294 ], [ %.12531032, %166 ]
   %295 = add i32 %.12641031, 1
   %exitcond.not = icmp eq i32 %295, 4
-  br i1 %exitcond.not, label %.preheader861, label %162, !llvm.loop !116
+  br i1 %exitcond.not, label %..preheader861_crit_edge, label %162, !llvm.loop !116
 
 296:                                              ; preds = %.thread758
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #37

@@ -604,7 +604,7 @@ _ZNK11inputStream12current_lineEv.exit:           ; preds = %24, %27
 
 ._ZN15ClassListParser19clean_up_input_lineEv.exit.loopexit_crit_edge: ; preds = %51
   %.pre8.pre = load ptr, ptr %9, align 8
-  br label %_ZN15ClassListParser19clean_up_input_lineEv.exit
+  br label %_ZN15ClassListParser19clean_up_input_lineEv.exit, !llvm.loop !10
 
 _ZN15ClassListParser19clean_up_input_lineEv.exit: ; preds = %.lr.ph18.i, %._ZN15ClassListParser19clean_up_input_lineEv.exit.loopexit_crit_edge, %_ZNK11inputStream12current_lineEv.exit
   %54 = phi ptr [ %.0.i, %_ZNK11inputStream12current_lineEv.exit ], [ %.pre8.pre, %._ZN15ClassListParser19clean_up_input_lineEv.exit.loopexit_crit_edge ], [ %45, %.lr.ph18.i ]

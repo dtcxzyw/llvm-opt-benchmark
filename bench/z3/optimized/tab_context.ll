@@ -23953,7 +23953,7 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE4backEv.exit:  ; preds = %_ZNK6vectorISt4pair
 
 ._crit_edge:                                      ; preds = %81
   %.pre42 = load i32, ptr %77, align 4
-  br label %83
+  br label %83, !llvm.loop !898
 
 83:                                               ; preds = %._crit_edge, %76
   %84 = phi i32 [ %.pre42, %._crit_edge ], [ %78, %76 ]

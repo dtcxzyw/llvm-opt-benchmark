@@ -6145,13 +6145,13 @@ drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_ms
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 14
   %76 = load i8, ptr %75, align 2
   %77 = icmp ult i8 %76, 20
-  br i1 %77, label %.split.thread15, label %78
+  br i1 %77, label %.split.thread15, label %78, !llvm.loop !84
 
 78:                                               ; preds = %.split1
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %80 = load i8, ptr %79, align 8
   %81 = icmp ugt i8 %80, 7
-  br i1 %81, label %.split.thread, label %82
+  br i1 %81, label %.split.thread, label %82, !llvm.loop !84
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -6169,7 +6169,7 @@ drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_ms
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 13
   %92 = load i8, ptr %91, align 1, !range !9, !noundef !10
   %93 = icmp eq i8 %92, 0
-  br i1 %93, label %94, label %.split.thread
+  br i1 %93, label %94, label %.split.thread, !llvm.loop !84
 
 94:                                               ; preds = %90, %86, %82
   %95 = getelementptr inbounds nuw i8, ptr %12, i64 1368

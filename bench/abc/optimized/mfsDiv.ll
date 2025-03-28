@@ -1776,7 +1776,7 @@ Abc_NodeSetTravIdPrevious.exit:                   ; preds = %Vec_PtrPushUnique.e
 
 ..critedge8.loopexit_crit_edge:                   ; preds = %434
   %.pre.pre = load ptr, ptr %0, align 8, !tbaa !49
-  br label %.critedge8
+  br label %.critedge8, !llvm.loop !67
 
 .critedge8:                                       ; preds = %Abc_NodeSetTravIdPrevious.exit, %184, %..critedge8.loopexit_crit_edge, %176
   %438 = phi ptr [ %177, %176 ], [ %.pre.pre, %..critedge8.loopexit_crit_edge ], [ %431, %Abc_NodeSetTravIdPrevious.exit ], [ %193, %184 ]

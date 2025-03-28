@@ -1392,28 +1392,32 @@ define hidden noundef i32 @_ZN2os17get_signal_numberEPKc(ptr noundef %0) local_u
   %.010 = phi ptr [ %2, %10 ], [ %0, %7 ]
   %13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.135, ptr noundef nonnull dereferenceable(1) %.010) #23
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph
+  br i1 %14, label %._crit_edge19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %16
   %indvars.iv18 = phi i64 [ %indvars.iv.next, %16 ], [ 0, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv18, 1
   %15 = getelementptr inbounds nuw [34 x %struct.anon.17], ptr @_ZL13g_signal_info, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 33
-  br i1 %exitcond, label %._crit_edge.loopexit, label %16, !llvm.loop !14
+  br i1 %exitcond, label %._crit_edge, label %16, !llvm.loop !14
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %.010) #23
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %20, label %._crit_edge19.loopexit, label %.lr.ph, !llvm.loop !14
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %16
+._crit_edge:                                      ; preds = %.lr.ph
   %21 = load i32, ptr %15, align 16
-  br label %._crit_edge
+  br label %._crit_edge19, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %12
-  %.lcssa = phi i32 [ 6, %12 ], [ %21, %._crit_edge.loopexit ]
+._crit_edge19.loopexit:                           ; preds = %16
+  %22 = load i32, ptr %15, align 16
+  br label %._crit_edge19
+
+._crit_edge19:                                    ; preds = %._crit_edge19.loopexit, %._crit_edge, %12
+  %.lcssa = phi i32 [ %21, %._crit_edge ], [ 6, %12 ], [ %22, %._crit_edge19.loopexit ]
   ret i32 %.lcssa
 }
 

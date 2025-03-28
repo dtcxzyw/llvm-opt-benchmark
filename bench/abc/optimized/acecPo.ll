@@ -6628,12 +6628,12 @@ Vec_IntAlloc.exit95:                              ; preds = %Vec_IntAlloc.exit91
   %56 = getelementptr i8, ptr %0, i64 160
   %.val79167 = load ptr, ptr %52, align 8, !tbaa !77
   %.not68168 = icmp eq ptr %.val79167, null
-  br i1 %.not68168, label %.critedge, label %.lr.ph173
+  br i1 %.not68168, label %.critedge.loopexit, label %.lr.ph173
 
 57:                                               ; preds = %158
   %.val79 = load ptr, ptr %52, align 8, !tbaa !77
   %.not68 = icmp eq ptr %.val79, null
-  br i1 %.not68, label %.critedge.loopexit.loopexit, label %.lr.ph173, !llvm.loop !116
+  br i1 %.not68, label %.critedge.loopexit, label %.lr.ph173, !llvm.loop !116
 
 .lr.ph173:                                        ; preds = %.lr.ph, %57
   %.val79172 = phi ptr [ %.val79, %57 ], [ %.val79167, %.lr.ph ]
@@ -6862,15 +6862,20 @@ Gia_ObjLevel.exit111:                             ; preds = %109, %._crit_edge.i
   %.val = load i32, ptr %160, align 4, !tbaa !6
   %161 = sext i32 %.val to i64
   %162 = icmp slt i64 %indvars.iv.next, %161
-  br i1 %162, label %57, label %.critedge.loopexit.loopexit, !llvm.loop !116
+  br i1 %162, label %57, label %..critedge.loopexit_crit_edge, !llvm.loop !116
 
-.critedge.loopexit.loopexit:                      ; preds = %158, %57
-  %163 = xor i32 %.1, -1
+..critedge.loopexit_crit_edge:                    ; preds = %158
+  br label %.critedge.loopexit, !llvm.loop !116
+
+.critedge.loopexit:                               ; preds = %57, %..critedge.loopexit_crit_edge, %.lr.ph
+  %.0.lcssa.ph = phi i32 [ %.1, %..critedge.loopexit_crit_edge ], [ -1, %.lr.ph ], [ %.1, %57 ]
+  %.val.lcssa.ph = phi i32 [ %.val, %..critedge.loopexit_crit_edge ], [ %.val145, %.lr.ph ], [ %.val, %57 ]
+  %163 = xor i32 %.0.lcssa.ph, -1
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %.critedge.loopexit.loopexit, %50
-  %.0.lcssa = phi i32 [ 0, %50 ], [ 0, %.lr.ph ], [ %163, %.critedge.loopexit.loopexit ]
-  %.val.lcssa = phi i32 [ %.val145, %50 ], [ %.val145, %.lr.ph ], [ %.val, %.critedge.loopexit.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %50
+  %.0.lcssa = phi i32 [ 0, %50 ], [ %163, %.critedge.loopexit ]
+  %.val.lcssa = phi i32 [ %.val145, %50 ], [ %.val.lcssa.ph, %.critedge.loopexit ]
   %164 = add i32 %.val.lcssa, %.0.lcssa
   %165 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %164)
   br label %166

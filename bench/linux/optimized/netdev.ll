@@ -8806,13 +8806,16 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
   %300 = load i32, ptr %299, align 8
   %301 = and i32 %300, 1
   %302 = icmp eq i32 %301, 0
-  br i1 %302, label %.loopexit, label %35, !llvm.loop !53
+  br i1 %302, label %..loopexit_crit_edge13, label %35, !llvm.loop !53
 
-.loopexit:                                        ; preds = %35, %297, %19, %3
-  %303 = phi i32 [ %9, %3 ], [ %9, %19 ], [ %55, %297 ], [ %55, %35 ]
-  %304 = phi i1 [ false, %3 ], [ false, %19 ], [ true, %297 ], [ true, %35 ]
-  %305 = phi i32 [ 0, %3 ], [ 0, %19 ], [ %290, %297 ], [ %290, %35 ]
-  %306 = phi i32 [ 0, %3 ], [ 0, %19 ], [ %291, %297 ], [ %291, %35 ]
+..loopexit_crit_edge13:                           ; preds = %297
+  br label %.loopexit, !llvm.loop !53
+
+.loopexit:                                        ; preds = %35, %19, %..loopexit_crit_edge13, %3
+  %303 = phi i32 [ %9, %3 ], [ %55, %..loopexit_crit_edge13 ], [ %9, %19 ], [ %55, %35 ]
+  %304 = phi i1 [ false, %3 ], [ true, %..loopexit_crit_edge13 ], [ false, %19 ], [ true, %35 ]
+  %305 = phi i32 [ 0, %3 ], [ %290, %..loopexit_crit_edge13 ], [ 0, %19 ], [ %290, %35 ]
+  %306 = phi i32 [ 0, %3 ], [ %291, %..loopexit_crit_edge13 ], [ 0, %19 ], [ %291, %35 ]
   %307 = trunc i32 %303 to i16
   store i16 %307, ptr %7, align 2
   %308 = and i32 %303, 65535

@@ -8252,9 +8252,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(99) ptr @_
   %33 = ptrtoint ptr %32 to i64
   %34 = urem i64 %33, %17
   %.not19.i.i.i = icmp eq i64 %34, %18
-  br i1 %.not19.i.i.i, label %27, label %.loopexit.i, !llvm.loop !330
+  br i1 %.not19.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !330
 
-.loopexit.i:                                      ; preds = %30, %.lr.ph.i.i.i, %13
+..loopexit_crit_edge21.i.i.i:                     ; preds = %30
+  br label %.loopexit.i, !llvm.loop !330
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
   store ptr %14, ptr %4, align 8, !tbaa !331
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8327,9 +8330,12 @@ _ZNSt8__detail9_Map_baseIPK12DfgVertexVarSt4pairIKS3_St13unordered_mapImPS1_St4h
   %63 = load i64, ptr %62, align 8, !tbaa !31
   %64 = urem i64 %63, %48
   %.not19.i.i.i.i = icmp eq i64 %64, %49
-  br i1 %.not19.i.i.i.i, label %58, label %.loopexit.i.i, !llvm.loop !342
+  br i1 %.not19.i.i.i.i, label %58, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !342
 
-.loopexit.i.i:                                    ; preds = %61, %.lr.ph.i.i.i.i, %_ZNSt8__detail9_Map_baseIPK12DfgVertexVarSt4pairIKS3_St13unordered_mapImPS1_St4hashImESt8equal_toImESaIS4_IKmS7_EEEESaISG_ENS_10_Select1stESA_IS3_ES8_IS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS3_.exit
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %61
+  br label %.loopexit.i.i, !llvm.loop !342
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt8__detail9_Map_baseIPK12DfgVertexVarSt4pairIKS3_St13unordered_mapImPS1_St4hashImESt8equal_toImESaIS4_IKmS7_EEEESaISG_ENS_10_Select1stESA_IS3_ES8_IS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS3_.exit
   %65 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store ptr null, ptr %65, align 8, !tbaa !307
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -11875,12 +11881,15 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPK9DfgVertexS2_SaIS
   %39 = ptrtoint ptr %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %.critedge, !llvm.loop !483
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !483
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %36, %23, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %36 ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %36 ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %36 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge, !llvm.loop !483
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
   store ptr null, ptr %44, align 8, !tbaa !307
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -12403,9 +12412,12 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZZNK23ExtractCyclicCom
   %32 = ptrtoint ptr %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i.i.i, label %26, label %.loopexit.i, !llvm.loop !491
+  br i1 %.not19.i.i.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !491
 
-.loopexit.i:                                      ; preds = %29, %.lr.ph.i.i.i.i.i.i, %8, %13
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %29
+  br label %.loopexit.i, !llvm.loop !491
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i.i.i, %13
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !492
   %36 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.3, i32 noundef 457)
@@ -12507,9 +12519,12 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZZNK23ExtractCyclicCom
   %32 = ptrtoint ptr %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i.i.i, label %26, label %.loopexit.i, !llvm.loop !491
+  br i1 %.not19.i.i.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !491
 
-.loopexit.i:                                      ; preds = %29, %.lr.ph.i.i.i.i.i.i, %8, %13
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %29
+  br label %.loopexit.i, !llvm.loop !491
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i.i.i, %13
   %34 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.3, i32 noundef 460)
   %35 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.183)

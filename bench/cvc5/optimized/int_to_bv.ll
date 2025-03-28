@@ -7336,11 +7336,14 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit.i.i.i: ; preds = %16,
   %53 = load i64, ptr %52, align 8, !tbaa !368
   %54 = urem i64 %53, %30
   %.not19.i.i.i.i.i.i.i.i = icmp eq i64 %54, %31
-  br i1 %.not19.i.i.i.i.i.i.i.i, label %44, label %.loopexit.i.i.i, !llvm.loop !370
+  br i1 %.not19.i.i.i.i.i.i.i.i, label %44, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, !llvm.loop !370
 
-.loopexit.i.i.i:                                  ; preds = %51, %.lr.ph.i.i.i.i.i.i.i.i, %44, %23, %22, %35, %.noexc.i.i.i
-  %55 = phi ptr [ %.pre.i.i.i, %.noexc.i.i.i ], [ %.pre.i.i.i, %35 ], [ %.val2, %22 ], [ %.val2, %23 ], [ %.pre.i.i.i, %44 ], [ %.pre.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i, %51 ]
-  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ null, %.noexc.i.i.i ], [ %36, %35 ], [ %.sroa.06.0.i.i.i.i.i.i, %23 ], [ null, %22 ], [ null, %51 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i ], [ %50, %44 ]
+..loopexit_crit_edge21.i.i.i.i.i.i.i.i:           ; preds = %51
+  br label %.loopexit.i.i.i, !llvm.loop !370
+
+.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %44, %23, %22, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %35, %.noexc.i.i.i
+  %55 = phi ptr [ %.pre.i.i.i, %.noexc.i.i.i ], [ %.pre.i.i.i, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i, %35 ], [ %.val2, %22 ], [ %.val2, %23 ], [ %.pre.i.i.i, %44 ], [ %.pre.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ null, %.noexc.i.i.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i ], [ %36, %35 ], [ %.sroa.06.0.i.i.i.i.i.i, %23 ], [ null, %22 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i ], [ %50, %44 ]
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 1152920405095219200
   %.not.i.i2.i.i.i = icmp eq i64 %57, 1152920405095219200
@@ -7767,9 +7770,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %32 = load i64, ptr %31, align 8, !tbaa !368
   %33 = urem i64 %32, %8
   %.not19.i.i = icmp eq i64 %33, %9
-  br i1 %.not19.i.i, label %23, label %.loopexit, !llvm.loop !370
+  br i1 %.not19.i.i, label %23, label %..loopexit_crit_edge21.i.i, !llvm.loop !370
 
-.loopexit:                                        ; preds = %30, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %30
+  br label %.loopexit, !llvm.loop !370
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   store ptr %1, ptr %4, align 8, !tbaa !308
@@ -8179,9 +8185,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %32 = load i64, ptr %31, align 8, !tbaa !368
   %33 = urem i64 %32, %8
   %.not19.i.i = icmp eq i64 %33, %9
-  br i1 %.not19.i.i, label %23, label %.loopexit, !llvm.loop !370
+  br i1 %.not19.i.i, label %23, label %..loopexit_crit_edge21.i.i, !llvm.loop !370
 
-.loopexit:                                        ; preds = %30, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %30
+  br label %.loopexit, !llvm.loop !370
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   store ptr %1, ptr %4, align 8, !tbaa !308, !alias.scope !382
@@ -8415,11 +8424,14 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit.i.i.i: ; preds = %16,
   %53 = load i64, ptr %52, align 8, !tbaa !368
   %54 = urem i64 %53, %30
   %.not19.i.i.i.i.i.i.i.i = icmp eq i64 %54, %31
-  br i1 %.not19.i.i.i.i.i.i.i.i, label %44, label %.loopexit.i.i.i, !llvm.loop !370
+  br i1 %.not19.i.i.i.i.i.i.i.i, label %44, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, !llvm.loop !370
 
-.loopexit.i.i.i:                                  ; preds = %51, %.lr.ph.i.i.i.i.i.i.i.i, %44, %23, %22, %35, %.noexc.i.i.i
-  %55 = phi ptr [ %.pre.i.i.i, %.noexc.i.i.i ], [ %.pre.i.i.i, %35 ], [ %.val2, %22 ], [ %.val2, %23 ], [ %.pre.i.i.i, %44 ], [ %.pre.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i, %51 ]
-  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ null, %.noexc.i.i.i ], [ %36, %35 ], [ %.sroa.06.0.i.i.i.i.i.i, %23 ], [ null, %22 ], [ null, %51 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i ], [ %50, %44 ]
+..loopexit_crit_edge21.i.i.i.i.i.i.i.i:           ; preds = %51
+  br label %.loopexit.i.i.i, !llvm.loop !370
+
+.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %44, %23, %22, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %35, %.noexc.i.i.i
+  %55 = phi ptr [ %.pre.i.i.i, %.noexc.i.i.i ], [ %.pre.i.i.i, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i, %35 ], [ %.val2, %22 ], [ %.val2, %23 ], [ %.pre.i.i.i, %44 ], [ %.pre.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ null, %.noexc.i.i.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i ], [ %36, %35 ], [ %.sroa.06.0.i.i.i.i.i.i, %23 ], [ null, %22 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i ], [ %50, %44 ]
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 1152920405095219200
   %.not.i.i2.i.i.i = icmp eq i64 %57, 1152920405095219200

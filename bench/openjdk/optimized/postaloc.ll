@@ -674,14 +674,14 @@ define hidden noundef i32 @_ZN12PhaseChaitin10elide_copyEP4NodeiP5BlockP9Node_Li
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not189 = icmp eq i32 %29, 0
-  br i1 %.not189, label %._crit_edge194, label %.lr.ph193
+  br i1 %.not189, label %._crit_edge197, label %.lr.ph193
 
 30:                                               ; preds = %56
   %31 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 1
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %._crit_edge194, label %.lr.ph193, !llvm.loop !11
+  br i1 %.not, label %._crit_edge197, label %.lr.ph193, !llvm.loop !11
 
 .lr.ph193:                                        ; preds = %7, %30
   %34 = phi i32 [ %33, %30 ], [ %29, %7 ]
@@ -716,7 +716,7 @@ define hidden noundef i32 @_ZN12PhaseChaitin10elide_copyEP4NodeiP5BlockP9Node_Li
   %54 = getelementptr inbounds nuw %class.LRG, ptr %52, i64 %53, i32 8
   %55 = load i32, ptr %54, align 8
   %.not139 = icmp eq i32 %55, %26
-  br i1 %.not139, label %56, label %._crit_edge194
+  br i1 %.not139, label %56, label %._crit_edge197
 
 56:                                               ; preds = %43
   %57 = tail call noundef i32 @_ZN12PhaseChaitin18use_prior_registerEP4NodejS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %40, ptr noundef %3, ptr noundef %4, ptr noundef %5)
@@ -727,13 +727,16 @@ define hidden noundef i32 @_ZN12PhaseChaitin10elide_copyEP4NodeiP5BlockP9Node_Li
   %.not140 = icmp eq ptr %61, %40
   br i1 %.not140, label %30, label %._crit_edge194, !llvm.loop !11
 
-._crit_edge194:                                   ; preds = %30, %43, %56, %7
-  %.0123.lcssa = phi ptr [ %12, %7 ], [ %40, %30 ], [ %.0123190, %43 ], [ %.0123190, %56 ]
-  %62 = phi ptr [ %9, %7 ], [ %59, %30 ], [ %35, %43 ], [ %59, %56 ]
-  %.1 = phi i32 [ 0, %7 ], [ %58, %30 ], [ %.0122191, %43 ], [ %58, %56 ]
+._crit_edge194:                                   ; preds = %56
+  br label %._crit_edge197, !llvm.loop !11
+
+._crit_edge197:                                   ; preds = %30, %43, %._crit_edge194, %7
+  %.0123.lcssa = phi ptr [ %.0123190, %._crit_edge194 ], [ %12, %7 ], [ %40, %30 ], [ %.0123190, %43 ]
+  %62 = phi ptr [ %59, %._crit_edge194 ], [ %9, %7 ], [ %59, %30 ], [ %35, %43 ]
+  %.1 = phi i32 [ %58, %._crit_edge194 ], [ 0, %7 ], [ %58, %30 ], [ %.0122191, %43 ]
   br i1 %6, label %63, label %.loopexit
 
-63:                                               ; preds = %._crit_edge194
+63:                                               ; preds = %._crit_edge197
   %64 = icmp eq ptr %4, null
   %65 = icmp eq ptr %5, null
   %or.cond = or i1 %64, %65
@@ -1054,8 +1057,8 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.exit157: ; preds = %_ZNK10Node_
   %245 = icmp samesign ult i64 %indvars.iv.next, %244
   br i1 %245, label %163, label %.loopexit, !llvm.loop !14
 
-.loopexit:                                        ; preds = %230, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157, %153, %.loopexit161, %_ZN12PhaseChaitin11skip_copiesEP4Node.exit, %63, %._crit_edge194
-  %.0121 = phi i32 [ %.1, %._crit_edge194 ], [ %.1, %63 ], [ %.1, %_ZN12PhaseChaitin11skip_copiesEP4Node.exit ], [ %138, %.loopexit161 ], [ %.2, %153 ], [ %235, %230 ], [ %.4, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157 ]
+.loopexit:                                        ; preds = %230, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157, %153, %.loopexit161, %_ZN12PhaseChaitin11skip_copiesEP4Node.exit, %63, %._crit_edge197
+  %.0121 = phi i32 [ %.1, %._crit_edge197 ], [ %.1, %63 ], [ %.1, %_ZN12PhaseChaitin11skip_copiesEP4Node.exit ], [ %138, %.loopexit161 ], [ %.2, %153 ], [ %235, %230 ], [ %.4, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157 ]
   ret i32 %.0121
 }
 

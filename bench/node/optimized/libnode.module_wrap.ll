@@ -565,7 +565,10 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i = sext i32 %12 to i64
   %rem.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i, %6
   %cmp.not.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %for.end, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i
+  br label %for.end, !llvm.loop !8
 
 if.end.i.i:                                       ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
   %13 = phi i32 [ %5, %if.end.i.i.i.i.i ], [ %3, %for.body.i.i.i ], [ %5, %for.cond.i.i.i.i.i ]
@@ -585,18 +588,18 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
   br i1 %cmp.i.i.i1.i.i, label %while.cond.i.i, label %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit, !llvm.loop !9
 
 _ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit: ; preds = %while.cond.i.i, %land.rhs.i.i
-  %cmp.i.not20 = icmp eq ptr %retval.sroa.0.1.i.i.i, %__ite.sroa.0.0.i.i
-  br i1 %cmp.i.not20, label %for.end, label %for.body
+  %cmp.i.not21 = icmp eq ptr %retval.sroa.0.1.i.i.i, %__ite.sroa.0.0.i.i
+  br i1 %cmp.i.not21, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit, %for.inc
-  %it.sroa.0.021 = phi ptr [ %28, %for.inc ], [ %retval.sroa.0.1.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit ]
-  %second5 = getelementptr inbounds nuw i8, ptr %it.sroa.0.021, i64 16
+  %it.sroa.0.022 = phi ptr [ %28, %for.inc ], [ %retval.sroa.0.1.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit ]
+  %second5 = getelementptr inbounds nuw i8, ptr %it.sroa.0.022, i64 16
   %15 = load ptr, ptr %second5, align 8
   %cmp = icmp eq ptr %15, %this
   br i1 %cmp, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.021, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.022, i64 8
   %_M_bucket_count.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %_M_bucket_count.i.i.i.i4, align 8
   %17 = load i32, ptr %add.ptr.i, align 4
@@ -610,12 +613,12 @@ if.then:                                          ; preds = %for.body
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i, %if.then
   %__prev_n.0.i.i.i.i = phi ptr [ %19, %if.then ], [ %20, %while.cond.i.i.i.i ]
   %20 = load ptr, ptr %__prev_n.0.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %20, %it.sroa.0.021
+  %cmp.not.i.i.i.i = icmp eq ptr %20, %it.sroa.0.022
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiPN4node6loader10ModuleWrapEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !10
 
 _ZNSt10_HashtableIiSt4pairIKiPN4node6loader10ModuleWrapEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit.i.i.i: ; preds = %while.cond.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__prev_n.0.i.i.i.i, %19
-  %21 = load ptr, ptr %it.sroa.0.021, align 8
+  %21 = load ptr, ptr %it.sroa.0.022, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -671,20 +674,20 @@ if.then11.i.i.i.i:                                ; preds = %if.then6.i.i.i.i
   br label %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit
 
 _ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit: ; preds = %cond.end.i.i.i.i, %if.end11.i.i.i.i.i, %if.else.i.i.i.i, %if.then6.i.i.i.i, %if.then11.i.i.i.i
-  %26 = load ptr, ptr %it.sroa.0.021, align 8
+  %26 = load ptr, ptr %it.sroa.0.022, align 8
   store ptr %26, ptr %__prev_n.0.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %it.sroa.0.021) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %it.sroa.0.022) #21
   %27 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %dec.i.i.i.i = add i64 %27, -1
   store i64 %dec.i.i.i.i, ptr %_M_element_count.i.i.i.i, align 8
   br label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %28 = load ptr, ptr %it.sroa.0.021, align 8
+  %28 = load ptr, ptr %it.sroa.0.022, align 8
   %cmp.i.not = icmp eq ptr %28, %__ite.sroa.0.0.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !11
 
-for.end:                                          ; preds = %if.end3.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %for.cond.i.i.i, %for.inc, %if.end15.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit
+for.end:                                          ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %for.inc, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, %if.end15.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit
   %resolve_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %29 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -898,7 +901,10 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i = sext i32 %8 to i64
   %rem.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i, %2
   %cmp.not.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %return, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i
+  br label %return, !llvm.loop !8
 
 if.end.i.i:                                       ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
   %retval.sroa.0.1.i.i.i = phi ptr [ %5, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %7, %for.cond.i.i.i.i.i ]
@@ -917,12 +923,12 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
   br i1 %cmp.i.i.i1.i.i, label %while.cond.i.i, label %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit, !llvm.loop !9
 
 _ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit: ; preds = %while.cond.i.i, %land.rhs.i.i
-  %cmp.i7.not18 = icmp eq ptr %retval.sroa.0.1.i.i.i, %__ite.sroa.0.0.i.i
-  br i1 %cmp.i7.not18, label %return, label %for.body
+  %cmp.i7.not19 = icmp eq ptr %retval.sroa.0.1.i.i.i, %__ite.sroa.0.0.i.i
+  br i1 %cmp.i7.not19, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit, %for.inc
-  %it.sroa.0.019 = phi ptr [ %14, %for.inc ], [ %retval.sroa.0.1.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit ]
-  %second7 = getelementptr inbounds nuw i8, ptr %it.sroa.0.019, i64 16
+  %it.sroa.0.020 = phi ptr [ %14, %for.inc ], [ %retval.sroa.0.1.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit ]
+  %second7 = getelementptr inbounds nuw i8, ptr %it.sroa.0.020, i64 16
   %10 = load ptr, ptr %second7, align 8
   %module_ = getelementptr inbounds nuw i8, ptr %10, i64 32
   %11 = load ptr, ptr %module_, align 8
@@ -936,12 +942,12 @@ if.end4.i:                                        ; preds = %for.body
   br i1 %cmp.i, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end4.i
-  %14 = load ptr, ptr %it.sroa.0.019, align 8
+  %14 = load ptr, ptr %it.sroa.0.020, align 8
   %cmp.i7.not = icmp eq ptr %14, %__ite.sroa.0.0.i.i
   br i1 %cmp.i7.not, label %return, label %for.body, !llvm.loop !14
 
-return:                                           ; preds = %if.end3.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %for.cond.i.i.i, %for.inc, %if.end4.i, %if.end15.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit
-  %retval.0 = phi ptr [ null, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit ], [ null, %if.end15.i.i.i ], [ %10, %if.end4.i ], [ null, %for.inc ], [ null, %for.cond.i.i.i ], [ null, %lor.lhs.false.i.i.i.i.i ], [ null, %if.end3.i.i.i.i.i ]
+return:                                           ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %for.inc, %if.end4.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, %if.end15.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit
+  %retval.0 = phi ptr [ null, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit ], [ null, %if.end15.i.i.i ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i ], [ %10, %if.end4.i ], [ null, %for.inc ], [ null, %for.cond.i.i.i ], [ null, %if.end3.i.i.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -2031,7 +2037,10 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i.i = sext i32 %19 to i64
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i.i, %13
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %_ZN4node6loader10ModuleWrap13GetFromModuleEPNS_11EnvironmentEN2v85LocalINS4_6ModuleEEE.exit, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i
+  br label %_ZN4node6loader10ModuleWrap13GetFromModuleEPNS_11EnvironmentEN2v85LocalINS4_6ModuleEEE.exit, !llvm.loop !8
 
 if.end.i.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.sroa.0.1.i.i.i.i = phi ptr [ %16, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %18, %for.cond.i.i.i.i.i.i ]
@@ -2050,12 +2059,12 @@ land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
   br i1 %cmp.i.i.i1.i.i.i, label %while.cond.i.i.i, label %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i, !llvm.loop !9
 
 _ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i: ; preds = %land.rhs.i.i.i, %while.cond.i.i.i
-  %cmp.i7.not18.i = icmp eq ptr %retval.sroa.0.1.i.i.i.i, %__ite.sroa.0.0.i.i.i
-  br i1 %cmp.i7.not18.i, label %_ZN4node6loader10ModuleWrap13GetFromModuleEPNS_11EnvironmentEN2v85LocalINS4_6ModuleEEE.exit, label %for.body.i
+  %cmp.i7.not19.i = icmp eq ptr %retval.sroa.0.1.i.i.i.i, %__ite.sroa.0.0.i.i.i
+  br i1 %cmp.i7.not19.i, label %_ZN4node6loader10ModuleWrap13GetFromModuleEPNS_11EnvironmentEN2v85LocalINS4_6ModuleEEE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i, %for.inc.i
-  %it.sroa.0.019.i = phi ptr [ %25, %for.inc.i ], [ %retval.sroa.0.1.i.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i ]
-  %second7.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.019.i, i64 16
+  %it.sroa.0.020.i = phi ptr [ %25, %for.inc.i ], [ %retval.sroa.0.1.i.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i ]
+  %second7.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.020.i, i64 16
   %21 = load ptr, ptr %second7.i, align 8
   %module_.i = getelementptr inbounds nuw i8, ptr %21, i64 32
   %22 = load ptr, ptr %module_.i, align 8
@@ -2069,12 +2078,12 @@ if.end4.i.i:                                      ; preds = %for.body.i
   br i1 %cmp.i.i17, label %_ZN4node6loader10ModuleWrap13GetFromModuleEPNS_11EnvironmentEN2v85LocalINS4_6ModuleEEE.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end4.i.i, %for.body.i
-  %25 = load ptr, ptr %it.sroa.0.019.i, align 8
+  %25 = load ptr, ptr %it.sroa.0.020.i, align 8
   %cmp.i7.not.i = icmp eq ptr %25, %__ite.sroa.0.0.i.i.i
   br i1 %cmp.i7.not.i, label %_ZN4node6loader10ModuleWrap13GetFromModuleEPNS_11EnvironmentEN2v85LocalINS4_6ModuleEEE.exit, label %for.body.i, !llvm.loop !14
 
-_ZN4node6loader10ModuleWrap13GetFromModuleEPNS_11EnvironmentEN2v85LocalINS4_6ModuleEEE.exit: ; preds = %if.end3.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end4.i.i, %for.inc.i, %if.end15.i.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i
-  %retval.0.i16 = phi ptr [ null, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i ], [ null, %if.end15.i.i.i.i ], [ null, %for.inc.i ], [ %21, %if.end4.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %lor.lhs.false.i.i.i.i.i.i ], [ null, %if.end3.i.i.i.i.i.i ]
+_ZN4node6loader10ModuleWrap13GetFromModuleEPNS_11EnvironmentEN2v85LocalINS4_6ModuleEEE.exit: ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end4.i.i, %for.inc.i, %if.end15.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i
+  %retval.0.i16 = phi ptr [ null, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i ], [ null, %if.end15.i.i.i.i ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i ], [ null, %for.inc.i ], [ %21, %if.end4.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %if.end3.i.i.i.i.i.i ]
   %26 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(60) %try_catch, ptr noundef %26) #19
   %env_.i = getelementptr inbounds nuw i8, ptr %try_catch, i64 48
@@ -2952,7 +2961,10 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i.i = sext i32 %20 to i64
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i.i, %14
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %if.then33, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i
+  br label %if.then33, !llvm.loop !8
 
 if.end.i.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.sroa.0.1.i.i.i.i = phi ptr [ %17, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %19, %for.cond.i.i.i.i.i.i ]
@@ -2971,12 +2983,12 @@ land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
   br i1 %cmp.i.i.i1.i.i.i, label %while.cond.i.i.i, label %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i, !llvm.loop !9
 
 _ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i: ; preds = %land.rhs.i.i.i, %while.cond.i.i.i
-  %cmp.i7.not18.i = icmp eq ptr %retval.sroa.0.1.i.i.i.i, %__ite.sroa.0.0.i.i.i
-  br i1 %cmp.i7.not18.i, label %if.then33, label %for.body.i
+  %cmp.i7.not19.i = icmp eq ptr %retval.sroa.0.1.i.i.i.i, %__ite.sroa.0.0.i.i.i
+  br i1 %cmp.i7.not19.i, label %if.then33, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i, %for.inc.i
-  %it.sroa.0.019.i = phi ptr [ %26, %for.inc.i ], [ %retval.sroa.0.1.i.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i ]
-  %second7.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.019.i, i64 16
+  %it.sroa.0.020.i = phi ptr [ %26, %for.inc.i ], [ %retval.sroa.0.1.i.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i ]
+  %second7.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.020.i, i64 16
   %22 = load ptr, ptr %second7.i, align 8
   %module_.i = getelementptr inbounds nuw i8, ptr %22, i64 32
   %23 = load ptr, ptr %module_.i, align 8
@@ -2990,11 +3002,11 @@ if.end4.i.i:                                      ; preds = %for.body.i
   br i1 %cmp.i.i25, label %if.end34, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end4.i.i, %for.body.i
-  %26 = load ptr, ptr %it.sroa.0.019.i, align 8
+  %26 = load ptr, ptr %it.sroa.0.020.i, align 8
   %cmp.i7.not.i = icmp eq ptr %26, %__ite.sroa.0.0.i.i.i
   br i1 %cmp.i7.not.i, label %if.then33, label %for.body.i, !llvm.loop !14
 
-if.then33:                                        ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %for.inc.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i, %if.end15.i.i.i.i
+if.then33:                                        ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %for.inc.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i, %if.end15.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %9, i64 88
   %27 = load ptr, ptr %isolate_.i.i, align 8
   %call.i.i = call ptr @_ZN4node26ERR_VM_MODULE_LINK_FAILUREIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN2v85LocalINS8_5ValueEEEPNS8_7IsolateEPKcDpOT_(ptr noundef %27, ptr noundef nonnull @.str.55, ptr noundef nonnull align 8 dereferenceable(32) %specifier_std)
@@ -4336,7 +4348,10 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i.i = sext i32 %18 to i64
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i.i, %12
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %return, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i
+  br label %return, !llvm.loop !8
 
 if.end.i.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.sroa.0.1.i.i.i.i = phi ptr [ %15, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %17, %for.cond.i.i.i.i.i.i ]
@@ -4355,12 +4370,12 @@ land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
   br i1 %cmp.i.i.i1.i.i.i, label %while.cond.i.i.i, label %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i, !llvm.loop !9
 
 _ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i: ; preds = %land.rhs.i.i.i, %while.cond.i.i.i
-  %cmp.i7.not18.i = icmp eq ptr %retval.sroa.0.1.i.i.i.i, %__ite.sroa.0.0.i.i.i
-  br i1 %cmp.i7.not18.i, label %return, label %for.body.i
+  %cmp.i7.not19.i = icmp eq ptr %retval.sroa.0.1.i.i.i.i, %__ite.sroa.0.0.i.i.i
+  br i1 %cmp.i7.not19.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i, %for.inc.i
-  %it.sroa.0.019.i = phi ptr [ %24, %for.inc.i ], [ %retval.sroa.0.1.i.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i ]
-  %second7.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.019.i, i64 16
+  %it.sroa.0.020.i = phi ptr [ %24, %for.inc.i ], [ %retval.sroa.0.1.i.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i ]
+  %second7.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.020.i, i64 16
   %20 = load ptr, ptr %second7.i, align 8
   %module_.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load ptr, ptr %module_.i, align 8
@@ -4374,7 +4389,7 @@ if.end4.i.i:                                      ; preds = %for.body.i
   br i1 %cmp.i.i11, label %if.end.i.i13, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end4.i.i, %for.body.i
-  %24 = load ptr, ptr %it.sroa.0.019.i, align 8
+  %24 = load ptr, ptr %it.sroa.0.020.i, align 8
   %cmp.i7.not.i = icmp eq ptr %24, %__ite.sroa.0.0.i.i.i
   br i1 %cmp.i7.not.i, label %return, label %for.body.i, !llvm.loop !14
 
@@ -4478,7 +4493,7 @@ if.end94:                                         ; preds = %if.then89, %land.lh
   call void @_ZN4node6errors13TryCatchScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %try_catch) #19
   br label %return
 
-return:                                           ; preds = %if.end3.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i, %for.cond.i.i.i.i, %for.inc.i, %if.end15.i.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i, %if.end.i.i, %entry, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %_ZNK4node10BaseObject6objectEv.exit, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit, %if.end94
+return:                                           ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %for.inc.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, %if.end15.i.i.i.i, %_ZNSt18unordered_multimapIiPN4node6loader10ModuleWrapESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE11equal_rangeERS9_.exit.i, %if.end.i.i, %entry, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %_ZNK4node10BaseObject6objectEv.exit, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit, %if.end94
   ret void
 }
 
@@ -7094,7 +7109,10 @@ lor.lhs.false.i:                                  ; preds = %if.end3.i
   %conv.i.i.i.i.i = sext i32 %14 to i64
   %rem.i.i.i.i = urem i64 %conv.i.i.i.i.i, %4
   %cmp.not.i = icmp eq i64 %rem.i.i.i.i, %rem.i.i.i
-  br i1 %cmp.not.i, label %for.cond.i, label %if.then.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %for.cond.i, label %lor.lhs.false.return.loopexit_crit_edge.i, !llvm.loop !8
+
+lor.lhs.false.return.loopexit_crit_edge.i:        ; preds = %lor.lhs.false.i
+  br label %if.then.i, !llvm.loop !8
 
 if.then13:                                        ; preds = %for.cond.i, %if.end.i
   %15 = phi ptr [ %10, %if.end.i ], [ %13, %for.cond.i ]
@@ -7129,7 +7147,7 @@ if.then29:                                        ; preds = %if.then24
   store ptr %__node, ptr %arrayidx, align 8
   br label %if.end33
 
-if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end3.i
+if.then.i:                                        ; preds = %if.end3.i, %lor.lhs.false.return.loopexit_crit_edge.i
   %21 = load ptr, ptr %9, align 8
   store ptr %21, ptr %__node, align 8
   %22 = load ptr, ptr %this, align 8

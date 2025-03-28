@@ -1055,10 +1055,13 @@ _ZNSt5dequeISt4pairImjESaIS1_EE9push_backEOS1_.exit: ; preds = %48, %51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
   %56 = load ptr, ptr %0, align 8, !tbaa !68
   %.not = icmp eq ptr %56, null
-  br i1 %.not, label %.critedge, label %22, !llvm.loop !70
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %22, !llvm.loop !70
 
-.critedge:                                        ; preds = %55, %22, %.lr.ph, %3
-  %.0.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph ], [ true, %22 ], [ true, %55 ]
+..critedge.loopexit_crit_edge:                    ; preds = %55
+  br label %.critedge, !llvm.loop !70
+
+.critedge:                                        ; preds = %22, %.lr.ph, %..critedge.loopexit_crit_edge, %3
+  %.0.lcssa = phi i1 [ false, %3 ], [ true, %..critedge.loopexit_crit_edge ], [ false, %.lr.ph ], [ true, %22 ]
   ret i1 %.0.lcssa
 }
 

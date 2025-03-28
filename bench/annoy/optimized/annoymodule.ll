@@ -6971,7 +6971,7 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit._crit_edge: ; preds = 
   %84 = load ptr, ptr %8, align 8, !tbaa !178
   %85 = load ptr, ptr %64, align 8, !tbaa !178
   %86 = icmp eq ptr %84, %85
-  br i1 %86, label %.critedge.loopexit, label %.lr.ph401, !llvm.loop !181
+  br i1 %86, label %.critedge, label %.lr.ph401, !llvm.loop !181
 
 .lr.ph401:                                        ; preds = %.lr.ph279, %83
   %87 = phi ptr [ %84, %83 ], [ %69, %.lr.ph279 ]
@@ -7210,18 +7210,18 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %130, %_ZNSt6vectorI
   %191 = sub i64 %189, %190
   %192 = ashr exact i64 %191, 2
   %193 = icmp ult i64 %192, %63
-  br i1 %193, label %83, label %.critedge.loopexit, !llvm.loop !181
+  br i1 %193, label %83, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge, !llvm.loop !181
 
-.critedge.loopexit:                               ; preds = %83, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %194 = icmp sgt i64 %191, 64
-  br label %.critedge
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  br label %.critedge, !llvm.loop !181
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph279
-  %.lcssa261.ph = phi ptr [ null, %.lr.ph279 ], [ %187, %.critedge.loopexit ]
-  %.lcssa255.ph = phi ptr [ null, %.lr.ph279 ], [ %188, %.critedge.loopexit ]
-  %.lcssa249.ph = phi i64 [ 0, %.lr.ph279 ], [ %190, %.critedge.loopexit ]
-  %.lcssa243.ph = phi i1 [ false, %.lr.ph279 ], [ %194, %.critedge.loopexit ]
-  %.lcssa237.ph = phi i64 [ 0, %.lr.ph279 ], [ %192, %.critedge.loopexit ]
+.critedge:                                        ; preds = %83, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge, %.lr.ph279
+  %.lcssa261.ph = phi ptr [ %187, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ null, %.lr.ph279 ], [ %187, %83 ]
+  %.lcssa255.ph = phi ptr [ %188, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ null, %.lr.ph279 ], [ %188, %83 ]
+  %.lcssa249.ph = phi i64 [ %190, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph279 ], [ %190, %83 ]
+  %.lcssa243.ph = phi i64 [ %191, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph279 ], [ %191, %83 ]
+  %.lcssa237.ph = phi i64 [ %192, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph279 ], [ %192, %83 ]
+  %194 = icmp sgt i64 %.lcssa243.ph, 64
   %.not.i.i = icmp eq ptr %.lcssa255.ph, %.lcssa261.ph
   br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit, label %195
 
@@ -7234,7 +7234,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %130, %_ZNSt6vectorI
 
 .noexc110:                                        ; preds = %195
   %scevgep.i.i.i = getelementptr i8, ptr %.lcssa255.ph, i64 4
-  br i1 %.lcssa243.ph, label %.lr.ph.i.i.i.i, label %216
+  br i1 %194, label %.lr.ph.i.i.i.i, label %216
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc110, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.sroa.0.018.i.idx.i.i.i = phi i64 [ %.sroa.0.018.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %.noexc110 ]
@@ -12534,7 +12534,7 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64Rand
   %60 = load ptr, ptr %8, align 8, !tbaa !178
   %61 = load ptr, ptr %40, align 8, !tbaa !178
   %62 = icmp eq ptr %60, %61
-  br i1 %62, label %.critedge.loopexit, label %.lr.ph328, !llvm.loop !259
+  br i1 %62, label %.critedge, label %.lr.ph328, !llvm.loop !259
 
 .lr.ph328:                                        ; preds = %.lr.ph241, %59
   %63 = phi ptr [ %60, %59 ], [ %45, %.lr.ph241 ]
@@ -12771,18 +12771,18 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %104, %_ZNSt6vectorI
   %168 = sub i64 %166, %167
   %169 = ashr exact i64 %168, 2
   %170 = icmp ult i64 %169, %39
-  br i1 %170, label %59, label %.critedge.loopexit, !llvm.loop !259
+  br i1 %170, label %59, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge, !llvm.loop !259
 
-.critedge.loopexit:                               ; preds = %59, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %171 = icmp sgt i64 %168, 64
-  br label %.critedge
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  br label %.critedge, !llvm.loop !259
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph241
-  %.lcssa227.ph = phi ptr [ null, %.lr.ph241 ], [ %164, %.critedge.loopexit ]
-  %.lcssa221.ph = phi ptr [ null, %.lr.ph241 ], [ %165, %.critedge.loopexit ]
-  %.lcssa215.ph = phi i64 [ 0, %.lr.ph241 ], [ %167, %.critedge.loopexit ]
-  %.lcssa209.ph = phi i1 [ false, %.lr.ph241 ], [ %171, %.critedge.loopexit ]
-  %.lcssa203.ph = phi i64 [ 0, %.lr.ph241 ], [ %169, %.critedge.loopexit ]
+.critedge:                                        ; preds = %59, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge, %.lr.ph241
+  %.lcssa227.ph = phi ptr [ %164, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ null, %.lr.ph241 ], [ %164, %59 ]
+  %.lcssa221.ph = phi ptr [ %165, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ null, %.lr.ph241 ], [ %165, %59 ]
+  %.lcssa215.ph = phi i64 [ %167, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph241 ], [ %167, %59 ]
+  %.lcssa209.ph = phi i64 [ %168, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph241 ], [ %168, %59 ]
+  %.lcssa203.ph = phi i64 [ %169, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph241 ], [ %169, %59 ]
+  %171 = icmp sgt i64 %.lcssa209.ph, 64
   %.not.i.i = icmp eq ptr %.lcssa221.ph, %.lcssa227.ph
   br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit, label %172
 
@@ -12795,7 +12795,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %104, %_ZNSt6vectorI
 
 .noexc92:                                         ; preds = %172
   %scevgep.i.i.i = getelementptr i8, ptr %.lcssa221.ph, i64 4
-  br i1 %.lcssa209.ph, label %.lr.ph.i.i.i.i, label %193
+  br i1 %171, label %.lr.ph.i.i.i.i, label %193
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc92, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.sroa.0.018.i.idx.i.i.i = phi i64 [ %.sroa.0.018.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %.noexc92 ]
@@ -16720,7 +16720,7 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64Rand
   %60 = load ptr, ptr %8, align 8, !tbaa !178
   %61 = load ptr, ptr %40, align 8, !tbaa !178
   %62 = icmp eq ptr %60, %61
-  br i1 %62, label %.critedge.loopexit, label %.lr.ph327, !llvm.loop !294
+  br i1 %62, label %.critedge, label %.lr.ph327, !llvm.loop !294
 
 .lr.ph327:                                        ; preds = %.lr.ph240, %59
   %63 = phi ptr [ %60, %59 ], [ %45, %.lr.ph240 ]
@@ -16957,18 +16957,18 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %104, %_ZNSt6vectorI
   %168 = sub i64 %166, %167
   %169 = ashr exact i64 %168, 2
   %170 = icmp ult i64 %169, %39
-  br i1 %170, label %59, label %.critedge.loopexit, !llvm.loop !294
+  br i1 %170, label %59, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge, !llvm.loop !294
 
-.critedge.loopexit:                               ; preds = %59, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %171 = icmp sgt i64 %168, 64
-  br label %.critedge
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  br label %.critedge, !llvm.loop !294
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph240
-  %.lcssa226.ph = phi ptr [ null, %.lr.ph240 ], [ %164, %.critedge.loopexit ]
-  %.lcssa220.ph = phi ptr [ null, %.lr.ph240 ], [ %165, %.critedge.loopexit ]
-  %.lcssa214.ph = phi i64 [ 0, %.lr.ph240 ], [ %167, %.critedge.loopexit ]
-  %.lcssa208.ph = phi i1 [ false, %.lr.ph240 ], [ %171, %.critedge.loopexit ]
-  %.lcssa202.ph = phi i64 [ 0, %.lr.ph240 ], [ %169, %.critedge.loopexit ]
+.critedge:                                        ; preds = %59, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge, %.lr.ph240
+  %.lcssa226.ph = phi ptr [ %164, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ null, %.lr.ph240 ], [ %164, %59 ]
+  %.lcssa220.ph = phi ptr [ %165, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ null, %.lr.ph240 ], [ %165, %59 ]
+  %.lcssa214.ph = phi i64 [ %167, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph240 ], [ %167, %59 ]
+  %.lcssa208.ph = phi i64 [ %168, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph240 ], [ %168, %59 ]
+  %.lcssa202.ph = phi i64 [ %169, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph240 ], [ %169, %59 ]
+  %171 = icmp sgt i64 %.lcssa208.ph, 64
   %.not.i.i = icmp eq ptr %.lcssa220.ph, %.lcssa226.ph
   br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit, label %172
 
@@ -16981,7 +16981,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %104, %_ZNSt6vectorI
 
 .noexc90:                                         ; preds = %172
   %scevgep.i.i.i = getelementptr i8, ptr %.lcssa220.ph, i64 4
-  br i1 %.lcssa208.ph, label %.lr.ph.i.i.i.i, label %193
+  br i1 %171, label %.lr.ph.i.i.i.i, label %193
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc90, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.sroa.0.018.i.idx.i.i.i = phi i64 [ %.sroa.0.018.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %.noexc90 ]
@@ -21238,7 +21238,7 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64Random
   %63 = load ptr, ptr %7, align 8, !tbaa !347
   %64 = load ptr, ptr %39, align 8, !tbaa !347
   %65 = icmp eq ptr %63, %64
-  br i1 %65, label %.critedge.loopexit, label %.lr.ph297, !llvm.loop !350
+  br i1 %65, label %.critedge, label %.lr.ph297, !llvm.loop !350
 
 .lr.ph297:                                        ; preds = %.lr.ph239, %62
   %66 = phi ptr [ %64, %62 ], [ %45, %.lr.ph239 ]
@@ -21447,18 +21447,18 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %121, %_ZNSt6vectorI
   %161 = sub i64 %159, %160
   %162 = ashr exact i64 %161, 2
   %163 = icmp ult i64 %162, %38
-  br i1 %163, label %62, label %.critedge.loopexit, !llvm.loop !350
+  br i1 %163, label %62, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge, !llvm.loop !350
 
-.critedge.loopexit:                               ; preds = %62, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %164 = icmp sgt i64 %161, 64
-  br label %.critedge
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  br label %.critedge, !llvm.loop !350
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph239
-  %.lcssa225.ph = phi ptr [ null, %.lr.ph239 ], [ %157, %.critedge.loopexit ]
-  %.lcssa219.ph = phi ptr [ null, %.lr.ph239 ], [ %158, %.critedge.loopexit ]
-  %.lcssa213.ph = phi i64 [ 0, %.lr.ph239 ], [ %160, %.critedge.loopexit ]
-  %.lcssa207.ph = phi i1 [ false, %.lr.ph239 ], [ %164, %.critedge.loopexit ]
-  %.lcssa201.ph = phi i64 [ 0, %.lr.ph239 ], [ %162, %.critedge.loopexit ]
+.critedge:                                        ; preds = %62, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge, %.lr.ph239
+  %.lcssa225.ph = phi ptr [ %157, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ null, %.lr.ph239 ], [ %157, %62 ]
+  %.lcssa219.ph = phi ptr [ %158, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ null, %.lr.ph239 ], [ %158, %62 ]
+  %.lcssa213.ph = phi i64 [ %160, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph239 ], [ %160, %62 ]
+  %.lcssa207.ph = phi i64 [ %161, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph239 ], [ %161, %62 ]
+  %.lcssa201.ph = phi i64 [ %162, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph239 ], [ %162, %62 ]
+  %164 = icmp sgt i64 %.lcssa207.ph, 64
   %.not.i.i = icmp eq ptr %.lcssa219.ph, %.lcssa225.ph
   br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit, label %165
 
@@ -21471,7 +21471,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %121, %_ZNSt6vectorI
 
 .noexc102:                                        ; preds = %165
   %scevgep.i.i.i = getelementptr i8, ptr %.lcssa219.ph, i64 4
-  br i1 %.lcssa207.ph, label %.lr.ph.i.i.i.i, label %186
+  br i1 %164, label %.lr.ph.i.i.i.i, label %186
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc102, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.sroa.0.018.i.idx.i.i.i = phi i64 [ %.sroa.0.018.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %.noexc102 ]
@@ -27431,7 +27431,7 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit._crit_edge: ; pred
   %86 = load ptr, ptr %8, align 8, !tbaa !178
   %87 = load ptr, ptr %66, align 8, !tbaa !178
   %88 = icmp eq ptr %86, %87
-  br i1 %88, label %.critedge.loopexit, label %.lr.ph423, !llvm.loop !420
+  br i1 %88, label %.critedge, label %.lr.ph423, !llvm.loop !420
 
 .lr.ph423:                                        ; preds = %.lr.ph286, %85
   %89 = phi ptr [ %86, %85 ], [ %71, %.lr.ph286 ]
@@ -27665,18 +27665,18 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %130, %_ZNSt6vectorI
   %191 = sub i64 %189, %190
   %192 = ashr exact i64 %191, 2
   %193 = icmp ult i64 %192, %65
-  br i1 %193, label %85, label %.critedge.loopexit, !llvm.loop !420
+  br i1 %193, label %85, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge, !llvm.loop !420
 
-.critedge.loopexit:                               ; preds = %85, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %194 = icmp sgt i64 %191, 64
-  br label %.critedge
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  br label %.critedge, !llvm.loop !420
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph286
-  %.lcssa268.ph = phi ptr [ null, %.lr.ph286 ], [ %187, %.critedge.loopexit ]
-  %.lcssa262.ph = phi ptr [ null, %.lr.ph286 ], [ %188, %.critedge.loopexit ]
-  %.lcssa256.ph = phi i64 [ 0, %.lr.ph286 ], [ %190, %.critedge.loopexit ]
-  %.lcssa250.ph = phi i1 [ false, %.lr.ph286 ], [ %194, %.critedge.loopexit ]
-  %.lcssa244.ph = phi i64 [ 0, %.lr.ph286 ], [ %192, %.critedge.loopexit ]
+.critedge:                                        ; preds = %85, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge, %.lr.ph286
+  %.lcssa268.ph = phi ptr [ %187, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ null, %.lr.ph286 ], [ %187, %85 ]
+  %.lcssa262.ph = phi ptr [ %188, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ null, %.lr.ph286 ], [ %188, %85 ]
+  %.lcssa256.ph = phi i64 [ %190, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph286 ], [ %190, %85 ]
+  %.lcssa250.ph = phi i64 [ %191, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph286 ], [ %191, %85 ]
+  %.lcssa244.ph = phi i64 [ %192, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit..critedge_crit_edge ], [ 0, %.lr.ph286 ], [ %192, %85 ]
+  %194 = icmp sgt i64 %.lcssa250.ph, 64
   %.not.i.i = icmp eq ptr %.lcssa262.ph, %.lcssa268.ph
   br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit, label %195
 
@@ -27689,7 +27689,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %130, %_ZNSt6vectorI
 
 .noexc110:                                        ; preds = %195
   %scevgep.i.i.i = getelementptr i8, ptr %.lcssa262.ph, i64 4
-  br i1 %.lcssa250.ph, label %.lr.ph.i.i.i.i, label %216
+  br i1 %194, label %.lr.ph.i.i.i.i, label %216
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc110, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.sroa.0.018.i.idx.i.i.i = phi i64 [ %.sroa.0.018.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %.noexc110 ]

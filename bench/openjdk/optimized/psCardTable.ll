@@ -877,10 +877,13 @@ _ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i: ; preds = %.l
 .lr.ph54:                                         ; preds = %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i, %.lr.ph.i48thread-pre-split.i
   %.011.i49.i53 = phi ptr [ %205, %.lr.ph.i48thread-pre-split.i ], [ %.011.i.i, %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i ]
   %exitcond.not.i50.i = icmp eq ptr %.011.i49.i53, %191
-  br i1 %exitcond.not.i50.i, label %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i, label %.lr.ph.i48thread-pre-split.i, !llvm.loop !13
+  br i1 %exitcond.not.i50.i, label %._ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i.loopexit_crit_edge, label %.lr.ph.i48thread-pre-split.i, !llvm.loop !13
 
-_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i: ; preds = %.lr.ph.i48thread-pre-split.i, %.lr.ph54, %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i
-  %.09.i47.i = phi ptr [ %192, %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i ], [ %205, %.lr.ph.i48thread-pre-split.i ], [ %192, %.lr.ph54 ]
+._ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i.loopexit_crit_edge: ; preds = %.lr.ph54
+  br label %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i, !llvm.loop !13
+
+_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i: ; preds = %.lr.ph.i48thread-pre-split.i, %._ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i.loopexit_crit_edge, %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i
+  %.09.i47.i = phi ptr [ %192, %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i ], [ %192, %._ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i.loopexit_crit_edge ], [ %205, %.lr.ph.i48thread-pre-split.i ]
   %207 = icmp eq ptr %.011.i.i, %.09.i47.i
   br i1 %207, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit", label %208
 

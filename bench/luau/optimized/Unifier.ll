@@ -31596,26 +31596,26 @@ _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit459: ; preds = %1033, %103
   %1147 = getelementptr inbounds nuw i8, ptr %49, i64 96
   %1148 = getelementptr inbounds nuw i8, ptr %49, i64 104
   %1149 = getelementptr inbounds nuw i8, ptr %49, i64 112
-  %.sroa.0664.01252 = load ptr, ptr %1111, align 8, !tbaa !473
-  %.not1253 = icmp eq ptr %.sroa.0664.01252, null
-  br i1 %.not1253, label %.thread715, label %.lr.ph1255
+  %.sroa.0664.01253 = load ptr, ptr %1111, align 8, !tbaa !473
+  %.not1254 = icmp eq ptr %.sroa.0664.01253, null
+  br i1 %.not1254, label %.thread715, label %.lr.ph1256
 
-.lr.ph1255:                                       ; preds = %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit459, %.backedge
-  %.sroa.0664.01254 = phi ptr [ %.sroa.0664.0, %.backedge ], [ %.sroa.0664.01252, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit459 ]
-  %1150 = getelementptr inbounds nuw i8, ptr %.sroa.0664.01254, i64 8
+.lr.ph1256:                                       ; preds = %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit459, %.backedge
+  %.sroa.0664.01255 = phi ptr [ %.sroa.0664.0, %.backedge ], [ %.sroa.0664.01253, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit459 ]
+  %1150 = getelementptr inbounds nuw i8, ptr %.sroa.0664.01255, i64 8
   %1151 = load ptr, ptr %1150, align 8, !tbaa !45
   %.not.i.i475 = icmp eq ptr %1151, null
   br i1 %.not.i.i475, label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit, label %1152
 
-1152:                                             ; preds = %.lr.ph1255
+1152:                                             ; preds = %.lr.ph1256
   %1153 = load i32, ptr %1151, align 8, !tbaa !84
   %1154 = icmp eq i32 %1153, 11
   %1155 = getelementptr inbounds nuw i8, ptr %1151, i64 8
   %1156 = select i1 %1154, ptr %1155, ptr null
   br label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit
 
-_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %.lr.ph1255, %1152
-  %1157 = phi ptr [ %1156, %1152 ], [ null, %.lr.ph1255 ]
+_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %.lr.ph1256, %1152
+  %1157 = phi ptr [ %1156, %1152 ], [ null, %.lr.ph1256 ]
   %.sroa.0660.0802 = load ptr, ptr %1112, align 8, !tbaa !473
   %.not755803 = icmp eq ptr %.sroa.0660.0802, null
   br i1 %.not755803, label %._crit_edge807, label %.lr.ph806
@@ -32112,9 +32112,9 @@ _ZNSt10unique_ptrIN4Luau7UnifierESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   br i1 %.1247, label %.backedge, label %1357
 
 .backedge:                                        ; preds = %.thread708, %_ZNSt10unique_ptrIN4Luau7UnifierESt14default_deleteIS1_EED2Ev.exit.thread
-  %.sroa.0664.0 = load ptr, ptr %.sroa.0664.01254, align 8, !tbaa !473
+  %.sroa.0664.0 = load ptr, ptr %.sroa.0664.01255, align 8, !tbaa !473
   %.not = icmp eq ptr %.sroa.0664.0, null
-  br i1 %.not, label %.thread715, label %.lr.ph1255
+  br i1 %.not, label %.thread715, label %.lr.ph1256
 
 1357:                                             ; preds = %.thread708
   %.sroa.055.0.copyload = load i64, ptr %1117, align 8
@@ -33708,9 +33708,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit620: ; preds = %_Z
   %2019 = ptrtoint ptr %2018 to i64
   %2020 = urem i64 %2019, %2003
   %.not19.i.i.i.i = icmp eq i64 %2020, %2004
-  br i1 %.not19.i.i.i.i, label %2013, label %.loopexit1122, !llvm.loop !576
+  br i1 %.not19.i.i.i.i, label %2013, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !576
 
-.loopexit1122:                                    ; preds = %2016, %.lr.ph.i.i.i.i, %.preheader, %2001
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %2016
+  br label %.loopexit1122, !llvm.loop !576
+
+.loopexit1122:                                    ; preds = %.lr.ph.i.i.i.i, %.preheader, %2001, %..loopexit_crit_edge21.i.i.i.i
   %2021 = load ptr, ptr %1994, align 8, !tbaa !577
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %5)
   invoke void @_ZNSt8optionalIN4Luau9TypeErrorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(168) %81, ptr noundef nonnull align 8 dereferenceable(168) %6)
@@ -42942,9 +42945,12 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %12
   %34 = ptrtoint ptr %33 to i64
   %35 = urem i64 %34, %18
   %.not19.i.i.i.i = icmp eq i64 %35, %19
-  br i1 %.not19.i.i.i.i, label %28, label %.loopexit.i.i, !llvm.loop !668
+  br i1 %.not19.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !668
 
-.loopexit.i.i:                                    ; preds = %31, %.lr.ph.i.i.i.i, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %31
+  br label %.loopexit.i.i, !llvm.loop !668
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit
   %36 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
   store ptr null, ptr %36, align 8, !tbaa !473
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -42997,8 +43003,8 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %45, %48
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !425
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.not61 = icmp eq ptr %55, %56
-  br i1 %.not61, label %._crit_edge, label %.lr.ph
+  %.not62 = icmp eq ptr %55, %56
+  br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -43037,8 +43043,8 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %45, %48
   br label %common.resume
 
 77:                                               ; preds = %.lr.ph, %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit
-  %.sroa.053.062 = phi ptr [ %55, %.lr.ph ], [ %95, %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.053.062, i64 64
+  %.sroa.053.063 = phi ptr [ %55, %.lr.ph ], [ %95, %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.053.063, i64 64
   %79 = call noundef ptr @_ZNK4Luau8Property4typeEv(ptr noundef nonnull align 8 dereferenceable(176) %78)
   store ptr null, ptr %6, align 8, !tbaa !468
   %80 = load i64, ptr %17, align 8, !tbaa !470
@@ -43088,7 +43094,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stE
   br label %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit
 
 _ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %92
-  %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.053.062) #34
+  %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.053.063) #34
   %.not = icmp eq ptr %95, %56
   br i1 %.not, label %._crit_edge, label %77
 
@@ -43166,13 +43172,13 @@ _ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3
   br label %common.resume
 
 _ZN4Luau9UnionTypeD2Ev.exit.sink.split:           ; preds = %100, %123
-  %.sink69 = phi ptr [ %124, %123 ], [ %101, %100 ]
-  %.sink68 = phi ptr [ %122, %123 ], [ %99, %100 ]
+  %.sink72 = phi ptr [ %124, %123 ], [ %101, %100 ]
+  %.sink71 = phi ptr [ %122, %123 ], [ %99, %100 ]
   %.0.ph = phi ptr [ %120, %123 ], [ %74, %100 ]
-  %133 = ptrtoint ptr %.sink69 to i64
-  %134 = ptrtoint ptr %.sink68 to i64
+  %133 = ptrtoint ptr %.sink72 to i64
+  %134 = ptrtoint ptr %.sink71 to i64
   %135 = sub i64 %133, %134
-  call void @_ZdlPvm(ptr noundef nonnull %.sink68, i64 noundef %135) #31
+  call void @_ZdlPvm(ptr noundef nonnull %.sink71, i64 noundef %135) #31
   br label %_ZN4Luau9UnionTypeD2Ev.exit
 
 _ZN4Luau9UnionTypeD2Ev.exit:                      ; preds = %_ZN4Luau9UnionTypeD2Ev.exit.sink.split, %121, %98, %3, %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit

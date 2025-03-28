@@ -5826,7 +5826,7 @@ _ZN12eq2bv_tactic11mark_has_eqEP4expr.exit15:     ; preds = %_ZN8obj_markI4expr1
 
 ._ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread_crit_edge: ; preds = %223
   %.pre82 = load i32, ptr %139, align 4
-  br label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
+  br label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread, !llvm.loop !274
 
 .loopexit:                                        ; preds = %238
   %lpad.loopexit = landingpad { ptr, i32 }

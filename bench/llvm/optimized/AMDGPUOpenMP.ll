@@ -906,21 +906,21 @@ define hidden noundef nonnull ptr @_ZNK5clang6driver10toolchains21AMDGPUOpenMPTo
 
 _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i, %16
   %.sroa.025.1 = phi ptr [ %19, %16 ], [ %19, %.lr.ph.i.i.preheader.i ], [ %27, %.lr.ph.i.i.i ]
-  %.not4351 = icmp eq ptr %.sroa.025.1, %23
-  br i1 %.not4351, label %._crit_edge, label %.lr.ph53
+  %.not4352 = icmp eq ptr %.sroa.025.1, %23
+  br i1 %.not4352, label %._crit_edge, label %.lr.ph54
 
-.lr.ph53:                                         ; preds = %_ZNK4llvm3opt7ArgList5beginEv.exit
+.lr.ph54:                                         ; preds = %_ZNK4llvm3opt7ArgList5beginEv.exit
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   br label %31
 
-._crit_edge:                                      ; preds = %.lr.ph.i, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, %_ZNK4llvm3opt7ArgList5beginEv.exit
+._crit_edge:                                      ; preds = %.lr.ph.i, %_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, %54, %_ZNK4llvm3opt7ArgList5beginEv.exit
   %30 = icmp eq i64 %3, 0
   br i1 %30, label %61, label %56
 
-31:                                               ; preds = %.lr.ph53, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit
-  %.sroa.025.052 = phi ptr [ %.sroa.025.1, %.lr.ph53 ], [ %.sroa.025.3, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit ]
-  %32 = load ptr, ptr %.sroa.025.052, align 8, !tbaa !200
+31:                                               ; preds = %.lr.ph54, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit
+  %.sroa.025.053 = phi ptr [ %.sroa.025.1, %.lr.ph54 ], [ %.sroa.025.2, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit ]
+  %32 = load ptr, ptr %.sroa.025.053, align 8, !tbaa !200
   %33 = load ptr, ptr %28, align 8, !tbaa !87, !noalias !202
   %34 = load i32, ptr %29, align 8, !tbaa !85, !noalias !202
   %35 = zext i32 %34 to i64
@@ -974,7 +974,10 @@ _ZN4llvm9adl_beginIRNS_3opt14DerivedArgListEEEDTclsr10adl_detailE10begin_implcls
   %47 = phi ptr [ %48, %.lr.ph.i.i.i.i.i.i ], [ %44, %.lr.ph.i.i.preheader.i.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %48, %36
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit.thread, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !211
+  br i1 %.not.i.i.i.i.i.i, label %._ZN4llvm3opt12arg_iteratorIPPNS0_3ArgELj0EEppEv.exit.loopexit_crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !211
+
+._ZN4llvm3opt12arg_iteratorIPPNS0_3ArgELj0EEppEv.exit.loopexit_crit_edge.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  br label %_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit.thread, !llvm.loop !211
 
 _ZN4llvm3opt12arg_iteratorIPPNS0_3ArgELj0EEppEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
   %49 = phi ptr [ %45, %.lr.ph.i.i.preheader.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i.i ]
@@ -982,14 +985,14 @@ _ZN4llvm3opt12arg_iteratorIPPNS0_3ArgELj0EEppEv.exit.i.i.i.i: ; preds = %.lr.ph.
   %51 = icmp eq ptr %49, %32
   br i1 %51, label %_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit, label %.lr.ph
 
-_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph, %.lr.ph.i.i.i.i, %_ZN4llvm9adl_beginIRNS_3opt14DerivedArgListEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS4_.exit.i
+_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph, %._ZN4llvm3opt12arg_iteratorIPPNS0_3ArgELj0EEppEv.exit.loopexit_crit_edge.i.i.i.i, %_ZN4llvm9adl_beginIRNS_3opt14DerivedArgListEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS4_.exit.i
   tail call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %.0, ptr noundef %32) #12
   br label %_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit: ; preds = %_ZN4llvm3opt12arg_iteratorIPPNS0_3ArgELj0EEppEv.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit.thread
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.025.052, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.025.053, i64 8
   %.not2.i.i = icmp eq ptr %52, %23
-  br i1 %.not2.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %._crit_edge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit, %54
   %.sroa.025.2 = phi ptr [ %55, %54 ], [ %52, %_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit ]
@@ -1000,11 +1003,10 @@ _ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit: ; pr
 54:                                               ; preds = %.lr.ph.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.025.2, i64 8
   %.not.i.i = icmp eq ptr %55, %23
-  br i1 %.not.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, label %.lr.ph.i.i, !llvm.loop !201
+  br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.i.i, !llvm.loop !201
 
-_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i, %54, %_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit
-  %.sroa.025.3 = phi ptr [ %52, %_ZN4llvm12is_containedIRNS_3opt14DerivedArgListEPNS1_3ArgEEEbOT_RKT0_.exit ], [ %.sroa.025.2, %.lr.ph.i.i ], [ %55, %54 ]
-  %.not43 = icmp eq ptr %.sroa.025.3, %23
+_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i
+  %.not43 = icmp eq ptr %.sroa.025.2, %23
   br i1 %.not43, label %._crit_edge, label %31
 
 56:                                               ; preds = %._crit_edge

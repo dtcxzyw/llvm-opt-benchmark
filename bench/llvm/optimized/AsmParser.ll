@@ -6761,11 +6761,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %97 = add i32 %93, 1
   %98 = zext i32 %97 to i64
   %99 = icmp ugt i64 %28, %98
-  br i1 %99, label %.lr.ph, label %.critedge, !llvm.loop !556
+  br i1 %99, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !556
 
-.critedge:                                        ; preds = %.lr.ph173, %.lr.ph, %.lr.ph.preheader
-  %.368.lcssa.ph = phi i32 [ %63, %.lr.ph.preheader ], [ %93, %.lr.ph ], [ %93, %.lr.ph173 ]
-  %.063.lcssa.ph = phi i8 [ 0, %.lr.ph.preheader ], [ %96, %.lr.ph ], [ %96, %.lr.ph173 ]
+..critedge_crit_edge:                             ; preds = %.lr.ph173
+  br label %.critedge, !llvm.loop !556
+
+.critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader
+  %.368.lcssa.ph = phi i32 [ %93, %..critedge_crit_edge ], [ %63, %.lr.ph.preheader ], [ %93, %.lr.ph ]
+  %.063.lcssa.ph = phi i8 [ %96, %..critedge_crit_edge ], [ 0, %.lr.ph.preheader ], [ %96, %.lr.ph ]
   %100 = load i64, ptr %16, align 8, !tbaa !371
   %101 = add i64 %100, 1
   %102 = load ptr, ptr %1, align 8, !tbaa !370

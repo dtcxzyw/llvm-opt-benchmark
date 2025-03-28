@@ -1963,8 +1963,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile12ValueVisitor
   %12 = icmp ult i64 %24, %11
   br i1 %12, label %.lr.ph23, label %.critedge, !llvm.loop !49
 
-.critedge:                                        ; preds = %.lr.ph23, %10, %.lr.ph
-  %13 = phi i64 [ %6, %.lr.ph ], [ %25, %10 ], [ %25, %.lr.ph23 ]
+..critedge_crit_edge24:                           ; preds = %.lr.ph23
+  br label %.critedge, !llvm.loop !49
+
+.critedge:                                        ; preds = %10, %..critedge_crit_edge24, %.lr.ph
+  %13 = phi i64 [ %25, %..critedge_crit_edge24 ], [ %6, %.lr.ph ], [ %25, %10 ]
   %14 = load i64, ptr %3, align 8, !tbaa !48
   %15 = icmp ult i64 %14, %13
   br i1 %15, label %.lr.ph21, label %._crit_edge
@@ -1986,7 +1989,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile12ValueVisitor
   %24 = add nuw i64 %.0151722, 1
   %25 = load i64, ptr %5, align 8, !tbaa !32
   %26 = icmp ult i64 %24, %25
-  br i1 %26, label %10, label %.critedge, !llvm.loop !49
+  br i1 %26, label %10, label %..critedge_crit_edge24, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %27, %2, %.critedge
   ret i1 true

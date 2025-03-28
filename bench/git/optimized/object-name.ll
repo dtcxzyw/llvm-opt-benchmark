@@ -1385,7 +1385,7 @@ find_abbrev_len_packed.exit:                      ; preds = %find_abbrev_len_for
 
 .find_short_object_filename.exit.loopexit_crit_edge: ; preds = %275
   %.pre49.pre = load i8, ptr %265, align 4
-  br label %find_short_object_filename.exit
+  br label %find_short_object_filename.exit, !llvm.loop !48
 
 find_short_object_filename.exit:                  ; preds = %272, %.find_short_object_filename.exit.loopexit_crit_edge, %.loopexit
   %279 = phi i8 [ %267, %.loopexit ], [ %.pre49.pre, %.find_short_object_filename.exit.loopexit_crit_edge ], [ %273, %272 ]

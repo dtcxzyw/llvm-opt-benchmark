@@ -405,10 +405,13 @@ define internal fastcc void @usage(i1 noundef zeroext %0) unnamed_addr #0 {
   %30 = getelementptr ptr, ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !11
 
-.critedge:                                        ; preds = %.lr.ph30, %.lr.ph, %.lr.ph.preheader, %1
-  %.lcssa = phi ptr [ %17, %1 ], [ %17, %.lr.ph.preheader ], [ %28, %.lr.ph ], [ %28, %.lr.ph30 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph30
+  br label %.critedge, !llvm.loop !11
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %1
+  %.lcssa = phi ptr [ %17, %1 ], [ %28, %..critedge.loopexit_crit_edge ], [ %17, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   call void @g_strfreev(ptr noundef %.lcssa)
   %32 = load ptr, ptr %3, align 8
   call void @g_strfreev(ptr noundef %32)

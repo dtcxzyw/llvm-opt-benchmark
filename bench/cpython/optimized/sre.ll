@@ -20041,7 +20041,7 @@ char_loc_ignore.exit122:                          ; preds = %124
 
 ._crit_edge:                                      ; preds = %140
   %.pre = load ptr, ptr %0, align 8, !tbaa !81
-  br label %split
+  br label %split, !llvm.loop !203
 
 split:                                            ; preds = %.preheader, %._crit_edge
   %141 = phi ptr [ %.pre, %._crit_edge ], [ %135, %.preheader ]
@@ -20689,7 +20689,7 @@ char_loc_ignore.exit124:                          ; preds = %131, %138
 
 ._crit_edge:                                      ; preds = %151
   %.pre = load ptr, ptr %0, align 8, !tbaa !81
-  br label %split
+  br label %split, !llvm.loop !214
 
 split:                                            ; preds = %.preheader, %._crit_edge
   %152 = phi ptr [ %.pre, %._crit_edge ], [ %146, %.preheader ]
@@ -21252,7 +21252,7 @@ char_loc_ignore.exit117:                          ; preds = %120, %127
 
 ._crit_edge:                                      ; preds = %140
   %.pre = load ptr, ptr %0, align 8, !tbaa !81
-  br label %split
+  br label %split, !llvm.loop !225
 
 split:                                            ; preds = %.preheader, %._crit_edge
   %141 = phi ptr [ %.pre, %._crit_edge ], [ %135, %.preheader ]

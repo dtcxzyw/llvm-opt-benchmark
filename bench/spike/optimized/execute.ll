@@ -162,8 +162,8 @@ define void @_ZN11processor_t4stepEm(ptr noundef nonnull align 8 dereferenceable
   br label %17
 
 17:                                               ; preds = %.sink.split, %12, %2
-  %.not174 = icmp eq i64 %1, 0
-  br i1 %.not174, label %._crit_edge, label %.lr.ph
+  %.not175 = icmp eq i64 %1, 0
+  br i1 %.not175, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -206,7 +206,7 @@ define void @_ZN11processor_t4stepEm(ptr noundef nonnull align 8 dereferenceable
   br label %55
 
 55:                                               ; preds = %.lr.ph, %367
-  %.0175 = phi i64 [ %1, %.lr.ph ], [ %368, %367 ]
+  %.0176 = phi i64 [ %1, %.lr.ph ], [ %368, %367 ]
   %56 = load i64, ptr %4, align 8, !tbaa !140
   %57 = load ptr, ptr %18, align 8, !tbaa !141
   store i8 0, ptr %19, align 8, !tbaa !142
@@ -264,12 +264,12 @@ _ZN11processor_t22take_pending_interruptEv.exit:  ; preds = %55
 
 .preheader119:                                    ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 144
-  %86 = add i64 %.0175, -1
+  %86 = add i64 %.0176, -1
   br label %254
 
 .preheader:                                       ; preds = %.preheader.preheader, %253
-  %.165173 = phi i64 [ %241, %253 ], [ 0, %.preheader.preheader ]
-  %.167172 = phi i64 [ %160, %253 ], [ %56, %.preheader.preheader ]
+  %.165174 = phi i64 [ %241, %253 ], [ 0, %.preheader.preheader ]
+  %.167173 = phi i64 [ %160, %253 ], [ %56, %.preheader.preheader ]
   %87 = load i8, ptr %29, align 8, !tbaa !150, !range !131, !noundef !132
   %88 = trunc nuw i8 %87 to i1
   %89 = load i32, ptr %24, align 4
@@ -288,8 +288,8 @@ _ZN11processor_t22take_pending_interruptEv.exit:  ; preds = %55
           to label %.thread108 unwind label %95
 
 95:                                               ; preds = %55, %119, %94, %_ZN11processor_t22take_pending_interruptEv.exit
-  %.066 = phi i64 [ %.167172, %119 ], [ %.167172, %94 ], [ %56, %_ZN11processor_t22take_pending_interruptEv.exit ], [ %56, %55 ]
-  %.064 = phi i64 [ %.165173, %119 ], [ %.165173, %94 ], [ 0, %_ZN11processor_t22take_pending_interruptEv.exit ], [ 0, %55 ]
+  %.066 = phi i64 [ %.167173, %119 ], [ %.167173, %94 ], [ %56, %_ZN11processor_t22take_pending_interruptEv.exit ], [ %56, %55 ]
+  %.064 = phi i64 [ %.165174, %119 ], [ %.165174, %94 ], [ 0, %_ZN11processor_t22take_pending_interruptEv.exit ], [ 0, %55 ]
   %96 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI6trap_t
@@ -363,7 +363,7 @@ _ZN11processor_t22take_pending_interruptEv.exit:  ; preds = %55
   store i8 0, ptr %27, align 1, !tbaa !136
   %122 = load ptr, ptr %18, align 8, !tbaa !141
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
-  %123 = invoke noundef ptr @_ZN5mmu_t13refill_icacheEmP14icache_entry_t(ptr noundef nonnull align 8 dereferenceable(43168) %122, i64 noundef %.167172, ptr noundef nonnull %3)
+  %123 = invoke noundef ptr @_ZN5mmu_t13refill_icacheEmP14icache_entry_t(ptr noundef nonnull align 8 dereferenceable(43168) %122, i64 noundef %.167173, ptr noundef nonnull %3)
           to label %124 unwind label %132
 
 124:                                              ; preds = %121
@@ -386,8 +386,8 @@ _ZN11processor_t22take_pending_interruptEv.exit:  ; preds = %55
           to label %134 unwind label %132
 
 132:                                              ; preds = %.invoke, %.loopexit.i.i.i.i, %121, %131
-  %.369 = phi i64 [ %.167172, %131 ], [ %.167172, %121 ], [ %.167172, %.loopexit.i.i.i.i ], [ %160, %.invoke ]
-  %.3 = phi i64 [ %.165173, %131 ], [ %.165173, %121 ], [ %.165173, %.loopexit.i.i.i.i ], [ %241, %.invoke ]
+  %.369 = phi i64 [ %.167173, %131 ], [ %.167173, %121 ], [ %.167173, %.loopexit.i.i.i.i ], [ %160, %.invoke ]
+  %.3 = phi i64 [ %.165174, %131 ], [ %.165174, %121 ], [ %.165174, %.loopexit.i.i.i.i ], [ %241, %.invoke ]
   %133 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI6trap_t
@@ -465,7 +465,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %155, %153, %_ZL
   br label %159
 
 159:                                              ; preds = %_ZL26commit_log_stash_privilegeP11processor_t.exit.i, %134
-  %160 = invoke noundef i64 %.sroa.0.0.copyload.i(ptr noundef nonnull %0, i64 %.sroa.2.0.copyload.i, i64 noundef %.167172)
+  %160 = invoke noundef i64 %.sroa.0.0.copyload.i(ptr noundef nonnull %0, i64 %.sroa.2.0.copyload.i, i64 noundef %.167173)
           to label %161 unwind label %166
 
 161:                                              ; preds = %159
@@ -478,7 +478,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %155, %153, %_ZL
   br i1 %164, label %165, label %202
 
 165:                                              ; preds = %162
-  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.167172, i64 %.sroa.2.0.copyload.i)
+  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.167173, i64 %.sroa.2.0.copyload.i)
           to label %202 unwind label %166
 
 166:                                              ; preds = %165, %159
@@ -499,7 +499,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %155, %153, %_ZL
   br i1 %175, label %176, label %201
 
 176:                                              ; preds = %172
-  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.167172, i64 %.sroa.2.0.copyload.i)
+  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.167173, i64 %.sroa.2.0.copyload.i)
           to label %201 unwind label %199
 
 177:                                              ; preds = %166
@@ -540,15 +540,15 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %155, %153, %_ZL
   br label %198
 
 .lr.ph.i:                                         ; preds = %181, %.critedge.i
-  %.sroa.043.047.i = phi ptr [ %196, %.critedge.i ], [ %184, %181 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.sroa.043.047.i, i64 32
+  %.sroa.043.048.i = phi ptr [ %196, %.critedge.i ], [ %184, %181 ]
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.043.048.i, i64 32
   %.sroa.02.0.copyload.i = load i64, ptr %191, align 8
   %192 = and i64 %.sroa.02.0.copyload.i, 3
   %.not39.i = icmp eq i64 %192, 3
   br i1 %.not39.i, label %193, label %.critedge.i
 
 193:                                              ; preds = %.lr.ph.i
-  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.167172, i64 %.sroa.2.0.copyload.i)
+  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.167173, i64 %.sroa.2.0.copyload.i)
           to label %.loopexit.i unwind label %194
 
 194:                                              ; preds = %193
@@ -561,7 +561,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %155, %153, %_ZL
   br label %198
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %196 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.043.047.i) #25
+  %196 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.043.048.i) #25
   %197 = icmp eq ptr %196, %33
   br i1 %197, label %.loopexit.i, label %.lr.ph.i
 
@@ -595,7 +595,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %155, %153, %_ZL
 
 205:                                              ; preds = %202
   %206 = load i64, ptr %48, align 8, !tbaa !175
-  %207 = urem i64 %.167172, %206
+  %207 = urem i64 %.167173, %206
   %208 = load ptr, ptr %47, align 8, !tbaa !176
   %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %207
   %210 = load ptr, ptr %209, align 8, !tbaa !177
@@ -606,11 +606,11 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %155, %153, %_ZL
   %212 = load ptr, ptr %210, align 8, !tbaa !178
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load i64, ptr %213, align 8, !tbaa !163
-  %215 = icmp eq i64 %.167172, %214
+  %215 = icmp eq i64 %.167173, %214
   br i1 %215, label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEixERS5_.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
 216:                                              ; preds = %219
-  %217 = icmp eq i64 %.167172, %221
+  %217 = icmp eq i64 %.167173, %221
   br i1 %217, label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEixERS5_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !179
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %211, %216
@@ -624,19 +624,22 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %155, %153, %_ZL
   %221 = load i64, ptr %220, align 8, !tbaa !163
   %222 = urem i64 %221, %206
   %.not19.i.i.i.i.i.i = icmp eq i64 %222, %207
-  br i1 %.not19.i.i.i.i.i.i, label %216, label %.loopexit.i.i.i.i, !llvm.loop !179
+  br i1 %.not19.i.i.i.i.i.i, label %216, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !179
 
-.loopexit.i.i.i.i:                                ; preds = %219, %.lr.ph.i.i.i.i.i.i, %205
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %219
+  br label %.loopexit.i.i.i.i, !llvm.loop !179
+
+.loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i.i.i, %205
   %223 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %.noexc unwind label %132
 
 .noexc:                                           ; preds = %.loopexit.i.i.i.i
   store ptr null, ptr %223, align 8, !tbaa !178
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  store i64 %.167172, ptr %224, align 8, !tbaa !181
+  store i64 %.167173, ptr %224, align 8, !tbaa !181
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 16
   store i64 0, ptr %225, align 8, !tbaa !183
-  %226 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %47, i64 noundef %207, i64 noundef %.167172, ptr noundef nonnull %223, i64 noundef 1)
+  %226 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %47, i64 noundef %207, i64 noundef %.167173, ptr noundef nonnull %223, i64 noundef 1)
           to label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEixERS5_.exit.i.i unwind label %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i
 
 _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i: ; preds = %.noexc
@@ -683,7 +686,7 @@ _ZL19execute_insn_loggedP11processor_tm12insn_fetch_t.exit: ; preds = %_ZNSt13un
   br label %.thread108
 
 237:                                              ; preds = %235
-  %238 = add nuw i64 %.165173, 1
+  %238 = add nuw i64 %.165174, 1
   br label %.thread108
 
 239:                                              ; preds = %235
@@ -692,7 +695,7 @@ _ZL19execute_insn_loggedP11processor_tm12insn_fetch_t.exit: ; preds = %_ZNSt13un
 
 240:                                              ; preds = %_ZL19execute_insn_loggedP11processor_tm12insn_fetch_t.exit
   store i64 %160, ptr %4, align 8, !tbaa !140
-  %241 = add nuw i64 %.165173, 1
+  %241 = add nuw i64 %.165174, 1
   %242 = load i8, ptr %49, align 4, !tbaa !184, !range !131, !noundef !132
   %243 = trunc nuw i8 %242 to i1
   br i1 %243, label %244, label %253
@@ -715,21 +718,21 @@ _ZL19execute_insn_loggedP11processor_tm12insn_fetch_t.exit: ; preds = %_ZNSt13un
           to label %253 unwind label %132
 
 253:                                              ; preds = %.invoke, %240, %244
-  %exitcond.not = icmp eq i64 %241, %.0175
+  %exitcond.not = icmp eq i64 %241, %.0176
   br i1 %exitcond.not, label %.thread108, label %.preheader
 
 254:                                              ; preds = %.preheader119, %319
-  %.6171 = phi i64 [ 0, %.preheader119 ], [ %320, %319 ]
-  %.571170 = phi i64 [ %56, %.preheader119 ], [ %263, %319 ]
-  %255 = lshr i64 %.571170, 1
+  %.6172 = phi i64 [ 0, %.preheader119 ], [ %320, %319 ]
+  %.571171 = phi i64 [ %56, %.preheader119 ], [ %263, %319 ]
+  %255 = lshr i64 %.571171, 1
   %256 = and i64 %255, 1023
   %257 = getelementptr inbounds nuw [1024 x %struct.icache_entry_t], ptr %85, i64 0, i64 %256
   %258 = load i64, ptr %257, align 8, !tbaa !186
-  %259 = icmp eq i64 %258, %.571170
+  %259 = icmp eq i64 %258, %.571171
   br i1 %259, label %_ZN5mmu_t13access_icacheEm.exit.preheader, label %260, !prof !151
 
 260:                                              ; preds = %254
-  %261 = invoke noundef ptr @_ZN5mmu_t13refill_icacheEmP14icache_entry_t(ptr noundef nonnull align 8 dereferenceable(43168) %57, i64 noundef %.571170, ptr noundef nonnull %257)
+  %261 = invoke noundef ptr @_ZN5mmu_t13refill_icacheEmP14icache_entry_t(ptr noundef nonnull align 8 dereferenceable(43168) %57, i64 noundef %.571171, ptr noundef nonnull %257)
           to label %_ZN5mmu_t13access_icacheEm.exit.preheader unwind label %267
 
 _ZN5mmu_t13access_icacheEm.exit.preheader:        ; preds = %260, %254
@@ -738,8 +741,8 @@ _ZN5mmu_t13access_icacheEm.exit.preheader:        ; preds = %260, %254
 
 _ZN5mmu_t13access_icacheEm.exit:                  ; preds = %_ZN5mmu_t13access_icacheEm.exit.preheader, %274
   %.084 = phi ptr [ %265, %274 ], [ %.084.ph, %_ZN5mmu_t13access_icacheEm.exit.preheader ]
-  %.672 = phi i64 [ %263, %274 ], [ %.571170, %_ZN5mmu_t13access_icacheEm.exit.preheader ]
-  %.7 = phi i64 [ %272, %274 ], [ %.6171, %_ZN5mmu_t13access_icacheEm.exit.preheader ]
+  %.672 = phi i64 [ %263, %274 ], [ %.571171, %_ZN5mmu_t13access_icacheEm.exit.preheader ]
+  %.7 = phi i64 [ %272, %274 ], [ %.6172, %_ZN5mmu_t13access_icacheEm.exit.preheader ]
   %262 = getelementptr inbounds nuw i8, ptr %.084, i64 16
   %.sroa.07.0.copyload = load ptr, ptr %262, align 8, !tbaa !162
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.084, i64 24
@@ -774,7 +777,7 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
 
 271:                                              ; preds = %_ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit
   %272 = add i64 %.7, 1
-  %273 = icmp eq i64 %272, %.0175
+  %273 = icmp eq i64 %272, %.0176
   br i1 %273, label %275, label %274, !prof !149
 
 274:                                              ; preds = %271
@@ -782,15 +785,15 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
   br label %_ZN5mmu_t13access_icacheEm.exit, !llvm.loop !192
 
 275:                                              ; preds = %_ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit, %271
-  %.7.lcssa184 = phi i64 [ %.7, %_ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit ], [ %86, %271 ]
+  %.7.lcssa185 = phi i64 [ %.7, %_ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit ], [ %86, %271 ]
   %276 = and i64 %263, 1
   %.not91 = icmp eq i64 %276, 0
   br i1 %.not91, label %319, label %314, !prof !151
 
 .body:                                            ; preds = %187, %198, %199, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i, %132, %267, %269, %111, %95
   %.pn94 = phi { ptr, i32 } [ %96, %95 ], [ %112, %111 ], [ %270, %269 ], [ %268, %267 ], [ %133, %132 ], [ %227, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %188, %187 ], [ %.pn.i, %198 ], [ %200, %199 ]
-  %.268 = phi i64 [ %.066, %95 ], [ %.167172, %111 ], [ %.672, %269 ], [ %.571170, %267 ], [ %.369, %132 ], [ %.167172, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %.167172, %187 ], [ %.167172, %198 ], [ %.167172, %199 ]
-  %.2 = phi i64 [ %.064, %95 ], [ %.165173, %111 ], [ %.7, %269 ], [ %.6171, %267 ], [ %.3, %132 ], [ %.165173, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %.165173, %187 ], [ %.165173, %198 ], [ %.165173, %199 ]
+  %.268 = phi i64 [ %.066, %95 ], [ %.167173, %111 ], [ %.672, %269 ], [ %.571171, %267 ], [ %.369, %132 ], [ %.167173, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %.167173, %187 ], [ %.167173, %198 ], [ %.167173, %199 ]
+  %.2 = phi i64 [ %.064, %95 ], [ %.165174, %111 ], [ %.7, %269 ], [ %.6172, %267 ], [ %.3, %132 ], [ %.165174, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %.165174, %187 ], [ %.165174, %198 ], [ %.165174, %199 ]
   %.074 = extractvalue { ptr, i32 } %.pn94, 0
   %.078 = extractvalue { ptr, i32 } %.pn94, 1
   %277 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI6trap_t) #22
@@ -805,9 +808,9 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
 281:                                              ; preds = %279
   %282 = load i8, ptr %49, align 4, !tbaa !184, !range !131, !noundef !132
   %283 = trunc nuw i8 %282 to i1
-  br i1 %283, label %.invoke269, label %337
+  br i1 %283, label %.invoke272, label %337
 
-.invoke269:                                       ; preds = %281
+.invoke272:                                       ; preds = %281
   %284 = load ptr, ptr %50, align 8, !tbaa !185
   %285 = load ptr, ptr %284, align 8, !tbaa !146
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
@@ -876,7 +879,7 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
   br label %.thread108
 
 316:                                              ; preds = %314
-  %317 = add i64 %.7.lcssa184, 1
+  %317 = add i64 %.7.lcssa185, 1
   br label %.thread108
 
 318:                                              ; preds = %314
@@ -885,8 +888,8 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
 
 319:                                              ; preds = %275
   store i64 %263, ptr %4, align 8, !tbaa !140
-  %320 = add i64 %.7.lcssa184, 1
-  %321 = icmp ult i64 %320, %.0175
+  %320 = add i64 %.7.lcssa185, 1
+  %321 = icmp ult i64 %320, %.0176
   br i1 %321, label %254, label %.thread108, !llvm.loop !212
 
 322:                                              ; preds = %305
@@ -916,12 +919,12 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
   invoke void @__cxa_end_catch()
           to label %.loopexit unwind label %369
 
-335:                                              ; preds = %.invoke269, %279
+335:                                              ; preds = %.invoke272, %279
   %336 = landingpad { ptr, i32 }
           cleanup
   br label %357
 
-337:                                              ; preds = %.invoke269, %281
+337:                                              ; preds = %.invoke272, %281
   %338 = call { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(16) %280) #22
   %.fca.1.extract = extractvalue { i64, i8 } %338, 1
   %339 = trunc nuw i8 %.fca.1.extract to i1
@@ -955,8 +958,8 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
   br label %.thread108
 
 .thread108:                                       ; preds = %319, %253, %237, %236, %315, %316, %94, %348, %332, %311, %307
-  %.10 = phi i64 [ %.2, %348 ], [ %.2, %332 ], [ %.2, %307 ], [ %313, %311 ], [ %.165173, %94 ], [ %317, %316 ], [ %.7.lcssa184, %315 ], [ %238, %237 ], [ %.165173, %236 ], [ %.0175, %253 ], [ %320, %319 ]
-  %.1 = phi i64 [ %.2, %348 ], [ %.0175, %332 ], [ %.0175, %307 ], [ %313, %311 ], [ %.0175, %94 ], [ %.0175, %316 ], [ %.0175, %315 ], [ %.0175, %237 ], [ %.0175, %236 ], [ %.0175, %253 ], [ %.0175, %319 ]
+  %.10 = phi i64 [ %.2, %348 ], [ %.2, %332 ], [ %.2, %307 ], [ %313, %311 ], [ %.165174, %94 ], [ %317, %316 ], [ %.7.lcssa185, %315 ], [ %238, %237 ], [ %.165174, %236 ], [ %.0176, %253 ], [ %320, %319 ]
+  %.1 = phi i64 [ %.2, %348 ], [ %.0176, %332 ], [ %.0176, %307 ], [ %313, %311 ], [ %.0176, %94 ], [ %.0176, %316 ], [ %.0176, %315 ], [ %.0176, %237 ], [ %.0176, %236 ], [ %.0176, %253 ], [ %.0176, %319 ]
   %349 = load ptr, ptr %52, align 8, !tbaa !213
   %350 = load ptr, ptr %349, align 8, !tbaa !146
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8

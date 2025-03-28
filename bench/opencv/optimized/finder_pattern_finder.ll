@@ -2856,7 +2856,7 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE9push_backERKS4_.e
 .._crit_edge.loopexit_crit_edge:                  ; preds = %444
   %.pre649.pre = load ptr, ptr %397, align 8, !tbaa !77
   %.pre650.pre = load ptr, ptr %18, align 8, !tbaa !78
-  br label %._crit_edge
+  br label %._crit_edge, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE9push_backERKS4_.exit, %439, %.._crit_edge.loopexit_crit_edge, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_120ModuleSizeComparatorEEvT_SE_T0_.exit
   %453 = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_120ModuleSizeComparatorEEvT_SE_T0_.exit ], [ %.pre650.pre, %.._crit_edge.loopexit_crit_edge ], [ %430, %439 ], [ %430, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE9push_backERKS4_.exit ]

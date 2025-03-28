@@ -1699,12 +1699,15 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   %17 = sub nsw i32 %.val98.val, %.val99
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %.critedge, !llvm.loop !51
+  br i1 %19, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !51
 
-.critedge:                                        ; preds = %.lr.ph223, %.lr.ph, %.lr.ph.preheader, %2
-  %.val98.lcssa = phi ptr [ %.val98128, %2 ], [ %.val98128, %.lr.ph.preheader ], [ %.val98, %.lr.ph ], [ %.val98, %.lr.ph223 ]
-  %.val99.lcssa = phi i32 [ %.val99129, %2 ], [ %.val99129, %.lr.ph.preheader ], [ %.val99, %.lr.ph ], [ %.val99, %.lr.ph223 ]
-  %.lcssa126 = phi i32 [ %7, %2 ], [ %7, %.lr.ph.preheader ], [ %17, %.lr.ph ], [ %17, %.lr.ph223 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph223
+  br label %.critedge, !llvm.loop !51
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %2
+  %.val98.lcssa = phi ptr [ %.val98128, %2 ], [ %.val98, %..critedge.loopexit_crit_edge ], [ %.val98128, %.lr.ph.preheader ], [ %.val98, %.lr.ph ]
+  %.val99.lcssa = phi i32 [ %.val99129, %2 ], [ %.val99, %..critedge.loopexit_crit_edge ], [ %.val99129, %.lr.ph.preheader ], [ %.val99, %.lr.ph ]
+  %.lcssa126 = phi i32 [ %7, %2 ], [ %17, %..critedge.loopexit_crit_edge ], [ %7, %.lr.ph.preheader ], [ %17, %.lr.ph ]
   %20 = icmp sgt i32 %.val99.lcssa, 0
   br i1 %20, label %.lr.ph141, label %.critedge2
 
@@ -1940,12 +1943,15 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   %102 = sub nsw i32 %.val102.val, %.val103
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next190, %103
-  br i1 %104, label %.lr.ph155, label %.critedge8, !llvm.loop !55
+  br i1 %104, label %.lr.ph155, label %..critedge8.loopexit_crit_edge, !llvm.loop !55
 
-.critedge8:                                       ; preds = %.lr.ph234, %.lr.ph155, %.lr.ph155.preheader, %.critedge6
-  %.val102.lcssa = phi ptr [ %.val102149, %.critedge6 ], [ %.val102149, %.lr.ph155.preheader ], [ %.val102, %.lr.ph155 ], [ %.val102, %.lr.ph234 ]
-  %.val103.lcssa = phi i32 [ %.val115, %.critedge6 ], [ %.val115, %.lr.ph155.preheader ], [ %.val103, %.lr.ph155 ], [ %.val103, %.lr.ph234 ]
-  %.lcssa = phi i32 [ %92, %.critedge6 ], [ %92, %.lr.ph155.preheader ], [ %102, %.lr.ph155 ], [ %102, %.lr.ph234 ]
+..critedge8.loopexit_crit_edge:                   ; preds = %.lr.ph234
+  br label %.critedge8, !llvm.loop !55
+
+.critedge8:                                       ; preds = %.lr.ph155, %.lr.ph155.preheader, %..critedge8.loopexit_crit_edge, %.critedge6
+  %.val102.lcssa = phi ptr [ %.val102149, %.critedge6 ], [ %.val102, %..critedge8.loopexit_crit_edge ], [ %.val102149, %.lr.ph155.preheader ], [ %.val102, %.lr.ph155 ]
+  %.val103.lcssa = phi i32 [ %.val115, %.critedge6 ], [ %.val103, %..critedge8.loopexit_crit_edge ], [ %.val115, %.lr.ph155.preheader ], [ %.val103, %.lr.ph155 ]
+  %.lcssa = phi i32 [ %92, %.critedge6 ], [ %102, %..critedge8.loopexit_crit_edge ], [ %92, %.lr.ph155.preheader ], [ %102, %.lr.ph155 ]
   %105 = icmp sgt i32 %.val103.lcssa, 0
   br i1 %105, label %.lr.ph164, label %.critedge10
 
@@ -2367,10 +2373,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %100 = sub nsw i32 %.val55.val, %.val56
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next92, %101
-  br i1 %102, label %.lr.ph82, label %.critedge2, !llvm.loop !62
+  br i1 %102, label %.lr.ph82, label %..critedge2.loopexit_crit_edge, !llvm.loop !62
 
-.critedge2:                                       ; preds = %98, %.lr.ph82, %.lr.ph82.preheader, %.critedge
-  %.val6184 = phi i32 [ %.val5678, %.critedge ], [ %.val5678, %.lr.ph82.preheader ], [ %.val56, %.lr.ph82 ], [ %.val56, %98 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %98
+  br label %.critedge2, !llvm.loop !62
+
+.critedge2:                                       ; preds = %.lr.ph82, %.lr.ph82.preheader, %..critedge2.loopexit_crit_edge, %.critedge
+  %.val6184 = phi i32 [ %.val5678, %.critedge ], [ %.val56, %..critedge2.loopexit_crit_edge ], [ %.val5678, %.lr.ph82.preheader ], [ %.val56, %.lr.ph82 ]
   %103 = icmp sgt i32 %.val6184, 0
   br i1 %103, label %.lr.ph88, label %.critedge4
 

@@ -1333,13 +1333,13 @@ define internal fastcc noundef zeroext i1 @_RNvXsF_NtCs2al5CLA23zg_9rustc_ast5to
     i8 30, label %25
     i8 31, label %31
     i8 32, label %58
-    i8 33, label %69
-    i8 34, label %75
-    i8 35, label %101
+    i8 33, label %70
+    i8 34, label %76
+    i8 35, label %102
   ]
 
-_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit: ; preds = %56, %54, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.thread.i, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.i, %42, %40, %31, %101, %107, %83, %89, %75, %58, %6, %2, %113, %95, %64, %69, %25, %19, %13, %7
-  %.0.shrunk = phi i1 [ %118, %113 ], [ %100, %95 ], [ %74, %69 ], [ %.not, %64 ], [ %30, %25 ], [ %24, %19 ], [ %18, %13 ], [ %12, %7 ], [ false, %2 ], [ true, %6 ], [ false, %58 ], [ false, %75 ], [ false, %89 ], [ false, %83 ], [ false, %107 ], [ false, %101 ], [ %55, %54 ], [ false, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.thread.i ], [ false, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.i ], [ %57, %56 ], [ false, %40 ], [ false, %42 ], [ false, %31 ]
+_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit: ; preds = %56, %54, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.thread.i, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.i, %42, %40, %31, %102, %108, %84, %90, %76, %58, %6, %2, %114, %96, %64, %70, %25, %19, %13, %7
+  %.0.shrunk = phi i1 [ %119, %114 ], [ %101, %96 ], [ %75, %70 ], [ %69, %64 ], [ %30, %25 ], [ %24, %19 ], [ %18, %13 ], [ %12, %7 ], [ false, %2 ], [ true, %6 ], [ false, %58 ], [ false, %76 ], [ false, %90 ], [ false, %84 ], [ false, %108 ], [ false, %102 ], [ %55, %54 ], [ false, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.thread.i ], [ false, %_RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit.i ], [ %57, %56 ], [ false, %40 ], [ false, %42 ], [ false, %31 ]
   ret i1 %.0.shrunk
 
 7:                                                ; preds = %6
@@ -1444,73 +1444,73 @@ _RNvXsx_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_7LitKindNtNtCs9nhK3FOW46N_4core3cmp
   %66 = load i8, ptr %65, align 1, !range !29, !noundef !14
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %68 = load i8, ptr %67, align 1, !range !29, !noundef !14
-  %.not = icmp eq i8 %66, %68
+  %69 = icmp eq i8 %66, %68
   br label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-69:                                               ; preds = %6
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %71 = load i32, ptr %70, align 4, !noundef !14
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %73 = load i32, ptr %72, align 4, !noundef !14
-  %74 = icmp eq i32 %71, %73
+70:                                               ; preds = %6
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %72 = load i32, ptr %71, align 4, !noundef !14
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %74 = load i32, ptr %73, align 4, !noundef !14
+  %75 = icmp eq i32 %72, %74
   br label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-75:                                               ; preds = %6
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %77 = load ptr, ptr %76, align 8, !nonnull !14, !noundef !14
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %79 = load ptr, ptr %78, align 8, !nonnull !14, !noundef !14
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %82 = tail call noundef zeroext i1 @_RNvXs8_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_11NonterminalNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %81)
-  br i1 %82, label %83, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
+76:                                               ; preds = %6
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %78 = load ptr, ptr %77, align 8, !nonnull !14, !noundef !14
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %80 = load ptr, ptr %79, align 8, !nonnull !14, !noundef !14
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %83 = tail call noundef zeroext i1 @_RNvXs8_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_11NonterminalNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %82)
+  br i1 %83, label %84, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-83:                                               ; preds = %75
-  %84 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %85 = load i32, ptr %84, align 8, !noundef !14
-  %86 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %87 = load i32, ptr %86, align 8, !noundef !14
-  %88 = icmp eq i32 %85, %87
-  br i1 %88, label %89, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
+84:                                               ; preds = %76
+  %85 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %86 = load i32, ptr %85, align 8, !noundef !14
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  %88 = load i32, ptr %87, align 8, !noundef !14
+  %89 = icmp eq i32 %86, %88
+  br i1 %89, label %90, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-89:                                               ; preds = %83
-  %90 = getelementptr inbounds nuw i8, ptr %77, i64 36
-  %91 = load i16, ptr %90, align 4, !noundef !14
-  %92 = getelementptr inbounds nuw i8, ptr %79, i64 36
-  %93 = load i16, ptr %92, align 4, !noundef !14
-  %94 = icmp eq i16 %91, %93
-  br i1 %94, label %95, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds nuw i8, ptr %78, i64 36
+  %92 = load i16, ptr %91, align 4, !noundef !14
+  %93 = getelementptr inbounds nuw i8, ptr %80, i64 36
+  %94 = load i16, ptr %93, align 4, !noundef !14
+  %95 = icmp eq i16 %92, %94
+  br i1 %95, label %96, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-95:                                               ; preds = %89
-  %96 = getelementptr inbounds nuw i8, ptr %77, i64 38
-  %97 = load i16, ptr %96, align 2, !noundef !14
-  %98 = getelementptr inbounds nuw i8, ptr %79, i64 38
-  %99 = load i16, ptr %98, align 2, !noundef !14
-  %100 = icmp eq i16 %97, %99
+96:                                               ; preds = %90
+  %97 = getelementptr inbounds nuw i8, ptr %78, i64 38
+  %98 = load i16, ptr %97, align 2, !noundef !14
+  %99 = getelementptr inbounds nuw i8, ptr %80, i64 38
+  %100 = load i16, ptr %99, align 2, !noundef !14
+  %101 = icmp eq i16 %98, %100
   br label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-101:                                              ; preds = %6
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %103 = load i8, ptr %102, align 1, !range !29, !noundef !14
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %105 = load i8, ptr %104, align 1, !range !29, !noundef !14
-  %106 = icmp eq i8 %103, %105
-  br i1 %106, label %107, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
+102:                                              ; preds = %6
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %104 = load i8, ptr %103, align 1, !range !29, !noundef !14
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %106 = load i8, ptr %105, align 1, !range !29, !noundef !14
+  %107 = icmp eq i8 %104, %106
+  br i1 %107, label %108, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-107:                                              ; preds = %101
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %109 = load i8, ptr %108, align 2, !range !29, !noundef !14
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %111 = load i8, ptr %110, align 2, !range !29, !noundef !14
-  %112 = icmp eq i8 %109, %111
-  br i1 %112, label %113, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
+108:                                              ; preds = %102
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %110 = load i8, ptr %109, align 2, !range !29, !noundef !14
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %112 = load i8, ptr %111, align 2, !range !29, !noundef !14
+  %113 = icmp eq i8 %110, %112
+  br i1 %113, label %114, label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 
-113:                                              ; preds = %107
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %115 = load i32, ptr %114, align 4, !noundef !14
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %117 = load i32, ptr %116, align 4, !noundef !14
-  %118 = icmp eq i32 %115, %117
+114:                                              ; preds = %108
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %116 = load i32, ptr %115, align 4, !noundef !14
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %118 = load i32, ptr %117, align 4, !noundef !14
+  %119 = icmp eq i32 %116, %118
   br label %_RNvXsC_NtCs2al5CLA23zg_9rustc_ast5tokenNtB5_3LitNtNtCs9nhK3FOW46N_4core3cmp9PartialEq2eq.exit
 }
 

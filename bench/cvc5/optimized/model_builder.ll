@@ -460,8 +460,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %70, %74, %80
           to label %.preheader unwind label %100
 
 .preheader:                                       ; preds = %92
-  %.not100 = icmp eq i64 %95, 0
-  br i1 %.not100, label %._crit_edge, label %.lr.ph
+  %.not101 = icmp eq i64 %95, 0
+  br i1 %.not101, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit71, %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
@@ -486,10 +486,10 @@ _ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEED2Ev.exit: ; 
   br label %361
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit71
-  %.0999 = phi i64 [ %358, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit71 ], [ 0, %.preheader ]
+  %.09100 = phi i64 [ %358, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit71 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
   %102 = load ptr, ptr %93, align 8, !tbaa !52
-  %103 = trunc i64 %.0999 to i32
+  %103 = trunc i64 %.09100 to i32
   invoke void @_ZN4cvc58internal6theory11quantifiers15FirstOrderModel21getAssertedQuantifierEjb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %9, ptr noundef nonnull align 8 dereferenceable(664) %102, i32 noundef %103, i1 noundef zeroext true)
           to label %104 unwind label %311
 
@@ -816,7 +816,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit54: ; preds = %_ZN4cvc58internal12
   %288 = load i64, ptr %287, align 8, !tbaa !422
   %289 = urem i64 %288, %265
   %.not19.i.i.i.i.i.i.i.i = icmp eq i64 %289, %266
-  br i1 %.not19.i.i.i.i.i.i.i.i, label %279, label %_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread, !llvm.loop !424
+  br i1 %.not19.i.i.i.i.i.i.i.i, label %279, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, !llvm.loop !424
+
+..loopexit_crit_edge21.i.i.i.i.i.i.i.i:           ; preds = %286
+  br label %_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread, !llvm.loop !424
 
 _ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit: ; preds = %279, %256, %270
   %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %271, %270 ], [ %.sroa.06.0.i.i.i.i.i.i, %256 ], [ %285, %279 ]
@@ -935,8 +938,8 @@ _ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEE4findERS6_.ex
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #22
   br label %343
 
-_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %286, %255, %_ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEE4findERS6_.exit.thread._ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread_crit_edge, %260, %_ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEE4findERS6_.exit, %_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit
-  %330 = phi ptr [ %.pre, %_ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEE4findERS6_.exit.thread._ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread_crit_edge ], [ %245, %260 ], [ %245, %_ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEE4findERS6_.exit ], [ %245, %_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit ], [ %245, %255 ], [ %245, %286 ], [ %245, %.lr.ph.i.i.i.i.i.i.i.i ]
+_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %255, %_ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEE4findERS6_.exit.thread._ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread_crit_edge, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %260, %_ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEE4findERS6_.exit, %_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit
+  %330 = phi ptr [ %.pre, %_ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEE4findERS6_.exit.thread._ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread_crit_edge ], [ %245, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i ], [ %245, %260 ], [ %245, %_ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEE4findERS6_.exit ], [ %245, %_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit ], [ %245, %255 ], [ %245, %.lr.ph.i.i.i.i.i.i.i.i ]
   %331 = load i64, ptr %330, align 8
   %332 = and i64 %331, 1152920405095219200
   %.not.i.i68 = icmp eq i64 %332, 1152920405095219200
@@ -1000,7 +1003,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit69:            ; preds = %_ZNK4cvc58internal8
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit71: ; preds = %344, %348, %354
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  %358 = add nuw i64 %.0999, 1
+  %358 = add nuw i64 %.09100, 1
   %exitcond.not = icmp eq i64 %358, %95
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !427
 

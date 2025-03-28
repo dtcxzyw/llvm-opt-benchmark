@@ -4284,12 +4284,15 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail
   %39 = sext i32 %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %.critedge, !llvm.loop !81
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !81
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %36, %23, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %36 ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %36 ], [ %8, %.lr.ph.i.i ]
-  %43 = phi i32 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %36 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge, !llvm.loop !81
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi i32 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #35
   store ptr null, ptr %44, align 8, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -8908,7 +8911,7 @@ define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_FindEnd_Test8TestBodyEv
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !21, !noalias !171
   %.not.i.i7.i.i.i.i = icmp eq ptr %27, %9
-  br i1 %.not.i.i7.i.i.i.i, label %_ZSt9__find_ifISt16reverse_iteratorISt14_List_iteratorIiEEN9__gnu_cxx5__ops17_Iter_equals_iterIS0_INS4_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEEET_SF_SF_T0_.exit8.i.i.i.i, label %.lr.ph.i.i6.i.i.i.i.backedge
+  br i1 %.not.i.i7.i.i.i.i, label %_ZSt9__find_ifISt16reverse_iteratorISt14_List_iteratorIiEEN9__gnu_cxx5__ops17_Iter_equals_iterIS0_INS4_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEEET_SF_SF_T0_.exit8.i.i.i.i, label %.lr.ph.i.i6.i.i.i.i.backedge, !llvm.loop !176
 
 .lr.ph.i.i6.i.i.i.i.backedge:                     ; preds = %.preheader.i.i.i.i, %25
   %.be = phi ptr [ %27, %25 ], [ %31, %.preheader.i.i.i.i ]

@@ -1460,7 +1460,7 @@ find_matching_ts_config.exit.thread:              ; preds = %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i14, 1
   %16 = getelementptr inbounds nuw [58 x %struct.tsearch_config_match], ptr @tsearch_config_languages, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 57
-  br i1 %exitcond.i, label %find_matching_ts_config.exit, label %17, !llvm.loop !7
+  br i1 %exitcond.i, label %.find_matching_ts_config.exit_crit_edge, label %17, !llvm.loop !7
 
 17:                                               ; preds = %.lr.ph15
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1469,7 +1469,10 @@ find_matching_ts_config.exit.thread:              ; preds = %13
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %find_matching_ts_config.exit, label %.lr.ph15, !llvm.loop !7
 
-find_matching_ts_config.exit:                     ; preds = %17, %.lr.ph15
+.find_matching_ts_config.exit_crit_edge:          ; preds = %.lr.ph15
+  br label %find_matching_ts_config.exit, !llvm.loop !7
+
+find_matching_ts_config.exit:                     ; preds = %17, %.find_matching_ts_config.exit_crit_edge
   %22 = load ptr, ptr %16, align 16
   tail call void @free(ptr noundef %.016.i) #19
   store ptr %22, ptr @default_text_search_config, align 8
@@ -1527,7 +1530,7 @@ find_matching_ts_config.exit10.thread:            ; preds = %34
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i711, 1
   %37 = getelementptr inbounds nuw [58 x %struct.tsearch_config_match], ptr @tsearch_config_languages, i64 0, i64 %indvars.iv.next.i8
   %exitcond.i9 = icmp eq i64 %indvars.iv.next.i8, 57
-  br i1 %exitcond.i9, label %find_matching_ts_config.exit10, label %38, !llvm.loop !7
+  br i1 %exitcond.i9, label %.find_matching_ts_config.exit10_crit_edge, label %38, !llvm.loop !7
 
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -1536,7 +1539,10 @@ find_matching_ts_config.exit10.thread:            ; preds = %34
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %find_matching_ts_config.exit10, label %.lr.ph, !llvm.loop !7
 
-find_matching_ts_config.exit10:                   ; preds = %38, %.lr.ph
+.find_matching_ts_config.exit10_crit_edge:        ; preds = %.lr.ph
+  br label %find_matching_ts_config.exit10, !llvm.loop !7
+
+find_matching_ts_config.exit10:                   ; preds = %38, %.find_matching_ts_config.exit10_crit_edge
   %43 = load ptr, ptr %37, align 16
   tail call void @free(ptr noundef %.016.i6) #19
   %44 = icmp eq ptr %43, null

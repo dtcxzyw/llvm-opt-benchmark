@@ -17421,7 +17421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %31 = getelementptr inbounds nuw i8, ptr %.2, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !208
   %.not36 = icmp eq ptr %32, null
-  br i1 %.not36, label %.critedge, label %33, !llvm.loop !219
+  br i1 %.not36, label %.loopexit..critedge.loopexit_crit_edge, label %33, !llvm.loop !219
 
 33:                                               ; preds = %.loopexit
   %exitcond.not = icmp eq i32 %30, %smax
@@ -17439,9 +17439,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.not37 = icmp eq ptr %37, null
   br i1 %.not37, label %.loopexit, label %35, !llvm.loop !220
 
-.critedge:                                        ; preds = %.loopexit, %33, %.lr.ph, %.preheader, %25, %14
-  %.023 = phi ptr [ null, %14 ], [ %spec.select, %25 ], [ %20, %.preheader ], [ %20, %.lr.ph ], [ %.2, %33 ], [ %.2, %.loopexit ]
-  %.022 = phi i32 [ %17, %14 ], [ %28, %25 ], [ %17, %.preheader ], [ %smax, %.lr.ph ], [ %smax, %33 ], [ %30, %.loopexit ]
+.loopexit..critedge.loopexit_crit_edge:           ; preds = %.loopexit
+  br label %.critedge, !llvm.loop !219
+
+.critedge:                                        ; preds = %33, %.lr.ph, %.loopexit..critedge.loopexit_crit_edge, %.preheader, %25, %14
+  %.023 = phi ptr [ null, %14 ], [ %spec.select, %25 ], [ %20, %.preheader ], [ %.2, %.loopexit..critedge.loopexit_crit_edge ], [ %20, %.lr.ph ], [ %.2, %33 ]
+  %.022 = phi i32 [ %17, %14 ], [ %28, %25 ], [ %17, %.preheader ], [ %30, %.loopexit..critedge.loopexit_crit_edge ], [ %smax, %.lr.ph ], [ %smax, %33 ]
   store ptr %.023, ptr %0, align 8, !tbaa !214
   store i32 %.022, ptr %16, align 8, !tbaa !216
   ret ptr %15

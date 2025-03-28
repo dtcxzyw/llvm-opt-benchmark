@@ -10492,12 +10492,15 @@ _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_P
   %115 = load ptr, ptr %0, align 8, !tbaa !212
   %116 = load ptr, ptr %1, align 8, !tbaa !212
   %.not = icmp eq ptr %115, %116
-  br i1 %.not, label %.critedge, label %20, !llvm.loop !357
+  br i1 %.not, label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit..critedge.loopexit_crit_edge, label %20, !llvm.loop !357
 
-.critedge:                                        ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit, %20, %.lr.ph, %5
-  %.0.lcssa = phi ptr [ %4, %5 ], [ %4, %.lr.ph ], [ %114, %20 ], [ %114, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit ]
-  %.lcssa34 = phi ptr [ %10, %5 ], [ %10, %.lr.ph ], [ %115, %20 ], [ %115, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit ]
-  %.lcssa = phi ptr [ %11, %5 ], [ %11, %.lr.ph ], [ %116, %20 ], [ %116, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit ]
+_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit..critedge.loopexit_crit_edge: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit
+  br label %.critedge, !llvm.loop !357
+
+.critedge:                                        ; preds = %20, %.lr.ph, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit..critedge.loopexit_crit_edge, %5
+  %.0.lcssa = phi ptr [ %4, %5 ], [ %114, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit..critedge.loopexit_crit_edge ], [ %4, %.lr.ph ], [ %114, %20 ]
+  %.lcssa34 = phi ptr [ %10, %5 ], [ %115, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit..critedge.loopexit_crit_edge ], [ %10, %.lr.ph ], [ %115, %20 ]
+  %.lcssa = phi ptr [ %11, %5 ], [ %116, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %116, %20 ]
   %117 = load ptr, ptr %2, align 8, !tbaa !212
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !216

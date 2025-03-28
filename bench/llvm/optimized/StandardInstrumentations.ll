@@ -26737,12 +26737,15 @@ _ZNSt3mapIKjjSt4lessIS0_ESaISt4pairIS0_jEEE6insertEOS4_.exit.i: ; preds = %_ZNSt
   %2350 = ptrtoint ptr %.val20.i.i.i.i.i.i.i.i to i64
   %2351 = urem i64 %2350, %.val2950.i.i.i.i.i.i
   %.not19.i.i.i.i.i.i.i.i = icmp eq i64 %2351, %2333
-  br i1 %.not19.i.i.i.i.i.i.i.i, label %2345, label %.critedge17.i.i.i.i.i.i, !llvm.loop !1132
+  br i1 %.not19.i.i.i.i.i.i.i.i, label %2345, label %..loopexit_crit_edge6.i.i.i.i.i.i.i.i, !llvm.loop !1132
 
-.critedge17.i.i.i.i.i.i:                          ; preds = %2348, %.lr.ph.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i59, %.critedge.thread.i.i.i.i.i.i
-  %2352 = phi i64 [ %2340, %.critedge.i.i.i.i.i.i59 ], [ %2333, %.critedge.thread.i.i.i.i.i.i ], [ %2333, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2333, %2348 ]
-  %.val2953.i.i.i.i.i.i = phi i64 [ %.val29.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i59 ], [ %.val2950.i.i.i.i.i.i, %.critedge.thread.i.i.i.i.i.i ], [ %.val2950.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val2950.i.i.i.i.i.i, %2348 ]
-  %2353 = phi i64 [ %2339, %.critedge.i.i.i.i.i.i59 ], [ %2332, %.critedge.thread.i.i.i.i.i.i ], [ %2332, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2332, %2348 ]
+..loopexit_crit_edge6.i.i.i.i.i.i.i.i:            ; preds = %2348
+  br label %.critedge17.i.i.i.i.i.i, !llvm.loop !1132
+
+.critedge17.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %..loopexit_crit_edge6.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i59, %.critedge.thread.i.i.i.i.i.i
+  %2352 = phi i64 [ %2340, %.critedge.i.i.i.i.i.i59 ], [ %2333, %.critedge.thread.i.i.i.i.i.i ], [ %2333, %..loopexit_crit_edge6.i.i.i.i.i.i.i.i ], [ %2333, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.val2953.i.i.i.i.i.i = phi i64 [ %.val29.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i59 ], [ %.val2950.i.i.i.i.i.i, %.critedge.thread.i.i.i.i.i.i ], [ %.val2950.i.i.i.i.i.i, %..loopexit_crit_edge6.i.i.i.i.i.i.i.i ], [ %.val2950.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %2353 = phi i64 [ %2339, %.critedge.i.i.i.i.i.i59 ], [ %2332, %.critedge.thread.i.i.i.i.i.i ], [ %2332, %..loopexit_crit_edge6.i.i.i.i.i.i.i.i ], [ %2332, %.lr.ph.i.i.i.i.i.i.i.i ]
   %2354 = call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %2325, i64 noundef %.val2953.i.i.i.i.i.i, i64 noundef %.val18.i.i.i.i.i.i, i64 noundef 1) #26
   %2355 = extractvalue { i8, i64 } %2354, 0
   %2356 = trunc i8 %2355 to i1
@@ -27715,12 +27718,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i30.i.i: ; preds 
   %2702 = ptrtoint ptr %.val20.i.i.i.i.i.i.i.i.i to i64
   %2703 = urem i64 %2702, %.val2813.i.i.i.i.i.i.i
   %.not19.i.i.i.i.i.i.i.i.i = icmp eq i64 %2703, %2684
-  br i1 %.not19.i.i.i.i.i.i.i.i.i, label %2697, label %.critedge.i.i.i.i.i.i.i, !llvm.loop !1164
+  br i1 %.not19.i.i.i.i.i.i.i.i.i, label %2697, label %..loopexit_crit_edge6.i.i.i.i.i.i.i.i.i, !llvm.loop !1164
 
-.critedge.i.i.i.i.i.i.i:                          ; preds = %2700, %.lr.ph.i.i.i.i.i.i.i32.i.i, %2690, %.thread12.i.i.i.i.i.i.i
-  %2704 = phi i64 [ %2692, %2690 ], [ %2684, %.thread12.i.i.i.i.i.i.i ], [ %2684, %.lr.ph.i.i.i.i.i.i.i32.i.i ], [ %2684, %2700 ]
-  %.val2815.i.i.i.i.i.i.i = phi i64 [ %.val28.i.i.i.i.i.i.i, %2690 ], [ %.val2813.i.i.i.i.i.i.i, %.thread12.i.i.i.i.i.i.i ], [ %.val2813.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i32.i.i ], [ %.val2813.i.i.i.i.i.i.i, %2700 ]
-  %2705 = phi i64 [ %2691, %2690 ], [ %2683, %.thread12.i.i.i.i.i.i.i ], [ %2683, %.lr.ph.i.i.i.i.i.i.i32.i.i ], [ %2683, %2700 ]
+..loopexit_crit_edge6.i.i.i.i.i.i.i.i.i:          ; preds = %2700
+  br label %.critedge.i.i.i.i.i.i.i, !llvm.loop !1164
+
+.critedge.i.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i.i32.i.i, %..loopexit_crit_edge6.i.i.i.i.i.i.i.i.i, %2690, %.thread12.i.i.i.i.i.i.i
+  %2704 = phi i64 [ %2692, %2690 ], [ %2684, %.thread12.i.i.i.i.i.i.i ], [ %2684, %..loopexit_crit_edge6.i.i.i.i.i.i.i.i.i ], [ %2684, %.lr.ph.i.i.i.i.i.i.i32.i.i ]
+  %.val2815.i.i.i.i.i.i.i = phi i64 [ %.val28.i.i.i.i.i.i.i, %2690 ], [ %.val2813.i.i.i.i.i.i.i, %.thread12.i.i.i.i.i.i.i ], [ %.val2813.i.i.i.i.i.i.i, %..loopexit_crit_edge6.i.i.i.i.i.i.i.i.i ], [ %.val2813.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i32.i.i ]
+  %2705 = phi i64 [ %2691, %2690 ], [ %2683, %.thread12.i.i.i.i.i.i.i ], [ %2683, %..loopexit_crit_edge6.i.i.i.i.i.i.i.i.i ], [ %2683, %.lr.ph.i.i.i.i.i.i.i32.i.i ]
   %2706 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr null, ptr %2706, align 8, !tbaa !1101
   %2707 = getelementptr inbounds nuw i8, ptr %2706, i64 8

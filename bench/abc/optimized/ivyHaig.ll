@@ -1006,10 +1006,13 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
   %.val142 = load i32, ptr %15, align 4, !tbaa !16
   %47 = sext i32 %.val142 to i64
   %48 = icmp slt i64 %indvars.iv.next216, %47
-  br i1 %48, label %36, label %.critedge6, !llvm.loop !44
+  br i1 %48, label %36, label %.critedge4..critedge6.loopexit_crit_edge, !llvm.loop !44
 
-.critedge6:                                       ; preds = %.critedge4, %36, %.lr.ph181, %.critedge4.preheader
-  %.val144.pre243 = phi i32 [ %.val142179, %.critedge4.preheader ], [ %.val142179, %.lr.ph181 ], [ %.val142, %36 ], [ %.val142, %.critedge4 ]
+.critedge4..critedge6.loopexit_crit_edge:         ; preds = %.critedge4
+  br label %.critedge6, !llvm.loop !44
+
+.critedge6:                                       ; preds = %36, %.lr.ph181, %.critedge4..critedge6.loopexit_crit_edge, %.critedge4.preheader
+  %.val144.pre243 = phi i32 [ %.val142179, %.critedge4.preheader ], [ %.val142, %.critedge4..critedge6.loopexit_crit_edge ], [ %.val142179, %.lr.ph181 ], [ %.val142, %36 ]
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %50 = load ptr, ptr %49, align 8, !tbaa !29
   %51 = getelementptr i8, ptr %50, i64 8
@@ -1304,10 +1307,13 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %.val146 = load i32, ptr %160, align 4, !tbaa !16
   %188 = sext i32 %.val146 to i64
   %189 = icmp slt i64 %indvars.iv.next228, %188
-  br i1 %189, label %168, label %.critedge14, !llvm.loop !49
+  br i1 %189, label %168, label %..critedge14_crit_edge261, !llvm.loop !49
 
-.critedge14:                                      ; preds = %.lr.ph259, %168, %.lr.ph203
-  %.val147209 = phi i32 [ %.val146201, %.lr.ph203 ], [ %.val146, %168 ], [ %.val146, %.lr.ph259 ]
+..critedge14_crit_edge261:                        ; preds = %.lr.ph259
+  br label %.critedge14, !llvm.loop !49
+
+.critedge14:                                      ; preds = %168, %..critedge14_crit_edge261, %.lr.ph203
+  %.val147209 = phi i32 [ %.val146, %..critedge14_crit_edge261 ], [ %.val146201, %.lr.ph203 ], [ %.val146, %168 ]
   %190 = getelementptr i8, ptr %159, i64 8
   %191 = icmp sgt i32 %.val147209, 0
   br i1 %191, label %.lr.ph211.preheader, label %.critedge16
@@ -1351,10 +1357,13 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %.val147 = load i32, ptr %160, align 4, !tbaa !16
   %210 = sext i32 %.val147 to i64
   %211 = icmp slt i64 %indvars.iv.next231, %210
-  br i1 %211, label %.lr.ph211, label %.critedge16, !llvm.loop !50
+  br i1 %211, label %.lr.ph211, label %..critedge16.loopexit_crit_edge, !llvm.loop !50
 
-.critedge16:                                      ; preds = %.lr.ph211, %.lr.ph268, %.lr.ph211.preheader, %.critedge12, %.critedge14
-  %.val144235 = phi i32 [ %.val147209, %.critedge14 ], [ %.val146201, %.critedge12 ], [ %.val147209, %.lr.ph211.preheader ], [ %.val147, %.lr.ph268 ], [ %.val147, %.lr.ph211 ]
+..critedge16.loopexit_crit_edge:                  ; preds = %.lr.ph268
+  br label %.critedge16, !llvm.loop !50
+
+.critedge16:                                      ; preds = %.lr.ph211, %.lr.ph211.preheader, %..critedge16.loopexit_crit_edge, %.critedge12, %.critedge14
+  %.val144235 = phi i32 [ %.val147209, %.critedge14 ], [ %.val146201, %.critedge12 ], [ %.val147, %..critedge16.loopexit_crit_edge ], [ %.val147209, %.lr.ph211.preheader ], [ %.val147, %.lr.ph211 ]
   %212 = add nuw nsw i32 %.0116213, 1
   %exitcond233.not = icmp eq i32 %212, 10
   br i1 %exitcond233.not, label %213, label %.preheader, !llvm.loop !51

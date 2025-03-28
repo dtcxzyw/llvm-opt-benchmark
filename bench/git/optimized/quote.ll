@@ -637,7 +637,7 @@ define internal fastcc range(i32 -1, 1) i32 @sq_dequote_to_argv_internal(ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %.023.i.us.us, i64 2
   %11 = load i8, ptr %10, align 1, !tbaa !13
   switch i8 %11, label %sq_dequote_step.exit.us.us [
-    i8 0, label %.thread.us.us.thread
+    i8 0, label %.critedge..critedge43.loopexit60_crit_edge.loopexit
     i8 92, label %12
   ]
 
@@ -654,10 +654,6 @@ define internal fastcc range(i32 -1, 1) i32 @sq_dequote_to_argv_internal(ptr nou
   %17 = load i8, ptr %16, align 1, !tbaa !13
   %18 = icmp eq i8 %17, 39
   br i1 %18, label %.backedge.i.us.us, label %sq_dequote_step.exit.us.us
-
-.thread.us.us.thread:                             ; preds = %9
-  store i8 0, ptr %.024.i.us.us, align 1, !tbaa !13
-  br label %.critedge43
 
 sq_dequote_step.exit.us.us:                       ; preds = %15, %12, %9
   %19 = getelementptr inbounds nuw i8, ptr %.023.i.us.us, i64 2
@@ -699,7 +695,7 @@ thread-pre-split.us.us:                           ; preds = %.preheader.us.us
   br label %.preheader.i.us.us
 
 .preheader.i.preheader.us:                        ; preds = %.preheader.i.preheader.lr.ph.split.us, %thread-pre-split.us
-  %.04767.us = phi ptr [ %50, %thread-pre-split.us ], [ %0, %.preheader.i.preheader.lr.ph.split.us ]
+  %.04767.us = phi ptr [ %49, %thread-pre-split.us ], [ %0, %.preheader.i.preheader.lr.ph.split.us ]
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %.backedge.i.us, %.preheader.i.preheader.us
@@ -716,7 +712,7 @@ thread-pre-split.us.us:                           ; preds = %.preheader.us.us
   %34 = getelementptr inbounds nuw i8, ptr %.023.i.us, i64 2
   %35 = load i8, ptr %34, align 1, !tbaa !13
   switch i8 %35, label %sq_dequote_step.exit.us [
-    i8 0, label %.thread.us.thread
+    i8 0, label %.critedge..critedge43.loopexit60_crit_edge.loopexit78
     i8 92, label %36
   ]
 
@@ -734,36 +730,31 @@ thread-pre-split.us.us:                           ; preds = %.preheader.us.us
   %42 = icmp eq i8 %41, 39
   br i1 %42, label %.backedge.i.us, label %sq_dequote_step.exit.us
 
-.thread.us.thread:                                ; preds = %33
-  store i8 0, ptr %.024.i.us, align 1, !tbaa !13
-  %43 = tail call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull %.04767.us) #12
-  br label %.critedge43
-
 sq_dequote_step.exit.us:                          ; preds = %39, %36, %33
-  %44 = getelementptr inbounds nuw i8, ptr %.023.i.us, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %.023.i.us, i64 2
   store i8 0, ptr %.024.i.us, align 1, !tbaa !13
-  %45 = load i8, ptr %44, align 1, !tbaa !13
-  %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !13
-  %49 = and i8 %48, 1
-  %.not36.not.us = icmp eq i8 %49, 0
+  %44 = load i8, ptr %43, align 1, !tbaa !13
+  %45 = zext i8 %44 to i64
+  %46 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %45
+  %47 = load i8, ptr %46, align 1, !tbaa !13
+  %48 = and i8 %47, 1
+  %.not36.not.us = icmp eq i8 %48, 0
   br i1 %.not36.not.us, label %.critedge43, label %.preheader.us
 
 .preheader.us:                                    ; preds = %sq_dequote_step.exit.us, %.preheader.us
-  %.2.us = phi ptr [ %50, %.preheader.us ], [ %44, %sq_dequote_step.exit.us ]
-  %50 = getelementptr inbounds nuw i8, ptr %.2.us, i64 1
-  %51 = load i8, ptr %50, align 1, !tbaa !13
-  %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !13
-  %55 = and i8 %54, 1
-  %.not37.us = icmp eq i8 %55, 0
+  %.2.us = phi ptr [ %49, %.preheader.us ], [ %43, %sq_dequote_step.exit.us ]
+  %49 = getelementptr inbounds nuw i8, ptr %.2.us, i64 1
+  %50 = load i8, ptr %49, align 1, !tbaa !13
+  %51 = zext i8 %50 to i64
+  %52 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !13
+  %54 = and i8 %53, 1
+  %.not37.us = icmp eq i8 %54, 0
   br i1 %.not37.us, label %thread-pre-split.us, label %.preheader.us, !llvm.loop !20
 
 thread-pre-split.us:                              ; preds = %.preheader.us
-  %56 = tail call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull %.04767.us) #12
-  %.pr.us = load i8, ptr %50, align 1, !tbaa !13
+  %55 = tail call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull %.04767.us) #12
+  %.pr.us = load i8, ptr %49, align 1, !tbaa !13
   %.not.i.us = icmp eq i8 %.pr.us, 39
   br i1 %.not.i.us, label %.preheader.i.preheader.us, label %.critedge43
 
@@ -786,126 +777,138 @@ thread-pre-split:                                 ; preds = %.critedge
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.backedge.i
   %.024.i = phi ptr [ %.024.be.i, %.backedge.i ], [ %.04767, %.preheader.i.preheader ]
   %.023.i = phi ptr [ %.023.be.i, %.backedge.i ], [ %.04767, %.preheader.i.preheader ]
-  %57 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !13
-  switch i8 %58, label %.backedge.i [
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !13
+  switch i8 %57, label %.backedge.i [
     i8 0, label %.critedge43
-    i8 39, label %59
+    i8 39, label %58
   ]
 
-.backedge.i:                                      ; preds = %65, %.preheader.i
-  %storemerge.i = phi i8 [ %58, %.preheader.i ], [ %64, %65 ]
-  %.023.be.i = phi ptr [ %57, %.preheader.i ], [ %66, %65 ]
+.backedge.i:                                      ; preds = %64, %.preheader.i
+  %storemerge.i = phi i8 [ %57, %.preheader.i ], [ %63, %64 ]
+  %.023.be.i = phi ptr [ %56, %.preheader.i ], [ %65, %64 ]
   %.024.be.i = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   store i8 %storemerge.i, ptr %.024.i, align 1, !tbaa !13
   br label %.preheader.i
 
-59:                                               ; preds = %.preheader.i
-  %60 = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
-  %61 = load i8, ptr %60, align 1, !tbaa !13
-  switch i8 %61, label %sq_dequote_step.exit [
+58:                                               ; preds = %.preheader.i
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
+  %60 = load i8, ptr %59, align 1, !tbaa !13
+  switch i8 %60, label %sq_dequote_step.exit [
     i8 0, label %sq_dequote_step.exit.thread51
-    i8 92, label %62
+    i8 92, label %61
   ]
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %.023.i, i64 3
-  %64 = load i8, ptr %63, align 1, !tbaa !13
-  switch i8 %64, label %sq_dequote_step.exit [
-    i8 39, label %65
-    i8 33, label %65
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %.023.i, i64 3
+  %63 = load i8, ptr %62, align 1, !tbaa !13
+  switch i8 %63, label %sq_dequote_step.exit [
+    i8 39, label %64
+    i8 33, label %64
   ]
 
-65:                                               ; preds = %62, %62
-  %66 = getelementptr inbounds nuw i8, ptr %.023.i, i64 4
-  %67 = load i8, ptr %66, align 1, !tbaa !13
-  %68 = icmp eq i8 %67, 39
-  br i1 %68, label %.backedge.i, label %sq_dequote_step.exit
+64:                                               ; preds = %61, %61
+  %65 = getelementptr inbounds nuw i8, ptr %.023.i, i64 4
+  %66 = load i8, ptr %65, align 1, !tbaa !13
+  %67 = icmp eq i8 %66, 39
+  br i1 %67, label %.backedge.i, label %sq_dequote_step.exit
 
-sq_dequote_step.exit:                             ; preds = %59, %62, %65
-  %69 = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
+sq_dequote_step.exit:                             ; preds = %58, %61, %64
+  %68 = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
   store i8 0, ptr %.024.i, align 1, !tbaa !13
-  %70 = load i8, ptr %69, align 1, !tbaa !13
-  %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !13
-  %74 = and i8 %73, 1
-  %.not36.not = icmp eq i8 %74, 0
+  %69 = load i8, ptr %68, align 1, !tbaa !13
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %70
+  %72 = load i8, ptr %71, align 1, !tbaa !13
+  %73 = and i8 %72, 1
+  %.not36.not = icmp eq i8 %73, 0
   br i1 %.not36.not, label %.critedge43, label %.preheader
 
-sq_dequote_step.exit.thread51:                    ; preds = %59
+sq_dequote_step.exit.thread51:                    ; preds = %58
   store i8 0, ptr %.024.i, align 1, !tbaa !13
   br label %.thread
 
 .preheader:                                       ; preds = %sq_dequote_step.exit, %.preheader
-  %.2 = phi ptr [ %75, %.preheader ], [ %69, %sq_dequote_step.exit ]
-  %75 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  %76 = load i8, ptr %75, align 1, !tbaa !13
-  %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !13
-  %80 = and i8 %79, 1
-  %.not37 = icmp eq i8 %80, 0
+  %.2 = phi ptr [ %74, %.preheader ], [ %68, %sq_dequote_step.exit ]
+  %74 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  %75 = load i8, ptr %74, align 1, !tbaa !13
+  %76 = zext i8 %75 to i64
+  %77 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %76
+  %78 = load i8, ptr %77, align 1, !tbaa !13
+  %79 = and i8 %78, 1
+  %.not37 = icmp eq i8 %79, 0
   br i1 %.not37, label %.thread, label %.preheader, !llvm.loop !20
 
 .thread:                                          ; preds = %.preheader, %sq_dequote_step.exit.thread51
-  %.1 = phi ptr [ null, %sq_dequote_step.exit.thread51 ], [ %75, %.preheader ]
-  %81 = load i32, ptr %2, align 4, !tbaa !21
-  %82 = load i32, ptr %3, align 4, !tbaa !21
-  %.not39 = icmp slt i32 %81, %82
-  br i1 %.not39, label %.thread._crit_edge, label %83
+  %.1 = phi ptr [ null, %sq_dequote_step.exit.thread51 ], [ %74, %.preheader ]
+  %80 = load i32, ptr %2, align 4, !tbaa !21
+  %81 = load i32, ptr %3, align 4, !tbaa !21
+  %.not39 = icmp slt i32 %80, %81
+  br i1 %.not39, label %.thread._crit_edge, label %82
 
 .thread._crit_edge:                               ; preds = %.thread
   %.pre = load ptr, ptr %1, align 8, !tbaa !23
-  br label %94
+  br label %93
 
-83:                                               ; preds = %.thread
-  %84 = add nsw i32 %81, 1
-  %85 = mul i32 %82, 3
-  %86 = add i32 %85, 48
-  %87 = sdiv i32 %86, 2
-  %.not40 = icmp sgt i32 %87, %81
-  %. = select i1 %.not40, i32 %87, i32 %84
+82:                                               ; preds = %.thread
+  %83 = add nsw i32 %80, 1
+  %84 = mul i32 %81, 3
+  %85 = add i32 %84, 48
+  %86 = sdiv i32 %85, 2
+  %.not40 = icmp sgt i32 %86, %80
+  %. = select i1 %.not40, i32 %86, i32 %83
   store i32 %., ptr %3, align 4, !tbaa !21
-  %88 = sext i32 %. to i64
-  %89 = icmp slt i32 %., 0
-  br i1 %89, label %90, label %st_mult.exit
+  %87 = sext i32 %. to i64
+  %88 = icmp slt i32 %., 0
+  br i1 %88, label %89, label %st_mult.exit
 
-90:                                               ; preds = %83
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %88) #14
+89:                                               ; preds = %82
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %87) #14
   unreachable
 
-st_mult.exit:                                     ; preds = %83
-  %91 = load ptr, ptr %1, align 8, !tbaa !23
-  %92 = shl nuw nsw i64 %88, 3
-  %93 = tail call ptr @xrealloc(ptr noundef %91, i64 noundef %92) #12
-  store ptr %93, ptr %1, align 8, !tbaa !23
+st_mult.exit:                                     ; preds = %82
+  %90 = load ptr, ptr %1, align 8, !tbaa !23
+  %91 = shl nuw nsw i64 %87, 3
+  %92 = tail call ptr @xrealloc(ptr noundef %90, i64 noundef %91) #12
+  store ptr %92, ptr %1, align 8, !tbaa !23
   %.pre97 = load i32, ptr %2, align 4, !tbaa !21
-  br label %94
+  br label %93
 
-94:                                               ; preds = %.thread._crit_edge, %st_mult.exit
-  %95 = phi i32 [ %81, %.thread._crit_edge ], [ %.pre97, %st_mult.exit ]
-  %96 = phi ptr [ %.pre, %.thread._crit_edge ], [ %93, %st_mult.exit ]
-  %97 = add nsw i32 %95, 1
-  store i32 %97, ptr %2, align 4, !tbaa !21
-  %98 = sext i32 %95 to i64
-  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
-  store ptr %.04767, ptr %99, align 8, !tbaa !17
-  br i1 %.not41, label %.critedge, label %100
+93:                                               ; preds = %.thread._crit_edge, %st_mult.exit
+  %94 = phi i32 [ %80, %.thread._crit_edge ], [ %.pre97, %st_mult.exit ]
+  %95 = phi ptr [ %.pre, %.thread._crit_edge ], [ %92, %st_mult.exit ]
+  %96 = add nsw i32 %94, 1
+  store i32 %96, ptr %2, align 4, !tbaa !21
+  %97 = sext i32 %94 to i64
+  %98 = getelementptr inbounds ptr, ptr %95, i64 %97
+  store ptr %.04767, ptr %98, align 8, !tbaa !17
+  br i1 %.not41, label %.critedge, label %99
 
-100:                                              ; preds = %94
-  %101 = tail call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull %.04767) #12
+99:                                               ; preds = %93
+  %100 = tail call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull %.04767) #12
   br label %.critedge
 
-.critedge:                                        ; preds = %100, %94
+.critedge:                                        ; preds = %99, %93
   %.not42 = icmp eq ptr %.1, null
-  br i1 %.not42, label %.critedge43, label %thread-pre-split, !llvm.loop !25
+  br i1 %.not42, label %.critedge..critedge43.loopexit60_crit_edge, label %thread-pre-split, !llvm.loop !25
+
+.critedge..critedge43.loopexit60_crit_edge.loopexit: ; preds = %9
+  store i8 0, ptr %.024.i.us.us, align 1, !tbaa !13
+  br label %.critedge..critedge43.loopexit60_crit_edge
+
+.critedge..critedge43.loopexit60_crit_edge.loopexit78: ; preds = %33
+  store i8 0, ptr %.024.i.us, align 1, !tbaa !13
+  %101 = tail call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull %.04767.us) #12
+  br label %.critedge..critedge43.loopexit60_crit_edge
+
+.critedge..critedge43.loopexit60_crit_edge:       ; preds = %.critedge, %.critedge..critedge43.loopexit60_crit_edge.loopexit78, %.critedge..critedge43.loopexit60_crit_edge.loopexit
+  br label %.critedge43, !llvm.loop !25
 
 .critedge43.loopexit60:                           ; preds = %5
   br label %.critedge43
 
-.critedge43:                                      ; preds = %.critedge, %sq_dequote_step.exit, %thread-pre-split, %.preheader.i, %sq_dequote_step.exit.us, %thread-pre-split.us, %.preheader.i.us, %sq_dequote_step.exit.us.us, %thread-pre-split.us.us, %.preheader.i.us.us, %.thread.us.thread, %.thread.us.us.thread, %5, %.critedge43.loopexit60
-  %.0 = phi i32 [ 0, %5 ], [ -1, %.critedge43.loopexit60 ], [ 0, %.thread.us.us.thread ], [ 0, %.thread.us.thread ], [ -1, %.preheader.i.us.us ], [ -1, %thread-pre-split.us.us ], [ -1, %sq_dequote_step.exit.us.us ], [ -1, %.preheader.i.us ], [ -1, %thread-pre-split.us ], [ -1, %sq_dequote_step.exit.us ], [ -1, %.preheader.i ], [ 0, %.critedge ], [ -1, %sq_dequote_step.exit ], [ -1, %thread-pre-split ]
+.critedge43:                                      ; preds = %sq_dequote_step.exit, %thread-pre-split, %.preheader.i, %sq_dequote_step.exit.us, %thread-pre-split.us, %.preheader.i.us, %sq_dequote_step.exit.us.us, %thread-pre-split.us.us, %.preheader.i.us.us, %.critedge..critedge43.loopexit60_crit_edge, %5, %.critedge43.loopexit60
+  %.0 = phi i32 [ 0, %5 ], [ 0, %.critedge..critedge43.loopexit60_crit_edge ], [ -1, %.critedge43.loopexit60 ], [ -1, %.preheader.i.us.us ], [ -1, %thread-pre-split.us.us ], [ -1, %sq_dequote_step.exit.us.us ], [ -1, %.preheader.i.us ], [ -1, %thread-pre-split.us ], [ -1, %sq_dequote_step.exit.us ], [ -1, %.preheader.i ], [ -1, %thread-pre-split ], [ -1, %sq_dequote_step.exit ]
   ret i32 %.0
 }
 

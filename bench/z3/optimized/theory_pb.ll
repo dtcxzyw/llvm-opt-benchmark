@@ -20196,7 +20196,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEEpLERK3mpz.exit: ; preds = %_ZN15_scoped
 
 _ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit..critedge_crit_edge: ; preds = %.noexc29, %81
   %.pre = load ptr, ptr %17, align 8, !tbaa !675
-  br label %.critedge
+  br label %.critedge, !llvm.loop !838
 
 88:                                               ; preds = %.noexc25, %38
   %89 = phi i32 [ %.pre2.i.i, %.noexc25 ], [ %40, %38 ]

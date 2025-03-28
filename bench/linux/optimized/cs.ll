@@ -1438,7 +1438,7 @@ define internal fastcc i32 @socket_setup(ptr noundef %0, i32 noundef %1) unnamed
 
 ._crit_edge:                                      ; preds = %26
   %.pre = load i32, ptr %3, align 4
-  br label %split
+  br label %split, !llvm.loop !24
 
 split:                                            ; preds = %23, %._crit_edge
   %29 = phi i32 [ %.pre, %._crit_edge ], [ %20, %23 ]

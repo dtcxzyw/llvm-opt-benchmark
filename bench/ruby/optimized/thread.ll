@@ -17340,10 +17340,13 @@ rb_native_mutex_unlock.exit:                      ; preds = %44
 70:                                               ; preds = %.lr.ph88
   %71 = load ptr, ptr %.pn7486, align 8, !tbaa !84
   %.not63 = icmp eq ptr %71, getelementptr inbounds nuw (i8, ptr @timer_th, i64 224)
-  br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !430
+  br i1 %.not63, label %.._crit_edge_crit_edge, label %.lr.ph, !llvm.loop !430
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph88, %70, %.lr.ph.preheader
-  %.0.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0427687, %.lr.ph ], [ %.07585, %.lr.ph88 ], [ %.0427687, %70 ]
+.._crit_edge_crit_edge:                           ; preds = %70
+  br label %._crit_edge, !llvm.loop !430
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph88, %.._crit_edge_crit_edge, %.lr.ph.preheader
+  %.0.lcssa = phi ptr [ %.0427687, %.._crit_edge_crit_edge ], [ null, %.lr.ph.preheader ], [ %.0427687, %.lr.ph ], [ %.07585, %.lr.ph88 ]
   %.not65 = icmp eq ptr %.0.lcssa, null
   br i1 %.not65, label %._crit_edge.thread, label %72
 

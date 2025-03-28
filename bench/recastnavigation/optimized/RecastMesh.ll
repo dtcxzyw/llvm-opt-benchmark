@@ -4825,10 +4825,13 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %309 = load i32, ptr %23, align 4
   %310 = sext i32 %309 to i64
   %311 = icmp slt i64 %indvars.iv.next312, %310
-  br i1 %311, label %.lr.ph284, label %._crit_edge285, !llvm.loop !63
+  br i1 %311, label %.lr.ph284, label %.._crit_edge285.loopexit_crit_edge, !llvm.loop !63
 
-._crit_edge285:                                   ; preds = %.lr.ph284, %.lr.ph344, %.lr.ph284.preheader, %262
-  %312 = phi i32 [ %297, %262 ], [ %297, %.lr.ph284.preheader ], [ %309, %.lr.ph344 ], [ %309, %.lr.ph284 ]
+.._crit_edge285.loopexit_crit_edge:               ; preds = %.lr.ph344
+  br label %._crit_edge285, !llvm.loop !63
+
+._crit_edge285:                                   ; preds = %.lr.ph284, %.lr.ph284.preheader, %.._crit_edge285.loopexit_crit_edge, %262
+  %312 = phi i32 [ %297, %262 ], [ %309, %.._crit_edge285.loopexit_crit_edge ], [ %297, %.lr.ph284.preheader ], [ %309, %.lr.ph284 ]
   %313 = shl nsw i32 %312, 1
   %314 = icmp slt i32 %312, %313
   %or.cond335 = select i1 %spec.select239, i1 %314, i1 false

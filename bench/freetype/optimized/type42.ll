@@ -2700,7 +2700,7 @@ default.unreachable:                              ; preds = %.lr.ph405
 
 .thread..thread250.loopexit412_crit_edge:         ; preds = %107
   %.pre501.pre = load i32, ptr %3, align 4, !tbaa !74
-  br label %.thread250
+  br label %.thread250, !llvm.loop !268
 
 ._crit_edge700:                                   ; preds = %.thread, %.preheader290
   %.1181.lcssa = phi ptr [ null, %.preheader290 ], [ %.4184226, %.thread ]
@@ -3068,3 +3068,4 @@ attributes #14 = { nounwind willreturn memory(read) }
 !265 = !{!72, !6, i64 88}
 !266 = distinct !{!266, !92}
 !267 = distinct !{!267, !92}
+!268 = distinct !{!268, !92}

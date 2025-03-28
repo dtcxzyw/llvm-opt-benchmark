@@ -5968,10 +5968,13 @@ define ptr @Abc_NtkMapTransform(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %.val143.val = load i32, ptr %25, align 4, !tbaa !13
   %26 = sub nsw i32 %.val143.val, %.val142
   %27 = icmp slt i32 %24, %26
-  br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !149
+  br i1 %27, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !149
 
-.critedge:                                        ; preds = %.lr.ph228, %.lr.ph, %.lr.ph.preheader, %5
-  %.val144165 = phi i32 [ %.val142160, %5 ], [ %.val142160, %.lr.ph.preheader ], [ %.val142, %.lr.ph ], [ %.val142, %.lr.ph228 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph228
+  br label %.critedge, !llvm.loop !149
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %5
+  %.val144165 = phi i32 [ %.val142160, %5 ], [ %.val142, %..critedge.loopexit_crit_edge ], [ %.val142160, %.lr.ph.preheader ], [ %.val142, %.lr.ph ]
   %.val145166 = load ptr, ptr %7, align 8, !tbaa !50
   %28 = getelementptr i8, ptr %.val145166, i64 4
   %.val145.val167 = load i32, ptr %28, align 4, !tbaa !13

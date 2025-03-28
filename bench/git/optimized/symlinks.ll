@@ -585,7 +585,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   %83 = trunc nsw i64 %indvars.iv to i32
   %sext172 = shl i64 %indvars.iv.next, 32
   %.pre171 = ashr exact i64 %sext172, 32
-  br label %.critedge.us
+  br label %.critedge.us, !llvm.loop !29
 
 .critedge.us:                                     ; preds = %.preheader.us, %..critedge.us_crit_edge
   %.pre-phi = phi i64 [ %.pre171, %..critedge.us_crit_edge ], [ %63, %.preheader.us ]

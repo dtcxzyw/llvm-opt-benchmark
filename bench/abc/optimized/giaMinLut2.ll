@@ -3657,12 +3657,15 @@ define internal fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %1,
   %69 = or i64 %68, %62
   %70 = or i64 %69, %66
   %71 = icmp sgt i32 %.093132157, 0
-  br i1 %71, label %.lr.ph133, label %._crit_edge, !llvm.loop !88
+  br i1 %71, label %.lr.ph133, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !88
 
-._crit_edge:                                      ; preds = %.lr.ph133, %.lr.ph159, %.lr.ph133.preheader, %.critedge
-  %.093.in.lcssa = phi i32 [ %3, %.critedge ], [ %3, %.lr.ph133.preheader ], [ 0, %.lr.ph159 ], [ %.093132157, %.lr.ph133 ]
-  %.092.lcssa = phi i64 [ %2, %.critedge ], [ %2, %.lr.ph133.preheader ], [ %70, %.lr.ph159 ], [ %70, %.lr.ph133 ]
-  %.093.lcssa = phi i32 [ %.093129, %.critedge ], [ %.093129, %.lr.ph133.preheader ], [ -1, %.lr.ph159 ], [ %.093, %.lr.ph133 ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph159
+  br label %._crit_edge, !llvm.loop !88
+
+._crit_edge:                                      ; preds = %.lr.ph133, %.lr.ph133.preheader, %.._crit_edge.loopexit_crit_edge, %.critedge
+  %.093.in.lcssa = phi i32 [ %3, %.critedge ], [ 0, %.._crit_edge.loopexit_crit_edge ], [ %3, %.lr.ph133.preheader ], [ %.093132157, %.lr.ph133 ]
+  %.092.lcssa = phi i64 [ %2, %.critedge ], [ %70, %.._crit_edge.loopexit_crit_edge ], [ %2, %.lr.ph133.preheader ], [ %70, %.lr.ph133 ]
+  %.093.lcssa = phi i32 [ %.093129, %.critedge ], [ -1, %.._crit_edge.loopexit_crit_edge ], [ %.093129, %.lr.ph133.preheader ], [ %.093, %.lr.ph133 ]
   %72 = sext i32 %.093.lcssa to i64
   %73 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !16
@@ -7293,10 +7296,13 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.val58 = load i32, ptr %64, align 4, !tbaa !18
   %65 = sext i32 %.val58 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %.lr.ph, label %.critedge, !llvm.loop !134
+  br i1 %66, label %.lr.ph, label %Vec_IntPush.exit..critedge.loopexit_crit_edge, !llvm.loop !134
 
-.critedge:                                        ; preds = %Vec_IntPush.exit, %.lr.ph, %.lr.ph.preheader, %1
-  %.val58.lcssa = phi i32 [ %.val62.val, %1 ], [ %.val62.val, %.lr.ph.preheader ], [ %.val58, %.lr.ph ], [ %.val58, %Vec_IntPush.exit ]
+Vec_IntPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_IntPush.exit
+  br label %.critedge, !llvm.loop !134
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %Vec_IntPush.exit..critedge.loopexit_crit_edge, %1
+  %.val58.lcssa = phi i32 [ %.val62.val, %1 ], [ %.val58, %Vec_IntPush.exit..critedge.loopexit_crit_edge ], [ %.val62.val, %.lr.ph.preheader ], [ %.val58, %.lr.ph ]
   tail call void @Gia_ObjComputeTruthTableStart(ptr noundef nonnull %0, i32 noundef %.val58.lcssa) #24
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %68 = load ptr, ptr %67, align 8, !tbaa !110

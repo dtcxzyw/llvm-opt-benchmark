@@ -2520,11 +2520,14 @@ define noalias noundef ptr @Gia_ManSimSimulateOne(ptr noundef readonly captures(
   %.val98 = load i32, ptr %112, align 4, !tbaa !34
   %113 = sext i32 %.val98 to i64
   %114 = icmp slt i64 %indvars.iv.next184, %113
-  br i1 %114, label %.lr.ph150, label %.critedge6, !llvm.loop !106
+  br i1 %114, label %.lr.ph150, label %..critedge6.loopexit_crit_edge, !llvm.loop !106
 
-.critedge6:                                       ; preds = %.lr.ph220, %.lr.ph150, %.lr.ph150.preheader, %.critedge4
-  %.val103.val154 = phi i32 [ %.val98148, %.critedge4 ], [ %.val98148, %.lr.ph150.preheader ], [ %.val98, %.lr.ph150 ], [ %.val98, %.lr.ph220 ]
-  %.val103153 = phi ptr [ %92, %.critedge4 ], [ %92, %.lr.ph150.preheader ], [ %111, %.lr.ph150 ], [ %111, %.lr.ph220 ]
+..critedge6.loopexit_crit_edge:                   ; preds = %.lr.ph220
+  br label %.critedge6, !llvm.loop !106
+
+.critedge6:                                       ; preds = %.lr.ph150, %.lr.ph150.preheader, %..critedge6.loopexit_crit_edge, %.critedge4
+  %.val103.val154 = phi i32 [ %.val98148, %.critedge4 ], [ %.val98, %..critedge6.loopexit_crit_edge ], [ %.val98148, %.lr.ph150.preheader ], [ %.val98, %.lr.ph150 ]
+  %.val103153 = phi ptr [ %92, %.critedge4 ], [ %111, %..critedge6.loopexit_crit_edge ], [ %92, %.lr.ph150.preheader ], [ %111, %.lr.ph150 ]
   %.val102152 = load i32, ptr %6, align 8, !tbaa !44
   %115 = icmp sgt i32 %.val103.val154, %.val102152
   br i1 %115, label %.lr.ph157.preheader, label %.critedge8
@@ -2612,11 +2615,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %148 = sub nsw i32 %.val103.val, %.val102
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next188, %149
-  br i1 %150, label %.lr.ph157, label %.critedge8, !llvm.loop !107
+  br i1 %150, label %.lr.ph157, label %Vec_IntPush.exit..critedge8.loopexit_crit_edge, !llvm.loop !107
 
-.critedge8:                                       ; preds = %Vec_IntPush.exit, %.lr.ph157, %.lr.ph157.preheader, %.critedge6
-  %.val96159 = phi i32 [ %.val102152, %.critedge6 ], [ %.val102152, %.lr.ph157.preheader ], [ %.val102, %.lr.ph157 ], [ %.val102, %Vec_IntPush.exit ]
-  %.pre.i204 = phi ptr [ %.pre.i203, %.critedge6 ], [ %.pre.i203, %.lr.ph157.preheader ], [ %.pre.i207, %.lr.ph157 ], [ %.pre.i207, %Vec_IntPush.exit ]
+Vec_IntPush.exit..critedge8.loopexit_crit_edge:   ; preds = %Vec_IntPush.exit
+  br label %.critedge8, !llvm.loop !107
+
+.critedge8:                                       ; preds = %.lr.ph157, %.lr.ph157.preheader, %Vec_IntPush.exit..critedge8.loopexit_crit_edge, %.critedge6
+  %.val96159 = phi i32 [ %.val102152, %.critedge6 ], [ %.val102, %Vec_IntPush.exit..critedge8.loopexit_crit_edge ], [ %.val102152, %.lr.ph157.preheader ], [ %.val102, %.lr.ph157 ]
+  %.pre.i204 = phi ptr [ %.pre.i203, %.critedge6 ], [ %.pre.i207, %Vec_IntPush.exit..critedge8.loopexit_crit_edge ], [ %.pre.i203, %.lr.ph157.preheader ], [ %.pre.i207, %.lr.ph157 ]
   %151 = icmp sgt i32 %.val96159, 0
   br i1 %151, label %.lr.ph163, label %.critedge10
 

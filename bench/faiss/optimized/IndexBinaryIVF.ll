@@ -20643,7 +20643,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %185
   %.pre153.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1089
 
 .critedge:                                        ; preds = %.lr.ph127, %.critedge
   %indvars.iv148 = phi i64 [ %166, %.lr.ph127 ], [ %indvars.iv.next149, %.critedge ]
@@ -21100,7 +21100,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %184
   %.pre153.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1102
 
 .critedge:                                        ; preds = %.lr.ph127, %.critedge
   %indvars.iv148 = phi i64 [ %165, %.lr.ph127 ], [ %indvars.iv.next149, %.critedge ]
@@ -21567,7 +21567,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %194
   %.pre153.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1115
 
 .critedge:                                        ; preds = %.lr.ph127, %.critedge
   %indvars.iv148 = phi i64 [ %175, %.lr.ph127 ], [ %indvars.iv.next149, %.critedge ]
@@ -22041,7 +22041,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %201
   %.pre153.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1128
 
 .critedge:                                        ; preds = %.lr.ph127, %.critedge
   %indvars.iv148 = phi i64 [ %182, %.lr.ph127 ], [ %indvars.iv.next149, %.critedge ]
@@ -22524,7 +22524,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %210
   %.pre153.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1141
 
 .critedge:                                        ; preds = %.lr.ph127, %.critedge
   %indvars.iv148 = phi i64 [ %191, %.lr.ph127 ], [ %indvars.iv.next149, %.critedge ]
@@ -23039,7 +23039,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %242
   %.pre153.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1154
 
 .critedge:                                        ; preds = %.lr.ph127, %.critedge
   %indvars.iv148 = phi i64 [ %223, %.lr.ph127 ], [ %indvars.iv.next149, %.critedge ]
@@ -23494,7 +23494,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %182
   %.pre153.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1167
 
 .critedge:                                        ; preds = %.lr.ph127, %.critedge
   %indvars.iv148 = phi i64 [ %163, %.lr.ph127 ], [ %indvars.iv.next149, %.critedge ]
@@ -23976,7 +23976,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %200
   %.pre159.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1172
 
 .critedge:                                        ; preds = %.lr.ph133, %.critedge
   %indvars.iv154 = phi i64 [ %181, %.lr.ph133 ], [ %indvars.iv.next155, %.critedge ]
@@ -24457,7 +24457,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %199
   %.pre159.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1177
 
 .critedge:                                        ; preds = %.lr.ph133, %.critedge
   %indvars.iv154 = phi i64 [ %180, %.lr.ph133 ], [ %indvars.iv.next155, %.critedge ]
@@ -24948,7 +24948,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %209
   %.pre159.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1182
 
 .critedge:                                        ; preds = %.lr.ph133, %.critedge
   %indvars.iv154 = phi i64 [ %190, %.lr.ph133 ], [ %indvars.iv.next155, %.critedge ]
@@ -25446,7 +25446,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %216
   %.pre159.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1187
 
 .critedge:                                        ; preds = %.lr.ph133, %.critedge
   %indvars.iv154 = phi i64 [ %197, %.lr.ph133 ], [ %indvars.iv.next155, %.critedge ]
@@ -25953,7 +25953,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %225
   %.pre159.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1192
 
 .critedge:                                        ; preds = %.lr.ph133, %.critedge
   %indvars.iv154 = phi i64 [ %206, %.lr.ph133 ], [ %indvars.iv.next155, %.critedge ]
@@ -26492,7 +26492,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %257
   %.pre159.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1197
 
 .critedge:                                        ; preds = %.lr.ph133, %.critedge
   %indvars.iv154 = phi i64 [ %238, %.lr.ph133 ], [ %indvars.iv.next155, %.critedge ]
@@ -26968,7 +26968,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %196
   %.pre159.pre = load i32, ptr %11, align 4
-  br label %.critedge2.loopexit
+  br label %.critedge2.loopexit, !llvm.loop !1202
 
 .critedge:                                        ; preds = %.lr.ph133, %.critedge
   %indvars.iv154 = phi i64 [ %177, %.lr.ph133 ], [ %indvars.iv.next155, %.critedge ]

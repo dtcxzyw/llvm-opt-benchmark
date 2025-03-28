@@ -10763,7 +10763,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTex
   %.pre201 = load ptr, ptr %10, align 8
   %.phi.trans.insert202 = getelementptr inbounds nuw ptr, ptr %.pre201, i64 %indvars.iv175
   %.pre203 = load ptr, ptr %.phi.trans.insert202, align 8
-  br label %split
+  br label %split, !llvm.loop !107
 
 split:                                            ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit, %._crit_edge200
   %82 = phi i32 [ %81, %._crit_edge200 ], [ %68, %_ZNK6aiMesh16HasTextureCoordsEj.exit ]

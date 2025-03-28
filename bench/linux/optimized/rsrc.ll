@@ -1322,7 +1322,7 @@ define dso_local noundef i32 @io_files_update(ptr noundef %0, i32 noundef %1) lo
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %43
   %.pre.pre = load i32, ptr %3, align 4
-  br label %.loopexit
+  br label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %33, %29, %.preheader, %..loopexit.loopexit_crit_edge, %39
   %48 = phi i32 [ -14, %39 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ -14, %.preheader ], [ -9, %29 ], [ %34, %33 ]

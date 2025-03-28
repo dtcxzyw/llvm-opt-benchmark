@@ -20,7 +20,10 @@ define ptr @Cudd_SolveEqn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %12 = tail call ptr @cuddSolveEqnRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %5, ptr noundef nonnull %9, i32 noundef 0)
   %13 = load i32, ptr %11, align 8, !tbaa !8
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %.split, label %.loopexit, !llvm.loop !25
+  br i1 %14, label %.split.lr.ph, label %.loopexit, !llvm.loop !25
+
+.split.lr.ph:                                     ; preds = %.split14
+  br label %.split, !llvm.loop !25
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -30,15 +33,18 @@ define ptr @Cudd_SolveEqn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %19 = tail call i64 @fwrite(ptr nonnull @.str, i64 40, i64 1, ptr %18)
   br label %.loopexit
 
-.split:                                           ; preds = %.split14, %.split
+.split:                                           ; preds = %.split.lr.ph, %.split
   store i32 0, ptr %11, align 8, !tbaa !8
   %20 = tail call ptr @cuddSolveEqnRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %5, ptr noundef nonnull %9, i32 noundef 0)
   %21 = load i32, ptr %11, align 8, !tbaa !8
   %22 = icmp eq i32 %21, 1
-  br i1 %22, label %.split, label %.loopexit, !llvm.loop !25
+  br i1 %22, label %.split, label %..loopexit_crit_edge, !llvm.loop !25
 
-.loopexit:                                        ; preds = %.split, %.split14, %15
-  %.0 = phi ptr [ null, %15 ], [ %12, %.split14 ], [ %20, %.split ]
+..loopexit_crit_edge:                             ; preds = %.split
+  br label %.loopexit, !llvm.loop !25
+
+.loopexit:                                        ; preds = %.split14, %..loopexit_crit_edge, %15
+  %.0 = phi ptr [ null, %15 ], [ %20, %..loopexit_crit_edge ], [ %12, %.split14 ]
   ret ptr %.0
 }
 

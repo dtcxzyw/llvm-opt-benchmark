@@ -175,6 +175,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.phi.trans.insert.i35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %52
 
+..critedge.loopexit_crit_edge:                    ; preds = %.thread
+  br label %.critedge.backedge, !llvm.loop !24
+
 52:                                               ; preds = %.lr.ph64, %.critedge.backedge
   %.val63 = phi i32 [ %.val61, %.lr.ph64 ], [ %.val, %.critedge.backedge ]
   %53 = load ptr, ptr %50, align 8, !tbaa !17
@@ -253,7 +256,7 @@ Vec_IntPush.exit40:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %60, ptr %88, align 4, !tbaa !18
   br label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %.thread, %Vec_IntPush.exit47, %Vec_IntPush.exit40
+.critedge.backedge:                               ; preds = %Vec_IntPush.exit47, %..critedge.loopexit_crit_edge, %Vec_IntPush.exit40
   %.val = load i32, ptr %19, align 4, !tbaa !14
   %.not29 = icmp eq i32 %.val, 0
   br i1 %.not29, label %.loopexit, label %52, !llvm.loop !24
@@ -301,7 +304,7 @@ Vec_IntPush.exit47:                               ; preds = %Vec_IntPush.exit47.
 
 .lr.ph:                                           ; preds = %Vec_IntPush.exit47
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %114
+  br label %114, !llvm.loop !24
 
 114:                                              ; preds = %.lr.ph, %.thread
   %115 = phi i32 [ %112, %.lr.ph ], [ %159, %.thread ]
@@ -400,7 +403,7 @@ Vec_IntPush.exit58:                               ; preds = %Vec_IntPush.exit58.
   %160 = lshr i32 %159, 3
   %161 = zext nneg i32 %160 to i64
   %162 = icmp samesign ult i64 %indvars.iv.next, %161
-  br i1 %162, label %114, label %.critedge.backedge, !llvm.loop !25
+  br i1 %162, label %114, label %..critedge.loopexit_crit_edge, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.critedge.backedge, %Vec_IntPush.exit, %4
   ret void

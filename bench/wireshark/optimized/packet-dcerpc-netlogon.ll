@@ -3214,10 +3214,13 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %
   %37 = getelementptr inbounds nuw i8, ptr %.01230.i16, i64 392
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %find_tmp_netlogon_auth_vars.exit, label %30, !llvm.loop !10
+  br i1 %.not.i, label %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge, label %30, !llvm.loop !10
 
-find_tmp_netlogon_auth_vars.exit:                 ; preds = %.thread22.i, %36, %30, %.lr.ph.i, %6
-  %.1.i = phi ptr [ null, %6 ], [ null, %.lr.ph.i ], [ %.227.i, %.thread22.i ], [ %.01230.i16, %36 ], [ %.227.i, %30 ]
+.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge: ; preds = %.thread22.i
+  br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
+
+find_tmp_netlogon_auth_vars.exit:                 ; preds = %36, %30, %.lr.ph.i, %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge, %6
+  %.1.i = phi ptr [ null, %6 ], [ %.227.i, %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge ], [ null, %.lr.ph.i ], [ %.01230.i16, %36 ], [ %.227.i, %30 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
   %39 = load i32, ptr @hf_server_challenge, align 4
   %.val = load i8, ptr %5, align 1
@@ -5034,9 +5037,9 @@ find_tmp_netlogon_auth_vars.exit.thread:          ; preds = %6
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 384
   %45 = load i32, ptr %44, align 8
   %.not16.i41 = icmp sgt i32 %43, %45
-  br i1 %.not16.i41, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit.thread45
+  br i1 %.not16.i41, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit.thread47
 
-find_tmp_netlogon_auth_vars.exit.thread45:        ; preds = %.lr.ph.i
+find_tmp_netlogon_auth_vars.exit.thread47:        ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
   br label %66
 
@@ -5066,9 +5069,12 @@ find_tmp_netlogon_auth_vars.exit.thread36:        ; preds = %52
   %53 = getelementptr inbounds nuw i8, ptr %.01230.i42, i64 392
   %54 = load ptr, ptr %53, align 8
   %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %find_tmp_netlogon_auth_vars.exit, label %46, !llvm.loop !10
+  br i1 %.not.i, label %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge, label %46, !llvm.loop !10
 
-find_tmp_netlogon_auth_vars.exit:                 ; preds = %.thread22.i, %46
+.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge: ; preds = %.thread22.i
+  br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
+
+find_tmp_netlogon_auth_vars.exit:                 ; preds = %46, %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
   %.not33 = icmp eq ptr %.227.i, null
   br i1 %.not33, label %66, label %55
@@ -5089,7 +5095,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %.thread22.i, %46
   %65 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %64, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1325)
   br label %66
 
-66:                                               ; preds = %find_tmp_netlogon_auth_vars.exit.thread45, %find_tmp_netlogon_auth_vars.exit.thread, %find_tmp_netlogon_auth_vars.exit, %55
+66:                                               ; preds = %find_tmp_netlogon_auth_vars.exit.thread47, %find_tmp_netlogon_auth_vars.exit.thread, %find_tmp_netlogon_auth_vars.exit, %55
   ret i32 %23
 }
 
@@ -6526,9 +6532,9 @@ find_tmp_netlogon_auth_vars.exit.thread:          ; preds = %55
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 384
   %79 = load i32, ptr %78, align 8
   %.not16.i170 = icmp sgt i32 %77, %79
-  br i1 %.not16.i170, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit.thread228
+  br i1 %.not16.i170, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit.thread230
 
-find_tmp_netlogon_auth_vars.exit.thread228:       ; preds = %.lr.ph.i
+find_tmp_netlogon_auth_vars.exit.thread230:       ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
   br label %249
 
@@ -6558,9 +6564,12 @@ find_tmp_netlogon_auth_vars.exit.thread139:       ; preds = %86
   %87 = getelementptr inbounds nuw i8, ptr %.01230.i171, i64 392
   %88 = load ptr, ptr %87, align 8
   %.not.i134 = icmp eq ptr %88, null
-  br i1 %.not.i134, label %find_tmp_netlogon_auth_vars.exit, label %80, !llvm.loop !10
+  br i1 %.not.i134, label %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge, label %80, !llvm.loop !10
 
-find_tmp_netlogon_auth_vars.exit:                 ; preds = %.thread22.i, %80
+.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge: ; preds = %.thread22.i
+  br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
+
+find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
   %.not122 = icmp eq ptr %.227.i, null
   br i1 %.not122, label %249, label %89
@@ -6739,13 +6748,13 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %.thread22.i, %80
 
 .lr.ph177:                                        ; preds = %148
   %150 = getelementptr inbounds nuw i8, ptr %11, i64 7
-  %wide.trip.count221 = zext i32 %94 to i64
+  %wide.trip.count223 = zext i32 %94 to i64
   br label %151
 
 151:                                              ; preds = %.lr.ph177, %158
-  %indvars.iv218 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next219, %158 ]
+  %indvars.iv220 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next221, %158 ]
   %152 = load ptr, ptr %9, align 8
-  %153 = getelementptr %struct._md4_pass, ptr %152, i64 %indvars.iv218
+  %153 = getelementptr %struct._md4_pass, ptr %152, i64 %indvars.iv220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(273) %10, ptr noundef align 1 dereferenceable(273) %153, i64 273, i1 false)
   %154 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %18, i64 noundef 16, ptr noundef nonnull %10, i64 noundef 16)
   %.not126 = icmp eq i32 %154, 0
@@ -6759,9 +6768,9 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %.thread22.i, %80
   br i1 %157, label %._crit_edge, label %158
 
 158:                                              ; preds = %151, %155
-  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %exitcond222.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count221
-  br i1 %exitcond222.not, label %._crit_edge, label %151, !llvm.loop !15
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
+  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
+  br i1 %exitcond224.not, label %._crit_edge, label %151, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %158, %155, %148
   %.5115 = phi i32 [ 0, %148 ], [ 1, %155 ], [ 0, %158 ]
@@ -6790,22 +6799,22 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %.thread22.i, %80
 
 .lr.ph185:                                        ; preds = %159
   %169 = getelementptr inbounds nuw i8, ptr %11, i64 7
-  %wide.trip.count226 = zext i32 %94 to i64
+  %wide.trip.count228 = zext i32 %94 to i64
   br label %171
 
 170:                                              ; preds = %171
-  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
-  %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count226
-  br i1 %exitcond227.not, label %._crit_edge186, label %171, !llvm.loop !16
+  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
+  %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
+  br i1 %exitcond229.not, label %._crit_edge186, label %171, !llvm.loop !16
 
 171:                                              ; preds = %.lr.ph185, %170
-  %indvars.iv223 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next224, %170 ]
+  %indvars.iv225 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next226, %170 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #15
   store i64 0, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #15
   %172 = load ptr, ptr %9, align 8
-  %173 = getelementptr %struct._md4_pass, ptr %172, i64 %indvars.iv223
+  %173 = getelementptr %struct._md4_pass, ptr %172, i64 %indvars.iv225
   call void @crypt_des_ecb(ptr noundef nonnull %23, ptr noundef nonnull %22, ptr noundef %173)
   %174 = getelementptr i8, ptr %173, i64 9
   call void @crypt_des_ecb(ptr noundef nonnull %11, ptr noundef nonnull %23, ptr noundef %174)
@@ -6914,7 +6923,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %.thread22.i, %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
   br label %249
 
-249:                                              ; preds = %find_tmp_netlogon_auth_vars.exit.thread228, %find_tmp_netlogon_auth_vars.exit.thread, %248, %find_tmp_netlogon_auth_vars.exit
+249:                                              ; preds = %find_tmp_netlogon_auth_vars.exit.thread230, %find_tmp_netlogon_auth_vars.exit.thread, %248, %find_tmp_netlogon_auth_vars.exit
   ret i32 %57
 }
 

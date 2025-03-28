@@ -2788,7 +2788,7 @@ _ZN5clang20NumericLiteralParser15SkipOctalDigitsEPKc.exit: ; preds = %.lr.ph.i13
 
 .critedge2.i148._ZN5clang20NumericLiteralParser10SkipDigitsEPKc.exit150_crit_edge: ; preds = %.critedge2.i148
   %.pre249 = load i8, ptr %scevgep.i143, align 1, !tbaa !3
-  br label %_ZN5clang20NumericLiteralParser10SkipDigitsEPKc.exit150
+  br label %_ZN5clang20NumericLiteralParser10SkipDigitsEPKc.exit150, !llvm.loop !70
 
 _ZN5clang20NumericLiteralParser10SkipDigitsEPKc.exit150: ; preds = %.lr.ph.i144, %.critedge2.i148._ZN5clang20NumericLiteralParser10SkipDigitsEPKc.exit150_crit_edge
   %594 = phi i8 [ %.pre249, %.critedge2.i148._ZN5clang20NumericLiteralParser10SkipDigitsEPKc.exit150_crit_edge ], [ %586, %.lr.ph.i144 ]

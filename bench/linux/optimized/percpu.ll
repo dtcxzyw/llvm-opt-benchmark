@@ -1674,7 +1674,7 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split3
 
 ..thread22_crit_edge:                             ; preds = %318
   %.pre48 = load i64, ptr @__cpu_possible_mask, align 8
-  br label %.thread22
+  br label %.thread22, !llvm.loop !41
 
 .thread22:                                        ; preds = %308, %314, %..thread22_crit_edge
   %331 = phi i64 [ %.pre48, %..thread22_crit_edge ], [ %310, %314 ], [ %310, %308 ]
@@ -4396,7 +4396,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
 
 ..threadthread-pre-split_crit_edge:               ; preds = %70
   %.pr.pre = load i64, ptr @pcpu_build_alloc_info.mask, align 8
-  br label %.thread
+  br label %.thread, !llvm.loop !126
 
 .thread:                                          ; preds = %48, %54, %..threadthread-pre-split_crit_edge
   %74 = phi i64 [ %.pr.pre, %..threadthread-pre-split_crit_edge ], [ %50, %54 ], [ %50, %48 ]

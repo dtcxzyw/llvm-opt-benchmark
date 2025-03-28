@@ -3263,9 +3263,12 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5gimpl17DataObjectCounter8GetNewId
   %28 = load i64, ptr %27, align 8, !tbaa !121
   %29 = urem i64 %28, %5
   %.not19.i.i.i.i = icmp eq i64 %29, %6
-  br i1 %.not19.i.i.i.i, label %19, label %.loopexit.i.i, !llvm.loop !165
+  br i1 %.not19.i.i.i.i, label %19, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !165
 
-.loopexit.i.i:                                    ; preds = %26, %.lr.ph.i.i.i.i, %2
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %26
+  br label %.loopexit.i.i, !llvm.loop !165
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %2
   %30 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   store ptr null, ptr %30, align 8, !tbaa !115
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8

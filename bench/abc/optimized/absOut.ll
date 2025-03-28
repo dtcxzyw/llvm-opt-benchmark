@@ -387,10 +387,13 @@ Abc_Clock.exit:                                   ; preds = %4, %11
   %86 = sub nsw i32 %.val171.val, %.val170
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %.lr.ph, label %.critedge, !llvm.loop !53
+  br i1 %88, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !53
 
-.critedge:                                        ; preds = %84, %.lr.ph, %.lr.ph.preheader, %.preheader203
-  %.val210 = phi i32 [ %.val170204, %.preheader203 ], [ %.val170204, %.lr.ph.preheader ], [ %.val170, %.lr.ph ], [ %.val170, %84 ]
+..critedge.loopexit_crit_edge:                    ; preds = %84
+  br label %.critedge, !llvm.loop !53
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader203
+  %.val210 = phi i32 [ %.val170204, %.preheader203 ], [ %.val170, %..critedge.loopexit_crit_edge ], [ %.val170204, %.lr.ph.preheader ], [ %.val170, %.lr.ph ]
   %89 = icmp sgt i32 %.val210, 0
   br i1 %89, label %.lr.ph213, label %.critedge2
 

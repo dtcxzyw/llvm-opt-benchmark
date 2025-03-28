@@ -611,7 +611,7 @@ mcaoption.exit:                                   ; preds = %44
 
 .._crit_edge217.loopexit_crit_edge:               ; preds = %119
   %.pre285.pre = load ptr, ptr %4, align 8, !tbaa !4
-  br label %._crit_edge217
+  br label %._crit_edge217, !llvm.loop !27
 
 ._crit_edge217:                                   ; preds = %.lr.ph216, %.._crit_edge217.loopexit_crit_edge
   %.pre285 = phi ptr [ %.pre285.pre, %.._crit_edge217.loopexit_crit_edge ], [ %.pre285.pre287, %.lr.ph216 ]

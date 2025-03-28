@@ -151,14 +151,17 @@ define hidden range(i32 0, 2) i32 @lj_str_haspattern(ptr noundef readonly captur
   %13 = zext i8 %7 to i32
   %memchr = tail call ptr @memchr(ptr nonnull dereferenceable(1) @.str, i32 %13, i64 11)
   %.not11 = icmp eq ptr %memchr, null
-  br i1 %.not11, label %.critedge, label %._crit_edge, !llvm.loop !15
+  br i1 %.not11, label %.critedge, label %._crit_edge13, !llvm.loop !15
 
 .critedge:                                        ; preds = %12, %.lr.ph
   %14 = icmp ult ptr %6, %.ptr15
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %12, %.critedge, %1
-  %.2 = phi i32 [ 0, %1 ], [ 0, %.critedge ], [ 1, %12 ]
+._crit_edge13:                                    ; preds = %12
+  br label %._crit_edge, !llvm.loop !15
+
+._crit_edge:                                      ; preds = %.critedge, %._crit_edge13, %1
+  %.2 = phi i32 [ 1, %._crit_edge13 ], [ 0, %1 ], [ 0, %.critedge ]
   ret i32 %.2
 }
 

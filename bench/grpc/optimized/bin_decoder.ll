@@ -275,189 +275,193 @@ define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_c
   %69 = load ptr, ptr %3, align 8, !tbaa !19
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.not = icmp ult ptr %69, %70
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !22
 
-.critedge.loopexit:                               ; preds = %.lr.ph, %19
+..critedge.loopexit_crit_edge:                    ; preds = %19
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 3
+  br label %.critedge, !llvm.loop !22
+
+.critedge.loopexit:                               ; preds = %.lr.ph
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 3
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.preheader
-  %72 = phi ptr [ %8, %.preheader ], [ %8, %.lr.ph.preheader ], [ %71, %.critedge.loopexit ]
-  %.lcssa67 = phi ptr [ %4, %.preheader ], [ %4, %.lr.ph.preheader ], [ %69, %.critedge.loopexit ]
-  %.lcssa = phi ptr [ %2, %.preheader ], [ %2, %.lr.ph.preheader ], [ %68, %.critedge.loopexit ]
-  %73 = ptrtoint ptr %.lcssa67 to i64
-  %74 = ptrtoint ptr %.lcssa to i64
-  %75 = sub i64 %73, %74
-  %76 = icmp eq i64 %75, 4
-  br i1 %76, label %77, label %140
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader
+  %73 = phi ptr [ %8, %.preheader ], [ %71, %..critedge.loopexit_crit_edge ], [ %8, %.lr.ph.preheader ], [ %72, %.critedge.loopexit ]
+  %.lcssa67 = phi ptr [ %4, %.preheader ], [ %69, %..critedge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %69, %.critedge.loopexit ]
+  %.lcssa = phi ptr [ %2, %.preheader ], [ %68, %..critedge.loopexit_crit_edge ], [ %2, %.lr.ph.preheader ], [ %68, %.critedge.loopexit ]
+  %74 = ptrtoint ptr %.lcssa67 to i64
+  %75 = ptrtoint ptr %.lcssa to i64
+  %76 = sub i64 %74, %75
+  %77 = icmp eq i64 %76, 4
+  br i1 %77, label %78, label %141
 
-77:                                               ; preds = %.critedge
-  %78 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 3
-  %79 = load i8, ptr %78, align 1, !tbaa !9
-  %80 = icmp eq i8 %79, 61
-  br i1 %80, label %81, label %.loopexit
+78:                                               ; preds = %.critedge
+  %79 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 3
+  %80 = load i8, ptr %79, align 1, !tbaa !9
+  %81 = icmp eq i8 %80, 61
+  br i1 %81, label %82, label %.loopexit
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 2
-  %83 = load i8, ptr %82, align 1, !tbaa !9
-  %84 = icmp ne i8 %83, 61
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 2
+  %84 = load i8, ptr %83, align 1, !tbaa !9
+  %85 = icmp ne i8 %84, 61
   %.pre = load ptr, ptr %9, align 8, !tbaa !21
-  %85 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  %.not64 = icmp ult ptr %.pre, %85
-  %or.cond74 = select i1 %84, i1 true, i1 %.not64
-  br i1 %or.cond74, label %104, label %86
+  %86 = getelementptr inbounds nuw i8, ptr %73, i64 1
+  %.not64 = icmp ult ptr %.pre, %86
+  %or.cond74 = select i1 %85, i1 true, i1 %.not64
+  br i1 %or.cond74, label %105, label %87
 
-86:                                               ; preds = %81
-  %87 = tail call fastcc noundef zeroext i1 @_ZL14input_is_validPKhm(ptr noundef nonnull %.lcssa, i64 noundef 2)
-  br i1 %87, label %88, label %.loopexit
+87:                                               ; preds = %82
+  %88 = tail call fastcc noundef zeroext i1 @_ZL14input_is_validPKhm(ptr noundef nonnull %.lcssa, i64 noundef 2)
+  br i1 %88, label %89, label %.loopexit
 
-88:                                               ; preds = %86
-  %89 = load ptr, ptr %0, align 8, !tbaa !15
-  %90 = load i8, ptr %89, align 1, !tbaa !9
-  %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %91
-  %93 = load i8, ptr %92, align 1, !tbaa !9
-  %94 = shl i8 %93, 2
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 1
-  %96 = load i8, ptr %95, align 1, !tbaa !9
-  %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !9
-  %100 = lshr i8 %99, 4
-  %101 = or i8 %100, %94
-  %102 = load ptr, ptr %7, align 8, !tbaa !20
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  store ptr %103, ptr %7, align 8, !tbaa !20
-  store i8 %101, ptr %102, align 1, !tbaa !9
+89:                                               ; preds = %87
+  %90 = load ptr, ptr %0, align 8, !tbaa !15
+  %91 = load i8, ptr %90, align 1, !tbaa !9
+  %92 = zext i8 %91 to i64
+  %93 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %92
+  %94 = load i8, ptr %93, align 1, !tbaa !9
+  %95 = shl i8 %94, 2
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 1
+  %97 = load i8, ptr %96, align 1, !tbaa !9
+  %98 = zext i8 %97 to i64
+  %99 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %98
+  %100 = load i8, ptr %99, align 1, !tbaa !9
+  %101 = lshr i8 %100, 4
+  %102 = or i8 %101, %95
+  %103 = load ptr, ptr %7, align 8, !tbaa !20
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 1
+  store ptr %104, ptr %7, align 8, !tbaa !20
+  store i8 %102, ptr %103, align 1, !tbaa !9
   br label %.loopexit.sink.split
 
-104:                                              ; preds = %81
-  %105 = getelementptr inbounds nuw i8, ptr %72, i64 2
-  %.not65 = icmp ult ptr %.pre, %105
-  br i1 %.not65, label %.loopexit, label %106
+105:                                              ; preds = %82
+  %106 = getelementptr inbounds nuw i8, ptr %73, i64 2
+  %.not65 = icmp ult ptr %.pre, %106
+  br i1 %.not65, label %.loopexit, label %107
 
-106:                                              ; preds = %104
-  %107 = tail call fastcc noundef zeroext i1 @_ZL14input_is_validPKhm(ptr noundef nonnull %.lcssa, i64 noundef 3)
-  br i1 %107, label %108, label %.loopexit
+107:                                              ; preds = %105
+  %108 = tail call fastcc noundef zeroext i1 @_ZL14input_is_validPKhm(ptr noundef nonnull %.lcssa, i64 noundef 3)
+  br i1 %108, label %109, label %.loopexit
 
-108:                                              ; preds = %106
-  %109 = load ptr, ptr %0, align 8, !tbaa !15
-  %110 = load i8, ptr %109, align 1, !tbaa !9
-  %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %111
-  %113 = load i8, ptr %112, align 1, !tbaa !9
-  %114 = shl i8 %113, 2
-  %115 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  %116 = load i8, ptr %115, align 1, !tbaa !9
-  %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %117
-  %119 = load i8, ptr %118, align 1, !tbaa !9
-  %120 = lshr i8 %119, 4
-  %121 = or i8 %120, %114
-  %122 = load ptr, ptr %7, align 8, !tbaa !20
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
-  store ptr %123, ptr %7, align 8, !tbaa !20
-  store i8 %121, ptr %122, align 1, !tbaa !9
-  %124 = load ptr, ptr %0, align 8, !tbaa !15
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
-  %126 = load i8, ptr %125, align 1, !tbaa !9
-  %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %127
-  %129 = load i8, ptr %128, align 1, !tbaa !9
-  %130 = shl i8 %129, 4
-  %131 = getelementptr inbounds nuw i8, ptr %124, i64 2
-  %132 = load i8, ptr %131, align 1, !tbaa !9
-  %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1, !tbaa !9
-  %136 = lshr i8 %135, 2
-  %137 = or i8 %136, %130
-  %138 = load ptr, ptr %7, align 8, !tbaa !20
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  store ptr %139, ptr %7, align 8, !tbaa !20
-  store i8 %137, ptr %138, align 1, !tbaa !9
+109:                                              ; preds = %107
+  %110 = load ptr, ptr %0, align 8, !tbaa !15
+  %111 = load i8, ptr %110, align 1, !tbaa !9
+  %112 = zext i8 %111 to i64
+  %113 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %112
+  %114 = load i8, ptr %113, align 1, !tbaa !9
+  %115 = shl i8 %114, 2
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 1
+  %117 = load i8, ptr %116, align 1, !tbaa !9
+  %118 = zext i8 %117 to i64
+  %119 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %118
+  %120 = load i8, ptr %119, align 1, !tbaa !9
+  %121 = lshr i8 %120, 4
+  %122 = or i8 %121, %115
+  %123 = load ptr, ptr %7, align 8, !tbaa !20
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 1
+  store ptr %124, ptr %7, align 8, !tbaa !20
+  store i8 %122, ptr %123, align 1, !tbaa !9
+  %125 = load ptr, ptr %0, align 8, !tbaa !15
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 1
+  %127 = load i8, ptr %126, align 1, !tbaa !9
+  %128 = zext i8 %127 to i64
+  %129 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %128
+  %130 = load i8, ptr %129, align 1, !tbaa !9
+  %131 = shl i8 %130, 4
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 2
+  %133 = load i8, ptr %132, align 1, !tbaa !9
+  %134 = zext i8 %133 to i64
+  %135 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %134
+  %136 = load i8, ptr %135, align 1, !tbaa !9
+  %137 = lshr i8 %136, 2
+  %138 = or i8 %137, %131
+  %139 = load ptr, ptr %7, align 8, !tbaa !20
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 1
+  store ptr %140, ptr %7, align 8, !tbaa !20
+  store i8 %138, ptr %139, align 1, !tbaa !9
   br label %.loopexit.sink.split
 
-140:                                              ; preds = %.critedge
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %142 = load i8, ptr %141, align 8, !tbaa !23, !range !24, !noundef !25
-  %143 = trunc nuw i8 %142 to i1
-  %144 = icmp ugt i64 %75, 1
-  %or.cond = and i1 %144, %143
-  br i1 %or.cond, label %145, label %.loopexit
+141:                                              ; preds = %.critedge
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %143 = load i8, ptr %142, align 8, !tbaa !23, !range !24, !noundef !25
+  %144 = trunc nuw i8 %143 to i1
+  %145 = icmp ugt i64 %76, 1
+  %or.cond = and i1 %145, %144
+  br i1 %or.cond, label %146, label %.loopexit
 
-145:                                              ; preds = %140
-  %146 = load ptr, ptr %9, align 8, !tbaa !21
-  %147 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %75
-  %148 = load i8, ptr %147, align 1, !tbaa !9
-  %149 = zext i8 %148 to i64
-  %150 = getelementptr inbounds nuw i8, ptr %72, i64 %149
-  %.not63 = icmp ult ptr %146, %150
-  br i1 %.not63, label %.loopexit, label %151
+146:                                              ; preds = %141
+  %147 = load ptr, ptr %9, align 8, !tbaa !21
+  %148 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %76
+  %149 = load i8, ptr %148, align 1, !tbaa !9
+  %150 = zext i8 %149 to i64
+  %151 = getelementptr inbounds nuw i8, ptr %73, i64 %150
+  %.not63 = icmp ult ptr %147, %151
+  br i1 %.not63, label %.loopexit, label %152
 
-151:                                              ; preds = %145
-  %152 = tail call fastcc noundef zeroext i1 @_ZL14input_is_validPKhm(ptr noundef %.lcssa, i64 noundef %75)
-  br i1 %152, label %153, label %.loopexit
+152:                                              ; preds = %146
+  %153 = tail call fastcc noundef zeroext i1 @_ZL14input_is_validPKhm(ptr noundef %.lcssa, i64 noundef %76)
+  br i1 %153, label %154, label %.loopexit
 
-153:                                              ; preds = %151
-  switch i64 %75, label %186 [
-    i64 3, label %154
-    i64 2, label %171
+154:                                              ; preds = %152
+  switch i64 %76, label %187 [
+    i64 3, label %155
+    i64 2, label %172
   ]
 
-154:                                              ; preds = %153
-  %155 = load ptr, ptr %0, align 8, !tbaa !15
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
-  %157 = load i8, ptr %156, align 1, !tbaa !9
-  %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %158
-  %160 = load i8, ptr %159, align 1, !tbaa !9
-  %161 = shl i8 %160, 4
-  %162 = getelementptr inbounds nuw i8, ptr %155, i64 2
-  %163 = load i8, ptr %162, align 1, !tbaa !9
-  %164 = zext i8 %163 to i64
-  %165 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %164
-  %166 = load i8, ptr %165, align 1, !tbaa !9
-  %167 = lshr i8 %166, 2
-  %168 = or i8 %167, %161
-  %169 = load ptr, ptr %7, align 8, !tbaa !20
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 1
-  store i8 %168, ptr %170, align 1, !tbaa !9
-  br label %171
+155:                                              ; preds = %154
+  %156 = load ptr, ptr %0, align 8, !tbaa !15
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 1
+  %158 = load i8, ptr %157, align 1, !tbaa !9
+  %159 = zext i8 %158 to i64
+  %160 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %159
+  %161 = load i8, ptr %160, align 1, !tbaa !9
+  %162 = shl i8 %161, 4
+  %163 = getelementptr inbounds nuw i8, ptr %156, i64 2
+  %164 = load i8, ptr %163, align 1, !tbaa !9
+  %165 = zext i8 %164 to i64
+  %166 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %165
+  %167 = load i8, ptr %166, align 1, !tbaa !9
+  %168 = lshr i8 %167, 2
+  %169 = or i8 %168, %162
+  %170 = load ptr, ptr %7, align 8, !tbaa !20
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 1
+  store i8 %169, ptr %171, align 1, !tbaa !9
+  br label %172
 
-171:                                              ; preds = %154, %153
-  %172 = load ptr, ptr %0, align 8, !tbaa !15
-  %173 = load i8, ptr %172, align 1, !tbaa !9
-  %174 = zext i8 %173 to i64
-  %175 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %174
-  %176 = load i8, ptr %175, align 1, !tbaa !9
-  %177 = shl i8 %176, 2
-  %178 = getelementptr inbounds nuw i8, ptr %172, i64 1
-  %179 = load i8, ptr %178, align 1, !tbaa !9
-  %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %180
-  %182 = load i8, ptr %181, align 1, !tbaa !9
-  %183 = lshr i8 %182, 4
-  %184 = or i8 %183, %177
-  %185 = load ptr, ptr %7, align 8, !tbaa !20
-  store i8 %184, ptr %185, align 1, !tbaa !9
-  br label %186
+172:                                              ; preds = %155, %154
+  %173 = load ptr, ptr %0, align 8, !tbaa !15
+  %174 = load i8, ptr %173, align 1, !tbaa !9
+  %175 = zext i8 %174 to i64
+  %176 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %175
+  %177 = load i8, ptr %176, align 1, !tbaa !9
+  %178 = shl i8 %177, 2
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 1
+  %180 = load i8, ptr %179, align 1, !tbaa !9
+  %181 = zext i8 %180 to i64
+  %182 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %181
+  %183 = load i8, ptr %182, align 1, !tbaa !9
+  %184 = lshr i8 %183, 4
+  %185 = or i8 %184, %178
+  %186 = load ptr, ptr %7, align 8, !tbaa !20
+  store i8 %185, ptr %186, align 1, !tbaa !9
+  br label %187
 
-186:                                              ; preds = %171, %153
-  %187 = load ptr, ptr %7, align 8, !tbaa !20
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 %149
-  store ptr %188, ptr %7, align 8, !tbaa !20
+187:                                              ; preds = %172, %154
+  %188 = load ptr, ptr %7, align 8, !tbaa !20
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 %150
+  store ptr %189, ptr %7, align 8, !tbaa !20
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %186, %108, %88
-  %.sink76 = phi i64 [ 4, %88 ], [ 4, %108 ], [ %75, %186 ]
-  %189 = load ptr, ptr %0, align 8, !tbaa !15
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 %.sink76
-  store ptr %190, ptr %0, align 8, !tbaa !15
+.loopexit.sink.split:                             ; preds = %187, %109, %89
+  %.sink76 = phi i64 [ 4, %89 ], [ 4, %109 ], [ %76, %187 ]
+  %190 = load ptr, ptr %0, align 8, !tbaa !15
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 %.sink76
+  store ptr %191, ptr %0, align 8, !tbaa !15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph78, %.loopexit.sink.split, %104, %77, %145, %140, %151, %106, %86, %1, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %1 ], [ false, %86 ], [ false, %106 ], [ false, %151 ], [ true, %140 ], [ true, %145 ], [ true, %77 ], [ true, %104 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph78 ]
+.loopexit:                                        ; preds = %.lr.ph78, %.loopexit.sink.split, %105, %78, %146, %141, %152, %107, %87, %1, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %1 ], [ false, %87 ], [ false, %107 ], [ false, %152 ], [ true, %141 ], [ true, %146 ], [ true, %78 ], [ true, %105 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph78 ]
   ret i1 %.0
 }
 

@@ -14906,9 +14906,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %_Z
   %290 = sext i32 %289 to i64
   %291 = urem i64 %290, %274
   %.not19.i.i.i.i = icmp eq i64 %291, %275
-  br i1 %.not19.i.i.i.i, label %284, label %.loopexit.i.i, !llvm.loop !420
+  br i1 %.not19.i.i.i.i, label %284, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !420
 
-.loopexit.i.i:                                    ; preds = %287, %.lr.ph.i.i.i.i, %266
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %287
+  br label %.loopexit.i.i, !llvm.loop !420
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %266
   %292 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
           to label %.noexc120 unwind label %503
 

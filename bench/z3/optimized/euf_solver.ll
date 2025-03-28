@@ -6991,7 +6991,7 @@ _ZNK3euf9relevancy13can_propagateEv.exit:         ; preds = %57
   %61 = getelementptr inbounds i8, ptr %58, i64 -4
   %62 = load i32, ptr %61, align 4, !tbaa !13
   %63 = icmp ult i32 %60, %62
-  br i1 %63, label %64, label %.thread, !llvm.loop !813
+  br i1 %63, label %64, label %_ZNK3euf9relevancy13can_propagateEv.exit..thread.loopexit_crit_edge, !llvm.loop !813
 
 64:                                               ; preds = %_ZNK3euf9relevancy13can_propagateEv.exit, %46
   %.211 = phi i1 [ true, %46 ], [ %.0921, %_ZNK3euf9relevancy13can_propagateEv.exit ]
@@ -7001,8 +7001,11 @@ _ZNK3euf9relevancy13can_propagateEv.exit:         ; preds = %57
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %.thread, label %15
 
-.thread:                                          ; preds = %57, %_ZNK3euf9relevancy13can_propagateEv.exit, %54, %64, %1, %_ZN3euf6solver19conflict_constraintEv.exit
-  %.012 = phi i1 [ true, %_ZN3euf6solver19conflict_constraintEv.exit ], [ false, %1 ], [ %.0921, %57 ], [ %.0921, %_ZNK3euf9relevancy13can_propagateEv.exit ], [ %.0921, %54 ], [ %.211, %64 ]
+_ZNK3euf9relevancy13can_propagateEv.exit..thread.loopexit_crit_edge: ; preds = %_ZNK3euf9relevancy13can_propagateEv.exit
+  br label %.thread, !llvm.loop !813
+
+.thread:                                          ; preds = %57, %54, %64, %1, %_ZNK3euf9relevancy13can_propagateEv.exit..thread.loopexit_crit_edge, %_ZN3euf6solver19conflict_constraintEv.exit
+  %.012 = phi i1 [ true, %_ZN3euf6solver19conflict_constraintEv.exit ], [ %.0921, %_ZNK3euf9relevancy13can_propagateEv.exit..thread.loopexit_crit_edge ], [ false, %1 ], [ %.0921, %57 ], [ %.0921, %54 ], [ %.211, %64 ]
   ret i1 %.012
 }
 

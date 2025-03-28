@@ -10225,16 +10225,19 @@ _ZN6bufferIPN11realclosure14sign_conditionELb0ELj16EE6expandEv.exit.i: ; preds =
   %39 = getelementptr inbounds nuw i8, ptr %storemerge2241, i64 8
   %storemerge = load ptr, ptr %39, align 8, !tbaa !153
   %.not = icmp eq ptr %storemerge, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !213
+  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !213
 
 40:                                               ; preds = %28, %21
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %60
 
-.critedge:                                        ; preds = %33, %.lr.ph, %.lr.ph.preheader, %.lr.ph25
-  %42 = phi ptr [ %10, %.lr.ph25 ], [ %10, %.lr.ph.preheader ], [ %35, %.lr.ph ], [ %35, %33 ]
-  %43 = phi i32 [ %11, %.lr.ph25 ], [ %11, %.lr.ph.preheader ], [ %38, %.lr.ph ], [ %38, %33 ]
+..critedge.loopexit_crit_edge:                    ; preds = %33
+  br label %.critedge, !llvm.loop !213
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.lr.ph25
+  %42 = phi ptr [ %10, %.lr.ph25 ], [ %35, %..critedge.loopexit_crit_edge ], [ %10, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %43 = phi i32 [ %11, %.lr.ph25 ], [ %38, %..critedge.loopexit_crit_edge ], [ %11, %.lr.ph.preheader ], [ %38, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph25, !llvm.loop !215

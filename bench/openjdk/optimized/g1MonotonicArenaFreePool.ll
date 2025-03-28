@@ -171,75 +171,80 @@ define hidden noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryP
   %.not29 = icmp eq i64 %6, 0
   br i1 %.not29, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %7 = phi i64 [ %23, %.lr.ph ], [ %6, %.preheader ]
-  %.032 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
-  %.01931 = phi ptr [ %19, %.lr.ph ], [ %4, %.preheader ]
-  %.02130 = phi i64 [ %17, %.lr.ph ], [ 0, %.preheader ]
-  %8 = load i32, ptr %.01931, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %.01931, i64 4
-  %10 = load i32, ptr %9, align 4
-  %11 = zext i32 %8 to i64
-  %12 = zext i32 %10 to i64
-  %13 = mul nuw i64 %12, %11
-  %14 = add nuw i64 %13, 128
-  %15 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %14)
-  store i64 %15, ptr %5, align 8
-  %16 = add i64 %14, %.032
-  %17 = add i64 %.02130, 1
-  %18 = getelementptr inbounds nuw i8, ptr %.01931, i64 8
-  %19 = load volatile ptr, ptr %18, align 8
-  %20 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #8
-  %21 = icmp sgt i64 %20, %1
-  %22 = icmp eq ptr %19, null
-  %or.cond.not49 = or i1 %22, %21
-  %23 = load i64, ptr %5, align 8
-  %.not = icmp eq i64 %23, 0
-  %or.cond46 = select i1 %or.cond.not49, i1 true, i1 %.not
-  br i1 %or.cond46, label %.critedge, label %.lr.ph, !llvm.loop !8
+7:                                                ; preds = %.lr.ph
+  %8 = load i64, ptr %5, align 8
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
-.critedge:                                        ; preds = %.lr.ph, %.preheader, %2
-  %.122 = phi i64 [ 0, %2 ], [ 0, %.preheader ], [ %17, %.lr.ph ]
-  %.120 = phi ptr [ null, %2 ], [ %4, %.preheader ], [ %19, %.lr.ph ]
-  %.118 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %.01931, %.lr.ph ]
-  %.1 = phi i64 [ 0, %2 ], [ 0, %.preheader ], [ %16, %.lr.ph ]
-  %24 = getelementptr inbounds nuw i8, ptr %.118, i64 8
-  store volatile ptr null, ptr %24, align 8
+.lr.ph:                                           ; preds = %.preheader, %7
+  %9 = phi i64 [ %8, %7 ], [ %6, %.preheader ]
+  %.032 = phi i64 [ %18, %7 ], [ 0, %.preheader ]
+  %.01931 = phi ptr [ %21, %7 ], [ %4, %.preheader ]
+  %.02130 = phi i64 [ %19, %7 ], [ 0, %.preheader ]
+  %10 = load i32, ptr %.01931, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01931, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = zext i32 %10 to i64
+  %14 = zext i32 %12 to i64
+  %15 = mul nuw i64 %14, %13
+  %16 = add nuw i64 %15, 128
+  %17 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 %16)
+  store i64 %17, ptr %5, align 8
+  %18 = add i64 %16, %.032
+  %19 = add i64 %.02130, 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01931, i64 8
+  %21 = load volatile ptr, ptr %20, align 8
+  %22 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #8
+  %23 = icmp sle i64 %22, %1
+  %24 = icmp ne ptr %21, null
+  %or.cond = and i1 %24, %23
+  br i1 %or.cond, label %7, label %..critedge.loopexit_crit_edge36, !llvm.loop !8
+
+..critedge.loopexit_crit_edge36:                  ; preds = %.lr.ph
+  br label %.critedge, !llvm.loop !8
+
+.critedge:                                        ; preds = %7, %.preheader, %..critedge.loopexit_crit_edge36, %2
+  %.122 = phi i64 [ 0, %2 ], [ %19, %..critedge.loopexit_crit_edge36 ], [ 0, %.preheader ], [ %19, %7 ]
+  %.120 = phi ptr [ null, %2 ], [ %21, %..critedge.loopexit_crit_edge36 ], [ %4, %.preheader ], [ %21, %7 ]
+  %.118 = phi ptr [ null, %2 ], [ %.01931, %..critedge.loopexit_crit_edge36 ], [ null, %.preheader ], [ %.01931, %7 ]
+  %.1 = phi i64 [ 0, %2 ], [ %18, %..critedge.loopexit_crit_edge36 ], [ 0, %.preheader ], [ %18, %7 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.118, i64 8
+  store volatile ptr null, ptr %25, align 8
   tail call void @_ZN13GlobalCounter17write_synchronizeEv() #8
-  %25 = load ptr, ptr %0, align 8
-  %26 = load ptr, ptr %3, align 8
-  tail call void @_ZN16G1MonotonicArena15SegmentFreeList8bulk_addERNS_7SegmentES2_mm(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %.118, i64 noundef %.122, i64 noundef %.1) #8
+  %26 = load ptr, ptr %0, align 8
+  %27 = load ptr, ptr %3, align 8
+  tail call void @_ZN16G1MonotonicArena15SegmentFreeList8bulk_addERNS_7SegmentES2_mm(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %.118, i64 noundef %.122, i64 noundef %.1) #8
   store ptr %.120, ptr %3, align 8
-  %27 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not28 = icmp eq ptr %27, null
-  br i1 %.not28, label %29, label %28
+  %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not28 = icmp eq ptr %28, null
+  br i1 %.not28, label %30, label %29
 
-28:                                               ; preds = %.critedge
+29:                                               ; preds = %.critedge
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str, i64 noundef %.122, i64 noundef %.1)
   %.pre = load ptr, ptr %3, align 8
-  br label %29
+  br label %30
 
-29:                                               ; preds = %.critedge, %28
-  %30 = phi ptr [ %.120, %.critedge ], [ %.pre, %28 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp eq i64 %32, 0
-  %34 = icmp eq ptr %30, null
-  %or.cond27 = select i1 %33, i1 true, i1 %34
-  br i1 %or.cond27, label %36, label %._crit_edge
+30:                                               ; preds = %.critedge, %29
+  %31 = phi ptr [ %.120, %.critedge ], [ %.pre, %29 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = icmp eq i64 %33, 0
+  %35 = icmp eq ptr %31, null
+  %or.cond27 = select i1 %34, i1 true, i1 %35
+  br i1 %or.cond27, label %37, label %._crit_edge
 
-._crit_edge:                                      ; preds = %29
-  %.pre43 = load ptr, ptr %0, align 8
-  %35 = icmp ne ptr %.pre43, null
-  br label %37
+._crit_edge:                                      ; preds = %30
+  %.pre47 = load ptr, ptr %0, align 8
+  %36 = icmp ne ptr %.pre47, null
+  br label %38
 
-36:                                               ; preds = %29
+37:                                               ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %37
+  br label %38
 
-37:                                               ; preds = %._crit_edge, %36
-  %38 = phi i1 [ %35, %._crit_edge ], [ false, %36 ]
-  ret i1 %38
+38:                                               ; preds = %._crit_edge, %37
+  %39 = phi i1 [ %36, %._crit_edge ], [ false, %37 ]
+  ret i1 %39
 }
 
 declare noundef i64 @_ZN2os15elapsed_counterEv() local_unnamed_addr #2

@@ -733,10 +733,13 @@ define void @_ZN3gmx11splitStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %19, ptr %4, align 8, !tbaa !26
   %.not12 = icmp eq ptr %19, %9
-  br i1 %.not12, label %.critedge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not12, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !25
 
-.critedge:                                        ; preds = %.lr.ph26, %.lr.ph, %.lr.ph.preheader, %.preheader
-  %.in = phi ptr [ %.promoted, %.preheader ], [ %.promoted, %.lr.ph.preheader ], [ %19, %.lr.ph ], [ %19, %.lr.ph26 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph26
+  br label %.critedge, !llvm.loop !25
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader
+  %.in = phi ptr [ %.promoted, %.preheader ], [ %19, %..critedge.loopexit_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %19, %.lr.ph ]
   %20 = ptrtoint ptr %.in to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
   store i64 %20, ptr %5, align 8, !tbaa !28

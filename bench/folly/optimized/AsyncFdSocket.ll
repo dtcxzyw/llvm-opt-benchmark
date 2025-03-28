@@ -560,9 +560,12 @@ define void @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback16getAncillaryData
   %51 = load i64, ptr %50, align 8, !tbaa !31
   %52 = urem i64 %51, %28
   %.not19.i.i.i.i.i = icmp eq i64 %52, %29
-  br i1 %.not19.i.i.i.i.i, label %42, label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit.thread, !llvm.loop !33
+  br i1 %.not19.i.i.i.i.i, label %42, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !33
 
-_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %49, %19, %24
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %49
+  br label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit.thread, !llvm.loop !33
+
+_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %19, %..loopexit_crit_edge21.i.i.i.i.i, %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28
   store i32 0, ptr %10, align 4, !tbaa !34
@@ -595,7 +598,7 @@ _ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
   %64 = icmp ult i64 %61, -16
-  br i1 %64, label %67, label %.thread60
+  br i1 %64, label %67, label %.thread62
 
 65:                                               ; preds = %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit.thread, %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit
   %66 = invoke noundef ptr @_ZN6google17MakeCheckOpStringIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.13)
@@ -606,9 +609,9 @@ _ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
   %.not49 = icmp eq ptr %66, null
-  br i1 %.not49, label %.thread60, label %75
+  br i1 %.not49, label %.thread62, label %75
 
-.thread60:                                        ; preds = %_ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, %_ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
+.thread62:                                        ; preds = %_ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, %_ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   br label %70
@@ -620,7 +623,7 @@ _ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %69 = icmp eq ptr %2, null
   br i1 %69, label %70, label %79
 
-70:                                               ; preds = %.thread60, %67
+70:                                               ; preds = %.thread62, %67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
   %71 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
           to label %.noexc22 unwind label %118
@@ -676,8 +679,8 @@ _ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %89, align 4, !tbaa !34
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.not55 = icmp eq ptr %81, %82
-  br i1 %.not55, label %._crit_edge, label %.lr.ph.preheader
+  %.not56 = icmp eq ptr %81, %82
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %79
   %91 = ashr exact i64 %85, 4
@@ -691,13 +694,13 @@ _ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %94, label %100, label %.critedge21
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02054 = phi i64 [ %99, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %95 = getelementptr inbounds nuw %"class.std::shared_ptr.151", ptr %82, i64 %.02054
+  %.02055 = phi i64 [ %99, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %95 = getelementptr inbounds nuw %"class.std::shared_ptr.151", ptr %82, i64 %.02055
   %96 = load ptr, ptr %95, align 8, !tbaa !47
   %97 = load i32, ptr %96, align 4, !tbaa !52
-  %98 = getelementptr inbounds nuw i32, ptr %90, i64 %.02054
+  %98 = getelementptr inbounds nuw i32, ptr %90, i64 %.02055
   store i32 %97, ptr %98, align 4, !tbaa !34
-  %99 = add nuw i64 %.02054, 1
+  %99 = add nuw i64 %.02055, 1
   %exitcond.not = icmp eq i64 %99, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
@@ -833,7 +836,10 @@ define noundef range(i32 16, 9) i32 @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCa
   %42 = load i64, ptr %41, align 8, !tbaa !31
   %43 = urem i64 %42, %19
   %.not19.i.i.i.i.i = icmp eq i64 %43, %20
-  br i1 %.not19.i.i.i.i.i, label %33, label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit, !llvm.loop !33
+  br i1 %.not19.i.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !33
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %40
+  br label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit, !llvm.loop !33
 
 .loopexit13.i:                                    ; preds = %33, %11, %24
   %.sroa.06.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i.i, %11 ], [ %39, %33 ]
@@ -851,8 +857,8 @@ define noundef range(i32 16, 9) i32 @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCa
   %55 = add i32 %54, 16
   br label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit
 
-_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit: ; preds = %.lr.ph.i.i.i.i.i, %40, %10, %15, %.loopexit13.i
-  %.sroa.010.0.i = phi i32 [ %55, %.loopexit13.i ], [ 0, %15 ], [ 0, %10 ], [ 0, %40 ], [ 0, %.lr.ph.i.i.i.i.i ]
+_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit: ; preds = %.lr.ph.i.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i.i, %.loopexit13.i
+  %.sroa.010.0.i = phi i32 [ %55, %.loopexit13.i ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i ], [ 0, %15 ], [ 0, %10 ], [ 0, %.lr.ph.i.i.i.i.i ]
   ret i32 %.sroa.010.0.i
 }
 
@@ -6045,7 +6051,10 @@ define { i64, ptr } @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgS
   %40 = load i64, ptr %39, align 8, !tbaa !31
   %41 = urem i64 %40, %17
   %.not19.i.i.i.i = icmp eq i64 %41, %18
-  br i1 %.not19.i.i.i.i, label %31, label %.loopexit, !llvm.loop !33
+  br i1 %.not19.i.i.i.i, label %31, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !33
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %38
+  br label %.loopexit, !llvm.loop !33
 
 .loopexit13:                                      ; preds = %31, %9, %22
   %.sroa.06.1.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i, %9 ], [ %37, %31 ]
@@ -6062,9 +6071,9 @@ define { i64, ptr } @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgS
   %52 = add nsw i64 %51, 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %38, %.lr.ph.i.i.i.i, %8, %13, %.loopexit13
-  %.sroa.010.0 = phi i64 [ %52, %.loopexit13 ], [ 0, %13 ], [ 0, %8 ], [ 0, %.lr.ph.i.i.i.i ], [ 0, %38 ]
-  %.sroa.3.0 = phi ptr [ %.sroa.06.1.i.i, %.loopexit13 ], [ null, %13 ], [ null, %8 ], [ null, %.lr.ph.i.i.i.i ], [ null, %38 ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i, %.loopexit13
+  %.sroa.010.0 = phi i64 [ %52, %.loopexit13 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %13 ], [ 0, %8 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.3.0 = phi ptr [ %.sroa.06.1.i.i, %.loopexit13 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %13 ], [ null, %8 ], [ null, %.lr.ph.i.i.i.i ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.010.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -6110,13 +6119,13 @@ define linkonce_odr void @_ZNSt10_HashtableIN5folly11AsyncSocket15WriteRequestTa
   %19 = load ptr, ptr %15, align 8
   %20 = icmp eq ptr %5, %19
   %21 = select i1 %18, i1 %20, i1 false
-  br i1 %21, label %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread25, label %.lr.ph.i
+  br i1 %21, label %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread27, label %.lr.ph.i
 
-_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread25: ; preds = %13
+_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread27: ; preds = %13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
   %22 = load ptr, ptr %14, align 8, !tbaa !20, !noalias !330
-  %.not19.i1827 = icmp eq ptr %22, null
-  br i1 %.not19.i1827, label %._crit_edge.i.i, label %37
+  %.not19.i1829 = icmp eq ptr %22, null
+  br i1 %.not19.i1829, label %._crit_edge.i.i, label %37
 
 23:                                               ; preds = %30
   %24 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -6137,7 +6146,10 @@ _ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorIS
   %32 = load i64, ptr %31, align 8, !tbaa !31
   %33 = urem i64 %32, %8
   %.not19.i = icmp eq i64 %33, %9
-  br i1 %.not19.i, label %23, label %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread, !llvm.loop !33
+  br i1 %.not19.i, label %23, label %..loopexit_crit_edge21.i, !llvm.loop !33
+
+..loopexit_crit_edge21.i:                         ; preds = %30
+  br label %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread, !llvm.loop !33
 
 _ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit: ; preds = %23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
@@ -6150,10 +6162,10 @@ _ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorIS
 36:                                               ; preds = %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit
   br i1 %.not19.i18, label %._crit_edge.i.i, label %37
 
-37:                                               ; preds = %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread25, %36
-  %38 = phi ptr [ %14, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread25 ], [ %29, %36 ]
-  %.016.i2931 = phi ptr [ %12, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread25 ], [ %.020.i, %36 ]
-  %39 = phi ptr [ %22, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread25 ], [ %35, %36 ]
+37:                                               ; preds = %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread27, %36
+  %38 = phi ptr [ %14, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread27 ], [ %29, %36 ]
+  %.016.i3133 = phi ptr [ %12, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread27 ], [ %.020.i, %36 ]
+  %39 = phi ptr [ %22, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread27 ], [ %35, %36 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load i64, ptr %40, align 8, !tbaa !31, !noalias !333
   %42 = urem i64 %41, %8
@@ -6165,10 +6177,10 @@ _ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorIS
   store ptr %12, ptr %44, align 8, !tbaa !30, !noalias !333
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread25, %43, %36
-  %45 = phi ptr [ %14, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread25 ], [ %38, %43 ], [ %29, %36 ]
-  %.016.i2932 = phi ptr [ %12, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread25 ], [ %.016.i2931, %43 ], [ %.020.i, %36 ]
-  %46 = phi ptr [ null, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread25 ], [ %39, %43 ], [ %35, %36 ]
+._crit_edge.i.i:                                  ; preds = %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread27, %43, %36
+  %45 = phi ptr [ %14, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread27 ], [ %38, %43 ], [ %29, %36 ]
+  %.016.i3134 = phi ptr [ %12, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread27 ], [ %.016.i3133, %43 ], [ %.020.i, %36 ]
+  %46 = phi ptr [ null, %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread27 ], [ %39, %43 ], [ %35, %36 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = icmp eq ptr %47, %12
   br i1 %48, label %49, label %50
@@ -6197,10 +6209,10 @@ _ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorIS
   br label %58
 
 58:                                               ; preds = %56, %52, %51, %50, %37
-  %.016.i28 = phi ptr [ %.020.i, %56 ], [ %.020.i, %52 ], [ %.020.i, %51 ], [ %.016.i2932, %50 ], [ %.016.i2931, %37 ]
+  %.016.i30 = phi ptr [ %.020.i, %56 ], [ %.020.i, %52 ], [ %.020.i, %51 ], [ %.016.i3134, %50 ], [ %.016.i3133, %37 ]
   %59 = phi ptr [ %29, %56 ], [ %29, %52 ], [ %29, %51 ], [ %45, %50 ], [ %38, %37 ]
   %60 = load ptr, ptr %59, align 8, !tbaa !20, !noalias !333
-  store ptr %60, ptr %.016.i28, align 8, !tbaa !20, !noalias !333
+  store ptr %60, ptr %.016.i30, align 8, !tbaa !20, !noalias !333
   store ptr null, ptr %59, align 8, !tbaa !20, !noalias !333
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %62 = load i64, ptr %61, align 8, !tbaa !25, !noalias !333
@@ -6228,7 +6240,7 @@ _ZNSt19_Node_handle_commonISt4pairIKN5folly11AsyncSocket15WriteRequestTagESt6vec
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
   br label %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread
 
-_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread: ; preds = %30, %.lr.ph.i, %3, %_ZNSt19_Node_handle_commonISt4pairIKN5folly11AsyncSocket15WriteRequestTagESt6vectorISt10shared_ptrIKNS1_4FileEESaIS9_EEESaINSt8__detail10_Hash_nodeISC_Lb1EEEEED2Ev.exit
+_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread: ; preds = %.lr.ph.i, %..loopexit_crit_edge21.i, %3, %_ZNSt19_Node_handle_commonISt4pairIKN5folly11AsyncSocket15WriteRequestTagESt6vectorISt10shared_ptrIKNS1_4FileEESaIS9_EEESaINSt8__detail10_Hash_nodeISC_Lb1EEEEED2Ev.exit
   ret void
 }
 
@@ -6484,9 +6496,12 @@ define linkonce_odr { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN5folly11AsyncSock
   %32 = load i64, ptr %31, align 8, !tbaa !31
   %33 = urem i64 %32, %9
   %.not19.i.i = icmp eq i64 %33, %10
-  br i1 %.not19.i.i, label %23, label %.critedge, !llvm.loop !33
+  br i1 %.not19.i.i, label %23, label %..loopexit_crit_edge21.i.i, !llvm.loop !33
 
-.critedge:                                        ; preds = %30, %.lr.ph.i.i, %4
+..loopexit_crit_edge21.i.i:                       ; preds = %30
+  br label %.critedge, !llvm.loop !33
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %4, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #28
   store ptr %0, ptr %5, align 8, !tbaa !336
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8

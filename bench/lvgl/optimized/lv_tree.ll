@@ -27,7 +27,7 @@ define nonnull ptr @lv_tree_node_create(ptr noundef %0, ptr noundef %1) local_un
 
 ..critedge_crit_edge.i.i:                         ; preds = %6
   %.pre.i.i = load i32, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !3
-  br label %get_instance_size.exit.i
+  br label %get_instance_size.exit.i, !llvm.loop !11
 
 get_instance_size.exit.i:                         ; preds = %.preheader9, %..critedge_crit_edge.i.i
   %8 = phi i32 [ %.pre.i.i, %..critedge_crit_edge.i.i ], [ %4, %.preheader9 ]

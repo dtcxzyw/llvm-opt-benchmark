@@ -2284,7 +2284,7 @@ getc_unlocked.exit27:                             ; preds = %getc_unlocked.exit2
 
 getc_unlocked.exit27.backedge:                    ; preds = %37, %39
   %phi.call.be = phi i32 [ %38, %37 ], [ %42, %39 ]
-  br label %getc_unlocked.exit27
+  br label %getc_unlocked.exit27, !llvm.loop !21
 
 39:                                               ; preds = %.split
   %40 = getelementptr i8, ptr %35, i64 1

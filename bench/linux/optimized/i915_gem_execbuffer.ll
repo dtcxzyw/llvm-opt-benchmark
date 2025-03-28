@@ -4395,7 +4395,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
   %154 = load i32, ptr %137, align 4
   %155 = zext i32 %154 to i64
   %156 = icmp samesign ult i64 %153, %155
-  br i1 %156, label %144, label %.loopexit32, !llvm.loop !90
+  br i1 %156, label %144, label %..loopexit32.loopexit_crit_edge60, !llvm.loop !90
 
 .preheader:                                       ; preds = %.thread28, %162
   %157 = phi i32 [ %164, %162 ], [ 0, %.thread28 ]
@@ -4412,9 +4412,12 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
   %166 = icmp ult i32 %164, %165
   br i1 %166, label %.preheader, label %.loopexit32, !llvm.loop !91
 
-.loopexit32:                                      ; preds = %162, %144, %.lr.ph, %140
-  %167 = phi i32 [ 1, %140 ], [ %154, %.lr.ph ], [ %154, %144 ], [ %165, %162 ]
-  %168 = phi i32 [ 0, %140 ], [ 0, %.lr.ph ], [ 0, %144 ], [ %129, %162 ]
+..loopexit32.loopexit_crit_edge60:                ; preds = %.lr.ph
+  br label %.loopexit32, !llvm.loop !90
+
+.loopexit32:                                      ; preds = %162, %144, %140, %..loopexit32.loopexit_crit_edge60
+  %167 = phi i32 [ %154, %..loopexit32.loopexit_crit_edge60 ], [ 1, %140 ], [ %154, %144 ], [ %165, %162 ]
+  %168 = phi i32 [ 0, %..loopexit32.loopexit_crit_edge60 ], [ 0, %140 ], [ 0, %144 ], [ %129, %162 ]
   %169 = icmp eq i32 %167, 0
   br i1 %169, label %.loopexit, label %.loopexit32.thread46
 

@@ -68,7 +68,7 @@ define noundef ptr @gmtime_r(ptr noundef readonly captures(none) %0, ptr noundef
 
 ._crit_edge52.i:                                  ; preds = %33
   %.pre53.i = add nsw i32 %.139.i, 1
-  br label %clock_utc2calendar.exit
+  br label %clock_utc2calendar.exit, !llvm.loop !8
 
 clock_utc2calendar.exit:                          ; preds = %27, %._crit_edge52.i
   %.pre-phi54.i = phi i32 [ %.pre53.i, %._crit_edge52.i ], [ %23, %27 ]

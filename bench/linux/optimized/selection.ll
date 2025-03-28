@@ -265,7 +265,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %107, label %.thread62
+  br i1 %104, label %107, label %.thread64
 
 107:                                              ; preds = %105
   %108 = sdiv i32 %88, 2
@@ -273,7 +273,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %110 = icmp eq i32 %109, 32
   br i1 %110, label %.split.us.split.us, label %.split.split.us
 
-.thread62:                                        ; preds = %105
+.thread64:                                        ; preds = %105
   %111 = tail call zeroext i16 @screen_glyph(ptr noundef %106, i32 noundef %88) #9
   %112 = tail call zeroext i16 @inverse_translate(ptr noundef %106, i16 noundef zeroext %111, i1 noundef zeroext false) #9
   %113 = icmp eq i16 %112, 32
@@ -305,16 +305,16 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %128 = icmp eq i32 %127, 32
   br i1 %128, label %.critedge.us.us, label %.split32.us, !llvm.loop !7
 
-.split.us.split:                                  ; preds = %.thread62
+.split.us.split:                                  ; preds = %.thread64
   %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %130 = tail call zeroext i16 @screen_glyph(ptr noundef %129, i32 noundef %88) #9
   %131 = tail call zeroext i16 @inverse_translate(ptr noundef %129, i16 noundef zeroext %130, i1 noundef zeroext false) #9
   %132 = icmp eq i16 %131, 32
-  br i1 %132, label %.critedge.us, label %.split32.us.thread66
+  br i1 %132, label %.critedge.us, label %.split32.us.thread68
 
-.split32.us.thread66:                             ; preds = %.split.us.split
+.split32.us.thread68:                             ; preds = %.split.us.split
   %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br label %.thread69
+  br label %.thread71
 
 .critedge.us:                                     ; preds = %.split.us.split, %138
   %134 = phi i32 [ %139, %138 ], [ %88, %.split.us.split ]
@@ -361,9 +361,9 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %163 = add i32 %145, -2
   br label %.split.split.us, !llvm.loop !7
 
-.split.split:                                     ; preds = %.thread62, %183
-  %164 = phi i32 [ %165, %183 ], [ %88, %.thread62 ]
-  %165 = phi i32 [ %184, %183 ], [ %88, %.thread62 ]
+.split.split:                                     ; preds = %.thread64, %183
+  %164 = phi i32 [ %165, %183 ], [ %88, %.thread64 ]
+  %165 = phi i32 [ %184, %183 ], [ %88, %.thread64 ]
   %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %167 = tail call zeroext i16 @screen_glyph(ptr noundef %166, i32 noundef %165) #9
   %168 = tail call zeroext i16 @inverse_translate(ptr noundef %166, i16 noundef zeroext %167, i1 noundef zeroext false) #9
@@ -395,26 +395,26 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
 .split32.us:                                      ; preds = %.critedge, %170, %138, %.critedge.us, %.critedge.us33, %150, %123, %.critedge.us.us
   %.us-phi = phi i32 [ %119, %.critedge.us.us ], [ %119, %123 ], [ %145, %.critedge.us33 ], [ %144, %150 ], [ %134, %.critedge.us ], [ %134, %138 ], [ %165, %.critedge ], [ %164, %170 ]
   %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %186, label %.thread69
+  br i1 %104, label %186, label %.thread71
 
 186:                                              ; preds = %.split32.us, %.split32.us.thread
   %187 = phi ptr [ %118, %.split32.us.thread ], [ %185, %.split32.us ]
-  %.us-phi65 = phi i32 [ %88, %.split32.us.thread ], [ %.us-phi, %.split32.us ]
+  %.us-phi67 = phi i32 [ %88, %.split32.us.thread ], [ %.us-phi, %.split32.us ]
   %188 = sdiv i32 %87, 2
   %189 = tail call i32 @screen_glyph_unicode(ptr noundef %187, i32 noundef %188) #9
   %190 = icmp eq i32 %189, 32
   br i1 %190, label %.split39.us.split.us, label %.split39.preheader
 
-.thread69:                                        ; preds = %.split32.us, %.split32.us.thread66
-  %191 = phi ptr [ %133, %.split32.us.thread66 ], [ %185, %.split32.us ]
-  %.us-phi68 = phi i32 [ %88, %.split32.us.thread66 ], [ %.us-phi, %.split32.us ]
+.thread71:                                        ; preds = %.split32.us, %.split32.us.thread68
+  %191 = phi ptr [ %133, %.split32.us.thread68 ], [ %185, %.split32.us ]
+  %.us-phi70 = phi i32 [ %88, %.split32.us.thread68 ], [ %.us-phi, %.split32.us ]
   %192 = tail call zeroext i16 @screen_glyph(ptr noundef %191, i32 noundef %87) #9
   %193 = tail call zeroext i16 @inverse_translate(ptr noundef %191, i16 noundef zeroext %192, i1 noundef zeroext false) #9
   %194 = icmp eq i16 %193, 32
   br i1 %194, label %.split39.us.split, label %.split39.preheader
 
-.split39.preheader:                               ; preds = %.thread69, %186
-  %.us-phi6472 = phi i32 [ %.us-phi68, %.thread69 ], [ %.us-phi65, %186 ]
+.split39.preheader:                               ; preds = %.thread71, %186
+  %.us-phi6674 = phi i32 [ %.us-phi70, %.thread71 ], [ %.us-phi67, %186 ]
   br label %.split39
 
 .split39.us.split.us:                             ; preds = %186
@@ -437,9 +437,12 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %206 = load i32, ptr %73, align 4
   %207 = urem i32 %205, %206
   %208 = icmp eq i32 %207, 0
-  br i1 %208, label %.loopexit29, label %199, !llvm.loop !9
+  br i1 %208, label %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge, label %199, !llvm.loop !9
 
-.split39.us.split:                                ; preds = %.thread69
+.critedge16.us.us..loopexit29.split.us.split.us_crit_edge: ; preds = %.critedge16.us.us
+  br label %.loopexit29, !llvm.loop !9
+
+.split39.us.split:                                ; preds = %.thread71
   %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %210 = tail call zeroext i16 @screen_glyph(ptr noundef %209, i32 noundef %87) #9
   %211 = tail call zeroext i16 @inverse_translate(ptr noundef %209, i16 noundef zeroext %210, i1 noundef zeroext false) #9
@@ -459,7 +462,10 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %220 = load i32, ptr %73, align 4
   %221 = urem i32 %219, %220
   %222 = icmp eq i32 %221, 0
-  br i1 %222, label %.loopexit29, label %213, !llvm.loop !9
+  br i1 %222, label %.critedge16.us..loopexit29.split.us.split_crit_edge, label %213, !llvm.loop !9
+
+.critedge16.us..loopexit29.split.us.split_crit_edge: ; preds = %.critedge16.us
+  br label %.loopexit29, !llvm.loop !9
 
 .split39:                                         ; preds = %.split39.preheader, %.critedge16
   %223 = phi i32 [ %224, %.critedge16 ], [ %87, %.split39.preheader ]
@@ -516,9 +522,9 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   tail call void @complement_pos(ptr noundef %258, i32 noundef %87) #9
   br label %475
 
-.loopexit29:                                      ; preds = %.critedge16.us, %213, %236, %.critedge16, %.critedge16.us.us, %199, %.split39.us.split, %.split39.us.split.us, %249, %100
-  %259 = phi i32 [ %256, %249 ], [ %87, %100 ], [ %87, %.split39.us.split.us ], [ %87, %.split39.us.split ], [ %204, %199 ], [ %204, %.critedge16.us.us ], [ %223, %236 ], [ %224, %.critedge16 ], [ %218, %213 ], [ %218, %.critedge16.us ]
-  %260 = phi i32 [ %252, %249 ], [ %88, %100 ], [ %.us-phi65, %.split39.us.split.us ], [ %.us-phi68, %.split39.us.split ], [ %.us-phi65, %199 ], [ %.us-phi65, %.critedge16.us.us ], [ %.us-phi6472, %.critedge16 ], [ %.us-phi6472, %236 ], [ %.us-phi68, %213 ], [ %.us-phi68, %.critedge16.us ]
+.loopexit29:                                      ; preds = %213, %236, %.critedge16, %199, %.split39.us.split, %.critedge16.us..loopexit29.split.us.split_crit_edge, %.split39.us.split.us, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge, %249, %100
+  %259 = phi i32 [ %256, %249 ], [ %87, %100 ], [ %204, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge ], [ %87, %.split39.us.split.us ], [ %218, %.critedge16.us..loopexit29.split.us.split_crit_edge ], [ %87, %.split39.us.split ], [ %204, %199 ], [ %223, %236 ], [ %224, %.critedge16 ], [ %218, %213 ]
+  %260 = phi i32 [ %252, %249 ], [ %88, %100 ], [ %.us-phi67, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge ], [ %.us-phi67, %.split39.us.split.us ], [ %.us-phi70, %.critedge16.us..loopexit29.split.us.split_crit_edge ], [ %.us-phi70, %.split39.us.split ], [ %.us-phi67, %199 ], [ %.us-phi6674, %.critedge16 ], [ %.us-phi6674, %236 ], [ %.us-phi70, %213 ]
   %261 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %261, i32 noundef -1) #9
   %262 = icmp sgt i32 %259, %260

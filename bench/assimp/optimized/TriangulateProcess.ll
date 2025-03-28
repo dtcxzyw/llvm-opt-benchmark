@@ -563,7 +563,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit260:           ; preds = %_ZN10aiVector3tIfEd
 _ZN10aiVector3tIfE9NormalizeEv.exit260._crit_edge: ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit260
   %204 = trunc nuw nsw i64 %indvars.iv423 to i32
   %.pre431 = load ptr, ptr %95, align 8
-  br label %split
+  br label %split, !llvm.loop !7
 
 split:                                            ; preds = %.preheader343, %_ZN10aiVector3tIfE9NormalizeEv.exit260._crit_edge
   %205 = phi ptr [ %.pre431, %_ZN10aiVector3tIfE9NormalizeEv.exit260._crit_edge ], [ %.pre432, %.preheader343 ]

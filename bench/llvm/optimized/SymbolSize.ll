@@ -931,7 +931,7 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_6object8SymEntryESt6
 ..critedge.loopexit_crit_edge:                    ; preds = %334
   %339 = trunc nuw i64 %indvars.iv.next402 to i32
   %.pre407 = and i64 %indvars.iv.next402, 4294967295
-  br label %.critedge
+  br label %.critedge, !llvm.loop !74
 
 .critedge:                                        ; preds = %333, %..critedge.loopexit_crit_edge, %330
   %.pre-phi = phi i64 [ %331, %330 ], [ %.pre407, %..critedge.loopexit_crit_edge ], [ %wide.trip.count405, %333 ]

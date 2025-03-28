@@ -5402,10 +5402,13 @@ define internal fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noun
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !348
   %.not53 = icmp eq ptr %38, null
-  br i1 %.not53, label %.critedge, label %.lr.ph, !llvm.loop !498
+  br i1 %.not53, label %.critedge61..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !498
 
-.critedge:                                        ; preds = %.critedge61, %.lr.ph, %.lr.ph.preheader, %.critedge57
-  %.049.lcssa = phi ptr [ %3, %.critedge57 ], [ %3, %.lr.ph.preheader ], [ %28, %.lr.ph ], [ %28, %.critedge61 ]
+.critedge61..critedge.loopexit_crit_edge:         ; preds = %.critedge61
+  br label %.critedge, !llvm.loop !498
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %.critedge61..critedge.loopexit_crit_edge, %.critedge57
+  %.049.lcssa = phi ptr [ %3, %.critedge57 ], [ %28, %.critedge61..critedge.loopexit_crit_edge ], [ %3, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %39 = getelementptr inbounds nuw i8, ptr %.049.lcssa, i64 48
   %40 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %41 = select i1 %.not, i32 7, i32 22

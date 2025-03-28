@@ -490,7 +490,7 @@ mqtt_send.exit:                                   ; preds = %19, %26
 
 ..critedge_crit_edge:                             ; preds = %67
   %.pre = load i64, ptr %10, align 8
-  br label %.critedge
+  br label %.critedge, !llvm.loop !94
 
 .critedgesplit:                                   ; preds = %62
   %.pre126 = load i8, ptr %11, align 1

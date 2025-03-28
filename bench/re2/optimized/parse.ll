@@ -4223,11 +4223,14 @@ for.inc:                                          ; preds = %for.body, %if.then
   %conv4.pn = phi i32 [ %conv4, %if.then ], [ 1, %for.body ]
   %n.1 = add nuw nsw i32 %conv4.pn, %n.05788
   %cmp.not = icmp eq ptr %4, null
-  br i1 %cmp.not, label %land.lhs.true, label %land.rhs, !llvm.loop !43
+  br i1 %cmp.not, label %for.inc.for.end_crit_edge, label %land.rhs, !llvm.loop !43
 
-land.lhs.true:                                    ; preds = %land.rhs, %for.inc, %land.rhs.preheader
-  %next.0.lcssa = phi ptr [ null, %land.rhs.preheader ], [ null, %for.inc ], [ %4, %land.rhs ]
-  %n.0.lcssa = phi i32 [ 0, %land.rhs.preheader ], [ %n.1, %for.inc ], [ %n.1, %land.rhs ]
+for.inc.for.end_crit_edge:                        ; preds = %for.inc
+  br label %land.lhs.true, !llvm.loop !43
+
+land.lhs.true:                                    ; preds = %land.rhs, %land.rhs.preheader, %for.inc.for.end_crit_edge
+  %next.0.lcssa = phi ptr [ null, %for.inc.for.end_crit_edge ], [ null, %land.rhs.preheader ], [ %4, %land.rhs ]
+  %n.0.lcssa = phi i32 [ %n.1, %for.inc.for.end_crit_edge ], [ 0, %land.rhs.preheader ], [ %n.1, %land.rhs ]
   %down_8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %down_8, align 8
   %cmp9 = icmp eq ptr %6, %next.0.lcssa
@@ -4367,12 +4370,15 @@ invoke.cont46:                                    ; preds = %if.end.i, %land.lhs
 for.inc49:                                        ; preds = %invoke.cont46, %for.end40
   %i.2 = phi i32 [ %i.1.lcssa, %for.end40 ], [ %dec45, %invoke.cont46 ]
   %cmp14.not = icmp eq ptr %10, null
-  br i1 %cmp14.not, label %for.end50, label %land.rhs15, !llvm.loop !44
+  br i1 %cmp14.not, label %for.inc49.for.end50.loopexit_crit_edge, label %land.rhs15, !llvm.loop !44
 
-for.end50:                                        ; preds = %for.inc49, %land.rhs15, %land.rhs15.preheader, %if.end11.thread
-  %call5.i3.i85 = phi ptr [ %call5.i3.i83, %if.end11.thread ], [ %call5.i3.i, %land.rhs15.preheader ], [ %call5.i3.i, %land.rhs15 ], [ %call5.i3.i, %for.inc49 ]
-  %n.0.lcssa7984 = phi i32 [ 0, %if.end11.thread ], [ %n.0.lcssa, %land.rhs15.preheader ], [ %n.0.lcssa, %land.rhs15 ], [ %n.0.lcssa, %for.inc49 ]
-  %next.1.lcssa = phi ptr [ null, %if.end11.thread ], [ null, %land.rhs15.preheader ], [ null, %for.inc49 ], [ %10, %land.rhs15 ]
+for.inc49.for.end50.loopexit_crit_edge:           ; preds = %for.inc49
+  br label %for.end50, !llvm.loop !44
+
+for.end50:                                        ; preds = %land.rhs15, %land.rhs15.preheader, %for.inc49.for.end50.loopexit_crit_edge, %if.end11.thread
+  %call5.i3.i85 = phi ptr [ %call5.i3.i83, %if.end11.thread ], [ %call5.i3.i, %for.inc49.for.end50.loopexit_crit_edge ], [ %call5.i3.i, %land.rhs15.preheader ], [ %call5.i3.i, %land.rhs15 ]
+  %n.0.lcssa7984 = phi i32 [ 0, %if.end11.thread ], [ %n.0.lcssa, %for.inc49.for.end50.loopexit_crit_edge ], [ %n.0.lcssa, %land.rhs15.preheader ], [ %n.0.lcssa, %land.rhs15 ]
+  %next.1.lcssa = phi ptr [ null, %if.end11.thread ], [ null, %for.inc49.for.end50.loopexit_crit_edge ], [ null, %land.rhs15.preheader ], [ %10, %land.rhs15 ]
   %23 = load i32, ptr %this, align 8
   %call54 = invoke noundef ptr @_ZN3re26Regexp17ConcatOrAlternateENS_8RegexpOpEPPS0_iNS0_10ParseFlagsEb(i32 noundef %op, ptr noundef nonnull %call5.i3.i85, i32 noundef %n.0.lcssa7984, i32 noundef %23, i1 noundef zeroext true)
           to label %invoke.cont53 unwind label %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit.loopexit.split-lp.loopexit.split-lp

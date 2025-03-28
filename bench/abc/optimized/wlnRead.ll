@@ -6569,7 +6569,7 @@ define i32 @Rtl_NtkReadWire(ptr noundef captures(none) %0, i32 noundef %1) local
   %14 = getelementptr inbounds i32, ptr %.val65156, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !38
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %.critedge, label %.lr.ph167
+  br i1 %16, label %.critedge.loopexit, label %.lr.ph167
 
 17:                                               ; preds = %82
   %18 = getelementptr i8, ptr %86, i64 8
@@ -6578,7 +6578,7 @@ define i32 @Rtl_NtkReadWire(ptr noundef captures(none) %0, i32 noundef %1) local
   %20 = getelementptr inbounds i32, ptr %.val65, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !38
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %.critedge.loopexit.loopexit, label %.lr.ph167, !llvm.loop !118
+  br i1 %22, label %.critedge.loopexit, label %.lr.ph167, !llvm.loop !118
 
 .lr.ph167:                                        ; preds = %.lr.ph, %17
   %23 = phi i32 [ %21, %17 ], [ %15, %.lr.ph ]
@@ -6707,25 +6707,37 @@ Rtl_NtkTokStr.exit87:                             ; preds = %62
   %87 = getelementptr i8, ptr %86, i64 4
   %.val = load i32, ptr %87, align 4, !tbaa !37
   %88 = icmp slt i32 %83, %.val
-  br i1 %88, label %17, label %.critedge.loopexit.loopexit, !llvm.loop !118
+  br i1 %88, label %17, label %..critedge.loopexit_crit_edge, !llvm.loop !118
 
-.critedge.loopexit.loopexit:                      ; preds = %82, %17
-  %89 = shl i32 %23, 4
-  %90 = shl nuw nsw i32 %.153, 3
+..critedge.loopexit_crit_edge:                    ; preds = %82
+  br label %.critedge.loopexit, !llvm.loop !118
+
+.critedge.loopexit:                               ; preds = %17, %..critedge.loopexit_crit_edge, %.lr.ph
+  %.057.lcssa.ph = phi i32 [ %83, %..critedge.loopexit_crit_edge ], [ %1, %.lr.ph ], [ %83, %17 ]
+  %.056.lcssa.ph = phi i32 [ %23, %..critedge.loopexit_crit_edge ], [ -1, %.lr.ph ], [ %23, %17 ]
+  %.054.lcssa.ph = phi i32 [ %.155, %..critedge.loopexit_crit_edge ], [ 1, %.lr.ph ], [ %.155, %17 ]
+  %.052.lcssa.ph = phi i32 [ %.153, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.153, %17 ]
+  %.050.lcssa.ph = phi i32 [ %.151, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.151, %17 ]
+  %.048.lcssa.ph = phi i32 [ %.149, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.149, %17 ]
+  %.046.lcssa.ph = phi i32 [ %.147, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.147, %17 ]
+  %.044.lcssa.ph = phi i32 [ %.145, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.145, %17 ]
+  %.0.lcssa.ph = phi i32 [ %.1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.1, %17 ]
+  %89 = shl i32 %.056.lcssa.ph, 4
+  %90 = shl nuw nsw i32 %.052.lcssa.ph, 3
   %91 = or i32 %90, %89
-  %92 = shl nuw nsw i32 %.1, 2
-  %93 = shl nuw nsw i32 %.149, 1
-  %94 = or disjoint i32 %91, %93
-  %95 = or disjoint i32 %94, %92
-  %96 = or disjoint i32 %95, %.147
+  %92 = shl nuw nsw i32 %.0.lcssa.ph, 2
+  %93 = shl nuw nsw i32 %.048.lcssa.ph, 1
+  %94 = or i32 %91, %93
+  %95 = or i32 %94, %.046.lcssa.ph
+  %96 = or i32 %95, %92
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %.critedge.loopexit.loopexit, %2
-  %.057.lcssa = phi i32 [ %1, %2 ], [ %1, %.lr.ph ], [ %83, %.critedge.loopexit.loopexit ]
-  %.054.lcssa = phi i32 [ 1, %2 ], [ 1, %.lr.ph ], [ %.155, %.critedge.loopexit.loopexit ]
-  %.050.lcssa = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ %.151, %.critedge.loopexit.loopexit ]
-  %.044.lcssa = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ %.145, %.critedge.loopexit.loopexit ]
-  %97 = phi i32 [ -16, %2 ], [ -16, %.lr.ph ], [ %96, %.critedge.loopexit.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %2
+  %.057.lcssa = phi i32 [ %1, %2 ], [ %.057.lcssa.ph, %.critedge.loopexit ]
+  %.054.lcssa = phi i32 [ 1, %2 ], [ %.054.lcssa.ph, %.critedge.loopexit ]
+  %.050.lcssa = phi i32 [ 0, %2 ], [ %.050.lcssa.ph, %.critedge.loopexit ]
+  %.044.lcssa = phi i32 [ 0, %2 ], [ %.044.lcssa.ph, %.critedge.loopexit ]
+  %97 = phi i32 [ -16, %2 ], [ %96, %.critedge.loopexit ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %100 = load i32, ptr %99, align 4, !tbaa !37
@@ -12480,11 +12492,14 @@ Rtl_NtkCellParamValue.exit90:                     ; preds = %39, %43, %56, %Rtl_
   %.158 = phi i32 [ %.05798127, %73 ], [ %77, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv126, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %66, !llvm.loop !187
+  br i1 %exitcond.not, label %..critedge.loopexit_crit_edge130, label %66, !llvm.loop !187
 
-.critedge:                                        ; preds = %66, %78, %.lr.ph128, %.lr.ph, %Rtl_NtkCellParamValue.exit90
-  %.057.lcssa = phi i32 [ -1, %Rtl_NtkCellParamValue.exit90 ], [ -1, %.lr.ph ], [ %.05798127, %.lr.ph128 ], [ %.158, %78 ], [ %.158, %66 ]
-  %.160 = phi i32 [ -1, %Rtl_NtkCellParamValue.exit90 ], [ -1, %.lr.ph ], [ 0, %.lr.ph128 ], [ %72, %78 ], [ %72, %66 ]
+..critedge.loopexit_crit_edge130:                 ; preds = %78
+  br label %.critedge, !llvm.loop !187
+
+.critedge:                                        ; preds = %66, %.lr.ph128, %.lr.ph, %..critedge.loopexit_crit_edge130, %Rtl_NtkCellParamValue.exit90
+  %.057.lcssa = phi i32 [ -1, %Rtl_NtkCellParamValue.exit90 ], [ %.158, %..critedge.loopexit_crit_edge130 ], [ -1, %.lr.ph ], [ %.05798127, %.lr.ph128 ], [ %.158, %66 ]
+  %.160 = phi i32 [ -1, %Rtl_NtkCellParamValue.exit90 ], [ %72, %..critedge.loopexit_crit_edge130 ], [ -1, %.lr.ph ], [ 0, %.lr.ph128 ], [ %72, %66 ]
   %79 = load ptr, ptr %4, align 8, !tbaa !23
   %80 = getelementptr i8, ptr %79, i64 260
   br label %87

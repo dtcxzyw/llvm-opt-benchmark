@@ -2265,10 +2265,13 @@ _ZN5boost4urls11decode_view8iteratormmEv.exit:    ; preds = %26, %29
   %66 = load ptr, ptr %1, align 8, !tbaa !49, !noalias !90
   %67 = load ptr, ptr %18, align 8, !tbaa !57
   %68 = icmp eq ptr %67, %66
-  br i1 %68, label %45, label %.loopexit, !llvm.loop !77
+  br i1 %68, label %45, label %..loopexit.loopexit_crit_edge28, !llvm.loop !77
 
-.loopexit:                                        ; preds = %45, %65, %.lr.ph, %59
-  %69 = phi ptr [ %64, %59 ], [ %19, %.lr.ph ], [ %67, %65 ], [ %67, %45 ]
+..loopexit.loopexit_crit_edge28:                  ; preds = %65
+  br label %.loopexit, !llvm.loop !77
+
+.loopexit:                                        ; preds = %45, %.lr.ph, %..loopexit.loopexit_crit_edge28, %59
+  %69 = phi ptr [ %64, %59 ], [ %67, %..loopexit.loopexit_crit_edge28 ], [ %19, %.lr.ph ], [ %67, %45 ]
   %70 = load i64, ptr %0, align 8, !tbaa !11
   %71 = add i64 %70, -1
   store i64 %71, ptr %0, align 8, !tbaa !11

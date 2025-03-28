@@ -191,10 +191,13 @@ define noundef ptr @Bmc_CexCareExtendToObjects(ptr noundef readonly captures(non
   %98 = sub nsw i32 %.val110.val, %.val109
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next, %99
-  br i1 %100, label %.lr.ph139, label %.critedge2, !llvm.loop !41
+  br i1 %100, label %.lr.ph139, label %..critedge2.loopexit_crit_edge, !llvm.loop !41
 
-.critedge2:                                       ; preds = %96, %.lr.ph139, %.lr.ph139.preheader, %.preheader
-  %.val99141 = phi i32 [ %.val109134, %.preheader ], [ %.val109134, %.lr.ph139.preheader ], [ %.val109, %.lr.ph139 ], [ %.val109, %96 ]
+..critedge2.loopexit_crit_edge:                   ; preds = %96
+  br label %.critedge2, !llvm.loop !41
+
+.critedge2:                                       ; preds = %.lr.ph139, %.lr.ph139.preheader, %..critedge2.loopexit_crit_edge, %.preheader
+  %.val99141 = phi i32 [ %.val109134, %.preheader ], [ %.val109, %..critedge2.loopexit_crit_edge ], [ %.val109134, %.lr.ph139.preheader ], [ %.val109, %.lr.ph139 ]
   %101 = icmp sgt i32 %.val99141, 0
   br i1 %101, label %.lr.ph144, label %.critedge4
 

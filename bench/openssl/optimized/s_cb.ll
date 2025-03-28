@@ -701,7 +701,7 @@ define noundef i32 @ssl_print_sigalgs(ptr noundef %0, ptr noundef %1) local_unna
   %17 = getelementptr inbounds nuw i8, ptr %.069.i19.i, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   %.not.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i, label %lookup.exit.i, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %.lookup.exit.loopexit_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !18
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
   %19 = getelementptr inbounds nuw i8, ptr %.069.i19.i, i64 24
@@ -709,8 +709,11 @@ define noundef i32 @ssl_print_sigalgs(ptr noundef %0, ptr noundef %1) local_unna
   %21 = icmp eq i32 %20, %15
   br i1 %21, label %lookup.exit.i, label %.lr.ph.i, !llvm.loop !18
 
-lookup.exit.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph.i, %.lr.ph22.i
-  %.0.i.i = phi ptr [ @.str.123, %.lr.ph22.i ], [ null, %.lr.ph.i ], [ %18, %.lr.ph.i.i ]
+.lookup.exit.loopexit_crit_edge.i:                ; preds = %.lr.ph.i
+  br label %lookup.exit.i, !llvm.loop !18
+
+lookup.exit.i:                                    ; preds = %.lr.ph.i.i, %.lookup.exit.loopexit_crit_edge.i, %.lr.ph22.i
+  %.0.i.i = phi ptr [ null, %.lookup.exit.loopexit_crit_edge.i ], [ @.str.123, %.lr.ph22.i ], [ %18, %.lr.ph.i.i ]
   %.not17.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not17.i, label %24, label %22
 
@@ -1520,7 +1523,7 @@ define void @msg_cb(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %.069.i92, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %lookup.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %.lookup.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !18
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.069.i92, i64 24
@@ -1528,8 +1531,11 @@ define void @msg_cb(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef 
   %14 = icmp eq i32 %13, %1
   br i1 %14, label %lookup.exit, label %.lr.ph, !llvm.loop !18
 
-lookup.exit:                                      ; preds = %.lr.ph.i, %.lr.ph, %7
-  %.0.i = phi ptr [ @.str.154, %7 ], [ %11, %.lr.ph.i ], [ @.str.54, %.lr.ph ]
+.lookup.exit.loopexit_crit_edge:                  ; preds = %.lr.ph
+  br label %lookup.exit, !llvm.loop !18
+
+lookup.exit:                                      ; preds = %.lr.ph.i, %7, %.lookup.exit.loopexit_crit_edge
+  %.0.i = phi ptr [ @.str.54, %.lookup.exit.loopexit_crit_edge ], [ @.str.154, %7 ], [ %11, %.lr.ph.i ]
   switch i32 %2, label %40 [
     i32 20, label %lookup.exit71
     i32 21, label %15
@@ -1553,14 +1559,14 @@ lookup.exit:                                      ; preds = %.lr.ph.i, %.lr.ph, 
   %19 = load i8, ptr %18, align 1, !tbaa !15
   %20 = zext i8 %19 to i32
   %21 = icmp eq i8 %19, 0
-  br i1 %21, label %lookup.exit71.thread111, label %.lr.ph99
+  br i1 %21, label %lookup.exit71.thread112, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %.lr.ph.i67.preheader, %.lr.ph.i67
   %.069.i6898 = phi ptr [ %22, %.lr.ph.i67 ], [ @alert_types, %.lr.ph.i67.preheader ]
   %22 = getelementptr inbounds nuw i8, ptr %.069.i6898, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %.not.i69 = icmp eq ptr %23, null
-  br i1 %.not.i69, label %lookup.exit71, label %.lr.ph.i67, !llvm.loop !18
+  br i1 %.not.i69, label %.lookup.exit71.loopexit_crit_edge, label %.lr.ph.i67, !llvm.loop !18
 
 .lr.ph.i67:                                       ; preds = %.lr.ph99
   %24 = getelementptr inbounds nuw i8, ptr %.069.i6898, i64 24
@@ -1580,14 +1586,14 @@ lookup.exit71.thread83:                           ; preds = %27
   %29 = load i8, ptr %3, align 1, !tbaa !15
   %30 = zext i8 %29 to i32
   %31 = icmp eq i8 %29, 0
-  br i1 %31, label %lookup.exit71.thread111, label %.lr.ph95
+  br i1 %31, label %lookup.exit71.thread112, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph.i73.preheader, %.lr.ph.i73
   %.069.i7494 = phi ptr [ %32, %.lr.ph.i73 ], [ @handshakes, %.lr.ph.i73.preheader ]
   %32 = getelementptr inbounds nuw i8, ptr %.069.i7494, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !16
   %.not.i75 = icmp eq ptr %33, null
-  br i1 %.not.i75, label %lookup.exit71, label %.lr.ph.i73, !llvm.loop !18
+  br i1 %.not.i75, label %.lookup.exit71.loopexit90_crit_edge, label %.lr.ph.i73, !llvm.loop !18
 
 .lr.ph.i73:                                       ; preds = %.lr.ph95
   %34 = getelementptr inbounds nuw i8, ptr %.069.i7494, i64 24
@@ -1612,23 +1618,29 @@ lookup.exit71.thread83:                           ; preds = %27
   %43 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %8, i64 noundef 127, ptr noundef nonnull @.str.66, i32 noundef %1, i32 noundef %2) #6
   br label %lookup.exit71
 
-lookup.exit71.thread111:                          ; preds = %.lr.ph.i73.preheader, %.lr.ph.i67.preheader
-  %.1.ph108 = phi ptr [ @.str.196, %.lr.ph.i73.preheader ], [ %switch.select65, %.lr.ph.i67.preheader ]
-  %.058.ph109 = phi ptr [ @.str.53, %.lr.ph.i73.preheader ], [ @.str.162, %.lr.ph.i67.preheader ]
-  %.057.ph110 = phi ptr [ @.str.61, %.lr.ph.i73.preheader ], [ @.str.56, %.lr.ph.i67.preheader ]
-  %44 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.67, ptr noundef nonnull %9, ptr noundef nonnull %.0.i, ptr noundef nonnull %.057.ph110, i64 noundef %4, ptr noundef %.1.ph108, ptr noundef nonnull %.058.ph109) #6
+.lookup.exit71.loopexit_crit_edge:                ; preds = %.lr.ph99
+  br label %lookup.exit71, !llvm.loop !18
+
+.lookup.exit71.loopexit90_crit_edge:              ; preds = %.lr.ph95
+  br label %lookup.exit71, !llvm.loop !18
+
+lookup.exit71.thread112:                          ; preds = %.lr.ph.i73.preheader, %.lr.ph.i67.preheader
+  %.1.ph109 = phi ptr [ @.str.196, %.lr.ph.i73.preheader ], [ %switch.select65, %.lr.ph.i67.preheader ]
+  %.058.ph110 = phi ptr [ @.str.53, %.lr.ph.i73.preheader ], [ @.str.162, %.lr.ph.i67.preheader ]
+  %.057.ph111 = phi ptr [ @.str.61, %.lr.ph.i73.preheader ], [ @.str.56, %.lr.ph.i67.preheader ]
+  %44 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.67, ptr noundef nonnull %9, ptr noundef nonnull %.0.i, ptr noundef nonnull %.057.ph111, i64 noundef %4, ptr noundef %.1.ph109, ptr noundef nonnull %.058.ph110) #6
   br label %.lr.ph103.preheader
 
-lookup.exit71:                                    ; preds = %.lr.ph95, %.lr.ph.i73, %.lr.ph99, %.lr.ph.i67, %lookup.exit, %37, %38, %39, %40, %15, %42
-  %.1 = phi ptr [ @.str.53, %40 ], [ @.str.53, %39 ], [ @.str.53, %38 ], [ @.str.53, %37 ], [ @.str.57, %15 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ %switch.select65, %.lr.ph.i67 ], [ %switch.select65, %.lr.ph99 ], [ @.str.54, %.lr.ph95 ], [ %33, %.lr.ph.i73 ]
-  %.058 = phi ptr [ @.str.53, %40 ], [ @.str.53, %39 ], [ @.str.53, %38 ], [ @.str.53, %37 ], [ @.str.53, %15 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.60, %.lr.ph99 ], [ %23, %.lr.ph.i67 ], [ @.str.53, %.lr.ph.i73 ], [ @.str.53, %.lr.ph95 ]
-  %.057 = phi ptr [ %8, %40 ], [ @.str.64, %39 ], [ @.str.63, %38 ], [ @.str.62, %37 ], [ @.str.56, %15 ], [ @.str.53, %42 ], [ @.str.55, %lookup.exit ], [ @.str.56, %.lr.ph.i67 ], [ @.str.56, %.lr.ph99 ], [ @.str.61, %.lr.ph.i73 ], [ @.str.61, %.lr.ph95 ]
-  %.056 = phi ptr [ %.0.i, %40 ], [ %.0.i, %39 ], [ %.0.i, %38 ], [ %.0.i, %37 ], [ %.0.i, %15 ], [ %8, %42 ], [ %.0.i, %lookup.exit ], [ %.0.i, %.lr.ph.i67 ], [ %.0.i, %.lr.ph99 ], [ %.0.i, %.lr.ph.i73 ], [ %.0.i, %.lr.ph95 ]
+lookup.exit71:                                    ; preds = %.lr.ph.i73, %.lr.ph.i67, %.lookup.exit71.loopexit90_crit_edge, %.lookup.exit71.loopexit_crit_edge, %lookup.exit, %37, %38, %39, %40, %15, %42
+  %.1 = phi ptr [ @.str.53, %40 ], [ @.str.53, %39 ], [ @.str.53, %38 ], [ @.str.53, %37 ], [ @.str.57, %15 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ %switch.select65, %.lookup.exit71.loopexit_crit_edge ], [ @.str.54, %.lookup.exit71.loopexit90_crit_edge ], [ %switch.select65, %.lr.ph.i67 ], [ %33, %.lr.ph.i73 ]
+  %.058 = phi ptr [ @.str.53, %40 ], [ @.str.53, %39 ], [ @.str.53, %38 ], [ @.str.53, %37 ], [ @.str.53, %15 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.60, %.lookup.exit71.loopexit_crit_edge ], [ @.str.53, %.lookup.exit71.loopexit90_crit_edge ], [ %23, %.lr.ph.i67 ], [ @.str.53, %.lr.ph.i73 ]
+  %.057 = phi ptr [ %8, %40 ], [ @.str.64, %39 ], [ @.str.63, %38 ], [ @.str.62, %37 ], [ @.str.56, %15 ], [ @.str.53, %42 ], [ @.str.55, %lookup.exit ], [ @.str.56, %.lookup.exit71.loopexit_crit_edge ], [ @.str.61, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.56, %.lr.ph.i67 ], [ @.str.61, %.lr.ph.i73 ]
+  %.056 = phi ptr [ %.0.i, %40 ], [ %.0.i, %39 ], [ %.0.i, %38 ], [ %.0.i, %37 ], [ %.0.i, %15 ], [ %8, %42 ], [ %.0.i, %lookup.exit ], [ %.0.i, %.lookup.exit71.loopexit_crit_edge ], [ %.0.i, %.lookup.exit71.loopexit90_crit_edge ], [ %.0.i, %.lr.ph.i67 ], [ %.0.i, %.lr.ph.i73 ]
   %45 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.67, ptr noundef nonnull %9, ptr noundef %.056, ptr noundef nonnull %.057, i64 noundef %4, ptr noundef %.1, ptr noundef nonnull %.058) #6
   %.not63 = icmp eq i64 %4, 0
   br i1 %.not63, label %59, label %.lr.ph103.preheader
 
-.lr.ph103.preheader:                              ; preds = %lookup.exit71, %lookup.exit71.thread111
+.lr.ph103.preheader:                              ; preds = %lookup.exit71, %lookup.exit71.thread112
   %46 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.68) #6
   br label %.lr.ph103
 
@@ -1677,7 +1689,7 @@ define void @tlsext_cb(ptr noundef readnone captures(none) %0, i32 noundef %1, i
   %8 = getelementptr inbounds nuw i8, ptr %.069.i10, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %lookup.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %.lookup.exit_crit_edge, label %.lr.ph.i, !llvm.loop !18
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %.069.i10, i64 24
@@ -1685,8 +1697,11 @@ define void @tlsext_cb(ptr noundef readnone captures(none) %0, i32 noundef %1, i
   %12 = icmp eq i32 %11, %2
   br i1 %12, label %lookup.exit, label %.lr.ph, !llvm.loop !18
 
-lookup.exit:                                      ; preds = %.lr.ph.i, %.lr.ph, %6
-  %.0.i = phi ptr [ @.str.218, %6 ], [ @.str.72, %.lr.ph ], [ %9, %.lr.ph.i ]
+.lookup.exit_crit_edge:                           ; preds = %.lr.ph
+  br label %lookup.exit, !llvm.loop !18
+
+lookup.exit:                                      ; preds = %.lr.ph.i, %.lookup.exit_crit_edge, %6
+  %.0.i = phi ptr [ @.str.72, %.lookup.exit_crit_edge ], [ @.str.218, %6 ], [ %9, %.lr.ph.i ]
   %.not = icmp eq i32 %1, 0
   %13 = select i1 %.not, ptr @.str.75, ptr @.str.74
   %14 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.73, ptr noundef nonnull %13, ptr noundef nonnull %.0.i, i32 noundef %2, i32 noundef %4) #6
@@ -2934,7 +2949,7 @@ define internal i32 @security_callback_debug(ptr noundef %0, ptr noundef %1, i32
   %20 = getelementptr inbounds nuw i8, ptr %.069.i120, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %lookup.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %.lookup.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !18
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.069.i120, i64 24
@@ -2942,8 +2957,11 @@ define internal i32 @security_callback_debug(ptr noundef %0, ptr noundef %1, i32
   %24 = icmp eq i32 %23, %2
   br i1 %24, label %lookup.exit, label %.lr.ph, !llvm.loop !18
 
-lookup.exit:                                      ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader
-  %.0.i = phi ptr [ @.str.292, %.lr.ph.i.preheader ], [ %21, %.lr.ph.i ], [ null, %.lr.ph ]
+.lookup.exit.loopexit_crit_edge:                  ; preds = %.lr.ph
+  br label %lookup.exit, !llvm.loop !18
+
+lookup.exit:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.lookup.exit.loopexit_crit_edge
+  %.0.i = phi ptr [ null, %.lookup.exit.loopexit_crit_edge ], [ @.str.292, %.lr.ph.i.preheader ], [ %21, %.lr.ph.i ]
   %.not = icmp eq ptr %.0.i, null
   switch i32 %2, label %35 [
     i32 10, label %.thread
@@ -2967,7 +2985,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i, %.lr.ph, 
   %27 = getelementptr inbounds nuw i8, ptr %.069.i83122, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !16
   %.not.i84 = icmp eq ptr %28, null
-  br i1 %.not.i84, label %lookup.exit86, label %.lr.ph.i82, !llvm.loop !18
+  br i1 %.not.i84, label %.lookup.exit86.loopexit_crit_edge, label %.lr.ph.i82, !llvm.loop !18
 
 .lr.ph.i82:                                       ; preds = %.lr.ph123
   %29 = getelementptr inbounds nuw i8, ptr %.069.i83122, i64 24
@@ -2975,8 +2993,11 @@ lookup.exit:                                      ; preds = %.lr.ph.i, %.lr.ph, 
   %31 = icmp eq i32 %30, %4
   br i1 %31, label %lookup.exit86, label %.lr.ph123, !llvm.loop !18
 
-lookup.exit86:                                    ; preds = %.lr.ph.i82, %.lr.ph123, %.lr.ph.i82.preheader
-  %.0.i85 = phi ptr [ @.str.154, %.lr.ph.i82.preheader ], [ %28, %.lr.ph.i82 ], [ @.str.54, %.lr.ph123 ]
+.lookup.exit86.loopexit_crit_edge:                ; preds = %.lr.ph123
+  br label %lookup.exit86, !llvm.loop !18
+
+lookup.exit86:                                    ; preds = %.lr.ph.i82, %.lr.ph.i82.preheader, %.lookup.exit86.loopexit_crit_edge
+  %.0.i85 = phi ptr [ @.str.54, %.lookup.exit86.loopexit_crit_edge ], [ @.str.154, %.lr.ph.i82.preheader ], [ %28, %.lr.ph.i82 ]
   %32 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.280, ptr noundef nonnull %.0.i85) #6
   br label %.thread
 
@@ -3116,7 +3137,7 @@ lookup.exit92:                                    ; preds = %.lr.ph.i88, %.lr.ph
   %98 = getelementptr inbounds nuw i8, ptr %.069.i95129, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !16
   %.not.i96 = icmp eq ptr %99, null
-  br i1 %.not.i96, label %.lr.ph.i100.preheader, label %.lr.ph.i94, !llvm.loop !18
+  br i1 %.not.i96, label %.lookup.exit98.loopexit_crit_edge, label %.lr.ph.i94, !llvm.loop !18
 
 .lr.ph.i94:                                       ; preds = %.lr.ph130
   %100 = getelementptr inbounds nuw i8, ptr %.069.i95129, i64 24
@@ -3124,8 +3145,11 @@ lookup.exit92:                                    ; preds = %.lr.ph.i88, %.lr.ph
   %102 = icmp eq i32 %101, %94
   br i1 %102, label %.lr.ph.i100.preheader, label %.lr.ph130, !llvm.loop !18
 
-.lr.ph.i100.preheader:                            ; preds = %.lr.ph130, %.lr.ph.i94, %.loopexit
-  %.0.i97 = phi ptr [ @.str.327, %.loopexit ], [ %99, %.lr.ph.i94 ], [ null, %.lr.ph130 ]
+.lookup.exit98.loopexit_crit_edge:                ; preds = %.lr.ph130
+  br label %.lr.ph.i100.preheader, !llvm.loop !18
+
+.lr.ph.i100.preheader:                            ; preds = %.lr.ph.i94, %.lookup.exit98.loopexit_crit_edge, %.loopexit
+  %.0.i97 = phi ptr [ null, %.lookup.exit98.loopexit_crit_edge ], [ @.str.327, %.loopexit ], [ %99, %.lr.ph.i94 ]
   %103 = icmp eq i8 %95, 0
   br i1 %103, label %lookup.exit104, label %.lr.ph134
 

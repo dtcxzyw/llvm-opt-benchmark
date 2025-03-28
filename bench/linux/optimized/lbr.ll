@@ -2685,7 +2685,7 @@ define internal fastcc void @intel_pmu_store_lbr(ptr noundef captures(none) %0, 
 
 ._crit_edge:                                      ; preds = %97
   %.pre = sext i32 %105 to i64
-  br label %split
+  br label %split, !llvm.loop !54
 
 split:                                            ; preds = %26, %.thread4, %._crit_edge, %2
   %108 = phi i64 [ 0, %2 ], [ %.pre, %._crit_edge ], [ %10, %.thread4 ], [ %10, %26 ]

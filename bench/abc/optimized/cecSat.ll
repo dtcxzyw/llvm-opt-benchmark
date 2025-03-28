@@ -1928,7 +1928,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
 
 Vec_WrdPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_WrdPush.exit
   %.pre.pre = load i32, ptr %2, align 8, !tbaa !65
-  br label %.critedge
+  br label %.critedge, !llvm.loop !88
 
 .critedge:                                        ; preds = %.lr.ph, %Vec_WrdPush.exit..critedge.loopexit_crit_edge, %.preheader
   %63 = phi i32 [ %12, %.preheader ], [ %.pre.pre, %Vec_WrdPush.exit..critedge.loopexit_crit_edge ], [ %.pre.pre28, %.lr.ph ]
@@ -2852,10 +2852,13 @@ Cec2_ManSimHashKey.exit:                          ; preds = %.lr.ph.i87, %.lr.ph
   %81 = load i32, ptr %15, align 8, !tbaa !53
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %36, label %.critedge, !llvm.loop !112
+  br i1 %83, label %36, label %..critedge_crit_edge141, !llvm.loop !112
 
-.critedge:                                        ; preds = %80, %36, %.lr.ph
-  %.lcssa98 = phi i32 [ %.val75, %.lr.ph ], [ %81, %36 ], [ %81, %80 ]
+..critedge_crit_edge141:                          ; preds = %80
+  br label %.critedge, !llvm.loop !112
+
+.critedge:                                        ; preds = %36, %..critedge_crit_edge141, %.lr.ph
+  %.lcssa98 = phi i32 [ %81, %..critedge_crit_edge141 ], [ %.val75, %.lr.ph ], [ %81, %36 ]
   %84 = icmp sgt i32 %.lcssa98, 0
   br i1 %84, label %.lr.ph106, label %._crit_edge
 

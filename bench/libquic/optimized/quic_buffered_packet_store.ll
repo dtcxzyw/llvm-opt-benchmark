@@ -683,7 +683,10 @@ define noundef range(i32 0, 3) i32 @_ZN3net23QuicBufferedPacketStore13EnqueuePac
   %45 = load i64, ptr %44, align 8, !tbaa !26
   %46 = urem i64 %45, %30
   %.not19.i.i.i.i.i.i = icmp eq i64 %46, %31
-  br i1 %.not19.i.i.i.i.i.i, label %40, label %.critedge, !llvm.loop !80
+  br i1 %.not19.i.i.i.i.i.i, label %40, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !80
+
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %43
+  br label %.critedge, !llvm.loop !80
 
 _ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit: ; preds = %40, %23, %35
   %.sroa.06.1.i.i.i.i = phi ptr [ %36, %35 ], [ %.sroa.06.0.i.i.i.i, %23 ], [ %42, %40 ]
@@ -709,7 +712,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %50
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %8) #18
   br label %.critedge
 
-.critedge:                                        ; preds = %43, %.lr.ph.i.i.i.i.i.i, %22, %27, %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit, %6, %.critedge48
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %22, %..loopexit_crit_edge21.i.i.i.i.i.i, %27, %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit, %6, %.critedge48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %55 = load i64, ptr %54, align 8, !tbaa !83
   %.not.not.i.i.i.i49 = icmp eq i64 %55, 0
@@ -720,13 +723,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %50
   br label %58
 
 58:                                               ; preds = %59, %56
-  %.sroa.06.0.in.i.i.i.i58 = phi ptr [ %57, %56 ], [ %.sroa.06.0.i.i.i.i59, %59 ]
-  %.sroa.06.0.i.i.i.i59 = load ptr, ptr %.sroa.06.0.in.i.i.i.i58, align 8, !tbaa !72
-  %.not.i.i.i.i60 = icmp eq ptr %.sroa.06.0.i.i.i.i59, null
-  br i1 %.not.i.i.i.i60, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %59
+  %.sroa.06.0.in.i.i.i.i59 = phi ptr [ %57, %56 ], [ %.sroa.06.0.i.i.i.i60, %59 ]
+  %.sroa.06.0.i.i.i.i60 = load ptr, ptr %.sroa.06.0.in.i.i.i.i59, align 8, !tbaa !72
+  %.not.i.i.i.i61 = icmp eq ptr %.sroa.06.0.i.i.i.i60, null
+  br i1 %.not.i.i.i.i61, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i60, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !26
   %62 = icmp eq i64 %1, %61
   br i1 %62, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit, label %58, !llvm.loop !84
@@ -763,19 +766,22 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %50
   %80 = load i64, ptr %79, align 8, !tbaa !26
   %81 = urem i64 %80, %65
   %.not19.i.i.i.i.i.i54 = icmp eq i64 %81, %66
-  br i1 %.not19.i.i.i.i.i.i54, label %75, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit.thread, !llvm.loop !85
+  br i1 %.not19.i.i.i.i.i.i54, label %75, label %..loopexit_crit_edge21.i.i.i.i.i.i55, !llvm.loop !85
 
-_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i51, %78, %58, %63
+..loopexit_crit_edge21.i.i.i.i.i.i55:             ; preds = %78
+  br label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit.thread, !llvm.loop !85
+
+_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i51, %58, %63, %..loopexit_crit_edge21.i.i.i.i.i.i55
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %86
 
 _ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit: ; preds = %75, %59, %70
-  %.sroa.06.1.i.i.i.i57 = phi ptr [ %71, %70 ], [ %.sroa.06.0.i.i.i.i59, %59 ], [ %77, %75 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i57, i64 16
+  %.sroa.06.1.i.i.i.i58 = phi ptr [ %71, %70 ], [ %.sroa.06.0.i.i.i.i60, %59 ], [ %77, %75 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i58, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !86
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.not135 = icmp eq ptr %84, %85
-  br i1 %.not135, label %86, label %102
+  %.not139 = icmp eq ptr %84, %85
+  br i1 %.not139, label %86, label %102
 
 86:                                               ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit.thread, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit
   %87 = phi ptr [ %82, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit.thread ], [ %85, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit ]
@@ -814,16 +820,16 @@ _ZN3net23QuicBufferedPacketStore18ShouldBufferPacketEb.exit: ; preds = %86
   br label %106
 
 106:                                              ; preds = %107, %104
-  %.sroa.06.0.in.i.i.i.i71 = phi ptr [ %105, %104 ], [ %.sroa.06.0.i.i.i.i72, %107 ]
-  %.sroa.06.0.i.i.i.i72 = load ptr, ptr %.sroa.06.0.in.i.i.i.i71, align 8, !tbaa !72
-  %.not.i.i.i.i73 = icmp eq ptr %.sroa.06.0.i.i.i.i72, null
-  br i1 %.not.i.i.i.i73, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74.thread, label %107
+  %.sroa.06.0.in.i.i.i.i73 = phi ptr [ %105, %104 ], [ %.sroa.06.0.i.i.i.i74, %107 ]
+  %.sroa.06.0.i.i.i.i74 = load ptr, ptr %.sroa.06.0.in.i.i.i.i73, align 8, !tbaa !72
+  %.not.i.i.i.i75 = icmp eq ptr %.sroa.06.0.i.i.i.i74, null
+  br i1 %.not.i.i.i.i75, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76.thread, label %107
 
 107:                                              ; preds = %106
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i72, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i74, i64 8
   %109 = load i64, ptr %108, align 8, !tbaa !26
   %110 = icmp eq i64 %1, %109
-  br i1 %110, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74, label %106, !llvm.loop !84
+  br i1 %110, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76, label %106, !llvm.loop !84
 
 111:                                              ; preds = %102
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -832,41 +838,44 @@ _ZN3net23QuicBufferedPacketStore18ShouldBufferPacketEb.exit: ; preds = %86
   %115 = load ptr, ptr %0, align 8, !tbaa !29
   %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %114
   %117 = load ptr, ptr %116, align 8, !tbaa !79
-  %.not.i.i.i.i.i.i62 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i.i.i.i62, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74.thread, label %118
+  %.not.i.i.i.i.i.i63 = icmp eq ptr %117, null
+  br i1 %.not.i.i.i.i.i.i63, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76.thread, label %118
 
 118:                                              ; preds = %111
   %119 = load ptr, ptr %117, align 8, !tbaa !72
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load i64, ptr %120, align 8, !tbaa !26
   %122 = icmp eq i64 %1, %121
-  br i1 %122, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74, label %.lr.ph.i.i.i.i.i.i63
+  br i1 %122, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76, label %.lr.ph.i.i.i.i.i.i64
 
 123:                                              ; preds = %126
   %124 = icmp eq i64 %1, %128
-  br i1 %124, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74, label %.lr.ph.i.i.i.i.i.i63, !llvm.loop !85
+  br i1 %124, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76, label %.lr.ph.i.i.i.i.i.i64, !llvm.loop !85
 
-.lr.ph.i.i.i.i.i.i63:                             ; preds = %118, %123
-  %.020.i.i.i.i.i.i64 = phi ptr [ %125, %123 ], [ %119, %118 ]
-  %125 = load ptr, ptr %.020.i.i.i.i.i.i64, align 8, !tbaa !72
-  %.not18.i.i.i.i.i.i65 = icmp eq ptr %125, null
-  br i1 %.not18.i.i.i.i.i.i65, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74.thread, label %126
+.lr.ph.i.i.i.i.i.i64:                             ; preds = %118, %123
+  %.020.i.i.i.i.i.i65 = phi ptr [ %125, %123 ], [ %119, %118 ]
+  %125 = load ptr, ptr %.020.i.i.i.i.i.i65, align 8, !tbaa !72
+  %.not18.i.i.i.i.i.i66 = icmp eq ptr %125, null
+  br i1 %.not18.i.i.i.i.i.i66, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76.thread, label %126
 
-126:                                              ; preds = %.lr.ph.i.i.i.i.i.i63
+126:                                              ; preds = %.lr.ph.i.i.i.i.i.i64
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !26
   %129 = urem i64 %128, %113
-  %.not19.i.i.i.i.i.i66 = icmp eq i64 %129, %114
-  br i1 %.not19.i.i.i.i.i.i66, label %123, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74.thread, !llvm.loop !85
+  %.not19.i.i.i.i.i.i67 = icmp eq i64 %129, %114
+  br i1 %.not19.i.i.i.i.i.i67, label %123, label %..loopexit_crit_edge21.i.i.i.i.i.i68, !llvm.loop !85
 
-_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74: ; preds = %123, %107, %118
-  %.sroa.06.1.i.i.i.i70 = phi ptr [ %119, %118 ], [ %.sroa.06.0.i.i.i.i72, %107 ], [ %125, %123 ]
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i70, i64 16
+..loopexit_crit_edge21.i.i.i.i.i.i68:             ; preds = %126
+  br label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76.thread, !llvm.loop !85
+
+_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76: ; preds = %123, %107, %118
+  %.sroa.06.1.i.i.i.i72 = phi ptr [ %119, %118 ], [ %.sroa.06.0.i.i.i.i74, %107 ], [ %125, %123 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i72, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !86
-  %.not136 = icmp eq ptr %131, %103
-  br i1 %.not136, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74.thread, label %140
+  %.not140 = icmp eq ptr %131, %103
+  br i1 %.not140, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76.thread, label %140
 
-_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74.thread: ; preds = %.lr.ph.i.i.i.i.i.i63, %126, %106, %111, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74
+_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76.thread: ; preds = %.lr.ph.i.i.i.i.i.i64, %106, %111, %..loopexit_crit_edge21.i.i.i.i.i.i68, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #18
   call void @_ZN3net23QuicBufferedPacketStore18BufferedPacketListC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10)
@@ -875,7 +884,7 @@ _ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18Buffere
   invoke void @_ZN3net23QuicBufferedPacketStore18BufferedPacketListC1EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZSt9make_pairIRmN3net23QuicBufferedPacketStore18BufferedPacketListEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit unwind label %135
 
-_ZSt9make_pairIRmN3net23QuicBufferedPacketStore18BufferedPacketListEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit: ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74.thread
+_ZSt9make_pairIRmN3net23QuicBufferedPacketStore18BufferedPacketListEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit: ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76.thread
   %133 = invoke { ptr, i8 } @_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE7emplaceIJSt4pairImS2_EEEES7_ISt14_List_iteratorIS8_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(40) %9)
           to label %134 unwind label %137
 
@@ -887,7 +896,7 @@ _ZSt9make_pairIRmN3net23QuicBufferedPacketStore18BufferedPacketListEESt4pairINSt
   %.pre = load i64, ptr %54, align 8, !tbaa !83
   br label %140
 
-135:                                              ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74.thread
+135:                                              ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76.thread
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %139
@@ -905,26 +914,26 @@ _ZSt9make_pairIRmN3net23QuicBufferedPacketStore18BufferedPacketListEESt4pairINSt
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #18
   br label %309
 
-140:                                              ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74, %134
-  %141 = phi i64 [ %55, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit74 ], [ %.pre, %134 ]
-  %.not.not.i.i.i.i75 = icmp eq i64 %141, 0
-  br i1 %.not.not.i.i.i.i75, label %142, label %149
+140:                                              ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76, %134
+  %141 = phi i64 [ %55, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit76 ], [ %.pre, %134 ]
+  %.not.not.i.i.i.i77 = icmp eq i64 %141, 0
+  br i1 %.not.not.i.i.i.i77, label %142, label %149
 
 142:                                              ; preds = %140
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %144
 
 144:                                              ; preds = %145, %142
-  %.sroa.06.0.in.i.i.i.i85 = phi ptr [ %143, %142 ], [ %.sroa.06.0.i.i.i.i86, %145 ]
-  %.sroa.06.0.i.i.i.i86 = load ptr, ptr %.sroa.06.0.in.i.i.i.i85, align 8, !tbaa !72
-  %.not.i.i.i.i87 = icmp eq ptr %.sroa.06.0.i.i.i.i86, null
-  br i1 %.not.i.i.i.i87, label %.critedge45, label %145
+  %.sroa.06.0.in.i.i.i.i88 = phi ptr [ %143, %142 ], [ %.sroa.06.0.i.i.i.i89, %145 ]
+  %.sroa.06.0.i.i.i.i89 = load ptr, ptr %.sroa.06.0.in.i.i.i.i88, align 8, !tbaa !72
+  %.not.i.i.i.i90 = icmp eq ptr %.sroa.06.0.i.i.i.i89, null
+  br i1 %.not.i.i.i.i90, label %.critedge45, label %145
 
 145:                                              ; preds = %144
-  %146 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i86, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i89, i64 8
   %147 = load i64, ptr %146, align 8, !tbaa !26
   %148 = icmp eq i64 %1, %147
-  br i1 %148, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit88, label %144, !llvm.loop !84
+  br i1 %148, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit91, label %144, !llvm.loop !84
 
 149:                                              ; preds = %140
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -933,50 +942,53 @@ _ZSt9make_pairIRmN3net23QuicBufferedPacketStore18BufferedPacketListEESt4pairINSt
   %153 = load ptr, ptr %0, align 8, !tbaa !29
   %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %152
   %155 = load ptr, ptr %154, align 8, !tbaa !79
-  %.not.i.i.i.i.i.i76 = icmp eq ptr %155, null
-  br i1 %.not.i.i.i.i.i.i76, label %.critedge45, label %156
+  %.not.i.i.i.i.i.i78 = icmp eq ptr %155, null
+  br i1 %.not.i.i.i.i.i.i78, label %.critedge45, label %156
 
 156:                                              ; preds = %149
   %157 = load ptr, ptr %155, align 8, !tbaa !72
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load i64, ptr %158, align 8, !tbaa !26
   %160 = icmp eq i64 %1, %159
-  br i1 %160, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit88, label %.lr.ph.i.i.i.i.i.i77
+  br i1 %160, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit91, label %.lr.ph.i.i.i.i.i.i79
 
 161:                                              ; preds = %164
   %162 = icmp eq i64 %1, %166
-  br i1 %162, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit88, label %.lr.ph.i.i.i.i.i.i77, !llvm.loop !85
+  br i1 %162, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit91, label %.lr.ph.i.i.i.i.i.i79, !llvm.loop !85
 
-.lr.ph.i.i.i.i.i.i77:                             ; preds = %156, %161
-  %.020.i.i.i.i.i.i78 = phi ptr [ %163, %161 ], [ %157, %156 ]
-  %163 = load ptr, ptr %.020.i.i.i.i.i.i78, align 8, !tbaa !72
-  %.not18.i.i.i.i.i.i79 = icmp eq ptr %163, null
-  br i1 %.not18.i.i.i.i.i.i79, label %.critedge45, label %164
+.lr.ph.i.i.i.i.i.i79:                             ; preds = %156, %161
+  %.020.i.i.i.i.i.i80 = phi ptr [ %163, %161 ], [ %157, %156 ]
+  %163 = load ptr, ptr %.020.i.i.i.i.i.i80, align 8, !tbaa !72
+  %.not18.i.i.i.i.i.i81 = icmp eq ptr %163, null
+  br i1 %.not18.i.i.i.i.i.i81, label %.critedge45, label %164
 
-164:                                              ; preds = %.lr.ph.i.i.i.i.i.i77
+164:                                              ; preds = %.lr.ph.i.i.i.i.i.i79
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %166 = load i64, ptr %165, align 8, !tbaa !26
   %167 = urem i64 %166, %151
-  %.not19.i.i.i.i.i.i80 = icmp eq i64 %167, %152
-  br i1 %.not19.i.i.i.i.i.i80, label %161, label %.critedge45, !llvm.loop !85
+  %.not19.i.i.i.i.i.i82 = icmp eq i64 %167, %152
+  br i1 %.not19.i.i.i.i.i.i82, label %161, label %..loopexit_crit_edge21.i.i.i.i.i.i83, !llvm.loop !85
 
-_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit88: ; preds = %161, %145, %156
-  %.sroa.06.1.i.i.i.i84 = phi ptr [ %157, %156 ], [ %.sroa.06.0.i.i.i.i86, %145 ], [ %163, %161 ]
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i84, i64 16
+..loopexit_crit_edge21.i.i.i.i.i.i83:             ; preds = %164
+  br label %.critedge45, !llvm.loop !85
+
+_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit91: ; preds = %161, %145, %156
+  %.sroa.06.1.i.i.i.i87 = phi ptr [ %157, %156 ], [ %.sroa.06.0.i.i.i.i89, %145 ], [ %163, %161 ]
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i87, i64 16
   %169 = load ptr, ptr %168, align 8, !tbaa !86
-  %.not137 = icmp eq ptr %169, %103
-  br i1 %.not137, label %.critedge45, label %.critedge46
+  %.not141 = icmp eq ptr %169, %103
+  br i1 %.not141, label %.critedge45, label %.critedge46
 
-.critedge45:                                      ; preds = %.lr.ph.i.i.i.i.i.i77, %164, %144, %149, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit88
+.critedge45:                                      ; preds = %.lr.ph.i.i.i.i.i.i79, %144, %149, %..loopexit_crit_edge21.i.i.i.i.i.i83, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit91
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %11) #18
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %11, ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @.str.2)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %11) #18
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %11) #18
-  %.pre187 = load i64, ptr %54, align 8, !tbaa !83
+  %.pre203 = load i64, ptr %54, align 8, !tbaa !83
   br label %.critedge46
 
-.critedge46:                                      ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit88, %.critedge45
-  %170 = phi i64 [ %141, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit88 ], [ %.pre187, %.critedge45 ]
+.critedge46:                                      ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit91, %.critedge45
+  %170 = phi i64 [ %141, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit91 ], [ %.pre203, %.critedge45 ]
   %.not.not.i.i.i = icmp eq i64 %170, 0
   br i1 %.not.not.i.i.i, label %171, label %178
 
@@ -1028,7 +1040,10 @@ _ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18Buffere
   %195 = load i64, ptr %194, align 8, !tbaa !26
   %196 = urem i64 %195, %180
   %.not19.i.i.i.i.i = icmp eq i64 %196, %181
-  br i1 %.not19.i.i.i.i.i, label %190, label %_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit, !llvm.loop !85
+  br i1 %.not19.i.i.i.i.i, label %190, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !85
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %193
+  br label %_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit, !llvm.loop !85
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit.i: ; preds = %190, %174, %185
   %.sroa.06.1.i.i.i = phi ptr [ %186, %185 ], [ %.sroa.06.0.i.i.i, %174 ], [ %192, %190 ]
@@ -1036,32 +1051,32 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore
   %.sroa.0.0.copyload.i = load ptr, ptr %197, align 8, !tbaa !105
   br label %_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit
 
-_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit: ; preds = %.lr.ph.i.i.i.i.i, %193, %173, %178, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit.i
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit.i ], [ %103, %178 ], [ %103, %173 ], [ %103, %193 ], [ %103, %.lr.ph.i.i.i.i.i ]
+_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit: ; preds = %.lr.ph.i.i.i.i.i, %173, %178, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit.i
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit.i ], [ %103, %..loopexit_crit_edge21.i.i.i.i.i ], [ %103, %178 ], [ %103, %173 ], [ %103, %.lr.ph.i.i.i.i.i ]
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
   br i1 %5, label %241, label %199
 
 199:                                              ; preds = %_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %201 = load i64, ptr %200, align 8, !tbaa !77
-  %.not.not.i.i.i.i89 = icmp eq i64 %201, 0
-  br i1 %.not.not.i.i.i.i89, label %202, label %209
+  %.not.not.i.i.i.i92 = icmp eq i64 %201, 0
+  br i1 %.not.not.i.i.i.i92, label %202, label %209
 
 202:                                              ; preds = %199
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %204
 
 204:                                              ; preds = %205, %202
-  %.sroa.06.0.in.i.i.i.i99 = phi ptr [ %203, %202 ], [ %.sroa.06.0.i.i.i.i100, %205 ]
-  %.sroa.06.0.i.i.i.i100 = load ptr, ptr %.sroa.06.0.in.i.i.i.i99, align 8, !tbaa !72
-  %.not.i.i.i.i101 = icmp eq ptr %.sroa.06.0.i.i.i.i100, null
-  br i1 %.not.i.i.i.i101, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102.thread, label %205
+  %.sroa.06.0.in.i.i.i.i103 = phi ptr [ %203, %202 ], [ %.sroa.06.0.i.i.i.i104, %205 ]
+  %.sroa.06.0.i.i.i.i104 = load ptr, ptr %.sroa.06.0.in.i.i.i.i103, align 8, !tbaa !72
+  %.not.i.i.i.i105 = icmp eq ptr %.sroa.06.0.i.i.i.i104, null
+  br i1 %.not.i.i.i.i105, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106.thread, label %205
 
 205:                                              ; preds = %204
-  %206 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i100, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i104, i64 8
   %207 = load i64, ptr %206, align 8, !tbaa !26
   %208 = icmp eq i64 %1, %207
-  br i1 %208, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102, label %204, !llvm.loop !78
+  br i1 %208, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106, label %204, !llvm.loop !78
 
 209:                                              ; preds = %199
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1071,54 +1086,57 @@ _ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hash
   %214 = load ptr, ptr %210, align 8, !tbaa !68
   %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %213
   %216 = load ptr, ptr %215, align 8, !tbaa !79
-  %.not.i.i.i.i.i.i90 = icmp eq ptr %216, null
-  br i1 %.not.i.i.i.i.i.i90, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102.thread, label %217
+  %.not.i.i.i.i.i.i93 = icmp eq ptr %216, null
+  br i1 %.not.i.i.i.i.i.i93, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106.thread, label %217
 
 217:                                              ; preds = %209
   %218 = load ptr, ptr %216, align 8, !tbaa !72
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load i64, ptr %219, align 8, !tbaa !26
   %221 = icmp eq i64 %1, %220
-  br i1 %221, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102, label %.lr.ph.i.i.i.i.i.i91
+  br i1 %221, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106, label %.lr.ph.i.i.i.i.i.i94
 
 222:                                              ; preds = %225
   %223 = icmp eq i64 %1, %227
-  br i1 %223, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102, label %.lr.ph.i.i.i.i.i.i91, !llvm.loop !80
+  br i1 %223, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106, label %.lr.ph.i.i.i.i.i.i94, !llvm.loop !80
 
-.lr.ph.i.i.i.i.i.i91:                             ; preds = %217, %222
-  %.020.i.i.i.i.i.i92 = phi ptr [ %224, %222 ], [ %218, %217 ]
-  %224 = load ptr, ptr %.020.i.i.i.i.i.i92, align 8, !tbaa !72
-  %.not18.i.i.i.i.i.i93 = icmp eq ptr %224, null
-  br i1 %.not18.i.i.i.i.i.i93, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102.thread, label %225
+.lr.ph.i.i.i.i.i.i94:                             ; preds = %217, %222
+  %.020.i.i.i.i.i.i95 = phi ptr [ %224, %222 ], [ %218, %217 ]
+  %224 = load ptr, ptr %.020.i.i.i.i.i.i95, align 8, !tbaa !72
+  %.not18.i.i.i.i.i.i96 = icmp eq ptr %224, null
+  br i1 %.not18.i.i.i.i.i.i96, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106.thread, label %225
 
-225:                                              ; preds = %.lr.ph.i.i.i.i.i.i91
+225:                                              ; preds = %.lr.ph.i.i.i.i.i.i94
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %227 = load i64, ptr %226, align 8, !tbaa !26
   %228 = urem i64 %227, %212
-  %.not19.i.i.i.i.i.i94 = icmp eq i64 %228, %213
-  br i1 %.not19.i.i.i.i.i.i94, label %222, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102.thread, !llvm.loop !80
+  %.not19.i.i.i.i.i.i97 = icmp eq i64 %228, %213
+  br i1 %.not19.i.i.i.i.i.i97, label %222, label %..loopexit_crit_edge21.i.i.i.i.i.i98, !llvm.loop !80
 
-_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102: ; preds = %222, %205, %217
-  %.sroa.06.1.i.i.i.i98 = phi ptr [ %218, %217 ], [ %.sroa.06.0.i.i.i.i100, %205 ], [ %224, %222 ]
-  %229 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i98, i64 16
+..loopexit_crit_edge21.i.i.i.i.i.i98:             ; preds = %225
+  br label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106.thread, !llvm.loop !80
+
+_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106: ; preds = %222, %205, %217
+  %.sroa.06.1.i.i.i.i102 = phi ptr [ %218, %217 ], [ %.sroa.06.0.i.i.i.i104, %205 ], [ %224, %222 ]
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i102, i64 16
   %230 = load ptr, ptr %229, align 8, !tbaa !81
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %.not138 = icmp eq ptr %230, %231
-  br i1 %.not138, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102.thread, label %232
+  %.not142 = icmp eq ptr %230, %231
+  br i1 %.not142, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106.thread, label %232
 
-232:                                              ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102
+232:                                              ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 40
   %234 = load i64, ptr %233, align 8, !tbaa !106
   %235 = add i64 %234, -1
   br label %238
 
-_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102.thread: ; preds = %225, %.lr.ph.i.i.i.i.i.i91, %204, %209, %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102
+_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106.thread: ; preds = %.lr.ph.i.i.i.i.i.i94, %204, %..loopexit_crit_edge21.i.i.i.i.i.i98, %209, %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 40
   %237 = load i64, ptr %236, align 8, !tbaa !106
   br label %238
 
-238:                                              ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102.thread, %232
-  %239 = phi i64 [ %235, %232 ], [ %237, %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit102.thread ]
+238:                                              ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106.thread, %232
+  %239 = phi i64 [ %235, %232 ], [ %237, %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit106.thread ]
   %240 = icmp ult i64 %239, 10
   br i1 %240, label %241, label %308
 
@@ -1227,48 +1245,48 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14Buffere
 280:                                              ; preds = %278, %276
   %.pn37 = phi { ptr, i32 } [ %279, %278 ], [ %277, %276 ]
   call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %14) #18
-  %.pre188 = load ptr, ptr %13, align 8, !tbaa !3
+  %.pre204 = load ptr, ptr %13, align 8, !tbaa !3
   br label %281
 
 281:                                              ; preds = %280, %274
-  %282 = phi ptr [ %.pre188, %280 ], [ %253, %274 ]
+  %282 = phi ptr [ %.pre204, %280 ], [ %253, %274 ]
   %.pn37.pn = phi { ptr, i32 } [ %.pn37, %280 ], [ %275, %274 ]
-  %.not.i104 = icmp eq ptr %282, null
-  br i1 %.not.i104, label %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit106, label %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i105
+  %.not.i108 = icmp eq ptr %282, null
+  br i1 %.not.i108, label %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110, label %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i109
 
-_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i105: ; preds = %281
+_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i109: ; preds = %281
   %283 = load ptr, ptr %282, align 8, !tbaa !8
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %285 = load ptr, ptr %284, align 8
   call void %285(ptr noundef nonnull align 8 dereferenceable(45) %282) #18
-  br label %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit106
+  br label %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110
 
-286:                                              ; preds = %.noexc112, %299, %295, %288, %266, %261
+286:                                              ; preds = %.noexc116, %299, %295, %288, %266, %261
   %287 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %286, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i107, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %265, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i ], [ %287, %286 ], [ %291, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i107 ]
+.body:                                            ; preds = %286, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i111, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %265, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i ], [ %287, %286 ], [ %291, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i111 ]
   call void @_ZN3net23QuicBufferedPacketStore14BufferedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #18
-  br label %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit106
+  br label %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110
 
 288:                                              ; preds = %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit
   %289 = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #20
-          to label %.noexc108 unwind label %286
+          to label %.noexc112 unwind label %286
 
-.noexc108:                                        ; preds = %288
+.noexc112:                                        ; preds = %288
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 16
   invoke void @_ZN3net23QuicBufferedPacketStore14BufferedPacketC1EOS1_(ptr noundef nonnull align 8 dereferenceable(72) %290, ptr noundef nonnull align 8 dereferenceable(72) %12)
-          to label %_ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EE9push_backEOS3_.exit unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i107
+          to label %_ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EE9push_backEOS3_.exit unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i111
 
-_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i107: ; preds = %.noexc108
+_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEED2Ev.exit9.i.i.i111: ; preds = %.noexc112
   %291 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %289) #19
   br label %.body
 
-_ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EE9push_backEOS3_.exit: ; preds = %.noexc108
+_ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EE9push_backEOS3_.exit: ; preds = %.noexc112
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %289, ptr noundef nonnull align 8 dereferenceable(24) %198) #18
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 40
   %293 = load i64, ptr %292, align 8, !tbaa !106
@@ -1280,12 +1298,12 @@ _ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EE9push_
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %297 = load ptr, ptr %296, align 8, !tbaa !67
   %298 = invoke noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr noundef nonnull align 8 dereferenceable(24) %297)
-          to label %.noexc111 unwind label %286
+          to label %.noexc115 unwind label %286
 
-.noexc111:                                        ; preds = %295
+.noexc115:                                        ; preds = %295
   br i1 %298, label %_ZN3net23QuicBufferedPacketStore23MaybeSetExpirationAlarmEv.exit, label %299
 
-299:                                              ; preds = %.noexc111
+299:                                              ; preds = %.noexc115
   %300 = load ptr, ptr %296, align 8, !tbaa !67
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %302 = load ptr, ptr %301, align 8, !tbaa !62
@@ -1293,22 +1311,22 @@ _ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EE9push_
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 16
   %305 = load ptr, ptr %304, align 8
   %306 = invoke i64 %305(ptr noundef nonnull align 8 dereferenceable(8) %302)
-          to label %.noexc112 unwind label %286
+          to label %.noexc116 unwind label %286
 
-.noexc112:                                        ; preds = %299
+.noexc116:                                        ; preds = %299
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !26
   %307 = add nsw i64 %.sroa.2.0.copyload.i, %306
   invoke void @_ZN3net9QuicAlarm3SetENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(24) %300, i64 %307)
           to label %_ZN3net23QuicBufferedPacketStore23MaybeSetExpirationAlarmEv.exit unwind label %286
 
-_ZN3net23QuicBufferedPacketStore23MaybeSetExpirationAlarmEv.exit: ; preds = %.noexc111, %.noexc112
+_ZN3net23QuicBufferedPacketStore23MaybeSetExpirationAlarmEv.exit: ; preds = %.noexc115, %.noexc116
   call void @_ZN3net23QuicBufferedPacketStore14BufferedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #18
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #18
   br label %308
 
-_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit106: ; preds = %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i105, %281, %.body
-  %.pn40 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn37.pn, %281 ], [ %.pn37.pn, %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i105 ]
+_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110: ; preds = %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i109, %281, %.body
+  %.pn40 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn37.pn, %281 ], [ %.pn37.pn, %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i109 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #18
   br label %309
 
@@ -1316,8 +1334,8 @@ _ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit106
   %.0 = phi i32 [ 2, %_ZN3net23QuicBufferedPacketStore18ShouldBufferPacketEb.exit ], [ 0, %_ZN3net23QuicBufferedPacketStore23MaybeSetExpirationAlarmEv.exit ], [ 1, %238 ], [ 2, %91 ]
   ret i32 %.0
 
-309:                                              ; preds = %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit106, %139, %100
-  %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit106 ], [ %.pn, %139 ], [ %101, %100 ]
+309:                                              ; preds = %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110, %139, %100
+  %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110 ], [ %.pn, %139 ], [ %101, %100 ]
   resume { ptr, i32 } %.pn40.pn
 }
 
@@ -1564,9 +1582,12 @@ define noundef zeroext i1 @_ZNK3net23QuicBufferedPacketStore18HasBufferedPackets
   %29 = load i64, ptr %28, align 8, !tbaa !26
   %30 = urem i64 %29, %14
   %.not19.i.i.i.i.i.i = icmp eq i64 %30, %15
-  br i1 %.not19.i.i.i.i.i.i, label %24, label %.loopexit.i.i, !llvm.loop !85
+  br i1 %.not19.i.i.i.i.i.i, label %24, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !85
 
-.loopexit.i.i:                                    ; preds = %27, %.lr.ph.i.i.i.i.i.i, %7, %12
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %27
+  br label %.loopexit.i.i, !llvm.loop !85
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i, %7, %..loopexit_crit_edge21.i.i.i.i.i.i, %12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit
 
@@ -1653,7 +1674,10 @@ define void @_ZN3net23QuicBufferedPacketStore14DeliverPacketsB5cxx11Em(ptr dead_
   %33 = load i64, ptr %32, align 8, !tbaa !26
   %34 = urem i64 %33, %18
   %.not19.i.i.i.i.i = icmp eq i64 %34, %19
-  br i1 %.not19.i.i.i.i.i, label %28, label %_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit.thread, !llvm.loop !85
+  br i1 %.not19.i.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !85
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %31
+  br label %_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit.thread, !llvm.loop !85
 
 _ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit: ; preds = %28, %12, %23
   %.sroa.06.1.i.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i.i, %12 ], [ %30, %28 ]
@@ -1711,7 +1735,7 @@ _ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EEaSEOS5
 _ZNSt7__cxx1110_List_baseIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i, %48
   resume { ptr, i32 } %49
 
-_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit.thread: ; preds = %31, %.lr.ph.i.i.i.i.i, %11, %16, %_ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EEaSEOS5_.exit, %_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit
+_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %11, %..loopexit_crit_edge21.i.i.i.i.i, %16, %_ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EEaSEOS5_.exit, %_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE4findERKm.exit
   ret void
 }
 
@@ -1772,7 +1796,10 @@ define linkonce_odr noundef i64 @_ZN15linked_hash_mapImN3net23QuicBufferedPacket
   %31 = load i64, ptr %30, align 8, !tbaa !26
   %32 = urem i64 %31, %16
   %.not19.i.i.i.i = icmp eq i64 %32, %17
-  br i1 %.not19.i.i.i.i, label %26, label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit.thread, !llvm.loop !85
+  br i1 %.not19.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !85
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
+  br label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit.thread, !llvm.loop !85
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit: ; preds = %26, %9, %21
   %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %9 ], [ %28, %26 ]
@@ -1860,8 +1887,8 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore
   store i64 %71, ptr %3, align 8, !tbaa !83
   br label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit.thread
 
-_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %29, %8, %13, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit ], [ 0, %13 ], [ 0, %8 ], [ 0, %29 ], [ 0, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i, %13, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit
+  %.0 = phi i64 [ 1, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit ], [ 0, %13 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %8 ], [ 0, %.lr.ph.i.i.i.i ]
   ret i64 %.0
 }
 
@@ -2164,7 +2191,10 @@ define linkonce_odr noundef i64 @_ZN15linked_hash_mapImbSt4hashImEE5eraseERKm(pt
   %31 = load i64, ptr %30, align 8, !tbaa !26
   %32 = urem i64 %31, %16
   %.not19.i.i.i.i = icmp eq i64 %32, %17
-  br i1 %.not19.i.i.i.i, label %26, label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE4findERS8_.exit.thread, !llvm.loop !80
+  br i1 %.not19.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !80
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
+  br label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE4findERS8_.exit.thread, !llvm.loop !80
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE4findERS8_.exit: ; preds = %26, %9, %21
   %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %9 ], [ %28, %26 ]
@@ -2250,8 +2280,8 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaI
   store i64 %70, ptr %3, align 8, !tbaa !77
   br label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE4findERS8_.exit.thread
 
-_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %29, %8, %13, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit ], [ 0, %13 ], [ 0, %8 ], [ 0, %29 ], [ 0, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i, %13, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit
+  %.0 = phi i64 [ 1, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit ], [ 0, %13 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %8 ], [ 0, %.lr.ph.i.i.i.i ]
   ret i64 %.0
 }
 
@@ -2505,9 +2535,12 @@ define noundef zeroext i1 @_ZN3net23QuicBufferedPacketStore20HasChloForConnectio
   %30 = load i64, ptr %29, align 8, !tbaa !26
   %31 = urem i64 %30, %15
   %.not19.i.i.i.i.i.i = icmp eq i64 %31, %16
-  br i1 %.not19.i.i.i.i.i.i, label %25, label %.loopexit.i.i, !llvm.loop !80
+  br i1 %.not19.i.i.i.i.i.i, label %25, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !80
 
-.loopexit.i.i:                                    ; preds = %28, %.lr.ph.i.i.i.i.i.i, %7, %12
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %28
+  br label %.loopexit.i.i, !llvm.loop !80
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i, %7, %..loopexit_crit_edge21.i.i.i.i.i.i, %12
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit
 
@@ -2753,11 +2786,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt14_List_iterator
   %37 = load i64, ptr %36, align 8, !tbaa !26
   %38 = urem i64 %37, %9
   %.not19.i.i = icmp eq i64 %38, %10
-  br i1 %.not19.i.i, label %32, label %.critedge27, !llvm.loop !85
+  br i1 %.not19.i.i, label %32, label %..loopexit_crit_edge21.i.i, !llvm.loop !85
 
-.critedge27:                                      ; preds = %.lr.ph.i.i, %35, %22, %.thread
-  %39 = phi i64 [ %26, %22 ], [ %10, %.thread ], [ %10, %35 ], [ %10, %.lr.ph.i.i ]
-  %40 = phi i64 [ %23, %22 ], [ %7, %.thread ], [ %7, %35 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %35
+  br label %.critedge27, !llvm.loop !85
+
+.critedge27:                                      ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread
+  %39 = phi i64 [ %26, %22 ], [ %10, %.thread ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %40 = phi i64 [ %23, %22 ], [ %7, %.thread ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %41 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketStore18BufferedPacketListEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %39, i64 noundef %40, ptr noundef nonnull %3, i64 noundef 1)
           to label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketStore18BufferedPacketListEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketStore18BufferedPacketListEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit29
 
@@ -3035,7 +3071,10 @@ define linkonce_odr { ptr, i8 } @_ZN15linked_hash_mapImbSt4hashImEE6insertERKSt4
   %33 = load i64, ptr %32, align 8, !tbaa !26
   %34 = urem i64 %33, %18
   %.not19.i.i.i.i = icmp eq i64 %34, %19
-  br i1 %.not19.i.i.i.i, label %28, label %.loopexit, !llvm.loop !80
+  br i1 %.not19.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !80
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %31
+  br label %.loopexit, !llvm.loop !80
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE4findERS8_.exit: ; preds = %28, %11, %23
   %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %11 ], [ %30, %28 ]
@@ -3044,7 +3083,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaI
   %37 = inttoptr i64 %36 to ptr
   br label %55
 
-.loopexit:                                        ; preds = %31, %.lr.ph.i.i.i.i, %10, %15
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -3168,10 +3207,13 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt14_List_iterator
   %38 = load i64, ptr %37, align 8, !tbaa !26
   %39 = urem i64 %38, %12
   %.not19.i.i = icmp eq i64 %39, %13
-  br i1 %.not19.i.i, label %33, label %.critedge27, !llvm.loop !80
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !80
 
-.critedge27:                                      ; preds = %.lr.ph.i.i, %36, %24, %.thread
-  %40 = phi i64 [ %27, %24 ], [ %13, %.thread ], [ %13, %36 ], [ %13, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %36
+  br label %.critedge27, !llvm.loop !80
+
+.critedge27:                                      ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread
+  %40 = phi i64 [ %27, %24 ], [ %13, %.thread ], [ %13, %..loopexit_crit_edge21.i.i ], [ %13, %.lr.ph.i.i ]
   %41 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %40, i64 noundef %5, ptr noundef nonnull %3, i64 noundef 1)
           to label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit29
 

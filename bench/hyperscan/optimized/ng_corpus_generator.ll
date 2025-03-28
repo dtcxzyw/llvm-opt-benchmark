@@ -3584,9 +3584,12 @@ _ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHol
   %162 = load i64, ptr %161, align 8
   %163 = urem i64 %162, %141
   %.not19.i.i.i.i.i = icmp eq i64 %163, %142
-  br i1 %.not19.i.i.i.i.i, label %154, label %.loopexit, !llvm.loop !66
+  br i1 %.not19.i.i.i.i.i, label %154, label %..loopexit_crit_edge22.i.i.i.i.i, !llvm.loop !66
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %160, %.preheader, %140
+..loopexit_crit_edge22.i.i.i.i.i:                 ; preds = %160
+  br label %.loopexit, !llvm.loop !66
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.preheader, %140, %..loopexit_crit_edge22.i.i.i.i.i
   %164 = load ptr, ptr %92, align 8
   %165 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %166 = load ptr, ptr %165, align 8
@@ -4614,11 +4617,14 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN3ue212graph_detail17v
   %45 = load i64, ptr %44, align 8
   %46 = urem i64 %45, %10
   %.not19.i.i = icmp eq i64 %46, %11
-  br i1 %.not19.i.i, label %37, label %.critedge, !llvm.loop !101
+  br i1 %.not19.i.i, label %37, label %..loopexit_crit_edge22.i.i, !llvm.loop !101
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %43, %22, %.thread36
-  %47 = phi i64 [ %27, %22 ], [ %11, %.thread36 ], [ %11, %43 ], [ %11, %.lr.ph.i.i ]
-  %48 = phi i64 [ %24, %22 ], [ %8, %.thread36 ], [ %8, %43 ], [ %8, %.lr.ph.i.i ]
+..loopexit_crit_edge22.i.i:                       ; preds = %43
+  br label %.critedge, !llvm.loop !101
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge22.i.i, %.thread36
+  %47 = phi i64 [ %27, %22 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge22.i.i ], [ %11, %.lr.ph.i.i ]
+  %48 = phi i64 [ %24, %22 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge22.i.i ], [ %8, %.lr.ph.i.i ]
   %49 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8

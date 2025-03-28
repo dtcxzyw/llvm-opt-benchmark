@@ -435,9 +435,12 @@ _ZNK4cvc58internal15ResourceManager3outEv.exit:   ; preds = %37
   %73 = load i64, ptr %72, align 8, !tbaa !55
   %74 = urem i64 %73, %58
   %.not19.i.i.i.i = icmp eq i64 %74, %59
-  br i1 %.not19.i.i.i.i, label %68, label %.loopexit, !llvm.loop !58
+  br i1 %.not19.i.i.i.i, label %68, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !58
 
-.loopexit:                                        ; preds = %71, %.lr.ph.i.i.i.i, %.preheader79, %57
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %71
+  br label %.loopexit, !llvm.loop !58
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader79, %57, %..loopexit_crit_edge21.i.i.i.i
   %75 = getelementptr inbounds nuw %"class.std::unique_ptr.349", ptr %43, i64 %51
   %76 = load ptr, ptr %75, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
@@ -1253,11 +1256,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %36 = load i64, ptr %35, align 8, !tbaa !55
   %37 = urem i64 %36, %9
   %.not19.i.i = icmp eq i64 %37, %10
-  br i1 %.not19.i.i, label %31, label %.critedge, !llvm.loop !330
+  br i1 %.not19.i.i, label %31, label %..loopexit_crit_edge21.i.i, !llvm.loop !330
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %34, %22, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %34 ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %34 ], [ %7, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %34
+  br label %.critedge, !llvm.loop !330
+
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
   store ptr null, ptr %40, align 8, !tbaa !36
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

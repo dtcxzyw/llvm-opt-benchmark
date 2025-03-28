@@ -15466,12 +15466,15 @@ for.inc259:                                       ; preds = %invoke.cont251
   %201 = load i64, ptr %mFreeBitCount.i86, align 8
   %sub.i602 = sub i64 %mul.i600, %201
   %cmp238 = icmp ult i64 %inc260, %sub.i602
-  br i1 %cmp238, label %land.rhs239, label %invoke.cont262, !llvm.loop !47
+  br i1 %cmp238, label %land.rhs239, label %for.inc259.invoke.cont262.loopexit_crit_edge, !llvm.loop !47
 
-invoke.cont262:                                   ; preds = %land.rhs239, %for.inc259, %land.rhs239.preheader, %for.cond236.preheader
-  %.lcssa3640 = phi ptr [ %185, %for.cond236.preheader ], [ %185, %land.rhs239.preheader ], [ %199, %for.inc259 ], [ %199, %land.rhs239 ]
-  %.lcssa3638 = phi ptr [ %186, %for.cond236.preheader ], [ %186, %land.rhs239.preheader ], [ %200, %for.inc259 ], [ %200, %land.rhs239 ]
-  %.lcssa3636 = phi i64 [ %mul.i6003702, %for.cond236.preheader ], [ %187, %land.rhs239.preheader ], [ %201, %for.inc259 ], [ %201, %land.rhs239 ]
+for.inc259.invoke.cont262.loopexit_crit_edge:     ; preds = %for.inc259
+  br label %invoke.cont262, !llvm.loop !47
+
+invoke.cont262:                                   ; preds = %land.rhs239, %land.rhs239.preheader, %for.inc259.invoke.cont262.loopexit_crit_edge, %for.cond236.preheader
+  %.lcssa3640 = phi ptr [ %185, %for.cond236.preheader ], [ %199, %for.inc259.invoke.cont262.loopexit_crit_edge ], [ %185, %land.rhs239.preheader ], [ %199, %land.rhs239 ]
+  %.lcssa3638 = phi ptr [ %186, %for.cond236.preheader ], [ %200, %for.inc259.invoke.cont262.loopexit_crit_edge ], [ %186, %land.rhs239.preheader ], [ %200, %land.rhs239 ]
+  %.lcssa3636 = phi i64 [ %mul.i6003702, %for.cond236.preheader ], [ %201, %for.inc259.invoke.cont262.loopexit_crit_edge ], [ %187, %land.rhs239.preheader ], [ %201, %land.rhs239 ]
   %202 = load ptr, ptr %bv2, align 8
   store ptr %202, ptr %bv3, align 8
   store ptr %.lcssa3638, ptr %bv2, align 8

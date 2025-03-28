@@ -944,10 +944,13 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i.
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef i64 %62(ptr noundef nonnull align 8 dereferenceable(24) %1) #12
   %64 = icmp ult i64 %38, %63
-  br i1 %64, label %22, label %.critedge, !llvm.loop !48
+  br i1 %64, label %22, label %..critedge_crit_edge, !llvm.loop !48
 
-.critedge:                                        ; preds = %54, %59
-  %65 = phi ptr [ %.sroa.0.1, %59 ], [ %56, %54 ]
+..critedge_crit_edge:                             ; preds = %59
+  br label %.critedge, !llvm.loop !48
+
+.critedge:                                        ; preds = %54, %..critedge_crit_edge
+  %65 = phi ptr [ %.sroa.0.1, %..critedge_crit_edge ], [ %56, %54 ]
   %66 = getelementptr i16, ptr %65, i64 %39
   %67 = getelementptr i8, ptr %66, i64 -2
   store i16 0, ptr %67, align 2, !tbaa !45

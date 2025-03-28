@@ -272,11 +272,11 @@ define noundef zeroext i1 @"_ZN61_$LT$picker..ConfirmInput$u20$as$u20$gpui..acti
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !46, !alias.scope !48, !noundef !5
   %16 = load i8, ptr %0, align 1, !range !46, !noalias !48, !noundef !5
-  %.not.i.i = icmp eq i8 %16, %.val5.i
+  %17 = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h7c72e5f4f41b9125E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h7c72e5f4f41b9125E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 

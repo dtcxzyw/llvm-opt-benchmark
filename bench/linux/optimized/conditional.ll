@@ -849,7 +849,7 @@ define dso_local i32 @cond_write_list(ptr noundef %0, ptr noundef %1) local_unna
   %21 = load i32, ptr %3, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %20, %22
-  br i1 %23, label %thread-pre-split, label %.thread21, !llvm.loop !16
+  br i1 %23, label %thread-pre-split, label %..thread21.loopexit26_crit_edge, !llvm.loop !16
 
 thread-pre-split:                                 ; preds = %.loopexit
   %.pr = load i64, ptr %4, align 8
@@ -997,8 +997,11 @@ thread-pre-split17:                               ; preds = %77
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %102, label %.thread21
 
-.thread21:                                        ; preds = %.loopexit, %thread-pre-split, %.lr.ph30, %thread-pre-split13, %88, %.preheader24, %thread-pre-split10, %.preheader22, %.preheader, %16, %2, %7
-  %113 = phi i32 [ 0, %7 ], [ -22, %2 ], [ -22, %16 ], [ %111, %.preheader ], [ %86, %.preheader22 ], [ -22, %thread-pre-split10 ], [ -22, %.preheader24 ], [ 0, %.loopexit ], [ -22, %thread-pre-split ], [ -22, %.lr.ph30 ], [ -22, %thread-pre-split13 ], [ -22, %88 ]
+..thread21.loopexit26_crit_edge:                  ; preds = %.loopexit
+  br label %.thread21, !llvm.loop !16
+
+.thread21:                                        ; preds = %thread-pre-split, %.lr.ph30, %thread-pre-split13, %88, %.preheader24, %thread-pre-split10, %.preheader22, %.preheader, %16, %..thread21.loopexit26_crit_edge, %2, %7
+  %113 = phi i32 [ 0, %7 ], [ -22, %2 ], [ 0, %..thread21.loopexit26_crit_edge ], [ -22, %16 ], [ %111, %.preheader ], [ %86, %.preheader22 ], [ -22, %thread-pre-split10 ], [ -22, %.preheader24 ], [ -22, %88 ], [ -22, %thread-pre-split13 ], [ -22, %.lr.ph30 ], [ -22, %thread-pre-split ]
   ret i32 %113
 }
 

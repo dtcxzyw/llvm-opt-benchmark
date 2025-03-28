@@ -1142,7 +1142,7 @@ define range(i32 -192, 1) i32 @GetASN_Items(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #22
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #22
   store i16 -1, ptr %10, align 2
-  %indvars.iv393.sroa.gep589 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %indvars.iv393.sroa.gep588 = getelementptr inbounds nuw i8, ptr %10, i64 1
   br label %12
 
 12:                                               ; preds = %7, %12
@@ -1262,7 +1262,7 @@ define range(i32 -192, 1) i32 @GetASN_Items(ptr noundef readonly captures(none) 
   store i32 0, ptr %58, align 4, !tbaa !30
   %indvars.iv.next390 = add nsw i64 %indvars.iv389523, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next390, %18
-  br i1 %exitcond392.not, label %.loopexit260, label %54, !llvm.loop !33
+  br i1 %exitcond392.not, label %..loopexit260.loopexit_crit_edge, label %54, !llvm.loop !33
 
 59:                                               ; preds = %46
   %60 = icmp eq i32 %.0318, %6
@@ -1928,13 +1928,16 @@ GetASN_StoreData.exit:                            ; preds = %.lr.ph117.i, %.lr.p
   %exitcond388.not = icmp eq i64 %indvars.iv.next386, %18
   br i1 %exitcond388.not, label %.loopexit260, label %364, !llvm.loop !43
 
+..loopexit260.loopexit_crit_edge:                 ; preds = %.lr.ph524
+  br label %.loopexit260, !llvm.loop !33
+
 ..loopexit260.loopexit_crit_edge525:              ; preds = %54
   %372 = trunc nsw i64 %indvars.iv389523 to i32
   br label %.loopexit260
 
-.loopexit260:                                     ; preds = %367, %370, %.lr.ph524, %.lr.ph313, %..loopexit260.loopexit_crit_edge525, %.preheader261, %.preheader259, %GetASN_StoreData.exit, %215
-  %.1 = phi i32 [ %357, %GetASN_StoreData.exit ], [ %.2231, %215 ], [ %.0318, %.preheader259 ], [ %357, %.preheader261 ], [ %.0318, %..loopexit260.loopexit_crit_edge525 ], [ %.0318, %.lr.ph313 ], [ %.0318, %.lr.ph524 ], [ %357, %370 ], [ %357, %367 ]
-  %.2145 = phi i32 [ %.1144321, %GetASN_StoreData.exit ], [ %.1144321, %215 ], [ %.1144321, %.preheader259 ], [ %.1144321, %.preheader261 ], [ %372, %..loopexit260.loopexit_crit_edge525 ], [ %.1144321, %.lr.ph313 ], [ %19, %.lr.ph524 ], [ %.1147.in306, %367 ], [ %19, %370 ]
+.loopexit260:                                     ; preds = %367, %370, %.lr.ph313, %..loopexit260.loopexit_crit_edge, %..loopexit260.loopexit_crit_edge525, %.preheader261, %.preheader259, %GetASN_StoreData.exit, %215
+  %.1 = phi i32 [ %357, %GetASN_StoreData.exit ], [ %.2231, %215 ], [ %.0318, %.preheader259 ], [ %357, %.preheader261 ], [ %.0318, %..loopexit260.loopexit_crit_edge525 ], [ %.0318, %..loopexit260.loopexit_crit_edge ], [ %.0318, %.lr.ph313 ], [ %357, %370 ], [ %357, %367 ]
+  %.2145 = phi i32 [ %.1144321, %GetASN_StoreData.exit ], [ %.1144321, %215 ], [ %.1144321, %.preheader259 ], [ %.1144321, %.preheader261 ], [ %372, %..loopexit260.loopexit_crit_edge525 ], [ %19, %..loopexit260.loopexit_crit_edge ], [ %.1144321, %.lr.ph313 ], [ %.1147.in306, %367 ], [ %19, %370 ]
   %373 = add nsw i32 %.2145, 1
   %374 = icmp slt i32 %373, %2
   br i1 %374, label %.lr.ph322, label %._crit_edge, !llvm.loop !44
@@ -1967,7 +1970,7 @@ GetASN_StoreData.exit:                            ; preds = %.lr.ph117.i, %.lr.p
 
 384:                                              ; preds = %.loopexit, %383
   %385 = phi i1 [ true, %.loopexit ], [ false, %383 ]
-  %indvars.iv393.sroa.phi = phi ptr [ %10, %.loopexit ], [ %indvars.iv393.sroa.gep589, %383 ]
+  %indvars.iv393.sroa.phi = phi ptr [ %10, %.loopexit ], [ %indvars.iv393.sroa.gep588, %383 ]
   %386 = load i8, ptr %indvars.iv393.sroa.phi, align 1, !tbaa !3
   %387 = icmp eq i8 %386, 0
   br i1 %387, label %GetLength_ex.exit.thread, label %383

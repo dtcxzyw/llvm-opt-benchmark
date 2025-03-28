@@ -860,7 +860,7 @@ define internal fastcc range(i32 0, 2061) i32 @_resv_port_alloc(i16 noundef zero
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %32
   %.pre38.pre = load i32, ptr %4, align 4
-  br label %._crit_edge
+  br label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %26, %.._crit_edge.loopexit_crit_edge, %11
   %37 = phi i32 [ 0, %11 ], [ %.pre38.pre, %.._crit_edge.loopexit_crit_edge ], [ %31, %26 ]

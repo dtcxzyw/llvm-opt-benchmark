@@ -10217,10 +10217,10 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i: ; pre
   %30 = add i8 %29, -30
   %31 = icmp ult i8 %30, 11
   %spec.select.i.i.i.i.i.i = select i1 %31, ptr %28, ptr null
-  %.not.i16.i = icmp eq i64 %19, 0
+  %.not.i18.i = icmp eq i64 %19, 0
   %32 = and i64 %16, -8
   %33 = inttoptr i64 %32 to ptr
-  br i1 %.not.i16.i, label %.preheader.i.split.i, label %.critedge.thread.i.i
+  br i1 %.not.i18.i, label %.preheader.i.split.i, label %.critedge.thread.i.i
 
 .preheader.i.split.i:                             ; preds = %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -10246,7 +10246,10 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i: ; preds = %40
   %41 = phi i32 [ 0, %.lr.ph8.i ], [ %39, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
   %42 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %28, i32 noundef %41) #30, !noalias !567
   %43 = icmp eq ptr %38, %42
-  br i1 %43, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, label %_ZNSt8optionalIN4llvm14RNSuccIteratorIPNS0_10RegionNodeENS0_10BasicBlockENS0_6RegionEEEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit, !llvm.loop !570
+  br i1 %43, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, label %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i, !llvm.loop !570
+
+._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i: ; preds = %40
+  br label %_ZNSt8optionalIN4llvm14RNSuccIteratorIPNS0_10RegionNodeENS0_10BasicBlockENS0_6RegionEEEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit, !llvm.loop !570
 
 .critedge.thread.i.i:                             ; preds = %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i
   %.sroa.535.0 = phi ptr [ null, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i ]
@@ -10262,10 +10265,10 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i: ; preds = %40
   %spec.select = select i1 %51, i64 %52, i64 %20
   br label %_ZNSt8optionalIN4llvm14RNSuccIteratorIPNS0_10RegionNodeENS0_10BasicBlockENS0_6RegionEEEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit
 
-_ZNSt8optionalIN4llvm14RNSuccIteratorIPNS0_10RegionNodeENS0_10BasicBlockENS0_6RegionEEEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit: ; preds = %40, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, %.critedge.thread.i.i, %.preheader.i.split.split.us.i, %.preheader.i.split.i, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i
-  %.sroa.034.0 = phi i64 [ %20, %.preheader.i.split.split.us.i ], [ %20, %.preheader.i.split.i ], [ %20, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i ], [ %spec.select, %.critedge.thread.i.i ], [ %20, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ], [ %20, %40 ]
-  %.sroa.535.2 = phi ptr [ %28, %.preheader.i.split.split.us.i ], [ null, %.preheader.i.split.i ], [ null, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i ], [ %.sroa.535.0, %.critedge.thread.i.i ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ], [ %spec.select.i.i.i.i.i.i, %40 ]
-  %.sroa.736.1 = phi i32 [ 0, %.preheader.i.split.split.us.i ], [ 0, %.preheader.i.split.i ], [ 0, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i ], [ 0, %.critedge.thread.i.i ], [ %41, %40 ], [ %35, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
+_ZNSt8optionalIN4llvm14RNSuccIteratorIPNS0_10RegionNodeENS0_10BasicBlockENS0_6RegionEEEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, %.critedge.thread.i.i, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i, %.preheader.i.split.split.us.i, %.preheader.i.split.i, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i
+  %.sroa.034.0 = phi i64 [ %20, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i ], [ %20, %.preheader.i.split.split.us.i ], [ %20, %.preheader.i.split.i ], [ %20, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i ], [ %spec.select, %.critedge.thread.i.i ], [ %20, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
+  %.sroa.535.2 = phi ptr [ %spec.select.i.i.i.i.i.i, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i ], [ %28, %.preheader.i.split.split.us.i ], [ null, %.preheader.i.split.i ], [ null, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i ], [ %.sroa.535.0, %.critedge.thread.i.i ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
+  %.sroa.736.1 = phi i32 [ %41, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i ], [ 0, %.preheader.i.split.split.us.i ], [ 0, %.preheader.i.split.i ], [ 0, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i ], [ 0, %.critedge.thread.i.i ], [ %35, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
   store i64 %.sroa.034.0, ptr %11, align 8
   %.sroa.535.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -24
   store ptr %.sroa.535.2, ptr %.sroa.535.0..sroa_idx, align 8
@@ -10405,31 +10408,31 @@ _ZNK4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEdeEv.exit
 ._crit_edge.i.i.i:                                ; preds = %.critedge.i.i.i, %107
   %114 = load i32, ptr %6, align 8, !tbaa !29, !noalias !578
   %115 = icmp ult i32 %109, %114
-  br i1 %115, label %.critedge68, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
+  br i1 %115, label %.critedge74, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
-.critedge68:                                      ; preds = %._crit_edge.i.i.i
+.critedge74:                                      ; preds = %._crit_edge.i.i.i
   %116 = add nuw i32 %109, 1
   store i32 %116, ptr %5, align 4, !tbaa !30, !noalias !578
   store ptr %104, ptr %111, align 8, !tbaa !56, !noalias !578
-  br label %.loopexit69
+  br label %.loopexit75
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i.i.i, %_ZNK4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEdeEv.exit
   %117 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %104) #26, !noalias !578
   %118 = extractvalue { ptr, i8 } %117, 1
   %119 = trunc nuw i8 %118 to i1
-  br i1 %119, label %.loopexit69, label %.critedge.backedge
+  br i1 %119, label %.loopexit75, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
   br label %.critedge
 
-.loopexit69:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge68
+.loopexit75:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge74
   %120 = load ptr, ptr %3, align 8, !tbaa !173
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %122 = load ptr, ptr %121, align 8, !tbaa !177
   %.not.i.i18 = icmp eq ptr %120, %122
   br i1 %.not.i.i18, label %126, label %123
 
-123:                                              ; preds = %.loopexit69
+123:                                              ; preds = %.loopexit75
   store ptr %104, ptr %120, align 8
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 32
   store i8 0, ptr %.sroa.521.0..sroa_idx, align 8
@@ -10438,7 +10441,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   store ptr %125, ptr %3, align 8, !tbaa !173
   br label %.loopexit
 
-126:                                              ; preds = %.loopexit69
+126:                                              ; preds = %.loopexit75
   %127 = load ptr, ptr %2, align 8, !tbaa !176
   %128 = ptrtoint ptr %120 to i64
   %129 = ptrtoint ptr %127 to i64
@@ -10590,7 +10593,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114StructurizeCFG16insertConditions
 
 .critedge2.i8.i16.i14.i._ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit_crit_edge: ; preds = %.critedge2.i8.i16.i14.i
   %.pre = load ptr, ptr %35, align 8, !tbaa !591
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit, !llvm.loop !515
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit: ; preds = %.lr.ph.i6.i14.i11.i, %.critedge2.i8.i16.i14.i._ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit_crit_edge
   %38 = phi ptr [ %.pre, %.critedge2.i8.i16.i14.i._ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit_crit_edge ], [ %36, %.lr.ph.i6.i14.i11.i ]
@@ -11635,9 +11638,9 @@ define internal fastcc void @_ZN4llvm12scc_iteratorISt4pairIPNS_10RegionNodeEPNS
 _ZNSt6vectorISt4pairIPN4llvm10RegionNodeEPNS1_13SmallDenseSetIS3_Lj4ENS1_12DenseMapInfoIS3_vEEEEESaIS9_EE5clearEv.exit: ; preds = %1, %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.val8159 = load ptr, ptr %11, align 8, !tbaa !637
-  %.val9160 = load ptr, ptr %12, align 8, !tbaa !637
-  %13 = icmp eq ptr %.val8159, %.val9160
+  %.val8161 = load ptr, ptr %11, align 8, !tbaa !637
+  %.val9162 = load ptr, ptr %12, align 8, !tbaa !637
+  %13 = icmp eq ptr %.val8161, %.val9162
   br i1 %13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt4pairIPN4llvm10RegionNodeEPNS1_13SmallDenseSetIS3_Lj4ENS1_12DenseMapInfoIS3_vEEEEESaIS9_EE5clearEv.exit
@@ -11649,7 +11652,7 @@ _ZNSt6vectorISt4pairIPN4llvm10RegionNodeEPNS1_13SmallDenseSetIS3_Lj4ENS1_12Dense
   br label %19
 
 19:                                               ; preds = %.backedge, %.lr.ph
-  %.val5.i = phi ptr [ %.val9160, %.lr.ph ], [ %.val5.i.be, %.backedge ]
+  %.val5.i = phi ptr [ %.val9162, %.lr.ph ], [ %.val5.i.be, %.backedge ]
   %20 = getelementptr inbounds i8, ptr %.val5.i, i64 -96
   %21 = getelementptr inbounds i8, ptr %.val5.i, i64 -80
   %.val6.i = load ptr, ptr %20, align 8, !tbaa !298
@@ -11685,10 +11688,10 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i.i: ; p
   %39 = add i8 %38, -30
   %40 = icmp ult i8 %39, 11
   %spec.select.i.i.i.i.i.i.i = select i1 %40, ptr %37, ptr null
-  %.not.i16.i.i = icmp eq i64 %26, 0
+  %.not.i18.i.i = icmp eq i64 %26, 0
   %41 = and i64 %23, -8
   %42 = inttoptr i64 %41 to ptr
-  br i1 %.not.i16.i.i, label %.preheader.i.split.i.i, label %.critedge.thread.i.i.i
+  br i1 %.not.i18.i.i, label %.preheader.i.split.i.i, label %.critedge.thread.i.i.i
 
 .preheader.i.split.i.i:                           ; preds = %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -11714,7 +11717,10 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i: ; preds = %49
   %50 = phi i32 [ 0, %.lr.ph8.i.i ], [ %48, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i ]
   %51 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %37, i32 noundef %50) #30, !noalias !639
   %52 = icmp eq ptr %47, %51
-  br i1 %52, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i, label %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.i, !llvm.loop !570
+  br i1 %52, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i, label %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i.i, !llvm.loop !570
+
+._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i.i: ; preds = %49
+  br label %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.i, !llvm.loop !570
 
 .critedge.thread.i.i.i:                           ; preds = %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i.i, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i.i
   %.sroa.34.0.i = phi ptr [ null, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i.i ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i.i ]
@@ -11735,10 +11741,10 @@ _ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread.i: ; preds
   %63 = or disjoint i64 %62, %24
   br label %66
 
-_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.i: ; preds = %49, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i, %.critedge.thread.i.i.i
-  %.sroa.03.0.i = phi i64 [ %spec.select.i, %.critedge.thread.i.i.i ], [ %27, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i ], [ %27, %49 ]
-  %.sroa.34.2.i = phi ptr [ %.sroa.34.0.i, %.critedge.thread.i.i.i ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i ], [ %spec.select.i.i.i.i.i.i.i, %49 ]
-  %.sroa.5.1.i = phi i32 [ 0, %.critedge.thread.i.i.i ], [ %50, %49 ], [ %44, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i ]
+_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.i: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i, %.critedge.thread.i.i.i, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i.i
+  %.sroa.03.0.i = phi i64 [ %27, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i.i ], [ %spec.select.i, %.critedge.thread.i.i.i ], [ %27, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i ]
+  %.sroa.34.2.i = phi ptr [ %spec.select.i.i.i.i.i.i.i, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i.i ], [ %.sroa.34.0.i, %.critedge.thread.i.i.i ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i ]
+  %.sroa.5.1.i = phi i32 [ %50, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i.i ], [ 0, %.critedge.thread.i.i.i ], [ %44, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i.i ]
   %64 = and i64 %.0.copyload.i.i.i.i.i.i.i, 4
   %65 = or disjoint i64 %64, %24
   br i1 %32, label %_ZN12_GLOBAL__N_114SubGraphTraits8childrenERKSt4pairIPN4llvm10RegionNodeEPNS2_13SmallDenseSetIS4_Lj4ENS2_12DenseMapInfoIS4_vEEEEE.exit, label %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge.i
@@ -11746,11 +11752,11 @@ _ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.i: ; preds = %49,
 _ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge.i: ; preds = %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.i
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %31, i64 -24
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !198, !noalias !646
-  %.pre59.i = add i8 %.pre.i, -30
+  %.pre61.i = add i8 %.pre.i, -30
   br label %66
 
 66:                                               ; preds = %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge.i, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread.i
-  %.pre-phi.i = phi i8 [ %.pre59.i, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge.i ], [ %39, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread.i ]
+  %.pre-phi.i = phi i8 [ %.pre61.i, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge.i ], [ %39, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread.i ]
   %67 = phi i64 [ %65, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge.i ], [ %63, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread.i ]
   %.sroa.5.153.i = phi i32 [ %.sroa.5.1.i, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge.i ], [ 0, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread.i ]
   %.sroa.34.251.i = phi ptr [ %.sroa.34.2.i, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge.i ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread.i ]
@@ -11857,8 +11863,8 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE9child_endES2_.exit.i.i.i.i113.us: ; pre
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i116.us: ; preds = %115, %.preheader.i.i.i.i110.split.split.us
   %113 = phi i32 [ %.val112.i97, %.preheader.i.i.i.i110.split.split.us ], [ %114, %115 ]
   %114 = add nsw i32 %113, 1
-  %.not4.i.i.i.i115.us156 = icmp eq i32 %114, %112
-  br i1 %.not4.i.i.i.i115.us156, label %_ZN4llvm21iterator_adaptor_baseINS_20filter_iterator_baseIN12_GLOBAL__N_114SubGraphTraits19WrappedSuccIteratorEPFbRKSt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS7_Lj4ENS_12DenseMapInfoIS7_vEEEEEESt20forward_iterator_tagEES4_SI_SD_lPSD_SD_EppEv.exit.i104, label %115
+  %.not4.i.i.i.i115.us158 = icmp eq i32 %114, %112
+  br i1 %.not4.i.i.i.i115.us158, label %_ZN4llvm21iterator_adaptor_baseINS_20filter_iterator_baseIN12_GLOBAL__N_114SubGraphTraits19WrappedSuccIteratorEPFbRKSt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS7_Lj4ENS_12DenseMapInfoIS7_vEEEEEESt20forward_iterator_tagEES4_SI_SD_lPSD_SD_EppEv.exit.i104, label %115
 
 115:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i116.us
   %116 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.34.252.i, i32 noundef %114) #30, !noalias !649
@@ -12106,9 +12112,9 @@ _ZN4llvm20iterator_facade_baseINS_20filter_iterator_baseIN12_GLOBAL__N_114SubGra
   %227 = getelementptr inbounds i8, ptr %.val3.i, i64 -48
   %228 = getelementptr inbounds i8, ptr %.val3.i, i64 -32
   %.val38.i = load i32, ptr %228, align 8, !noalias !653
-  %.not182 = icmp eq i32 %209, %.val38.i
+  %.not186 = icmp eq i32 %209, %.val38.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26, !noalias !653
-  br i1 %.not182, label %.critedge.i, label %.lr.ph.i
+  br i1 %.not186, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm20iterator_facade_baseINS_20filter_iterator_baseIN12_GLOBAL__N_114SubGraphTraits19WrappedSuccIteratorEPFbRKSt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS7_Lj4ENS_12DenseMapInfoIS7_vEEEEEESt20forward_iterator_tagEESI_SD_lPSD_SD_EppEi.exit.i
   %229 = getelementptr inbounds i8, ptr %.val3.i, i64 -16
@@ -12643,14 +12649,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSet
   store ptr %538, ptr %529, align 8, !tbaa !638
   %539 = getelementptr inbounds nuw i8, ptr %524, i64 16
   store i32 0, ptr %539, align 4, !tbaa !426
-  %.pre179 = load ptr, ptr %8, align 8, !tbaa !287
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre179, i64 -16
-  %.pre180 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !298
+  %.pre183 = load ptr, ptr %8, align 8, !tbaa !287
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre183, i64 -16
+  %.pre184 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !298
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS4_Lj4ENS_12DenseMapInfoIS4_vEEEEEjNS6_ISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSB_SE_EixERKSA_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS4_Lj4ENS_12DenseMapInfoIS4_vEEEEEjNS6_ISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSB_SE_EixERKSA_.exit: ; preds = %438, %398, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS4_Lj4ENS_12DenseMapInfoIS4_vEEEEEjNS6_ISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSB_SE_E16InsertIntoBucketIRKSA_JEEEPSE_SK_OT_DpOT0_.exit.i
-  %540 = phi ptr [ %.pre180, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS4_Lj4ENS_12DenseMapInfoIS4_vEEEEEjNS6_ISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSB_SE_E16InsertIntoBucketIRKSA_JEEEPSE_SK_OT_DpOT0_.exit.i ], [ %399, %398 ], [ %399, %438 ]
-  %541 = phi ptr [ %.pre179, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS4_Lj4ENS_12DenseMapInfoIS4_vEEEEEjNS6_ISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSB_SE_E16InsertIntoBucketIRKSA_JEEEPSE_SK_OT_DpOT0_.exit.i ], [ %391, %398 ], [ %391, %438 ]
+  %540 = phi ptr [ %.pre184, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS4_Lj4ENS_12DenseMapInfoIS4_vEEEEEjNS6_ISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSB_SE_E16InsertIntoBucketIRKSA_JEEEPSE_SK_OT_DpOT0_.exit.i ], [ %399, %398 ], [ %399, %438 ]
+  %541 = phi ptr [ %.pre183, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS4_Lj4ENS_12DenseMapInfoIS4_vEEEEEjNS6_ISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSB_SE_E16InsertIntoBucketIRKSA_JEEEPSE_SK_OT_DpOT0_.exit.i ], [ %391, %398 ], [ %391, %438 ]
   %.pn.i = phi ptr [ %524, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS4_Lj4ENS_12DenseMapInfoIS4_vEEEEEjNS6_ISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSB_SE_E16InsertIntoBucketIRKSA_JEEEPSE_SK_OT_DpOT0_.exit.i ], [ %423, %398 ], [ %447, %438 ]
   %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
   store i32 -1, ptr %.0.i, align 4, !tbaa !426
@@ -13154,10 +13160,10 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i: ; pre
   %20 = add i8 %19, -30
   %21 = icmp ult i8 %20, 11
   %spec.select.i.i.i.i.i.i = select i1 %21, ptr %18, ptr null
-  %.not.i16.i = icmp eq i64 %7, 0
+  %.not.i18.i = icmp eq i64 %7, 0
   %22 = and i64 %4, -8
   %23 = inttoptr i64 %22 to ptr
-  br i1 %.not.i16.i, label %.preheader.i.split.i, label %.critedge.thread.i.i
+  br i1 %.not.i18.i, label %.preheader.i.split.i, label %.critedge.thread.i.i
 
 .preheader.i.split.i:                             ; preds = %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -13183,7 +13189,10 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i: ; preds = %30
   %31 = phi i32 [ 0, %.lr.ph8.i ], [ %29, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
   %32 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef %31) #30, !noalias !685
   %33 = icmp eq ptr %28, %32
-  br i1 %33, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, label %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit, !llvm.loop !570
+  br i1 %33, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, label %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i, !llvm.loop !570
+
+._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i: ; preds = %30
+  br label %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit, !llvm.loop !570
 
 .critedge.thread.i.i:                             ; preds = %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i
   %.sroa.34.0 = phi ptr [ null, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.i ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.thread.i ]
@@ -13204,10 +13213,10 @@ _ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread: ; preds =
   %44 = or disjoint i64 %43, %5
   br label %47
 
-_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, %30, %.critedge.thread.i.i
-  %.sroa.03.0 = phi i64 [ %spec.select, %.critedge.thread.i.i ], [ %8, %30 ], [ %8, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
-  %.sroa.34.2 = phi ptr [ %.sroa.34.0, %.critedge.thread.i.i ], [ %spec.select.i.i.i.i.i.i, %30 ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
-  %.sroa.5.1 = phi i32 [ 0, %.critedge.thread.i.i ], [ %25, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ], [ %31, %30 ]
+_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, %.critedge.thread.i.i, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i
+  %.sroa.03.0 = phi i64 [ %8, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i ], [ %spec.select, %.critedge.thread.i.i ], [ %8, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
+  %.sroa.34.2 = phi ptr [ %spec.select.i.i.i.i.i.i, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i ], [ %.sroa.34.0, %.critedge.thread.i.i ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
+  %.sroa.5.1 = phi i32 [ %31, %._ZN4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEC2ES2_.exit.loopexit.split.split.us_crit_edge.i ], [ 0, %.critedge.thread.i.i ], [ %25, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
   %45 = and i64 %.0.copyload.i.i.i.i.i.i, 4
   %46 = or disjoint i64 %45, %5
   br i1 %13, label %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE9child_endES2_.exit, label %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge
@@ -13215,11 +13224,11 @@ _ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit: ; preds = %_ZN4l
 _ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge: ; preds = %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 -24
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !198, !noalias !688
-  %.pre59 = add i8 %.pre, -30
+  %.pre61 = add i8 %.pre, -30
   br label %47
 
 47:                                               ; preds = %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread
-  %.pre-phi = phi i8 [ %.pre59, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge ], [ %20, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread ]
+  %.pre-phi = phi i8 [ %.pre61, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge ], [ %20, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread ]
   %48 = phi i64 [ %46, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge ], [ %44, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread ]
   %.sroa.5.153 = phi i32 [ %.sroa.5.1, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge ], [ 0, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread ]
   %.sroa.34.251 = phi ptr [ %.sroa.34.2, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit._crit_edge ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm11GraphTraitsIPNS_10RegionNodeEE11child_beginES2_.exit.thread ]

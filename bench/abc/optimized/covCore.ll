@@ -694,13 +694,16 @@ Vec_IntPush.exit113:                              ; preds = %Vec_IntPush.exit113
   %.1 = phi i32 [ %188, %Vec_IntPush.exit99 ], [ %.0129170, %Vec_IntPush.exit106 ], [ %241, %Vec_IntPush.exit113 ]
   %243 = load i32, ptr %6, align 4, !tbaa !43
   %244 = icmp slt i32 %.170, %243
-  br i1 %244, label %75, label %.critedge, !llvm.loop !50
+  br i1 %244, label %75, label %..critedge.loopexit_crit_edge, !llvm.loop !50
 
-.critedge:                                        ; preds = %242, %75, %.lr.ph, %Vec_IntAlloc.exit
-  %.pre.i116156 = phi ptr [ %68, %Vec_IntAlloc.exit ], [ %68, %.lr.ph ], [ %.pre.i95152, %75 ], [ %.pre.i95152, %242 ]
-  %245 = phi i32 [ %58, %Vec_IntAlloc.exit ], [ %58, %.lr.ph ], [ %243, %75 ], [ %243, %242 ]
-  %.069.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.lr.ph ], [ %.170, %75 ], [ %.170, %242 ]
-  %.0.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.lr.ph ], [ %.1, %75 ], [ %.1, %242 ]
+..critedge.loopexit_crit_edge:                    ; preds = %242
+  br label %.critedge, !llvm.loop !50
+
+.critedge:                                        ; preds = %75, %.lr.ph, %..critedge.loopexit_crit_edge, %Vec_IntAlloc.exit
+  %.pre.i116156 = phi ptr [ %68, %Vec_IntAlloc.exit ], [ %.pre.i95152, %..critedge.loopexit_crit_edge ], [ %68, %.lr.ph ], [ %.pre.i95152, %75 ]
+  %245 = phi i32 [ %58, %Vec_IntAlloc.exit ], [ %243, %..critedge.loopexit_crit_edge ], [ %58, %.lr.ph ], [ %243, %75 ]
+  %.069.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit ], [ %.170, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.170, %75 ]
+  %.0.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit ], [ %.1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.1, %75 ]
   %246 = icmp slt i32 %.069.lcssa, %245
   br i1 %246, label %.lr.ph135, label %.preheader
 

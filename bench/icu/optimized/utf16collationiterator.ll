@@ -1574,7 +1574,7 @@ _ZNK6icu_7715Normalizer2Impl9nextFCD16ERPKDsS2_.exit35: ; preds = %81, %84, %89
 
 _ZNK6icu_7715Normalizer2Impl9nextFCD16ERPKDsS2_.exit35..critedge_crit_edge: ; preds = %_ZNK6icu_7715Normalizer2Impl9nextFCD16ERPKDsS2_.exit35
   %.pre70 = load ptr, ptr %8, align 8, !tbaa !51
-  br label %.critedge
+  br label %.critedge, !llvm.loop !63
 
 .critedge:                                        ; preds = %61, %68, %59, %_ZNK6icu_7715Normalizer2Impl9nextFCD16ERPKDsS2_.exit35..critedge_crit_edge
   %96 = phi ptr [ %.pre70, %_ZNK6icu_7715Normalizer2Impl9nextFCD16ERPKDsS2_.exit35..critedge_crit_edge ], [ %.pre71, %59 ], [ %.pre71, %68 ], [ %.pre71, %61 ]

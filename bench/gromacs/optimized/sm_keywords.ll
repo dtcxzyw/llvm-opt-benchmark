@@ -1108,7 +1108,7 @@ define internal void @_ZL20evaluate_keyword_intRKN3gmx20SelMethodEvalContextEP15
   %.pre54 = shl nuw nsw i32 %.2.us, 1
   %.pre55 = or disjoint i32 %.pre54, 1
   %.pre57 = zext nneg i32 %.pre55 to i64
-  br label %._crit_edge.us
+  br label %._crit_edge.us, !llvm.loop !23
 
 57:                                               ; preds = %43, %._crit_edge.us, %25, %.lr.ph45.split.us
   %58 = phi i32 [ %.pre53, %43 ], [ %20, %._crit_edge.us ], [ %20, %25 ], [ %20, %.lr.ph45.split.us ]
@@ -1290,7 +1290,7 @@ define internal void @_ZL21evaluate_keyword_realRKN3gmx20SelMethodEvalContextEP1
   %.pre53 = shl nuw nsw i32 %.2.us, 1
   %.pre54 = or disjoint i32 %.pre53, 1
   %.pre56 = zext nneg i32 %.pre54 to i64
-  br label %._crit_edge.us
+  br label %._crit_edge.us, !llvm.loop !33
 
 59:                                               ; preds = %45, %._crit_edge.us, %25, %.lr.ph44.split.us
   %60 = phi i32 [ %.pre52, %45 ], [ %21, %._crit_edge.us ], [ %21, %25 ], [ %21, %.lr.ph44.split.us ]

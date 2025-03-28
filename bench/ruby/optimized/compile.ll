@@ -19426,8 +19426,8 @@ rb_obj_write.exit:                                ; preds = %760, %ISEQ_COMPILE_
   %1266 = getelementptr inbounds nuw i8, ptr %1264, i64 8
   store ptr %1263, ptr %1266, align 8, !tbaa !36
   store ptr %1263, ptr %1260, align 8, !tbaa !7
-  %.pre2329 = load i32, ptr %6, align 8, !tbaa !469
-  %.pre2330 = load i32, ptr %31, align 4, !tbaa !472
+  %.pre2330 = load i32, ptr %6, align 8, !tbaa !469
+  %.pre2331 = load i32, ptr %31, align 4, !tbaa !472
   br label %1269
 
 1267:                                             ; preds = %1256
@@ -19438,8 +19438,8 @@ rb_obj_write.exit:                                ; preds = %760, %ISEQ_COMPILE_
   br label %1269
 
 1269:                                             ; preds = %1261, %1267
-  %.pre2293 = phi i32 [ %.pre2330, %1261 ], [ %.pre2290, %1267 ]
-  %.pre2292 = phi i32 [ %.pre2329, %1261 ], [ %.pre2289, %1267 ]
+  %.pre2293 = phi i32 [ %.pre2331, %1261 ], [ %.pre2290, %1267 ]
+  %.pre2292 = phi i32 [ %.pre2330, %1261 ], [ %.pre2289, %1267 ]
   %1270 = phi i32 [ %33, %1261 ], [ %.pre2290, %1267 ]
   %1271 = phi i32 [ %30, %1261 ], [ %.pre2289, %1267 ]
   %1272 = tail call i64 @rb_id2sym(i64 noundef 3895) #38
@@ -19827,8 +19827,11 @@ pm_scope_node_destroy.exit1984:                   ; preds = %ISEQ_COMPILE_DATA.e
   %.not = icmp eq ptr %1479, null
   br i1 %.not, label %.critedge.loopexit, label %.lr.ph2324, !llvm.loop !592
 
-.critedge.loopexit:                               ; preds = %.lr.ph2268, %.lr.ph2324, %.lr.ph2268.preheader
-  %.lcssa.ph = phi i64 [ %1474, %.lr.ph2268.preheader ], [ %1484, %.lr.ph2324 ], [ %1484, %.lr.ph2268 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph2324
+  br label %.critedge.loopexit, !llvm.loop !592
+
+.critedge.loopexit:                               ; preds = %.lr.ph2268, %..critedge.loopexit_crit_edge, %.lr.ph2268.preheader
+  %.lcssa.ph = phi i64 [ %1484, %..critedge.loopexit_crit_edge ], [ %1474, %.lr.ph2268.preheader ], [ %1484, %.lr.ph2268 ]
   %1480 = shl i64 %.lcssa.ph, 2
   %1481 = or disjoint i64 %1480, 1
   br label %.critedge
@@ -19844,7 +19847,7 @@ pm_scope_node_destroy.exit1984:                   ; preds = %ISEQ_COMPILE_DATA.e
   %1483 = add nuw i64 %.0176322662323, 1
   %1484 = load i64, ptr %1472, align 8, !tbaa !479
   %1485 = icmp ult i64 %1483, %1484
-  br i1 %1485, label %.lr.ph2268, label %.critedge.loopexit, !llvm.loop !592
+  br i1 %1485, label %.lr.ph2268, label %..critedge.loopexit_crit_edge, !llvm.loop !592
 
 1486:                                             ; preds = %.critedge
   %1487 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %30, i32 noundef %33, i32 noundef 37, i32 noundef 1, i64 noundef %.lcssa)
@@ -49064,11 +49067,14 @@ define internal fastcc range(i32 0, 2) i32 @compile_return(ptr noundef %0, ptr n
   %20 = load i32, ptr %19, align 8, !tbaa !46
   %21 = and i32 %20, -2
   %22 = icmp eq i32 %21, 4
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !1000
+  br i1 %22, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !1000
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph142, %.lr.ph.preheader, %5
-  %.054.lcssa = phi i32 [ %8, %5 ], [ %8, %.lr.ph.preheader ], [ %20, %.lr.ph142 ], [ %20, %.lr.ph ]
-  %.156 = phi ptr [ %0, %5 ], [ null, %.lr.ph.preheader ], [ %17, %.lr.ph142 ], [ null, %.lr.ph ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph142
+  br label %._crit_edge, !llvm.loop !1000
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %5
+  %.054.lcssa = phi i32 [ %8, %5 ], [ %20, %.._crit_edge.loopexit_crit_edge ], [ %8, %.lr.ph.preheader ], [ %20, %.lr.ph ]
+  %.156 = phi ptr [ %0, %5 ], [ %17, %.._crit_edge.loopexit_crit_edge ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ]
   switch i32 %.054.lcssa, label %28 [
     i32 0, label %23
     i32 7, label %23
@@ -101662,11 +101668,14 @@ define internal fastcc void @pm_compile_return_node(ptr noundef %0, ptr noundef 
   %21 = load i32, ptr %20, align 8, !tbaa !46
   %22 = and i32 %21, -2
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !1363
+  br i1 %23, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !1363
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph126, %.lr.ph.preheader, %6
-  %.0.lcssa = phi i32 [ %11, %6 ], [ %11, %.lr.ph.preheader ], [ %21, %.lr.ph126 ], [ %21, %.lr.ph ]
-  %.1 = phi ptr [ %0, %6 ], [ null, %.lr.ph.preheader ], [ %18, %.lr.ph126 ], [ null, %.lr.ph ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph126
+  br label %._crit_edge, !llvm.loop !1363
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %6
+  %.0.lcssa = phi i32 [ %11, %6 ], [ %21, %.._crit_edge.loopexit_crit_edge ], [ %11, %.lr.ph.preheader ], [ %21, %.lr.ph ]
+  %.1 = phi ptr [ %0, %6 ], [ %18, %.._crit_edge.loopexit_crit_edge ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ]
   switch i32 %.0.lcssa, label %29 [
     i32 0, label %24
     i32 7, label %24

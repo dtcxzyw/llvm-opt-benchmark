@@ -9870,63 +9870,69 @@ define noundef zeroext i1 @_ZN2mu17ParserTokenReader8IsStringERNS_11ParserTokenI
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %35
   %39 = load i8, ptr %38, align 1, !tbaa !13
   %.not2196 = icmp eq i8 %39, 92
-  br i1 %.not2196, label %.lr.ph99, label %._crit_edge
+  br i1 %.not2196, label %.lr.ph99, label %._crit_edge.loopexit
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit
-  %40 = add i32 %.0157598, 1
-  %41 = load ptr, ptr %6, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %51
-  %43 = load i8, ptr %42, align 1, !tbaa !13
-  %.not21 = icmp eq i8 %43, 92
-  br i1 %.not21, label %.lr.ph99, label %._crit_edge.loopexit.loopexit, !llvm.loop !491
+  %40 = load ptr, ptr %6, align 8, !tbaa !47
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %51
+  %42 = load i8, ptr %41, align 1, !tbaa !13
+  %.not21 = icmp eq i8 %42, 92
+  br i1 %.not21, label %.lr.ph99, label %._crit_edge.loopexit, !llvm.loop !491
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %151
 
-.loopexit.split-lp:                               ; preds = %47
+.loopexit.split-lp:                               ; preds = %46
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %151
 
 .lr.ph99:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0157598 = phi i32 [ %40, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0157598 = phi i32 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.0167797 = phi i64 [ %.016, %.lr.ph ], [ %.01674, %.lr.ph.preheader ]
-  %44 = phi i64 [ %51, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %45 = load i64, ptr %31, align 8, !tbaa !10
-  %46 = icmp ugt i64 %44, %45
-  br i1 %46, label %47, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i
+  %43 = phi i64 [ %51, %.lr.ph ], [ %35, %.lr.ph.preheader ]
+  %44 = load i64, ptr %31, align 8, !tbaa !10
+  %45 = icmp ugt i64 %43, %44
+  br i1 %45, label %46, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i
 
-47:                                               ; preds = %.lr.ph99
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11, i64 noundef %44, i64 noundef %45) #30
+46:                                               ; preds = %.lr.ph99
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11, i64 noundef %43, i64 noundef %44) #30
           to label %.noexc30 unwind label %.loopexit.split-lp
 
-.noexc30:                                         ; preds = %47
+.noexc30:                                         ; preds = %46
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i: ; preds = %.lr.ph99
-  %48 = sub nuw i64 %45, %44
-  %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %48, i64 2)
-  %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %44, i64 noundef %spec.select.i.i.i, ptr noundef nonnull @.str.25, i64 noundef 1)
+  %47 = sub nuw i64 %44, %43
+  %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %47, i64 2)
+  %48 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %43, i64 noundef %spec.select.i.i.i, ptr noundef nonnull @.str.25, i64 noundef 1)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit unwind label %.loopexit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i
+  %49 = add i32 %.0157598, 1
   %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 noundef signext 34, i64 noundef %.0167797) #26
   %.016.in = shl i64 %50, 32
   %.016 = ashr exact i64 %.016.in, 32
   %51 = add nsw i64 %.016, -1
   %52 = icmp ult i64 %51, -2
-  br i1 %52, label %.lr.ph, label %._crit_edge.loopexit.loopexit, !llvm.loop !491
+  br i1 %52, label %.lr.ph, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit.._crit_edge.loopexit_crit_edge, !llvm.loop !491
 
-._crit_edge.loopexit.loopexit:                    ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit
-  %53 = add i32 %.0157598, 3
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit.._crit_edge.loopexit_crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit
+  br label %._crit_edge.loopexit, !llvm.loop !491
+
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit.._crit_edge.loopexit_crit_edge, %.lr.ph.preheader
+  %.015.lcssa.ph = phi i32 [ %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %49, %.lr.ph ]
+  %.016.in.lcssa.ph = phi i64 [ %.016.in, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit.._crit_edge.loopexit_crit_edge ], [ %.016.in73, %.lr.ph.preheader ], [ %.016.in, %.lr.ph ]
+  %.016.lcssa.ph = phi i64 [ %.016, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit.._crit_edge.loopexit_crit_edge ], [ %.01674, %.lr.ph.preheader ], [ %.016, %.lr.ph ]
+  %53 = add i32 %.015.lcssa.ph, 2
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %._crit_edge.loopexit.loopexit, %29
-  %.015.lcssa = phi i32 [ 2, %29 ], [ 2, %.lr.ph.preheader ], [ %53, %._crit_edge.loopexit.loopexit ]
-  %.016.in.lcssa = phi i64 [ %.016.in73, %29 ], [ %.016.in73, %.lr.ph.preheader ], [ %.016.in, %._crit_edge.loopexit.loopexit ]
-  %.016.lcssa = phi i64 [ %.01674, %29 ], [ %.01674, %.lr.ph.preheader ], [ %.016, %._crit_edge.loopexit.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
+  %.015.lcssa = phi i32 [ 2, %29 ], [ %53, %._crit_edge.loopexit ]
+  %.016.in.lcssa = phi i64 [ %.016.in73, %29 ], [ %.016.in.lcssa.ph, %._crit_edge.loopexit ]
+  %.016.lcssa = phi i64 [ %.01674, %29 ], [ %.016.lcssa.ph, %._crit_edge.loopexit ]
   %54 = icmp eq i64 %.016.in.lcssa, -4294967296
   br i1 %54, label %._crit_edge.i.i32, label %70
 

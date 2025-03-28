@@ -1045,11 +1045,14 @@ define range(i32 0, 2) i32 @Cec_ManCheckNonTrivialCands(ptr noundef readonly cap
   %22 = sub nsw i32 %.val39.val, %.val38
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !87
+  br i1 %24, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !87
 
-.critedge:                                        ; preds = %.lr.ph84, %.lr.ph, %.lr.ph.preheader, %.preheader
-  %.val3761 = phi ptr [ %.val3949, %.preheader ], [ %.val3949, %.lr.ph.preheader ], [ %.val39, %.lr.ph ], [ %.val39, %.lr.ph84 ]
-  %.val60 = phi i32 [ %.val3848, %.preheader ], [ %.val3848, %.lr.ph.preheader ], [ %.val38, %.lr.ph ], [ %.val38, %.lr.ph84 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph84
+  br label %.critedge, !llvm.loop !87
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader
+  %.val3761 = phi ptr [ %.val3949, %.preheader ], [ %.val39, %..critedge.loopexit_crit_edge ], [ %.val3949, %.lr.ph.preheader ], [ %.val39, %.lr.ph ]
+  %.val60 = phi i32 [ %.val3848, %.preheader ], [ %.val38, %..critedge.loopexit_crit_edge ], [ %.val3848, %.lr.ph.preheader ], [ %.val38, %.lr.ph ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !88
   %27 = icmp sgt i32 %26, 0

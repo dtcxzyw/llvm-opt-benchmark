@@ -177,10 +177,13 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers25Quantif
   %41 = load i64, ptr %40, align 8, !tbaa !32
   %42 = urem i64 %41, %18
   %.not19.i.i.i.i = icmp eq i64 %42, %19
-  br i1 %.not19.i.i.i.i, label %32, label %.loopexit, !llvm.loop !34
+  br i1 %.not19.i.i.i.i, label %32, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !34
 
-.loopexit:                                        ; preds = %39, %.lr.ph.i.i.i.i, %10, %15
-  %43 = phi ptr [ %.pre, %15 ], [ %9, %10 ], [ %.pre, %.lr.ph.i.i.i.i ], [ %.pre, %39 ]
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %39
+  br label %.loopexit, !llvm.loop !34
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i
+  %43 = phi ptr [ %.pre, %15 ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %9, %10 ], [ %.pre, %.lr.ph.i.i.i.i ]
   store ptr %43, ptr %3, align 8, !tbaa !26
   %44 = load i64, ptr %43, align 8
   %45 = lshr i64 %44, 40
@@ -1943,9 +1946,12 @@ define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__deta
   %32 = load i64, ptr %31, align 8, !tbaa !32
   %33 = urem i64 %32, %8
   %.not19.i.i = icmp eq i64 %33, %9
-  br i1 %.not19.i.i, label %23, label %.loopexit, !llvm.loop !34
+  br i1 %.not19.i.i, label %23, label %..loopexit_crit_edge21.i.i, !llvm.loop !34
 
-.loopexit:                                        ; preds = %30, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %30
+  br label %.loopexit, !llvm.loop !34
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
   store ptr %1, ptr %4, align 8, !tbaa !66

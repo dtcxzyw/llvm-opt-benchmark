@@ -4034,9 +4034,12 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %.lr.ph, label %_Z9is_forallPK3ast.exit.preheader.i
 
-_Z9is_forallPK3ast.exit.preheader.i:              ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %110
-  %119 = phi i32 [ %113, %110 ], [ %113, %.lr.ph.i.preheader ], [ %128, %.lr.ph ], [ %128, %.lr.ph.i ]
-  %.0.lcssa.i = phi ptr [ %111, %110 ], [ %111, %.lr.ph.i.preheader ], [ %126, %.lr.ph ], [ %126, %.lr.ph.i ]
+._Z9is_forallPK3ast.exit.preheader.i.loopexit_crit_edge: ; preds = %.lr.ph
+  br label %_Z9is_forallPK3ast.exit.preheader.i, !llvm.loop !578
+
+_Z9is_forallPK3ast.exit.preheader.i:              ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %._Z9is_forallPK3ast.exit.preheader.i.loopexit_crit_edge, %110
+  %119 = phi i32 [ %113, %110 ], [ %128, %._Z9is_forallPK3ast.exit.preheader.i.loopexit_crit_edge ], [ %113, %.lr.ph.i.preheader ], [ %128, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %111, %110 ], [ %126, %._Z9is_forallPK3ast.exit.preheader.i.loopexit_crit_edge ], [ %111, %.lr.ph.i.preheader ], [ %126, %.lr.ph.i ]
   %120 = and i32 %119, 65535
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %.lr.ph11.i, label %._crit_edge.i
@@ -4055,7 +4058,7 @@ _Z9is_forallPK3ast.exit.preheader.i:              ; preds = %.lr.ph.i, %.lr.ph, 
   %128 = load i32, ptr %127, align 4
   %129 = and i32 %128, 65535
   %130 = icmp eq i32 %129, 2
-  br i1 %130, label %.lr.ph.i, label %_Z9is_forallPK3ast.exit.preheader.i, !llvm.loop !578
+  br i1 %130, label %.lr.ph.i, label %._Z9is_forallPK3ast.exit.preheader.i.loopexit_crit_edge, !llvm.loop !578
 
 .lr.ph11.i:                                       ; preds = %_Z9is_forallPK3ast.exit.preheader.i, %_ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.i
   %.110.i = phi ptr [ %146, %_ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.i ], [ %.0.lcssa.i, %_Z9is_forallPK3ast.exit.preheader.i ]

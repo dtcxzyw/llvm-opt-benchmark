@@ -30460,7 +30460,10 @@ define dso_local noundef zeroext i1 @_ZNK17cmGeneratorTarget28HasMacOSXRpathInst
   %35 = ptrtoint ptr %34 to i64
   %36 = urem i64 %35, %19
   %.not19.i.i.i.i = icmp eq i64 %36, %20
-  br i1 %.not19.i.i.i.i, label %29, label %.loopexit, !llvm.loop !714
+  br i1 %.not19.i.i.i.i, label %29, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !714
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %32
+  br label %.loopexit, !llvm.loop !714
 
 _ZNSt13unordered_mapIP8cmTargetbSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_bEEE4findERS7_.exit: ; preds = %29, %11, %24
   %.sroa.06.1.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i, %11 ], [ %31, %29 ]
@@ -30469,7 +30472,7 @@ _ZNSt13unordered_mapIP8cmTargetbSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_bEEE4
   %39 = trunc nuw i8 %38 to i1
   br label %68
 
-.loopexit:                                        ; preds = %32, %.lr.ph.i.i.i.i, %10, %15
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i
   %40 = tail call noundef zeroext i1 @_ZNK17cmGeneratorTarget37DetermineHasMacOSXRpathInstallNameDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2912) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %41 = zext i1 %40 to i8
   %42 = load ptr, ptr %0, align 8, !tbaa !709
@@ -30506,9 +30509,12 @@ _ZNSt13unordered_mapIP8cmTargetbSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_bEEE4
   %61 = ptrtoint ptr %60 to i64
   %62 = urem i64 %61, %45
   %.not19.i.i.i.i12 = icmp eq i64 %62, %46
-  br i1 %.not19.i.i.i.i12, label %55, label %.loopexit.i.i, !llvm.loop !714
+  br i1 %.not19.i.i.i.i12, label %55, label %..loopexit_crit_edge21.i.i.i.i13, !llvm.loop !714
 
-.loopexit.i.i:                                    ; preds = %58, %.lr.ph.i.i.i.i9, %.loopexit
+..loopexit_crit_edge21.i.i.i.i13:                 ; preds = %58
+  br label %.loopexit.i.i, !llvm.loop !714
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i9, %..loopexit_crit_edge21.i.i.i.i13, %.loopexit
   %63 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
   store ptr null, ptr %63, align 8, !tbaa !276
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8

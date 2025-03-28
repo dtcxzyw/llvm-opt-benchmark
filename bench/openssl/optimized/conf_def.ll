@@ -747,13 +747,16 @@ is_keytype.exit.i359:                             ; preds = %.lr.ph1064
   %238 = getelementptr inbounds nuw i8, ptr %.012.i3601063, i64 1
   %239 = load i8, ptr %238, align 1, !tbaa !23
   %240 = icmp slt i8 %239, 0
-  br i1 %240, label %eat_ws.exit364, label %is_keytype.exit.i359, !llvm.loop !30
+  br i1 %240, label %.eat_ws.exit364.loopexit_crit_edge, label %is_keytype.exit.i359, !llvm.loop !30
 
-eat_ws.exit364:                                   ; preds = %.backedge.i, %is_keytype.exit.i359, %.lr.ph1064, %is_keytype.exit.lr.ph.i358, %207
-  %.pr438759 = phi i8 [ %.pr438758, %207 ], [ %.pr438756, %is_keytype.exit.lr.ph.i358 ], [ %239, %.lr.ph1064 ], [ %239, %is_keytype.exit.i359 ], [ %223, %.backedge.i ]
-  %.pr435753 = phi i8 [ %.pr435752, %207 ], [ %.pr438756, %is_keytype.exit.lr.ph.i358 ], [ %239, %.lr.ph1064 ], [ %239, %is_keytype.exit.i359 ], [ %223, %.backedge.i ]
-  %.0.lcssa.i356437 = phi ptr [ %.0229, %207 ], [ %.039.i, %is_keytype.exit.lr.ph.i358 ], [ %.039.i, %.lr.ph1064 ], [ %.039.i, %is_keytype.exit.i359 ], [ %.0.be.i, %.backedge.i ]
-  %.0.lcssa.i363 = phi ptr [ %.0229, %207 ], [ %.039.i, %is_keytype.exit.lr.ph.i358 ], [ %238, %.lr.ph1064 ], [ %238, %is_keytype.exit.i359 ], [ %.0.be.i, %.backedge.i ]
+.eat_ws.exit364.loopexit_crit_edge:               ; preds = %.lr.ph1064
+  br label %eat_ws.exit364, !llvm.loop !30
+
+eat_ws.exit364:                                   ; preds = %.backedge.i, %is_keytype.exit.i359, %is_keytype.exit.lr.ph.i358, %.eat_ws.exit364.loopexit_crit_edge, %207
+  %.pr438759 = phi i8 [ %.pr438758, %207 ], [ %239, %.eat_ws.exit364.loopexit_crit_edge ], [ %.pr438756, %is_keytype.exit.lr.ph.i358 ], [ %239, %is_keytype.exit.i359 ], [ %223, %.backedge.i ]
+  %.pr435753 = phi i8 [ %.pr435752, %207 ], [ %239, %.eat_ws.exit364.loopexit_crit_edge ], [ %.pr438756, %is_keytype.exit.lr.ph.i358 ], [ %239, %is_keytype.exit.i359 ], [ %223, %.backedge.i ]
+  %.0.lcssa.i356437 = phi ptr [ %.0229, %207 ], [ %.039.i, %.eat_ws.exit364.loopexit_crit_edge ], [ %.039.i, %is_keytype.exit.lr.ph.i358 ], [ %.039.i, %is_keytype.exit.i359 ], [ %.0.be.i, %.backedge.i ]
+  %.0.lcssa.i363 = phi ptr [ %.0229, %207 ], [ %238, %.eat_ws.exit364.loopexit_crit_edge ], [ %.039.i, %is_keytype.exit.lr.ph.i358 ], [ %238, %is_keytype.exit.i359 ], [ %.0.be.i, %.backedge.i ]
   switch i8 %.pr435753, label %241 [
     i8 93, label %243
     i8 0, label %242

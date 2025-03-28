@@ -3932,7 +3932,7 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
 
 ._crit_edge482:                                   ; preds = %193
   %.pre483 = load i64, ptr %8, align 8, !tbaa !17
-  br label %196
+  br label %196, !llvm.loop !142
 
 196:                                              ; preds = %._crit_edge482, %190
   %197 = phi i64 [ %.pre483, %._crit_edge482 ], [ %.pre484, %190 ]

@@ -2794,7 +2794,7 @@ define dso_local void @irq_domain_free_irqs_top(ptr noundef readonly captures(ad
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %irq_domain_free_irqs_common.exit, label %31
+  br i1 %30, label %irq_domain_free_irqs_common.exit2, label %31
 
 31:                                               ; preds = %.loopexit12.i
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -2802,7 +2802,7 @@ define dso_local void @irq_domain_free_irqs_top(ptr noundef readonly captures(ad
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %irq_domain_free_irqs_common.exit, label %.preheader8.i
+  br i1 %.not, label %irq_domain_free_irqs_common.exit2, label %.preheader8.i
 
 .preheader8.i:                                    ; preds = %31, %.loopexit.i
   %36 = phi i32 [ %52, %.loopexit.i ], [ 0, %31 ]
@@ -2834,9 +2834,12 @@ define dso_local void @irq_domain_free_irqs_top(ptr noundef readonly captures(ad
 .loopexit.i:                                      ; preds = %44, %48, %.preheader8.i
   %52 = add nuw i32 %36, 1
   %53 = icmp eq i32 %52, %2
-  br i1 %53, label %irq_domain_free_irqs_common.exit, label %.preheader8.i, !llvm.loop !77
+  br i1 %53, label %irq_domain_free_irqs_common.exit2, label %.preheader8.i, !llvm.loop !77
 
-irq_domain_free_irqs_common.exit:                 ; preds = %.loopexit.i, %3, %31, %.loopexit12.i
+irq_domain_free_irqs_common.exit2:                ; preds = %.loopexit.i, %.loopexit12.i, %31
+  br label %irq_domain_free_irqs_common.exit, !llvm.loop !92
+
+irq_domain_free_irqs_common.exit:                 ; preds = %3, %irq_domain_free_irqs_common.exit2
   ret void
 }
 

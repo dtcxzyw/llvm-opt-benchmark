@@ -257,10 +257,13 @@ define dso_local ptr @__register_sysctl_table(ptr noundef %0, ptr noundef %1, pt
   %40 = load i32, ptr %15, align 8
   %41 = sext i32 %40 to i64
   %42 = icmp ult i64 %39, %41
-  br i1 %42, label %.preheader45, label %.loopexit46, !llvm.loop !6
+  br i1 %42, label %.preheader45, label %..loopexit46.loopexit_crit_edge, !llvm.loop !6
 
-.loopexit46:                                      ; preds = %.preheader45, %.lr.ph105, %.preheader45.preheader, %12
-  %43 = phi i32 [ %14, %12 ], [ %14, %.preheader45.preheader ], [ %40, %.lr.ph105 ], [ %40, %.preheader45 ]
+..loopexit46.loopexit_crit_edge:                  ; preds = %.lr.ph105
+  br label %.loopexit46, !llvm.loop !6
+
+.loopexit46:                                      ; preds = %.preheader45, %.preheader45.preheader, %..loopexit46.loopexit_crit_edge, %12
+  %43 = phi i32 [ %14, %12 ], [ %40, %..loopexit46.loopexit_crit_edge ], [ %14, %.preheader45.preheader ], [ %40, %.preheader45 ]
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %143, label %45
 
@@ -1875,7 +1878,7 @@ define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captur
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %8, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %._crit_edge.preheader, label %.lr.ph18
+  br i1 %16, label %._crit_edge19.preheader, label %.lr.ph18
 
 .lr.ph18:                                         ; preds = %12
   %17 = load ptr, ptr %14, align 8
@@ -1886,7 +1889,7 @@ define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captur
   %20 = getelementptr i8, ptr %25, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %._crit_edge.preheader, label %.lr.ph, !llvm.loop !25
+  br i1 %22, label %._crit_edge19.preheader, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.lr.ph18, %19
   %23 = phi ptr [ %21, %19 ], [ %15, %.lr.ph18 ]
@@ -1960,21 +1963,24 @@ define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captur
 72:                                               ; preds = %68, %63
   %73 = add nuw i64 %24, 1
   %74 = icmp eq i64 %73, %13
-  br i1 %74, label %._crit_edge.preheader, label %19, !llvm.loop !25
+  br i1 %74, label %._crit_edge, label %19, !llvm.loop !25
 
-._crit_edge.preheader:                            ; preds = %19, %72, %12
-  %.ph44 = phi ptr [ null, %12 ], [ %31, %72 ], [ %31, %19 ]
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %72
+  br label %._crit_edge19.preheader, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %._crit_edge.preheader, %.thread12
-  %75 = phi i64 [ %117, %.thread12 ], [ 0, %._crit_edge.preheader ]
-  %76 = phi ptr [ %118, %.thread12 ], [ %8, %._crit_edge.preheader ]
-  %77 = phi ptr [ %113, %.thread12 ], [ %.ph44, %._crit_edge.preheader ]
+._crit_edge19.preheader:                          ; preds = %19, %._crit_edge, %12
+  %.ph47 = phi ptr [ null, %12 ], [ %31, %._crit_edge ], [ %31, %19 ]
+  br label %._crit_edge19
+
+._crit_edge19:                                    ; preds = %._crit_edge19.preheader, %.thread12
+  %75 = phi i64 [ %117, %.thread12 ], [ 0, %._crit_edge19.preheader ]
+  %76 = phi ptr [ %118, %.thread12 ], [ %8, %._crit_edge19.preheader ]
+  %77 = phi ptr [ %113, %.thread12 ], [ %.ph47, %._crit_edge19.preheader ]
   %78 = load ptr, ptr %76, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.thread11, label %80
 
-80:                                               ; preds = %._crit_edge
+80:                                               ; preds = %._crit_edge19
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #19
   %82 = trunc i64 %81 to i32
   %83 = load ptr, ptr %14, align 8
@@ -2027,10 +2033,10 @@ define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captur
   %119 = load i32, ptr %4, align 8
   %120 = sext i32 %119 to i64
   %121 = icmp ult i64 %117, %120
-  br i1 %121, label %._crit_edge, label %.thread11, !llvm.loop !26
+  br i1 %121, label %._crit_edge19, label %.thread11, !llvm.loop !26
 
-.thread11:                                        ; preds = %63, %68, %59, %57, %52, %.thread12, %._crit_edge, %.lr.ph18, %7, %3
-  %122 = phi i1 [ true, %7 ], [ true, %3 ], [ false, %.lr.ph18 ], [ true, %._crit_edge ], [ true, %.thread12 ], [ false, %52 ], [ false, %57 ], [ false, %59 ], [ false, %68 ], [ false, %63 ]
+.thread11:                                        ; preds = %63, %68, %59, %57, %52, %.thread12, %._crit_edge19, %.lr.ph18, %7, %3
+  %122 = phi i1 [ true, %7 ], [ true, %3 ], [ false, %.lr.ph18 ], [ true, %._crit_edge19 ], [ true, %.thread12 ], [ false, %52 ], [ false, %57 ], [ false, %59 ], [ false, %68 ], [ false, %63 ]
   ret i1 %122
 }
 

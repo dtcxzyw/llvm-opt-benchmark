@@ -3304,7 +3304,7 @@ Abc_SclEvalPerform.exit:                          ; preds = %445, %Abc_SclLoadRe
 
 .thread._crit_edge:                               ; preds = %.thread
   %.val62.pre = load ptr, ptr %1, align 8, !tbaa !3
-  br label %split
+  br label %split, !llvm.loop !106
 
 split:                                            ; preds = %452, %377, %.thread._crit_edge
   %.val62 = phi ptr [ %.val62.pre, %.thread._crit_edge ], [ %.val59, %452 ], [ %.val62.pre130, %377 ]

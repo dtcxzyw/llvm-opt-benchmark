@@ -654,10 +654,13 @@ define dso_local void @scontrol_print_completing_job(ptr noundef %0, ptr noundef
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %.not50.not = icmp slt i64 %indvars.iv68, %50
-  br i1 %.not50.not, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %.not50.not, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph, %46, %.lr.ph.preheader, %.preheader
-  %51 = phi ptr [ %23, %.preheader ], [ %23, %.lr.ph.preheader ], [ %47, %46 ], [ %47, %.lr.ph ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %46
+  br label %._crit_edge, !llvm.loop !11
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader
+  %51 = phi ptr [ %23, %.preheader ], [ %47, %.._crit_edge.loopexit_crit_edge ], [ %23, %.lr.ph.preheader ], [ %47, %.lr.ph ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 2
   %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.next63
   %53 = load i32, ptr %52, align 4

@@ -262,7 +262,7 @@ define hidden ptr @pysqlite_error_name(i32 noundef %0) local_unnamed_addr #0 {
   %6 = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 16, !tbaa !3
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !10
+  br i1 %.not, label %._crit_edge10, label %8, !llvm.loop !10
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -270,8 +270,11 @@ define hidden ptr @pysqlite_error_name(i32 noundef %0) local_unnamed_addr #0 {
   %11 = icmp eq i64 %10, %2
   br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph, %8, %1
-  %.lcssa = phi ptr [ @.str.1, %1 ], [ null, %.lr.ph ], [ %7, %8 ]
+._crit_edge10:                                    ; preds = %.lr.ph
+  br label %._crit_edge, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %8, %._crit_edge10, %1
+  %.lcssa = phi ptr [ null, %._crit_edge10 ], [ @.str.1, %1 ], [ %7, %8 ]
   ret ptr %.lcssa
 }
 

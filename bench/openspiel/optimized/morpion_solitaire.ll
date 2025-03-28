@@ -1468,9 +1468,12 @@ define void @_ZN10open_spiel17morpion_solitaire12MorpionState13DoApplyActionEl(p
   %35 = sext i32 %34 to i64
   %36 = urem i64 %35, %19
   %.not17.i.i.i.i.i = icmp eq i64 %36, %20
-  br i1 %.not17.i.i.i.i.i, label %29, label %.loopexit.i.i, !llvm.loop !38
+  br i1 %.not17.i.i.i.i.i, label %29, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !38
 
-.loopexit.i.i:                                    ; preds = %32, %.lr.ph.i.i.i.i.i, %10, %15
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %32
+  br label %.loopexit.i.i, !llvm.loop !38
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %10, %..loopexit_crit_edge21.i.i.i.i.i, %15
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.41) #24
   unreachable
 
@@ -1503,15 +1506,15 @@ _ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_
 _ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %48
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #27
   %.pre = load ptr, ptr %40, align 8
-  %.pre58 = load ptr, ptr %41, align 8
-  %.pre60 = ptrtoint ptr %.pre to i64
-  %.pre61 = ptrtoint ptr %.pre58 to i64
+  %.pre60 = load ptr, ptr %41, align 8
+  %.pre62 = ptrtoint ptr %.pre to i64
+  %.pre63 = ptrtoint ptr %.pre60 to i64
   br label %51
 
 51:                                               ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i, %_ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit
-  %.pre-phi62 = phi i64 [ %.pre61, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %44, %_ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
-  %.pre-phi = phi i64 [ %.pre60, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %45, %_ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
-  %52 = phi ptr [ %.pre58, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %42, %_ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
+  %.pre-phi64 = phi i64 [ %.pre63, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %44, %_ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
+  %.pre-phi = phi i64 [ %.pre62, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %45, %_ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
+  %52 = phi ptr [ %.pre60, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %42, %_ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
   %53 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %43, %_ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
   %54 = phi ptr [ %50, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ null, %_ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
   store ptr %54, ptr %39, align 8
@@ -1548,23 +1551,23 @@ _ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS
           to label %_ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv.exit unwind label %76
 
 _ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv.exit: ; preds = %67
-  %69 = add i64 %.pre-phi62, -8
+  %69 = add i64 %.pre-phi64, -8
   %70 = sub i64 %69, %.pre-phi
   %71 = and i64 %70, -8
   %72 = add i64 %71, 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %68, ptr align 4 %54, i64 %72, i1 false), !noalias !39
   %scevgep = getelementptr i8, ptr %68, i64 %72
-  %.not45 = icmp eq i64 %72, 0
-  br i1 %.not45, label %.loopexit74, label %.lr.ph
+  %.not46 = icmp eq i64 %72, 0
+  br i1 %.not46, label %.loopexit76, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv.exit
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 60
   br label %84
 
 74:                                               ; preds = %84
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.025.046, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.025.047, i64 8
   %.not = icmp eq ptr %75, %scevgep
-  br i1 %.not, label %.loopexit74, label %84
+  br i1 %.not, label %.loopexit76, label %84
 
 76:                                               ; preds = %.noexc.i.i.i.i.i.i.i.invoke, %121, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i.i.i.i.i, %67
   %77 = landingpad { ptr, i32 }
@@ -1585,9 +1588,9 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit: ; preds = %76, %79
   resume { ptr, i32 } %77
 
 84:                                               ; preds = %.lr.ph, %74
-  %.sroa.025.046 = phi ptr [ %68, %.lr.ph ], [ %75, %74 ]
-  %.sroa.0.0.copyload = load i32, ptr %.sroa.025.046, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.025.046, i64 4
+  %.sroa.025.047 = phi ptr [ %68, %.lr.ph ], [ %75, %74 ]
+  %.sroa.0.0.copyload = load i32, ptr %.sroa.025.047, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.025.047, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %85 = mul nsw i32 %.sroa.0.0.copyload, 13
   %86 = add nsw i32 %.sroa.3.0.copyload, %85
@@ -1602,7 +1605,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit: ; preds = %76, %79
   store i32 1, ptr %92, align 4
   store i32 %.sroa.0.0.copyload, ptr %4, align 8
   store i32 %.sroa.3.0.copyload, ptr %62, align 4
-  br label %.loopexit74
+  br label %.loopexit76
 
 .loopexit:                                        ; preds = %51
   store ptr %54, ptr %55, align 8
@@ -1611,12 +1614,12 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit: ; preds = %76, %79
   store i32 0, ptr %93, align 4
   br label %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit
 
-.loopexit74:                                      ; preds = %74, %_ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv.exit, %91
+.loopexit76:                                      ; preds = %74, %_ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv.exit, %91
   tail call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef %65) #28
   br label %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit: ; preds = %.loopexit, %.loopexit74
-  %94 = phi ptr [ %54, %.loopexit ], [ %60, %.loopexit74 ]
+_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit: ; preds = %.loopexit, %.loopexit76
+  %94 = phi ptr [ %54, %.loopexit ], [ %60, %.loopexit76 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -1694,11 +1697,11 @@ _ZNSt16allocator_traitsISaISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5Po
           to label %._ZNSt6vectorISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5PointEESaIS5_EE12emplace_backIJRS3_RS4_EEERS5_DpOT_.exit_crit_edge unwind label %76
 
 ._ZNSt6vectorISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5PointEESaIS5_EE12emplace_backIJRS3_RS4_EEERS5_DpOT_.exit_crit_edge: ; preds = %121
-  %.pre59 = load ptr, ptr %39, align 8
+  %.pre61 = load ptr, ptr %39, align 8
   br label %_ZNSt6vectorISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5PointEESaIS5_EE12emplace_backIJRS3_RS4_EEERS5_DpOT_.exit
 
 _ZNSt6vectorISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5PointEESaIS5_EE12emplace_backIJRS3_RS4_EEERS5_DpOT_.exit: ; preds = %._ZNSt6vectorISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5PointEESaIS5_EE12emplace_backIJRS3_RS4_EEERS5_DpOT_.exit_crit_edge, %_ZNSt16allocator_traitsISaISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5PointEEEE9constructIS5_JRS3_RS4_EEEvRS6_PT_DpOT0_.exit.i
-  %123 = phi ptr [ %.pre59, %._ZNSt6vectorISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5PointEESaIS5_EE12emplace_backIJRS3_RS4_EEERS5_DpOT_.exit_crit_edge ], [ %54, %_ZNSt16allocator_traitsISaISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5PointEEEE9constructIS5_JRS3_RS4_EEEvRS6_PT_DpOT0_.exit.i ]
+  %123 = phi ptr [ %.pre61, %._ZNSt6vectorISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5PointEESaIS5_EE12emplace_backIJRS3_RS4_EEERS5_DpOT_.exit_crit_edge ], [ %54, %_ZNSt16allocator_traitsISaISt4pairIN10open_spiel17morpion_solitaire4LineENS2_5PointEEEE9constructIS5_JRS3_RS4_EEEvRS6_PT_DpOT0_.exit.i ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %125 = load i32, ptr %124, align 8
   %126 = add nsw i32 %125, 1
@@ -2058,9 +2061,12 @@ define void @_ZNK10open_spiel17morpion_solitaire12MorpionState14ActionToStringB5
   %41 = sext i32 %40 to i64
   %42 = urem i64 %41, %25
   %.not17.i.i.i.i.i = icmp eq i64 %42, %26
-  br i1 %.not17.i.i.i.i.i, label %35, label %.loopexit.i.i, !llvm.loop !38
+  br i1 %.not17.i.i.i.i.i, label %35, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !38
 
-.loopexit.i.i:                                    ; preds = %38, %.lr.ph.i.i.i.i.i, %16, %21
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %38
+  br label %.loopexit.i.i, !llvm.loop !38
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %16, %..loopexit_crit_edge21.i.i.i.i.i, %21
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.41) #24
   unreachable
 
@@ -2089,15 +2095,15 @@ _ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal
 _ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %52
   %54 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %51) #27
   %.pre = load ptr, ptr %45, align 8
-  %.pre59 = load ptr, ptr %46, align 8
-  %.pre60 = ptrtoint ptr %.pre to i64
-  %.pre61 = ptrtoint ptr %.pre59 to i64
+  %.pre61 = load ptr, ptr %46, align 8
+  %.pre62 = ptrtoint ptr %.pre to i64
+  %.pre63 = ptrtoint ptr %.pre61 to i64
   br label %55
 
 55:                                               ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i, %_ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit
-  %.pre-phi62 = phi i64 [ %.pre61, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %49, %_ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
-  %.pre-phi = phi i64 [ %.pre60, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %50, %_ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
-  %56 = phi ptr [ %.pre59, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %47, %_ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
+  %.pre-phi64 = phi i64 [ %.pre63, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %49, %_ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
+  %.pre-phi = phi i64 [ %.pre62, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %50, %_ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
+  %56 = phi ptr [ %.pre61, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %47, %_ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
   %57 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %48, %_ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
   %58 = phi ptr [ %54, %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS3_m.exit.i.i.i.i.i ], [ null, %_ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit ]
   %59 = getelementptr inbounds i8, ptr %58, i64 %51
@@ -2134,14 +2140,14 @@ _ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire5PointEEE8allocateERS
           to label %_ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv.exit unwind label %96
 
 _ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv.exit: ; preds = %68
-  %70 = add i64 %.pre-phi62, -8
+  %70 = add i64 %.pre-phi64, -8
   %71 = sub i64 %70, %.pre-phi
   %72 = and i64 %71, -8
   %73 = add i64 %72, 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %69, ptr align 4 %58, i64 %73, i1 false), !noalias !43
   %scevgep = getelementptr i8, ptr %69, i64 %73
-  %.not51 = icmp eq i64 %73, 0
-  br i1 %.not51, label %.loopexit, label %.lr.ph
+  %.not52 = icmp eq i64 %73, 0
+  br i1 %.not52, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv.exit
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2192,8 +2198,8 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit: ; preds = %_ZNSt6vectorIN10ope
   br label %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit24
 
 98:                                               ; preds = %.lr.ph, %115
-  %.sroa.028.052 = phi ptr [ %69, %.lr.ph ], [ %116, %115 ]
-  %99 = load i64, ptr %.sroa.028.052, align 4
+  %.sroa.028.053 = phi ptr [ %69, %.lr.ph ], [ %116, %115 ]
+  %99 = load i64, ptr %.sroa.028.053, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %99 to i32
   %.sroa.2.0.extract.shift = lshr i64 %99, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -2270,7 +2276,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 115:                                              ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.028.052, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.028.053, i64 8
   %.not = icmp eq ptr %116, %scevgep
   br i1 %.not, label %.loopexit, label %98
 
@@ -2439,18 +2445,18 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %16, %34, %47, %_ZNS
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit, %294
-  %indvars.iv314 = phi i64 [ 0, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit ], [ %indvars.iv.next315, %294 ]
-  %indvars316 = trunc i64 %indvars.iv314 to i32
-  %65 = icmp eq i64 %indvars.iv314, 3
-  %66 = icmp eq i64 %indvars.iv314, 9
+  %indvars.iv316 = phi i64 [ 0, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit ], [ %indvars.iv.next317, %294 ]
+  %indvars318 = trunc i64 %indvars.iv316 to i32
+  %65 = icmp eq i64 %indvars.iv316, 3
+  %66 = icmp eq i64 %indvars.iv316, 9
   %or.cond = or i1 %65, %66
-  %67 = and i32 %indvars316, 13
+  %67 = and i32 %indvars318, 13
   %or.cond11 = icmp eq i32 %67, 5
-  %68 = icmp eq i64 %indvars.iv314, 6
-  %69 = mul nuw nsw i64 %indvars.iv314, 13
-  %70 = add nuw nsw i32 %indvars316, 3
-  %71 = icmp samesign ult i64 %indvars.iv314, 10
-  %72 = add nuw nsw i64 %indvars.iv314, 3
+  %68 = icmp eq i64 %indvars.iv316, 6
+  %69 = mul nuw nsw i64 %indvars.iv316, 13
+  %70 = add nuw nsw i32 %indvars318, 3
+  %71 = icmp samesign ult i64 %indvars.iv316, 10
+  %72 = add nuw nsw i64 %indvars.iv316, 3
   %73 = trunc nuw nsw i64 %72 to i32
   br label %74
 
@@ -2475,7 +2481,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %16, %34, %47, %_ZNS
   br label %361
 
 83:                                               ; preds = %74, %78
-  switch i32 %indvars316, label %89 [
+  switch i32 %indvars318, label %89 [
     i32 8, label %84
     i32 4, label %84
   ]
@@ -2544,9 +2550,9 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %16, %34, %47, %_ZNS
 
 107:                                              ; preds = %103
   %.sroa.3266.0.insert.shift = shl nuw nsw i64 %indvars.iv, 32
-  %.sroa.0262.0.insert.insert = or disjoint i64 %.sroa.3266.0.insert.shift, %indvars.iv314
+  %.sroa.0262.0.insert.insert = or disjoint i64 %.sroa.3266.0.insert.shift, %indvars.iv316
   %.sroa.3257.0.insert.shift = shl nuw nsw i64 %104, 32
-  %.sroa.0253.0.insert.insert = or disjoint i64 %.sroa.3257.0.insert.shift, %indvars.iv314
+  %.sroa.0253.0.insert.insert = or disjoint i64 %.sroa.3257.0.insert.shift, %indvars.iv316
   invoke void @_ZN10open_spiel17morpion_solitaire4LineC1ENS0_5PointES2_(ptr noundef nonnull align 8 dereferenceable(48) %105, i64 %.sroa.0262.0.insert.insert, i64 %.sroa.0253.0.insert.insert)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
@@ -2580,9 +2586,9 @@ _ZNKSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12_M_check_lenEmPKc.
 .noexc116:                                        ; preds = %_ZNKSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12_M_check_lenEmPKc.exit.i
   %123 = getelementptr inbounds i8, ptr %122, i64 %114
   %.sroa.3266.0.insert.shift268 = shl nuw nsw i64 %indvars.iv, 32
-  %.sroa.0262.0.insert.insert265 = or disjoint i64 %.sroa.3266.0.insert.shift268, %indvars.iv314
+  %.sroa.0262.0.insert.insert265 = or disjoint i64 %.sroa.3266.0.insert.shift268, %indvars.iv316
   %.sroa.3257.0.insert.shift259 = shl nuw nsw i64 %104, 32
-  %.sroa.0253.0.insert.insert256 = or disjoint i64 %.sroa.3257.0.insert.shift259, %indvars.iv314
+  %.sroa.0253.0.insert.insert256 = or disjoint i64 %.sroa.3257.0.insert.shift259, %indvars.iv316
   invoke void @_ZN10open_spiel17morpion_solitaire4LineC1ENS0_5PointES2_(ptr noundef nonnull align 8 dereferenceable(48) %123, i64 %.sroa.0262.0.insert.insert265, i64 %.sroa.0253.0.insert.insert256)
           to label %_ZNSt16allocator_traitsISaIN10open_spiel17morpion_solitaire4LineEEE9constructIS2_JNS1_5PointES6_EEEvRS3_PT_DpOT0_.exit.i unwind label %142
 
@@ -2694,7 +2700,7 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12emplace_backIJNS1_5
 
 154:                                              ; preds = %152
   %.sroa.3248.0.insert.shift = shl nuw nsw i64 %indvars.iv, 32
-  %.sroa.0244.0.insert.insert = or disjoint i64 %.sroa.3248.0.insert.shift, %indvars.iv314
+  %.sroa.0244.0.insert.insert = or disjoint i64 %.sroa.3248.0.insert.shift, %indvars.iv316
   %.sroa.3239.0.insert.shift = shl nuw nsw i64 %104, 32
   %.sroa.0235.0.insert.insert = or disjoint i64 %.sroa.3239.0.insert.shift, %72
   invoke void @_ZN10open_spiel17morpion_solitaire4LineC1ENS0_5PointES2_(ptr noundef nonnull align 8 dereferenceable(48) %151, i64 %.sroa.0244.0.insert.insert, i64 %.sroa.0235.0.insert.insert)
@@ -2730,7 +2736,7 @@ _ZNKSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12_M_check_lenEmPKc.
 .noexc141:                                        ; preds = %_ZNKSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12_M_check_lenEmPKc.exit.i119
   %170 = getelementptr inbounds i8, ptr %169, i64 %161
   %.sroa.3248.0.insert.shift250 = shl nuw nsw i64 %indvars.iv, 32
-  %.sroa.0244.0.insert.insert247 = or disjoint i64 %.sroa.3248.0.insert.shift250, %indvars.iv314
+  %.sroa.0244.0.insert.insert247 = or disjoint i64 %.sroa.3248.0.insert.shift250, %indvars.iv316
   %.sroa.3239.0.insert.shift241 = shl nuw nsw i64 %104, 32
   %.sroa.0235.0.insert.insert238 = or disjoint i64 %.sroa.3239.0.insert.shift241, %72
   invoke void @_ZN10open_spiel17morpion_solitaire4LineC1ENS0_5PointES2_(ptr noundef nonnull align 8 dereferenceable(48) %170, i64 %.sroa.0244.0.insert.insert247, i64 %.sroa.0235.0.insert.insert238)
@@ -2821,7 +2827,7 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE11_S_relocateEPS2_S5_
 
 201:                                              ; preds = %.critedge.thread273
   %.sroa.3230.0.insert.shift = shl nuw nsw i64 %indvars.iv, 32
-  %.sroa.0226.0.insert.insert = or disjoint i64 %.sroa.3230.0.insert.shift, %indvars.iv314
+  %.sroa.0226.0.insert.insert = or disjoint i64 %.sroa.3230.0.insert.shift, %indvars.iv316
   %.sroa.0217.0.insert.ext = zext nneg i32 %198 to i64
   %.sroa.0217.0.insert.insert = or disjoint i64 %.sroa.3230.0.insert.shift, %.sroa.0217.0.insert.ext
   invoke void @_ZN10open_spiel17morpion_solitaire4LineC1ENS0_5PointES2_(ptr noundef nonnull align 8 dereferenceable(48) %199, i64 %.sroa.0226.0.insert.insert, i64 %.sroa.0217.0.insert.insert)
@@ -2857,7 +2863,7 @@ _ZNKSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12_M_check_lenEmPKc.
 .noexc167:                                        ; preds = %_ZNKSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12_M_check_lenEmPKc.exit.i145
   %217 = getelementptr inbounds i8, ptr %216, i64 %208
   %.sroa.3230.0.insert.shift232 = shl nuw nsw i64 %indvars.iv, 32
-  %.sroa.0226.0.insert.insert229 = or disjoint i64 %.sroa.3230.0.insert.shift232, %indvars.iv314
+  %.sroa.0226.0.insert.insert229 = or disjoint i64 %.sroa.3230.0.insert.shift232, %indvars.iv316
   %.sroa.0217.0.insert.ext218 = zext nneg i32 %198 to i64
   %.sroa.0217.0.insert.insert220 = or disjoint i64 %.sroa.3230.0.insert.shift232, %.sroa.0217.0.insert.ext218
   invoke void @_ZN10open_spiel17morpion_solitaire4LineC1ENS0_5PointES2_(ptr noundef nonnull align 8 dereferenceable(48) %217, i64 %.sroa.0226.0.insert.insert229, i64 %.sroa.0217.0.insert.insert220)
@@ -2949,7 +2955,7 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12emplace_backIJNS1_5
 
 250:                                              ; preds = %247
   %.sroa.3212.0.insert.shift = shl nuw nsw i64 %indvars.iv, 32
-  %.sroa.0208.0.insert.insert = or disjoint i64 %.sroa.3212.0.insert.shift, %indvars.iv314
+  %.sroa.0208.0.insert.insert = or disjoint i64 %.sroa.3212.0.insert.shift, %indvars.iv316
   %.sroa.3.0.insert.shift = shl nuw nsw i64 %248, 32
   %.sroa.0200.0.insert.ext = zext nneg i32 %198 to i64
   %.sroa.0200.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0200.0.insert.ext
@@ -2993,7 +2999,7 @@ _ZNKSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12_M_check_lenEmPKc.
 .noexc193:                                        ; preds = %_ZNKSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12_M_check_lenEmPKc.exit.i171
   %266 = getelementptr inbounds i8, ptr %265, i64 %257
   %.sroa.3212.0.insert.shift214 = shl nuw nsw i64 %indvars.iv, 32
-  %.sroa.0208.0.insert.insert211 = or disjoint i64 %.sroa.3212.0.insert.shift214, %indvars.iv314
+  %.sroa.0208.0.insert.insert211 = or disjoint i64 %.sroa.3212.0.insert.shift214, %indvars.iv316
   %.sroa.3.0.insert.shift205 = shl nuw nsw i64 %248, 32
   %.sroa.0200.0.insert.ext201 = zext nneg i32 %198 to i64
   %.sroa.0200.0.insert.insert203 = or disjoint i64 %.sroa.3.0.insert.shift205, %.sroa.0200.0.insert.ext201
@@ -3079,32 +3085,32 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12emplace_backIJNS1_5
   br i1 %exitcond.not, label %294, label %74, !llvm.loop !77
 
 294:                                              ; preds = %_ZNSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12emplace_backIJNS1_5PointES6_EEERS2_DpOT_.exit108
-  %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
-  %exitcond317.not = icmp eq i64 %indvars.iv.next315, 13
-  br i1 %exitcond317.not, label %295, label %.preheader, !llvm.loop !78
+  %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
+  %exitcond319.not = icmp eq i64 %indvars.iv.next317, 13
+  br i1 %exitcond319.not, label %295, label %.preheader, !llvm.loop !78
 
 295:                                              ; preds = %294
   %296 = load ptr, ptr %53, align 8
   %297 = load ptr, ptr %63, align 8
-  %.not278298 = icmp eq ptr %296, %297
-  br i1 %.not278298, label %._crit_edge, label %.lr.ph
+  %.not278299 = icmp eq ptr %296, %297
+  br i1 %.not278299, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %295, %.loopexit
-  %.sroa.0197.0299 = phi ptr [ %360, %.loopexit ], [ %296, %295 ]
-  %298 = load i32, ptr %.sroa.0197.0299, align 4
+  %.sroa.0197.0300 = phi ptr [ %360, %.loopexit ], [ %296, %295 ]
+  %298 = load i32, ptr %.sroa.0197.0300, align 4
   switch i32 %298, label %.thread7.i [
     i32 0, label %299
     i32 1, label %303
   ]
 
 299:                                              ; preds = %.lr.ph
-  %300 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 4
+  %300 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 4
   %301 = load i32, ptr %300, align 4
   %302 = icmp eq i32 %301, 1
   br i1 %302, label %306, label %.thread7.i
 
 303:                                              ; preds = %.lr.ph
-  %304 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 4
+  %304 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 4
   %305 = load i32, ptr %304, align 4
   switch i32 %305, label %.thread7.i [
     i32 0, label %313
@@ -3112,39 +3118,39 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12emplace_backIJNS1_5
   ]
 
 306:                                              ; preds = %299
-  %307 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 8
+  %307 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 8
   %308 = load i32, ptr %307, align 8
   %309 = mul nsw i32 %308, 10
-  %310 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 12
+  %310 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 12
   %311 = load i32, ptr %310, align 4
   %312 = add nsw i32 %309, %311
   br label %336
 
 313:                                              ; preds = %303
-  %314 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 8
   %315 = load i32, ptr %314, align 8
   %316 = mul nsw i32 %315, 13
-  %317 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 12
+  %317 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 12
   %318 = load i32, ptr %317, align 4
   %319 = add i32 %318, 130
   %320 = add i32 %319, %316
   br label %336
 
 321:                                              ; preds = %303
-  %322 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 8
   %323 = load i32, ptr %322, align 8
   %324 = mul nsw i32 %323, 10
-  %325 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 12
+  %325 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 12
   %326 = load i32, ptr %325, align 4
   %327 = add i32 %326, 260
   %328 = add i32 %327, %324
   br label %336
 
 .thread7.i:                                       ; preds = %303, %299, %.lr.ph
-  %329 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 16
   %330 = load i32, ptr %329, align 8
   %331 = mul i32 %330, 10
-  %332 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 20
+  %332 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 20
   %333 = load i32, ptr %332, align 4
   %334 = add i32 %331, 330
   %335 = add i32 %334, %333
@@ -3184,9 +3190,12 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12emplace_backIJNS1_5
   %353 = sext i32 %352 to i64
   %354 = urem i64 %353, %337
   %.not17.i.i.i.i = icmp eq i64 %354, %338
-  br i1 %.not17.i.i.i.i, label %347, label %.loopexit.i.i, !llvm.loop !38
+  br i1 %.not17.i.i.i.i, label %347, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !38
 
-.loopexit.i.i:                                    ; preds = %350, %.lr.ph.i.i.i.i, %336
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %350
+  br label %.loopexit.i.i, !llvm.loop !38
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %336
   %355 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
           to label %.noexc110 unwind label %.loopexit279
 
@@ -3208,8 +3217,8 @@ _ZNSt10_HashtableIiSt4pairIKiPN10open_spiel17morpion_solitaire4LineEESaIS6_ENSt8
 .loopexit:                                        ; preds = %347, %.noexc110, %342
   %.0.i.pn.i.i = phi ptr [ %343, %342 ], [ %358, %.noexc110 ], [ %349, %347 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
-  store ptr %.sroa.0197.0299, ptr %.0.i.i, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0299, i64 48
+  store ptr %.sroa.0197.0300, ptr %.0.i.i, align 8
+  %360 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 48
   %.not278 = icmp eq ptr %360, %297
   br i1 %.not278, label %._crit_edge, label %.lr.ph
 

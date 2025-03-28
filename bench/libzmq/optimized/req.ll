@@ -378,28 +378,28 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
 19:                                               ; preds = %.lr.ph, %.backedge
   %20 = load i8, ptr %14, align 8, !tbaa !92, !range !96, !noundef !97
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %.preheader91, label %.thread.preheader
+  br i1 %21, label %.preheader90, label %.thread.preheader
 
 .thread.preheader:                                ; preds = %32, %19
   br label %.thread
 
-.preheader91:                                     ; preds = %19, %23
+.preheader90:                                     ; preds = %19, %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   store ptr null, ptr %7, align 8, !tbaa !105
   %22 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef %1, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %.thread67
 
-23:                                               ; preds = %.preheader91
+23:                                               ; preds = %.preheader90
   %24 = load ptr, ptr %15, align 8, !tbaa !91
   %.not8.i = icmp ne ptr %24, null
   %25 = load ptr, ptr %7, align 8
   %26 = icmp ne ptr %25, %24
   %or.cond.not.i = select i1 %.not8.i, i1 %26, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  br i1 %or.cond.not.i, label %.preheader91, label %27
+  br i1 %or.cond.not.i, label %.preheader90, label %27
 
-.thread67:                                        ; preds = %.preheader91
+.thread67:                                        ; preds = %.preheader90
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   br label %94
 
@@ -425,9 +425,12 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
   %36 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %37 = and i8 %36, 1
   %.not3789 = icmp eq i8 %37, 0
-  br i1 %.not3789, label %.backedge, label %.preheader, !llvm.loop !106
+  br i1 %.not3789, label %.backedge, label %.preheader.lr.ph, !llvm.loop !106
 
-.preheader:                                       ; preds = %.preheader77, %.preheader.backedge
+.preheader.lr.ph:                                 ; preds = %.preheader77
+  br label %.preheader, !llvm.loop !106
+
+.preheader:                                       ; preds = %.preheader.backedge, %.preheader.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   store ptr null, ptr %6, align 8, !tbaa !105
   %38 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
@@ -462,7 +465,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
   %51 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %52 = and i8 %51, 1
   %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %.backedge, label %.preheader.backedge
+  br i1 %.not37, label %.backedge, label %.preheader.backedge, !llvm.loop !106
 
 .thread:                                          ; preds = %.thread.preheader, %54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
@@ -499,9 +502,12 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
   %63 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %64 = and i8 %63, 1
   %.not4188 = icmp eq i8 %64, 0
-  br i1 %.not4188, label %.backedge, label %.preheader76, !llvm.loop !106
+  br i1 %.not4188, label %.backedge, label %.preheader76.lr.ph, !llvm.loop !106
 
-.preheader76:                                     ; preds = %.critedge44.preheader, %.preheader76.backedge
+.preheader76.lr.ph:                               ; preds = %.critedge44.preheader
+  br label %.preheader76, !llvm.loop !106
+
+.preheader76:                                     ; preds = %.preheader76.backedge, %.preheader76.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   store ptr null, ptr %4, align 8, !tbaa !105
   %65 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
@@ -536,7 +542,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread: ; preds = %66, %70
   %78 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %79 = and i8 %78, 1
   %.not41 = icmp eq i8 %79, 0
-  br i1 %.not41, label %.backedge, label %.preheader76.backedge
+  br i1 %.not41, label %.backedge, label %.preheader76.backedge, !llvm.loop !106
 
 80:                                               ; preds = %61
   store i8 0, ptr %11, align 2, !tbaa !90

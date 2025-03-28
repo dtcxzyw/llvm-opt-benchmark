@@ -1471,7 +1471,7 @@ flush_pending.exit394._crit_edge:                 ; preds = %flush_pending.exit3
 
 ._crit_edge:                                      ; preds = %flush_pending.exit394._crit_edge
   %.pre429 = load ptr, ptr %426, align 8, !tbaa !27
-  br label %split
+  br label %split, !llvm.loop !94
 
 split:                                            ; preds = %flush_pending.exit394, %._crit_edge
   %497 = phi ptr [ %.pre429, %._crit_edge ], [ %.pre430, %flush_pending.exit394 ]
@@ -1635,7 +1635,7 @@ flush_pending.exit396._crit_edge:                 ; preds = %flush_pending.exit3
 
 ._crit_edge435:                                   ; preds = %flush_pending.exit396._crit_edge
   %.pre437 = load ptr, ptr %515, align 8, !tbaa !27
-  br label %split436
+  br label %split436, !llvm.loop !95
 
 split436:                                         ; preds = %flush_pending.exit396, %._crit_edge435
   %587 = phi ptr [ %.pre437, %._crit_edge435 ], [ %.pre438, %flush_pending.exit396 ]

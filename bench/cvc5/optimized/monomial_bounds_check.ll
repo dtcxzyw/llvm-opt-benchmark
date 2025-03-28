@@ -4158,9 +4158,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1315: ; preds = %_ZN4cvc58internal
   %1783 = load i64, ptr %1782, align 8, !tbaa !344
   %1784 = urem i64 %1783, %1757
   %.not19.i.i.i = icmp eq i64 %1784, %1758
-  br i1 %.not19.i.i.i, label %1774, label %.critedge.i3526, !llvm.loop !346
+  br i1 %.not19.i.i.i, label %1774, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !346
 
-.critedge.i3526:                                  ; preds = %1781, %.lr.ph.i.i.i3525, %1760, %.noexc3528
+..loopexit_crit_edge21.i.i.i:                     ; preds = %1781
+  br label %.critedge.i3526, !llvm.loop !346
+
+.critedge.i3526:                                  ; preds = %.lr.ph.i.i.i3525, %..loopexit_crit_edge21.i.i.i, %1760, %.noexc3528
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   %1785 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %.noexc3859 unwind label %1310

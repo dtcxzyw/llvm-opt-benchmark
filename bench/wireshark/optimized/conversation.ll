@@ -918,7 +918,7 @@ define internal fastcc void @conversation_insert_into_hashtable(ptr noundef %0, 
   store ptr %1, ptr %8, align 8
   %9 = load ptr, ptr %3, align 8
   %10 = tail call ptr @wmem_map_insert(ptr noundef %0, ptr noundef %9, ptr noundef %1)
-  br label %33
+  br label %34
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -938,53 +938,59 @@ define internal fastcc void @conversation_insert_into_hashtable(ptr noundef %0, 
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %21 = load ptr, ptr %5, align 8
-  %.not4161 = icmp eq ptr %21, null
-  br i1 %.not4161, label %.critedge, label %.lr.ph63, !llvm.loop !11
+  %.not4164 = icmp eq ptr %21, null
+  br i1 %.not4164, label %.critedge, label %.lr.ph66, !llvm.loop !11
+
+.lr.ph66:                                         ; preds = %.lr.ph.preheader
+  br label %23, !llvm.loop !11
 
 22:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store ptr %1, ptr %13, align 8
   store ptr %1, ptr %12, align 8
-  br label %33
+  br label %34
 
-.lr.ph63:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %23 = phi ptr [ %27, %.lr.ph ], [ %21, %.lr.ph.preheader ]
-  %.0384262 = phi ptr [ %23, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp ugt i32 %15, %25
-  br i1 %26, label %.lr.ph, label %.critedge.thread50, !llvm.loop !11
+23:                                               ; preds = %.lr.ph66, %.lr.ph
+  %24 = phi ptr [ %21, %.lr.ph66 ], [ %28, %.lr.ph ]
+  %.0384265 = phi ptr [ %5, %.lr.ph66 ], [ %24, %.lr.ph ]
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 28
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp ugt i32 %15, %26
+  br i1 %27, label %.lr.ph, label %.critedge.thread53, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %.lr.ph63
-  %27 = load ptr, ptr %23, align 8
-  %.not41 = icmp eq ptr %27, null
-  br i1 %.not41, label %.critedge, label %.lr.ph63, !llvm.loop !11
+.lr.ph:                                           ; preds = %23
+  %28 = load ptr, ptr %24, align 8
+  %.not41 = icmp eq ptr %28, null
+  br i1 %.not41, label %.lr.ph..critedge_crit_edge, label %23, !llvm.loop !11
 
-.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
-  %.043.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0384262, %.lr.ph ]
-  %.03842.lcssa = phi ptr [ %5, %.lr.ph.preheader ], [ %23, %.lr.ph ]
-  %28 = icmp eq ptr %.043.lcssa, null
-  br i1 %28, label %.critedge.thread, label %.critedge.thread50
+.lr.ph..critedge_crit_edge:                       ; preds = %.lr.ph
+  br label %.critedge, !llvm.loop !11
+
+.critedge:                                        ; preds = %.lr.ph..critedge_crit_edge, %.lr.ph.preheader
+  %.043.lcssa = phi ptr [ %.0384265, %.lr.ph..critedge_crit_edge ], [ null, %.lr.ph.preheader ]
+  %.03842.lcssa = phi ptr [ %24, %.lr.ph..critedge_crit_edge ], [ %5, %.lr.ph.preheader ]
+  %29 = icmp eq ptr %.043.lcssa, null
+  br i1 %29, label %.critedge.thread, label %.critedge.thread53
 
 .critedge.thread:                                 ; preds = %.preheader, %.critedge
   store ptr %5, ptr %1, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %13, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %13, ptr %30, align 8
   store ptr null, ptr %12, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = tail call ptr @wmem_map_insert(ptr noundef %0, ptr noundef %30, ptr noundef %1)
-  br label %33
+  %31 = load ptr, ptr %3, align 8
+  %32 = tail call ptr @wmem_map_insert(ptr noundef %0, ptr noundef %31, ptr noundef %1)
+  br label %34
 
-.critedge.thread50:                               ; preds = %.lr.ph63, %.critedge
-  %.0.lcssa54 = phi ptr [ %.043.lcssa, %.critedge ], [ %.0384262, %.lr.ph63 ]
-  %.038.lcssa53 = phi ptr [ %.03842.lcssa, %.critedge ], [ %23, %.lr.ph63 ]
-  store ptr %.038.lcssa53, ptr %1, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr null, ptr %32, align 8
-  store ptr %1, ptr %.0.lcssa54, align 8
-  br label %33
+.critedge.thread53:                               ; preds = %23, %.critedge
+  %.0.lcssa57 = phi ptr [ %.043.lcssa, %.critedge ], [ %.0384265, %23 ]
+  %.038.lcssa56 = phi ptr [ %.03842.lcssa, %.critedge ], [ %24, %23 ]
+  store ptr %.038.lcssa56, ptr %1, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr null, ptr %33, align 8
+  store ptr %1, ptr %.0.lcssa57, align 8
+  br label %34
 
-33:                                               ; preds = %22, %.critedge.thread50, %.critedge.thread, %7
+34:                                               ; preds = %22, %.critedge.thread53, %.critedge.thread, %7
   ret void
 }
 

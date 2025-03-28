@@ -291,7 +291,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %0 to i64
   %2 = load i32, ptr %1, align 1
   %cmp5.not13 = icmp ugt i32 %2, %debugOffset
-  br i1 %cmp5.not13, label %for.end, label %if.then
+  br i1 %cmp5.not13, label %for.end.loopexit, label %if.then
 
 for.body:                                         ; preds = %if.then
   %arrayidx.i13 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %1, i64 %indvars.iv.next
@@ -303,17 +303,27 @@ if.then:                                          ; preds = %for.body.lr.ph, %fo
   %indvars.iv14 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv14, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit.loopexit, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %if.then.for.end.loopexit_crit_edge, label %for.body, !llvm.loop !9
 
-for.end.loopexit.loopexit:                        ; preds = %for.body, %if.then
+if.then.for.end.loopexit_crit_edge:               ; preds = %if.then
   %filenameId.le = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %1, i64 %indvars.iv14, i32 1
   %4 = load i32, ptr %filenameId.le, align 4
-  %5 = zext i32 %4 to i64
-  %6 = or disjoint i64 %5, 4294967296
+  br label %for.end.loopexit, !llvm.loop !9
+
+for.end.loopexit.loopexit:                        ; preds = %for.body
+  %filenameId.le22 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %1, i64 %indvars.iv14, i32 1
+  %5 = load i32, ptr %filenameId.le22, align 4
+  br label %for.end.loopexit
+
+for.end.loopexit:                                 ; preds = %for.end.loopexit.loopexit, %if.then.for.end.loopexit_crit_edge, %for.body.lr.ph
+  %retval.sroa.0.0.lcssa.ph = phi i32 [ %4, %if.then.for.end.loopexit_crit_edge ], [ 0, %for.body.lr.ph ], [ %5, %for.end.loopexit.loopexit ]
+  %retval.sroa.3.0.lcssa.ph = phi i64 [ 4294967296, %if.then.for.end.loopexit_crit_edge ], [ 0, %for.body.lr.ph ], [ 4294967296, %for.end.loopexit.loopexit ]
+  %6 = zext i32 %retval.sroa.0.0.lcssa.ph to i64
+  %7 = or disjoint i64 %retval.sroa.3.0.lcssa.ph, %6
   br label %for.end
 
-for.end:                                          ; preds = %for.body.lr.ph, %for.end.loopexit.loopexit, %entry
-  %retval.sroa.0.0.insert.insert = phi i64 [ 0, %entry ], [ 0, %for.body.lr.ph ], [ %6, %for.end.loopexit.loopexit ]
+for.end:                                          ; preds = %for.end.loopexit, %entry
+  %retval.sroa.0.0.insert.insert = phi i64 [ 0, %entry ], [ %7, %for.end.loopexit ]
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
@@ -415,11 +425,14 @@ if.then.i:                                        ; preds = %for.body.lr.ph.i, %
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.then10, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge, label %for.body.i, !llvm.loop !9
 
-if.then10:                                        ; preds = %for.body.i, %if.then.i
-  %filenameId.i.le = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %8, i64 %indvars.iv.i25, i32 1
-  %11 = load i32, ptr %filenameId.i.le, align 4
+if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge: ; preds = %if.then.i
+  br label %if.then10, !llvm.loop !9
+
+if.then10:                                        ; preds = %for.body.i, %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge
+  %filenameId.i.le35 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %8, i64 %indvars.iv.i25, i32 1
+  %11 = load i32, ptr %filenameId.i.le35, align 4
   store i32 %offsetInFunction, ptr %agg.result, align 4
   %lastLocation.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %11, ptr %lastLocation.sroa.4.0.agg.result.sroa_idx, align 4

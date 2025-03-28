@@ -220,12 +220,15 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   %.5137 = phi i32 [ %101, %.lr.ph335 ], [ %115, %111 ], [ %101, %104 ]
   %117 = call i32 @ucase_getType_77(i32 noundef %.5137)
   %118 = icmp eq i32 %117, 0
-  br i1 %118, label %.thread, label %.thread194, !llvm.loop !16
+  br i1 %118, label %.thread, label %..thread194.loopexit322_crit_edge, !llvm.loop !16
 
-.thread194:                                       ; preds = %.thread, %116, %.thread.us, %65, %88, %.thread.preheader, %.split, %.split.us
-  %.us-phi = phi i32 [ %.1140, %.split.us ], [ %.1140, %.split ], [ %.1150, %.thread.preheader ], [ %.1150, %.thread.us ], [ %.3142.us258, %65 ], [ %.5144.us, %88 ], [ %.5144, %116 ], [ %.1150, %.thread ]
-  %.us-phi247 = phi i32 [ %.1133, %.split.us ], [ %.1133, %.split ], [ %.1133, %.thread.preheader ], [ %.3135.us259, %.thread.us ], [ %.3135.us259, %65 ], [ %.5137.us, %88 ], [ %.5137, %116 ], [ %.5137, %.thread ]
-  %.us-phi248 = phi i32 [ %.0128278, %.split.us ], [ %.0128278, %.split ], [ %.1150, %.thread.preheader ], [ %.1150, %.thread.us ], [ %.1147.us257, %65 ], [ %.3142.us258, %88 ], [ %.3142249334, %116 ], [ %.1150, %.thread ]
+..thread194.loopexit322_crit_edge:                ; preds = %116
+  br label %.thread194, !llvm.loop !16
+
+.thread194:                                       ; preds = %.thread, %.thread.us, %65, %88, %.thread.preheader, %..thread194.loopexit322_crit_edge, %.split, %.split.us
+  %.us-phi = phi i32 [ %.1140, %.split.us ], [ %.1140, %.split ], [ %.5144, %..thread194.loopexit322_crit_edge ], [ %.1150, %.thread.preheader ], [ %.1150, %.thread.us ], [ %.3142.us258, %65 ], [ %.5144.us, %88 ], [ %.1150, %.thread ]
+  %.us-phi247 = phi i32 [ %.1133, %.split.us ], [ %.1133, %.split ], [ %.5137, %..thread194.loopexit322_crit_edge ], [ %.1133, %.thread.preheader ], [ %.3135.us259, %.thread.us ], [ %.3135.us259, %65 ], [ %.5137.us, %88 ], [ %.5137, %.thread ]
+  %.us-phi248 = phi i32 [ %.0128278, %.split.us ], [ %.0128278, %.split ], [ %.3142249334, %..thread194.loopexit322_crit_edge ], [ %.1150, %.thread.preheader ], [ %.1150, %.thread.us ], [ %.1147.us257, %65 ], [ %.3142.us258, %88 ], [ %.1150, %.thread ]
   %119 = icmp slt i32 %.0128278, %.us-phi248
   br i1 %119, label %120, label %.thread198
 

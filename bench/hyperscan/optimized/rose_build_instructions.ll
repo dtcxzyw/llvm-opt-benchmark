@@ -2295,9 +2295,12 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %34 = ptrtoint ptr %33 to i64
   %35 = urem i64 %34, %16
   %.not19.i.i.i.i.i = icmp eq i64 %35, %17
-  br i1 %.not19.i.i.i.i.i, label %28, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %31, %.lr.ph.i.i.i.i.i, %8, %13
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %31
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i.i, %13
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -2310,7 +2313,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit._crit_edge: ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre35 = load ptr, ptr %0, align 8
+  %.pre40 = load ptr, ptr %0, align 8
   br label %45
 
 38:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
@@ -2318,19 +2321,19 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %40
 
 40:                                               ; preds = %41, %38
-  %.sroa.06.0.in.i.i.i11 = phi ptr [ %39, %38 ], [ %.sroa.06.0.i.i.i12, %41 ]
-  %.sroa.06.0.i.i.i12 = load ptr, ptr %.sroa.06.0.in.i.i.i11, align 8
-  %.not.i.i.i13 = icmp eq ptr %.sroa.06.0.i.i.i12, null
-  br i1 %.not.i.i.i13, label %.loopexit.i.i9, label %41
+  %.sroa.06.0.in.i.i.i12 = phi ptr [ %39, %38 ], [ %.sroa.06.0.i.i.i13, %41 ]
+  %.sroa.06.0.i.i.i13 = load ptr, ptr %.sroa.06.0.in.i.i.i12, align 8
+  %.not.i.i.i14 = icmp eq ptr %.sroa.06.0.i.i.i13, null
+  br i1 %.not.i.i.i14, label %.loopexit.i.i10, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i12, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i13, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %2, %43
-  br i1 %44, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit14, label %40, !llvm.loop !5
+  br i1 %44, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit15, label %40, !llvm.loop !5
 
 45:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit._crit_edge, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit.thread
-  %46 = phi ptr [ %18, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit.thread ], [ %.pre35, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit._crit_edge ]
+  %46 = phi ptr [ %18, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit.thread ], [ %.pre40, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit._crit_edge ]
   %47 = phi i64 [ %16, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit.thread ], [ %.pre, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit._crit_edge ]
   %48 = phi i32 [ %27, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit.thread ], [ %37, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit._crit_edge ]
   %49 = ptrtoint ptr %2 to i64
@@ -2338,24 +2341,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i4 = icmp eq ptr %52, null
-  br i1 %.not.i.i.i.i.i4, label %.loopexit.i.i9, label %53
+  br i1 %.not.i.i.i.i.i4, label %.loopexit.i.i10, label %53
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %52, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %2, %56
-  br i1 %57, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit14, label %.lr.ph.i.i.i.i.i5
+  br i1 %57, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit15, label %.lr.ph.i.i.i.i.i5
 
 58:                                               ; preds = %61
   %59 = icmp eq ptr %2, %63
-  br i1 %59, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit14, label %.lr.ph.i.i.i.i.i5, !llvm.loop !7
+  br i1 %59, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit15, label %.lr.ph.i.i.i.i.i5, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i5:                                ; preds = %53, %58
   %.020.i.i.i.i.i6 = phi ptr [ %60, %58 ], [ %54, %53 ]
   %60 = load ptr, ptr %.020.i.i.i.i.i6, align 8
   %.not18.i.i.i.i.i7 = icmp eq ptr %60, null
-  br i1 %.not18.i.i.i.i.i7, label %.loopexit.i.i9, label %61
+  br i1 %.not18.i.i.i.i.i7, label %.loopexit.i.i10, label %61
 
 61:                                               ; preds = %.lr.ph.i.i.i.i.i5
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -2363,16 +2366,19 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %64 = ptrtoint ptr %63 to i64
   %65 = urem i64 %64, %47
   %.not19.i.i.i.i.i8 = icmp eq i64 %65, %50
-  br i1 %.not19.i.i.i.i.i8, label %58, label %.loopexit.i.i9, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i8, label %58, label %..loopexit_crit_edge21.i.i.i.i.i9, !llvm.loop !7
 
-.loopexit.i.i9:                                   ; preds = %61, %.lr.ph.i.i.i.i.i5, %40, %45
+..loopexit_crit_edge21.i.i.i.i.i9:                ; preds = %61
+  br label %.loopexit.i.i10, !llvm.loop !7
+
+.loopexit.i.i10:                                  ; preds = %.lr.ph.i.i.i.i.i5, %40, %..loopexit_crit_edge21.i.i.i.i.i9, %45
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit14: ; preds = %58, %41, %53
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit15: ; preds = %58, %41, %53
   %66 = phi i32 [ %48, %53 ], [ %37, %41 ], [ %48, %58 ]
-  %.sroa.06.1.i.i.i10 = phi ptr [ %54, %53 ], [ %.sroa.06.0.i.i.i12, %41 ], [ %60, %58 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i10, i64 16
+  %.sroa.06.1.i.i.i11 = phi ptr [ %54, %53 ], [ %.sroa.06.0.i.i.i13, %41 ], [ %60, %58 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i11, i64 16
   %68 = load i32, ptr %67, align 4
   %69 = sub i32 %68, %66
   ret i32 %69
@@ -3529,8 +3535,8 @@ define hidden void @_ZNK3ue224RoseInstrSparseIterBegin5writeEPvRNS_14RoseEngineB
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %.not106 = icmp eq ptr %13, %15
-  br i1 %.not106, label %._crit_edge, label %.lr.ph
+  %.not109 = icmp eq ptr %13, %15
+  br i1 %.not109, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3550,17 +3556,17 @@ define hidden void @_ZNK3ue224RoseInstrSparseIterBegin5writeEPvRNS_14RoseEngineB
           to label %99 unwind label %131
 
 23:                                               ; preds = %.lr.ph, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38
-  %.sroa.064.0110 = phi ptr [ null, %.lr.ph ], [ %.sroa.064.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38 ]
-  %.sroa.9.0109 = phi ptr [ null, %.lr.ph ], [ %.sroa.9.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38 ]
-  %.sroa.061.0108 = phi ptr [ %13, %.lr.ph ], [ %98, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38 ]
-  %.sroa.14.0107 = phi ptr [ null, %.lr.ph ], [ %.sroa.14.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38 ]
+  %.sroa.064.0113 = phi ptr [ null, %.lr.ph ], [ %.sroa.064.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38 ]
+  %.sroa.9.0112 = phi ptr [ null, %.lr.ph ], [ %.sroa.9.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38 ]
+  %.sroa.061.0111 = phi ptr [ %13, %.lr.ph ], [ %98, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38 ]
+  %.sroa.14.0110 = phi ptr [ null, %.lr.ph ], [ %.sroa.14.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38 ]
   %24 = load ptr, ptr %16, align 8
   %25 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %24, %25
   br i1 %.not.i, label %30, label %26
 
 26:                                               ; preds = %23
-  %27 = load i32, ptr %.sroa.061.0108, align 4
+  %27 = load i32, ptr %.sroa.061.0111, align 4
   store i32 %27, ptr %24, align 4
   %28 = load ptr, ptr %16, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -3597,7 +3603,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %30
 
 .noexc26:                                         ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   %43 = getelementptr inbounds i8, ptr %42, i64 %34
-  %44 = load i32, ptr %.sroa.061.0108, align 4
+  %44 = load i32, ptr %.sroa.061.0111, align 4
   store i32 %44, ptr %43, align 4
   %45 = icmp sgt i64 %34, 0
   br i1 %45, label %46, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
@@ -3623,7 +3629,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %26
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.061.0108, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.061.0111, i64 8
   %51 = load i64, ptr %18, align 8
   %.not.not.i.i.i = icmp eq i64 %51, 0
   %52 = load ptr, ptr %50, align 8
@@ -3674,9 +3680,12 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %75 = ptrtoint ptr %74 to i64
   %76 = urem i64 %75, %59
   %.not19.i.i.i.i.i = icmp eq i64 %76, %60
-  br i1 %.not19.i.i.i.i.i, label %69, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %69, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %57, %72, %.lr.ph.i.i.i.i.i, %.preheader
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %72
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %57, %.lr.ph.i.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
           to label %.noexc28 unwind label %.loopexit.split-lp80
 
@@ -3686,17 +3695,17 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
 .loopexit76:                                      ; preds = %69, %53, %64
   %.sroa.06.1.i.i.i = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i, %53 ], [ %71, %69 ]
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
-  %.not.i29 = icmp eq ptr %.sroa.9.0109, %.sroa.14.0107
+  %.not.i29 = icmp eq ptr %.sroa.9.0112, %.sroa.14.0110
   br i1 %.not.i29, label %80, label %78
 
 78:                                               ; preds = %.loopexit76
   %79 = load i32, ptr %77, align 4
-  store i32 %79, ptr %.sroa.9.0109, align 4
+  store i32 %79, ptr %.sroa.9.0112, align 4
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38
 
 80:                                               ; preds = %.loopexit76
-  %81 = ptrtoint ptr %.sroa.9.0109 to i64
-  %82 = ptrtoint ptr %.sroa.064.0110 to i64
+  %81 = ptrtoint ptr %.sroa.9.0112 to i64
+  %82 = ptrtoint ptr %.sroa.064.0113 to i64
   %83 = sub i64 %81, %82
   %84 = icmp eq i64 %83, 9223372036854775804
   br i1 %84, label %.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i30
@@ -3722,15 +3731,15 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i30: ; preds = %80
   br i1 %94, label %95, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i33
 
 95:                                               ; preds = %.noexc37
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %91, ptr align 4 %.sroa.064.0110, i64 %83, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %91, ptr align 4 %.sroa.064.0113, i64 %83, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i33
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i33: ; preds = %95, %.noexc37
-  %.not.i17.i.i34 = icmp eq ptr %.sroa.064.0110, null
+  %.not.i17.i.i34 = icmp eq ptr %.sroa.064.0113, null
   br i1 %.not.i17.i.i34, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35, label %96
 
 96:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i33
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.064.0110) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.064.0113) #24
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35: ; preds = %96, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i33
@@ -3738,11 +3747,11 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit38:        ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35, %78
-  %.sroa.14.1 = phi ptr [ %97, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35 ], [ %.sroa.14.0107, %78 ]
-  %.pn70 = phi ptr [ %92, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35 ], [ %.sroa.9.0109, %78 ]
-  %.sroa.064.1 = phi ptr [ %91, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35 ], [ %.sroa.064.0110, %78 ]
+  %.sroa.14.1 = phi ptr [ %97, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35 ], [ %.sroa.14.0110, %78 ]
+  %.pn70 = phi ptr [ %92, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35 ], [ %.sroa.9.0112, %78 ]
+  %.sroa.064.1 = phi ptr [ %91, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i35 ], [ %.sroa.064.0113, %78 ]
   %.sroa.9.1 = getelementptr inbounds nuw i8, ptr %.pn70, i64 4
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.061.0108, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.061.0111, i64 16
   %.not = icmp eq ptr %98, %15
   br i1 %.not, label %._crit_edge, label %23
 
@@ -3917,13 +3926,13 @@ _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit53: ; preds = %135, %133, %131
   br label %136
 
 136:                                              ; preds = %.loopexit79, %.loopexit.split-lp80, %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit53
-  %.sroa.064.093 = phi ptr [ %.sroa.064.0.lcssa, %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit53 ], [ %.sroa.064.0110, %.loopexit79 ], [ %.sroa.064.0110, %.loopexit.split-lp80 ]
+  %.sroa.064.095 = phi ptr [ %.sroa.064.0.lcssa, %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit53 ], [ %.sroa.064.0113, %.loopexit79 ], [ %.sroa.064.0113, %.loopexit.split-lp80 ]
   %.pn24 = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit53 ], [ %lpad.loopexit81, %.loopexit79 ], [ %lpad.loopexit.split-lp82, %.loopexit.split-lp80 ]
-  %.not.i.i.i54 = icmp eq ptr %.sroa.064.093, null
+  %.not.i.i.i54 = icmp eq ptr %.sroa.064.095, null
   br i1 %.not.i.i.i54, label %_ZNSt6vectorIjSaIjEED2Ev.exit55, label %137
 
 137:                                              ; preds = %136
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.064.093) #24
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.064.095) #24
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit55
 
 _ZNSt6vectorIjSaIjEED2Ev.exit55:                  ; preds = %136, %137
@@ -3999,9 +4008,12 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNKS
   %33 = ptrtoint ptr %32 to i64
   %34 = urem i64 %33, %17
   %.not19.i.i.i.i = icmp eq i64 %34, %18
-  br i1 %.not19.i.i.i.i, label %27, label %.loopexit.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !7
 
-.loopexit.i:                                      ; preds = %30, %.lr.ph.i.i.i.i, %8, %13
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %30
+  br label %.loopexit.i, !llvm.loop !7
+
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i, %13
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -12032,9 +12044,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrAnchoredDelay8
   %48 = ptrtoint ptr %47 to i64
   %49 = urem i64 %48, %32
   %.not19.i.i.i.i.i = icmp eq i64 %49, %33
-  br i1 %.not19.i.i.i.i.i, label %42, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %42, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %45, %.lr.ph.i.i.i.i.i, %23, %28
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %45
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %23, %..loopexit_crit_edge21.i.i.i.i.i, %28
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -12054,16 +12069,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %58
 
 58:                                               ; preds = %59, %55
-  %.sroa.06.0.in.i.i.i14 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i15, %59 ]
-  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
-  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
-  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %59
+  %.sroa.06.0.in.i.i.i15 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i16, %59 ]
+  %.sroa.06.0.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i15, align 8
+  %.not.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i16, null
+  br i1 %.not.i.i.i17, label %.loopexit.i.i13, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %57, %61
-  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %58, !llvm.loop !5
+  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %58, !llvm.loop !5
 
 63:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %64 = load ptr, ptr %52, align 8
@@ -12075,24 +12090,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i12, label %72
+  br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i13, label %72
 
 72:                                               ; preds = %63
   %73 = load ptr, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %64, %75
-  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i8
+  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i8
 
 77:                                               ; preds = %80
   %78 = icmp eq ptr %64, %82
-  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i8, !llvm.loop !7
+  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i8, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i8:                                ; preds = %72, %77
   %.020.i.i.i.i.i9 = phi ptr [ %79, %77 ], [ %73, %72 ]
   %79 = load ptr, ptr %.020.i.i.i.i.i9, align 8
   %.not18.i.i.i.i.i10 = icmp eq ptr %79, null
-  br i1 %.not18.i.i.i.i.i10, label %.loopexit.i.i12, label %80
+  br i1 %.not18.i.i.i.i.i10, label %.loopexit.i.i13, label %80
 
 80:                                               ; preds = %.lr.ph.i.i.i.i.i8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -12100,21 +12115,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %83 = ptrtoint ptr %82 to i64
   %84 = urem i64 %83, %67
   %.not19.i.i.i.i.i11 = icmp eq i64 %84, %68
-  br i1 %.not19.i.i.i.i.i11, label %77, label %.loopexit.i.i12, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i11, label %77, label %..loopexit_crit_edge21.i.i.i.i.i12, !llvm.loop !7
 
-.loopexit.i.i12:                                  ; preds = %80, %.lr.ph.i.i.i.i.i8, %58, %63
+..loopexit_crit_edge21.i.i.i.i.i12:               ; preds = %80
+  br label %.loopexit.i.i13, !llvm.loop !7
+
+.loopexit.i.i13:                                  ; preds = %.lr.ph.i.i.i.i.i8, %58, %..loopexit_crit_edge21.i.i.i.i.i12, %63
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %77, %59, %72
-  %.sroa.06.1.i.i.i13 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i15, %59 ], [ %79, %77 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18: ; preds = %77, %59, %72
+  %.sroa.06.1.i.i.i14 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i16, %59 ], [ %79, %77 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i14, i64 16
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %51, %86
   br label %88
 
-88:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %10, %4
-  %89 = phi i1 [ false, %10 ], [ false, %4 ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ]
+88:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, %10, %4
+  %89 = phi i1 [ false, %10 ], [ false, %4 ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18 ]
   ret i1 %89
 }
 
@@ -12186,9 +12204,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrCheckLitEarly8
   %42 = ptrtoint ptr %41 to i64
   %43 = urem i64 %42, %26
   %.not19.i.i.i.i.i = icmp eq i64 %43, %27
-  br i1 %.not19.i.i.i.i.i, label %36, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %36, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %39, %.lr.ph.i.i.i.i.i, %17, %22
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %39
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %17, %..loopexit_crit_edge21.i.i.i.i.i, %22
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -12208,16 +12229,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %52
 
 52:                                               ; preds = %53, %49
-  %.sroa.06.0.in.i.i.i13 = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i14, %53 ]
-  %.sroa.06.0.i.i.i14 = load ptr, ptr %.sroa.06.0.in.i.i.i13, align 8
-  %.not.i.i.i15 = icmp eq ptr %.sroa.06.0.i.i.i14, null
-  br i1 %.not.i.i.i15, label %.loopexit.i.i11, label %53
+  %.sroa.06.0.in.i.i.i14 = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i15, %53 ]
+  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
+  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
+  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i14, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %51, %55
-  br i1 %56, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %52, !llvm.loop !5
+  br i1 %56, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %52, !llvm.loop !5
 
 57:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %58 = load ptr, ptr %46, align 8
@@ -12229,24 +12250,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %65, null
-  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i11, label %66
+  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %66
 
 66:                                               ; preds = %57
   %67 = load ptr, ptr %65, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %58, %69
-  br i1 %70, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7
+  br i1 %70, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7
 
 71:                                               ; preds = %74
   %72 = icmp eq ptr %58, %76
-  br i1 %72, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
+  br i1 %72, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i7:                                ; preds = %66, %71
   %.020.i.i.i.i.i8 = phi ptr [ %73, %71 ], [ %67, %66 ]
   %73 = load ptr, ptr %.020.i.i.i.i.i8, align 8
   %.not18.i.i.i.i.i9 = icmp eq ptr %73, null
-  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i11, label %74
+  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i12, label %74
 
 74:                                               ; preds = %.lr.ph.i.i.i.i.i7
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -12254,21 +12275,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %77 = ptrtoint ptr %76 to i64
   %78 = urem i64 %77, %61
   %.not19.i.i.i.i.i10 = icmp eq i64 %78, %62
-  br i1 %.not19.i.i.i.i.i10, label %71, label %.loopexit.i.i11, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i10, label %71, label %..loopexit_crit_edge21.i.i.i.i.i11, !llvm.loop !7
 
-.loopexit.i.i11:                                  ; preds = %74, %.lr.ph.i.i.i.i.i7, %52, %57
+..loopexit_crit_edge21.i.i.i.i.i11:               ; preds = %74
+  br label %.loopexit.i.i12, !llvm.loop !7
+
+.loopexit.i.i12:                                  ; preds = %.lr.ph.i.i.i.i.i7, %52, %..loopexit_crit_edge21.i.i.i.i.i11, %57
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16: ; preds = %71, %53, %66
-  %.sroa.06.1.i.i.i12 = phi ptr [ %67, %66 ], [ %.sroa.06.0.i.i.i14, %53 ], [ %73, %71 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i12, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %71, %53, %66
+  %.sroa.06.1.i.i.i13 = phi ptr [ %67, %66 ], [ %.sroa.06.0.i.i.i15, %53 ], [ %73, %71 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %45, %80
   br label %82
 
-82:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, %4
-  %83 = phi i1 [ false, %4 ], [ %81, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16 ]
+82:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %4
+  %83 = phi i1 [ false, %4 ], [ %81, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ]
   ret i1 %83
 }
 
@@ -12332,9 +12356,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue221RoseInstrCheckOnlyEod8e
   %36 = ptrtoint ptr %35 to i64
   %37 = urem i64 %36, %20
   %.not19.i.i.i.i.i = icmp eq i64 %37, %21
-  br i1 %.not19.i.i.i.i.i, label %30, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %30, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %33, %.lr.ph.i.i.i.i.i, %11, %16
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %33
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %11, %..loopexit_crit_edge21.i.i.i.i.i, %16
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -12354,16 +12381,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %46
 
 46:                                               ; preds = %47, %43
-  %.sroa.06.0.in.i.i.i12 = phi ptr [ %44, %43 ], [ %.sroa.06.0.i.i.i13, %47 ]
-  %.sroa.06.0.i.i.i13 = load ptr, ptr %.sroa.06.0.in.i.i.i12, align 8
-  %.not.i.i.i14 = icmp eq ptr %.sroa.06.0.i.i.i13, null
-  br i1 %.not.i.i.i14, label %.loopexit.i.i10, label %47
+  %.sroa.06.0.in.i.i.i13 = phi ptr [ %44, %43 ], [ %.sroa.06.0.i.i.i14, %47 ]
+  %.sroa.06.0.i.i.i14 = load ptr, ptr %.sroa.06.0.in.i.i.i13, align 8
+  %.not.i.i.i15 = icmp eq ptr %.sroa.06.0.i.i.i14, null
+  br i1 %.not.i.i.i15, label %.loopexit.i.i11, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i13, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i14, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %45, %49
-  br i1 %50, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit15, label %46, !llvm.loop !5
+  br i1 %50, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %46, !llvm.loop !5
 
 51:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %52 = load ptr, ptr %40, align 8
@@ -12375,24 +12402,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
   %59 = load ptr, ptr %58, align 8
   %.not.i.i.i.i.i5 = icmp eq ptr %59, null
-  br i1 %.not.i.i.i.i.i5, label %.loopexit.i.i10, label %60
+  br i1 %.not.i.i.i.i.i5, label %.loopexit.i.i11, label %60
 
 60:                                               ; preds = %51
   %61 = load ptr, ptr %59, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %52, %63
-  br i1 %64, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit15, label %.lr.ph.i.i.i.i.i6
+  br i1 %64, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i6
 
 65:                                               ; preds = %68
   %66 = icmp eq ptr %52, %70
-  br i1 %66, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit15, label %.lr.ph.i.i.i.i.i6, !llvm.loop !7
+  br i1 %66, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i6, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i6:                                ; preds = %60, %65
   %.020.i.i.i.i.i7 = phi ptr [ %67, %65 ], [ %61, %60 ]
   %67 = load ptr, ptr %.020.i.i.i.i.i7, align 8
   %.not18.i.i.i.i.i8 = icmp eq ptr %67, null
-  br i1 %.not18.i.i.i.i.i8, label %.loopexit.i.i10, label %68
+  br i1 %.not18.i.i.i.i.i8, label %.loopexit.i.i11, label %68
 
 68:                                               ; preds = %.lr.ph.i.i.i.i.i6
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -12400,15 +12427,18 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %71 = ptrtoint ptr %70 to i64
   %72 = urem i64 %71, %55
   %.not19.i.i.i.i.i9 = icmp eq i64 %72, %56
-  br i1 %.not19.i.i.i.i.i9, label %65, label %.loopexit.i.i10, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i9, label %65, label %..loopexit_crit_edge21.i.i.i.i.i10, !llvm.loop !7
 
-.loopexit.i.i10:                                  ; preds = %68, %.lr.ph.i.i.i.i.i6, %46, %51
+..loopexit_crit_edge21.i.i.i.i.i10:               ; preds = %68
+  br label %.loopexit.i.i11, !llvm.loop !7
+
+.loopexit.i.i11:                                  ; preds = %.lr.ph.i.i.i.i.i6, %46, %..loopexit_crit_edge21.i.i.i.i.i10, %51
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit15: ; preds = %65, %47, %60
-  %.sroa.06.1.i.i.i11 = phi ptr [ %61, %60 ], [ %.sroa.06.0.i.i.i13, %47 ], [ %67, %65 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i11, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16: ; preds = %65, %47, %60
+  %.sroa.06.1.i.i.i12 = phi ptr [ %61, %60 ], [ %.sroa.06.0.i.i.i14, %47 ], [ %67, %65 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i12, i64 16
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %39, %74
   ret i1 %75
@@ -12490,9 +12520,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckBounds8eq
   %48 = ptrtoint ptr %47 to i64
   %49 = urem i64 %48, %32
   %.not19.i.i.i.i.i = icmp eq i64 %49, %33
-  br i1 %.not19.i.i.i.i.i, label %42, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %42, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %45, %.lr.ph.i.i.i.i.i, %23, %28
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %45
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %23, %..loopexit_crit_edge21.i.i.i.i.i, %28
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -12512,16 +12545,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %58
 
 58:                                               ; preds = %59, %55
-  %.sroa.06.0.in.i.i.i14 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i15, %59 ]
-  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
-  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
-  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %59
+  %.sroa.06.0.in.i.i.i15 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i16, %59 ]
+  %.sroa.06.0.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i15, align 8
+  %.not.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i16, null
+  br i1 %.not.i.i.i17, label %.loopexit.i.i13, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %57, %61
-  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %58, !llvm.loop !5
+  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %58, !llvm.loop !5
 
 63:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %64 = load ptr, ptr %52, align 8
@@ -12533,24 +12566,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i12, label %72
+  br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i13, label %72
 
 72:                                               ; preds = %63
   %73 = load ptr, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %64, %75
-  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i8
+  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i8
 
 77:                                               ; preds = %80
   %78 = icmp eq ptr %64, %82
-  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i8, !llvm.loop !7
+  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i8, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i8:                                ; preds = %72, %77
   %.020.i.i.i.i.i9 = phi ptr [ %79, %77 ], [ %73, %72 ]
   %79 = load ptr, ptr %.020.i.i.i.i.i9, align 8
   %.not18.i.i.i.i.i10 = icmp eq ptr %79, null
-  br i1 %.not18.i.i.i.i.i10, label %.loopexit.i.i12, label %80
+  br i1 %.not18.i.i.i.i.i10, label %.loopexit.i.i13, label %80
 
 80:                                               ; preds = %.lr.ph.i.i.i.i.i8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -12558,21 +12591,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %83 = ptrtoint ptr %82 to i64
   %84 = urem i64 %83, %67
   %.not19.i.i.i.i.i11 = icmp eq i64 %84, %68
-  br i1 %.not19.i.i.i.i.i11, label %77, label %.loopexit.i.i12, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i11, label %77, label %..loopexit_crit_edge21.i.i.i.i.i12, !llvm.loop !7
 
-.loopexit.i.i12:                                  ; preds = %80, %.lr.ph.i.i.i.i.i8, %58, %63
+..loopexit_crit_edge21.i.i.i.i.i12:               ; preds = %80
+  br label %.loopexit.i.i13, !llvm.loop !7
+
+.loopexit.i.i13:                                  ; preds = %.lr.ph.i.i.i.i.i8, %58, %..loopexit_crit_edge21.i.i.i.i.i12, %63
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %77, %59, %72
-  %.sroa.06.1.i.i.i13 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i15, %59 ], [ %79, %77 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18: ; preds = %77, %59, %72
+  %.sroa.06.1.i.i.i14 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i16, %59 ], [ %79, %77 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i14, i64 16
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %51, %86
   br label %88
 
-88:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %10, %4
-  %89 = phi i1 [ false, %10 ], [ false, %4 ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ]
+88:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, %10, %4
+  %89 = phi i1 [ false, %10 ], [ false, %4 ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18 ]
   ret i1 %89
 }
 
@@ -12644,9 +12680,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckNotHandle
   %42 = ptrtoint ptr %41 to i64
   %43 = urem i64 %42, %26
   %.not19.i.i.i.i.i = icmp eq i64 %43, %27
-  br i1 %.not19.i.i.i.i.i, label %36, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %36, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %39, %.lr.ph.i.i.i.i.i, %17, %22
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %39
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %17, %..loopexit_crit_edge21.i.i.i.i.i, %22
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -12666,16 +12705,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %52
 
 52:                                               ; preds = %53, %49
-  %.sroa.06.0.in.i.i.i13 = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i14, %53 ]
-  %.sroa.06.0.i.i.i14 = load ptr, ptr %.sroa.06.0.in.i.i.i13, align 8
-  %.not.i.i.i15 = icmp eq ptr %.sroa.06.0.i.i.i14, null
-  br i1 %.not.i.i.i15, label %.loopexit.i.i11, label %53
+  %.sroa.06.0.in.i.i.i14 = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i15, %53 ]
+  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
+  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
+  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i14, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %51, %55
-  br i1 %56, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %52, !llvm.loop !5
+  br i1 %56, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %52, !llvm.loop !5
 
 57:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %58 = load ptr, ptr %46, align 8
@@ -12687,24 +12726,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %65, null
-  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i11, label %66
+  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %66
 
 66:                                               ; preds = %57
   %67 = load ptr, ptr %65, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %58, %69
-  br i1 %70, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7
+  br i1 %70, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7
 
 71:                                               ; preds = %74
   %72 = icmp eq ptr %58, %76
-  br i1 %72, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
+  br i1 %72, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i7:                                ; preds = %66, %71
   %.020.i.i.i.i.i8 = phi ptr [ %73, %71 ], [ %67, %66 ]
   %73 = load ptr, ptr %.020.i.i.i.i.i8, align 8
   %.not18.i.i.i.i.i9 = icmp eq ptr %73, null
-  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i11, label %74
+  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i12, label %74
 
 74:                                               ; preds = %.lr.ph.i.i.i.i.i7
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -12712,21 +12751,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %77 = ptrtoint ptr %76 to i64
   %78 = urem i64 %77, %61
   %.not19.i.i.i.i.i10 = icmp eq i64 %78, %62
-  br i1 %.not19.i.i.i.i.i10, label %71, label %.loopexit.i.i11, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i10, label %71, label %..loopexit_crit_edge21.i.i.i.i.i11, !llvm.loop !7
 
-.loopexit.i.i11:                                  ; preds = %74, %.lr.ph.i.i.i.i.i7, %52, %57
+..loopexit_crit_edge21.i.i.i.i.i11:               ; preds = %74
+  br label %.loopexit.i.i12, !llvm.loop !7
+
+.loopexit.i.i12:                                  ; preds = %.lr.ph.i.i.i.i.i7, %52, %..loopexit_crit_edge21.i.i.i.i.i11, %57
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16: ; preds = %71, %53, %66
-  %.sroa.06.1.i.i.i12 = phi ptr [ %67, %66 ], [ %.sroa.06.0.i.i.i14, %53 ], [ %73, %71 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i12, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %71, %53, %66
+  %.sroa.06.1.i.i.i13 = phi ptr [ %67, %66 ], [ %.sroa.06.0.i.i.i15, %53 ], [ %73, %71 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %45, %80
   br label %82
 
-82:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, %4
-  %83 = phi i1 [ false, %4 ], [ %81, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16 ]
+82:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %4
+  %83 = phi i1 [ false, %4 ], [ %81, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ]
   ret i1 %83
 }
 
@@ -12805,9 +12847,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue230RoseInstrCheckSingleLoo
   %45 = ptrtoint ptr %44 to i64
   %46 = urem i64 %45, %29
   %.not19.i.i.i.i.i = icmp eq i64 %46, %30
-  br i1 %.not19.i.i.i.i.i, label %39, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %39, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %42, %.lr.ph.i.i.i.i.i, %20, %25
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %42
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %20, %..loopexit_crit_edge21.i.i.i.i.i, %25
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -12827,16 +12872,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %55
 
 55:                                               ; preds = %56, %52
-  %.sroa.06.0.in.i.i.i14 = phi ptr [ %53, %52 ], [ %.sroa.06.0.i.i.i15, %56 ]
-  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
-  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
-  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %56
+  %.sroa.06.0.in.i.i.i15 = phi ptr [ %53, %52 ], [ %.sroa.06.0.i.i.i16, %56 ]
+  %.sroa.06.0.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i15, align 8
+  %.not.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i16, null
+  br i1 %.not.i.i.i17, label %.loopexit.i.i13, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %54, %58
-  br i1 %59, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %55, !llvm.loop !5
+  br i1 %59, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %55, !llvm.loop !5
 
 60:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %61 = load ptr, ptr %49, align 8
@@ -12848,24 +12893,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %65
   %68 = load ptr, ptr %67, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %68, null
-  br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i12, label %69
+  br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i13, label %69
 
 69:                                               ; preds = %60
   %70 = load ptr, ptr %68, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %61, %72
-  br i1 %73, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i8
+  br i1 %73, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i8
 
 74:                                               ; preds = %77
   %75 = icmp eq ptr %61, %79
-  br i1 %75, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i8, !llvm.loop !7
+  br i1 %75, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i8, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i8:                                ; preds = %69, %74
   %.020.i.i.i.i.i9 = phi ptr [ %76, %74 ], [ %70, %69 ]
   %76 = load ptr, ptr %.020.i.i.i.i.i9, align 8
   %.not18.i.i.i.i.i10 = icmp eq ptr %76, null
-  br i1 %.not18.i.i.i.i.i10, label %.loopexit.i.i12, label %77
+  br i1 %.not18.i.i.i.i.i10, label %.loopexit.i.i13, label %77
 
 77:                                               ; preds = %.lr.ph.i.i.i.i.i8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -12873,21 +12918,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %80 = ptrtoint ptr %79 to i64
   %81 = urem i64 %80, %64
   %.not19.i.i.i.i.i11 = icmp eq i64 %81, %65
-  br i1 %.not19.i.i.i.i.i11, label %74, label %.loopexit.i.i12, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i11, label %74, label %..loopexit_crit_edge21.i.i.i.i.i12, !llvm.loop !7
 
-.loopexit.i.i12:                                  ; preds = %77, %.lr.ph.i.i.i.i.i8, %55, %60
+..loopexit_crit_edge21.i.i.i.i.i12:               ; preds = %77
+  br label %.loopexit.i.i13, !llvm.loop !7
+
+.loopexit.i.i13:                                  ; preds = %.lr.ph.i.i.i.i.i8, %55, %..loopexit_crit_edge21.i.i.i.i.i12, %60
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %74, %56, %69
-  %.sroa.06.1.i.i.i13 = phi ptr [ %70, %69 ], [ %.sroa.06.0.i.i.i15, %56 ], [ %76, %74 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18: ; preds = %74, %56, %69
+  %.sroa.06.1.i.i.i14 = phi ptr [ %70, %69 ], [ %.sroa.06.0.i.i.i16, %56 ], [ %76, %74 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i14, i64 16
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %48, %83
   br label %85
 
-85:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %10, %4
-  %86 = phi i1 [ false, %10 ], [ false, %4 ], [ %84, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ]
+85:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, %10, %4
+  %86 = phi i1 [ false, %10 ], [ false, %4 ], [ %84, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18 ]
   ret i1 %86
 }
 
@@ -12994,9 +13042,12 @@ _ZSteqIN3ue29LookEntryESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %26, %20
   %60 = ptrtoint ptr %59 to i64
   %61 = urem i64 %60, %44
   %.not19.i.i.i.i.i = icmp eq i64 %61, %45
-  br i1 %.not19.i.i.i.i.i, label %54, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %54, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %57, %.lr.ph.i.i.i.i.i6, %35, %40
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %57
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i6, %35, %..loopexit_crit_edge21.i.i.i.i.i, %40
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -13016,16 +13067,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %70
 
 70:                                               ; preds = %71, %67
-  %.sroa.06.0.in.i.i.i15 = phi ptr [ %68, %67 ], [ %.sroa.06.0.i.i.i16, %71 ]
-  %.sroa.06.0.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i15, align 8
-  %.not.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i16, null
-  br i1 %.not.i.i.i17, label %.loopexit.i.i13, label %71
+  %.sroa.06.0.in.i.i.i16 = phi ptr [ %68, %67 ], [ %.sroa.06.0.i.i.i17, %71 ]
+  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8
+  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
+  br i1 %.not.i.i.i18, label %.loopexit.i.i14, label %71
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %69, %73
-  br i1 %74, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %70, !llvm.loop !5
+  br i1 %74, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %70, !llvm.loop !5
 
 75:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %76 = load ptr, ptr %64, align 8
@@ -13037,24 +13088,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i13, label %84
+  br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i14, label %84
 
 84:                                               ; preds = %75
   %85 = load ptr, ptr %83, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %76, %87
-  br i1 %88, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i9
+  br i1 %88, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i9
 
 89:                                               ; preds = %92
   %90 = icmp eq ptr %76, %94
-  br i1 %90, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i9, !llvm.loop !7
+  br i1 %90, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i9, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i9:                                ; preds = %84, %89
   %.020.i.i.i.i.i10 = phi ptr [ %91, %89 ], [ %85, %84 ]
   %91 = load ptr, ptr %.020.i.i.i.i.i10, align 8
   %.not18.i.i.i.i.i11 = icmp eq ptr %91, null
-  br i1 %.not18.i.i.i.i.i11, label %.loopexit.i.i13, label %92
+  br i1 %.not18.i.i.i.i.i11, label %.loopexit.i.i14, label %92
 
 92:                                               ; preds = %.lr.ph.i.i.i.i.i9
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -13062,21 +13113,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %95 = ptrtoint ptr %94 to i64
   %96 = urem i64 %95, %79
   %.not19.i.i.i.i.i12 = icmp eq i64 %96, %80
-  br i1 %.not19.i.i.i.i.i12, label %89, label %.loopexit.i.i13, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i12, label %89, label %..loopexit_crit_edge21.i.i.i.i.i13, !llvm.loop !7
 
-.loopexit.i.i13:                                  ; preds = %92, %.lr.ph.i.i.i.i.i9, %70, %75
+..loopexit_crit_edge21.i.i.i.i.i13:               ; preds = %92
+  br label %.loopexit.i.i14, !llvm.loop !7
+
+.loopexit.i.i14:                                  ; preds = %.lr.ph.i.i.i.i.i9, %70, %..loopexit_crit_edge21.i.i.i.i.i13, %75
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18: ; preds = %89, %71, %84
-  %.sroa.06.1.i.i.i14 = phi ptr [ %85, %84 ], [ %.sroa.06.0.i.i.i16, %71 ], [ %91, %89 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i14, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19: ; preds = %89, %71, %84
+  %.sroa.06.1.i.i.i15 = phi ptr [ %85, %84 ], [ %.sroa.06.0.i.i.i17, %71 ], [ %91, %89 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %63, %98
   br label %_ZSteqIN3ue29LookEntryESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread
 
-_ZSteqIN3ue29LookEntryESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread: ; preds = %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18
-  %100 = phi i1 [ %99, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18 ], [ false, %4 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i ]
+_ZSteqIN3ue29LookEntryESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread: ; preds = %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19
+  %100 = phi i1 [ %99, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19 ], [ false, %4 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i ]
   ret i1 %100
 }
 
@@ -13172,9 +13226,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue218RoseInstrCheckMask8equi
   %60 = ptrtoint ptr %59 to i64
   %61 = urem i64 %60, %44
   %.not19.i.i.i.i.i = icmp eq i64 %61, %45
-  br i1 %.not19.i.i.i.i.i, label %54, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %54, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %57, %.lr.ph.i.i.i.i.i, %35, %40
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %57
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %35, %..loopexit_crit_edge21.i.i.i.i.i, %40
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -13194,16 +13251,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %70
 
 70:                                               ; preds = %71, %67
-  %.sroa.06.0.in.i.i.i16 = phi ptr [ %68, %67 ], [ %.sroa.06.0.i.i.i17, %71 ]
-  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8
-  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
-  br i1 %.not.i.i.i18, label %.loopexit.i.i14, label %71
+  %.sroa.06.0.in.i.i.i17 = phi ptr [ %68, %67 ], [ %.sroa.06.0.i.i.i18, %71 ]
+  %.sroa.06.0.i.i.i18 = load ptr, ptr %.sroa.06.0.in.i.i.i17, align 8
+  %.not.i.i.i19 = icmp eq ptr %.sroa.06.0.i.i.i18, null
+  br i1 %.not.i.i.i19, label %.loopexit.i.i15, label %71
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i18, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %69, %73
-  br i1 %74, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %70, !llvm.loop !5
+  br i1 %74, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %70, !llvm.loop !5
 
 75:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %76 = load ptr, ptr %64, align 8
@@ -13215,24 +13272,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i.i.i9 = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i14, label %84
+  br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i15, label %84
 
 84:                                               ; preds = %75
   %85 = load ptr, ptr %83, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %76, %87
-  br i1 %88, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i10
+  br i1 %88, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %.lr.ph.i.i.i.i.i10
 
 89:                                               ; preds = %92
   %90 = icmp eq ptr %76, %94
-  br i1 %90, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i10, !llvm.loop !7
+  br i1 %90, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %.lr.ph.i.i.i.i.i10, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i10:                               ; preds = %84, %89
   %.020.i.i.i.i.i11 = phi ptr [ %91, %89 ], [ %85, %84 ]
   %91 = load ptr, ptr %.020.i.i.i.i.i11, align 8
   %.not18.i.i.i.i.i12 = icmp eq ptr %91, null
-  br i1 %.not18.i.i.i.i.i12, label %.loopexit.i.i14, label %92
+  br i1 %.not18.i.i.i.i.i12, label %.loopexit.i.i15, label %92
 
 92:                                               ; preds = %.lr.ph.i.i.i.i.i10
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -13240,21 +13297,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %95 = ptrtoint ptr %94 to i64
   %96 = urem i64 %95, %79
   %.not19.i.i.i.i.i13 = icmp eq i64 %96, %80
-  br i1 %.not19.i.i.i.i.i13, label %89, label %.loopexit.i.i14, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i13, label %89, label %..loopexit_crit_edge21.i.i.i.i.i14, !llvm.loop !7
 
-.loopexit.i.i14:                                  ; preds = %92, %.lr.ph.i.i.i.i.i10, %70, %75
+..loopexit_crit_edge21.i.i.i.i.i14:               ; preds = %92
+  br label %.loopexit.i.i15, !llvm.loop !7
+
+.loopexit.i.i15:                                  ; preds = %.lr.ph.i.i.i.i.i10, %70, %..loopexit_crit_edge21.i.i.i.i.i14, %75
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19: ; preds = %89, %71, %84
-  %.sroa.06.1.i.i.i15 = phi ptr [ %85, %84 ], [ %.sroa.06.0.i.i.i17, %71 ], [ %91, %89 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20: ; preds = %89, %71, %84
+  %.sroa.06.1.i.i.i16 = phi ptr [ %85, %84 ], [ %.sroa.06.0.i.i.i18, %71 ], [ %91, %89 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i16, i64 16
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %63, %98
   br label %100
 
-100:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, %22, %16, %10, %4
-  %101 = phi i1 [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %99, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19 ]
+100:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, %22, %16, %10, %4
+  %101 = phi i1 [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %99, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20 ]
   ret i1 %101
 }
 
@@ -13348,9 +13408,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMask328eq
   %54 = ptrtoint ptr %53 to i64
   %55 = urem i64 %54, %38
   %.not19.i.i.i.i.i = icmp eq i64 %55, %39
-  br i1 %.not19.i.i.i.i.i, label %48, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %48, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %51, %.lr.ph.i.i.i.i.i, %29, %34
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %51
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %29, %..loopexit_crit_edge21.i.i.i.i.i, %34
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -13370,16 +13433,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %64
 
 64:                                               ; preds = %65, %61
-  %.sroa.06.0.in.i.i.i18 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i19, %65 ]
-  %.sroa.06.0.i.i.i19 = load ptr, ptr %.sroa.06.0.in.i.i.i18, align 8
-  %.not.i.i.i20 = icmp eq ptr %.sroa.06.0.i.i.i19, null
-  br i1 %.not.i.i.i20, label %.loopexit.i.i16, label %65
+  %.sroa.06.0.in.i.i.i19 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i20, %65 ]
+  %.sroa.06.0.i.i.i20 = load ptr, ptr %.sroa.06.0.in.i.i.i19, align 8
+  %.not.i.i.i21 = icmp eq ptr %.sroa.06.0.i.i.i20, null
+  br i1 %.not.i.i.i21, label %.loopexit.i.i17, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i19, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i20, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %63, %67
-  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %64, !llvm.loop !5
+  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, label %64, !llvm.loop !5
 
 69:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %70 = load ptr, ptr %58, align 8
@@ -13391,24 +13454,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i11 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i.i11, label %.loopexit.i.i16, label %78
+  br i1 %.not.i.i.i.i.i11, label %.loopexit.i.i17, label %78
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %70, %81
-  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %.lr.ph.i.i.i.i.i12
+  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, label %.lr.ph.i.i.i.i.i12
 
 83:                                               ; preds = %86
   %84 = icmp eq ptr %70, %88
-  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %.lr.ph.i.i.i.i.i12, !llvm.loop !7
+  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, label %.lr.ph.i.i.i.i.i12, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i12:                               ; preds = %78, %83
   %.020.i.i.i.i.i13 = phi ptr [ %85, %83 ], [ %79, %78 ]
   %85 = load ptr, ptr %.020.i.i.i.i.i13, align 8
   %.not18.i.i.i.i.i14 = icmp eq ptr %85, null
-  br i1 %.not18.i.i.i.i.i14, label %.loopexit.i.i16, label %86
+  br i1 %.not18.i.i.i.i.i14, label %.loopexit.i.i17, label %86
 
 86:                                               ; preds = %.lr.ph.i.i.i.i.i12
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -13416,21 +13479,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %89 = ptrtoint ptr %88 to i64
   %90 = urem i64 %89, %73
   %.not19.i.i.i.i.i15 = icmp eq i64 %90, %74
-  br i1 %.not19.i.i.i.i.i15, label %83, label %.loopexit.i.i16, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i15, label %83, label %..loopexit_crit_edge21.i.i.i.i.i16, !llvm.loop !7
 
-.loopexit.i.i16:                                  ; preds = %86, %.lr.ph.i.i.i.i.i12, %64, %69
+..loopexit_crit_edge21.i.i.i.i.i16:               ; preds = %86
+  br label %.loopexit.i.i17, !llvm.loop !7
+
+.loopexit.i.i17:                                  ; preds = %.lr.ph.i.i.i.i.i12, %64, %..loopexit_crit_edge21.i.i.i.i.i16, %69
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21: ; preds = %83, %65, %78
-  %.sroa.06.1.i.i.i17 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i19, %65 ], [ %85, %83 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i17, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22: ; preds = %83, %65, %78
+  %.sroa.06.1.i.i.i18 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i20, %65 ], [ %85, %83 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i18, i64 16
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %57, %92
   br label %94
 
-94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, %16, %10, %7, %4
-  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21 ]
+94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, %16, %10, %7, %4
+  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22 ]
   ret i1 %95
 }
 
@@ -13524,9 +13590,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMask648eq
   %54 = ptrtoint ptr %53 to i64
   %55 = urem i64 %54, %38
   %.not19.i.i.i.i.i = icmp eq i64 %55, %39
-  br i1 %.not19.i.i.i.i.i, label %48, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %48, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %51, %.lr.ph.i.i.i.i.i, %29, %34
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %51
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %29, %..loopexit_crit_edge21.i.i.i.i.i, %34
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -13546,16 +13615,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %64
 
 64:                                               ; preds = %65, %61
-  %.sroa.06.0.in.i.i.i18 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i19, %65 ]
-  %.sroa.06.0.i.i.i19 = load ptr, ptr %.sroa.06.0.in.i.i.i18, align 8
-  %.not.i.i.i20 = icmp eq ptr %.sroa.06.0.i.i.i19, null
-  br i1 %.not.i.i.i20, label %.loopexit.i.i16, label %65
+  %.sroa.06.0.in.i.i.i19 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i20, %65 ]
+  %.sroa.06.0.i.i.i20 = load ptr, ptr %.sroa.06.0.in.i.i.i19, align 8
+  %.not.i.i.i21 = icmp eq ptr %.sroa.06.0.i.i.i20, null
+  br i1 %.not.i.i.i21, label %.loopexit.i.i17, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i19, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i20, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %63, %67
-  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %64, !llvm.loop !5
+  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, label %64, !llvm.loop !5
 
 69:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %70 = load ptr, ptr %58, align 8
@@ -13567,24 +13636,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i11 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i.i11, label %.loopexit.i.i16, label %78
+  br i1 %.not.i.i.i.i.i11, label %.loopexit.i.i17, label %78
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %70, %81
-  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %.lr.ph.i.i.i.i.i12
+  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, label %.lr.ph.i.i.i.i.i12
 
 83:                                               ; preds = %86
   %84 = icmp eq ptr %70, %88
-  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %.lr.ph.i.i.i.i.i12, !llvm.loop !7
+  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, label %.lr.ph.i.i.i.i.i12, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i12:                               ; preds = %78, %83
   %.020.i.i.i.i.i13 = phi ptr [ %85, %83 ], [ %79, %78 ]
   %85 = load ptr, ptr %.020.i.i.i.i.i13, align 8
   %.not18.i.i.i.i.i14 = icmp eq ptr %85, null
-  br i1 %.not18.i.i.i.i.i14, label %.loopexit.i.i16, label %86
+  br i1 %.not18.i.i.i.i.i14, label %.loopexit.i.i17, label %86
 
 86:                                               ; preds = %.lr.ph.i.i.i.i.i12
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -13592,21 +13661,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %89 = ptrtoint ptr %88 to i64
   %90 = urem i64 %89, %73
   %.not19.i.i.i.i.i15 = icmp eq i64 %90, %74
-  br i1 %.not19.i.i.i.i.i15, label %83, label %.loopexit.i.i16, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i15, label %83, label %..loopexit_crit_edge21.i.i.i.i.i16, !llvm.loop !7
 
-.loopexit.i.i16:                                  ; preds = %86, %.lr.ph.i.i.i.i.i12, %64, %69
+..loopexit_crit_edge21.i.i.i.i.i16:               ; preds = %86
+  br label %.loopexit.i.i17, !llvm.loop !7
+
+.loopexit.i.i17:                                  ; preds = %.lr.ph.i.i.i.i.i12, %64, %..loopexit_crit_edge21.i.i.i.i.i16, %69
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21: ; preds = %83, %65, %78
-  %.sroa.06.1.i.i.i17 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i19, %65 ], [ %85, %83 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i17, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22: ; preds = %83, %65, %78
+  %.sroa.06.1.i.i.i18 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i20, %65 ], [ %85, %83 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i18, i64 16
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %57, %92
   br label %94
 
-94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, %16, %10, %7, %4
-  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21 ]
+94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, %16, %10, %7, %4
+  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22 ]
   ret i1 %95
 }
 
@@ -13702,9 +13774,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue218RoseInstrCheckByte8equi
   %60 = ptrtoint ptr %59 to i64
   %61 = urem i64 %60, %44
   %.not19.i.i.i.i.i = icmp eq i64 %61, %45
-  br i1 %.not19.i.i.i.i.i, label %54, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %54, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %57, %.lr.ph.i.i.i.i.i, %35, %40
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %57
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %35, %..loopexit_crit_edge21.i.i.i.i.i, %40
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -13724,16 +13799,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %70
 
 70:                                               ; preds = %71, %67
-  %.sroa.06.0.in.i.i.i16 = phi ptr [ %68, %67 ], [ %.sroa.06.0.i.i.i17, %71 ]
-  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8
-  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
-  br i1 %.not.i.i.i18, label %.loopexit.i.i14, label %71
+  %.sroa.06.0.in.i.i.i17 = phi ptr [ %68, %67 ], [ %.sroa.06.0.i.i.i18, %71 ]
+  %.sroa.06.0.i.i.i18 = load ptr, ptr %.sroa.06.0.in.i.i.i17, align 8
+  %.not.i.i.i19 = icmp eq ptr %.sroa.06.0.i.i.i18, null
+  br i1 %.not.i.i.i19, label %.loopexit.i.i15, label %71
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i18, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %69, %73
-  br i1 %74, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %70, !llvm.loop !5
+  br i1 %74, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %70, !llvm.loop !5
 
 75:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %76 = load ptr, ptr %64, align 8
@@ -13745,24 +13820,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i.i.i9 = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i14, label %84
+  br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i15, label %84
 
 84:                                               ; preds = %75
   %85 = load ptr, ptr %83, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %76, %87
-  br i1 %88, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i10
+  br i1 %88, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %.lr.ph.i.i.i.i.i10
 
 89:                                               ; preds = %92
   %90 = icmp eq ptr %76, %94
-  br i1 %90, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i10, !llvm.loop !7
+  br i1 %90, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %.lr.ph.i.i.i.i.i10, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i10:                               ; preds = %84, %89
   %.020.i.i.i.i.i11 = phi ptr [ %91, %89 ], [ %85, %84 ]
   %91 = load ptr, ptr %.020.i.i.i.i.i11, align 8
   %.not18.i.i.i.i.i12 = icmp eq ptr %91, null
-  br i1 %.not18.i.i.i.i.i12, label %.loopexit.i.i14, label %92
+  br i1 %.not18.i.i.i.i.i12, label %.loopexit.i.i15, label %92
 
 92:                                               ; preds = %.lr.ph.i.i.i.i.i10
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -13770,21 +13845,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %95 = ptrtoint ptr %94 to i64
   %96 = urem i64 %95, %79
   %.not19.i.i.i.i.i13 = icmp eq i64 %96, %80
-  br i1 %.not19.i.i.i.i.i13, label %89, label %.loopexit.i.i14, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i13, label %89, label %..loopexit_crit_edge21.i.i.i.i.i14, !llvm.loop !7
 
-.loopexit.i.i14:                                  ; preds = %92, %.lr.ph.i.i.i.i.i10, %70, %75
+..loopexit_crit_edge21.i.i.i.i.i14:               ; preds = %92
+  br label %.loopexit.i.i15, !llvm.loop !7
+
+.loopexit.i.i15:                                  ; preds = %.lr.ph.i.i.i.i.i10, %70, %..loopexit_crit_edge21.i.i.i.i.i14, %75
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19: ; preds = %89, %71, %84
-  %.sroa.06.1.i.i.i15 = phi ptr [ %85, %84 ], [ %.sroa.06.0.i.i.i17, %71 ], [ %91, %89 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20: ; preds = %89, %71, %84
+  %.sroa.06.1.i.i.i16 = phi ptr [ %85, %84 ], [ %.sroa.06.0.i.i.i18, %71 ], [ %91, %89 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i16, i64 16
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %63, %98
   br label %100
 
-100:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, %22, %16, %10, %4
-  %101 = phi i1 [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %99, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19 ]
+100:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, %22, %16, %10, %4
+  %101 = phi i1 [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %99, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20 ]
   ret i1 %101
 }
 
@@ -13878,9 +13956,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti16x
   %54 = ptrtoint ptr %53 to i64
   %55 = urem i64 %54, %38
   %.not19.i.i.i.i.i = icmp eq i64 %55, %39
-  br i1 %.not19.i.i.i.i.i, label %48, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %48, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %51, %.lr.ph.i.i.i.i.i, %29, %34
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %51
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %29, %..loopexit_crit_edge21.i.i.i.i.i, %34
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -13900,16 +13981,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %64
 
 64:                                               ; preds = %65, %61
-  %.sroa.06.0.in.i.i.i18 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i19, %65 ]
-  %.sroa.06.0.i.i.i19 = load ptr, ptr %.sroa.06.0.in.i.i.i18, align 8
-  %.not.i.i.i20 = icmp eq ptr %.sroa.06.0.i.i.i19, null
-  br i1 %.not.i.i.i20, label %.loopexit.i.i16, label %65
+  %.sroa.06.0.in.i.i.i19 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i20, %65 ]
+  %.sroa.06.0.i.i.i20 = load ptr, ptr %.sroa.06.0.in.i.i.i19, align 8
+  %.not.i.i.i21 = icmp eq ptr %.sroa.06.0.i.i.i20, null
+  br i1 %.not.i.i.i21, label %.loopexit.i.i17, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i19, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i20, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %63, %67
-  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %64, !llvm.loop !5
+  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, label %64, !llvm.loop !5
 
 69:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %70 = load ptr, ptr %58, align 8
@@ -13921,24 +14002,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i11 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i.i11, label %.loopexit.i.i16, label %78
+  br i1 %.not.i.i.i.i.i11, label %.loopexit.i.i17, label %78
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %70, %81
-  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %.lr.ph.i.i.i.i.i12
+  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, label %.lr.ph.i.i.i.i.i12
 
 83:                                               ; preds = %86
   %84 = icmp eq ptr %70, %88
-  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %.lr.ph.i.i.i.i.i12, !llvm.loop !7
+  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, label %.lr.ph.i.i.i.i.i12, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i12:                               ; preds = %78, %83
   %.020.i.i.i.i.i13 = phi ptr [ %85, %83 ], [ %79, %78 ]
   %85 = load ptr, ptr %.020.i.i.i.i.i13, align 8
   %.not18.i.i.i.i.i14 = icmp eq ptr %85, null
-  br i1 %.not18.i.i.i.i.i14, label %.loopexit.i.i16, label %86
+  br i1 %.not18.i.i.i.i.i14, label %.loopexit.i.i17, label %86
 
 86:                                               ; preds = %.lr.ph.i.i.i.i.i12
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -13946,21 +14027,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %89 = ptrtoint ptr %88 to i64
   %90 = urem i64 %89, %73
   %.not19.i.i.i.i.i15 = icmp eq i64 %90, %74
-  br i1 %.not19.i.i.i.i.i15, label %83, label %.loopexit.i.i16, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i15, label %83, label %..loopexit_crit_edge21.i.i.i.i.i16, !llvm.loop !7
 
-.loopexit.i.i16:                                  ; preds = %86, %.lr.ph.i.i.i.i.i12, %64, %69
+..loopexit_crit_edge21.i.i.i.i.i16:               ; preds = %86
+  br label %.loopexit.i.i17, !llvm.loop !7
+
+.loopexit.i.i17:                                  ; preds = %.lr.ph.i.i.i.i.i12, %64, %..loopexit_crit_edge21.i.i.i.i.i16, %69
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21: ; preds = %83, %65, %78
-  %.sroa.06.1.i.i.i17 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i19, %65 ], [ %85, %83 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i17, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22: ; preds = %83, %65, %78
+  %.sroa.06.1.i.i.i18 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i20, %65 ], [ %85, %83 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i18, i64 16
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %57, %92
   br label %94
 
-94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, %16, %10, %7, %4
-  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21 ]
+94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22, %16, %10, %7, %4
+  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit22 ]
   ret i1 %95
 }
 
@@ -14061,9 +14145,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti32x
   %57 = ptrtoint ptr %56 to i64
   %58 = urem i64 %57, %41
   %.not19.i.i.i.i.i = icmp eq i64 %58, %42
-  br i1 %.not19.i.i.i.i.i, label %51, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %51, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %54, %.lr.ph.i.i.i.i.i, %32, %37
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %54
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %32, %..loopexit_crit_edge21.i.i.i.i.i, %37
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -14083,16 +14170,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %67
 
 67:                                               ; preds = %68, %64
-  %.sroa.06.0.in.i.i.i21 = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i22, %68 ]
-  %.sroa.06.0.i.i.i22 = load ptr, ptr %.sroa.06.0.in.i.i.i21, align 8
-  %.not.i.i.i23 = icmp eq ptr %.sroa.06.0.i.i.i22, null
-  br i1 %.not.i.i.i23, label %.loopexit.i.i19, label %68
+  %.sroa.06.0.in.i.i.i22 = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i23, %68 ]
+  %.sroa.06.0.i.i.i23 = load ptr, ptr %.sroa.06.0.in.i.i.i22, align 8
+  %.not.i.i.i24 = icmp eq ptr %.sroa.06.0.i.i.i23, null
+  br i1 %.not.i.i.i24, label %.loopexit.i.i20, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i22, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i23, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %66, %70
-  br i1 %71, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, label %67, !llvm.loop !5
+  br i1 %71, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %67, !llvm.loop !5
 
 72:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %73 = load ptr, ptr %61, align 8
@@ -14104,24 +14191,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8
   %.not.i.i.i.i.i14 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i.i.i14, label %.loopexit.i.i19, label %81
+  br i1 %.not.i.i.i.i.i14, label %.loopexit.i.i20, label %81
 
 81:                                               ; preds = %72
   %82 = load ptr, ptr %80, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %73, %84
-  br i1 %85, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, label %.lr.ph.i.i.i.i.i15
+  br i1 %85, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %.lr.ph.i.i.i.i.i15
 
 86:                                               ; preds = %89
   %87 = icmp eq ptr %73, %91
-  br i1 %87, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, label %.lr.ph.i.i.i.i.i15, !llvm.loop !7
+  br i1 %87, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %.lr.ph.i.i.i.i.i15, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i15:                               ; preds = %81, %86
   %.020.i.i.i.i.i16 = phi ptr [ %88, %86 ], [ %82, %81 ]
   %88 = load ptr, ptr %.020.i.i.i.i.i16, align 8
   %.not18.i.i.i.i.i17 = icmp eq ptr %88, null
-  br i1 %.not18.i.i.i.i.i17, label %.loopexit.i.i19, label %89
+  br i1 %.not18.i.i.i.i.i17, label %.loopexit.i.i20, label %89
 
 89:                                               ; preds = %.lr.ph.i.i.i.i.i15
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -14129,21 +14216,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %92 = ptrtoint ptr %91 to i64
   %93 = urem i64 %92, %76
   %.not19.i.i.i.i.i18 = icmp eq i64 %93, %77
-  br i1 %.not19.i.i.i.i.i18, label %86, label %.loopexit.i.i19, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i18, label %86, label %..loopexit_crit_edge21.i.i.i.i.i19, !llvm.loop !7
 
-.loopexit.i.i19:                                  ; preds = %89, %.lr.ph.i.i.i.i.i15, %67, %72
+..loopexit_crit_edge21.i.i.i.i.i19:               ; preds = %89
+  br label %.loopexit.i.i20, !llvm.loop !7
+
+.loopexit.i.i20:                                  ; preds = %.lr.ph.i.i.i.i.i15, %67, %..loopexit_crit_edge21.i.i.i.i.i19, %72
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24: ; preds = %86, %68, %81
-  %.sroa.06.1.i.i.i20 = phi ptr [ %82, %81 ], [ %.sroa.06.0.i.i.i22, %68 ], [ %88, %86 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i20, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25: ; preds = %86, %68, %81
+  %.sroa.06.1.i.i.i21 = phi ptr [ %82, %81 ], [ %.sroa.06.0.i.i.i23, %68 ], [ %88, %86 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i21, i64 16
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %60, %95
   br label %97
 
-97:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, %19, %13, %10, %7, %4
-  %98 = phi i1 [ false, %19 ], [ false, %13 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %96, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24 ]
+97:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, %19, %13, %10, %7, %4
+  %98 = phi i1 [ false, %19 ], [ false, %13 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %96, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25 ]
   ret i1 %98
 }
 
@@ -14244,9 +14334,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti16x
   %57 = ptrtoint ptr %56 to i64
   %58 = urem i64 %57, %41
   %.not19.i.i.i.i.i = icmp eq i64 %58, %42
-  br i1 %.not19.i.i.i.i.i, label %51, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %51, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %54, %.lr.ph.i.i.i.i.i, %32, %37
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %54
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %32, %..loopexit_crit_edge21.i.i.i.i.i, %37
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -14266,16 +14359,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %67
 
 67:                                               ; preds = %68, %64
-  %.sroa.06.0.in.i.i.i21 = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i22, %68 ]
-  %.sroa.06.0.i.i.i22 = load ptr, ptr %.sroa.06.0.in.i.i.i21, align 8
-  %.not.i.i.i23 = icmp eq ptr %.sroa.06.0.i.i.i22, null
-  br i1 %.not.i.i.i23, label %.loopexit.i.i19, label %68
+  %.sroa.06.0.in.i.i.i22 = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i23, %68 ]
+  %.sroa.06.0.i.i.i23 = load ptr, ptr %.sroa.06.0.in.i.i.i22, align 8
+  %.not.i.i.i24 = icmp eq ptr %.sroa.06.0.i.i.i23, null
+  br i1 %.not.i.i.i24, label %.loopexit.i.i20, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i22, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i23, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %66, %70
-  br i1 %71, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, label %67, !llvm.loop !5
+  br i1 %71, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %67, !llvm.loop !5
 
 72:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %73 = load ptr, ptr %61, align 8
@@ -14287,24 +14380,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8
   %.not.i.i.i.i.i14 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i.i.i14, label %.loopexit.i.i19, label %81
+  br i1 %.not.i.i.i.i.i14, label %.loopexit.i.i20, label %81
 
 81:                                               ; preds = %72
   %82 = load ptr, ptr %80, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %73, %84
-  br i1 %85, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, label %.lr.ph.i.i.i.i.i15
+  br i1 %85, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %.lr.ph.i.i.i.i.i15
 
 86:                                               ; preds = %89
   %87 = icmp eq ptr %73, %91
-  br i1 %87, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, label %.lr.ph.i.i.i.i.i15, !llvm.loop !7
+  br i1 %87, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %.lr.ph.i.i.i.i.i15, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i15:                               ; preds = %81, %86
   %.020.i.i.i.i.i16 = phi ptr [ %88, %86 ], [ %82, %81 ]
   %88 = load ptr, ptr %.020.i.i.i.i.i16, align 8
   %.not18.i.i.i.i.i17 = icmp eq ptr %88, null
-  br i1 %.not18.i.i.i.i.i17, label %.loopexit.i.i19, label %89
+  br i1 %.not18.i.i.i.i.i17, label %.loopexit.i.i20, label %89
 
 89:                                               ; preds = %.lr.ph.i.i.i.i.i15
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -14312,21 +14405,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %92 = ptrtoint ptr %91 to i64
   %93 = urem i64 %92, %76
   %.not19.i.i.i.i.i18 = icmp eq i64 %93, %77
-  br i1 %.not19.i.i.i.i.i18, label %86, label %.loopexit.i.i19, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i18, label %86, label %..loopexit_crit_edge21.i.i.i.i.i19, !llvm.loop !7
 
-.loopexit.i.i19:                                  ; preds = %89, %.lr.ph.i.i.i.i.i15, %67, %72
+..loopexit_crit_edge21.i.i.i.i.i19:               ; preds = %89
+  br label %.loopexit.i.i20, !llvm.loop !7
+
+.loopexit.i.i20:                                  ; preds = %.lr.ph.i.i.i.i.i15, %67, %..loopexit_crit_edge21.i.i.i.i.i19, %72
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24: ; preds = %86, %68, %81
-  %.sroa.06.1.i.i.i20 = phi ptr [ %82, %81 ], [ %.sroa.06.0.i.i.i22, %68 ], [ %88, %86 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i20, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25: ; preds = %86, %68, %81
+  %.sroa.06.1.i.i.i21 = phi ptr [ %82, %81 ], [ %.sroa.06.0.i.i.i23, %68 ], [ %88, %86 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i21, i64 16
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %60, %95
   br label %97
 
-97:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, %19, %13, %10, %7, %4
-  %98 = phi i1 [ false, %19 ], [ false, %13 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %96, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24 ]
+97:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, %19, %13, %10, %7, %4
+  %98 = phi i1 [ false, %19 ], [ false, %13 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %96, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25 ]
   ret i1 %98
 }
 
@@ -14487,9 +14583,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti64x
   %57 = ptrtoint ptr %56 to i64
   %58 = urem i64 %57, %41
   %.not19.i.i.i.i.i = icmp eq i64 %58, %42
-  br i1 %.not19.i.i.i.i.i, label %51, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %51, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %54, %.lr.ph.i.i.i.i.i, %32, %37
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %54
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %32, %..loopexit_crit_edge21.i.i.i.i.i, %37
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -14509,16 +14608,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %67
 
 67:                                               ; preds = %68, %64
-  %.sroa.06.0.in.i.i.i21 = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i22, %68 ]
-  %.sroa.06.0.i.i.i22 = load ptr, ptr %.sroa.06.0.in.i.i.i21, align 8
-  %.not.i.i.i23 = icmp eq ptr %.sroa.06.0.i.i.i22, null
-  br i1 %.not.i.i.i23, label %.loopexit.i.i19, label %68
+  %.sroa.06.0.in.i.i.i22 = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i23, %68 ]
+  %.sroa.06.0.i.i.i23 = load ptr, ptr %.sroa.06.0.in.i.i.i22, align 8
+  %.not.i.i.i24 = icmp eq ptr %.sroa.06.0.i.i.i23, null
+  br i1 %.not.i.i.i24, label %.loopexit.i.i20, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i22, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i23, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %66, %70
-  br i1 %71, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, label %67, !llvm.loop !5
+  br i1 %71, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %67, !llvm.loop !5
 
 72:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %73 = load ptr, ptr %61, align 8
@@ -14530,24 +14629,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8
   %.not.i.i.i.i.i14 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i.i.i14, label %.loopexit.i.i19, label %81
+  br i1 %.not.i.i.i.i.i14, label %.loopexit.i.i20, label %81
 
 81:                                               ; preds = %72
   %82 = load ptr, ptr %80, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %73, %84
-  br i1 %85, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, label %.lr.ph.i.i.i.i.i15
+  br i1 %85, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %.lr.ph.i.i.i.i.i15
 
 86:                                               ; preds = %89
   %87 = icmp eq ptr %73, %91
-  br i1 %87, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, label %.lr.ph.i.i.i.i.i15, !llvm.loop !7
+  br i1 %87, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %.lr.ph.i.i.i.i.i15, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i15:                               ; preds = %81, %86
   %.020.i.i.i.i.i16 = phi ptr [ %88, %86 ], [ %82, %81 ]
   %88 = load ptr, ptr %.020.i.i.i.i.i16, align 8
   %.not18.i.i.i.i.i17 = icmp eq ptr %88, null
-  br i1 %.not18.i.i.i.i.i17, label %.loopexit.i.i19, label %89
+  br i1 %.not18.i.i.i.i.i17, label %.loopexit.i.i20, label %89
 
 89:                                               ; preds = %.lr.ph.i.i.i.i.i15
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -14555,21 +14654,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %92 = ptrtoint ptr %91 to i64
   %93 = urem i64 %92, %76
   %.not19.i.i.i.i.i18 = icmp eq i64 %93, %77
-  br i1 %.not19.i.i.i.i.i18, label %86, label %.loopexit.i.i19, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i18, label %86, label %..loopexit_crit_edge21.i.i.i.i.i19, !llvm.loop !7
 
-.loopexit.i.i19:                                  ; preds = %89, %.lr.ph.i.i.i.i.i15, %67, %72
+..loopexit_crit_edge21.i.i.i.i.i19:               ; preds = %89
+  br label %.loopexit.i.i20, !llvm.loop !7
+
+.loopexit.i.i20:                                  ; preds = %.lr.ph.i.i.i.i.i15, %67, %..loopexit_crit_edge21.i.i.i.i.i19, %72
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24: ; preds = %86, %68, %81
-  %.sroa.06.1.i.i.i20 = phi ptr [ %82, %81 ], [ %.sroa.06.0.i.i.i22, %68 ], [ %88, %86 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i20, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25: ; preds = %86, %68, %81
+  %.sroa.06.1.i.i.i21 = phi ptr [ %82, %81 ], [ %.sroa.06.0.i.i.i23, %68 ], [ %88, %86 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i21, i64 16
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %60, %95
   br label %97
 
-97:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24, %19, %13, %10, %7, %4
-  %98 = phi i1 [ false, %19 ], [ false, %13 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %96, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit24 ]
+97:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, %19, %13, %10, %7, %4
+  %98 = phi i1 [ false, %19 ], [ false, %13 ], [ false, %10 ], [ false, %7 ], [ false, %4 ], [ %96, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25 ]
   ret i1 %98
 }
 
@@ -14731,9 +14833,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue219RoseInstrCheckInfix8equ
   %54 = ptrtoint ptr %53 to i64
   %55 = urem i64 %54, %38
   %.not19.i.i.i.i.i = icmp eq i64 %55, %39
-  br i1 %.not19.i.i.i.i.i, label %48, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %48, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %51, %.lr.ph.i.i.i.i.i, %29, %34
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %51
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %29, %..loopexit_crit_edge21.i.i.i.i.i, %34
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -14753,16 +14858,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %64
 
 64:                                               ; preds = %65, %61
-  %.sroa.06.0.in.i.i.i15 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i16, %65 ]
-  %.sroa.06.0.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i15, align 8
-  %.not.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i16, null
-  br i1 %.not.i.i.i17, label %.loopexit.i.i13, label %65
+  %.sroa.06.0.in.i.i.i16 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i17, %65 ]
+  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8
+  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
+  br i1 %.not.i.i.i18, label %.loopexit.i.i14, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %63, %67
-  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %64, !llvm.loop !5
+  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %64, !llvm.loop !5
 
 69:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %70 = load ptr, ptr %58, align 8
@@ -14774,24 +14879,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i13, label %78
+  br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i14, label %78
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %70, %81
-  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i9
+  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i9
 
 83:                                               ; preds = %86
   %84 = icmp eq ptr %70, %88
-  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i9, !llvm.loop !7
+  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i9, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i9:                                ; preds = %78, %83
   %.020.i.i.i.i.i10 = phi ptr [ %85, %83 ], [ %79, %78 ]
   %85 = load ptr, ptr %.020.i.i.i.i.i10, align 8
   %.not18.i.i.i.i.i11 = icmp eq ptr %85, null
-  br i1 %.not18.i.i.i.i.i11, label %.loopexit.i.i13, label %86
+  br i1 %.not18.i.i.i.i.i11, label %.loopexit.i.i14, label %86
 
 86:                                               ; preds = %.lr.ph.i.i.i.i.i9
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -14799,21 +14904,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %89 = ptrtoint ptr %88 to i64
   %90 = urem i64 %89, %73
   %.not19.i.i.i.i.i12 = icmp eq i64 %90, %74
-  br i1 %.not19.i.i.i.i.i12, label %83, label %.loopexit.i.i13, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i12, label %83, label %..loopexit_crit_edge21.i.i.i.i.i13, !llvm.loop !7
 
-.loopexit.i.i13:                                  ; preds = %86, %.lr.ph.i.i.i.i.i9, %64, %69
+..loopexit_crit_edge21.i.i.i.i.i13:               ; preds = %86
+  br label %.loopexit.i.i14, !llvm.loop !7
+
+.loopexit.i.i14:                                  ; preds = %.lr.ph.i.i.i.i.i9, %64, %..loopexit_crit_edge21.i.i.i.i.i13, %69
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18: ; preds = %83, %65, %78
-  %.sroa.06.1.i.i.i14 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i16, %65 ], [ %85, %83 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i14, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19: ; preds = %83, %65, %78
+  %.sroa.06.1.i.i.i15 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i17, %65 ], [ %85, %83 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %57, %92
   br label %94
 
-94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, %16, %10, %4
-  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18 ]
+94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, %16, %10, %4
+  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19 ]
   ret i1 %95
 }
 
@@ -14901,9 +15009,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckPrefix8eq
   %54 = ptrtoint ptr %53 to i64
   %55 = urem i64 %54, %38
   %.not19.i.i.i.i.i = icmp eq i64 %55, %39
-  br i1 %.not19.i.i.i.i.i, label %48, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %48, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %51, %.lr.ph.i.i.i.i.i, %29, %34
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %51
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %29, %..loopexit_crit_edge21.i.i.i.i.i, %34
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -14923,16 +15034,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %64
 
 64:                                               ; preds = %65, %61
-  %.sroa.06.0.in.i.i.i15 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i16, %65 ]
-  %.sroa.06.0.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i15, align 8
-  %.not.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i16, null
-  br i1 %.not.i.i.i17, label %.loopexit.i.i13, label %65
+  %.sroa.06.0.in.i.i.i16 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i17, %65 ]
+  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8
+  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
+  br i1 %.not.i.i.i18, label %.loopexit.i.i14, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %63, %67
-  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %64, !llvm.loop !5
+  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %64, !llvm.loop !5
 
 69:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %70 = load ptr, ptr %58, align 8
@@ -14944,24 +15055,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i13, label %78
+  br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i14, label %78
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %70, %81
-  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i9
+  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i9
 
 83:                                               ; preds = %86
   %84 = icmp eq ptr %70, %88
-  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i9, !llvm.loop !7
+  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i9, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i9:                                ; preds = %78, %83
   %.020.i.i.i.i.i10 = phi ptr [ %85, %83 ], [ %79, %78 ]
   %85 = load ptr, ptr %.020.i.i.i.i.i10, align 8
   %.not18.i.i.i.i.i11 = icmp eq ptr %85, null
-  br i1 %.not18.i.i.i.i.i11, label %.loopexit.i.i13, label %86
+  br i1 %.not18.i.i.i.i.i11, label %.loopexit.i.i14, label %86
 
 86:                                               ; preds = %.lr.ph.i.i.i.i.i9
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -14969,21 +15080,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %89 = ptrtoint ptr %88 to i64
   %90 = urem i64 %89, %73
   %.not19.i.i.i.i.i12 = icmp eq i64 %90, %74
-  br i1 %.not19.i.i.i.i.i12, label %83, label %.loopexit.i.i13, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i12, label %83, label %..loopexit_crit_edge21.i.i.i.i.i13, !llvm.loop !7
 
-.loopexit.i.i13:                                  ; preds = %86, %.lr.ph.i.i.i.i.i9, %64, %69
+..loopexit_crit_edge21.i.i.i.i.i13:               ; preds = %86
+  br label %.loopexit.i.i14, !llvm.loop !7
+
+.loopexit.i.i14:                                  ; preds = %.lr.ph.i.i.i.i.i9, %64, %..loopexit_crit_edge21.i.i.i.i.i13, %69
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18: ; preds = %83, %65, %78
-  %.sroa.06.1.i.i.i14 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i16, %65 ], [ %85, %83 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i14, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19: ; preds = %83, %65, %78
+  %.sroa.06.1.i.i.i15 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i17, %65 ], [ %85, %83 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %57, %92
   br label %94
 
-94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, %16, %10, %4
-  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18 ]
+94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, %16, %10, %4
+  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19 ]
   ret i1 %95
 }
 
@@ -15071,9 +15185,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue215RoseInstrDedupe8equiv_t
   %54 = ptrtoint ptr %53 to i64
   %55 = urem i64 %54, %38
   %.not19.i.i.i.i.i = icmp eq i64 %55, %39
-  br i1 %.not19.i.i.i.i.i, label %48, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %48, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %51, %.lr.ph.i.i.i.i.i, %29, %34
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %51
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %29, %..loopexit_crit_edge21.i.i.i.i.i, %34
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -15093,16 +15210,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %64
 
 64:                                               ; preds = %65, %61
-  %.sroa.06.0.in.i.i.i15 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i16, %65 ]
-  %.sroa.06.0.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i15, align 8
-  %.not.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i16, null
-  br i1 %.not.i.i.i17, label %.loopexit.i.i13, label %65
+  %.sroa.06.0.in.i.i.i16 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i17, %65 ]
+  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8
+  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
+  br i1 %.not.i.i.i18, label %.loopexit.i.i14, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %63, %67
-  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %64, !llvm.loop !5
+  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %64, !llvm.loop !5
 
 69:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %70 = load ptr, ptr %58, align 8
@@ -15114,24 +15231,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i13, label %78
+  br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i14, label %78
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %70, %81
-  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i9
+  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i9
 
 83:                                               ; preds = %86
   %84 = icmp eq ptr %70, %88
-  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i9, !llvm.loop !7
+  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i9, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i9:                                ; preds = %78, %83
   %.020.i.i.i.i.i10 = phi ptr [ %85, %83 ], [ %79, %78 ]
   %85 = load ptr, ptr %.020.i.i.i.i.i10, align 8
   %.not18.i.i.i.i.i11 = icmp eq ptr %85, null
-  br i1 %.not18.i.i.i.i.i11, label %.loopexit.i.i13, label %86
+  br i1 %.not18.i.i.i.i.i11, label %.loopexit.i.i14, label %86
 
 86:                                               ; preds = %.lr.ph.i.i.i.i.i9
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -15139,21 +15256,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %89 = ptrtoint ptr %88 to i64
   %90 = urem i64 %89, %73
   %.not19.i.i.i.i.i12 = icmp eq i64 %90, %74
-  br i1 %.not19.i.i.i.i.i12, label %83, label %.loopexit.i.i13, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i12, label %83, label %..loopexit_crit_edge21.i.i.i.i.i13, !llvm.loop !7
 
-.loopexit.i.i13:                                  ; preds = %86, %.lr.ph.i.i.i.i.i9, %64, %69
+..loopexit_crit_edge21.i.i.i.i.i13:               ; preds = %86
+  br label %.loopexit.i.i14, !llvm.loop !7
+
+.loopexit.i.i14:                                  ; preds = %.lr.ph.i.i.i.i.i9, %64, %..loopexit_crit_edge21.i.i.i.i.i13, %69
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18: ; preds = %83, %65, %78
-  %.sroa.06.1.i.i.i14 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i16, %65 ], [ %85, %83 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i14, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19: ; preds = %83, %65, %78
+  %.sroa.06.1.i.i.i15 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i17, %65 ], [ %85, %83 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %57, %92
   br label %94
 
-94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, %16, %10, %4
-  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18 ]
+94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, %16, %10, %4
+  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19 ]
   ret i1 %95
 }
 
@@ -15241,9 +15361,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue218RoseInstrDedupeSom8equi
   %54 = ptrtoint ptr %53 to i64
   %55 = urem i64 %54, %38
   %.not19.i.i.i.i.i = icmp eq i64 %55, %39
-  br i1 %.not19.i.i.i.i.i, label %48, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %48, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %51, %.lr.ph.i.i.i.i.i, %29, %34
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %51
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %29, %..loopexit_crit_edge21.i.i.i.i.i, %34
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -15263,16 +15386,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %64
 
 64:                                               ; preds = %65, %61
-  %.sroa.06.0.in.i.i.i15 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i16, %65 ]
-  %.sroa.06.0.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i15, align 8
-  %.not.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i16, null
-  br i1 %.not.i.i.i17, label %.loopexit.i.i13, label %65
+  %.sroa.06.0.in.i.i.i16 = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i17, %65 ]
+  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8
+  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
+  br i1 %.not.i.i.i18, label %.loopexit.i.i14, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %63, %67
-  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %64, !llvm.loop !5
+  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %64, !llvm.loop !5
 
 69:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %70 = load ptr, ptr %58, align 8
@@ -15284,24 +15407,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i13, label %78
+  br i1 %.not.i.i.i.i.i8, label %.loopexit.i.i14, label %78
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %70, %81
-  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i9
+  br i1 %82, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i9
 
 83:                                               ; preds = %86
   %84 = icmp eq ptr %70, %88
-  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i9, !llvm.loop !7
+  br i1 %84, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i9, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i9:                                ; preds = %78, %83
   %.020.i.i.i.i.i10 = phi ptr [ %85, %83 ], [ %79, %78 ]
   %85 = load ptr, ptr %.020.i.i.i.i.i10, align 8
   %.not18.i.i.i.i.i11 = icmp eq ptr %85, null
-  br i1 %.not18.i.i.i.i.i11, label %.loopexit.i.i13, label %86
+  br i1 %.not18.i.i.i.i.i11, label %.loopexit.i.i14, label %86
 
 86:                                               ; preds = %.lr.ph.i.i.i.i.i9
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -15309,21 +15432,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %89 = ptrtoint ptr %88 to i64
   %90 = urem i64 %89, %73
   %.not19.i.i.i.i.i12 = icmp eq i64 %90, %74
-  br i1 %.not19.i.i.i.i.i12, label %83, label %.loopexit.i.i13, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i12, label %83, label %..loopexit_crit_edge21.i.i.i.i.i13, !llvm.loop !7
 
-.loopexit.i.i13:                                  ; preds = %86, %.lr.ph.i.i.i.i.i9, %64, %69
+..loopexit_crit_edge21.i.i.i.i.i13:               ; preds = %86
+  br label %.loopexit.i.i14, !llvm.loop !7
+
+.loopexit.i.i14:                                  ; preds = %.lr.ph.i.i.i.i.i9, %64, %..loopexit_crit_edge21.i.i.i.i.i13, %69
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18: ; preds = %83, %65, %78
-  %.sroa.06.1.i.i.i14 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i16, %65 ], [ %85, %83 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i14, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19: ; preds = %83, %65, %78
+  %.sroa.06.1.i.i.i15 = phi ptr [ %79, %78 ], [ %.sroa.06.0.i.i.i17, %65 ], [ %85, %83 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %57, %92
   br label %94
 
-94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, %16, %10, %4
-  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18 ]
+94:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, %16, %10, %4
+  %95 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %93, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19 ]
   ret i1 %95
 }
 
@@ -15419,9 +15545,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrDedupeAndRepor
   %60 = ptrtoint ptr %59 to i64
   %61 = urem i64 %60, %44
   %.not19.i.i.i.i.i = icmp eq i64 %61, %45
-  br i1 %.not19.i.i.i.i.i, label %54, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %54, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %57, %.lr.ph.i.i.i.i.i, %35, %40
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %57
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %35, %..loopexit_crit_edge21.i.i.i.i.i, %40
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -15441,16 +15570,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %70
 
 70:                                               ; preds = %71, %67
-  %.sroa.06.0.in.i.i.i16 = phi ptr [ %68, %67 ], [ %.sroa.06.0.i.i.i17, %71 ]
-  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8
-  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
-  br i1 %.not.i.i.i18, label %.loopexit.i.i14, label %71
+  %.sroa.06.0.in.i.i.i17 = phi ptr [ %68, %67 ], [ %.sroa.06.0.i.i.i18, %71 ]
+  %.sroa.06.0.i.i.i18 = load ptr, ptr %.sroa.06.0.in.i.i.i17, align 8
+  %.not.i.i.i19 = icmp eq ptr %.sroa.06.0.i.i.i18, null
+  br i1 %.not.i.i.i19, label %.loopexit.i.i15, label %71
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i18, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %69, %73
-  br i1 %74, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %70, !llvm.loop !5
+  br i1 %74, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %70, !llvm.loop !5
 
 75:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %76 = load ptr, ptr %64, align 8
@@ -15462,24 +15591,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i.i.i9 = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i14, label %84
+  br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i15, label %84
 
 84:                                               ; preds = %75
   %85 = load ptr, ptr %83, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %76, %87
-  br i1 %88, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i10
+  br i1 %88, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %.lr.ph.i.i.i.i.i10
 
 89:                                               ; preds = %92
   %90 = icmp eq ptr %76, %94
-  br i1 %90, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i10, !llvm.loop !7
+  br i1 %90, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %.lr.ph.i.i.i.i.i10, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i10:                               ; preds = %84, %89
   %.020.i.i.i.i.i11 = phi ptr [ %91, %89 ], [ %85, %84 ]
   %91 = load ptr, ptr %.020.i.i.i.i.i11, align 8
   %.not18.i.i.i.i.i12 = icmp eq ptr %91, null
-  br i1 %.not18.i.i.i.i.i12, label %.loopexit.i.i14, label %92
+  br i1 %.not18.i.i.i.i.i12, label %.loopexit.i.i15, label %92
 
 92:                                               ; preds = %.lr.ph.i.i.i.i.i10
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -15487,21 +15616,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %95 = ptrtoint ptr %94 to i64
   %96 = urem i64 %95, %79
   %.not19.i.i.i.i.i13 = icmp eq i64 %96, %80
-  br i1 %.not19.i.i.i.i.i13, label %89, label %.loopexit.i.i14, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i13, label %89, label %..loopexit_crit_edge21.i.i.i.i.i14, !llvm.loop !7
 
-.loopexit.i.i14:                                  ; preds = %92, %.lr.ph.i.i.i.i.i10, %70, %75
+..loopexit_crit_edge21.i.i.i.i.i14:               ; preds = %92
+  br label %.loopexit.i.i15, !llvm.loop !7
+
+.loopexit.i.i15:                                  ; preds = %.lr.ph.i.i.i.i.i10, %70, %..loopexit_crit_edge21.i.i.i.i.i14, %75
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19: ; preds = %89, %71, %84
-  %.sroa.06.1.i.i.i15 = phi ptr [ %85, %84 ], [ %.sroa.06.0.i.i.i17, %71 ], [ %91, %89 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20: ; preds = %89, %71, %84
+  %.sroa.06.1.i.i.i16 = phi ptr [ %85, %84 ], [ %.sroa.06.0.i.i.i18, %71 ], [ %91, %89 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i16, i64 16
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %63, %98
   br label %100
 
-100:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, %22, %16, %10, %4
-  %101 = phi i1 [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %99, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19 ]
+100:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, %22, %16, %10, %4
+  %101 = phi i1 [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %4 ], [ %99, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20 ]
   ret i1 %101
 }
 
@@ -15573,9 +15705,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue223RoseInstrCheckExhausted
   %42 = ptrtoint ptr %41 to i64
   %43 = urem i64 %42, %26
   %.not19.i.i.i.i.i = icmp eq i64 %43, %27
-  br i1 %.not19.i.i.i.i.i, label %36, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %36, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %39, %.lr.ph.i.i.i.i.i, %17, %22
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %39
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %17, %..loopexit_crit_edge21.i.i.i.i.i, %22
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -15595,16 +15730,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %52
 
 52:                                               ; preds = %53, %49
-  %.sroa.06.0.in.i.i.i13 = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i14, %53 ]
-  %.sroa.06.0.i.i.i14 = load ptr, ptr %.sroa.06.0.in.i.i.i13, align 8
-  %.not.i.i.i15 = icmp eq ptr %.sroa.06.0.i.i.i14, null
-  br i1 %.not.i.i.i15, label %.loopexit.i.i11, label %53
+  %.sroa.06.0.in.i.i.i14 = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i15, %53 ]
+  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
+  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
+  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i14, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %51, %55
-  br i1 %56, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %52, !llvm.loop !5
+  br i1 %56, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %52, !llvm.loop !5
 
 57:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %58 = load ptr, ptr %46, align 8
@@ -15616,24 +15751,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %65, null
-  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i11, label %66
+  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %66
 
 66:                                               ; preds = %57
   %67 = load ptr, ptr %65, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %58, %69
-  br i1 %70, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7
+  br i1 %70, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7
 
 71:                                               ; preds = %74
   %72 = icmp eq ptr %58, %76
-  br i1 %72, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
+  br i1 %72, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i7:                                ; preds = %66, %71
   %.020.i.i.i.i.i8 = phi ptr [ %73, %71 ], [ %67, %66 ]
   %73 = load ptr, ptr %.020.i.i.i.i.i8, align 8
   %.not18.i.i.i.i.i9 = icmp eq ptr %73, null
-  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i11, label %74
+  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i12, label %74
 
 74:                                               ; preds = %.lr.ph.i.i.i.i.i7
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -15641,21 +15776,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %77 = ptrtoint ptr %76 to i64
   %78 = urem i64 %77, %61
   %.not19.i.i.i.i.i10 = icmp eq i64 %78, %62
-  br i1 %.not19.i.i.i.i.i10, label %71, label %.loopexit.i.i11, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i10, label %71, label %..loopexit_crit_edge21.i.i.i.i.i11, !llvm.loop !7
 
-.loopexit.i.i11:                                  ; preds = %74, %.lr.ph.i.i.i.i.i7, %52, %57
+..loopexit_crit_edge21.i.i.i.i.i11:               ; preds = %74
+  br label %.loopexit.i.i12, !llvm.loop !7
+
+.loopexit.i.i12:                                  ; preds = %.lr.ph.i.i.i.i.i7, %52, %..loopexit_crit_edge21.i.i.i.i.i11, %57
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16: ; preds = %71, %53, %66
-  %.sroa.06.1.i.i.i12 = phi ptr [ %67, %66 ], [ %.sroa.06.0.i.i.i14, %53 ], [ %73, %71 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i12, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %71, %53, %66
+  %.sroa.06.1.i.i.i13 = phi ptr [ %67, %66 ], [ %.sroa.06.0.i.i.i15, %53 ], [ %73, %71 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %45, %80
   br label %82
 
-82:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, %4
-  %83 = phi i1 [ false, %4 ], [ %81, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16 ]
+82:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %4
+  %83 = phi i1 [ false, %4 ], [ %81, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ]
   ret i1 %83
 }
 
@@ -15735,9 +15873,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue223RoseInstrCheckMinLength
   %48 = ptrtoint ptr %47 to i64
   %49 = urem i64 %48, %32
   %.not19.i.i.i.i.i = icmp eq i64 %49, %33
-  br i1 %.not19.i.i.i.i.i, label %42, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %42, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %45, %.lr.ph.i.i.i.i.i, %23, %28
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %45
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %23, %..loopexit_crit_edge21.i.i.i.i.i, %28
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -15757,16 +15898,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %58
 
 58:                                               ; preds = %59, %55
-  %.sroa.06.0.in.i.i.i14 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i15, %59 ]
-  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
-  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
-  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %59
+  %.sroa.06.0.in.i.i.i15 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i16, %59 ]
+  %.sroa.06.0.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i15, align 8
+  %.not.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i16, null
+  br i1 %.not.i.i.i17, label %.loopexit.i.i13, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %57, %61
-  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %58, !llvm.loop !5
+  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %58, !llvm.loop !5
 
 63:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %64 = load ptr, ptr %52, align 8
@@ -15778,24 +15919,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i12, label %72
+  br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i13, label %72
 
 72:                                               ; preds = %63
   %73 = load ptr, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %64, %75
-  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i8
+  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i8
 
 77:                                               ; preds = %80
   %78 = icmp eq ptr %64, %82
-  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i8, !llvm.loop !7
+  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i8, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i8:                                ; preds = %72, %77
   %.020.i.i.i.i.i9 = phi ptr [ %79, %77 ], [ %73, %72 ]
   %79 = load ptr, ptr %.020.i.i.i.i.i9, align 8
   %.not18.i.i.i.i.i10 = icmp eq ptr %79, null
-  br i1 %.not18.i.i.i.i.i10, label %.loopexit.i.i12, label %80
+  br i1 %.not18.i.i.i.i.i10, label %.loopexit.i.i13, label %80
 
 80:                                               ; preds = %.lr.ph.i.i.i.i.i8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -15803,21 +15944,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %83 = ptrtoint ptr %82 to i64
   %84 = urem i64 %83, %67
   %.not19.i.i.i.i.i11 = icmp eq i64 %84, %68
-  br i1 %.not19.i.i.i.i.i11, label %77, label %.loopexit.i.i12, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i11, label %77, label %..loopexit_crit_edge21.i.i.i.i.i12, !llvm.loop !7
 
-.loopexit.i.i12:                                  ; preds = %80, %.lr.ph.i.i.i.i.i8, %58, %63
+..loopexit_crit_edge21.i.i.i.i.i12:               ; preds = %80
+  br label %.loopexit.i.i13, !llvm.loop !7
+
+.loopexit.i.i13:                                  ; preds = %.lr.ph.i.i.i.i.i8, %58, %..loopexit_crit_edge21.i.i.i.i.i12, %63
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %77, %59, %72
-  %.sroa.06.1.i.i.i13 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i15, %59 ], [ %79, %77 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18: ; preds = %77, %59, %72
+  %.sroa.06.1.i.i.i14 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i16, %59 ], [ %79, %77 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i14, i64 16
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %51, %86
   br label %88
 
-88:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %10, %4
-  %89 = phi i1 [ false, %10 ], [ false, %4 ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ]
+88:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, %10, %4
+  %89 = phi i1 [ false, %10 ], [ false, %4 ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18 ]
   ret i1 %89
 }
 
@@ -15889,9 +16033,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue219RoseInstrCheckState8equ
   %42 = ptrtoint ptr %41 to i64
   %43 = urem i64 %42, %26
   %.not19.i.i.i.i.i = icmp eq i64 %43, %27
-  br i1 %.not19.i.i.i.i.i, label %36, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %36, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %39, %.lr.ph.i.i.i.i.i, %17, %22
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %39
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %17, %..loopexit_crit_edge21.i.i.i.i.i, %22
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -15911,16 +16058,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %52
 
 52:                                               ; preds = %53, %49
-  %.sroa.06.0.in.i.i.i13 = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i14, %53 ]
-  %.sroa.06.0.i.i.i14 = load ptr, ptr %.sroa.06.0.in.i.i.i13, align 8
-  %.not.i.i.i15 = icmp eq ptr %.sroa.06.0.i.i.i14, null
-  br i1 %.not.i.i.i15, label %.loopexit.i.i11, label %53
+  %.sroa.06.0.in.i.i.i14 = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i15, %53 ]
+  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
+  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
+  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i14, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %51, %55
-  br i1 %56, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %52, !llvm.loop !5
+  br i1 %56, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %52, !llvm.loop !5
 
 57:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %58 = load ptr, ptr %46, align 8
@@ -15932,24 +16079,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %65, null
-  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i11, label %66
+  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %66
 
 66:                                               ; preds = %57
   %67 = load ptr, ptr %65, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %58, %69
-  br i1 %70, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7
+  br i1 %70, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7
 
 71:                                               ; preds = %74
   %72 = icmp eq ptr %58, %76
-  br i1 %72, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
+  br i1 %72, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i7:                                ; preds = %66, %71
   %.020.i.i.i.i.i8 = phi ptr [ %73, %71 ], [ %67, %66 ]
   %73 = load ptr, ptr %.020.i.i.i.i.i8, align 8
   %.not18.i.i.i.i.i9 = icmp eq ptr %73, null
-  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i11, label %74
+  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i12, label %74
 
 74:                                               ; preds = %.lr.ph.i.i.i.i.i7
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -15957,21 +16104,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %77 = ptrtoint ptr %76 to i64
   %78 = urem i64 %77, %61
   %.not19.i.i.i.i.i10 = icmp eq i64 %78, %62
-  br i1 %.not19.i.i.i.i.i10, label %71, label %.loopexit.i.i11, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i10, label %71, label %..loopexit_crit_edge21.i.i.i.i.i11, !llvm.loop !7
 
-.loopexit.i.i11:                                  ; preds = %74, %.lr.ph.i.i.i.i.i7, %52, %57
+..loopexit_crit_edge21.i.i.i.i.i11:               ; preds = %74
+  br label %.loopexit.i.i12, !llvm.loop !7
+
+.loopexit.i.i12:                                  ; preds = %.lr.ph.i.i.i.i.i7, %52, %..loopexit_crit_edge21.i.i.i.i.i11, %57
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16: ; preds = %71, %53, %66
-  %.sroa.06.1.i.i.i12 = phi ptr [ %67, %66 ], [ %.sroa.06.0.i.i.i14, %53 ], [ %73, %71 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i12, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %71, %53, %66
+  %.sroa.06.1.i.i.i13 = phi ptr [ %67, %66 ], [ %.sroa.06.0.i.i.i15, %53 ], [ %73, %71 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %45, %80
   br label %82
 
-82:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, %4
-  %83 = phi i1 [ false, %4 ], [ %81, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16 ]
+82:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %4
+  %83 = phi i1 [ false, %4 ], [ %81, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ]
   ret i1 %83
 }
 
@@ -16043,9 +16193,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrSparseIterBegi
   %41 = ptrtoint ptr %40 to i64
   %42 = urem i64 %41, %25
   %.not19.i.i.i.i.i = icmp eq i64 %42, %26
-  br i1 %.not19.i.i.i.i.i, label %35, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %35, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %38, %.lr.ph.i.i.i.i.i, %16, %21
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %38
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %16, %..loopexit_crit_edge21.i.i.i.i.i, %21
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -16065,16 +16218,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %51
 
 51:                                               ; preds = %52, %48
-  %.sroa.06.0.in.i.i.i22 = phi ptr [ %49, %48 ], [ %.sroa.06.0.i.i.i23, %52 ]
-  %.sroa.06.0.i.i.i23 = load ptr, ptr %.sroa.06.0.in.i.i.i22, align 8
-  %.not.i.i.i24 = icmp eq ptr %.sroa.06.0.i.i.i23, null
-  br i1 %.not.i.i.i24, label %.loopexit.i.i20, label %52
+  %.sroa.06.0.in.i.i.i23 = phi ptr [ %49, %48 ], [ %.sroa.06.0.i.i.i24, %52 ]
+  %.sroa.06.0.i.i.i24 = load ptr, ptr %.sroa.06.0.in.i.i.i23, align 8
+  %.not.i.i.i25 = icmp eq ptr %.sroa.06.0.i.i.i24, null
+  br i1 %.not.i.i.i25, label %.loopexit.i.i21, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i23, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i24, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %50, %54
-  br i1 %55, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %51, !llvm.loop !5
+  br i1 %55, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit26, label %51, !llvm.loop !5
 
 56:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %57 = load ptr, ptr %45, align 8
@@ -16086,24 +16239,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8
   %.not.i.i.i.i.i15 = icmp eq ptr %64, null
-  br i1 %.not.i.i.i.i.i15, label %.loopexit.i.i20, label %65
+  br i1 %.not.i.i.i.i.i15, label %.loopexit.i.i21, label %65
 
 65:                                               ; preds = %56
   %66 = load ptr, ptr %64, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %57, %68
-  br i1 %69, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %.lr.ph.i.i.i.i.i16
+  br i1 %69, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit26, label %.lr.ph.i.i.i.i.i16
 
 70:                                               ; preds = %73
   %71 = icmp eq ptr %57, %75
-  br i1 %71, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25, label %.lr.ph.i.i.i.i.i16, !llvm.loop !7
+  br i1 %71, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit26, label %.lr.ph.i.i.i.i.i16, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i16:                               ; preds = %65, %70
   %.020.i.i.i.i.i17 = phi ptr [ %72, %70 ], [ %66, %65 ]
   %72 = load ptr, ptr %.020.i.i.i.i.i17, align 8
   %.not18.i.i.i.i.i18 = icmp eq ptr %72, null
-  br i1 %.not18.i.i.i.i.i18, label %.loopexit.i.i20, label %73
+  br i1 %.not18.i.i.i.i.i18, label %.loopexit.i.i21, label %73
 
 73:                                               ; preds = %.lr.ph.i.i.i.i.i16
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -16111,20 +16264,23 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %76 = ptrtoint ptr %75 to i64
   %77 = urem i64 %76, %60
   %.not19.i.i.i.i.i19 = icmp eq i64 %77, %61
-  br i1 %.not19.i.i.i.i.i19, label %70, label %.loopexit.i.i20, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i19, label %70, label %..loopexit_crit_edge21.i.i.i.i.i20, !llvm.loop !7
 
-.loopexit.i.i20:                                  ; preds = %73, %.lr.ph.i.i.i.i.i16, %51, %56
+..loopexit_crit_edge21.i.i.i.i.i20:               ; preds = %73
+  br label %.loopexit.i.i21, !llvm.loop !7
+
+.loopexit.i.i21:                                  ; preds = %.lr.ph.i.i.i.i.i16, %51, %..loopexit_crit_edge21.i.i.i.i.i20, %56
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25: ; preds = %70, %52, %65
-  %.sroa.06.1.i.i.i21 = phi ptr [ %66, %65 ], [ %.sroa.06.0.i.i.i23, %52 ], [ %72, %70 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i21, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit26: ; preds = %70, %52, %65
+  %.sroa.06.1.i.i.i22 = phi ptr [ %66, %65 ], [ %.sroa.06.0.i.i.i24, %52 ], [ %72, %70 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i22, i64 16
   %79 = load i32, ptr %78, align 4
   %.not10 = icmp eq i32 %44, %79
   br i1 %.not10, label %80, label %.loopexit
 
-80:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25
+80:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit26
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %83 = load ptr, ptr %82, align 8
@@ -16143,8 +16299,8 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br i1 %.not11, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %80
-  %.not5782 = icmp eq ptr %84, %83
-  br i1 %.not5782, label %.loopexit, label %.lr.ph
+  %.not6091 = icmp eq ptr %84, %83
+  br i1 %.not6091, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16158,139 +16314,145 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %103
 
 103:                                              ; preds = %.lr.ph, %159
-  %.sroa.053.084 = phi ptr [ %84, %.lr.ph ], [ %160, %159 ]
-  %.sroa.050.083 = phi ptr [ %91, %.lr.ph ], [ %161, %159 ]
-  %104 = load i32, ptr %.sroa.053.084, align 8
-  %105 = load i32, ptr %.sroa.050.083, align 8
+  %.sroa.056.093 = phi ptr [ %84, %.lr.ph ], [ %160, %159 ]
+  %.sroa.053.092 = phi ptr [ %91, %.lr.ph ], [ %161, %159 ]
+  %104 = load i32, ptr %.sroa.056.093, align 8
+  %105 = load i32, ptr %.sroa.053.092, align 8
   %.not12 = icmp eq i32 %104, %105
   br i1 %.not12, label %106, label %.loopexit
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.053.084, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.056.093, i64 8
   %108 = load ptr, ptr %107, align 8
-  br i1 %.not.not.i.i.i, label %.preheader128, label %113
+  br i1 %.not.not.i.i.i, label %.preheader145, label %113
 
-.preheader128:                                    ; preds = %106, %109
-  %.sroa.06.0.in.i.i.i34 = phi ptr [ %.sroa.06.0.i.i.i35, %109 ], [ %98, %106 ]
-  %.sroa.06.0.i.i.i35 = load ptr, ptr %.sroa.06.0.in.i.i.i34, align 8
-  %.not.i.i.i36 = icmp eq ptr %.sroa.06.0.i.i.i35, null
-  br i1 %.not.i.i.i36, label %.loopexit.i.i32, label %109
+.preheader145:                                    ; preds = %106, %109
+  %.sroa.06.0.in.i.i.i36 = phi ptr [ %.sroa.06.0.i.i.i37, %109 ], [ %98, %106 ]
+  %.sroa.06.0.i.i.i37 = load ptr, ptr %.sroa.06.0.in.i.i.i36, align 8
+  %.not.i.i.i38 = icmp eq ptr %.sroa.06.0.i.i.i37, null
+  br i1 %.not.i.i.i38, label %.loopexit.i.i34, label %109
 
-109:                                              ; preds = %.preheader128
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i35, i64 8
+109:                                              ; preds = %.preheader145
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i37, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %108, %111
-  br i1 %112, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit37, label %.preheader128, !llvm.loop !5
+  br i1 %112, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit39, label %.preheader145, !llvm.loop !5
 
 113:                                              ; preds = %106
   %114 = ptrtoint ptr %108 to i64
   %115 = urem i64 %114, %96
   %116 = getelementptr inbounds nuw ptr, ptr %97, i64 %115
   %117 = load ptr, ptr %116, align 8
-  %.not.i.i.i.i.i27 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i.i.i27, label %.loopexit.i.i32, label %118
+  %.not.i.i.i.i.i28 = icmp eq ptr %117, null
+  br i1 %.not.i.i.i.i.i28, label %.loopexit.i.i34, label %118
 
 118:                                              ; preds = %113
   %119 = load ptr, ptr %117, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %108, %121
-  br i1 %122, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit37, label %.lr.ph.i.i.i.i.i28
+  br i1 %122, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit39, label %.lr.ph.i.i.i.i.i29
 
 123:                                              ; preds = %126
   %124 = icmp eq ptr %108, %128
-  br i1 %124, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit37, label %.lr.ph.i.i.i.i.i28, !llvm.loop !7
+  br i1 %124, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit39, label %.lr.ph.i.i.i.i.i29, !llvm.loop !7
 
-.lr.ph.i.i.i.i.i28:                               ; preds = %118, %123
-  %.020.i.i.i.i.i29 = phi ptr [ %125, %123 ], [ %119, %118 ]
-  %125 = load ptr, ptr %.020.i.i.i.i.i29, align 8
-  %.not18.i.i.i.i.i30 = icmp eq ptr %125, null
-  br i1 %.not18.i.i.i.i.i30, label %.loopexit.i.i32, label %126
+.lr.ph.i.i.i.i.i29:                               ; preds = %118, %123
+  %.020.i.i.i.i.i30 = phi ptr [ %125, %123 ], [ %119, %118 ]
+  %125 = load ptr, ptr %.020.i.i.i.i.i30, align 8
+  %.not18.i.i.i.i.i31 = icmp eq ptr %125, null
+  br i1 %.not18.i.i.i.i.i31, label %.loopexit.i.i34, label %126
 
-126:                                              ; preds = %.lr.ph.i.i.i.i.i28
+126:                                              ; preds = %.lr.ph.i.i.i.i.i29
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = ptrtoint ptr %128 to i64
   %130 = urem i64 %129, %96
-  %.not19.i.i.i.i.i31 = icmp eq i64 %130, %115
-  br i1 %.not19.i.i.i.i.i31, label %123, label %.loopexit.i.i32, !llvm.loop !7
+  %.not19.i.i.i.i.i32 = icmp eq i64 %130, %115
+  br i1 %.not19.i.i.i.i.i32, label %123, label %..loopexit_crit_edge21.i.i.i.i.i33, !llvm.loop !7
 
-.loopexit.i.i32:                                  ; preds = %113, %126, %.lr.ph.i.i.i.i.i28, %.preheader128
+..loopexit_crit_edge21.i.i.i.i.i33:               ; preds = %126
+  br label %.loopexit.i.i34, !llvm.loop !7
+
+.loopexit.i.i34:                                  ; preds = %113, %.lr.ph.i.i.i.i.i29, %.preheader145, %..loopexit_crit_edge21.i.i.i.i.i33
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit37: ; preds = %123, %109, %118
-  %.sroa.06.1.i.i.i33 = phi ptr [ %119, %118 ], [ %.sroa.06.0.i.i.i35, %109 ], [ %125, %123 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i33, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit39: ; preds = %123, %109, %118
+  %.sroa.06.1.i.i.i35 = phi ptr [ %119, %118 ], [ %.sroa.06.0.i.i.i37, %109 ], [ %125, %123 ]
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i35, i64 16
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.050.083, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.053.092, i64 8
   %134 = load ptr, ptr %133, align 8
-  br i1 %.not.not.i.i.i14, label %.preheader125, label %139
+  br i1 %.not.not.i.i.i14, label %.preheader142, label %139
 
-.preheader125:                                    ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit37, %135
-  %.sroa.06.0.in.i.i.i46 = phi ptr [ %.sroa.06.0.i.i.i47, %135 ], [ %102, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit37 ]
-  %.sroa.06.0.i.i.i47 = load ptr, ptr %.sroa.06.0.in.i.i.i46, align 8
-  %.not.i.i.i48 = icmp eq ptr %.sroa.06.0.i.i.i47, null
-  br i1 %.not.i.i.i48, label %.loopexit.i.i44, label %135
+.preheader142:                                    ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit39, %135
+  %.sroa.06.0.in.i.i.i49 = phi ptr [ %.sroa.06.0.i.i.i50, %135 ], [ %102, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit39 ]
+  %.sroa.06.0.i.i.i50 = load ptr, ptr %.sroa.06.0.in.i.i.i49, align 8
+  %.not.i.i.i51 = icmp eq ptr %.sroa.06.0.i.i.i50, null
+  br i1 %.not.i.i.i51, label %.loopexit.i.i47, label %135
 
-135:                                              ; preds = %.preheader125
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i47, i64 8
+135:                                              ; preds = %.preheader142
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i50, i64 8
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %134, %137
-  br i1 %138, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit49, label %.preheader125, !llvm.loop !5
+  br i1 %138, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit52, label %.preheader142, !llvm.loop !5
 
-139:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit37
+139:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit39
   %140 = ptrtoint ptr %134 to i64
   %141 = urem i64 %140, %100
   %142 = getelementptr inbounds nuw ptr, ptr %101, i64 %141
   %143 = load ptr, ptr %142, align 8
-  %.not.i.i.i.i.i39 = icmp eq ptr %143, null
-  br i1 %.not.i.i.i.i.i39, label %.loopexit.i.i44, label %144
+  %.not.i.i.i.i.i41 = icmp eq ptr %143, null
+  br i1 %.not.i.i.i.i.i41, label %.loopexit.i.i47, label %144
 
 144:                                              ; preds = %139
   %145 = load ptr, ptr %143, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %134, %147
-  br i1 %148, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit49, label %.lr.ph.i.i.i.i.i40
+  br i1 %148, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit52, label %.lr.ph.i.i.i.i.i42
 
 149:                                              ; preds = %152
   %150 = icmp eq ptr %134, %154
-  br i1 %150, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit49, label %.lr.ph.i.i.i.i.i40, !llvm.loop !7
+  br i1 %150, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit52, label %.lr.ph.i.i.i.i.i42, !llvm.loop !7
 
-.lr.ph.i.i.i.i.i40:                               ; preds = %144, %149
-  %.020.i.i.i.i.i41 = phi ptr [ %151, %149 ], [ %145, %144 ]
-  %151 = load ptr, ptr %.020.i.i.i.i.i41, align 8
-  %.not18.i.i.i.i.i42 = icmp eq ptr %151, null
-  br i1 %.not18.i.i.i.i.i42, label %.loopexit.i.i44, label %152
+.lr.ph.i.i.i.i.i42:                               ; preds = %144, %149
+  %.020.i.i.i.i.i43 = phi ptr [ %151, %149 ], [ %145, %144 ]
+  %151 = load ptr, ptr %.020.i.i.i.i.i43, align 8
+  %.not18.i.i.i.i.i44 = icmp eq ptr %151, null
+  br i1 %.not18.i.i.i.i.i44, label %.loopexit.i.i47, label %152
 
-152:                                              ; preds = %.lr.ph.i.i.i.i.i40
+152:                                              ; preds = %.lr.ph.i.i.i.i.i42
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = ptrtoint ptr %154 to i64
   %156 = urem i64 %155, %100
-  %.not19.i.i.i.i.i43 = icmp eq i64 %156, %141
-  br i1 %.not19.i.i.i.i.i43, label %149, label %.loopexit.i.i44, !llvm.loop !7
+  %.not19.i.i.i.i.i45 = icmp eq i64 %156, %141
+  br i1 %.not19.i.i.i.i.i45, label %149, label %..loopexit_crit_edge21.i.i.i.i.i46, !llvm.loop !7
 
-.loopexit.i.i44:                                  ; preds = %139, %152, %.lr.ph.i.i.i.i.i40, %.preheader125
+..loopexit_crit_edge21.i.i.i.i.i46:               ; preds = %152
+  br label %.loopexit.i.i47, !llvm.loop !7
+
+.loopexit.i.i47:                                  ; preds = %139, %.lr.ph.i.i.i.i.i42, %.preheader142, %..loopexit_crit_edge21.i.i.i.i.i46
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit49: ; preds = %149, %135, %144
-  %.sroa.06.1.i.i.i45 = phi ptr [ %145, %144 ], [ %.sroa.06.0.i.i.i47, %135 ], [ %151, %149 ]
-  %157 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i45, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit52: ; preds = %149, %135, %144
+  %.sroa.06.1.i.i.i48 = phi ptr [ %145, %144 ], [ %.sroa.06.0.i.i.i50, %135 ], [ %151, %149 ]
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i48, i64 16
   %158 = load i32, ptr %157, align 4
   %.not13 = icmp eq i32 %132, %158
   br i1 %.not13, label %159, label %.loopexit
 
-159:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit49
-  %160 = getelementptr inbounds nuw i8, ptr %.sroa.053.084, i64 16
-  %161 = getelementptr inbounds nuw i8, ptr %.sroa.050.083, i64 16
-  %.not57 = icmp eq ptr %160, %83
-  br i1 %.not57, label %.loopexit, label %103, !llvm.loop !50
+159:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit52
+  %160 = getelementptr inbounds nuw i8, ptr %.sroa.056.093, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.053.092, i64 16
+  %.not60 = icmp eq ptr %160, %83
+  br i1 %.not60, label %.loopexit, label %103, !llvm.loop !50
 
-.loopexit:                                        ; preds = %159, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit49, %103, %.preheader, %80, %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25
-  %.0 = phi i1 [ false, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit25 ], [ false, %4 ], [ false, %80 ], [ true, %.preheader ], [ true, %159 ], [ false, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit49 ], [ false, %103 ]
+.loopexit:                                        ; preds = %159, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit52, %103, %.preheader, %80, %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit26
+  %.0 = phi i1 [ false, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit26 ], [ false, %4 ], [ false, %80 ], [ true, %.preheader ], [ true, %159 ], [ false, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit52 ], [ false, %103 ]
   ret i1 %.0
 }
 
@@ -16361,9 +16523,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue223RoseInstrSparseIterNext
   %41 = ptrtoint ptr %40 to i64
   %42 = urem i64 %41, %25
   %.not19.i.i.i.i.i = icmp eq i64 %42, %26
-  br i1 %.not19.i.i.i.i.i, label %35, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %35, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %38, %.lr.ph.i.i.i.i.i, %17, %22
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %38
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %17, %..loopexit_crit_edge21.i.i.i.i.i, %22
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -16383,16 +16548,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %51
 
 51:                                               ; preds = %52, %49
-  %.sroa.06.0.in.i.i.i16 = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i17, %52 ]
-  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8
-  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
-  br i1 %.not.i.i.i18, label %.loopexit.i.i14, label %52
+  %.sroa.06.0.in.i.i.i17 = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i18, %52 ]
+  %.sroa.06.0.i.i.i18 = load ptr, ptr %.sroa.06.0.in.i.i.i17, align 8
+  %.not.i.i.i19 = icmp eq ptr %.sroa.06.0.i.i.i18, null
+  br i1 %.not.i.i.i19, label %.loopexit.i.i15, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i18, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %46, %54
-  br i1 %55, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %51, !llvm.loop !5
+  br i1 %55, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %51, !llvm.loop !5
 
 56:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %57 = ptrtoint ptr %46 to i64
@@ -16403,24 +16568,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8
   %.not.i.i.i.i.i9 = icmp eq ptr %63, null
-  br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i14, label %64
+  br i1 %.not.i.i.i.i.i9, label %.loopexit.i.i15, label %64
 
 64:                                               ; preds = %56
   %65 = load ptr, ptr %63, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %46, %67
-  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i10
+  br i1 %68, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %.lr.ph.i.i.i.i.i10
 
 69:                                               ; preds = %72
   %70 = icmp eq ptr %46, %74
-  br i1 %70, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, label %.lr.ph.i.i.i.i.i10, !llvm.loop !7
+  br i1 %70, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %.lr.ph.i.i.i.i.i10, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i10:                               ; preds = %64, %69
   %.020.i.i.i.i.i11 = phi ptr [ %71, %69 ], [ %65, %64 ]
   %71 = load ptr, ptr %.020.i.i.i.i.i11, align 8
   %.not18.i.i.i.i.i12 = icmp eq ptr %71, null
-  br i1 %.not18.i.i.i.i.i12, label %.loopexit.i.i14, label %72
+  br i1 %.not18.i.i.i.i.i12, label %.loopexit.i.i15, label %72
 
 72:                                               ; preds = %.lr.ph.i.i.i.i.i10
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -16428,20 +16593,23 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %75 = ptrtoint ptr %74 to i64
   %76 = urem i64 %75, %59
   %.not19.i.i.i.i.i13 = icmp eq i64 %76, %60
-  br i1 %.not19.i.i.i.i.i13, label %69, label %.loopexit.i.i14, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i13, label %69, label %..loopexit_crit_edge21.i.i.i.i.i14, !llvm.loop !7
 
-.loopexit.i.i14:                                  ; preds = %72, %.lr.ph.i.i.i.i.i10, %51, %56
+..loopexit_crit_edge21.i.i.i.i.i14:               ; preds = %72
+  br label %.loopexit.i.i15, !llvm.loop !7
+
+.loopexit.i.i15:                                  ; preds = %.lr.ph.i.i.i.i.i10, %51, %..loopexit_crit_edge21.i.i.i.i.i14, %56
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19: ; preds = %69, %52, %64
-  %.sroa.06.1.i.i.i15 = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i17, %52 ], [ %71, %69 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20: ; preds = %69, %52, %64
+  %.sroa.06.1.i.i.i16 = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i18, %52 ], [ %71, %69 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i16, i64 16
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %44, %78
   br i1 %79, label %80, label %148
 
-80:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19
+80:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not.not.i.i.i, label %82, label %90
 
@@ -16451,16 +16619,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %85
 
 85:                                               ; preds = %86, %82
-  %.sroa.06.0.in.i.i.i28 = phi ptr [ %83, %82 ], [ %.sroa.06.0.i.i.i29, %86 ]
-  %.sroa.06.0.i.i.i29 = load ptr, ptr %.sroa.06.0.in.i.i.i28, align 8
-  %.not.i.i.i30 = icmp eq ptr %.sroa.06.0.i.i.i29, null
-  br i1 %.not.i.i.i30, label %.loopexit.i.i26, label %86
+  %.sroa.06.0.in.i.i.i30 = phi ptr [ %83, %82 ], [ %.sroa.06.0.i.i.i31, %86 ]
+  %.sroa.06.0.i.i.i31 = load ptr, ptr %.sroa.06.0.in.i.i.i30, align 8
+  %.not.i.i.i32 = icmp eq ptr %.sroa.06.0.i.i.i31, null
+  br i1 %.not.i.i.i32, label %.loopexit.i.i28, label %86
 
 86:                                               ; preds = %85
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i29, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i31, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %84, %88
-  br i1 %89, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit31, label %85, !llvm.loop !5
+  br i1 %89, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit33, label %85, !llvm.loop !5
 
 90:                                               ; preds = %80
   %91 = load ptr, ptr %81, align 8
@@ -16471,63 +16639,66 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %96 = load ptr, ptr %2, align 8
   %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %95
   %98 = load ptr, ptr %97, align 8
-  %.not.i.i.i.i.i21 = icmp eq ptr %98, null
-  br i1 %.not.i.i.i.i.i21, label %.loopexit.i.i26, label %99
+  %.not.i.i.i.i.i22 = icmp eq ptr %98, null
+  br i1 %.not.i.i.i.i.i22, label %.loopexit.i.i28, label %99
 
 99:                                               ; preds = %90
   %100 = load ptr, ptr %98, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %91, %102
-  br i1 %103, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit31, label %.lr.ph.i.i.i.i.i22
+  br i1 %103, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit33, label %.lr.ph.i.i.i.i.i23
 
 104:                                              ; preds = %107
   %105 = icmp eq ptr %91, %109
-  br i1 %105, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit31, label %.lr.ph.i.i.i.i.i22, !llvm.loop !7
+  br i1 %105, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit33, label %.lr.ph.i.i.i.i.i23, !llvm.loop !7
 
-.lr.ph.i.i.i.i.i22:                               ; preds = %99, %104
-  %.020.i.i.i.i.i23 = phi ptr [ %106, %104 ], [ %100, %99 ]
-  %106 = load ptr, ptr %.020.i.i.i.i.i23, align 8
-  %.not18.i.i.i.i.i24 = icmp eq ptr %106, null
-  br i1 %.not18.i.i.i.i.i24, label %.loopexit.i.i26, label %107
+.lr.ph.i.i.i.i.i23:                               ; preds = %99, %104
+  %.020.i.i.i.i.i24 = phi ptr [ %106, %104 ], [ %100, %99 ]
+  %106 = load ptr, ptr %.020.i.i.i.i.i24, align 8
+  %.not18.i.i.i.i.i25 = icmp eq ptr %106, null
+  br i1 %.not18.i.i.i.i.i25, label %.loopexit.i.i28, label %107
 
-107:                                              ; preds = %.lr.ph.i.i.i.i.i22
+107:                                              ; preds = %.lr.ph.i.i.i.i.i23
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = ptrtoint ptr %109 to i64
   %111 = urem i64 %110, %94
-  %.not19.i.i.i.i.i25 = icmp eq i64 %111, %95
-  br i1 %.not19.i.i.i.i.i25, label %104, label %.loopexit.i.i26, !llvm.loop !7
+  %.not19.i.i.i.i.i26 = icmp eq i64 %111, %95
+  br i1 %.not19.i.i.i.i.i26, label %104, label %..loopexit_crit_edge21.i.i.i.i.i27, !llvm.loop !7
 
-.loopexit.i.i26:                                  ; preds = %107, %.lr.ph.i.i.i.i.i22, %85, %90
+..loopexit_crit_edge21.i.i.i.i.i27:               ; preds = %107
+  br label %.loopexit.i.i28, !llvm.loop !7
+
+.loopexit.i.i28:                                  ; preds = %.lr.ph.i.i.i.i.i23, %85, %..loopexit_crit_edge21.i.i.i.i.i27, %90
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit31: ; preds = %104, %86, %99
-  %.sroa.06.1.i.i.i27 = phi ptr [ %100, %99 ], [ %.sroa.06.0.i.i.i29, %86 ], [ %106, %104 ]
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i27, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit33: ; preds = %104, %86, %99
+  %.sroa.06.1.i.i.i29 = phi ptr [ %100, %99 ], [ %.sroa.06.0.i.i.i31, %86 ], [ %106, %104 ]
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i29, i64 16
   %113 = load i32, ptr %112, align 4
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %.not.not.i.i.i8, label %115, label %123
 
-115:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit31
+115:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit33
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %117 = load ptr, ptr %114, align 8
   br label %118
 
 118:                                              ; preds = %119, %115
-  %.sroa.06.0.in.i.i.i40 = phi ptr [ %116, %115 ], [ %.sroa.06.0.i.i.i41, %119 ]
-  %.sroa.06.0.i.i.i41 = load ptr, ptr %.sroa.06.0.in.i.i.i40, align 8
-  %.not.i.i.i42 = icmp eq ptr %.sroa.06.0.i.i.i41, null
-  br i1 %.not.i.i.i42, label %.loopexit.i.i38, label %119
+  %.sroa.06.0.in.i.i.i43 = phi ptr [ %116, %115 ], [ %.sroa.06.0.i.i.i44, %119 ]
+  %.sroa.06.0.i.i.i44 = load ptr, ptr %.sroa.06.0.in.i.i.i43, align 8
+  %.not.i.i.i45 = icmp eq ptr %.sroa.06.0.i.i.i44, null
+  br i1 %.not.i.i.i45, label %.loopexit.i.i41, label %119
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i41, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i44, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %117, %121
-  br i1 %122, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit43, label %118, !llvm.loop !5
+  br i1 %122, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46, label %118, !llvm.loop !5
 
-123:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit31
+123:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit33
   %124 = load ptr, ptr %114, align 8
   %125 = ptrtoint ptr %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16536,47 +16707,50 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %129 = load ptr, ptr %3, align 8
   %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %128
   %131 = load ptr, ptr %130, align 8
-  %.not.i.i.i.i.i33 = icmp eq ptr %131, null
-  br i1 %.not.i.i.i.i.i33, label %.loopexit.i.i38, label %132
+  %.not.i.i.i.i.i35 = icmp eq ptr %131, null
+  br i1 %.not.i.i.i.i.i35, label %.loopexit.i.i41, label %132
 
 132:                                              ; preds = %123
   %133 = load ptr, ptr %131, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %124, %135
-  br i1 %136, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit43, label %.lr.ph.i.i.i.i.i34
+  br i1 %136, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46, label %.lr.ph.i.i.i.i.i36
 
 137:                                              ; preds = %140
   %138 = icmp eq ptr %124, %142
-  br i1 %138, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit43, label %.lr.ph.i.i.i.i.i34, !llvm.loop !7
+  br i1 %138, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46, label %.lr.ph.i.i.i.i.i36, !llvm.loop !7
 
-.lr.ph.i.i.i.i.i34:                               ; preds = %132, %137
-  %.020.i.i.i.i.i35 = phi ptr [ %139, %137 ], [ %133, %132 ]
-  %139 = load ptr, ptr %.020.i.i.i.i.i35, align 8
-  %.not18.i.i.i.i.i36 = icmp eq ptr %139, null
-  br i1 %.not18.i.i.i.i.i36, label %.loopexit.i.i38, label %140
+.lr.ph.i.i.i.i.i36:                               ; preds = %132, %137
+  %.020.i.i.i.i.i37 = phi ptr [ %139, %137 ], [ %133, %132 ]
+  %139 = load ptr, ptr %.020.i.i.i.i.i37, align 8
+  %.not18.i.i.i.i.i38 = icmp eq ptr %139, null
+  br i1 %.not18.i.i.i.i.i38, label %.loopexit.i.i41, label %140
 
-140:                                              ; preds = %.lr.ph.i.i.i.i.i34
+140:                                              ; preds = %.lr.ph.i.i.i.i.i36
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %142 = load ptr, ptr %141, align 8
   %143 = ptrtoint ptr %142 to i64
   %144 = urem i64 %143, %127
-  %.not19.i.i.i.i.i37 = icmp eq i64 %144, %128
-  br i1 %.not19.i.i.i.i.i37, label %137, label %.loopexit.i.i38, !llvm.loop !7
+  %.not19.i.i.i.i.i39 = icmp eq i64 %144, %128
+  br i1 %.not19.i.i.i.i.i39, label %137, label %..loopexit_crit_edge21.i.i.i.i.i40, !llvm.loop !7
 
-.loopexit.i.i38:                                  ; preds = %140, %.lr.ph.i.i.i.i.i34, %118, %123
+..loopexit_crit_edge21.i.i.i.i.i40:               ; preds = %140
+  br label %.loopexit.i.i41, !llvm.loop !7
+
+.loopexit.i.i41:                                  ; preds = %.lr.ph.i.i.i.i.i36, %118, %..loopexit_crit_edge21.i.i.i.i.i40, %123
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit43: ; preds = %137, %119, %132
-  %.sroa.06.1.i.i.i39 = phi ptr [ %133, %132 ], [ %.sroa.06.0.i.i.i41, %119 ], [ %139, %137 ]
-  %145 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i39, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46: ; preds = %137, %119, %132
+  %.sroa.06.1.i.i.i42 = phi ptr [ %133, %132 ], [ %.sroa.06.0.i.i.i44, %119 ], [ %139, %137 ]
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i42, i64 16
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %113, %146
   br label %148
 
-148:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit43, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19, %4
-  %149 = phi i1 [ false, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit19 ], [ false, %4 ], [ %147, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit43 ]
+148:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, %4
+  %149 = phi i1 [ false, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20 ], [ false, %4 ], [ %147, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46 ]
   ret i1 %149
 }
 
@@ -16587,7 +16761,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrSparseIterAny8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %6, %8
-  br i1 %9, label %10, label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread18
+  br i1 %9, label %10, label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread19
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16605,7 +16779,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrSparseIterAny8
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = icmp eq i64 %18, %24
-  br i1 %25, label %26, label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread18
+  br i1 %25, label %26, label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread19
 
 26:                                               ; preds = %10
   %.not.not.i.i.i.i.i = icmp eq ptr %14, %15
@@ -16614,7 +16788,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrSparseIterAny8
 _ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %26
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %15, ptr %21, i64 %18)
   %.not9.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i, label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread18
+  br i1 %.not9.i.i.i.i.i, label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread19
 
 _ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %26, %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -16675,9 +16849,12 @@ _ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %26, %_ZSteqIjSaIjEE
   %58 = ptrtoint ptr %57 to i64
   %59 = urem i64 %58, %42
   %.not19.i.i.i.i.i = icmp eq i64 %59, %43
-  br i1 %.not19.i.i.i.i.i, label %52, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %52, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %55, %.lr.ph.i.i.i.i.i, %33, %38
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %55
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %33, %..loopexit_crit_edge21.i.i.i.i.i, %38
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -16697,16 +16874,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %68
 
 68:                                               ; preds = %69, %65
-  %.sroa.06.0.in.i.i.i14 = phi ptr [ %66, %65 ], [ %.sroa.06.0.i.i.i15, %69 ]
-  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
-  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
-  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %69
+  %.sroa.06.0.in.i.i.i15 = phi ptr [ %66, %65 ], [ %.sroa.06.0.i.i.i16, %69 ]
+  %.sroa.06.0.i.i.i16 = load ptr, ptr %.sroa.06.0.in.i.i.i15, align 8
+  %.not.i.i.i17 = icmp eq ptr %.sroa.06.0.i.i.i16, null
+  br i1 %.not.i.i.i17, label %.loopexit.i.i13, label %69
 
 69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i16, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %67, %71
-  br i1 %72, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %68, !llvm.loop !5
+  br i1 %72, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %68, !llvm.loop !5
 
 73:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %74 = load ptr, ptr %62, align 8
@@ -16718,24 +16895,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i12, label %82
+  br i1 %.not.i.i.i.i.i7, label %.loopexit.i.i13, label %82
 
 82:                                               ; preds = %73
   %83 = load ptr, ptr %81, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %74, %85
-  br i1 %86, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i8
+  br i1 %86, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i8
 
 87:                                               ; preds = %90
   %88 = icmp eq ptr %74, %92
-  br i1 %88, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i8, !llvm.loop !7
+  br i1 %88, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, label %.lr.ph.i.i.i.i.i8, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i8:                                ; preds = %82, %87
   %.020.i.i.i.i.i9 = phi ptr [ %89, %87 ], [ %83, %82 ]
   %89 = load ptr, ptr %.020.i.i.i.i.i9, align 8
   %.not18.i.i.i.i.i10 = icmp eq ptr %89, null
-  br i1 %.not18.i.i.i.i.i10, label %.loopexit.i.i12, label %90
+  br i1 %.not18.i.i.i.i.i10, label %.loopexit.i.i13, label %90
 
 90:                                               ; preds = %.lr.ph.i.i.i.i.i8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -16743,21 +16920,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %93 = ptrtoint ptr %92 to i64
   %94 = urem i64 %93, %77
   %.not19.i.i.i.i.i11 = icmp eq i64 %94, %78
-  br i1 %.not19.i.i.i.i.i11, label %87, label %.loopexit.i.i12, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i11, label %87, label %..loopexit_crit_edge21.i.i.i.i.i12, !llvm.loop !7
 
-.loopexit.i.i12:                                  ; preds = %90, %.lr.ph.i.i.i.i.i8, %68, %73
+..loopexit_crit_edge21.i.i.i.i.i12:               ; preds = %90
+  br label %.loopexit.i.i13, !llvm.loop !7
+
+.loopexit.i.i13:                                  ; preds = %.lr.ph.i.i.i.i.i8, %68, %..loopexit_crit_edge21.i.i.i.i.i12, %73
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %87, %69, %82
-  %.sroa.06.1.i.i.i13 = phi ptr [ %83, %82 ], [ %.sroa.06.0.i.i.i15, %69 ], [ %89, %87 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18: ; preds = %87, %69, %82
+  %.sroa.06.1.i.i.i14 = phi ptr [ %83, %82 ], [ %.sroa.06.0.i.i.i16, %69 ], [ %89, %87 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i14, i64 16
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %61, %96
-  br label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread18
+  br label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread19
 
-_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread18: ; preds = %10, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit, %4
-  %98 = phi i1 [ false, %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit ], [ false, %4 ], [ %97, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ], [ false, %10 ]
+_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread19: ; preds = %10, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18, %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit, %4
+  %98 = phi i1 [ false, %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit ], [ false, %4 ], [ %97, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit18 ], [ false, %10 ]
   ret i1 %98
 }
 
@@ -16770,7 +16950,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue221RoseInstrCheckLongLit8e
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %8, %10
-  br i1 %11, label %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br i1 %11, label %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
 12:                                               ; preds = %4
   %13 = icmp eq i64 %8, 0
@@ -16781,7 +16961,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %15 = load ptr, ptr %5, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %15, ptr %14, i64 %8)
   %16 = icmp eq i32 %bcmp.i, 0
-  br i1 %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br i1 %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %12, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -16842,9 +17022,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %48 = ptrtoint ptr %47 to i64
   %49 = urem i64 %48, %32
   %.not19.i.i.i.i.i = icmp eq i64 %49, %33
-  br i1 %.not19.i.i.i.i.i, label %42, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %42, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %45, %.lr.ph.i.i.i.i.i, %23, %28
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %45
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %23, %..loopexit_crit_edge21.i.i.i.i.i, %28
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -16864,16 +17047,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %58
 
 58:                                               ; preds = %59, %55
-  %.sroa.06.0.in.i.i.i13 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i14, %59 ]
-  %.sroa.06.0.i.i.i14 = load ptr, ptr %.sroa.06.0.in.i.i.i13, align 8
-  %.not.i.i.i15 = icmp eq ptr %.sroa.06.0.i.i.i14, null
-  br i1 %.not.i.i.i15, label %.loopexit.i.i11, label %59
+  %.sroa.06.0.in.i.i.i14 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i15, %59 ]
+  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
+  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
+  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i14, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %57, %61
-  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %58, !llvm.loop !5
+  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %58, !llvm.loop !5
 
 63:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %64 = load ptr, ptr %52, align 8
@@ -16885,24 +17068,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i11, label %72
+  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %72
 
 72:                                               ; preds = %63
   %73 = load ptr, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %64, %75
-  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7
+  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7
 
 77:                                               ; preds = %80
   %78 = icmp eq ptr %64, %82
-  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
+  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i7:                                ; preds = %72, %77
   %.020.i.i.i.i.i8 = phi ptr [ %79, %77 ], [ %73, %72 ]
   %79 = load ptr, ptr %.020.i.i.i.i.i8, align 8
   %.not18.i.i.i.i.i9 = icmp eq ptr %79, null
-  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i11, label %80
+  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i12, label %80
 
 80:                                               ; preds = %.lr.ph.i.i.i.i.i7
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -16910,21 +17093,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %83 = ptrtoint ptr %82 to i64
   %84 = urem i64 %83, %67
   %.not19.i.i.i.i.i10 = icmp eq i64 %84, %68
-  br i1 %.not19.i.i.i.i.i10, label %77, label %.loopexit.i.i11, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i10, label %77, label %..loopexit_crit_edge21.i.i.i.i.i11, !llvm.loop !7
 
-.loopexit.i.i11:                                  ; preds = %80, %.lr.ph.i.i.i.i.i7, %58, %63
+..loopexit_crit_edge21.i.i.i.i.i11:               ; preds = %80
+  br label %.loopexit.i.i12, !llvm.loop !7
+
+.loopexit.i.i12:                                  ; preds = %.lr.ph.i.i.i.i.i7, %58, %..loopexit_crit_edge21.i.i.i.i.i11, %63
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16: ; preds = %77, %59, %72
-  %.sroa.06.1.i.i.i12 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i14, %59 ], [ %79, %77 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i12, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %77, %59, %72
+  %.sroa.06.1.i.i.i13 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i15, %59 ], [ %79, %77 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %51, %86
-  br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17: ; preds = %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %88 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16 ], [ false, %4 ]
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18: ; preds = %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  %88 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ], [ false, %4 ]
   ret i1 %88
 }
 
@@ -16937,7 +17123,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue227RoseInstrCheckLongLitNo
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %8, %10
-  br i1 %11, label %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br i1 %11, label %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
 12:                                               ; preds = %4
   %13 = icmp eq i64 %8, 0
@@ -16948,7 +17134,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %15 = load ptr, ptr %5, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %15, ptr %14, i64 %8)
   %16 = icmp eq i32 %bcmp.i, 0
-  br i1 %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br i1 %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %12, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -17009,9 +17195,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %48 = ptrtoint ptr %47 to i64
   %49 = urem i64 %48, %32
   %.not19.i.i.i.i.i = icmp eq i64 %49, %33
-  br i1 %.not19.i.i.i.i.i, label %42, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %42, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %45, %.lr.ph.i.i.i.i.i, %23, %28
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %45
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %23, %..loopexit_crit_edge21.i.i.i.i.i, %28
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -17031,16 +17220,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %58
 
 58:                                               ; preds = %59, %55
-  %.sroa.06.0.in.i.i.i13 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i14, %59 ]
-  %.sroa.06.0.i.i.i14 = load ptr, ptr %.sroa.06.0.in.i.i.i13, align 8
-  %.not.i.i.i15 = icmp eq ptr %.sroa.06.0.i.i.i14, null
-  br i1 %.not.i.i.i15, label %.loopexit.i.i11, label %59
+  %.sroa.06.0.in.i.i.i14 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i15, %59 ]
+  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
+  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
+  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i14, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %57, %61
-  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %58, !llvm.loop !5
+  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %58, !llvm.loop !5
 
 63:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %64 = load ptr, ptr %52, align 8
@@ -17052,24 +17241,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i11, label %72
+  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %72
 
 72:                                               ; preds = %63
   %73 = load ptr, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %64, %75
-  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7
+  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7
 
 77:                                               ; preds = %80
   %78 = icmp eq ptr %64, %82
-  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
+  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i7:                                ; preds = %72, %77
   %.020.i.i.i.i.i8 = phi ptr [ %79, %77 ], [ %73, %72 ]
   %79 = load ptr, ptr %.020.i.i.i.i.i8, align 8
   %.not18.i.i.i.i.i9 = icmp eq ptr %79, null
-  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i11, label %80
+  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i12, label %80
 
 80:                                               ; preds = %.lr.ph.i.i.i.i.i7
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -17077,21 +17266,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %83 = ptrtoint ptr %82 to i64
   %84 = urem i64 %83, %67
   %.not19.i.i.i.i.i10 = icmp eq i64 %84, %68
-  br i1 %.not19.i.i.i.i.i10, label %77, label %.loopexit.i.i11, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i10, label %77, label %..loopexit_crit_edge21.i.i.i.i.i11, !llvm.loop !7
 
-.loopexit.i.i11:                                  ; preds = %80, %.lr.ph.i.i.i.i.i7, %58, %63
+..loopexit_crit_edge21.i.i.i.i.i11:               ; preds = %80
+  br label %.loopexit.i.i12, !llvm.loop !7
+
+.loopexit.i.i12:                                  ; preds = %.lr.ph.i.i.i.i.i7, %58, %..loopexit_crit_edge21.i.i.i.i.i11, %63
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16: ; preds = %77, %59, %72
-  %.sroa.06.1.i.i.i12 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i14, %59 ], [ %79, %77 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i12, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %77, %59, %72
+  %.sroa.06.1.i.i.i13 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i15, %59 ], [ %79, %77 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %51, %86
-  br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17: ; preds = %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %88 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16 ], [ false, %4 ]
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18: ; preds = %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  %88 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ], [ false, %4 ]
   ret i1 %88
 }
 
@@ -17104,7 +17296,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMedLit8eq
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %8, %10
-  br i1 %11, label %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br i1 %11, label %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
 12:                                               ; preds = %4
   %13 = icmp eq i64 %8, 0
@@ -17115,7 +17307,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %15 = load ptr, ptr %5, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %15, ptr %14, i64 %8)
   %16 = icmp eq i32 %bcmp.i, 0
-  br i1 %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br i1 %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %12, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -17176,9 +17368,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %48 = ptrtoint ptr %47 to i64
   %49 = urem i64 %48, %32
   %.not19.i.i.i.i.i = icmp eq i64 %49, %33
-  br i1 %.not19.i.i.i.i.i, label %42, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %42, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %45, %.lr.ph.i.i.i.i.i, %23, %28
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %45
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %23, %..loopexit_crit_edge21.i.i.i.i.i, %28
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -17198,16 +17393,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %58
 
 58:                                               ; preds = %59, %55
-  %.sroa.06.0.in.i.i.i13 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i14, %59 ]
-  %.sroa.06.0.i.i.i14 = load ptr, ptr %.sroa.06.0.in.i.i.i13, align 8
-  %.not.i.i.i15 = icmp eq ptr %.sroa.06.0.i.i.i14, null
-  br i1 %.not.i.i.i15, label %.loopexit.i.i11, label %59
+  %.sroa.06.0.in.i.i.i14 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i15, %59 ]
+  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
+  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
+  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i14, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %57, %61
-  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %58, !llvm.loop !5
+  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %58, !llvm.loop !5
 
 63:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %64 = load ptr, ptr %52, align 8
@@ -17219,24 +17414,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i11, label %72
+  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %72
 
 72:                                               ; preds = %63
   %73 = load ptr, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %64, %75
-  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7
+  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7
 
 77:                                               ; preds = %80
   %78 = icmp eq ptr %64, %82
-  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
+  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i7:                                ; preds = %72, %77
   %.020.i.i.i.i.i8 = phi ptr [ %79, %77 ], [ %73, %72 ]
   %79 = load ptr, ptr %.020.i.i.i.i.i8, align 8
   %.not18.i.i.i.i.i9 = icmp eq ptr %79, null
-  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i11, label %80
+  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i12, label %80
 
 80:                                               ; preds = %.lr.ph.i.i.i.i.i7
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -17244,21 +17439,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %83 = ptrtoint ptr %82 to i64
   %84 = urem i64 %83, %67
   %.not19.i.i.i.i.i10 = icmp eq i64 %84, %68
-  br i1 %.not19.i.i.i.i.i10, label %77, label %.loopexit.i.i11, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i10, label %77, label %..loopexit_crit_edge21.i.i.i.i.i11, !llvm.loop !7
 
-.loopexit.i.i11:                                  ; preds = %80, %.lr.ph.i.i.i.i.i7, %58, %63
+..loopexit_crit_edge21.i.i.i.i.i11:               ; preds = %80
+  br label %.loopexit.i.i12, !llvm.loop !7
+
+.loopexit.i.i12:                                  ; preds = %.lr.ph.i.i.i.i.i7, %58, %..loopexit_crit_edge21.i.i.i.i.i11, %63
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16: ; preds = %77, %59, %72
-  %.sroa.06.1.i.i.i12 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i14, %59 ], [ %79, %77 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i12, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %77, %59, %72
+  %.sroa.06.1.i.i.i13 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i15, %59 ], [ %79, %77 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %51, %86
-  br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17: ; preds = %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %88 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16 ], [ false, %4 ]
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18: ; preds = %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  %88 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ], [ false, %4 ]
   ret i1 %88
 }
 
@@ -17271,7 +17469,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue226RoseInstrCheckMedLitNoc
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %8, %10
-  br i1 %11, label %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br i1 %11, label %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
 12:                                               ; preds = %4
   %13 = icmp eq i64 %8, 0
@@ -17282,7 +17480,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %15 = load ptr, ptr %5, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %15, ptr %14, i64 %8)
   %16 = icmp eq i32 %bcmp.i, 0
-  br i1 %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br i1 %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %12, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -17343,9 +17541,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %48 = ptrtoint ptr %47 to i64
   %49 = urem i64 %48, %32
   %.not19.i.i.i.i.i = icmp eq i64 %49, %33
-  br i1 %.not19.i.i.i.i.i, label %42, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %42, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %45, %.lr.ph.i.i.i.i.i, %23, %28
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %45
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %23, %..loopexit_crit_edge21.i.i.i.i.i, %28
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -17365,16 +17566,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %58
 
 58:                                               ; preds = %59, %55
-  %.sroa.06.0.in.i.i.i13 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i14, %59 ]
-  %.sroa.06.0.i.i.i14 = load ptr, ptr %.sroa.06.0.in.i.i.i13, align 8
-  %.not.i.i.i15 = icmp eq ptr %.sroa.06.0.i.i.i14, null
-  br i1 %.not.i.i.i15, label %.loopexit.i.i11, label %59
+  %.sroa.06.0.in.i.i.i14 = phi ptr [ %56, %55 ], [ %.sroa.06.0.i.i.i15, %59 ]
+  %.sroa.06.0.i.i.i15 = load ptr, ptr %.sroa.06.0.in.i.i.i14, align 8
+  %.not.i.i.i16 = icmp eq ptr %.sroa.06.0.i.i.i15, null
+  br i1 %.not.i.i.i16, label %.loopexit.i.i12, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i14, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i15, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %57, %61
-  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %58, !llvm.loop !5
+  br i1 %62, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %58, !llvm.loop !5
 
 63:                                               ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %64 = load ptr, ptr %52, align 8
@@ -17386,24 +17587,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i11, label %72
+  br i1 %.not.i.i.i.i.i6, label %.loopexit.i.i12, label %72
 
 72:                                               ; preds = %63
   %73 = load ptr, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %64, %75
-  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7
+  br i1 %76, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7
 
 77:                                               ; preds = %80
   %78 = icmp eq ptr %64, %82
-  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
+  br i1 %78, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, label %.lr.ph.i.i.i.i.i7, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i7:                                ; preds = %72, %77
   %.020.i.i.i.i.i8 = phi ptr [ %79, %77 ], [ %73, %72 ]
   %79 = load ptr, ptr %.020.i.i.i.i.i8, align 8
   %.not18.i.i.i.i.i9 = icmp eq ptr %79, null
-  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i11, label %80
+  br i1 %.not18.i.i.i.i.i9, label %.loopexit.i.i12, label %80
 
 80:                                               ; preds = %.lr.ph.i.i.i.i.i7
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -17411,21 +17612,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %83 = ptrtoint ptr %82 to i64
   %84 = urem i64 %83, %67
   %.not19.i.i.i.i.i10 = icmp eq i64 %84, %68
-  br i1 %.not19.i.i.i.i.i10, label %77, label %.loopexit.i.i11, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i10, label %77, label %..loopexit_crit_edge21.i.i.i.i.i11, !llvm.loop !7
 
-.loopexit.i.i11:                                  ; preds = %80, %.lr.ph.i.i.i.i.i7, %58, %63
+..loopexit_crit_edge21.i.i.i.i.i11:               ; preds = %80
+  br label %.loopexit.i.i12, !llvm.loop !7
+
+.loopexit.i.i12:                                  ; preds = %.lr.ph.i.i.i.i.i7, %58, %..loopexit_crit_edge21.i.i.i.i.i11, %63
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16: ; preds = %77, %59, %72
-  %.sroa.06.1.i.i.i12 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i14, %59 ], [ %79, %77 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i12, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17: ; preds = %77, %59, %72
+  %.sroa.06.1.i.i.i13 = phi ptr [ %73, %72 ], [ %.sroa.06.0.i.i.i15, %59 ], [ %79, %77 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i13, i64 16
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %51, %86
-  br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17
+  br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17: ; preds = %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %88 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit16 ], [ false, %4 ]
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18: ; preds = %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  %88 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %87, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit17 ], [ false, %4 ]
   ret i1 %88
 }
 
@@ -17575,9 +17779,12 @@ _ZSteqISt6vectorIN3ue29LookEntryESaIS2_EESaIS4_EEbRKS0_IT_T0_ESA_.exit: ; preds 
   %85 = ptrtoint ptr %84 to i64
   %86 = urem i64 %85, %69
   %.not19.i.i.i.i.i = icmp eq i64 %86, %70
-  br i1 %.not19.i.i.i.i.i, label %79, label %.loopexit.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i, label %79, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %82, %.lr.ph.i.i.i.i.i8, %60, %65
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %82
+  br label %.loopexit.i.i, !llvm.loop !7
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i8, %60, %..loopexit_crit_edge21.i.i.i.i.i, %65
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
@@ -17597,16 +17804,16 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br label %95
 
 95:                                               ; preds = %96, %92
-  %.sroa.06.0.in.i.i.i17 = phi ptr [ %93, %92 ], [ %.sroa.06.0.i.i.i18, %96 ]
-  %.sroa.06.0.i.i.i18 = load ptr, ptr %.sroa.06.0.in.i.i.i17, align 8
-  %.not.i.i.i19 = icmp eq ptr %.sroa.06.0.i.i.i18, null
-  br i1 %.not.i.i.i19, label %.loopexit.i.i15, label %96
+  %.sroa.06.0.in.i.i.i18 = phi ptr [ %93, %92 ], [ %.sroa.06.0.i.i.i19, %96 ]
+  %.sroa.06.0.i.i.i19 = load ptr, ptr %.sroa.06.0.in.i.i.i18, align 8
+  %.not.i.i.i20 = icmp eq ptr %.sroa.06.0.i.i.i19, null
+  br i1 %.not.i.i.i20, label %.loopexit.i.i16, label %96
 
 96:                                               ; preds = %95
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i18, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i19, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %94, %98
-  br i1 %99, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %95, !llvm.loop !5
+  br i1 %99, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %95, !llvm.loop !5
 
 100:                                              ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %101 = load ptr, ptr %89, align 8
@@ -17618,24 +17825,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
   %108 = load ptr, ptr %107, align 8
   %.not.i.i.i.i.i10 = icmp eq ptr %108, null
-  br i1 %.not.i.i.i.i.i10, label %.loopexit.i.i15, label %109
+  br i1 %.not.i.i.i.i.i10, label %.loopexit.i.i16, label %109
 
 109:                                              ; preds = %100
   %110 = load ptr, ptr %108, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %101, %112
-  br i1 %113, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %.lr.ph.i.i.i.i.i11
+  br i1 %113, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %.lr.ph.i.i.i.i.i11
 
 114:                                              ; preds = %117
   %115 = icmp eq ptr %101, %119
-  br i1 %115, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, label %.lr.ph.i.i.i.i.i11, !llvm.loop !7
+  br i1 %115, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, label %.lr.ph.i.i.i.i.i11, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i11:                               ; preds = %109, %114
   %.020.i.i.i.i.i12 = phi ptr [ %116, %114 ], [ %110, %109 ]
   %116 = load ptr, ptr %.020.i.i.i.i.i12, align 8
   %.not18.i.i.i.i.i13 = icmp eq ptr %116, null
-  br i1 %.not18.i.i.i.i.i13, label %.loopexit.i.i15, label %117
+  br i1 %.not18.i.i.i.i.i13, label %.loopexit.i.i16, label %117
 
 117:                                              ; preds = %.lr.ph.i.i.i.i.i11
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -17643,21 +17850,24 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %120 = ptrtoint ptr %119 to i64
   %121 = urem i64 %120, %104
   %.not19.i.i.i.i.i14 = icmp eq i64 %121, %105
-  br i1 %.not19.i.i.i.i.i14, label %114, label %.loopexit.i.i15, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i14, label %114, label %..loopexit_crit_edge21.i.i.i.i.i15, !llvm.loop !7
 
-.loopexit.i.i15:                                  ; preds = %117, %.lr.ph.i.i.i.i.i11, %95, %100
+..loopexit_crit_edge21.i.i.i.i.i15:               ; preds = %117
+  br label %.loopexit.i.i16, !llvm.loop !7
+
+.loopexit.i.i16:                                  ; preds = %.lr.ph.i.i.i.i.i11, %95, %..loopexit_crit_edge21.i.i.i.i.i15, %100
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20: ; preds = %114, %96, %109
-  %.sroa.06.1.i.i.i16 = phi ptr [ %110, %109 ], [ %.sroa.06.0.i.i.i18, %96 ], [ %116, %114 ]
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i16, i64 16
+_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21: ; preds = %114, %96, %109
+  %.sroa.06.1.i.i.i17 = phi ptr [ %110, %109 ], [ %.sroa.06.0.i.i.i19, %96 ], [ %116, %114 ]
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i17, i64 16
   %123 = load i32, ptr %122, align 4
   %124 = icmp eq i32 %88, %123
   br label %_ZSteqISt6vectorIN3ue29LookEntryESaIS2_EESaIS4_EEbRKS0_IT_T0_ESA_.exit.thread
 
-_ZSteqISt6vectorIN3ue29LookEntryESaIS2_EESaIS4_EEbRKS0_IT_T0_ESA_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20, %50, %_ZSteqISt6vectorIN3ue29LookEntryESaIS2_EESaIS4_EEbRKS0_IT_T0_ESA_.exit
-  %125 = phi i1 [ false, %50 ], [ false, %_ZSteqISt6vectorIN3ue29LookEntryESaIS2_EESaIS4_EEbRKS0_IT_T0_ESA_.exit ], [ %124, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit20 ], [ false, %4 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ false, %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i.i ]
+_ZSteqISt6vectorIN3ue29LookEntryESaIS2_EESaIS4_EEbRKS0_IT_T0_ESA_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %4, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21, %50, %_ZSteqISt6vectorIN3ue29LookEntryESaIS2_EESaIS4_EEbRKS0_IT_T0_ESA_.exit
+  %125 = phi i1 [ false, %50 ], [ false, %_ZSteqISt6vectorIN3ue29LookEntryESaIS2_EESaIS4_EEbRKS0_IT_T0_ESA_.exit ], [ %124, %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit21 ], [ false, %4 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ false, %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %125
 }
 

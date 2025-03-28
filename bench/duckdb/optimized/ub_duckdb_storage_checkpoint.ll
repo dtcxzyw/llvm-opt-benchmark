@@ -1963,7 +1963,10 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   %36 = load i64, ptr %35, align 8, !tbaa !97
   %37 = urem i64 %36, %21
   %.not19.i.i.i.i = icmp eq i64 %37, %22
-  br i1 %.not19.i.i.i.i, label %31, label %.loopexit, !llvm.loop !272
+  br i1 %.not19.i.i.i.i, label %31, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !272
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %34
+  br label %.loopexit, !llvm.loop !272
 
 _ZNSt13unordered_mapIlN6duckdb10shared_ptrINS0_11BlockHandleELb1EEESt4hashIlESt8equal_toIlESaISt4pairIKlS3_EEE4findERS9_.exit: ; preds = %31, %15, %26
   %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %15 ], [ %33, %31 ]
@@ -1998,7 +2001,7 @@ _ZNSt13unordered_mapIlN6duckdb10shared_ptrINS0_11BlockHandleELb1EEESt4hashIlESt8
           cleanup
   br label %93
 
-.loopexit:                                        ; preds = %34, %.lr.ph.i.i.i.i, %14, %19
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %14, %19, %..loopexit_crit_edge21.i.i.i.i
   invoke void @_ZN6duckdb12BlockManager13RegisterBlockEl(ptr dead_on_unwind writable sret(%"class.duckdb::shared_ptr.96") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i64 noundef %3)
           to label %53 unwind label %51
 
@@ -2289,7 +2292,10 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %3
   %38 = load i64, ptr %37, align 8, !tbaa !97
   %39 = urem i64 %38, %23
   %.not19.i.i.i.i = icmp eq i64 %39, %24
-  br i1 %.not19.i.i.i.i, label %33, label %.loopexit, !llvm.loop !272
+  br i1 %.not19.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !272
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
+  br label %.loopexit, !llvm.loop !272
 
 _ZNSt13unordered_mapIlN6duckdb10shared_ptrINS0_11BlockHandleELb1EEESt4hashIlESt8equal_toIlESaISt4pairIKlS3_EEE4findERS9_.exit: ; preds = %33, %17, %28
   %40 = tail call ptr @__cxa_allocate_exception(i64 16) #30
@@ -2342,7 +2348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %44
   call void @__cxa_free_exception(ptr %40) #30
   br label %140
 
-.loopexit:                                        ; preds = %36, %.lr.ph.i.i.i.i, %16, %21
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %16, %21, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #30
   invoke void @_ZN6duckdb12BlockManager13RegisterBlockEl(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::shared_ptr.96") align 8 %6, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %2)
           to label %53 unwind label %132
@@ -6160,10 +6166,13 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIlSt4pairIKlN6duckdb10shared_p
   %43 = load i64, ptr %42, align 8, !tbaa !97
   %44 = urem i64 %43, %17
   %.not19.i.i = icmp eq i64 %44, %18
-  br i1 %.not19.i.i, label %38, label %.critedge27, !llvm.loop !272
+  br i1 %.not19.i.i, label %38, label %..loopexit_crit_edge21.i.i, !llvm.loop !272
 
-.critedge27:                                      ; preds = %.lr.ph.i.i, %41, %29, %.thread
-  %45 = phi i64 [ %32, %29 ], [ %18, %.thread ], [ %18, %41 ], [ %18, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %41
+  br label %.critedge27, !llvm.loop !272
+
+.critedge27:                                      ; preds = %.lr.ph.i.i, %29, %..loopexit_crit_edge21.i.i, %.thread
+  %45 = phi i64 [ %32, %29 ], [ %18, %.thread ], [ %18, %..loopexit_crit_edge21.i.i ], [ %18, %.lr.ph.i.i ]
   %46 = invoke ptr @_ZNSt10_HashtableIlSt4pairIKlN6duckdb10shared_ptrINS2_11BlockHandleELb1EEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %45, i64 noundef %7, ptr noundef nonnull %5, i64 noundef 1)
           to label %_ZNSt10_HashtableIlSt4pairIKlN6duckdb10shared_ptrINS2_11BlockHandleELb1EEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %47
 

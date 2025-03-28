@@ -5107,7 +5107,7 @@ list_length.exit:                                 ; preds = %40, %42
 ._crit_edge:                                      ; preds = %76
   %.pre262 = load i32, ptr %10, align 8
   %.pre265 = zext i32 %.pre262 to i64
-  br label %79
+  br label %79, !llvm.loop !16
 
 79:                                               ; preds = %._crit_edge, %73
   %.pre-phi = phi i64 [ %.pre265, %._crit_edge ], [ %75, %73 ]

@@ -4892,11 +4892,14 @@ _ZN4llvh6detail9IEEEFloatD2Ev.exit109:            ; preds = %_ZN4llvh6detail9IEE
   %bf.clear.i.i = and i8 %bf.load.i.i.i, 7
   %cmp.i.i = icmp ne i8 %bf.clear.i.i, 3
   %70 = and i1 %69, %cmp.i.i
-  br i1 %70, label %land.lhs.true, label %while.end, !llvm.loop !13
+  br i1 %70, label %land.lhs.true, label %_ZN4llvh6detail9IEEEFloatD2Ev.exit109.while.end.loopexit_crit_edge, !llvm.loop !13
 
-while.end:                                        ; preds = %land.lhs.true, %_ZN4llvh6detail9IEEEFloatD2Ev.exit109, %land.lhs.true.lr.ph, %_ZNK4llvh6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit.while.end.loopexit_crit_edge, %entry
-  %bf.load.i111 = phi i8 [ %bf.load, %entry ], [ %bf.load.i111.pre.pre, %_ZNK4llvh6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit.while.end.loopexit_crit_edge ], [ %bf.load, %land.lhs.true.lr.ph ], [ %bf.load.i.i.i, %_ZN4llvh6detail9IEEEFloatD2Ev.exit109 ], [ %bf.load.i.i.i, %land.lhs.true ]
-  %fs.0.lcssa = phi i32 [ %call, %entry ], [ %fs.0124139, %_ZNK4llvh6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit.while.end.loopexit_crit_edge ], [ %call, %land.lhs.true.lr.ph ], [ %fs.0.i.i, %_ZN4llvh6detail9IEEEFloatD2Ev.exit109 ], [ %fs.0.i.i, %land.lhs.true ]
+_ZN4llvh6detail9IEEEFloatD2Ev.exit109.while.end.loopexit_crit_edge: ; preds = %_ZN4llvh6detail9IEEEFloatD2Ev.exit109
+  br label %while.end, !llvm.loop !13
+
+while.end:                                        ; preds = %land.lhs.true, %land.lhs.true.lr.ph, %_ZN4llvh6detail9IEEEFloatD2Ev.exit109.while.end.loopexit_crit_edge, %_ZNK4llvh6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit.while.end.loopexit_crit_edge, %entry
+  %bf.load.i111 = phi i8 [ %bf.load, %entry ], [ %bf.load.i111.pre.pre, %_ZNK4llvh6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit.while.end.loopexit_crit_edge ], [ %bf.load.i.i.i, %_ZN4llvh6detail9IEEEFloatD2Ev.exit109.while.end.loopexit_crit_edge ], [ %bf.load, %land.lhs.true.lr.ph ], [ %bf.load.i.i.i, %land.lhs.true ]
+  %fs.0.lcssa = phi i32 [ %call, %entry ], [ %fs.0124139, %_ZNK4llvh6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit.while.end.loopexit_crit_edge ], [ %fs.0.i.i, %_ZN4llvh6detail9IEEEFloatD2Ev.exit109.while.end.loopexit_crit_edge ], [ %call, %land.lhs.true.lr.ph ], [ %fs.0.i.i, %land.lhs.true ]
   %bf.clear.i112 = and i8 %bf.load.i111, 7
   %cmp.i113 = icmp eq i8 %bf.clear.i112, 3
   br i1 %cmp.i113, label %if.then21, label %if.end28

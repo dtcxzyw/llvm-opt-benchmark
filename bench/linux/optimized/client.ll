@@ -1401,15 +1401,18 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %._crit_edge36, label %.preheader24, !llvm.loop !31
 
+._crit_edge36:                                    ; preds = %42
+  br label %split37, !llvm.loop !31
+
 .preheader24:                                     ; preds = %39, %42
   %45 = phi i32 [ %43, %42 ], [ 31, %39 ]
   %46 = shl nuw i32 1, %45
   %47 = and i32 %46, %35
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %42, label %._crit_edge36
+  br i1 %48, label %42, label %split37
 
-._crit_edge36:                                    ; preds = %.preheader24, %42
-  %49 = phi i32 [ 0, %42 ], [ %45, %.preheader24 ]
+split37:                                          ; preds = %.preheader24, %._crit_edge36
+  %49 = phi i32 [ 0, %._crit_edge36 ], [ %45, %.preheader24 ]
   %50 = shl nuw i32 1, %49
   br label %53
 
@@ -1417,8 +1420,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %52 = and i32 %35, 2093056
   br label %53
 
-53:                                               ; preds = %51, %._crit_edge36, %39
-  %54 = phi i32 [ %52, %51 ], [ %50, %._crit_edge36 ], [ %35, %39 ]
+53:                                               ; preds = %51, %split37, %39
+  %54 = phi i32 [ %52, %51 ], [ %50, %split37 ], [ %35, %39 ]
   store i32 %54, ptr %25, align 8
   br label %55
 
@@ -1452,15 +1455,18 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %._crit_edge34, label %.preheader23, !llvm.loop !31
 
+._crit_edge34:                                    ; preds = %74
+  br label %split35, !llvm.loop !31
+
 .preheader23:                                     ; preds = %71, %74
   %77 = phi i32 [ %75, %74 ], [ 31, %71 ]
   %78 = shl nuw i32 1, %77
   %79 = and i32 %78, %67
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %74, label %._crit_edge34
+  br i1 %80, label %74, label %split35
 
-._crit_edge34:                                    ; preds = %.preheader23, %74
-  %81 = phi i32 [ 0, %74 ], [ %77, %.preheader23 ]
+split35:                                          ; preds = %.preheader23, %._crit_edge34
+  %81 = phi i32 [ 0, %._crit_edge34 ], [ %77, %.preheader23 ]
   %82 = shl nuw i32 1, %81
   br label %85
 
@@ -1468,8 +1474,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %84 = and i32 %67, 2093056
   br label %85
 
-85:                                               ; preds = %83, %._crit_edge34, %71
-  %86 = phi i32 [ %84, %83 ], [ %82, %._crit_edge34 ], [ %67, %71 ]
+85:                                               ; preds = %83, %split35, %71
+  %86 = phi i32 [ %84, %83 ], [ %82, %split35 ], [ %67, %71 ]
   store i32 %86, ptr %57, align 8
   br label %87
 
@@ -1503,15 +1509,18 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %._crit_edge32, label %.preheader22, !llvm.loop !31
 
+._crit_edge32:                                    ; preds = %105
+  br label %split33, !llvm.loop !31
+
 .preheader22:                                     ; preds = %102, %105
   %108 = phi i32 [ %106, %105 ], [ 31, %102 ]
   %109 = shl nuw i32 1, %108
   %110 = and i32 %109, %98
   %111 = icmp eq i32 %110, 0
-  br i1 %111, label %105, label %._crit_edge32
+  br i1 %111, label %105, label %split33
 
-._crit_edge32:                                    ; preds = %.preheader22, %105
-  %112 = phi i32 [ 0, %105 ], [ %108, %.preheader22 ]
+split33:                                          ; preds = %.preheader22, %._crit_edge32
+  %112 = phi i32 [ 0, %._crit_edge32 ], [ %108, %.preheader22 ]
   %113 = shl nuw i32 1, %112
   br label %116
 
@@ -1519,8 +1528,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %115 = and i32 %98, 2093056
   br label %116
 
-116:                                              ; preds = %114, %._crit_edge32, %102
-  %117 = phi i32 [ %115, %114 ], [ %113, %._crit_edge32 ], [ %98, %102 ]
+116:                                              ; preds = %114, %split33, %102
+  %117 = phi i32 [ %115, %114 ], [ %113, %split33 ], [ %98, %102 ]
   store i32 %117, ptr %25, align 8
   br label %118
 
@@ -1529,8 +1538,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %120 = load i32, ptr %119, align 4
   %121 = icmp ugt i32 %120, 511
   %122 = icmp ugt i32 %88, %120
-  %or.cond39 = select i1 %121, i1 %122, i1 false
-  br i1 %or.cond39, label %123, label %148
+  %or.cond52 = select i1 %121, i1 %122, i1 false
+  br i1 %or.cond52, label %123, label %148
 
 123:                                              ; preds = %118
   %124 = getelementptr inbounds nuw i8, ptr %24, i64 232
@@ -1553,15 +1562,18 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %._crit_edge30, label %.preheader21, !llvm.loop !31
 
+._crit_edge30:                                    ; preds = %135
+  br label %split31, !llvm.loop !31
+
 .preheader21:                                     ; preds = %132, %135
   %138 = phi i32 [ %136, %135 ], [ 31, %132 ]
   %139 = shl nuw i32 1, %138
   %140 = and i32 %139, %128
   %141 = icmp eq i32 %140, 0
-  br i1 %141, label %135, label %._crit_edge30
+  br i1 %141, label %135, label %split31
 
-._crit_edge30:                                    ; preds = %.preheader21, %135
-  %142 = phi i32 [ 0, %135 ], [ %138, %.preheader21 ]
+split31:                                          ; preds = %.preheader21, %._crit_edge30
+  %142 = phi i32 [ 0, %._crit_edge30 ], [ %138, %.preheader21 ]
   %143 = shl nuw i32 1, %142
   br label %146
 
@@ -1569,8 +1581,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %145 = and i32 %128, 2093056
   br label %146
 
-146:                                              ; preds = %144, %._crit_edge30, %132
-  %147 = phi i32 [ %145, %144 ], [ %143, %._crit_edge30 ], [ %128, %132 ]
+146:                                              ; preds = %144, %split31, %132
+  %147 = phi i32 [ %145, %144 ], [ %143, %split31 ], [ %128, %132 ]
   store i32 %147, ptr %57, align 8
   br label %148
 
@@ -1590,22 +1602,25 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %._crit_edge28, label %.preheader20, !llvm.loop !31
 
+._crit_edge28:                                    ; preds = %157
+  br label %split29, !llvm.loop !31
+
 .preheader20:                                     ; preds = %148, %157
   %160 = phi i32 [ %158, %157 ], [ 31, %148 ]
   %161 = shl nuw i32 1, %160
   %162 = zext i32 %161 to i64
   %163 = and i64 %154, %162
   %164 = icmp eq i64 %163, 0
-  br i1 %164, label %157, label %._crit_edge28
+  br i1 %164, label %157, label %split29
 
-._crit_edge28:                                    ; preds = %.preheader20, %157
-  %165 = phi i32 [ 0, %157 ], [ %160, %.preheader20 ]
+split29:                                          ; preds = %.preheader20, %._crit_edge28
+  %165 = phi i32 [ 0, %._crit_edge28 ], [ %160, %.preheader20 ]
   %166 = shl nuw i32 1, %165
   %167 = sext i32 %166 to i64
   br label %168
 
-168:                                              ; preds = %._crit_edge28, %148
-  %169 = phi i64 [ %167, %._crit_edge28 ], [ %154, %148 ]
+168:                                              ; preds = %split29, %148
+  %169 = phi i64 [ %167, %split29 ], [ %154, %148 ]
   %170 = load i32, ptr %25, align 8
   %171 = zext i32 %170 to i64
   %172 = icmp ult i64 %169, %171
@@ -1668,21 +1683,24 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %203 = icmp eq i8 %201, 0
   br i1 %203, label %._crit_edge26, label %.preheader19, !llvm.loop !31
 
+._crit_edge26:                                    ; preds = %200
+  br label %split27, !llvm.loop !31
+
 .preheader19:                                     ; preds = %192, %200
   %204 = phi i32 [ %202, %200 ], [ 31, %192 ]
   %205 = phi i8 [ %201, %200 ], [ 31, %192 ]
   %206 = shl nuw i32 1, %204
   %207 = and i32 %206, %197
   %208 = icmp eq i32 %207, 0
-  br i1 %208, label %200, label %._crit_edge26
+  br i1 %208, label %200, label %split27
 
-._crit_edge26:                                    ; preds = %.preheader19, %200
-  %209 = phi i32 [ 0, %200 ], [ %204, %.preheader19 ]
+split27:                                          ; preds = %.preheader19, %._crit_edge26
+  %209 = phi i32 [ 0, %._crit_edge26 ], [ %204, %.preheader19 ]
   %210 = shl nuw i32 1, %209
   br label %211
 
-211:                                              ; preds = %._crit_edge26, %192
-  %212 = phi i32 [ %210, %._crit_edge26 ], [ %197, %192 ]
+211:                                              ; preds = %split27, %192
+  %212 = phi i32 [ %210, %split27 ], [ %197, %192 ]
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %212, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1699,20 +1717,23 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %._crit_edge25, label %.preheader, !llvm.loop !31
 
+._crit_edge25:                                    ; preds = %221
+  br label %split, !llvm.loop !31
+
 .preheader:                                       ; preds = %211, %221
   %224 = phi i32 [ %222, %221 ], [ 31, %211 ]
   %225 = shl nuw i32 1, %224
   %226 = and i32 %225, %218
   %227 = icmp eq i32 %226, 0
-  br i1 %227, label %221, label %._crit_edge25
+  br i1 %227, label %221, label %split
 
-._crit_edge25:                                    ; preds = %.preheader, %221
-  %228 = phi i32 [ 0, %221 ], [ %224, %.preheader ]
+split:                                            ; preds = %.preheader, %._crit_edge25
+  %228 = phi i32 [ 0, %._crit_edge25 ], [ %224, %.preheader ]
   %229 = shl nuw i32 1, %228
   br label %230
 
-230:                                              ; preds = %._crit_edge25, %211
-  %231 = phi i32 [ %229, %._crit_edge25 ], [ %218, %211 ]
+230:                                              ; preds = %split, %211
+  %231 = phi i32 [ %229, %split ], [ %218, %211 ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %233 = call i32 @llvm.umin.i32(i32 %231, i32 %180)
   %234 = call i32 @llvm.umin.i32(i32 %233, i32 1048576)
@@ -2308,18 +2329,18 @@ define dso_local ptr @nfs_create_server(ptr noundef readonly captures(none) %0) 
   %86 = add i32 %57, 9
   %87 = icmp ult i32 %86, 19
   %88 = or i1 %85, %87
-  br i1 %88, label %.sink.split29, label %89
+  br i1 %88, label %.sink.split32, label %89
 
 89:                                               ; preds = %84
   %90 = icmp ugt i32 %58, 60000
-  br i1 %90, label %.sink.split29, label %91
+  br i1 %90, label %.sink.split32, label %91
 
-.sink.split29:                                    ; preds = %89, %84
-  %.sink30 = phi i64 [ 1100, %84 ], [ 60000, %89 ]
-  store i64 %.sink30, ptr %3, align 8
+.sink.split32:                                    ; preds = %89, %84
+  %.sink33 = phi i64 [ 1100, %84 ], [ 60000, %89 ]
+  store i64 %.sink33, ptr %3, align 8
   br label %91
 
-91:                                               ; preds = %.sink.split29, %89
+91:                                               ; preds = %.sink.split32, %89
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 60000, ptr %92, align 8
   br label %94
@@ -2400,15 +2421,18 @@ define dso_local ptr @nfs_create_server(ptr noundef readonly captures(none) %0) 
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %._crit_edge26, label %.preheader24, !llvm.loop !31
 
+._crit_edge26:                                    ; preds = %139
+  br label %split, !llvm.loop !31
+
 .preheader24:                                     ; preds = %136, %139
   %142 = phi i32 [ %140, %139 ], [ 31, %136 ]
   %143 = shl nuw i32 1, %142
   %144 = and i32 %143, %132
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %139, label %._crit_edge26
+  br i1 %145, label %139, label %split
 
-._crit_edge26:                                    ; preds = %.preheader24, %139
-  %146 = phi i32 [ 0, %139 ], [ %142, %.preheader24 ]
+split:                                            ; preds = %.preheader24, %._crit_edge26
+  %146 = phi i32 [ 0, %._crit_edge26 ], [ %142, %.preheader24 ]
   %147 = shl nuw i32 1, %146
   br label %150
 
@@ -2416,8 +2440,8 @@ define dso_local ptr @nfs_create_server(ptr noundef readonly captures(none) %0) 
   %149 = and i32 %132, 2093056
   br label %150
 
-150:                                              ; preds = %148, %._crit_edge26, %136
-  %151 = phi i32 [ %149, %148 ], [ %147, %._crit_edge26 ], [ %132, %136 ]
+150:                                              ; preds = %148, %split, %136
+  %151 = phi i32 [ %149, %148 ], [ %147, %split ], [ %132, %136 ]
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i32 %151, ptr %152, align 8
   br label %153
@@ -2449,15 +2473,18 @@ define dso_local ptr @nfs_create_server(ptr noundef readonly captures(none) %0) 
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %._crit_edge27, label %.preheader, !llvm.loop !31
 
+._crit_edge27:                                    ; preds = %169
+  br label %split28, !llvm.loop !31
+
 .preheader:                                       ; preds = %166, %169
   %172 = phi i32 [ %170, %169 ], [ 31, %166 ]
   %173 = shl nuw i32 1, %172
   %174 = and i32 %173, %162
   %175 = icmp eq i32 %174, 0
-  br i1 %175, label %169, label %._crit_edge27
+  br i1 %175, label %169, label %split28
 
-._crit_edge27:                                    ; preds = %.preheader, %169
-  %176 = phi i32 [ 0, %169 ], [ %172, %.preheader ]
+split28:                                          ; preds = %.preheader, %._crit_edge27
+  %176 = phi i32 [ 0, %._crit_edge27 ], [ %172, %.preheader ]
   %177 = shl nuw i32 1, %176
   br label %180
 
@@ -2465,8 +2492,8 @@ define dso_local ptr @nfs_create_server(ptr noundef readonly captures(none) %0) 
   %179 = and i32 %162, 2093056
   br label %180
 
-180:                                              ; preds = %178, %._crit_edge27, %166
-  %181 = phi i32 [ %179, %178 ], [ %177, %._crit_edge27 ], [ %162, %166 ]
+180:                                              ; preds = %178, %split28, %166
+  %181 = phi i32 [ %179, %178 ], [ %177, %split28 ], [ %162, %166 ]
   %182 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 %181, ptr %182, align 8
   br label %183

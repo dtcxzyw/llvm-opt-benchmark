@@ -18872,10 +18872,13 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7acquireERS3_b.exit: ; pr
   %401 = load i64, ptr %400, align 8
   %402 = urem i64 %401, %380
   %.not17.i.i.i.i.i = icmp eq i64 %402, %381
-  br i1 %.not17.i.i.i.i.i, label %393, label %.loopexit, !llvm.loop !207
+  br i1 %.not17.i.i.i.i.i, label %393, label %..loopexit_crit_edge22.i.i.i.i.i, !llvm.loop !207
 
-.loopexit:                                        ; preds = %399, %.lr.ph.i.i.i.i.i, %393, %363, %362, %385, %366
-  %.sroa.06.1.i.i.i = phi ptr [ null, %366 ], [ %386, %385 ], [ %.sroa.06.0.i.i.i, %363 ], [ null, %362 ], [ null, %399 ], [ null, %.lr.ph.i.i.i.i.i ], [ %398, %393 ]
+..loopexit_crit_edge22.i.i.i.i.i:                 ; preds = %399
+  br label %.loopexit, !llvm.loop !207
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %393, %363, %362, %..loopexit_crit_edge22.i.i.i.i.i, %385, %366
+  %.sroa.06.1.i.i.i = phi ptr [ null, %366 ], [ null, %..loopexit_crit_edge22.i.i.i.i.i ], [ %386, %385 ], [ %.sroa.06.0.i.i.i, %363 ], [ null, %362 ], [ null, %.lr.ph.i.i.i.i.i ], [ %398, %393 ]
   %.not.i.i95.not = icmp eq ptr %.sroa.06.1.i.i.i, null
   %403 = select i1 %.not.i.i95.not, i32 2, i32 1
   %404 = load ptr, ptr %153, align 8

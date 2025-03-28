@@ -6207,7 +6207,7 @@ _ZNK4llvm19ReachingDefAnalysis11getLiveOutsEPNS_17MachineBasicBlockENS_8Register
 
 .critedge2.i7.i.i9.i11.i._ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit_crit_edge: ; preds = %.critedge2.i7.i.i9.i11.i
   %.pre55 = load ptr, ptr %93, align 8, !tbaa !50
-  br label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit
+  br label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit, !llvm.loop !279
 
 _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %.critedge2.i7.i.i9.i11.i._ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit_crit_edge
   %96 = phi ptr [ %.pre55, %.critedge2.i7.i.i9.i11.i._ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit_crit_edge ], [ %94, %.lr.ph.i5.i.i7.i5.i ]
@@ -6237,7 +6237,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit.thread: ; preds = %
 
 .critedge2.i7.i.i9.i11.i40._ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit42.loopexit_crit_edge: ; preds = %.critedge2.i7.i.i9.i11.i40
   %.pre56.pre = load ptr, ptr %93, align 8, !tbaa !50
-  br label %.critedge
+  br label %.critedge, !llvm.loop !279
 
 .critedge:                                        ; preds = %.lr.ph.i5.i.i7.i5.i34, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit.thread, %.critedge2.i7.i.i9.i11.i40._ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit42.loopexit_crit_edge, %._crit_edge, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit
   %.1 = phi ptr [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit ], [ null, %._crit_edge ], [ %.pre56.pre, %.critedge2.i7.i.i9.i11.i40._ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit42.loopexit_crit_edge ], [ %spec.select, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit.thread ], [ %102, %.lr.ph.i5.i.i7.i5.i34 ]

@@ -1709,7 +1709,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
 .lr.ph.i193.preheader:                            ; preds = %Vec_IntAppend.exit
   %.val19.i379 = load ptr, ptr %33, align 8, !tbaa !32
   %.not.i380 = icmp eq ptr %.val19.i379, null
-  br i1 %.not.i380, label %.lr.ph.i198.preheader.critedge, label %.lr.ph383
+  br i1 %.not.i380, label %Bmc_MnaCollect.exit, label %.lr.ph383
 
 Bmc_MnaCollect.exit.thread:                       ; preds = %Vec_IntAppend.exit
   store i32 0, ptr %12, align 4, !tbaa !28
@@ -1718,7 +1718,7 @@ Bmc_MnaCollect.exit.thread:                       ; preds = %Vec_IntAppend.exit
 .lr.ph.i193:                                      ; preds = %.lr.ph383
   %.val19.i = load ptr, ptr %33, align 8, !tbaa !32
   %.not.i = icmp eq ptr %.val19.i, null
-  br i1 %.not.i, label %Bmc_MnaCollect.exit.loopexit, label %.lr.ph383, !llvm.loop !53
+  br i1 %.not.i, label %Bmc_MnaCollect.exit, label %.lr.ph383, !llvm.loop !53
 
 .lr.ph383:                                        ; preds = %.lr.ph.i193.preheader, %.lr.ph.i193
   %.val19.i382 = phi ptr [ %.val19.i, %.lr.ph.i193 ], [ %.val19.i379, %.lr.ph.i193.preheader ]
@@ -1752,22 +1752,19 @@ Bmc_MnaCollect.exit.thread:                       ; preds = %Vec_IntAppend.exit
   %.val.i196 = load i32, ptr %51, align 4, !tbaa !28
   %156 = sext i32 %.val.i196 to i64
   %157 = icmp slt i64 %indvars.iv.next.i195, %156
-  br i1 %157, label %.lr.ph.i193, label %Bmc_MnaCollect.exit.loopexit, !llvm.loop !53
+  br i1 %157, label %.lr.ph.i193, label %.Bmc_MnaCollect.exit_crit_edge, !llvm.loop !53
 
-Bmc_MnaCollect.exit.loopexit:                     ; preds = %.lr.ph383, %.lr.ph.i193
-  %158 = icmp sgt i32 %.val.i196, 0
+.Bmc_MnaCollect.exit_crit_edge:                   ; preds = %.lr.ph383
+  br label %Bmc_MnaCollect.exit, !llvm.loop !53
+
+Bmc_MnaCollect.exit:                              ; preds = %.lr.ph.i193, %.Bmc_MnaCollect.exit_crit_edge, %.lr.ph.i193.preheader
+  %.val2228.i = phi i32 [ %.val.i196, %.Bmc_MnaCollect.exit_crit_edge ], [ %.val21.i, %.lr.ph.i193.preheader ], [ %.val.i196, %.lr.ph.i193 ]
   store i32 0, ptr %12, align 4, !tbaa !28
-  br i1 %158, label %.lr.ph.i198.preheader, label %.critedge.i
+  %158 = icmp sgt i32 %.val2228.i, 0
+  br i1 %158, label %.lr.ph.i198, label %.critedge.i
 
-.lr.ph.i198.preheader.critedge:                   ; preds = %.lr.ph.i193.preheader
-  store i32 0, ptr %12, align 4, !tbaa !28
-  br label %.lr.ph.i198.preheader
-
-.lr.ph.i198.preheader:                            ; preds = %.lr.ph.i198.preheader.critedge, %Bmc_MnaCollect.exit.loopexit
-  br label %.lr.ph.i198
-
-.lr.ph.i198:                                      ; preds = %.lr.ph.i198.preheader, %159
-  %indvars.iv.i199 = phi i64 [ %indvars.iv.next.i201, %159 ], [ 0, %.lr.ph.i198.preheader ]
+.lr.ph.i198:                                      ; preds = %Bmc_MnaCollect.exit, %159
+  %indvars.iv.i199 = phi i64 [ %indvars.iv.next.i201, %159 ], [ 0, %Bmc_MnaCollect.exit ]
   %.val27.i = load ptr, ptr %33, align 8, !tbaa !32
   %.not.i200 = icmp eq ptr %.val27.i, null
   br i1 %.not.i200, label %.critedge.i, label %159
@@ -1789,7 +1786,7 @@ Bmc_MnaCollect.exit.loopexit:                     ; preds = %.lr.ph383, %.lr.ph.
   %169 = icmp slt i64 %indvars.iv.next.i201, %168
   br i1 %169, label %.lr.ph.i198, label %.critedge.i, !llvm.loop !54
 
-.critedge.i:                                      ; preds = %159, %.lr.ph.i198, %Bmc_MnaCollect.exit.thread, %Bmc_MnaCollect.exit.loopexit
+.critedge.i:                                      ; preds = %159, %.lr.ph.i198, %Bmc_MnaCollect.exit.thread, %Bmc_MnaCollect.exit
   %.val23.i = load ptr, ptr %33, align 8, !tbaa !32
   %170 = load i64, ptr %.val23.i, align 4
   %171 = and i64 %170, 9223372036854775807
@@ -1823,10 +1820,13 @@ Bmc_MnaCollect.exit.loopexit:                     ; preds = %.lr.ph383, %.lr.ph.
   %.val.i197 = load i32, ptr %8, align 4, !tbaa !28
   %179 = sext i32 %.val.i197 to i64
   %180 = icmp slt i64 %indvars.iv.next37.i, %179
-  br i1 %180, label %.lr.ph33.i, label %Bmc_MnaSelect.exit, !llvm.loop !55
+  br i1 %180, label %.lr.ph33.i, label %.Bmc_MnaSelect.exit.loopexit_crit_edge, !llvm.loop !55
 
-Bmc_MnaSelect.exit:                               ; preds = %.lr.ph389, %.lr.ph33.i, %.lr.ph33.i.preheader, %.critedge.i
-  %.val150 = phi i32 [ %.val31.i, %.critedge.i ], [ %.val31.i, %.lr.ph33.i.preheader ], [ %.val.i197, %.lr.ph33.i ], [ %.val.i197, %.lr.ph389 ]
+.Bmc_MnaSelect.exit.loopexit_crit_edge:           ; preds = %.lr.ph389
+  br label %Bmc_MnaSelect.exit, !llvm.loop !55
+
+Bmc_MnaSelect.exit:                               ; preds = %.lr.ph33.i, %.lr.ph33.i.preheader, %.Bmc_MnaSelect.exit.loopexit_crit_edge, %.critedge.i
+  %.val150 = phi i32 [ %.val31.i, %.critedge.i ], [ %.val.i197, %.Bmc_MnaSelect.exit.loopexit_crit_edge ], [ %.val31.i, %.lr.ph33.i.preheader ], [ %.val.i197, %.lr.ph33.i ]
   br i1 %.not138, label %thread-pre-split, label %181
 
 181:                                              ; preds = %Bmc_MnaSelect.exit
@@ -2307,10 +2307,13 @@ Bmc_MnaCollect.exit238:                           ; preds = %Bmc_MnaCollect.exit
   %.val.i240 = load i32, ptr %8, align 4, !tbaa !28
   %399 = sext i32 %.val.i240 to i64
   %400 = icmp slt i64 %indvars.iv.next52.i, %399
-  br i1 %400, label %.lr.ph48.i, label %Bmc_MnaBuild.exit, !llvm.loop !57
+  br i1 %400, label %.lr.ph48.i, label %.Bmc_MnaBuild.exit.loopexit_crit_edge, !llvm.loop !57
 
-Bmc_MnaBuild.exit:                                ; preds = %.lr.ph402, %.lr.ph48.i, %.lr.ph48.i.preheader, %.critedge.i239
-  %.val146 = phi i32 [ %.val46.i, %.critedge.i239 ], [ %.val46.i, %.lr.ph48.i.preheader ], [ %.val.i240, %.lr.ph48.i ], [ %.val.i240, %.lr.ph402 ]
+.Bmc_MnaBuild.exit.loopexit_crit_edge:            ; preds = %.lr.ph402
+  br label %Bmc_MnaBuild.exit, !llvm.loop !57
+
+Bmc_MnaBuild.exit:                                ; preds = %.lr.ph48.i, %.lr.ph48.i.preheader, %.Bmc_MnaBuild.exit.loopexit_crit_edge, %.critedge.i239
+  %.val146 = phi i32 [ %.val46.i, %.critedge.i239 ], [ %.val.i240, %.Bmc_MnaBuild.exit.loopexit_crit_edge ], [ %.val46.i, %.lr.ph48.i.preheader ], [ %.val.i240, %.lr.ph48.i ]
   br i1 %.not138, label %403, label %401
 
 401:                                              ; preds = %Bmc_MnaBuild.exit
@@ -3659,7 +3662,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %78
 
 ._crit_edge:                                      ; preds = %165
   %.pre143 = load i32, ptr %159, align 8, !tbaa !103
-  br label %split
+  br label %split, !llvm.loop !104
 
 split:                                            ; preds = %161, %._crit_edge
   %173 = phi i32 [ %.pre143, %._crit_edge ], [ %162, %161 ]

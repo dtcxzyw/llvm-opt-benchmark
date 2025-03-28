@@ -8207,10 +8207,13 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit.i: ; preds = %_ZN16GenericTas
 114:                                              ; preds = %_ZN8G1CMTask29get_entries_from_global_stackEv.exit.i, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i
   %115 = load i8, ptr %48, align 8
   %116 = trunc i8 %115 to i1
-  br i1 %116, label %_ZN8G1CMTask18drain_global_stackEb.exit, label %81, !llvm.loop !9
+  br i1 %116, label %._ZN8G1CMTask18drain_global_stackEb.exit.loopexit_crit_edge, label %81, !llvm.loop !9
 
-_ZN8G1CMTask18drain_global_stackEb.exit:          ; preds = %114, %81, %71, %68
-  %117 = phi i8 [ %69, %68 ], [ %69, %71 ], [ %115, %81 ], [ %115, %114 ]
+._ZN8G1CMTask18drain_global_stackEb.exit.loopexit_crit_edge: ; preds = %114
+  br label %_ZN8G1CMTask18drain_global_stackEb.exit, !llvm.loop !9
+
+_ZN8G1CMTask18drain_global_stackEb.exit:          ; preds = %81, %71, %._ZN8G1CMTask18drain_global_stackEb.exit.loopexit_crit_edge, %68
+  %117 = phi i8 [ %69, %68 ], [ %115, %._ZN8G1CMTask18drain_global_stackEb.exit.loopexit_crit_edge ], [ %69, %71 ], [ %115, %81 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -8745,10 +8748,13 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit.i50: ; preds = %_ZN16GenericT
 416:                                              ; preds = %_ZN8G1CMTask29get_entries_from_global_stackEv.exit.i50, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i44
   %417 = load i8, ptr %48, align 8
   %418 = trunc i8 %417 to i1
-  br i1 %418, label %_ZN8G1CMTask18drain_global_stackEb.exit51, label %366, !llvm.loop !9
+  br i1 %418, label %._ZN8G1CMTask18drain_global_stackEb.exit51.loopexit_crit_edge, label %366, !llvm.loop !9
 
-_ZN8G1CMTask18drain_global_stackEb.exit51:        ; preds = %416, %366, %357, %_ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit
-  %419 = phi i8 [ %355, %_ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit ], [ %355, %357 ], [ %417, %366 ], [ %417, %416 ]
+._ZN8G1CMTask18drain_global_stackEb.exit51.loopexit_crit_edge: ; preds = %416
+  br label %_ZN8G1CMTask18drain_global_stackEb.exit51, !llvm.loop !9
+
+_ZN8G1CMTask18drain_global_stackEb.exit51:        ; preds = %366, %357, %._ZN8G1CMTask18drain_global_stackEb.exit51.loopexit_crit_edge, %_ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit
+  %419 = phi i8 [ %355, %_ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit ], [ %417, %._ZN8G1CMTask18drain_global_stackEb.exit51.loopexit_crit_edge ], [ %355, %357 ], [ %417, %366 ]
   %420 = trunc i8 %419 to i1
   %421 = load ptr, ptr %118, align 8
   %422 = icmp ne ptr %421, null

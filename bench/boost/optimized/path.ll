@@ -2277,13 +2277,16 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit1
   %53 = load i64, ptr %8, align 8
   %54 = icmp ne i64 %52, %53
   %.not3.i = select i1 %51, i1 true, i1 %54
-  br i1 %.not3.i, label %27, label %.critedge, !llvm.loop !26
+  br i1 %.not3.i, label %27, label %..critedge.loopexit_crit_edge, !llvm.loop !26
 
-.critedge:                                        ; preds = %48, %27, %.lr.ph, %4
-  %.lcssa26 = phi ptr [ %9, %4 ], [ %9, %.lr.ph ], [ %49, %27 ], [ %49, %48 ]
-  %.lcssa24 = phi ptr [ %9, %4 ], [ %10, %.lr.ph ], [ %50, %27 ], [ %49, %48 ]
-  %.lcssa22 = phi i64 [ %12, %4 ], [ %12, %.lr.ph ], [ %52, %27 ], [ %52, %48 ]
-  %.lcssa = phi i64 [ %12, %4 ], [ %13, %.lr.ph ], [ %53, %27 ], [ %52, %48 ]
+..critedge.loopexit_crit_edge:                    ; preds = %48
+  br label %.critedge, !llvm.loop !26
+
+.critedge:                                        ; preds = %27, %.lr.ph, %..critedge.loopexit_crit_edge, %4
+  %.lcssa26 = phi ptr [ %9, %4 ], [ %49, %..critedge.loopexit_crit_edge ], [ %9, %.lr.ph ], [ %49, %27 ]
+  %.lcssa24 = phi ptr [ %9, %4 ], [ %49, %..critedge.loopexit_crit_edge ], [ %10, %.lr.ph ], [ %50, %27 ]
+  %.lcssa22 = phi i64 [ %12, %4 ], [ %52, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph ], [ %52, %27 ]
+  %.lcssa = phi i64 [ %12, %4 ], [ %52, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph ], [ %53, %27 ]
   %55 = icmp eq ptr %.lcssa26, %.lcssa24
   %56 = icmp eq i64 %.lcssa22, %.lcssa
   %57 = select i1 %55, i1 %56, i1 false
@@ -2548,13 +2551,16 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit1
   %53 = load i64, ptr %8, align 8
   %54 = icmp ne i64 %52, %53
   %.not3.i = select i1 %51, i1 true, i1 %54
-  br i1 %.not3.i, label %27, label %.critedge, !llvm.loop !30
+  br i1 %.not3.i, label %27, label %..critedge.loopexit_crit_edge, !llvm.loop !30
 
-.critedge:                                        ; preds = %48, %27, %.lr.ph, %4
-  %.lcssa26 = phi ptr [ %9, %4 ], [ %9, %.lr.ph ], [ %49, %27 ], [ %49, %48 ]
-  %.lcssa24 = phi ptr [ %9, %4 ], [ %10, %.lr.ph ], [ %50, %27 ], [ %49, %48 ]
-  %.lcssa22 = phi i64 [ %12, %4 ], [ %12, %.lr.ph ], [ %52, %27 ], [ %52, %48 ]
-  %.lcssa = phi i64 [ %12, %4 ], [ %13, %.lr.ph ], [ %53, %27 ], [ %52, %48 ]
+..critedge.loopexit_crit_edge:                    ; preds = %48
+  br label %.critedge, !llvm.loop !30
+
+.critedge:                                        ; preds = %27, %.lr.ph, %..critedge.loopexit_crit_edge, %4
+  %.lcssa26 = phi ptr [ %9, %4 ], [ %49, %..critedge.loopexit_crit_edge ], [ %9, %.lr.ph ], [ %49, %27 ]
+  %.lcssa24 = phi ptr [ %9, %4 ], [ %49, %..critedge.loopexit_crit_edge ], [ %10, %.lr.ph ], [ %50, %27 ]
+  %.lcssa22 = phi i64 [ %12, %4 ], [ %52, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph ], [ %52, %27 ]
+  %.lcssa = phi i64 [ %12, %4 ], [ %52, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph ], [ %53, %27 ]
   %55 = icmp eq ptr %.lcssa26, %.lcssa24
   %56 = icmp eq i64 %.lcssa22, %.lcssa
   %57 = select i1 %55, i1 %56, i1 false

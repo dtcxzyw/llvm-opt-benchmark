@@ -5613,10 +5613,13 @@ st_mult.exit:                                     ; preds = %.preheader.split
   %105 = load i32, ptr %82, align 4, !tbaa !229
   %106 = zext i32 %105 to i64
   %107 = icmp samesign ult i64 %indvars.iv.next, %106
-  br i1 %107, label %95, label %.critedge5, !llvm.loop !261
+  br i1 %107, label %95, label %..critedge5.loopexit_crit_edge, !llvm.loop !261
 
-.critedge5:                                       ; preds = %.lr.ph193, %95, %.lr.ph, %81
-  %108 = phi i32 [ 0, %81 ], [ %92, %.lr.ph ], [ %105, %95 ], [ %105, %.lr.ph193 ]
+..critedge5.loopexit_crit_edge:                   ; preds = %.lr.ph193
+  br label %.critedge5, !llvm.loop !261
+
+.critedge5:                                       ; preds = %95, %.lr.ph, %..critedge5.loopexit_crit_edge, %81
+  %108 = phi i32 [ 0, %81 ], [ %105, %..critedge5.loopexit_crit_edge ], [ %92, %.lr.ph ], [ %105, %95 ]
   %109 = load ptr, ptr %0, align 8, !tbaa !178
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !9

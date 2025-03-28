@@ -4221,7 +4221,7 @@ define hidden void @_ZN4llvm12BranchFolder20RemoveBlocksWithHashEjPNS_17MachineB
 
 ..split28.us.loopexit30_crit_edge:                ; preds = %20
   %.pre.pre = load i32, ptr %.sroa.020.0, align 8, !tbaa !413
-  br label %.split28.us.loopexit30
+  br label %.split28.us.loopexit30, !llvm.loop !470
 
 .split28.us.loopexit30:                           ; preds = %.split, %..split28.us.loopexit30_crit_edge
   %.pre = phi i32 [ %.pre.pre, %..split28.us.loopexit30_crit_edge ], [ %13, %.split ]
@@ -5793,7 +5793,7 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_12BranchFolder18Merg
 
 ..split28.us.loopexit30_crit_edge.i:              ; preds = %45
   %.pre.pre.i = load i32, ptr %.sroa.020.0.i, align 8, !tbaa !413
-  br label %.split28.us.loopexit30.i
+  br label %.split28.us.loopexit30.i, !llvm.loop !470
 
 .split28.us.loopexit30.i:                         ; preds = %.split.i, %..split28.us.loopexit30_crit_edge.i
   %.pre.i = phi i32 [ %.pre.pre.i, %..split28.us.loopexit30_crit_edge.i ], [ %38, %.split.i ]
@@ -6041,7 +6041,7 @@ _ZN4llvm12BranchFolder20RemoveBlocksWithHashEjPNS_17MachineBasicBlockES2_RKNS_8D
 
 ..split28.us.loopexit30_crit_edge.i64:            ; preds = %181
   %.pre.pre.i65 = load i32, ptr %.sroa.020.0.i55, align 8, !tbaa !413
-  br label %.split28.us.loopexit30.i56
+  br label %.split28.us.loopexit30.i56, !llvm.loop !470
 
 .split28.us.loopexit30.i56:                       ; preds = %.split.i53, %..split28.us.loopexit30_crit_edge.i64
   %.pre.i57 = phi i32 [ %.pre.pre.i65, %..split28.us.loopexit30_crit_edge.i64 ], [ %174, %.split.i53 ]

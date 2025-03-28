@@ -302,7 +302,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.body.while.end.loopexit_crit_edge:          ; preds = %while.body
   %.pre29.pre = load ptr, ptr %utf8Begin_, align 8
-  br label %while.end.loopexit
+  br label %while.end.loopexit, !llvm.loop !4
 
 while.end.loopexit:                               ; preds = %land.rhs, %while.body.while.end.loopexit_crit_edge
   %.pre29 = phi ptr [ %.pre29.pre, %while.body.while.end.loopexit_crit_edge ], [ %16, %land.rhs ]

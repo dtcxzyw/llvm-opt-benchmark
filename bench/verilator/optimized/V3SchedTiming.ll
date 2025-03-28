@@ -875,21 +875,21 @@ define dso_local void @_ZNK7V3Sched9TimingKit12remapDomainsERKSt13unordered_mapI
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.not44 = icmp eq ptr %13, %14
-  br i1 %.not44, label %._crit_edge48, label %.lr.ph47
+  %.not45 = icmp eq ptr %13, %14
+  br i1 %.not45, label %._crit_edge49, label %.lr.ph48
 
-.lr.ph47:                                         ; preds = %3
+.lr.ph48:                                         ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %18
 
-._crit_edge48:                                    ; preds = %._crit_edge, %3
+._crit_edge49:                                    ; preds = %._crit_edge, %3
   ret void
 
-18:                                               ; preds = %.lr.ph47, %._crit_edge
-  %.sroa.027.045 = phi ptr [ %13, %.lr.ph47 ], [ %63, %._crit_edge ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.027.045, i64 32
+18:                                               ; preds = %.lr.ph48, %._crit_edge
+  %.sroa.027.046 = phi ptr [ %13, %.lr.ph48 ], [ %63, %._crit_edge ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.027.046, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
   %20 = load ptr, ptr %19, align 8, !tbaa !17
   store ptr %20, ptr %6, align 8, !tbaa !25
@@ -936,7 +936,7 @@ _ZNSt3mapIPK11AstVarScopeSt6vectorIP10AstSenTreeSaIS5_EESt4lessIS2_ESaISt4pairIK
 31:                                               ; preds = %.noexc, %26
   %.sroa.06.0.i = phi ptr [ %30, %.noexc ], [ %.19.i.i.i.i, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.027.045, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.027.046, i64 80
   %34 = load i64, ptr %33, align 8, !tbaa !16
   %35 = icmp ugt i64 %34, 1152921504606846975
   br i1 %35, label %36, label %37
@@ -995,11 +995,11 @@ _ZNSt12_Vector_baseIP10AstSenTreeSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds =
 _ZNSt6vectorIP10AstSenTreeSaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIP10AstSenTreeSaIS1_EE13_M_deallocateEPS1_m.exit.i, %37
   %57 = phi ptr [ %51, %_ZNSt12_Vector_baseIP10AstSenTreeSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ %40, %37 ]
   %58 = phi ptr [ %56, %_ZNSt12_Vector_baseIP10AstSenTreeSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ %39, %37 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.027.045, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.027.046, i64 64
   %60 = load ptr, ptr %59, align 8, !tbaa !14
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.027.045, i64 48
-  %.not3042 = icmp eq ptr %60, %61
-  br i1 %.not3042, label %._crit_edge, label %.lr.ph
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.027.046, i64 48
+  %.not3043 = icmp eq ptr %60, %61
+  br i1 %.not3043, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIP10AstSenTreeSaIS1_EE7reserveEm.exit
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 48
@@ -1007,9 +1007,9 @@ _ZNSt6vectorIP10AstSenTreeSaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_bas
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIP10AstSenTreeSaIS1_EE9push_backERKS1_.exit, %_ZNSt6vectorIP10AstSenTreeSaIS1_EE7reserveEm.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  %63 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.027.045) #29
+  %63 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.027.046) #29
   %.not = icmp eq ptr %63, %14
-  br i1 %.not, label %._crit_edge48, label %18
+  br i1 %.not, label %._crit_edge49, label %18
 
 .loopexit35:                                      ; preds = %.critedge.i, %_ZNSt12_Vector_baseIP10AstSenTreeSaIS1_EE11_M_allocateEm.exit.i
   %lpad.loopexit37 = landingpad { ptr, i32 }
@@ -1024,8 +1024,8 @@ _ZNSt6vectorIP10AstSenTreeSaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_bas
 64:                                               ; preds = %.lr.ph, %_ZNSt6vectorIP10AstSenTreeSaIS1_EE9push_backERKS1_.exit
   %65 = phi ptr [ %57, %.lr.ph ], [ %119, %_ZNSt6vectorIP10AstSenTreeSaIS1_EE9push_backERKS1_.exit ]
   %66 = phi ptr [ %58, %.lr.ph ], [ %120, %_ZNSt6vectorIP10AstSenTreeSaIS1_EE9push_backERKS1_.exit ]
-  %.sroa.023.043 = phi ptr [ %60, %.lr.ph ], [ %121, %_ZNSt6vectorIP10AstSenTreeSaIS1_EE9push_backERKS1_.exit ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.023.043, i64 32
+  %.sroa.023.044 = phi ptr [ %60, %.lr.ph ], [ %121, %_ZNSt6vectorIP10AstSenTreeSaIS1_EE9push_backERKS1_.exit ]
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.023.044, i64 32
   %68 = load ptr, ptr %67, align 8, !tbaa !42
   %69 = load i64, ptr %15, align 8, !tbaa !44
   %.not.not.i.i.i = icmp eq i64 %69, 0
@@ -1076,9 +1076,12 @@ _ZNSt6vectorIP10AstSenTreeSaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_bas
   %92 = ptrtoint ptr %91 to i64
   %93 = urem i64 %92, %76
   %.not19.i.i.i.i.i = icmp eq i64 %93, %77
-  br i1 %.not19.i.i.i.i.i, label %86, label %.loopexit.i.i, !llvm.loop !56
+  br i1 %.not19.i.i.i.i.i, label %86, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !56
 
-.loopexit.i.i:                                    ; preds = %74, %89, %.lr.ph.i.i.i.i.i, %.preheader
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %89
+  br label %.loopexit.i.i, !llvm.loop !56
+
+.loopexit.i.i:                                    ; preds = %74, %.lr.ph.i.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.475) #26
           to label %.noexc18 unwind label %.loopexit.split-lp
 
@@ -1156,7 +1159,7 @@ _ZNSt6vectorIP10AstSenTreeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__n
 _ZNSt6vectorIP10AstSenTreeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP10AstSenTreeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %96
   %119 = phi ptr [ %111, %_ZNSt6vectorIP10AstSenTreeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %65, %96 ]
   %120 = phi ptr [ %118, %_ZNSt6vectorIP10AstSenTreeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %66, %96 ]
-  %121 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.023.043) #29
+  %121 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.023.044) #29
   %.not30 = icmp eq ptr %121, %61
   br i1 %.not30, label %._crit_edge, label %64
 

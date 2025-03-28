@@ -4283,11 +4283,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val78 = load i32, ptr %135, align 4, !tbaa !31
   %136 = sext i32 %.val78 to i64
   %137 = icmp slt i64 %indvars.iv.next121, %136
-  br i1 %137, label %70, label %.critedge2, !llvm.loop !123
+  br i1 %137, label %70, label %Vec_PtrPush.exit..critedge2.loopexit_crit_edge, !llvm.loop !123
 
-.critedge2:                                       ; preds = %Vec_PtrPush.exit, %70, %.lr.ph113, %Vec_PtrAlloc.exit
-  %.066.lcssa = phi i32 [ 0, %Vec_PtrAlloc.exit ], [ 0, %.lr.ph113 ], [ %133, %70 ], [ %133, %Vec_PtrPush.exit ]
-  %.val78.lcssa = phi i32 [ %.val91.val, %Vec_PtrAlloc.exit ], [ %.val91.val, %.lr.ph113 ], [ %.val78, %70 ], [ %.val78, %Vec_PtrPush.exit ]
+Vec_PtrPush.exit..critedge2.loopexit_crit_edge:   ; preds = %Vec_PtrPush.exit
+  br label %.critedge2, !llvm.loop !123
+
+.critedge2:                                       ; preds = %70, %.lr.ph113, %Vec_PtrPush.exit..critedge2.loopexit_crit_edge, %Vec_PtrAlloc.exit
+  %.066.lcssa = phi i32 [ 0, %Vec_PtrAlloc.exit ], [ %133, %Vec_PtrPush.exit..critedge2.loopexit_crit_edge ], [ 0, %.lr.ph113 ], [ %133, %70 ]
+  %.val78.lcssa = phi i32 [ %.val91.val, %Vec_PtrAlloc.exit ], [ %.val78, %Vec_PtrPush.exit..critedge2.loopexit_crit_edge ], [ %.val91.val, %.lr.ph113 ], [ %.val78, %70 ]
   %.not73 = icmp eq i32 %1, 0
   br i1 %.not73, label %156, label %138
 

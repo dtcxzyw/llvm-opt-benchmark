@@ -8888,7 +8888,7 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 
 ..critedge_crit_edge:                             ; preds = %2274
   %.pre1027 = load ptr, ptr %5, align 8
-  br label %.critedge
+  br label %.critedge, !llvm.loop !67
 
 .critedgesplit:                                   ; preds = %2268
   %sext = shl i64 %indvars.iv787, 32

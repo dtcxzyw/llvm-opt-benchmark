@@ -31598,9 +31598,12 @@ _ZN12VerilatedImp1sEv.exit2:                      ; preds = %_ZN18VerilatedLockG
   %42 = ptrtoint ptr %41 to i64
   %43 = urem i64 %42, %26
   %.not17.i.i.i.i = icmp eq i64 %43, %27
-  br i1 %.not17.i.i.i.i, label %36, label %.loopexit.i.i, !llvm.loop !204
+  br i1 %.not17.i.i.i.i, label %36, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !204
 
-.loopexit.i.i:                                    ; preds = %39, %.lr.ph.i.i.i.i, %_ZN12VerilatedImp1sEv.exit2
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %39
+  br label %.loopexit.i.i, !llvm.loop !204
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZN12VerilatedImp1sEv.exit2
   store ptr %23, ptr %3, align 8
   %44 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #56
           to label %.noexc unwind label %79
@@ -31832,7 +31835,10 @@ _ZN12VerilatedImp1sEv.exit11:                     ; preds = %_ZN18VerilatedLockG
   %53 = ptrtoint ptr %52 to i64
   %54 = urem i64 %53, %37
   %.not17.i.i.i.i = icmp eq i64 %54, %38
-  br i1 %.not17.i.i.i.i, label %47, label %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.thread, !llvm.loop !204
+  br i1 %.not17.i.i.i.i, label %47, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !204
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %50
+  br label %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.thread, !llvm.loop !204
 
 55:                                               ; preds = %.loopexit.i.i
   %56 = landingpad { ptr, i32 }
@@ -31847,18 +31853,18 @@ _ZN12VerilatedImp1sEv.exit11:                     ; preds = %_ZN18VerilatedLockG
 _ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.loopexit: ; preds = %30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre49 = load ptr, ptr %23, align 8
-  %.pre50 = ptrtoint ptr %0 to i64
-  %.pre51 = urem i64 %.pre50, %.pre
+  %.pre52 = load ptr, ptr %23, align 8
+  %.pre53 = ptrtoint ptr %0 to i64
+  %.pre54 = urem i64 %.pre53, %.pre
   br label %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit
 
 _ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit: ; preds = %47, %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.loopexit, %42
-  %.pre-phi52 = phi i64 [ %.pre51, %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.loopexit ], [ %38, %42 ], [ %38, %47 ]
-  %.pre-phi = phi i64 [ %.pre50, %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.loopexit ], [ %35, %42 ], [ %35, %47 ]
-  %58 = phi ptr [ %.pre49, %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.loopexit ], [ %39, %42 ], [ %39, %47 ]
+  %.pre-phi55 = phi i64 [ %.pre54, %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.loopexit ], [ %38, %42 ], [ %38, %47 ]
+  %.pre-phi = phi i64 [ %.pre53, %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.loopexit ], [ %35, %42 ], [ %35, %47 ]
+  %58 = phi ptr [ %.pre52, %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.loopexit ], [ %39, %42 ], [ %39, %47 ]
   %59 = phi i64 [ %.pre, %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.loopexit ], [ %37, %42 ], [ %37, %47 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %.pre-phi52
+  %60 = getelementptr inbounds ptr, ptr %58, i64 %.pre-phi55
   %61 = load ptr, ptr %60, align 8
   %.not.i.i.i.i13 = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i13, label %.loopexit.i.i, label %62
@@ -31885,10 +31891,13 @@ _ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal
   %72 = load ptr, ptr %71, align 8
   %73 = ptrtoint ptr %72 to i64
   %74 = urem i64 %73, %59
-  %.not17.i.i.i.i17 = icmp eq i64 %74, %.pre-phi52
-  br i1 %.not17.i.i.i.i17, label %67, label %.loopexit.i.i, !llvm.loop !204
+  %.not17.i.i.i.i17 = icmp eq i64 %74, %.pre-phi55
+  br i1 %.not17.i.i.i.i17, label %67, label %..loopexit_crit_edge21.i.i.i.i18, !llvm.loop !204
 
-.loopexit.i.i:                                    ; preds = %70, %.lr.ph.i.i.i.i14, %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit
+..loopexit_crit_edge21.i.i.i.i18:                 ; preds = %70
+  br label %.loopexit.i.i, !llvm.loop !204
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i14, %..loopexit_crit_edge21.i.i.i.i18, %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit
   store ptr %23, ptr %3, align 8
   %75 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #56
           to label %.noexc unwind label %55
@@ -31901,7 +31910,7 @@ _ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   store ptr %75, ptr %76, align 8
-  %79 = invoke ptr @_ZNSt10_HashtableIPK14VerilatedScopeSt4pairIKS2_St6vectorIS2_SaIS2_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.pre-phi52, i64 noundef %.pre-phi, ptr noundef nonnull %75, i64 noundef 1)
+  %79 = invoke ptr @_ZNSt10_HashtableIPK14VerilatedScopeSt4pairIKS2_St6vectorIS2_SaIS2_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %.pre-phi55, i64 noundef %.pre-phi, ptr noundef nonnull %75, i64 noundef 1)
           to label %.loopexit unwind label %80
 
 80:                                               ; preds = %.noexc
@@ -31940,13 +31949,13 @@ _ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, %1
-  br i1 %97, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit58, label %98
+  br i1 %97, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit62, label %98
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, %1
-  br i1 %101, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit56, label %102
+  br i1 %101, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit60, label %102
 
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
@@ -32005,16 +32014,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_E
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit56: ; preds = %98
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit60: ; preds = %98
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit58: ; preds = %94
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit62: ; preds = %94
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 8
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit: ; preds = %91, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit56, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit58, %._crit_edge._crit_edge57.i.i.i, %._crit_edge._crit_edge.i.i.i, %111
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %111 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %122, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %123, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit56 ], [ %124, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit58 ], [ %.sroa.032.051.i.i.i, %91 ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit: ; preds = %91, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit60, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit62, %._crit_edge._crit_edge57.i.i.i, %._crit_edge._crit_edge.i.i.i, %111
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %111 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %122, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %123, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit60 ], [ %124, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit62 ], [ %.sroa.032.051.i.i.i, %91 ]
   %125 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %84
   br i1 %125, label %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.thread, label %126
 
@@ -32039,7 +32048,7 @@ _ZNSt6vectorIPK14VerilatedScopeSaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS
   store ptr %135, ptr %83, align 8
   br label %_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.thread
 
-_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %50, %28, %._crit_edge.i.i.i, %34, %_ZNSt6vectorIPK14VerilatedScopeSaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
+_ZNSt13unordered_mapIPK14VerilatedScopeSt6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %28, %._crit_edge.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %34, %_ZNSt6vectorIPK14VerilatedScopeSaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPK14VerilatedScopeSt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
   %136 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZZN12VerilatedImp1sEvE3s_s, i64 88)) #24
   ret void
 }

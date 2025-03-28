@@ -1407,11 +1407,14 @@ define internal i32 @dissect_dcerpc_guid(ptr noundef %0, ptr noundef %1, ptr nou
   %35 = getelementptr i8, ptr %.0172206211, i64 40
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %._crit_edge, label %31, !llvm.loop !10
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge214, label %31, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %31, %.lr.ph212, %.lr.ph, %4
-  %.0172.lcssa = phi ptr [ %20, %4 ], [ %20, %.lr.ph ], [ %34, %.lr.ph212 ], [ %34, %31 ]
-  %.lcssa = phi ptr [ null, %4 ], [ %22, %.lr.ph ], [ null, %.lr.ph212 ], [ %36, %31 ]
+.._crit_edge.loopexit_crit_edge214:               ; preds = %.lr.ph212
+  br label %._crit_edge, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %31, %.lr.ph, %.._crit_edge.loopexit_crit_edge214, %4
+  %.0172.lcssa = phi ptr [ %20, %4 ], [ %34, %.._crit_edge.loopexit_crit_edge214 ], [ %20, %.lr.ph ], [ %34, %31 ]
+  %.lcssa = phi ptr [ null, %4 ], [ null, %.._crit_edge.loopexit_crit_edge214 ], [ %22, %.lr.ph ], [ %36, %31 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 16

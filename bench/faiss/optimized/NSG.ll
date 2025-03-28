@@ -5220,14 +5220,17 @@ _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85: ; preds = %120, %
   %158 = load i32, ptr %35, align 4, !tbaa !30
   %159 = sext i32 %158 to i64
   %160 = icmp ult i64 %157, %159
-  br i1 %160, label %103, label %.critedge, !llvm.loop !165
+  br i1 %160, label %103, label %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85..critedge.loopexit_crit_edge, !llvm.loop !165
 
-.critedge:                                        ; preds = %103, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85, %.lr.ph157, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.0.0.lcssa = phi ptr [ %32, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %32, %.lr.ph157 ], [ %.sroa.0.2, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85 ], [ %.sroa.0.2, %103 ]
-  %.sroa.28.0.lcssa = phi ptr [ %34, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %34, %.lr.ph157 ], [ %.sroa.28.2, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85 ], [ %.sroa.28.2, %103 ]
-  %.lcssa135 = phi i64 [ %36, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %36, %.lr.ph157 ], [ %155, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85 ], [ %155, %103 ]
-  %.lcssa131 = phi i64 [ 1, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ 1, %.lr.ph157 ], [ %157, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85 ], [ %157, %103 ]
-  %.lcssa = phi i64 [ %38, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %38, %.lr.ph157 ], [ %159, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85 ], [ %159, %103 ]
+_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85..critedge.loopexit_crit_edge: ; preds = %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85
+  br label %.critedge, !llvm.loop !165
+
+.critedge:                                        ; preds = %103, %.lr.ph157, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85..critedge.loopexit_crit_edge, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %.sroa.0.0.lcssa = phi ptr [ %32, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0.2, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85..critedge.loopexit_crit_edge ], [ %32, %.lr.ph157 ], [ %.sroa.0.2, %103 ]
+  %.sroa.28.0.lcssa = phi ptr [ %34, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.28.2, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85..critedge.loopexit_crit_edge ], [ %34, %.lr.ph157 ], [ %.sroa.28.2, %103 ]
+  %.lcssa135 = phi i64 [ %36, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %155, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85..critedge.loopexit_crit_edge ], [ %36, %.lr.ph157 ], [ %155, %103 ]
+  %.lcssa131 = phi i64 [ 1, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %157, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85..critedge.loopexit_crit_edge ], [ 1, %.lr.ph157 ], [ %157, %103 ]
+  %.lcssa = phi i64 [ %38, %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %159, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85..critedge.loopexit_crit_edge ], [ %38, %.lr.ph157 ], [ %159, %103 ]
   %.not172 = icmp eq i64 %.lcssa, 0
   br i1 %.not172, label %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EED2Ev.exit, label %.lr.ph169
 
@@ -5695,13 +5698,18 @@ _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112: ; preds = %_ZNKS
   %exitcond419.not550 = icmp ult i64 %90, 2
   br i1 %exitcond419.not550, label %.critedge, label %.lr.ph555
 
-.lr.ph555:                                        ; preds = %.lr.ph326.preheader, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122
-  %indvars.iv.next417554 = phi i64 [ %indvars.iv.next417, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122 ], [ 1, %.lr.ph326.preheader ]
-  %.sroa.0137.2322553 = phi ptr [ %.sroa.0137.4, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122 ], [ %99, %.lr.ph326.preheader ]
-  %.sroa.16.2323552 = phi ptr [ %.sroa.16.3, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122 ], [ %101, %.lr.ph326.preheader ]
-  %.sroa.27.2324551 = phi ptr [ %.sroa.27.4, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122 ], [ %101, %.lr.ph326.preheader ]
-  %106 = phi i64 [ %148, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122 ], [ 8, %.lr.ph326.preheader ]
-  %107 = phi i64 [ %149, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122 ], [ 1, %.lr.ph326.preheader ]
+.lr.ph326:                                        ; preds = %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122
+  %indvars.iv.next417 = add nuw nsw i64 %indvars.iv.next417554, 1
+  %exitcond419.not = icmp eq i64 %indvars.iv.next417554, %105
+  br i1 %exitcond419.not, label %.critedge, label %.lr.ph555, !llvm.loop !172
+
+.lr.ph555:                                        ; preds = %.lr.ph326.preheader, %.lr.ph326
+  %indvars.iv.next417554 = phi i64 [ %indvars.iv.next417, %.lr.ph326 ], [ 1, %.lr.ph326.preheader ]
+  %.sroa.0137.2322553 = phi ptr [ %.sroa.0137.4, %.lr.ph326 ], [ %99, %.lr.ph326.preheader ]
+  %.sroa.16.2323552 = phi ptr [ %.sroa.16.3, %.lr.ph326 ], [ %101, %.lr.ph326.preheader ]
+  %.sroa.27.2324551 = phi ptr [ %.sroa.27.4, %.lr.ph326 ], [ %101, %.lr.ph326.preheader ]
+  %106 = phi i64 [ %148, %.lr.ph326 ], [ 8, %.lr.ph326.preheader ]
+  %107 = phi i64 [ %149, %.lr.ph326 ], [ 1, %.lr.ph326.preheader ]
   %108 = getelementptr inbounds nuw %"struct.faiss::nsg::Node", ptr %.sroa.0159.6, i64 %indvars.iv.next417554
   %.not341 = icmp eq i64 %107, 0
   br i1 %.not341, label %.critedge208.loopexit, label %.lr.ph321
@@ -5713,7 +5721,7 @@ _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112: ; preds = %_ZNKS
 110:                                              ; preds = %124
   %indvars.iv.next413 = add nuw i64 %indvars.iv412, 1
   %exitcond415.not = icmp eq i64 %indvars.iv.next413, %107
-  br i1 %exitcond415.not, label %.critedge208.loopexit, label %112, !llvm.loop !172
+  br i1 %exitcond415.not, label %.critedge208.loopexit, label %112, !llvm.loop !173
 
 .loopexit215:                                     ; preds = %_ZNKSt6vectorIN5faiss3nsg4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i91
   %lpad.loopexit217 = landingpad { ptr, i32 }
@@ -5827,17 +5835,17 @@ _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122: ; preds = %112, 
   %149 = ashr exact i64 %148, 3
   %150 = load i32, ptr %6, align 4, !tbaa !30
   %151 = sext i32 %150 to i64
-  %152 = icmp uge i64 %149, %151
-  %indvars.iv.next417 = add nuw nsw i64 %indvars.iv.next417554, 1
-  %exitcond419.not = icmp eq i64 %indvars.iv.next417554, %105
-  %or.cond = select i1 %152, i1 true, i1 %exitcond419.not
-  br i1 %or.cond, label %.critedge, label %.lr.ph555, !llvm.loop !173
+  %152 = icmp ult i64 %149, %151
+  br i1 %152, label %.lr.ph326, label %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122..critedge.loopexit_crit_edge, !llvm.loop !172
 
-.critedge:                                        ; preds = %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122, %.lr.ph326.preheader, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112
-  %.sroa.0137.2.lcssa = phi ptr [ %99, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112 ], [ %99, %.lr.ph326.preheader ], [ %.sroa.0137.4, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122 ]
-  %.sroa.27.2.lcssa = phi ptr [ %101, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112 ], [ %101, %.lr.ph326.preheader ], [ %.sroa.27.4, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122 ]
-  %.lcssa251 = phi i64 [ %102, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112 ], [ %102, %.lr.ph326.preheader ], [ %147, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122 ]
-  %.lcssa247 = phi i64 [ 1, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112 ], [ 1, %.lr.ph326.preheader ], [ %149, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122 ]
+_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122..critedge.loopexit_crit_edge: ; preds = %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122
+  br label %.critedge, !llvm.loop !172
+
+.critedge:                                        ; preds = %.lr.ph326, %.lr.ph326.preheader, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122..critedge.loopexit_crit_edge, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112
+  %.sroa.0137.2.lcssa = phi ptr [ %99, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112 ], [ %.sroa.0137.4, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122..critedge.loopexit_crit_edge ], [ %99, %.lr.ph326.preheader ], [ %.sroa.0137.4, %.lr.ph326 ]
+  %.sroa.27.2.lcssa = phi ptr [ %101, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112 ], [ %.sroa.27.4, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122..critedge.loopexit_crit_edge ], [ %101, %.lr.ph326.preheader ], [ %.sroa.27.4, %.lr.ph326 ]
+  %.lcssa251 = phi i64 [ %102, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112 ], [ %147, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122..critedge.loopexit_crit_edge ], [ %102, %.lr.ph326.preheader ], [ %147, %.lr.ph326 ]
+  %.lcssa247 = phi i64 [ 1, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit112 ], [ %149, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122..critedge.loopexit_crit_edge ], [ 1, %.lr.ph326.preheader ], [ %149, %.lr.ph326 ]
   %153 = load ptr, ptr %2, align 8, !tbaa !127
   %154 = getelementptr inbounds nuw %"class.std::mutex", ptr %153, i64 %23
   %155 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %154) #18

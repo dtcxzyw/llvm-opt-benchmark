@@ -6065,10 +6065,13 @@ define linkonce_odr hidden noundef ptr @_ZN14simple_factoryIjE15get_fresh_valueE
   %30 = add i32 %29, 1
   store i32 %30, ptr %16, align 4, !tbaa !399
   %31 = icmp ugt i32 %30, %18
-  br i1 %31, label %._crit_edge, label %25, !llvm.loop !647
+  br i1 %31, label %._crit_edge29, label %25, !llvm.loop !647
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %25, %.lr.ph.split.us
-  %.0 = phi ptr [ %20, %.lr.ph.split.us ], [ %28, %25 ], [ null, %.lr.ph.split ]
+._crit_edge29:                                    ; preds = %.lr.ph.split
+  br label %._crit_edge, !llvm.loop !647
+
+._crit_edge:                                      ; preds = %25, %.lr.ph.split.us, %._crit_edge29
+  %.0 = phi ptr [ null, %._crit_edge29 ], [ %20, %.lr.ph.split.us ], [ %28, %25 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
   ret ptr %.0
 }

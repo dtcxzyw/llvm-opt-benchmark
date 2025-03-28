@@ -3672,11 +3672,17 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #5 {
   %55 = load i32, ptr %54, align 4, !tbaa !37
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next277, %56
-  br i1 %57, label %.lr.ph234.split.us259.us, label %.critedge8.us.us, !llvm.loop !73
+  br i1 %57, label %.lr.ph234.split.us259.us, label %..critedge8.us.us.loopexit_crit_edge, !llvm.loop !73
 
-.critedge8.us.us:                                 ; preds = %.lr.ph234.split.us.us.us, %83, %.lr.ph234.split.us259.us, %50, %.lr.ph234.split.us.us.us.preheader, %.lr.ph234.split.us259.us.preheader, %33
-  %58 = phi ptr [ %30, %33 ], [ %30, %.lr.ph234.split.us259.us.preheader ], [ %30, %.lr.ph234.split.us.us.us.preheader ], [ %51, %50 ], [ %51, %.lr.ph234.split.us259.us ], [ %85, %83 ], [ %85, %.lr.ph234.split.us.us.us ]
-  %59 = phi ptr [ %31, %33 ], [ %31, %.lr.ph234.split.us259.us.preheader ], [ %31, %.lr.ph234.split.us.us.us.preheader ], [ %51, %50 ], [ %51, %.lr.ph234.split.us259.us ], [ %85, %83 ], [ %85, %.lr.ph234.split.us.us.us ]
+..critedge8.us.us.loopexit_crit_edge:             ; preds = %50
+  br label %.critedge8.us.us, !llvm.loop !73
+
+..critedge8.us.us.loopexit332_crit_edge:          ; preds = %83
+  br label %.critedge8.us.us, !llvm.loop !73
+
+.critedge8.us.us:                                 ; preds = %.lr.ph234.split.us.us.us, %.lr.ph234.split.us259.us, %.lr.ph234.split.us.us.us.preheader, %..critedge8.us.us.loopexit332_crit_edge, %.lr.ph234.split.us259.us.preheader, %..critedge8.us.us.loopexit_crit_edge, %33
+  %58 = phi ptr [ %30, %33 ], [ %51, %..critedge8.us.us.loopexit_crit_edge ], [ %30, %.lr.ph234.split.us259.us.preheader ], [ %85, %..critedge8.us.us.loopexit332_crit_edge ], [ %30, %.lr.ph234.split.us.us.us.preheader ], [ %51, %.lr.ph234.split.us259.us ], [ %85, %.lr.ph234.split.us.us.us ]
+  %59 = phi ptr [ %31, %33 ], [ %51, %..critedge8.us.us.loopexit_crit_edge ], [ %31, %.lr.ph234.split.us259.us.preheader ], [ %85, %..critedge8.us.us.loopexit332_crit_edge ], [ %31, %.lr.ph234.split.us.us.us.preheader ], [ %51, %.lr.ph234.split.us259.us ], [ %85, %.lr.ph234.split.us.us.us ]
   %indvars.iv.next280 = add nsw i64 %indvars.iv279, 1
   %60 = getelementptr i8, ptr %59, i64 8
   %.val141.us.us = load ptr, ptr %60, align 8, !tbaa !22
@@ -3759,7 +3765,7 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #5 {
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !37
   %90 = icmp slt i32 %84, %89
-  br i1 %90, label %.lr.ph234.split.us.us.us, label %.critedge8.us.us, !llvm.loop !73
+  br i1 %90, label %.lr.ph234.split.us.us.us, label %..critedge8.us.us.loopexit332_crit_edge, !llvm.loop !73
 
 .lr.ph239.us.us:                                  ; preds = %23
   %91 = shl nsw i64 %indvars.iv282, 1
@@ -4099,11 +4105,14 @@ Ifd_ManOper.exit204:                              ; preds = %.lr.ph.i198, %180, 
   %248 = load i32, ptr %247, align 4, !tbaa !37
   %249 = sext i32 %248 to i64
   %250 = icmp slt i64 %indvars.iv.next, %249
-  br i1 %250, label %130, label %.critedge2, !llvm.loop !79
+  br i1 %250, label %130, label %Ifd_ManOper.exit204..critedge2.loopexit_crit_edge, !llvm.loop !79
 
-.critedge2:                                       ; preds = %Ifd_ManOper.exit204, %130, %.lr.ph, %113
-  %.val147.pre.pre318 = phi ptr [ %.val147.pre.pre317, %113 ], [ %.val147.pre.pre317, %.lr.ph ], [ %.val145, %130 ], [ %.val145, %Ifd_ManOper.exit204 ]
-  %.val147 = phi ptr [ %.val147311, %113 ], [ %.val147.pre.pre317, %.lr.ph ], [ %.val145, %130 ], [ %.val145, %Ifd_ManOper.exit204 ]
+Ifd_ManOper.exit204..critedge2.loopexit_crit_edge: ; preds = %Ifd_ManOper.exit204
+  br label %.critedge2, !llvm.loop !79
+
+.critedge2:                                       ; preds = %130, %.lr.ph, %Ifd_ManOper.exit204..critedge2.loopexit_crit_edge, %113
+  %.val147.pre.pre318 = phi ptr [ %.val147.pre.pre317, %113 ], [ %.val145, %Ifd_ManOper.exit204..critedge2.loopexit_crit_edge ], [ %.val147.pre.pre317, %.lr.ph ], [ %.val145, %130 ]
+  %.val147 = phi ptr [ %.val147311, %113 ], [ %.val145, %Ifd_ManOper.exit204..critedge2.loopexit_crit_edge ], [ %.val147.pre.pre317, %.lr.ph ], [ %.val145, %130 ]
   %indvars.iv.next266 = add nsw i64 %indvars.iv265, 1
   %251 = getelementptr inbounds nuw i32, ptr %.val147, i64 %indvars.iv271
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 4

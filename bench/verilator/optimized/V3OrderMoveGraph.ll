@@ -4292,7 +4292,10 @@ define linkonce_odr dso_local noundef ptr @_ZN21OrderMoveGraphBuilder14getOrigSe
   %45 = ptrtoint ptr %44 to i64
   %46 = urem i64 %45, %29
   %.not19.i.i.i.i.i = icmp eq i64 %46, %30
-  br i1 %.not19.i.i.i.i.i, label %39, label %_ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit, !llvm.loop !247
+  br i1 %.not19.i.i.i.i.i, label %39, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !247
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %42
+  br label %_ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit, !llvm.loop !247
 
 _ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i: ; preds = %39, %22, %34
   %.sroa.06.1.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.06.0.i.i.i, %22 ], [ %41, %39 ]
@@ -4306,8 +4309,8 @@ _ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS
   %spec.select.i = select i1 %.not2.i, ptr %50, ptr null
   br label %_ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit
 
-_ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit: ; preds = %.lr.ph.i.i.i.i.i, %42, %21, %9, %26, %_ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i
-  %.0.i = phi ptr [ null, %9 ], [ null, %26 ], [ %spec.select.i, %_ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i ], [ null, %21 ], [ null, %42 ], [ null, %.lr.ph.i.i.i.i.i ]
+_ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit: ; preds = %.lr.ph.i.i.i.i.i, %21, %9, %26, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i
+  %.0.i = phi ptr [ null, %9 ], [ null, %26 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %spec.select.i, %_ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i ], [ null, %21 ], [ null, %.lr.ph.i.i.i.i.i ]
   %.not3 = icmp eq ptr %.0.i, null
   %53 = select i1 %.not3, ptr %1, ptr %.0.i
   %54 = ptrtoint ptr %53 to i64

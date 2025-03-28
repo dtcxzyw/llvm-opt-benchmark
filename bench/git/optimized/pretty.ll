@@ -1962,15 +1962,18 @@ strbuf_addch.exit46:                              ; preds = %strbuf_avail.exit.i
   %.0345162 = phi i64 [ %57, %53 ], [ 0, %.lr.ph52 ]
   %57 = add i64 %.0345162, 1
   %exitcond.not = icmp eq i64 %57, %11
-  br i1 %exitcond.not, label %.critedge, label %53, !llvm.loop !115
+  br i1 %exitcond.not, label %.critedge2..critedge.loopexit_crit_edge, label %53, !llvm.loop !115
 
 ..critedge.loopexit_crit_edge:                    ; preds = %53
   %58 = sub i64 %.pre59, %57
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge2, %.lr.ph52, %..critedge.loopexit_crit_edge, %3, %.preheader
-  %.034.lcssa = phi i64 [ 0, %.preheader ], [ 0, %3 ], [ %57, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph52 ], [ %11, %.critedge2 ]
-  %.lcssa = phi i64 [ %.pre59, %.preheader ], [ %5, %3 ], [ %58, %..critedge.loopexit_crit_edge ], [ %.pre59, %.lr.ph52 ], [ %5, %.critedge2 ]
+.critedge2..critedge.loopexit_crit_edge:          ; preds = %.critedge2
+  br label %.critedge, !llvm.loop !115
+
+.critedge:                                        ; preds = %.lr.ph52, %..critedge.loopexit_crit_edge, %.critedge2..critedge.loopexit_crit_edge, %3, %.preheader
+  %.034.lcssa = phi i64 [ 0, %.preheader ], [ 0, %3 ], [ %11, %.critedge2..critedge.loopexit_crit_edge ], [ %57, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph52 ]
+  %.lcssa = phi i64 [ %.pre59, %.preheader ], [ %5, %3 ], [ %5, %.critedge2..critedge.loopexit_crit_edge ], [ %58, %..critedge.loopexit_crit_edge ], [ %.pre59, %.lr.ph52 ]
   tail call void @strbuf_remove(ptr noundef nonnull %0, i64 noundef %.lcssa, i64 noundef %.034.lcssa) #19
   ret void
 }

@@ -484,7 +484,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   %60 = getelementptr inbounds i32, ptr %59, i64 %49
   %61 = load i32, ptr %60, align 4, !tbaa !27
   %62 = icmp eq i32 %58, %61
-  br i1 %62, label %.lr.ph132.preheader, label %.critedge4
+  br i1 %62, label %.lr.ph132.preheader, label %.critedge4.loopexit92
 
 .lr.ph132.preheader:                              ; preds = %.lr.ph83.preheader
   %63 = load ptr, ptr %12, align 8, !tbaa !37
@@ -518,7 +518,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   %77 = getelementptr inbounds i32, ptr %76, i64 %49
   %78 = load i32, ptr %77, align 4, !tbaa !27
   %79 = icmp eq i32 %75, %78
-  br i1 %79, label %.lr.ph132, label %.critedge4.loopexit92.loopexit, !llvm.loop !39
+  br i1 %79, label %.lr.ph132, label %.critedge4.loopexit92, !llvm.loop !39
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph83
   %indvars.iv94131 = phi i64 [ %indvars.iv.next95, %.lr.ph83 ], [ %52, %.lr.ph132.preheader ]
@@ -537,20 +537,25 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   %89 = load i32, ptr %1, align 8, !tbaa !32
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next95, %90
-  br i1 %91, label %.lr.ph83, label %.critedge4.loopexit92.loopexit, !llvm.loop !39
+  br i1 %91, label %.lr.ph83, label %..critedge4.loopexit92_crit_edge, !llvm.loop !39
 
-.critedge4.loopexit92.loopexit:                   ; preds = %.lr.ph83, %.lr.ph132
-  %92 = trunc i64 %indvars.iv.next95 to i32
+..critedge4.loopexit92_crit_edge:                 ; preds = %.lr.ph132
+  br label %.critedge4.loopexit92, !llvm.loop !39
+
+.critedge4.loopexit92:                            ; preds = %.lr.ph83, %..critedge4.loopexit92_crit_edge, %.lr.ph83.preheader
+  %92 = phi i32 [ %89, %..critedge4.loopexit92_crit_edge ], [ %15, %.lr.ph83.preheader ], [ %89, %.lr.ph83 ]
+  %.267.ph.in = phi i64 [ %indvars.iv.next95, %..critedge4.loopexit92_crit_edge ], [ %52, %.lr.ph83.preheader ], [ %indvars.iv.next95, %.lr.ph83 ]
+  %.267.ph = trunc i64 %.267.ph.in to i32
   br label %.critedge4
 
 .critedge4.loopexit:                              ; preds = %69
   %93 = trunc nsw i64 %indvars.iv.next98 to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.lr.ph83.preheader, %.critedge4.loopexit92.loopexit, %.critedge4.loopexit, %.preheader
-  %.2115 = phi i32 [ %.2, %.preheader ], [ %.2116, %.critedge4.loopexit ], [ %.2, %.critedge4.loopexit92.loopexit ], [ %.2, %.lr.ph83.preheader ]
-  %94 = phi i32 [ %15, %.preheader ], [ %15, %.critedge4.loopexit ], [ %15, %.lr.ph83.preheader ], [ %89, %.critedge4.loopexit92.loopexit ]
-  %.267 = phi i32 [ %.06587, %.preheader ], [ %93, %.critedge4.loopexit ], [ %.06587, %.lr.ph83.preheader ], [ %92, %.critedge4.loopexit92.loopexit ]
+.critedge4:                                       ; preds = %.critedge4.loopexit, %.critedge4.loopexit92, %.preheader
+  %.2115 = phi i32 [ %.2, %.preheader ], [ %.2, %.critedge4.loopexit92 ], [ %.2116, %.critedge4.loopexit ]
+  %94 = phi i32 [ %15, %.preheader ], [ %92, %.critedge4.loopexit92 ], [ %15, %.critedge4.loopexit ]
+  %.267 = phi i32 [ %.06587, %.preheader ], [ %.267.ph, %.critedge4.loopexit92 ], [ %93, %.critedge4.loopexit ]
   %95 = icmp slt i32 %.267, %94
   br i1 %95, label %96, label %._crit_edge91
 
@@ -1789,7 +1794,7 @@ bsearch.exit:                                     ; preds = %30
   %47 = load ptr, ptr %46, align 8, !tbaa !26
   %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %22) #28
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.lr.ph58.preheader, label %.critedge
+  br i1 %49, label %.lr.ph58.preheader, label %.critedge.loopexit43
 
 .lr.ph58.preheader:                               ; preds = %.lr.ph.preheader
   %50 = load ptr, ptr %11, align 8, !tbaa !37
@@ -1801,7 +1806,7 @@ bsearch.exit:                                     ; preds = %30
   %53 = load ptr, ptr %52, align 8, !tbaa !26
   %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %22) #28
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.lr.ph58, label %.critedge.loopexit43.loopexit, !llvm.loop !105
+  br i1 %55, label %.lr.ph58, label %.critedge.loopexit43, !llvm.loop !105
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph
   %indvars.iv57 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %17, %.lr.ph58.preheader ]
@@ -1820,19 +1825,24 @@ bsearch.exit:                                     ; preds = %30
   %65 = load i32, ptr %1, align 8, !tbaa !32
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.lr.ph, label %.critedge.loopexit43.loopexit, !llvm.loop !105
+  br i1 %67, label %.lr.ph, label %..critedge.loopexit43_crit_edge, !llvm.loop !105
 
-.critedge.loopexit43.loopexit:                    ; preds = %.lr.ph, %.lr.ph58
-  %68 = trunc i64 %indvars.iv.next to i32
+..critedge.loopexit43_crit_edge:                  ; preds = %.lr.ph58
+  br label %.critedge.loopexit43, !llvm.loop !105
+
+.critedge.loopexit43:                             ; preds = %.lr.ph, %..critedge.loopexit43_crit_edge, %.lr.ph.preheader
+  %68 = phi i32 [ %65, %..critedge.loopexit43_crit_edge ], [ %15, %.lr.ph.preheader ], [ %65, %.lr.ph ]
+  %.2.ph.in = phi i64 [ %indvars.iv.next, %..critedge.loopexit43_crit_edge ], [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.2.ph = trunc i64 %.2.ph.in to i32
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %39
   %69 = trunc nsw i64 %indvars.iv.next48 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph.preheader, %.critedge.loopexit43.loopexit, %.critedge.loopexit, %bsearch.exit
-  %70 = phi i32 [ %15, %bsearch.exit ], [ %15, %.critedge.loopexit ], [ %15, %.lr.ph.preheader ], [ %65, %.critedge.loopexit43.loopexit ]
-  %.2 = phi i32 [ %.041, %bsearch.exit ], [ %69, %.critedge.loopexit ], [ %.041, %.lr.ph.preheader ], [ %68, %.critedge.loopexit43.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %.critedge.loopexit43, %bsearch.exit
+  %70 = phi i32 [ %15, %bsearch.exit ], [ %68, %.critedge.loopexit43 ], [ %15, %.critedge.loopexit ]
+  %.2 = phi i32 [ %.041, %bsearch.exit ], [ %.2.ph, %.critedge.loopexit43 ], [ %69, %.critedge.loopexit ]
   %71 = icmp slt i32 %.2, %70
   br i1 %71, label %.lr.ph42.splitthread-pre-split, label %._crit_edge, !llvm.loop !106
 

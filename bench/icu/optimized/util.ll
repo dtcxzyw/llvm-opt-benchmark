@@ -1098,11 +1098,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit85:       ; preds = %_ZNK6icu_7713Unicod
   %52 = load i32, ptr %22, align 4
   %53 = select i1 %49, i32 %52, i32 %51
   %54 = icmp sgt i32 %53, 1
-  br i1 %54, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.critedge.loopexit, !llvm.loop !26
+  br i1 %54, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %..critedge.loopexit_crit_edge, !llvm.loop !26
 
-.critedge.loopexit:                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit85, %44, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph
-  %55 = phi i32 [ %23, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %40, %_ZNK6icu_7713UnicodeString6charAtEi.exit85 ], [ %52, %44 ], [ %52, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
-  %56 = phi i16 [ %18, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %39, %_ZNK6icu_7713UnicodeString6charAtEi.exit85 ], [ %48, %44 ], [ %48, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
+..critedge.loopexit_crit_edge:                    ; preds = %44
+  br label %.critedge.loopexit, !llvm.loop !26
+
+.critedge.loopexit:                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit85, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %..critedge.loopexit_crit_edge, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph
+  %55 = phi i32 [ %52, %..critedge.loopexit_crit_edge ], [ %23, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %40, %_ZNK6icu_7713UnicodeString6charAtEi.exit85 ], [ %52, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
+  %56 = phi i16 [ %48, %..critedge.loopexit_crit_edge ], [ %18, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %39, %_ZNK6icu_7713UnicodeString6charAtEi.exit85 ], [ %48, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
   %.pre122 = ashr i16 %56, 5
   %.pre123 = sext i16 %.pre122 to i32
   br label %.critedge

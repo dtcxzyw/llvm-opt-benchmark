@@ -3013,10 +3013,13 @@ define i32 @Gia_ManSolveSat(ptr noundef %0) local_unnamed_addr #0 {
   %29 = sub nsw i32 %.val69.val, %.val68
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !109
+  br i1 %31, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !109
 
-.critedge:                                        ; preds = %.lr.ph133, %.lr.ph, %.lr.ph.preheader, %5
-  %.val7088116 = phi i32 [ %.val6879, %5 ], [ %.val6879, %.lr.ph.preheader ], [ %.val68, %.lr.ph ], [ %.val68, %.lr.ph133 ]
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph133
+  br label %.critedge, !llvm.loop !109
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %5
+  %.val7088116 = phi i32 [ %.val6879, %5 ], [ %.val68, %..critedge.loopexit_crit_edge ], [ %.val6879, %.lr.ph.preheader ], [ %.val68, %.lr.ph ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i32, ptr %32, align 8, !tbaa !73
   %34 = icmp sgt i32 %33, 0
@@ -3129,11 +3132,14 @@ define i32 @Gia_ManSolveSat(ptr noundef %0) local_unnamed_addr #0 {
   %90 = sub nsw i32 %.val71.val, %.val70
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next110, %91
-  br i1 %92, label %.lr.ph93, label %.critedge4, !llvm.loop !111
+  br i1 %92, label %.lr.ph93, label %..critedge4_crit_edge, !llvm.loop !111
 
-.critedge4:                                       ; preds = %.lr.ph140, %.lr.ph93, %.lr.ph93.preheader
-  %.val71.lcssa = phi ptr [ %.val7189, %.lr.ph93.preheader ], [ %.val71, %.lr.ph93 ], [ %.val71, %.lr.ph140 ]
-  %.lcssa = phi i32 [ %73, %.lr.ph93.preheader ], [ %90, %.lr.ph93 ], [ %90, %.lr.ph140 ]
+..critedge4_crit_edge:                            ; preds = %.lr.ph140
+  br label %.critedge4, !llvm.loop !111
+
+.critedge4:                                       ; preds = %.lr.ph93, %..critedge4_crit_edge, %.lr.ph93.preheader
+  %.val71.lcssa = phi ptr [ %.val71, %..critedge4_crit_edge ], [ %.val7189, %.lr.ph93.preheader ], [ %.val71, %.lr.ph93 ]
+  %.lcssa = phi i32 [ %90, %..critedge4_crit_edge ], [ %73, %.lr.ph93.preheader ], [ %90, %.lr.ph93 ]
   %93 = getelementptr i8, ptr %.val71.lcssa, i64 8
   %94 = icmp sgt i32 %.lcssa, 0
   br i1 %94, label %.lr.ph99, label %.critedge6

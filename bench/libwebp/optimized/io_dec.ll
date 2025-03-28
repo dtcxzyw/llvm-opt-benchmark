@@ -1345,7 +1345,7 @@ WebPRescalerHasPendingOutput.exit:                ; preds = %39
   %36 = icmp slt i32 %35, 1
   %37 = icmp slt i32 %48, %2
   %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %39, label %WebPRescalerHasPendingOutput.exit.thread.loopexit, !llvm.loop !83
+  br i1 %38, label %39, label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !83
 
 39:                                               ; preds = %.lr.ph, %WebPRescalerHasPendingOutput.exit
   %.0313547 = phi i32 [ 0, %.lr.ph ], [ %48, %WebPRescalerHasPendingOutput.exit ]
@@ -1367,22 +1367,22 @@ WebPRescalerHasPendingOutput.exit:                ; preds = %39
   %51 = getelementptr i8, ptr %49, i64 64
   %.val2.i = load i32, ptr %51, align 8, !tbaa !73
   %.not3.i = icmp slt i32 %.val2.i, %.val.i
-  br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %WebPRescalerHasPendingOutput.exit.thread.loopexit, !llvm.loop !83
+  br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %.WebPRescalerHasPendingOutput.exit.thread_crit_edge, !llvm.loop !83
 
-WebPRescalerHasPendingOutput.exit.thread.loopexit: ; preds = %WebPRescalerHasPendingOutput.exit, %39
-  %52 = icmp ne i32 %46, 0
-  br label %WebPRescalerHasPendingOutput.exit.thread
+.WebPRescalerHasPendingOutput.exit.thread_crit_edge: ; preds = %39
+  br label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !83
 
-WebPRescalerHasPendingOutput.exit.thread:         ; preds = %WebPRescalerHasPendingOutput.exit.thread.loopexit, %WebPRescalerHasPendingOutput.exit.preheader
-  %53 = phi i32 [ %9, %WebPRescalerHasPendingOutput.exit.preheader ], [ %47, %WebPRescalerHasPendingOutput.exit.thread.loopexit ]
-  %.031.lcssa.ph = phi i32 [ 0, %WebPRescalerHasPendingOutput.exit.preheader ], [ %48, %WebPRescalerHasPendingOutput.exit.thread.loopexit ]
-  %.030.lcssa.ph = phi i1 [ false, %WebPRescalerHasPendingOutput.exit.preheader ], [ %52, %WebPRescalerHasPendingOutput.exit.thread.loopexit ]
-  %or.cond = select i1 %narrow.i, i1 %.030.lcssa.ph, i1 false
+WebPRescalerHasPendingOutput.exit.thread:         ; preds = %WebPRescalerHasPendingOutput.exit, %.WebPRescalerHasPendingOutput.exit.thread_crit_edge, %WebPRescalerHasPendingOutput.exit.preheader
+  %52 = phi i32 [ %47, %.WebPRescalerHasPendingOutput.exit.thread_crit_edge ], [ %9, %WebPRescalerHasPendingOutput.exit.preheader ], [ %47, %WebPRescalerHasPendingOutput.exit ]
+  %.031.lcssa.ph = phi i32 [ %48, %.WebPRescalerHasPendingOutput.exit.thread_crit_edge ], [ 0, %WebPRescalerHasPendingOutput.exit.preheader ], [ %48, %WebPRescalerHasPendingOutput.exit ]
+  %.030.lcssa.ph = phi i32 [ %46, %.WebPRescalerHasPendingOutput.exit.thread_crit_edge ], [ 0, %WebPRescalerHasPendingOutput.exit.preheader ], [ %46, %WebPRescalerHasPendingOutput.exit ]
+  %53 = icmp ne i32 %.030.lcssa.ph, 0
+  %or.cond = select i1 %narrow.i, i1 %53, i1 false
   br i1 %or.cond, label %54, label %WebPRescalerHasPendingOutput.exit.thread.thread
 
 54:                                               ; preds = %WebPRescalerHasPendingOutput.exit.thread
   %55 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !58
-  tail call void %55(ptr noundef %12, i32 noundef %17, i32 noundef %22, i32 noundef %.031.lcssa.ph, i32 noundef %53) #6
+  tail call void %55(ptr noundef %12, i32 noundef %17, i32 noundef %22, i32 noundef %.031.lcssa.ph, i32 noundef %52) #6
   br label %WebPRescalerHasPendingOutput.exit.thread.thread
 
 WebPRescalerHasPendingOutput.exit.thread.thread:  ; preds = %3, %54, %WebPRescalerHasPendingOutput.exit.thread

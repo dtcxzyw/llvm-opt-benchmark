@@ -1277,12 +1277,15 @@ _ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEmESt4pairINSt25__st
   %107 = load i64, ptr %106, align 8
   %108 = urem i64 %107, %65
   %.not17.i.i.i = icmp eq i64 %108, %66
-  br i1 %.not17.i.i.i, label %96, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit.thread.i, !llvm.loop !17
+  br i1 %.not17.i.i.i, label %96, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !17
 
-_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit.thread.i: ; preds = %105, %.lr.ph.i.i.i, %.loopexit.thread.i, %.loopexit.i
-  %109 = phi i64 [ %66, %.loopexit.thread.i ], [ %84, %.loopexit.i ], [ %66, %.lr.ph.i.i.i ], [ %66, %105 ]
-  %110 = phi i64 [ %63, %.loopexit.thread.i ], [ %81, %.loopexit.i ], [ %63, %.lr.ph.i.i.i ], [ %63, %105 ]
-  %111 = phi i64 [ %61, %.loopexit.thread.i ], [ %79, %.loopexit.i ], [ %61, %.lr.ph.i.i.i ], [ %61, %105 ]
+..loopexit_crit_edge21.i.i.i:                     ; preds = %105
+  br label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit.thread.i, !llvm.loop !17
+
+_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit.thread.i: ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %.loopexit.thread.i, %.loopexit.i
+  %109 = phi i64 [ %66, %..loopexit_crit_edge21.i.i.i ], [ %66, %.loopexit.thread.i ], [ %84, %.loopexit.i ], [ %66, %.lr.ph.i.i.i ]
+  %110 = phi i64 [ %63, %..loopexit_crit_edge21.i.i.i ], [ %63, %.loopexit.thread.i ], [ %81, %.loopexit.i ], [ %63, %.lr.ph.i.i.i ]
+  %111 = phi i64 [ %61, %..loopexit_crit_edge21.i.i.i ], [ %61, %.loopexit.thread.i ], [ %79, %.loopexit.i ], [ %61, %.lr.ph.i.i.i ]
   %112 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
           to label %.noexc40 unwind label %208
 
@@ -1563,8 +1566,8 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmED2Ev.exit._crit_edge.i:
   br label %.body22
 
 214:                                              ; preds = %.lr.ph.i
-  %.not1319.i.i = icmp eq ptr %45, %44
-  br i1 %.not1319.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7TfTokenENS1_11HashFunctorESt8equal_toIS1_ELj128EE4findERKS1_.exit.i.thread, label %.lr.ph.i.i
+  %.not1320.i.i = icmp eq ptr %45, %44
+  br i1 %.not1320.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7TfTokenENS1_11HashFunctorESt8equal_toIS1_ELj128EE4findERKS1_.exit.i.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %214
   %215 = load ptr, ptr %.sroa.0.08.i, align 8
@@ -1572,20 +1575,20 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmED2Ev.exit._crit_edge.i:
   br label %217
 
 217:                                              ; preds = %222, %.lr.ph.i.i
-  %.sroa.08.120.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %223, %222 ]
-  %218 = load ptr, ptr %.sroa.08.120.i.i, align 8
+  %.sroa.08.121.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %223, %222 ]
+  %218 = load ptr, ptr %.sroa.08.121.i.i, align 8
   %219 = ptrtoint ptr %218 to i64
   %220 = xor i64 %219, %216
   %221 = icmp ult i64 %220, 8
   br i1 %221, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7TfTokenENS1_11HashFunctorESt8equal_toIS1_ELj128EE4findERKS1_.exit.i, label %222
 
 222:                                              ; preds = %217
-  %223 = getelementptr inbounds nuw i8, ptr %.sroa.08.120.i.i, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %.sroa.08.121.i.i, i64 8
   %.not13.i.i = icmp eq ptr %223, %44
   br i1 %.not13.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7TfTokenENS1_11HashFunctorESt8equal_toIS1_ELj128EE4findERKS1_.exit.i.thread, label %217, !llvm.loop !19
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7TfTokenENS1_11HashFunctorESt8equal_toIS1_ELj128EE4findERKS1_.exit.i: ; preds = %217
-  %.not25.i = icmp eq ptr %.sroa.08.120.i.i, %44
+  %.not25.i = icmp eq ptr %.sroa.08.121.i.i, %44
   br i1 %.not25.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7TfTokenENS1_11HashFunctorESt8equal_toIS1_ELj128EE4findERKS1_.exit.i.thread, label %.noexc18
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7TfTokenENS1_11HashFunctorESt8equal_toIS1_ELj128EE4findERKS1_.exit.i.thread: ; preds = %222, %214, %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7TfTokenENS1_11HashFunctorESt8equal_toIS1_ELj128EE4findERKS1_.exit.i, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmED2Ev.exit._crit_edge.i
@@ -3226,9 +3229,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__deta
   %37 = load i64, ptr %36, align 8
   %38 = urem i64 %37, %10
   %.not17.i.i = icmp eq i64 %38, %11
-  br i1 %.not17.i.i, label %26, label %.loopexit, !llvm.loop !36
+  br i1 %.not17.i.i, label %26, label %..loopexit_crit_edge21.i.i, !llvm.loop !36
 
-.loopexit:                                        ; preds = %35, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %35
+  br label %.loopexit, !llvm.loop !36
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   store ptr %0, ptr %3, align 8
   %39 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr null, ptr %39, align 8

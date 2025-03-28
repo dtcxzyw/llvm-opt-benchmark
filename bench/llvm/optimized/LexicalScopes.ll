@@ -1457,15 +1457,18 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocati
   %107 = ptrtoint ptr %106 to i64
   %108 = urem i64 %107, %91
   %.not19.i.i.i.i.i = icmp eq i64 %108, %92
-  br i1 %.not19.i.i.i.i.i, label %101, label %_ZN4llvm13LexicalScopes16findLexicalScopeEPKNS_12DILocalScopeE.exit, !llvm.loop !258
+  br i1 %.not19.i.i.i.i.i, label %101, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !258
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %104
+  br label %_ZN4llvm13LexicalScopes16findLexicalScopeEPKNS_12DILocalScopeE.exit, !llvm.loop !258
 
 _ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i: ; preds = %101, %83, %96
   %.sroa.06.1.i.i.i = phi ptr [ %97, %96 ], [ %.sroa.06.0.i.i.i, %83 ], [ %103, %101 ]
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   br label %_ZN4llvm13LexicalScopes16findLexicalScopeEPKNS_12DILocalScopeE.exit
 
-_ZN4llvm13LexicalScopes16findLexicalScopeEPKNS_12DILocalScopeE.exit: ; preds = %73, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocationEES1_IKS9_NS2_12LexicalScopeEENS_10_Select1stESt8equal_toIS9_ENS2_9pair_hashIS5_S8_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i, %38, %104, %.lr.ph.i.i.i.i.i, %82, %.loopexit, %47, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i, %87, %_ZNK4llvm10DILocation8getScopeEv.exit
-  %.04 = phi ptr [ %77, %.loopexit ], [ null, %_ZNK4llvm10DILocation8getScopeEv.exit ], [ %109, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i ], [ null, %87 ], [ null, %47 ], [ null, %82 ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %104 ], [ null, %38 ], [ null, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocationEES1_IKS9_NS2_12LexicalScopeEENS_10_Select1stESt8equal_toIS9_ENS2_9pair_hashIS5_S8_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ], [ null, %73 ]
+_ZN4llvm13LexicalScopes16findLexicalScopeEPKNS_12DILocalScopeE.exit: ; preds = %73, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocationEES1_IKS9_NS2_12LexicalScopeEENS_10_Select1stESt8equal_toIS9_ENS2_9pair_hashIS5_S8_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i, %38, %.lr.ph.i.i.i.i.i, %82, %.loopexit, %47, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i, %..loopexit_crit_edge21.i.i.i.i.i, %87, %_ZNK4llvm10DILocation8getScopeEv.exit
+  %.04 = phi ptr [ %77, %.loopexit ], [ null, %_ZNK4llvm10DILocation8getScopeEv.exit ], [ %109, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i ], [ null, %87 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %47 ], [ null, %82 ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %38 ], [ null, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocationEES1_IKS9_NS2_12LexicalScopeEENS_10_Select1stESt8equal_toIS9_ENS2_9pair_hashIS5_S8_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ], [ null, %73 ]
   ret ptr %.04
 }
 
@@ -1591,9 +1594,12 @@ define dso_local noundef nonnull ptr @_ZN4llvm13LexicalScopes24getOrCreateAbstra
   %39 = ptrtoint ptr %38 to i64
   %40 = urem i64 %39, %23
   %.not19.i.i.i.i = icmp eq i64 %40, %24
-  br i1 %.not19.i.i.i.i, label %33, label %.loopexit, !llvm.loop !258
+  br i1 %.not19.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !258
 
-.loopexit:                                        ; preds = %36, %.lr.ph.i.i.i.i, %15, %20
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
+  br label %.loopexit, !llvm.loop !258
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %15, %20, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store ptr null, ptr %4, align 8, !tbaa !224
   %41 = load i8, ptr %9, align 4, !tbaa !259
@@ -1917,9 +1923,12 @@ define dso_local noundef nonnull ptr @_ZN4llvm13LexicalScopes23getOrCreateRegula
   %39 = ptrtoint ptr %38 to i64
   %40 = urem i64 %39, %23
   %.not19.i.i.i.i = icmp eq i64 %40, %24
-  br i1 %.not19.i.i.i.i, label %33, label %.loopexit, !llvm.loop !258
+  br i1 %.not19.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !258
 
-.loopexit:                                        ; preds = %36, %.lr.ph.i.i.i.i, %15, %20
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
+  br label %.loopexit, !llvm.loop !258
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %15, %20, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store ptr null, ptr %4, align 8, !tbaa !224
   %41 = load i8, ptr %9, align 4, !tbaa !259
@@ -3022,13 +3031,16 @@ _ZNSt10_HashtableIPKN4llvm12DILocalScopeESt4pairIKS3_NS0_12LexicalScopeEESaIS7_E
   %85 = ptrtoint ptr %84 to i64
   %86 = urem i64 %85, %56
   %.not19.i.i = icmp eq i64 %86, %57
-  br i1 %.not19.i.i, label %79, label %.critedge19, !llvm.loop !258
+  br i1 %.not19.i.i, label %79, label %..loopexit_crit_edge21.i.i, !llvm.loop !258
 
-.critedge19:                                      ; preds = %.lr.ph.i.i, %82, %.critedge, %.critedge.thread
-  %87 = phi i64 [ %73, %.critedge ], [ %57, %.critedge.thread ], [ %57, %82 ], [ %57, %.lr.ph.i.i ]
-  %88 = phi i64 [ %72, %.critedge ], [ %56, %.critedge.thread ], [ %56, %82 ], [ %56, %.lr.ph.i.i ]
-  %89 = phi ptr [ %71, %.critedge ], [ %55, %.critedge.thread ], [ %55, %82 ], [ %55, %.lr.ph.i.i ]
-  %90 = phi i64 [ %70, %.critedge ], [ %54, %.critedge.thread ], [ %54, %82 ], [ %54, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %82
+  br label %.critedge19, !llvm.loop !258
+
+.critedge19:                                      ; preds = %.lr.ph.i.i, %.critedge, %..loopexit_crit_edge21.i.i, %.critedge.thread
+  %87 = phi i64 [ %73, %.critedge ], [ %57, %.critedge.thread ], [ %57, %..loopexit_crit_edge21.i.i ], [ %57, %.lr.ph.i.i ]
+  %88 = phi i64 [ %72, %.critedge ], [ %56, %.critedge.thread ], [ %56, %..loopexit_crit_edge21.i.i ], [ %56, %.lr.ph.i.i ]
+  %89 = phi ptr [ %71, %.critedge ], [ %55, %.critedge.thread ], [ %55, %..loopexit_crit_edge21.i.i ], [ %55, %.lr.ph.i.i ]
+  %90 = phi i64 [ %70, %.critedge ], [ %54, %.critedge.thread ], [ %54, %..loopexit_crit_edge21.i.i ], [ %54, %.lr.ph.i.i ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %92 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %91, i64 noundef %88, i64 noundef %52, i64 noundef 1) #12
   %93 = extractvalue { i8, i64 } %92, 0

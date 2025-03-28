@@ -5627,9 +5627,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %198, %202
   %252 = load i64, ptr %251, align 8
   %253 = urem i64 %252, %225
   %.not17.i.i.i.i = icmp eq i64 %253, %226
-  br i1 %.not17.i.i.i.i, label %241, label %.loopexit, !llvm.loop !44
+  br i1 %.not17.i.i.i.i, label %241, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !44
 
-.loopexit:                                        ; preds = %250, %.lr.ph.i.i.i.i, %213, %220
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %250
+  br label %.loopexit, !llvm.loop !44
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %213, %220, %..loopexit_crit_edge21.i.i.i.i
   %254 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_mESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_mEEEixERS6_.exit unwind label %255
 
@@ -6612,9 +6615,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__deta
   %37 = load i64, ptr %36, align 8
   %38 = urem i64 %37, %10
   %.not17.i.i = icmp eq i64 %38, %11
-  br i1 %.not17.i.i, label %26, label %.loopexit, !llvm.loop !44
+  br i1 %.not17.i.i, label %26, label %..loopexit_crit_edge21.i.i, !llvm.loop !44
 
-.loopexit:                                        ; preds = %35, %.lr.ph.i.i, %2
+..loopexit_crit_edge21.i.i:                       ; preds = %35
+  br label %.loopexit, !llvm.loop !44
+
+.loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   store ptr %0, ptr %3, align 8
   %39 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   store ptr null, ptr %39, align 8

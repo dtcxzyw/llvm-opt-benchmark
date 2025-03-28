@@ -220,12 +220,12 @@ define void @Ga2_StructAnalize(ptr noundef readonly captures(none) %0, ptr nound
   %45 = getelementptr i8, ptr %3, i64 8
   %.val101151 = load ptr, ptr %5, align 8, !tbaa !21
   %.not76152 = icmp eq ptr %.val101151, null
-  br i1 %.not76152, label %.lr.ph129, label %.lr.ph155
+  br i1 %.not76152, label %.critedge6, label %.lr.ph155
 
 46:                                               ; preds = %.lr.ph155
   %.val101 = load ptr, ptr %5, align 8, !tbaa !21
   %.not76 = icmp eq ptr %.val101, null
-  br i1 %.not76, label %.critedge6.loopexit, label %.lr.ph155, !llvm.loop !44
+  br i1 %.not76, label %.critedge6, label %.lr.ph155, !llvm.loop !44
 
 .lr.ph155:                                        ; preds = %.lr.ph121, %46
   %.val101154 = phi ptr [ %.val101, %46 ], [ %.val101151, %.lr.ph121 ]
@@ -242,13 +242,17 @@ define void @Ga2_StructAnalize(ptr noundef readonly captures(none) %0, ptr nound
   %.val91 = load i32, ptr %43, align 4, !tbaa !15
   %53 = sext i32 %.val91 to i64
   %54 = icmp slt i64 %indvars.iv.next139, %53
-  br i1 %54, label %46, label %.critedge6.loopexit, !llvm.loop !44
+  br i1 %54, label %46, label %..critedge6_crit_edge156, !llvm.loop !44
 
-.critedge6.loopexit:                              ; preds = %46, %.lr.ph155
-  %55 = icmp sgt i32 %.val91, 0
+..critedge6_crit_edge156:                         ; preds = %.lr.ph155
+  br label %.critedge6, !llvm.loop !44
+
+.critedge6:                                       ; preds = %46, %..critedge6_crit_edge156, %.lr.ph121
+  %.val127148 = phi i32 [ %.val91, %..critedge6_crit_edge156 ], [ %.val91119, %.lr.ph121 ], [ %.val91, %46 ]
+  %55 = icmp sgt i32 %.val127148, 0
   br i1 %55, label %.lr.ph129, label %.critedge8
 
-.lr.ph129:                                        ; preds = %.lr.ph121, %.critedge6.loopexit
+.lr.ph129:                                        ; preds = %.critedge6
   %56 = getelementptr i8, ptr %3, i64 8
   %57 = getelementptr i8, ptr %0, i64 264
   br label %58
@@ -355,7 +359,7 @@ define void @Ga2_StructAnalize(ptr noundef readonly captures(none) %0, ptr nound
   %107 = icmp slt i64 %indvars.iv.next145, %106
   br i1 %107, label %58, label %.critedge8, !llvm.loop !47
 
-.critedge8:                                       ; preds = %58, %.critedge10, %.critedge4, %.critedge6.loopexit
+.critedge8:                                       ; preds = %58, %.critedge10, %.critedge4, %.critedge6
   ret void
 }
 
@@ -377,14 +381,14 @@ define noalias noundef ptr @Rnm_ManFilterSelected(ptr noundef readonly captures(
   %11 = getelementptr i8, ptr %10, i64 32
   %.val105196 = load ptr, ptr %11, align 8, !tbaa !21
   %.not197 = icmp eq ptr %.val105196, null
-  br i1 %.not197, label %.critedge, label %.lr.ph199
+  br i1 %.not197, label %.critedge.loopexit, label %.lr.ph199
 
 12:                                               ; preds = %.critedge2
   %13 = load ptr, ptr %0, align 8, !tbaa !18
   %14 = getelementptr i8, ptr %13, i64 32
   %.val105 = load ptr, ptr %14, align 8, !tbaa !21
   %.not = icmp eq ptr %.val105, null
-  br i1 %.not, label %.critedge.loopexit.loopexit, label %.lr.ph199, !llvm.loop !49
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph199, !llvm.loop !49
 
 .lr.ph199:                                        ; preds = %.lr.ph149, %12
   %15 = phi ptr [ %13, %12 ], [ %10, %.lr.ph149 ]
@@ -534,14 +538,18 @@ Rnm_ObjAddToCount.exit.thread:                    ; preds = %34, %Rnm_ObjAddToCo
   %.val95 = load i32, ptr %6, align 4, !tbaa !15
   %87 = sext i32 %.val95 to i64
   %88 = icmp slt i64 %indvars.iv.next163, %87
-  br i1 %88, label %12, label %.critedge.loopexit.loopexit, !llvm.loop !49
+  br i1 %88, label %12, label %.critedge2..critedge.loopexit_crit_edge, !llvm.loop !49
 
-.critedge.loopexit.loopexit:                      ; preds = %.critedge2, %12
-  %89 = icmp sgt i32 %.val95, 0
+.critedge2..critedge.loopexit_crit_edge:          ; preds = %.critedge2
+  br label %.critedge.loopexit, !llvm.loop !49
+
+.critedge.loopexit:                               ; preds = %12, %.critedge2..critedge.loopexit_crit_edge, %.lr.ph149
+  %.val93153176 = phi i32 [ %.val95, %.critedge2..critedge.loopexit_crit_edge ], [ %.val95147, %.lr.ph149 ], [ %.val95, %12 ]
+  %89 = icmp sgt i32 %.val93153176, 0
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph149, %.critedge.loopexit.loopexit, %2
-  %.val93153 = phi i1 [ false, %2 ], [ true, %.lr.ph149 ], [ %89, %.critedge.loopexit.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %2
+  %.val93153 = phi i1 [ %89, %.critedge.loopexit ], [ false, %2 ]
   %90 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 0, ptr %91, align 4, !tbaa !15

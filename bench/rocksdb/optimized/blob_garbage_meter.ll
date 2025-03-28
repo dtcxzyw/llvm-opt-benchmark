@@ -179,9 +179,12 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %.body, %_ZNKSt14def
   %59 = load i64, ptr %58, align 8, !tbaa !4
   %60 = urem i64 %59, %44
   %.not19.i.i.i.i = icmp eq i64 %60, %45
-  br i1 %.not19.i.i.i.i, label %54, label %.loopexit.i.i, !llvm.loop !45
+  br i1 %.not19.i.i.i.i, label %54, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !45
 
-.loopexit.i.i:                                    ; preds = %57, %.lr.ph.i.i.i.i, %42
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %57
+  br label %.loopexit.i.i, !llvm.loop !45
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %42
   %61 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
           to label %.noexc unwind label %33
 
@@ -477,9 +480,12 @@ _ZN7rocksdb6StatusC2ERKS0_.exit:                  ; preds = %11, %31
   %66 = load i64, ptr %65, align 8, !tbaa !4
   %67 = urem i64 %66, %51
   %.not19.i.i.i.i = icmp eq i64 %67, %52
-  br i1 %.not19.i.i.i.i, label %61, label %.loopexit, !llvm.loop !45
+  br i1 %.not19.i.i.i.i, label %61, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !45
 
-.loopexit:                                        ; preds = %64, %.lr.ph.i.i.i.i, %44, %49
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %64
+  br label %.loopexit, !llvm.loop !45
+
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %44, %49, %..loopexit_crit_edge21.i.i.i.i
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %68, align 8, !tbaa !30, !alias.scope !81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !81

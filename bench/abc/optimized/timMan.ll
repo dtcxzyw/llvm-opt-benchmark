@@ -2604,10 +2604,13 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
   %201 = load i32, ptr %142, align 4, !tbaa !40
   %202 = sext i32 %201 to i64
   %203 = icmp slt i64 %indvars.iv.next304, %202
-  br i1 %203, label %.lr.ph261, label %.critedge12, !llvm.loop !96
+  br i1 %203, label %.lr.ph261, label %..critedge12.loopexit_crit_edge, !llvm.loop !96
 
-.critedge12:                                      ; preds = %.lr.ph261, %.lr.ph371, %.lr.ph261.preheader, %.preheader213, %182
-  %204 = phi i32 [ %180, %.preheader213 ], [ %.pre335, %182 ], [ %180, %.lr.ph261.preheader ], [ %201, %.lr.ph371 ], [ %201, %.lr.ph261 ]
+..critedge12.loopexit_crit_edge:                  ; preds = %.lr.ph371
+  br label %.critedge12, !llvm.loop !96
+
+.critedge12:                                      ; preds = %.lr.ph261, %.lr.ph261.preheader, %..critedge12.loopexit_crit_edge, %.preheader213, %182
+  %204 = phi i32 [ %180, %.preheader213 ], [ %.pre335, %182 ], [ %201, %..critedge12.loopexit_crit_edge ], [ %180, %.lr.ph261.preheader ], [ %201, %.lr.ph261 ]
   %.val196 = load ptr, ptr %32, align 8, !tbaa !14
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds [0 x i32], ptr %152, i64 0, i64 %205

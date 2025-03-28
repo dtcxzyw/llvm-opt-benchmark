@@ -19825,7 +19825,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9checkStopEv(ptr
   %76 = zext i32 %75 to i64
   %77 = urem i64 %76, %60
   %.not17.i.i.i.i.i = icmp eq i64 %77, %61
-  br i1 %.not17.i.i.i.i.i, label %70, label %.loopexit.i, !llvm.loop !2694
+  br i1 %.not17.i.i.i.i.i, label %70, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !2694
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %73
+  br label %.loopexit.i, !llvm.loop !2694
 
 _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i: ; preds = %70, %54, %65
   %.sroa.06.1.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.06.0.i.i.i, %54 ], [ %72, %70 ]
@@ -19835,7 +19838,7 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %80 = inttoptr i64 %79 to ptr
   br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit
 
-.loopexit.i:                                      ; preds = %73, %.lr.ph.i.i.i.i.i, %53, %58
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %53, %..loopexit_crit_edge21.i.i.i.i.i, %58
   %81 = load i64, ptr %13, align 8, !noalias !2690
   %82 = inttoptr i64 %81 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !2695)
@@ -20024,7 +20027,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9updateGasEv(ptr
   %115 = zext i32 %114 to i64
   %116 = urem i64 %115, %99
   %.not17.i.i.i.i.i = icmp eq i64 %116, %100
-  br i1 %.not17.i.i.i.i.i, label %109, label %.loopexit.i, !llvm.loop !2694
+  br i1 %.not17.i.i.i.i.i, label %109, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !2694
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %112
+  br label %.loopexit.i, !llvm.loop !2694
 
 _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i: ; preds = %109, %93, %104
   %.sroa.06.1.i.i.i = phi ptr [ %105, %104 ], [ %.sroa.06.0.i.i.i, %93 ], [ %111, %109 ]
@@ -20034,7 +20040,7 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %119 = inttoptr i64 %118 to ptr
   br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit
 
-.loopexit.i:                                      ; preds = %112, %.lr.ph.i.i.i.i.i, %92, %97
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %92, %..loopexit_crit_edge21.i.i.i.i.i, %97
   %120 = load i64, ptr %23, align 8, !noalias !2751
   %121 = inttoptr i64 %120 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !2754)
@@ -20395,7 +20401,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8Was
   %34 = zext i32 %33 to i64
   %35 = urem i64 %34, %18
   %.not17.i.i.i.i = icmp eq i64 %35, %19
-  br i1 %.not17.i.i.i.i, label %28, label %.loopexit, !llvm.loop !2694
+  br i1 %.not17.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !2694
+
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %31
+  br label %.loopexit, !llvm.loop !2694
 
 _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit: ; preds = %28, %11, %23
   %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %11 ], [ %30, %28 ]
@@ -20404,7 +20413,7 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   store i64 %37, ptr %0, align 8
   br label %45
 
-.loopexit:                                        ; preds = %31, %.lr.ph.i.i.i.i, %10, %15
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %40 = load i64, ptr %39, align 8
@@ -22860,7 +22869,10 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   %132 = zext i32 %131 to i64
   %133 = urem i64 %132, %116
   %.not17.i.i.i.i.i = icmp eq i64 %133, %117
-  br i1 %.not17.i.i.i.i.i, label %126, label %.loopexit.i, !llvm.loop !2694
+  br i1 %.not17.i.i.i.i.i, label %126, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !2694
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %129
+  br label %.loopexit.i, !llvm.loop !2694
 
 _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i: ; preds = %126, %110, %121
   %.sroa.06.1.i.i.i = phi ptr [ %122, %121 ], [ %.sroa.06.0.i.i.i, %110 ], [ %128, %126 ]
@@ -22870,7 +22882,7 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %136 = inttoptr i64 %135 to ptr
   br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit
 
-.loopexit.i:                                      ; preds = %129, %.lr.ph.i.i.i.i.i, %109, %114
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %109, %..loopexit_crit_edge21.i.i.i.i.i, %114
   %137 = load i64, ptr %32, align 8, !noalias !3319
   %138 = inttoptr i64 %137 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !3322)
@@ -22954,8 +22966,8 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %185 = load ptr, ptr %32, align 8, !noalias !3332
   %186 = call ptr @LLVMGetFirstParam(ptr noundef %185) #16, !noalias !3332
   store ptr %186, ptr %.sroa.0211.0, align 8
-  %.not281 = icmp eq ptr %157, %158
-  br i1 %.not281, label %._crit_edge, label %.lr.ph
+  %.not282 = icmp eq ptr %157, %158
+  br i1 %.not282, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
   %.promoted = load ptr, ptr %65, align 8
@@ -22965,13 +22977,13 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %188 = load ptr, ptr %49, align 8
   %189 = ptrtoint ptr %188 to i64
   %190 = getelementptr inbounds i8, ptr %.val5.i57, i64 -136
-  %umax292 = call i64 @llvm.umax.i64(i64 %162, i64 1)
+  %umax294 = call i64 @llvm.umax.i64(i64 %162, i64 1)
   br i1 %187, label %.critedge.thread.i60.us, label %.critedge.i58
 
 .critedge.thread.i60.us:                          ; preds = %.lr.ph, %.critedge.thread.i60.us
-  %.049262.us = phi i64 [ %198, %.critedge.thread.i60.us ], [ 0, %.lr.ph ]
+  %.049263.us = phi i64 [ %198, %.critedge.thread.i60.us ], [ 0, %.lr.ph ]
   %191 = phi ptr [ %194, %.critedge.thread.i60.us ], [ %.promoted, %.lr.ph ]
-  %192 = sub nuw i64 %162, %.049262.us
+  %192 = sub nuw i64 %162, %.049263.us
   %193 = icmp ne ptr %188, %191
   call void @llvm.assume(i1 %193)
   %194 = getelementptr inbounds i8, ptr %191, i64 -8
@@ -22980,14 +22992,14 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   store ptr %194, ptr %65, align 8, !noalias !3335
   %197 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0211.0, i64 %192
   store ptr %196, ptr %197, align 8
-  %198 = add nuw i64 %.049262.us, 1
-  %exitcond293.not = icmp eq i64 %198, %umax292
-  br i1 %exitcond293.not, label %._crit_edge, label %.critedge.thread.i60.us, !llvm.loop !3338
+  %198 = add nuw i64 %.049263.us, 1
+  %exitcond295.not = icmp eq i64 %198, %umax294
+  br i1 %exitcond295.not, label %._crit_edge, label %.critedge.thread.i60.us, !llvm.loop !3338
 
 .critedge.i58:                                    ; preds = %.lr.ph, %.critedge.i58
-  %.049262 = phi i64 [ %210, %.critedge.i58 ], [ 0, %.lr.ph ]
+  %.049263 = phi i64 [ %210, %.critedge.i58 ], [ 0, %.lr.ph ]
   %199 = phi ptr [ %206, %.critedge.i58 ], [ %.promoted, %.lr.ph ]
-  %200 = sub nuw i64 %162, %.049262
+  %200 = sub nuw i64 %162, %.049263
   %201 = ptrtoint ptr %199 to i64
   %202 = sub i64 %201, %189
   %203 = ashr exact i64 %202, 3
@@ -23000,8 +23012,8 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   store ptr %206, ptr %65, align 8, !noalias !3335
   %209 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0211.0, i64 %200
   store ptr %208, ptr %209, align 8
-  %210 = add nuw i64 %.049262, 1
-  %exitcond.not = icmp eq i64 %210, %umax292
+  %210 = add nuw i64 %.049263, 1
+  %exitcond.not = icmp eq i64 %210, %umax294
   br i1 %exitcond.not, label %._crit_edge, label %.critedge.i58, !llvm.loop !3338
 
 ._crit_edge:                                      ; preds = %.critedge.i58, %.critedge.thread.i60.us, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -23136,21 +23148,21 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
   %281 = load ptr, ptr %21, align 8
   %282 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %283 = load ptr, ptr %282, align 8
-  %.not252263 = icmp eq ptr %281, %283
-  br i1 %.not252263, label %._crit_edge270, label %.lr.ph269
+  %.not252264 = icmp eq ptr %281, %283
+  br i1 %.not252264, label %._crit_edge271, label %.lr.ph270
 
-._crit_edge270.loopexit:                          ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80
-  %.pre296 = load ptr, ptr %21, align 8
-  br label %._crit_edge270
+._crit_edge271.loopexit:                          ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80
+  %.pre298 = load ptr, ptr %21, align 8
+  br label %._crit_edge271
 
-._crit_edge270:                                   ; preds = %._crit_edge270.loopexit, %279
-  %284 = phi ptr [ %281, %279 ], [ %.pre296, %._crit_edge270.loopexit ]
-  %.sroa.21.1.lcssa = phi ptr [ %.sroa.21.2, %279 ], [ %.sroa.21.4, %._crit_edge270.loopexit ]
-  %.sroa.0192.1.lcssa = phi ptr [ %.sroa.11.1, %279 ], [ %.sroa.0192.4, %._crit_edge270.loopexit ]
+._crit_edge271:                                   ; preds = %._crit_edge271.loopexit, %279
+  %284 = phi ptr [ %281, %279 ], [ %.pre298, %._crit_edge271.loopexit ]
+  %.sroa.21.1.lcssa = phi ptr [ %.sroa.21.2, %279 ], [ %.sroa.21.4, %._crit_edge271.loopexit ]
+  %.sroa.0192.1.lcssa = phi ptr [ %.sroa.11.1, %279 ], [ %.sroa.0192.4, %._crit_edge271.loopexit ]
   %.not.i.i.i66 = icmp eq ptr %284, null
   br i1 %.not.i.i.i66, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i81, label %285
 
-285:                                              ; preds = %._crit_edge270
+285:                                              ; preds = %._crit_edge271
   %286 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %287 = load ptr, ptr %286, align 8
   %288 = ptrtoint ptr %287 to i64
@@ -23159,22 +23171,22 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
   call void @_ZdlPvm(ptr noundef nonnull %284, i64 noundef %290) #18
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i81
 
-.lr.ph269:                                        ; preds = %279, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80
-  %.sroa.0192.1267 = phi ptr [ %.sroa.0192.4, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80 ], [ %.sroa.11.1, %279 ]
-  %.sroa.11.0266 = phi ptr [ %.sroa.11.2, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80 ], [ %.sroa.11.1, %279 ]
-  %.sroa.21.1265 = phi ptr [ %.sroa.21.4, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80 ], [ %.sroa.21.2, %279 ]
-  %.sroa.0166.0264 = phi ptr [ %312, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80 ], [ %281, %279 ]
-  %291 = load i64, ptr %.sroa.0166.0264, align 8
-  %.not.i67 = icmp eq ptr %.sroa.11.0266, %.sroa.21.1265
+.lr.ph270:                                        ; preds = %279, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80
+  %.sroa.0192.1268 = phi ptr [ %.sroa.0192.4, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80 ], [ %.sroa.11.1, %279 ]
+  %.sroa.11.0267 = phi ptr [ %.sroa.11.2, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80 ], [ %.sroa.11.1, %279 ]
+  %.sroa.21.1266 = phi ptr [ %.sroa.21.4, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80 ], [ %.sroa.21.2, %279 ]
+  %.sroa.0166.0265 = phi ptr [ %312, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80 ], [ %281, %279 ]
+  %291 = load i64, ptr %.sroa.0166.0265, align 8
+  %.not.i67 = icmp eq ptr %.sroa.11.0267, %.sroa.21.1266
   br i1 %.not.i67, label %293, label %292
 
-292:                                              ; preds = %.lr.ph269
-  store i64 %291, ptr %.sroa.11.0266, align 8
+292:                                              ; preds = %.lr.ph270
+  store i64 %291, ptr %.sroa.11.0267, align 8
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80
 
-293:                                              ; preds = %.lr.ph269
-  %294 = ptrtoint ptr %.sroa.11.0266 to i64
-  %295 = ptrtoint ptr %.sroa.0192.1267 to i64
+293:                                              ; preds = %.lr.ph270
+  %294 = ptrtoint ptr %.sroa.11.0267 to i64
+  %295 = ptrtoint ptr %.sroa.0192.1268 to i64
   %296 = sub i64 %294, %295
   %297 = icmp eq i64 %296, 9223372036854775800
   br i1 %297, label %298, label %_ZNKSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i68
@@ -23196,12 +23208,12 @@ _ZNKSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i68: ; pr
   %305 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %304) #19
   %306 = getelementptr inbounds i8, ptr %305, i64 %296
   store i64 %291, ptr %306, align 8
-  %.not10.i.i.i.i.i71 = icmp eq ptr %.sroa.0192.1267, %.sroa.11.0266
+  %.not10.i.i.i.i.i71 = icmp eq ptr %.sroa.0192.1268, %.sroa.11.0267
   br i1 %.not10.i.i.i.i.i71, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i76, label %.lr.ph.i.i.i.i.i72
 
 .lr.ph.i.i.i.i.i72:                               ; preds = %_ZNKSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i68, %.lr.ph.i.i.i.i.i72
   %.012.i.i.i.i.i73 = phi ptr [ %309, %.lr.ph.i.i.i.i.i72 ], [ %305, %_ZNKSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i68 ]
-  %.0911.i.i.i.i.i74 = phi ptr [ %308, %.lr.ph.i.i.i.i.i72 ], [ %.sroa.0192.1267, %_ZNKSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i68 ]
+  %.0911.i.i.i.i.i74 = phi ptr [ %308, %.lr.ph.i.i.i.i.i72 ], [ %.sroa.0192.1268, %_ZNKSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i68 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3367)
   call void @llvm.experimental.noalias.scope.decl(metadata !3370)
   %307 = load ptr, ptr %.0911.i.i.i.i.i74, align 8, !alias.scope !3370, !noalias !3367
@@ -23209,16 +23221,16 @@ _ZNKSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i68: ; pr
   store ptr null, ptr %.0911.i.i.i.i.i74, align 8, !alias.scope !3370, !noalias !3367
   %308 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i74, i64 8
   %309 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i73, i64 8
-  %.not.i.i.i.i.i75 = icmp eq ptr %308, %.sroa.11.0266
+  %.not.i.i.i.i.i75 = icmp eq ptr %308, %.sroa.11.0267
   br i1 %.not.i.i.i.i.i75, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i76, label %.lr.ph.i.i.i.i.i72, !llvm.loop !212
 
 _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i76: ; preds = %.lr.ph.i.i.i.i.i72, %_ZNKSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i68
   %.0.lcssa.i.i.i.i.i77 = phi ptr [ %305, %_ZNKSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i68 ], [ %309, %.lr.ph.i.i.i.i.i72 ]
-  %.not.i23.i.i78 = icmp eq ptr %.sroa.0192.1267, null
+  %.not.i23.i.i78 = icmp eq ptr %.sroa.0192.1268, null
   br i1 %.not.i23.i.i78, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i79, label %310
 
 310:                                              ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i76
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0192.1267, i64 noundef %296) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0192.1268, i64 noundef %296) #18
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i79
 
 _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i79: ; preds = %310, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i76
@@ -23226,17 +23238,17 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80
 
 _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit80: ; preds = %292, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i79
-  %.sroa.21.4 = phi ptr [ %311, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i79 ], [ %.sroa.21.1265, %292 ]
-  %.0.lcssa.i.i.i.i.i77.pn = phi ptr [ %.0.lcssa.i.i.i.i.i77, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i79 ], [ %.sroa.11.0266, %292 ]
-  %.sroa.0192.4 = phi ptr [ %305, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i79 ], [ %.sroa.0192.1267, %292 ]
+  %.sroa.21.4 = phi ptr [ %311, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i79 ], [ %.sroa.21.1266, %292 ]
+  %.0.lcssa.i.i.i.i.i77.pn = phi ptr [ %.0.lcssa.i.i.i.i.i77, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i79 ], [ %.sroa.11.0267, %292 ]
+  %.sroa.0192.4 = phi ptr [ %305, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i79 ], [ %.sroa.0192.1268, %292 ]
   %.sroa.11.2 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i77.pn, i64 8
-  %312 = getelementptr inbounds nuw i8, ptr %.sroa.0166.0264, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %.sroa.0166.0265, i64 8
   %.not252 = icmp eq ptr %312, %283
-  br i1 %.not252, label %._crit_edge270.loopexit, label %.lr.ph269
+  br i1 %.not252, label %._crit_edge271.loopexit, label %.lr.ph270
 
-_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i81: ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE7reserveEm.exit, %273, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %._crit_edge270, %285
-  %.sroa.21.0 = phi ptr [ %.sroa.21.2, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE7reserveEm.exit ], [ %278, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.21.2, %273 ], [ %.sroa.21.1.lcssa, %._crit_edge270 ], [ %.sroa.21.1.lcssa, %285 ]
-  %.sroa.0192.0 = phi ptr [ %.sroa.11.1, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE7reserveEm.exit ], [ %275, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.11.1, %273 ], [ %.sroa.0192.1.lcssa, %._crit_edge270 ], [ %.sroa.0192.1.lcssa, %285 ]
+_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i81: ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE7reserveEm.exit, %273, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %._crit_edge271, %285
+  %.sroa.21.0 = phi ptr [ %.sroa.21.2, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE7reserveEm.exit ], [ %278, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.21.2, %273 ], [ %.sroa.21.1.lcssa, %._crit_edge271 ], [ %.sroa.21.1.lcssa, %285 ]
+  %.sroa.0192.0 = phi ptr [ %.sroa.11.1, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE7reserveEm.exit ], [ %275, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.11.1, %273 ], [ %.sroa.0192.1.lcssa, %._crit_edge271 ], [ %.sroa.0192.1.lcssa, %285 ]
   %313 = load ptr, ptr %45, align 8, !noalias !3372
   %314 = call ptr @LLVMBuildBr(ptr noundef %313, ptr noundef %44) #16, !noalias !3372
   %315 = load ptr, ptr %45, align 8
@@ -23255,7 +23267,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %.sroa.0154.0 = phi ptr [ %317, %.lr.ph.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i81 ]
   %.sink.i83 = phi i64 [ %319, %.lr.ph.preheader.i.i.i.i.i ], [ 0, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i81 ]
   %320 = load ptr, ptr %0, align 8
-  br i1 %.not281, label %321, label %326
+  br i1 %.not282, label %321, label %326
 
 321:                                              ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 200
@@ -23304,19 +23316,19 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
 
 353:                                              ; preds = %343, %338
   %.sroa.0144.0 = phi ptr [ %342, %338 ], [ %352, %343 ]
-  br i1 %.not281, label %._crit_edge275, label %.lr.ph274.preheader
+  br i1 %.not282, label %._crit_edge276, label %.lr.ph275.preheader
 
-.lr.ph274.preheader:                              ; preds = %353
-  %umax294 = call i64 @llvm.umax.i64(i64 %162, i64 1)
-  br label %.lr.ph274
+.lr.ph275.preheader:                              ; preds = %353
+  %umax296 = call i64 @llvm.umax.i64(i64 %162, i64 1)
+  br label %.lr.ph275
 
-.lr.ph274:                                        ; preds = %.lr.ph274.preheader, %.lr.ph274
-  %.050272 = phi i64 [ %364, %.lr.ph274 ], [ 0, %.lr.ph274.preheader ]
+.lr.ph275:                                        ; preds = %.lr.ph275.preheader, %.lr.ph275
+  %.050273 = phi i64 [ %364, %.lr.ph275 ], [ 0, %.lr.ph275.preheader ]
   %354 = load ptr, ptr %0, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 88
   %356 = load i64, ptr %355, align 8
   %357 = inttoptr i64 %356 to ptr
-  %358 = shl i64 %.050272, 4
+  %358 = shl i64 %.050273, 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %359 = call ptr @LLVMGetTypeContext(ptr noundef %357) #16, !noalias !3403
   %360 = call ptr @LLVMInt64TypeInContext(ptr noundef %359) #16, !noalias !3403
@@ -23325,7 +23337,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %362 = load ptr, ptr %45, align 8, !noalias !3403
   %363 = call ptr @LLVMBuildInBoundsGEP2(ptr noundef %362, ptr noundef %357, ptr noundef %.sroa.0152.0, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.11) #16, !noalias !3403
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %364 = add nuw i64 %.050272, 1
+  %364 = add nuw i64 %.050273, 1
   %365 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0211.0, i64 %364
   %366 = load i64, ptr %365, align 8
   %367 = inttoptr i64 %366 to ptr
@@ -23335,10 +23347,10 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %371 = call ptr @LLVMBuildBitCast(ptr noundef %370, ptr noundef %363, ptr noundef %369, ptr noundef nonnull @.str.11) #16, !noalias !3415
   %372 = load ptr, ptr %45, align 8, !noalias !3418
   %373 = call ptr @LLVMBuildStore(ptr noundef %372, ptr noundef %367, ptr noundef %371) #16, !noalias !3418
-  %exitcond295.not = icmp eq i64 %364, %umax294
-  br i1 %exitcond295.not, label %._crit_edge275, label %.lr.ph274, !llvm.loop !3421
+  %exitcond297.not = icmp eq i64 %364, %umax296
+  br i1 %exitcond297.not, label %._crit_edge276, label %.lr.ph275, !llvm.loop !3421
 
-._crit_edge275:                                   ; preds = %.lr.ph274, %353
+._crit_edge276:                                   ; preds = %.lr.ph275, %353
   %374 = load ptr, ptr %0, align 8
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 80
   %376 = load i64, ptr %375, align 8
@@ -23376,9 +23388,9 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %399 = load i32, ptr @_ZN8WasmEdge4LLVM4Core8StrictFPE, align 4, !noalias !3425
   %400 = call ptr @LLVMCreateEnumAttribute(ptr noundef %398, i32 noundef %399, i64 noundef 0) #16, !noalias !3425
   call void @LLVMAddCallSiteAttribute(ptr noundef %393, i32 noundef -1, ptr noundef %400) #16, !noalias !3425
-  br i1 %.not, label %._crit_edge280.critedge, label %401
+  br i1 %.not, label %._crit_edge281.critedge, label %401
 
-401:                                              ; preds = %._crit_edge275
+401:                                              ; preds = %._crit_edge276
   %402 = icmp eq i64 %175, 1
   br i1 %402, label %403, label %.preheader
 
@@ -23405,12 +23417,12 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
 
 .preheader:                                       ; preds = %401, %.preheader
   %418 = phi i64 [ %439, %.preheader ], [ 0, %401 ]
-  %.048276 = phi i32 [ %438, %.preheader ], [ 0, %401 ]
+  %.048277 = phi i32 [ %438, %.preheader ], [ 0, %401 ]
   %419 = load ptr, ptr %0, align 8
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 88
   %421 = load i64, ptr %420, align 8
   %422 = inttoptr i64 %421 to ptr
-  %423 = shl i32 %.048276, 4
+  %423 = shl i32 %.048277, 4
   %424 = zext i32 %423 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %425 = call ptr @LLVMGetTypeContext(ptr noundef %422) #16, !noalias !3443
@@ -23420,16 +23432,16 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %428 = load ptr, ptr %45, align 8, !noalias !3443
   %429 = call ptr @LLVMBuildInBoundsGEP2(ptr noundef %428, ptr noundef %422, ptr noundef %.sroa.0144.0, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull @.str.11) #16, !noalias !3443
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %430 = call ptr @LLVMStructGetTypeAtIndex(ptr noundef %155, i32 noundef %.048276) #16, !noalias !3449
+  %430 = call ptr @LLVMStructGetTypeAtIndex(ptr noundef %155, i32 noundef %.048277) #16, !noalias !3449
   %431 = call ptr @LLVMPointerType(ptr noundef %430, i32 noundef 0) #16, !noalias !3452
   %432 = load ptr, ptr %45, align 8, !noalias !3455
   %433 = call ptr @LLVMBuildBitCast(ptr noundef %432, ptr noundef %429, ptr noundef %431, ptr noundef nonnull @.str.11) #16, !noalias !3455
-  %434 = call ptr @LLVMStructGetTypeAtIndex(ptr noundef %155, i32 noundef %.048276) #16, !noalias !3458
+  %434 = call ptr @LLVMStructGetTypeAtIndex(ptr noundef %155, i32 noundef %.048277) #16, !noalias !3458
   %435 = load ptr, ptr %45, align 8, !noalias !3461
   %436 = call ptr @LLVMBuildLoad2(ptr noundef %435, ptr noundef %434, ptr noundef %433, ptr noundef nonnull @.str.11) #16, !noalias !3461
   %437 = getelementptr inbounds nuw %"class.WasmEdge::LLVM::Value", ptr %.sroa.0154.0, i64 %418
   store ptr %436, ptr %437, align 8
-  %438 = add i32 %.048276, 1
+  %438 = add i32 %.048277, 1
   %439 = zext i32 %438 to i64
   %440 = icmp ugt i64 %175, %439
   br i1 %440, label %.preheader, label %.loopexit, !llvm.loop !3464
@@ -23444,7 +23456,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
 
 445:                                              ; preds = %.loopexit, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit
   %446 = phi i64 [ 0, %.loopexit ], [ %486, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
-  %.0277 = phi i32 [ 0, %.loopexit ], [ %485, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
+  %.0278 = phi i32 [ 0, %.loopexit ], [ %485, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
   %447 = getelementptr inbounds nuw %"class.WasmEdge::LLVM::Value", ptr %.sroa.0192.0, i64 %446
   %448 = load ptr, ptr %447, align 8, !noalias !3468
   %449 = call ptr @LLVMTypeOf(ptr noundef %448) #16, !noalias !3468
@@ -23534,26 +23546,26 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
   br label %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit
 
 _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; preds = %458, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
-  %485 = add i32 %.0277, 1
+  %485 = add i32 %.0278, 1
   %486 = zext i32 %485 to i64
   %487 = icmp ugt i64 %175, %486
-  br i1 %487, label %445, label %._crit_edge280.thread, !llvm.loop !3479
+  br i1 %487, label %445, label %._crit_edge281.thread, !llvm.loop !3479
 
-._crit_edge280.critedge:                          ; preds = %._crit_edge275
+._crit_edge281.critedge:                          ; preds = %._crit_edge276
   %488 = load ptr, ptr %45, align 8, !noalias !3465
   %489 = call ptr @LLVMBuildBr(ptr noundef %488, ptr noundef %44) #16, !noalias !3465
   %490 = load ptr, ptr %45, align 8
   call void @LLVMPositionBuilderAtEnd(ptr noundef %490, ptr noundef %44) #16
   %.not.i.i.i90 = icmp eq ptr %.sroa.0154.0, null
-  br i1 %.not.i.i.i90, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit91, label %._crit_edge280.thread
+  br i1 %.not.i.i.i90, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit91, label %._crit_edge281.thread
 
-._crit_edge280.thread:                            ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit, %._crit_edge280.critedge
+._crit_edge281.thread:                            ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit, %._crit_edge281.critedge
   %491 = ptrtoint ptr %.sroa.0154.0 to i64
   %492 = sub i64 %.sink.i83, %491
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0154.0, i64 noundef %492) #18
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit91
 
-_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit91: ; preds = %._crit_edge280.critedge, %._crit_edge280.thread
+_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit91: ; preds = %._crit_edge281.critedge, %._crit_edge281.thread
   %.not.i.i.i92 = icmp eq ptr %.sroa.0192.0, null
   br i1 %.not.i.i.i92, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit95, label %493
 
@@ -23748,7 +23760,10 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   %122 = zext i32 %121 to i64
   %123 = urem i64 %122, %106
   %.not17.i.i.i.i.i = icmp eq i64 %123, %107
-  br i1 %.not17.i.i.i.i.i, label %116, label %.loopexit.i, !llvm.loop !2694
+  br i1 %.not17.i.i.i.i.i, label %116, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !2694
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %119
+  br label %.loopexit.i, !llvm.loop !2694
 
 _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i: ; preds = %116, %100, %111
   %.sroa.06.1.i.i.i = phi ptr [ %112, %111 ], [ %.sroa.06.0.i.i.i, %100 ], [ %118, %116 ]
@@ -23758,7 +23773,7 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %126 = inttoptr i64 %125 to ptr
   br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit
 
-.loopexit.i:                                      ; preds = %119, %.lr.ph.i.i.i.i.i, %99, %104
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %99, %..loopexit_crit_edge21.i.i.i.i.i, %104
   %127 = load i64, ptr %26, align 8, !noalias !3526
   %128 = inttoptr i64 %127 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !3529)
@@ -23853,13 +23868,13 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %178 = load ptr, ptr %39, align 8
   %179 = ptrtoint ptr %178 to i64
   %180 = getelementptr inbounds i8, ptr %.val5.i44, i64 -136
-  %umax196 = call i64 @llvm.umax.i64(i64 %152, i64 1)
+  %umax198 = call i64 @llvm.umax.i64(i64 %152, i64 1)
   br i1 %177, label %.critedge.thread.i47.us, label %.critedge.i45
 
 .critedge.thread.i47.us:                          ; preds = %.lr.ph, %.critedge.thread.i47.us
-  %.038183.us = phi i64 [ %188, %.critedge.thread.i47.us ], [ 0, %.lr.ph ]
+  %.038184.us = phi i64 [ %188, %.critedge.thread.i47.us ], [ 0, %.lr.ph ]
   %181 = phi ptr [ %184, %.critedge.thread.i47.us ], [ %.promoted, %.lr.ph ]
-  %182 = sub nuw i64 %152, %.038183.us
+  %182 = sub nuw i64 %152, %.038184.us
   %183 = icmp ne ptr %178, %181
   call void @llvm.assume(i1 %183)
   %184 = getelementptr inbounds i8, ptr %181, i64 -8
@@ -23868,14 +23883,14 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   store ptr %184, ptr %55, align 8, !noalias !3542
   %187 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0145.0, i64 %182
   store ptr %186, ptr %187, align 8
-  %188 = add nuw i64 %.038183.us, 1
-  %exitcond197.not = icmp eq i64 %188, %umax196
-  br i1 %exitcond197.not, label %._crit_edge, label %.critedge.thread.i47.us, !llvm.loop !3545
+  %188 = add nuw i64 %.038184.us, 1
+  %exitcond199.not = icmp eq i64 %188, %umax198
+  br i1 %exitcond199.not, label %._crit_edge, label %.critedge.thread.i47.us, !llvm.loop !3545
 
 .critedge.i45:                                    ; preds = %.lr.ph, %.critedge.i45
-  %.038183 = phi i64 [ %200, %.critedge.i45 ], [ 0, %.lr.ph ]
+  %.038184 = phi i64 [ %200, %.critedge.i45 ], [ 0, %.lr.ph ]
   %189 = phi ptr [ %196, %.critedge.i45 ], [ %.promoted, %.lr.ph ]
-  %190 = sub nuw i64 %152, %.038183
+  %190 = sub nuw i64 %152, %.038184
   %191 = ptrtoint ptr %189 to i64
   %192 = sub i64 %191, %179
   %193 = ashr exact i64 %192, 3
@@ -23888,8 +23903,8 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   store ptr %196, ptr %55, align 8, !noalias !3542
   %199 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0145.0, i64 %190
   store ptr %198, ptr %199, align 8
-  %200 = add nuw i64 %.038183, 1
-  %exitcond.not = icmp eq i64 %200, %umax196
+  %200 = add nuw i64 %.038184, 1
+  %exitcond.not = icmp eq i64 %200, %umax198
   br i1 %exitcond.not, label %._crit_edge, label %.critedge.i45, !llvm.loop !3545
 
 ._crit_edge:                                      ; preds = %.critedge.i45, %.critedge.thread.i47.us, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -24030,19 +24045,19 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 
 293:                                              ; preds = %283, %278
   %.sroa.0107.0 = phi ptr [ %282, %278 ], [ %292, %283 ]
-  br i1 %.not, label %._crit_edge187, label %.lr.ph186.preheader
+  br i1 %.not, label %._crit_edge188, label %.lr.ph187.preheader
 
-.lr.ph186.preheader:                              ; preds = %293
-  %umax198 = call i64 @llvm.umax.i64(i64 %152, i64 1)
-  br label %.lr.ph186
+.lr.ph187.preheader:                              ; preds = %293
+  %umax200 = call i64 @llvm.umax.i64(i64 %152, i64 1)
+  br label %.lr.ph187
 
-.lr.ph186:                                        ; preds = %.lr.ph186.preheader, %.lr.ph186
-  %.039184 = phi i64 [ %304, %.lr.ph186 ], [ 0, %.lr.ph186.preheader ]
+.lr.ph187:                                        ; preds = %.lr.ph187.preheader, %.lr.ph187
+  %.039185 = phi i64 [ %304, %.lr.ph187 ], [ 0, %.lr.ph187.preheader ]
   %294 = load ptr, ptr %0, align 8
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 88
   %296 = load i64, ptr %295, align 8
   %297 = inttoptr i64 %296 to ptr
-  %298 = shl i64 %.039184, 4
+  %298 = shl i64 %.039185, 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %299 = call ptr @LLVMGetTypeContext(ptr noundef %297) #16, !noalias !3608
   %300 = call ptr @LLVMInt64TypeInContext(ptr noundef %299) #16, !noalias !3608
@@ -24051,7 +24066,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %302 = load ptr, ptr %35, align 8, !noalias !3608
   %303 = call ptr @LLVMBuildInBoundsGEP2(ptr noundef %302, ptr noundef %297, ptr noundef %.sroa.0115.0, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.11) #16, !noalias !3608
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %304 = add nuw i64 %.039184, 1
+  %304 = add nuw i64 %.039185, 1
   %305 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0145.0, i64 %304
   %306 = load i64, ptr %305, align 8
   %307 = inttoptr i64 %306 to ptr
@@ -24061,10 +24076,10 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   %311 = call ptr @LLVMBuildBitCast(ptr noundef %310, ptr noundef %303, ptr noundef %309, ptr noundef nonnull @.str.11) #16, !noalias !3620
   %312 = load ptr, ptr %35, align 8, !noalias !3623
   %313 = call ptr @LLVMBuildStore(ptr noundef %312, ptr noundef %307, ptr noundef %311) #16, !noalias !3623
-  %exitcond199.not = icmp eq i64 %304, %umax198
-  br i1 %exitcond199.not, label %._crit_edge187, label %.lr.ph186, !llvm.loop !3626
+  %exitcond201.not = icmp eq i64 %304, %umax200
+  br i1 %exitcond201.not, label %._crit_edge188, label %.lr.ph187, !llvm.loop !3626
 
-._crit_edge187:                                   ; preds = %.lr.ph186, %293
+._crit_edge188:                                   ; preds = %.lr.ph187, %293
   %314 = load ptr, ptr %0, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 80
   %316 = load i64, ptr %315, align 8
@@ -24104,12 +24119,12 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   call void @LLVMAddCallSiteAttribute(ptr noundef %333, i32 noundef -1, ptr noundef %340) #16, !noalias !3630
   br i1 %252, label %341, label %344
 
-341:                                              ; preds = %._crit_edge187
+341:                                              ; preds = %._crit_edge188
   %342 = load ptr, ptr %35, align 8, !noalias !3633
   %343 = call ptr @LLVMBuildRetVoid(ptr noundef %342) #16, !noalias !3633
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit55
 
-344:                                              ; preds = %._crit_edge187
+344:                                              ; preds = %._crit_edge188
   %345 = icmp eq i64 %165, 1
   br i1 %345, label %346, label %363
 
@@ -24151,12 +24166,12 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %363
 
 368:                                              ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit, %368
   %369 = phi i64 [ 0, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit ], [ %390, %368 ]
-  %.0188 = phi i32 [ 0, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit ], [ %389, %368 ]
+  %.0189 = phi i32 [ 0, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit ], [ %389, %368 ]
   %370 = load ptr, ptr %0, align 8
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 88
   %372 = load i64, ptr %371, align 8
   %373 = inttoptr i64 %372 to ptr
-  %374 = shl i32 %.0188, 4
+  %374 = shl i32 %.0189, 4
   %375 = zext i32 %374 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %376 = call ptr @LLVMGetTypeContext(ptr noundef %373) #16, !noalias !3654
@@ -24166,16 +24181,16 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %363
   %379 = load ptr, ptr %35, align 8, !noalias !3654
   %380 = call ptr @LLVMBuildInBoundsGEP2(ptr noundef %379, ptr noundef %373, ptr noundef %.sroa.0107.0, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull @.str.11) #16, !noalias !3654
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %381 = call ptr @LLVMStructGetTypeAtIndex(ptr noundef %145, i32 noundef %.0188) #16, !noalias !3660
+  %381 = call ptr @LLVMStructGetTypeAtIndex(ptr noundef %145, i32 noundef %.0189) #16, !noalias !3660
   %382 = call ptr @LLVMPointerType(ptr noundef %381, i32 noundef 0) #16, !noalias !3663
   %383 = load ptr, ptr %35, align 8, !noalias !3666
   %384 = call ptr @LLVMBuildBitCast(ptr noundef %383, ptr noundef %380, ptr noundef %382, ptr noundef nonnull @.str.11) #16, !noalias !3666
-  %385 = call ptr @LLVMStructGetTypeAtIndex(ptr noundef %145, i32 noundef %.0188) #16, !noalias !3669
+  %385 = call ptr @LLVMStructGetTypeAtIndex(ptr noundef %145, i32 noundef %.0189) #16, !noalias !3669
   %386 = load ptr, ptr %35, align 8, !noalias !3672
   %387 = call ptr @LLVMBuildLoad2(ptr noundef %386, ptr noundef %385, ptr noundef %384, ptr noundef nonnull @.str.11) #16, !noalias !3672
   %388 = getelementptr inbounds nuw %"class.WasmEdge::LLVM::Value", ptr %367, i64 %369
   store ptr %387, ptr %388, align 8
-  %389 = add i32 %.0188, 1
+  %389 = add i32 %.0189, 1
   %390 = zext i32 %389 to i64
   %391 = icmp samesign ugt i64 %165, %390
   br i1 %391, label %368, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit, !llvm.loop !3675
@@ -25025,7 +25040,10 @@ _ZZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeEEN
   %126 = zext i32 %125 to i64
   %127 = urem i64 %126, %110
   %.not17.i.i.i.i.i = icmp eq i64 %127, %111
-  br i1 %.not17.i.i.i.i.i, label %120, label %.loopexit.i, !llvm.loop !2694
+  br i1 %.not17.i.i.i.i.i, label %120, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !2694
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %123
+  br label %.loopexit.i, !llvm.loop !2694
 
 _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i: ; preds = %120, %104, %115
   %.sroa.06.1.i.i.i = phi ptr [ %116, %115 ], [ %.sroa.06.0.i.i.i, %104 ], [ %122, %120 ]
@@ -25035,7 +25053,7 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %130 = inttoptr i64 %129 to ptr
   br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit
 
-.loopexit.i:                                      ; preds = %123, %.lr.ph.i.i.i.i.i, %103, %108
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %103, %..loopexit_crit_edge21.i.i.i.i.i, %108
   %131 = load i64, ptr %27, align 8, !noalias !3841
   %132 = inttoptr i64 %131 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !3844)
@@ -25101,16 +25119,16 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit: ; 
   br label %163
 
 163:                                              ; preds = %164, %161
-  %.sroa.06.0.in.i.i.i16 = phi ptr [ %162, %161 ], [ %.sroa.06.0.i.i.i17, %164 ]
-  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8, !noalias !3861
-  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
-  br i1 %.not.i.i.i18, label %.loopexit.i13, label %164
+  %.sroa.06.0.in.i.i.i17 = phi ptr [ %162, %161 ], [ %.sroa.06.0.i.i.i18, %164 ]
+  %.sroa.06.0.i.i.i18 = load ptr, ptr %.sroa.06.0.in.i.i.i17, align 8, !noalias !3861
+  %.not.i.i.i19 = icmp eq ptr %.sroa.06.0.i.i.i18, null
+  br i1 %.not.i.i.i19, label %.loopexit.i14, label %164
 
 164:                                              ; preds = %163
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i18, i64 8
   %166 = load i32, ptr %165, align 4, !noalias !3861
   %167 = icmp eq i32 %166, 1029
-  br i1 %167, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14, label %163, !llvm.loop !2693
+  br i1 %167, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15, label %163, !llvm.loop !2693
 
 168:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -25120,24 +25138,24 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit: ; 
   %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %171
   %174 = load ptr, ptr %173, align 8, !noalias !3861
   %.not.i.i.i.i.i8 = icmp eq ptr %174, null
-  br i1 %.not.i.i.i.i.i8, label %.loopexit.i13, label %175
+  br i1 %.not.i.i.i.i.i8, label %.loopexit.i14, label %175
 
 175:                                              ; preds = %168
   %176 = load ptr, ptr %174, align 8, !noalias !3861
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load i32, ptr %177, align 4, !noalias !3861
   %179 = icmp eq i32 %178, 1029
-  br i1 %179, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14, label %.lr.ph.i.i.i.i.i9
+  br i1 %179, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15, label %.lr.ph.i.i.i.i.i9
 
 180:                                              ; preds = %183
   %181 = icmp eq i32 %185, 1029
-  br i1 %181, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14, label %.lr.ph.i.i.i.i.i9, !llvm.loop !2694
+  br i1 %181, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15, label %.lr.ph.i.i.i.i.i9, !llvm.loop !2694
 
 .lr.ph.i.i.i.i.i9:                                ; preds = %175, %180
   %.018.i.i.i.i.i10 = phi ptr [ %182, %180 ], [ %176, %175 ]
   %182 = load ptr, ptr %.018.i.i.i.i.i10, align 8, !noalias !3861
   %.not16.i.i.i.i.i11 = icmp eq ptr %182, null
-  br i1 %.not16.i.i.i.i.i11, label %.loopexit.i13, label %183
+  br i1 %.not16.i.i.i.i.i11, label %.loopexit.i14, label %183
 
 183:                                              ; preds = %.lr.ph.i.i.i.i.i9
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
@@ -25145,17 +25163,20 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit: ; 
   %186 = zext i32 %185 to i64
   %187 = urem i64 %186, %170
   %.not17.i.i.i.i.i12 = icmp eq i64 %187, %171
-  br i1 %.not17.i.i.i.i.i12, label %180, label %.loopexit.i13, !llvm.loop !2694
+  br i1 %.not17.i.i.i.i.i12, label %180, label %..loopexit_crit_edge21.i.i.i.i.i13, !llvm.loop !2694
 
-_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14: ; preds = %180, %164, %175
-  %.sroa.06.1.i.i.i15 = phi ptr [ %176, %175 ], [ %.sroa.06.0.i.i.i17, %164 ], [ %182, %180 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
+..loopexit_crit_edge21.i.i.i.i.i13:               ; preds = %183
+  br label %.loopexit.i14, !llvm.loop !2694
+
+_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15: ; preds = %180, %164, %175
+  %.sroa.06.1.i.i.i16 = phi ptr [ %176, %175 ], [ %.sroa.06.0.i.i.i18, %164 ], [ %182, %180 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i16, i64 16
   %189 = load i64, ptr %188, align 8, !noalias !3861
   store i64 %189, ptr %23, align 8, !alias.scope !3861
   %190 = inttoptr i64 %189 to ptr
-  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19
+  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit20
 
-.loopexit.i13:                                    ; preds = %183, %.lr.ph.i.i.i.i.i9, %163, %168
+.loopexit.i14:                                    ; preds = %.lr.ph.i.i.i.i.i9, %163, %..loopexit_crit_edge21.i.i.i.i.i13, %168
   %191 = load i64, ptr %27, align 8, !noalias !3861
   %192 = inttoptr i64 %191 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !3864)
@@ -25163,11 +25184,11 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %194 = call ptr @LLVMAppendBasicBlockInContext(ptr noundef %193, ptr noundef %192, ptr noundef nonnull @.str.63) #16, !noalias !3867
   store ptr %194, ptr %23, align 8, !alias.scope !3867
   %195 = call { ptr, i8 } @_ZNSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRS2_RS6_EEES3_INS9_14_Node_iteratorIS7_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %98, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %23)
-  %.pre69 = load ptr, ptr %23, align 8, !noalias !3868
-  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19
+  %.pre75 = load ptr, ptr %23, align 8, !noalias !3868
+  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit20
 
-_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19: ; preds = %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14, %.loopexit.i13
-  %196 = phi ptr [ %190, %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14 ], [ %.pre69, %.loopexit.i13 ]
+_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit20: ; preds = %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15, %.loopexit.i14
+  %196 = phi ptr [ %190, %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15 ], [ %.pre75, %.loopexit.i14 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %197 = load ptr, ptr %81, align 8, !noalias !3868
   %198 = call ptr @LLVMBuildCondBr(ptr noundef %197, ptr noundef %159, ptr noundef %35, ptr noundef %196) #16, !noalias !3868
@@ -25209,69 +25230,72 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19: 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 1029, ptr %2, align 4, !noalias !3881
   %219 = load i64, ptr %99, align 8, !noalias !3881
-  %.not.not.i.i.i20 = icmp eq i64 %219, 0
-  br i1 %.not.not.i.i.i20, label %220, label %227
+  %.not.not.i.i.i21 = icmp eq i64 %219, 0
+  br i1 %.not.not.i.i.i21, label %220, label %227
 
-220:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19
+220:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit20
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %222
 
 222:                                              ; preds = %223, %220
-  %.sroa.06.0.in.i.i.i29 = phi ptr [ %221, %220 ], [ %.sroa.06.0.i.i.i30, %223 ]
-  %.sroa.06.0.i.i.i30 = load ptr, ptr %.sroa.06.0.in.i.i.i29, align 8, !noalias !3881
-  %.not.i.i.i31 = icmp eq ptr %.sroa.06.0.i.i.i30, null
-  br i1 %.not.i.i.i31, label %.loopexit.i26, label %223
+  %.sroa.06.0.in.i.i.i31 = phi ptr [ %221, %220 ], [ %.sroa.06.0.i.i.i32, %223 ]
+  %.sroa.06.0.i.i.i32 = load ptr, ptr %.sroa.06.0.in.i.i.i31, align 8, !noalias !3881
+  %.not.i.i.i33 = icmp eq ptr %.sroa.06.0.i.i.i32, null
+  br i1 %.not.i.i.i33, label %.loopexit.i28, label %223
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i30, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i32, i64 8
   %225 = load i32, ptr %224, align 4, !noalias !3881
   %226 = icmp eq i32 %225, 1029
-  br i1 %226, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27, label %222, !llvm.loop !2693
+  br i1 %226, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29, label %222, !llvm.loop !2693
 
-227:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19
+227:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit20
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %229 = load i64, ptr %228, align 8, !noalias !3881
   %230 = urem i64 1029, %229
   %231 = load ptr, ptr %98, align 8, !noalias !3881
   %232 = getelementptr inbounds nuw ptr, ptr %231, i64 %230
   %233 = load ptr, ptr %232, align 8, !noalias !3881
-  %.not.i.i.i.i.i21 = icmp eq ptr %233, null
-  br i1 %.not.i.i.i.i.i21, label %.loopexit.i26, label %234
+  %.not.i.i.i.i.i22 = icmp eq ptr %233, null
+  br i1 %.not.i.i.i.i.i22, label %.loopexit.i28, label %234
 
 234:                                              ; preds = %227
   %235 = load ptr, ptr %233, align 8, !noalias !3881
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %237 = load i32, ptr %236, align 4, !noalias !3881
   %238 = icmp eq i32 %237, 1029
-  br i1 %238, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27, label %.lr.ph.i.i.i.i.i22
+  br i1 %238, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29, label %.lr.ph.i.i.i.i.i23
 
 239:                                              ; preds = %242
   %240 = icmp eq i32 %244, 1029
-  br i1 %240, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27, label %.lr.ph.i.i.i.i.i22, !llvm.loop !2694
+  br i1 %240, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29, label %.lr.ph.i.i.i.i.i23, !llvm.loop !2694
 
-.lr.ph.i.i.i.i.i22:                               ; preds = %234, %239
-  %.018.i.i.i.i.i23 = phi ptr [ %241, %239 ], [ %235, %234 ]
-  %241 = load ptr, ptr %.018.i.i.i.i.i23, align 8, !noalias !3881
-  %.not16.i.i.i.i.i24 = icmp eq ptr %241, null
-  br i1 %.not16.i.i.i.i.i24, label %.loopexit.i26, label %242
+.lr.ph.i.i.i.i.i23:                               ; preds = %234, %239
+  %.018.i.i.i.i.i24 = phi ptr [ %241, %239 ], [ %235, %234 ]
+  %241 = load ptr, ptr %.018.i.i.i.i.i24, align 8, !noalias !3881
+  %.not16.i.i.i.i.i25 = icmp eq ptr %241, null
+  br i1 %.not16.i.i.i.i.i25, label %.loopexit.i28, label %242
 
-242:                                              ; preds = %.lr.ph.i.i.i.i.i22
+242:                                              ; preds = %.lr.ph.i.i.i.i.i23
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %244 = load i32, ptr %243, align 4, !noalias !3881
   %245 = zext i32 %244 to i64
   %246 = urem i64 %245, %229
-  %.not17.i.i.i.i.i25 = icmp eq i64 %246, %230
-  br i1 %.not17.i.i.i.i.i25, label %239, label %.loopexit.i26, !llvm.loop !2694
+  %.not17.i.i.i.i.i26 = icmp eq i64 %246, %230
+  br i1 %.not17.i.i.i.i.i26, label %239, label %..loopexit_crit_edge21.i.i.i.i.i27, !llvm.loop !2694
 
-_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27: ; preds = %239, %223, %234
-  %.sroa.06.1.i.i.i28 = phi ptr [ %235, %234 ], [ %.sroa.06.0.i.i.i30, %223 ], [ %241, %239 ]
-  %247 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i28, i64 16
+..loopexit_crit_edge21.i.i.i.i.i27:               ; preds = %242
+  br label %.loopexit.i28, !llvm.loop !2694
+
+_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29: ; preds = %239, %223, %234
+  %.sroa.06.1.i.i.i30 = phi ptr [ %235, %234 ], [ %.sroa.06.0.i.i.i32, %223 ], [ %241, %239 ]
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i30, i64 16
   %248 = load i64, ptr %247, align 8, !noalias !3881
   store i64 %248, ptr %25, align 8, !alias.scope !3881
   %249 = inttoptr i64 %248 to ptr
-  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32
+  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit34
 
-.loopexit.i26:                                    ; preds = %242, %.lr.ph.i.i.i.i.i22, %222, %227
+.loopexit.i28:                                    ; preds = %.lr.ph.i.i.i.i.i23, %222, %..loopexit_crit_edge21.i.i.i.i.i27, %227
   %250 = load i64, ptr %27, align 8, !noalias !3881
   %251 = inttoptr i64 %250 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !3884)
@@ -25279,11 +25303,11 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %253 = call ptr @LLVMAppendBasicBlockInContext(ptr noundef %252, ptr noundef %251, ptr noundef nonnull @.str.63) #16, !noalias !3887
   store ptr %253, ptr %25, align 8, !alias.scope !3887
   %254 = call { ptr, i8 } @_ZNSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRS2_RS6_EEES3_INS9_14_Node_iteratorIS7_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %98, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %25)
-  %.pre70 = load ptr, ptr %25, align 8, !noalias !3888
-  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32
+  %.pre76 = load ptr, ptr %25, align 8, !noalias !3888
+  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit34
 
-_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32: ; preds = %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27, %.loopexit.i26
-  %255 = phi ptr [ %249, %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27 ], [ %.pre70, %.loopexit.i26 ]
+_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit34: ; preds = %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29, %.loopexit.i28
+  %255 = phi ptr [ %249, %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29 ], [ %.pre76, %.loopexit.i28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %256 = load ptr, ptr %81, align 8, !noalias !3888
   %257 = call ptr @LLVMBuildCondBr(ptr noundef %256, ptr noundef %218, ptr noundef %39, ptr noundef %255) #16, !noalias !3888
@@ -25300,14 +25324,14 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32: 
   %.not.i.i = icmp eq ptr %264, %266
   br i1 %.not.i.i, label %270, label %267
 
-267:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32
+267:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit34
   store i64 %263, ptr %264, align 8
   %268 = load ptr, ptr %59, align 8
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store ptr %269, ptr %59, align 8
   br label %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit
 
-270:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32
+270:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit34
   %271 = load ptr, ptr %43, align 8
   %272 = ptrtoint ptr %264 to i64
   %273 = ptrtoint ptr %271 to i64
@@ -25599,7 +25623,10 @@ _ZZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE
   %126 = zext i32 %125 to i64
   %127 = urem i64 %126, %110
   %.not17.i.i.i.i.i = icmp eq i64 %127, %111
-  br i1 %.not17.i.i.i.i.i, label %120, label %.loopexit.i, !llvm.loop !2694
+  br i1 %.not17.i.i.i.i.i, label %120, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !2694
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %123
+  br label %.loopexit.i, !llvm.loop !2694
 
 _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i: ; preds = %120, %104, %115
   %.sroa.06.1.i.i.i = phi ptr [ %116, %115 ], [ %.sroa.06.0.i.i.i, %104 ], [ %122, %120 ]
@@ -25609,7 +25636,7 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %130 = inttoptr i64 %129 to ptr
   br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit
 
-.loopexit.i:                                      ; preds = %123, %.lr.ph.i.i.i.i.i, %103, %108
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %103, %..loopexit_crit_edge21.i.i.i.i.i, %108
   %131 = load i64, ptr %27, align 8, !noalias !3927
   %132 = inttoptr i64 %131 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !3930)
@@ -25675,16 +25702,16 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit: ; 
   br label %163
 
 163:                                              ; preds = %164, %161
-  %.sroa.06.0.in.i.i.i16 = phi ptr [ %162, %161 ], [ %.sroa.06.0.i.i.i17, %164 ]
-  %.sroa.06.0.i.i.i17 = load ptr, ptr %.sroa.06.0.in.i.i.i16, align 8, !noalias !3947
-  %.not.i.i.i18 = icmp eq ptr %.sroa.06.0.i.i.i17, null
-  br i1 %.not.i.i.i18, label %.loopexit.i13, label %164
+  %.sroa.06.0.in.i.i.i17 = phi ptr [ %162, %161 ], [ %.sroa.06.0.i.i.i18, %164 ]
+  %.sroa.06.0.i.i.i18 = load ptr, ptr %.sroa.06.0.in.i.i.i17, align 8, !noalias !3947
+  %.not.i.i.i19 = icmp eq ptr %.sroa.06.0.i.i.i18, null
+  br i1 %.not.i.i.i19, label %.loopexit.i14, label %164
 
 164:                                              ; preds = %163
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i17, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i18, i64 8
   %166 = load i32, ptr %165, align 4, !noalias !3947
   %167 = icmp eq i32 %166, 1029
-  br i1 %167, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14, label %163, !llvm.loop !2693
+  br i1 %167, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15, label %163, !llvm.loop !2693
 
 168:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -25694,24 +25721,24 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit: ; 
   %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %171
   %174 = load ptr, ptr %173, align 8, !noalias !3947
   %.not.i.i.i.i.i8 = icmp eq ptr %174, null
-  br i1 %.not.i.i.i.i.i8, label %.loopexit.i13, label %175
+  br i1 %.not.i.i.i.i.i8, label %.loopexit.i14, label %175
 
 175:                                              ; preds = %168
   %176 = load ptr, ptr %174, align 8, !noalias !3947
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load i32, ptr %177, align 4, !noalias !3947
   %179 = icmp eq i32 %178, 1029
-  br i1 %179, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14, label %.lr.ph.i.i.i.i.i9
+  br i1 %179, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15, label %.lr.ph.i.i.i.i.i9
 
 180:                                              ; preds = %183
   %181 = icmp eq i32 %185, 1029
-  br i1 %181, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14, label %.lr.ph.i.i.i.i.i9, !llvm.loop !2694
+  br i1 %181, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15, label %.lr.ph.i.i.i.i.i9, !llvm.loop !2694
 
 .lr.ph.i.i.i.i.i9:                                ; preds = %175, %180
   %.018.i.i.i.i.i10 = phi ptr [ %182, %180 ], [ %176, %175 ]
   %182 = load ptr, ptr %.018.i.i.i.i.i10, align 8, !noalias !3947
   %.not16.i.i.i.i.i11 = icmp eq ptr %182, null
-  br i1 %.not16.i.i.i.i.i11, label %.loopexit.i13, label %183
+  br i1 %.not16.i.i.i.i.i11, label %.loopexit.i14, label %183
 
 183:                                              ; preds = %.lr.ph.i.i.i.i.i9
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
@@ -25719,17 +25746,20 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit: ; 
   %186 = zext i32 %185 to i64
   %187 = urem i64 %186, %170
   %.not17.i.i.i.i.i12 = icmp eq i64 %187, %171
-  br i1 %.not17.i.i.i.i.i12, label %180, label %.loopexit.i13, !llvm.loop !2694
+  br i1 %.not17.i.i.i.i.i12, label %180, label %..loopexit_crit_edge21.i.i.i.i.i13, !llvm.loop !2694
 
-_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14: ; preds = %180, %164, %175
-  %.sroa.06.1.i.i.i15 = phi ptr [ %176, %175 ], [ %.sroa.06.0.i.i.i17, %164 ], [ %182, %180 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i15, i64 16
+..loopexit_crit_edge21.i.i.i.i.i13:               ; preds = %183
+  br label %.loopexit.i14, !llvm.loop !2694
+
+_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15: ; preds = %180, %164, %175
+  %.sroa.06.1.i.i.i16 = phi ptr [ %176, %175 ], [ %.sroa.06.0.i.i.i18, %164 ], [ %182, %180 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i16, i64 16
   %189 = load i64, ptr %188, align 8, !noalias !3947
   store i64 %189, ptr %23, align 8, !alias.scope !3947
   %190 = inttoptr i64 %189 to ptr
-  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19
+  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit20
 
-.loopexit.i13:                                    ; preds = %183, %.lr.ph.i.i.i.i.i9, %163, %168
+.loopexit.i14:                                    ; preds = %.lr.ph.i.i.i.i.i9, %163, %..loopexit_crit_edge21.i.i.i.i.i13, %168
   %191 = load i64, ptr %27, align 8, !noalias !3947
   %192 = inttoptr i64 %191 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !3950)
@@ -25737,11 +25767,11 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %194 = call ptr @LLVMAppendBasicBlockInContext(ptr noundef %193, ptr noundef %192, ptr noundef nonnull @.str.63) #16, !noalias !3953
   store ptr %194, ptr %23, align 8, !alias.scope !3953
   %195 = call { ptr, i8 } @_ZNSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRS2_RS6_EEES3_INS9_14_Node_iteratorIS7_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %98, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %23)
-  %.pre69 = load ptr, ptr %23, align 8, !noalias !3954
-  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19
+  %.pre75 = load ptr, ptr %23, align 8, !noalias !3954
+  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit20
 
-_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19: ; preds = %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14, %.loopexit.i13
-  %196 = phi ptr [ %190, %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i14 ], [ %.pre69, %.loopexit.i13 ]
+_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit20: ; preds = %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15, %.loopexit.i14
+  %196 = phi ptr [ %190, %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i15 ], [ %.pre75, %.loopexit.i14 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %197 = load ptr, ptr %81, align 8, !noalias !3954
   %198 = call ptr @LLVMBuildCondBr(ptr noundef %197, ptr noundef %159, ptr noundef %35, ptr noundef %196) #16, !noalias !3954
@@ -25783,69 +25813,72 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19: 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 1029, ptr %2, align 4, !noalias !3967
   %219 = load i64, ptr %99, align 8, !noalias !3967
-  %.not.not.i.i.i20 = icmp eq i64 %219, 0
-  br i1 %.not.not.i.i.i20, label %220, label %227
+  %.not.not.i.i.i21 = icmp eq i64 %219, 0
+  br i1 %.not.not.i.i.i21, label %220, label %227
 
-220:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19
+220:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit20
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %222
 
 222:                                              ; preds = %223, %220
-  %.sroa.06.0.in.i.i.i29 = phi ptr [ %221, %220 ], [ %.sroa.06.0.i.i.i30, %223 ]
-  %.sroa.06.0.i.i.i30 = load ptr, ptr %.sroa.06.0.in.i.i.i29, align 8, !noalias !3967
-  %.not.i.i.i31 = icmp eq ptr %.sroa.06.0.i.i.i30, null
-  br i1 %.not.i.i.i31, label %.loopexit.i26, label %223
+  %.sroa.06.0.in.i.i.i31 = phi ptr [ %221, %220 ], [ %.sroa.06.0.i.i.i32, %223 ]
+  %.sroa.06.0.i.i.i32 = load ptr, ptr %.sroa.06.0.in.i.i.i31, align 8, !noalias !3967
+  %.not.i.i.i33 = icmp eq ptr %.sroa.06.0.i.i.i32, null
+  br i1 %.not.i.i.i33, label %.loopexit.i28, label %223
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i30, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i32, i64 8
   %225 = load i32, ptr %224, align 4, !noalias !3967
   %226 = icmp eq i32 %225, 1029
-  br i1 %226, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27, label %222, !llvm.loop !2693
+  br i1 %226, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29, label %222, !llvm.loop !2693
 
-227:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit19
+227:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit20
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %229 = load i64, ptr %228, align 8, !noalias !3967
   %230 = urem i64 1029, %229
   %231 = load ptr, ptr %98, align 8, !noalias !3967
   %232 = getelementptr inbounds nuw ptr, ptr %231, i64 %230
   %233 = load ptr, ptr %232, align 8, !noalias !3967
-  %.not.i.i.i.i.i21 = icmp eq ptr %233, null
-  br i1 %.not.i.i.i.i.i21, label %.loopexit.i26, label %234
+  %.not.i.i.i.i.i22 = icmp eq ptr %233, null
+  br i1 %.not.i.i.i.i.i22, label %.loopexit.i28, label %234
 
 234:                                              ; preds = %227
   %235 = load ptr, ptr %233, align 8, !noalias !3967
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %237 = load i32, ptr %236, align 4, !noalias !3967
   %238 = icmp eq i32 %237, 1029
-  br i1 %238, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27, label %.lr.ph.i.i.i.i.i22
+  br i1 %238, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29, label %.lr.ph.i.i.i.i.i23
 
 239:                                              ; preds = %242
   %240 = icmp eq i32 %244, 1029
-  br i1 %240, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27, label %.lr.ph.i.i.i.i.i22, !llvm.loop !2694
+  br i1 %240, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29, label %.lr.ph.i.i.i.i.i23, !llvm.loop !2694
 
-.lr.ph.i.i.i.i.i22:                               ; preds = %234, %239
-  %.018.i.i.i.i.i23 = phi ptr [ %241, %239 ], [ %235, %234 ]
-  %241 = load ptr, ptr %.018.i.i.i.i.i23, align 8, !noalias !3967
-  %.not16.i.i.i.i.i24 = icmp eq ptr %241, null
-  br i1 %.not16.i.i.i.i.i24, label %.loopexit.i26, label %242
+.lr.ph.i.i.i.i.i23:                               ; preds = %234, %239
+  %.018.i.i.i.i.i24 = phi ptr [ %241, %239 ], [ %235, %234 ]
+  %241 = load ptr, ptr %.018.i.i.i.i.i24, align 8, !noalias !3967
+  %.not16.i.i.i.i.i25 = icmp eq ptr %241, null
+  br i1 %.not16.i.i.i.i.i25, label %.loopexit.i28, label %242
 
-242:                                              ; preds = %.lr.ph.i.i.i.i.i22
+242:                                              ; preds = %.lr.ph.i.i.i.i.i23
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %244 = load i32, ptr %243, align 4, !noalias !3967
   %245 = zext i32 %244 to i64
   %246 = urem i64 %245, %229
-  %.not17.i.i.i.i.i25 = icmp eq i64 %246, %230
-  br i1 %.not17.i.i.i.i.i25, label %239, label %.loopexit.i26, !llvm.loop !2694
+  %.not17.i.i.i.i.i26 = icmp eq i64 %246, %230
+  br i1 %.not17.i.i.i.i.i26, label %239, label %..loopexit_crit_edge21.i.i.i.i.i27, !llvm.loop !2694
 
-_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27: ; preds = %239, %223, %234
-  %.sroa.06.1.i.i.i28 = phi ptr [ %235, %234 ], [ %.sroa.06.0.i.i.i30, %223 ], [ %241, %239 ]
-  %247 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i28, i64 16
+..loopexit_crit_edge21.i.i.i.i.i27:               ; preds = %242
+  br label %.loopexit.i28, !llvm.loop !2694
+
+_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29: ; preds = %239, %223, %234
+  %.sroa.06.1.i.i.i30 = phi ptr [ %235, %234 ], [ %.sroa.06.0.i.i.i32, %223 ], [ %241, %239 ]
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i30, i64 16
   %248 = load i64, ptr %247, align 8, !noalias !3967
   store i64 %248, ptr %25, align 8, !alias.scope !3967
   %249 = inttoptr i64 %248 to ptr
-  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32
+  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit34
 
-.loopexit.i26:                                    ; preds = %242, %.lr.ph.i.i.i.i.i22, %222, %227
+.loopexit.i28:                                    ; preds = %.lr.ph.i.i.i.i.i23, %222, %..loopexit_crit_edge21.i.i.i.i.i27, %227
   %250 = load i64, ptr %27, align 8, !noalias !3967
   %251 = inttoptr i64 %250 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !3970)
@@ -25853,11 +25886,11 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %253 = call ptr @LLVMAppendBasicBlockInContext(ptr noundef %252, ptr noundef %251, ptr noundef nonnull @.str.63) #16, !noalias !3973
   store ptr %253, ptr %25, align 8, !alias.scope !3973
   %254 = call { ptr, i8 } @_ZNSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRS2_RS6_EEES3_INS9_14_Node_iteratorIS7_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %98, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %25)
-  %.pre70 = load ptr, ptr %25, align 8, !noalias !3974
-  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32
+  %.pre76 = load ptr, ptr %25, align 8, !noalias !3974
+  br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit34
 
-_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32: ; preds = %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27, %.loopexit.i26
-  %255 = phi ptr [ %249, %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i27 ], [ %.pre70, %.loopexit.i26 ]
+_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit34: ; preds = %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29, %.loopexit.i28
+  %255 = phi ptr [ %249, %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i29 ], [ %.pre76, %.loopexit.i28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %256 = load ptr, ptr %81, align 8, !noalias !3974
   %257 = call ptr @LLVMBuildCondBr(ptr noundef %256, ptr noundef %218, ptr noundef %39, ptr noundef %255) #16, !noalias !3974
@@ -25874,14 +25907,14 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32: 
   %.not.i.i = icmp eq ptr %264, %266
   br i1 %.not.i.i, label %270, label %267
 
-267:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32
+267:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit34
   store i64 %263, ptr %264, align 8
   %268 = load ptr, ptr %59, align 8
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store ptr %269, ptr %59, align 8
   br label %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit
 
-270:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit32
+270:                                              ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit34
   %271 = load ptr, ptr %43, align 8
   %272 = ptrtoint ptr %264 to i64
   %273 = ptrtoint ptr %271 to i64
@@ -36628,13 +36661,16 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4p
   %41 = zext i32 %40 to i64
   %42 = urem i64 %41, %13
   %.not17.i.i = icmp eq i64 %42, %14
-  br i1 %.not17.i.i, label %35, label %_ZNKSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.thread, !llvm.loop !2694
+  br i1 %.not17.i.i, label %35, label %..loopexit_crit_edge21.i.i, !llvm.loop !2694
 
-_ZNKSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.thread: ; preds = %.lr.ph.i.i, %38, %25, %.thread
-  %43 = phi i64 [ %29, %25 ], [ %14, %.thread ], [ %14, %38 ], [ %14, %.lr.ph.i.i ]
-  %44 = phi i64 [ %28, %25 ], [ %13, %.thread ], [ %13, %38 ], [ %13, %.lr.ph.i.i ]
-  %45 = phi ptr [ %27, %25 ], [ %12, %.thread ], [ %12, %38 ], [ %12, %.lr.ph.i.i ]
-  %46 = phi i64 [ %26, %25 ], [ %11, %.thread ], [ %11, %38 ], [ %11, %.lr.ph.i.i ]
+..loopexit_crit_edge21.i.i:                       ; preds = %38
+  br label %_ZNKSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.thread, !llvm.loop !2694
+
+_ZNKSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.thread: ; preds = %.lr.ph.i.i, %25, %..loopexit_crit_edge21.i.i, %.thread
+  %43 = phi i64 [ %29, %25 ], [ %14, %.thread ], [ %14, %..loopexit_crit_edge21.i.i ], [ %14, %.lr.ph.i.i ]
+  %44 = phi i64 [ %28, %25 ], [ %13, %.thread ], [ %13, %..loopexit_crit_edge21.i.i ], [ %13, %.lr.ph.i.i ]
+  %45 = phi ptr [ %27, %25 ], [ %12, %.thread ], [ %12, %..loopexit_crit_edge21.i.i ], [ %12, %.lr.ph.i.i ]
+  %46 = phi i64 [ %26, %25 ], [ %11, %.thread ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %47, i64 noundef %44, i64 noundef %10, i64 noundef 1) #16
   %49 = extractvalue { i8, i64 } %48, 0
@@ -37441,7 +37477,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicC
   %71 = zext i32 %70 to i64
   %72 = urem i64 %71, %55
   %.not17.i.i.i.i.i = icmp eq i64 %72, %56
-  br i1 %.not17.i.i.i.i.i, label %65, label %.loopexit.i, !llvm.loop !2694
+  br i1 %.not17.i.i.i.i.i, label %65, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !2694
+
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %68
+  br label %.loopexit.i, !llvm.loop !2694
 
 _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.i: ; preds = %65, %49, %60
   %.sroa.06.1.i.i.i = phi ptr [ %61, %60 ], [ %.sroa.06.0.i.i.i, %49 ], [ %67, %65 ]
@@ -37451,7 +37490,7 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
   %75 = inttoptr i64 %74 to ptr
   br label %_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit
 
-.loopexit.i:                                      ; preds = %68, %.lr.ph.i.i.i.i.i, %48, %53
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %48, %..loopexit_crit_edge21.i.i.i.i.i, %53
   %76 = load i64, ptr %20, align 8, !noalias !6738
   %77 = inttoptr i64 %76 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !6741)

@@ -1836,7 +1836,7 @@ is_blank_line.exit.i:                             ; preds = %43
 
 ..loopexit161.i.loopexit101_crit_edge:            ; preds = %49
   %.pre120 = ptrtoint ptr %54 to i64
-  br label %.loopexit161.i
+  br label %.loopexit161.i, !llvm.loop !80
 
 .loopexit161.i:                                   ; preds = %is_blank_line.exit.i, %.preheader160.i, %.preheader160.i, %..loopexit161.i.loopexit101_crit_edge
   %.pre-phi = phi i64 [ %.pre120, %..loopexit161.i.loopexit101_crit_edge ], [ %38, %.preheader160.i ], [ %38, %.preheader160.i ], [ %38, %is_blank_line.exit.i ]
