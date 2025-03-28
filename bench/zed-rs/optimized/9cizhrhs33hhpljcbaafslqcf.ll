@@ -1139,12 +1139,12 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$editor..EditorMode$u20$as$u20$core.
 6:                                                ; preds = %2
   switch i8 %3, label %default.unreachable2 [
     i8 0, label %8
-    i8 1, label %13
+    i8 1, label %14
     i8 2, label %7
   ]
 
-7:                                                ; preds = %6, %2, %13, %8
-  %.sroa.0.0.shrunk = phi i1 [ %18, %13 ], [ %.not, %8 ], [ false, %2 ], [ true, %6 ]
+7:                                                ; preds = %6, %2, %14, %8
+  %.sroa.0.0.shrunk = phi i1 [ %19, %14 ], [ %13, %8 ], [ false, %2 ], [ true, %6 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable2:                             ; preds = %6
@@ -1155,15 +1155,15 @@ default.unreachable2:                             ; preds = %6
   %10 = load i8, ptr %9, align 1, !range !26, !noundef !20
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1, !range !26, !noundef !20
-  %.not = icmp eq i8 %10, %12
+  %13 = icmp eq i8 %10, %12
   br label %7
 
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !noundef !20
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load i64, ptr %16, align 8, !noundef !20
-  %18 = icmp eq i64 %15, %17
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load i64, ptr %15, align 8, !noundef !20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = load i64, ptr %17, align 8, !noundef !20
+  %19 = icmp eq i64 %16, %18
   br label %7
 }
 
