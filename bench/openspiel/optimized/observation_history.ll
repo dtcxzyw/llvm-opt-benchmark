@@ -5393,23 +5393,23 @@ define linkonce_odr noundef zeroext i1 @_ZSteqIN4absl7debian28optionalIlEENSt7__
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit, label %_ZNKR4absl7debian28optionalIlEdeEv.exit.i
 
-_ZNKR4absl7debian28optionalIlEdeEv.exit.i:        ; preds = %2
+_ZNKR4absl7debian28optionalIlEdeEv.exit5.i:       ; preds = %2
   %7 = trunc i8 %4 to i1
-  br i1 %7, label %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i, label %8
+  br i1 %7, label %20, label %8
 
-8:                                                ; preds = %_ZNKR4absl7debian28optionalIlEdeEv.exit.i
+_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit: ; preds = %_ZNKR4absl7debian28optionalIlEdeEv.exit.i
   tail call void @llvm.trap()
   unreachable
 
-_ZNKR4absl7debian28optionalIlEdeEv.exit5.i:       ; preds = %_ZNKR4absl7debian28optionalIlEdeEv.exit.i
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+20:                                               ; preds = %_ZNKR4absl7debian28optionalIlEdeEv.exit.i
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 _ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 _ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %10, %12
   br i1 %13, label %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit: ; preds = %2
+25:                                               ; preds = %2
   %14 = xor i8 %4, %3
   %15 = trunc i8 %14 to i1
   br i1 %15, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %16
@@ -5435,8 +5435,8 @@ _ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqd
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %27, %22, %16, %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i, %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
-  %29 = phi i1 [ false, %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit ], [ false, %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i ], [ false, %16 ], [ %28, %27 ], [ true, %22 ]
-  ret i1 %29
+  %27 = phi i1 [ false, %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit ], [ false, %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i ], [ false, %16 ], [ %28, %27 ], [ true, %22 ]
+  ret i1 %27
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0

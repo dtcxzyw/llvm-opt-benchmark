@@ -646,11 +646,11 @@ define void @_ZN9grpc_core18ChannelCompressionC2ERKNS_11ChannelArgsE(ptr noundef
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %14 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 28, ptr nonnull @.str)
   %15 = and i16 %14, 257
-  %.0.i8 = icmp ne i16 %15, 256
-  %16 = zext i1 %.0.i8 to i8
+  %.not24 = icmp ne i16 %15, 256
+  %16 = zext i1 %.not24 to i8
   store i8 %16, ptr %13, align 1, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %18 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 30, ptr nonnull @.str.3)
+  %18 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 32, ptr nonnull @.str.3)
   %19 = and i16 %18, 257
   %.0.i12 = icmp ne i16 %19, 256
   %20 = zext i1 %.0.i12 to i8
@@ -659,47 +659,47 @@ define void @_ZN9grpc_core18ChannelCompressionC2ERKNS_11ChannelArgsE(ptr noundef
   %22 = tail call noundef zeroext i1 @_ZNK9grpc_core23CompressionAlgorithmSet5IsSetE26grpc_compression_algorithm(ptr noundef nonnull align 1 dereferenceable(1) %11, i32 noundef %21)
   br i1 %22, label %32, label %23
 
-23:                                               ; preds = %2
+23:; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #34
-  %24 = load i32, ptr %8, align 8, !tbaa !31
-  %25 = call i32 @grpc_compression_algorithm_name(i32 noundef %24, ptr noundef nonnull %3)
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %26, label %27
+  %26 = load i32, ptr %8, align 8, !tbaa !31
+  %27 = call i32 @grpc_compression_algorithm_name(i32 noundef %26, ptr noundef nonnull %3)
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %28, label %29
 
-26:                                               ; preds = %23
+28:                                               ; preds = %23
   store ptr @.str.4, ptr %3, align 8, !tbaa !34
-  br label %27
+  br label %29
 
-27:                                               ; preds = %26, %23
+29:                                               ; preds = %28, %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #34
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.5, i32 noundef 97) #35
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 30, ptr nonnull @.str.6)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit unwind label %30
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit unwind label %32
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit: ; preds = %27
-  %28 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %29 unwind label %30
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit: ; preds = %29
+  %30 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %31 unwind label %32
 
-29:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %28, i64 31, ptr nonnull @.str.7)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit unwind label %30
+31:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 31, ptr nonnull @.str.7)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit unwind label %32
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit: ; preds = %29
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit: ; preds = %31
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #34
   store i32 0, ptr %8, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #34
-  br label %32
+  br label %34
 
-30:                                               ; preds = %29, %27, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %31, %29, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #34
-  resume { ptr, i32 } %31
+  resume { ptr, i32 } %33
 
-32:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit, %2
+34:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit, %2
   ret void
 }
 

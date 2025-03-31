@@ -443,7 +443,7 @@ define internal fastcc range(i32 0, 2) i32 @int_ts_RESP_verify_token(ptr noundef
   %12 = icmp ne ptr %8, null
   %or.cond = select i1 %11, i1 %12, i1 false
   %13 = and i32 %9, 129
-  %14 = icmp ne i32 %13, 0
+  %.not = icmp ne i32 %13, 0
   %.0.narrow = or i1 %14, %or.cond
   br i1 %.0.narrow, label %15, label %21
 
@@ -454,7 +454,7 @@ define internal fastcc range(i32 0, 2) i32 @int_ts_RESP_verify_token(ptr noundef
   %19 = load ptr, ptr %18, align 8, !tbaa !59
   %20 = call i32 @TS_RESP_verify_signature(ptr noundef %1, ptr noundef %17, ptr noundef %19, ptr noundef nonnull %6)
   %.not38 = icmp eq i32 %20, 0
-  br i1 %.not38, label %106, label %21
+  br i1 %.not38, label %105, label %21
 
 21:                                               ; preds = %15, %3
   %22 = and i32 %9, 2
@@ -470,7 +470,7 @@ define internal fastcc range(i32 0, 2) i32 @int_ts_RESP_verify_token(ptr noundef
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 314, ptr noundef nonnull @__func__.int_ts_RESP_verify_token) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 113, ptr noundef null) #7
-  br label %106
+  br label %105
 
 26:                                               ; preds = %23, %21
   %27 = and i32 %9, 4
@@ -490,7 +490,7 @@ ts_check_policy.exit.thread:                      ; preds = %28
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 411, ptr noundef nonnull @__func__.ts_check_policy) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 108, ptr noundef null) #7
-  br label %106
+  br label %105
 
 ts_check_policy.exit:                             ; preds = %28, %26
   %33 = and i32 %9, 8
@@ -508,7 +508,7 @@ ts_check_policy.exit:                             ; preds = %28, %26
   %.val54 = load ptr, ptr %41, align 8, !tbaa !65
   %42 = call fastcc i32 @ts_check_imprints(ptr noundef %36, ptr noundef %38, i32 noundef %40, ptr %.val54)
   %.not44 = icmp eq i32 %42, 0
-  br i1 %.not44, label %106, label %43
+  br i1 %.not44, label %105, label %43
 
 43:                                               ; preds = %34, %ts_check_policy.exit
   %44 = and i32 %9, 16
@@ -603,7 +603,7 @@ ts_compute_imprint.exit.thread:                   ; preds = %79, %45, %60, %.thr
   call void @CRYPTO_free(ptr noundef %.2, ptr noundef nonnull @.str, i32 noundef 480) #7
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #7
-  br label %106
+  br label %105
 
 84:                                               ; preds = %82
   call void @EVP_MD_CTX_free(ptr noundef nonnull %70) #7
@@ -612,7 +612,7 @@ ts_compute_imprint.exit.thread:                   ; preds = %79, %45, %60, %.thr
   %.val55 = load ptr, ptr %48, align 8, !tbaa !65
   %85 = call fastcc i32 @ts_check_imprints(ptr noundef nonnull %49, ptr noundef nonnull %67, i32 noundef %63, ptr %.val55)
   %.not47 = icmp eq i32 %85, 0
-  br i1 %.not47, label %106, label %86
+  br i1 %.not47, label %105, label %86
 
 86:                                               ; preds = %84, %43
   %.171 = phi ptr [ null, %43 ], [ %49, %84 ]
@@ -640,7 +640,7 @@ ts_check_nonces.exit.thread:                      ; preds = %88, %90
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1.i, ptr noundef nonnull @__func__.ts_check_nonces) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef %.sink.i, ptr noundef null) #7
-  br label %106
+  br label %105
 
 ts_check_nonces.exit:                             ; preds = %90, %86
   br i1 %or.cond, label %94, label %98
@@ -655,14 +655,14 @@ ts_check_nonces.exit:                             ; preds = %90, %86
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 334, ptr noundef nonnull @__func__.int_ts_RESP_verify_token) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 111, ptr noundef null) #7
-  br label %106
+  br label %105
 
 98:                                               ; preds = %94, %ts_check_nonces.exit
   %99 = and i32 %9, 128
   %.not51 = icmp eq i32 %99, 0
   br i1 %.not51, label %106, label %100
 
-100:                                              ; preds = %98
+100: ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %102 = load ptr, ptr %101, align 8, !tbaa !75
   %103 = load ptr, ptr %6, align 8, !tbaa !26
@@ -674,14 +674,14 @@ ts_check_nonces.exit:                             ; preds = %90, %86
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 339, ptr noundef nonnull @__func__.int_ts_RESP_verify_token) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 112, ptr noundef null) #7
-  br label %106
+  br label %105
 
-106:                                              ; preds = %ts_check_nonces.exit.thread, %ts_compute_imprint.exit.thread, %ts_check_policy.exit.thread, %98, %100, %84, %34, %15, %105, %97, %25
+105:                                              ; preds = %ts_check_nonces.exit.thread, %ts_compute_imprint.exit.thread, %ts_check_policy.exit.thread, %98, %100, %84, %34, %15, %105, %97, %25
   %.070 = phi ptr [ %.171, %97 ], [ %.171, %98 ], [ %.171, %105 ], [ %.171, %100 ], [ %49, %84 ], [ null, %34 ], [ null, %25 ], [ null, %15 ], [ null, %ts_check_policy.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %.171, %ts_check_nonces.exit.thread ]
   %.069 = phi ptr [ %.1, %97 ], [ %.1, %98 ], [ %.1, %105 ], [ %.1, %100 ], [ %67, %84 ], [ null, %34 ], [ null, %25 ], [ null, %15 ], [ null, %ts_check_policy.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %.1, %ts_check_nonces.exit.thread ]
   %.035 = phi i32 [ 0, %97 ], [ 1, %98 ], [ 0, %105 ], [ 1, %100 ], [ 0, %84 ], [ 0, %34 ], [ 0, %25 ], [ 0, %15 ], [ 0, %ts_check_policy.exit.thread ], [ 0, %ts_compute_imprint.exit.thread ], [ 0, %ts_check_nonces.exit.thread ]
-  %107 = load ptr, ptr %6, align 8, !tbaa !26
-  call void @X509_free(ptr noundef %107) #7
+  %106 = load ptr, ptr %6, align 8, !tbaa !26
+  call void @X509_free(ptr noundef %106) #7
   call void @X509_ALGOR_free(ptr noundef %.070) #7
   call void @CRYPTO_free(ptr noundef %.069, ptr noundef nonnull @.str, i32 noundef 347) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7

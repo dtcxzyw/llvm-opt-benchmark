@@ -9193,7 +9193,7 @@ define void @_ZN7rocksdb22PessimisticTransaction7TryLockEPNS_18ColumnFamilyHandl
   %41 = extractvalue { i64, i64 } %38, 1
   %42 = trunc i64 %40 to i1
   %43 = and i64 %40, 257
-  %44 = icmp eq i64 %43, 1
+  %.not100 = icmp eq i64 %43, 1
   %45 = and i1 %5, %44
   %46 = select i1 %42, i64 %41, i64 72057594037927935
   br label %54

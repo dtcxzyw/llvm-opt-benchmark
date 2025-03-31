@@ -22704,9 +22704,9 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %.sroa.497.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 %34, ptr %.sroa.497.0..sroa_idx.i.i, align 4, !noalias !4732
   %41 = icmp eq i8 %34, 2
-  br i1 %41, label %42, label %51
+  br i1 %43, label %42, label %51
 
-42:                                               ; preds = %32
+44:                                               ; preds = %32
   %43 = lshr exact i32 %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i, 16
   %44 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
   %45 = trunc i32 %35 to i1
@@ -22715,7 +22715,7 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %or.cond.not.i.i = select i1 %45, i1 %brmerge.not9.i.i.i, i1 false
   br i1 %or.cond.not.i.i, label %51, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
 
-_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %42
+46:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 4288, ptr nonnull %10), !noalias !4732
   invoke void @_ZN3exr4meta6header6Header8read_all17h7dfd89fdf9673848E(ptr noalias noundef nonnull sret({ i64, [535 x i64] }) align 8 captures(none) dereferenceable(4288) %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %11, i1 noundef zeroext %16)
           to label %.noexc21 unwind label %101
@@ -23169,16 +23169,16 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %40 = icmp eq i8 %33, 2
   br i1 %40, label %41, label %50
 
-41:                                               ; preds = %31
+43:                                               ; preds = %31
   %42 = lshr exact i32 %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i, 16
   %43 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
   %44 = trunc i32 %34 to i1
   %45 = or i32 %42, %43
   %brmerge.not9.i.i.i = icmp ne i32 %45, 0
   %or.cond.not.i.i = select i1 %44, i1 %brmerge.not9.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %50, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
+  br i1 %or.cond.not.i.i, label %50, label %46
 
-_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %41
+_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %43
   call void @llvm.lifetime.start.p0(i64 4288, ptr nonnull %9), !noalias !4808
   invoke void @_ZN3exr4meta6header6Header8read_all17hb2bb52394676cf53E(ptr noalias noundef nonnull sret({ i64, [535 x i64] }) align 8 captures(none) dereferenceable(4288) %9, ptr noalias noundef nonnull align 8 dereferenceable(72) %13, ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %10, i1 noundef zeroext %15)
           to label %.noexc21 unwind label %100

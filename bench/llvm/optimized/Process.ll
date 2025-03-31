@@ -1532,12 +1532,12 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i.i:       ; preds = %_ZNK4llvm9StringRef
 _ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i: ; preds = %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit32.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i35.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i29.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
   %.sroa.20.7.i = phi i16 [ 257, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ 257, %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i ], [ 257, %_ZNK4llvm9StringRef11starts_withES0_.exit.i29.i ], [ %.mux.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i35.i ], [ %spec.select144.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i ], [ %.sroa.20.4150.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit32.i ]
   %20 = and i16 %.sroa.20.7.i, 257
-  %.0.i.i = icmp eq i16 %20, 257
+  %21 = icmp eq i16 %20, 257
   br label %_ZL17terminalHasColorsv.exit
 
 _ZL17terminalHasColorsv.exit:                     ; preds = %_ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, %3, %1
-  %21 = phi i1 [ false, %1 ], [ %.0.i.i, %_ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i ], [ false, %3 ]
-  ret i1 %21
+  %23 = phi i1 [ false, %1 ], [ %.0.i.i, %_ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i ], [ false, %3 ]
+  ret i1 %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

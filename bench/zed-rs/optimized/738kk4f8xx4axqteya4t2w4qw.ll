@@ -84980,7 +84980,7 @@ _ZN3exr4meta12magic_number12validate_exr17h4487e278645a8f01E.exit.i.i.i: ; preds
   %51 = icmp eq i8 %44, 2
   br i1 %51, label %52, label %_ZN3exr4meta12Requirements8validate17hc5774582da83b252E.exit.i.i.i
 
-52:                                               ; preds = %42
+54:                                               ; preds = %42
   %53 = lshr exact i32 %.sroa.7.sroa.0.sroa.9.0.insert.shift.i.i.i, 16
   %54 = lshr i32 %38, 12
   %55 = trunc i32 %45 to i1
@@ -84989,7 +84989,7 @@ _ZN3exr4meta12magic_number12validate_exr17h4487e278645a8f01E.exit.i.i.i: ; preds
   %or.cond.not.i.i.i = select i1 %55, i1 %brmerge.not9.i.i.i.i, i1 false
   br i1 %or.cond.not.i.i.i, label %_ZN3exr4meta12Requirements8validate17hc5774582da83b252E.exit.i.i.i, label %57
 
-57:                                               ; preds = %52
+57:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 4144, ptr nonnull %14), !noalias !18952
   invoke void @_ZN3exr4meta6header6Header8read_all17hacdca44a9ac78591E(ptr noalias noundef nonnull sret([4144 x i8]) align 8 captures(none) dereferenceable(4144) %14, ptr noalias noundef nonnull align 8 dereferenceable(48) %18, ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %15, i1 noundef zeroext true)
           to label %.noexc18.i unwind label %80, !noalias !18931

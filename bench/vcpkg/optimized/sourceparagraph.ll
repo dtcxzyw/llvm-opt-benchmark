@@ -3241,29 +3241,29 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5vcpkgneERKNS_8OptionalINSt
   %.mux = icmp ne i8 %6, 0
   br i1 %.not3, label %_ZN5vcpkgeqERKNS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_.exit, label %7
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !22
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !22
-  %14 = icmp eq i64 %11, %13
-  br i1 %14, label %15, label %_ZN5vcpkgeqERKNS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_.exit
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8, !tbaa !22
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !22
+  %15 = icmp eq i64 %12, %14
+  br i1 %15, label %16, label %_ZN5vcpkgeqERKNS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_.exit
 
-15:                                               ; preds = %7
-  %16 = icmp eq i64 %11, 0
-  br i1 %16, label %_ZN5vcpkgeqERKNS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_.exit, label %17
+16:                                               ; preds = %8
+  %17 = icmp eq i64 %12, 0
+  br i1 %17, label %_ZN5vcpkgeqERKNS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_.exit, label %18
 
-17:                                               ; preds = %15
-  %18 = load ptr, ptr %9, align 8, !tbaa !21
-  %19 = load ptr, ptr %8, align 8, !tbaa !21
-  %bcmp.i.i = tail call i32 @bcmp(ptr %19, ptr %18, i64 %11)
-  %20 = icmp ne i32 %bcmp.i.i, 0
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %10, align 8, !tbaa !21
+  %20 = load ptr, ptr %9, align 8, !tbaa !21
+  %bcmp.i.i = tail call i32 @bcmp(ptr %20, ptr %19, i64 %12)
+  %21 = icmp ne i32 %bcmp.i.i, 0
   br label %_ZN5vcpkgeqERKNS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_.exit
 
-_ZN5vcpkgeqERKNS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_.exit: ; preds = %2, %7, %15, %17
-  %.0.i = phi i1 [ true, %7 ], [ %20, %17 ], [ false, %15 ], [ %.mux, %2 ]
+_ZN5vcpkgeqERKNS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_.exit: ; preds = %2, %8, %16, %18
+  %.0.i = phi i1 [ true, %8 ], [ %21, %18 ], [ false, %16 ], [ %.mux, %2 ]
   ret i1 %.0.i
 }
 

@@ -8847,13 +8847,13 @@ _ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i: ; preds = %24
   %.not35 = icmp eq i8 %43, %46
   br i1 %.not35, label %47, label %_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-47:                                               ; preds = %40
+47:; preds = %40
   %brmerge.demorgan.not = icmp eq i8 %43, 0
-  br i1 %brmerge.demorgan.not, label %58, label %48
+  br i1 %brmerge.demorgan.not, label %58, label %.lr.ph.preheader
 
-48:                                               ; preds = %47
+.lr.ph.preheader:                                 ; preds = %47
   %49 = load ptr, ptr %41, align 8, !tbaa !297
-  %50 = load ptr, ptr %44, align 8, !tbaa !297
+  %66 = load ptr, ptr %44, align 8, !tbaa !297
   %51 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_4TypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(400) %49, ptr noundef nonnull align 8 dereferenceable(400) %50)
   br i1 %51, label %52, label %_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
@@ -8877,45 +8877,45 @@ _ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i: ; preds = %24
   %63 = load ptr, ptr %62, align 8, !tbaa !266
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %80
-  %.sroa.027.040 = phi ptr [ %81, %80 ], [ %60, %.lr.ph.preheader ]
-  %.sroa.024.039 = phi ptr [ %82, %80 ], [ %63, %.lr.ph.preheader ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.027.040, i64 32
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.024.039, i64 32
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.027.040, i64 40
-  %67 = load i64, ptr %66, align 8, !tbaa !18
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.024.039, i64 40
-  %69 = load i64, ptr %68, align 8, !tbaa !18
-  %70 = icmp eq i64 %67, %69
-  br i1 %70, label %71, label %_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %83
+  %.sroa.027.039 = phi ptr [ %84, %83 ], [ %60, %.lr.ph.preheader ]
+  %.sroa.024.038 = phi ptr [ %85, %83 ], [ %63, %.lr.ph.preheader ]
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 40
+  %70 = load i64, ptr %69, align 8, !tbaa !18
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 40
+  %72 = load i64, ptr %71, align 8, !tbaa !18
+  %73 = icmp eq i64 %70, %72
+  br i1 %73, label %74, label %_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-71:                                               ; preds = %.lr.ph
-  %72 = icmp eq i64 %67, 0
-  br i1 %72, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
+74:                                               ; preds = %.lr.ph
+  %75 = icmp eq i64 %70, 0
+  br i1 %75, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
 
-_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %71
-  %73 = load ptr, ptr %65, align 8, !tbaa !13
-  %74 = load ptr, ptr %64, align 8, !tbaa !13
-  %bcmp.i.i = call i32 @bcmp(ptr %74, ptr %73, i64 %67)
-  %.not37 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not37, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32, label %_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
+_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %74
+  %76 = load ptr, ptr %68, align 8, !tbaa !13
+  %77 = load ptr, ptr %67, align 8, !tbaa !13
+  %bcmp.i.i = call i32 @bcmp(ptr %77, ptr %76, i64 %70)
+  %.not36 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not36, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32, label %_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32: ; preds = %71, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.027.040, i64 208
-  %76 = load ptr, ptr %75, align 8, !tbaa !10
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.024.039, i64 208
-  %78 = load ptr, ptr %77, align 8, !tbaa !10
-  %79 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_4TypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(400) %76, ptr noundef nonnull align 8 dereferenceable(400) %78)
-  br i1 %79, label %80, label %_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
+_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32: ; preds = %74, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 208
+  %79 = load ptr, ptr %78, align 8, !tbaa !10
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 208
+  %81 = load ptr, ptr %80, align 8, !tbaa !10
+  %82 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_4TypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(400) %79, ptr noundef nonnull align 8 dereferenceable(400) %81)
+  br i1 %82, label %83, label %_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-80:                                               ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32
-  %81 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.027.040) #37
-  %82 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.024.039) #37
-  %.not36 = icmp eq ptr %81, %61
-  br i1 %.not36, label %_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %.lr.ph, !llvm.loop !300
+83:                                               ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32
+  %84 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.027.039) #37
+  %85 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.024.038) #37
+  %.not35 = icmp eq ptr %84, %61
+  br i1 %.not35, label %_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %.lr.ph, !llvm.loop !300
 
-_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread: ; preds = %.lr.ph, %80, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %58, %24, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i, %3, %52, %48, %40, %35, %28
-  %.0 = phi i1 [ false, %28 ], [ false, %35 ], [ false, %40 ], [ false, %48 ], [ false, %52 ], [ true, %3 ], [ true, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i ], [ true, %24 ], [ true, %58 ], [ false, %.lr.ph ], [ true, %80 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
+_ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread: ; preds = %.lr.ph, %83, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %58, %24, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i, %3, %52, %.lr.ph.preheader, %40, %35, %28
+  %.0 = phi i1 [ false, %28 ], [ false, %35 ], [ false, %40 ], [ false, %48 ], [ false, %52 ], [ true, %3 ], [ true, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i ], [ true, %24 ], [ true, %58 ], [ false, %.lr.ph ], [ true, %83 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
   ret i1 %.0
 }
 

@@ -233,8 +233,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 63:                                               ; preds = %58
   %64 = load ptr, ptr %1, align 8, !tbaa !18
   %65 = tail call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %64, ptr noundef nonnull align 8 dereferenceable(32) %32)
-  %.not237 = icmp eq ptr %65, null
-  br i1 %.not237, label %481, label %66
+  %.not238 = icmp eq ptr %65, null
+  br i1 %.not238, label %481, label %66
 
 66:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #19
@@ -301,13 +301,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br i1 %.not.i117, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit, label %.lr.ph.i, !llvm.loop !30
 
 _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit: ; preds = %88
-  %.pre238 = load ptr, ptr %12, align 8, !tbaa !14
-  %.pre239 = load i64, ptr %79, align 8, !tbaa !17
+  %.pre239 = load ptr, ptr %12, align 8, !tbaa !14
+  %.pre240 = load i64, ptr %79, align 8, !tbaa !17
   br label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit
 
 _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit: ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  %90 = phi i64 [ %.pre239, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ]
-  %91 = phi ptr [ %.pre238, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit ], [ %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ]
+  %90 = phi i64 [ %.pre240, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ]
+  %91 = phi ptr [ %.pre239, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit ], [ %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ]
   %92 = load ptr, ptr %1, align 8, !tbaa !18
   invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(2880) %92, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 %90, ptr %91)
           to label %93 unwind label %100
@@ -498,12 +498,12 @@ _ZN14ArgumentParser8InstanceD2Ev.exit12.i.i:      ; preds = %149, %146
   %.sroa.12.0.extract.shift = lshr i40 %.0.copyload.i, 16
   %.sroa.16.0.extract.shift = lshr i40 %.0.copyload.i, 24
   %156 = and i40 %.0.copyload.i, 256
-  %.not241 = icmp eq i40 %156, 0
+  %.not242 = icmp eq i40 %156, 0
   br i1 %.sroa.015.0.extract.trunc, label %.critedge, label %157
 
 157:                                              ; preds = %155
   %158 = trunc i40 %.sroa.12.0.extract.shift to i1
-  br i1 %.not241, label %159, label %.critedge108
+  br i1 %.not242, label %159, label %.critedge108
 
 159:                                              ; preds = %157
   br i1 %158, label %.critedge108.thread, label %.noexc.i130
@@ -590,7 +590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140: ; preds = %_Z
   br label %.body
 
 .critedge:                                        ; preds = %155
-  br i1 %.not241, label %184, label %.noexc.i142
+  br i1 %.not242, label %184, label %.noexc.i142
 
 184:                                              ; preds = %.critedge
   %185 = trunc i40 %.sroa.12.0.extract.shift to i1

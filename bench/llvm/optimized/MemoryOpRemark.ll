@@ -2513,14 +2513,14 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i42: ; preds = %
 
 "_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit.loopexit": ; preds = %"_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_17DbgVariableRecordEEEDaPKT_.exit.i.i"
   %.sroa.0.0.copyload.i.i.i.i56.pre = load i64, ptr %8, align 8
-  %.pre86 = and i64 %.sroa.0.0.copyload.i.i.i.i56.pre, 4
+  %.pre85 = and i64 %.sroa.0.0.copyload.i.i.i.i56.pre, 4
   br label %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit"
 
 "_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit": ; preds = %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit.loopexit", %_ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i
-  %.pre-phi87 = phi i64 [ %.pre86, %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit.loopexit" ], [ %140, %_ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i ]
+  %.pre-phi86 = phi i64 [ %.pre85, %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit.loopexit" ], [ %140, %_ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i ]
   %.sroa.0.0.copyload.i.i.i.i56 = phi i64 [ %.sroa.0.0.copyload.i.i.i.i56.pre, %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit.loopexit" ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i28, %_ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i ]
   %.1 = phi i8 [ %209, %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit.loopexit" ], [ %.0, %_ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i ]
-  %.not.i.i.i57 = icmp eq i64 %.pre-phi87, 0
+  %.not.i.i.i57 = icmp eq i64 %.pre-phi86, 0
   %211 = and i64 %.sroa.0.0.copyload.i.i.i.i56, -8
   %212 = inttoptr i64 %211 to ptr
   %.not3.i58 = icmp eq i64 %211, 0
@@ -2567,21 +2567,21 @@ _ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEED2Ev.exit: ; preds = %"_ZN4llvm
   %229 = load i32, ptr %228, align 4, !noalias !157
   %230 = and i32 %229, 268435456
   %.not.i61 = icmp eq i32 %230, 0
-  br i1 %.not.i61, label %_ZL10nameOrNonePKN4llvm5ValueE.exit64, label %231
+  br i1 %.not.i61, label %_ZL10nameOrNonePKN4llvm5ValueE.exit64, label %_ZL10nameOrNonePKN4llvm5ValueE.exit64.thread
 
-231:                                              ; preds = %221
-  %232 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #14, !noalias !157
-  %233 = extractvalue { ptr, i64 } %232, 0
-  %234 = extractvalue { ptr, i64 } %232, 1
-  store ptr %233, ptr %10, align 8, !tbaa !139, !alias.scope !157
+_ZL10nameOrNonePKN4llvm5ValueE.exit64.thread:     ; preds = %221
+  %231 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #14, !noalias !157
+  %232 = extractvalue { ptr, i64 } %231, 0
+  %233 = extractvalue { ptr, i64 } %231, 1
+  store ptr %232, ptr %10, align 8, !tbaa !139, !alias.scope !157
   %.sroa.4.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %234, ptr %.sroa.4.0..sroa_idx.i62, align 8, !tbaa !49, !alias.scope !157
+  store i64 %233, ptr %.sroa.4.0..sroa_idx.i62, align 8, !tbaa !49, !alias.scope !157
   br label %_ZL10nameOrNonePKN4llvm5ValueE.exit64
 
-_ZL10nameOrNonePKN4llvm5ValueE.exit64:            ; preds = %221, %231
+_ZL10nameOrNonePKN4llvm5ValueE.exit64:; preds = %221, %231
   %.sink.i63 = phi i8 [ 1, %231 ], [ 0, %221 ]
-  %235 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i8 %.sink.i63, ptr %235, align 8, !tbaa !132, !alias.scope !157
+  %.sroa.4.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i8 %.sink.i63, ptr %.sroa.4.0..sroa_idx88, align 8, !tbaa !132, !alias.scope !157
   %236 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %spec.select, ptr %236, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32

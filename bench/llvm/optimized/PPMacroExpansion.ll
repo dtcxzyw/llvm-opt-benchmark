@@ -20675,9 +20675,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i2035: ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2038
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2038: ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2028, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2033, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i2035
-  %.sroa.380.187 = phi i16 [ %.sroa.380.186, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2028 ], [ %.sroa.0.0.insert.insert.i.i2037, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i2035 ], [ %.sroa.380.186, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2033 ]
-  %490 = and i16 %.sroa.380.187, 257
-  %.0.i2039 = icmp eq i16 %490, 257
+  %.pre-phi = phi i16 [ %.sroa.380.186, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2028 ], [ %.sroa.0.0.insert.insert.i.i2037, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i2035 ], [ %.sroa.380.186, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2033 ]
+  %490 = and i16 %.pre-phi, 257
+  %490 = icmp eq i16 %490, 257
   ret i1 %.0.i2039
 }
 
@@ -21481,15 +21481,15 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i442.i.i:     ; preds = %155
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit447.i.i
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit447.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i442.i.i, %155
-  %.sroa.94.44.i.i = phi i16 [ %.sroa.94.43.i.i, %155 ], [ %spec.select1131.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i442.i.i ]
-  %158 = and i16 %.sroa.94.44.i.i, 257
-  %.0.i.i.i = icmp eq i16 %158, 257
+  %.pre-phi.i.i = phi i16 [ %.sroa.94.43.i.i, %155 ], [ %spec.select1131.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i442.i.i ]
+  %158 = and i16 %.pre-phi.i.i, 257
+  %158 = icmp eq i16 %158, 257
   %159 = zext i1 %.0.i.i.i to i32
   br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit"
 
 "_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit": ; preds = %3, %6, %15, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit447.i.i
-  %160 = phi i32 [ 0, %3 ], [ %159, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit447.i.i ], [ 1, %6 ], [ 0, %15 ]
-  ret i32 %160
+  %161 = phi i32 [ 0, %3 ], [ %159, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit447.i.i ], [ 1, %6 ], [ 0, %15 ]
+  ret i32 %161
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21805,7 +21805,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i84.i:        ; preds = %_ZN4llvm12StringSwi
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit87.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit79.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit79.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i76.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i68.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i60.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i52.i, %.thread158.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i44.i
   %.sroa.2226.8.i = phi i16 [ %.sroa.2226.5.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit79.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i44.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i52.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i60.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i68.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i76.i ], [ 0, %.thread158.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84.i ], [ %.sroa.2226.5179.ph.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit79.thread.i ]
   %78 = and i16 %.sroa.2226.8.i, 257
-  %.0.i88.i = icmp eq i16 %78, 257
+  %79 = icmp eq i16 %78, 257
   %79 = zext i1 %.0.i88.i to i32
   br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
 

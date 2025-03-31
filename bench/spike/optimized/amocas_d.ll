@@ -327,9 +327,9 @@ define linkonce_odr noundef i64 @_ZN5mmu_t20amo_compare_and_swapImEET_mS1_S1_(pt
   %7 = alloca %class.target_endian, align 8
   %8 = alloca %"class.std::tuple", align 8
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef 8, ptr noundef null, i8 0, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %.noexc unwind label %55
+          to label %_ZNK13xlate_flags_t17is_special_accessEv.exit unwind label %55
 
-.noexc:                                           ; preds = %4
+_ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
   store i64 0, ptr %7, align 8, !tbaa !141
   %9 = lshr i64 %1, 12
@@ -343,7 +343,7 @@ define linkonce_odr noundef i64 @_ZN5mmu_t20amo_compare_and_swapImEET_mS1_S1_(pt
   %brmerge.i.not = select i1 %16, i1 %14, i1 false
   br i1 %brmerge.i.not, label %17, label %.critedge.i, !prof !143
 
-17:                                               ; preds = %.noexc
+17:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32912
   %19 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %18, i64 0, i64 %11
   %20 = load ptr, ptr %19, align 8, !tbaa !144
@@ -352,7 +352,7 @@ define linkonce_odr noundef i64 @_ZN5mmu_t20amo_compare_and_swapImEET_mS1_S1_(pt
   store i64 %22, ptr %7, align 8
   br label %.noexc61
 
-.critedge.i:                                      ; preds = %.noexc
+.critedge.i:                                      ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef 8, ptr noundef nonnull %7, i8 0)
           to label %.noexc61 unwind label %57
 

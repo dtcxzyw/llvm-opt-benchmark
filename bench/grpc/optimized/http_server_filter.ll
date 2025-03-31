@@ -1100,7 +1100,7 @@ define void @_ZN9grpc_core16HttpServerFilter6CreateERKNS_11ChannelArgsENS_10Filt
 _ZNSt10unique_ptrIN9grpc_core16HttpServerFilterESt14default_deleteIS1_EED2Ev.exit:
   %3 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 23, ptr nonnull @.str.11)
   %4 = and i16 %3, 257
-  %.0.i = icmp ne i16 %4, 256
+  %.not = icmp ne i16 %4, 256
   %5 = zext i1 %.0.i to i8
   %6 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 88, ptr nonnull @.str.12)
   %7 = and i16 %6, 257
@@ -2168,7 +2168,7 @@ _ZNSt10unique_ptrIN9grpc_core16HttpServerFilterESt14default_deleteIS1_EED2Ev.exi
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 23, ptr nonnull @.str.11), !noalias !197
   %10 = and i16 %9, 257
-  %.0.i.i = icmp ne i16 %10, 256
+  %.not.i = icmp ne i16 %10, 256
   %11 = zext i1 %.0.i.i to i8
   %12 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 88, ptr nonnull @.str.12), !noalias !197
   %13 = and i16 %12, 257

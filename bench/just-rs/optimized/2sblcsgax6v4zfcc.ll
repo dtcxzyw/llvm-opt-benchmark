@@ -10311,7 +10311,7 @@ define hidden noundef zeroext i1 @"_ZN4just6recipe15Recipe$LT$D$GT$7enabled17hd9
 
 26:                                               ; preds = %24, %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1), !noalias !1578
-  %27 = and i64 %19, %11
+  %.demorgan = and i64 %19, %11
   %.demorgan.not = icmp ne i64 %27, 0
   %28 = and i64 %23, %15
   %.not = icmp eq i64 %28, 0

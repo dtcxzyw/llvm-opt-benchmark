@@ -2354,34 +2354,34 @@ define void @_ZN10open_spiel5twixt5Board12UpdateResultEi8Position(ptr noundef no
   %12 = load i8, ptr %11, align 1
   %13 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %9, i64 %8, i32 4, i64 %10, i64 1
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %12, 1
-  %16 = and i8 %15, %14
+  %brmerge.demorgan11 = and i8 %12, 1
+  %16 = and i8 %brmerge.demorgan11, %14
   %brmerge.demorgan.not = icmp eq i8 %16, 0
   br i1 %brmerge.demorgan.not, label %20, label %17
 
-17:                                               ; preds = %3
-  %18 = icmp eq i32 %1, 0
-  %19 = select i1 %18, i32 1, i32 2
+15:                                               ; preds = %3
+  %16 = icmp eq i32 %1, 0
+  %17 = select i1 %16, i32 1, i32 2
   br label %.sink.split
 
-20:                                               ; preds = %3
-  %21 = sub nsw i32 1, %1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds [2 x %"class.std::vector.19"], ptr %22, i64 0, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %24, align 8
-  %.not = icmp eq ptr %26, %27
-  br i1 %.not, label %.sink.split, label %29
+18:                                               ; preds = %3
+  %19 = sub nsw i32 1, %1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %21 = sext i32 %19 to i64
+  %22 = getelementptr inbounds [2 x %"class.std::vector.19"], ptr %20, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %22, align 8
+  %.not = icmp eq ptr %24, %25
+  br i1 %.not, label %.sink.split, label %27
 
-.sink.split:                                      ; preds = %20, %17
-  %.sink = phi i32 [ %19, %17 ], [ 3, %20 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink, ptr %28, align 8
-  br label %29
+.sink.split:                                      ; preds = %18, %15
+  %.sink = phi i32 [ %17, %15 ], [ 3, %18 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink, ptr %26, align 8
+  br label %27
 
-29:                                               ; preds = %.sink.split, %20
+27:                                               ; preds = %.sink.split, %18
   ret void
 }
 
@@ -5429,34 +5429,34 @@ _ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102: ; preds = %_Z
   %282 = load i8, ptr %281, align 1
   %283 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %279, i64 %278, i32 4, i64 %280, i64 1
   %284 = load i8, ptr %283, align 1
-  %285 = and i8 %282, 1
-  %286 = and i8 %285, %284
+  %brmerge.demorgan11.i = and i8 %282, 1
+  %286 = and i8 %brmerge.demorgan11.i, %284
   %brmerge.demorgan.not.i = icmp eq i8 %286, 0
   br i1 %brmerge.demorgan.not.i, label %290, label %287
 
-287:                                              ; preds = %_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102
+287:; preds = %_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102
   %288 = icmp eq i32 %1, 0
   %289 = select i1 %288, i32 1, i32 2
   br label %.sink.split.i
 
-290:                                              ; preds = %_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102
-  %291 = sub nsw i32 1, %1
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %293 = sext i32 %291 to i64
-  %294 = getelementptr inbounds [2 x %"class.std::vector.19"], ptr %292, i64 0, i64 %293
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  %296 = load ptr, ptr %295, align 8
-  %297 = load ptr, ptr %294, align 8
-  %.not.i104 = icmp eq ptr %296, %297
+288:                                              ; preds = %_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102
+  %289 = sub nsw i32 1, %1
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %291 = sext i32 %289 to i64
+  %292 = getelementptr inbounds [2 x %"class.std::vector.19"], ptr %290, i64 0, i64 %291
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
+  %294 = load ptr, ptr %293, align 8
+  %295 = load ptr, ptr %292, align 8
+  %.not.i104 = icmp eq ptr %294, %295
   br i1 %.not.i104, label %.sink.split.i, label %_ZN10open_spiel5twixt5Board12UpdateResultEi8Position.exit
 
-.sink.split.i:                                    ; preds = %290, %287
-  %.sink.i = phi i32 [ %289, %287 ], [ 3, %290 ]
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink.i, ptr %298, align 8
+.sink.split.i:                                    ; preds = %288, %287
+  %.sink.i = phi i32 [ %289, %287 ], [ 3, %288 ]
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink.i, ptr %296, align 8
   br label %_ZN10open_spiel5twixt5Board12UpdateResultEi8Position.exit
 
-_ZN10open_spiel5twixt5Board12UpdateResultEi8Position.exit: ; preds = %290, %.sink.split.i
+_ZN10open_spiel5twixt5Board12UpdateResultEi8Position.exit: ; preds = %288, %.sink.split.i
   ret void
 }
 
