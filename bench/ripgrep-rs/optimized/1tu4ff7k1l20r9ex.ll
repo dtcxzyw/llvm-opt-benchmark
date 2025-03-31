@@ -4694,7 +4694,7 @@ _ZN6ignore9overrides8Override7matched17h4667bb1eb0a4b737E.exit: ; preds = %_ZN6i
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.4.0.i69, ptr %.sroa.7.0..sroa_idx, align 8
-  br label %65
+  br label %68
 
 30:                                               ; preds = %_ZN6ignore9overrides8Override7matched17h4667bb1eb0a4b737E.exit, %_ZN6ignore8pathutil12strip_prefix17hc5eeaa1b2c141ed9E.exit
   store i64 0, ptr %0, align 8
@@ -4714,72 +4714,72 @@ _ZN6ignore9overrides8Override7matched17h4667bb1eb0a4b737E.exit: ; preds = %_ZN6i
   %44 = load ptr, ptr %43, align 8, !noalias !1037, !nonnull !4, !noundef !4
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i64, ptr %45, align 8, !noalias !1037, !noundef !4
-  %brmerge4.i = or i8 %34, %32
-  %brmerge15.i = or i8 %brmerge4.i, %36
-  %brmerge26.i = or i8 %brmerge15.i, %38
-  %brmerge2.i = trunc nuw i8 %brmerge26.i to i1
-  %47 = or i64 %46, %42
-  %48 = icmp ne i64 %47, 0
-  %narrow.i = or i1 %48, %brmerge2.i
-  br i1 %narrow.i, label %55, label %49
+  %47 = or i8 %34, %32
+  %48 = or i8 %47, %36
+  %49 = or i8 %48, %38
+  %brmerge2.i = icmp ne i8 %49, 0
+  %50 = or i64 %46, %42
+  %51 = icmp ne i64 %50, 0
+  %narrow.i = or i1 %brmerge2.i, %51
+  br i1 %narrow.i, label %58, label %52
 
-49:                                               ; preds = %58, %30
-  %50 = getelementptr inbounds nuw i8, ptr %12, i64 480
-  %51 = load ptr, ptr %50, align 8, !nonnull !4, !noundef !4
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
-  %53 = load i64, ptr %52, align 8, !alias.scope !1040, !noundef !4
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %65, label %59
+52:                                               ; preds = %61, %30
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 480
+  %54 = load ptr, ptr %53, align 8, !nonnull !4, !noundef !4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
+  %56 = load i64, ptr %55, align 8, !alias.scope !1040, !noundef !4
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %68, label %62
 
-55:                                               ; preds = %30
+58:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN6ignore3dir6Ignore14matched_ignore17h894e173dbac2a9c1E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0, i1 noundef zeroext %4)
-  %56 = load i64, ptr %6, align 8, !range !773, !noundef !4
-  switch i64 %56, label %57 [
+  %59 = load i64, ptr %6, align 8, !range !773, !noundef !4
+  switch i64 %59, label %60 [
     i64 1, label %.critedge20
-    i64 0, label %58
+    i64 0, label %61
   ]
 
-.critedge20:                                      ; preds = %55
+.critedge20:                                      ; preds = %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %65
+  br label %68
 
-57:                                               ; preds = %55
+60:                                               ; preds = %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  br label %58
+  br label %61
 
-58:                                               ; preds = %55, %57
+61:                                               ; preds = %58, %60
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %49
+  br label %52
 
-59:                                               ; preds = %49
-  %60 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %61 = tail call { i64, ptr } @_ZN6ignore5types5Types7matched17hc31464be67ebf020E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %60, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0, i1 noundef zeroext %4)
-  %62 = extractvalue { i64, ptr } %61, 0
-  %63 = extractvalue { i64, ptr } %61, 1
-  switch i64 %62, label %64 [
-    i64 0, label %65
+62:                                               ; preds = %52
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %64 = tail call { i64, ptr } @_ZN6ignore5types5Types7matched17hc31464be67ebf020E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %63, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0, i1 noundef zeroext %4)
+  %65 = extractvalue { i64, ptr } %64, 0
+  %66 = extractvalue { i64, ptr } %64, 1
+  switch i64 %65, label %67 [
+    i64 0, label %68
     i64 1, label %.critedge22
   ]
 
-.critedge22:                                      ; preds = %59
+.critedge22:                                      ; preds = %62
   store i64 1, ptr %0, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %63, ptr %.sroa.9.0..sroa_idx, align 8
-  br label %65
+  store ptr %66, ptr %.sroa.9.0..sroa_idx, align 8
+  br label %68
 
-64:                                               ; preds = %59
-  store i64 %62, ptr %0, align 8
+67:                                               ; preds = %62
+  store i64 %65, ptr %0, align 8
   %.sroa.8.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.8.0..sroa_idx39, align 8
   %.sroa.9.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %63, ptr %.sroa.9.0..sroa_idx41, align 8
-  br label %65
+  store ptr %66, ptr %.sroa.9.0..sroa_idx41, align 8
+  br label %68
 
-65:                                               ; preds = %59, %64, %49, %.critedge, %.critedge20, %.critedge22
+68:                                               ; preds = %62, %67, %52, %.critedge, %.critedge20, %.critedge22
   ret void
 }
 

@@ -1114,52 +1114,53 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nound
   store i32 %38, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %88, align 8
-  %brmerge = or i1 %42, %53
-  br i1 %brmerge, label %89, label %100
+  %89 = or i8 %52, %41
+  %brmerge.not = icmp eq i8 %89, 0
+  br i1 %brmerge.not, label %101, label %90
 
-89:                                               ; preds = %82
+90:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #9
-  %90 = call i64 @deleteDependencyRecordsForClass(i32 noundef 2328, i32 noundef %38, i32 noundef 1255, i8 noundef signext 110) #9
-  %91 = load i32, ptr %10, align 4
-  %.not28 = icmp eq i32 %91, 0
-  br i1 %.not28, label %95, label %92
+  %91 = call i64 @deleteDependencyRecordsForClass(i32 noundef 2328, i32 noundef %38, i32 noundef 1255, i8 noundef signext 110) #9
+  %92 = load i32, ptr %10, align 4
+  %.not28 = icmp eq i32 %92, 0
+  br i1 %.not28, label %96, label %93
 
-92:                                               ; preds = %89
+93:                                               ; preds = %90
   store i32 1255, ptr %12, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %91, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 0, ptr %94, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 %92, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 0, ptr %95, align 4
   call void @recordDependencyOn(ptr noundef nonnull %3, ptr noundef nonnull %12, i32 noundef 110) #9
-  br label %95
+  br label %96
 
-95:                                               ; preds = %92, %89
+96:                                               ; preds = %93, %90
   %.not29 = icmp eq i32 %67, 0
-  br i1 %.not29, label %99, label %96
+  br i1 %.not29, label %100, label %97
 
-96:                                               ; preds = %95
+97:                                               ; preds = %96
   store i32 1255, ptr %12, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %67, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 0, ptr %98, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 %67, ptr %98, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 0, ptr %99, align 4
   call void @recordDependencyOn(ptr noundef nonnull %3, ptr noundef nonnull %12, i32 noundef 110) #9
-  br label %99
-
-99:                                               ; preds = %96, %95
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #9
   br label %100
 
-100:                                              ; preds = %82, %99
-  %101 = load ptr, ptr @object_access_hook, align 8
-  %.not30 = icmp eq ptr %101, null
-  br i1 %.not30, label %103, label %102
+100:                                              ; preds = %97, %96
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #9
+  br label %101
 
-102:                                              ; preds = %100
+101:                                              ; preds = %82, %100
+  %102 = load ptr, ptr @object_access_hook, align 8
+  %.not30 = icmp eq ptr %102, null
+  br i1 %.not30, label %104, label %103
+
+103:                                              ; preds = %101
   call void @RunObjectPostAlterHook(i32 noundef 2328, i32 noundef %38, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #9
-  br label %103
+  br label %104
 
-103:                                              ; preds = %102, %100
+104:                                              ; preds = %103, %101
   call void @table_close(ptr noundef nonnull %13, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9

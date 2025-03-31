@@ -3676,23 +3676,22 @@ define internal void @exec_assign_value(ptr noundef readonly captures(none) %0, 
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load i8, ptr %59, align 8, !range !3, !noundef !4
   %61 = trunc nuw i8 %60 to i1
-  %.pre76 = load i8, ptr %7, align 1, !range !3
+  %.pre75 = load i8, ptr %7, align 1, !range !3
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %58
-  %63 = trunc nuw i8 %.pre76 to i1
+  %63 = trunc nuw i8 %.pre75 to i1
   br i1 %63, label %64, label %71
 
 64:                                               ; preds = %._crit_edge, %62, %58
-  %65 = phi i8 [ %.pre, %._crit_edge ], [ 1, %62 ], [ %.pre76, %58 ]
+  %65 = phi i8 [ %.pre, %._crit_edge ], [ 1, %62 ], [ %.pre75, %58 ]
   %66 = trunc nuw i8 %65 to i1
   %67 = load ptr, ptr %11, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 18
   %69 = load i8, ptr %68, align 2, !range !3, !noundef !4
-  %.demorgan74 = or i8 %69, %65
-  %.demorgan = trunc nuw i8 %.demorgan74 to i1
-  %70 = xor i1 %.demorgan, true
-  call fastcc void @assign_simple_var(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.071, i1 noundef zeroext %66, i1 noundef zeroext %70)
+  %70 = or i8 %69, %65
+  %.demorgan.not = icmp eq i8 %70, 0
+  call fastcc void @assign_simple_var(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.071, i1 noundef zeroext %66, i1 noundef zeroext %.demorgan.not)
   br label %160
 
 71:                                               ; preds = %62

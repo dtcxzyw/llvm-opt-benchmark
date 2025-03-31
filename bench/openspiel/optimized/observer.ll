@@ -1362,8 +1362,9 @@ define internal fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_115Defa
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 %13, ptr %15, align 1
   %16 = or i8 %11, %9
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %_ZN10open_spiel8ObserverC2Ebb.exit.i, label %18
+  %17 = and i8 %16, 1
+  %.not.i = icmp eq i8 %17, 0
+  br i1 %.not.i, label %18, label %_ZN10open_spiel8ObserverC2Ebb.exit.i
 
 18:                                               ; preds = %2
   store i32 326, ptr %5, align 4
@@ -1743,8 +1744,9 @@ define internal fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124Info
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 %13, ptr %15, align 1
   %16 = or i8 %11, %9
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %_ZN10open_spiel8ObserverC2Ebb.exit.i, label %18
+  %17 = and i8 %16, 1
+  %.not.i = icmp eq i8 %17, 0
+  br i1 %.not.i, label %18, label %_ZN10open_spiel8ObserverC2Ebb.exit.i
 
 18:                                               ; preds = %2
   store i32 326, ptr %5, align 4

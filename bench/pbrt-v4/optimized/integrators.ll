@@ -38474,7 +38474,7 @@ define dso_local noundef float @_ZN4pbrt9MISWeightERKNS_10IntegratorENS_6CameraE
   %9 = alloca %"class.pbrt::LightSampler", align 8
   %10 = add nsw i32 %6, %5
   %11 = icmp eq i32 %10, 2
-  br i1 %11, label %162, label %12
+  br i1 %11, label %160, label %12
 
 12:                                               ; preds = %8
   %13 = icmp sgt i32 %5, 0
@@ -38537,10 +38537,10 @@ define dso_local noundef float @_ZN4pbrt9MISWeightERKNS_10IntegratorENS_6CameraE
   %.sroa.15392.0.copyload = load float, ptr %.sroa.15392.0..sroa_idx, align 8
   %.sroa.16395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 332
   %.sroa.16395.0.copyload = load i32, ptr %.sroa.16395.0..sroa_idx, align 4
-  %.sroa.7401.4..sroa_idx561 = getelementptr inbounds nuw i8, ptr %.sroa.7401, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7401.4..sroa_idx561, i8 0, i64 16, i1 false), !tbaa !198
-  %.sroa.7401.24..sroa_idx562 = getelementptr inbounds nuw i8, ptr %.sroa.7401, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7401.24..sroa_idx562, i8 0, i64 88, i1 false)
+  %.sroa.7401.4..sroa_idx562 = getelementptr inbounds nuw i8, ptr %.sroa.7401, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7401.4..sroa_idx562, i8 0, i64 16, i1 false), !tbaa !198
+  %.sroa.7401.24..sroa_idx563 = getelementptr inbounds nuw i8, ptr %.sroa.7401, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7401.24..sroa_idx563, i8 0, i64 88, i1 false)
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit, label %31
 
@@ -38658,10 +38658,10 @@ _ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit: ; preds = %30, %31
   %.sroa.15.0.copyload = load float, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 332
   %.sroa.16.0.copyload = load i32, ptr %.sroa.16.0..sroa_idx, align 4
-  %.sroa.7296.4..sroa_idx559 = getelementptr inbounds nuw i8, ptr %.sroa.7296, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7296.4..sroa_idx559, i8 0, i64 16, i1 false), !tbaa !198
-  %.sroa.7296.24..sroa_idx560 = getelementptr inbounds nuw i8, ptr %.sroa.7296, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7296.24..sroa_idx560, i8 0, i64 88, i1 false)
+  %.sroa.7296.4..sroa_idx560 = getelementptr inbounds nuw i8, ptr %.sroa.7296, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7296.4..sroa_idx560, i8 0, i64 16, i1 false), !tbaa !198
+  %.sroa.7296.24..sroa_idx561 = getelementptr inbounds nuw i8, ptr %.sroa.7296, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7296.24..sroa_idx561, i8 0, i64 88, i1 false)
   %.not.i145 = icmp eq ptr %21, null
   br i1 %.not.i145, label %_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit148, label %35
 
@@ -38878,7 +38878,7 @@ _ZN4pbrt16ScopedAssignmentIfED2Ev.exit182:        ; preds = %71
   %75 = landingpad { ptr, i32 }
           cleanup
   %.not.i183 = icmp eq ptr %.sroa.0211.0, null
-  br i1 %.not.i183, label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184, label %156
+  br i1 %.not.i183, label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184, label %154
 
 76:                                               ; preds = %70, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit164
   %.sroa.7203.0 = phi float [ undef, %70 ], [ %74, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit164 ]
@@ -39058,7 +39058,7 @@ _ZN4pbrt16ScopedAssignmentIbED2Ev.exit177:        ; preds = %_ZN4pbrt16ScopedAss
 _ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit179: ; preds = %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit177, %125
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %.sroa.8479)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.49)
-  br label %162
+  br label %160
 
 126:                                              ; preds = %.lr.ph533, %138
   %indvars.iv536 = phi i64 [ %14, %.lr.ph533 ], [ %indvars.iv.next537, %138 ]
@@ -39077,40 +39077,39 @@ _ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit179: ; preds = %_ZN4pbrt16Scoped
   %136 = fdiv float %131, %135
   %137 = fmul float %.2530, %136
   %.not132 = icmp eq i64 %indvars.iv536, 1
-  br i1 %.not132, label %147, label %138
+  br i1 %.not132, label %145, label %138
 
 138:                                              ; preds = %126
   %gep527 = getelementptr %"struct.pbrt::Vertex", ptr %invariant.gep526, i64 %indvars.iv536
   %139 = load i8, ptr %gep527, align 8, !tbaa !948, !range !116, !noundef !117
-  %140 = trunc nuw i8 %139 to i1
-  %141 = getelementptr inbounds nuw i8, ptr %127, i64 320
-  %142 = load i8, ptr %141, align 8, !tbaa !948, !range !116, !noundef !117
-  %143 = trunc nuw i8 %142 to i1
-  %144 = fadd float %.2102529, %137
-  %145 = select i1 %143, i1 true, i1 %140
-  %.3 = select i1 %145, float %.2102529, float %144
-  %146 = icmp sgt i64 %indvars.iv536, 1
-  br i1 %146, label %126, label %._crit_edge, !llvm.loop !978
+  %140 = getelementptr inbounds nuw i8, ptr %127, i64 320
+  %141 = load i8, ptr %140, align 8, !tbaa !948, !range !116, !noundef !117
+  %142 = fadd float %.2102529, %137
+  %143 = or i8 %141, %139
+  %.not551 = icmp eq i8 %143, 0
+  %.3 = select i1 %.not551, float %142, float %.2102529
+  %144 = icmp sgt i64 %indvars.iv536, 1
+  br i1 %144, label %126, label %._crit_edge, !llvm.loop !978
 
-147:                                              ; preds = %126
-  %148 = load i32, ptr %2, align 8, !tbaa !967
-  %149 = icmp eq i32 %148, 1
-  br i1 %149, label %150, label %.thread
+145:                                              ; preds = %126
+  %146 = load i32, ptr %2, align 8, !tbaa !967
+  %147 = icmp eq i32 %146, 1
+  br i1 %147, label %148, label %.thread
 
-150:                                              ; preds = %147
-  %151 = load i64, ptr %92, align 8, !tbaa !29
-  %152 = and i64 %151, 144115188075855871
-  %.not.i180 = icmp eq i64 %152, 0
+148:                                              ; preds = %145
+  %149 = load i64, ptr %92, align 8, !tbaa !29
+  %150 = and i64 %149, 144115188075855871
+  %.not.i180 = icmp eq i64 %150, 0
   br i1 %.not.i180, label %.thread, label %_ZNK4pbrt6Vertex12IsDeltaLightEv.exit
 
-_ZNK4pbrt6Vertex12IsDeltaLightEv.exit:            ; preds = %150
-  %153 = inttoptr i64 %152 to ptr
-  %154 = load i32, ptr %153, align 8, !tbaa !677
-  %.fr = freeze i32 %154
-  %155 = icmp ult i32 %.fr, 2
-  br i1 %155, label %._crit_edge, label %.thread
+_ZNK4pbrt6Vertex12IsDeltaLightEv.exit:            ; preds = %148
+  %151 = inttoptr i64 %150 to ptr
+  %152 = load i32, ptr %151, align 8, !tbaa !677
+  %.fr = freeze i32 %152
+  %153 = icmp ult i32 %.fr, 2
+  br i1 %153, label %._crit_edge, label %.thread
 
-.thread:                                          ; preds = %147, %150, %_ZNK4pbrt6Vertex12IsDeltaLightEv.exit
+.thread:                                          ; preds = %145, %148, %_ZNK4pbrt6Vertex12IsDeltaLightEv.exit
   %.ph541 = fadd float %.2102529, %137
   %.ph.in.in = getelementptr inbounds nuw i8, ptr %127, i64 320
   %.ph.in = load i8, ptr %.ph.in.in, align 8, !tbaa !948, !range !116, !noundef !117
@@ -39118,50 +39117,50 @@ _ZNK4pbrt6Vertex12IsDeltaLightEv.exit:            ; preds = %150
   %.3542 = select i1 %.ph, float %.2102529, float %.ph541
   br label %._crit_edge
 
-156:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit182
+154:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit182
   store float %.sroa.7213.0, ptr %.sroa.0211.0, align 4, !tbaa !198
   br label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184
 
-_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184:        ; preds = %156, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit182, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit182.thread
-  %.pn133.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit182.thread ], [ %75, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit182 ], [ %75, %156 ]
+_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184:        ; preds = %154, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit182, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit182.thread
+  %.pn133.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit182.thread ], [ %75, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit182 ], [ %75, %154 ]
   %.not.i185 = icmp eq ptr %.sroa.0221.0, null
-  br i1 %.not.i185, label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186, label %157
+  br i1 %.not.i185, label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186, label %155
 
-157:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184
+155:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184
   store float %.sroa.7223.0, ptr %.sroa.0221.0, align 4, !tbaa !198
   br label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186
 
-_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186:        ; preds = %157, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184.thread
-  %.pn133.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %63, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184.thread ], [ %.pn133.pn.pn.pn.pn, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184 ], [ %.pn133.pn.pn.pn.pn, %157 ]
+_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186:        ; preds = %155, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184.thread
+  %.pn133.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %63, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184.thread ], [ %.pn133.pn.pn.pn.pn, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit184 ], [ %.pn133.pn.pn.pn.pn, %155 ]
   %.not.i187 = icmp eq ptr %.sroa.0231.0, null
-  br i1 %.not.i187, label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit188, label %158
+  br i1 %.not.i187, label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit188, label %156
 
-158:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186
+156:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186
   store float %.sroa.7233.0, ptr %.sroa.0231.0, align 4, !tbaa !198
   br label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit188
 
-_ZN4pbrt16ScopedAssignmentIfED2Ev.exit188:        ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186.thread, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186, %158
-  %.pn133.pn.pn.pn.pn.pn520 = phi { ptr, i32 } [ %53, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186.thread ], [ %.pn133.pn.pn.pn.pn.pn, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186 ], [ %.pn133.pn.pn.pn.pn.pn, %158 ]
+_ZN4pbrt16ScopedAssignmentIfED2Ev.exit188:        ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186.thread, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186, %156
+  %.pn133.pn.pn.pn.pn.pn520 = phi { ptr, i32 } [ %53, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186.thread ], [ %.pn133.pn.pn.pn.pn.pn, %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit186 ], [ %.pn133.pn.pn.pn.pn.pn, %156 ]
   %.not.i189 = icmp eq ptr %.sroa.0244.0, null
-  br i1 %.not.i189, label %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit190, label %159
+  br i1 %.not.i189, label %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit190, label %157
 
-159:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit188
+157:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit188
   store i8 %.sroa.7246.0, ptr %.sroa.0244.0, align 1, !tbaa !539
   br label %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit190
 
-_ZN4pbrt16ScopedAssignmentIbED2Ev.exit190:        ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit188, %159
+_ZN4pbrt16ScopedAssignmentIbED2Ev.exit190:        ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit188, %157
   %.not.i191 = icmp eq ptr %.sroa.0249.0, null
-  br i1 %.not.i191, label %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit192, label %160
+  br i1 %.not.i191, label %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit192, label %158
 
-160:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit190
+158:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit190
   store i8 %.sroa.7251.0, ptr %.sroa.0249.0, align 1, !tbaa !539
   br label %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit192
 
-_ZN4pbrt16ScopedAssignmentIbED2Ev.exit192:        ; preds = %160, %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit190
+_ZN4pbrt16ScopedAssignmentIbED2Ev.exit192:        ; preds = %158, %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit190
   %.not.i193 = icmp eq ptr %.sroa.0477.0, null
-  br i1 %.not.i193, label %_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit194, label %161
+  br i1 %.not.i193, label %_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit194, label %159
 
-161:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit192
+159:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %.sroa.0477.0, ptr noundef nonnull align 8 dereferenceable(272) %.sroa.8479, i64 272, i1 false)
   %.sroa.14480.8..sroa.0477.0.478.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0477.0, i64 272
   store i64 %.sroa.14480.0, ptr %.sroa.14480.8..sroa.0477.0.478.sroa_idx, align 8
@@ -39197,12 +39196,12 @@ _ZN4pbrt16ScopedAssignmentIbED2Ev.exit192:        ; preds = %160, %_ZN4pbrt16Sco
   store i32 %.sroa.57.0, ptr %.sroa.57.8..sroa.0477.0.478.sroa_idx, align 4
   br label %_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit194
 
-_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit194: ; preds = %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit192, %161
+_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit194: ; preds = %_ZN4pbrt16ScopedAssignmentIbED2Ev.exit192, %159
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %.sroa.8479)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.49)
   resume { ptr, i32 } %.pn133.pn.pn.pn.pn.pn520
 
-162:                                              ; preds = %8, %_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit179
+160:                                              ; preds = %8, %_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit179
   %.0 = phi float [ %118, %_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit179 ], [ 1.000000e+00, %8 ]
   ret float %.0
 }

@@ -2716,10 +2716,8 @@ define linkonce_odr void @_ZN9grpc_core15JsonChannelArgsD0Ev(ptr noundef nonnull
 define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core15JsonChannelArgs9IsEnabledESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %1, ptr %2) unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 %1, ptr %2)
-  %6 = and i16 %5, 256
-  %.not = icmp ne i16 %6, 0
-  %7 = trunc i16 %5 to i1
-  %.0.i = and i1 %.not, %7
+  %6 = and i16 %5, 257
+  %.0.i = icmp eq i16 %6, 257
   ret i1 %.0.i
 }
 

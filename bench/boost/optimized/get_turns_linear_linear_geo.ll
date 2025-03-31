@@ -166144,7 +166144,7 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sec
   %72 = load i32, ptr %71, align 4, !tbaa !3077
   store i32 %72, ptr %9, align 4, !tbaa !2689
   %brmerge = select i1 %68, i1 true, i1 %69
-  br i1 %brmerge, label %73, label %118
+  br i1 %brmerge, label %73, label %120
 
 73:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEE15is_last_segmentEv.exit100
   %74 = call noundef zeroext i1 @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE15handle_internalILm0ENS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS9_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESG_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSG_St6vectorISG_SaISG_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEEES13_NS2_9turn_infoISG_NS0_13segment_ratioIdEENS2_21turn_operation_linearISG_S16_EESt5arrayIS18_Lm2EEEENS2_17intersection_infoIS13_S13_SG_S11_S12_EEEEbRKT0_RKT1_bbbbbbRKT2_RKT3_jRNS2_14operation_typeES1R_(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(89) %1, i1 noundef zeroext %24, i1 noundef zeroext %38, i1 noundef zeroext %53, i1 noundef zeroext %67, i1 noundef zeroext %52, i1 noundef zeroext %66, ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(296) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -166161,7 +166161,7 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sec
 81:                                               ; preds = %75, %73
   %82 = load i32, ptr %8, align 4, !tbaa !2689
   %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %118, label %83
+  br i1 %.not, label %120, label %83
 
 83:                                               ; preds = %81
   %84 = load i8, ptr %21, align 4, !tbaa !3078, !range !17, !noundef !18
@@ -166169,68 +166169,69 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sec
   %86 = trunc nuw i8 %85 to i1
   %87 = load i8, ptr %50, align 2, !tbaa !3079, !range !17, !noundef !18
   %88 = load i8, ptr %64, align 1, !tbaa !3081, !range !17, !noundef !18
-  %brmerge.i101 = or i8 %85, %84
-  %brmerge5.i102 = or i8 %88, %87
-  %or.cond.i103 = and i8 %brmerge5.i102, %brmerge.i101
-  %or.cond.i = trunc nuw i8 %or.cond.i103 to i1
+  %89 = or i8 %85, %84
+  %brmerge.i = icmp ne i8 %89, 0
+  %90 = or i8 %88, %87
+  %brmerge5.i = icmp ne i8 %90, 0
+  %or.cond.i = and i1 %brmerge.i, %brmerge5.i
   %.0.i = select i1 %or.cond.i, i32 3, i32 4
-  %89 = select i1 %38, i32 2, i32 0
-  %90 = select i1 %24, i32 1, i32 %89
-  %91 = select i1 %67, i32 2, i32 0
-  %92 = select i1 %53, i32 1, i32 %91
-  br i1 %86, label %93, label %102
+  %91 = select i1 %38, i32 2, i32 0
+  %92 = select i1 %24, i32 1, i32 %91
+  %93 = select i1 %67, i32 2, i32 0
+  %94 = select i1 %53, i32 1, i32 %93
+  br i1 %86, label %95, label %104
 
-93:                                               ; preds = %83
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %95 = load i64, ptr %94, align 8, !tbaa !2707
-  %96 = icmp eq i64 %95, 2
-  br i1 %96, label %97, label %102
+95:                                               ; preds = %83
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %97 = load i64, ptr %96, align 8, !tbaa !2707
+  %98 = icmp eq i64 %97, 2
+  br i1 %98, label %99, label %104
 
-97:                                               ; preds = %93
-  %98 = call noundef zeroext i1 @_ZNK5boost8geometry6detail7overlay17intersection_infoINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEEES11_SE_SZ_S10_E10is_spike_pEv(ptr noundef nonnull align 8 dereferenceable(296) %4)
-  br i1 %98, label %99, label %._crit_edge
+99:                                               ; preds = %95
+  %100 = call noundef zeroext i1 @_ZNK5boost8geometry6detail7overlay17intersection_infoINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEEES11_SE_SZ_S10_E10is_spike_pEv(ptr noundef nonnull align 8 dereferenceable(296) %4)
+  br i1 %100, label %101, label %._crit_edge
 
-._crit_edge:                                      ; preds = %97
+._crit_edge:                                      ; preds = %99
   %.pre = load i8, ptr %64, align 1, !tbaa !3081, !range !17
-  br label %102
+  br label %104
 
-99:                                               ; preds = %97
-  %100 = load i32, ptr %9, align 4, !tbaa !2689
-  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %94, i32 noundef %5, i32 noundef %.0.i, i32 noundef 3, i32 noundef %100, i32 noundef %90, i32 noundef %92, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
-  %101 = load i32, ptr %9, align 4, !tbaa !2689
-  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %94, i32 noundef %5, i32 noundef %.0.i, i32 noundef 2, i32 noundef %101, i32 noundef %90, i32 noundef %92, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
-  br label %118
+101:                                              ; preds = %99
+  %102 = load i32, ptr %9, align 4, !tbaa !2689
+  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %96, i32 noundef %5, i32 noundef %.0.i, i32 noundef 3, i32 noundef %102, i32 noundef %92, i32 noundef %94, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
+  %103 = load i32, ptr %9, align 4, !tbaa !2689
+  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %96, i32 noundef %5, i32 noundef %.0.i, i32 noundef 2, i32 noundef %103, i32 noundef %92, i32 noundef %94, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
+  br label %120
 
-102:                                              ; preds = %._crit_edge, %93, %83
-  %103 = phi i8 [ %.pre, %._crit_edge ], [ %88, %93 ], [ %88, %83 ]
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %105, label %114
+104:                                              ; preds = %._crit_edge, %95, %83
+  %105 = phi i8 [ %.pre, %._crit_edge ], [ %88, %95 ], [ %88, %83 ]
+  %106 = trunc nuw i8 %105 to i1
+  br i1 %106, label %107, label %116
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %107 = load i64, ptr %106, align 8, !tbaa !2707
-  %108 = icmp eq i64 %107, 2
-  br i1 %108, label %109, label %114
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %109 = load i64, ptr %108, align 8, !tbaa !2707
+  %110 = icmp eq i64 %109, 2
+  br i1 %110, label %111, label %116
 
-109:                                              ; preds = %105
-  %110 = call noundef zeroext i1 @_ZNK5boost8geometry6detail7overlay17intersection_infoINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEEES11_SE_SZ_S10_E10is_spike_qEv(ptr noundef nonnull align 8 dereferenceable(296) %4)
-  br i1 %110, label %111, label %114
+111:                                              ; preds = %107
+  %112 = call noundef zeroext i1 @_ZNK5boost8geometry6detail7overlay17intersection_infoINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEEES11_SE_SZ_S10_E10is_spike_qEv(ptr noundef nonnull align 8 dereferenceable(296) %4)
+  br i1 %112, label %113, label %116
 
-111:                                              ; preds = %109
-  %112 = load i32, ptr %8, align 4, !tbaa !2689
-  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %106, i32 noundef %5, i32 noundef %.0.i, i32 noundef %112, i32 noundef 3, i32 noundef %90, i32 noundef %92, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
-  %113 = load i32, ptr %8, align 4, !tbaa !2689
-  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %106, i32 noundef %5, i32 noundef %.0.i, i32 noundef %113, i32 noundef 2, i32 noundef %90, i32 noundef %92, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
-  br label %118
+113:                                              ; preds = %111
+  %114 = load i32, ptr %8, align 4, !tbaa !2689
+  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %108, i32 noundef %5, i32 noundef %.0.i, i32 noundef %114, i32 noundef 3, i32 noundef %92, i32 noundef %94, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
+  %115 = load i32, ptr %8, align 4, !tbaa !2689
+  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %108, i32 noundef %5, i32 noundef %.0.i, i32 noundef %115, i32 noundef 2, i32 noundef %92, i32 noundef %94, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
+  br label %120
 
-114:                                              ; preds = %109, %105, %102
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %116 = load i32, ptr %8, align 4, !tbaa !2689
-  %117 = load i32, ptr %9, align 4, !tbaa !2689
-  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %115, i32 noundef %5, i32 noundef %.0.i, i32 noundef %116, i32 noundef %117, i32 noundef %90, i32 noundef %92, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
-  br label %118
+116:                                              ; preds = %111, %107, %104
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %118 = load i32, ptr %8, align 4, !tbaa !2689
+  %119 = load i32, ptr %9, align 4, !tbaa !2689
+  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb1ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %117, i32 noundef %5, i32 noundef %.0.i, i32 noundef %118, i32 noundef %119, i32 noundef %92, i32 noundef %94, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
+  br label %120
 
-118:                                              ; preds = %81, %111, %114, %99, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEE15is_last_segmentEv.exit100
+120:                                              ; preds = %81, %113, %116, %101, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEE15is_last_segmentEv.exit100
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #56
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #56
   ret i1 %69
@@ -167904,7 +167905,7 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sec
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !3077
   store i32 %71, ptr %9, align 4, !tbaa !2689
-  br i1 %68, label %72, label %117
+  br i1 %68, label %72, label %119
 
 72:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEE15is_last_segmentEv.exit98
   %73 = call noundef zeroext i1 @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE15handle_internalILm0ENS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS9_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESG_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSG_St6vectorISG_SaISG_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEEES13_NS2_9turn_infoISG_NS0_13segment_ratioIdEENS2_21turn_operation_linearISG_S16_EESt5arrayIS18_Lm2EEEENS2_17intersection_infoIS13_S13_SG_S11_S12_EEEEbRKT0_RKT1_bbbbbbRKT2_RKT3_jRNS2_14operation_typeES1R_(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(89) %1, i1 noundef zeroext %24, i1 noundef zeroext %38, i1 noundef zeroext %53, i1 noundef zeroext %67, i1 noundef zeroext %52, i1 noundef zeroext %66, ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(296) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -167921,7 +167922,7 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sec
 80:                                               ; preds = %74, %72
   %81 = load i32, ptr %8, align 4, !tbaa !2689
   %.not = icmp eq i32 %81, 0
-  br i1 %.not, label %117, label %82
+  br i1 %.not, label %119, label %82
 
 82:                                               ; preds = %80
   %83 = load i8, ptr %21, align 4, !tbaa !3078, !range !17, !noundef !18
@@ -167929,68 +167930,69 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sec
   %85 = trunc nuw i8 %84 to i1
   %86 = load i8, ptr %50, align 2, !tbaa !3079, !range !17, !noundef !18
   %87 = load i8, ptr %64, align 1, !tbaa !3081, !range !17, !noundef !18
-  %brmerge.i99 = or i8 %84, %83
-  %brmerge5.i100 = or i8 %87, %86
-  %or.cond.i101 = and i8 %brmerge5.i100, %brmerge.i99
-  %or.cond.i = trunc nuw i8 %or.cond.i101 to i1
+  %88 = or i8 %84, %83
+  %brmerge.i = icmp ne i8 %88, 0
+  %89 = or i8 %87, %86
+  %brmerge5.i = icmp ne i8 %89, 0
+  %or.cond.i = and i1 %brmerge.i, %brmerge5.i
   %.0.i = select i1 %or.cond.i, i32 3, i32 4
-  %88 = select i1 %38, i32 2, i32 0
-  %89 = select i1 %24, i32 1, i32 %88
-  %90 = select i1 %67, i32 2, i32 0
-  %91 = select i1 %53, i32 1, i32 %90
-  br i1 %85, label %92, label %101
+  %90 = select i1 %38, i32 2, i32 0
+  %91 = select i1 %24, i32 1, i32 %90
+  %92 = select i1 %67, i32 2, i32 0
+  %93 = select i1 %53, i32 1, i32 %92
+  br i1 %85, label %94, label %103
 
-92:                                               ; preds = %82
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %94 = load i64, ptr %93, align 8, !tbaa !2707
-  %95 = icmp eq i64 %94, 2
-  br i1 %95, label %96, label %101
+94:                                               ; preds = %82
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %96 = load i64, ptr %95, align 8, !tbaa !2707
+  %97 = icmp eq i64 %96, 2
+  br i1 %97, label %98, label %103
 
-96:                                               ; preds = %92
-  %97 = call noundef zeroext i1 @_ZNK5boost8geometry6detail7overlay17intersection_infoINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEEES11_SE_SZ_S10_E10is_spike_pEv(ptr noundef nonnull align 8 dereferenceable(296) %4)
-  br i1 %97, label %98, label %._crit_edge
+98:                                               ; preds = %94
+  %99 = call noundef zeroext i1 @_ZNK5boost8geometry6detail7overlay17intersection_infoINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEEES11_SE_SZ_S10_E10is_spike_pEv(ptr noundef nonnull align 8 dereferenceable(296) %4)
+  br i1 %99, label %100, label %._crit_edge
 
-._crit_edge:                                      ; preds = %96
+._crit_edge:                                      ; preds = %98
   %.pre = load i8, ptr %64, align 1, !tbaa !3081, !range !17
-  br label %101
+  br label %103
 
-98:                                               ; preds = %96
-  %99 = load i32, ptr %9, align 4, !tbaa !2689
-  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %93, i32 noundef %5, i32 noundef %.0.i, i32 noundef 3, i32 noundef %99, i32 noundef %89, i32 noundef %91, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
-  %100 = load i32, ptr %9, align 4, !tbaa !2689
-  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %93, i32 noundef %5, i32 noundef %.0.i, i32 noundef 2, i32 noundef %100, i32 noundef %89, i32 noundef %91, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
-  br label %117
+100:                                              ; preds = %98
+  %101 = load i32, ptr %9, align 4, !tbaa !2689
+  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %95, i32 noundef %5, i32 noundef %.0.i, i32 noundef 3, i32 noundef %101, i32 noundef %91, i32 noundef %93, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
+  %102 = load i32, ptr %9, align 4, !tbaa !2689
+  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %95, i32 noundef %5, i32 noundef %.0.i, i32 noundef 2, i32 noundef %102, i32 noundef %91, i32 noundef %93, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
+  br label %119
 
-101:                                              ; preds = %._crit_edge, %92, %82
-  %102 = phi i8 [ %.pre, %._crit_edge ], [ %87, %92 ], [ %87, %82 ]
-  %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %104, label %113
+103:                                              ; preds = %._crit_edge, %94, %82
+  %104 = phi i8 [ %.pre, %._crit_edge ], [ %87, %94 ], [ %87, %82 ]
+  %105 = trunc nuw i8 %104 to i1
+  br i1 %105, label %106, label %115
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %106 = load i64, ptr %105, align 8, !tbaa !2707
-  %107 = icmp eq i64 %106, 2
-  br i1 %107, label %108, label %113
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %108 = load i64, ptr %107, align 8, !tbaa !2707
+  %109 = icmp eq i64 %108, 2
+  br i1 %109, label %110, label %115
 
-108:                                              ; preds = %104
-  %109 = call noundef zeroext i1 @_ZNK5boost8geometry6detail7overlay17intersection_infoINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEEES11_SE_SZ_S10_E10is_spike_qEv(ptr noundef nonnull align 8 dereferenceable(296) %4)
-  br i1 %109, label %110, label %113
+110:                                              ; preds = %106
+  %111 = call noundef zeroext i1 @_ZNK5boost8geometry6detail7overlay17intersection_infoINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEEES11_SE_SZ_S10_E10is_spike_qEv(ptr noundef nonnull align 8 dereferenceable(296) %4)
+  br i1 %111, label %112, label %115
 
-110:                                              ; preds = %108
-  %111 = load i32, ptr %8, align 4, !tbaa !2689
-  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %105, i32 noundef %5, i32 noundef %.0.i, i32 noundef %111, i32 noundef 3, i32 noundef %89, i32 noundef %91, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
-  %112 = load i32, ptr %8, align 4, !tbaa !2689
-  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %105, i32 noundef %5, i32 noundef %.0.i, i32 noundef %112, i32 noundef 2, i32 noundef %89, i32 noundef %91, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
-  br label %117
+112:                                              ; preds = %110
+  %113 = load i32, ptr %8, align 4, !tbaa !2689
+  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %107, i32 noundef %5, i32 noundef %.0.i, i32 noundef %113, i32 noundef 3, i32 noundef %91, i32 noundef %93, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
+  %114 = load i32, ptr %8, align 4, !tbaa !2689
+  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %107, i32 noundef %5, i32 noundef %.0.i, i32 noundef %114, i32 noundef 2, i32 noundef %91, i32 noundef %93, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
+  br label %119
 
-113:                                              ; preds = %108, %104, %101
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %115 = load i32, ptr %8, align 4, !tbaa !2689
-  %116 = load i32, ptr %9, align 4, !tbaa !2689
-  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %114, i32 noundef %5, i32 noundef %.0.i, i32 noundef %115, i32 noundef %116, i32 noundef %89, i32 noundef %91, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
-  br label %117
+115:                                              ; preds = %110, %106, %103
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %117 = load i32, ptr %8, align 4, !tbaa !2689
+  %118 = load i32, ptr %9, align 4, !tbaa !2689
+  call void @_ZN5boost8geometry6detail7overlay26get_turn_info_for_endpointILb0ELb1EE6assignINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEENS0_13segment_ratioIdEEEEE11return_typeENS2_9turn_infoISG_SI_NS2_21turn_operation_linearISG_SI_EESt5arrayISO_Lm2EEEESt20back_insert_iteratorISt6vectorISR_SaISR_EEEEEvRKT_jNS2_11method_typeENS2_14operation_typeES11_NS2_13turn_positionES12_bbbbRKT0_T1_(ptr noundef nonnull align 8 dereferenceable(196) %116, i32 noundef %5, i32 noundef %.0.i, i32 noundef %117, i32 noundef %118, i32 noundef %91, i32 noundef %93, i1 noundef zeroext %24, i1 noundef zeroext %53, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 %6)
+  br label %119
 
-117:                                              ; preds = %80, %110, %113, %98, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEE15is_last_segmentEv.exit98
+119:                                              ; preds = %80, %112, %115, %100, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyEE15is_last_segmentEv.exit98
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #56
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #56
   ret i1 %68

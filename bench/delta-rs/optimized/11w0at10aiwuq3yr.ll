@@ -124452,17 +124452,17 @@ common.ret:                                       ; preds = %995, %922, %763, %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %.sroa.41, ptr noundef nonnull align 16 dereferenceable(368) %.sroa.11485.0..sroa_idx, i64 368, i1 false)
   %769 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %770 = load i8, ptr %769, align 16, !range !1938, !noundef !22
-  %771 = getelementptr inbounds nuw i8, ptr %1, i64 646
-  store i8 0, ptr %771, align 2
-  %772 = getelementptr inbounds nuw i8, ptr %1, i64 488
-  %773 = load ptr, ptr %772, align 8, !nonnull !22, !noundef !22
-  %774 = getelementptr inbounds nuw i8, ptr %1, i64 496
-  %775 = load ptr, ptr %774, align 16, !nonnull !22, !align !58, !noundef !22
-  %776 = getelementptr inbounds nuw i8, ptr %1, i64 504
-  %777 = load ptr, ptr %776, align 8, !align !342, !noundef !22
-  %778 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  %779 = load ptr, ptr %778, align 16
-  %780 = and i8 %770, 1
+  %771 = and i8 %770, 1
+  %772 = getelementptr inbounds nuw i8, ptr %1, i64 646
+  store i8 0, ptr %772, align 2
+  %773 = getelementptr inbounds nuw i8, ptr %1, i64 488
+  %774 = load ptr, ptr %773, align 8, !nonnull !22, !noundef !22
+  %775 = getelementptr inbounds nuw i8, ptr %1, i64 496
+  %776 = load ptr, ptr %775, align 16, !nonnull !22, !align !58, !noundef !22
+  %777 = getelementptr inbounds nuw i8, ptr %1, i64 504
+  %778 = load ptr, ptr %777, align 8, !align !342, !noundef !22
+  %779 = getelementptr inbounds nuw i8, ptr %1, i64 512
+  %780 = load ptr, ptr %779, align 16
   br label %781
 
 781:                                              ; preds = %1035, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit", %765
@@ -124473,12 +124473,12 @@ common.ret:                                       ; preds = %995, %922, %763, %7
   %.sroa.0313.2 = phi i64 [ 14, %1035 ], [ 14, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %.sroa.0.0.copyload482, %765 ]
   %.sroa.38.2 = phi ptr [ %.sroa.38.6, %1035 ], [ %.sroa.38.4, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %.sroa.8.0.copyload, %765 ]
   %.sroa.39.2 = phi i64 [ %.sroa.39.6, %1035 ], [ %.sroa.39.4, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %.sroa.9483.0.copyload, %765 ]
-  %.sroa.41354.2 = phi ptr [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %773, %765 ]
-  %.sroa.43.2 = phi ptr [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %775, %765 ]
+  %.sroa.41354.2 = phi ptr [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %774, %765 ]
+  %.sroa.43.2 = phi ptr [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %776, %765 ]
   %.sroa.45.2 = phi i64 [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %767, %765 ]
-  %.sroa.47.2 = phi ptr [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %777, %765 ]
-  %.sroa.49.2 = phi ptr [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %779, %765 ]
-  %.sroa.51.2 = phi i8 [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %780, %765 ]
+  %.sroa.47.2 = phi ptr [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %778, %765 ]
+  %.sroa.49.2 = phi ptr [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %780, %765 ]
+  %.sroa.51.2 = phi i8 [ undef, %1035 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$deltalake_core..operations..transaction..conflict_checker..WinningCommitSummary$GT$17hd997c08b2b05d9deE.exit" ], [ %771, %765 ]
   %782 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %783 = load i64, ptr %782, align 16, !range !2931, !noundef !22
   %.not63 = icmp eq i64 %783, 27

@@ -5387,47 +5387,56 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZSteqIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbRKSt4pairIT_T0_ESF_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %0, align 8
-  %4 = trunc i8 %3 to i1
-  %5 = load i8, ptr %1, align 8
-  %6 = trunc i8 %5 to i1
-  %7 = and i1 %4, %6
-  br i1 %7, label %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i, label %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
+  %4 = load i8, ptr %1, align 8
+  %5 = and i8 %3, 1
+  %6 = and i8 %5, %4
+  %.not.i = icmp eq i8 %6, 0
+  br i1 %.not.i, label %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit, label %_ZNKR4absl7debian28optionalIlEdeEv.exit.i
 
-_ZNKR4absl7debian28optionalIlEdeEv.exit5.i:       ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i64, ptr %10, align 8
-  %12 = icmp eq i64 %9, %11
-  br i1 %12, label %14, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+_ZNKR4absl7debian28optionalIlEdeEv.exit.i:        ; preds = %2
+  %7 = trunc i8 %4 to i1
+  br i1 %7, label %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i, label %8
+
+8:                                                ; preds = %_ZNKR4absl7debian28optionalIlEdeEv.exit.i
+  tail call void @llvm.trap()
+  unreachable
+
+_ZNKR4absl7debian28optionalIlEdeEv.exit5.i:       ; preds = %_ZNKR4absl7debian28optionalIlEdeEv.exit.i
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = icmp eq i64 %10, %12
+  br i1 %13, label %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit: ; preds = %2
-  %13 = xor i1 %4, %6
-  br i1 %13, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %14
+  %14 = xor i8 %4, %3
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %16
 
-14:                                               ; preds = %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i, %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
-  %18 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #20
-  %19 = icmp eq i64 %17, %18
-  br i1 %19, label %20, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+16:                                               ; preds = %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i, %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #20
+  %20 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #20
+  %21 = icmp eq i64 %19, %20
+  br i1 %21, label %22, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-20:                                               ; preds = %14
-  %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
-  %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #20
-  %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %25
+22:                                               ; preds = %16
+  %23 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #20
+  %24 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #20
+  %25 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #20
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %27
 
-25:                                               ; preds = %20
-  %bcmp.i = tail call i32 @bcmp(ptr %21, ptr %22, i64 %23)
-  %26 = icmp eq i32 %bcmp.i, 0
+27:                                               ; preds = %22
+  %bcmp.i = tail call i32 @bcmp(ptr %23, ptr %24, i64 %25)
+  %28 = icmp eq i32 %bcmp.i, 0
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %25, %20, %14, %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i, %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
-  %27 = phi i1 [ false, %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit ], [ false, %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i ], [ false, %14 ], [ %26, %25 ], [ true, %20 ]
-  ret i1 %27
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %27, %22, %16, %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i, %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
+  %29 = phi i1 [ false, %_ZN4absl7debian2eqIllEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit ], [ false, %_ZNKR4absl7debian28optionalIlEdeEv.exit5.i ], [ false, %16 ], [ %28, %27 ], [ true, %22 ]
+  ret i1 %29
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0

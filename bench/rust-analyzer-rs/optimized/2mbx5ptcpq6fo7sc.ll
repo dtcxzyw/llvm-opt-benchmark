@@ -55274,10 +55274,11 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb1071f76a
 _ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i: ; preds = %59
   %75 = load i8, ptr %69, align 1, !noalias !20720
   %76 = xor i1 %68, %71
-  %77 = and i1 %68, %71
+  %77 = and i8 %70, %67
+  %.not.i.i.i.i = icmp eq i8 %77, 0
   %78 = icmp ugt i8 %75, %72
   %.fr.i.i.i.i.i = freeze i1 %78
-  %spec.select.i.i.i.i.i = select i1 %77, i1 %.fr.i.i.i.i.i, i1 %76
+  %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i, i1 %76, i1 %.fr.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %spec.select.i.i.i.i.i, i8 %75, i8 %72
   %spec.select2.i.i.i.i = select i1 %spec.select.i.i.i.i.i, i8 %67, i8 %70
   br label %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17had0bb322aadcd291E.exit.i.i.i"
@@ -55547,8 +55548,8 @@ switch.lookup:                                    ; preds = %.lr.ph, %216
   %89 = load ptr, ptr %33, align 8, !noalias !20785, !nonnull !4, !align !76
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load i8, ptr %34, align 8, !range !3213, !noalias !20785
-  %.fr20.i.i.i.i = freeze i8 %91
-  %92 = trunc i8 %.fr20.i.i.i.i to i1
+  %.fr21.i.i.i.i = freeze i8 %91
+  %92 = trunc i8 %.fr21.i.i.i.i to i1
   %93 = load i64, ptr %35, align 8, !noalias !20785
   %94 = load ptr, ptr %36, align 8, !noalias !20785, !nonnull !4
   br i1 %92, label %.split.us.i.i.i.i, label %.split.i.i.i.i
@@ -55570,7 +55571,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %216
 
 99:                                               ; preds = %96
   %100 = icmp ult i64 %95, 64
-  br i1 %100, label %101, label %.split13.us.invoke.i.i.i.i, !prof !12
+  br i1 %100, label %101, label %.split14.us.invoke.i.i.i.i, !prof !12
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 0, i64 %95
@@ -55582,7 +55583,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %216
   %.sroa.3.0.i.us.ph.i.i.i.i = phi i64 [ %104, %101 ], [ %95, %96 ]
   %106 = and i64 %.sroa.3.0.i.us.ph.i.i.i.i, 4294967295
   %107 = icmp ult i64 %106, %.val3
-  br i1 %107, label %108, label %.split13.us.invoke.i.i.i.i, !prof !12
+  br i1 %107, label %108, label %.split14.us.invoke.i.i.i.i, !prof !12
 
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw [0 x ptr], ptr %.val, i64 0, i64 %106
@@ -55597,20 +55598,20 @@ switch.lookup:                                    ; preds = %.lr.ph, %216
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 49
   %115 = load i8, ptr %114, align 1, !range !3213, !noalias !20785, !noundef !4
   %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %.critedge.us.i.i.i.i, label %.split18.us.i.i.i.i
+  br i1 %116, label %.critedge.us.i.i.i.i, label %.split19.us.i.i.i.i
 
 .critedge.us.i.i.i.i:                             ; preds = %113, %108
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 336
   %118 = load i64, ptr %117, align 16, !noalias !20785, !noundef !4
   %119 = icmp eq i64 %118, 0
-  br i1 %119, label %120, label %.split18.us.i.i.i.i
+  br i1 %119, label %120, label %.split19.us.i.i.i.i
 
 120:                                              ; preds = %.critedge.us.i.i.i.i
   %121 = getelementptr inbounds nuw i8, ptr %110, i64 344
   %122 = load i8, ptr %121, align 8, !noalias !20785, !noundef !4
   %123 = and i8 %122, 63
   %124 = icmp eq i8 %123, 0
-  br i1 %124, label %.split.us.i.i.i.i, label %.split18.us.i.i.i.i
+  br i1 %124, label %.split.us.i.i.i.i, label %.split19.us.i.i.i.i
 
 .split.i.i.i.i:                                   ; preds = %87, %170
   %125 = phi i64 [ %127, %170 ], [ %.promoted.i.i.i.i, %87 ]
@@ -55630,7 +55631,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %216
 129:                                              ; preds = %126
   %130 = and i64 %125, 4294967295
   %131 = icmp ult i64 %130, %93
-  br i1 %131, label %132, label %.split13.us.invoke.i.i.i.i, !prof !12
+  br i1 %131, label %132, label %.split14.us.invoke.i.i.i.i, !prof !12
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw [0 x i32], ptr %94, i64 0, i64 %130
@@ -55638,17 +55639,17 @@ switch.lookup:                                    ; preds = %.lr.ph, %216
   %135 = zext i32 %134 to i64
   br label %155
 
-.split13.us.invoke.i.i.i.i:                       ; preds = %155, %129, %105, %99
+.split14.us.invoke.i.i.i.i:                       ; preds = %155, %129, %105, %99
   %136 = phi i64 [ %106, %105 ], [ %95, %99 ], [ %156, %155 ], [ %130, %129 ]
   %137 = phi i64 [ %.val3, %105 ], [ 64, %99 ], [ %.val3, %155 ], [ %93, %129 ]
   %138 = phi ptr [ @anon.587d3abf880d71f6962e708781e6ae09.101, %105 ], [ @anon.1dac31fa3210420145aae2dceea84124.14.llvm.10169251571672223956, %99 ], [ @anon.587d3abf880d71f6962e708781e6ae09.101, %155 ], [ @anon.1dac31fa3210420145aae2dceea84124.13.llvm.10169251571672223956, %129 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %136, i64 noundef %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138) #63
-          to label %.split13.us.cont.i.i.i.i unwind label %139, !noalias !20785
+          to label %.split14.us.cont.i.i.i.i unwind label %139, !noalias !20785
 
-.split13.us.cont.i.i.i.i:                         ; preds = %.split13.us.invoke.i.i.i.i
+.split14.us.cont.i.i.i.i:                         ; preds = %.split14.us.invoke.i.i.i.i
   unreachable
 
-139:                                              ; preds = %.split13.us.invoke.i.i.i.i
+139:                                              ; preds = %.split14.us.invoke.i.i.i.i
   %140 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !20827
@@ -55676,7 +55677,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %216
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !20827
   br label %84
 
-.loopexit.i.i.i.i:                                ; preds = %.split.i.i.i.i, %.split.us.i.i.i.i, %.split18.us.i.i.i.i
+.loopexit.i.i.i.i:                                ; preds = %.split.i.i.i.i, %.split.us.i.i.i.i, %.split19.us.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !20840
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h29d68fd67da75f98E.llvm.11905809803391100490"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %7)
           to label %.noexc41.i.i.i.i unwind label %85, !noalias !20785
@@ -55700,7 +55701,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %216
   %.sroa.3.0.i.ph.i.i.i.i = phi i64 [ %135, %132 ], [ %125, %126 ]
   %156 = and i64 %.sroa.3.0.i.ph.i.i.i.i, 4294967295
   %157 = icmp ult i64 %156, %.val3
-  br i1 %157, label %158, label %.split13.us.invoke.i.i.i.i, !prof !12
+  br i1 %157, label %158, label %.split14.us.invoke.i.i.i.i, !prof !12
 
 158:                                              ; preds = %155
   %159 = getelementptr inbounds nuw [0 x ptr], ptr %.val, i64 0, i64 %156
@@ -55715,26 +55716,26 @@ switch.lookup:                                    ; preds = %.lr.ph, %216
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 49
   %165 = load i8, ptr %164, align 1, !range !3213, !noalias !20785, !noundef !4
   %166 = trunc nuw i8 %165 to i1
-  br i1 %166, label %.critedge.i.i.i.i, label %.split18.us.i.i.i.i
+  br i1 %166, label %.critedge.i.i.i.i, label %.split19.us.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %163, %158
   %167 = getelementptr inbounds nuw i8, ptr %160, i64 336
   %168 = load i64, ptr %167, align 16, !noalias !20785, !noundef !4
   %169 = icmp eq i64 %168, 0
-  br i1 %169, label %170, label %.split18.us.i.i.i.i
+  br i1 %169, label %170, label %.split19.us.i.i.i.i
 
 170:                                              ; preds = %.critedge.i.i.i.i
   %171 = getelementptr inbounds nuw i8, ptr %160, i64 344
   %172 = load i8, ptr %171, align 8, !noalias !20785, !noundef !4
   %173 = and i8 %172, 63
   %174 = icmp eq i8 %173, 0
-  br i1 %174, label %.split.i.i.i.i, label %.split18.us.i.i.i.i
+  br i1 %174, label %.split.i.i.i.i, label %.split19.us.i.i.i.i
 
-.split18.us.i.i.i.i:                              ; preds = %170, %.critedge.i.i.i.i, %163, %120, %.critedge.us.i.i.i.i, %113
-  %.us-phi19.i.i.i.i = phi ptr [ %110, %113 ], [ %110, %.critedge.us.i.i.i.i ], [ %110, %120 ], [ %160, %163 ], [ %160, %.critedge.i.i.i.i ], [ %160, %170 ]
+.split19.us.i.i.i.i:                              ; preds = %170, %.critedge.i.i.i.i, %163, %120, %.critedge.us.i.i.i.i, %113
+  %.us-phi20.i.i.i.i = phi ptr [ %110, %113 ], [ %110, %.critedge.us.i.i.i.i ], [ %110, %120 ], [ %160, %163 ], [ %160, %.critedge.i.i.i.i ], [ %160, %170 ]
   %175 = load ptr, ptr %38, align 8, !alias.scope !20776, !noalias !20787, !nonnull !4, !align !244, !noundef !4
   %176 = load i8, ptr %175, align 1, !noalias !20785, !noundef !4
-  %177 = getelementptr inbounds nuw i8, ptr %.us-phi19.i.i.i.i, i64 344
+  %177 = getelementptr inbounds nuw i8, ptr %.us-phi20.i.i.i.i, i64 344
   %178 = load i8, ptr %177, align 8, !noalias !20785, !noundef !4
   %.0.sroa.speculated.i.i.i.i.i = call noundef i8 @llvm.umin.i8(i8 %176, i8 %178)
   store i8 %.0.sroa.speculated.i.i.i.i.i, ptr %175, align 1, !noalias !20785
@@ -55772,10 +55773,11 @@ switch.lookup:                                    ; preds = %.lr.ph, %216
 _ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i: ; preds = %179
   %198 = load i8, ptr %192, align 1, !noalias !20785
   %199 = xor i1 %191, %194
-  %200 = and i1 %191, %194
+  %200 = and i8 %193, %190
+  %.not3.i.i.i.i = icmp eq i8 %200, 0
   %201 = icmp ugt i8 %198, %195
   %.fr.i.i.i.i.i = freeze i1 %201
-  %spec.select.i.i.i.i.i = select i1 %200, i1 %.fr.i.i.i.i.i, i1 %199
+  %spec.select.i.i.i.i.i = select i1 %.not3.i.i.i.i, i1 %199, i1 %.fr.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %spec.select.i.i.i.i.i, i8 %198, i8 %195
   %spec.select2.i.i.i.i = select i1 %spec.select.i.i.i.i.i, i8 %190, i8 %193
   br label %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$17h0e31ac72b6de48b3E.exit.i.i.i"

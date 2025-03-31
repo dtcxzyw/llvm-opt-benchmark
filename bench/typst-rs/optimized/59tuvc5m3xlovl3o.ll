@@ -48361,10 +48361,10 @@ _ZN4core3ops8function6FnOnce9call_once17hf596ea20458b34daE.exit.thread13.i: ; pr
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h36327222f10bc505E.exit.sink.split.i": ; preds = %1069
   %1076 = add i64 %1070, -1
-  %.not40.i = icmp ugt i64 %1072, %1076
+  %.not41.i = icmp ugt i64 %1072, %1076
   %1077 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %1071, i64 %1076
   %1078 = getelementptr inbounds nuw i8, ptr %1077, i64 32
-  %.sink.i = select i1 %.not40.i, ptr %1078, ptr null
+  %.sink.i = select i1 %.not41.i, ptr %1078, ptr null
   store ptr %.sink.i, ptr %16, align 8, !alias.scope !9161, !noalias !9159
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h36327222f10bc505E.exit.i"
 
@@ -48373,9 +48373,10 @@ _ZN4core3ops8function6FnOnce9call_once17hf596ea20458b34daE.exit.thread13.i: ; pr
           to label %.noexc903 unwind label %1286
 
 .noexc903:                                        ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h36327222f10bc505E.exit.i"
-  %1080 = trunc i8 %1079 to i1
+  %1080 = and i8 %1079, 1
+  %spec.select.i.not.i = icmp eq i8 %1080, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16), !noalias !9151
-  br i1 %1080, label %1098, label %1081
+  br i1 %spec.select.i.not.i, label %1081, label %1098
 
 1081:                                             ; preds = %.noexc903
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15), !noalias !9151
@@ -48399,11 +48400,11 @@ _ZN4core3ops8function6FnOnce9call_once17hf596ea20458b34daE.exit.thread13.i: ; pr
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf854e20e007f1594E.exit.i.sink.split.i": ; preds = %1088
   %1089 = add i64 %1070, -1
-  %.not41.i = icmp ugt i64 %1083, %1089
+  %.not42.i = icmp ugt i64 %1083, %1089
   %1090 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %1082, i64 %1089
   %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 32
-  %.sink42.i = select i1 %.not41.i, ptr %1091, ptr null
-  store ptr %.sink42.i, ptr %15, align 8, !alias.scope !9171, !noalias !9169
+  %.sink43.i = select i1 %.not42.i, ptr %1091, ptr null
+  store ptr %.sink43.i, ptr %15, align 8, !alias.scope !9171, !noalias !9169
   br label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf854e20e007f1594E.exit.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf854e20e007f1594E.exit.i.i": ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf854e20e007f1594E.exit.i.sink.split.i", %1088
@@ -48411,11 +48412,12 @@ _ZN4core3ops8function6FnOnce9call_once17hf596ea20458b34daE.exit.thread13.i: ; pr
           to label %.noexc904 unwind label %1286
 
 .noexc904:                                        ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf854e20e007f1594E.exit.i.i"
-  %1093 = trunc i8 %1092 to i1
+  %1093 = and i8 %1092, 1
+  %spec.select.i32.i = icmp ne i8 %1093, 0
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc3d713e14e0a70fdE.exit.i"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc3d713e14e0a70fdE.exit.i": ; preds = %.noexc904, %1081
-  %.0.i32.i = phi i1 [ false, %1081 ], [ %1093, %.noexc904 ]
+  %.0.i33.i = phi i1 [ false, %1081 ], [ %spec.select.i32.i, %.noexc904 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15), !noalias !9151
   br label %1098
 
@@ -48439,7 +48441,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf596ea20458b34daE.exit.thread13.i: ; pr
   br label %.critedge702
 
 1098:                                             ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc3d713e14e0a70fdE.exit.i", %.noexc903
-  %.0.i902 = phi i1 [ %.0.i32.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc3d713e14e0a70fdE.exit.i" ], [ true, %.noexc903 ]
+  %.0.i902 = phi i1 [ %.0.i33.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc3d713e14e0a70fdE.exit.i" ], [ true, %.noexc903 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !9151
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !9151
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %113)
@@ -52858,10 +52860,10 @@ _ZN4core3ops8function6FnOnce9call_once17hccff80a1b104450dE.exit.thread13.i: ; pr
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h33fe69f6799b97f5E.exit.sink.split.i": ; preds = %1069
   %1076 = add i64 %1070, -1
-  %.not40.i = icmp ugt i64 %1072, %1076
+  %.not41.i = icmp ugt i64 %1072, %1076
   %1077 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %1071, i64 %1076
   %1078 = getelementptr inbounds nuw i8, ptr %1077, i64 32
-  %.sink.i = select i1 %.not40.i, ptr %1078, ptr null
+  %.sink.i = select i1 %.not41.i, ptr %1078, ptr null
   store ptr %.sink.i, ptr %16, align 8, !alias.scope !9699, !noalias !9697
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h33fe69f6799b97f5E.exit.i"
 
@@ -52870,9 +52872,10 @@ _ZN4core3ops8function6FnOnce9call_once17hccff80a1b104450dE.exit.thread13.i: ; pr
           to label %.noexc903 unwind label %1286
 
 .noexc903:                                        ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h33fe69f6799b97f5E.exit.i"
-  %1080 = trunc i8 %1079 to i1
+  %1080 = and i8 %1079, 1
+  %spec.select.i.not.i = icmp eq i8 %1080, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16), !noalias !9689
-  br i1 %1080, label %1098, label %1081
+  br i1 %spec.select.i.not.i, label %1081, label %1098
 
 1081:                                             ; preds = %.noexc903
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15), !noalias !9689
@@ -52896,11 +52899,11 @@ _ZN4core3ops8function6FnOnce9call_once17hccff80a1b104450dE.exit.thread13.i: ; pr
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9d3bff5290229e6bE.exit.i.sink.split.i": ; preds = %1088
   %1089 = add i64 %1070, -1
-  %.not41.i = icmp ugt i64 %1083, %1089
+  %.not42.i = icmp ugt i64 %1083, %1089
   %1090 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %1082, i64 %1089
   %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 32
-  %.sink42.i = select i1 %.not41.i, ptr %1091, ptr null
-  store ptr %.sink42.i, ptr %15, align 8, !alias.scope !9709, !noalias !9707
+  %.sink43.i = select i1 %.not42.i, ptr %1091, ptr null
+  store ptr %.sink43.i, ptr %15, align 8, !alias.scope !9709, !noalias !9707
   br label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9d3bff5290229e6bE.exit.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9d3bff5290229e6bE.exit.i.i": ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9d3bff5290229e6bE.exit.i.sink.split.i", %1088
@@ -52908,11 +52911,12 @@ _ZN4core3ops8function6FnOnce9call_once17hccff80a1b104450dE.exit.thread13.i: ; pr
           to label %.noexc904 unwind label %1286
 
 .noexc904:                                        ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9d3bff5290229e6bE.exit.i.i"
-  %1093 = trunc i8 %1092 to i1
+  %1093 = and i8 %1092, 1
+  %spec.select.i32.i = icmp ne i8 %1093, 0
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4d1421699fa1bb9aE.exit.i"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4d1421699fa1bb9aE.exit.i": ; preds = %.noexc904, %1081
-  %.0.i32.i = phi i1 [ false, %1081 ], [ %1093, %.noexc904 ]
+  %.0.i33.i = phi i1 [ false, %1081 ], [ %spec.select.i32.i, %.noexc904 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15), !noalias !9689
   br label %1098
 
@@ -52936,7 +52940,7 @@ _ZN4core3ops8function6FnOnce9call_once17hccff80a1b104450dE.exit.thread13.i: ; pr
   br label %.critedge702
 
 1098:                                             ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4d1421699fa1bb9aE.exit.i", %.noexc903
-  %.0.i902 = phi i1 [ %.0.i32.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4d1421699fa1bb9aE.exit.i" ], [ true, %.noexc903 ]
+  %.0.i902 = phi i1 [ %.0.i33.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4d1421699fa1bb9aE.exit.i" ], [ true, %.noexc903 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !9689
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !9689
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %113)

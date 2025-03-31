@@ -1099,26 +1099,22 @@ define void @_ZN9grpc_core16HttpServerFilter4Call24OnServerTrailingMetadataER19g
 define void @_ZN9grpc_core16HttpServerFilter6CreateERKNS_11ChannelArgsENS_10FilterArgsE(ptr dead_on_unwind noalias writable writeonly sret(%"class.absl::lts_20240722::StatusOr") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef readnone byval(%"class.grpc_core::FilterArgs") align 8 captures(none) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN9grpc_core16HttpServerFilterESt14default_deleteIS1_EED2Ev.exit:
   %3 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 23, ptr nonnull @.str.11)
-  %4 = and i16 %3, 256
-  %.not = icmp eq i16 %4, 0
-  %5 = trunc i16 %3 to i1
-  %.0.i = or i1 %.not, %5
-  %6 = zext i1 %.0.i to i8
-  %7 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 88, ptr nonnull @.str.12)
-  %8 = and i16 %7, 256
-  %.not20 = icmp ne i16 %8, 0
-  %9 = trunc i16 %7 to i1
-  %.0.i6 = and i1 %.not20, %9
-  %10 = zext i1 %.0.i6 to i8
-  %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !128
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN9grpc_core16HttpServerFilterE, i64 16), ptr %11, align 8, !tbaa !112, !noalias !128
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i8 %6, ptr %12, align 8, !tbaa !92, !noalias !128
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 9
-  store i8 %10, ptr %13, align 1, !tbaa !7, !noalias !128
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = ptrtoint ptr %11 to i64
-  store i64 %15, ptr %14, align 8, !tbaa !131
+  %4 = and i16 %3, 257
+  %.0.i = icmp ne i16 %4, 256
+  %5 = zext i1 %.0.i to i8
+  %6 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 88, ptr nonnull @.str.12)
+  %7 = and i16 %6, 257
+  %.0.i6 = icmp eq i16 %7, 257
+  %8 = zext i1 %.0.i6 to i8
+  %9 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !128
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN9grpc_core16HttpServerFilterE, i64 16), ptr %9, align 8, !tbaa !112, !noalias !128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 %5, ptr %10, align 8, !tbaa !92, !noalias !128
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  store i8 %8, ptr %11, align 1, !tbaa !7, !noalias !128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = ptrtoint ptr %9 to i64
+  store i64 %13, ptr %12, align 8, !tbaa !131
   store i64 1, ptr %0, align 8, !tbaa !133
   ret void
 }
@@ -2171,26 +2167,22 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail29ChannelFilterWit
 _ZNSt10unique_ptrIN9grpc_core16HttpServerFilterESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 23, ptr nonnull @.str.11), !noalias !197
-  %10 = and i16 %9, 256
-  %.not.i = icmp eq i16 %10, 0
-  %11 = trunc i16 %9 to i1
-  %.0.i.i = or i1 %.not.i, %11
-  %12 = zext i1 %.0.i.i to i8
-  %13 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 88, ptr nonnull @.str.12), !noalias !197
-  %14 = and i16 %13, 256
-  %.not20.i = icmp ne i16 %14, 0
-  %15 = trunc i16 %13 to i1
-  %.0.i6.i = and i1 %.not20.i, %15
-  %16 = zext i1 %.0.i6.i to i8
-  %17 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !200
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN9grpc_core16HttpServerFilterE, i64 16), ptr %17, align 8, !tbaa !112, !noalias !200
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i8 %12, ptr %18, align 8, !tbaa !92, !noalias !200
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 9
-  store i8 %16, ptr %19, align 1, !tbaa !7, !noalias !200
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !158
-  store ptr %17, ptr %21, align 8, !tbaa !131
+  %10 = and i16 %9, 257
+  %.0.i.i = icmp ne i16 %10, 256
+  %11 = zext i1 %.0.i.i to i8
+  %12 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 88, ptr nonnull @.str.12), !noalias !197
+  %13 = and i16 %12, 257
+  %.0.i6.i = icmp eq i16 %13, 257
+  %14 = zext i1 %.0.i6.i to i8
+  %15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !200
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN9grpc_core16HttpServerFilterE, i64 16), ptr %15, align 8, !tbaa !112, !noalias !200
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i8 %11, ptr %16, align 8, !tbaa !92, !noalias !200
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  store i8 %14, ptr %17, align 1, !tbaa !7, !noalias !200
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !158
+  store ptr %15, ptr %19, align 8, !tbaa !131
   store i64 1, ptr %0, align 8, !tbaa !133, !alias.scope !203
   ret void
 }

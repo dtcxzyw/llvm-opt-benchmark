@@ -14791,20 +14791,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit342: ; preds = %
   %1284 = load ptr, ptr %1283, align 8, !tbaa !127
   %1285 = call noundef zeroext i1 @_ZNK4llvm6Record20getValueAsBitOrUnsetENS_9StringRefERb(ptr noundef nonnull align 8 dereferenceable(192) %1284, ptr nonnull @.str.78, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %9) #31
   %1286 = load i8, ptr %9, align 1, !tbaa !256, !range !111, !noundef !78
-  %1287 = trunc nuw i8 %1286 to i1
-  %.0.demorgan.i.i343 = or i1 %1285, %1287
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #31
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #31
-  %1288 = load ptr, ptr %1, align 8, !tbaa !254
-  %1289 = getelementptr inbounds nuw i8, ptr %1288, i64 48
-  %1290 = load ptr, ptr %1289, align 8, !tbaa !127
-  %1291 = call noundef zeroext i1 @_ZNK4llvm6Record20getValueAsBitOrUnsetENS_9StringRefERb(ptr noundef nonnull align 8 dereferenceable(192) %1290, ptr nonnull @.str.78, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %8) #31
-  %1292 = load i8, ptr %8, align 1, !tbaa !256, !range !111, !noundef !78
-  %1293 = trunc nuw i8 %1292 to i1
+  %1287 = load ptr, ptr %1, align 8, !tbaa !254
+  %1288 = getelementptr inbounds nuw i8, ptr %1287, i64 48
+  %1289 = load ptr, ptr %1288, align 8, !tbaa !127
+  %1290 = call noundef zeroext i1 @_ZNK4llvm6Record20getValueAsBitOrUnsetENS_9StringRefERb(ptr noundef nonnull align 8 dereferenceable(192) %1289, ptr nonnull @.str.78, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %8) #31
+  %1291 = load i8, ptr %8, align 1, !tbaa !256, !range !111, !noundef !78
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #31
-  %1294 = or i1 %.0.demorgan.i.i343, %1293
+  %1292 = or i8 %1291, %1286
+  %1293 = icmp ne i8 %1292, 0
+  %1294 = or i1 %1285, %1293
   %1295 = xor i1 %1294, true
-  %1296 = and i1 %1291, %1295
+  %1296 = and i1 %1290, %1295
   br i1 %1296, label %1297, label %1308
 
 1297:                                             ; preds = %1281
