@@ -10683,7 +10683,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
 .thread:                                          ; preds = %22
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 -1, ptr %23, align 8
-  br label %96
+  br label %95
 
 24:                                               ; preds = %22
   %25 = load i64, ptr @vmemmap_base, align 8
@@ -10703,7 +10703,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %38, ptr %39, align 8
   %40 = icmp eq i64 %38, -1
-  br i1 %40, label %96, label %41
+  br i1 %40, label %95, label %41
 
 41:                                               ; preds = %24
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10758,45 +10758,45 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
   br i1 %80, label %54, label %.loopexit3, !llvm.loop !70
 
 .preheader:                                       ; preds = %69, %.preheader
-  %indvars.iv = phi i64 [ %81, %.preheader ], [ %55, %69 ]
-  %81 = add nsw i64 %indvars.iv, -1
-  %82 = getelementptr [2 x i64], ptr %53, i64 0, i64 %81
-  %83 = load i64, ptr %82, align 8
-  %84 = load ptr, ptr %43, align 8
-  %85 = load i32, ptr %44, align 4
-  %86 = zext i32 %85 to i64
-  %87 = getelementptr i8, ptr %84, i64 %86
-  %.idx = shl nuw nsw i64 %81, 4
-  %88 = getelementptr i8, ptr %87, i64 56
-  %89 = getelementptr i8, ptr %88, i64 %.idx
-  %90 = load i32, ptr %89, align 8
-  %91 = zext i32 %90 to i64
-  tail call void @dma_unmap_page_attrs(ptr noundef nonnull %5, i64 noundef %83, i64 noundef %91, i32 noundef 2, i64 noundef 0) #23
-  %92 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %92, label %.preheader, label %.loopexit, !llvm.loop !71
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %55, %69 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %81 = getelementptr [2 x i64], ptr %53, i64 0, i64 %indvars.iv.next
+  %82 = load i64, ptr %81, align 8
+  %83 = load ptr, ptr %43, align 8
+  %84 = load i32, ptr %44, align 4
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr i8, ptr %83, i64 %85
+  %.idx = shl nuw nsw i64 %indvars.iv.next, 4
+  %87 = getelementptr i8, ptr %86, i64 56
+  %88 = getelementptr i8, ptr %87, i64 %.idx
+  %89 = load i32, ptr %88, align 8
+  %90 = zext i32 %89 to i64
+  tail call void @dma_unmap_page_attrs(ptr noundef nonnull %5, i64 noundef %82, i64 noundef %90, i32 noundef 2, i64 noundef 0) #23
+  %91 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %91, label %.preheader, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.preheader, %69
-  %93 = load i64, ptr %39, align 8
-  %94 = load i32, ptr %42, align 8
-  %95 = zext i32 %94 to i64
-  tail call void @dma_unmap_page_attrs(ptr noundef nonnull %5, i64 noundef %93, i64 noundef %95, i32 noundef 2, i64 noundef 0) #23
-  br label %96
+  %92 = load i64, ptr %39, align 8
+  %93 = load i32, ptr %42, align 8
+  %94 = zext i32 %93 to i64
+  tail call void @dma_unmap_page_attrs(ptr noundef nonnull %5, i64 noundef %92, i64 noundef %94, i32 noundef 2, i64 noundef 0) #23
+  br label %95
 
-96:                                               ; preds = %.thread, %.loopexit, %24
-  %97 = tail call i32 @net_ratelimit() #23
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.loopexit3, label %99
+95:                                               ; preds = %.thread, %.loopexit, %24
+  %96 = tail call i32 @net_ratelimit() #23
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %.loopexit3, label %98
 
-99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 296
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.44, ptr noundef nonnull %102) #24
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 296
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.44, ptr noundef nonnull %101) #24
   br label %.loopexit3
 
-.loopexit3:                                       ; preds = %71, %99, %96, %41
-  %103 = phi i32 [ -5, %99 ], [ -5, %96 ], [ 0, %41 ], [ 0, %71 ]
-  ret i32 %103
+.loopexit3:                                       ; preds = %71, %98, %95, %41
+  %102 = phi i32 [ -5, %98 ], [ -5, %95 ], [ 0, %41 ], [ 0, %71 ]
+  ret i32 %102
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -10577,33 +10577,33 @@ define internal fastcc void @expand(ptr noundef nonnull %0, ptr noundef nonnull 
   br label %14
 
 14:                                               ; preds = %14, %7
-  %indvars.iv = phi i64 [ %16, %14 ], [ %12, %7 ]
-  %15 = phi i64 [ %17, %14 ], [ %9, %7 ]
-  %16 = add nsw i64 %indvars.iv, -1
-  %17 = lshr i64 %15, 1
-  %18 = getelementptr %struct.page, ptr %1, i64 %17
-  %19 = getelementptr [11 x %struct.free_area], ptr %10, i64 0, i64 %16
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = getelementptr [4 x %struct.list_head], ptr %19, i64 0, i64 %11
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ %12, %7 ]
+  %15 = phi i64 [ %16, %14 ], [ %9, %7 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %16 = lshr i64 %15, 1
+  %17 = getelementptr %struct.page, ptr %1, i64 %16
+  %18 = getelementptr [11 x %struct.free_area], ptr %10, i64 0, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = getelementptr [4 x %struct.list_head], ptr %18, i64 0, i64 %11
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %19, ptr %22, align 8
+  store ptr %21, ptr %19, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %20, ptr %23, align 8
-  store ptr %22, ptr %20, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %21, ptr %24, align 8
-  store volatile ptr %20, ptr %21, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %26 = load i64, ptr %25, align 8
-  %27 = add i64 %26, 1
-  store i64 %27, ptr %25, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store i64 %16, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %30 = load i32, ptr %29, align 16
-  %31 = and i32 %30, -129
-  store i32 %31, ptr %29, align 16
-  %.wide = icmp ugt i64 %16, %13
-  br i1 %.wide, label %14, label %.loopexit, !llvm.loop !107
+  store volatile ptr %19, ptr %20, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %25 = load i64, ptr %24, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %24, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store i64 %indvars.iv.next, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %29 = load i32, ptr %28, align 16
+  %30 = and i32 %29, -129
+  store i32 %30, ptr %28, align 16
+  %31 = icmp samesign ugt i64 %indvars.iv.next, %13
+  br i1 %31, label %14, label %.loopexit, !llvm.loop !107
 
 .loopexit:                                        ; preds = %14, %5
   ret void

@@ -79,9 +79,9 @@ _ZN7Imf_3_49AutoArrayIPmLi65537EEC2Ev.exit.i:     ; preds = %.noexc
   br label %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit107.i
 
 ._crit_edge.i:                                    ; preds = %88, %.preheader.i
-  %.067 = phi i32 [ 0, %.preheader.i ], [ %.2, %88 ]
+  %.066 = phi i32 [ 0, %.preheader.i ], [ %.2, %88 ]
   %.057.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.158.i, %88 ]
-  %24 = add nsw i32 %.067, 1
+  %24 = add nsw i32 %.066, 1
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i64, ptr %7, i64 %25
   store i64 1, ptr %26, align 8, !tbaa !7
@@ -598,7 +598,7 @@ _ZN7Imf_3_49AutoArrayIPmLi65537EED2Ev.exit106.i:  ; preds = %_ZSt9make_heapIPPmN
 _ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit107.i:   ; preds = %_ZN7Imf_3_49AutoArrayIPmLi65537EED2Ev.exit106.i, %22
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %233, %_ZN7Imf_3_49AutoArrayIPmLi65537EED2Ev.exit106.i ], [ %23, %22 ]
   tail call void @_ZdaPv(ptr noundef nonnull %15) #12
-  br label %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit55
+  br label %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit54
 
 266:                                              ; preds = %265
   call void @llvm.lifetime.end.p0(i64 472, ptr nonnull %4) #13
@@ -620,7 +620,7 @@ _ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit107.i:   ; preds = %_ZN7Imf_3_49AutoArr
   %270 = load i64, ptr %269, align 8, !tbaa !7
   %271 = and i64 %270, 63
   %272 = icmp eq i64 %271, 0
-  %273 = icmp sle i32 %.02190.i, %.067
+  %273 = icmp sle i32 %.02190.i, %.066
   %or.cond.i = and i1 %273, %272
   br i1 %or.cond.i, label %.lr.ph.i32, label %.critedge.i
 
@@ -775,7 +775,7 @@ _ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.i: ; preds = %_ZN7Imf_3_4
   %.358.i = phi i32 [ %304, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i ], [ %318, %314 ], [ %327, %.critedge.i ], [ %335, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i ], [ %336, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i ], [ %337, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i ]
   %.3.i = phi i32 [ %.2.lcssa.ph.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i ], [ %.2.lcssa.ph.i, %314 ], [ %.1.i, %.critedge.i ], [ %.1.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i ], [ %.2.lcssa.ph.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i ], [ %.2.lcssa.ph.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i ]
   %338 = add nsw i32 %.3.i, 1
-  %.not.not.i.not = icmp sgt i32 %.3.i, %.067
+  %.not.not.i.not = icmp sgt i32 %.3.i, %.066
   br i1 %.not.not.i.not, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !30
 
 ._crit_edge93.i:                                  ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.i
@@ -845,22 +845,22 @@ _ZN7Imf_3_412_GLOBAL__N_115hufPackEncTableEPKmiiPPc.exit: ; preds = %340, %._cri
   br label %.lr.ph.i.i.i.i43
 
 .lr.ph.i.i.i.i43:                                 ; preds = %.lr.ph.i.i.i.i43, %.lr.ph.i.i.i.preheader.i
-  %indvars.iv168.i = phi i64 [ %370, %.lr.ph.i.i.i.preheader.i ], [ %371, %.lr.ph.i.i.i.i43 ]
-  %.9.i44 = phi ptr [ %.093.lcssa.i, %.lr.ph.i.i.i.preheader.i ], [ %374, %.lr.ph.i.i.i.i43 ]
-  %371 = add nsw i64 %indvars.iv168.i, -8
-  %372 = lshr i64 %368, %371
-  %373 = trunc i64 %372 to i8
-  %374 = getelementptr inbounds nuw i8, ptr %.9.i44, i64 1
-  store i8 %373, ptr %.9.i44, align 1, !tbaa !28
-  %.wide170.i = icmp ugt i64 %371, 7
-  br i1 %.wide170.i, label %.lr.ph.i.i.i.i43, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i.loopexit.i, !llvm.loop !29
+  %indvars.iv164.i = phi i64 [ %370, %.lr.ph.i.i.i.preheader.i ], [ %indvars.iv.next165.i, %.lr.ph.i.i.i.i43 ]
+  %.9.i44 = phi ptr [ %.093.lcssa.i, %.lr.ph.i.i.i.preheader.i ], [ %373, %.lr.ph.i.i.i.i43 ]
+  %indvars.iv.next165.i = add nsw i64 %indvars.iv164.i, -8
+  %371 = lshr i64 %368, %indvars.iv.next165.i
+  %372 = trunc i64 %371 to i8
+  %373 = getelementptr inbounds nuw i8, ptr %.9.i44, i64 1
+  store i8 %372, ptr %.9.i44, align 1, !tbaa !28
+  %374 = icmp samesign ugt i64 %indvars.iv.next165.i, 7
+  br i1 %374, label %.lr.ph.i.i.i.i43, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i.loopexit.i, !llvm.loop !29
 
 _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i43
-  %375 = trunc nuw nsw i64 %371 to i32
+  %375 = trunc nuw nsw i64 %indvars.iv.next165.i to i32
   br label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i.i
 
 _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i.i: ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i.loopexit.i, %362
-  %.598.i = phi ptr [ %.093.lcssa.i, %362 ], [ %374, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i.loopexit.i ]
+  %.598.i = phi ptr [ %.093.lcssa.i, %362 ], [ %373, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i.loopexit.i ]
   %376 = phi i32 [ %367, %362 ], [ %375, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i.loopexit.i ]
   %377 = trunc i64 %350 to i32
   %378 = and i32 %377, 63
@@ -876,18 +876,18 @@ _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i.i: ; preds = %_ZN7Imf_3_41
   br label %.lr.ph.i.i20.i.i
 
 .lr.ph.i.i20.i.i:                                 ; preds = %.lr.ph.i.i20.i.i, %.lr.ph.i.i20.i.preheader.i
-  %indvars.iv172.i = phi i64 [ %384, %.lr.ph.i.i20.i.preheader.i ], [ %385, %.lr.ph.i.i20.i.i ]
-  %.8.i = phi ptr [ %.598.i, %.lr.ph.i.i20.i.preheader.i ], [ %388, %.lr.ph.i.i20.i.i ]
-  %385 = add nsw i64 %indvars.iv172.i, -8
-  %386 = lshr i64 %382, %385
-  %387 = trunc i64 %386 to i8
-  %388 = getelementptr inbounds nuw i8, ptr %.8.i, i64 1
-  store i8 %387, ptr %.8.i, align 1, !tbaa !28
-  %.wide174.i = icmp ugt i64 %385, 7
-  br i1 %.wide174.i, label %.lr.ph.i.i20.i.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.thread.i, !llvm.loop !29
+  %indvars.iv167.i = phi i64 [ %384, %.lr.ph.i.i20.i.preheader.i ], [ %indvars.iv.next168.i, %.lr.ph.i.i20.i.i ]
+  %.8.i = phi ptr [ %.598.i, %.lr.ph.i.i20.i.preheader.i ], [ %387, %.lr.ph.i.i20.i.i ]
+  %indvars.iv.next168.i = add nsw i64 %indvars.iv167.i, -8
+  %385 = lshr i64 %382, %indvars.iv.next168.i
+  %386 = trunc i64 %385 to i8
+  %387 = getelementptr inbounds nuw i8, ptr %.8.i, i64 1
+  store i8 %386, ptr %.8.i, align 1, !tbaa !28
+  %388 = icmp samesign ugt i64 %indvars.iv.next168.i, 7
+  br i1 %388, label %.lr.ph.i.i20.i.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.thread.i, !llvm.loop !29
 
 _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.thread.i: ; preds = %.lr.ph.i.i20.i.i
-  %389 = trunc nuw nsw i64 %385 to i32
+  %389 = trunc nuw nsw i64 %indvars.iv.next168.i to i32
   %390 = shl i64 %382, 8
   %391 = or disjoint i32 %389, 8
   %392 = or i64 %390, %355
@@ -903,20 +903,20 @@ _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i: ; preds = %_ZN7Imf_3_
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.thread.i
   %397 = phi i64 [ %392, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.thread.i ], [ %395, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i ]
   %398 = phi i32 [ %391, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.thread.i ], [ %394, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i ]
-  %.6181.i = phi ptr [ %388, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.thread.i ], [ %.598.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i ]
+  %.6175.i = phi ptr [ %387, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.thread.i ], [ %.598.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i ]
   %399 = zext nneg i32 %398 to i64
   br label %.lr.ph.i.i.i42
 
 .lr.ph.i.i.i42:                                   ; preds = %.lr.ph.i.i.i42, %.lr.ph.i.i.preheader.i
-  %indvars.iv176.i = phi i64 [ %399, %.lr.ph.i.i.preheader.i ], [ %400, %.lr.ph.i.i.i42 ]
-  %.7.i = phi ptr [ %.6181.i, %.lr.ph.i.i.preheader.i ], [ %403, %.lr.ph.i.i.i42 ]
-  %400 = add nsw i64 %indvars.iv176.i, -8
+  %indvars.iv170.i = phi i64 [ %399, %.lr.ph.i.i.preheader.i ], [ %400, %.lr.ph.i.i.i42 ]
+  %.7.i = phi ptr [ %.6175.i, %.lr.ph.i.i.preheader.i ], [ %403, %.lr.ph.i.i.i42 ]
+  %400 = add nsw i64 %indvars.iv170.i, -8
   %401 = lshr i64 %397, %400
   %402 = trunc i64 %401 to i8
   %403 = getelementptr inbounds nuw i8, ptr %.7.i, i64 1
   store i8 %402, ptr %.7.i, align 1, !tbaa !28
-  %.wide178.i = icmp ugt i64 %400, 7
-  br i1 %.wide178.i, label %.lr.ph.i.i.i42, label %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.loopexit.i, !llvm.loop !29
+  %.wide172.i = icmp ugt i64 %400, 7
+  br i1 %.wide172.i, label %.lr.ph.i.i.i42, label %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.loopexit.i, !llvm.loop !29
 
 404:                                              ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i, %.lr.ph.i.i40
   %.295.i = phi ptr [ %.093.lcssa.i, %.lr.ph.i.i40 ], [ %.396.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i ]
@@ -935,22 +935,22 @@ _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i: ; preds = %_ZN7Imf_3_
   br label %.lr.ph.i.i23.i.i
 
 .lr.ph.i.i23.i.i:                                 ; preds = %.lr.ph.i.i23.i.i, %.lr.ph.i.i23.i.preheader.i
-  %indvars.iv164.i = phi i64 [ %411, %.lr.ph.i.i23.i.preheader.i ], [ %412, %.lr.ph.i.i23.i.i ]
-  %.497.i = phi ptr [ %.295.i, %.lr.ph.i.i23.i.preheader.i ], [ %415, %.lr.ph.i.i23.i.i ]
-  %412 = add nsw i64 %indvars.iv164.i, -8
-  %413 = lshr i64 %409, %412
-  %414 = trunc i64 %413 to i8
-  %415 = getelementptr inbounds nuw i8, ptr %.497.i, i64 1
-  store i8 %414, ptr %.497.i, align 1, !tbaa !28
-  %.wide166.i = icmp ugt i64 %412, 7
-  br i1 %.wide166.i, label %.lr.ph.i.i23.i.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.loopexit.i, !llvm.loop !29
+  %indvars.iv161.i = phi i64 [ %411, %.lr.ph.i.i23.i.preheader.i ], [ %indvars.iv.next162.i, %.lr.ph.i.i23.i.i ]
+  %.497.i = phi ptr [ %.295.i, %.lr.ph.i.i23.i.preheader.i ], [ %414, %.lr.ph.i.i23.i.i ]
+  %indvars.iv.next162.i = add nsw i64 %indvars.iv161.i, -8
+  %412 = lshr i64 %409, %indvars.iv.next162.i
+  %413 = trunc i64 %412 to i8
+  %414 = getelementptr inbounds nuw i8, ptr %.497.i, i64 1
+  store i8 %413, ptr %.497.i, align 1, !tbaa !28
+  %415 = icmp samesign ugt i64 %indvars.iv.next162.i, 7
+  br i1 %415, label %.lr.ph.i.i23.i.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.loopexit.i, !llvm.loop !29
 
 _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.loopexit.i: ; preds = %.lr.ph.i.i23.i.i
-  %416 = trunc nuw nsw i64 %412 to i32
+  %416 = trunc nuw nsw i64 %indvars.iv.next162.i to i32
   br label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i
 
 _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i: ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.loopexit.i, %404
-  %.396.i = phi ptr [ %.295.i, %404 ], [ %415, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.loopexit.i ]
+  %.396.i = phi ptr [ %.295.i, %404 ], [ %414, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.loopexit.i ]
   %.2.i = phi i32 [ %408, %404 ], [ %416, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.loopexit.i ]
   %.not.i.i41 = icmp eq i32 %.027.i.i, 0
   br i1 %.not.i.i41, label %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.i, label %404, !llvm.loop !31
@@ -967,13 +967,13 @@ _ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.i: ; preds = %_ZN7Imf_3_412_G
   br i1 %.not.i39, label %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit, label %497
 
 418:                                              ; preds = %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i, %.lr.ph.i45
-  %indvars.iv162.i = phi i64 [ 1, %.lr.ph.i45 ], [ %indvars.iv.next163.i, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i ]
+  %indvars.iv159.i = phi i64 [ 1, %.lr.ph.i45 ], [ %indvars.iv.next160.i, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i ]
   %.023.in124.i = phi i16 [ %.023.in118.i, %.lr.ph.i45 ], [ %.023.in.i, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i ]
   %.022122.i = phi i32 [ 0, %.lr.ph.i45 ], [ %.1.i48, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i ]
   %.085121.i = phi i32 [ 0, %.lr.ph.i45 ], [ %.186.i, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i ]
   %.087120.i = phi i64 [ 0, %.lr.ph.i45 ], [ %.188.i, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i ]
   %.093119.i = phi ptr [ %.467.i, %.lr.ph.i45 ], [ %.194.i, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i ]
-  %419 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv162.i
+  %419 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv159.i
   %420 = load i16, ptr %419, align 2, !tbaa !3
   %421 = icmp eq i16 %.023.in124.i, %420
   %422 = icmp slt i32 %.022122.i, 255
@@ -1023,22 +1023,22 @@ _ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.i: ; preds = %_ZN7Imf_3_412_G
   br label %.lr.ph.i.i.i41.i
 
 .lr.ph.i.i.i41.i:                                 ; preds = %.lr.ph.i.i.i41.i, %.lr.ph.i.i.i41.preheader.i
-  %indvars.iv150.i = phi i64 [ %449, %.lr.ph.i.i.i41.preheader.i ], [ %450, %.lr.ph.i.i.i41.i ]
-  %.18.i = phi ptr [ %.093119.i, %.lr.ph.i.i.i41.preheader.i ], [ %453, %.lr.ph.i.i.i41.i ]
-  %450 = add nsw i64 %indvars.iv150.i, -8
-  %451 = lshr i64 %447, %450
-  %452 = trunc i64 %451 to i8
-  %453 = getelementptr inbounds nuw i8, ptr %.18.i, i64 1
-  store i8 %452, ptr %.18.i, align 1, !tbaa !28
-  %.wide152.i = icmp ugt i64 %450, 7
-  br i1 %.wide152.i, label %.lr.ph.i.i.i41.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i33.loopexit.i, !llvm.loop !29
+  %indvars.iv150.i = phi i64 [ %449, %.lr.ph.i.i.i41.preheader.i ], [ %indvars.iv.next151.i, %.lr.ph.i.i.i41.i ]
+  %.18.i = phi ptr [ %.093119.i, %.lr.ph.i.i.i41.preheader.i ], [ %452, %.lr.ph.i.i.i41.i ]
+  %indvars.iv.next151.i = add nsw i64 %indvars.iv150.i, -8
+  %450 = lshr i64 %447, %indvars.iv.next151.i
+  %451 = trunc i64 %450 to i8
+  %452 = getelementptr inbounds nuw i8, ptr %.18.i, i64 1
+  store i8 %451, ptr %.18.i, align 1, !tbaa !28
+  %453 = icmp samesign ugt i64 %indvars.iv.next151.i, 7
+  br i1 %453, label %.lr.ph.i.i.i41.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i33.loopexit.i, !llvm.loop !29
 
 _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i33.loopexit.i: ; preds = %.lr.ph.i.i.i41.i
-  %454 = trunc nuw nsw i64 %450 to i32
+  %454 = trunc nuw nsw i64 %indvars.iv.next151.i to i32
   br label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i33.i
 
 _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i33.i: ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i33.loopexit.i, %441
-  %.14.i = phi ptr [ %.093119.i, %441 ], [ %453, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i33.loopexit.i ]
+  %.14.i = phi ptr [ %.093119.i, %441 ], [ %452, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i33.loopexit.i ]
   %455 = phi i32 [ %446, %441 ], [ %454, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i33.loopexit.i ]
   %456 = trunc i64 %429 to i32
   %457 = and i32 %456, 63
@@ -1054,18 +1054,18 @@ _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit.i33.i: ; preds = %_ZN7Imf_3_
   br label %.lr.ph.i.i20.i37.i
 
 .lr.ph.i.i20.i37.i:                               ; preds = %.lr.ph.i.i20.i37.i, %.lr.ph.i.i20.i37.preheader.i
-  %indvars.iv154.i53 = phi i64 [ %463, %.lr.ph.i.i20.i37.preheader.i ], [ %464, %.lr.ph.i.i20.i37.i ]
-  %.17.i = phi ptr [ %.14.i, %.lr.ph.i.i20.i37.preheader.i ], [ %467, %.lr.ph.i.i20.i37.i ]
-  %464 = add nsw i64 %indvars.iv154.i53, -8
-  %465 = lshr i64 %461, %464
-  %466 = trunc i64 %465 to i8
-  %467 = getelementptr inbounds nuw i8, ptr %.17.i, i64 1
-  store i8 %466, ptr %.17.i, align 1, !tbaa !28
-  %.wide156.i54 = icmp ugt i64 %464, 7
-  br i1 %.wide156.i54, label %.lr.ph.i.i20.i37.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.thread.i, !llvm.loop !29
+  %indvars.iv153.i = phi i64 [ %463, %.lr.ph.i.i20.i37.preheader.i ], [ %indvars.iv.next154.i, %.lr.ph.i.i20.i37.i ]
+  %.17.i = phi ptr [ %.14.i, %.lr.ph.i.i20.i37.preheader.i ], [ %466, %.lr.ph.i.i20.i37.i ]
+  %indvars.iv.next154.i = add nsw i64 %indvars.iv153.i, -8
+  %464 = lshr i64 %461, %indvars.iv.next154.i
+  %465 = trunc i64 %464 to i8
+  %466 = getelementptr inbounds nuw i8, ptr %.17.i, i64 1
+  store i8 %465, ptr %.17.i, align 1, !tbaa !28
+  %467 = icmp samesign ugt i64 %indvars.iv.next154.i, 7
+  br i1 %467, label %.lr.ph.i.i20.i37.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.thread.i, !llvm.loop !29
 
 _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.thread.i: ; preds = %.lr.ph.i.i20.i37.i
-  %468 = trunc nuw nsw i64 %464 to i32
+  %468 = trunc nuw nsw i64 %indvars.iv.next154.i to i32
   %469 = shl i64 %461, 8
   %470 = or disjoint i32 %468, 8
   %471 = or i64 %469, %434
@@ -1081,20 +1081,20 @@ _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i: ; preds = %_ZN7Imf_
 .lr.ph.i.i35.preheader.i:                         ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.thread.i
   %476 = phi i64 [ %471, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.thread.i ], [ %474, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ]
   %477 = phi i32 [ %470, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.thread.i ], [ %473, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ]
-  %.15183.i = phi ptr [ %467, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.thread.i ], [ %.14.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ]
+  %.15177.i = phi ptr [ %466, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.thread.i ], [ %.14.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ]
   %478 = zext nneg i32 %477 to i64
   br label %.lr.ph.i.i35.i
 
 .lr.ph.i.i35.i:                                   ; preds = %.lr.ph.i.i35.i, %.lr.ph.i.i35.preheader.i
-  %indvars.iv158.i = phi i64 [ %478, %.lr.ph.i.i35.preheader.i ], [ %479, %.lr.ph.i.i35.i ]
-  %.16.i = phi ptr [ %.15183.i, %.lr.ph.i.i35.preheader.i ], [ %482, %.lr.ph.i.i35.i ]
-  %479 = add nsw i64 %indvars.iv158.i, -8
+  %indvars.iv156.i = phi i64 [ %478, %.lr.ph.i.i35.preheader.i ], [ %479, %.lr.ph.i.i35.i ]
+  %.16.i = phi ptr [ %.15177.i, %.lr.ph.i.i35.preheader.i ], [ %482, %.lr.ph.i.i35.i ]
+  %479 = add nsw i64 %indvars.iv156.i, -8
   %480 = lshr i64 %476, %479
   %481 = trunc i64 %480 to i8
   %482 = getelementptr inbounds nuw i8, ptr %.16.i, i64 1
   store i8 %481, ptr %.16.i, align 1, !tbaa !28
-  %.wide160.i = icmp ugt i64 %479, 7
-  br i1 %.wide160.i, label %.lr.ph.i.i35.i, label %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i, !llvm.loop !29
+  %.wide.i53 = icmp ugt i64 %479, 7
+  br i1 %.wide.i53, label %.lr.ph.i.i35.i, label %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i, !llvm.loop !29
 
 483:                                              ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i, %.lr.ph.i26.i
   %.11.i50 = phi ptr [ %.093119.i, %.lr.ph.i26.i ], [ %.12.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
@@ -1113,22 +1113,22 @@ _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i: ; preds = %_ZN7Imf_
   br label %.lr.ph.i.i23.i31.i
 
 .lr.ph.i.i23.i31.i:                               ; preds = %.lr.ph.i.i23.i31.i, %.lr.ph.i.i23.i31.preheader.i
-  %indvars.iv.i51 = phi i64 [ %490, %.lr.ph.i.i23.i31.preheader.i ], [ %491, %.lr.ph.i.i23.i31.i ]
-  %.13.i = phi ptr [ %.11.i50, %.lr.ph.i.i23.i31.preheader.i ], [ %494, %.lr.ph.i.i23.i31.i ]
-  %491 = add nsw i64 %indvars.iv.i51, -8
-  %492 = lshr i64 %488, %491
-  %493 = trunc i64 %492 to i8
-  %494 = getelementptr inbounds nuw i8, ptr %.13.i, i64 1
-  store i8 %493, ptr %.13.i, align 1, !tbaa !28
-  %.wide.i52 = icmp ugt i64 %491, 7
-  br i1 %.wide.i52, label %.lr.ph.i.i23.i31.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.loopexit.i, !llvm.loop !29
+  %indvars.iv.i51 = phi i64 [ %490, %.lr.ph.i.i23.i31.preheader.i ], [ %indvars.iv.next.i52, %.lr.ph.i.i23.i31.i ]
+  %.13.i = phi ptr [ %.11.i50, %.lr.ph.i.i23.i31.preheader.i ], [ %493, %.lr.ph.i.i23.i31.i ]
+  %indvars.iv.next.i52 = add nsw i64 %indvars.iv.i51, -8
+  %491 = lshr i64 %488, %indvars.iv.next.i52
+  %492 = trunc i64 %491 to i8
+  %493 = getelementptr inbounds nuw i8, ptr %.13.i, i64 1
+  store i8 %492, ptr %.13.i, align 1, !tbaa !28
+  %494 = icmp samesign ugt i64 %indvars.iv.next.i52, 7
+  br i1 %494, label %.lr.ph.i.i23.i31.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.loopexit.i, !llvm.loop !29
 
 _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.loopexit.i: ; preds = %.lr.ph.i.i23.i31.i
-  %495 = trunc nuw nsw i64 %491 to i32
+  %495 = trunc nuw nsw i64 %indvars.iv.next.i52 to i32
   br label %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i
 
 _ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i: ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.loopexit.i, %483
-  %.12.i = phi ptr [ %.11.i50, %483 ], [ %494, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.loopexit.i ]
+  %.12.i = phi ptr [ %.11.i50, %483 ], [ %493, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.loopexit.i ]
   %.4.i = phi i32 [ %487, %483 ], [ %495, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.loopexit.i ]
   %.not.i30.i = icmp eq i32 %.027.i28.i, 0
   br i1 %.not.i30.i, label %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i, label %483, !llvm.loop !31
@@ -1142,9 +1142,9 @@ _ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i: ; preds = %_ZN7Imf_3_412
   %.188.i = phi i64 [ %.087120.i, %423 ], [ %474, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ %.087120.i, %.preheader.i25.i ], [ %476, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ %488, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
   %.186.i = phi i32 [ %.085121.i, %423 ], [ %473, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ %.085121.i, %.preheader.i25.i ], [ %496, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ %.4.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
   %.1.i48 = phi i32 [ %424, %423 ], [ 0, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ 0, %.preheader.i25.i ], [ 0, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ 0, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
-  %indvars.iv.next163.i = add nuw nsw i64 %indvars.iv162.i, 1
+  %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
   %.023.in.i = load i16, ptr %419, align 2, !tbaa !3
-  %exitcond.not.i49 = icmp eq i64 %indvars.iv.next163.i, %wide.trip.count.i46
+  %exitcond.not.i49 = icmp eq i64 %indvars.iv.next160.i, %wide.trip.count.i46
   br i1 %exitcond.not.i49, label %._crit_edge.i36, label %418, !llvm.loop !32
 
 497:                                              ; preds = %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.i
@@ -1239,9 +1239,9 @@ _ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit:        ; preds = %497, %_ZN7Imf_3_412
 561:                                              ; preds = %_ZN7Imf_3_412_GLOBAL__N_116countFrequenciesEPmPKti.exit
   %562 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit55
+  br label %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit54
 
-_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit55:      ; preds = %561, %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit107.i
+_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit54:      ; preds = %561, %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit107.i
   %.pn.pn = phi { ptr, i32 } [ %562, %561 ], [ %.pn.pn.pn.pn.i, %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit107.i ]
   tail call void @_ZdaPv(ptr noundef nonnull %7) #12
   resume { ptr, i32 } %.pn.pn

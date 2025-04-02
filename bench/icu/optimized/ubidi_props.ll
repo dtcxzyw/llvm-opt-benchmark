@@ -26,7 +26,7 @@ define void @ubidi_addPropertyStarts_77(ptr noundef %0, ptr noundef readonly cap
 
 .preheader:                                       ; preds = %8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %15
+  br label %.lr.ph.preheader
 
 8:                                                ; preds = %5, %8
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %8 ]
@@ -41,56 +41,52 @@ define void @ubidi_addPropertyStarts_77(ptr noundef %0, ptr noundef readonly cap
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
   br i1 %exitcond.not, label %.preheader, label %8, !llvm.loop !14
 
-15:                                               ; preds = %.preheader, %._crit_edge.thread
-  %.028 = phi i32 [ 68288, %._crit_edge.thread ], [ 1568, %.preheader ]
-  %16 = phi i1 [ false, %._crit_edge.thread ], [ true, %.preheader ]
-  %.027 = phi i32 [ 69317, %._crit_edge.thread ], [ 2251, %.preheader ]
-  %.025 = phi ptr [ @_ZL20ubidi_props_jgArray2, %._crit_edge.thread ], [ @_ZL19ubidi_props_jgArray, %.preheader ]
-  %17 = icmp samesign ult i32 %.028, %.027
-  br i1 %17, label %.lr.ph.preheader, label %._crit_edge.thread
-
-.lr.ph.preheader:                                 ; preds = %15
-  %18 = xor i32 %.028, -1
-  %19 = add nsw i32 %.027, %18
-  %20 = zext i32 %19 to i64
-  %scevgep = getelementptr i8, ptr %.025, i64 %20
+.lr.ph.preheader:                                 ; preds = %29, %.preheader
+  %.028 = phi i32 [ 68288, %29 ], [ 1568, %.preheader ]
+  %15 = phi i1 [ false, %29 ], [ true, %.preheader ]
+  %.027 = phi i32 [ 69317, %29 ], [ 2251, %.preheader ]
+  %.025 = phi ptr [ @_ZL20ubidi_props_jgArray2, %29 ], [ @_ZL19ubidi_props_jgArray, %.preheader ]
+  %16 = xor i32 %.028, -1
+  %17 = add nsw i32 %.027, %16
+  %18 = zext i32 %17 to i64
+  %scevgep = getelementptr i8, ptr %.025, i64 %18
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
-  %.02435 = phi i8 [ %.1, %26 ], [ 0, %.lr.ph.preheader ]
-  %.12634 = phi ptr [ %21, %26 ], [ %.025, %.lr.ph.preheader ]
-  %.12933 = phi i32 [ %27, %26 ], [ %.028, %.lr.ph.preheader ]
-  %21 = getelementptr inbounds nuw i8, ptr %.12634, i64 1
-  %22 = load i8, ptr %.12634, align 1, !tbaa !16
-  %.not31 = icmp eq i8 %22, %.02435
-  br i1 %.not31, label %26, label %23
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
+  %.02435 = phi i8 [ %.1, %24 ], [ 0, %.lr.ph.preheader ]
+  %.12634 = phi ptr [ %19, %24 ], [ %.025, %.lr.ph.preheader ]
+  %.12933 = phi i32 [ %25, %24 ], [ %.028, %.lr.ph.preheader ]
+  %19 = getelementptr inbounds nuw i8, ptr %.12634, i64 1
+  %20 = load i8, ptr %.12634, align 1, !tbaa !16
+  %.not31 = icmp eq i8 %20, %.02435
+  br i1 %.not31, label %24, label %21
 
-23:                                               ; preds = %.lr.ph
-  %24 = load ptr, ptr %7, align 8, !tbaa !17
-  %25 = load ptr, ptr %0, align 8, !tbaa !13
-  tail call void %24(ptr noundef %25, i32 noundef %.12933)
-  br label %26
+21:                                               ; preds = %.lr.ph
+  %22 = load ptr, ptr %7, align 8, !tbaa !17
+  %23 = load ptr, ptr %0, align 8, !tbaa !13
+  tail call void %22(ptr noundef %23, i32 noundef %.12933)
+  br label %24
 
-26:                                               ; preds = %23, %.lr.ph
-  %.1 = phi i8 [ %22, %23 ], [ %.02435, %.lr.ph ]
-  %27 = add nuw nsw i32 %.12933, 1
+24:                                               ; preds = %21, %.lr.ph
+  %.1 = phi i8 [ %20, %21 ], [ %.02435, %.lr.ph ]
+  %25 = add nuw nsw i32 %.12933, 1
   %exitcond37.not = icmp eq ptr %.12634, %scevgep
   br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %26
-  %28 = icmp eq i8 %.1, 0
-  br i1 %28, label %._crit_edge.thread, label %29
+._crit_edge:                                      ; preds = %24
+  %.not30 = icmp eq i8 %.1, 0
+  br i1 %.not30, label %29, label %26
 
-29:                                               ; preds = %._crit_edge
-  %30 = load ptr, ptr %7, align 8, !tbaa !17
-  %31 = load ptr, ptr %0, align 8, !tbaa !13
-  tail call void %30(ptr noundef %31, i32 noundef %.027)
-  br label %._crit_edge.thread
+26:                                               ; preds = %._crit_edge
+  %27 = load ptr, ptr %7, align 8, !tbaa !17
+  %28 = load ptr, ptr %0, align 8, !tbaa !13
+  tail call void %27(ptr noundef %28, i32 noundef %.027)
+  br label %29
 
-._crit_edge.thread:                               ; preds = %15, %29, %._crit_edge
-  br i1 %16, label %15, label %.loopexit, !llvm.loop !19
+29:                                               ; preds = %26, %._crit_edge
+  br i1 %15, label %.lr.ph.preheader, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %._crit_edge.thread, %2
+.loopexit:                                        ; preds = %29, %2
   ret void
 }
 

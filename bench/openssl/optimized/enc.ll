@@ -437,19 +437,19 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge5
-  %indvars.iv = phi i64 [ %90, %.lr.ph.preheader ], [ %95, %.critedge5 ]
-  %95 = add nsw i64 %indvars.iv, -1
-  %96 = getelementptr inbounds nuw [128 x i8], ptr @enc_main.buf, i64 0, i64 %95
-  %97 = load i8, ptr %96, align 1, !tbaa !24
-  switch i8 %97, label %.critedge.backedge [
+  %indvars.iv = phi i64 [ %90, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge5 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %95 = getelementptr inbounds nuw [128 x i8], ptr @enc_main.buf, i64 0, i64 %indvars.iv.next
+  %96 = load i8, ptr %95, align 1, !tbaa !24
+  switch i8 %96, label %.critedge.backedge [
     i8 13, label %.critedge5
     i8 10, label %.critedge5
   ], !llvm.loop !17
 
 .critedge5:                                       ; preds = %.lr.ph, %.lr.ph
-  store i8 0, ptr %96, align 1, !tbaa !24
-  %.wide = icmp ugt i64 %95, 1
-  br i1 %.wide, label %.lr.ph, label %.preheader497._crit_edge, !llvm.loop !27
+  store i8 0, ptr %95, align 1, !tbaa !24
+  %97 = icmp samesign ugt i64 %indvars.iv.next, 1
+  br i1 %97, label %.lr.ph, label %.preheader497._crit_edge, !llvm.loop !27
 
 .preheader497._crit_edge:                         ; preds = %.preheader497, %.critedge5
   %98 = load ptr, ptr @bio_err, align 8, !tbaa !19

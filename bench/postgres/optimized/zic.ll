@@ -3655,7 +3655,7 @@ thread-pre-split.i.i.i:                           ; preds = %.critedge2.i.i.i
   br i1 %1565, label %.lr.ph44.i.i.i, label %limitrange.exit.i.i, !llvm.loop !38
 
 limitrange.exit.loopexit.split.loop.exit872.i.i:  ; preds = %.lr.ph44.i.i.i
-  %1566 = trunc nsw i64 %indvars.iv.i.i to i32
+  %1566 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %limitrange.exit.i.i
 
 limitrange.exit.i.i:                              ; preds = %1564, %limitrange.exit.loopexit.split.loop.exit872.i.i, %.critedge4.i.i.i, %.critedge2.i.i.i
@@ -3775,7 +3775,7 @@ limitrange.exit.i.i:                              ; preds = %1564, %limitrange.e
   br i1 %1616, label %.lr.ph44.i473.i.i, label %limitrange.exit485.i.i, !llvm.loop !38
 
 limitrange.exit485.loopexit.split.loop.exit880.i.i: ; preds = %.lr.ph44.i473.i.i
-  %1617 = trunc nsw i64 %indvars.iv805.i.i to i32
+  %1617 = trunc nuw nsw i64 %indvars.iv805.i.i to i32
   br label %limitrange.exit485.i.i
 
 limitrange.exit485.i.i:                           ; preds = %1615, %limitrange.exit485.loopexit.split.loop.exit880.i.i, %.critedge4.i470.i.i
