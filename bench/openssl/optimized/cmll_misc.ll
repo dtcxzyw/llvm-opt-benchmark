@@ -8,22 +8,22 @@ define range(i32 -2, 1) i32 @Camellia_set_key(ptr noundef %0, i32 noundef %1, pt
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %6, label %12
+  br i1 %or.cond, label %6, label %10
 
 6:                                                ; preds = %3
   %7 = add i32 %1, -128
   %8 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 26)
   %switch = icmp ult i32 %8, 3
-  br i1 %switch, label %9, label %12
+  br i1 %switch, label %7, label %12
 
-9:                                                ; preds = %6
-  %10 = tail call i32 @Camellia_Ekeygen(i32 noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #3
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  store i32 %10, ptr %11, align 8, !tbaa !3
-  br label %12
+7:                                                ; preds = %6
+  %8 = tail call i32 @Camellia_Ekeygen(i32 noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #2
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 272
+  store i32 %8, ptr %9, align 8, !tbaa !3
+  br label %10
 
-12:                                               ; preds = %6, %3, %9
-  %.0 = phi i32 [ 0, %9 ], [ -1, %3 ], [ -2, %6 ]
+10:                                               ; preds = %6, %3, %7
+  %.0 = phi i32 [ 0, %7 ], [ -1, %3 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -33,7 +33,7 @@ declare i32 @Camellia_Ekeygen(i32 noundef, ptr noundef, ptr noundef) local_unnam
 define void @Camellia_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %5 = load i32, ptr %4, align 8, !tbaa !3
-  tail call void @Camellia_EncryptBlock_Rounds(i32 noundef %5, ptr noundef %0, ptr noundef %2, ptr noundef %1) #3
+  tail call void @Camellia_EncryptBlock_Rounds(i32 noundef %5, ptr noundef %0, ptr noundef %2, ptr noundef %1) #2
   ret void
 }
 
@@ -43,7 +43,7 @@ declare void @Camellia_EncryptBlock_Rounds(i32 noundef, ptr noundef, ptr noundef
 define void @Camellia_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %5 = load i32, ptr %4, align 8, !tbaa !3
-  tail call void @Camellia_DecryptBlock_Rounds(i32 noundef %5, ptr noundef %0, ptr noundef %2, ptr noundef %1) #3
+  tail call void @Camellia_DecryptBlock_Rounds(i32 noundef %5, ptr noundef %0, ptr noundef %2, ptr noundef %1) #2
   ret void
 }
 

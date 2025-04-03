@@ -1623,7 +1623,7 @@ define hidden i64 @rb_yarv_class_of(i64 noundef %0) local_unnamed_addr #4 {
 12:                                               ; preds = %9
   br label %rb_class_of.exit
 
-13:                                               ; preds = %9
+rb_class_of.exit:                                 ; preds = %9
   %14 = and i64 %0, 1
   %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %15, label %rb_class_of.exit
@@ -2815,7 +2815,7 @@ declare void @rb_vm_lock_enter_body(ptr noundef) local_unnamed_addr #3
 declare void @rb_vm_lock_leave_body(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #21
+declare i64 @llvm.fshl.i64(i64, i64, i64) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22

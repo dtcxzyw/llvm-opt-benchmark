@@ -2140,7 +2140,7 @@ define hidden void @InitVM_Struct() local_unnamed_addr #0 {
 41:                                               ; preds = %38
   br label %rb_class_of.exit
 
-42:                                               ; preds = %38
+rb_class_of.exit:                                 ; preds = %38
   %43 = and i64 %30, 1
   %.not.i = icmp eq i64 %43, 0
   br i1 %.not.i, label %44, label %rb_class_of.exit

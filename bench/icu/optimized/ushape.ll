@@ -1844,8 +1844,8 @@ define internal fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErro
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
   %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !9
   %6 = and i16 %5, -16
@@ -1862,14 +1862,14 @@ switch.early.test.i:                              ; preds = %.lr.ph
   ]
 
 _ZL23isTashkeelOnTatweelCharDs.exit:              ; preds = %switch.early.test.i
-  %9 = and i16 %5, 15
-  %10 = zext nneg i16 %9 to i64
-  %11 = shl nuw nsw i64 1, %10
-  %12 = and i64 %11, 43650
-  %.not6 = icmp eq i64 %12, 0
-  br i1 %.not6, label %switch.early.test.i21, label %.sink.split
+  %8 = and i16 %5, 15
+  %9 = zext nneg i16 %8 to i64
+  %10 = shl nuw nsw i64 1, %9
+  %11 = and i64 %10, 43650
+  %.not15 = icmp eq i64 %11, 0
+  br i1 %.not15, label %switch.early.test.i23, label %.sink.split
 
-switch.early.test.i21:                            ; preds = %_ZL23isTashkeelOnTatweelCharDs.exit
+switch.early.test.i23:                            ; preds = %_ZL23isTashkeelOnTatweelCharDs.exit
   switch i16 %8, label %switch.early.test.i25 [
     i16 5, label %.critedge
     i16 1, label %.critedge
@@ -1884,7 +1884,7 @@ switch.early.test.i21:                            ; preds = %_ZL23isTashkeelOnTa
     i16 -782, label %.sink.split
   ]
 
-13:                                               ; preds = %.critedge
+12:                                               ; preds = %.critedge
   br i1 %or.cond.i, label %switch.early.test.i25, label %20
 
 switch.early.test.i25:                            ; preds = %switch.early.test.i21, %13
@@ -1907,22 +1907,22 @@ switch.early.test.i25:                            ; preds = %switch.early.test.i
   br label %_ZL22isIsolatedTashkeelCharDs.exit
 
 _ZL22isIsolatedTashkeelCharDs.exit:               ; preds = %14, %20
-  %.0.i24 = phi i1 [ %19, %14 ], [ %or.cond11.i, %20 ]
+  %.0.i26 = phi i1 [ %19, %14 ], [ %or.cond11.i, %20 ]
   %.not18 = icmp eq i16 %5, -388
-  %or.cond = or i1 %.not18, %.0.i24
-  br i1 %or.cond, label %22, label %.sink.split
+  %or.cond14 = or i1 %.not18, %.0.i26
+  br i1 %or.cond14, label %14, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZL22isIsolatedTashkeelCharDs.exit, %.critedge, %.critedge, %.critedge, %.critedge, %_ZL23isTashkeelOnTatweelCharDs.exit
   %.sink = phi i16 [ 1600, %_ZL23isTashkeelOnTatweelCharDs.exit ], [ -387, %.critedge ], [ -387, %.critedge ], [ -387, %.critedge ], [ -387, %.critedge ], [ 32, %_ZL22isIsolatedTashkeelCharDs.exit ]
   store i16 %.sink, ptr %4, align 2, !tbaa !9
-  br label %22
+  br label %14
 
-22:                                               ; preds = %.sink.split, %_ZL22isIsolatedTashkeelCharDs.exit
+14:                                               ; preds = %.sink.split, %_ZL22isIsolatedTashkeelCharDs.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %22, %2
+._crit_edge:                                      ; preds = %14, %2
   ret i32 %1
 }
 

@@ -740,7 +740,7 @@ define void @lv_scale_set_section_style_items(ptr noundef %0, ptr noundef writeo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_scale_section_set_style(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %12, label %5
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 16)
@@ -750,21 +750,21 @@ define void @lv_scale_section_set_style(ptr noundef writeonly captures(address_i
     i32 5, label %10
   ]
 
-7:                                                ; preds = %5
+6:                                                ; preds = %5
   store ptr %2, ptr %0, align 8, !tbaa !42
-  br label %12
+  br label %11
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %9, align 8, !tbaa !43
-  br label %12
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %8, align 8, !tbaa !43
+  br label %11
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %11, align 8, !tbaa !44
-  br label %12
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %10, align 8, !tbaa !44
+  br label %11
 
-12:                                               ; preds = %5, %3, %10, %8, %7
+11:                                               ; preds = %5, %3, %9, %7, %6
   ret void
 }
 

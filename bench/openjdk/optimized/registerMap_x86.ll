@@ -23,7 +23,7 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nounde
   %9 = select i1 %4, i32 336, i32 592
   %10 = icmp samesign ult i32 %7, %9
   %11 = select i1 %8, i1 %10, i1 false
-  br i1 %11, label %12, label %64
+  br i1 %11, label %12, label %63
 
 12:                                               ; preds = %2
   %.lhs.trunc = add nuw nsw i32 %7, 65456
@@ -49,7 +49,7 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nounde
 
 30:                                               ; preds = %12
   %31 = icmp eq i32 %27, 0
-  br i1 %31, label %64, label %44
+  br i1 %31, label %63, label %44
 
 32:                                               ; preds = %12
   %33 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 28)
@@ -60,21 +60,21 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nounde
   %35 = icmp sgt i32 %27, 32
   br i1 %35, label %36, label %39
 
-36:                                               ; preds = %34
+36:; preds = %34
   %37 = getelementptr i8, ptr %21, i64 88
   %38 = add nsw i64 %28, -32
   br label %44
 
-39:                                               ; preds = %34
+39:; preds = %34
   %40 = icmp sgt i32 %27, 16
   br i1 %40, label %41, label %44
 
-41:                                               ; preds = %39
+41:; preds = %39
   %42 = getelementptr i8, ptr %21, i64 84
   %43 = add nsw i64 %28, -16
   br label %44
 
-44:                                               ; preds = %36, %39, %41, %30
+44:; preds = %36, %39, %41, %30
   %.026 = phi ptr [ %22, %30 ], [ %37, %36 ], [ %42, %41 ], [ %22, %39 ]
   %.025 = phi i64 [ %28, %30 ], [ %38, %36 ], [ %43, %41 ], [ %28, %39 ]
   %45 = ptrtoint ptr %.026 to i64
@@ -83,33 +83,33 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nounde
   %48 = sdiv i32 %47, 64
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4872
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds [10 x i64], ptr %49, i64 0, i64 %50
+  %48 = getelementptr inbounds [10 x i64], ptr %49, i64 0, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = srem i32 %47, 64
   %54 = zext nneg i32 %53 to i64
-  %55 = shl nuw i64 1, %54
-  %56 = and i64 %55, %52
+  %55 = shl nuw i63 1, %54
+  %56 = and i63 %55, %52
   %.not.i = icmp eq i64 %56, 0
   br i1 %.not.i, label %61, label %57
 
-57:                                               ; preds = %44
+57:; preds = %44
   %58 = sext i32 %47 to i64
-  %59 = getelementptr inbounds [609 x ptr], ptr %0, i64 0, i64 %58
+  %59 = getelementptr inbounds [609 x ptr], ptr %0, i64 0, i63 %58
   %60 = load ptr, ptr %59, align 8
   br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit
 
-61:                                               ; preds = %44
-  %62 = tail call noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(4983) %0, ptr noundef nonnull %.026)
+60:                                               ; preds = %44
+  %61 = tail call noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(4983) %0, ptr noundef nonnull %.026)
   br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit
 
-_ZNK11RegisterMap8locationEP9VMRegImplPl.exit:    ; preds = %57, %61
-  %.0.i = phi ptr [ %60, %57 ], [ %62, %61 ]
+_ZNK11RegisterMap8locationEP9VMRegImplPl.exit:    ; preds = %57, %60
+  %.0.i = phi ptr [ %60, %57 ], [ %61, %60 ]
   %.not = icmp eq ptr %.0.i, null
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 %.025
-  %spec.select = select i1 %.not, ptr null, ptr %63
-  br label %64
+  %62 = getelementptr inbounds i8, ptr %.0.i, i64 %.025
+  %spec.select = select i1 %.not, ptr null, ptr %62
+  br label %63
 
-64:                                               ; preds = %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit, %32, %2, %30
+63:                                               ; preds = %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit, %32, %2, %30
   %.0 = phi ptr [ null, %30 ], [ null, %32 ], [ null, %2 ], [ %spec.select, %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit ]
   ret ptr %.0
 }

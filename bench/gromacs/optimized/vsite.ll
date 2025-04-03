@@ -11884,7 +11884,7 @@ _ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit: ; preds = %_ZL13extractIL
 
 60:                                               ; preds = %.lr.ph, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit
   %.137 = phi i32 [ %.040, %.lr.ph ], [ %.2, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit ]
-  %.sroa.019.036 = phi ptr [ %.sroa.022.2, %.lr.ph ], [ %85, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit ]
+  %.sroa.019.036 = phi ptr [ %.sroa.022.2, %.lr.ph ], [ %83, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit ]
   %61 = load i32, ptr %.sroa.019.036, align 8, !tbaa !237
   %62 = add i32 %61, -66
   %63 = tail call i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 31)
@@ -11894,33 +11894,33 @@ _ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit: ; preds = %_ZL13extractIL
     i32 4, label %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit
   ]
 
-64:                                               ; preds = %60
-  %65 = load i32, ptr %54, align 4, !tbaa !124
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.019.036, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !239
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !122
-  %71 = load ptr, ptr %68, align 8, !tbaa !9
-  %72 = ptrtoint ptr %70 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = ashr exact i64 %74, 2
-  %76 = mul i64 %75, %66
-  %77 = sext i32 %61 to i64
-  %78 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %77, i32 2
-  %79 = load i32, ptr %78, align 16, !tbaa !83
-  %80 = add nsw i32 %79, 1
-  %81 = sext i32 %80 to i64
-  %82 = udiv i64 %76, %81
-  %83 = trunc i64 %82 to i32
-  %84 = add i32 %.137, %83
+62:                                               ; preds = %60
+  %63 = load i32, ptr %54, align 4, !tbaa !124
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.019.036, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !239
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !122
+  %69 = load ptr, ptr %66, align 8, !tbaa !9
+  %70 = ptrtoint ptr %68 to i64
+  %71 = ptrtoint ptr %69 to i64
+  %72 = sub i64 %70, %71
+  %73 = ashr exact i64 %72, 2
+  %74 = mul i64 %73, %64
+  %75 = sext i32 %61 to i64
+  %76 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %75, i32 2
+  %77 = load i32, ptr %76, align 16, !tbaa !83
+  %78 = add nsw i32 %77, 1
+  %79 = sext i32 %78 to i64
+  %80 = udiv i64 %74, %79
+  %81 = trunc i64 %80 to i32
+  %82 = add i32 %.137, %81
   br label %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit
 
-_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit: ; preds = %60, %60, %60, %64
-  %.2 = phi i32 [ %84, %64 ], [ %.137, %60 ], [ %.137, %60 ], [ %.137, %60 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.019.036, i64 16
-  %.not28 = icmp eq ptr %85, %.sroa.6.2
+_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit: ; preds = %60, %60, %60, %62
+  %.2 = phi i32 [ %82, %62 ], [ %.137, %60 ], [ %.137, %60 ], [ %.137, %60 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.019.036, i64 16
+  %.not28 = icmp eq ptr %83, %.sroa.6.2
   br i1 %.not28, label %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit._crit_edge, label %60
 }
 

@@ -5894,17 +5894,17 @@ sw.default36:                                     ; preds = %if.end29
   br label %return
 
 switch.lookup:                                    ; preds = %sw.bb31
-  %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE, i64 0, i64 %13
+  %11 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep45 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE.24, i64 0, i64 %14
-  %switch.load46 = load i64, ptr %switch.gep45, align 8
+  %12 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep44 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE.24, i64 0, i64 %12
+  %switch.load45 = load i64, ptr %switch.gep44, align 8
   br label %return
 
 return:                                           ; preds = %sw.bb31, %switch.lookup, %sw.default36, %if.end29, %if.end29, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %if.end21, %sw.epilog, %_ZN4llvh9StringRefC2EPKc.exit69, %sw.bb, %if.end.i195, %if.end, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit207
   %retval.sroa.0.0 = phi ptr [ @.str.142, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit207 ], [ @.str.143, %if.end ], [ @.str.145, %if.end.i195 ], [ null, %sw.bb ], [ null, %_ZN4llvh9StringRefC2EPKc.exit69 ], [ null, %sw.epilog ], [ %5, %if.end21 ], [ %5, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ @.str.149, %if.end29 ], [ @.str.149, %if.end29 ], [ %spec.select, %sw.default36 ], [ %switch.load, %switch.lookup ], [ @.str.148, %sw.bb31 ]
-  %retval.sroa.12.0 = phi i64 [ 12, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit207 ], [ 9, %if.end ], [ 9, %if.end.i195 ], [ %2, %sw.bb ], [ %2, %_ZN4llvh9StringRefC2EPKc.exit69 ], [ 0, %sw.epilog ], [ %6, %if.end21 ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ 9, %if.end29 ], [ 9, %if.end29 ], [ %spec.select44, %sw.default36 ], [ %switch.load46, %switch.lookup ], [ 9, %sw.bb31 ]
+  %retval.sroa.12.0 = phi i64 [ 12, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit207 ], [ 9, %if.end ], [ 9, %if.end.i195 ], [ %2, %sw.bb ], [ %2, %_ZN4llvh9StringRefC2EPKc.exit69 ], [ 0, %sw.epilog ], [ %6, %if.end21 ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ 9, %if.end29 ], [ 9, %if.end29 ], [ %spec.select44, %sw.default36 ], [ %switch.load45, %switch.lookup ], [ 9, %sw.bb31 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.12.0, 1
   ret { ptr, i64 } %.fca.1.insert

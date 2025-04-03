@@ -31,59 +31,59 @@ define noundef range(i64 1, 0) i64 @_ZN9html5ever9serialize7tagname17h7b0bd583a5
   %6 = add i64 %5, -4294967298
   %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 32)
   switch i64 %7, label %.critedge [
-    i64 6, label %8
+    i64 6, label %6
     i64 0, label %8
     i64 3, label %8
   ]
 
-8:                                                ; preds = %16, %1, %1, %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !range !5, !noundef !4
-  %11 = and i64 %10, 3
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %22, label %26
+6:                                                ; preds = %14, %1, %1, %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i64, ptr %7, align 8, !range !5, !noundef !4
+  %9 = and i64 %8, 3
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %20, label %24
 
 .critedge:                                        ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
-  %13 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17had86ed48f0b2ede2E monotonic, align 8
-  %14 = icmp ult i64 %13, 6
-  tail call void @llvm.assume(i1 %14)
-  %15 = icmp samesign ult i64 %13, 2
-  br i1 %15, label %16, label %.critedge11
+  %11 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17had86ed48f0b2ede2E monotonic, align 8
+  %12 = icmp ult i64 %11, 6
+  tail call void @llvm.assume(i1 %12)
+  %13 = icmp samesign ult i64 %11, 2
+  br i1 %13, label %14, label %.critedge11
 
-16:                                               ; preds = %.critedge, %.critedge11
+14:                                               ; preds = %.critedge, %.critedge11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %8
+  br label %6
 
 .critedge11:                                      ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h412fae17cf47cc1bE", ptr %17, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h412fae17cf47cc1bE", ptr %15, align 8
   store ptr @anon.28dd728cb7565027754588209dbab502.15, ptr %3, align 8, !alias.scope !6, !noalias !9
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %18, align 8, !alias.scope !6, !noalias !9
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %19, align 8, !alias.scope !6, !noalias !9
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %20, align 8, !alias.scope !6, !noalias !9
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %21, align 8, !alias.scope !6, !noalias !9
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %16, align 8, !alias.scope !6, !noalias !9
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %17, align 8, !alias.scope !6, !noalias !9
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %18, align 8, !alias.scope !6, !noalias !9
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %19, align 8, !alias.scope !6, !noalias !9
   call void @_ZN3log13__private_api8log_impl17h0fe6cde48349b67dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, i64 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.28dd728cb7565027754588209dbab502.18, i32 noundef 70, ptr noalias noundef readonly align 8 null, i64 undef)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %16
+  br label %14
 
-22:                                               ; preds = %8
-  %23 = inttoptr i64 %10 to ptr
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = atomicrmw add ptr %24, i64 1 seq_cst, align 8
-  br label %26
+20:                                               ; preds = %6
+  %21 = inttoptr i64 %8 to ptr
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = atomicrmw add ptr %22, i64 1 seq_cst, align 8
+  br label %24
 
-26:                                               ; preds = %8, %22
-  ret i64 %10
+24:                                               ; preds = %6, %20
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

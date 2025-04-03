@@ -112,8 +112,8 @@ $_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13Prim
 @switch.table._ZN12_GLOBAL__N_19Demangler5parseER10StringView.5 = private unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds nuw (i8, ptr @.str.38, i64 30), ptr getelementptr inbounds nuw (i8, ptr @.str.37, i64 15), ptr getelementptr inbounds nuw (i8, ptr @.str.35, i64 9), ptr getelementptr inbounds nuw (i8, ptr @.str.36, i64 9)], align 8
 @switch.table._ZN12_GLOBAL__N_19Demangler21demangleStringLiteralER10StringView = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 poison, i32 2], align 4
 @switch.table._ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView = private unnamed_addr constant [20 x i16] [i16 0, i16 1, i16 2, i16 3, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 256, i16 257, i16 258, i16 259], align 2
-@switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.10 = private unnamed_addr constant [17 x i8] c"\01\01\02\02\03\03\04\04\05\05\00\00\06\06\07\07\08", align 1
-@switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.11 = private unnamed_addr constant [20 x i8] [i8 0, i8 1, i8 2, i8 3, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 1, i8 2, i8 3], align 1
+@switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.8 = private unnamed_addr constant [17 x i8] c"\01\01\02\02\03\03\04\04\05\05\00\00\06\06\07\07\08", align 1
+@switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.9 = private unnamed_addr constant [20 x i8] [i8 0, i8 1, i8 2, i8 3, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 1, i8 2, i8 3], align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i8 @_Z30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroup(i8 noundef signext %CH, i32 noundef %Group) local_unnamed_addr #0 {
@@ -886,12 +886,12 @@ switch.hole_check:                                ; preds = %if.end.i56
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %40 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep307 = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.11, i64 0, i64 %40
-  %switch.load308 = load i8, ptr %switch.gep307, align 1
+  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.9, i64 0, i64 %40
+  %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit.i
 
 _ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit.i: ; preds = %switch.lookup, %sw.epilog.i.i
-  %retval.sroa.0.0.i.i = phi i8 [ 0, %sw.epilog.i.i ], [ %switch.load308, %switch.lookup ]
+  %retval.sroa.0.0.i.i = phi i8 [ 0, %sw.epilog.i.i ], [ %switch.load, %switch.lookup ]
   %Quals.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i37.i, i64 32
   store i8 %retval.sroa.0.0.i.i, ptr %Quals.i, align 1
   %41 = load ptr, ptr %MangledName, align 8
@@ -1126,20 +1126,20 @@ sw.bb.i30:                                        ; preds = %if.end17, %if.end17
   %incdec.ptr.i.i75 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store ptr %incdec.ptr.i.i75, ptr %MangledName, align 8
   %62 = load i8, ptr %60, align 1
-  %switch.tableidx310 = add i8 %62, -48
-  %63 = icmp ult i8 %switch.tableidx310, 5
-  br i1 %63, label %switch.lookup309, label %sw.epilog.i80
+  %switch.tableidx305 = add i8 %62, -48
+  %63 = icmp ult i8 %switch.tableidx305, 5
+  br i1 %63, label %switch.lookup304, label %sw.epilog.i80
 
 sw.epilog.i80:                                    ; preds = %sw.bb.i30
   store i8 1, ptr %Error.i22, align 8
   br label %_ZN12_GLOBAL__N_19Demangler28demangleVariableStorageClassER10StringView.exit
 
-switch.lookup309:                                 ; preds = %sw.bb.i30
+switch.lookup304:                                 ; preds = %sw.bb.i30
   %switch.offset = add nsw i8 %62, -47
   br label %_ZN12_GLOBAL__N_19Demangler28demangleVariableStorageClassER10StringView.exit
 
-_ZN12_GLOBAL__N_19Demangler28demangleVariableStorageClassER10StringView.exit: ; preds = %switch.lookup309, %sw.epilog.i80
-  %retval.0.i77 = phi i8 [ 0, %sw.epilog.i80 ], [ %switch.offset, %switch.lookup309 ]
+_ZN12_GLOBAL__N_19Demangler28demangleVariableStorageClassER10StringView.exit: ; preds = %switch.lookup304, %sw.epilog.i80
+  %retval.0.i77 = phi i8 [ 0, %sw.epilog.i80 ], [ %switch.offset, %switch.lookup304 ]
   %call3.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i8 noundef zeroext %retval.0.i77)
   br label %_ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit
 
@@ -2452,7 +2452,7 @@ if.then25:                                        ; preds = %if.end22
 
 switch.lookup:                                    ; preds = %if.then25
   %42 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.10, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw [17 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.8, i64 0, i64 %42
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit
 
@@ -2748,7 +2748,7 @@ switch.hole_check:                                ; preds = %if.then
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.11, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.9, i64 0, i64 %8
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %if.end13
 
@@ -2760,7 +2760,7 @@ switch.hole_check791:                             ; preds = %if.then7
 
 switch.lookup792:                                 ; preds = %switch.hole_check791
   %9 = zext nneg i8 %switch.tableidx790 to i64
-  %switch.gep796 = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.11, i64 0, i64 %9
+  %switch.gep796 = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.9, i64 0, i64 %9
   %switch.load797 = load i8, ptr %switch.gep796, align 1
   br label %if.end13
 
@@ -3236,7 +3236,7 @@ switch.hole_check800:                             ; preds = %if.else.i
 
 switch.lookup801:                                 ; preds = %switch.hole_check800
   %81 = zext nneg i8 %switch.tableidx799 to i64
-  %switch.gep805 = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.11, i64 0, i64 %81
+  %switch.gep805 = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.9, i64 0, i64 %81
   %switch.load806 = load i8, ptr %switch.gep805, align 1
   br label %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit253
 
@@ -3900,7 +3900,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_D
 
 switch.lookup807:                                 ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
   %165 = zext nneg i8 %switch.tableidx808 to i64
-  %switch.gep809 = getelementptr inbounds nuw [17 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.10, i64 0, i64 %165
+  %switch.gep809 = getelementptr inbounds nuw [17 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.8, i64 0, i64 %165
   %switch.load810 = load i8, ptr %switch.gep809, align 1
   br label %_ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit
 
@@ -9606,7 +9606,7 @@ switch.hole_check:                                ; preds = %_ZL28demangleFuncti
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.11, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.9, i64 0, i64 %30
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit
 
@@ -9627,7 +9627,7 @@ if.end:                                           ; preds = %_ZN12_GLOBAL__N_19D
 
 switch.lookup33:                                  ; preds = %if.end
   %34 = zext nneg i8 %switch.tableidx34 to i64
-  %switch.gep35 = getelementptr inbounds nuw [17 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.10, i64 0, i64 %34
+  %switch.gep35 = getelementptr inbounds nuw [17 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.8, i64 0, i64 %34
   %switch.load36 = load i8, ptr %switch.gep35, align 1
   br label %_ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit
 
@@ -11086,7 +11086,7 @@ switch.hole_check:                                ; preds = %_ZN12_GLOBAL__N_19D
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %28 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.11, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.9, i64 0, i64 %28
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit
 
@@ -11193,7 +11193,7 @@ switch.hole_check37:                              ; preds = %sw.default
 
 switch.lookup38:                                  ; preds = %switch.hole_check37
   %39 = zext nneg i8 %switch.tableidx36 to i64
-  %switch.gep42 = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.11, i64 0, i64 %39
+  %switch.gep42 = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.9, i64 0, i64 %39
   %switch.load43 = load i8, ptr %switch.gep42, align 1
   br label %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit29
 

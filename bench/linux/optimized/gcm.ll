@@ -2069,17 +2069,17 @@ define internal i32 @crypto_rfc4106_setauthsize(ptr noundef readonly captures(no
   %3 = add i32 %1, -8
   %4 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 30)
   %switch = icmp ult i32 %4, 3
-  br i1 %switch, label %5, label %9
+  br i1 %switch, label %3, label %9
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @crypto_aead_setauthsize(ptr noundef %7, i32 noundef %1) #13
-  br label %9
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call i32 @crypto_aead_setauthsize(ptr noundef %5, i32 noundef %1) #13
+  br label %7
 
-9:                                                ; preds = %5, %2
-  %10 = phi i32 [ %8, %5 ], [ -22, %2 ]
-  ret i32 %10
+7:                                                ; preds = %5, %2
+  %8 = phi i32 [ %6, %3 ], [ -22, %2 ]
+  ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

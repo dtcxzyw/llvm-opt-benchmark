@@ -186,14 +186,14 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 
 12:                                               ; preds = %8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str) #8
-  br label %55
+  br label %52
 
 13:                                               ; preds = %8
   %14 = call i32 @archive_mstring_get_wcs(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4) #8
   %15 = load i32, ptr %9, align 4, !tbaa !7
   %16 = load ptr, ptr %4, align 8, !tbaa !19
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %15, ptr noundef nonnull @.str.2, ptr noundef %16) #8
-  br label %55
+  br label %52
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %5, align 8, !tbaa !18
@@ -213,11 +213,11 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 
 26:                                               ; preds = %22
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %25, ptr noundef nonnull @.str.3, ptr noundef nonnull %23) #8
-  br label %55
+  br label %52
 
 27:                                               ; preds = %22
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %25, ptr noundef nonnull @.str.4, ptr noundef null) #8
-  br label %55
+  br label %52
 
 28:                                               ; preds = %17
   %29 = call i32 @fstat(i32 noundef %20, ptr noundef nonnull %3) #8
@@ -233,11 +233,11 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 
 34:                                               ; preds = %30
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %33, ptr noundef nonnull @.str.5, ptr noundef nonnull %31) #8
-  br label %55
+  br label %52
 
 35:                                               ; preds = %30
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %33, ptr noundef nonnull @.str.6, ptr noundef null) #8
-  br label %55
+  br label %52
 
 36:                                               ; preds = %28
   %37 = call i32 @archive_write_get_bytes_in_last_block(ptr noundef %0) #8
@@ -252,7 +252,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   %44 = icmp ult i32 %43, 24576
   br i1 %44, label %switch.lookup, label %._crit_edge.sink.split
 
-switch.lookup:                                    ; preds = %41
+switch.lookup:; preds = %41
   %45 = lshr exact i32 %43, 12
   %46 = zext nneg i32 %45 to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.file_open, i64 0, i64 %46
@@ -261,23 +261,23 @@ switch.lookup:                                    ; preds = %41
 
 ._crit_edge.sink.split:                           ; preds = %41, %switch.lookup
   %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 1, %41 ]
-  %47 = call i32 @archive_write_set_bytes_in_last_block(ptr noundef %0, i32 noundef %.sink) #8
+  %44 = call i32 @archive_write_set_bytes_in_last_block(ptr noundef %0, i32 noundef %.sink) #8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.sink.split, %36
-  %48 = and i32 %40, 61440
-  %49 = icmp eq i32 %48, 32768
-  br i1 %49, label %50, label %55
+  %45 = and i32 %40, 61440
+  %46 = icmp eq i32 %45, 32768
+  br i1 %46, label %47, label %52
 
-50:                                               ; preds = %._crit_edge
-  %51 = load i64, ptr %3, align 8, !tbaa !23
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %53 = load i64, ptr %52, align 8, !tbaa !24
-  %54 = call i32 @archive_write_set_skip_file(ptr noundef %0, i64 noundef %51, i64 noundef %53) #8
-  br label %55
+47:                                               ; preds = %._crit_edge
+  %48 = load i64, ptr %3, align 8, !tbaa !23
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %50 = load i64, ptr %49, align 8, !tbaa !24
+  %51 = call i32 @archive_write_set_skip_file(ptr noundef %0, i64 noundef %48, i64 noundef %50) #8
+  br label %52
 
-55:                                               ; preds = %._crit_edge, %50, %34, %35, %26, %27, %12, %13
-  %.0 = phi i32 [ -30, %13 ], [ -30, %12 ], [ -30, %27 ], [ -30, %26 ], [ -30, %35 ], [ -30, %34 ], [ 0, %50 ], [ 0, %._crit_edge ]
+52:                                               ; preds = %._crit_edge, %47, %34, %35, %26, %27, %12, %13
+  %.0 = phi i32 [ -30, %13 ], [ -30, %12 ], [ -30, %27 ], [ -30, %26 ], [ -30, %35 ], [ -30, %34 ], [ 0, %47 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #8

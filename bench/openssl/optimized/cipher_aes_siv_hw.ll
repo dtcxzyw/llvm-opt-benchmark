@@ -28,24 +28,24 @@ define internal i32 @aes_siv_initkey(ptr noundef %0, ptr noundef %1, i64 noundef
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !17
-  tail call void @EVP_CIPHER_free(ptr noundef %9) #6
+  tail call void @EVP_CIPHER_free(ptr noundef %9) #5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8, !tbaa !18
-  tail call void @EVP_CIPHER_free(ptr noundef %11) #6
+  tail call void @EVP_CIPHER_free(ptr noundef %11) #5
   %12 = add nsw i64 %5, -16
   %13 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 61)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %14 = icmp ult i64 %13, 3
   br i1 %14, label %switch.lookup, label %.thread
 
-switch.lookup:                                    ; preds = %3
+switch.lookup:; preds = %3
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.aes_siv_initkey, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.gep38 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.aes_siv_initkey.1, i64 0, i64 %13
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   %15 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %7, ptr noundef nonnull %switch.load, ptr noundef null) #6
   store ptr %15, ptr %8, align 8, !tbaa !17
-  %16 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %7, ptr noundef nonnull %switch.load39, ptr noundef null) #6
+  %16 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %7, ptr noundef nonnull %switch.load39, ptr noundef null) #5
   store ptr %16, ptr %10, align 8, !tbaa !18
   %.pr = load ptr, ptr %8, align 8, !tbaa !17
   %17 = icmp eq ptr %.pr, null
@@ -55,7 +55,7 @@ switch.lookup:                                    ; preds = %3
 
 19:                                               ; preds = %switch.lookup
   %20 = trunc i64 %5 to i32
-  %21 = tail call i32 @ossl_siv128_init(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %20, ptr noundef nonnull %.pr, ptr noundef nonnull %16, ptr noundef %7, ptr noundef null) #6
+  %21 = tail call i32 @ossl_siv128_init(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %20, ptr noundef nonnull %.pr, ptr noundef nonnull %16, ptr noundef %7, ptr noundef null) #5
   br label %.thread
 
 .thread:                                          ; preds = %3, %switch.lookup, %19
@@ -70,7 +70,7 @@ define internal range(i32 0, 2) i32 @aes_siv_cipher(ptr noundef %0, ptr noundef 
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @ossl_siv128_finish(ptr noundef nonnull %5) #6
+  %8 = tail call i32 @ossl_siv128_finish(ptr noundef nonnull %5) #5
   %9 = icmp eq i32 %8, 0
   br label %25
 
@@ -79,7 +79,7 @@ define internal range(i32 0, 2) i32 @aes_siv_cipher(ptr noundef %0, ptr noundef 
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @ossl_siv128_aad(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef %3) #6
+  %13 = tail call i32 @ossl_siv128_aad(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef %3) #5
   %14 = icmp eq i32 %13, 1
   br label %25
 
@@ -91,12 +91,12 @@ define internal range(i32 0, 2) i32 @aes_siv_cipher(ptr noundef %0, ptr noundef 
   br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %15
-  %20 = tail call i32 @ossl_siv128_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef %3) #6
+  %20 = tail call i32 @ossl_siv128_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef %3) #5
   %21 = icmp sgt i32 %20, 0
   br label %25
 
 22:                                               ; preds = %15
-  %23 = tail call i32 @ossl_siv128_decrypt(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef %3) #6
+  %23 = tail call i32 @ossl_siv128_decrypt(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef %3) #5
   %24 = icmp sgt i32 %23, 0
   br label %25
 
@@ -109,27 +109,27 @@ define internal range(i32 0, 2) i32 @aes_siv_cipher(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal void @aes_siv_setspeed(ptr noundef %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = tail call i32 @ossl_siv128_speed(ptr noundef nonnull %3, i32 noundef %1) #6
+  %4 = tail call i32 @ossl_siv128_speed(ptr noundef nonnull %3, i32 noundef %1) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @aes_siv_settag(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = tail call i32 @ossl_siv128_set_tag(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2) #6
+  %5 = tail call i32 @ossl_siv128_set_tag(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2) #5
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @aes_siv_cleanup(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = tail call i32 @ossl_siv128_cleanup(ptr noundef nonnull %2) #6
+  %3 = tail call i32 @ossl_siv128_cleanup(ptr noundef nonnull %2) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !17
-  tail call void @EVP_CIPHER_free(ptr noundef %5) #6
+  tail call void @EVP_CIPHER_free(ptr noundef %5) #5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !18
-  tail call void @EVP_CIPHER_free(ptr noundef %7) #6
+  tail call void @EVP_CIPHER_free(ptr noundef %7) #5
   ret void
 }
 
@@ -140,7 +140,7 @@ define internal range(i32 0, 2) i32 @aes_siv_dupctx(ptr noundef %0, ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %6 = tail call i32 @ossl_siv128_copy_ctx(ptr noundef nonnull %3, ptr noundef nonnull %5) #6
+  %6 = tail call i32 @ossl_siv128_copy_ctx(ptr noundef nonnull %3, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %17, label %7
 
@@ -151,7 +151,7 @@ define internal range(i32 0, 2) i32 @aes_siv_dupctx(ptr noundef %0, ptr noundef 
   br i1 %.not15, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @EVP_CIPHER_up_ref(ptr noundef nonnull %9) #6
+  %11 = tail call i32 @EVP_CIPHER_up_ref(ptr noundef nonnull %9) #5
   br label %12
 
 12:                                               ; preds = %10, %7
@@ -161,7 +161,7 @@ define internal range(i32 0, 2) i32 @aes_siv_dupctx(ptr noundef %0, ptr noundef 
   br i1 %.not16, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @EVP_CIPHER_up_ref(ptr noundef nonnull %14) #6
+  %16 = tail call i32 @EVP_CIPHER_up_ref(ptr noundef nonnull %14) #5
   br label %17
 
 17:                                               ; preds = %12, %15, %2
@@ -200,7 +200,7 @@ declare i32 @EVP_CIPHER_up_ref(ptr noundef) local_unnamed_addr #2
 declare i64 @llvm.fshl.i64(i64, i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

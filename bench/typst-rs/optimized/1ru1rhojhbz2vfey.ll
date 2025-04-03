@@ -118677,9 +118677,9 @@ define hidden void @"_ZN5typst5model6figure13FigureCaption13get_separator28_$u7b
     i8 3, label %25
   ]
 
-17:                                               ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit"
+17:; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit"
   %18 = icmp eq i8 %.sroa.4.0.extract.trunc.i, 104
-  %19 = icmp eq i8 %.sroa.525.0.extract.trunc.i, 32
+  %18 = icmp eq i8 %.sroa.525.0.extract.trunc.i, 32
   %or.cond.i = select i1 %18, i1 %19, i1 false
   %20 = icmp eq i32 %.sroa.6.0.extract.shift.i, 2
   %or.cond5.i = select i1 %or.cond.i, i1 %20, i1 false
@@ -118687,28 +118687,28 @@ define hidden void @"_ZN5typst5model6figure13FigureCaption13get_separator28_$u7b
   %spec.select29.i = select i1 %or.cond5.i, i64 3, i64 2
   br label %_ZN5typst5model6figure13FigureCaption15local_separator17h07867df21588ce28E.exit
 
-21:                                               ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit"
-  %22 = icmp eq i8 %.sroa.4.0.extract.trunc.i, 114
-  %23 = icmp eq i8 %.sroa.525.0.extract.trunc.i, 32
-  %or.cond8.i = select i1 %22, i1 %23, i1 false
-  %24 = icmp eq i32 %.sroa.6.0.extract.shift.i, 2
+19:                                               ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit"
+  %20 = icmp eq i8 %.sroa.4.0.extract.trunc.i, 114
+  %21 = icmp eq i8 %.sroa.525.0.extract.trunc.i, 32
+  %or.cond8.i = select i1 %20, i1 %23, i1 false
+  %22 = icmp eq i32 %.sroa.6.0.extract.shift.i, 2
   %or.cond11.i = select i1 %or.cond8.i, i1 %24, i1 false
   %spec.select30.i = select i1 %or.cond11.i, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.411.llvm.11057974413330164255, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.413.llvm.11057974413330164255
   %spec.select31.i = select i1 %or.cond11.i, i64 7, i64 2
   br label %_ZN5typst5model6figure13FigureCaption15local_separator17h07867df21588ce28E.exit
 
-25:                                               ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit"
-  %26 = icmp eq i8 %.sroa.4.0.extract.trunc.i, 117
-  %27 = icmp eq i8 %.sroa.525.0.extract.trunc.i, 32
-  %or.cond14.i = select i1 %26, i1 %27, i1 false
-  %28 = icmp eq i32 %.sroa.6.0.extract.shift.i, 2
+23:                                               ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit"
+  %24 = icmp eq i8 %.sroa.4.0.extract.trunc.i, 117
+  %25 = icmp eq i8 %.sroa.525.0.extract.trunc.i, 32
+  %or.cond14.i = select i1 %24, i1 %25, i1 false
+  %26 = icmp eq i32 %.sroa.6.0.extract.shift.i, 2
   %or.cond17.i = select i1 %or.cond14.i, i1 %28, i1 false
   %spec.select32.i = select i1 %or.cond17.i, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.412.llvm.11057974413330164255, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.413.llvm.11057974413330164255
   br label %_ZN5typst5model6figure13FigureCaption15local_separator17h07867df21588ce28E.exit
 
-_ZN5typst5model6figure13FigureCaption15local_separator17h07867df21588ce28E.exit: ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit", %17, %21, %25
+_ZN5typst5model6figure13FigureCaption15local_separator17h07867df21588ce28E.exit: ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit", %17, %19, %23
   %.sroa.027.0.i = phi ptr [ @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.413.llvm.11057974413330164255, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit" ], [ %spec.select.i, %17 ], [ %spec.select30.i, %21 ], [ %spec.select32.i, %25 ]
-  %.sroa.528.0.i = phi i64 [ 2, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit" ], [ %spec.select29.i, %17 ], [ %spec.select31.i, %21 ], [ 2, %25 ]
+  %.sroa.528.0.i = phi i64 [ 2, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7lang_in17h823c2bf91c5289ecE.exit" ], [ %spec.select29.i, %17 ], [ %spec.select31.i, %19 ], [ 2, %23 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !23614
   call void @_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.llvm.5857379167208991996(ptr noalias noundef nonnull sret({ { [2 x i64] } }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %.sroa.027.0.i, i64 noundef %.sroa.528.0.i), !noalias !23618
   call void @_ZN5typst11foundations7content7Content3new17h32cb12f228c66b15E(ptr noalias noundef nonnull sret({ { { { ptr, ptr } }, {}, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %3)

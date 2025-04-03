@@ -10393,43 +10393,43 @@ define linkonce_odr hidden void @_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE(ptr nounde
   %5 = add i8 %1, -105
   %6 = and i8 %5, -1
   switch i8 %6, label %9 [
-    i8 22, label %10
-    i8 21, label %10
-    i8 20, label %10
-    i8 19, label %10
-    i8 18, label %10
-    i8 15, label %10
-    i8 14, label %10
-    i8 10, label %7
-    i8 9, label %7
-    i8 8, label %7
-    i8 7, label %7
-    i8 6, label %7
-    i8 5, label %7
-    i8 4, label %7
-    i8 3, label %7
-    i8 2, label %7
+    i8 22, label %8
+    i8 21, label %8
+    i8 20, label %8
+    i8 19, label %8
+    i8 18, label %8
+    i8 15, label %8
+    i8 14, label %8
+    i8 10, label %5
+    i8 9, label %5
+    i8 8, label %5
+    i8 7, label %5
+    i8 6, label %5
+    i8 5, label %5
+    i8 4, label %5
+    i8 3, label %5
+    i8 2, label %5
     i8 1, label %7
     i8 0, label %7
     i8 23, label %8
   ]
 
-7:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
-  br label %10
+5:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
+  br label %8
 
-8:                                                ; preds = %2
-  br label %10
+6:                                                ; preds = %2
+  br label %8
 
-9:                                                ; preds = %2
+7:                                                ; preds = %2
   unreachable
 
-10:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %8, %7
-  %.sink5 = phi i8 [ %1, %8 ], [ 99, %7 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ]
-  %.sink = phi i8 [ %1, %8 ], [ %1, %7 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ]
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sink5, ptr %11, align 2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %.sink, ptr %12, align 1
+8:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %6, %5
+  %.sink5 = phi i8 [ %1, %6 ], [ 99, %5 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ]
+  %.sink = phi i8 [ %1, %6 ], [ %1, %5 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ]
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sink5, ptr %9, align 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  store i8 %.sink, ptr %10, align 1
   ret void
 }
 

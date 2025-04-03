@@ -790,12 +790,12 @@ define void @_ZN4LIEF5MachO16RelocationObject4sizeEm(ptr noundef nonnull writeon
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %7, align 8, !tbaa !9
-  br label %15
+  br label %13
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %9, align 8, !tbaa !9
-  br label %15
+  br label %13
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -807,11 +807,11 @@ define void @_ZN4LIEF5MachO16RelocationObject4sizeEm(ptr noundef nonnull writeon
   %14 = load ptr, ptr %13, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  tail call void @_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %14, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %3, i32 noundef 4, ptr nonnull @.str.1, i64 36)
+  tail call void @_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %12, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %3, i32 noundef 4, ptr nonnull @.str.1, i64 36)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %15
+  br label %13
 
-15:                                               ; preds = %12, %10, %8, %6
+13:                                               ; preds = %12, %10, %8, %6
   ret void
 }
 

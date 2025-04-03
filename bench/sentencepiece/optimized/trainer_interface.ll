@@ -4291,12 +4291,12 @@ define noundef zeroext i1 @_ZNK13sentencepiece16TrainerInterface20IsValidSentenc
   br label %56
 
 56:                                               ; preds = %.lr.ph, %.critedge81
-  %57 = phi ptr [ %4, %.lr.ph ], [ %139, %.critedge81 ]
-  %58 = phi ptr [ %6, %.lr.ph ], [ %140, %.critedge81 ]
-  %59 = phi i64 [ %12, %.lr.ph ], [ %145, %.critedge81 ]
-  %60 = phi i64 [ %11, %.lr.ph ], [ %144, %.critedge81 ]
+  %57 = phi ptr [ %4, %.lr.ph ], [ %137, %.critedge81 ]
+  %58 = phi ptr [ %6, %.lr.ph ], [ %138, %.critedge81 ]
+  %59 = phi i64 [ %12, %.lr.ph ], [ %143, %.critedge81 ]
+  %60 = phi i64 [ %11, %.lr.ph ], [ %142, %.critedge81 ]
   %.067114 = phi i32 [ -1, %.lr.ph ], [ %.269, %.critedge81 ]
-  %.073113 = phi i64 [ 0, %.lr.ph ], [ %141, %.critedge81 ]
+  %.073113 = phi i64 [ 0, %.lr.ph ], [ %139, %.critedge81 ]
   %61 = getelementptr inbounds nuw i32, ptr %57, i64 %.073113
   %62 = load i32, ptr %61, align 4, !tbaa !141
   switch i32 %62, label %78 [
@@ -4422,7 +4422,7 @@ switch.early.test:                                ; preds = %105
     i32 1, label %110
   ]
 
-110:                                              ; preds = %switch.early.test
+108:                                              ; preds = %switch.early.test
   br label %111
 
 .fold.split:                                      ; preds = %switch.early.test
@@ -4443,19 +4443,19 @@ switch.early.test:                                ; preds = %105
   %spec.select = select i1 %118, i32 -1, i32 %.0
   br label %119
 
-119:                                              ; preds = %114, %111
-  %.1 = phi i32 [ %.0, %111 ], [ %spec.select, %114 ]
-  %120 = load i8, ptr %51, align 1, !tbaa !173, !range !42, !noundef !43
-  %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %122, label %134
+109:                                              ; preds = %114, %111
+  %.0 = phi i32 [ %.0, %111 ], [ %spec.select, %114 ]
+  %110 = load i8, ptr %51, align 1, !tbaa !173, !range !42, !noundef !43
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %112, label %134
 
-122:                                              ; preds = %119
-  %123 = add nsw i32 %62, -48
-  %or.cond.i95 = icmp ult i32 %123, 10
-  %124 = add nsw i32 %62, -65296
-  %125 = icmp ult i32 %124, 10
-  %126 = or i1 %or.cond.i95, %125
-  br i1 %126, label %127, label %134
+112:                                              ; preds = %109
+  %113 = add nsw i32 %62, -48
+  %or.cond.i = icmp ult i32 %113, 10
+  %114 = add nsw i32 %62, -65296
+  %115 = icmp ult i32 %114, 10
+  %116 = or i1 %or.cond.i, %115
+  br i1 %116, label %127, label %134
 
 127:                                              ; preds = %122
   %128 = load ptr, ptr %5, align 8, !tbaa !174
@@ -4466,7 +4466,7 @@ switch.early.test:                                ; preds = %105
   %133 = icmp ugt i64 %132, 4
   br i1 %133, label %.critedge86, label %134
 
-134:                                              ; preds = %119, %122, %127
+134:; preds = %119, %122, %127
   %135 = load i8, ptr %52, align 1, !tbaa !177, !range !42, !noundef !43
   %136 = trunc nuw i8 %135 to i1
   %137 = icmp eq i32 %.1, -1
@@ -4484,15 +4484,15 @@ switch.early.test:                                ; preds = %105
   br label %.critedge81
 
 .critedge81:                                      ; preds = %..critedge81_crit_edge, %94, %85, %102, %97
-  %139 = phi ptr [ %57, %97 ], [ %57, %102 ], [ %.pre139, %..critedge81_crit_edge ], [ %57, %85 ], [ %57, %94 ]
-  %140 = phi ptr [ %58, %97 ], [ %58, %102 ], [ %.pre, %..critedge81_crit_edge ], [ %58, %85 ], [ %58, %94 ]
+  %137 = phi ptr [ %57, %97 ], [ %57, %102 ], [ %.pre139, %..critedge81_crit_edge ], [ %57, %85 ], [ %57, %94 ]
+  %138 = phi ptr [ %58, %97 ], [ %58, %102 ], [ %.pre, %..critedge81_crit_edge ], [ %58, %85 ], [ %58, %94 ]
   %.269 = phi i32 [ %.067114, %97 ], [ %.067114, %102 ], [ %.1, %..critedge81_crit_edge ], [ %.067114, %85 ], [ %.067114, %94 ]
-  %141 = add nuw i64 %.073113, 1
-  %142 = ptrtoint ptr %140 to i64
-  %143 = ptrtoint ptr %139 to i64
-  %144 = sub i64 %142, %143
-  %145 = ashr exact i64 %144, 2
-  %.not80.not = icmp ult i64 %141, %145
+  %139 = add nuw i64 %.073113, 1
+  %140 = ptrtoint ptr %138 to i64
+  %141 = ptrtoint ptr %137 to i64
+  %142 = sub i64 %140, %141
+  %143 = ashr exact i64 %142, 2
+  %.not80.not = icmp ult i64 %139, %143
   br i1 %.not80.not, label %56, label %.critedge86, !llvm.loop !178
 
 .critedge86:                                      ; preds = %.critedge81, %134, %56, %56, %56, %78, %97, %94, %100, %127, %102, %.critedge, %63, %2, %8

@@ -5158,8 +5158,8 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %breakdown9699 = getelementptr inbounds nuw i8, ptr %diag, i64 16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i75), !noalias !70
   %call98 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatSt4lessIS5_ESaISt4pairIKS5_S9_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %breakdown9699, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97)
-  %16 = load i64, ptr %call98, align 8
-  %inc100 = add i64 %16, 1
+  %14 = load i64, ptr %call98, align 8
+  %inc100 = add i64 %14, 1
   store i64 %inc100, ptr %call98, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i81), !noalias !78
@@ -5179,8 +5179,8 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i81), !noalias !78
   %call103 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatSt4lessIS5_ESaISt4pairIKS5_S9_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %breakdown9699, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp102)
   %size104 = getelementptr inbounds nuw i8, ptr %call103, i64 8
-  %17 = load i64, ptr %size104, align 8
-  %add105 = add i64 %17, %hvBytes
+  %15 = load i64, ptr %size104, align 8
+  %add105 = add i64 %15, %hvBytes
   store i64 %add105, ptr %size104, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp102) #27
   ret void

@@ -17880,22 +17880,22 @@ _ZNK3spv7Builder18getScalarTypeWidthEj.exit:      ; preds = %tailrecurse.i.i, %1
     i32 3, label %36
   ]
 
-30:                                               ; preds = %_ZNK3spv7Builder18getScalarTypeWidthEj.exit
-  %31 = fptrunc double %2 to float
-  %32 = tail call noundef i32 @_ZN3spv7Builder19makeFloat16ConstantEfb(ptr noundef nonnull align 8 dereferenceable(1416) %0, float noundef %31, i1 noundef zeroext %3)
-  br label %38
+28:                                               ; preds = %_ZNK3spv7Builder18getScalarTypeWidthEj.exit
+  %29 = fptrunc double %2 to float
+  %30 = tail call noundef i32 @_ZN3spv7Builder19makeFloat16ConstantEfb(ptr noundef nonnull align 8 dereferenceable(1416) %0, float noundef %29, i1 noundef zeroext %3)
+  br label %36
 
-33:                                               ; preds = %_ZNK3spv7Builder18getScalarTypeWidthEj.exit
-  %34 = fptrunc double %2 to float
-  %35 = tail call noundef i32 @_ZN3spv7Builder17makeFloatConstantEfb(ptr noundef nonnull align 8 dereferenceable(1416) %0, float noundef %34, i1 noundef zeroext %3)
-  br label %38
+31:                                               ; preds = %_ZNK3spv7Builder18getScalarTypeWidthEj.exit
+  %32 = fptrunc double %2 to float
+  %33 = tail call noundef i32 @_ZN3spv7Builder17makeFloatConstantEfb(ptr noundef nonnull align 8 dereferenceable(1416) %0, float noundef %32, i1 noundef zeroext %3)
+  br label %36
 
-36:                                               ; preds = %_ZNK3spv7Builder18getScalarTypeWidthEj.exit
-  %37 = tail call noundef i32 @_ZN3spv7Builder18makeDoubleConstantEdb(ptr noundef nonnull align 8 dereferenceable(1416) %0, double noundef %2, i1 noundef zeroext %3)
-  br label %38
+34:                                               ; preds = %_ZNK3spv7Builder18getScalarTypeWidthEj.exit
+  %35 = tail call noundef i32 @_ZN3spv7Builder18makeDoubleConstantEdb(ptr noundef nonnull align 8 dereferenceable(1416) %0, double noundef %2, i1 noundef zeroext %3)
+  br label %36
 
-38:                                               ; preds = %_ZNK3spv7Builder18getScalarTypeWidthEj.exit, %36, %33, %30
-  %.0 = phi i32 [ %37, %36 ], [ %35, %33 ], [ %32, %30 ], [ 0, %_ZNK3spv7Builder18getScalarTypeWidthEj.exit ]
+36:                                               ; preds = %_ZNK3spv7Builder18getScalarTypeWidthEj.exit, %34, %31, %28
+  %.0 = phi i32 [ %35, %34 ], [ %33, %31 ], [ %30, %28 ], [ 0, %_ZNK3spv7Builder18getScalarTypeWidthEj.exit ]
   ret i32 %.0
 }
 
@@ -41202,16 +41202,16 @@ define internal void @_GLOBAL__sub_I_SpvBuilder.cpp() #16 section ".text.startup
 declare i32 @llvm.fshl.i32(i32, i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
+declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
@@ -41226,10 +41226,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4709,7 +4709,7 @@ define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_
   tail call void @pfree(ptr noundef %15) #16
   tail call void @pfree(ptr noundef %19) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #16
-  br label %106
+  br label %105
 
 55:                                               ; preds = %1
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -4725,7 +4725,7 @@ define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_
   %64 = load i32, ptr %59, align 4
   tail call fastcc void @CreateDirAndVersionFile(ptr noundef %61, i32 noundef %63, i32 noundef %64, i1 noundef zeroext true)
   tail call void @pfree(ptr noundef %61) #16
-  br label %106
+  br label %105
 
 65:                                               ; preds = %1
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -4790,12 +4790,12 @@ define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_
 ._crit_edge:                                      ; preds = %93, %73
   %97 = load i32, ptr @standbyState, align 4
   %98 = icmp ugt i32 %97, 1
-  br i1 %98, label %99, label %106
+  br i1 %98, label %99, label %105
 
 99:                                               ; preds = %._crit_edge
   %100 = load i32, ptr %67, align 4
   tail call void @UnlockSharedObjectForSession(i32 noundef 1262, i32 noundef %100, i16 noundef zeroext 0, i32 noundef 8) #16
-  br label %106
+  br label %105
 
 101:                                              ; preds = %1
   %102 = and i8 %6, -16
@@ -4806,7 +4806,7 @@ define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 3443, ptr noundef nonnull @__func__.dbase_redo) #16
   unreachable
 
-106:                                              ; preds = %._crit_edge, %99, %55, %52
+105:                                              ; preds = %._crit_edge, %99, %55, %52
   ret void
 }
 

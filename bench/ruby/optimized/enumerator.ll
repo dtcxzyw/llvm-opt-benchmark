@@ -1157,7 +1157,7 @@ define hidden void @InitVM_Enumerator() local_unnamed_addr #0 {
 317:                                              ; preds = %314
   br label %rb_class_of.exit
 
-318:                                              ; preds = %314
+rb_class_of.exit:                                 ; preds = %314
   %319 = and i64 %306, 1
   %.not.i = icmp eq i64 %319, 0
   br i1 %.not.i, label %320, label %rb_class_of.exit

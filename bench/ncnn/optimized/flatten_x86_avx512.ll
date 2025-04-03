@@ -324,7 +324,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %149
   br i1 %161, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, label %162
 
 162:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit
-  br i1 %105, label %163, label %176
+  br i1 %105, label %163, label %173
 
 163:                                              ; preds = %162
   %164 = add i32 %11, -4
@@ -335,37 +335,37 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %149
     i32 0, label %173
   ]
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %168 = load i32, ptr %167, align 4, !tbaa !32
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %168)
+164:                                              ; preds = %163
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %166 = load i32, ptr %165, align 4, !tbaa !32
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %166)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn18Flatten_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined, ptr nonnull %6, ptr nonnull %1, ptr nonnull %2, ptr nonnull %5)
   switch i32 %11, label %_ZNK4ncnn3Mat5emptyEv.exit.thread [
     i32 8, label %169
     i32 4, label %173
   ]
 
-169:                                              ; preds = %163, %166
-  %170 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %171 = load i32, ptr %170, align 4, !tbaa !32
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %171)
+167:                                              ; preds = %163, %166
+  %168 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %169 = load i32, ptr %168, align 4, !tbaa !32
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %169)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn18Flatten_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.1, ptr nonnull %6, ptr nonnull %1, ptr nonnull %2, ptr nonnull %5)
   %172 = icmp eq i32 %11, 4
   br i1 %172, label %173, label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
-173:                                              ; preds = %163, %166, %169
-  %174 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %175 = load i32, ptr %174, align 4, !tbaa !32
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %175)
+170:                                              ; preds = %163, %166, %169
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %172 = load i32, ptr %171, align 4, !tbaa !32
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %172)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn18Flatten_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.2, ptr nonnull %6, ptr nonnull %1, ptr nonnull %2, ptr nonnull %5)
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
-176:                                              ; preds = %162
-  %177 = add i32 %20, -3
-  %or.cond3 = icmp ult i32 %177, 2
-  br i1 %or.cond3, label %178, label %_ZNK4ncnn3Mat5emptyEv.exit.thread
+173:                                              ; preds = %162
+  %174 = add i32 %20, -3
+  %or.cond3 = icmp ult i32 %174, 2
+  br i1 %or.cond3, label %175, label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
-178:                                              ; preds = %176
+175:                                              ; preds = %173
   %179 = add i32 %11, -4
   %180 = tail call i32 @llvm.fshl.i32(i32 %179, i32 %179, i32 30)
   switch i32 %180, label %191 [
@@ -374,43 +374,43 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %149
     i32 0, label %188
   ]
 
-181:                                              ; preds = %178
-  %182 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %183 = load i32, ptr %182, align 4, !tbaa !32
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %183)
+176:                                              ; preds = %175
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %178 = load i32, ptr %177, align 4, !tbaa !32
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %178)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn18Flatten_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3, ptr nonnull %7, ptr nonnull %1, ptr nonnull %2, ptr nonnull %8)
-  switch i32 %11, label %191 [
+  switch i32 %11, label %185 [
     i32 8, label %184
     i32 4, label %188
   ]
 
-184:                                              ; preds = %178, %181
-  %185 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %186 = load i32, ptr %185, align 4, !tbaa !32
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %186)
+179:                                              ; preds = %175, %181
+  %180 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %181 = load i32, ptr %180, align 4, !tbaa !32
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %181)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn18Flatten_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.4, ptr nonnull %7, ptr nonnull %1, ptr nonnull %2, ptr nonnull %8)
   %187 = icmp eq i32 %11, 4
   br i1 %187, label %188, label %191
 
-188:                                              ; preds = %178, %181, %184
-  %189 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %190 = load i32, ptr %189, align 4, !tbaa !32
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %190)
+182:                                              ; preds = %175, %181, %184
+  %183 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %184 = load i32, ptr %183, align 4, !tbaa !32
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %184)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn18Flatten_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.5, ptr nonnull %7, ptr nonnull %1, ptr nonnull %2, ptr nonnull %8)
-  br label %191
+  br label %185
 
-191:                                              ; preds = %178, %181, %188, %184
-  br i1 %106, label %192, label %_ZNK4ncnn3Mat5emptyEv.exit.thread
+185:                                              ; preds = %175, %181, %188, %184
+  br i1 %106, label %186, label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
-192:                                              ; preds = %191
-  %193 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %194 = load i32, ptr %193, align 4, !tbaa !32
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %194)
+186:                                              ; preds = %185
+  %187 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %188 = load i32, ptr %187, align 4, !tbaa !32
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %188)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn18Flatten_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.6, ptr nonnull %7, ptr nonnull %1, ptr nonnull %2, ptr nonnull %8)
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
-_ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %173, %169, %166, %163, %149, %176, %192, %191, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MataSERKS0_.exit89, %99
-  %.2 = phi i32 [ %100, %99 ], [ 0, %_ZN4ncnn3MataSERKS0_.exit89 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %191 ], [ 0, %192 ], [ 0, %176 ], [ -100, %149 ], [ 0, %163 ], [ 0, %166 ], [ 0, %169 ], [ 0, %173 ]
+_ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %170, %169, %164, %163, %149, %173, %186, %185, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MataSERKS0_.exit89, %99
+  %.2 = phi i32 [ %100, %99 ], [ 0, %_ZN4ncnn3MataSERKS0_.exit89 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %185 ], [ 0, %186 ], [ 0, %173 ], [ -100, %149 ], [ 0, %163 ], [ 0, %166 ], [ 0, %169 ], [ 0, %173 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6

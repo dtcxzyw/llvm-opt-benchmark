@@ -11529,25 +11529,25 @@ define void @_ZN15MainApplication19captureEventHandlerE12CaptureEvent(ptr nounde
   %4 = add i32 %3, -2
   %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 24)
   %switch = icmp ult i32 %5, 3
-  br i1 %switch, label %6, label %10
+  br i1 %switch, label %4, label %8
 
-6:                                                ; preds = %2
-  %7 = tail call noundef i32 @_ZNK12CaptureEvent9eventTypeEv(ptr noundef align 8 dereferenceable_or_null(40) %1)
-  switch i32 %7, label %10 [
-    i32 2, label %8
-    i32 4, label %9
+4:                                                ; preds = %2
+  %5 = tail call noundef i32 @_ZNK12CaptureEvent9eventTypeEv(ptr noundef align 8 dereferenceable_or_null(40) %1)
+  switch i32 %5, label %8 [
+    i32 2, label %6
+    i32 4, label %7
   ]
 
-8:                                                ; preds = %6
+6:                                                ; preds = %4
   tail call void @_ZN6QTimer10singleShotEiPK7QObjectPKc(i32 noundef 600, ptr noundef %0, ptr noundef nonnull @.str.38)
   tail call void @_ZN6QTimer10singleShotEiPK7QObjectPKc(i32 noundef 1500, ptr noundef %0, ptr noundef nonnull @.str.38)
-  br label %10
+  br label %8
 
-9:                                                ; preds = %6
+7:                                                ; preds = %4
   tail call void @draw_tap_listeners(i1 noundef zeroext false)
-  br label %10
+  br label %8
 
-10:                                               ; preds = %2, %8, %9, %6
+8:                                                ; preds = %2, %6, %7, %4
   ret void
 }
 

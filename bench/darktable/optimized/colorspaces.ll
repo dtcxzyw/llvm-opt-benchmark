@@ -4375,19 +4375,19 @@ declare void @dt_control_signal_raise(ptr noundef, i32 noundef, ...) local_unnam
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 27) i32 @dt_colorspaces_cicp_to_type(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4, !tbaa !159
-  switch i32 %3, label %31 [
+  switch i32 %3, label %29 [
     i32 2, label %4
     i32 1, label %12
     i32 9, label %16
-    i32 12, label %23
-    i32 10, label %28
+    i32 12, label %21
+    i32 10, label %26
   ]
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !161
   %7 = icmp eq i32 %6, 2
-  br i1 %7, label %8, label %31
+  br i1 %7, label %8, label %29
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4395,14 +4395,14 @@ define range(i32 -1, 27) i32 @dt_colorspaces_cicp_to_type(ptr noundef readonly c
   %11 = icmp eq i32 %10, 2
   %.not = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %11
-  br i1 %or.cond, label %41, label %32
+  br i1 %or.cond, label %39, label %30
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !161
   %switch.tableidx = add i32 %14, -1
   %15 = icmp ult i32 %switch.tableidx, 15
-  br i1 %15, label %switch.hole_check, label %31
+  br i1 %15, label %switch.hole_check, label %29
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4415,65 +4415,65 @@ define range(i32 -1, 27) i32 @dt_colorspaces_cicp_to_type(ptr noundef readonly c
     i32 5, label %22
   ]
 
-21:                                               ; preds = %16
-  br label %41
+19:                                               ; preds = %16
+  br label %39
 
-22:                                               ; preds = %16
-  br label %41
+20:                                               ; preds = %16
+  br label %39
 
-23:                                               ; preds = %2
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !161
-  switch i32 %25, label %31 [
-    i32 16, label %41
-    i32 18, label %26
-    i32 13, label %27
+21:                                               ; preds = %2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !161
+  switch i32 %23, label %29 [
+    i32 16, label %39
+    i32 18, label %24
+    i32 13, label %25
   ]
 
-26:                                               ; preds = %23
-  br label %41
+24:                                               ; preds = %21
+  br label %39
 
-27:                                               ; preds = %23
-  br label %41
+25:                                               ; preds = %21
+  br label %39
 
-28:                                               ; preds = %2
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !161
-  %cond = icmp eq i32 %30, 8
-  br i1 %cond, label %41, label %31
+26:                                               ; preds = %2
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !161
+  %cond = icmp eq i32 %28, 8
+  br i1 %cond, label %39, label %29
 
-31:                                               ; preds = %switch.hole_check, %12, %2, %28, %23, %16, %4
+29:                                               ; preds = %switch.hole_check, %12, %2, %26, %21, %16, %4
   %.not.old = icmp eq ptr %1, null
-  br i1 %.not.old, label %41, label %32
+  br i1 %.not.old, label %39, label %30
 
-32:                                               ; preds = %8, %31
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !34
-  %34 = and i32 %33, 262144
-  %.not13 = icmp eq i32 %34, 0
-  br i1 %.not13, label %41, label %35
+30:                                               ; preds = %8, %29
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !34
+  %32 = and i32 %31, 262144
+  %.not13 = icmp eq i32 %32, 0
+  br i1 %.not13, label %39, label %33
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !161
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load i32, ptr %38, align 4, !tbaa !162
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.77, ptr noundef nonnull %1, i32 noundef %3, i32 noundef %37, i32 noundef %39) #23
-  br label %41
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %35 = load i32, ptr %34, align 4, !tbaa !161
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load i32, ptr %36, align 4, !tbaa !162
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.77, ptr noundef nonnull %1, i32 noundef %3, i32 noundef %35, i32 noundef %37) #23
+  br label %39
 
 switch.hole_check:                                ; preds = %12
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 28833, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %31
+  br i1 %switch.lobit, label %switch.lookup, label %29
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %40 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table.dt_colorspaces_cicp_to_type, i64 0, i64 %40
+  %38 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table.dt_colorspaces_cicp_to_type, i64 0, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %41
+  br label %39
 
-41:                                               ; preds = %switch.lookup, %31, %32, %35, %28, %23, %16, %8, %27, %26, %22, %21
-  %.0 = phi i32 [ 26, %27 ], [ 25, %26 ], [ 23, %22 ], [ 22, %21 ], [ -1, %8 ], [ 4, %16 ], [ 24, %23 ], [ 5, %28 ], [ -1, %35 ], [ -1, %32 ], [ -1, %31 ], [ %switch.load, %switch.lookup ]
+39:                                               ; preds = %switch.lookup, %29, %30, %33, %26, %21, %16, %8, %25, %24, %20, %19
+  %.0 = phi i32 [ 26, %25 ], [ 25, %24 ], [ 23, %20 ], [ 22, %19 ], [ -1, %8 ], [ 4, %16 ], [ 24, %21 ], [ 5, %26 ], [ -1, %33 ], [ -1, %30 ], [ -1, %29 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -5891,10 +5891,10 @@ declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #20
 declare i32 @llvm.fshl.i32(i32, i32, i32) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #21
+declare float @llvm.fabs.f32(float) #22
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

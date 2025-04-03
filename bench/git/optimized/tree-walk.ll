@@ -2820,7 +2820,7 @@ _.exit:                                           ; preds = %17, %19
   %.0.i = phi ptr [ %20, %19 ], [ @.str.8, %17 ]
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #16
   tail call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %.0.i, i64 noundef %21) #14
-  br label %81
+  br label %79
 
 22:                                               ; preds = %11
   %23 = load i8, ptr %1, align 1, !tbaa !41
@@ -2862,7 +2862,7 @@ _.exit30:                                         ; preds = %.loopexit, %37
   %.0.i29 = phi ptr [ %38, %37 ], [ @.str.9, %.loopexit ]
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i29) #16
   tail call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %.0.i29, i64 noundef %39) #14
-  br label %81
+  br label %79
 
 parse_mode.exit:                                  ; preds = %30
   %40 = load i8, ptr %35, align 1, !tbaa !41
@@ -2882,7 +2882,7 @@ _.exit33:                                         ; preds = %41, %43
   %.0.i32 = phi ptr [ %44, %43 ], [ @.str.10, %41 ]
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i32) #16
   tail call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %.0.i32, i64 noundef %45) #14
-  br label %81
+  br label %79
 
 46:                                               ; preds = %parse_mode.exit
   %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #16
@@ -2898,7 +2898,7 @@ _.exit33:                                         ; preds = %41, %43
   %55 = zext i16 %34 to i32
   br i1 %.not27, label %56, label %canon_mode.exit
 
-56:                                               ; preds = %46
+55:                                               ; preds = %46
   %57 = and i32 %55, 61440
   %58 = add nsw i32 %57, -16384
   %59 = tail call i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 19)
@@ -2908,62 +2908,62 @@ _.exit33:                                         ; preds = %41, %43
     i32 0, label %63
   ]
 
-60:                                               ; preds = %56
-  %61 = and i32 %55, 64
-  %.not.i35 = icmp eq i32 %61, 0
-  %62 = select i1 %.not.i35, i32 33188, i32 33261
+58:                                               ; preds = %56
+  %59 = and i32 %55, 64
+  %.not.i35 = icmp eq i32 %59, 0
+  %60 = select i1 %.not.i35, i32 33188, i32 33261
   br label %canon_mode.exit
 
-63:                                               ; preds = %56
+61:                                               ; preds = %56
   br label %canon_mode.exit
 
-64:                                               ; preds = %56
+62:                                               ; preds = %56
   br label %canon_mode.exit
 
-canon_mode.exit:                                  ; preds = %46, %64, %63, %60, %56
-  %65 = phi i32 [ %62, %60 ], [ 16384, %63 ], [ 57344, %64 ], [ 40960, %56 ], [ %55, %46 ]
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %65, ptr %66, align 4, !tbaa !92
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %48, ptr %67, align 8, !tbaa !44
-  %68 = and i64 %49, 4294967295
-  %69 = getelementptr inbounds nuw i8, ptr %35, i64 %68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %50, ptr nonnull readonly align 1 %69, i64 %7, i1 false)
-  %70 = load i64, ptr %6, align 8, !tbaa !45
-  %71 = icmp ult i64 %70, 32
-  br i1 %71, label %72, label %.preheader
+canon_mode.exit:                                  ; preds = %46, %64, %63, %60, %55
+  %63 = phi i32 [ %62, %60 ], [ 16384, %61 ], [ 57344, %62 ], [ 40960, %56 ], [ %55, %46 ]
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 %63, ptr %64, align 4, !tbaa !92
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %48, ptr %65, align 8, !tbaa !44
+  %66 = and i64 %49, 4294967295
+  %67 = getelementptr inbounds nuw i8, ptr %35, i64 %66
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %50, ptr nonnull readonly align 1 %67, i64 %7, i1 false)
+  %68 = load i64, ptr %6, align 8, !tbaa !45
+  %69 = icmp ult i64 %68, 32
+  br i1 %69, label %70, label %.preheader
 
-72:                                               ; preds = %canon_mode.exit
-  %73 = getelementptr inbounds nuw i8, ptr %50, i64 %70
-  %74 = sub nuw nsw i64 32, %70
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %73, i8 0, i64 %74, i1 false)
+70:                                               ; preds = %canon_mode.exit
+  %71 = getelementptr inbounds nuw i8, ptr %50, i64 %68
+  %72 = sub nuw nsw i64 32, %68
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %71, i8 0, i64 %72, i1 false)
   br label %.preheader
 
-.preheader:                                       ; preds = %72, %canon_mode.exit
-  br label %75
+.preheader:                                       ; preds = %70, %canon_mode.exit
+  br label %73
 
-75:                                               ; preds = %.preheader, %77
-  %.0811.i.i = phi i64 [ %78, %77 ], [ 0, %.preheader ]
-  %76 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
-  %.not.i.i = icmp eq ptr %5, %76
-  br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %77
+73:                                               ; preds = %.preheader, %75
+  %.0811.i.i = phi i64 [ %76, %75 ], [ 0, %.preheader ]
+  %74 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %.not.i.i = icmp eq ptr %5, %74
+  br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %75
 
-77:                                               ; preds = %75
-  %78 = add nuw nsw i64 %.0811.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %78, 3
-  br i1 %exitcond.not.i.i, label %oidread.exit, label %75, !llvm.loop !114
+75:                                               ; preds = %73
+  %76 = add nuw nsw i64 %.0811.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %76, 3
+  br i1 %exitcond.not.i.i, label %oidread.exit, label %73, !llvm.loop !114
 
-.split.loop.exit9.i.i:                            ; preds = %75
-  %79 = trunc nuw nsw i64 %.0811.i.i to i32
+.split.loop.exit9.i.i:                            ; preds = %73
+  %77 = trunc nuw nsw i64 %.0811.i.i to i32
   br label %oidread.exit
 
-oidread.exit:                                     ; preds = %77, %.split.loop.exit9.i.i
-  %.2.i.i = phi i32 [ %79, %.split.loop.exit9.i.i ], [ 0, %77 ]
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.2.i.i, ptr %80, align 4, !tbaa !4
-  br label %81
+oidread.exit:                                     ; preds = %75, %.split.loop.exit9.i.i
+  %.2.i.i = phi i32 [ %77, %.split.loop.exit9.i.i ], [ 0, %75 ]
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %.2.i.i, ptr %78, align 4, !tbaa !4
+  br label %79
 
-81:                                               ; preds = %oidread.exit, %_.exit33, %_.exit30, %_.exit
+79:                                               ; preds = %oidread.exit, %_.exit33, %_.exit30, %_.exit
   %.0 = phi i32 [ -1, %_.exit ], [ 0, %oidread.exit ], [ -1, %_.exit33 ], [ -1, %_.exit30 ]
   ret i32 %.0
 }
@@ -3000,19 +3000,19 @@ declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none),
 declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #12
+declare i64 @llvm.usub.sat.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -343,7 +343,7 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
     i32 6, label %.critedge.sink.split
   ]
 
-159:                                              ; preds = %155
+158:                                              ; preds = %155
   %cond = icmp sgt i32 %156, -1
   br i1 %cond, label %.critedge.sink.split, label %.critedge
 
@@ -367,7 +367,7 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
   store i32 %168, ptr %5, align 8
   %169 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0)
   %170 = icmp eq i32 %169, 0
-  %171 = icmp slt i32 %169, 0
+  %170 = icmp slt i32 %169, 0
   %.lobit216 = lshr i32 %169, 31
   %..4. = select i1 %171, i32 %169, i32 %.016.i.ph
   %.15 = select i1 %170, i32 8, i32 %.lobit216
@@ -377,7 +377,7 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
     i32 8, label %.critedge.sink.split
   ]
 
-.critedge.sink.split:                             ; preds = %167, %162, %167, %159, %155, %.thread194, %155, %139, %145
+.critedge:                                        ; preds = %167, %162, %167, %159, %155, %.thread194, %155, %139, %145
   %.12126.ph = phi i32 [ 7, %145 ], [ 7, %139 ], [ 7, %155 ], [ 7, %.thread194 ], [ 7, %155 ], [ 7, %159 ], [ 0, %167 ], [ 0, %162 ], [ 0, %167 ]
   %.10.ph = phi i32 [ %.016.i.ph, %145 ], [ %.016.i.ph, %139 ], [ %.9, %155 ], [ %.016.i.ph, %.thread194 ], [ %.9, %155 ], [ %.9, %159 ], [ %.13, %167 ], [ %.016.i.ph, %162 ], [ %.13, %167 ]
   store i32 %75, ptr %5, align 8

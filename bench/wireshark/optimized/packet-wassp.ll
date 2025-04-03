@@ -2050,7 +2050,7 @@ define internal void @topology_moder_print(ptr noundef %0, i16 noundef zeroext %
   %4 = and i16 %1, 4095
   %5 = add nsw i32 %3, -16384
   %6 = lshr i32 %5, 14
-  %.not36 = icmp eq i16 %4, 0
+  %.not35 = icmp eq i16 %4, 0
   switch i32 %6, label %25 [
     i32 2, label %7
     i32 0, label %13
@@ -2058,7 +2058,7 @@ define internal void @topology_moder_print(ptr noundef %0, i16 noundef zeroext %
   ]
 
 7:                                                ; preds = %2
-  br i1 %.not36, label %11, label %8
+  br i1 %.not35, label %11, label %8
 
 8:                                                ; preds = %7
   %9 = zext nneg i16 %4 to i32
@@ -2070,7 +2070,7 @@ define internal void @topology_moder_print(ptr noundef %0, i16 noundef zeroext %
   br label %31
 
 13:                                               ; preds = %2
-  br i1 %.not36, label %17, label %14
+  br i1 %.not35, label %17, label %14
 
 14:                                               ; preds = %13
   %15 = zext nneg i16 %4 to i32
@@ -2082,7 +2082,7 @@ define internal void @topology_moder_print(ptr noundef %0, i16 noundef zeroext %
   br label %31
 
 19:                                               ; preds = %2
-  br i1 %.not36, label %23, label %20
+  br i1 %.not35, label %23, label %20
 
 20:                                               ; preds = %19
   %21 = zext nneg i16 %4 to i32
@@ -2094,7 +2094,7 @@ define internal void @topology_moder_print(ptr noundef %0, i16 noundef zeroext %
   br label %31
 
 25:                                               ; preds = %2
-  br i1 %.not36, label %29, label %26
+  br i1 %.not35, label %29, label %26
 
 26:                                               ; preds = %25
   %27 = zext nneg i16 %4 to i32

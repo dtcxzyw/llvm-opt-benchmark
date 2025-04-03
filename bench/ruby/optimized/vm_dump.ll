@@ -1885,12 +1885,12 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #9 {
 12:                                               ; preds = %9
   br label %18
 
-13:                                               ; preds = %9
+13:; preds = %9
   %14 = and i64 %0, 1
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %15, label %18
 
-15:                                               ; preds = %13
+15:; preds = %13
   %16 = and i64 %0, 254
   %17 = icmp eq i64 %16, 12
   %spec.select = select i1 %17, ptr @rb_cSymbol, ptr @rb_cFloat

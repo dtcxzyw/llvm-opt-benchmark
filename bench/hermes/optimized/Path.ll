@@ -7018,8 +7018,8 @@ if.end19:                                         ; preds = %if.end8, %if.end8, 
 
 if.then23:                                        ; preds = %if.end19
   %call24 = tail call ptr @__errno_location() #30
-  %5 = load i32, ptr %call24, align 4
-  %cmp25.not = icmp eq i32 %5, 2
+  %4 = load i32, ptr %call24, align 4
+  %cmp25.not = icmp eq i32 %4, 2
   %brmerge3.not = and i1 %IgnoreNonExisting, %cmp25.not
   br i1 %brmerge3.not, label %if.end32, label %if.then28
 
@@ -7032,14 +7032,14 @@ if.end32:                                         ; preds = %if.then23, %if.end1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end32, %if.then28, %if.then17, %if.end, %if.then5
-  %retval.sroa.0.0 = phi i32 [ 1, %if.then17 ], [ %5, %if.then28 ], [ 0, %if.end32 ], [ %1, %if.then5 ], [ 0, %if.end ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.then17 ], [ %4, %if.then28 ], [ 0, %if.end32 ], [ %1, %if.then5 ], [ 0, %if.end ]
   %retval.sroa.6.0 = phi ptr [ %call.i5, %if.then17 ], [ %call30, %if.then28 ], [ %call.i8, %if.end32 ], [ %call7, %if.then5 ], [ %call.i, %if.end ]
-  %6 = load ptr, ptr %path_storage, align 8
-  %cmp.i.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i.i.i.i
+  %5 = load ptr, ptr %path_storage, align 8
+  %cmp.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  call void @free(ptr noundef %6) #29
+  call void @free(ptr noundef %5) #29
   br label %_ZN4llvh11SmallStringILj128EED2Ev.exit
 
 _ZN4llvh11SmallStringILj128EED2Ev.exit:           ; preds = %cleanup, %if.then.i.i.i

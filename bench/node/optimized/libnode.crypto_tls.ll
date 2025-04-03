@@ -11954,79 +11954,79 @@ do.end.if.else53_crit_edge:                       ; preds = %do.end
 
 if.then14:                                        ; preds = %do.end
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
-  %26 = load ptr, ptr %isolate_.i, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %add1.i = add i64 %27, 640
-  %28 = inttoptr i64 %add1.i to ptr
+  %25 = load ptr, ptr %isolate_.i, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %add1.i = add i64 %26, 640
+  %27 = inttoptr i64 %add1.i to ptr
   br label %if.end66
 
 land.lhs.true:                                    ; preds = %do.end
-  %29 = load ptr, ptr %alpn_proto, align 8
-  %bcmp28 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %29, ptr noundef nonnull dereferenceable(2) @.str.193, i64 2)
+  %28 = load ptr, ptr %alpn_proto, align 8
+  %bcmp28 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %28, ptr noundef nonnull dereferenceable(2) @.str.193, i64 2)
   %cmp26 = icmp eq i32 %bcmp28, 0
   br i1 %cmp26, label %if.then27, label %if.else53
 
 if.then27:                                        ; preds = %land.lhs.true
   %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 96
-  %30 = load ptr, ptr %isolate_data_.i.i, align 8
-  %h2_string_.i.i = getelementptr inbounds nuw i8, ptr %30, i64 1064
-  %31 = load ptr, ptr %h2_string_.i.i, align 8
+  %29 = load ptr, ptr %isolate_data_.i.i, align 8
+  %h2_string_.i.i = getelementptr inbounds nuw i8, ptr %29, i64 1064
+  %30 = load ptr, ptr %h2_string_.i.i, align 8
   br label %if.end66
 
 land.lhs.true40:                                  ; preds = %do.end
-  %32 = load ptr, ptr %alpn_proto, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %32, ptr noundef nonnull dereferenceable(8) @.str.194, i64 8)
+  %31 = load ptr, ptr %alpn_proto, align 8
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %31, ptr noundef nonnull dereferenceable(8) @.str.194, i64 8)
   %cmp42 = icmp eq i32 %bcmp, 0
   br i1 %cmp42, label %if.then43, label %if.else53
 
 if.then43:                                        ; preds = %land.lhs.true40
   %isolate_data_.i.i13 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 96
-  %33 = load ptr, ptr %isolate_data_.i.i13, align 8
-  %http_1_1_string_.i.i = getelementptr inbounds nuw i8, ptr %33, i64 1120
-  %34 = load ptr, ptr %http_1_1_string_.i.i, align 8
+  %32 = load ptr, ptr %isolate_data_.i.i13, align 8
+  %http_1_1_string_.i.i = getelementptr inbounds nuw i8, ptr %32, i64 1120
+  %33 = load ptr, ptr %http_1_1_string_.i.i, align 8
   br label %if.end66
 
 if.else53:                                        ; preds = %do.end.if.else53_crit_edge, %land.lhs.true, %land.lhs.true40
-  %35 = phi ptr [ %.pre, %do.end.if.else53_crit_edge ], [ %29, %land.lhs.true ], [ %32, %land.lhs.true40 ]
+  %34 = phi ptr [ %.pre, %do.end.if.else53_crit_edge ], [ %28, %land.lhs.true ], [ %31, %land.lhs.true40 ]
   %isolate_.i14 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
-  %36 = load ptr, ptr %isolate_.i14, align 8
-  %call.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %36, ptr noundef %35, i32 noundef 0, i32 noundef %24) #24
+  %35 = load ptr, ptr %isolate_.i14, align 8
+  %call.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %35, ptr noundef %34, i32 noundef 0, i32 noundef %24) #24
   %cmp.i.i.i15 = icmp eq ptr %call.i, null
   br i1 %cmp.i.i.i15, label %if.end66.thread, label %if.end66.thread22
 
 if.end66.thread22:                                ; preds = %if.else53
-  %37 = load ptr, ptr %args, align 8
-  %arrayidx.i24 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %36 = load ptr, ptr %args, align 8
+  %arrayidx.i24 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br label %return.sink.split
 
 if.end66.thread:                                  ; preds = %if.else53
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %38 = load ptr, ptr %args, align 8
-  %arrayidx.i19 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %37 = load ptr, ptr %args, align 8
+  %arrayidx.i19 = getelementptr inbounds nuw i8, ptr %37, i64 24
   br label %if.then.i
 
 if.end66:                                         ; preds = %if.then27, %if.then43, %if.then14
-  %result.sroa.0.0 = phi ptr [ %28, %if.then14 ], [ %31, %if.then27 ], [ %34, %if.then43 ]
-  %39 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %result.sroa.0.0 = phi ptr [ %27, %if.then14 ], [ %30, %if.then27 ], [ %33, %if.then43 ]
+  %38 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %38, i64 24
   %cmp.i.i = icmp eq ptr %result.sroa.0.0, null
   br i1 %cmp.i.i, label %if.then.i, label %return.sink.split
 
 if.then.i:                                        ; preds = %if.end66.thread, %if.end66
   %arrayidx.i21 = phi ptr [ %arrayidx.i19, %if.end66.thread ], [ %arrayidx.i, %if.end66 ]
-  %40 = phi ptr [ %38, %if.end66.thread ], [ %39, %if.end66 ]
-  %arrayidx.i139 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %41 = load ptr, ptr %arrayidx.i139, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %add1.i.i = add i64 %42, 616
-  %43 = inttoptr i64 %add1.i.i to ptr
+  %39 = phi ptr [ %37, %if.end66.thread ], [ %38, %if.end66 ]
+  %arrayidx.i139 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %40 = load ptr, ptr %arrayidx.i139, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %add1.i.i = add i64 %41, 616
+  %42 = inttoptr i64 %add1.i.i to ptr
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end66, %if.end66.thread22, %if.then.i
-  %.sink29 = phi ptr [ %43, %if.then.i ], [ %call.i, %if.end66.thread22 ], [ %result.sroa.0.0, %if.end66 ]
+  %.sink29 = phi ptr [ %42, %if.then.i ], [ %call.i, %if.end66.thread22 ], [ %result.sroa.0.0, %if.end66 ]
   %arrayidx.i21.sink = phi ptr [ %arrayidx.i21, %if.then.i ], [ %arrayidx.i24, %if.end66.thread22 ], [ %arrayidx.i, %if.end66 ]
-  %44 = load i64, ptr %.sink29, align 8
-  store i64 %44, ptr %arrayidx.i21.sink, align 8
+  %43 = load i64, ptr %.sink29, align 8
+  store i64 %43, ptr %arrayidx.i21.sink, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit

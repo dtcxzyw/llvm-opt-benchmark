@@ -8245,7 +8245,7 @@ define hidden void @zim_Phar_compress(ptr noundef readonly captures(none) %0, pt
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
-  br label %75
+  br label %74
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8266,7 +8266,7 @@ define hidden void @zim_Phar_compress(ptr noundef readonly captures(none) %0, pt
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
-  br label %75
+  br label %74
 
 28:                                               ; preds = %13
   %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 192), align 8, !tbaa !108, !range !48, !noundef !49
@@ -8284,7 +8284,7 @@ define hidden void @zim_Phar_compress(ptr noundef readonly captures(none) %0, pt
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %38 = icmp ne ptr %37, null
   call void @llvm.assume(i1 %38)
-  br label %75
+  br label %74
 
 ._crit_edge:                                      ; preds = %28
   %39 = and i16 %32, 32
@@ -8297,7 +8297,7 @@ define hidden void @zim_Phar_compress(ptr noundef readonly captures(none) %0, pt
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %44 = icmp ne ptr %43, null
   call void @llvm.assume(i1 %44)
-  br label %75
+  br label %74
 
 45:                                               ; preds = %._crit_edge
   %46 = load i64, ptr %3, align 8, !tbaa !50
@@ -8308,59 +8308,59 @@ define hidden void @zim_Phar_compress(ptr noundef readonly captures(none) %0, pt
     i64 2, label %56
   ]
 
-48:                                               ; preds = %45
-  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 195), align 1, !tbaa !106, !range !48, !noundef !49
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %67, label %51
+47:                                               ; preds = %45
+  %48 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 195), align 1, !tbaa !106, !range !48, !noundef !49
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %66, label %50
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !54
-  %53 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %52, i64 noundef 0, ptr noundef nonnull @.str.87) #20
-  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
-  %55 = icmp ne ptr %54, null
-  call void @llvm.assume(i1 %55)
-  br label %75
+50:                                               ; preds = %47
+  %51 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !54
+  %52 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %51, i64 noundef 0, ptr noundef nonnull @.str.87) #20
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
+  %54 = icmp ne ptr %53, null
+  call void @llvm.assume(i1 %54)
+  br label %74
 
-56:                                               ; preds = %45
-  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 196), align 4, !tbaa !107, !range !48, !noundef !49
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %67, label %59
+55:                                               ; preds = %45
+  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 196), align 4, !tbaa !107, !range !48, !noundef !49
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %66, label %58
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !54
-  %61 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %60, i64 noundef 0, ptr noundef nonnull @.str.89) #20
-  br label %75
+58:                                               ; preds = %55
+  %59 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !54
+  %60 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %59, i64 noundef 0, ptr noundef nonnull @.str.89) #20
+  br label %74
 
-62:                                               ; preds = %45
-  %63 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !54
-  %64 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %63, i64 noundef 0, ptr noundef nonnull @.str.90) #20
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
-  %66 = icmp ne ptr %65, null
-  call void @llvm.assume(i1 %66)
-  br label %75
+61:                                               ; preds = %45
+  %62 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !54
+  %63 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %62, i64 noundef 0, ptr noundef nonnull @.str.90) #20
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
+  %65 = icmp ne ptr %64, null
+  call void @llvm.assume(i1 %65)
+  br label %74
 
-67:                                               ; preds = %56, %48, %45
-  %.0 = phi i32 [ 0, %45 ], [ 1048576, %48 ], [ 2097152, %56 ]
-  %68 = and i16 %32, 64
-  %.not21 = icmp eq i16 %68, 0
-  %69 = load ptr, ptr %4, align 8, !tbaa !47
+66:                                               ; preds = %55, %47, %45
+  %.0 = phi i32 [ 0, %45 ], [ 1048576, %47 ], [ 2097152, %55 ]
+  %67 = and i16 %32, 64
+  %.not21 = icmp eq i16 %67, 0
+  %68 = load ptr, ptr %4, align 8, !tbaa !47
   %. = select i1 %.not21, i32 1, i32 2
-  %70 = call fastcc ptr @phar_convert_to_other(ptr noundef nonnull %22, i32 noundef %., ptr noundef %69, i32 noundef %.0)
-  %.not22 = icmp eq ptr %70, null
-  br i1 %.not22, label %73, label %71
+  %69 = call fastcc ptr @phar_convert_to_other(ptr noundef nonnull %22, i32 noundef %., ptr noundef %68, i32 noundef %.0)
+  %.not22 = icmp eq ptr %69, null
+  br i1 %.not22, label %72, label %70
 
-71:                                               ; preds = %67
-  store ptr %70, ptr %1, align 8, !tbaa !8
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 776, ptr %72, align 8, !tbaa !8
-  br label %75
+70:                                               ; preds = %66
+  store ptr %69, ptr %1, align 8, !tbaa !8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 776, ptr %71, align 8, !tbaa !8
+  br label %74
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %74, align 8, !tbaa !8
-  br label %75
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 1, ptr %73, align 8, !tbaa !8
+  br label %74
 
-75:                                               ; preds = %23, %34, %40, %51, %59, %62, %71, %73, %10
+74:                                               ; preds = %23, %34, %40, %50, %58, %61, %70, %72, %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
@@ -15129,13 +15129,13 @@ declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr nou
 declare i64 @llvm.fshl.i64(i64, i64, i64) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #18
+declare i64 @llvm.smin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

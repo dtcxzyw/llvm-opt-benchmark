@@ -45,9 +45,9 @@ define hidden void @mbedtls_aesni_gcm_mult(ptr noundef writeonly captures(none) 
   %4 = alloca [16 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
   br label %7
 
 7:                                                ; preds = %3, %7
@@ -81,9 +81,9 @@ define hidden void @mbedtls_aesni_gcm_mult(ptr noundef writeonly captures(none) 
   br i1 %exitcond14.not, label %23, label %17, !llvm.loop !17
 
 23:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
   ret void
 }
 
@@ -133,20 +133,20 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aesni_setkey_enc(ptr noundef %0, pt
     i64 2, label %8
   ]
 
-6:                                                ; preds = %3
+4:                                                ; preds = %3
   tail call void asm sideeffect "movdqu ($1), %xmm0               \0A\09movdqu %xmm0, ($0)               \0A\09jmp 2f                            \0A\091:                                \0A\09pshufd $$0xff, %xmm1, %xmm1      \0A\09pxor %xmm0, %xmm1               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm1               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm1               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm1, %xmm0               \0A\09add $$16, $0                       \0A\09movdqu %xmm0, ($0)               \0A\09ret                               \0A\092:                                \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x01\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x02\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x04\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x08\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x10\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x20\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x40\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x80\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x1B\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x36\0A\09call 1b \0A\09", "r,r,~{memory},~{cc},~{ax},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #6, !srcloc !20
-  br label %9
+  br label %7
 
-7:                                                ; preds = %3
+5:                                                ; preds = %3
   tail call void asm sideeffect "movdqu ($1), %xmm0   \0A\09movdqu %xmm0, ($0)   \0A\09add $$16, $0           \0A\09movq 16($1), %xmm1   \0A\09movq %xmm1, ($0)     \0A\09add $$8, $0            \0A\09jmp 2f                \0A\091:                            \0A\09pshufd $$0x55, %xmm2, %xmm2  \0A\09pxor %xmm0, %xmm2           \0A\09pslldq $$4, %xmm0             \0A\09pxor %xmm0, %xmm2           \0A\09pslldq $$4, %xmm0             \0A\09pxor %xmm0, %xmm2           \0A\09pslldq $$4, %xmm0             \0A\09pxor %xmm2, %xmm0           \0A\09movdqu %xmm0, ($0)           \0A\09add $$16, $0                   \0A\09pshufd $$0xff, %xmm0, %xmm2  \0A\09pxor %xmm1, %xmm2           \0A\09pslldq $$4, %xmm1             \0A\09pxor %xmm2, %xmm1           \0A\09movq %xmm1, ($0)             \0A\09add $$8, $0                    \0A\09ret                           \0A\092:                            \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x01\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x02\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x04\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x08\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x10\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x20\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x40\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x80\0A\09call 1b \0A\09", "r,r,~{memory},~{cc},~{ax},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #6, !srcloc !21
-  br label %9
+  br label %7
 
-8:                                                ; preds = %3
+6:                                                ; preds = %3
   tail call void asm sideeffect "movdqu ($1), %xmm0           \0A\09movdqu %xmm0, ($0)           \0A\09add $$16, $0                   \0A\09movdqu 16($1), %xmm1         \0A\09movdqu %xmm1, ($0)           \0A\09jmp 2f                        \0A\091:                                \0A\09pshufd $$0xff, %xmm2, %xmm2      \0A\09pxor %xmm0, %xmm2               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm2               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm2               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm2, %xmm0               \0A\09add $$16, $0                       \0A\09movdqu %xmm0, ($0)               \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD0,0x00\0A\09pshufd $$0xaa, %xmm2, %xmm2      \0A\09pxor %xmm1, %xmm2               \0A\09pslldq $$4, %xmm1                 \0A\09pxor %xmm1, %xmm2               \0A\09pslldq $$4, %xmm1                 \0A\09pxor %xmm1, %xmm2               \0A\09pslldq $$4, %xmm1                 \0A\09pxor %xmm2, %xmm1               \0A\09add $$16, $0                       \0A\09movdqu %xmm1, ($0)               \0A\09ret                               \0A\092:                                \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x01\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x02\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x04\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x08\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x10\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x20\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x40\0A\09call 1b \0A\09", "r,r,~{memory},~{cc},~{ax},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #6, !srcloc !22
-  br label %9
+  br label %7
 
-9:                                                ; preds = %6, %7, %8, %3
-  %.0 = phi i32 [ -32, %3 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ]
+7:                                                ; preds = %4, %5, %6, %3
+  %.0 = phi i32 [ -32, %3 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ]
   ret i32 %.0
 }
 

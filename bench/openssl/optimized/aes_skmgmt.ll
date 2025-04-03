@@ -9,7 +9,7 @@ declare void @generic_free(ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @aes_import(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @generic_import(ptr noundef %0, i32 noundef %1, ptr noundef %2) #3
+  %4 = tail call ptr @generic_import(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2
   %5 = icmp eq ptr %4, null
   br i1 %5, label %14, label %6
 
@@ -43,7 +43,7 @@ define internal i32 @aes_export(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @generic_export(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #3
+  %8 = tail call i32 @generic_export(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #2
   br label %9
 
 9:                                                ; preds = %4, %7

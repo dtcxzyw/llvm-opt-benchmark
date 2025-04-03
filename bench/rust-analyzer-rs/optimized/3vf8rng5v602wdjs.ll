@@ -5462,47 +5462,47 @@ define hidden void @"_ZN168_$LT$proc_macro_api.._..$LT$impl$u20$serde..de..Deser
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit": ; preds = %3
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %1, ptr nonnull @anon.e2e4e5626bae6aab74d01de03a3cb2a6.82.llvm.14009270277967323967, i64 %2), !alias.scope !1573
-  %6 = icmp eq i32 %bcmp.i, 0
-  br i1 %6, label %8, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread"
+  %4 = icmp eq i32 %bcmp.i, 0
+  br i1 %4, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit18": ; preds = %3
   %bcmp.i17 = tail call i32 @bcmp(ptr nonnull readonly align 1 %1, ptr nonnull @anon.e2e4e5626bae6aab74d01de03a3cb2a6.83.llvm.14009270277967323967, i64 %2), !alias.scope !1577
-  %7 = icmp eq i32 %bcmp.i17, 0
-  br i1 %7, label %11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit22"
+  %5 = icmp eq i32 %bcmp.i17, 0
+  br i1 %5, label %9, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit22"
 
-8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit"
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %9, align 1
-  br label %18
+6:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit"
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 0, ptr %7, align 1
+  br label %16
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit22": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit18"
   %bcmp.i21 = tail call i32 @bcmp(ptr nonnull readonly align 1 %1, ptr nonnull @anon.e2e4e5626bae6aab74d01de03a3cb2a6.86.llvm.14009270277967323967, i64 %2), !alias.scope !1581
-  %10 = icmp eq i32 %bcmp.i21, 0
-  br i1 %10, label %14, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread"
+  %8 = icmp eq i32 %bcmp.i21, 0
+  br i1 %8, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread"
 
-11:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit18"
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %12, align 1
-  br label %18
+9:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit18"
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %10, align 1
+  br label %16
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26": ; preds = %3
   %bcmp.i25 = tail call i32 @bcmp(ptr nonnull readonly align 1 %1, ptr nonnull @anon.e2e4e5626bae6aab74d01de03a3cb2a6.84.llvm.14009270277967323967, i64 %2), !alias.scope !1585
-  %13 = icmp eq i32 %bcmp.i25, 0
-  br i1 %13, label %14, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread"
+  %11 = icmp eq i32 %bcmp.i25, 0
+  br i1 %11, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread"
 
-14:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit22"
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 2, ptr %15, align 1
-  br label %18
+12:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit22"
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 2, ptr %13, align 1
+  br label %16
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread": ; preds = %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit22", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26"
-  %16 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h0761d69d4c74e089E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 @anon.e2e4e5626bae6aab74d01de03a3cb2a6.85.llvm.14009270277967323967, i64 noundef 3)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %17, align 8
-  br label %18
+  %14 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h0761d69d4c74e089E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 @anon.e2e4e5626bae6aab74d01de03a3cb2a6.85.llvm.14009270277967323967, i64 noundef 3)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-18:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread", %14, %11, %8
-  %.sink = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread" ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ]
+16:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread", %12, %9, %6
+  %.sink = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit26.thread" ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }

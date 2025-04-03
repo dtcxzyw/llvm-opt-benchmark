@@ -3241,7 +3241,7 @@ _.exit.i.i:                                       ; preds = %38, %36
 
 42:                                               ; preds = %.outer.i.i, %44
   %43 = call i32 @dir_iterator_advance(ptr noundef nonnull %28) #18
-  switch i32 %43, label %71 [
+  switch i32 %43, label %69 [
     i32 0, label %44
     i32 -1, label %files_fsck_refs.exit
   ]
@@ -3253,92 +3253,92 @@ _.exit.i.i:                                       ; preds = %38, %36
   %48 = call i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 19)
   switch i32 %48, label %68 [
     i32 0, label %42
-    i32 2, label %49
+    i32 2, label %47
     i32 3, label %49
   ]
 
-49:                                               ; preds = %44, %44
+47:                                               ; preds = %44, %44
   store i64 0, ptr %30, align 8, !tbaa !10
-  %50 = load ptr, ptr %31, align 8, !tbaa !15
-  %.not9.i.i.i = icmp eq ptr %50, @strbuf_slopbuf
-  br i1 %.not9.i.i.i, label %strbuf_setlen.exit.i.i, label %51
+  %48 = load ptr, ptr %31, align 8, !tbaa !15
+  %.not9.i.i.i = icmp eq ptr %48, @strbuf_slopbuf
+  br i1 %.not9.i.i.i, label %strbuf_setlen.exit.i.i, label %49
 
-51:                                               ; preds = %49
-  store i8 0, ptr %50, align 1, !tbaa !4
+49:                                               ; preds = %47
+  store i8 0, ptr %48, align 1, !tbaa !4
   br label %strbuf_setlen.exit.i.i
 
-strbuf_setlen.exit.i.i:                           ; preds = %51, %49
-  %52 = call i32 @is_main_worktree(ptr noundef %2) #18
-  %.not29.i.i = icmp eq i32 %52, 0
-  br i1 %.not29.i.i, label %53, label %55
+strbuf_setlen.exit.i.i:                           ; preds = %49, %47
+  %50 = call i32 @is_main_worktree(ptr noundef %2) #18
+  %.not29.i.i = icmp eq i32 %50, 0
+  br i1 %.not29.i.i, label %51, label %53
 
-53:                                               ; preds = %strbuf_setlen.exit.i.i
-  %54 = load ptr, ptr %32, align 8, !tbaa !141
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.142, ptr noundef %54) #18
-  br label %55
+51:                                               ; preds = %strbuf_setlen.exit.i.i
+  %52 = load ptr, ptr %32, align 8, !tbaa !141
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.142, ptr noundef %52) #18
+  br label %53
 
-55:                                               ; preds = %53, %strbuf_setlen.exit.i.i
-  %56 = load ptr, ptr %33, align 8, !tbaa !143
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.131, ptr noundef %56) #18
-  %57 = load i32, ptr %15, align 4, !tbaa !131
-  %.not30.i.i = icmp eq i32 %57, 0
-  br i1 %.not30.i.i, label %.lr.ph.i.i.preheader, label %58
+53:                                               ; preds = %51, %strbuf_setlen.exit.i.i
+  %54 = load ptr, ptr %33, align 8, !tbaa !143
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.131, ptr noundef %54) #18
+  %55 = load i32, ptr %15, align 4, !tbaa !131
+  %.not30.i.i = icmp eq i32 %55, 0
+  br i1 %.not30.i.i, label %.lr.ph.i.i.preheader, label %56
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr @stderr, align 8, !tbaa !73
-  %60 = load ptr, ptr %31, align 8, !tbaa !15
-  %61 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %59, ptr noundef nonnull @.str.143, ptr noundef %60) #18
+56:                                               ; preds = %53
+  %57 = load ptr, ptr @stderr, align 8, !tbaa !73
+  %58 = load ptr, ptr %31, align 8, !tbaa !15
+  %59 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %57, ptr noundef nonnull @.str.143, ptr noundef %58) #18
   br label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i.preheader:                             ; preds = %58, %55
+.lr.ph.i.i.preheader:                             ; preds = %56, %53
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %62 = phi ptr [ %67, %.lr.ph.i.i ], [ @files_fsck_refs_name, %.lr.ph.i.i.preheader ]
-  %.05.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
+  %60 = phi ptr [ %65, %.lr.ph.i.i ], [ @files_fsck_refs_name, %.lr.ph.i.i.preheader ]
+  %.05.i.i = phi i64 [ %63, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %.24.i.i = phi i32 [ %spec.select.i.i, %.lr.ph.i.i ], [ %.1.ph.i.i, %.lr.ph.i.i.preheader ]
-  %63 = load ptr, ptr %31, align 8, !tbaa !15
-  %64 = call i32 %62(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %63, ptr noundef nonnull %28) #18
-  %.not32.i.i = icmp eq i32 %64, 0
+  %61 = load ptr, ptr %31, align 8, !tbaa !15
+  %62 = call i32 %62(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %61, ptr noundef nonnull %28) #18
+  %.not32.i.i = icmp eq i32 %62, 0
   %spec.select.i.i = select i1 %.not32.i.i, i32 %.24.i.i, i32 -1
-  %65 = add nuw nsw i64 %.05.i.i, 1
-  %66 = getelementptr inbounds nuw ptr, ptr @__const.files_fsck_refs.fsck_refs_fn, i64 %65
-  %67 = load ptr, ptr %66, align 8, !tbaa !56
-  %exitcond.i = icmp eq i64 %65, 2
+  %63 = add nuw nsw i64 %.05.i.i, 1
+  %64 = getelementptr inbounds nuw ptr, ptr @__const.files_fsck_refs.fsck_refs_fn, i64 %63
+  %65 = load ptr, ptr %64, align 8, !tbaa !56
+  %exitcond.i = icmp eq i64 %63, 2
   br i1 %exitcond.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !144
 
-68:                                               ; preds = %44
+66:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
-  %69 = load ptr, ptr %34, align 8, !tbaa !145
-  store ptr %69, ptr %6, align 8, !tbaa !146
+  %67 = load ptr, ptr %34, align 8, !tbaa !145
+  store ptr %67, ptr %6, align 8, !tbaa !146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  %70 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 9, ptr noundef nonnull @.str.144) #18
-  %.not28.i.i = icmp eq i32 %70, 0
+  %68 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 9, ptr noundef nonnull @.str.144) #18
+  %.not28.i.i = icmp eq i32 %68, 0
   %spec.select33.i.i = select i1 %.not28.i.i, i32 %.1.ph.i.i, i32 -1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %68
-  %.5.i.i = phi i32 [ %spec.select33.i.i, %68 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %66
+  %.5.i.i = phi i32 [ %spec.select33.i.i, %66 ], [ %spec.select.i.i, %.lr.ph.i.i ]
   br label %.outer.i.i, !llvm.loop !148
 
 .outer.i.i:                                       ; preds = %.loopexit.i.i, %.preheader.i.i
   %.1.ph.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.5.i.i, %.loopexit.i.i ]
   br label %42
 
-71:                                               ; preds = %42
-  %72 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
-  %.not4.i34.i.i = icmp eq i32 %72, 0
-  br i1 %.not4.i34.i.i, label %_.exit36.i.i, label %73
+69:                                               ; preds = %42
+  %70 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
+  %.not4.i34.i.i = icmp eq i32 %70, 0
+  br i1 %.not4.i34.i.i, label %_.exit36.i.i, label %71
 
-73:                                               ; preds = %71
-  %74 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.145, i32 noundef 5) #18
+71:                                               ; preds = %69
+  %72 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.145, i32 noundef 5) #18
   br label %_.exit36.i.i
 
-_.exit36.i.i:                                     ; preds = %73, %71
-  %.0.i35.i.i = phi ptr [ %74, %73 ], [ @.str.145, %71 ]
-  %75 = load ptr, ptr %26, align 8, !tbaa !15
-  %76 = call i32 (ptr, ...) @error(ptr noundef %.0.i35.i.i, ptr noundef %75) #18
+_.exit36.i.i:                                     ; preds = %71, %69
+  %.0.i35.i.i = phi ptr [ %72, %71 ], [ @.str.145, %69 ]
+  %73 = load ptr, ptr %26, align 8, !tbaa !15
+  %74 = call i32 (ptr, ...) @error(ptr noundef %.0.i35.i.i, ptr noundef %73) #18
   br label %files_fsck_refs.exit
 
 files_fsck_refs.exit:                             ; preds = %42, %_.exit.i.i, %_.exit36.i.i
@@ -3347,14 +3347,14 @@ files_fsck_refs.exit:                             ; preds = %42, %_.exit.i.i, %_
   call void @strbuf_release(ptr noundef nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %78 = load ptr, ptr %77, align 8, !tbaa !27
-  %79 = load ptr, ptr %78, align 8, !tbaa !29
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 168
-  %81 = load ptr, ptr %80, align 8, !tbaa !149
-  %82 = call i32 %81(ptr noundef nonnull %78, ptr noundef %1, ptr noundef %2) #18
-  %83 = or i32 %82, %.023.i.i
-  ret i32 %83
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %76 = load ptr, ptr %75, align 8, !tbaa !27
+  %77 = load ptr, ptr %76, align 8, !tbaa !29
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 168
+  %79 = load ptr, ptr %78, align 8, !tbaa !149
+  %80 = call i32 %81(ptr noundef nonnull %76, ptr noundef %1, ptr noundef %2) #18
+  %81 = or i32 %80, %.023.i.i
+  ret i32 %81
 }
 
 ; Function Attrs: noreturn

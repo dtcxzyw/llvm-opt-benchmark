@@ -86,7 +86,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress uwtable
 define void @u_enumCharTypes_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._EnumTypeCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   %4 = icmp eq ptr %0, null
   br i1 %4, label %7, label %5
 
@@ -98,7 +98,7 @@ define void @u_enumCharTypes_77(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %7
 
 7:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   ret void
 }
 
@@ -2458,7 +2458,7 @@ define i32 @uprv_getMaxValues_77(i32 noundef %0) local_unnamed_addr #0 {
   ]
 
 3:                                                ; preds = %1
-  br label %9
+  br label %5
 
 4:                                                ; preds = %1
   %5 = sext i32 %0 to i64
@@ -2469,7 +2469,7 @@ define i32 @uprv_getMaxValues_77(i32 noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %1
   br label %9
 
-9:                                                ; preds = %1, %8, %4, %3
+5:                                                ; preds = %1, %8, %4, %3
   %.0 = phi i32 [ 0, %8 ], [ %7, %4 ], [ 49764913, %3 ], [ 20687, %1 ]
   ret i32 %.0
 }
@@ -3058,7 +3058,7 @@ define void @upropsvec_addPropertyStarts_77(ptr noundef %0, ptr noundef readonly
 ; Function Attrs: mustprogress uwtable
 define void @ublock_addPropertyStarts_77(ptr noundef readonly captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
@@ -3078,7 +3078,7 @@ define void @ublock_addPropertyStarts_77(ptr noundef readonly captures(none) %0,
   br i1 %13, label %5, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %8, %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   ret void
 }
 

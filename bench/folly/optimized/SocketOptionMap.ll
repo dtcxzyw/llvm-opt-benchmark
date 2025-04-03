@@ -39,7 +39,7 @@ define linkonce_odr void @_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionV
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #16
+  tail call void @__clang_call_terminate(ptr %6) #15
   unreachable
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS0_17SocketOptionValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EED2Ev.exit: ; preds = %1
@@ -53,8 +53,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
@@ -97,11 +97,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9
   %17 = load i64, ptr %12, align 8, !tbaa !25
   %18 = add i64 %17, 1
-  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %18) #18
+  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %18) #17
   br label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS0_17SocketOptionValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS0_17SocketOptionValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit: ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 88) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 88) #17
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
@@ -138,7 +138,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %4
   %11 = load i64, ptr %6, align 8, !tbaa !25
   %12 = add i64 %11, 1
-  tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %12) #18
+  tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %12) #17
   br label %13
 
 13:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, %1
@@ -158,25 +158,25 @@ define noundef i32 @_ZNK5folly15SocketOptionKey5applyENS_13NetworkSocketERKNS_17
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   %9 = tail call noundef i32 @_ZNK5folly17SocketOptionValue5asIntEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
   store i32 %9, ptr %5, align 4, !tbaa !28
   %10 = load i32, ptr %0, align 4, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !33
   %13 = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %1, i32 noundef %10, i32 noundef %12, ptr noundef nonnull %5, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   br label %53
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
   %15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %2)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %16, ptr %6, align 8, !tbaa !34
   %17 = load ptr, ptr %15, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store i64 %19, ptr %4, align 8, !tbaa !35
   %20 = icmp ugt i64 %19, 15
   br i1 %20, label %.noexc.i, label %._crit_edge.i.i
@@ -211,7 +211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %29 = load ptr, ptr %6, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   store i8 0, ptr %30, align 1, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   %31 = load i32, ptr %0, align 4, !tbaa !30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !33
@@ -235,11 +235,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %38
   %43 = load i64, ptr %16, align 8, !tbaa !25
   %44 = add i64 %43, 1
-  call void @_ZdlPvm(ptr noundef %39, i64 noundef %44) #18
+  call void @_ZdlPvm(ptr noundef %39, i64 noundef %44) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
   br label %53
 
 45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
@@ -258,11 +258,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9: ; preds = %45
   %51 = load i64, ptr %16, align 8, !tbaa !25
   %52 = add i64 %51, 1
-  call void @_ZdlPvm(ptr noundef %47, i64 noundef %52) #18
+  call void @_ZdlPvm(ptr noundef %47, i64 noundef %52) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
   resume { ptr, i32 } %46
 
 53:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %8
@@ -306,12 +306,12 @@ define noundef i32 @_ZN5folly18applySocketOptionsENS_13NetworkSocketERKSt3mapINS
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call ptr @__errno_location() #19
+  %15 = tail call ptr @__errno_location() #18
   %16 = load i32, ptr %15, align 4, !tbaa !28
   br label %.loopexit
 
 17:                                               ; preds = %.lr.ph, %10
-  %18 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.025) #20
+  %18 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.025) #19
   %.not23 = icmp eq ptr %18, %6
   br i1 %.not23, label %.loopexit, label %.lr.ph
 
@@ -371,7 +371,7 @@ define void @_ZN5folly21validateSocketOptionsERKSt3mapINS_15SocketOptionKeyENS_1
           to label %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit.us unwind label %.split.us
 
 _ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit.us: ; preds = %16, %18, %.lr.ph.split.us
-  %20 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.020.us) #20
+  %20 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.020.us) #19
   %.not18.us = icmp eq ptr %20, %12
   br i1 %.not18.us, label %._crit_edge, label %.lr.ph.split.us
 
@@ -381,7 +381,7 @@ _ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pai
   br label %.split
 
 .lr.ph.split.us21:                                ; preds = %.lr.ph, %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit.us24
-  %.sroa.015.020.us22 = phi ptr [ %31, %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit.us24 ], [ %11, %.lr.ph ]
+  %.sroa.015.020.us22 = phi ptr [ %29, %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit.us24 ], [ %11, %.lr.ph ]
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.015.020.us22, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.015.020.us22, i64 40
   %24 = load i32, ptr %23, align 8, !tbaa !37
@@ -393,22 +393,22 @@ _ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pai
   %27 = add i32 %26, -1
   %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 29)
   switch i32 %28, label %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit.us24 [
-    i32 5, label %29
+    i32 5, label %27
     i32 2, label %29
     i32 0, label %29
   ]
 
-29:                                               ; preds = %25, %25, %25
-  %30 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS0_17SocketOptionValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE16_M_insert_uniqueIRKS5_EES2_ISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %22)
+27:                                               ; preds = %25, %25, %25
+  %28 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS0_17SocketOptionValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE16_M_insert_uniqueIRKS5_EES2_ISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %22)
           to label %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit.us24 unwind label %.split.split.us
 
-_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit.us24: ; preds = %25, %29, %.lr.ph.split.us21
-  %31 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.020.us22) #20
-  %.not18.us25 = icmp eq ptr %31, %12
+_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit.us24: ; preds = %25, %27, %.lr.ph.split.us21
+  %29 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.020.us22) #19
+  %.not18.us25 = icmp eq ptr %29, %12
   br i1 %.not18.us25, label %._crit_edge, label %.lr.ph.split.us21
 
-.split.split.us:                                  ; preds = %29
-  %32 = landingpad { ptr, i32 }
+.split.split.us:                                  ; preds = %27
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
@@ -416,37 +416,37 @@ _ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pai
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit
-  %.sroa.015.020 = phi ptr [ %39, %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit ], [ %11, %.lr.ph ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.015.020, i64 32
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.015.020, i64 40
-  %35 = load i32, ptr %34, align 8, !tbaa !37
-  %.not = icmp eq i32 %3, %35
+  %.sroa.015.020 = phi ptr [ %37, %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit ], [ %11, %.lr.ph ]
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.015.020, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.015.020, i64 40
+  %33 = load i32, ptr %32, align 8, !tbaa !37
+  %.not = icmp eq i32 %3, %33
   br i1 %.not, label %thread-pre-split, label %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit
 
 thread-pre-split:                                 ; preds = %.lr.ph.split
-  %.pr = load i32, ptr %33, align 8, !tbaa !49
+  %.pr = load i32, ptr %31, align 8, !tbaa !49
   switch i32 %.pr, label %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit [
-    i32 17, label %36
-    i32 1, label %36
+    i32 17, label %34
+    i32 1, label %34
   ]
 
-36:                                               ; preds = %thread-pre-split, %thread-pre-split
-  %37 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS0_17SocketOptionValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE16_M_insert_uniqueIRKS5_EES2_ISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %33)
+34:                                               ; preds = %thread-pre-split, %thread-pre-split
+  %35 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS0_17SocketOptionValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE16_M_insert_uniqueIRKS5_EES2_ISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %31)
           to label %_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit unwind label %.split.split
 
-.split.split:                                     ; preds = %36
-  %38 = landingpad { ptr, i32 }
+.split.split:                                     ; preds = %34
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
 .split:                                           ; preds = %.split.split, %.split.split.us, %.split.us
-  %.us-phi = phi { ptr, i32 } [ %21, %.split.us ], [ %38, %.split.split ], [ %32, %.split.split.us ]
-  tail call void @_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
+  %.us-phi = phi { ptr, i32 } [ %21, %.split.us ], [ %36, %.split.split ], [ %30, %.split.split.us ]
+  tail call void @_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   resume { ptr, i32 } %.us-phi
 
-_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit: ; preds = %36, %thread-pre-split, %.lr.ph.split
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.020) #20
-  %.not18 = icmp eq ptr %39, %12
+_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEE6insertERKS7_.exit: ; preds = %34, %thread-pre-split, %.lr.ph.split
+  %37 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.020) #19
+  %.not18 = icmp eq ptr %37, %12
   br i1 %.not18, label %._crit_edge, label %.lr.ph.split
 }
 
@@ -491,7 +491,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pair
   br i1 %18, label %select.unfold, label %19
 
 19:                                               ; preds = %._crit_edge.thread.i
-  %20 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i) #20
+  %20 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i) #19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %20, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !30
   %.pre19 = load i32, ptr %1, align 8, !tbaa !30
@@ -535,9 +535,9 @@ select.unfold:                                    ; preds = %21, %._crit_edge.th
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS0_17SocketOptionValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit: ; preds = %select.unfold, %30
   %41 = phi i1 [ true, %select.unfold ], [ %.0.i.i.i6, %30 ]
-  %42 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #21
+  %42 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #20
   tail call void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS0_17SocketOptionValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE17_M_construct_nodeIJRKS5_EEEvPSt13_Rb_tree_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %41, ptr noundef nonnull %42, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %41, ptr noundef nonnull %42, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load i64, ptr %43, align 8, !tbaa !48
   %45 = add i64 %44, 1
@@ -583,7 +583,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS
   %15 = load ptr, ptr %7, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i64, ptr %16, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store i64 %17, ptr %4, align 8, !tbaa !35
   %18 = icmp ugt i64 %17, 15
   br i1 %18, label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -621,18 +621,18 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   %27 = load ptr, ptr %6, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %25
   store i8 0, ptr %28, align 1, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   %.pre.i.i.i.i.i.i.i.i.i.i = load i8, ptr %9, align 8, !tbaa !18
   br label %34
 
 .body:                                            ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %29 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #17
+  call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   %30 = extractvalue { ptr, i32 } %29, 0
-  %31 = call ptr @__cxa_begin_catch(ptr %30) #17
-  call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 88) #18
-  invoke void @__cxa_rethrow() #22
+  %31 = call ptr @__cxa_begin_catch(ptr %30) #16
+  call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 88) #17
+  invoke void @__cxa_rethrow() #21
           to label %40 unwind label %32
 
 32:                                               ; preds = %.body
@@ -653,7 +653,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #16
+  call void @__clang_call_terminate(ptr %39) #15
   unreachable
 
 40:                                               ; preds = %.body
@@ -674,7 +674,7 @@ define internal void @_GLOBAL__sub_I_SocketOptionMap.cpp() #13 section ".text.st
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 24), align 8, !tbaa !36
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 32), align 8, !tbaa !47
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 40), align 8, !tbaa !48
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev, ptr nonnull @_ZN5folly20emptySocketOptionMapE, ptr nonnull @__dso_handle) #17
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev, ptr nonnull @_ZN5folly20emptySocketOptionMapE, ptr nonnull @__dso_handle) #16
   ret void
 }
 

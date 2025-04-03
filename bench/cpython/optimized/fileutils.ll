@@ -1968,21 +1968,21 @@ get_inheritable.exit:                             ; preds = %10
     i32 1, label %37
   ]
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
-  %36 = tail call ptr @PyErr_SetFromErrno(ptr noundef %35) #17
+32:                                               ; preds = %29
+  %33 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
+  %34 = tail call ptr @PyErr_SetFromErrno(ptr noundef %33) #17
   br label %.critedge
 
-37:                                               ; preds = %29, %29
+35:                                               ; preds = %29, %29
   store atomic i32 0, ptr @set_inheritable.ioctl_works monotonic, align 4
   br label %38
 
-38:                                               ; preds = %29, %37, %21
+.thread:                                          ; preds = %29, %37, %21
   %39 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 1) #17
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %43, label %46
+  br i1 %40, label %43, label %44
 
-.thread:                                          ; preds = %20
+41:                                               ; preds = %20
   %41 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 1) #17
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %.critedge, label %46
@@ -1992,29 +1992,29 @@ get_inheritable.exit:                             ; preds = %10
   %45 = tail call ptr @PyErr_SetFromErrno(ptr noundef %44) #17
   br label %.critedge
 
-46:                                               ; preds = %.thread, %38
-  %47 = phi i32 [ %41, %.thread ], [ %39, %38 ]
-  %48 = and i32 %47, 2147483646
-  %49 = or i32 %47, 1
-  %.031 = select i1 %6, i32 %48, i32 %49
-  %50 = icmp eq i32 %.031, %47
-  br i1 %50, label %.critedge, label %51
+44:                                               ; preds = %.thread, %38
+  %45 = phi i32 [ %41, %.thread ], [ %39, %38 ]
+  %46 = and i32 %45, 2147483646
+  %47 = or i32 %45, 1
+  %.031 = select i1 %6, i32 %46, i32 %47
+  %48 = icmp eq i32 %.031, %45
+  br i1 %48, label %.critedge, label %49
 
-51:                                               ; preds = %46
-  %52 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 2, i32 noundef %.031) #17
-  %53 = icmp sgt i32 %52, -1
-  %brmerge = or i1 %.not38, %53
-  %not. = xor i1 %53, true
+49:                                               ; preds = %44
+  %50 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 2, i32 noundef %.031) #17
+  %51 = icmp sgt i32 %50, -1
+  %brmerge = or i1 %.not38, %51
+  %not. = xor i1 %51, true
   %.mux = sext i1 %not. to i32
-  br i1 %brmerge, label %.critedge, label %54
+  br i1 %brmerge, label %.critedge, label %52
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
-  %56 = tail call ptr @PyErr_SetFromErrno(ptr noundef %55) #17
+52:                                               ; preds = %49
+  %53 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
+  %54 = tail call ptr @PyErr_SetFromErrno(ptr noundef %53) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %13, %14, %51, %54, %46, %43, %25, %28, %18, %34
-  %.1 = phi i32 [ -1, %34 ], [ 0, %18 ], [ 0, %28 ], [ 0, %25 ], [ -1, %43 ], [ 0, %46 ], [ -1, %54 ], [ %.mux, %51 ], [ -1, %14 ], [ -1, %13 ], [ -1, %.thread ]
+.critedge:                                        ; preds = %.thread, %13, %14, %49, %52, %44, %43, %25, %28, %18, %32
+  %.1 = phi i32 [ -1, %32 ], [ 0, %18 ], [ 0, %28 ], [ 0, %25 ], [ -1, %43 ], [ 0, %44 ], [ -1, %52 ], [ %.mux, %49 ], [ -1, %14 ], [ -1, %13 ], [ -1, %.thread ]
   ret i32 %.1
 }
 

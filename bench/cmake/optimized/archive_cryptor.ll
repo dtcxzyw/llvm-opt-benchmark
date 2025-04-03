@@ -54,13 +54,13 @@ define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr noundef writeonly capture
   store ptr null, ptr %16, align 8, !tbaa !12
   br label %24
 
-17:                                               ; preds = %13, %11, %9
+17:; preds = %13, %11, %9
   %.sink = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %18, align 8, !tbaa !12
   %19 = trunc i64 %2 to i32
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %19, ptr %20, align 8, !tbaa !13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %19, ptr %21, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %1, i64 %2, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 52

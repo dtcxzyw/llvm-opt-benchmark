@@ -562,9 +562,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1:  ; preds = %_ZNSt11char_traitsI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6:  ; preds = %2, %8
   %bcmp.i7 = tail call i32 @bcmp(ptr %3, ptr nonnull @.str.2, i64 %5)
   %.not.i.i8 = icmp eq i32 %bcmp.i7, 0
-  br i1 %.not.i.i8, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, label %9
+  br i1 %.not.i.i8, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11
 
-9:                                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6
   switch i64 %5, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit [
     i64 13, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11
     i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16
@@ -579,15 +579,15 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11: ; preds = %2, %8, %9
   %11 = icmp eq i64 %5, 7
   br i1 %11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16: ; preds = %10, %9
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16: ; preds = %10, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11
   %bcmp.i17 = tail call i32 @bcmp(ptr %3, ptr nonnull @.str.4, i64 %5)
   %.not.i.i18 = icmp eq i32 %bcmp.i17, 0
   %spec.select = zext i1 %.not.i.i18 to i32
   br label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
 
 _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16, %10, %9, %8, %2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %12 = phi i32 [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %2 ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ]
-  ret i32 %12
+  %.shrunk = phi i32 [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %2 ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ]
+  ret i32 %.shrunk
 }
 
 ; Function Attrs: mustprogress uwtable

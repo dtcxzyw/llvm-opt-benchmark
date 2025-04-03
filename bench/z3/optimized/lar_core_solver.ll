@@ -1960,7 +1960,7 @@ _ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE21current_x_is_fea
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i32 11, ptr %14, align 8, !tbaa !100
-  br label %33
+  br label %31
 
 _ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE21current_x_is_feasibleEv.exit.thread: ; preds = %1, %9, %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE21current_x_is_feasibleEv.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -1993,15 +1993,15 @@ _ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE21current_x_is_fea
     i32 1, label %33
   ]
 
-31:                                               ; preds = %26
+29:                                               ; preds = %26
   tail call void @_ZN2lp15lar_core_solver28fill_not_improvable_zero_sumEv(ptr noundef nonnull align 8 dereferenceable(752) %0)
-  br label %33
+  br label %31
 
-32:                                               ; preds = %26
+30:                                               ; preds = %26
   store i32 11, ptr %27, align 8, !tbaa !100
-  br label %33
+  br label %31
 
-33:                                               ; preds = %26, %26, %32, %31, %13
+31:                                               ; preds = %26, %26, %30, %29, %13
   ret void
 }
 
@@ -3465,10 +3465,10 @@ define internal void @_GLOBAL__sub_I_lar_core_solver.cpp() #17 section ".text.st
 declare i32 @llvm.fshl.i32(i32, i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
+declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
