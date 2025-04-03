@@ -779,37 +779,39 @@ define noundef i32 @_ZNK4LIEF5MachO16RelocationObject5valueEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4LIEF5MachO16RelocationObject4sizeEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
-  switch i64 %1, label %10 [
-    i64 8, label %4
-    i64 16, label %6
-    i64 32, label %8
+  %4 = add i64 %1, -8
+  %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 61)
+  switch i64 %5, label %12 [
+    i64 0, label %6
+    i64 1, label %8
+    i64 3, label %10
   ]
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %5, align 8, !tbaa !9
-  br label %13
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %7, align 8, !tbaa !9
-  br label %13
+  store i8 0, ptr %7, align 8, !tbaa !9
+  br label %15
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %9, align 8, !tbaa !9
-  br label %13
+  store i8 1, ptr %9, align 8, !tbaa !9
+  br label %15
 
 10:                                               ; preds = %2
-  %11 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEPKc(ptr noundef nonnull @.str.2) #22
-  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 2, ptr %11, align 8, !tbaa !9
+  br label %15
+
+12:                                               ; preds = %2
+  %13 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEPKc(ptr noundef nonnull @.str.2) #22
+  %14 = load ptr, ptr %13, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  tail call void @_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %12, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %3, i32 noundef 4, ptr nonnull @.str.1, i64 36)
+  tail call void @_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %14, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %3, i32 noundef 4, ptr nonnull @.str.1, i64 36)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %13
+  br label %15
 
-13:                                               ; preds = %10, %8, %6, %4
+15:                                               ; preds = %12, %10, %8, %6
   ret void
 }
 
@@ -29570,6 +29572,9 @@ _ZN6spdlog7details14log_msg_bufferaSEOS1_.exit:   ; preds = %_ZN3fmt3v106detail8
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
@@ -29607,9 +29612,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i128 @llvm.ctlz.i128(i128, i1 immarg) #19

@@ -3563,18 +3563,18 @@ define internal fastcc i32 @ext4_destroy_inline_data_nolock(ptr noundef %0, ptr 
   %9 = getelementptr i8, ptr %1, i64 730
   %10 = load i16, ptr %9, align 2
   %11 = icmp eq i16 %10, 0
-  br i1 %11, label %65, label %12
+  br i1 %11, label %67, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %14 = call i32 @ext4_get_inode_loc(ptr noundef %1, ptr noundef nonnull %13) #9
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %65
+  br i1 %15, label %16, label %67
 
 16:                                               ; preds = %12
   %17 = call i32 @ext4_xattr_ibody_find(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %57
+  br i1 %18, label %19, label %59
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3582,12 +3582,12 @@ define internal fastcc i32 @ext4_destroy_inline_data_nolock(ptr noundef %0, ptr 
   %22 = load ptr, ptr %13, align 8
   %23 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_destroy_inline_data_nolock, i32 noundef 446, ptr noundef %0, ptr noundef %21, ptr noundef %22, i32 noundef 1) #9
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %57
+  br i1 %24, label %25, label %59
 
 25:                                               ; preds = %19
   %26 = call i32 @ext4_xattr_ibody_set(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %57
+  br i1 %27, label %28, label %59
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %13, align 8
@@ -3608,57 +3608,59 @@ define internal fastcc i32 @ext4_destroy_inline_data_nolock(ptr noundef %0, ptr 
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 64
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %50, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %28
   %46 = load i16, ptr %1, align 8
   %47 = and i16 %46, -4096
-  switch i16 %47, label %50 [
-    i16 16384, label %48
-    i16 -32768, label %48
-    i16 -24576, label %48
+  %48 = xor i16 %47, -32768
+  %49 = call i16 @llvm.fshl.i16(i16 %48, i16 %48, i16 3)
+  switch i16 %49, label %52 [
+    i16 6, label %50
+    i16 0, label %50
+    i16 1, label %50
   ]
 
-48:                                               ; preds = %45, %45, %45
-  %49 = getelementptr i8, ptr %1, i64 -214
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %49, i32 8, ptr elementtype(i8) %49) #9, !srcloc !14
+50:                                               ; preds = %45, %45, %45
+  %51 = getelementptr i8, ptr %1, i64 -214
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %51, i32 8, ptr elementtype(i8) %51) #9, !srcloc !14
   call void @ext4_ext_tree_init(ptr noundef %0, ptr noundef %1) #9
-  br label %50
+  br label %52
 
-50:                                               ; preds = %48, %45, %28
-  %51 = getelementptr i8, ptr %1, i64 -213
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %51, i32 -17, ptr elementtype(i8) %51) #9, !srcloc !27
-  %52 = load ptr, ptr %13, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 96
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, ptr nonnull elementtype(i32) %53) #9, !srcloc !56
-  %54 = call i32 @ext4_mark_iloc_dirty(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13) #9
+52:                                               ; preds = %50, %45, %28
+  %53 = getelementptr i8, ptr %1, i64 -213
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %53, i32 -17, ptr elementtype(i8) %53) #9, !srcloc !27
+  %54 = load ptr, ptr %13, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 96
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %55, ptr nonnull elementtype(i32) %55) #9, !srcloc !56
+  %56 = call i32 @ext4_mark_iloc_dirty(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13) #9
   store i16 0, ptr %9, align 2
-  %55 = getelementptr i8, ptr %1, i64 732
-  store i16 0, ptr %55, align 4
-  %56 = getelementptr i8, ptr %1, i64 -212
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %56, i32 -65, ptr elementtype(i8) %56) #9, !srcloc !27
-  br label %57
+  %57 = getelementptr i8, ptr %1, i64 732
+  store i16 0, ptr %57, align 4
+  %58 = getelementptr i8, ptr %1, i64 -212
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %58, i32 -65, ptr elementtype(i8) %58) #9, !srcloc !27
+  br label %59
 
-57:                                               ; preds = %50, %25, %19, %16
-  %58 = phi i32 [ %17, %16 ], [ %23, %19 ], [ %26, %25 ], [ %54, %50 ]
-  %59 = load ptr, ptr %13, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %62, label %61
+59:                                               ; preds = %52, %25, %19, %16
+  %60 = phi i32 [ %17, %16 ], [ %23, %19 ], [ %26, %25 ], [ %56, %52 ]
+  %61 = load ptr, ptr %13, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %64, label %63
 
-61:                                               ; preds = %57
-  call void @__brelse(ptr noundef nonnull %59) #9
-  br label %62
+63:                                               ; preds = %59
+  call void @__brelse(ptr noundef nonnull %61) #9
+  br label %64
 
-62:                                               ; preds = %61, %57
-  %63 = icmp eq i32 %58, -61
-  %64 = select i1 %63, i32 0, i32 %58
-  br label %65
+64:                                               ; preds = %63, %59
+  %65 = icmp eq i32 %60, -61
+  %66 = select i1 %65, i32 0, i32 %60
+  br label %67
 
-65:                                               ; preds = %62, %12, %2
-  %66 = phi i32 [ %64, %62 ], [ 0, %2 ], [ %14, %12 ]
+67:                                               ; preds = %64, %12, %2
+  %68 = phi i32 [ %66, %64 ], [ 0, %2 ], [ %14, %12 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
-  ret i32 %66
+  ret i32 %68
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4698,6 +4700,9 @@ declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.fshl.i16(i16, i16, i16) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

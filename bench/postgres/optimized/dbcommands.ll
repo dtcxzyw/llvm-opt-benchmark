@@ -4616,11 +4616,11 @@ define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, -16
+  %7 = lshr i8 %6, 4
   switch i8 %7, label %101 [
     i8 0, label %8
-    i8 16, label %55
-    i8 32, label %65
+    i8 1, label %55
+    i8 2, label %65
   ]
 
 8:                                                ; preds = %1
@@ -4709,7 +4709,7 @@ define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_
   tail call void @pfree(ptr noundef %15) #16
   tail call void @pfree(ptr noundef %19) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #16
-  br label %105
+  br label %106
 
 55:                                               ; preds = %1
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -4725,7 +4725,7 @@ define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_
   %64 = load i32, ptr %59, align 4
   tail call fastcc void @CreateDirAndVersionFile(ptr noundef %61, i32 noundef %63, i32 noundef %64, i1 noundef zeroext true)
   tail call void @pfree(ptr noundef %61) #16
-  br label %105
+  br label %106
 
 65:                                               ; preds = %1
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -4790,22 +4790,23 @@ define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_
 ._crit_edge:                                      ; preds = %93, %73
   %97 = load i32, ptr @standbyState, align 4
   %98 = icmp ugt i32 %97, 1
-  br i1 %98, label %99, label %105
+  br i1 %98, label %99, label %106
 
 99:                                               ; preds = %._crit_edge
   %100 = load i32, ptr %67, align 4
   tail call void @UnlockSharedObjectForSession(i32 noundef 1262, i32 noundef %100, i16 noundef zeroext 0, i32 noundef 8) #16
-  br label %105
+  br label %106
 
 101:                                              ; preds = %1
-  %102 = zext i8 %7 to i32
-  %103 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %103)
-  %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.107, i32 noundef %102) #16
+  %102 = and i8 %6, -16
+  %103 = zext i8 %102 to i32
+  %104 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #19
+  tail call void @llvm.assume(i1 %104)
+  %105 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.107, i32 noundef %103) #16
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 3443, ptr noundef nonnull @__func__.dbase_redo) #16
   unreachable
 
-105:                                              ; preds = %._crit_edge, %99, %55, %52
+106:                                              ; preds = %._crit_edge, %99, %55, %52
   ret void
 }
 

@@ -1223,11 +1223,11 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, -16
+  %10 = lshr i8 %9, 4
   switch i8 %10, label %62 [
     i8 0, label %11
-    i8 16, label %27
-    i8 32, label %50
+    i8 1, label %27
+    i8 2, label %50
   ]
 
 11:                                               ; preds = %7
@@ -1307,10 +1307,11 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
   br label %.loopexit
 
 62:                                               ; preds = %7
-  %63 = zext i8 %10 to i32
-  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %64)
-  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %63) #7
+  %63 = and i8 %9, -16
+  %64 = zext i8 %63 to i32
+  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %65)
+  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %64) #7
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1218, ptr noundef nonnull @__func__.standby_redo) #7
   unreachable
 

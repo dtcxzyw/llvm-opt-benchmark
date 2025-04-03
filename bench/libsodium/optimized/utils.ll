@@ -161,85 +161,93 @@ define dso_local range(i32 0, 2) i32 @sodium_is_zero(ptr noundef readonly captur
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local void @sodium_increment(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 62)
-  switch i64 %3, label %.lr.ph [
-    i64 3, label %4
-    i64 6, label %6
-    i64 2, label %8
-    i64 0, label %.loopexit
+  %3 = add i64 %1, -8
+  %4 = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 62)
+  switch i64 %4, label %.preheader [
+    i64 1, label %5
+    i64 4, label %7
+    i64 0, label %9
   ]
 
-4:                                                ; preds = %2
-  %5 = tail call { i64, i32 } asm sideeffect "xorq $0, $0 \0Axorl $1, $1 \0Astc \0Aadcq $0, ($2) \0Aadcl $1, 8($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !8
+.preheader:                                       ; preds = %2
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
+
+5:                                                ; preds = %2
+  %6 = tail call { i64, i32 } asm sideeffect "xorq $0, $0 \0Axorl $1, $1 \0Astc \0Aadcq $0, ($2) \0Aadcl $1, 8($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !8
   br label %.loopexit
 
-6:                                                ; preds = %2
-  %7 = tail call { i64, i64 } asm sideeffect "movq $$1, $0 \0Axorq $1, $1 \0Aaddq $0, ($2) \0Aadcq $1, 8($2) \0Aadcq $1, 16($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !9
+7:                                                ; preds = %2
+  %8 = tail call { i64, i64 } asm sideeffect "movq $$1, $0 \0Axorq $1, $1 \0Aaddq $0, ($2) \0Aadcq $1, 8($2) \0Aadcq $1, 16($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !9
   br label %.loopexit
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   tail call void asm sideeffect "incq ($0) \0A", "{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !10
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %.018 = phi i64 [ %15, %.lr.ph ], [ 0, %2 ]
-  %.01517 = phi i64 [ %14, %.lr.ph ], [ 1, %2 ]
-  %9 = getelementptr i8, ptr %0, i64 %.018
-  %10 = load i8, ptr %9, align 1
-  %11 = zext i8 %10 to i64
-  %12 = add nuw nsw i64 %.01517, %11
-  %13 = trunc i64 %12 to i8
-  store i8 %13, ptr %9, align 1
-  %14 = lshr i64 %12, 8
-  %15 = add nuw i64 %.018, 1
-  %exitcond.not = icmp eq i64 %15, %1
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.018 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
+  %.01517 = phi i64 [ %15, %.lr.ph ], [ 1, %.preheader ]
+  %10 = getelementptr i8, ptr %0, i64 %.018
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i64
+  %13 = add nuw nsw i64 %.01517, %12
+  %14 = trunc i64 %13 to i8
+  store i8 %14, ptr %10, align 1
+  %15 = lshr i64 %13, 8
+  %16 = add nuw i64 %.018, 1
+  %exitcond.not = icmp eq i64 %16, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.lr.ph, %2, %8, %6, %4
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %9, %7, %5
   ret void
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local void @sodium_add(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 62)
-  switch i64 %4, label %.lr.ph [
-    i64 3, label %5
-    i64 6, label %7
-    i64 2, label %9
-    i64 0, label %.loopexit
+  %4 = add i64 %2, -8
+  %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 62)
+  switch i64 %5, label %.preheader [
+    i64 1, label %6
+    i64 4, label %8
+    i64 0, label %10
   ]
 
-5:                                                ; preds = %3
-  %6 = tail call { i64, i32 } asm sideeffect "movq ($2), $0 \0Amovl 8($2), $1 \0Aaddq $0, ($3) \0Aadcl $1, 8($3) \0A", "=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !12
+.preheader:                                       ; preds = %3
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
+
+6:                                                ; preds = %3
+  %7 = tail call { i64, i32 } asm sideeffect "movq ($2), $0 \0Amovl 8($2), $1 \0Aaddq $0, ($3) \0Aadcl $1, 8($3) \0A", "=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !12
   br label %.loopexit
 
-7:                                                ; preds = %3
-  %8 = tail call { i64, i64, i64 } asm sideeffect "movq ($3), $0 \0Amovq 8($3), $1 \0Amovq 16($3), $2 \0Aaddq $0, ($4) \0Aadcq $1, 8($4) \0Aadcq $2, 16($4) \0A", "=&r,=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !13
+8:                                                ; preds = %3
+  %9 = tail call { i64, i64, i64 } asm sideeffect "movq ($3), $0 \0Amovq 8($3), $1 \0Amovq 16($3), $2 \0Aaddq $0, ($4) \0Aadcq $1, 8($4) \0Aadcq $2, 16($4) \0A", "=&r,=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !13
   br label %.loopexit
 
-9:                                                ; preds = %3
-  %10 = tail call i64 asm sideeffect "movq ($1), $0 \0Aaddq $0, ($2) \0A", "=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !14
+10:                                               ; preds = %3
+  %11 = tail call i64 asm sideeffect "movq ($1), $0 \0Aaddq $0, ($2) \0A", "=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !14
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.023 = phi i64 [ %21, %.lr.ph ], [ 0, %3 ]
-  %.02022 = phi i64 [ %20, %.lr.ph ], [ 0, %3 ]
-  %11 = getelementptr i8, ptr %0, i64 %.023
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i64
-  %14 = getelementptr i8, ptr %1, i64 %.023
-  %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i64
-  %17 = add nuw nsw i64 %.02022, %13
-  %18 = add nuw nsw i64 %17, %16
-  %19 = trunc i64 %18 to i8
-  store i8 %19, ptr %11, align 1
-  %20 = lshr i64 %18, 8
-  %21 = add nuw i64 %.023, 1
-  %exitcond.not = icmp eq i64 %21, %2
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.023 = phi i64 [ %22, %.lr.ph ], [ 0, %.preheader ]
+  %.02022 = phi i64 [ %21, %.lr.ph ], [ 0, %.preheader ]
+  %12 = getelementptr i8, ptr %0, i64 %.023
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i64
+  %15 = getelementptr i8, ptr %1, i64 %.023
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i64
+  %18 = add nuw nsw i64 %.02022, %14
+  %19 = add nuw nsw i64 %18, %17
+  %20 = trunc i64 %19 to i8
+  store i8 %20, ptr %12, align 1
+  %21 = lshr i64 %19, 8
+  %22 = add nuw i64 %.023, 1
+  %exitcond.not = icmp eq i64 %22, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph, %3, %9, %7, %5
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %10, %8, %6
   ret void
 }
 
@@ -742,13 +750,13 @@ declare void @abort() local_unnamed_addr #9
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12

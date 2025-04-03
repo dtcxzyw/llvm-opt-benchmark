@@ -16,7 +16,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_aesni_has_support(i32 noundef %0) loc
   br label %4
 
 2:                                                ; preds = %1
-  %3 = tail call i32 asm "movl  $$1, %eax   \0A\09cpuid             \0A\09", "={cx},~{eax},~{ebx},~{edx},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
+  %3 = tail call i32 asm "movl  $$1, %eax   \0A\09cpuid             \0A\09", "={cx},~{eax},~{ebx},~{edx},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   store i32 %3, ptr @mbedtls_aesni_has_support.c, align 4, !tbaa !3
   store i1 true, ptr @mbedtls_aesni_has_support.done, align 4
   br label %4
@@ -36,7 +36,7 @@ define hidden noundef i32 @mbedtls_aesni_crypt_ecb(ptr noundef %0, i32 noundef %
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i32, ptr %6, i64 %8
-  tail call void asm sideeffect "movdqu    ($3), %xmm0    \0A\09movdqu    ($1), %xmm1    \0A\09pxor      %xmm1, %xmm0  \0A\09add       $$16, $1         \0A\09subl      $$1, $0          \0A\09test      $2, $2          \0A\09jz        2f              \0A\091:                        \0A\09movdqu    ($1), %xmm1    \0A\09.byte 0x66,0x0F,0x38,0xDC,0xC1\0A\09add       $$16, $1         \0A\09subl      $$1, $0          \0A\09jnz       1b              \0A\09movdqu    ($1), %xmm1    \0A\09.byte 0x66,0x0F,0x38,0xDD,0xC1\0A\09jmp       3f              \0A\092:                        \0A\09movdqu    ($1), %xmm1    \0A\09.byte 0x66,0x0F,0x38,0xDE,0xC1\0A\09add       $$16, $1         \0A\09subl      $$1, $0          \0A\09jnz       2b              \0A\09movdqu    ($1), %xmm1    \0A\09.byte 0x66,0x0F,0x38,0xDF,0xC1\0A\093:                        \0A\09movdqu    %xmm0, ($4)    \0A\09", "r,r,r,r,r,~{memory},~{cc},~{xmm0},~{xmm1},~{dirflag},~{fpsr},~{flags}"(i32 %5, ptr nonnull %9, i32 %1, ptr %2, ptr %3) #5, !srcloc !12
+  tail call void asm sideeffect "movdqu    ($3), %xmm0    \0A\09movdqu    ($1), %xmm1    \0A\09pxor      %xmm1, %xmm0  \0A\09add       $$16, $1         \0A\09subl      $$1, $0          \0A\09test      $2, $2          \0A\09jz        2f              \0A\091:                        \0A\09movdqu    ($1), %xmm1    \0A\09.byte 0x66,0x0F,0x38,0xDC,0xC1\0A\09add       $$16, $1         \0A\09subl      $$1, $0          \0A\09jnz       1b              \0A\09movdqu    ($1), %xmm1    \0A\09.byte 0x66,0x0F,0x38,0xDD,0xC1\0A\09jmp       3f              \0A\092:                        \0A\09movdqu    ($1), %xmm1    \0A\09.byte 0x66,0x0F,0x38,0xDE,0xC1\0A\09add       $$16, $1         \0A\09subl      $$1, $0          \0A\09jnz       2b              \0A\09movdqu    ($1), %xmm1    \0A\09.byte 0x66,0x0F,0x38,0xDF,0xC1\0A\093:                        \0A\09movdqu    %xmm0, ($4)    \0A\09", "r,r,r,r,r,~{memory},~{cc},~{xmm0},~{xmm1},~{dirflag},~{fpsr},~{flags}"(i32 %5, ptr nonnull %9, i32 %1, ptr %2, ptr %3) #6, !srcloc !12
   ret i32 0
 }
 
@@ -45,9 +45,9 @@ define hidden void @mbedtls_aesni_gcm_mult(ptr noundef writeonly captures(none) 
   %4 = alloca [16 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
   br label %7
 
 7:                                                ; preds = %3, %7
@@ -66,7 +66,7 @@ define hidden void @mbedtls_aesni_gcm_mult(ptr noundef writeonly captures(none) 
   br i1 %exitcond.not, label %16, label %7, !llvm.loop !14
 
 16:                                               ; preds = %7
-  call void asm sideeffect "movdqu ($0), %xmm0               \0A\09movdqu ($1), %xmm1               \0A\09movdqa %xmm1, %xmm2             \0A\09movdqa %xmm1, %xmm3             \0A\09movdqa %xmm1, %xmm4             \0A\09.byte 0x66,0x0F,0x3A,0x44,0xC8,0x00\0A\09.byte 0x66,0x0F,0x3A,0x44,0xD0,0x11\0A\09.byte 0x66,0x0F,0x3A,0x44,0xD8,0x10\0A\09.byte 0x66,0x0F,0x3A,0x44,0xE0,0x01\0A\09pxor %xmm3, %xmm4               \0A\09movdqa %xmm4, %xmm3             \0A\09psrldq $$8, %xmm4                 \0A\09pslldq $$8, %xmm3                 \0A\09pxor %xmm4, %xmm2               \0A\09pxor %xmm3, %xmm1               \0A\09movdqa %xmm1, %xmm3             \0A\09movdqa %xmm2, %xmm4             \0A\09psllq $$1, %xmm1                  \0A\09psllq $$1, %xmm2                  \0A\09psrlq $$63, %xmm3                 \0A\09psrlq $$63, %xmm4                 \0A\09movdqa %xmm3, %xmm5             \0A\09pslldq $$8, %xmm3                 \0A\09pslldq $$8, %xmm4                 \0A\09psrldq $$8, %xmm5                 \0A\09por %xmm3, %xmm1                \0A\09por %xmm4, %xmm2                \0A\09por %xmm5, %xmm2                \0A\09movdqa %xmm1, %xmm3             \0A\09movdqa %xmm1, %xmm4             \0A\09movdqa %xmm1, %xmm5             \0A\09psllq $$63, %xmm3                 \0A\09psllq $$62, %xmm4                 \0A\09psllq $$57, %xmm5                 \0A\09pxor %xmm4, %xmm3               \0A\09pxor %xmm5, %xmm3               \0A\09pslldq $$8, %xmm3                 \0A\09pxor %xmm3, %xmm1               \0A\09movdqa %xmm1,%xmm0              \0A\09movdqa %xmm1,%xmm4              \0A\09movdqa %xmm1,%xmm5              \0A\09psrlq $$1, %xmm0                  \0A\09psrlq $$2, %xmm4                  \0A\09psrlq $$7, %xmm5                  \0A\09pxor %xmm4, %xmm0               \0A\09pxor %xmm5, %xmm0               \0A\09movdqa %xmm1,%xmm3              \0A\09movdqa %xmm1,%xmm4              \0A\09movdqa %xmm1,%xmm5              \0A\09psllq $$63, %xmm3                 \0A\09psllq $$62, %xmm4                 \0A\09psllq $$57, %xmm5                 \0A\09pxor %xmm4, %xmm3               \0A\09pxor %xmm5, %xmm3               \0A\09psrldq $$8, %xmm3                 \0A\09pxor %xmm3, %xmm0               \0A\09pxor %xmm1, %xmm0               \0A\09pxor %xmm2, %xmm0               \0A\09movdqu %xmm0, ($2)               \0A\09", "r,r,r,~{memory},~{cc},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, ptr nonnull %5, ptr nonnull %6) #5, !srcloc !16
+  call void asm sideeffect "movdqu ($0), %xmm0               \0A\09movdqu ($1), %xmm1               \0A\09movdqa %xmm1, %xmm2             \0A\09movdqa %xmm1, %xmm3             \0A\09movdqa %xmm1, %xmm4             \0A\09.byte 0x66,0x0F,0x3A,0x44,0xC8,0x00\0A\09.byte 0x66,0x0F,0x3A,0x44,0xD0,0x11\0A\09.byte 0x66,0x0F,0x3A,0x44,0xD8,0x10\0A\09.byte 0x66,0x0F,0x3A,0x44,0xE0,0x01\0A\09pxor %xmm3, %xmm4               \0A\09movdqa %xmm4, %xmm3             \0A\09psrldq $$8, %xmm4                 \0A\09pslldq $$8, %xmm3                 \0A\09pxor %xmm4, %xmm2               \0A\09pxor %xmm3, %xmm1               \0A\09movdqa %xmm1, %xmm3             \0A\09movdqa %xmm2, %xmm4             \0A\09psllq $$1, %xmm1                  \0A\09psllq $$1, %xmm2                  \0A\09psrlq $$63, %xmm3                 \0A\09psrlq $$63, %xmm4                 \0A\09movdqa %xmm3, %xmm5             \0A\09pslldq $$8, %xmm3                 \0A\09pslldq $$8, %xmm4                 \0A\09psrldq $$8, %xmm5                 \0A\09por %xmm3, %xmm1                \0A\09por %xmm4, %xmm2                \0A\09por %xmm5, %xmm2                \0A\09movdqa %xmm1, %xmm3             \0A\09movdqa %xmm1, %xmm4             \0A\09movdqa %xmm1, %xmm5             \0A\09psllq $$63, %xmm3                 \0A\09psllq $$62, %xmm4                 \0A\09psllq $$57, %xmm5                 \0A\09pxor %xmm4, %xmm3               \0A\09pxor %xmm5, %xmm3               \0A\09pslldq $$8, %xmm3                 \0A\09pxor %xmm3, %xmm1               \0A\09movdqa %xmm1,%xmm0              \0A\09movdqa %xmm1,%xmm4              \0A\09movdqa %xmm1,%xmm5              \0A\09psrlq $$1, %xmm0                  \0A\09psrlq $$2, %xmm4                  \0A\09psrlq $$7, %xmm5                  \0A\09pxor %xmm4, %xmm0               \0A\09pxor %xmm5, %xmm0               \0A\09movdqa %xmm1,%xmm3              \0A\09movdqa %xmm1,%xmm4              \0A\09movdqa %xmm1,%xmm5              \0A\09psllq $$63, %xmm3                 \0A\09psllq $$62, %xmm4                 \0A\09psllq $$57, %xmm5                 \0A\09pxor %xmm4, %xmm3               \0A\09pxor %xmm5, %xmm3               \0A\09psrldq $$8, %xmm3                 \0A\09pxor %xmm3, %xmm0               \0A\09pxor %xmm1, %xmm0               \0A\09pxor %xmm2, %xmm0               \0A\09movdqu %xmm0, ($2)               \0A\09", "r,r,r,~{memory},~{cc},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, ptr nonnull %5, ptr nonnull %6) #6, !srcloc !16
   br label %17
 
 17:                                               ; preds = %16, %17
@@ -81,9 +81,9 @@ define hidden void @mbedtls_aesni_gcm_mult(ptr noundef writeonly captures(none) 
   br i1 %exitcond14.not, label %23, label %17, !llvm.loop !17
 
 23:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
   ret void
 }
 
@@ -107,7 +107,7 @@ define hidden void @mbedtls_aesni_inverse_key(ptr noundef initializes((0, 16)) %
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.01419 = phi ptr [ %.014, %.lr.ph ], [ %.01417, %3 ]
   %.018 = phi ptr [ %.0, %.lr.ph ], [ %.016, %3 ]
-  tail call void asm sideeffect "movdqu ($0), %xmm0       \0A\09.byte 0x66,0x0F,0x38,0xDB,0xC0\0A\09movdqu %xmm0, ($1)       \0A\09", "r,r,~{memory},~{xmm0},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.018, ptr nonnull %.01419) #5, !srcloc !18
+  tail call void asm sideeffect "movdqu ($0), %xmm0       \0A\09.byte 0x66,0x0F,0x38,0xDB,0xC0\0A\09movdqu %xmm0, ($1)       \0A\09", "r,r,~{memory},~{xmm0},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.018, ptr nonnull %.01419) #6, !srcloc !18
   %.0 = getelementptr inbounds i8, ptr %.018, i64 -16
   %.014 = getelementptr inbounds nuw i8, ptr %.01419, i64 16
   %8 = icmp ugt ptr %.0, %1
@@ -125,35 +125,41 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -32, 1) i32 @mbedtls_aesni_setkey_enc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
-  switch i64 %2, label %7 [
-    i64 128, label %4
-    i64 192, label %5
-    i64 256, label %6
+  %4 = add i64 %2, -128
+  %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 58)
+  switch i64 %5, label %9 [
+    i64 0, label %6
+    i64 1, label %7
+    i64 2, label %8
   ]
 
-4:                                                ; preds = %3
-  tail call void asm sideeffect "movdqu ($1), %xmm0               \0A\09movdqu %xmm0, ($0)               \0A\09jmp 2f                            \0A\091:                                \0A\09pshufd $$0xff, %xmm1, %xmm1      \0A\09pxor %xmm0, %xmm1               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm1               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm1               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm1, %xmm0               \0A\09add $$16, $0                       \0A\09movdqu %xmm0, ($0)               \0A\09ret                               \0A\092:                                \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x01\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x02\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x04\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x08\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x10\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x20\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x40\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x80\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x1B\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x36\0A\09call 1b \0A\09", "r,r,~{memory},~{cc},~{ax},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #5, !srcloc !20
-  br label %7
-
-5:                                                ; preds = %3
-  tail call void asm sideeffect "movdqu ($1), %xmm0   \0A\09movdqu %xmm0, ($0)   \0A\09add $$16, $0           \0A\09movq 16($1), %xmm1   \0A\09movq %xmm1, ($0)     \0A\09add $$8, $0            \0A\09jmp 2f                \0A\091:                            \0A\09pshufd $$0x55, %xmm2, %xmm2  \0A\09pxor %xmm0, %xmm2           \0A\09pslldq $$4, %xmm0             \0A\09pxor %xmm0, %xmm2           \0A\09pslldq $$4, %xmm0             \0A\09pxor %xmm0, %xmm2           \0A\09pslldq $$4, %xmm0             \0A\09pxor %xmm2, %xmm0           \0A\09movdqu %xmm0, ($0)           \0A\09add $$16, $0                   \0A\09pshufd $$0xff, %xmm0, %xmm2  \0A\09pxor %xmm1, %xmm2           \0A\09pslldq $$4, %xmm1             \0A\09pxor %xmm2, %xmm1           \0A\09movq %xmm1, ($0)             \0A\09add $$8, $0                    \0A\09ret                           \0A\092:                            \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x01\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x02\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x04\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x08\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x10\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x20\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x40\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x80\0A\09call 1b \0A\09", "r,r,~{memory},~{cc},~{ax},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #5, !srcloc !21
-  br label %7
-
 6:                                                ; preds = %3
-  tail call void asm sideeffect "movdqu ($1), %xmm0           \0A\09movdqu %xmm0, ($0)           \0A\09add $$16, $0                   \0A\09movdqu 16($1), %xmm1         \0A\09movdqu %xmm1, ($0)           \0A\09jmp 2f                        \0A\091:                                \0A\09pshufd $$0xff, %xmm2, %xmm2      \0A\09pxor %xmm0, %xmm2               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm2               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm2               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm2, %xmm0               \0A\09add $$16, $0                       \0A\09movdqu %xmm0, ($0)               \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD0,0x00\0A\09pshufd $$0xaa, %xmm2, %xmm2      \0A\09pxor %xmm1, %xmm2               \0A\09pslldq $$4, %xmm1                 \0A\09pxor %xmm1, %xmm2               \0A\09pslldq $$4, %xmm1                 \0A\09pxor %xmm1, %xmm2               \0A\09pslldq $$4, %xmm1                 \0A\09pxor %xmm2, %xmm1               \0A\09add $$16, $0                       \0A\09movdqu %xmm1, ($0)               \0A\09ret                               \0A\092:                                \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x01\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x02\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x04\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x08\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x10\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x20\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x40\0A\09call 1b \0A\09", "r,r,~{memory},~{cc},~{ax},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #5, !srcloc !22
-  br label %7
+  tail call void asm sideeffect "movdqu ($1), %xmm0               \0A\09movdqu %xmm0, ($0)               \0A\09jmp 2f                            \0A\091:                                \0A\09pshufd $$0xff, %xmm1, %xmm1      \0A\09pxor %xmm0, %xmm1               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm1               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm1               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm1, %xmm0               \0A\09add $$16, $0                       \0A\09movdqu %xmm0, ($0)               \0A\09ret                               \0A\092:                                \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x01\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x02\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x04\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x08\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x10\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x20\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x40\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x80\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x1B\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xC8,0x36\0A\09call 1b \0A\09", "r,r,~{memory},~{cc},~{ax},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #6, !srcloc !20
+  br label %9
 
-7:                                                ; preds = %4, %5, %6, %3
-  %.0 = phi i32 [ -32, %3 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ]
+7:                                                ; preds = %3
+  tail call void asm sideeffect "movdqu ($1), %xmm0   \0A\09movdqu %xmm0, ($0)   \0A\09add $$16, $0           \0A\09movq 16($1), %xmm1   \0A\09movq %xmm1, ($0)     \0A\09add $$8, $0            \0A\09jmp 2f                \0A\091:                            \0A\09pshufd $$0x55, %xmm2, %xmm2  \0A\09pxor %xmm0, %xmm2           \0A\09pslldq $$4, %xmm0             \0A\09pxor %xmm0, %xmm2           \0A\09pslldq $$4, %xmm0             \0A\09pxor %xmm0, %xmm2           \0A\09pslldq $$4, %xmm0             \0A\09pxor %xmm2, %xmm0           \0A\09movdqu %xmm0, ($0)           \0A\09add $$16, $0                   \0A\09pshufd $$0xff, %xmm0, %xmm2  \0A\09pxor %xmm1, %xmm2           \0A\09pslldq $$4, %xmm1             \0A\09pxor %xmm2, %xmm1           \0A\09movq %xmm1, ($0)             \0A\09add $$8, $0                    \0A\09ret                           \0A\092:                            \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x01\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x02\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x04\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x08\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x10\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x20\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x40\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x80\0A\09call 1b \0A\09", "r,r,~{memory},~{cc},~{ax},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #6, !srcloc !21
+  br label %9
+
+8:                                                ; preds = %3
+  tail call void asm sideeffect "movdqu ($1), %xmm0           \0A\09movdqu %xmm0, ($0)           \0A\09add $$16, $0                   \0A\09movdqu 16($1), %xmm1         \0A\09movdqu %xmm1, ($0)           \0A\09jmp 2f                        \0A\091:                                \0A\09pshufd $$0xff, %xmm2, %xmm2      \0A\09pxor %xmm0, %xmm2               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm2               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm0, %xmm2               \0A\09pslldq $$4, %xmm0                 \0A\09pxor %xmm2, %xmm0               \0A\09add $$16, $0                       \0A\09movdqu %xmm0, ($0)               \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD0,0x00\0A\09pshufd $$0xaa, %xmm2, %xmm2      \0A\09pxor %xmm1, %xmm2               \0A\09pslldq $$4, %xmm1                 \0A\09pxor %xmm1, %xmm2               \0A\09pslldq $$4, %xmm1                 \0A\09pxor %xmm1, %xmm2               \0A\09pslldq $$4, %xmm1                 \0A\09pxor %xmm2, %xmm1               \0A\09add $$16, $0                       \0A\09movdqu %xmm1, ($0)               \0A\09ret                               \0A\092:                                \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x01\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x02\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x04\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x08\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x10\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x20\0A\09call 1b \0A\09.byte 0x66,0x0F,0x3A,0xDF,0xD1,0x40\0A\09call 1b \0A\09", "r,r,~{memory},~{cc},~{ax},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #6, !srcloc !22
+  br label %9
+
+9:                                                ; preds = %6, %7, %8, %3
+  %.0 = phi i32 [ -32, %3 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ]
   ret i32 %.0
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #4
 
 attributes #0 = { nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

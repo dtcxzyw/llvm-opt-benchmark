@@ -2127,61 +2127,62 @@ define hidden void @InitVM_Struct() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 38:                                               ; preds = %0
-  switch i64 %30, label %41 [
+  %39 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 62)
+  switch i64 %39, label %42 [
     i64 0, label %rb_class_of.exit
-    i64 4, label %39
-    i64 20, label %40
+    i64 1, label %40
+    i64 5, label %41
   ]
-
-39:                                               ; preds = %38
-  br label %rb_class_of.exit
 
 40:                                               ; preds = %38
   br label %rb_class_of.exit
 
 41:                                               ; preds = %38
-  %42 = and i64 %30, 1
-  %.not.i = icmp eq i64 %42, 0
-  br i1 %.not.i, label %43, label %rb_class_of.exit
-
-43:                                               ; preds = %41
-  %44 = and i64 %30, 254
-  %45 = icmp eq i64 %44, 12
-  %spec.select.i = select i1 %45, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit
 
-rb_class_of.exit:                                 ; preds = %35, %38, %39, %40, %41, %43
-  %.0.in.i = phi ptr [ @rb_cNilClass, %39 ], [ @rb_cTrueClass, %40 ], [ %37, %35 ], [ @rb_cFalseClass, %38 ], [ @rb_cInteger, %41 ], [ %spec.select.i, %43 ]
+42:                                               ; preds = %38
+  %43 = and i64 %30, 1
+  %.not.i = icmp eq i64 %43, 0
+  br i1 %.not.i, label %44, label %rb_class_of.exit
+
+44:                                               ; preds = %42
+  %45 = and i64 %30, 254
+  %46 = icmp eq i64 %45, 12
+  %spec.select.i = select i1 %46, ptr @rb_cSymbol, ptr @rb_cFloat
+  br label %rb_class_of.exit
+
+rb_class_of.exit:                                 ; preds = %35, %38, %40, %41, %42, %44
+  %.0.in.i = phi ptr [ @rb_cNilClass, %40 ], [ @rb_cTrueClass, %41 ], [ %37, %35 ], [ @rb_cFalseClass, %38 ], [ @rb_cInteger, %42 ], [ %spec.select.i, %44 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
   tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.6) #20
-  %46 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_undef_alloc_func(i64 noundef %46) #20
   %47 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_singleton_method(i64 noundef %47, ptr noundef nonnull @.str.31, ptr noundef nonnull @rb_data_s_def, i32 noundef -1) #20
+  tail call void @rb_undef_alloc_func(i64 noundef %47) #20
   %48 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %48, ptr noundef nonnull @.str.7, ptr noundef nonnull @rb_data_initialize_m, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %48, ptr noundef nonnull @.str.31, ptr noundef nonnull @rb_data_s_def, i32 noundef -1) #20
   %49 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.8, ptr noundef nonnull @rb_data_init_copy, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.7, ptr noundef nonnull @rb_data_initialize_m, i32 noundef -1) #20
   %50 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %50, ptr noundef nonnull @.str.9, ptr noundef nonnull @rb_struct_equal, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %50, ptr noundef nonnull @.str.8, ptr noundef nonnull @rb_data_init_copy, i32 noundef 1) #20
   %51 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %51, ptr noundef nonnull @.str.10, ptr noundef nonnull @rb_struct_eql, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %51, ptr noundef nonnull @.str.9, ptr noundef nonnull @rb_struct_equal, i32 noundef 1) #20
   %52 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.11, ptr noundef nonnull @rb_struct_hash, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.10, ptr noundef nonnull @rb_struct_eql, i32 noundef 1) #20
   %53 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %53, ptr noundef nonnull @.str.12, ptr noundef nonnull @rb_data_inspect, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %53, ptr noundef nonnull @.str.11, ptr noundef nonnull @rb_struct_hash, i32 noundef 0) #20
   %54 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_alias(i64 noundef %54, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12) #20
+  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.12, ptr noundef nonnull @rb_data_inspect, i32 noundef 0) #20
   %55 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %55, ptr noundef nonnull @.str.15, ptr noundef nonnull @rb_struct_to_h, i32 noundef 0) #20
+  tail call void @rb_define_alias(i64 noundef %55, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12) #20
   %56 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.26, ptr noundef nonnull @rb_struct_members_m, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.15, ptr noundef nonnull @rb_struct_to_h, i32 noundef 0) #20
   %57 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %57, ptr noundef nonnull @.str.28, ptr noundef nonnull @rb_struct_to_a, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %57, ptr noundef nonnull @.str.26, ptr noundef nonnull @rb_struct_members_m, i32 noundef 0) #20
   %58 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.29, ptr noundef nonnull @rb_struct_deconstruct_keys, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.28, ptr noundef nonnull @rb_struct_to_a, i32 noundef 0) #20
   %59 = load i64, ptr @rb_cData, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.32, ptr noundef nonnull @rb_data_with, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.29, ptr noundef nonnull @rb_struct_deconstruct_keys, i32 noundef 1) #20
+  %60 = load i64, ptr @rb_cData, align 8, !tbaa !7
+  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.32, ptr noundef nonnull @rb_data_with, i32 noundef -1) #20
   ret void
 }
 
@@ -4673,6 +4674,9 @@ declare i64 @rb_keyword_error_new(ptr noundef, i64 noundef) local_unnamed_addr #
 declare i64 @rb_ary_diff(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare i64 @rb_hash_update_by(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

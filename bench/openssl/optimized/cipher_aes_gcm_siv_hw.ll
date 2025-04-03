@@ -12,6 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [12 x i8] c"AES-192-ECB\00", align 1
 @.str.2 = private unnamed_addr constant [12 x i8] c"AES-256-ECB\00", align 1
 @.str.3 = private unnamed_addr constant [69 x i8] c"../openssl/providers/implementations/ciphers/cipher_aes_gcm_siv_hw.c\00", align 1
+@switch.table.aes_gcm_siv_initkey = private unnamed_addr constant [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @ossl_prov_cipher_hw_aes_gcm_siv(i64 noundef %0) local_unnamed_addr #0 {
@@ -28,35 +29,29 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_initkey(ptr noundef %0) #1 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8, !tbaa !3
-  switch i64 %6, label %.loopexit [
-    i64 16, label %9
-    i64 24, label %7
-    i64 32, label %8
-  ]
+  %7 = add i64 %6, -16
+  %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 61)
+  %9 = icmp ult i64 %8, 3
+  br i1 %9, label %switch.lookup, label %.loopexit
 
-7:                                                ; preds = %1
-  br label %9
-
-8:                                                ; preds = %1
-  br label %9
-
-9:                                                ; preds = %1, %8, %7
-  %.str.2.sink = phi ptr [ @.str.2, %8 ], [ @.str.1, %7 ], [ @.str, %1 ]
+switch.lookup:                                    ; preds = %1
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.aes_gcm_siv_initkey, i64 0, i64 %8
+  %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !15
-  %12 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %11, ptr noundef nonnull %.str.2.sink, ptr noundef null) #7
+  %12 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %11, ptr noundef nonnull %switch.load, ptr noundef null) #7
   %13 = load ptr, ptr %0, align 8, !tbaa !16
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
-15:                                               ; preds = %9
+15:                                               ; preds = %switch.lookup
   %16 = tail call ptr @EVP_CIPHER_CTX_new() #7
   store ptr %16, ptr %0, align 8, !tbaa !16
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit, label %18
 
-18:                                               ; preds = %15, %9
-  %19 = phi ptr [ %16, %15 ], [ %13, %9 ]
+18:                                               ; preds = %15, %switch.lookup
+  %19 = phi ptr [ %16, %15 ], [ %13, %switch.lookup ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = tail call i32 @EVP_EncryptInit_ex2(ptr noundef nonnull %19, ptr noundef %12, ptr noundef nonnull %20, ptr noundef null, ptr noundef null) #7
   %.not = icmp eq i32 %21, 0
@@ -131,7 +126,7 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_initkey(ptr noundef %0) #1 {
   call void @EVP_CIPHER_free(ptr noundef %12) #7
   br label %54
 
-.loopexit:                                        ; preds = %28, %36, %._crit_edge, %18, %15, %1
+.loopexit:                                        ; preds = %28, %36, %1, %._crit_edge, %18, %15
   %.1 = phi ptr [ null, %1 ], [ %12, %15 ], [ %12, %._crit_edge ], [ %12, %18 ], [ %12, %36 ], [ %12, %28 ]
   %53 = load ptr, ptr %0, align 8, !tbaa !16
   call void @EVP_CIPHER_CTX_free(ptr noundef %53) #7
@@ -663,6 +658,9 @@ declare void @ossl_polyval_ghash_init(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @ossl_polyval_ghash_hash(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare i32 @EVP_CIPHER_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

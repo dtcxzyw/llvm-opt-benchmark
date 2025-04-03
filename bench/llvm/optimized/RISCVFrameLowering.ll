@@ -13149,23 +13149,10 @@ declare noundef ptr @_ZN4llvm17MachineBasicBlock14getFallThroughEb(ptr noundef n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVFrameLowering18isSupportedStackIDENS_13TargetStackID5ValueE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #8 align 2 {
-  switch i32 %1, label %4 [
-    i32 0, label %5
-    i32 2, label %5
-    i32 255, label %3
-    i32 1, label %3
-    i32 3, label %3
-  ]
-
-3:                                                ; preds = %2, %2, %2
-  br label %5
-
-4:                                                ; preds = %2
-  unreachable
-
-5:                                                ; preds = %2, %2, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %2 ], [ true, %2 ]
-  ret i1 %.0
+switch.lookup:
+  %2 = trunc i32 %1 to i1
+  %switch.tableidx = xor i1 %2, true
+  ret i1 %switch.tableidx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

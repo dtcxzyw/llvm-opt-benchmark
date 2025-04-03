@@ -5226,16 +5226,12 @@ define internal fastcc noundef i32 @dissect_udcompparam(ptr noundef %0, ptr noun
   %9 = alloca i64, align 8
   %10 = icmp ne i32 %3, 1
   %or.cond = and i1 %10, %6
-  br i1 %or.cond, label %85, label %11
+  %11 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 30)
+  %switch = icmp ult i32 %11, 3
+  %or.cond1 = or i1 %switch, %or.cond
+  br i1 %or.cond1, label %85, label %12
 
-11:                                               ; preds = %7
-  switch i32 %3, label %12 [
-    i32 8, label %85
-    i32 4, label %85
-    i32 0, label %85
-  ]
-
-12:                                               ; preds = %11
+12:                                               ; preds = %7
   %13 = load i32, ptr @hf_oran_udCompParam, align 4
   %14 = select i1 %6, ptr @.str.1197, ptr @.str.1198
   %15 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %2, i32 noundef 1, ptr noundef nonnull @.str.1165, ptr noundef nonnull %14)
@@ -5322,15 +5318,15 @@ proto_item_set_generated.exit:                    ; preds = %12, %20, %23
   br label %83
 
 60:                                               ; preds = %44, %60
-  %indvars.iv6 = phi i64 [ 0, %44 ], [ %indvars.iv.next7, %60 ]
-  %.0843 = phi i32 [ 0, %44 ], [ %spec.select, %60 ]
-  %61 = lshr i64 %52, %indvars.iv6
+  %indvars.iv7 = phi i64 [ 0, %44 ], [ %indvars.iv.next8, %60 ]
+  %.0844 = phi i32 [ 0, %44 ], [ %spec.select, %60 ]
+  %61 = lshr i64 %52, %indvars.iv7
   %62 = trunc nuw nsw i64 %61 to i32
   %63 = and i32 %62, 1
-  %spec.select = add i32 %63, %.0843
-  %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %exitcond9.not = icmp eq i64 %indvars.iv.next7, 12
-  br i1 %exitcond9.not, label %53, label %60, !llvm.loop !27
+  %spec.select = add i32 %63, %.0844
+  %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
+  %exitcond10.not = icmp eq i64 %indvars.iv.next8, 12
+  br i1 %exitcond10.not, label %53, label %60, !llvm.loop !27
 
 64:                                               ; preds = %proto_item_set_generated.exit
   %65 = load i32, ptr @hf_oran_sReSMask, align 4
@@ -5357,11 +5353,11 @@ proto_item_set_generated.exit:                    ; preds = %12, %20, %23
 
 79:                                               ; preds = %64, %79
   %indvars.iv = phi i64 [ 0, %64 ], [ %indvars.iv.next, %79 ]
-  %.0811 = phi i32 [ 0, %64 ], [ %spec.select89, %79 ]
+  %.0812 = phi i32 [ 0, %64 ], [ %spec.select89, %79 ]
   %80 = lshr i64 %72, %indvars.iv
   %81 = trunc nuw nsw i64 %80 to i32
   %82 = and i32 %81, 1
-  %spec.select89 = add i32 %82, %.0811
+  %spec.select89 = add i32 %82, %.0812
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %73, label %79, !llvm.loop !28
@@ -5374,8 +5370,8 @@ proto_item_set_generated.exit:                    ; preds = %12, %20, %23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   br label %85
 
-85:                                               ; preds = %11, %11, %11, %7, %83
-  %.082 = phi i32 [ %.086, %83 ], [ %2, %7 ], [ %2, %11 ], [ %2, %11 ], [ %2, %11 ]
+85:                                               ; preds = %7, %83
+  %.082 = phi i32 [ %.086, %83 ], [ %2, %7 ]
   ret i32 %.082
 }
 
@@ -9766,6 +9762,9 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 
 ; Function Attrs: null_pointer_is_valid
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #10

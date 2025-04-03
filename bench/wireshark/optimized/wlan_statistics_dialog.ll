@@ -2188,11 +2188,12 @@ define noundef range(i32 0, 2) i32 @_ZN20WlanStatisticsDialog9tapPacketEPvP12_pa
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %12 = load i16, ptr %11, align 8
-  %13 = and i16 %12, 4080
-  switch i16 %13, label %59 [
-    i16 32, label %14
-    i16 0, label %16
-    i16 48, label %16
+  %13 = lshr i16 %12, 4
+  %trunc = trunc i16 %13 to i8
+  switch i8 %trunc, label %59 [
+    i8 2, label %14
+    i8 0, label %16
+    i8 3, label %16
   ]
 
 14:                                               ; preds = %10

@@ -9,30 +9,29 @@ declare void @generic_free(ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @aes_import(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @generic_import(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2
+  %4 = tail call ptr @generic_import(ptr noundef %0, i32 noundef %1, ptr noundef %2) #3
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %12, label %6
+  br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !3
-  switch i64 %8, label %9 [
-    i64 16, label %10
-    i64 24, label %10
-    i64 32, label %10
-  ]
+  %9 = add i64 %8, -16
+  %10 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 61)
+  %switch = icmp ult i64 %10, 3
+  br i1 %switch, label %12, label %11
 
-9:                                                ; preds = %6
-  tail call void @generic_free(ptr noundef nonnull %4) #2
-  br label %12
+11:                                               ; preds = %6
+  tail call void @generic_free(ptr noundef nonnull %4) #3
+  br label %14
 
-10:                                               ; preds = %6, %6, %6
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 2, ptr %11, align 8, !tbaa !12
-  br label %12
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 2, ptr %13, align 8, !tbaa !12
+  br label %14
 
-12:                                               ; preds = %3, %10, %9
-  %.0 = phi ptr [ null, %9 ], [ %4, %10 ], [ null, %3 ]
+14:                                               ; preds = %3, %12, %11
+  %.0 = phi ptr [ null, %11 ], [ %4, %12 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -44,7 +43,7 @@ define internal i32 @aes_export(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @generic_export(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #2
+  %8 = tail call i32 @generic_export(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #3
   br label %9
 
 9:                                                ; preds = %4, %7
@@ -56,9 +55,13 @@ declare ptr @generic_import(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 
 declare i32 @generic_export(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #2
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

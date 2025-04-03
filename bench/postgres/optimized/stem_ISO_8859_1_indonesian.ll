@@ -219,26 +219,26 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
 92:                                               ; preds = %90
   %93 = tail call i32 @slice_del(ptr noundef nonnull %0) #4
   %94 = icmp sgt i32 %93, -1
-  br i1 %94, label %.sink.split.sink.split, label %r_remove_particle.exit
+  br i1 %94, label %.sink.split.sink.split, label %.critedge
 
 95:                                               ; preds = %90
   %96 = tail call i32 @slice_del(ptr noundef nonnull %0) #4
   %97 = icmp sgt i32 %96, -1
-  br i1 %97, label %.sink.split.sink.split, label %r_remove_particle.exit
+  br i1 %97, label %.sink.split.sink.split, label %.critedge
 
 98:                                               ; preds = %90
   %99 = load ptr, ptr %2, align 8
   store i32 1, ptr %99, align 4
   %100 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_1) #4
   %101 = icmp sgt i32 %100, -1
-  br i1 %101, label %.sink.split, label %r_remove_particle.exit
+  br i1 %101, label %.sink.split, label %.critedge
 
 102:                                              ; preds = %90
   %103 = load ptr, ptr %2, align 8
   store i32 3, ptr %103, align 4
   %104 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_2) #4
   %105 = icmp sgt i32 %104, -1
-  br i1 %105, label %.sink.split, label %r_remove_particle.exit
+  br i1 %105, label %.sink.split, label %.critedge
 
 106:                                              ; preds = %90
   %107 = load ptr, ptr %2, align 8
@@ -257,12 +257,12 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
 114:                                              ; preds = %106
   %115 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_3) #4
   %116 = icmp slt i32 %115, 0
-  br i1 %116, label %r_remove_particle.exit, label %139
+  br i1 %116, label %.critedge, label %139
 
 117:                                              ; preds = %106
   %118 = tail call i32 @slice_del(ptr noundef nonnull %0) #4
   %119 = icmp slt i32 %118, 0
-  br i1 %119, label %r_remove_particle.exit, label %139
+  br i1 %119, label %.critedge, label %139
 
 120:                                              ; preds = %90
   %121 = load ptr, ptr %2, align 8
@@ -281,12 +281,12 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
 128:                                              ; preds = %120
   %129 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_4) #4
   %130 = icmp slt i32 %129, 0
-  br i1 %130, label %r_remove_particle.exit, label %139
+  br i1 %130, label %.critedge, label %139
 
 131:                                              ; preds = %120
   %132 = tail call i32 @slice_del(ptr noundef nonnull %0) #4
   %133 = icmp slt i32 %132, 0
-  br i1 %133, label %r_remove_particle.exit, label %139
+  br i1 %133, label %.critedge, label %139
 
 .sink.split.sink.split:                           ; preds = %95, %92
   %.sink = phi i32 [ 1, %92 ], [ 3, %95 ]
@@ -308,7 +308,7 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
   %143 = load i32, ptr %142, align 4
   %144 = icmp sgt i32 %143, 2
-  br i1 %144, label %145, label %r_remove_particle.exit.sink.split
+  br i1 %144, label %145, label %.critedge.sink.split
 
 145:                                              ; preds = %139
   store i32 %140, ptr %24, align 8
@@ -316,11 +316,11 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
   store i32 %146, ptr %5, align 8
   %147 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0)
   %148 = icmp eq i32 %147, 0
-  br i1 %148, label %r_remove_particle.exit.sink.split, label %149
+  br i1 %148, label %.critedge.sink.split, label %149
 
 149:                                              ; preds = %145
   %150 = icmp sgt i32 %147, -1
-  br i1 %150, label %.thread194, label %r_remove_particle.exit
+  br i1 %150, label %.thread194, label %.critedge
 
 .thread194:                                       ; preds = %149
   store i32 %140, ptr %5, align 8
@@ -328,30 +328,30 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load i32, ptr %152, align 4
   %154 = icmp sgt i32 %153, 2
-  br i1 %154, label %155, label %r_remove_particle.exit.sink.split
+  br i1 %154, label %155, label %.critedge.sink.split
 
 155:                                              ; preds = %.thread194
   %156 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0)
   %157 = icmp eq i32 %156, 0
+  %158 = icmp slt i32 %156, 0
   %.lobit = lshr i32 %156, 31
+  %..5 = select i1 %158, i32 %156, i32 %.016.i.ph
   %.11125 = select i1 %157, i32 6, i32 %.lobit
-  switch i32 %.11125, label %158 [
-    i32 0, label %r_remove_particle.exit.sink.split
-    i32 6, label %r_remove_particle.exit.sink.split
+  %.9 = select i1 %157, i32 %.016.i.ph, i32 %..5
+  switch i32 %.11125, label %159 [
+    i32 0, label %.critedge.sink.split
+    i32 6, label %.critedge.sink.split
   ]
 
-158:                                              ; preds = %155
-  %159 = icmp slt i32 %156, 0
-  %..5 = select i1 %159, i32 %156, i32 %.016.i.ph
-  %.9 = select i1 %157, i32 %.016.i.ph, i32 %..5
+159:                                              ; preds = %155
   %cond = icmp sgt i32 %156, -1
-  br i1 %cond, label %r_remove_particle.exit.sink.split, label %r_remove_particle.exit
+  br i1 %cond, label %.critedge.sink.split, label %.critedge
 
 .thread211:                                       ; preds = %80, %83, %88
   store i32 %75, ptr %5, align 8
   %160 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0)
   %161 = icmp sgt i32 %160, -1
-  br i1 %161, label %162, label %r_remove_particle.exit
+  br i1 %161, label %162, label %.critedge
 
 162:                                              ; preds = %.thread211
   store i32 %75, ptr %5, align 8
@@ -359,33 +359,41 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
   %165 = load i32, ptr %164, align 4
   %166 = icmp sgt i32 %165, 2
-  br i1 %166, label %167, label %r_remove_particle.exit.sink.split
+  br i1 %166, label %167, label %.critedge.sink.split
 
 167:                                              ; preds = %162
   store i32 %75, ptr %24, align 8
   %168 = load i32, ptr %25, align 4
   store i32 %168, ptr %5, align 8
   %169 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0)
-  %.fr = freeze i32 %169
-  %170 = icmp eq i32 %.fr, 0
-  %.lobit216 = lshr i32 %.fr, 31
+  %170 = icmp eq i32 %169, 0
+  %171 = icmp slt i32 %169, 0
+  %.lobit216 = lshr i32 %169, 31
+  %..4. = select i1 %171, i32 %169, i32 %.016.i.ph
   %.15 = select i1 %170, i32 8, i32 %.lobit216
+  %.13 = select i1 %170, i32 %.016.i.ph, i32 %..4.
   switch i32 %.15, label %.critedge [
-    i32 0, label %r_remove_particle.exit.sink.split
-    i32 8, label %r_remove_particle.exit.sink.split
+    i32 0, label %.critedge.sink.split
+    i32 8, label %.critedge.sink.split
   ]
 
-.critedge:                                        ; preds = %167
-  %switch148 = icmp slt i32 %.fr, 0
-  %spec.select = select i1 %switch148, i32 %.fr, i32 1
-  br label %r_remove_particle.exit
-
-r_remove_particle.exit.sink.split:                ; preds = %167, %162, %167, %158, %155, %.thread194, %155, %139, %145
+.critedge.sink.split:                             ; preds = %167, %162, %167, %159, %155, %.thread194, %155, %139, %145
+  %.12126.ph = phi i32 [ 7, %145 ], [ 7, %139 ], [ 7, %155 ], [ 7, %.thread194 ], [ 7, %155 ], [ 7, %159 ], [ 0, %167 ], [ 0, %162 ], [ 0, %167 ]
+  %.10.ph = phi i32 [ %.016.i.ph, %145 ], [ %.016.i.ph, %139 ], [ %.9, %155 ], [ %.016.i.ph, %.thread194 ], [ %.9, %155 ], [ %.9, %159 ], [ %.13, %167 ], [ %.016.i.ph, %162 ], [ %.13, %167 ]
   store i32 %75, ptr %5, align 8
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.sink.split, %149, %102, %98, %95, %92, %117, %114, %131, %128, %159, %.thread211, %167
+  %.12126 = phi i32 [ %.lobit216, %167 ], [ 1, %.thread211 ], [ 1, %159 ], [ 1, %128 ], [ 1, %131 ], [ 1, %114 ], [ 1, %117 ], [ 1, %92 ], [ 1, %95 ], [ 1, %98 ], [ 1, %102 ], [ 1, %149 ], [ %.12126.ph, %.critedge.sink.split ]
+  %.10 = phi i32 [ %.13, %167 ], [ %160, %.thread211 ], [ %.9, %159 ], [ %129, %128 ], [ %132, %131 ], [ %115, %114 ], [ %118, %117 ], [ %93, %92 ], [ %96, %95 ], [ %100, %98 ], [ %104, %102 ], [ %147, %149 ], [ %.10.ph, %.critedge.sink.split ]
+  %172 = add nuw nsw i32 %.12126, 1
+  %173 = and i32 %172, 6
+  %switch148 = icmp eq i32 %173, 0
+  %spec.select = select i1 %switch148, i32 1, i32 %.10
   br label %r_remove_particle.exit
 
-r_remove_particle.exit:                           ; preds = %.critedge, %r_remove_particle.exit.sink.split, %149, %102, %98, %95, %92, %117, %114, %131, %128, %158, %.thread211, %63, %37, %73, %47, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %73 ], [ %40, %37 ], [ %66, %63 ], [ %104, %102 ], [ %100, %98 ], [ %96, %95 ], [ %93, %92 ], [ %118, %117 ], [ %115, %114 ], [ %132, %131 ], [ %129, %128 ], [ %.9, %158 ], [ %160, %.thread211 ], [ %147, %149 ], [ %spec.select, %.critedge ], [ 1, %r_remove_particle.exit.sink.split ]
+r_remove_particle.exit:                           ; preds = %63, %37, %.critedge, %73, %47, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %73 ], [ %spec.select, %.critedge ], [ %40, %37 ], [ %66, %63 ]
   ret i32 %.0
 }
 

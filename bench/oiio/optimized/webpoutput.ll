@@ -535,41 +535,59 @@ define hidden noundef range(i32 0, 2) i32 @_ZNK11OpenImageIO6v3_1_08webp_pvt10We
   %3 = load ptr, ptr %1, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10
-  switch i64 %5, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit [
-    i64 5, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-    i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6
-    i64 13, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11
+  %6 = add i64 %5, -5
+  %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 63)
+  switch i64 %7, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit [
+    i64 0, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+    i64 1, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6
+    i64 4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str, i64 5)
+  %bcmp.i = tail call i32 @bcmp(ptr %3, ptr nonnull @.str, i64 %5)
   %.not.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i.i, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1:  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %bcmp.i2 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
+  %bcmp.i2 = tail call i32 @bcmp(ptr %3, ptr nonnull @.str.1, i64 %5)
   %.not.i.i3 = icmp eq i32 %bcmp.i2, 0
-  br label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
+  br i1 %.not.i.i3, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, label %8
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6:  ; preds = %2
+8:                                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1
+  switch i64 %5, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit [
+    i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6
+    i64 13, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11
+  ]
+
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6:  ; preds = %2, %8
   %bcmp.i7 = tail call i32 @bcmp(ptr %3, ptr nonnull @.str.2, i64 %5)
   %.not.i.i8 = icmp eq i32 %bcmp.i7, 0
-  br i1 %.not.i.i8, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16
+  br i1 %.not.i.i8, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, label %9
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11: ; preds = %2
+9:                                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6
+  switch i64 %5, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit [
+    i64 13, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11
+    i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16
+  ]
+
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11: ; preds = %2, %8, %9
   %bcmp.i12 = tail call i32 @bcmp(ptr %3, ptr nonnull @.str.3, i64 %5)
   %.not.i.i13 = icmp eq i32 %bcmp.i12, 0
-  br label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
+  br i1 %.not.i.i13, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, label %10
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6
+10:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11
+  %11 = icmp eq i64 %5, 7
+  br i1 %11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
+
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16: ; preds = %10, %9
   %bcmp.i17 = tail call i32 @bcmp(ptr %3, ptr nonnull @.str.4, i64 %5)
   %.not.i.i18 = icmp eq i32 %bcmp.i17, 0
+  %spec.select = zext i1 %.not.i.i18 to i32
   br label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
 
-_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16, %2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %.shrunk = phi i1 [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6 ], [ false, %2 ], [ %.not.i.i18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ], [ %.not.i.i3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1 ], [ %.not.i.i13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11 ]
-  %6 = zext i1 %.shrunk to i32
-  ret i32 %6
+_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16, %10, %9, %8, %2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %12 = phi i32 [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %2 ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ]
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26527,6 +26545,9 @@ declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #22

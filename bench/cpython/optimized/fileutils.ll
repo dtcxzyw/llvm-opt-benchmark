@@ -1940,7 +1940,7 @@ get_inheritable.exit:                             ; preds = %10
 21:                                               ; preds = %20
   %22 = load atomic i32, ptr @set_inheritable.ioctl_works monotonic, align 4
   %.not39 = icmp eq i32 %22, 0
-  br i1 %.not39, label %36, label %23
+  br i1 %.not39, label %38, label %23
 
 23:                                               ; preds = %21
   %. = select i1 %6, i64 21584, i64 21585
@@ -1960,59 +1960,61 @@ get_inheritable.exit:                             ; preds = %10
 29:                                               ; preds = %23
   %30 = tail call ptr @__errno_location() #19
   %31 = load i32, ptr %30, align 4, !tbaa !180
-  switch i32 %31, label %32 [
-    i32 9, label %36
-    i32 25, label %35
-    i32 13, label %35
+  %32 = add i32 %31, -9
+  %33 = tail call i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 30)
+  switch i32 %33, label %34 [
+    i32 0, label %38
+    i32 4, label %37
+    i32 1, label %37
   ]
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
-  %34 = tail call ptr @PyErr_SetFromErrno(ptr noundef %33) #17
+34:                                               ; preds = %29
+  %35 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
+  %36 = tail call ptr @PyErr_SetFromErrno(ptr noundef %35) #17
   br label %.critedge
 
-35:                                               ; preds = %29, %29
+37:                                               ; preds = %29, %29
   store atomic i32 0, ptr @set_inheritable.ioctl_works monotonic, align 4
-  br label %36
+  br label %38
 
-36:                                               ; preds = %29, %35, %21
-  %37 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 1) #17
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %41, label %44
-
-.thread:                                          ; preds = %20
+38:                                               ; preds = %29, %37, %21
   %39 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 1) #17
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %.critedge, label %44
+  br i1 %40, label %43, label %46
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
-  %43 = tail call ptr @PyErr_SetFromErrno(ptr noundef %42) #17
+.thread:                                          ; preds = %20
+  %41 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 1) #17
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %.critedge, label %46
+
+43:                                               ; preds = %38
+  %44 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
+  %45 = tail call ptr @PyErr_SetFromErrno(ptr noundef %44) #17
   br label %.critedge
 
-44:                                               ; preds = %.thread, %36
-  %45 = phi i32 [ %39, %.thread ], [ %37, %36 ]
-  %46 = and i32 %45, 2147483646
-  %47 = or i32 %45, 1
-  %.031 = select i1 %6, i32 %46, i32 %47
-  %48 = icmp eq i32 %.031, %45
-  br i1 %48, label %.critedge, label %49
+46:                                               ; preds = %.thread, %38
+  %47 = phi i32 [ %41, %.thread ], [ %39, %38 ]
+  %48 = and i32 %47, 2147483646
+  %49 = or i32 %47, 1
+  %.031 = select i1 %6, i32 %48, i32 %49
+  %50 = icmp eq i32 %.031, %47
+  br i1 %50, label %.critedge, label %51
 
-49:                                               ; preds = %44
-  %50 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 2, i32 noundef %.031) #17
-  %51 = icmp sgt i32 %50, -1
-  %brmerge = or i1 %.not38, %51
-  %not. = xor i1 %51, true
+51:                                               ; preds = %46
+  %52 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 2, i32 noundef %.031) #17
+  %53 = icmp sgt i32 %52, -1
+  %brmerge = or i1 %.not38, %53
+  %not. = xor i1 %53, true
   %.mux = sext i1 %not. to i32
-  br i1 %brmerge, label %.critedge, label %52
+  br i1 %brmerge, label %.critedge, label %54
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
-  %54 = tail call ptr @PyErr_SetFromErrno(ptr noundef %53) #17
+54:                                               ; preds = %51
+  %55 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
+  %56 = tail call ptr @PyErr_SetFromErrno(ptr noundef %55) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %13, %14, %49, %52, %44, %41, %25, %28, %18, %32
-  %.1 = phi i32 [ -1, %32 ], [ 0, %18 ], [ 0, %28 ], [ 0, %25 ], [ -1, %41 ], [ 0, %44 ], [ -1, %52 ], [ %.mux, %49 ], [ -1, %14 ], [ -1, %13 ], [ -1, %.thread ]
+.critedge:                                        ; preds = %.thread, %13, %14, %51, %54, %46, %43, %25, %28, %18, %34
+  %.1 = phi i32 [ -1, %34 ], [ 0, %18 ], [ 0, %28 ], [ 0, %25 ], [ -1, %43 ], [ 0, %46 ], [ -1, %54 ], [ %.mux, %51 ], [ -1, %14 ], [ -1, %13 ], [ -1, %.thread ]
   ret i32 %.1
 }
 
@@ -3892,6 +3894,9 @@ declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64
 
 ; Function Attrs: nounwind
 declare ptr @wcscpy(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

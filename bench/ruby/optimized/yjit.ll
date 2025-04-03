@@ -1610,31 +1610,32 @@ define hidden i64 @rb_yarv_class_of(i64 noundef %0) local_unnamed_addr #4 {
   br label %rb_class_of.exit
 
 9:                                                ; preds = %1
-  switch i64 %0, label %12 [
+  %10 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %10, label %13 [
     i64 0, label %rb_class_of.exit
-    i64 4, label %10
-    i64 20, label %11
+    i64 1, label %11
+    i64 5, label %12
   ]
-
-10:                                               ; preds = %9
-  br label %rb_class_of.exit
 
 11:                                               ; preds = %9
   br label %rb_class_of.exit
 
 12:                                               ; preds = %9
-  %13 = and i64 %0, 1
-  %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %14, label %rb_class_of.exit
-
-14:                                               ; preds = %12
-  %15 = and i64 %0, 254
-  %16 = icmp eq i64 %15, 12
-  %spec.select.i = select i1 %16, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit
 
-rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %12, %14
-  %.0.in.i = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
+13:                                               ; preds = %9
+  %14 = and i64 %0, 1
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %15, label %rb_class_of.exit
+
+15:                                               ; preds = %13
+  %16 = and i64 %0, 254
+  %17 = icmp eq i64 %16, 12
+  %spec.select.i = select i1 %17, ptr @rb_cSymbol, ptr @rb_cFloat
+  br label %rb_class_of.exit
+
+rb_class_of.exit:                                 ; preds = %6, %9, %11, %12, %13, %15
+  %.0.in.i = phi ptr [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %13 ], [ %spec.select.i, %15 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !15
   ret i64 %.0.i
 }
@@ -2813,11 +2814,11 @@ declare void @rb_vm_lock_enter_body(ptr noundef) local_unnamed_addr #3
 
 declare void @rb_vm_lock_leave_body(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #22
+declare i64 @llvm.fshl.i64(i64, i64, i64) #21
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #23
@@ -2843,8 +2844,8 @@ attributes #17 = { nofree norecurse nosync nounwind sspstrong memory(read, argme
 attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { cold noreturn nounwind }
 attributes #25 = { cold }

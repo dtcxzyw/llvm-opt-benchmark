@@ -5050,29 +5050,21 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %1
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %17
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %10, ptr nonnull @.str.3, i64 %12)
   %20 = icmp eq i32 %bcmp.i, 0
-  br i1 %20, label %_ZNK5clang9NamedDecl7getNameEv.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+  br i1 %20, label %_ZNK5clang9NamedDecl7getNameEv.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  %trunc = trunc i64 %11 to i32
-  switch i32 %trunc, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread [
-    i32 36, label %_ZN4llvmeqENS_9StringRefES0_.exit11
-    i32 20, label %_ZN4llvmeqENS_9StringRefES0_.exit15
-    i32 32, label %_ZN4llvmeqENS_9StringRefES0_.exit19
-  ]
-
-_ZN4llvmeqENS_9StringRefES0_.exit11:              ; preds = %17, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+_ZN4llvmeqENS_9StringRefES0_.exit11:              ; preds = %17
   %bcmp.i10 = tail call i32 @bcmp(ptr nonnull %10, ptr nonnull @.str.4, i64 %12)
   %21 = icmp eq i32 %bcmp.i10, 0
   br i1 %21, label %_ZNK5clang9NamedDecl7getNameEv.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit11.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit11.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit11
-  %trunc39 = trunc i64 %11 to i32
-  switch i32 %trunc39, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread [
+  %trunc = trunc i64 %11 to i32
+  switch i32 %trunc, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread [
     i32 20, label %_ZN4llvmeqENS_9StringRefES0_.exit15
     i32 32, label %_ZN4llvmeqENS_9StringRefES0_.exit19
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit15:              ; preds = %17, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit11.thread
+_ZN4llvmeqENS_9StringRefES0_.exit15:              ; preds = %17, %_ZN4llvmeqENS_9StringRefES0_.exit11.thread
   %bcmp.i14 = tail call i32 @bcmp(ptr nonnull %10, ptr nonnull @.str.5, i64 %12)
   %22 = icmp eq i32 %bcmp.i14, 0
   br i1 %22, label %_ZNK5clang9NamedDecl7getNameEv.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit15.thread
@@ -5081,12 +5073,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit15.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %.not.i16 = icmp eq i64 %12, 32
   br i1 %.not.i16, label %_ZN4llvmeqENS_9StringRefES0_.exit19, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit19:              ; preds = %17, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit11.thread, %_ZN4llvmeqENS_9StringRefES0_.exit15.thread
+_ZN4llvmeqENS_9StringRefES0_.exit19:              ; preds = %17, %_ZN4llvmeqENS_9StringRefES0_.exit11.thread, %_ZN4llvmeqENS_9StringRefES0_.exit15.thread
   %bcmp.i18 = tail call i32 @bcmp(ptr nonnull %10, ptr nonnull @.str.6, i64 %12)
   %23 = icmp eq i32 %bcmp.i18, 0
   br i1 %23, label %_ZNK5clang9NamedDecl7getNameEv.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit19.thread:       ; preds = %17, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit11.thread, %_ZN4llvmeqENS_9StringRefES0_.exit15.thread, %_ZN4llvmeqENS_9StringRefES0_.exit19, %14
+_ZN4llvmeqENS_9StringRefES0_.exit19.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %17, %_ZN4llvmeqENS_9StringRefES0_.exit11.thread, %_ZN4llvmeqENS_9StringRefES0_.exit15.thread, %_ZN4llvmeqENS_9StringRefES0_.exit19, %14
   br label %_ZNK5clang9NamedDecl7getNameEv.exit.thread
 
 _ZNK5clang9NamedDecl7getNameEv.exit.thread:       ; preds = %1, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit11, %_ZN4llvmeqENS_9StringRefES0_.exit15, %_ZN4llvmeqENS_9StringRefES0_.exit19, %_ZNK5clang9NamedDecl7getNameEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit19.thread

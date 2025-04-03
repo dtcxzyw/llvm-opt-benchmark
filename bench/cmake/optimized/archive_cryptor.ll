@@ -26,49 +26,51 @@ define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr noundef writeonly capture
   %4 = tail call ptr @EVP_CIPHER_CTX_new() #7
   store ptr %4, ptr %0, align 8, !tbaa !4
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %22, label %6
+  br i1 %5, label %24, label %6
 
 6:                                                ; preds = %3
-  switch i64 %2, label %13 [
-    i64 16, label %7
-    i64 24, label %9
-    i64 32, label %11
+  %7 = add i64 %2, -16
+  %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 61)
+  switch i64 %8, label %15 [
+    i64 0, label %9
+    i64 1, label %11
+    i64 2, label %13
   ]
 
-7:                                                ; preds = %6
-  %8 = tail call ptr @EVP_aes_128_ecb() #7
-  br label %15
-
 9:                                                ; preds = %6
-  %10 = tail call ptr @EVP_aes_192_ecb() #7
-  br label %15
+  %10 = tail call ptr @EVP_aes_128_ecb() #7
+  br label %17
 
 11:                                               ; preds = %6
-  %12 = tail call ptr @EVP_aes_256_ecb() #7
-  br label %15
+  %12 = tail call ptr @EVP_aes_192_ecb() #7
+  br label %17
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %14, align 8, !tbaa !12
-  br label %22
+  %14 = tail call ptr @EVP_aes_256_ecb() #7
+  br label %17
 
-15:                                               ; preds = %11, %9, %7
-  %.sink = phi ptr [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %16, align 8, !tbaa !12
-  %17 = trunc nuw nsw i64 %2 to i32
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %17, ptr %18, align 8, !tbaa !13
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %1, i64 %2, i1 false)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 16, ptr %21, align 4, !tbaa !14
-  br label %22
+  store ptr null, ptr %16, align 8, !tbaa !12
+  br label %24
 
-22:                                               ; preds = %3, %15, %13
-  %.0 = phi i32 [ -1, %13 ], [ 0, %15 ], [ -1, %3 ]
+17:                                               ; preds = %13, %11, %9
+  %.sink = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %18, align 8, !tbaa !12
+  %19 = trunc i64 %2 to i32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %19, ptr %20, align 8, !tbaa !13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %1, i64 %2, i1 false)
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 16, ptr %23, align 4, !tbaa !14
+  br label %24
+
+24:                                               ; preds = %3, %17, %15
+  %.0 = phi i32 [ -1, %15 ], [ 0, %17 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -272,6 +274,9 @@ declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #2
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

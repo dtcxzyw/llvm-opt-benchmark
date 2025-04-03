@@ -1894,70 +1894,74 @@ common.exit:                                      ; preds = %common.exit.sink.sp
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 -1, 60) i32 @notation4(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
-  switch i32 %1, label %12 [
-    i32 15, label %common.exit
-    i32 27, label %6
-    i32 17, label %8
+  %6 = add i32 %1, -15
+  %7 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 31)
+  switch i32 %7, label %14 [
+    i32 0, label %common.exit
+    i32 6, label %8
+    i32 1, label %10
   ]
 
-6:                                                ; preds = %5
-  store ptr @declClose, ptr %0, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 17, ptr %7, align 4, !tbaa !15
-  br label %common.exit
-
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4, !tbaa !9
-  %.not = icmp eq i32 %10, 0
-  %11 = select i1 %.not, ptr @externalSubset1, ptr @internalSubset
-  store ptr %11, ptr %0, align 8, !tbaa !3
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 17, ptr %9, align 4, !tbaa !15
   br label %common.exit
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !9
-  %15 = icmp eq i32 %14, 0
-  %16 = icmp eq i32 %1, 28
-  %or.cond.i = and i1 %16, %15
-  br i1 %or.cond.i, label %common.exit, label %17
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %.not = icmp eq i32 %12, 0
+  %13 = select i1 %.not, ptr @externalSubset1, ptr @internalSubset
+  store ptr %13, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-17:                                               ; preds = %12
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %17 = icmp eq i32 %16, 0
+  %18 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %18, %17
+  br i1 %or.cond.i, label %common.exit, label %19
+
+19:                                               ; preds = %14
   store ptr @error, ptr %0, align 8, !tbaa !3
   br label %common.exit
 
-common.exit:                                      ; preds = %17, %12, %5, %8, %6
-  %.0 = phi i32 [ 20, %8 ], [ 19, %6 ], [ 17, %5 ], [ -1, %17 ], [ 59, %12 ]
+common.exit:                                      ; preds = %19, %14, %5, %10, %8
+  %.0 = phi i32 [ 20, %10 ], [ 19, %8 ], [ 17, %5 ], [ -1, %19 ], [ 59, %14 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 -1, 60) i32 @doctype4(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
-  switch i32 %1, label %7 [
-    i32 15, label %common.exit
-    i32 25, label %common.exit.sink.split
-    i32 17, label %6
+  %6 = add i32 %1, -15
+  %7 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 31)
+  switch i32 %7, label %9 [
+    i32 0, label %common.exit
+    i32 5, label %common.exit.sink.split
+    i32 1, label %8
   ]
 
-6:                                                ; preds = %5
+8:                                                ; preds = %5
   br label %common.exit.sink.split
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !9
-  %10 = icmp eq i32 %9, 0
-  %11 = icmp eq i32 %1, 28
-  %or.cond.i = and i1 %11, %10
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %12 = icmp eq i32 %11, 0
+  %13 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %13, %12
   br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-common.exit.sink.split:                           ; preds = %7, %5, %6
-  %error.sink = phi ptr [ @prolog2, %6 ], [ @internalSubset, %5 ], [ @error, %7 ]
-  %.0.ph = phi i32 [ 8, %6 ], [ 7, %5 ], [ -1, %7 ]
+common.exit.sink.split:                           ; preds = %9, %5, %8
+  %error.sink = phi ptr [ @prolog2, %8 ], [ @internalSubset, %5 ], [ @error, %9 ]
+  %.0.ph = phi i32 [ 8, %8 ], [ 7, %5 ], [ -1, %9 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !3
   br label %common.exit
 
-common.exit:                                      ; preds = %common.exit.sink.split, %7, %5
-  %.0 = phi i32 [ 3, %5 ], [ 59, %7 ], [ %.0.ph, %common.exit.sink.split ]
+common.exit:                                      ; preds = %common.exit.sink.split, %9, %5
+  %.0 = phi i32 [ 3, %5 ], [ 59, %9 ], [ %.0.ph, %common.exit.sink.split ]
   ret i32 %.0
 }
 

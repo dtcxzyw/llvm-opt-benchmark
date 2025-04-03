@@ -4111,25 +4111,14 @@ define noundef zeroext range(i8 0, 11) i8 @_ZN3nix11getFileTypeERKNSt7__cxx1112b
 _ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i32, ptr %10, align 8
-  %12 = trunc i32 %11 to i16
-  %trunc = and i16 %12, -4096
-  switch i16 %trunc, label %15 [
-    i16 16384, label %16
-    i16 -24576, label %13
-    i16 -32768, label %14
-  ]
-
-13:                                               ; preds = %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  br label %16
-
-14:                                               ; preds = %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  br label %16
-
-15:                                               ; preds = %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  br label %16
-
-16:                                               ; preds = %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %15, %14, %13
-  %.0 = phi i8 [ 10, %13 ], [ 8, %14 ], [ 0, %15 ], [ 4, %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %12 = and i32 %11, 61440
+  %13 = add nsw i32 %12, -16384
+  %14 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 19)
+  %15 = icmp ult i32 %14, 4
+  %switch.shiftamt = shl nuw nsw i32 %14, 3
+  %switch.downshift = lshr i32 168296452, %switch.shiftamt
+  %switch.masked = trunc i32 %switch.downshift to i8
+  %.0 = select i1 %15, i8 %switch.masked, i8 0
   ret i8 %.0
 }
 
@@ -24687,6 +24676,9 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27

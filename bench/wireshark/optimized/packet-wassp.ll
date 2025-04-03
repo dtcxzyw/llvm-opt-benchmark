@@ -2048,18 +2048,17 @@ define internal void @mu_association_status(ptr noundef %0, i8 noundef zeroext %
 define internal void @topology_moder_print(ptr noundef %0, i16 noundef zeroext %1) #1 {
   %3 = zext i16 %1 to i32
   %4 = and i16 %1, 4095
-  %5 = lshr i16 %1, 14
-  %6 = xor i16 %5, 2
-  %.not35 = icmp eq i16 %4, 0
-  switch i16 %6, label %default.unreachable [
-    i16 1, label %7
-    i16 3, label %13
-    i16 0, label %19
-    i16 2, label %25
+  %5 = add nsw i32 %3, -16384
+  %6 = lshr i32 %5, 14
+  %.not36 = icmp eq i16 %4, 0
+  switch i32 %6, label %25 [
+    i32 2, label %7
+    i32 0, label %13
+    i32 1, label %19
   ]
 
 7:                                                ; preds = %2
-  br i1 %.not35, label %11, label %8
+  br i1 %.not36, label %11, label %8
 
 8:                                                ; preds = %7
   %9 = zext nneg i16 %4 to i32
@@ -2071,7 +2070,7 @@ define internal void @topology_moder_print(ptr noundef %0, i16 noundef zeroext %
   br label %31
 
 13:                                               ; preds = %2
-  br i1 %.not35, label %17, label %14
+  br i1 %.not36, label %17, label %14
 
 14:                                               ; preds = %13
   %15 = zext nneg i16 %4 to i32
@@ -2083,7 +2082,7 @@ define internal void @topology_moder_print(ptr noundef %0, i16 noundef zeroext %
   br label %31
 
 19:                                               ; preds = %2
-  br i1 %.not35, label %23, label %20
+  br i1 %.not36, label %23, label %20
 
 20:                                               ; preds = %19
   %21 = zext nneg i16 %4 to i32
@@ -2094,11 +2093,8 @@ define internal void @topology_moder_print(ptr noundef %0, i16 noundef zeroext %
   %24 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.889, i32 noundef %3)
   br label %31
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
 25:                                               ; preds = %2
-  br i1 %.not35, label %29, label %26
+  br i1 %.not36, label %29, label %26
 
 26:                                               ; preds = %25
   %27 = zext nneg i16 %4 to i32

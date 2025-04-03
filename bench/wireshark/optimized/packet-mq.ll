@@ -2632,7 +2632,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1931 = private unnamed_addr constant [11 x i8] c" C.R=%d.%d\00", align 1
 @switch.table.dissect_mq_gmo = private unnamed_addr constant [4 x i32] [i32 72, i32 80, i32 100, i32 112], align 4
 @switch.table.dissect_mq_encoding = private unnamed_addr constant [5 x ptr] [ptr @.str.1828, ptr @.str.1829, ptr @.str.1830, ptr @.str.1831, ptr @.str.1832], align 8
-@switch.table.dissect_mq_encoding.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.1839, ptr @.str.1840, ptr @.str.1841], align 8
+@switch.table.dissect_mq_encoding.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.1835, ptr @.str.1836, ptr @.str.1837], align 8
+@switch.table.dissect_mq_encoding.2 = private unnamed_addr constant [3 x ptr] [ptr @.str.1839, ptr @.str.1840, ptr @.str.1841], align 8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mq() local_unnamed_addr #0 {
@@ -7670,25 +7671,19 @@ switch.lookup:                                    ; preds = %5
   %21 = sext i32 %20 to i64
   %22 = add nsw i64 %14, %21
   %23 = getelementptr i8, ptr %15, i64 %21
-  %24 = trunc i32 %7 to i8
-  %trunc = and i8 %24, -16
-  switch i8 %trunc, label %27 [
-    i8 0, label %28
-    i8 16, label %25
-    i8 32, label %26
-  ]
+  %24 = lshr i32 %7, 4
+  %25 = and i32 %24, 15
+  %26 = icmp samesign ult i32 %25, 3
+  br i1 %26, label %switch.lookup1, label %28
 
-25:                                               ; preds = %12
+switch.lookup1:                                   ; preds = %12
+  %27 = zext nneg i32 %25 to i64
+  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_mq_encoding.1, i64 0, i64 %27
+  %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %28
 
-26:                                               ; preds = %12
-  br label %28
-
-27:                                               ; preds = %12
-  br label %28
-
-28:                                               ; preds = %12, %25, %27, %26
-  %.str.1836.sink = phi ptr [ @.str.1836, %25 ], [ @.str.1838, %27 ], [ @.str.1837, %26 ], [ @.str.1835, %12 ]
+28:                                               ; preds = %12, %switch.lookup1
+  %.str.1836.sink = phi ptr [ %switch.load3, %switch.lookup1 ], [ @.str.1838, %12 ]
   %29 = ptrtoint ptr %23 to i64
   %30 = sub i64 %.neg, %29
   %31 = call i64 @llvm.usub.sat.i64(i64 128, i64 %22)
@@ -7702,16 +7697,16 @@ switch.lookup:                                    ; preds = %5
   %39 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %34, i64 noundef %37, i32 noundef 2, i64 noundef %38, ptr noundef nonnull @.str.1834)
   %40 = and i32 %7, 15
   %41 = icmp samesign ult i32 %40, 3
-  br i1 %41, label %switch.lookup1, label %43
+  br i1 %41, label %switch.lookup4, label %43
 
-switch.lookup1:                                   ; preds = %28
+switch.lookup4:                                   ; preds = %28
   %42 = zext nneg i32 %40 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_mq_encoding.1, i64 0, i64 %42
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %switch.gep5 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_mq_encoding.2, i64 0, i64 %42
+  %switch.load6 = load ptr, ptr %switch.gep5, align 8
   br label %43
 
-43:                                               ; preds = %28, %switch.lookup1
-  %.str.1840.sink = phi ptr [ %switch.load3, %switch.lookup1 ], [ @.str.1842, %28 ]
+43:                                               ; preds = %28, %switch.lookup4
+  %.str.1840.sink = phi ptr [ %switch.load6, %switch.lookup4 ], [ @.str.1842, %28 ]
   %44 = sext i32 %39 to i64
   %45 = getelementptr i8, ptr %34, i64 %44
   %46 = add nsw i64 %35, %44

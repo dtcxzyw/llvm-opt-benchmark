@@ -1144,59 +1144,60 @@ define hidden void @InitVM_Enumerator() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 314:                                              ; preds = %0
-  switch i64 %306, label %317 [
+  %315 = tail call i64 @llvm.fshl.i64(i64 %306, i64 %306, i64 62)
+  switch i64 %315, label %318 [
     i64 0, label %rb_class_of.exit
-    i64 4, label %315
-    i64 20, label %316
+    i64 1, label %316
+    i64 5, label %317
   ]
-
-315:                                              ; preds = %314
-  br label %rb_class_of.exit
 
 316:                                              ; preds = %314
   br label %rb_class_of.exit
 
 317:                                              ; preds = %314
-  %318 = and i64 %306, 1
-  %.not.i = icmp eq i64 %318, 0
-  br i1 %.not.i, label %319, label %rb_class_of.exit
-
-319:                                              ; preds = %317
-  %320 = and i64 %306, 254
-  %321 = icmp eq i64 %320, 12
-  %spec.select.i = select i1 %321, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit
 
-rb_class_of.exit:                                 ; preds = %311, %314, %315, %316, %317, %319
-  %.0.in.i = phi ptr [ @rb_cNilClass, %315 ], [ @rb_cTrueClass, %316 ], [ %313, %311 ], [ @rb_cFalseClass, %314 ], [ @rb_cInteger, %317 ], [ %spec.select.i, %319 ]
+318:                                              ; preds = %314
+  %319 = and i64 %306, 1
+  %.not.i = icmp eq i64 %319, 0
+  br i1 %.not.i, label %320, label %rb_class_of.exit
+
+320:                                              ; preds = %318
+  %321 = and i64 %306, 254
+  %322 = icmp eq i64 %321, 12
+  %spec.select.i = select i1 %322, ptr @rb_cSymbol, ptr @rb_cFloat
+  br label %rb_class_of.exit
+
+rb_class_of.exit:                                 ; preds = %311, %314, %316, %317, %318, %320
+  %.0.in.i = phi ptr [ @rb_cNilClass, %316 ], [ @rb_cTrueClass, %317 ], [ %313, %311 ], [ @rb_cFalseClass, %314 ], [ @rb_cInteger, %318 ], [ %spec.select.i, %320 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
   tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.81) #18
-  %322 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %322, ptr noundef nonnull @.str.82, ptr noundef nonnull @arith_seq_begin, i32 noundef 0) #18
   %323 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %323, ptr noundef nonnull @.str.83, ptr noundef nonnull @arith_seq_end, i32 noundef 0) #18
+  tail call void @rb_define_method(i64 noundef %323, ptr noundef nonnull @.str.82, ptr noundef nonnull @arith_seq_begin, i32 noundef 0) #18
   %324 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %324, ptr noundef nonnull @.str.84, ptr noundef nonnull @arith_seq_exclude_end, i32 noundef 0) #18
+  tail call void @rb_define_method(i64 noundef %324, ptr noundef nonnull @.str.83, ptr noundef nonnull @arith_seq_end, i32 noundef 0) #18
   %325 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %325, ptr noundef nonnull @.str.85, ptr noundef nonnull @arith_seq_step, i32 noundef 0) #18
+  tail call void @rb_define_method(i64 noundef %325, ptr noundef nonnull @.str.84, ptr noundef nonnull @arith_seq_exclude_end, i32 noundef 0) #18
   %326 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %326, ptr noundef nonnull @.str.86, ptr noundef nonnull @arith_seq_first, i32 noundef -1) #18
+  tail call void @rb_define_method(i64 noundef %326, ptr noundef nonnull @.str.85, ptr noundef nonnull @arith_seq_step, i32 noundef 0) #18
   %327 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %327, ptr noundef nonnull @.str.87, ptr noundef nonnull @arith_seq_last, i32 noundef -1) #18
+  tail call void @rb_define_method(i64 noundef %327, ptr noundef nonnull @.str.86, ptr noundef nonnull @arith_seq_first, i32 noundef -1) #18
   %328 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %328, ptr noundef nonnull @.str.18, ptr noundef nonnull @arith_seq_inspect, i32 noundef 0) #18
+  tail call void @rb_define_method(i64 noundef %328, ptr noundef nonnull @.str.87, ptr noundef nonnull @arith_seq_last, i32 noundef -1) #18
   %329 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %329, ptr noundef nonnull @.str.88, ptr noundef nonnull @arith_seq_eq, i32 noundef 1) #18
+  tail call void @rb_define_method(i64 noundef %329, ptr noundef nonnull @.str.18, ptr noundef nonnull @arith_seq_inspect, i32 noundef 0) #18
   %330 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %330, ptr noundef nonnull @.str.89, ptr noundef nonnull @arith_seq_eq, i32 noundef 1) #18
+  tail call void @rb_define_method(i64 noundef %330, ptr noundef nonnull @.str.88, ptr noundef nonnull @arith_seq_eq, i32 noundef 1) #18
   %331 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %331, ptr noundef nonnull @.str.90, ptr noundef nonnull @arith_seq_eq, i32 noundef 1) #18
+  tail call void @rb_define_method(i64 noundef %331, ptr noundef nonnull @.str.89, ptr noundef nonnull @arith_seq_eq, i32 noundef 1) #18
   %332 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %332, ptr noundef nonnull @.str.91, ptr noundef nonnull @arith_seq_hash, i32 noundef 0) #18
+  tail call void @rb_define_method(i64 noundef %332, ptr noundef nonnull @.str.90, ptr noundef nonnull @arith_seq_eq, i32 noundef 1) #18
   %333 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %333, ptr noundef nonnull @.str.7, ptr noundef nonnull @arith_seq_each, i32 noundef 0) #18
+  tail call void @rb_define_method(i64 noundef %333, ptr noundef nonnull @.str.91, ptr noundef nonnull @arith_seq_hash, i32 noundef 0) #18
   %334 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %334, ptr noundef nonnull @.str.19, ptr noundef nonnull @arith_seq_size, i32 noundef 0) #18
+  tail call void @rb_define_method(i64 noundef %334, ptr noundef nonnull @.str.7, ptr noundef nonnull @arith_seq_each, i32 noundef 0) #18
+  %335 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
+  tail call void @rb_define_method(i64 noundef %335, ptr noundef nonnull @.str.19, ptr noundef nonnull @arith_seq_size, i32 noundef 0) #18
   tail call void @rb_provide(ptr noundef nonnull @.str.92) #18
   ret void
 }

@@ -290,22 +290,22 @@ define dso_local zeroext i1 @type_is_homogenous_base_type(ptr noundef readonly c
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
-  switch i32 %4, label %35 [
+  switch i32 %4, label %37 [
     i32 8, label %5
     i32 1, label %17
     i32 2, label %17
     i32 3, label %17
-    i32 4, label %23
-    i32 6, label %29
-    i32 0, label %36
-    i32 5, label %36
-    i32 7, label %36
-    i32 9, label %36
+    i32 4, label %25
+    i32 6, label %31
+    i32 0, label %38
+    i32 5, label %38
+    i32 7, label %38
+    i32 9, label %38
   ]
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %3, align 8
-  switch i32 %6, label %36 [
+  switch i32 %6, label %38 [
     i32 17, label %7
     i32 15, label %10
     i32 16, label %10
@@ -315,88 +315,89 @@ define dso_local zeroext i1 @type_is_homogenous_base_type(ptr noundef readonly c
 7:                                                ; preds = %5
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 275), align 1
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %36
+  br i1 %9, label %10, label %38
 
 10:                                               ; preds = %7, %5, %5
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
   %12 = trunc i8 %11 to i1
   %13 = xor i1 %12, true
-  br label %36
+  br label %38
 
 14:                                               ; preds = %5
   %15 = tail call i32 @type_size(ptr noundef nonnull %3) #4
   %16 = icmp eq i32 %15, 16
-  br label %36
+  br label %38
 
 17:                                               ; preds = %1, %1, %1
   %18 = load i32, ptr %3, align 8
-  switch i32 %18, label %22 [
-    i32 16, label %36
-    i32 15, label %36
+  switch i32 %18, label %24 [
+    i32 16, label %38
+    i32 15, label %38
     i32 37, label %19
   ]
 
 19:                                               ; preds = %17
   %20 = tail call i32 @type_size(ptr noundef nonnull %3) #4
-  %switch.tableidx = add i32 %20, -16
-  %21 = icmp ult i32 %switch.tableidx, 49
-  br i1 %21, label %switch.lookup, label %36
+  %21 = add i32 %20, -16
+  %22 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 28)
+  %23 = icmp ult i32 %22, 4
+  br i1 %23, label %switch.lookup, label %38
 
-22:                                               ; preds = %17
-  br label %36
+24:                                               ; preds = %17
+  br label %38
 
-23:                                               ; preds = %1
-  %24 = load i32, ptr %3, align 8
-  switch i32 %24, label %28 [
-    i32 14, label %36
-    i32 13, label %36
-    i32 15, label %36
-    i32 16, label %36
-    i32 17, label %36
-    i32 37, label %25
+25:                                               ; preds = %1
+  %26 = load i32, ptr %3, align 8
+  switch i32 %26, label %30 [
+    i32 14, label %38
+    i32 13, label %38
+    i32 15, label %38
+    i32 16, label %38
+    i32 17, label %38
+    i32 37, label %27
   ]
 
-25:                                               ; preds = %23
-  %26 = tail call i32 @type_size(ptr noundef nonnull %3) #4
-  %27 = add i32 %26, -8
-  %switch.and = and i32 %27, -9
+27:                                               ; preds = %25
+  %28 = tail call i32 @type_size(ptr noundef nonnull %3) #4
+  %29 = add i32 %28, -8
+  %switch.and = and i32 %29, -9
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  br label %36
+  br label %38
 
-28:                                               ; preds = %23
-  br label %36
+30:                                               ; preds = %25
+  br label %38
 
-29:                                               ; preds = %1
-  %30 = load i32, ptr %3, align 8
-  switch i32 %30, label %34 [
-    i32 15, label %36
-    i32 16, label %36
-    i32 17, label %36
-    i32 37, label %31
+31:                                               ; preds = %1
+  %32 = load i32, ptr %3, align 8
+  switch i32 %32, label %36 [
+    i32 15, label %38
+    i32 16, label %38
+    i32 17, label %38
+    i32 37, label %33
   ]
 
-31:                                               ; preds = %29
-  %32 = tail call i32 @type_size(ptr noundef nonnull %3) #4
-  %33 = add i32 %32, -8
-  %switch.and10 = and i32 %33, -9
+33:                                               ; preds = %31
+  %34 = tail call i32 @type_size(ptr noundef nonnull %3) #4
+  %35 = add i32 %34, -8
+  %switch.and10 = and i32 %35, -9
   %switch.selectcmp11 = icmp eq i32 %switch.and10, 0
-  br label %36
+  br label %38
 
-34:                                               ; preds = %29
-  br label %36
+36:                                               ; preds = %31
+  br label %38
 
-35:                                               ; preds = %1
+37:                                               ; preds = %1
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.type_is_homogenous_base_type, ptr noundef nonnull @.str.6, i32 noundef 131) #5
   unreachable
 
 switch.lookup:                                    ; preds = %19
-  %switch.cast = zext nneg i32 %switch.tableidx to i49
-  %switch.downshift = lshr i49 -281474976645119, %switch.cast
-  %switch.masked = trunc i49 %switch.downshift to i1
-  br label %36
+  %switch.cast = trunc nuw i32 %22 to i4
+  %switch.downshift = lshr i4 -5, %switch.cast
+  %switch.masked = trunc i4 %switch.downshift to i1
+  br label %38
 
-36:                                               ; preds = %19, %switch.lookup, %1, %1, %1, %1, %31, %29, %29, %29, %25, %23, %23, %23, %23, %23, %17, %17, %5, %7, %34, %28, %22, %14, %10
-  %.0 = phi i1 [ false, %34 ], [ false, %28 ], [ false, %22 ], [ %16, %14 ], [ %13, %10 ], [ false, %7 ], [ false, %5 ], [ true, %17 ], [ true, %17 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ %switch.selectcmp, %25 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ %switch.selectcmp11, %31 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %19 ]
+38:                                               ; preds = %19, %switch.lookup, %1, %1, %1, %1, %33, %31, %31, %31, %27, %25, %25, %25, %25, %25, %17, %17, %5, %7, %36, %30, %24, %14, %10
+  %.0 = phi i1 [ false, %36 ], [ false, %30 ], [ false, %24 ], [ %16, %14 ], [ %13, %10 ], [ false, %7 ], [ false, %5 ], [ true, %17 ], [ true, %17 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ %switch.selectcmp, %27 ], [ true, %31 ], [ true, %31 ], [ true, %31 ], [ %switch.selectcmp11, %33 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -847,6 +848,9 @@ declare ptr @type_get_subarray(ptr noundef) local_unnamed_addr #1
 declare ptr @type_get_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @type_get_flexible_array(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #3

@@ -11526,29 +11526,28 @@ declare void @_ZN15MainApplication15zoomRegularFontERK5QFont(ptr noundef align 8
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define void @_ZN15MainApplication19captureEventHandlerE12CaptureEvent(ptr noundef align 8 dereferenceable_or_null(216) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef i32 @_ZNK12CaptureEvent14captureContextEv(ptr noundef align 8 dereferenceable_or_null(40) %1)
-  switch i32 %3, label %8 [
-    i32 2, label %4
-    i32 258, label %4
-    i32 514, label %4
+  %4 = add i32 %3, -2
+  %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 24)
+  %switch = icmp ult i32 %5, 3
+  br i1 %switch, label %6, label %10
+
+6:                                                ; preds = %2
+  %7 = tail call noundef i32 @_ZNK12CaptureEvent9eventTypeEv(ptr noundef align 8 dereferenceable_or_null(40) %1)
+  switch i32 %7, label %10 [
+    i32 2, label %8
+    i32 4, label %9
   ]
 
-4:                                                ; preds = %2, %2, %2
-  %5 = tail call noundef i32 @_ZNK12CaptureEvent9eventTypeEv(ptr noundef align 8 dereferenceable_or_null(40) %1)
-  switch i32 %5, label %8 [
-    i32 2, label %6
-    i32 4, label %7
-  ]
-
-6:                                                ; preds = %4
+8:                                                ; preds = %6
   tail call void @_ZN6QTimer10singleShotEiPK7QObjectPKc(i32 noundef 600, ptr noundef %0, ptr noundef nonnull @.str.38)
   tail call void @_ZN6QTimer10singleShotEiPK7QObjectPKc(i32 noundef 1500, ptr noundef %0, ptr noundef nonnull @.str.38)
-  br label %8
+  br label %10
 
-7:                                                ; preds = %4
+9:                                                ; preds = %6
   tail call void @draw_tap_listeners(i1 noundef zeroext false)
-  br label %8
+  br label %10
 
-8:                                                ; preds = %2, %6, %7, %4
+10:                                               ; preds = %2, %8, %9, %6
   ret void
 }
 
@@ -16836,6 +16835,9 @@ define internal void @_GLOBAL__sub_I_main_application.cpp() #26 section ".text.s
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZN15MainApplication23window_title_separator_E, ptr nonnull @__dso_handle) #30
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #27

@@ -16965,12 +16965,12 @@ tty_code_pop.exit.thread:                         ; preds = %3
   %14 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !112
   store i32 %15, ptr %2, align 4, !tbaa !112
-  br label %147
+  br label %148
 
 tty_code_pop.exit:                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #32
   %16 = call fastcc zeroext i1 @tty_readc_noblock(ptr noundef nonnull %0, ptr noundef %8, i64 noundef %1)
-  br i1 %16, label %17, label %146
+  br i1 %16, label %17, label %147
 
 17:                                               ; preds = %tty_code_pop.exit
   %18 = load i8, ptr %8, align 1, !tbaa !4
@@ -17195,79 +17195,80 @@ tty_read_utf8.exit:                               ; preds = %115, %74
   %.sink = phi i32 [ %118, %117 ], [ %86, %tty_read_utf8.exit ], [ %.0.i, %tty_read_esc.exit ], [ %19, %51 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !112
   %120 = and i32 %.sink, 268435455
-  %121 = and i32 %.sink, -268435456
-  %122 = and i32 %.sink, 268435456
-  %.not.i = icmp eq i32 %122, 0
-  %123 = select i1 %.not.i, ptr @.str.3, ptr @.str.260
-  %124 = and i32 %.sink, 1073741824
-  %.not45.i = icmp eq i32 %124, 0
-  %125 = select i1 %.not45.i, ptr @.str.3, ptr @.str.261
-  %126 = and i32 %.sink, 536870912
-  %.not46.i = icmp eq i32 %126, 0
-  %127 = select i1 %.not46.i, ptr @.str.3, ptr @.str.262
-  %128 = add nsw i32 %120, -32
-  %or.cond.i20 = icmp ult i32 %128, 95
-  %129 = select i1 %or.cond.i20, i32 %120, i32 32
-  call void (ptr, ...) @debug_msg(ptr noundef nonnull @.str.259, ptr noundef nonnull %123, ptr noundef nonnull %125, ptr noundef nonnull %127, i32 noundef %120, i32 noundef %129)
-  %130 = icmp eq i32 %120, 127
-  br i1 %130, label %131, label %133
+  %121 = and i32 %.sink, 268435456
+  %.not.i = icmp eq i32 %121, 0
+  %122 = select i1 %.not.i, ptr @.str.3, ptr @.str.260
+  %123 = and i32 %.sink, 1073741824
+  %.not45.i = icmp eq i32 %123, 0
+  %124 = select i1 %.not45.i, ptr @.str.3, ptr @.str.261
+  %125 = and i32 %.sink, 536870912
+  %.not46.i = icmp eq i32 %125, 0
+  %126 = select i1 %.not46.i, ptr @.str.3, ptr @.str.262
+  %127 = add nsw i32 %120, -32
+  %or.cond.i20 = icmp ult i32 %127, 95
+  %128 = select i1 %or.cond.i20, i32 %120, i32 32
+  call void (ptr, ...) @debug_msg(ptr noundef nonnull @.str.259, ptr noundef nonnull %122, ptr noundef nonnull %124, ptr noundef nonnull %126, i32 noundef %120, i32 noundef %128)
+  %129 = icmp eq i32 %120, 127
+  br i1 %129, label %130, label %132
 
-131:                                              ; preds = %119
-  %132 = or disjoint i32 %121, 8
+130:                                              ; preds = %119
+  %131 = and i32 %.sink, -268435448
   br label %modify_code.exit
 
-133:                                              ; preds = %119
-  %134 = and i32 %.sink, 805306367
-  %or.cond47.i = icmp eq i32 %134, 31
-  br i1 %or.cond47.i, label %modify_code.exit, label %135
+132:                                              ; preds = %119
+  %133 = and i32 %.sink, 805306367
+  %or.cond47.i = icmp eq i32 %133, 31
+  br i1 %or.cond47.i, label %modify_code.exit, label %134
 
-135:                                              ; preds = %133
-  %136 = icmp eq i32 %120, 13
-  br i1 %136, label %137, label %138
+134:                                              ; preds = %132
+  %135 = icmp eq i32 %120, 13
+  br i1 %135, label %136, label %139
 
-137:                                              ; preds = %135
-  switch i32 %121, label %138 [
-    i32 1073741824, label %.thread54.i
-    i32 536870912, label %.thread54.i
-    i32 268435456, label %.thread54.i
+136:                                              ; preds = %134
+  %137 = add i32 %.sink, -268435456
+  %138 = lshr i32 %137, 28
+  switch i32 %138, label %139 [
+    i32 3, label %.thread54.i
+    i32 1, label %.thread54.i
+    i32 0, label %.thread54.i
   ]
 
-138:                                              ; preds = %137, %135
-  switch i32 %.sink, label %139 [
+139:                                              ; preds = %136, %134
+  switch i32 %.sink, label %140 [
     i32 1073741833, label %.thread54.i
     i32 1090519045, label %modify_code.exit
     i32 553648129, label %modify_code.exit
     i32 536870974, label %modify_code.exit
   ]
 
-.thread54.i:                                      ; preds = %138, %137, %137, %137
-  %.0.ph53.i = phi i32 [ 268435465, %138 ], [ 10, %137 ], [ 10, %137 ], [ 10, %137 ]
+.thread54.i:                                      ; preds = %139, %136, %136, %136
+  %.0.ph53.i = phi i32 [ 268435465, %139 ], [ 10, %136 ], [ 10, %136 ], [ 10, %136 ]
   br label %modify_code.exit
 
-139:                                              ; preds = %138
-  %140 = icmp eq i32 %.sink, 553648128
-  %141 = icmp eq i32 %.sink, 536870972
-  %or.cond11.i = or i1 %140, %141
-  %142 = icmp eq i32 %.sink, 1090519044
-  %or.cond13.i = or i1 %142, %or.cond11.i
+140:                                              ; preds = %139
+  %141 = icmp eq i32 %.sink, 553648128
+  %142 = icmp eq i32 %.sink, 536870972
+  %or.cond11.i = or i1 %141, %142
+  %143 = icmp eq i32 %.sink, 1090519044
+  %or.cond13.i = or i1 %143, %or.cond11.i
   %spec.store.select.i = select i1 %or.cond13.i, i32 16777223, i32 %.sink
-  %143 = icmp samesign ult i32 %120, 32
-  %144 = and i32 %spec.store.select.i, -1073741825
-  %spec.select.i22 = select i1 %.not45.i, i32 %spec.store.select.i, i32 %144
-  %spec.select60.i = select i1 %143, i32 %spec.select.i22, i32 %spec.store.select.i
+  %144 = icmp samesign ult i32 %120, 32
+  %145 = and i32 %spec.store.select.i, -1073741825
+  %spec.select.i22 = select i1 %.not45.i, i32 %spec.store.select.i, i32 %145
+  %spec.select60.i = select i1 %144, i32 %spec.select.i22, i32 %spec.store.select.i
   br label %modify_code.exit
 
-modify_code.exit:                                 ; preds = %131, %133, %138, %138, %138, %.thread54.i, %139
-  %145 = phi i32 [ %.0.ph53.i, %.thread54.i ], [ 1073741919, %133 ], [ %132, %131 ], [ 16777224, %138 ], [ 16777224, %138 ], [ 16777224, %138 ], [ %spec.select60.i, %139 ]
-  store i32 %145, ptr %2, align 4, !tbaa !112
-  br label %146
-
-146:                                              ; preds = %tty_code_pop.exit, %modify_code.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #32
+modify_code.exit:                                 ; preds = %130, %132, %139, %139, %139, %.thread54.i, %140
+  %146 = phi i32 [ %.0.ph53.i, %.thread54.i ], [ 1073741919, %132 ], [ %131, %130 ], [ 16777224, %139 ], [ 16777224, %139 ], [ 16777224, %139 ], [ %spec.select60.i, %140 ]
+  store i32 %146, ptr %2, align 4, !tbaa !112
   br label %147
 
-147:                                              ; preds = %tty_code_pop.exit.thread, %146
-  %.0 = phi i1 [ %16, %146 ], [ true, %tty_code_pop.exit.thread ]
+147:                                              ; preds = %tty_code_pop.exit, %modify_code.exit
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #32
+  br label %148
+
+148:                                              ; preds = %tty_code_pop.exit.thread, %147
+  %.0 = phi i1 [ %16, %147 ], [ true, %tty_code_pop.exit.thread ]
   ret i1 %.0
 }
 

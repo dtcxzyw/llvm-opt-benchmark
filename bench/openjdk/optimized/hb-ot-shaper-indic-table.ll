@@ -8,18 +8,18 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i16 @_Z23hb_indic_get_categoriesj(i32 noundef %0) local_unnamed_addr #0 {
   %2 = lshr i32 %0, 12
-  switch i32 %2, label %72 [
+  switch i32 %2, label %74 [
     i32 0, label %3
     i32 1, label %18
     i32 2, label %33
     i32 10, label %50
-    i32 15, label %58
-    i32 17, label %63
+    i32 15, label %60
+    i32 17, label %65
   ]
 
 3:                                                ; preds = %1
   %4 = icmp eq i32 %0, 160
-  br i1 %4, label %72, label %5
+  br i1 %4, label %74, label %5
 
 5:                                                ; preds = %3
   %6 = add i32 %0, -40
@@ -38,7 +38,7 @@ define hidden noundef zeroext i16 @_Z23hb_indic_get_categoriesj(i32 noundef %0) 
 13:                                               ; preds = %8
   %14 = add i32 %0, -2304
   %15 = icmp ult i32 %14, 1152
-  br i1 %15, label %16, label %72
+  br i1 %15, label %16, label %74
 
 16:                                               ; preds = %13
   %17 = add nsw i32 %0, -2240
@@ -65,7 +65,7 @@ define hidden noundef zeroext i16 @_Z23hb_indic_get_categoriesj(i32 noundef %0) 
 28:                                               ; preds = %23
   %29 = add i32 %0, -7376
   %30 = icmp ult i32 %29, 48
-  br i1 %30, label %31, label %72
+  br i1 %30, label %31, label %74
 
 31:                                               ; preds = %28
   %32 = add nsw i32 %0, -5888
@@ -73,7 +73,7 @@ define hidden noundef zeroext i16 @_Z23hb_indic_get_categoriesj(i32 noundef %0) 
 
 33:                                               ; preds = %1
   %34 = icmp eq i32 %0, 9676
-  br i1 %34, label %72, label %35
+  br i1 %34, label %74, label %35
 
 35:                                               ; preds = %33
   %36 = add i32 %0, -8200
@@ -96,7 +96,7 @@ define hidden noundef zeroext i16 @_Z23hb_indic_get_categoriesj(i32 noundef %0) 
 45:                                               ; preds = %40
   %46 = and i32 %0, -8
   %47 = icmp eq i32 %46, 9720
-  br i1 %47, label %48, label %72
+  br i1 %47, label %48, label %74
 
 48:                                               ; preds = %45
   %49 = add nsw i32 %0, -8128
@@ -104,61 +104,67 @@ define hidden noundef zeroext i16 @_Z23hb_indic_get_categoriesj(i32 noundef %0) 
 
 50:                                               ; preds = %1
   %51 = and i32 %0, -32
-  switch i32 %51, label %72 [
-    i32 43232, label %52
-    i32 43488, label %54
-    i32 43616, label %56
+  %52 = add i32 %51, -43232
+  %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 25)
+  switch i32 %53, label %74 [
+    i32 0, label %54
+    i32 2, label %56
+    i32 3, label %58
   ]
 
-52:                                               ; preds = %50
-  %53 = add nsw i32 %0, -41632
-  br label %.sink.split
-
 54:                                               ; preds = %50
-  %55 = add nsw i32 %0, -41856
+  %55 = add nsw i32 %0, -41632
   br label %.sink.split
 
 56:                                               ; preds = %50
-  %57 = add nsw i32 %0, -41952
+  %57 = add nsw i32 %0, -41856
   br label %.sink.split
 
-58:                                               ; preds = %1
-  %59 = and i32 %0, -16
-  %60 = icmp eq i32 %59, 65024
-  br i1 %60, label %61, label %72
-
-61:                                               ; preds = %58
-  %62 = add nsw i32 %0, -63328
+58:                                               ; preds = %50
+  %59 = add nsw i32 %0, -41952
   br label %.sink.split
 
-63:                                               ; preds = %1
-  %64 = and i32 %0, -8
-  switch i32 %64, label %72 [
-    i32 70400, label %65
-    i32 70456, label %67
+60:                                               ; preds = %1
+  %61 = and i32 %0, -16
+  %62 = icmp eq i32 %61, 65024
+  br i1 %62, label %63, label %74
+
+63:                                               ; preds = %60
+  %64 = add nsw i32 %0, -63328
+  br label %.sink.split
+
+65:                                               ; preds = %1
+  %66 = and i32 %0, -8
+  switch i32 %66, label %74 [
+    i32 70400, label %67
+    i32 70456, label %69
   ]
 
-65:                                               ; preds = %63
-  %66 = add nsw i32 %0, -68688
+67:                                               ; preds = %65
+  %68 = add nsw i32 %0, -68688
   br label %.sink.split
 
-67:                                               ; preds = %63
-  %68 = add nsw i32 %0, -68736
+69:                                               ; preds = %65
+  %70 = add nsw i32 %0, -68736
   br label %.sink.split
 
-.sink.split:                                      ; preds = %5, %11, %16, %21, %26, %31, %38, %43, %48, %52, %54, %56, %61, %65, %67
-  %.sink = phi i32 [ %68, %67 ], [ %66, %65 ], [ %62, %61 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %49, %48 ], [ %44, %43 ], [ %39, %38 ], [ %32, %31 ], [ %27, %26 ], [ %22, %21 ], [ %17, %16 ], [ %12, %11 ], [ %6, %5 ]
-  %69 = zext nneg i32 %.sink to i64
-  %70 = getelementptr inbounds nuw [1728 x i16], ptr @_ZL11indic_table, i64 0, i64 %69
-  %71 = load i16, ptr %70, align 2
-  br label %72
+.sink.split:                                      ; preds = %5, %11, %16, %21, %26, %31, %38, %43, %48, %54, %56, %58, %63, %67, %69
+  %.sink = phi i32 [ %70, %69 ], [ %68, %67 ], [ %64, %63 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %49, %48 ], [ %44, %43 ], [ %39, %38 ], [ %32, %31 ], [ %27, %26 ], [ %22, %21 ], [ %17, %16 ], [ %12, %11 ], [ %6, %5 ]
+  %71 = zext nneg i32 %.sink to i64
+  %72 = getelementptr inbounds nuw [1728 x i16], ptr @_ZL11indic_table, i64 0, i64 %71
+  %73 = load i16, ptr %72, align 2
+  br label %74
 
-72:                                               ; preds = %.sink.split, %63, %50, %13, %28, %45, %58, %1, %33, %3
-  %.0 = phi i16 [ 1034, %3 ], [ 1035, %33 ], [ 3584, %1 ], [ 3584, %58 ], [ 3584, %45 ], [ 3584, %28 ], [ 3584, %13 ], [ 3584, %50 ], [ 3584, %63 ], [ %71, %.sink.split ]
+74:                                               ; preds = %.sink.split, %65, %50, %13, %28, %45, %60, %1, %33, %3
+  %.0 = phi i16 [ 1034, %3 ], [ 1035, %33 ], [ 3584, %1 ], [ 3584, %60 ], [ 3584, %45 ], [ 3584, %28 ], [ 3584, %13 ], [ 3584, %50 ], [ 3584, %65 ], [ %73, %.sink.split ]
   ret i16 %.0
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #1
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

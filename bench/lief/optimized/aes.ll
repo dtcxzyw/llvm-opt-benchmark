@@ -103,25 +103,19 @@ mbedtls_aes_free.exit:                            ; preds = %1
 define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [256 x i8], align 16
-  switch i32 %2, label %.loopexit [
-    i32 128, label %8
-    i32 192, label %6
-    i32 256, label %7
-  ]
+  %6 = add i32 %2, -128
+  %7 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 26)
+  %8 = icmp ult i32 %7, 3
+  br i1 %8, label %switch.lookup, label %.loopexit
 
-6:                                                ; preds = %3
-  br label %8
-
-7:                                                ; preds = %3
-  br label %8
-
-8:                                                ; preds = %3, %7, %6
-  %.sink = phi i32 [ 14, %7 ], [ 12, %6 ], [ 10, %3 ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !3
+switch.lookup:                                    ; preds = %3
+  %switch.idx.mult = shl nuw nsw i32 %7, 1
+  %switch.offset = add nuw nsw i32 %switch.idx.mult, 10
+  store i32 %switch.offset, ptr %0, align 8, !tbaa !3
   %.b = load i1, ptr @aes_init_done, align 4
   br i1 %.b, label %123, label %9
 
-9:                                                ; preds = %8
+9:                                                ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
   br label %10
@@ -301,7 +295,7 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   store i1 true, ptr @aes_init_done, align 4
   br label %123
 
-123:                                              ; preds = %aes_gen_tables.exit, %8
+123:                                              ; preds = %aes_gen_tables.exit, %switch.lookup
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %125, align 8, !tbaa !16
@@ -583,7 +577,7 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, 7
   br i1 %exitcond121.not, label %.loopexit, label %.preheader104, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.preheader104, %.preheader102, %.preheader, %._crit_edge, %3, %128
+.loopexit:                                        ; preds = %.preheader104, %.preheader102, %.preheader, %3, %._crit_edge, %128
   %.0101 = phi i32 [ %130, %128 ], [ -32, %3 ], [ 0, %._crit_edge ], [ 0, %.preheader ], [ 0, %.preheader102 ], [ 0, %.preheader104 ]
   ret i32 %.0101
 }

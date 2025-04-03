@@ -1420,52 +1420,56 @@ define internal range(i32 -1, 22) i32 @notation2(ptr noundef writeonly captures(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal range(i32 -1, 21) i32 @notation4(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
-  switch i32 %1, label %9 [
-    i32 15, label %10
-    i32 27, label %6
-    i32 17, label %8
+  %6 = add i32 %1, -15
+  %7 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 31)
+  switch i32 %7, label %11 [
+    i32 0, label %12
+    i32 6, label %8
+    i32 1, label %10
   ]
 
-6:                                                ; preds = %5
-  store ptr @declClose, ptr %0, align 8, !tbaa !4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 17, ptr %7, align 4, !tbaa !13
-  br label %10
-
 8:                                                ; preds = %5
+  store ptr @declClose, ptr %0, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 17, ptr %9, align 4, !tbaa !13
+  br label %12
+
+10:                                               ; preds = %5
   store ptr @internalSubset, ptr %0, align 8, !tbaa !4
-  br label %10
+  br label %12
 
-9:                                                ; preds = %5
+11:                                               ; preds = %5
   store ptr @error, ptr %0, align 8, !tbaa !4
-  br label %10
+  br label %12
 
-10:                                               ; preds = %5, %9, %8, %6
-  %.0 = phi i32 [ -1, %9 ], [ 20, %8 ], [ 19, %6 ], [ 17, %5 ]
+12:                                               ; preds = %5, %11, %10, %8
+  %.0 = phi i32 [ -1, %11 ], [ 20, %10 ], [ 19, %8 ], [ 17, %5 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal range(i32 -1, 9) i32 @doctype4(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
-  switch i32 %1, label %7 [
-    i32 15, label %8
-    i32 25, label %.sink.split
-    i32 17, label %6
+  %6 = add i32 %1, -15
+  %7 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 31)
+  switch i32 %7, label %9 [
+    i32 0, label %10
+    i32 5, label %.sink.split
+    i32 1, label %8
   ]
 
-6:                                                ; preds = %5
+8:                                                ; preds = %5
   br label %.sink.split
 
-7:                                                ; preds = %5
+9:                                                ; preds = %5
   br label %.sink.split
 
-.sink.split:                                      ; preds = %5, %6, %7
-  %error.sink = phi ptr [ @error, %7 ], [ @prolog2, %6 ], [ @internalSubset, %5 ]
-  %.0.ph = phi i32 [ -1, %7 ], [ 8, %6 ], [ 7, %5 ]
+.sink.split:                                      ; preds = %5, %8, %9
+  %error.sink = phi ptr [ @error, %9 ], [ @prolog2, %8 ], [ @internalSubset, %5 ]
+  %.0.ph = phi i32 [ -1, %9 ], [ 8, %8 ], [ 7, %5 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !4
-  br label %8
+  br label %10
 
-8:                                                ; preds = %.sink.split, %5
+10:                                               ; preds = %.sink.split, %5
   %.0 = phi i32 [ 3, %5 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

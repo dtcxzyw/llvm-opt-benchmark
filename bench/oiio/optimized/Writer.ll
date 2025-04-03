@@ -56,85 +56,87 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
-  switch i32 %0, label %31 [
-    i32 8, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit
-    i32 12, label %5
-    i32 16, label %23
+  %5 = add i32 %0, -8
+  %6 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 30)
+  switch i32 %6, label %33 [
+    i32 0, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit
+    i32 1, label %7
+    i32 2, label %25
   ]
 
-5:                                                ; preds = %4
-  %6 = icmp eq i32 %1, 0
-  br i1 %6, label %7, label %15
+7:                                                ; preds = %4
+  %8 = icmp eq i32 %1, 0
+  br i1 %8, label %9, label %17
 
-7:                                                ; preds = %5
-  %8 = shl i64 %3, 30
-  %9 = ashr i64 %8, 32
-  %10 = and i64 %3, 17179869180
-  %.not.i.i.i = icmp eq i64 %10, 0
+9:                                                ; preds = %7
+  %10 = shl i64 %3, 30
+  %11 = ashr i64 %10, 32
+  %12 = and i64 %3, 17179869180
+  %.not.i.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i.i, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %7, %.lr.ph.i.i.i
-  %.06.i.i.i = phi i64 [ %14, %.lr.ph.i.i.i ], [ 0, %7 ]
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %.06.i.i.i
-  %12 = load i32, ptr %11, align 4, !tbaa !3
-  %13 = tail call noundef i32 @llvm.bswap.i32(i32 %12)
-  store i32 %13, ptr %11, align 4, !tbaa !3
-  %14 = add nuw i64 %.06.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %14, %9
+.lr.ph.i.i.i:                                     ; preds = %9, %.lr.ph.i.i.i
+  %.06.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i ], [ 0, %9 ]
+  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %.06.i.i.i
+  %14 = load i32, ptr %13, align 4, !tbaa !3
+  %15 = tail call noundef i32 @llvm.bswap.i32(i32 %14)
+  store i32 %15, ptr %13, align 4, !tbaa !3
+  %16 = add nuw i64 %.06.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %16, %11
   br i1 %exitcond.not.i.i.i, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i, !llvm.loop !7
 
-15:                                               ; preds = %5
-  %16 = shl i64 %3, 31
-  %17 = ashr i64 %16, 32
-  %18 = and i64 %3, 8589934590
-  %.not.i.i.i9 = icmp eq i64 %18, 0
+17:                                               ; preds = %7
+  %18 = shl i64 %3, 31
+  %19 = ashr i64 %18, 32
+  %20 = and i64 %3, 8589934590
+  %.not.i.i.i9 = icmp eq i64 %20, 0
   br i1 %.not.i.i.i9, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i10
 
-.lr.ph.i.i.i10:                                   ; preds = %15, %.lr.ph.i.i.i10
-  %.06.i.i.i11 = phi i64 [ %22, %.lr.ph.i.i.i10 ], [ 0, %15 ]
-  %19 = getelementptr inbounds nuw i16, ptr %2, i64 %.06.i.i.i11
-  %20 = load i16, ptr %19, align 2, !tbaa !9
-  %21 = tail call noundef i16 @llvm.bswap.i16(i16 %20)
-  store i16 %21, ptr %19, align 2, !tbaa !9
-  %22 = add nuw i64 %.06.i.i.i11, 1
-  %exitcond.not.i.i.i12 = icmp eq i64 %22, %17
+.lr.ph.i.i.i10:                                   ; preds = %17, %.lr.ph.i.i.i10
+  %.06.i.i.i11 = phi i64 [ %24, %.lr.ph.i.i.i10 ], [ 0, %17 ]
+  %21 = getelementptr inbounds nuw i16, ptr %2, i64 %.06.i.i.i11
+  %22 = load i16, ptr %21, align 2, !tbaa !9
+  %23 = tail call noundef i16 @llvm.bswap.i16(i16 %22)
+  store i16 %23, ptr %21, align 2, !tbaa !9
+  %24 = add nuw i64 %.06.i.i.i11, 1
+  %exitcond.not.i.i.i12 = icmp eq i64 %24, %19
   br i1 %exitcond.not.i.i.i12, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i10, !llvm.loop !11
 
-23:                                               ; preds = %4
-  %24 = shl i64 %3, 31
-  %25 = ashr i64 %24, 32
-  %26 = and i64 %3, 8589934590
-  %.not.i.i.i13 = icmp eq i64 %26, 0
+25:                                               ; preds = %4
+  %26 = shl i64 %3, 31
+  %27 = ashr i64 %26, 32
+  %28 = and i64 %3, 8589934590
+  %.not.i.i.i13 = icmp eq i64 %28, 0
   br i1 %.not.i.i.i13, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i14
 
-.lr.ph.i.i.i14:                                   ; preds = %23, %.lr.ph.i.i.i14
-  %.06.i.i.i15 = phi i64 [ %30, %.lr.ph.i.i.i14 ], [ 0, %23 ]
-  %27 = getelementptr inbounds nuw i16, ptr %2, i64 %.06.i.i.i15
-  %28 = load i16, ptr %27, align 2, !tbaa !9
-  %29 = tail call noundef i16 @llvm.bswap.i16(i16 %28)
-  store i16 %29, ptr %27, align 2, !tbaa !9
-  %30 = add nuw i64 %.06.i.i.i15, 1
-  %exitcond.not.i.i.i16 = icmp eq i64 %30, %25
+.lr.ph.i.i.i14:                                   ; preds = %25, %.lr.ph.i.i.i14
+  %.06.i.i.i15 = phi i64 [ %32, %.lr.ph.i.i.i14 ], [ 0, %25 ]
+  %29 = getelementptr inbounds nuw i16, ptr %2, i64 %.06.i.i.i15
+  %30 = load i16, ptr %29, align 2, !tbaa !9
+  %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
+  store i16 %31, ptr %29, align 2, !tbaa !9
+  %32 = add nuw i64 %.06.i.i.i15, 1
+  %exitcond.not.i.i.i16 = icmp eq i64 %32, %27
   br i1 %exitcond.not.i.i.i16, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i14, !llvm.loop !11
 
-31:                                               ; preds = %4
-  %32 = shl i64 %3, 30
-  %33 = ashr i64 %32, 32
-  %34 = and i64 %3, 17179869180
-  %.not.i.i.i18 = icmp eq i64 %34, 0
+33:                                               ; preds = %4
+  %34 = shl i64 %3, 30
+  %35 = ashr i64 %34, 32
+  %36 = and i64 %3, 17179869180
+  %.not.i.i.i18 = icmp eq i64 %36, 0
   br i1 %.not.i.i.i18, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i19
 
-.lr.ph.i.i.i19:                                   ; preds = %31, %.lr.ph.i.i.i19
-  %.06.i.i.i20 = phi i64 [ %38, %.lr.ph.i.i.i19 ], [ 0, %31 ]
-  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %.06.i.i.i20
-  %36 = load i32, ptr %35, align 4, !tbaa !3
-  %37 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
-  store i32 %37, ptr %35, align 4, !tbaa !3
-  %38 = add nuw i64 %.06.i.i.i20, 1
-  %exitcond.not.i.i.i21 = icmp eq i64 %38, %33
+.lr.ph.i.i.i19:                                   ; preds = %33, %.lr.ph.i.i.i19
+  %.06.i.i.i20 = phi i64 [ %40, %.lr.ph.i.i.i19 ], [ 0, %33 ]
+  %37 = getelementptr inbounds nuw i32, ptr %2, i64 %.06.i.i.i20
+  %38 = load i32, ptr %37, align 4, !tbaa !3
+  %39 = tail call noundef i32 @llvm.bswap.i32(i32 %38)
+  store i32 %39, ptr %37, align 4, !tbaa !3
+  %40 = add nuw i64 %.06.i.i.i20, 1
+  %exitcond.not.i.i.i21 = icmp eq i64 %40, %35
   br i1 %exitcond.not.i.i.i21, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i19, !llvm.loop !7
 
-_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit: ; preds = %.lr.ph.i.i.i14, %.lr.ph.i.i.i10, %.lr.ph.i.i.i, %.lr.ph.i.i.i19, %31, %23, %15, %7, %4
+_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit: ; preds = %.lr.ph.i.i.i14, %.lr.ph.i.i.i10, %.lr.ph.i.i.i, %.lr.ph.i.i.i19, %33, %25, %17, %9, %4
   ret void
 }
 
@@ -3582,6 +3584,9 @@ define internal void @_GLOBAL__sub_I_Writer.cpp() #15 section ".text.startup" {
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #16

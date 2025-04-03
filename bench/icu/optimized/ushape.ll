@@ -1844,63 +1844,85 @@ define internal fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErro
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
   %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !9
   %6 = and i16 %5, -16
   %or.cond.i = icmp eq i16 %6, -400
-  br i1 %or.cond.i, label %switch.early.test.i, label %7
+  br i1 %or.cond.i, label %switch.early.test.i, label %.critedge
 
 switch.early.test.i:                              ; preds = %.lr.ph
-  switch i16 %5, label %_ZL23isTashkeelOnTatweelCharDs.exit [
-    i16 -387, label %.sink.split
-    i16 -395, label %12
-    i16 -397, label %12
+  %7 = add nsw i16 %5, 397
+  %8 = tail call i16 @llvm.fshl.i16(i16 %7, i16 %7, i16 15)
+  switch i16 %8, label %_ZL23isTashkeelOnTatweelCharDs.exit [
+    i16 5, label %.critedge
+    i16 1, label %.critedge
+    i16 0, label %.critedge
   ]
-
-7:                                                ; preds = %.lr.ph
-  %.off = add i16 %5, 782
-  %switch = icmp ult i16 %.off, 3
-  br i1 %switch, label %.sink.split, label %12
 
 _ZL23isTashkeelOnTatweelCharDs.exit:              ; preds = %switch.early.test.i
-  %8 = and i16 %5, 15
-  %9 = zext nneg i16 %8 to i64
-  %10 = shl nuw nsw i64 1, %9
-  %11 = and i64 %10, 43650
-  %.not15 = icmp eq i64 %11, 0
-  br i1 %.not15, label %switch.early.test.i23, label %.sink.split
+  %9 = and i16 %5, 15
+  %10 = zext nneg i16 %9 to i64
+  %11 = shl nuw nsw i64 1, %10
+  %12 = and i64 %11, 43650
+  %.not6 = icmp eq i64 %12, 0
+  br i1 %.not6, label %switch.early.test.i21, label %.sink.split
 
-switch.early.test.i23:                            ; preds = %_ZL23isTashkeelOnTatweelCharDs.exit
-  switch i16 %5, label %_ZL22isIsolatedTashkeelCharDs.exit [
-    i16 -387, label %.sink.split
-    i16 -395, label %12
-    i16 -397, label %12
+switch.early.test.i21:                            ; preds = %_ZL23isTashkeelOnTatweelCharDs.exit
+  switch i16 %8, label %switch.early.test.i25 [
+    i16 5, label %.critedge
+    i16 1, label %.critedge
+    i16 0, label %.critedge
   ]
 
-12:                                               ; preds = %7, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i23, %switch.early.test.i23
-  %13 = add i16 %5, 924
-  %or.cond11.i = icmp ult i16 %13, -6
+.critedge:                                        ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph, %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21
+  switch i16 %5, label %13 [
+    i16 -387, label %.sink.split
+    i16 -780, label %.sink.split
+    i16 -781, label %.sink.split
+    i16 -782, label %.sink.split
+  ]
+
+13:                                               ; preds = %.critedge
+  br i1 %or.cond.i, label %switch.early.test.i25, label %20
+
+switch.early.test.i25:                            ; preds = %switch.early.test.i21, %13
+  switch i16 %5, label %14 [
+    i16 -395, label %20
+    i16 -397, label %20
+  ]
+
+14:                                               ; preds = %switch.early.test.i25
+  %15 = and i16 %5, 15
+  %16 = zext nneg i16 %15 to i64
+  %17 = shl nuw nsw i64 1, %16
+  %18 = and i64 %17, 43650
+  %19 = icmp ne i64 %18, 0
   br label %_ZL22isIsolatedTashkeelCharDs.exit
 
-_ZL22isIsolatedTashkeelCharDs.exit:               ; preds = %switch.early.test.i23, %12
-  %.0.i26 = phi i1 [ %or.cond11.i, %12 ], [ false, %switch.early.test.i23 ]
+20:                                               ; preds = %switch.early.test.i25, %switch.early.test.i25, %13
+  %21 = add i16 %5, 924
+  %or.cond11.i = icmp ult i16 %21, -6
+  br label %_ZL22isIsolatedTashkeelCharDs.exit
+
+_ZL22isIsolatedTashkeelCharDs.exit:               ; preds = %14, %20
+  %.0.i24 = phi i1 [ %19, %14 ], [ %or.cond11.i, %20 ]
   %.not18 = icmp eq i16 %5, -388
-  %or.cond14 = or i1 %.not18, %.0.i26
-  br i1 %or.cond14, label %14, label %.sink.split
+  %or.cond = or i1 %.not18, %.0.i24
+  br i1 %or.cond, label %22, label %.sink.split
 
-.sink.split:                                      ; preds = %_ZL22isIsolatedTashkeelCharDs.exit, %switch.early.test.i23, %switch.early.test.i, %7, %_ZL23isTashkeelOnTatweelCharDs.exit
-  %.sink = phi i16 [ 1600, %_ZL23isTashkeelOnTatweelCharDs.exit ], [ -387, %7 ], [ %5, %switch.early.test.i ], [ %5, %switch.early.test.i23 ], [ 32, %_ZL22isIsolatedTashkeelCharDs.exit ]
+.sink.split:                                      ; preds = %_ZL22isIsolatedTashkeelCharDs.exit, %.critedge, %.critedge, %.critedge, %.critedge, %_ZL23isTashkeelOnTatweelCharDs.exit
+  %.sink = phi i16 [ 1600, %_ZL23isTashkeelOnTatweelCharDs.exit ], [ -387, %.critedge ], [ -387, %.critedge ], [ -387, %.critedge ], [ -387, %.critedge ], [ 32, %_ZL22isIsolatedTashkeelCharDs.exit ]
   store i16 %.sink, ptr %4, align 2, !tbaa !9
-  br label %14
+  br label %22
 
-14:                                               ; preds = %.sink.split, %_ZL22isIsolatedTashkeelCharDs.exit
+22:                                               ; preds = %.sink.split, %_ZL22isIsolatedTashkeelCharDs.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %14, %2
+._crit_edge:                                      ; preds = %22, %2
   ret i32 %1
 }
 
@@ -3301,6 +3323,9 @@ define internal fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UError
 declare ptr @u_memmove_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @ubidi_getClass_77(i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.fshl.i16(i16, i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #9

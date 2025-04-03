@@ -281,20 +281,13 @@ define noundef zeroext i1 @_Z5IsDirj(i32 noundef %0) local_unnamed_addr #6 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @_Z12IsUnreadablej(i32 noundef %0) local_unnamed_addr #6 {
-  %2 = trunc i32 %0 to i16
-  %trunc = and i16 %2, -4096
-  switch i16 %trunc, label %3 [
-    i16 4096, label %switch.edge
-    i16 -16384, label %switch.edge
-    i16 8192, label %switch.edge
-  ]
-
-3:                                                ; preds = %1
-  br label %switch.edge
-
-switch.edge:                                      ; preds = %1, %1, %1, %3
-  %4 = phi i1 [ true, %1 ], [ false, %3 ], [ true, %1 ], [ true, %1 ]
-  ret i1 %4
+switch.lookup:
+  %1 = trunc i32 %0 to i16
+  %2 = add i16 %1, 16384
+  %3 = lshr i16 %2, 12
+  %switch.downshift = lshr i16 97, %3
+  %switch.masked = trunc i16 %switch.downshift to i1
+  ret i1 %switch.masked
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

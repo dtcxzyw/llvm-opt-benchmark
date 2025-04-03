@@ -66,7 +66,7 @@ define hidden void @_ZN3ue218relaxForbiddenUtf8ERNS_8NGHolderERKNS_14ExpressionI
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %10 = load i8, ptr %9, align 2, !range !5, !noundef !6
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %47
+  br i1 %11, label %12, label %50
 
 12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #21
@@ -96,7 +96,7 @@ define hidden void @_ZN3ue218relaxForbiddenUtf8ERNS_8NGHolderERKNS_14ExpressionI
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #21
-  br label %47
+  br label %50
 
 20:                                               ; preds = %.lr.ph43, %.loopexit
   %.sroa.029.042 = phi ptr [ %.sroa.029.040, %.lr.ph43 ], [ %.sroa.029.0, %.loopexit ]
@@ -118,95 +118,100 @@ define hidden void @_ZN3ue218relaxForbiddenUtf8ERNS_8NGHolderERKNS_14ExpressionI
 .preheader:                                       ; preds = %23, %22, %20
   br label %24
 
-24:                                               ; preds = %.preheader, %32
-  %.0710.i.i = phi i64 [ %33, %32 ], [ 0, %.preheader ]
+24:                                               ; preds = %.preheader, %33
+  %.0710.i.i = phi i64 [ %34, %33 ], [ 0, %.preheader ]
   %25 = getelementptr inbounds nuw [4 x i64], ptr %21, i64 0, i64 %.0710.i.i
   %26 = load i64, ptr %25, align 8
   %.not.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i, label %32, label %27
+  br i1 %.not.i.i, label %33, label %27
 
 27:                                               ; preds = %24
   %28 = shl nuw nsw i64 %.0710.i.i, 6
   %29 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %26, i1 true)
   %30 = or disjoint i64 %29, %28
   %31 = trunc i64 %30 to i8
+  %32 = add i8 %31, 32
   br label %_ZNK3ue29CharReach10find_firstEv.exit
 
-32:                                               ; preds = %24
-  %33 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %33, 4
+33:                                               ; preds = %24
+  %34 = add nuw nsw i64 %.0710.i.i, 1
+  %exitcond.i.i = icmp eq i64 %34, 4
   br i1 %exitcond.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit, label %24, !llvm.loop !7
 
-_ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %32, %27
-  %spec.select.i.i = phi i8 [ %31, %27 ], [ 0, %32 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.029.042, i64 136
-  %.sroa.022.037 = load ptr, ptr %34, align 8
-  %.not3438 = icmp eq ptr %.sroa.022.037, %34
+_ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %33, %27
+  %spec.select.i.i = phi i8 [ %32, %27 ], [ 32, %33 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.029.042, i64 136
+  %.sroa.022.037 = load ptr, ptr %35, align 8
+  %.not3438 = icmp eq ptr %.sroa.022.037, %35
   br i1 %.not3438, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK3ue29CharReach10find_firstEv.exit, %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
-  %.sroa.022.039 = phi ptr [ %.sroa.022.0, %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit ], [ %.sroa.022.037, %_ZNK3ue29CharReach10find_firstEv.exit ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
-  %38 = load i64, ptr %37, align 8
-  %.not.i = icmp eq i64 %38, 1
-  br i1 %.not.i, label %39, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
+.lr.ph:                                           ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
+  %36 = tail call i8 @llvm.fshl.i8(i8 %spec.select.i.i, i8 %spec.select.i.i, i8 6)
+  br label %37
 
-39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  switch i8 %spec.select.i.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit [
-    i8 -32, label %41
-    i8 -16, label %42
-    i8 -12, label %43
+37:                                               ; preds = %.lr.ph, %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
+  %.sroa.022.039 = phi ptr [ %.sroa.022.037, %.lr.ph ], [ %.sroa.022.0, %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 40
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 104
+  %41 = load i64, ptr %40, align 8
+  %.not.i = icmp eq i64 %41, 1
+  br i1 %.not.i, label %42, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
+
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  switch i8 %36, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit [
+    i8 0, label %44
+    i8 4, label %45
+    i8 5, label %46
   ]
 
-41:                                               ; preds = %39
+44:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   store i64 -4294967296, ptr %19, align 8
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32)
   %.not9.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
   br i1 %.not9.i.i.i.i.i.i.i.i, label %.sink.split.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
-42:                                               ; preds = %39
+45:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i64 -65536, ptr %18, align 8
-  %bcmp.i.i.i.i.i.i.i14.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32)
+  %bcmp.i.i.i.i.i.i.i14.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32)
   %.not9.i.i.i.i.i.i.i15.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i14.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #21
   br i1 %.not9.i.i.i.i.i.i.i15.i, label %.sink.split.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
-43:                                               ; preds = %39
+46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i64 65535, ptr %17, align 8
-  %bcmp.i.i.i.i.i.i.i16.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32)
+  %bcmp.i.i.i.i.i.i.i16.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32)
   %.not9.i.i.i.i.i.i.i17.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i16.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #21
   br i1 %.not9.i.i.i.i.i.i.i17.i, label %.sink.split.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
-.sink.split.i:                                    ; preds = %43, %42, %41
-  %.sink17.i = phi i64 [ 4294967295, %41 ], [ 65535, %42 ], [ -65536, %43 ]
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %45 = load i64, ptr %44, align 8
-  %46 = or i64 %45, %.sink17.i
-  store i64 %46, ptr %44, align 8
+.sink.split.i:                                    ; preds = %46, %45, %44
+  %.sink17.i = phi i64 [ 4294967295, %44 ], [ 65535, %45 ], [ -65536, %46 ]
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %48 = load i64, ptr %47, align 8
+  %49 = or i64 %48, %.sink17.i
+  store i64 %49, ptr %47, align 8
   br label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
-_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit: ; preds = %.lr.ph, %39, %41, %42, %43, %.sink.split.i
+_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit: ; preds = %37, %42, %44, %45, %46, %.sink.split.i
   %.sroa.022.0 = load ptr, ptr %.sroa.022.039, align 8
-  %.not34 = icmp eq ptr %.sroa.022.0, %34
-  br i1 %.not34, label %.loopexit, label %.lr.ph
+  %.not34 = icmp eq ptr %.sroa.022.0, %35
+  br i1 %.not34, label %.loopexit, label %37
 
 .loopexit:                                        ; preds = %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit, %_ZNK3ue29CharReach10find_firstEv.exit, %23
   %.sroa.029.0 = load ptr, ptr %.sroa.029.042, align 8
   %.not = icmp eq ptr %.sroa.029.0, %16
   br i1 %.not, label %._crit_edge, label %20
 
-47:                                               ; preds = %2, %._crit_edge
+50:                                               ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -3672,17 +3677,20 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #17
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
@@ -3704,9 +3712,9 @@ attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-mat
 attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { inlinehint mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { cold noreturn }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nounwind }
 attributes #22 = { noreturn nounwind }

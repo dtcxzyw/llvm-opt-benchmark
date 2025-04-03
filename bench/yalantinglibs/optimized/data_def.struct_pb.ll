@@ -336,10 +336,12 @@ _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
 if.end:                                           ; preds = %if.end104.i, %if.end73.i, %if.end64.i, %if.end55.i, %if.end46.i, %if.end37.i, %if.end28.i, %if.end19.i, %if.end12.i, %if.then.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
   %.lcssa96104 = phi i64 [ %inc83.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %inc96.i, %if.end104.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc.i, %if.then.i ]
   %tag.088 = phi i64 [ %or88.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %or110.i, %if.end104.i ], [ %or79.i, %if.end73.i ], [ %or70.i, %if.end64.i ], [ %or61.i, %if.end55.i ], [ %or52.i, %if.end46.i ], [ %or43.i, %if.end37.i ], [ %or34.i, %if.end28.i ], [ %or25.i, %if.end19.i ], [ %or.i, %if.end12.i ], [ %conv.i, %if.then.i ]
-  switch i64 %tag.088, label %sw.default [
-    i64 13, label %sw.bb
-    i64 21, label %sw.bb5
-    i64 29, label %sw.bb13
+  %14 = add i64 %tag.088, -13
+  %15 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 61)
+  switch i64 %15, label %sw.default [
+    i64 0, label %sw.bb
+    i64 1, label %sw.bb5
+    i64 2, label %sw.bb13
   ]
 
 sw.bb:                                            ; preds = %if.end

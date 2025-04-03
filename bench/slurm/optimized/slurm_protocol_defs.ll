@@ -551,78 +551,80 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @preempt_mode_string(i16 noundef zeroext %0) #0 {
-  switch i16 %0, label %4 [
-    i16 0, label %20
-    i16 -32768, label %2
-    i16 16384, label %3
+  %2 = xor i16 %0, -32768
+  %3 = tail call i16 @llvm.fshl.i16(i16 %2, i16 %2, i16 2)
+  switch i16 %3, label %6 [
+    i16 2, label %22
+    i16 0, label %4
+    i16 3, label %5
   ]
-
-2:                                                ; preds = %1
-  br label %20
-
-3:                                                ; preds = %1
-  br label %20
 
 4:                                                ; preds = %1
+  br label %22
+
+5:                                                ; preds = %1
+  br label %22
+
+6:                                                ; preds = %1
   %.not = icmp sgt i16 %0, -1
-  br i1 %.not, label %10, label %5
+  br i1 %.not, label %12, label %7
 
-5:                                                ; preds = %4
-  %6 = and i16 %0, 32767
-  switch i16 %6, label %9 [
-    i16 8, label %20
-    i16 2, label %7
-    i16 1, label %8
+7:                                                ; preds = %6
+  %8 = and i16 %0, 32767
+  switch i16 %8, label %11 [
+    i16 8, label %22
+    i16 2, label %9
+    i16 1, label %10
   ]
 
-7:                                                ; preds = %5
-  br label %20
+9:                                                ; preds = %7
+  br label %22
 
-8:                                                ; preds = %5
-  br label %20
+10:                                               ; preds = %7
+  br label %22
 
-9:                                                ; preds = %5
-  br label %20
+11:                                               ; preds = %7
+  br label %22
 
-10:                                               ; preds = %4
+12:                                               ; preds = %6
   %.not19 = icmp samesign ult i16 %0, 16384
-  br i1 %.not19, label %16, label %11
+  br i1 %.not19, label %18, label %13
 
-11:                                               ; preds = %10
-  %12 = and i16 %0, 16383
-  switch i16 %12, label %15 [
-    i16 8, label %20
-    i16 2, label %13
-    i16 1, label %14
+13:                                               ; preds = %12
+  %14 = and i16 %0, 16383
+  switch i16 %14, label %17 [
+    i16 8, label %22
+    i16 2, label %15
+    i16 1, label %16
   ]
 
-13:                                               ; preds = %11
-  br label %20
+15:                                               ; preds = %13
+  br label %22
 
-14:                                               ; preds = %11
-  br label %20
+16:                                               ; preds = %13
+  br label %22
 
-15:                                               ; preds = %11
-  br label %20
+17:                                               ; preds = %13
+  br label %22
 
-16:                                               ; preds = %10
-  switch i16 %0, label %19 [
-    i16 8, label %20
-    i16 2, label %17
-    i16 1, label %18
+18:                                               ; preds = %12
+  switch i16 %0, label %21 [
+    i16 8, label %22
+    i16 2, label %19
+    i16 1, label %20
   ]
 
-17:                                               ; preds = %16
-  br label %20
+19:                                               ; preds = %18
+  br label %22
 
-18:                                               ; preds = %16
-  br label %20
+20:                                               ; preds = %18
+  br label %22
 
-19:                                               ; preds = %16
-  br label %20
+21:                                               ; preds = %18
+  br label %22
 
-20:                                               ; preds = %16, %11, %5, %1, %19, %18, %17, %15, %14, %13, %9, %8, %7, %3, %2
-  %.0 = phi ptr [ @.str.30, %2 ], [ @.str.31, %3 ], [ @.str.33, %7 ], [ @.str.34, %8 ], [ @.str.35, %9 ], [ @.str.37, %13 ], [ @.str.38, %14 ], [ @.str.39, %15 ], [ @.str.41, %17 ], [ @.str.42, %18 ], [ @.str.22, %19 ], [ @.str.29, %1 ], [ @.str.32, %5 ], [ @.str.36, %11 ], [ @.str.40, %16 ]
+22:                                               ; preds = %18, %13, %7, %1, %21, %20, %19, %17, %16, %15, %11, %10, %9, %5, %4
+  %.0 = phi ptr [ @.str.30, %4 ], [ @.str.31, %5 ], [ @.str.33, %9 ], [ @.str.34, %10 ], [ @.str.35, %11 ], [ @.str.37, %15 ], [ @.str.38, %16 ], [ @.str.39, %17 ], [ @.str.41, %19 ], [ @.str.42, %20 ], [ @.str.22, %21 ], [ @.str.29, %1 ], [ @.str.32, %7 ], [ @.str.36, %13 ], [ @.str.40, %18 ]
   ret ptr %.0
 }
 
@@ -13943,6 +13945,9 @@ declare i32 @slurmdb_find_selected_step_in_list(ptr noundef, ptr noundef) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.fshl.i16(i16, i16, i16) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i64(i64, i64) #23

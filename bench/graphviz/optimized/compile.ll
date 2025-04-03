@@ -6455,127 +6455,129 @@ declare ptr @exzero(i64 noundef) local_unnamed_addr #3
 define internal fastcc zeroext i16 @typeChk(i16 noundef zeroext %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !105
-  switch i64 %4, label %33 [
-    i64 274, label %5
-    i64 282, label %16
-    i64 286, label %27
+  %5 = add i64 %4, -274
+  %6 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 62)
+  switch i64 %6, label %35 [
+    i64 0, label %7
+    i64 2, label %18
+    i64 3, label %29
   ]
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %7 = load i64, ptr %6, align 8, !tbaa !58
-  switch i64 %7, label %14 [
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %9 = load i64, ptr %8, align 8, !tbaa !58
+  switch i64 %9, label %16 [
     i64 30, label %.thread
-    i64 27, label %8
-    i64 29, label %9
-    i64 28, label %10
-    i64 259, label %11
-    i64 262, label %12
-    i64 263, label %13
+    i64 27, label %10
+    i64 29, label %11
+    i64 28, label %12
+    i64 259, label %13
+    i64 262, label %14
+    i64 263, label %15
   ]
 
-8:                                                ; preds = %5
+10:                                               ; preds = %7
   br label %.thread
 
-9:                                                ; preds = %5
+11:                                               ; preds = %7
   br label %.thread
 
-10:                                               ; preds = %5
+12:                                               ; preds = %7
   br label %.thread
 
-11:                                               ; preds = %5
+13:                                               ; preds = %7
   br label %.thread
 
-12:                                               ; preds = %5
+14:                                               ; preds = %7
   br label %.thread
 
-13:                                               ; preds = %5
+15:                                               ; preds = %7
   br label %.thread
 
-14:                                               ; preds = %5
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.174, i64 noundef %7, ptr noundef nonnull %15) #25
+16:                                               ; preds = %7
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.174, i64 noundef %9, ptr noundef nonnull %17) #25
   br label %.thread
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !94
-  %19 = icmp slt i64 %18, 139
-  br i1 %19, label %20, label %.thread36
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %20 = load i64, ptr %19, align 8, !tbaa !94
+  %21 = icmp slt i64 %20, 139
+  br i1 %21, label %22, label %.thread36
 
-20:                                               ; preds = %16
-  switch i64 %18, label %36 [
-    i64 8, label %21
-    i64 1, label %21
-    i64 2, label %21
-    i64 3, label %21
-    i64 4, label %24
+22:                                               ; preds = %18
+  switch i64 %20, label %38 [
+    i64 8, label %23
+    i64 1, label %23
+    i64 2, label %23
+    i64 3, label %23
+    i64 4, label %26
   ]
 
-21:                                               ; preds = %20, %20, %20, %20
-  %22 = load i32, ptr @codePhase, align 4, !tbaa !43
-  %23 = add i32 %22, -1
-  %or.cond = icmp ult i32 %23, 4
-  br i1 %or.cond, label %36, label %.sink.split
+23:                                               ; preds = %22, %22, %22, %22
+  %24 = load i32, ptr @codePhase, align 4, !tbaa !43
+  %25 = add i32 %24, -1
+  %or.cond = icmp ult i32 %25, 4
+  br i1 %or.cond, label %38, label %.sink.split
 
-24:                                               ; preds = %20
-  %25 = load i32, ptr @codePhase, align 4, !tbaa !43
-  %26 = add i32 %25, -2
-  %or.cond3 = icmp ult i32 %26, 3
-  br i1 %or.cond3, label %36, label %.sink.split
+26:                                               ; preds = %22
+  %27 = load i32, ptr @codePhase, align 4, !tbaa !43
+  %28 = add i32 %27, -2
+  %or.cond3 = icmp ult i32 %28, 3
+  br i1 %or.cond3, label %38, label %.sink.split
 
-27:                                               ; preds = %2
+29:                                               ; preds = %2
   %.not = icmp eq i16 %0, 0
-  br i1 %.not, label %28, label %.thread36
+  br i1 %.not, label %30, label %.thread36
 
-28:                                               ; preds = %27
-  %29 = load i32, ptr @codePhase, align 4, !tbaa !43
-  %30 = add i32 %29, -1
-  %or.cond5 = icmp ult i32 %30, 4
-  br i1 %or.cond5, label %.thread36, label %31
+30:                                               ; preds = %29
+  %31 = load i32, ptr @codePhase, align 4, !tbaa !43
+  %32 = add i32 %31, -1
+  %or.cond5 = icmp ult i32 %32, 4
+  br i1 %or.cond5, label %.thread36, label %33
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.177, ptr noundef nonnull %32) #25
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.177, ptr noundef nonnull %34) #25
   br label %.thread36
 
-33:                                               ; preds = %2
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.178, ptr noundef nonnull %34, i64 noundef %4) #25
+35:                                               ; preds = %2
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.178, ptr noundef nonnull %36, i64 noundef %4) #25
   br label %.thread
 
-.sink.split:                                      ; preds = %24, %21
-  %.str.175.sink = phi ptr [ @.str.175, %21 ], [ @.str.176, %24 ]
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull %.str.175.sink, ptr noundef nonnull %35) #25
-  br label %36
+.sink.split:                                      ; preds = %26, %23
+  %.str.175.sink = phi ptr [ @.str.175, %23 ], [ @.str.176, %26 ]
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull %.str.175.sink, ptr noundef nonnull %37) #25
+  br label %38
 
-36:                                               ; preds = %.sink.split, %20, %21, %24
-  %37 = load i64, ptr %17, align 8, !tbaa !94
-  %38 = getelementptr inbounds [27 x [2 x i16]], ptr @tchk, i64 0, i64 %37
-  %39 = load i16, ptr %38, align 4, !tbaa !62
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  %41 = load i16, ptr %40, align 2, !tbaa !62
-  %.not26 = icmp eq i16 %39, 0
+38:                                               ; preds = %.sink.split, %22, %23, %26
+  %39 = load i64, ptr %19, align 8, !tbaa !94
+  %40 = getelementptr inbounds [27 x [2 x i16]], ptr @tchk, i64 0, i64 %39
+  %41 = load i16, ptr %40, align 4, !tbaa !62
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  %43 = load i16, ptr %42, align 2, !tbaa !62
+  %.not26 = icmp eq i16 %41, 0
   br i1 %.not26, label %.thread, label %.thread36
 
-.thread36:                                        ; preds = %27, %31, %28, %16, %36
-  %.041 = phi i16 [ %41, %36 ], [ 8, %16 ], [ 8, %28 ], [ 8, %31 ], [ 8, %27 ]
-  %.02440 = phi i16 [ %39, %36 ], [ 112, %16 ], [ 112, %28 ], [ 112, %31 ], [ 112, %27 ]
+.thread36:                                        ; preds = %29, %33, %30, %18, %38
+  %.041 = phi i16 [ %43, %38 ], [ 8, %18 ], [ 8, %30 ], [ 8, %33 ], [ 8, %29 ]
+  %.02440 = phi i16 [ %41, %38 ], [ 112, %18 ], [ 112, %30 ], [ 112, %33 ], [ 112, %29 ]
   %.not28 = icmp eq i16 %0, 0
   %spec.store.select = select i1 %.not28, i16 112, i16 %0
-  %42 = and i16 %.02440, %spec.store.select
-  %.not29 = icmp eq i16 %42, 0
+  %44 = and i16 %.02440, %spec.store.select
+  %.not29 = icmp eq i16 %44, 0
   %spec.select = select i1 %.not29, i16 0, i16 %.041
-  br label %43
+  br label %45
 
-.thread:                                          ; preds = %5, %8, %9, %10, %11, %12, %13, %14, %33, %36
-  %.034 = phi i16 [ %41, %36 ], [ 112, %5 ], [ 16, %8 ], [ 64, %9 ], [ 32, %10 ], [ 4, %11 ], [ 2, %12 ], [ 8, %13 ], [ 0, %14 ], [ 0, %33 ]
+.thread:                                          ; preds = %7, %10, %11, %12, %13, %14, %15, %16, %35, %38
+  %.034 = phi i16 [ %43, %38 ], [ 112, %7 ], [ 16, %10 ], [ 64, %11 ], [ 32, %12 ], [ 4, %13 ], [ 2, %14 ], [ 8, %15 ], [ 0, %16 ], [ 0, %35 ]
   %.not27 = icmp eq i16 %0, 0
   %spec.select30 = select i1 %.not27, i16 %.034, i16 0
-  br label %43
+  br label %45
 
-43:                                               ; preds = %.thread, %.thread36
+45:                                               ; preds = %.thread, %.thread36
   %.1 = phi i16 [ %spec.select, %.thread36 ], [ %spec.select30, %.thread ]
   ret i16 %.1
 }
@@ -7129,6 +7131,9 @@ declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #23

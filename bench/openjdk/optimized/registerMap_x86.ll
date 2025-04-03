@@ -23,7 +23,7 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nounde
   %9 = select i1 %4, i32 336, i32 592
   %10 = icmp samesign ult i32 %7, %9
   %11 = select i1 %8, i1 %10, i1 false
-  br i1 %11, label %12, label %63
+  br i1 %11, label %12, label %64
 
 12:                                               ; preds = %2
   %.lhs.trunc = add nuw nsw i32 %7, 65456
@@ -49,70 +49,68 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nounde
 
 30:                                               ; preds = %12
   %31 = icmp eq i32 %27, 0
-  br i1 %31, label %63, label %43
+  br i1 %31, label %64, label %44
 
 32:                                               ; preds = %12
-  switch i32 %27, label %33 [
-    i32 32, label %63
-    i32 16, label %63
-    i32 0, label %63
-  ]
+  %33 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 28)
+  %switch = icmp ult i32 %33, 3
+  br i1 %switch, label %64, label %34
 
-33:                                               ; preds = %32
-  %34 = icmp sgt i32 %27, 32
-  br i1 %34, label %35, label %38
+34:                                               ; preds = %32
+  %35 = icmp sgt i32 %27, 32
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %33
-  %36 = getelementptr i8, ptr %21, i64 88
-  %37 = add nsw i64 %28, -32
-  br label %43
+36:                                               ; preds = %34
+  %37 = getelementptr i8, ptr %21, i64 88
+  %38 = add nsw i64 %28, -32
+  br label %44
 
-38:                                               ; preds = %33
-  %39 = icmp sgt i32 %27, 16
-  br i1 %39, label %40, label %43
+39:                                               ; preds = %34
+  %40 = icmp sgt i32 %27, 16
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %38
-  %41 = getelementptr i8, ptr %21, i64 84
-  %42 = add nsw i64 %28, -16
-  br label %43
+41:                                               ; preds = %39
+  %42 = getelementptr i8, ptr %21, i64 84
+  %43 = add nsw i64 %28, -16
+  br label %44
 
-43:                                               ; preds = %35, %38, %40, %30
-  %.026 = phi ptr [ %22, %30 ], [ %36, %35 ], [ %41, %40 ], [ %22, %38 ]
-  %.025 = phi i64 [ %28, %30 ], [ %37, %35 ], [ %42, %40 ], [ %28, %38 ]
-  %44 = ptrtoint ptr %.026 to i64
-  %45 = trunc i64 %44 to i32
-  %46 = sub i32 %45, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %47 = sdiv i32 %46, 64
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4872
-  %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds [10 x i64], ptr %48, i64 0, i64 %49
-  %51 = load i64, ptr %50, align 8
-  %52 = srem i32 %46, 64
-  %53 = zext nneg i32 %52 to i64
-  %54 = shl nuw i64 1, %53
-  %55 = and i64 %54, %51
-  %.not.i = icmp eq i64 %55, 0
-  br i1 %.not.i, label %60, label %56
+44:                                               ; preds = %36, %39, %41, %30
+  %.026 = phi ptr [ %22, %30 ], [ %37, %36 ], [ %42, %41 ], [ %22, %39 ]
+  %.025 = phi i64 [ %28, %30 ], [ %38, %36 ], [ %43, %41 ], [ %28, %39 ]
+  %45 = ptrtoint ptr %.026 to i64
+  %46 = trunc i64 %45 to i32
+  %47 = sub i32 %46, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %48 = sdiv i32 %47, 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4872
+  %50 = sext i32 %48 to i64
+  %51 = getelementptr inbounds [10 x i64], ptr %49, i64 0, i64 %50
+  %52 = load i64, ptr %51, align 8
+  %53 = srem i32 %47, 64
+  %54 = zext nneg i32 %53 to i64
+  %55 = shl nuw i64 1, %54
+  %56 = and i64 %55, %52
+  %.not.i = icmp eq i64 %56, 0
+  br i1 %.not.i, label %61, label %57
 
-56:                                               ; preds = %43
-  %57 = sext i32 %46 to i64
-  %58 = getelementptr inbounds [609 x ptr], ptr %0, i64 0, i64 %57
-  %59 = load ptr, ptr %58, align 8
+57:                                               ; preds = %44
+  %58 = sext i32 %47 to i64
+  %59 = getelementptr inbounds [609 x ptr], ptr %0, i64 0, i64 %58
+  %60 = load ptr, ptr %59, align 8
   br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit
 
-60:                                               ; preds = %43
-  %61 = tail call noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(4983) %0, ptr noundef nonnull %.026)
+61:                                               ; preds = %44
+  %62 = tail call noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(4983) %0, ptr noundef nonnull %.026)
   br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit
 
-_ZNK11RegisterMap8locationEP9VMRegImplPl.exit:    ; preds = %56, %60
-  %.0.i = phi ptr [ %59, %56 ], [ %61, %60 ]
+_ZNK11RegisterMap8locationEP9VMRegImplPl.exit:    ; preds = %57, %61
+  %.0.i = phi ptr [ %60, %57 ], [ %62, %61 ]
   %.not = icmp eq ptr %.0.i, null
-  %62 = getelementptr inbounds i8, ptr %.0.i, i64 %.025
-  %spec.select = select i1 %.not, ptr null, ptr %62
-  br label %63
+  %63 = getelementptr inbounds i8, ptr %.0.i, i64 %.025
+  %spec.select = select i1 %.not, ptr null, ptr %63
+  br label %64
 
-63:                                               ; preds = %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit, %2, %32, %32, %32, %30
-  %.0 = phi ptr [ null, %30 ], [ null, %32 ], [ null, %32 ], [ null, %32 ], [ null, %2 ], [ %spec.select, %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit ]
+64:                                               ; preds = %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit, %32, %2, %30
+  %.0 = phi ptr [ null, %30 ], [ null, %32 ], [ null, %2 ], [ %spec.select, %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit ]
   ret ptr %.0
 }
 
@@ -150,7 +148,11 @@ _ZNK11RegisterMap8locationEP9VMRegImplPl.exit:    ; preds = %18, %22
   ret ptr %.0.i
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #1
+
 attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

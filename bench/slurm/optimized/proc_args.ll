@@ -212,7 +212,7 @@ define dso_local void @set_distribution(i32 noundef %0, ptr noundef %1) local_un
   %3 = icmp slt i32 %0, 1
   %4 = icmp eq i32 %0, 8192
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %20, label %5
+  br i1 %or.cond, label %21, label %5
 
 5:                                                ; preds = %2
   %6 = and i32 %0, 65535
@@ -227,31 +227,32 @@ define dso_local void @set_distribution(i32 noundef %0, ptr noundef %1) local_un
 
 10:                                               ; preds = %7, %5
   %11 = and i32 %0, 16711680
-  switch i32 %11, label %18 [
-    i32 0, label %20
-    i32 8388608, label %12
-    i32 4194304, label %15
+  %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 10)
+  switch i32 %12, label %19 [
+    i32 0, label %21
+    i32 2, label %13
+    i32 1, label %16
   ]
 
-12:                                               ; preds = %10
-  %13 = load ptr, ptr %1, align 8
-  %.not16 = icmp eq ptr %13, null
-  %14 = select i1 %.not16, ptr @.str.6, ptr @.str.5
-  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %14) #20
-  br label %20
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %1, align 8
+  %.not16 = icmp eq ptr %14, null
+  %15 = select i1 %.not16, ptr @.str.6, ptr @.str.5
+  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %15) #20
+  br label %21
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %1, align 8
-  %.not15 = icmp eq ptr %16, null
-  %17 = select i1 %.not15, ptr @.str.6, ptr @.str.5
-  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %17) #20
-  br label %20
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %1, align 8
+  %.not15 = icmp eq ptr %17, null
+  %18 = select i1 %.not15, ptr @.str.6, ptr @.str.5
+  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %18) #20
+  br label %21
 
-18:                                               ; preds = %10
-  %19 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.set_distribution, i32 noundef %11) #20
-  br label %20
+19:                                               ; preds = %10
+  %20 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.set_distribution, i32 noundef %11) #20
+  br label %21
 
-20:                                               ; preds = %15, %18, %12, %10, %2
+21:                                               ; preds = %16, %19, %13, %10, %2
   ret void
 }
 
@@ -3927,17 +3928,20 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #4
 
 declare void @xfree_ptr(ptr noundef) #4
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #17
+
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #17
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #19
+declare i64 @llvm.smax.i64(i64, i64) #17
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3956,9 +3960,9 @@ attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #14 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nofree nounwind }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nounwind }
 attributes #21 = { nounwind willreturn memory(read) }
 attributes #22 = { nounwind willreturn memory(none) }

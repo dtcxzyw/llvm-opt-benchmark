@@ -711,49 +711,50 @@ define range(i32 -1, 1) i32 @bufferevent_socket_connect_hostname_hints(ptr nound
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load i32, ptr %7, align 4
-  switch i32 %8, label %26 [
-    i32 2, label %9
-    i32 10, label %9
-    i32 0, label %9
+  %9 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 31)
+  switch i32 %9, label %27 [
+    i32 1, label %10
+    i32 5, label %10
+    i32 0, label %10
   ]
 
-9:                                                ; preds = %5, %5, %5
-  %10 = add i32 %4, -65536
-  %or.cond = icmp ult i32 %10, -65535
-  br i1 %or.cond, label %26, label %11
+10:                                               ; preds = %5, %5, %5
+  %11 = add i32 %4, -65536
+  %or.cond = icmp ult i32 %11, -65535
+  br i1 %or.cond, label %27, label %12
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %13 = load ptr, ptr %12, align 8
-  %.not29 = icmp eq ptr %13, null
-  br i1 %.not29, label %17, label %14
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %14 = load ptr, ptr %13, align 8
+  %.not29 = icmp eq ptr %14, null
+  br i1 %.not29, label %18, label %15
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %16 = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %13) #10
-  br label %17
+15:                                               ; preds = %12
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %17 = tail call i32 %16(i32 noundef 0, ptr noundef nonnull %14) #10
+  br label %18
 
-17:                                               ; preds = %14, %11
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  store i32 0, ptr %18, align 4
-  %19 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %6, i64 noundef 10, ptr noundef nonnull @.str.1, i32 noundef %4) #10
+18:                                               ; preds = %15, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 396
+  store i32 0, ptr %19, align 4
+  %20 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %6, i64 noundef 10, ptr noundef nonnull @.str.1, i32 noundef %4) #10
   call void @bufferevent_suspend_write_(ptr noundef nonnull %0, i16 noundef zeroext 8) #10
   call void @bufferevent_suspend_read_(ptr noundef nonnull %0, i16 noundef zeroext 8) #10
   call void @bufferevent_incref(ptr noundef nonnull %0) #10
-  %20 = call ptr @evutil_getaddrinfo_async_(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull @bufferevent_connect_getaddrinfo_cb, ptr noundef nonnull %0) #10
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store ptr %20, ptr %21, align 8
-  %22 = load ptr, ptr %12, align 8
-  %.not30 = icmp eq ptr %22, null
-  br i1 %.not30, label %26, label %23
+  %21 = call ptr @evutil_getaddrinfo_async_(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull @bufferevent_connect_getaddrinfo_cb, ptr noundef nonnull %0) #10
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  store ptr %21, ptr %22, align 8
+  %23 = load ptr, ptr %13, align 8
+  %.not30 = icmp eq ptr %23, null
+  br i1 %.not30, label %27, label %24
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %25 = call i32 %24(i32 noundef 0, ptr noundef nonnull %22) #10
-  br label %26
+24:                                               ; preds = %18
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %26 = call i32 %25(i32 noundef 0, ptr noundef nonnull %23) #10
+  br label %27
 
-26:                                               ; preds = %17, %23, %9, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %9 ], [ 0, %23 ], [ 0, %17 ]
+27:                                               ; preds = %18, %24, %10, %5
+  %.0 = phi i32 [ -1, %5 ], [ -1, %10 ], [ 0, %24 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #10
   ret i32 %.0
 }
@@ -1028,6 +1029,9 @@ declare i32 @event_get_fd(ptr noundef) local_unnamed_addr #1
 declare void @evutil_getaddrinfo_cancel_async_(ptr noundef) local_unnamed_addr #1
 
 declare i32 @bufferevent_enable(ptr noundef, i16 noundef signext) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #9

@@ -1869,34 +1869,35 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #9 {
 6:                                                ; preds = %1
   %7 = inttoptr i64 %0 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br label %17
+  br label %18
 
 9:                                                ; preds = %1
-  switch i64 %0, label %12 [
-    i64 0, label %17
-    i64 4, label %10
-    i64 20, label %11
+  %10 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %10, label %13 [
+    i64 0, label %18
+    i64 1, label %11
+    i64 5, label %12
   ]
 
-10:                                               ; preds = %9
-  br label %17
-
 11:                                               ; preds = %9
-  br label %17
+  br label %18
 
 12:                                               ; preds = %9
-  %13 = and i64 %0, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %17
+  br label %18
 
-14:                                               ; preds = %12
-  %15 = and i64 %0, 254
-  %16 = icmp eq i64 %15, 12
-  %spec.select = select i1 %16, ptr @rb_cSymbol, ptr @rb_cFloat
-  br label %17
+13:                                               ; preds = %9
+  %14 = and i64 %0, 1
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %15, label %18
 
-17:                                               ; preds = %14, %12, %9, %11, %10, %6
-  %.0.in = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
+15:                                               ; preds = %13
+  %16 = and i64 %0, 254
+  %17 = icmp eq i64 %16, 12
+  %spec.select = select i1 %17, ptr @rb_cSymbol, ptr @rb_cFloat
+  br label %18
+
+18:                                               ; preds = %15, %13, %9, %12, %11, %6
+  %.0.in = phi ptr [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %13 ], [ %spec.select, %15 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !26
   ret i64 %.0
 }
@@ -1986,6 +1987,9 @@ declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #12
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
