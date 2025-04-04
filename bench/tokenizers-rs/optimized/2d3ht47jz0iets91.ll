@@ -9529,7 +9529,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04e312a3d499d39dE.exit: ; preds = %"_ZN
   store i64 %.sroa.0.0.copyload1.i.i, ptr %3, align 8, !noalias !2116
   call void @"_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString13into_encoding28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d6b2915095460cbE.llvm.14172520758739148588"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(160) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !2115
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !range !228
   %16 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %16, label %18, label %26
 
@@ -20830,7 +20830,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04e312a3d499d39dE.exit.i: ; preds = %"_
 
 .noexc37:                                         ; preds = %_ZN4core3ops8function6FnOnce9call_once17h04e312a3d499d39dE.exit.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !4439
-  %.pr.i = load i64, ptr %4, align 8, !noalias !4418
+  %.pr.i = load i64, ptr %4, align 8, !range !228, !noalias !4418
   %100 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %100, label %101, label %.noexc13
 
@@ -22917,7 +22917,7 @@ define hidden void @"_ZN10tokenizers10processors1_97_$LT$impl$u20$serde..de..Des
           to label %113 unwind label %111
 
 37:                                               ; preds = %23, %27
-  %.pr = load i64, ptr %14, align 8
+  %.pr = load i64, ptr %14, align 8, !range !228
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %38 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %38, label %..thread84_crit_edge, label %42
@@ -22983,7 +22983,7 @@ define hidden void @"_ZN10tokenizers10processors1_97_$LT$impl$u20$serde..de..Des
           to label %56 unwind label %35
 
 56:                                               ; preds = %48, %52
-  %.pr86 = load i64, ptr %12, align 8
+  %.pr86 = load i64, ptr %12, align 8, !range !228
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %57 = icmp eq i64 %.pr86, -9223372036854775808
   br i1 %57, label %..thread89_crit_edge, label %61
@@ -23103,7 +23103,7 @@ define hidden void @"_ZN10tokenizers10processors1_97_$LT$impl$u20$serde..de..Des
           to label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h1f59affbd601d9dfE.exit.i" unwind label %35
 
 "_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h1f59affbd601d9dfE.exit.i": ; preds = %81, %77
-  %.pr.i = load i64, ptr %7, align 8, !noalias !4671
+  %.pr.i = load i64, ptr %7, align 8, !range !228, !noalias !4671
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !4671
   %85 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %85, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h1f59affbd601d9dfE.exit._crit_edge.i", label %86
@@ -23330,7 +23330,7 @@ define hidden void @"_ZN10tokenizers10processors1_97_$LT$impl$u20$serde..de..Des
           to label %110 unwind label %108
 
 34:                                               ; preds = %21, %25
-  %.pr = load i64, ptr %14, align 8
+  %.pr = load i64, ptr %14, align 8, !range !228
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %35 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %35, label %..thread88_crit_edge, label %39
@@ -23396,7 +23396,7 @@ define hidden void @"_ZN10tokenizers10processors1_97_$LT$impl$u20$serde..de..Des
           to label %53 unwind label %32
 
 53:                                               ; preds = %45, %49
-  %.pr90 = load i64, ptr %12, align 8
+  %.pr90 = load i64, ptr %12, align 8, !range !228
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %54 = icmp eq i64 %.pr90, -9223372036854775808
   br i1 %54, label %..thread93_crit_edge, label %58
@@ -23516,7 +23516,7 @@ define hidden void @"_ZN10tokenizers10processors1_97_$LT$impl$u20$serde..de..Des
           to label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h1f59affbd601d9dfE.exit.i" unwind label %32
 
 "_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h1f59affbd601d9dfE.exit.i": ; preds = %78, %74
-  %.pr.i = load i64, ptr %7, align 8, !noalias !4738
+  %.pr.i = load i64, ptr %7, align 8, !range !228, !noalias !4738
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !4738
   %82 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %82, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h1f59affbd601d9dfE.exit._crit_edge.i", label %83

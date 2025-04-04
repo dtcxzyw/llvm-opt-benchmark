@@ -44407,7 +44407,7 @@ _ZN5typst11foundations7content7Content3get17h1970def8a14d6165E.exit: ; preds = %
   %29 = getelementptr inbounds nuw i8, ptr %.val1, i64 56
   %30 = load ptr, ptr %29, align 8, !invariant.load !4, !noalias !9405, !nonnull !4
   call void %30(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %5, ptr noundef align 1 %28, i8 noundef %2)
-  %.pr = load i8, ptr %5, align 8
+  %.pr = load i8, ptr %5, align 8, !range !1235
   %31 = icmp eq i8 %.pr, 30
   br i1 %31, label %32, label %44
 
@@ -65505,7 +65505,7 @@ define void @"_ZN5typst5model6figure139_$LT$impl$u20$typst..model..outline..Outl
     i64 3, label %139
   ]
 
-default.unreachable:                              ; preds = %134
+default.unreachable:                              ; preds = %thread-pre-split, %134
   unreachable
 
 135:                                              ; preds = %134
@@ -65619,7 +65619,7 @@ default.unreachable:                              ; preds = %134
 thread-pre-split:                                 ; preds = %242, %173, %171
   %172 = phi i64 [ %170, %171 ], [ %170, %173 ], [ %.pr.pre, %242 ]
   %.037 = phi i1 [ true, %171 ], [ true, %173 ], [ false, %242 ]
-  switch i64 %172, label %.unreachabledefault [
+  switch i64 %172, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit"
     i64 2, label %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit"
     i64 0, label %266
@@ -65796,7 +65796,7 @@ thread-pre-split:                                 ; preds = %242, %173, %171
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
-  %.pr.pre = load i64, ptr %25, align 8
+  %.pr.pre = load i64, ptr %25, align 8, !range !1140
   br label %thread-pre-split
 
 243:                                              ; preds = %148, %.thread, %260, %259, %247, %245, %"_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.exit"
@@ -65890,9 +65890,6 @@ thread-pre-split:                                 ; preds = %242, %173, %171
 
 266:                                              ; preds = %thread-pre-split
   br i1 %.037, label %268, label %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit"
-
-.unreachabledefault:                              ; preds = %thread-pre-split
-  unreachable
 
 267:                                              ; preds = %thread-pre-split
   invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE"(ptr noalias noundef align 8 dereferenceable(32) %25)
@@ -81021,7 +81018,7 @@ define void @"_ZN5typst11foundations5value102_$LT$impl$u20$typst..foundations..c
   ret void
 
 69:                                               ; preds = %27, %"_ZN4core3ptr51drop_in_place$LT$typst..symbols..symbol..Symbol$GT$17hb8100a06dd39f24fE.exit", %48
-  %.pr = load i8, ptr %1, align 8
+  %.pr = load i8, ptr %1, align 8, !range !6594
   switch i8 %.pr, label %70 [
     i8 13, label %68
     i8 15, label %68
@@ -108029,7 +108026,7 @@ define { ptr, i64 } @"_ZN5typst4math6matrix125_$LT$impl$u20$typst..math..LayoutM
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !24140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(144) %10, i64 144, i1 false), !noalias !24139
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10), !noalias !24140
-  %.pr = load i64, ptr %34, align 8
+  %.pr = load i64, ptr %34, align 8, !range !1140
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9), !noalias !24123
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13), !noalias !24123
   %.not = icmp eq i64 %.pr, 3
@@ -166054,7 +166051,7 @@ define void @"_ZN79_$LT$typst..text..BottomEdge$u20$as$u20$typst..foundations..c
   br i1 %trunc26, label %37, label %34
 
 "_ZN83_$LT$typst..text..BottomEdgeMetric$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h4a4677e89b4d43afE.exit.threadthread-pre-split": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit.i", %17, %"_ZN83_$LT$typst..text..BottomEdgeMetric$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h4a4677e89b4d43afE.exit", %.noexc
-  %.pr = load i8, ptr %1, align 8, !alias.scope !40226
+  %.pr = load i8, ptr %1, align 8, !range !6594, !alias.scope !40226
   br label %"_ZN83_$LT$typst..text..BottomEdgeMetric$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h4a4677e89b4d43afE.exit.thread"
 
 "_ZN83_$LT$typst..text..BottomEdgeMetric$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h4a4677e89b4d43afE.exit.thread": ; preds = %"_ZN83_$LT$typst..text..BottomEdgeMetric$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h4a4677e89b4d43afE.exit.threadthread-pre-split", %2

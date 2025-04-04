@@ -143,7 +143,7 @@ define internal void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u2
 
 17:                                               ; preds = %15, %.thread12.i.i
   %.sroa.0.0.copyload2.pr.pr = phi i64 [ -9223372036854775805, %.thread12.i.i ], [ %.pre.pre.i.i, %15 ]
-  %.pr.i.i = load i64, ptr %1, align 8, !alias.scope !30, !noalias !15
+  %.pr.i.i = load i64, ptr %1, align 8, !range !13, !alias.scope !30, !noalias !15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %18 = icmp eq i64 %.pr.i.i, -9223372036854775808
   br i1 %18, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.exit", label %19
@@ -398,7 +398,7 @@ define internal void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$
 
 14:                                               ; preds = %12, %.thread11.i
   %.ph.i = phi i64 [ -9223372036854775805, %.thread11.i ], [ %.pre.pre.i, %12 ]
-  %.pr.i = load i64, ptr %1, align 8, !alias.scope !103, !noalias !89
+  %.pr.i = load i64, ptr %1, align 8, !range !13, !alias.scope !103, !noalias !89
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.5.i)
   %15 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %15, label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i", label %16
@@ -980,7 +980,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
 
 17:                                               ; preds = %15, %.thread11.i.i
   %.ph.i.i = phi i64 [ -9223372036854775805, %.thread11.i.i ], [ %.pre.pre.i.i, %15 ]
-  %.pr.i.i = load i64, ptr %0, align 8, !alias.scope !264, !noalias !251
+  %.pr.i.i = load i64, ptr %0, align 8, !range !13, !alias.scope !264, !noalias !251
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.5.i.i)
   %18 = icmp eq i64 %.pr.i.i, -9223372036854775808
   br i1 %18, label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i.i", label %19
@@ -1177,7 +1177,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h1e6824c94c561
 
 18:                                               ; preds = %16, %.thread11.i.i
   %.ph.i.i = phi i64 [ -9223372036854775805, %.thread11.i.i ], [ %.pre.pre.i.i, %16 ]
-  %.pr.i.i = load i64, ptr %1, align 8, !alias.scope !311, !noalias !298
+  %.pr.i.i = load i64, ptr %1, align 8, !range !13, !alias.scope !311, !noalias !298
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.5.i.i)
   %19 = icmp eq i64 %.pr.i.i, -9223372036854775808
   br i1 %19, label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i.i", label %20
@@ -4363,13 +4363,13 @@ define { ptr, ptr } @_ZN5uu_wc2wc17h0f9afeddf50752eeE(ptr noalias noundef readon
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %51, i8 0, i64 40, i1 false)
   %57 = load i8, ptr %56, align 1, !range !231, !noundef !16
   %.not = icmp eq i8 %57, 2
-  %.pr.pre = load i64, ptr %0, align 8, !alias.scope !1215, !noalias !1218
+  %.pr.pre = load i64, ptr %0, align 8, !range !516, !alias.scope !1215, !noalias !1218
   br i1 %.not, label %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit, label %58
 
 58:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1224)
-  switch i64 %.pr.pre, label %default.unreachable66.i [
+  switch i64 %.pr.pre, label %default.unreachable [
     i64 0, label %59
     i64 1, label %78
     i64 2, label %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit.thread
@@ -4379,7 +4379,7 @@ _ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit.thread: ; preds = %58
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19)
   br label %162
 
-default.unreachable66.i:                          ; preds = %58
+default.unreachable:                              ; preds = %299, %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit, %58
   unreachable
 
 59:                                               ; preds = %58
@@ -4584,14 +4584,11 @@ _ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit: ; preds = %"_ZN4core3n
   call void @llvm.experimental.noalias.scope.decl(metadata !1215)
   call void @llvm.experimental.noalias.scope.decl(metadata !1282)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19)
-  switch i64 %.pr.pre, label %default.unreachable68.i [
+  switch i64 %.pr.pre, label %default.unreachable [
     i64 0, label %142
     i64 1, label %151
     i64 2, label %162
   ]
-
-default.unreachable68.i:                          ; preds = %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit
-  unreachable
 
 142:                                              ; preds = %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit.thread297, %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit
   %.066.ph299 = phi i64 [ %..i, %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit.thread297 ], [ %.066.ph, %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit ]
@@ -5058,9 +5055,6 @@ _ZN5uu_wc7WcError8zero_len17h587ea828ed9ef175E.exit.i: ; preds = %273, %271
     i8 2, label %_ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread
     i8 3, label %_ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread214
   ]
-
-default.unreachable:                              ; preds = %299
-  unreachable
 
 _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit: ; preds = %299
   %300 = icmp ugt i64 %.069, 1

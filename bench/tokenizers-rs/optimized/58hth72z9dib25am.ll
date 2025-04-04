@@ -14199,7 +14199,7 @@ _ZN5serde2de9MapAccess10next_value17h10d23326037b0b46E.exit.i: ; preds = %160
           to label %.body.i unwind label %187, !noalias !3567
 
 _ZN5serde2de9MapAccess10next_value17h5458795ed2581eecE.exit.i: ; preds = %143
-  %.pr.i = load i8, ptr %42, align 8, !noalias !3539
+  %.pr.i = load i8, ptr %42, align 8, !range !1143, !noalias !3539
   %170 = icmp eq i8 %.pr.i, 22
   br i1 %170, label %.loopexit176.loopexit.i, label %171
 
@@ -14394,7 +14394,7 @@ _ZN5serde2de9MapAccess10next_value17h5458795ed2581eecE.exit.i: ; preds = %143
 .body.i.i.i:                                      ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i.i, %.loopexit.split-lp.loopexit.i.i.i, %.loopexit.i.i119.i, %216
   %.2.ph.i.i.i = phi i1 [ false, %216 ], [ false, %.loopexit.i.i119.i ], [ false, %.loopexit.split-lp.loopexit.i.i.i ], [ %220, %.loopexit.split-lp.loopexit.split-lp.i.i.i ]
   %.pn.ph.i.i.i = phi { ptr, i32 } [ %217, %216 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i119.i ], [ %lpad.loopexit407.i.i.i, %.loopexit.split-lp.loopexit.i.i.i ], [ %lpad.loopexit.split-lp408.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i ]
-  %.pr.i.i.i = load i64, ptr %29, align 8, !noalias !3712
+  %.pr.i.i.i = load i64, ptr %29, align 8, !range !159, !noalias !3712
   %.not.i.i.i = icmp eq i64 %.pr.i.i.i, -9223372036854775808
   %brmerge405.i.i.i = or i1 %.2.ph.i.i.i, %.not.i.i.i
   br i1 %brmerge405.i.i.i, label %.body.thread.i.i.i, label %371
@@ -14518,7 +14518,7 @@ _ZN5serde2de9MapAccess10next_value17h61a15e3d2af08aa6E.exit.thread.i.i.i: ; pred
 
 _ZN5serde2de9MapAccess10next_value17he92b8131a9bfc0ffE.exit.i.i.i: ; preds = %246
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !3759
-  %.pr329.i.i.i = load i64, ptr %28, align 8, !noalias !3712
+  %.pr329.i.i.i = load i64, ptr %28, align 8, !range !159, !noalias !3712
   %247 = icmp eq i64 %.pr329.i.i.i, -9223372036854775808
   %.pre.i.i120.i = load ptr, ptr %.sroa.5122.0..sroa_idx.i.i.i, align 8, !noalias !3712
   br i1 %247, label %.loopexit410.i.i.i, label %248
@@ -18185,7 +18185,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 .loopexit.i:                                      ; preds = %.loopexit.split-lp.i, %.loopexit.loopexit.split-lp.i, %.loopexit.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit1051.i, %.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp1052.i, %.loopexit.loopexit.split-lp.i ]
-  %.pr.i = load i64, ptr %37, align 8, !noalias !4885
+  %.pr.i = load i64, ptr %37, align 8, !range !159, !noalias !4885
   %.not.i = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %.not.i, label %common.resume, label %525
 
@@ -18298,7 +18298,7 @@ default.unreachable:                              ; preds = %351
           to label %_ZN5serde2de9MapAccess10next_value17h833795bfb3a74a22E.exit.i unwind label %.loopexit.loopexit.i, !noalias !4913
 
 _ZN5serde2de9MapAccess10next_value17h833795bfb3a74a22E.exit.i: ; preds = %380
-  %.pr284.i = load i64, ptr %36, align 8, !noalias !4885
+  %.pr284.i = load i64, ptr %36, align 8, !range !732, !noalias !4885
   %382 = icmp eq i64 %.pr284.i, 2
   br i1 %382, label %.loopexit296.loopexit.i, label %383
 
@@ -18469,7 +18469,7 @@ _ZN5serde2de9MapAccess10next_value17h23eb76ddec5790dcE.exit.i: ; preds = %402
           to label %_ZN5serde2de9MapAccess10next_value17h410aaad69a00d31eE.exit.i unwind label %.loopexit.loopexit.i, !noalias !4913
 
 _ZN5serde2de9MapAccess10next_value17h410aaad69a00d31eE.exit.i: ; preds = %421
-  %.pr285.i = load i64, ptr %34, align 8, !noalias !4885
+  %.pr285.i = load i64, ptr %34, align 8, !range !732, !noalias !4885
   %423 = icmp eq i64 %.pr285.i, 2
   br i1 %423, label %.loopexit294.loopexit.i, label %424
 
@@ -18709,7 +18709,7 @@ _ZN5serde2de9MapAccess10next_value17h10d23326037b0b46E.exit236.i: ; preds = %459
           to label %_ZN5serde2de9MapAccess10next_value17hae0ba2013a25e108E.exit.i unwind label %.loopexit.loopexit.i, !noalias !4913
 
 _ZN5serde2de9MapAccess10next_value17hae0ba2013a25e108E.exit.i: ; preds = %481
-  %.pr286.i = load i64, ptr %31, align 8, !noalias !4885
+  %.pr286.i = load i64, ptr %31, align 8, !range !159, !noalias !4885
   %483 = icmp eq i64 %.pr286.i, -9223372036854775808
   %.pre.i = load ptr, ptr %.sroa.5125.0..sroa_idx.i, align 8, !noalias !4885
   br i1 %483, label %.loopexit292.i, label %484
@@ -25107,7 +25107,7 @@ define void @"_ZN84_$LT$tokenizers..models..bpe..model..BPE$u20$as$u20$tokenizer
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @"_ZN10tokenizers5utils5cache18Cache$LT$K$C$V$GT$3get17hde6b3449467e6a0bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %20, ptr noundef nonnull align 8 %41, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef range(i64 1, 0) %3), !noalias !6456
-  %.pr.i = load i64, ptr %20, align 8, !noalias !6459
+  %.pr.i = load i64, ptr %20, align 8, !range !159, !noalias !6459
   %42 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %42, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$tokenizers..models..bpe..word..Word$GT$$GT$17h1a7ddc6d51afbaedE.exit.i", label %48
 
@@ -32622,7 +32622,7 @@ define hidden void @"_ZN158_$LT$tokenizers..decoders..sequence.._..$LT$impl$u20$
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %36
   %eh.lpad-body = phi { ptr, i32 } [ %37, %36 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit102, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pr = load i64, ptr %12, align 8
+  %.pr = load i64, ptr %12, align 8, !range !159
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %88, label %94
 
@@ -32733,7 +32733,7 @@ _ZN5serde2de9MapAccess10next_value17h442bcbf9bd514f7bE.exit.thread97: ; preds = 
   br label %.loopexit105
 
 _ZN5serde2de9MapAccess10next_value17h442bcbf9bd514f7bE.exit: ; preds = %62
-  %.pr96.pr = load i64, ptr %11, align 8
+  %.pr96.pr = load i64, ptr %11, align 8, !range !159
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !7972
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !7972
   %65 = icmp eq i64 %.pr96.pr, -9223372036854775808
@@ -35426,7 +35426,7 @@ define hidden void @"_ZN170_$LT$tokenizers..pre_tokenizers..sequence.._..$LT$imp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %36
   %eh.lpad-body = phi { ptr, i32 } [ %37, %36 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit102, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pr = load i64, ptr %12, align 8
+  %.pr = load i64, ptr %12, align 8, !range !159
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %88, label %94
 
@@ -35537,7 +35537,7 @@ _ZN5serde2de9MapAccess10next_value17hb9d168e18888b4b1E.exit.thread97: ; preds = 
   br label %.loopexit105
 
 _ZN5serde2de9MapAccess10next_value17hb9d168e18888b4b1E.exit: ; preds = %62
-  %.pr96.pr = load i64, ptr %11, align 8
+  %.pr96.pr = load i64, ptr %11, align 8, !range !159
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !8528
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !8528
   %65 = icmp eq i64 %.pr96.pr, -9223372036854775808
@@ -35877,7 +35877,7 @@ define hidden void @"_ZN162_$LT$tokenizers..processors..sequence.._..$LT$impl$u2
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %36
   %eh.lpad-body = phi { ptr, i32 } [ %37, %36 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit102, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pr = load i64, ptr %12, align 8
+  %.pr = load i64, ptr %12, align 8, !range !159
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %88, label %94
 
@@ -35988,7 +35988,7 @@ _ZN5serde2de9MapAccess10next_value17h8e19c1c9b6f80e8eE.exit.thread97: ; preds = 
   br label %.loopexit105
 
 _ZN5serde2de9MapAccess10next_value17h8e19c1c9b6f80e8eE.exit: ; preds = %62
-  %.pr96.pr = load i64, ptr %11, align 8
+  %.pr96.pr = load i64, ptr %11, align 8, !range !159
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !8613
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !8613
   %65 = icmp eq i64 %.pr96.pr, -9223372036854775808

@@ -511,7 +511,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h53447aac3fdeb645E(ptr
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %12, ptr %6, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, ptr noundef nonnull align 16 dereferenceable(48) %9, i64 48, i1 false)
-  %.pr = load i8, ptr %4, align 16
+  %.pr = load i8, ptr %4, align 16, !range !4
   %.not = icmp eq i8 %.pr, 10
   br i1 %.not, label %.loopexit, label %13
 
@@ -589,7 +589,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h7b4032206c6f3dd8E(ptr
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %12, ptr %6, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, ptr noundef nonnull align 16 dereferenceable(48) %9, i64 48, i1 false)
-  %.pr = load i8, ptr %4, align 16
+  %.pr = load i8, ptr %4, align 16, !range !4
   %.not = icmp eq i8 %.pr, 10
   br i1 %.not, label %.loopexit, label %13
 
@@ -777,7 +777,7 @@ define { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb40179eb7
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr %23, ptr %13, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 16 dereferenceable(48) %22, i64 48, i1 false)
-  %.pr = load i8, ptr %7, align 16
+  %.pr = load i8, ptr %7, align 16, !range !4
   %.not = icmp eq i8 %.pr, 10
   br i1 %.not, label %.loopexit, label %24
 
@@ -861,7 +861,7 @@ define { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf004c123c
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr %23, ptr %13, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 16 dereferenceable(48) %22, i64 48, i1 false)
-  %.pr = load i8, ptr %7, align 16
+  %.pr = load i8, ptr %7, align 16, !range !4
   %.not = icmp eq i8 %.pr, 10
   br i1 %.not, label %.loopexit, label %24
 
@@ -1250,3 +1250,4 @@ attributes #17 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
+!4 = !{i8 0, i8 11}

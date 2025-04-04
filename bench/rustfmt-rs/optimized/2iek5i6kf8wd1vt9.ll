@@ -32232,7 +32232,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %77
   %101 = getelementptr inbounds { [8 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %101, i64 64, i1 false), !noalias !7216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %101, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false), !noalias !7215
-  %.pr = load i64, ptr %16, align 8, !alias.scope !7217
+  %.pr = load i64, ptr %16, align 8, !range !340, !alias.scope !7217
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !7206
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
@@ -32678,7 +32678,7 @@ _ZN15rustfmt_nightly7modules9is_cfg_if17h2f98ac70809b5b5fE.exit: ; preds = %21
   br i1 %33, label %36, label %37
 
 _ZN15rustfmt_nightly7modules9is_cfg_if17h2f98ac70809b5b5fE.exit.threadthread-pre-split: ; preds = %36, %_ZN15rustfmt_nightly7modules9is_cfg_if17h2f98ac70809b5b5fE.exit, %21
-  %.pr = load i64, ptr %19, align 8
+  %.pr = load i64, ptr %19, align 8, !range !7287
   br label %_ZN15rustfmt_nightly7modules9is_cfg_if17h2f98ac70809b5b5fE.exit.thread
 
 _ZN15rustfmt_nightly7modules9is_cfg_if17h2f98ac70809b5b5fE.exit.thread: ; preds = %_ZN15rustfmt_nightly7modules9is_cfg_if17h2f98ac70809b5b5fE.exit.threadthread-pre-split, %17
@@ -34020,7 +34020,7 @@ _ZN15rustfmt_nightly7modules11ModResolver24find_mods_outside_of_ast17hadd5d9d251
 
 494:                                              ; preds = %384
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %73), !noalias !7461
-  %.pr341.i.i = load i32, ptr %142, align 8, !noalias !7335
+  %.pr341.i.i = load i32, ptr %142, align 8, !range !7466, !noalias !7335
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %77), !noalias !7461
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %74), !noalias !7335
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %141), !noalias !7335

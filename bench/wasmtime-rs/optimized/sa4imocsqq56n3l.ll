@@ -25226,11 +25226,11 @@ _ZN17cranelift_codegen6timing17canonicalize_nans17h15f81e839a5a8d07E.exit: ; pre
           to label %common.resume unwind label %112
 
 thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %_ZN17cranelift_codegen6timing17canonicalize_nans17h15f81e839a5a8d07E.exit
-  %18 = phi i32 [ undef, %_ZN17cranelift_codegen6timing17canonicalize_nans17h15f81e839a5a8d07E.exit ], [ %.be59, %thread-pre-split.backedge ]
-  %19 = phi i32 [ 0, %_ZN17cranelift_codegen6timing17canonicalize_nans17h15f81e839a5a8d07E.exit ], [ %.be60, %thread-pre-split.backedge ]
+  %18 = phi i32 [ undef, %_ZN17cranelift_codegen6timing17canonicalize_nans17h15f81e839a5a8d07E.exit ], [ %.be62, %thread-pre-split.backedge ]
+  %19 = phi i32 [ 0, %_ZN17cranelift_codegen6timing17canonicalize_nans17h15f81e839a5a8d07E.exit ], [ %.be63, %thread-pre-split.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3126)
   call void @llvm.experimental.noalias.scope.decl(metadata !3129)
-  switch i32 %19, label %default.unreachable.i [
+  switch i32 %19, label %default.unreachable [
     i32 0, label %._ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.thread12_crit_edge.i
     i32 1, label %_ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.i
     i32 2, label %_ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.thread.i
@@ -25241,7 +25241,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %.pre.i = load ptr, ptr %15, align 8, !alias.scope !3132
   br label %39
 
-default.unreachable.i:                            ; preds = %thread-pre-split
+default.unreachable:                              ; preds = %thread-pre-split, %.preheader
   unreachable
 
 _ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.i: ; preds = %thread-pre-split
@@ -25342,17 +25342,14 @@ common.resume:                                    ; preds = %17, %48, %"_ZN63_$L
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
   %63 = phi i32 [ %.ph, %.preheader.preheader ], [ %.be, %.preheader.backedge ]
-  %64 = phi i32 [ 2, %.preheader.preheader ], [ %.be58, %.preheader.backedge ]
+  %64 = phi i32 [ 2, %.preheader.preheader ], [ %.be60, %.preheader.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3164)
-  switch i32 %64, label %default.unreachable.i7 [
+  switch i32 %64, label %default.unreachable [
     i32 0, label %thread-pre-split.backedge
     i32 1, label %65
     i32 2, label %76
     i32 3, label %thread-pre-split.backedge
   ]
-
-default.unreachable.i7:                           ; preds = %.preheader
-  unreachable
 
 65:                                               ; preds = %.preheader
   %66 = load ptr, ptr %15, align 8, !alias.scope !3167, !nonnull !4, !align !15, !noundef !4
@@ -25404,8 +25401,8 @@ default.unreachable.i7:                           ; preds = %.preheader
   br label %thread-pre-split.backedge
 
 thread-pre-split.backedge:                        ; preds = %.preheader, %.preheader, %90, %91
-  %.be59 = phi i32 [ %88, %90 ], [ %63, %91 ], [ %63, %.preheader ], [ %63, %.preheader ]
-  %.be60 = phi i32 [ 3, %90 ], [ 3, %91 ], [ %64, %.preheader ], [ %64, %.preheader ]
+  %.be62 = phi i32 [ %88, %90 ], [ %63, %91 ], [ %63, %.preheader ], [ %63, %.preheader ]
+  %.be63 = phi i32 [ 3, %90 ], [ 3, %91 ], [ %64, %.preheader ], [ %64, %.preheader ]
   br label %thread-pre-split
 
 91:                                               ; preds = %76
@@ -25479,13 +25476,13 @@ _ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.ll
           to label %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge unwind label %.loopexit
 
 _ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge: ; preds = %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14
-  %.pr9.pre = load i32, ptr %5, align 8, !alias.scope !3200
+  %.pr9.pre = load i32, ptr %5, align 8, !range !1467, !alias.scope !3200
   %.pre.pre = load i32, ptr %16, align 4, !alias.scope !3200
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge, %106, %103, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i", %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit
   %.be = phi i32 [ %.pre.pre, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge ], [ %storemerge, %106 ], [ %storemerge, %103 ], [ %storemerge, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ %storemerge, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit ]
-  %.be58 = phi i32 [ %.pr9.pre, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge ], [ 1, %106 ], [ 1, %103 ], [ 1, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ 1, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit ]
+  %.be60 = phi i32 [ %.pr9.pre, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge ], [ 1, %106 ], [ 1, %103 ], [ 1, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ 1, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit ]
   br label %.preheader
 
 112:                                              ; preds = %17

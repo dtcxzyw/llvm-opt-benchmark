@@ -8574,7 +8574,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$13decode_planes1
   br i1 %49, label %51, label %thread-pre-split.thread
 
 thread-pre-split.loopexit:                        ; preds = %.backedge
-  %.pr.pre = load i8, ptr %41, align 1
+  %.pr.pre = load i8, ptr %41, align 1, !range !153
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.loopexit, %40
@@ -9136,7 +9136,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$13decode_planes1
   br i1 %49, label %51, label %thread-pre-split.thread
 
 thread-pre-split.loopexit:                        ; preds = %.backedge
-  %.pr.pre = load i8, ptr %41, align 1
+  %.pr.pre = load i8, ptr %41, align 1, !range !153
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.loopexit, %40
@@ -9698,7 +9698,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$13decode_planes1
   br i1 %49, label %51, label %thread-pre-split.thread
 
 thread-pre-split.loopexit:                        ; preds = %.backedge
-  %.pr.pre = load i8, ptr %41, align 1
+  %.pr.pre = load i8, ptr %41, align 1, !range !153
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.loopexit, %40
@@ -34629,7 +34629,7 @@ switch.lookup:                                    ; preds = %539
 
 661:                                              ; preds = %650, %.noexc189, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h6540701bf0cd0dcfE.exit281.i", %.noexc181
   %.sroa.7.4.ph = phi i16 [ %.sroa.7.1372, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h6540701bf0cd0dcfE.exit281.i" ], [ %.sroa.7.3, %.noexc181 ], [ %.sroa.7.1372, %650 ], [ %.sroa.7.1372, %.noexc189 ]
-  %.pr = load i8, ptr %49, align 8
+  %.pr = load i8, ptr %49, align 8, !range !3072
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %.sroa.789.sroa.8.i)
   %662 = icmp eq i8 %.pr, 10
   br i1 %662, label %663, label %.loopexit422

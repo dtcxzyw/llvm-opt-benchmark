@@ -14977,7 +14977,7 @@ common.ret:                                       ; preds = %297, %159, %85
 .body.i:                                          ; preds = %.invoke.i
   %234 = landingpad { ptr, i32 }
           cleanup
-  %.pr.i = load i8, ptr %.phi.trans.insert99.i, align 8, !noalias !2825
+  %.pr.i = load i8, ptr %.phi.trans.insert99.i, align 8, !range !20, !noalias !2825
   %cond.i40.i = icmp eq i8 %.pr.i, 3
   br i1 %cond.i40.i, label %287, label %"_ZN4core3ptr98drop_in_place$LT$tokio..net..tcp..stream..TcpStream..connect_addr..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha9c958c9f3a9146aE.exit42.i"
 
@@ -15328,7 +15328,7 @@ define hidden void @"_ZN95_$LT$awc..any_body..AnyBody$LT$B$GT$$u20$as$u20$actix_
     i64 2, label %14
   ]
 
-default.unreachable15:                            ; preds = %3
+default.unreachable15:                            ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit", %3
   unreachable
 
 9:                                                ; preds = %3
@@ -15390,21 +15390,18 @@ default.unreachable13.i:                          ; preds = %14
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8, !invariant.load !7, !noalias !2893, !nonnull !7
   call void %27(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %4, ptr noundef nonnull align 1 %23, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !2878
-  %.pr.pre = load i64, ptr %4, align 8, !alias.scope !2894, !noalias !2897
+  %.pr.pre = load i64, ptr %4, align 8, !range !196, !alias.scope !2894, !noalias !2897
   br label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
 
 "_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit": ; preds = %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i", %22
   %.pr = phi i64 [ %.pr14, %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i" ], [ %.pr.pre, %22 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2897)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2894)
-  switch i64 %.pr, label %default.unreachable9.i [
+  switch i64 %.pr, label %default.unreachable15 [
     i64 2, label %28
     i64 0, label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit.thread"
     i64 1, label %29
   ]
-
-default.unreachable9.i:                           ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
-  unreachable
 
 28:                                               ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
   store i64 2, ptr %0, align 8, !alias.scope !2897, !noalias !2894

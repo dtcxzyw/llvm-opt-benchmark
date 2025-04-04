@@ -6863,7 +6863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit370: ; preds = %_Z
   br label %1227
 
 171:                                              ; preds = %156
-  %.pr = load i8, ptr %153, align 1, !tbaa !269
+  %.pr = load i8, ptr %153, align 1, !tbaa !269, !range !81
   %172 = icmp eq i8 %.pr, 0
   br i1 %172, label %.thread495, label %173
 
@@ -6916,7 +6916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit373: ; preds = %_Z
   br label %1227
 
 189:                                              ; preds = %173
-  %.pr494 = load i8, ptr %153, align 1, !tbaa !269
+  %.pr494 = load i8, ptr %153, align 1, !tbaa !269, !range !81
   %190 = icmp eq i8 %.pr494, 0
   br i1 %190, label %.thread495, label %191
 

@@ -5098,7 +5098,7 @@ _ZN12clap_builder6parser11arg_matcher10ArgMatcher14start_trailing17hcef78b871644
   br label %1442
 
 thread-pre-split2357:                             ; preds = %1490, %.thread892
-  %.pr = load i64, ptr %341, align 8
+  %.pr = load i64, ptr %341, align 8, !range !40
   br label %1487
 
 1487:                                             ; preds = %thread-pre-split2357, %1442
@@ -10392,7 +10392,7 @@ _ZN12clap_builder6parser6parser6Parser15verify_num_args17hf07cb5a4e9e4655dE.exit
 
 "_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE.exit.i": ; preds = %.noexc237
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull align 8 dereferenceable(104) %522, i64 104, i1 false), !noalias !2508
-  %.pr.i = load i64, ptr %20, align 8, !noalias !2499
+  %.pr.i = load i64, ptr %20, align 8, !range !154, !noalias !2499
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %19), !noalias !2499
   %525 = icmp eq i64 %.pr.i, 2
   br i1 %525, label %.sink.split, label %526
@@ -10623,7 +10623,7 @@ _ZN12clap_builder6parser6parser6Parser15verify_num_args17hf07cb5a4e9e4655dE.exit
 
 "_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE.exit.i242": ; preds = %.noexc245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef nonnull align 8 dereferenceable(104) %597, i64 104, i1 false), !noalias !2539
-  %.pr.i243 = load i64, ptr %17, align 8, !noalias !2530
+  %.pr.i243 = load i64, ptr %17, align 8, !range !154, !noalias !2530
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %16), !noalias !2530
   %600 = icmp eq i64 %.pr.i243, 2
   br i1 %600, label %.sink.split386, label %601
@@ -10837,7 +10837,7 @@ _ZN12clap_builder6parser6parser6Parser15verify_num_args17hf07cb5a4e9e4655dE.exit
 
 "_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE.exit.i252": ; preds = %.noexc255
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef nonnull align 8 dereferenceable(104) %660, i64 104, i1 false), !noalias !2570
-  %.pr.i253 = load i64, ptr %14, align 8, !noalias !2561
+  %.pr.i253 = load i64, ptr %14, align 8, !range !154, !noalias !2561
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %13), !noalias !2561
   %663 = icmp eq i64 %.pr.i253, 2
   br i1 %663, label %.sink.split387, label %664
@@ -11070,7 +11070,7 @@ _ZN12clap_builder6parser6parser6Parser15verify_num_args17hf07cb5a4e9e4655dE.exit
 
 "_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE.exit.i260": ; preds = %.noexc263
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %734, i64 104, i1 false), !noalias !2603
-  %.pr.i261 = load i64, ptr %12, align 8, !noalias !2594
+  %.pr.i261 = load i64, ptr %12, align 8, !range !154, !noalias !2594
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11), !noalias !2594
   %737 = icmp eq i64 %.pr.i261, 2
   br i1 %737, label %740, label %738
@@ -11638,7 +11638,7 @@ define internal fastcc void @_ZN12clap_builder6parser6parser6Parser16start_custo
 
 "_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE.exit.i.i": ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %27, i64 104, i1 false), !noalias !2854
-  %.pr.i.i = load i64, ptr %13, align 8, !noalias !2844
+  %.pr.i.i = load i64, ptr %13, align 8, !range !154, !noalias !2844
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %12), !noalias !2844
   %32 = icmp eq i64 %.pr.i.i, 2
   br i1 %32, label %_ZN12clap_builder6parser11arg_matcher10ArgMatcher6remove17h28a41f819a99b3b4E.exit.i, label %33
@@ -11806,7 +11806,7 @@ _ZN12clap_builder6parser11arg_matcher10ArgMatcher6remove17h28a41f819a99b3b4E.exi
 
 "_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE.exit.i18.i": ; preds = %.noexc21.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %72, i64 104, i1 false), !noalias !2913
-  %.pr.i19.i = load i64, ptr %9, align 8, !noalias !2904
+  %.pr.i19.i = load i64, ptr %9, align 8, !range !154, !noalias !2904
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8), !noalias !2904
   %86 = icmp eq i64 %.pr.i19.i, 2
   br i1 %86, label %_ZN12clap_builder6parser11arg_matcher10ArgMatcher6remove17h28a41f819a99b3b4E.exit23.i, label %87

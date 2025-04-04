@@ -100,7 +100,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h58a46eaa2eebc5a8E(ptr
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %12, ptr %6, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !range !4
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %.loopexit, label %13
 
@@ -205,3 +205,4 @@ attributes #11 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
+!4 = !{i64 0, i64 -9223372036854775807}

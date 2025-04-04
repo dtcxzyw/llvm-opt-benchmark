@@ -7435,7 +7435,7 @@ define internal fastcc void @"_ZN83_$LT$tokenizers..pre_tokenizers..split..Split
   br label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17he451bbb75c63b275E.exit"
 
 "_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17he451bbb75c63b275E.exit": ; preds = %9, %14
-  %.pr = load i64, ptr %6, align 8
+  %.pr = load i64, ptr %6, align 8, !range !1292
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %19 = icmp eq i64 %.pr, 2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -23163,7 +23163,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17h637e267388b17c7aE.exit.thread: ; 
 
 _ZN5serde2de13VariantAccess15newtype_variant17h637e267388b17c7aE.exit: ; preds = %18
   call void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_str17h552ae673810cdcc5E.llvm.12815775647222681290"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %2)
-  %.pr = load i64, ptr %8, align 8
+  %.pr = load i64, ptr %8, align 8, !range !62
   %20 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %20, label %_ZN5serde2de13VariantAccess15newtype_variant17h637e267388b17c7aE.exit._crit_edge, label %24
 
@@ -23184,7 +23184,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17h637e267388b17c7aE.exit6.thread: ;
 
 _ZN5serde2de13VariantAccess15newtype_variant17h637e267388b17c7aE.exit6: ; preds = %21
   call void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_str17h552ae673810cdcc5E.llvm.12815775647222681290"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %2)
-  %.pr14 = load i64, ptr %7, align 8
+  %.pr14 = load i64, ptr %7, align 8, !range !62
   %23 = icmp eq i64 %.pr14, -9223372036854775808
   br i1 %23, label %_ZN5serde2de13VariantAccess15newtype_variant17h637e267388b17c7aE.exit6._crit_edge, label %28
 
@@ -24304,7 +24304,7 @@ define hidden void @"_ZN10tokenizers14pre_tokenizers1_100_$LT$impl$u20$serde..de
 
 116:                                              ; preds = %110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
-  %.pr128 = load i64, ptr %13, align 8
+  %.pr128 = load i64, ptr %13, align 8, !range !144
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   %117 = icmp eq i64 %.pr128, 13
   br i1 %117, label %118, label %119
@@ -24816,7 +24816,7 @@ define hidden void @"_ZN10tokenizers14pre_tokenizers1_100_$LT$impl$u20$serde..de
 
 119:                                              ; preds = %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
-  %.pr124 = load i64, ptr %13, align 8
+  %.pr124 = load i64, ptr %13, align 8, !range !144
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   %120 = icmp eq i64 %.pr124, 13
   br i1 %120, label %121, label %122

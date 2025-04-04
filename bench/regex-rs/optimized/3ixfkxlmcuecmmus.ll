@@ -1224,7 +1224,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %34
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, i64 noundef %33, i32 noundef %31, i64 noundef %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull align 8 dereferenceable(352) %2)
-  %.pr = load i64, ptr %15, align 8
+  %.pr = load i64, ptr %15, align 8, !range !130
   %37 = icmp eq i64 %.pr, 2
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %39 = load ptr, ptr %38, align 8
@@ -1233,7 +1233,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; p
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br i1 %37, label %44, label %40
 
-default.unreachable:                              ; preds = %_ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit
+default.unreachable107:                           ; preds = %_ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit
   unreachable
 
 40:                                               ; preds = %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit
@@ -1391,11 +1391,11 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit.thre
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit: ; preds = %92
   call void @_ZN14regex_automata4util5empty15skip_splits_rev17h13a357aa214cfbc6E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %14, i64 noundef %91, i32 noundef %89, i64 noundef %91, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %74, ptr noalias noundef nonnull align 8 dereferenceable(352) %16)
-  %.pr103 = load i64, ptr %13, align 8
+  %.pr103 = load i64, ptr %13, align 8, !range !130
   %93 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %94 = load ptr, ptr %93, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  switch i64 %.pr103, label %default.unreachable [
+  switch i64 %.pr103, label %default.unreachable107 [
     i64 2, label %100
     i64 0, label %103
     i64 1, label %104
@@ -5534,7 +5534,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %40
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, i64 noundef %39, i32 noundef %37, i64 noundef %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %16, ptr noalias noundef nonnull align 8 dereferenceable(352) %2), !noalias !1288
-  %.pr = load i64, ptr %11, align 8, !alias.scope !1289, !noalias !1292
+  %.pr = load i64, ptr %11, align 8, !range !130, !alias.scope !1289, !noalias !1292
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1292)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1289)
   %42 = icmp eq i64 %.pr, 2
@@ -5741,7 +5741,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %36
   %37 = ptrtoint ptr %34 to i64
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, i64 noundef %37, i32 noundef %35, i64 noundef %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %13, ptr noalias noundef nonnull align 8 dereferenceable(352) %1), !noalias !1357
-  %.pr = load i64, ptr %8, align 8, !alias.scope !1358, !noalias !1361
+  %.pr = load i64, ptr %8, align 8, !range !130, !alias.scope !1358, !noalias !1361
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1358)
   %38 = icmp eq i64 %.pr, 2
   br i1 %38, label %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit._crit_edge, label %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread
@@ -6743,7 +6743,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_rev17hbf4914cf6
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit: ; preds = %64
   call void @_ZN14regex_automata4util5empty15skip_splits_rev17h13a357aa214cfbc6E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %17, i64 noundef %63, i32 noundef %61, i64 noundef %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %42, ptr noalias noundef nonnull align 8 dereferenceable(352) %46), !noalias !1683
-  %.pr = load i64, ptr %14, align 8, !alias.scope !1684, !noalias !1687
+  %.pr = load i64, ptr %14, align 8, !range !130, !alias.scope !1684, !noalias !1687
   call void @llvm.experimental.noalias.scope.decl(metadata !1689)
   call void @llvm.experimental.noalias.scope.decl(metadata !1684)
   %65 = icmp eq i64 %.pr, 2
@@ -7112,7 +7112,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_rev17hbf4914cf6
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit: ; preds = %67
   call void @_ZN14regex_automata4util5empty15skip_splits_rev17h13a357aa214cfbc6E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %20, i64 noundef %66, i32 noundef %64, i64 noundef %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %45, ptr noalias noundef nonnull align 8 dereferenceable(352) %49), !noalias !1809
-  %.pr = load i64, ptr %17, align 8, !alias.scope !1810, !noalias !1813
+  %.pr = load i64, ptr %17, align 8, !range !130, !alias.scope !1810, !noalias !1813
   call void @llvm.experimental.noalias.scope.decl(metadata !1815)
   call void @llvm.experimental.noalias.scope.decl(metadata !1810)
   %68 = icmp eq i64 %.pr, 2
@@ -7272,7 +7272,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %116
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, i64 noundef %115, i32 noundef %113, i64 noundef %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %92, ptr noalias noundef nonnull align 8 dereferenceable(352) %2), !noalias !1877
-  %.pr56 = load i64, ptr %18, align 8, !alias.scope !1878, !noalias !1881
+  %.pr56 = load i64, ptr %18, align 8, !range !130, !alias.scope !1878, !noalias !1881
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1883)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1878)
   %118 = icmp eq i64 %.pr56, 2
@@ -7555,7 +7555,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_rev17hbf4914cf6
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit: ; preds = %62
   %63 = ptrtoint ptr %60 to i64
   call void @_ZN14regex_automata4util5empty15skip_splits_rev17h13a357aa214cfbc6E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %16, i64 noundef %63, i32 noundef %61, i64 noundef %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %41, ptr noalias noundef nonnull align 8 dereferenceable(352) %45), !noalias !1968
-  %.pr = load i64, ptr %13, align 8, !alias.scope !1969, !noalias !1972
+  %.pr = load i64, ptr %13, align 8, !range !130, !alias.scope !1969, !noalias !1972
   call void @llvm.experimental.noalias.scope.decl(metadata !1969)
   %64 = icmp eq i64 %.pr, 2
   br i1 %64, label %_ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit._crit_edge, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit"
@@ -7699,7 +7699,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %111
   %112 = ptrtoint ptr %109 to i64
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, i64 noundef %112, i32 noundef %110, i64 noundef %112, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %88, ptr noalias noundef nonnull align 8 dereferenceable(352) %1), !noalias !2024
-  %.pr33 = load i64, ptr %14, align 8, !alias.scope !2025, !noalias !2028
+  %.pr33 = load i64, ptr %14, align 8, !range !130, !alias.scope !2025, !noalias !2028
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2025)
   %113 = icmp eq i64 %.pr33, 2
   br i1 %113, label %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit._crit_edge, label %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread
@@ -7930,7 +7930,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_rev17hbf4914cf6
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit: ; preds = %80
   call void @_ZN14regex_automata4util5empty15skip_splits_rev17h13a357aa214cfbc6E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %30, i64 noundef %79, i32 noundef %77, i64 noundef %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %58, ptr noalias noundef nonnull align 8 dereferenceable(352) %62), !noalias !2092
-  %.pr = load i64, ptr %26, align 8, !alias.scope !2093, !noalias !2096
+  %.pr = load i64, ptr %26, align 8, !range !130, !alias.scope !2093, !noalias !2096
   call void @llvm.experimental.noalias.scope.decl(metadata !2098)
   call void @llvm.experimental.noalias.scope.decl(metadata !2093)
   %81 = icmp eq i64 %.pr, 2
@@ -9395,7 +9395,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %171
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %33, i64 noundef %170, i32 noundef %168, i64 noundef %170, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %69, ptr noalias noundef nonnull align 8 dereferenceable(352) %2), !noalias !2540
-  %.pr = load i64, ptr %25, align 8, !alias.scope !2541, !noalias !2544
+  %.pr = load i64, ptr %25, align 8, !range !130, !alias.scope !2541, !noalias !2544
   call void @llvm.experimental.noalias.scope.decl(metadata !2544)
   call void @llvm.experimental.noalias.scope.decl(metadata !2541)
   %172 = icmp eq i64 %.pr, 2
@@ -9949,7 +9949,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %138
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, i64 noundef %137, i32 noundef %135, i64 noundef %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %114, ptr noalias noundef nonnull align 8 dereferenceable(352) %2), !noalias !2695
-  %.pr = load i64, ptr %32, align 8, !alias.scope !2696, !noalias !2699
+  %.pr = load i64, ptr %32, align 8, !range !130, !alias.scope !2696, !noalias !2699
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2701)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2696)
   %140 = icmp eq i64 %.pr, 2
@@ -10202,7 +10202,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit77: ; preds = %200
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %39, i64 noundef %199, i32 noundef %197, i64 noundef %199, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %75, ptr noalias noundef nonnull align 8 dereferenceable(352) %2), !noalias !2773
-  %.pr169 = load i64, ptr %33, align 8, !alias.scope !2774, !noalias !2777
+  %.pr169 = load i64, ptr %33, align 8, !range !130, !alias.scope !2774, !noalias !2777
   call void @llvm.experimental.noalias.scope.decl(metadata !2777)
   call void @llvm.experimental.noalias.scope.decl(metadata !2774)
   %201 = icmp eq i64 %.pr169, 2
@@ -10369,7 +10369,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit97: ; preds = %248
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, i64 noundef %247, i32 noundef %245, i64 noundef %247, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %75, ptr noalias noundef nonnull align 8 dereferenceable(352) %2), !noalias !2837
-  %.pr175 = load i64, ptr %31, align 8, !alias.scope !2838, !noalias !2841
+  %.pr175 = load i64, ptr %31, align 8, !range !130, !alias.scope !2838, !noalias !2841
   call void @llvm.experimental.noalias.scope.decl(metadata !2843)
   call void @llvm.experimental.noalias.scope.decl(metadata !2838)
   %250 = icmp eq i64 %.pr175, 2
@@ -10795,7 +10795,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %111
   %112 = ptrtoint ptr %109 to i64
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, i64 noundef %112, i32 noundef %110, i64 noundef %112, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %88, ptr noalias noundef nonnull align 8 dereferenceable(352) %1), !noalias !2957
-  %.pr = load i64, ptr %13, align 8, !alias.scope !2958, !noalias !2961
+  %.pr = load i64, ptr %13, align 8, !range !130, !alias.scope !2958, !noalias !2961
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2958)
   %113 = icmp eq i64 %.pr, 2
   br i1 %113, label %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit._crit_edge, label %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread
@@ -11677,7 +11677,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %297
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %50, i64 noundef %296, i32 noundef %294, i64 noundef %296, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %231, ptr noalias noundef nonnull align 8 dereferenceable(352) %1), !noalias !3211
-  %.pr = load i64, ptr %38, align 8, !alias.scope !3212, !noalias !3215
+  %.pr = load i64, ptr %38, align 8, !range !130, !alias.scope !3212, !noalias !3215
   call void @llvm.experimental.noalias.scope.decl(metadata !3217)
   call void @llvm.experimental.noalias.scope.decl(metadata !3212)
   %298 = icmp eq i64 %.pr, 2
@@ -14048,7 +14048,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %179
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, i64 noundef %178, i32 noundef %176, i64 noundef %178, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %155, ptr noalias noundef nonnull align 8 dereferenceable(352) %2), !noalias !3822
-  %.pr = load i64, ptr %29, align 8, !alias.scope !3823, !noalias !3826
+  %.pr = load i64, ptr %29, align 8, !range !130, !alias.scope !3823, !noalias !3826
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3828)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3823)
   %181 = icmp eq i64 %.pr, 2
@@ -14259,7 +14259,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit73: ; preds = %236
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, i64 noundef %235, i32 noundef %233, i64 noundef %235, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %73, ptr noalias noundef nonnull align 8 dereferenceable(352) %2), !noalias !3897
-  %.pr162 = load i64, ptr %28, align 8, !alias.scope !3898, !noalias !3901
+  %.pr162 = load i64, ptr %28, align 8, !range !130, !alias.scope !3898, !noalias !3901
   call void @llvm.experimental.noalias.scope.decl(metadata !3903)
   call void @llvm.experimental.noalias.scope.decl(metadata !3898)
   %238 = icmp eq i64 %.pr162, 2
@@ -14869,7 +14869,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine19try_search_half_fwd17hc92ece7ac
 _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; preds = %166
   %167 = ptrtoint ptr %164 to i64
   call void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9c6e793E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, i64 noundef %167, i32 noundef %165, i64 noundef %167, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %143, ptr noalias noundef nonnull align 8 dereferenceable(352) %1), !noalias !4056
-  %.pr = load i64, ptr %18, align 8, !alias.scope !4057, !noalias !4060
+  %.pr = load i64, ptr %18, align 8, !range !130, !alias.scope !4057, !noalias !4060
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4057)
   %168 = icmp eq i64 %.pr, 2
   br i1 %168, label %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit._crit_edge, label %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread

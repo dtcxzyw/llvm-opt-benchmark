@@ -451,7 +451,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hac95d2606dd3e157E.exit.i.i.i.i": ; preds = %126, %123
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !103
-  %.pr.i.i.i.i = load i64, ptr %9, align 8, !alias.scope !115, !noalias !20
+  %.pr.i.i.i.i = load i64, ptr %9, align 8, !range !15, !alias.scope !115, !noalias !20
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   %134 = icmp eq i64 %.pr.i.i.i.i, -9223372036854775808
   br i1 %134, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1fca1c9af36f5103E.exit.i.i", label %135
@@ -4499,7 +4499,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17hcf89595deae72817E.llvm.543595
 28:                                               ; preds = %23, %19
   %.fca.1.extract = extractvalue { ptr, ptr } %12, 1
   %.fca.0.extract = extractvalue { ptr, ptr } %12, 0
-  %.pr = load i64, ptr %1, align 8
+  %.pr = load i64, ptr %1, align 8, !range !128
   %29 = icmp eq i64 %.pr, 0
   br i1 %29, label %"_ZN4core3ptr450drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$fn$LP$$RP$$u20$.$GT$$u20$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockReadGuard$LT$fn$LP$$RP$$u20$.$GT$$u20$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$$GT$$GT$$GT$17h115609854edb4b29E.llvm.5435959977682051014.exit", label %..thread_crit_edge
 
@@ -9587,7 +9587,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diesel..query_
     i64 4, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit"
   ]
 
-default.unreachable:                              ; preds = %23
+default.unreachable:                              ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit", %23
   unreachable
 
 25:                                               ; preds = %23
@@ -9676,7 +9676,7 @@ default.unreachable:                              ; preds = %23
   br label %42
 
 47:                                               ; preds = %43
-  %.pr.pre = load i64, ptr %2, align 8, !alias.scope !2362, !noalias !2365
+  %.pr.pre = load i64, ptr %2, align 8, !range !943, !alias.scope !2362, !noalias !2365
   br i1 %21, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit", label %60
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit": ; preds = %47, %60
@@ -9684,16 +9684,13 @@ default.unreachable:                              ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !2365)
   call void @llvm.experimental.noalias.scope.decl(metadata !2362)
-  switch i64 %.pr.pre, label %default.unreachable1.i70 [
+  switch i64 %.pr.pre, label %default.unreachable [
     i64 0, label %48
     i64 1, label %51
     i64 2, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit71"
     i64 3, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit71"
     i64 4, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit71"
   ]
-
-default.unreachable1.i70:                         ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit"
-  unreachable
 
 48:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread92", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit"
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
