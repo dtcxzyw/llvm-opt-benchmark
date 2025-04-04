@@ -4369,7 +4369,7 @@ define { ptr, ptr } @_ZN5uu_wc2wc17h0f9afeddf50752eeE(ptr noalias noundef readon
 58:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1224)
-  switch i64 %.pr.pre, label %default.unreachable [
+  switch i64 %.pr.pre, label %default.unreachable66.i [
     i64 0, label %59
     i64 1, label %78
     i64 2, label %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit.thread
@@ -4379,7 +4379,7 @@ _ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit.thread: ; preds = %58
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19)
   br label %162
 
-default.unreachable:                              ; preds = %299, %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit, %58
+default.unreachable66.i:                          ; preds = %299, %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit, %58
   unreachable
 
 59:                                               ; preds = %58
@@ -4584,7 +4584,7 @@ _ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit: ; preds = %"_ZN4core3n
   call void @llvm.experimental.noalias.scope.decl(metadata !1215)
   call void @llvm.experimental.noalias.scope.decl(metadata !1282)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19)
-  switch i64 %.pr.pre, label %default.unreachable [
+  switch i64 %.pr.pre, label %default.unreachable66.i [
     i64 0, label %142
     i64 1, label %151
     i64 2, label %162

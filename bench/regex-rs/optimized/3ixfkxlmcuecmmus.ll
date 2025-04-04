@@ -1233,7 +1233,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit: ; p
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br i1 %37, label %44, label %40
 
-default.unreachable107:                           ; preds = %_ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit
+default.unreachable:                              ; preds = %_ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit
   unreachable
 
 40:                                               ; preds = %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit
@@ -1395,7 +1395,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit: ; p
   %93 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %94 = load ptr, ptr %93, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  switch i64 %.pr103, label %default.unreachable107 [
+  switch i64 %.pr103, label %default.unreachable [
     i64 2, label %100
     i64 0, label %103
     i64 1, label %104

@@ -1090,10 +1090,10 @@ define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17h1714
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 76
   call void @llvm.lifetime.start.p0(i64 51, ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(51) %6, i64 51, i1 false)
-  %.sroa.4.0.copyload58 = load i8, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0.copyload59 = load i32, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.4.0.copyload60 = load i8, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.5.0.copyload61 = load i32, ptr %.sroa.5.0..sroa_idx, align 4
   store i8 2, ptr %.sroa.4.0..sroa_idx, align 1
-  %7 = icmp eq i8 %.sroa.4.0.copyload58, 2
+  %7 = icmp eq i8 %.sroa.4.0.copyload60, 2
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -1109,11 +1109,11 @@ define hidden void @"_ZN13async_channel13Send$LT$T$GT$17run_with_strategy17h1714
   unreachable
 
 10:                                               ; preds = %.lr.ph, %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h4f488ab079c2a541E.exit"
-  %.sroa.5.0.copyload61 = phi i32 [ %.sroa.5.0.copyload59, %.lr.ph ], [ %.sroa.5.0.copyload, %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h4f488ab079c2a541E.exit" ]
-  %.sroa.4.0.copyload60 = phi i8 [ %.sroa.4.0.copyload58, %.lr.ph ], [ %.sroa.4.0.copyload, %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h4f488ab079c2a541E.exit" ]
+  %.sroa.5.0.copyload63 = phi i32 [ %.sroa.5.0.copyload61, %.lr.ph ], [ %.sroa.5.0.copyload, %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h4f488ab079c2a541E.exit" ]
+  %.sroa.4.0.copyload62 = phi i8 [ %.sroa.4.0.copyload60, %.lr.ph ], [ %.sroa.4.0.copyload, %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h4f488ab079c2a541E.exit" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %5, ptr noundef nonnull align 8 dereferenceable(51) %.sroa.0, i64 51, i1 false)
-  store i8 %.sroa.4.0.copyload60, ptr %.sroa.4.0..sroa_idx1, align 1
-  store i32 %.sroa.5.0.copyload61, ptr %.sroa.5.0..sroa_idx3, align 4
+  store i8 %.sroa.4.0.copyload62, ptr %.sroa.4.0..sroa_idx1, align 1
+  store i32 %.sroa.5.0.copyload63, ptr %.sroa.5.0..sroa_idx3, align 4
   call void @llvm.lifetime.end.p0(i64 51, ptr nonnull %.sroa.0)
   %11 = load ptr, ptr %8, align 8, !nonnull !4, !align !39, !noundef !4
   %.val = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4

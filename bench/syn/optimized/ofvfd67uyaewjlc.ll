@@ -4612,7 +4612,7 @@ thread-pre-split:                                 ; preds = %_ZN3syn6buffer15sta
 14:                                               ; preds = %thread-pre-split, %10
   %15 = phi i32 [ %.pr, %thread-pre-split ], [ %12, %10 ]
   %.sroa.0.0 = phi ptr [ %0, %thread-pre-split ], [ %11, %10 ]
-  switch i32 %15, label %default.unreachable27 [
+  switch i32 %15, label %default.unreachable10.i [
     i32 0, label %16
     i32 1, label %21
     i32 2, label %27
@@ -4620,7 +4620,7 @@ thread-pre-split:                                 ; preds = %_ZN3syn6buffer15sta
     i32 4, label %36
   ]
 
-default.unreachable27:                            ; preds = %.backedge, %14
+default.unreachable10.i:                          ; preds = %.backedge, %14
   unreachable
 
 16:                                               ; preds = %14
