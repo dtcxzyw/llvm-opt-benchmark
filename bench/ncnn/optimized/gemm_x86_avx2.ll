@@ -1720,8 +1720,8 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %74 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %72)
   %75 = fadd fast <4 x float> %73, %71
   %76 = fadd fast <4 x float> %74, %72
-  %77 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %75)
-  %78 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %76)
+  %77 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %75)
+  %78 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %76)
   %79 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %77, <4 x i32> %78)
   %80 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %79, <8 x i16> splat (i16 127))
   %81 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %80, <8 x i16> splat (i16 -127))
@@ -1751,7 +1751,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %92 = fmul fast <4 x float> %91, %65
   %93 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %92)
   %94 = fadd fast <4 x float> %93, %92
-  %95 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %94)
+  %95 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %94)
   %96 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %95, <4 x i32> %95)
   %97 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %96, <8 x i16> splat (i16 127))
   %98 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %97, <8 x i16> splat (i16 -127))
@@ -1797,8 +1797,8 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %119 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %117)
   %120 = fadd fast <4 x float> %118, %116
   %121 = fadd fast <4 x float> %119, %117
-  %122 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %120)
-  %123 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %121)
+  %122 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %120)
+  %123 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %121)
   %124 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %122, <4 x i32> %123)
   %125 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %124, <8 x i16> splat (i16 127))
   %126 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %125, <8 x i16> splat (i16 -127))
@@ -1828,7 +1828,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %137 = fmul fast <4 x float> %136, %110
   %138 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %137)
   %139 = fadd fast <4 x float> %138, %137
-  %140 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %139)
+  %140 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %139)
   %141 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %140, <4 x i32> %140)
   %142 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %141, <8 x i16> splat (i16 127))
   %143 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %142, <8 x i16> splat (i16 -127))
@@ -1890,8 +1890,8 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %169 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %167)
   %170 = fadd fast <8 x float> %168, %166
   %171 = fadd fast <8 x float> %169, %167
-  %172 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %170)
-  %173 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %171)
+  %172 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %170)
+  %173 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %171)
   %174 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %172, <8 x i32> %173)
   %175 = bitcast <16 x i16> %174 to <4 x i64>
   %176 = shufflevector <4 x i64> %175, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -1919,7 +1919,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %191 = fmul fast <8 x float> %190, %161
   %192 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %191)
   %193 = fadd fast <8 x float> %192, %191
-  %194 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %193)
+  %194 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %193)
   %195 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %194, <8 x i32> poison)
   %196 = bitcast <16 x i16> %195 to <8 x i32>
   %197 = shufflevector <8 x i32> %196, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -1961,8 +1961,8 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %216 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %214)
   %217 = fadd fast <8 x float> %215, %213
   %218 = fadd fast <8 x float> %216, %214
-  %219 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %217)
-  %220 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %218)
+  %219 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %217)
+  %220 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %218)
   %221 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %219, <8 x i32> %220)
   %222 = bitcast <16 x i16> %221 to <4 x i64>
   %223 = shufflevector <4 x i64> %222, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -1993,7 +1993,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %241 = fmul fast <8 x float> %240, %161
   %242 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %241)
   %243 = fadd fast <8 x float> %242, %241
-  %244 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %243)
+  %244 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %243)
   %245 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %244, <8 x i32> poison)
   %246 = bitcast <16 x i16> %245 to <8 x i32>
   %247 = shufflevector <8 x i32> %246, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -2033,8 +2033,8 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %264 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %262)
   %265 = fadd fast <8 x float> %263, %261
   %266 = fadd fast <8 x float> %264, %262
-  %267 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %265)
-  %268 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %266)
+  %267 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %265)
+  %268 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %266)
   %269 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %267, <8 x i32> %268)
   %270 = bitcast <16 x i16> %269 to <4 x i64>
   %271 = shufflevector <4 x i64> %270, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -2062,7 +2062,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %286 = fmul fast <8 x float> %285, %161
   %287 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %286)
   %288 = fadd fast <8 x float> %287, %286
-  %289 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %288)
+  %289 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %288)
   %290 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %289, <8 x i32> poison)
   %291 = bitcast <16 x i16> %290 to <8 x i32>
   %292 = shufflevector <8 x i32> %291, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -2172,8 +2172,8 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %348 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %346)
   %349 = fadd fast <4 x float> %347, %345
   %350 = fadd fast <4 x float> %348, %346
-  %351 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %349)
-  %352 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %350)
+  %351 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %349)
+  %352 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %350)
   %353 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %351, <4 x i32> %352)
   %354 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %353, <8 x i16> splat (i16 127))
   %355 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %354, <8 x i16> splat (i16 -127))
@@ -2208,7 +2208,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %370 = fmul fast <4 x float> %337, %369
   %371 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %370)
   %372 = fadd fast <4 x float> %371, %370
-  %373 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %372)
+  %373 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %372)
   %374 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %373, <4 x i32> %373)
   %375 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %374, <8 x i16> splat (i16 127))
   %376 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %375, <8 x i16> splat (i16 -127))
@@ -2229,7 +2229,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %.2314473.i = phi ptr [ %396, %.lr.ph476.i ], [ %.1313.lcssa.i, %.preheader369.i ]
   %385 = load float, ptr %.2314473.i, align 4, !tbaa !77
   %386 = fmul fast float %385, %330
-  %387 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %386)
+  %387 = tail call fast noundef float @llvm.round.f32(float %386)
   %388 = fptosi float %387 to i32
   %spec.select.i364.i = tail call i32 @llvm.smax.i32(i32 %388, i32 -127)
   %.0.i365.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i364.i, i32 127)
@@ -2238,7 +2238,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %389 = getelementptr inbounds float, ptr %.2314473.i, i64 %309
   %390 = load float, ptr %389, align 4, !tbaa !77
   %391 = fmul fast float %390, %332
-  %392 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %391)
+  %392 = tail call fast noundef float @llvm.round.f32(float %391)
   %393 = fptosi float %392 to i32
   %spec.select.i316366.i = tail call i32 @llvm.smax.i32(i32 %393, i32 -127)
   %.0.i317367.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i316366.i, i32 127)
@@ -2288,7 +2288,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %413 = fmul fast <4 x float> %412, %410
   %414 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %413)
   %415 = fadd fast <4 x float> %414, %413
-  %416 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %415)
+  %416 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %415)
   %417 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %416, <4 x i32> %416)
   %418 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %417, <8 x i16> splat (i16 127))
   %419 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %418, <8 x i16> splat (i16 -127))
@@ -2309,7 +2309,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %.1293491.i = phi ptr [ %433, %.lr.ph494.i ], [ %.0292.lcssa.i, %.preheader.i ]
   %428 = load float, ptr %.1293491.i, align 4, !tbaa !77
   %429 = fmul fast float %428, %408
-  %430 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %429)
+  %430 = tail call fast noundef float @llvm.round.f32(float %429)
   %431 = fptosi float %430 to i32
   %spec.select.i318362.i = tail call i32 @llvm.smax.i32(i32 %431, i32 -127)
   %.0.i319363.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i318362.i, i32 127)
@@ -2481,8 +2481,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %70 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %66)
   %71 = fadd fast <8 x float> %69, %65
   %72 = fadd fast <8 x float> %70, %66
-  %73 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %71)
-  %74 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %72)
+  %73 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %71)
+  %74 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %72)
   %75 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %73, <8 x i32> %74)
   %76 = bitcast <16 x i16> %75 to <4 x i64>
   %77 = shufflevector <4 x i64> %76, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -2496,8 +2496,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %85 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %68)
   %86 = fadd fast <8 x float> %84, %67
   %87 = fadd fast <8 x float> %85, %68
-  %88 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %86)
-  %89 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %87)
+  %88 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %86)
+  %89 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %87)
   %90 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %88, <8 x i32> %89)
   %91 = bitcast <16 x i16> %90 to <4 x i64>
   %92 = shufflevector <4 x i64> %91, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -2555,8 +2555,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %126 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %124)
   %127 = fadd fast <8 x float> %125, %123
   %128 = fadd fast <8 x float> %126, %124
-  %129 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %127)
-  %130 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %128)
+  %129 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %127)
+  %130 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %128)
   %131 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %129, <8 x i32> %130)
   %132 = bitcast <16 x i16> %131 to <4 x i64>
   %133 = shufflevector <4 x i64> %132, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -2591,7 +2591,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %149 = fmul fast <8 x float> %148, %119
   %150 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %149)
   %151 = fadd fast <8 x float> %150, %149
-  %152 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %151)
+  %152 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %151)
   %153 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %152, <8 x i32> poison)
   %154 = bitcast <16 x i16> %153 to <8 x i32>
   %155 = shufflevector <8 x i32> %154, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -2722,8 +2722,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %249 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %222)
   %250 = fadd fast <8 x float> %248, %212
   %251 = fadd fast <8 x float> %249, %222
-  %252 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %250)
-  %253 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %251)
+  %252 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %250)
+  %253 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %251)
   %254 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %252, <8 x i32> %253)
   %255 = bitcast <16 x i16> %254 to <4 x i64>
   %256 = shufflevector <4 x i64> %255, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -2735,8 +2735,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %262 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %227)
   %263 = fadd fast <8 x float> %261, %217
   %264 = fadd fast <8 x float> %262, %227
-  %265 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %263)
-  %266 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %264)
+  %265 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %263)
+  %266 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %264)
   %267 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %265, <8 x i32> %266)
   %268 = bitcast <16 x i16> %267 to <4 x i64>
   %269 = shufflevector <4 x i64> %268, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -2748,8 +2748,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %275 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %242)
   %276 = fadd fast <8 x float> %274, %232
   %277 = fadd fast <8 x float> %275, %242
-  %278 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %276)
-  %279 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %277)
+  %278 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %276)
+  %279 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %277)
   %280 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %278, <8 x i32> %279)
   %281 = bitcast <16 x i16> %280 to <4 x i64>
   %282 = shufflevector <4 x i64> %281, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -2763,8 +2763,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %290 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %247)
   %291 = fadd fast <8 x float> %289, %237
   %292 = fadd fast <8 x float> %290, %247
-  %293 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %291)
-  %294 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %292)
+  %293 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %291)
+  %294 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %292)
   %295 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %293, <8 x i32> %294)
   %296 = bitcast <16 x i16> %295 to <4 x i64>
   %297 = shufflevector <4 x i64> %296, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -2891,8 +2891,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %385 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %382)
   %386 = fadd fast <8 x float> %384, %380
   %387 = fadd fast <8 x float> %385, %382
-  %388 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %386)
-  %389 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %387)
+  %388 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %386)
+  %389 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %387)
   %390 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %388, <8 x i32> %389)
   %391 = bitcast <16 x i16> %390 to <4 x i64>
   %392 = shufflevector <4 x i64> %391, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -2906,8 +2906,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %400 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %383)
   %401 = fadd fast <8 x float> %399, %381
   %402 = fadd fast <8 x float> %400, %383
-  %403 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %401)
-  %404 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %402)
+  %403 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %401)
+  %404 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %402)
   %405 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %403, <8 x i32> %404)
   %406 = bitcast <16 x i16> %405 to <4 x i64>
   %407 = shufflevector <4 x i64> %406, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -2978,10 +2978,10 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %462 = fadd fast <4 x float> %458, %454
   %463 = fadd fast <4 x float> %459, %455
   %464 = fadd fast <4 x float> %460, %456
-  %465 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %461)
-  %466 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %462)
-  %467 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %463)
-  %468 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %464)
+  %465 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %461)
+  %466 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %462)
+  %467 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %463)
+  %468 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %464)
   %469 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %465, <4 x i32> %466)
   %470 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %467, <4 x i32> %468)
   %471 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %469, <8 x i16> splat (i16 127))
@@ -3030,8 +3030,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %499 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %497)
   %500 = fadd fast <4 x float> %498, %496
   %501 = fadd fast <4 x float> %499, %497
-  %502 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %500)
-  %503 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %501)
+  %502 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %500)
+  %503 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %501)
   %504 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %502, <4 x i32> %503)
   %505 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %504, <8 x i16> splat (i16 127))
   %506 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %505, <8 x i16> splat (i16 -127))
@@ -3054,7 +3054,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %516 = fmul fast <4 x float> %515, %489
   %517 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %516)
   %518 = fadd fast <4 x float> %517, %516
-  %519 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %518)
+  %519 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %518)
   %520 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %519, <4 x i32> %519)
   %521 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %520, <8 x i16> splat (i16 127))
   %522 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %521, <8 x i16> splat (i16 -127))
@@ -3144,8 +3144,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %571 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %569)
   %572 = fadd fast <8 x float> %570, %568
   %573 = fadd fast <8 x float> %571, %569
-  %574 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %572)
-  %575 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %573)
+  %574 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %572)
+  %575 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %573)
   %576 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %574, <8 x i32> %575)
   %577 = bitcast <16 x i16> %576 to <4 x i64>
   %578 = shufflevector <4 x i64> %577, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -3192,8 +3192,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %610 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %608)
   %611 = fadd fast <4 x float> %609, %607
   %612 = fadd fast <4 x float> %610, %608
-  %613 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %611)
-  %614 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %612)
+  %613 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %611)
+  %614 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %612)
   %615 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %613, <4 x i32> %614)
   %616 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %615, <8 x i16> splat (i16 127))
   %617 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %616, <8 x i16> splat (i16 -127))
@@ -3260,8 +3260,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %663 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %661)
   %664 = fadd fast <4 x float> %662, %660
   %665 = fadd fast <4 x float> %663, %661
-  %666 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %664)
-  %667 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %665)
+  %666 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %664)
+  %667 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %665)
   %668 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %666, <4 x i32> %667)
   %669 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %668, <8 x i16> splat (i16 127))
   %670 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %669, <8 x i16> splat (i16 -127))
@@ -3298,7 +3298,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %688 = fmul fast <4 x float> %687, %636
   %689 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %688)
   %690 = fadd fast <4 x float> %689, %688
-  %691 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %690)
+  %691 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %690)
   %692 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %691, <4 x i32> %691)
   %693 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %692, <8 x i16> splat (i16 127))
   %694 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %693, <8 x i16> splat (i16 -127))
@@ -3319,7 +3319,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %.2490712.i = phi i32 [ %715, %.lr.ph715.i ], [ %.1489.lcssa.i, %.preheader613.i ]
   %703 = load float, ptr %.6485713.i, align 4, !tbaa !77
   %704 = fmul fast float %703, %629
-  %705 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %704)
+  %705 = tail call fast noundef float @llvm.round.f32(float %704)
   %706 = fptosi float %705 to i32
   %spec.select.i494605.i = tail call i32 @llvm.smax.i32(i32 %706, i32 -127)
   %.0.i495606.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i494605.i, i32 127)
@@ -3328,7 +3328,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %707 = getelementptr inbounds nuw i8, ptr %.6485713.i, i64 4
   %708 = load float, ptr %707, align 4, !tbaa !77
   %709 = fmul fast float %708, %631
-  %710 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %709)
+  %710 = tail call fast noundef float @llvm.round.f32(float %709)
   %711 = fptosi float %710 to i32
   %spec.select.i492607.i = tail call i32 @llvm.smax.i32(i32 %711, i32 -127)
   %.0.i493608.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i492607.i, i32 127)
@@ -3378,7 +3378,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %731 = fmul fast <8 x float> %730, %729
   %732 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %731)
   %733 = fadd fast <8 x float> %732, %731
-  %734 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %733)
+  %734 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %733)
   %735 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %734, <8 x i32> poison)
   %736 = bitcast <16 x i16> %735 to <8 x i32>
   %737 = shufflevector <8 x i32> %736, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -3409,7 +3409,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %753 = fmul fast <4 x float> %752, %751
   %754 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %753)
   %755 = fadd fast <4 x float> %754, %753
-  %756 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %755)
+  %756 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %755)
   %757 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %756, <4 x i32> %756)
   %758 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %757, <8 x i16> splat (i16 127))
   %759 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %758, <8 x i16> splat (i16 -127))
@@ -3444,7 +3444,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %773 = fmul fast <4 x float> %772, %770
   %774 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %773)
   %775 = fadd fast <4 x float> %774, %773
-  %776 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %775)
+  %776 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %775)
   %777 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %776, <4 x i32> %776)
   %778 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %777, <8 x i16> splat (i16 127))
   %779 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %778, <8 x i16> splat (i16 -127))
@@ -3465,7 +3465,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %.5475741.i = phi ptr [ %793, %.lr.ph744.i ], [ %.4474.lcssa.i, %.preheader.i ]
   %788 = load float, ptr %.5475741.i, align 4, !tbaa !77
   %789 = fmul fast float %788, %726
-  %790 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %789)
+  %790 = tail call fast noundef float @llvm.round.f32(float %789)
   %791 = fptosi float %790 to i32
   %spec.select.i603.i = tail call i32 @llvm.smax.i32(i32 %791, i32 -127)
   %.0.i604.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i603.i, i32 127)
@@ -3608,8 +3608,8 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %74 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %72)
   %75 = fadd fast <4 x float> %73, %71
   %76 = fadd fast <4 x float> %74, %72
-  %77 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %75)
-  %78 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %76)
+  %77 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %75)
+  %78 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %76)
   %79 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %77, <4 x i32> %78)
   %80 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %79, <8 x i16> splat (i16 127))
   %81 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %80, <8 x i16> splat (i16 -127))
@@ -3639,7 +3639,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %92 = fmul fast <4 x float> %91, %48
   %93 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %92)
   %94 = fadd fast <4 x float> %93, %92
-  %95 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %94)
+  %95 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %94)
   %96 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %95, <4 x i32> %95)
   %97 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %96, <8 x i16> splat (i16 127))
   %98 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %97, <8 x i16> splat (i16 -127))
@@ -3683,8 +3683,8 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %117 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %115)
   %118 = fadd fast <4 x float> %116, %114
   %119 = fadd fast <4 x float> %117, %115
-  %120 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %118)
-  %121 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %119)
+  %120 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %118)
+  %121 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %119)
   %122 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %120, <4 x i32> %121)
   %123 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %122, <8 x i16> splat (i16 127))
   %124 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %123, <8 x i16> splat (i16 -127))
@@ -3714,7 +3714,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %135 = fmul fast <4 x float> %134, %48
   %136 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %135)
   %137 = fadd fast <4 x float> %136, %135
-  %138 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %137)
+  %138 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %137)
   %139 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %138, <4 x i32> %138)
   %140 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %139, <8 x i16> splat (i16 127))
   %141 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %140, <8 x i16> splat (i16 -127))
@@ -3772,8 +3772,8 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %163 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %161)
   %164 = fadd fast <8 x float> %162, %160
   %165 = fadd fast <8 x float> %163, %161
-  %166 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %164)
-  %167 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %165)
+  %166 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %164)
+  %167 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %165)
   %168 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %166, <8 x i32> %167)
   %169 = bitcast <16 x i16> %168 to <4 x i64>
   %170 = shufflevector <4 x i64> %169, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -3801,7 +3801,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %185 = fmul fast <8 x float> %184, %30
   %186 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %185)
   %187 = fadd fast <8 x float> %186, %185
-  %188 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %187)
+  %188 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %187)
   %189 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %188, <8 x i32> poison)
   %190 = bitcast <16 x i16> %189 to <8 x i32>
   %191 = shufflevector <8 x i32> %190, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -3841,8 +3841,8 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %208 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %206)
   %209 = fadd fast <8 x float> %207, %205
   %210 = fadd fast <8 x float> %208, %206
-  %211 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %209)
-  %212 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %210)
+  %211 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %209)
+  %212 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %210)
   %213 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %211, <8 x i32> %212)
   %214 = bitcast <16 x i16> %213 to <4 x i64>
   %215 = shufflevector <4 x i64> %214, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -3873,7 +3873,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %233 = fmul fast <8 x float> %232, %30
   %234 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %233)
   %235 = fadd fast <8 x float> %234, %233
-  %236 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %235)
+  %236 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %235)
   %237 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %236, <8 x i32> poison)
   %238 = bitcast <16 x i16> %237 to <8 x i32>
   %239 = shufflevector <8 x i32> %238, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -3913,8 +3913,8 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %256 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %254)
   %257 = fadd fast <8 x float> %255, %253
   %258 = fadd fast <8 x float> %256, %254
-  %259 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %257)
-  %260 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %258)
+  %259 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %257)
+  %260 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %258)
   %261 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %259, <8 x i32> %260)
   %262 = bitcast <16 x i16> %261 to <4 x i64>
   %263 = shufflevector <4 x i64> %262, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -3942,7 +3942,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %278 = fmul fast <8 x float> %277, %30
   %279 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %278)
   %280 = fadd fast <8 x float> %279, %278
-  %281 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %280)
+  %281 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %280)
   %282 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %281, <8 x i32> poison)
   %283 = bitcast <16 x i16> %282 to <8 x i32>
   %284 = shufflevector <8 x i32> %283, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -4046,8 +4046,8 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %334 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %332)
   %335 = fadd fast <4 x float> %333, %331
   %336 = fadd fast <4 x float> %334, %332
-  %337 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %335)
-  %338 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %336)
+  %337 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %335)
+  %338 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %336)
   %339 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %337, <4 x i32> %338)
   %340 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %339, <8 x i16> splat (i16 127))
   %341 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %340, <8 x i16> splat (i16 -127))
@@ -4082,7 +4082,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %356 = fmul fast <4 x float> %301, %355
   %357 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %356)
   %358 = fadd fast <4 x float> %357, %356
-  %359 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %358)
+  %359 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %358)
   %360 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %359, <4 x i32> %359)
   %361 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %360, <8 x i16> splat (i16 127))
   %362 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %361, <8 x i16> splat (i16 -127))
@@ -4103,7 +4103,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %.2292454.i = phi ptr [ %382, %.lr.ph457.i ], [ %.1291.lcssa.i, %.preheader350.i ]
   %371 = load float, ptr %.2292454.i, align 4, !tbaa !77
   %372 = fmul fast float %371, %6
-  %373 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %372)
+  %373 = tail call fast noundef float @llvm.round.f32(float %372)
   %374 = fptosi float %373 to i32
   %spec.select.i296345.i = tail call i32 @llvm.smax.i32(i32 %374, i32 -127)
   %.0.i297346.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i296345.i, i32 127)
@@ -4112,7 +4112,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %375 = getelementptr inbounds float, ptr %.2292454.i, i64 %303
   %376 = load float, ptr %375, align 4, !tbaa !77
   %377 = fmul fast float %376, %6
-  %378 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %377)
+  %378 = tail call fast noundef float @llvm.round.f32(float %377)
   %379 = fptosi float %378 to i32
   %spec.select.i294347.i = tail call i32 @llvm.smax.i32(i32 %379, i32 -127)
   %.0.i295348.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i294347.i, i32 127)
@@ -4157,7 +4157,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %394 = fmul fast <4 x float> %393, %312
   %395 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %394)
   %396 = fadd fast <4 x float> %395, %394
-  %397 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %396)
+  %397 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %396)
   %398 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %397, <4 x i32> %397)
   %399 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %398, <8 x i16> splat (i16 127))
   %400 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %399, <8 x i16> splat (i16 -127))
@@ -4178,7 +4178,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   %.1263472.i = phi ptr [ %414, %.lr.ph475.i ], [ %.0262.lcssa.i, %.preheader.i ]
   %409 = load float, ptr %.1263472.i, align 4, !tbaa !77
   %410 = fmul fast float %409, %6
-  %411 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %410)
+  %411 = tail call fast noundef float @llvm.round.f32(float %410)
   %412 = fptosi float %411 to i32
   %spec.select.i343.i = tail call i32 @llvm.smax.i32(i32 %412, i32 -127)
   %.0.i344.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i343.i, i32 127)
@@ -4299,8 +4299,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %60 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %58)
   %61 = fadd fast <8 x float> %59, %57
   %62 = fadd fast <8 x float> %60, %58
-  %63 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %61)
-  %64 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %62)
+  %63 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %61)
+  %64 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %62)
   %65 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %63, <8 x i32> %64)
   %66 = bitcast <16 x i16> %65 to <4 x i64>
   %67 = shufflevector <4 x i64> %66, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -4335,7 +4335,7 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %83 = fmul fast <8 x float> %82, %31
   %84 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %83)
   %85 = fadd fast <8 x float> %84, %83
-  %86 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %85)
+  %86 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %85)
   %87 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %86, <8 x i32> poison)
   %88 = bitcast <16 x i16> %87 to <8 x i32>
   %89 = shufflevector <8 x i32> %88, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -4388,8 +4388,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %118 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %114)
   %119 = fadd fast <8 x float> %117, %113
   %120 = fadd fast <8 x float> %118, %114
-  %121 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %119)
-  %122 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %120)
+  %121 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %119)
+  %122 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %120)
   %123 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %121, <8 x i32> %122)
   %124 = bitcast <16 x i16> %123 to <4 x i64>
   %125 = shufflevector <4 x i64> %124, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -4403,8 +4403,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %133 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %116)
   %134 = fadd fast <8 x float> %132, %115
   %135 = fadd fast <8 x float> %133, %116
-  %136 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %134)
-  %137 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %135)
+  %136 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %134)
+  %137 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %135)
   %138 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %136, <8 x i32> %137)
   %139 = bitcast <16 x i16> %138 to <4 x i64>
   %140 = shufflevector <4 x i64> %139, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -4517,8 +4517,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %205 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %203)
   %206 = fadd fast <4 x float> %204, %202
   %207 = fadd fast <4 x float> %205, %203
-  %208 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %206)
-  %209 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %207)
+  %208 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %206)
+  %209 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %207)
   %210 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %208, <4 x i32> %209)
   %211 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %210, <8 x i16> splat (i16 127))
   %212 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %211, <8 x i16> splat (i16 -127))
@@ -4548,7 +4548,7 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %223 = fmul fast <4 x float> %222, %171
   %224 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %223)
   %225 = fadd fast <4 x float> %224, %223
-  %226 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %225)
+  %226 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %225)
   %227 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %226, <4 x i32> %226)
   %228 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %227, <8 x i16> splat (i16 127))
   %229 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %228, <8 x i16> splat (i16 -127))
@@ -4602,10 +4602,10 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %259 = fadd fast <4 x float> %255, %251
   %260 = fadd fast <4 x float> %256, %252
   %261 = fadd fast <4 x float> %257, %253
-  %262 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %258)
-  %263 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %259)
-  %264 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %260)
-  %265 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %261)
+  %262 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %258)
+  %263 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %259)
+  %264 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %260)
+  %265 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %261)
   %266 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %262, <4 x i32> %263)
   %267 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %264, <4 x i32> %265)
   %268 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %266, <8 x i16> splat (i16 127))
@@ -4672,8 +4672,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %313 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %306)
   %314 = fadd fast <8 x float> %312, %304
   %315 = fadd fast <8 x float> %313, %306
-  %316 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %314)
-  %317 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %315)
+  %316 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %314)
+  %317 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %315)
   %318 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %316, <8 x i32> %317)
   %319 = bitcast <16 x i16> %318 to <4 x i64>
   %320 = shufflevector <4 x i64> %319, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -4685,8 +4685,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %326 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %307)
   %327 = fadd fast <8 x float> %325, %305
   %328 = fadd fast <8 x float> %326, %307
-  %329 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %327)
-  %330 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %328)
+  %329 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %327)
+  %330 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %328)
   %331 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %329, <8 x i32> %330)
   %332 = bitcast <16 x i16> %331 to <4 x i64>
   %333 = shufflevector <4 x i64> %332, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -4698,8 +4698,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %339 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %310)
   %340 = fadd fast <8 x float> %338, %308
   %341 = fadd fast <8 x float> %339, %310
-  %342 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %340)
-  %343 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %341)
+  %342 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %340)
+  %343 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %341)
   %344 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %342, <8 x i32> %343)
   %345 = bitcast <16 x i16> %344 to <4 x i64>
   %346 = shufflevector <4 x i64> %345, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -4713,8 +4713,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %354 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %311)
   %355 = fadd fast <8 x float> %353, %309
   %356 = fadd fast <8 x float> %354, %311
-  %357 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %355)
-  %358 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %356)
+  %357 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %355)
+  %358 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %356)
   %359 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %357, <8 x i32> %358)
   %360 = bitcast <16 x i16> %359 to <4 x i64>
   %361 = shufflevector <4 x i64> %360, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -4852,8 +4852,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %452 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %450)
   %453 = fadd fast <4 x float> %451, %449
   %454 = fadd fast <4 x float> %452, %450
-  %455 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %453)
-  %456 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %454)
+  %455 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %453)
+  %456 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %454)
   %457 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %455, <4 x i32> %456)
   %458 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %457, <8 x i16> splat (i16 127))
   %459 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %458, <8 x i16> splat (i16 -127))
@@ -4891,7 +4891,7 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %478 = fmul fast <4 x float> %477, %404
   %479 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %478)
   %480 = fadd fast <4 x float> %479, %478
-  %481 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %480)
+  %481 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %480)
   %482 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %481, <4 x i32> %481)
   %483 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %482, <8 x i16> splat (i16 127))
   %484 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %483, <8 x i16> splat (i16 -127))
@@ -4919,7 +4919,7 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %.2422630.i.us.us = phi i32 [ %506, %.lr.ph633.i.us.us ], [ %.1421.lcssa.i.us.us, %.preheader533.i.us.us ]
   %494 = load float, ptr %.6417631.i.us.us, align 4, !tbaa !77
   %495 = fmul fast float %494, %6
-  %496 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %495)
+  %496 = tail call fast noundef float @llvm.round.f32(float %495)
   %497 = fptosi float %496 to i32
   %spec.select.i426525.i.us.us = tail call i32 @llvm.smax.i32(i32 %497, i32 -127)
   %.0.i427526.i.us.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i426525.i.us.us, i32 127)
@@ -4928,7 +4928,7 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %498 = getelementptr inbounds nuw i8, ptr %.6417631.i.us.us, i64 4
   %499 = load float, ptr %498, align 4, !tbaa !77
   %500 = fmul fast float %499, %6
-  %501 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %500)
+  %501 = tail call fast noundef float @llvm.round.f32(float %500)
   %502 = fptosi float %501 to i32
   %spec.select.i424527.i.us.us = tail call i32 @llvm.smax.i32(i32 %502, i32 -127)
   %.0.i425528.i.us.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i424527.i.us.us, i32 127)
@@ -4971,8 +4971,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %520 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %518)
   %521 = fadd fast <4 x float> %519, %517
   %522 = fadd fast <4 x float> %520, %518
-  %523 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %521)
-  %524 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %522)
+  %523 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %521)
+  %524 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %522)
   %525 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %523, <4 x i32> %524)
   %526 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %525, <8 x i16> splat (i16 127))
   %527 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %526, <8 x i16> splat (i16 -127))
@@ -5022,8 +5022,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %555 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %552)
   %556 = fadd fast <8 x float> %554, %550
   %557 = fadd fast <8 x float> %555, %552
-  %558 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %556)
-  %559 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %557)
+  %558 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %556)
+  %559 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %557)
   %560 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %558, <8 x i32> %559)
   %561 = bitcast <16 x i16> %560 to <4 x i64>
   %562 = shufflevector <4 x i64> %561, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -5037,8 +5037,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %570 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %553)
   %571 = fadd fast <8 x float> %569, %551
   %572 = fadd fast <8 x float> %570, %553
-  %573 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %571)
-  %574 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %572)
+  %573 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %571)
+  %574 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %572)
   %575 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %573, <8 x i32> %574)
   %576 = bitcast <16 x i16> %575 to <4 x i64>
   %577 = shufflevector <4 x i64> %576, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -5148,7 +5148,7 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %635 = fmul fast <4 x float> %634, %611
   %636 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %635)
   %637 = fadd fast <4 x float> %636, %635
-  %638 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %637)
+  %638 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %637)
   %639 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %638, <4 x i32> %638)
   %640 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %639, <8 x i16> splat (i16 127))
   %641 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %640, <8 x i16> splat (i16 -127))
@@ -5176,7 +5176,7 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %.5406659.i.us.us = phi ptr [ %656, %.lr.ph662.i.us.us ], [ %.4405.lcssa.i.us.us, %.preheader.i.us.us ]
   %651 = load float, ptr %.5406659.i.us.us, align 4, !tbaa !77
   %652 = fmul fast float %651, %6
-  %653 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %652)
+  %653 = tail call fast noundef float @llvm.round.f32(float %652)
   %654 = fptosi float %653 to i32
   %spec.select.i523.i.us.us = tail call i32 @llvm.smax.i32(i32 %654, i32 -127)
   %.0.i524.i.us.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i523.i.us.us, i32 127)
@@ -5210,7 +5210,7 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %662 = fmul fast <4 x float> %661, %611
   %663 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %662)
   %664 = fadd fast <4 x float> %663, %662
-  %665 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %664)
+  %665 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %664)
   %666 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %665, <4 x i32> %665)
   %667 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %666, <8 x i16> splat (i16 127))
   %668 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %667, <8 x i16> splat (i16 -127))
@@ -5253,8 +5253,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %688 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %686)
   %689 = fadd fast <8 x float> %687, %685
   %690 = fadd fast <8 x float> %688, %686
-  %691 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %689)
-  %692 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %690)
+  %691 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %689)
+  %692 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %690)
   %693 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %691, <8 x i32> %692)
   %694 = bitcast <16 x i16> %693 to <4 x i64>
   %695 = shufflevector <4 x i64> %694, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -5296,7 +5296,7 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   %715 = fmul fast <8 x float> %714, %606
   %716 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %715)
   %717 = fadd fast <8 x float> %716, %715
-  %718 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %717)
+  %718 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %717)
   %719 = tail call <16 x i16> @llvm.x86.avx2.packssdw(<8 x i32> %718, <8 x i32> poison)
   %720 = bitcast <16 x i16> %719 to <8 x i32>
   %721 = shufflevector <8 x i32> %720, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -5786,14 +5786,14 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1228.i
 
 356:                                              ; preds = %345
-  %357 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.4898.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %238)
-  %358 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.0976.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %239)
-  %359 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.0989.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %240)
-  %360 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.0990.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %241)
-  %361 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.0991.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %242)
-  %362 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.0992.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %243)
-  %363 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.0993.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %244)
-  %364 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.0994.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %245)
+  %357 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.4898.i, <8 x float> %48, <8 x float> %238)
+  %358 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.0976.i, <8 x float> %48, <8 x float> %239)
+  %359 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.0989.i, <8 x float> %48, <8 x float> %240)
+  %360 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.0990.i, <8 x float> %48, <8 x float> %241)
+  %361 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.0991.i, <8 x float> %48, <8 x float> %242)
+  %362 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.0992.i, <8 x float> %48, <8 x float> %243)
+  %363 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.0993.i, <8 x float> %48, <8 x float> %244)
+  %364 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.0994.i, <8 x float> %48, <8 x float> %245)
   br label %.thread1228.i
 
 365:                                              ; preds = %265
@@ -6246,10 +6246,10 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1257.i
 
 657:                                              ; preds = %650
-  %658 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.8902.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %577)
-  %659 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.01064.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %578)
-  %660 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.01065.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %579)
-  %661 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.01079.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %580)
+  %658 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.8902.i, <8 x float> %48, <8 x float> %577)
+  %659 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.01064.i, <8 x float> %48, <8 x float> %578)
+  %660 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.01065.i, <8 x float> %48, <8 x float> %579)
+  %661 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.01079.i, <8 x float> %48, <8 x float> %580)
   br label %.thread1257.i
 
 662:                                              ; preds = %592
@@ -6502,8 +6502,8 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1278.i
 
 791:                                              ; preds = %786
-  %792 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.12906.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %761)
-  %793 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.01192.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %762)
+  %792 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.12906.i, <8 x float> %48, <8 x float> %761)
+  %793 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.01192.i, <8 x float> %48, <8 x float> %762)
   br label %.thread1278.i
 
 794:                                              ; preds = %770
@@ -6676,7 +6676,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %.sink1777.i = phi i64 [ 16, %851 ], [ 4, %856 ], [ 32, %849 ]
   %.16910.i = phi nsz <8 x float> [ %855, %851 ], [ %857, %856 ], [ %850, %849 ]
   %859 = getelementptr inbounds nuw i8, ptr %.161554.i, i64 %.sink1777.i
-  %860 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.16910.i, <8 x float> nofpclass(nan inf) %48, <8 x float> nofpclass(nan inf) %841)
+  %860 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.16910.i, <8 x float> %48, <8 x float> %841)
   br label %.thread1295.i
 
 861:                                              ; preds = %847
@@ -7044,10 +7044,10 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1080
 
 1075:                                             ; preds = %1069
-  %1076 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.41176.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1017)
-  %1077 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.01122.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1018)
-  %1078 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.01120.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1019)
-  %1079 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %storemerge.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1020)
+  %1076 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.41176.i, <4 x float> %109, <4 x float> %1017)
+  %1077 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.01122.i, <4 x float> %109, <4 x float> %1018)
+  %1078 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.01120.i, <4 x float> %109, <4 x float> %1019)
+  %1079 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %storemerge.i, <4 x float> %109, <4 x float> %1020)
   br label %1080
 
 1080:                                             ; preds = %1075, %1070
@@ -7107,10 +7107,10 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1337.i
 
 1117:                                             ; preds = %1110
-  %1118 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.51177.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1021)
-  %1119 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.11123.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1022)
-  %1120 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.11121.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1023)
-  %1121 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.01119.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1024)
+  %1118 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.51177.i, <4 x float> %109, <4 x float> %1021)
+  %1119 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.11123.i, <4 x float> %109, <4 x float> %1022)
+  %1120 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.11121.i, <4 x float> %109, <4 x float> %1023)
+  %1121 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.01119.i, <4 x float> %109, <4 x float> %1024)
   br label %.thread1337.i
 
 1122:                                             ; preds = %1044
@@ -7481,10 +7481,10 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1363.i
 
 1349:                                             ; preds = %1342
-  %1350 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.91181.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1302)
-  %1351 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.01082.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1303)
-  %1352 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.01081.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1304)
-  %1353 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.01080.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1305)
+  %1350 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.91181.i, <4 x float> %109, <4 x float> %1302)
+  %1351 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.01082.i, <4 x float> %109, <4 x float> %1303)
+  %1352 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.01081.i, <4 x float> %109, <4 x float> %1304)
+  %1353 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.01080.i, <4 x float> %109, <4 x float> %1305)
   br label %.thread1363.i
 
 1354:                                             ; preds = %1317
@@ -7716,8 +7716,8 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1381.i
 
 1479:                                             ; preds = %1474
-  %1480 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.131185.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1435)
-  %1481 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.01066.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1436)
+  %1480 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.131185.i, <4 x float> %109, <4 x float> %1435)
+  %1481 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.01066.i, <4 x float> %109, <4 x float> %1436)
   br label %.thread1381.i
 
 1482:                                             ; preds = %1444
@@ -7856,7 +7856,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %.sink1781.i = phi i64 [ 4, %1527 ], [ 16, %1525 ]
   %.171189.i = phi nsz <4 x float> [ %1538, %1527 ], [ %1526, %1525 ]
   %1540 = getelementptr inbounds nuw i8, ptr %.361603.i, i64 %.sink1781.i
-  %1541 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.171189.i, <4 x float> nofpclass(nan inf) %109, <4 x float> nofpclass(nan inf) %1517)
+  %1541 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.171189.i, <4 x float> %109, <4 x float> %1517)
   br label %.thread1395.i
 
 1542:                                             ; preds = %1523
@@ -8148,10 +8148,10 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1702
 
 1697:                                             ; preds = %1684
-  %1698 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1685, <4 x float> nofpclass(nan inf) %901, <4 x float> nofpclass(nan inf) %1668)
-  %1699 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1687, <4 x float> nofpclass(nan inf) %901, <4 x float> nofpclass(nan inf) %1669)
-  %1700 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1689, <4 x float> nofpclass(nan inf) %901, <4 x float> nofpclass(nan inf) %1670)
-  %1701 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1691, <4 x float> nofpclass(nan inf) %901, <4 x float> nofpclass(nan inf) %1671)
+  %1698 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %1685, <4 x float> %901, <4 x float> %1668)
+  %1699 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %1687, <4 x float> %901, <4 x float> %1669)
+  %1700 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %1689, <4 x float> %901, <4 x float> %1670)
+  %1701 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %1691, <4 x float> %901, <4 x float> %1671)
   br label %1702
 
 1702:                                             ; preds = %1697, %1692
@@ -8358,8 +8358,8 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %1783 = load <4 x float>, ptr %1782, align 1, !tbaa !15
   %1784 = fadd fast <4 x float> %1781, %1770
   %1785 = fadd fast <4 x float> %1783, %1771
-  %1786 = tail call fast <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1781, <4 x float> nofpclass(nan inf) %901, <4 x float> nofpclass(nan inf) %1770)
-  %1787 = tail call fast <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1783, <4 x float> nofpclass(nan inf) %901, <4 x float> nofpclass(nan inf) %1771)
+  %1786 = tail call fast <4 x float> @llvm.fma.v4f32(<4 x float> %1781, <4 x float> %901, <4 x float> %1770)
+  %1787 = tail call fast <4 x float> @llvm.fma.v4f32(<4 x float> %1783, <4 x float> %901, <4 x float> %1771)
   %.2985.i = select nsz i1 %903, <4 x float> %1784, <4 x float> %1786
   %.2979.i = select nsz i1 %903, <4 x float> %1785, <4 x float> %1787
   %1788 = getelementptr inbounds nuw i8, ptr %.471633.i, i64 16
@@ -8763,8 +8763,8 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %1980 = load <4 x float>, ptr %.601668.i, align 1, !tbaa !15
   %1981 = getelementptr inbounds nuw i8, ptr %.601668.i, i64 16
   %1982 = load <4 x float>, ptr %1981, align 1, !tbaa !15
-  %1983 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1980, <4 x float> nofpclass(nan inf) %1574, <4 x float> nofpclass(nan inf) %1970)
-  %1984 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1982, <4 x float> nofpclass(nan inf) %1574, <4 x float> nofpclass(nan inf) %1974)
+  %1983 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %1980, <4 x float> %1574, <4 x float> %1970)
+  %1984 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %1982, <4 x float> %1574, <4 x float> %1974)
   %1985 = getelementptr inbounds nuw i8, ptr %.601668.i, i64 32
   br label %1986
 
@@ -8887,7 +8887,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
 
 2022:                                             ; preds = %2021
   %2023 = load <4 x float>, ptr %.621679.i, align 1, !tbaa !15
-  %2024 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %2023, <4 x float> nofpclass(nan inf) %1574, <4 x float> nofpclass(nan inf) %2018)
+  %2024 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %2023, <4 x float> %1574, <4 x float> %2018)
   %2025 = getelementptr inbounds nuw i8, ptr %.621679.i, i64 16
   br label %2026
 

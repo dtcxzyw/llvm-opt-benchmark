@@ -3498,7 +3498,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef readonly c
   %24 = fmul fast double %23, %8
   %25 = fadd fast double %24, -5.000000e-01
   %26 = fptrunc fast double %25 to float
-  %27 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %26)
+  %27 = tail call fast noundef float @llvm.floor.f32(float %26)
   %28 = fptosi float %27 to i32
   %29 = sitofp i32 %28 to float
   %30 = fsub fast float %26, %29
@@ -3551,7 +3551,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef readonly c
   %55 = fmul fast double %54, %8
   %56 = fadd fast double %55, -5.000000e-01
   %57 = fptrunc fast double %56 to float
-  %58 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %57)
+  %58 = tail call fast noundef float @llvm.floor.f32(float %57)
   %59 = fptosi float %58 to i32
   %60 = sitofp i32 %59 to float
   %61 = fsub fast float %57, %60

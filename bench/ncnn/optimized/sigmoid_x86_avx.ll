@@ -149,8 +149,8 @@ define internal void @_ZNK4ncnn15Sigmoid_x86_avx15forward_inplaceERNS_3MatERKNS_
   %.040110 = phi i32 [ %67, %.lr.ph ], [ 0, %.noexc ]
   %33 = load <8 x float>, ptr %.039111, align 1, !tbaa !43
   %34 = fneg fast <8 x float> %33
-  %35 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %34, <8 x float> splat (float 0x40561814A0000000))
-  %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %35, <8 x float> splat (float 0xC0561814A0000000))
+  %35 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %34, <8 x float> splat (float 0x40561814A0000000))
+  %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %35, <8 x float> splat (float 0xC0561814A0000000))
   %37 = fmul fast <8 x float> %36, splat (float 0x3FF7154760000000)
   %38 = fadd fast <8 x float> %37, splat (float 5.000000e-01)
   %39 = call fast <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %38, i32 1)
@@ -173,7 +173,7 @@ define internal void @_ZNK4ncnn15Sigmoid_x86_avx15forward_inplaceERNS_3MatERKNS_
   %56 = fmul fast <8 x float> %45, %55
   %57 = fadd fast <8 x float> %44, splat (float 1.000000e+00)
   %58 = fadd fast <8 x float> %57, %56
-  %59 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %42)
+  %59 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %42)
   %60 = shl <8 x i32> %59, splat (i32 23)
   %61 = add <8 x i32> %60, splat (i32 1065353216)
   %62 = bitcast <8 x i32> %61 to <8 x float>
@@ -200,11 +200,11 @@ define internal void @_ZNK4ncnn15Sigmoid_x86_avx15forward_inplaceERNS_3MatERKNS_
   %.141113 = phi i32 [ %108, %.lr.ph115 ], [ %.040.lcssa, %.preheader109 ]
   %73 = load <4 x float>, ptr %.1114, align 16, !tbaa !43
   %74 = fneg fast <4 x float> %73
-  %75 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %74, <4 x float> splat (float 0x40561814A0000000))
-  %76 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %75, <4 x float> splat (float 0xC0561814A0000000))
+  %75 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %74, <4 x float> splat (float 0x40561814A0000000))
+  %76 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %75, <4 x float> splat (float 0xC0561814A0000000))
   %77 = fmul fast <4 x float> %76, splat (float 0x3FF7154760000000)
   %78 = fadd fast <4 x float> %77, splat (float 5.000000e-01)
-  %79 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %78)
+  %79 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %78)
   %80 = sitofp <4 x i32> %79 to <4 x float>
   %81 = fcmp fast olt <4 x float> %78, %80
   %82 = select <4 x i1> %81, <4 x float> splat (float 1.000000e+00), <4 x float> zeroinitializer
@@ -225,7 +225,7 @@ define internal void @_ZNK4ncnn15Sigmoid_x86_avx15forward_inplaceERNS_3MatERKNS_
   %97 = fmul fast <4 x float> %86, %96
   %98 = fadd fast <4 x float> %85, splat (float 1.000000e+00)
   %99 = fadd fast <4 x float> %98, %97
-  %100 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %83)
+  %100 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %83)
   %101 = shl <4 x i32> %100, splat (i32 23)
   %102 = add <4 x i32> %101, splat (i32 1065353216)
   %103 = bitcast <4 x i32> %102 to <4 x float>

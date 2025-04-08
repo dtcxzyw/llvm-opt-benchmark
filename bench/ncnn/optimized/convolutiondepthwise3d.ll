@@ -1891,7 +1891,7 @@ _ZN4ncnn3MatD2Ev.exit53.us.us.us.us.us:           ; preds = %81, %80
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
 103:                                              ; preds = %._crit_edge.us.us.us.us.us
-  %104 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.148.lcssa.us.us.us.us.us)
+  %104 = call fast float @llvm.exp.f32(float %.148.lcssa.us.us.us.us.us)
   %105 = fadd fast float %104, 1.000000e+00
   %106 = call fast float @llvm.log.f32(float %105)
   %107 = call fast float @llvm.tanh.f32(float %106)
@@ -1931,7 +1931,7 @@ _ZN4ncnn3MatD2Ev.exit53.us.us.us.us.us:           ; preds = %81, %80
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
 130:                                              ; preds = %._crit_edge.us.us.us.us.us
-  %131 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.148.lcssa.us.us.us.us.us, float 0.000000e+00)
+  %131 = call fast float @llvm.maxnum.f32(float %.148.lcssa.us.us.us.us.us, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us: ; preds = %130, %124, %123, %116, %109, %103, %99, %95, %87, %._crit_edge.us.us.us.us.us
@@ -2181,7 +2181,7 @@ define internal void @_ZNK4ncnn22ConvolutionDepthWise3D7forwardERKNS_3MatERS1_RK
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us.us
 
 120:                                              ; preds = %._crit_edge.us.us.us.us.us.us
-  %121 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.172.lcssa.us.us.us.us.us.us)
+  %121 = call fast float @llvm.exp.f32(float %.172.lcssa.us.us.us.us.us.us)
   %122 = fadd fast float %121, 1.000000e+00
   %123 = call fast float @llvm.log.f32(float %122)
   %124 = call fast float @llvm.tanh.f32(float %123)
@@ -2221,7 +2221,7 @@ define internal void @_ZNK4ncnn22ConvolutionDepthWise3D7forwardERKNS_3MatERS1_RK
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us.us
 
 147:                                              ; preds = %._crit_edge.us.us.us.us.us.us
-  %148 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.172.lcssa.us.us.us.us.us.us, float 0.000000e+00)
+  %148 = call fast float @llvm.maxnum.f32(float %.172.lcssa.us.us.us.us.us.us, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us.us: ; preds = %147, %141, %140, %133, %126, %120, %116, %112, %104, %._crit_edge.us.us.us.us.us.us

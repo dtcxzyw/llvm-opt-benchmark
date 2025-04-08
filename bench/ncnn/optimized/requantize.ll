@@ -1367,7 +1367,7 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPafffiRKNS_3MatEi(ptr noun
   ]
 
 14:                                               ; preds = %.lr.ph
-  %15 = tail call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %13, float 0.000000e+00)
+  %15 = tail call fast float @llvm.maxnum.f32(float %13, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 16:                                               ; preds = %.lr.ph
@@ -1403,7 +1403,7 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPafffiRKNS_3MatEi(ptr noun
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 37:                                               ; preds = %.lr.ph
-  %38 = tail call fast float @llvm.exp.f32(float nofpclass(nan inf) %13)
+  %38 = tail call fast float @llvm.exp.f32(float %13)
   %39 = fadd fast float %38, 1.000000e+00
   %40 = tail call fast float @llvm.log.f32(float %39)
   %41 = tail call fast float @llvm.tanh.f32(float %40)
@@ -1435,7 +1435,7 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPafffiRKNS_3MatEi(ptr noun
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %43, %.lr.ph, %14, %16, %22, %29, %30, %37, %51, %55
   %.1 = phi nsz float [ %13, %.lr.ph ], [ %13, %51 ], [ %58, %55 ], [ %42, %37 ], [ %36, %30 ], [ %26, %29 ], [ %.026, %22 ], [ %21, %16 ], [ %15, %14 ], [ 0.000000e+00, %43 ]
   %59 = fmul fast float %.1, %4
-  %60 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %59)
+  %60 = tail call fast noundef float @llvm.round.f32(float %59)
   %61 = fptosi float %60 to i32
   %spec.select5.i = tail call i32 @llvm.smax.i32(i32 %61, i32 -127)
   %.06.i = tail call i32 @llvm.smin.i32(i32 %spec.select5.i, i32 127)

@@ -1550,7 +1550,7 @@ define internal fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %0, i3
   %25 = fmul fast double %24, %20
   %26 = fadd fast double %25, -5.000000e-01
   %.028.us = fptrunc double %26 to float
-  %27 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %.028.us)
+  %27 = tail call fast noundef float @llvm.floor.f32(float %.028.us)
   %28 = fptosi float %27 to i32
   %29 = sitofp i32 %28 to float
   %30 = fsub fast float %.028.us, %29
@@ -1583,7 +1583,7 @@ define internal fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %0, i3
   %40 = fmul fast double %11, %39
   %41 = fmul fast double %40, %17
   %.028 = fptrunc double %41 to float
-  %42 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %.028)
+  %42 = tail call fast noundef float @llvm.floor.f32(float %.028)
   %43 = fptosi float %42 to i32
   %44 = sitofp i32 %43 to float
   %45 = fsub fast float %.028, %44
@@ -1757,7 +1757,7 @@ define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32
   %26 = fmul fast double %.087, %22
   %.085.in = select i1 %.not, double %25, double %26
   %.085 = fptrunc double %.085.in to float
-  %27 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %.085)
+  %27 = tail call fast noundef float @llvm.floor.f32(float %.085)
   %28 = fptosi float %27 to i32
   %29 = sitofp i32 %28 to float
   %30 = fsub fast float %.085, %29

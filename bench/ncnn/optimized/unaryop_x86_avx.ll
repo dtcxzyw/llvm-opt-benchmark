@@ -1079,7 +1079,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor14
   %.147 = phi i32 [ %46, %.lr.ph48 ], [ %.0.lcssa, %.preheader42 ]
   %.13146 = phi ptr [ %45, %.lr.ph48 ], [ %.030.lcssa, %.preheader42 ]
   %43 = load <4 x float>, ptr %.13146, align 16, !tbaa !45
-  %44 = call fast noundef <4 x float> @llvm.x86.sse41.round.ps(<4 x float> nofpclass(nan inf) %43, i32 1)
+  %44 = call fast noundef <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %43, i32 1)
   store <4 x float> %44, ptr %.13146, align 16, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %.13146, i64 16
   %46 = add nuw nsw i32 %.147, 4
@@ -1207,7 +1207,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %.147 = phi i32 [ %46, %.lr.ph48 ], [ %.0.lcssa, %.preheader42 ]
   %.13146 = phi ptr [ %45, %.lr.ph48 ], [ %.030.lcssa, %.preheader42 ]
   %43 = load <4 x float>, ptr %.13146, align 16, !tbaa !45
-  %44 = call fast noundef <4 x float> @llvm.x86.sse41.round.ps(<4 x float> nofpclass(nan inf) %43, i32 2)
+  %44 = call fast noundef <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %43, i32 2)
   store <4 x float> %44, ptr %.13146, align 16, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %.13146, i64 16
   %46 = add nuw nsw i32 %.147, 4
@@ -1428,7 +1428,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %.044 = phi i32 [ %37, %.lr.ph ], [ 0, %.noexc ]
   %.03043 = phi ptr [ %36, %.lr.ph ], [ %29, %.noexc ]
   %34 = load <8 x float>, ptr %.03043, align 1, !tbaa !45
-  %35 = call fast noundef <8 x float> @llvm.sqrt.v8f32(<8 x float> nofpclass(nan inf) %34)
+  %35 = call fast noundef <8 x float> @llvm.sqrt.v8f32(<8 x float> %34)
   store <8 x float> %35, ptr %.03043, align 1, !tbaa !45
   %36 = getelementptr inbounds nuw i8, ptr %.03043, i64 32
   %37 = add nuw nsw i32 %.044, 8
@@ -1448,7 +1448,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %.147 = phi i32 [ %46, %.lr.ph48 ], [ %.0.lcssa, %.preheader42 ]
   %.13146 = phi ptr [ %45, %.lr.ph48 ], [ %.030.lcssa, %.preheader42 ]
   %43 = load <4 x float>, ptr %.13146, align 16, !tbaa !45
-  %44 = call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> nofpclass(nan inf) %43)
+  %44 = call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %43)
   store <4 x float> %44, ptr %.13146, align 16, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %.13146, i64 16
   %46 = add nuw nsw i32 %.147, 4
@@ -1556,7 +1556,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor14
   %.044 = phi i32 [ %37, %.lr.ph ], [ 0, %.noexc ]
   %.03043 = phi ptr [ %36, %.lr.ph ], [ %29, %.noexc ]
   %34 = load <8 x float>, ptr %.03043, align 1, !tbaa !45
-  %35 = call fast noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> nofpclass(nan inf) %34)
+  %35 = call fast noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %34)
   store <8 x float> %35, ptr %.03043, align 1, !tbaa !45
   %36 = getelementptr inbounds nuw i8, ptr %.03043, i64 32
   %37 = add nuw nsw i32 %.044, 8
@@ -1576,7 +1576,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor14
   %.147 = phi i32 [ %46, %.lr.ph48 ], [ %.0.lcssa, %.preheader42 ]
   %.13146 = phi ptr [ %45, %.lr.ph48 ], [ %.030.lcssa, %.preheader42 ]
   %43 = load <4 x float>, ptr %.13146, align 16, !tbaa !45
-  %44 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> nofpclass(nan inf) %43)
+  %44 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %43)
   store <4 x float> %44, ptr %.13146, align 16, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %.13146, i64 16
   %46 = add nuw nsw i32 %.147, 4
@@ -1682,8 +1682,8 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %.0102 = phi i32 [ %65, %.lr.ph ], [ 0, %.noexc ]
   %.030101 = phi ptr [ %64, %.lr.ph ], [ %29, %.noexc ]
   %34 = load <8 x float>, ptr %.030101, align 1, !tbaa !45
-  %35 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %34, <8 x float> splat (float 0x40561814A0000000))
-  %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %35, <8 x float> splat (float 0xC0561814A0000000))
+  %35 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %34, <8 x float> splat (float 0x40561814A0000000))
+  %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %35, <8 x float> splat (float 0xC0561814A0000000))
   %37 = fmul fast <8 x float> %36, splat (float 0x3FF7154760000000)
   %38 = fadd fast <8 x float> %37, splat (float 5.000000e-01)
   %39 = call fast <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %38, i32 1)
@@ -1706,7 +1706,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %56 = fmul fast <8 x float> %45, %55
   %57 = fadd fast <8 x float> %44, splat (float 1.000000e+00)
   %58 = fadd fast <8 x float> %57, %56
-  %59 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %42)
+  %59 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %42)
   %60 = shl <8 x i32> %59, splat (i32 23)
   %61 = add <8 x i32> %60, splat (i32 1065353216)
   %62 = bitcast <8 x i32> %61 to <8 x float>
@@ -1730,11 +1730,11 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %.1105 = phi i32 [ %103, %.lr.ph106 ], [ %.0.lcssa, %.preheader100 ]
   %.131104 = phi ptr [ %102, %.lr.ph106 ], [ %.030.lcssa, %.preheader100 ]
   %71 = load <4 x float>, ptr %.131104, align 16, !tbaa !45
-  %72 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %71, <4 x float> splat (float 0x40561814A0000000))
-  %73 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %72, <4 x float> splat (float 0xC0561814A0000000))
+  %72 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %71, <4 x float> splat (float 0x40561814A0000000))
+  %73 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %72, <4 x float> splat (float 0xC0561814A0000000))
   %74 = fmul fast <4 x float> %73, splat (float 0x3FF7154760000000)
   %75 = fadd fast <4 x float> %74, splat (float 5.000000e-01)
-  %76 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %75)
+  %76 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %75)
   %77 = sitofp <4 x i32> %76 to <4 x float>
   %78 = fcmp fast olt <4 x float> %75, %77
   %79 = select <4 x i1> %78, <4 x float> splat (float 1.000000e+00), <4 x float> zeroinitializer
@@ -1755,7 +1755,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %94 = fmul fast <4 x float> %83, %93
   %95 = fadd fast <4 x float> %82, splat (float 1.000000e+00)
   %96 = fadd fast <4 x float> %95, %94
-  %97 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %80)
+  %97 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %80)
   %98 = shl <4 x i32> %97, splat (i32 23)
   %99 = add <4 x i32> %98, splat (i32 1065353216)
   %100 = bitcast <4 x i32> %99 to <4 x float>
@@ -1880,7 +1880,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %.030118 = phi ptr [ %69, %.lr.ph ], [ %29, %.noexc ]
   %34 = load <8 x float>, ptr %.030118, align 1, !tbaa !45
   %35 = fcmp fast ole <8 x float> %34, zeroinitializer
-  %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %34, <8 x float> splat (float 0x3810000000000000))
+  %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %34, <8 x float> splat (float 0x3810000000000000))
   %37 = bitcast <8 x float> %36 to <8 x i32>
   %38 = bitcast <8 x float> %36 to <8 x i32>
   %39 = and <8 x i32> %38, splat (i32 -2139095041)
@@ -1938,7 +1938,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %.131121 = phi ptr [ %113, %.lr.ph123 ], [ %.030.lcssa, %.preheader117 ]
   %76 = load <4 x float>, ptr %.131121, align 16, !tbaa !45
   %77 = fcmp fast ole <4 x float> %76, zeroinitializer
-  %78 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %76, <4 x float> splat (float 0x3810000000000000))
+  %78 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> splat (float 0x3810000000000000))
   %79 = bitcast <4 x float> %78 to <4 x i32>
   %80 = lshr <4 x i32> %79, splat (i32 23)
   %81 = and <4 x i32> %79, splat (i32 -2139095041)
@@ -2080,7 +2080,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %35 = and <8 x i32> %34, splat (i32 2147483647)
   %36 = bitcast <8 x i32> %35 to <8 x float>
   %37 = fmul fast <8 x float> %36, splat (float 0x3FF45F3060000000)
-  %38 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %37)
+  %38 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %37)
   %39 = shufflevector <8 x i32> %38, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %40 = add <4 x i32> %39, splat (i32 1)
   %41 = shufflevector <8 x i32> %38, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
@@ -2141,7 +2141,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %82 = and <4 x i32> %81, splat (i32 2147483647)
   %83 = bitcast <4 x i32> %82 to <4 x float>
   %84 = fmul fast <4 x float> %83, splat (float 0x3FF45F3060000000)
-  %85 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %84)
+  %85 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %84)
   %86 = add <4 x i32> %85, splat (i32 1)
   %87 = and <4 x i32> %86, splat (i32 -2)
   %88 = sitofp <4 x i32> %87 to <4 x float>
@@ -2275,7 +2275,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %35 = and <8 x i32> %34, splat (i32 2147483647)
   %36 = bitcast <8 x i32> %35 to <8 x float>
   %37 = fmul fast <8 x float> %36, splat (float 0x3FF45F3060000000)
-  %38 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %37)
+  %38 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %37)
   %39 = shufflevector <8 x i32> %38, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %40 = add <4 x i32> %39, splat (i32 1)
   %41 = bitcast <4 x i32> %40 to <2 x i64>
@@ -2345,7 +2345,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %90 = and <4 x i32> %89, splat (i32 2147483647)
   %91 = bitcast <4 x i32> %90 to <4 x float>
   %92 = fmul fast <4 x float> %91, splat (float 0x3FF45F3060000000)
-  %93 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %92)
+  %93 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %92)
   %94 = add <4 x i32> %93, splat (i32 1)
   %95 = and <4 x i32> %94, splat (i32 -2)
   %96 = sitofp <4 x i32> %95 to <4 x float>
@@ -2480,7 +2480,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %35 = and <8 x i32> %34, splat (i32 2147483647)
   %36 = bitcast <8 x i32> %35 to <8 x float>
   %37 = fmul fast <8 x float> %36, splat (float 0x3FF45F3060000000)
-  %38 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %37)
+  %38 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %37)
   %39 = shufflevector <8 x i32> %38, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %40 = add <4 x i32> %39, splat (i32 1)
   %41 = bitcast <4 x i32> %40 to <2 x i64>
@@ -2566,7 +2566,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12
   %108 = and <4 x i32> %107, splat (i32 2147483647)
   %109 = bitcast <4 x i32> %108 to <4 x float>
   %110 = fmul fast <4 x float> %109, splat (float 0x3FF45F3060000000)
-  %111 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %110)
+  %111 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %110)
   %112 = add <4 x i32> %111, splat (i32 1)
   %113 = and <4 x i32> %112, splat (i32 -2)
   %114 = sitofp <4 x i32> %113 to <4 x float>
@@ -2718,7 +2718,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %39 = select <8 x i1> %38, <8 x float> splat (float 1.000000e+00), <8 x float> zeroinitializer
   %40 = fmul fast <8 x float> %37, splat (float 5.000000e-01)
   %41 = fsub fast <8 x float> splat (float 5.000000e-01), %40
-  %42 = call fast noundef <8 x float> @llvm.sqrt.v8f32(<8 x float> nofpclass(nan inf) %41)
+  %42 = call fast noundef <8 x float> @llvm.sqrt.v8f32(<8 x float> %41)
   %43 = select <8 x i1> %38, <8 x float> %42, <8 x float> %37
   %44 = fmul fast <8 x float> %43, %43
   %45 = fmul fast <8 x float> %44, %44
@@ -2766,7 +2766,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %76 = select <4 x i1> %75, <4 x float> splat (float 1.000000e+00), <4 x float> zeroinitializer
   %77 = fmul fast <4 x float> %74, splat (float 5.000000e-01)
   %78 = fsub fast <4 x float> splat (float 5.000000e-01), %77
-  %79 = call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> nofpclass(nan inf) %78)
+  %79 = call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %78)
   %80 = select <4 x i1> %75, <4 x float> %79, <4 x float> %74
   %81 = fmul fast <4 x float> %80, %80
   %82 = fmul fast <4 x float> %81, %81
@@ -2895,7 +2895,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %38 = fcmp fast ugt <8 x float> %37, splat (float 5.000000e-01)
   %39 = fmul fast <8 x float> %37, splat (float 5.000000e-01)
   %40 = fsub fast <8 x float> splat (float 5.000000e-01), %39
-  %41 = call fast noundef <8 x float> @llvm.sqrt.v8f32(<8 x float> nofpclass(nan inf) %40)
+  %41 = call fast noundef <8 x float> @llvm.sqrt.v8f32(<8 x float> %40)
   %.v74 = select <8 x i1> %38, <8 x float> %41, <8 x float> %37
   %42 = fmul fast <8 x float> %.v74, %.v74
   %43 = fmul fast <8 x float> %42, %42
@@ -2947,7 +2947,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %76 = fcmp fast ugt <4 x float> %75, splat (float 5.000000e-01)
   %77 = fmul fast <4 x float> %75, splat (float 5.000000e-01)
   %78 = fsub fast <4 x float> splat (float 5.000000e-01), %77
-  %79 = call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> nofpclass(nan inf) %78)
+  %79 = call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %78)
   %.v = select <4 x i1> %76, <4 x float> %79, <4 x float> %75
   %80 = fmul fast <4 x float> %.v, %.v
   %81 = fmul fast <4 x float> %80, %80
@@ -3375,8 +3375,8 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %.03091 = phi ptr [ %68, %.lr.ph ], [ %29, %.noexc ]
   %34 = load <8 x float>, ptr %.03091, align 1, !tbaa !45
   %35 = fmul fast <8 x float> %34, splat (float -2.000000e+00)
-  %36 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %35, <8 x float> splat (float 0x40561814A0000000))
-  %37 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %36, <8 x float> splat (float 0xC0561814A0000000))
+  %36 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %35, <8 x float> splat (float 0x40561814A0000000))
+  %37 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %36, <8 x float> splat (float 0xC0561814A0000000))
   %38 = fmul fast <8 x float> %37, splat (float 0x3FF7154760000000)
   %39 = fadd fast <8 x float> %38, splat (float 5.000000e-01)
   %40 = call fast <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %39, i32 1)
@@ -3399,7 +3399,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %57 = fmul fast <8 x float> %46, %56
   %58 = fadd fast <8 x float> %45, splat (float 1.000000e+00)
   %59 = fadd fast <8 x float> %58, %57
-  %60 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %43)
+  %60 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %43)
   %61 = shl <8 x i32> %60, splat (i32 23)
   %62 = add <8 x i32> %61, splat (i32 1065353216)
   %63 = bitcast <8 x i32> %62 to <8 x float>
@@ -3427,11 +3427,11 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %.13194 = phi ptr [ %110, %.lr.ph96 ], [ %.030.lcssa, %.preheader90 ]
   %75 = load <4 x float>, ptr %.13194, align 16, !tbaa !45
   %76 = fmul fast <4 x float> %75, splat (float -2.000000e+00)
-  %77 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %76, <4 x float> splat (float 0x40561814A0000000))
-  %78 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %77, <4 x float> splat (float 0xC0561814A0000000))
+  %77 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %76, <4 x float> splat (float 0x40561814A0000000))
+  %78 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %77, <4 x float> splat (float 0xC0561814A0000000))
   %79 = fmul fast <4 x float> %78, splat (float 0x3FF7154760000000)
   %80 = fadd fast <4 x float> %79, splat (float 5.000000e-01)
-  %81 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %80)
+  %81 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %80)
   %82 = sitofp <4 x i32> %81 to <4 x float>
   %83 = fcmp fast olt <4 x float> %80, %82
   %84 = select <4 x i1> %83, <4 x float> splat (float 1.000000e+00), <4 x float> zeroinitializer
@@ -3452,7 +3452,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor13
   %99 = fmul fast <4 x float> %88, %98
   %100 = fadd fast <4 x float> %87, splat (float 1.000000e+00)
   %101 = fadd fast <4 x float> %100, %99
-  %102 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %85)
+  %102 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %85)
   %103 = shl <4 x i32> %102, splat (i32 23)
   %104 = add <4 x i32> %103, splat (i32 1065353216)
   %105 = bitcast <4 x i32> %104 to <4 x float>
@@ -3562,7 +3562,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor14
   %.030111 = phi ptr [ %70, %.lr.ph ], [ %29, %.noexc ]
   %34 = load <8 x float>, ptr %.030111, align 1, !tbaa !45
   %35 = fcmp fast ole <8 x float> %34, zeroinitializer
-  %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %34, <8 x float> splat (float 0x3810000000000000))
+  %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %34, <8 x float> splat (float 0x3810000000000000))
   %37 = bitcast <8 x float> %36 to <8 x i32>
   %38 = bitcast <8 x float> %36 to <8 x i32>
   %39 = and <8 x i32> %38, splat (i32 -2139095041)
@@ -3621,7 +3621,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor14
   %.131114 = phi ptr [ %115, %.lr.ph116 ], [ %.030.lcssa, %.preheader110 ]
   %77 = load <4 x float>, ptr %.131114, align 16, !tbaa !45
   %78 = fcmp fast ole <4 x float> %77, zeroinitializer
-  %79 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %77, <4 x float> splat (float 0x3810000000000000))
+  %79 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %77, <4 x float> splat (float 0x3810000000000000))
   %80 = bitcast <4 x float> %79 to <4 x i32>
   %81 = lshr <4 x i32> %80, splat (i32 23)
   %82 = and <4 x i32> %80, splat (i32 -2139095041)

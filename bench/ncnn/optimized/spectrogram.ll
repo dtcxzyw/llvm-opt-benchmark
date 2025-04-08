@@ -284,7 +284,7 @@ define hidden noundef i32 @_ZN4ncnn11Spectrogram10load_paramERKNS_9ParamDictE(pt
 
 ._crit_edge73:                                    ; preds = %.lr.ph72, %.preheader
   %.032.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %85, %.lr.ph72 ]
-  %78 = tail call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.032.lcssa)
+  %78 = tail call fast noundef float @llvm.sqrt.f32(float %.032.lcssa)
   %79 = fdiv fast float 1.000000e+00, %78
   %80 = sext i32 %31 to i64
   %81 = getelementptr inbounds nuw float, ptr %30, i64 %80
@@ -782,7 +782,7 @@ define internal void @_ZNK4ncnn11Spectrogram7forwardERKNS_3MatERS1_RKNS_6OptionE
   %75 = fmul fast float %.271.us.us.us, %.271.us.us.us
   %76 = fmul fast float %.268.us.us.us, %.268.us.us.us
   %77 = fadd fast float %76, %75
-  %78 = call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %77)
+  %78 = call fast noundef float @llvm.sqrt.f32(float %77)
   store float %78, ptr %.063101.us.us.us, align 4, !tbaa !42
   %79 = getelementptr inbounds nuw i8, ptr %.063101.us.us.us, i64 4
   br label %.thread93.us.us.us

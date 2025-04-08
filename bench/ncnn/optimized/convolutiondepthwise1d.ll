@@ -1823,7 +1823,7 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 81:                                               ; preds = %._crit_edge.us
-  %82 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.1.lcssa.us)
+  %82 = call fast float @llvm.exp.f32(float %.1.lcssa.us)
   %83 = fadd fast float %82, 1.000000e+00
   %84 = call fast float @llvm.log.f32(float %83)
   %85 = call fast float @llvm.tanh.f32(float %84)
@@ -1860,7 +1860,7 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 105:                                              ; preds = %._crit_edge.us
-  %106 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.1.lcssa.us, float 0.000000e+00)
+  %106 = call fast float @llvm.maxnum.f32(float %.1.lcssa.us, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %105, %100, %99, %94, %87, %81, %77, %73, %67, %._crit_edge.us
@@ -2062,7 +2062,7 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 99:                                               ; preds = %._crit_edge93.us
-  %100 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.1.lcssa.us)
+  %100 = call fast float @llvm.exp.f32(float %.1.lcssa.us)
   %101 = fadd fast float %100, 1.000000e+00
   %102 = call fast float @llvm.log.f32(float %101)
   %103 = call fast float @llvm.tanh.f32(float %102)
@@ -2099,7 +2099,7 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 123:                                              ; preds = %._crit_edge93.us
-  %124 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.1.lcssa.us, float 0.000000e+00)
+  %124 = call fast float @llvm.maxnum.f32(float %.1.lcssa.us, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %123, %118, %117, %112, %105, %99, %95, %91, %85, %._crit_edge93.us

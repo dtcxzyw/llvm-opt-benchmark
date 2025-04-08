@@ -14998,7 +14998,7 @@ define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i
   %.0 = phi i32 [ %13, %12 ], [ %6, %7 ]
   %15 = uitofp i64 %10 to float
   %16 = fmul fast float %15, 0x3FD5555560000000
-  %17 = tail call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %16)
+  %17 = tail call fast noundef float @llvm.sqrt.f32(float %16)
   %18 = fptosi float %17 to i32
   %19 = sdiv i32 %18, 16
   %20 = shl nsw i32 %19, 4
@@ -15031,7 +15031,7 @@ define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i
 37:                                               ; preds = %33, %14
   %storemerge = phi i32 [ %.sroa.speculated74, %33 ], [ %.sroa.speculated78, %14 ]
   store i32 %storemerge, ptr %3, align 4, !tbaa !4
-  %38 = tail call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %15)
+  %38 = tail call fast noundef float @llvm.sqrt.f32(float %15)
   %39 = sitofp i32 %storemerge to float
   %40 = fsub fast float %38, %39
   %41 = fptosi float %40 to i32
@@ -25331,16 +25331,16 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
   %216 = add <16 x i32> %215, %214
   %217 = sitofp <16 x i32> %209 to <16 x float>
   %218 = fmul fast <16 x float> %217, splat (float 0x3F5C71C720000000)
-  %219 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> nofpclass(nan inf) %218, <16 x i32> zeroinitializer, i16 -1, i32 4)
+  %219 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %218, <16 x i32> zeroinitializer, i16 -1, i32 4)
   %220 = sitofp <16 x i32> %211 to <16 x float>
   %221 = fmul fast <16 x float> %220, splat (float 0x3F5C71C720000000)
-  %222 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> nofpclass(nan inf) %221, <16 x i32> zeroinitializer, i16 -1, i32 4)
+  %222 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %221, <16 x i32> zeroinitializer, i16 -1, i32 4)
   %223 = sitofp <16 x i32> %213 to <16 x float>
   %224 = fmul fast <16 x float> %223, splat (float 0x3F5C71C720000000)
-  %225 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> nofpclass(nan inf) %224, <16 x i32> zeroinitializer, i16 -1, i32 4)
+  %225 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %224, <16 x i32> zeroinitializer, i16 -1, i32 4)
   %226 = sitofp <16 x i32> %216 to <16 x float>
   %227 = fmul fast <16 x float> %226, splat (float 0x3F5C71C720000000)
-  %228 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> nofpclass(nan inf) %227, <16 x i32> zeroinitializer, i16 -1, i32 4)
+  %228 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %227, <16 x i32> zeroinitializer, i16 -1, i32 4)
   switch i32 %143, label %305 [
     i32 16, label %296
     i32 8, label %275
@@ -25732,18 +25732,18 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
   %460 = add <8 x i32> %459, %458
   %461 = sitofp <8 x i32> %453 to <8 x float>
   %462 = fmul fast <8 x float> %461, splat (float 0x3F5C71C720000000)
-  %463 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %462)
+  %463 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %462)
   %464 = sitofp <8 x i32> %455 to <8 x float>
   %465 = fmul fast <8 x float> %464, splat (float 0x3F5C71C720000000)
-  %466 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %465)
+  %466 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %465)
   %467 = bitcast <8 x i32> %466 to <4 x i64>
   %468 = sitofp <8 x i32> %457 to <8 x float>
   %469 = fmul fast <8 x float> %468, splat (float 0x3F5C71C720000000)
-  %470 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %469)
+  %470 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %469)
   %471 = bitcast <8 x i32> %470 to <4 x i64>
   %472 = sitofp <8 x i32> %460 to <8 x float>
   %473 = fmul fast <8 x float> %472, splat (float 0x3F5C71C720000000)
-  %474 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %473)
+  %474 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %473)
   %475 = bitcast <8 x i32> %474 to <4 x i64>
   switch i32 %143, label %516 [
     i32 8, label %507
@@ -26071,16 +26071,16 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
   %669 = add <4 x i32> %668, %667
   %670 = sitofp <4 x i32> %662 to <4 x float>
   %671 = fmul fast <4 x float> %670, splat (float 0x3F5C71C720000000)
-  %672 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %671)
+  %672 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %671)
   %673 = sitofp <4 x i32> %664 to <4 x float>
   %674 = fmul fast <4 x float> %673, splat (float 0x3F5C71C720000000)
-  %675 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %674)
+  %675 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %674)
   %676 = sitofp <4 x i32> %666 to <4 x float>
   %677 = fmul fast <4 x float> %676, splat (float 0x3F5C71C720000000)
-  %678 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %677)
+  %678 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %677)
   %679 = sitofp <4 x i32> %669 to <4 x float>
   %680 = fmul fast <4 x float> %679, splat (float 0x3F5C71C720000000)
-  %681 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %680)
+  %681 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %680)
   switch i32 %143, label %700 [
     i32 4, label %691
     i32 1, label %682

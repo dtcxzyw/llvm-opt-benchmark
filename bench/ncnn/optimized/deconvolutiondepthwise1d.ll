@@ -2394,7 +2394,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
   ]
 
 87:                                               ; preds = %84
-  %88 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %86, float 0.000000e+00)
+  %88 = call fast float @llvm.maxnum.f32(float %86, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 89:                                               ; preds = %84
@@ -2427,7 +2427,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 107:                                              ; preds = %84
-  %108 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %86)
+  %108 = call fast float @llvm.exp.f32(float %86)
   %109 = fadd fast float %108, 1.000000e+00
   %110 = call fast float @llvm.log.f32(float %109)
   %111 = call fast float @llvm.tanh.f32(float %110)
@@ -2684,7 +2684,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
   ]
 
 111:                                              ; preds = %108
-  %112 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %110, float 0.000000e+00)
+  %112 = call fast float @llvm.maxnum.f32(float %110, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 113:                                              ; preds = %108
@@ -2717,7 +2717,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 131:                                              ; preds = %108
-  %132 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %110)
+  %132 = call fast float @llvm.exp.f32(float %110)
   %133 = fadd fast float %132, 1.000000e+00
   %134 = call fast float @llvm.log.f32(float %133)
   %135 = call fast float @llvm.tanh.f32(float %134)

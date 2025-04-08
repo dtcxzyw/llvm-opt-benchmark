@@ -357,7 +357,7 @@ define internal fastcc void @_ZN4ncnnL9layernormEPfPKfS2_fii(ptr noundef capture
   %61 = shufflevector <4 x float> %60, <4 x float> poison, <4 x i32> zeroinitializer
   %62 = fdiv fast <4 x float> %.0164.lcssa, %59
   %63 = fadd fast <4 x float> %62, %61
-  %64 = tail call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> nofpclass(nan inf) %63)
+  %64 = tail call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %63)
   %65 = fmul fast <4 x float> %64, %.2161
   br label %66
 
@@ -827,7 +827,7 @@ define internal void @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   %104 = shufflevector <4 x float> %103, <4 x float> poison, <4 x i32> zeroinitializer
   %105 = fdiv fast <4 x float> %.0164.lcssa.i, %102
   %106 = fadd fast <4 x float> %105, %104
-  %107 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> nofpclass(nan inf) %106)
+  %107 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %106)
   %108 = fmul fast <4 x float> %107, %.2161.i
   br label %109
 

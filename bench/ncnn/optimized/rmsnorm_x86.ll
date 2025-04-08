@@ -473,7 +473,7 @@ define internal void @_ZNK4ncnn11RMSNorm_x8615forward_inplaceERNS_3MatERKNS_6Opt
   %59 = shufflevector <4 x float> %58, <4 x float> poison, <4 x i32> zeroinitializer
   %60 = fdiv fast <4 x float> %.0103.lcssa.i, %57
   %61 = fadd fast <4 x float> %60, %59
-  %62 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> nofpclass(nan inf) %61)
+  %62 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %61)
   br label %78
 
 63:                                               ; preds = %._crit_edge.i
@@ -782,7 +782,7 @@ define internal void @_ZNK4ncnn11RMSNorm_x8615forward_inplaceERNS_3MatERKNS_6Opt
   %69 = shufflevector <4 x float> %68, <4 x float> poison, <4 x i32> zeroinitializer
   %70 = fdiv fast <4 x float> %.0103.lcssa.i, %67
   %71 = fadd fast <4 x float> %70, %69
-  %72 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> nofpclass(nan inf) %71)
+  %72 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %71)
   br label %88
 
 73:                                               ; preds = %._crit_edge.i
@@ -1041,7 +1041,7 @@ define internal void @_ZNK4ncnn11RMSNorm_x8615forward_inplaceERNS_3MatERKNS_6Opt
   %60 = shufflevector <4 x float> %59, <4 x float> poison, <4 x i32> zeroinitializer
   %61 = fdiv fast <4 x float> %.0103.lcssa.i, %58
   %62 = fadd fast <4 x float> %61, %60
-  %63 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> nofpclass(nan inf) %62)
+  %63 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %62)
   br label %79
 
 64:                                               ; preds = %._crit_edge.i

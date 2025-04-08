@@ -276,7 +276,7 @@ define hidden noundef i32 @_ZN4ncnn18InverseSpectrogram10load_paramERKNS_9ParamD
 
 ._crit_edge71:                                    ; preds = %.lr.ph70, %.preheader
   %.030.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %79, %.lr.ph70 ]
-  %73 = tail call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.030.lcssa)
+  %73 = tail call fast noundef float @llvm.sqrt.f32(float %.030.lcssa)
   %74 = sext i32 %26 to i64
   %75 = getelementptr inbounds nuw float, ptr %25, i64 %74
   store float %73, ptr %75, align 4, !tbaa !40

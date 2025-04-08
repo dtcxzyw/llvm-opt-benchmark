@@ -1788,7 +1788,7 @@ define internal void @_ZN4ncnnL13convolution1dERKNS_3MatERS0_S2_S2_iiiiS2_RKNS_6
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 80:                                               ; preds = %._crit_edge79.us
-  %81 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.1.lcssa.us)
+  %81 = call fast float @llvm.exp.f32(float %.1.lcssa.us)
   %82 = fadd fast float %81, 1.000000e+00
   %83 = call fast float @llvm.log.f32(float %82)
   %84 = call fast float @llvm.tanh.f32(float %83)
@@ -1825,7 +1825,7 @@ define internal void @_ZN4ncnnL13convolution1dERKNS_3MatERS0_S2_S2_iiiiS2_RKNS_6
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 104:                                              ; preds = %._crit_edge79.us
-  %105 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.1.lcssa.us, float 0.000000e+00)
+  %105 = call fast float @llvm.maxnum.f32(float %.1.lcssa.us, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %104, %99, %98, %93, %86, %80, %76, %72, %66, %._crit_edge79.us

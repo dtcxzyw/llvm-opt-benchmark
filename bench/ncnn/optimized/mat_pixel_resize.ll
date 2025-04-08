@@ -63,7 +63,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr noundef readonl
   %39 = fmul fast double %38, %29
   %40 = fadd fast double %39, -5.000000e-01
   %41 = fptrunc fast double %40 to float
-  %42 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %41)
+  %42 = tail call fast noundef float @llvm.floor.f32(float %41)
   %43 = fptosi float %42 to i32
   %44 = sitofp i32 %43 to float
   %45 = fsub fast float %41, %44
@@ -123,7 +123,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr noundef readonl
   %75 = fmul fast double %74, %33
   %76 = fadd fast double %75, -5.000000e-01
   %77 = fptrunc fast double %76 to float
-  %78 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %77)
+  %78 = tail call fast noundef float @llvm.floor.f32(float %77)
   %79 = fptosi float %78 to i32
   %80 = sitofp i32 %79 to float
   %81 = fsub fast float %77, %80
@@ -772,7 +772,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c2EPKhiiiPhiii(ptr noundef readonl
   %39 = fmul fast double %38, %29
   %40 = fadd fast double %39, -5.000000e-01
   %41 = fptrunc fast double %40 to float
-  %42 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %41)
+  %42 = tail call fast noundef float @llvm.floor.f32(float %41)
   %43 = fptosi float %42 to i32
   %44 = sitofp i32 %43 to float
   %45 = fsub fast float %41, %44
@@ -835,7 +835,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c2EPKhiiiPhiii(ptr noundef readonl
   %78 = fmul fast double %77, %33
   %79 = fadd fast double %78, -5.000000e-01
   %80 = fptrunc fast double %79 to float
-  %81 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %80)
+  %81 = tail call fast noundef float @llvm.floor.f32(float %80)
   %82 = fptosi float %81 to i32
   %83 = sitofp i32 %82 to float
   %84 = fsub fast float %80, %83
@@ -1526,7 +1526,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c3EPKhiiiPhiii(ptr noundef readonl
   %39 = fmul fast double %38, %29
   %40 = fadd fast double %39, -5.000000e-01
   %41 = fptrunc fast double %40 to float
-  %42 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %41)
+  %42 = tail call fast noundef float @llvm.floor.f32(float %41)
   %43 = fptosi float %42 to i32
   %44 = sitofp i32 %43 to float
   %45 = fsub fast float %41, %44
@@ -1589,7 +1589,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c3EPKhiiiPhiii(ptr noundef readonl
   %78 = fmul fast double %77, %33
   %79 = fadd fast double %78, -5.000000e-01
   %80 = fptrunc fast double %79 to float
-  %81 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %80)
+  %81 = tail call fast noundef float @llvm.floor.f32(float %80)
   %82 = fptosi float %81 to i32
   %83 = sitofp i32 %82 to float
   %84 = fsub fast float %80, %83
@@ -2319,7 +2319,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr noundef readonl
   %39 = fmul fast double %38, %29
   %40 = fadd fast double %39, -5.000000e-01
   %41 = fptrunc fast double %40 to float
-  %42 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %41)
+  %42 = tail call fast noundef float @llvm.floor.f32(float %41)
   %43 = fptosi float %42 to i32
   %44 = sitofp i32 %43 to float
   %45 = fsub fast float %41, %44
@@ -2381,7 +2381,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr noundef readonl
   %77 = fmul fast double %76, %33
   %78 = fadd fast double %77, -5.000000e-01
   %79 = fptrunc fast double %78 to float
-  %80 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %79)
+  %80 = tail call fast noundef float @llvm.floor.f32(float %79)
   %81 = fptosi float %80 to i32
   %82 = sitofp i32 %81 to float
   %83 = fsub fast float %79, %82
