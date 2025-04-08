@@ -5175,7 +5175,7 @@ define internal void @_ZN4ncnnL20convolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiii
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 90:                                               ; preds = %._crit_edge.us.us.us
-  %91 = call fast float @llvm.exp.f32(float %.1.lcssa.us.us.us)
+  %91 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.1.lcssa.us.us.us)
   %92 = fadd fast float %91, 1.000000e+00
   %93 = call fast float @llvm.log.f32(float %92)
   %94 = call fast float @llvm.tanh.f32(float %93)
@@ -5212,7 +5212,7 @@ define internal void @_ZN4ncnnL20convolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiii
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 114:                                              ; preds = %._crit_edge.us.us.us
-  %115 = call fast float @llvm.maxnum.f32(float %.1.lcssa.us.us.us, float 0.000000e+00)
+  %115 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.1.lcssa.us.us.us, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %114, %109, %108, %103, %96, %90, %86, %82, %76, %._crit_edge.us.us.us
@@ -5448,7 +5448,7 @@ define internal void @_ZN4ncnnL20convolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiii
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 117:                                              ; preds = %._crit_edge.us.us.us
-  %118 = call fast float @llvm.exp.f32(float %.1.lcssa.us.us.us)
+  %118 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.1.lcssa.us.us.us)
   %119 = fadd fast float %118, 1.000000e+00
   %120 = call fast float @llvm.log.f32(float %119)
   %121 = call fast float @llvm.tanh.f32(float %120)
@@ -5485,7 +5485,7 @@ define internal void @_ZN4ncnnL20convolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiii
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 141:                                              ; preds = %._crit_edge.us.us.us
-  %142 = call fast float @llvm.maxnum.f32(float %.1.lcssa.us.us.us, float 0.000000e+00)
+  %142 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.1.lcssa.us.us.us, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %141, %136, %135, %130, %123, %117, %113, %109, %103, %._crit_edge.us.us.us
@@ -6037,7 +6037,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader.lr.ph, %
   ]
 
 127:                                              ; preds = %125
-  %128 = call fast float @llvm.maxnum.f32(float %.054, float 0.000000e+00)
+  %128 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.054, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 129:                                              ; preds = %125
@@ -6073,7 +6073,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader.lr.ph, %
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 150:                                              ; preds = %125
-  %151 = call fast float @llvm.exp.f32(float %.054)
+  %151 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.054)
   %152 = fadd fast float %151, 1.000000e+00
   %153 = call fast float @llvm.log.f32(float %152)
   %154 = call fast float @llvm.tanh.f32(float %153)
@@ -6113,7 +6113,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %168, %164, %150, %1
   %176 = getelementptr inbounds nuw float, ptr %175, i64 %indvars.iv117
   %177 = load float, ptr %176, align 4, !tbaa !61
   %178 = fmul fast float %177, %.1101
-  %179 = call fast noundef float @llvm.round.f32(float %178)
+  %179 = call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %178)
   %180 = fptosi float %179 to i32
   %spec.select5.i = call i32 @llvm.smax.i32(i32 %180, i32 -127)
   %.06.i = call i32 @llvm.smin.i32(i32 %spec.select5.i, i32 127)
@@ -6404,7 +6404,7 @@ define internal void @_ZNK4ncnn20ConvolutionDepthWise12forward_int8ERKNS_3MatERS
   ]
 
 155:                                              ; preds = %153
-  %156 = call fast float @llvm.maxnum.f32(float %.072, float 0.000000e+00)
+  %156 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.072, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 157:                                              ; preds = %153
@@ -6440,7 +6440,7 @@ define internal void @_ZNK4ncnn20ConvolutionDepthWise12forward_int8ERKNS_3MatERS
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 178:                                              ; preds = %153
-  %179 = call fast float @llvm.exp.f32(float %.072)
+  %179 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.072)
   %180 = fadd fast float %179, 1.000000e+00
   %181 = call fast float @llvm.log.f32(float %180)
   %182 = call fast float @llvm.tanh.f32(float %181)
@@ -6480,7 +6480,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %196, %192, %178, %1
   %204 = getelementptr inbounds nuw float, ptr %203, i64 %65
   %205 = load float, ptr %204, align 4, !tbaa !61
   %206 = fmul fast float %205, %.1123
-  %207 = call fast noundef float @llvm.round.f32(float %206)
+  %207 = call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %206)
   %208 = fptosi float %207 to i32
   %spec.select5.i = call i32 @llvm.smax.i32(i32 %208, i32 -127)
   %.06.i = call i32 @llvm.smin.i32(i32 %spec.select5.i, i32 127)

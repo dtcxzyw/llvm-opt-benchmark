@@ -206,13 +206,13 @@ define internal void @_ZNK4ncnn8SELU_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %.04284 = phi ptr [ %101, %.lr.ph ], [ %56, %.noexc ]
   %.04383 = phi i32 [ %102, %.lr.ph ], [ 0, %.noexc ]
   %64 = load <4 x float>, ptr %.04284, align 1, !tbaa !50
-  %65 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %64)
-  %66 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> %64)
-  %67 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %66, <4 x float> splat (float 0x40561814A0000000))
-  %68 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %67, <4 x float> splat (float 0xC0561814A0000000))
+  %65 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %64)
+  %66 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %64)
+  %67 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %66, <4 x float> splat (float 0x40561814A0000000))
+  %68 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %67, <4 x float> splat (float 0xC0561814A0000000))
   %69 = fmul fast <4 x float> %68, splat (float 0x3FF7154760000000)
   %70 = fadd fast <4 x float> %69, splat (float 5.000000e-01)
-  %71 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %70)
+  %71 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %70)
   %72 = sitofp <4 x i32> %71 to <4 x float>
   %73 = fcmp fast olt <4 x float> %70, %72
   %74 = select <4 x i1> %73, <4 x float> splat (float 1.000000e+00), <4 x float> zeroinitializer
@@ -233,7 +233,7 @@ define internal void @_ZNK4ncnn8SELU_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %89 = fmul fast <4 x float> %78, %88
   %90 = fadd fast <4 x float> %77, splat (float 1.000000e+00)
   %91 = fadd fast <4 x float> %90, %89
-  %92 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %75)
+  %92 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %75)
   %93 = shl <4 x i32> %92, splat (i32 23)
   %94 = add <4 x i32> %93, splat (i32 1065353216)
   %95 = bitcast <4 x i32> %94 to <4 x float>

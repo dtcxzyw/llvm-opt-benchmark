@@ -191,11 +191,11 @@ define internal void @_ZNK4ncnn11Sigmoid_x8615forward_inplaceERNS_3MatERKNS_6Opt
   %.03062 = phi i32 [ %84, %.lr.ph ], [ 0, %.noexc ]
   %49 = load <4 x float>, ptr %.02963, align 16, !tbaa !47
   %50 = fneg fast <4 x float> %49
-  %51 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %50, <4 x float> splat (float 0x40561814A0000000))
-  %52 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %51, <4 x float> splat (float 0xC0561814A0000000))
+  %51 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %50, <4 x float> splat (float 0x40561814A0000000))
+  %52 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %51, <4 x float> splat (float 0xC0561814A0000000))
   %53 = fmul fast <4 x float> %52, splat (float 0x3FF7154760000000)
   %54 = fadd fast <4 x float> %53, splat (float 5.000000e-01)
-  %55 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %54)
+  %55 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %54)
   %56 = sitofp <4 x i32> %55 to <4 x float>
   %57 = fcmp fast olt <4 x float> %54, %56
   %58 = select <4 x i1> %57, <4 x float> splat (float 1.000000e+00), <4 x float> zeroinitializer
@@ -216,7 +216,7 @@ define internal void @_ZNK4ncnn11Sigmoid_x8615forward_inplaceERNS_3MatERKNS_6Opt
   %73 = fmul fast <4 x float> %62, %72
   %74 = fadd fast <4 x float> %61, splat (float 1.000000e+00)
   %75 = fadd fast <4 x float> %74, %73
-  %76 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %59)
+  %76 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %59)
   %77 = shl <4 x i32> %76, splat (i32 23)
   %78 = add <4 x i32> %77, splat (i32 1065353216)
   %79 = bitcast <4 x i32> %78 to <4 x float>

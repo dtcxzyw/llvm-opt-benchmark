@@ -1075,7 +1075,7 @@ define internal void @_ZNK4ncnn11LRN_x86_avx15forward_inplaceERNS_3MatERKNS_6Opt
   %102 = fmul fast <8 x float> %101, %55
   %103 = fadd fast <8 x float> %102, %52
   %104 = fcmp fast ole <8 x float> %103, zeroinitializer
-  %105 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %103, <8 x float> splat (float 0x3810000000000000))
+  %105 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %103, <8 x float> splat (float 0x3810000000000000))
   %106 = bitcast <8 x float> %105 to <8 x i32>
   %107 = bitcast <8 x float> %105 to <8 x i32>
   %108 = and <8 x i32> %107, splat (i32 -2139095041)
@@ -1114,8 +1114,8 @@ define internal void @_ZNK4ncnn11LRN_x86_avx15forward_inplaceERNS_3MatERKNS_6Opt
   %136 = fadd fast <8 x float> %135, %reass.mul233
   %137 = select <8 x i1> %104, <8 x float> splat (float 0xFFFFFFFFE0000000), <8 x float> %136
   %138 = fmul fast <8 x float> %137, %59
-  %139 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %138, <8 x float> splat (float 0x40561814A0000000))
-  %140 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %139, <8 x float> splat (float 0xC0561814A0000000))
+  %139 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %138, <8 x float> splat (float 0x40561814A0000000))
+  %140 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %139, <8 x float> splat (float 0xC0561814A0000000))
   %141 = fmul fast <8 x float> %140, splat (float 0x3FF7154760000000)
   %142 = fadd fast <8 x float> %141, splat (float 5.000000e-01)
   %143 = call fast <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %142, i32 1)
@@ -1138,7 +1138,7 @@ define internal void @_ZNK4ncnn11LRN_x86_avx15forward_inplaceERNS_3MatERKNS_6Opt
   %160 = fmul fast <8 x float> %149, %159
   %161 = fadd fast <8 x float> %148, splat (float 1.000000e+00)
   %162 = fadd fast <8 x float> %161, %160
-  %163 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %146)
+  %163 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> nofpclass(nan inf) %146)
   %164 = shl <8 x i32> %163, splat (i32 23)
   %165 = add <8 x i32> %164, splat (i32 1065353216)
   %166 = bitcast <8 x i32> %165 to <8 x float>
