@@ -242,73 +242,73 @@ define linkonce_odr void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 deref
   %11 = sub i64 0, %10
   %12 = and i64 %8, %11
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %._crit_edge, label %_ZNK13xlate_flags_t17is_special_accessEv.exit.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit.lr.ph: ; preds = %2
+.lr.ph:                                           ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 41104
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32912
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %_ZNK13xlate_flags_t17is_special_accessEv.exit
+  br label %19
 
 ._crit_edge:                                      ; preds = %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
   ret void
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.lr.ph, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
-  %.029 = phi i64 [ 0, %_ZNK13xlate_flags_t17is_special_accessEv.exit.lr.ph ], [ %38, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %19 = add i64 %.029, %12
+19:                                               ; preds = %.lr.ph, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
+  %.029 = phi i64 [ 0, %.lr.ph ], [ %39, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %20 = add i64 %.029, %12
   store i8 0, ptr %13, align 8, !tbaa !167
-  call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbmSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 1, i64 noundef %19, i1 noundef zeroext false, i64 noundef %8, ptr noundef nonnull byval(%"class.std::optional") align 8 %6)
-  %20 = lshr i64 %19, 12
-  %21 = and i64 %20, 255
-  %22 = getelementptr inbounds nuw [256 x i64], ptr %14, i64 0, i64 %21
-  %23 = load i64, ptr %22, align 8, !tbaa !3
-  %24 = icmp eq i64 %23, %20
-  br i1 %24, label %25, label %29, !prof !169
+  call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbmSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 1, i64 noundef %20, i1 noundef zeroext false, i64 noundef %8, ptr noundef nonnull byval(%"class.std::optional") align 8 %6)
+  %21 = lshr i64 %20, 12
+  %22 = and i64 %21, 255
+  %23 = getelementptr inbounds nuw [256 x i64], ptr %14, i64 0, i64 %22
+  %24 = load i64, ptr %23, align 8, !tbaa !3
+  %25 = icmp eq i64 %24, %21
+  br i1 %25, label %26, label %30, !prof !169
 
-25:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit
-  %26 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %15, i64 0, i64 %21
-  %27 = load ptr, ptr %26, align 8, !tbaa !170
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %19
-  store i8 0, ptr %28, align 1
-  br label %30
+26:                                               ; preds = %19
+  %27 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %15, i64 0, i64 %22
+  %28 = load ptr, ptr %27, align 8, !tbaa !170
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %20
+  store i8 0, ptr %29, align 1
+  br label %31
 
-29:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit
+30:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
   store i8 0, ptr %3, align 1
-  call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %19, i64 noundef 1, ptr noundef nonnull %3, i8 0, i1 noundef zeroext true, i1 noundef zeroext false)
+  call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %20, i64 noundef 1, ptr noundef nonnull %3, i8 0, i1 noundef zeroext true, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
-  br label %30
+  br label %31
 
-30:                                               ; preds = %29, %25
-  %31 = load ptr, ptr %16, align 8, !tbaa !172
-  %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, label %32
+31:                                               ; preds = %30, %26
+  %32 = load ptr, ptr %16, align 8, !tbaa !172
+  %.not.i = icmp eq ptr %32, null
+  br i1 %.not.i, label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, label %33
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 3969
-  %34 = load i8, ptr %33, align 1, !tbaa !173, !range !94, !noundef !174
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, !prof !7
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 3969
+  %35 = load i8, ptr %34, align 1, !tbaa !173, !range !94, !noundef !174
+  %36 = trunc nuw i8 %35 to i1
+  br i1 %36, label %37, label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, !prof !7
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 3912
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 3912
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
   store i8 1, ptr %4, align 8, !tbaa !175
   store i64 0, ptr %17, align 8, !tbaa !177
-  store i64 %19, ptr %18, align 8, !tbaa !179
-  call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  store i64 %20, ptr %18, align 8, !tbaa !179
+  call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
-_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %30, %32, %36
-  %38 = add nuw i64 %.029, 1
-  %39 = load i64, ptr %9, align 8, !tbaa !148
-  %40 = icmp ult i64 %38, %39
-  br i1 %40, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %._crit_edge, !llvm.loop !181
+_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %31, %33, %37
+  %39 = add nuw i64 %.029, 1
+  %40 = load i64, ptr %9, align 8, !tbaa !148
+  %41 = icmp ult i64 %39, %40
+  br i1 %41, label %19, label %._crit_edge, !llvm.loop !181
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

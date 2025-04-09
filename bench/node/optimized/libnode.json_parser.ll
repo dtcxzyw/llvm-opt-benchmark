@@ -342,10 +342,8 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 if.end:                                           ; preds = %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
   %call33 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i204.sroa.0.0, ptr nonnull %retval.i171.sroa.0.0, ptr nonnull %call11.i) #8
-  %tobool.i228 = trunc i16 %call33 to i1
-  %5 = and i16 %call33, 256
-  %.not23 = icmp ne i16 %5, 0
-  %brmerge.not = and i1 %.not23, %tobool.i228
+  %5 = and i16 %call33, 257
+  %brmerge.not = icmp eq i16 %5, 257
   %.mux22 = and i16 %call33, 1
   br i1 %brmerge.not, label %if.end40, label %cleanup
 

@@ -504,10 +504,8 @@ _ZNK4node10BaseObject6objectEv.exit:              ; preds = %if.end.i.i.i, %_ZN4
   %handle_onclose_symbol_.i.i = getelementptr inbounds nuw i8, ptr %21, i64 192
   %22 = load ptr, ptr %handle_onclose_symbol_.i.i, align 8
   %call61 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i12, ptr %22) #15
-  %tobool.i = trunc i16 %call61 to i1
-  %23 = and i16 %call61, 256
-  %tobool2.i = icmp ne i16 %23, 0
-  %24 = and i1 %tobool2.i, %tobool.i
+  %23 = and i16 %call61, 257
+  %24 = icmp eq i16 %23, 257
   br i1 %24, label %if.then64, label %_ZN4node17BaseObjectPtrImplINS_10HandleWrapELb0EED2Ev.exit
 
 if.then64:                                        ; preds = %_ZNK4node10BaseObject6objectEv.exit

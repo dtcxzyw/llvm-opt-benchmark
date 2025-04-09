@@ -12552,13 +12552,13 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %62
 
-.loopexit:                                        ; preds = %80, %83, %114, %135, %27, %72, %21
-  %.0.shrunk = phi i1 [ %26, %21 ], [ %77, %72 ], [ true, %27 ], [ true, %135 ], [ true, %114 ], [ true, %83 ], [ true, %80 ]
+.loopexit:                                        ; preds = %80, %83, %111, %132, %27, %72, %21
+  %.0.shrunk = phi i1 [ %26, %21 ], [ %77, %72 ], [ true, %27 ], [ true, %132 ], [ true, %111 ], [ true, %83 ], [ true, %80 ]
   ret i1 %.0.shrunk
 
-62:                                               ; preds = %.preheader, %114
-  %.sroa.9.0 = phi i64 [ %79, %114 ], [ 0, %.preheader ]
-  %.sroa.5.0 = phi i64 [ %63, %114 ], [ 0, %.preheader ]
+62:                                               ; preds = %.preheader, %111
+  %.sroa.9.0 = phi i64 [ %79, %111 ], [ 0, %.preheader ]
+  %.sroa.5.0 = phi i64 [ %63, %111 ], [ 0, %.preheader ]
   %63 = add i64 %.sroa.5.0, 1
   %64 = icmp eq i64 %63, %34
   br i1 %64, label %"_ZN104_$LT$regex_automata..util..alphabet..ByteClassIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5d657b7c527ad2eE.exit.i", label %65
@@ -12654,22 +12654,19 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
   %.not.i.i = icmp eq i32 %..i2.i.i.i, 0
   %spec.select.i.i = shl nuw nsw i32 %..i2.i.i.i, 24
   %spec.select15.i.i = select i1 %.not.i.i, i32 2, i32 16777217
-  %.sroa.057.0.extract.trunc.us.i = trunc i32 %spec.select15.i.i to i8
-  %86 = icmp eq i8 %.sroa.057.0.extract.trunc.us.i, 2
-  %trunc.i69.us.i = trunc i32 %spec.select15.i.i to i1
-  %not.trunc.i69.us.i = xor i1 %trunc.i69.us.i, true
-  %..i2.i.us.i = and i32 %spec.select15.i.i, 1
-  %87 = icmp ne i32 %..i2.i.us.i, 0
-  %.sroa.071.4.insert.ext115 = zext nneg i32 %spec.select15.i.i to i64
-  %.sroa.071.4.insert.shift116 = shl nuw nsw i64 %.sroa.071.4.insert.ext115, 32
+  %86 = trunc i32 %spec.select15.i.i to i8
+  %87 = icmp eq i8 %86, 2
+  %.mask = and i32 %spec.select15.i.i, 3
+  %.sroa.071.0.insert.ext81 = zext nneg i32 %.mask to i64
+  %.sroa.071.1.insert.insert98 = mul nuw nsw i64 %.sroa.071.0.insert.ext81, 4294967297
+  %.sroa.071.5.insert.insert124 = add nuw nsw i64 %.sroa.071.1.insert.insert98, 72057594054705152
   %.sroa.458.0.extract.shift.i = shl nuw nsw i32 %..i2.i.i.i, 16
-  %88 = icmp eq i8 %.sroa.057.0.extract.trunc.us.i, 2
-  %invariant.op = or i64 %.sroa.071.4.insert.shift116, 72057594037927936
+  %88 = icmp eq i8 %86, 2
   br label %89
 
-89:                                               ; preds = %134, %85
-  %.sroa.071.1 = phi i64 [ 2, %85 ], [ %.sroa.071.6, %134 ]
-  %.sroa.26.0 = phi i64 [ 0, %85 ], [ %.sroa.26.7, %134 ]
+89:                                               ; preds = %131, %85
+  %.sroa.071.1 = phi i64 [ 2, %85 ], [ %.sroa.071.6, %131 ]
+  %.sroa.26.0 = phi i64 [ 0, %85 ], [ %.sroa.26.7, %131 ]
   %.sroa.071.0.extract.trunc = trunc i64 %.sroa.071.1 to i8
   %.sroa.071.1.extract.shift94 = lshr i64 %.sroa.071.1, 8
   %.sroa.071.1.extract.trunc95 = trunc i64 %.sroa.071.1.extract.shift94 to i24
@@ -12677,143 +12674,124 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
 
 .split.us.i.us.preheader.i:                       ; preds = %89
   %90 = icmp ugt i64 %.sroa.26.0, 256
-  %brmerge140 = or i1 %86, %90
-  br i1 %brmerge140, label %.split85.us.i.loopexit, label %.lr.ph.split.us
+  %brmerge139 = or i1 %87, %90
+  br i1 %brmerge139, label %.split85.us.i.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.split.us.i.us.preheader.i
   %91 = icmp eq i8 %.sroa.071.0.extract.trunc, 2
-  br i1 %91, label %.split85.us.i.loopexit.thread, label %92
+  br i1 %91, label %.split85.us.i, label %.split87.us.i.loopexit
 
-92:                                               ; preds = %.lr.ph.split.us
-  %.sroa.071.4.extract.shift107.us = lshr i64 %.sroa.071.1, 32
-  %.sroa.071.4.extract.trunc108.us = trunc nuw i64 %.sroa.071.4.extract.shift107.us to i32
-  %trunc.i.us.i.us = trunc i64 %.sroa.071.4.extract.shift107.us to i1
-  %.sroa.5.0.extract.shift.i.us.i.us = lshr i32 %.sroa.071.4.extract.trunc108.us, 16
-  %.sroa.4.0.extract.shift.i.us.i.us = lshr i32 %.sroa.071.4.extract.trunc108.us, 8
-  %93 = and i32 %.sroa.4.0.extract.shift.i.us.i.us, 255
-  %.0.in.i.us.i.us = select i1 %trunc.i.us.i.us, i32 %.sroa.5.0.extract.shift.i.us.i.us, i32 %93
-  %.not.us95.i.us = icmp ne i32 %.0.in.i.us.i.us, 255
-  %.not.us.i.us = select i1 %not.trunc.i69.us.i, i1 true, i1 %.not.us95.i.us
-  %or.cond.us.i.us = or i1 %87, %.not.us.i.us
-  br i1 %or.cond.us.i.us, label %.split87.us.i, label %.split85.us.i.loopexit.thread
-
-.split85.us.i.loopexit.thread:                    ; preds = %.lr.ph.split.us, %92
-  %storemerge107.i.us = phi i64 [ %.sroa.071.1.extract.shift94, %92 ], [ 65536, %.lr.ph.split.us ]
-  %94 = phi i8 [ %.sroa.071.0.extract.trunc, %92 ], [ %.sroa.057.0.extract.trunc.us.i, %.lr.ph.split.us ]
-  %.sroa.071.0.insert.ext81.us = zext i8 %94 to i64
-  %.sroa.071.1.insert.ext97.us = shl nuw i64 %storemerge107.i.us, 8
-  %.sroa.071.1.insert.shift98.us = and i64 %.sroa.071.1.insert.ext97.us, 4294967040
-  %.sroa.071.1.insert.insert100.us = or disjoint i64 %.sroa.071.1.insert.shift98.us, %.sroa.071.0.insert.ext81.us
-  %.sroa.071.5.insert.insert126.us.reass = or disjoint i64 %.sroa.071.1.insert.insert100.us, %invariant.op
-  br label %.split85.us.i
-
-.split.i.preheader.i:                             ; preds = %89, %108
-  %.sroa.071.2 = phi i64 [ %.sroa.071.5.insert.insert, %108 ], [ %.sroa.071.1, %89 ]
-  %.sroa.26.1 = phi i64 [ %.sroa.26.4198, %108 ], [ %.sroa.26.0, %89 ]
-  %storemerge127.i = phi i24 [ %storemerge.i, %108 ], [ %.sroa.071.1.extract.trunc95, %89 ]
-  %95 = phi i8 [ %109, %108 ], [ %.sroa.071.0.extract.trunc, %89 ]
+.split.i.preheader.i:                             ; preds = %89, %105
+  %.sroa.071.2 = phi i64 [ %.sroa.071.5.insert.insert, %105 ], [ %.sroa.071.1, %89 ]
+  %.sroa.26.1 = phi i64 [ %.sroa.26.4170, %105 ], [ %.sroa.26.0, %89 ]
+  %storemerge124.i = phi i24 [ %storemerge.i, %105 ], [ %.sroa.071.1.extract.trunc95, %89 ]
+  %92 = phi i8 [ %106, %105 ], [ %.sroa.071.0.extract.trunc, %89 ]
   br label %.split.i.i
 
-.split.i.i:                                       ; preds = %98, %.split.i.preheader.i
-  %.sroa.26.2 = phi i64 [ %.sroa.26.1, %.split.i.preheader.i ], [ %99, %98 ]
-  %96 = icmp ult i64 %.sroa.26.2, 256
-  br i1 %96, label %98, label %.split21.us.i.loopexit.i
+.split.i.i:                                       ; preds = %95, %.split.i.preheader.i
+  %.sroa.26.2 = phi i64 [ %.sroa.26.1, %.split.i.preheader.i ], [ %96, %95 ]
+  %93 = icmp ult i64 %.sroa.26.2, 256
+  br i1 %93, label %95, label %.split21.us.i.loopexit.i
 
 .split21.us.i.loopexit.i:                         ; preds = %.split.i.i
-  %97 = icmp ugt i64 %.sroa.26.1, 256
-  %brmerge = or i1 %97, %88
-  br i1 %brmerge, label %.split85.us.i.loopexit216, label %102
+  %94 = icmp ugt i64 %.sroa.26.1, 256
+  %brmerge = or i1 %94, %88
+  br i1 %brmerge, label %.split85.us.i.loopexit188, label %99
 
-98:                                               ; preds = %.split.i.i
-  %99 = add nuw nsw i64 %.sroa.26.2, 1
-  %100 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %.sroa.26.2
-  %101 = load i8, ptr %100, align 1, !noalias !3376, !noundef !9
-  %.not25.i.i = icmp eq i8 %101, %.sroa.4.0.extract.trunc.i.i.i.i
+95:                                               ; preds = %.split.i.i
+  %96 = add nuw nsw i64 %.sroa.26.2, 1
+  %97 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %.sroa.26.2
+  %98 = load i8, ptr %97, align 1, !noalias !3376, !noundef !9
+  %.not25.i.i = icmp eq i8 %98, %.sroa.4.0.extract.trunc.i.i.i.i
   br i1 %.not25.i.i, label %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread", label %.split.i.i
 
-"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread": ; preds = %98
+"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread": ; preds = %95
   %.sroa.4.0.insert.ext.i.i.i63 = trunc nuw nsw i64 %.sroa.26.2 to i32
   %.sroa.4.0.insert.shift.i.i.i64 = shl nuw nsw i32 %.sroa.4.0.insert.ext.i.i.i63, 8
-  br label %102
+  br label %99
 
 .split85.us.i.loopexit:                           ; preds = %.split.us.i.us.preheader.i
   %spec.select = select i1 %90, i64 %.sroa.26.0, i64 257
   br label %.split85.us.i
 
-.split85.us.i.loopexit216:                        ; preds = %.split21.us.i.loopexit.i
-  %.sroa.26.1.mux = select i1 %97, i64 %.sroa.26.1, i64 257
+.split85.us.i.loopexit188:                        ; preds = %.split21.us.i.loopexit.i
+  %.sroa.26.1.mux = select i1 %94, i64 %.sroa.26.1, i64 257
   br label %.split85.us.i
 
-.split85.us.i:                                    ; preds = %.split85.us.i.loopexit216, %.split85.us.i.loopexit, %.split85.us.i.loopexit.thread
-  %.sroa.071.3 = phi i64 [ %.sroa.071.5.insert.insert126.us.reass, %.split85.us.i.loopexit.thread ], [ %.sroa.071.1, %.split85.us.i.loopexit ], [ %.sroa.071.2, %.split85.us.i.loopexit216 ]
-  %.sroa.26.3 = phi i64 [ 257, %.split85.us.i.loopexit.thread ], [ %spec.select, %.split85.us.i.loopexit ], [ %.sroa.26.1.mux, %.split85.us.i.loopexit216 ]
+.split85.us.i:                                    ; preds = %.split85.us.i.loopexit188, %.split85.us.i.loopexit, %.lr.ph.split.us
+  %.sroa.071.3 = phi i64 [ %.sroa.071.5.insert.insert124, %.lr.ph.split.us ], [ %.sroa.071.1, %.split85.us.i.loopexit ], [ %.sroa.071.2, %.split85.us.i.loopexit188 ]
+  %.sroa.26.3 = phi i64 [ 257, %.lr.ph.split.us ], [ %spec.select, %.split85.us.i.loopexit ], [ %.sroa.26.1.mux, %.split85.us.i.loopexit188 ]
   %.sroa.071.0.insert.mask = and i64 %.sroa.071.3, -256
   %.sroa.071.0.insert.insert = or disjoint i64 %.sroa.071.0.insert.mask, 2
   br label %"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h937e35ff2fad6632E.exit"
 
-102:                                              ; preds = %.split21.us.i.loopexit.i, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread"
-  %.sroa.458.0.extract.shift.i201 = phi i32 [ %.sroa.4.0.insert.ext.i.i.i63, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread" ], [ %.sroa.458.0.extract.shift.i, %.split21.us.i.loopexit.i ]
-  %.sroa.0.0.i.i62200 = phi i32 [ %.sroa.4.0.insert.shift.i.i.i64, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread" ], [ %spec.select15.i.i, %.split21.us.i.loopexit.i ]
-  %.sroa.4.sroa.0.0.i.i61199 = phi i32 [ %.sroa.4.0.insert.shift.i.i.i64, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread" ], [ %spec.select.i.i, %.split21.us.i.loopexit.i ]
-  %.sroa.26.4198 = phi i64 [ %99, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread" ], [ 257, %.split21.us.i.loopexit.i ]
-  %.sroa.057.0.extract.trunc.i.pre-phi197 = phi i8 [ 0, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread" ], [ %.sroa.057.0.extract.trunc.us.i, %.split21.us.i.loopexit.i ]
-  %.sroa.458.0.extract.trunc.i = trunc nuw nsw i32 %.sroa.458.0.extract.shift.i201 to i24
-  %103 = icmp eq i8 %95, 2
-  br i1 %103, label %108, label %104
+99:                                               ; preds = %.split21.us.i.loopexit.i, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread"
+  %.sroa.458.0.extract.shift.i173 = phi i32 [ %.sroa.4.0.insert.ext.i.i.i63, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread" ], [ %.sroa.458.0.extract.shift.i, %.split21.us.i.loopexit.i ]
+  %.sroa.0.0.i.i62172 = phi i32 [ %.sroa.4.0.insert.shift.i.i.i64, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread" ], [ %spec.select15.i.i, %.split21.us.i.loopexit.i ]
+  %.sroa.4.sroa.0.0.i.i61171 = phi i32 [ %.sroa.4.0.insert.shift.i.i.i64, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread" ], [ %spec.select.i.i, %.split21.us.i.loopexit.i ]
+  %.sroa.26.4170 = phi i64 [ %96, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread" ], [ 257, %.split21.us.i.loopexit.i ]
+  %.sroa.057.0.extract.trunc.i.pre-phi169 = phi i8 [ 0, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread" ], [ %86, %.split21.us.i.loopexit.i ]
+  %.sroa.458.0.extract.trunc.i = trunc nuw nsw i32 %.sroa.458.0.extract.shift.i173 to i24
+  %100 = icmp eq i8 %92, 2
+  br i1 %100, label %105, label %101
 
-104:                                              ; preds = %102
+101:                                              ; preds = %99
   %.sroa.071.4.extract.shift = lshr i64 %.sroa.071.2, 32
   %.sroa.071.4.extract.trunc = trunc nuw i64 %.sroa.071.4.extract.shift to i32
   %trunc.i.i = trunc i64 %.sroa.071.4.extract.shift to i1
   %.sroa.5.0.extract.shift.i.i = lshr i32 %.sroa.071.4.extract.trunc, 16
   %.sroa.4.0.extract.shift.i.i = lshr i32 %.sroa.071.4.extract.trunc, 8
-  %105 = and i32 %.sroa.4.0.extract.shift.i.i, 255
-  %.0.in.i.i = select i1 %trunc.i.i, i32 %.sroa.5.0.extract.shift.i.i, i32 %105
+  %102 = and i32 %.sroa.4.0.extract.shift.i.i, 255
+  %.0.in.i.i = select i1 %trunc.i.i, i32 %.sroa.5.0.extract.shift.i.i, i32 %102
   %narrow.i = add nuw nsw i32 %.0.in.i.i, 1
-  %trunc.i69.i = trunc i32 %.sroa.0.0.i.i62200 to i1
-  %.sroa.5.0.extract.shift.i70.i = lshr i32 %.sroa.4.sroa.0.0.i.i61199, 16
-  %106 = and i32 %.sroa.458.0.extract.shift.i201, 255
-  %.0.in.i72.i = select i1 %trunc.i69.i, i32 %.sroa.5.0.extract.shift.i70.i, i32 %106
+  %trunc.i69.i = trunc i32 %.sroa.0.0.i.i62172 to i1
+  %.sroa.5.0.extract.shift.i70.i = lshr i32 %.sroa.4.sroa.0.0.i.i61171, 16
+  %103 = and i32 %.sroa.458.0.extract.shift.i173, 255
+  %.0.in.i72.i = select i1 %trunc.i69.i, i32 %.sroa.5.0.extract.shift.i70.i, i32 %103
   %.not.i = icmp ne i32 %narrow.i, %.0.in.i72.i
-  %..i2.i.i = and i32 %.sroa.0.0.i.i62200, 1
-  %107 = icmp ne i32 %..i2.i.i, 0
-  %or.cond.i = or i1 %107, %.not.i
-  br i1 %or.cond.i, label %.split87.us.i.loopexit, label %108
+  %..i2.i.i = and i32 %.sroa.0.0.i.i62172, 1
+  %104 = icmp ne i32 %..i2.i.i, 0
+  %or.cond.i = or i1 %104, %.not.i
+  br i1 %or.cond.i, label %.split87.us.i.loopexit150, label %105
 
-108:                                              ; preds = %104, %102
-  %storemerge.i = phi i24 [ %.sroa.458.0.extract.trunc.i, %102 ], [ %storemerge127.i, %104 ]
-  %109 = phi i8 [ %.sroa.057.0.extract.trunc.i.pre-phi197, %102 ], [ %95, %104 ]
-  %.sroa.071.0.insert.ext = zext i8 %109 to i64
+105:                                              ; preds = %101, %99
+  %storemerge.i = phi i24 [ %.sroa.458.0.extract.trunc.i, %99 ], [ %storemerge124.i, %101 ]
+  %106 = phi i8 [ %.sroa.057.0.extract.trunc.i.pre-phi169, %99 ], [ %92, %101 ]
+  %.sroa.071.0.insert.ext = zext i8 %106 to i64
   %.sroa.071.1.insert.ext = zext i24 %storemerge.i to i64
   %.sroa.071.1.insert.shift = shl nuw nsw i64 %.sroa.071.1.insert.ext, 8
   %.sroa.071.1.insert.insert = or disjoint i64 %.sroa.071.1.insert.shift, %.sroa.071.0.insert.ext
-  %.sroa.057.0.extract.trunc.i.mask = and i32 %.sroa.0.0.i.i62200, 3
+  %.sroa.057.0.extract.trunc.i.mask = and i32 %.sroa.0.0.i.i62172, 3
   %.sroa.071.4.insert.ext = zext nneg i32 %.sroa.057.0.extract.trunc.i.mask to i64
   %.sroa.071.4.insert.shift = shl nuw nsw i64 %.sroa.071.4.insert.ext, 32
   %.sroa.071.4.insert.insert = or disjoint i64 %.sroa.071.1.insert.insert, %.sroa.071.4.insert.shift
-  %.sroa.071.5.insert.ext = zext nneg i32 %.sroa.458.0.extract.shift.i201 to i64
+  %.sroa.071.5.insert.ext = zext nneg i32 %.sroa.458.0.extract.shift.i173 to i64
   %.sroa.071.5.insert.shift = shl nuw nsw i64 %.sroa.071.5.insert.ext, 40
   %.sroa.071.5.insert.insert = or disjoint i64 %.sroa.071.4.insert.insert, %.sroa.071.5.insert.shift
   br label %.split.i.preheader.i
 
-.split87.us.i.loopexit:                           ; preds = %104
-  %110 = zext nneg i32 %.sroa.458.0.extract.shift.i201 to i64
+.split87.us.i.loopexit:                           ; preds = %.lr.ph.split.us
+  %.sroa.071.4.extract.shift105.le = lshr i64 %.sroa.071.1, 32
   br label %.split87.us.i
 
-.split87.us.i:                                    ; preds = %.split87.us.i.loopexit, %92
-  %.sroa.26.5 = phi i64 [ 257, %92 ], [ %.sroa.26.4198, %.split87.us.i.loopexit ]
-  %.us-phi.i = phi i8 [ %.sroa.071.0.extract.trunc, %92 ], [ %95, %.split87.us.i.loopexit ]
-  %.us-phi89.i = phi i24 [ %.sroa.071.1.extract.trunc95, %92 ], [ %storemerge127.i, %.split87.us.i.loopexit ]
-  %.us-phi91.i = phi i64 [ %.sroa.071.4.extract.shift107.us, %92 ], [ %.sroa.071.4.extract.shift, %.split87.us.i.loopexit ]
-  %.us-phi92.i = phi i8 [ %.sroa.057.0.extract.trunc.us.i, %92 ], [ %.sroa.057.0.extract.trunc.i.pre-phi197, %.split87.us.i.loopexit ]
-  %.us-phi93.i = phi i64 [ 65536, %92 ], [ %110, %.split87.us.i.loopexit ]
+.split87.us.i.loopexit150:                        ; preds = %101
+  %107 = zext nneg i32 %.sroa.458.0.extract.shift.i173 to i64
+  br label %.split87.us.i
+
+.split87.us.i:                                    ; preds = %.split87.us.i.loopexit150, %.split87.us.i.loopexit
+  %.sroa.26.5 = phi i64 [ 257, %.split87.us.i.loopexit ], [ %.sroa.26.4170, %.split87.us.i.loopexit150 ]
+  %.us-phi.i = phi i8 [ %.sroa.071.0.extract.trunc, %.split87.us.i.loopexit ], [ %92, %.split87.us.i.loopexit150 ]
+  %.us-phi89.i = phi i24 [ %.sroa.071.1.extract.trunc95, %.split87.us.i.loopexit ], [ %storemerge124.i, %.split87.us.i.loopexit150 ]
+  %.us-phi91.i = phi i64 [ %.sroa.071.4.extract.shift105.le, %.split87.us.i.loopexit ], [ %.sroa.071.4.extract.shift, %.split87.us.i.loopexit150 ]
+  %.us-phi92.i = phi i8 [ %86, %.split87.us.i.loopexit ], [ %.sroa.057.0.extract.trunc.i.pre-phi169, %.split87.us.i.loopexit150 ]
+  %.us-phi93.i = phi i64 [ 65536, %.split87.us.i.loopexit ], [ %107, %.split87.us.i.loopexit150 ]
   %.sroa.071.0.insert.ext77 = zext i8 %.us-phi92.i to i64
   %.sroa.071.1.insert.shift90 = shl nuw nsw i64 %.us-phi93.i, 8
-  %.sroa.071.4.insert.shift111 = shl nuw nsw i64 %.sroa.071.0.insert.ext77, 32
-  %111 = or disjoint i64 %.sroa.071.1.insert.shift90, %.sroa.071.4.insert.shift111
-  %.sroa.071.5.insert.shift121 = shl nuw nsw i64 %.us-phi93.i, 40
-  %112 = or disjoint i64 %111, %.sroa.071.5.insert.shift121
-  %.sroa.071.5.insert.insert123 = or disjoint i64 %112, %.sroa.071.0.insert.ext77
+  %.sroa.071.4.insert.shift109 = shl nuw nsw i64 %.sroa.071.0.insert.ext77, 32
+  %108 = or disjoint i64 %.sroa.071.1.insert.shift90, %.sroa.071.4.insert.shift109
+  %.sroa.071.5.insert.shift119 = shl nuw nsw i64 %.us-phi93.i, 40
+  %109 = or disjoint i64 %108, %.sroa.071.5.insert.shift119
+  %.sroa.071.5.insert.insert121 = or disjoint i64 %109, %.sroa.071.0.insert.ext77
   %.sroa.542.0.insert.shift.i = shl nuw i64 %.us-phi91.i, 32
   %.sroa.441.0.insert.ext.i = zext i24 %.us-phi89.i to i64
   %.sroa.441.0.insert.shift.i = shl nuw nsw i64 %.sroa.441.0.insert.ext.i, 8
@@ -12823,25 +12801,25 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
   br label %"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h937e35ff2fad6632E.exit"
 
 "_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h937e35ff2fad6632E.exit": ; preds = %.split85.us.i, %.split87.us.i
-  %.sroa.071.6 = phi i64 [ %.sroa.071.0.insert.insert, %.split85.us.i ], [ %.sroa.071.5.insert.insert123, %.split87.us.i ]
+  %.sroa.071.6 = phi i64 [ %.sroa.071.0.insert.insert, %.split85.us.i ], [ %.sroa.071.5.insert.insert121, %.split87.us.i ]
   %.sroa.26.7 = phi i64 [ %.sroa.26.3, %.split85.us.i ], [ %.sroa.26.5, %.split87.us.i ]
   %.sroa.0.0.i = phi i64 [ %.sroa.071.3, %.split85.us.i ], [ %.sroa.040.0.insert.insert.i, %.split87.us.i ]
   %.sroa.038.0.extract.trunc = trunc i64 %.sroa.0.0.i to i8
-  %113 = icmp eq i8 %.sroa.038.0.extract.trunc, 2
-  br i1 %113, label %114, label %116
+  %110 = icmp eq i8 %.sroa.038.0.extract.trunc, 2
+  br i1 %110, label %111, label %113
 
-114:                                              ; preds = %"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h937e35ff2fad6632E.exit"
+111:                                              ; preds = %"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h937e35ff2fad6632E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr @anon.09ebd1a1fbc06cbf73656c4d6a94c431.77, ptr %5, align 8
   store i64 1, ptr %58, align 8
   store ptr null, ptr %59, align 8
   store ptr @anon.09ebd1a1fbc06cbf73656c4d6a94c431.2, ptr %60, align 8
   store i64 0, ptr %61, align 8
-  %115 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  %112 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  br i1 %115, label %.loopexit, label %62
+  br i1 %112, label %.loopexit, label %62
 
-116:                                              ; preds = %"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h937e35ff2fad6632E.exit"
+113:                                              ; preds = %"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h937e35ff2fad6632E.exit"
   %.sroa.439.0.extract.shift = lshr i64 %.sroa.0.0.i, 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i8 %.sroa.038.0.extract.trunc, ptr %11, align 2
@@ -12851,32 +12829,32 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
   %sum.shift = lshr i64 %.sroa.0.0.i, 32
   %.sroa.7.sroa.0.3.extract.trunc = trunc nuw i64 %sum.shift to i32
   store i32 %.sroa.7.sroa.0.3.extract.trunc, ptr %10, align 4
-  %117 = trunc i64 %sum.shift to i8
-  %118 = trunc i64 %sum.shift to i1
-  %119 = icmp eq i8 %117, %.sroa.038.0.extract.trunc
-  %120 = trunc i64 %.sroa.439.0.extract.shift to i8
-  %121 = lshr i64 %.sroa.0.0.i, 40
-  %122 = trunc i64 %121 to i8
-  %123 = lshr i64 %.sroa.0.0.i, 16
-  %124 = trunc i64 %123 to i16
-  %125 = lshr i64 %.sroa.0.0.i, 48
-  %126 = trunc nuw i64 %125 to i16
-  br i1 %119, label %127, label %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread"
+  %114 = trunc i64 %sum.shift to i8
+  %115 = trunc i64 %sum.shift to i1
+  %116 = icmp eq i8 %114, %.sroa.038.0.extract.trunc
+  %117 = trunc i64 %.sroa.439.0.extract.shift to i8
+  %118 = lshr i64 %.sroa.0.0.i, 40
+  %119 = trunc i64 %118 to i8
+  %120 = lshr i64 %.sroa.0.0.i, 16
+  %121 = trunc i64 %120 to i16
+  %122 = lshr i64 %.sroa.0.0.i, 48
+  %123 = trunc nuw i64 %122 to i16
+  br i1 %116, label %124, label %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread"
 
-127:                                              ; preds = %116
+124:                                              ; preds = %113
   %trunc.i65 = trunc i64 %.sroa.0.0.i to i1
-  br i1 %trunc.i65, label %128, label %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit"
+  br i1 %trunc.i65, label %125, label %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit"
 
-128:                                              ; preds = %127
-  call void @llvm.assume(i1 %118)
-  %129 = icmp eq i16 %124, %126
-  br i1 %129, label %132, label %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread"
+125:                                              ; preds = %124
+  call void @llvm.assume(i1 %115)
+  %126 = icmp eq i16 %121, %123
+  br i1 %126, label %129, label %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread"
 
-"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit": ; preds = %127
-  %130 = icmp eq i8 %120, %122
-  br i1 %130, label %132, label %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread"
+"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit": ; preds = %124
+  %127 = icmp eq i8 %117, %119
+  br i1 %127, label %129, label %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread"
 
-"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread": ; preds = %116, %128, %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit"
+"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread": ; preds = %113, %125, %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %11, ptr %6, align 8
@@ -12888,12 +12866,12 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
   store ptr null, ptr %50, align 8, !alias.scope !3381, !noalias !3384
   store ptr %6, ptr %51, align 8, !alias.scope !3381, !noalias !3384
   store i64 2, ptr %52, align 8, !alias.scope !3381, !noalias !3384
-  %131 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
+  %128 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br i1 %131, label %135, label %134
+  br i1 %128, label %132, label %131
 
-132:                                              ; preds = %128, %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit"
+129:                                              ; preds = %125, %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %11, ptr %8, align 8
@@ -12903,17 +12881,17 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
   store ptr null, ptr %55, align 8, !alias.scope !3387, !noalias !3390
   store ptr %8, ptr %56, align 8, !alias.scope !3387, !noalias !3390
   store i64 1, ptr %57, align 8, !alias.scope !3387, !noalias !3390
-  %133 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
+  %130 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %133, label %135, label %134
+  br i1 %130, label %132, label %131
 
-134:                                              ; preds = %132, %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread"
+131:                                              ; preds = %129, %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread"
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %89
 
-135:                                              ; preds = %132, %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread"
+132:                                              ; preds = %129, %"_ZN81_$LT$regex_automata..util..alphabet..UnitKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hae6c22469019165fE.exit.thread"
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %.loopexit
@@ -13146,135 +13124,121 @@ define i64 @"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u
   br label %.split.i.preheader
 
 .split.us.i.us.preheader:                         ; preds = %1
-  %.sroa.057.0.extract.trunc.us = trunc i32 %spec.select15.i to i8
-  %trunc.i69.us = trunc i32 %spec.select15.i to i1
-  %not.trunc.i69.us = xor i1 %trunc.i69.us, true
-  %..i2.i.us = and i32 %spec.select15.i, 1
-  %6 = icmp ne i32 %..i2.i.us, 0
+  %6 = trunc i32 %spec.select15.i to i8
   %7 = icmp ult i64 %.promoted, 257
   br i1 %7, label %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.us.lr.ph", label %.split85.us
 
 "_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.us.lr.ph": ; preds = %.split.us.i.us.preheader
-  %8 = icmp eq i8 %.sroa.057.0.extract.trunc.us, 2
-  %.sroa.620.0..sroa_idx.promoted128 = load i24, ptr %.sroa.620.0..sroa_idx, align 1
+  %8 = icmp eq i8 %6, 2
+  %.sroa.620.0..sroa_idx.promoted125 = load i24, ptr %.sroa.620.0..sroa_idx, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3393)
   store i64 257, ptr %3, align 8, !alias.scope !3393
   br i1 %8, label %.split85.us, label %9
 
 9:                                                ; preds = %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.us.lr.ph"
   %10 = icmp eq i8 %.promoted81, 2
-  br i1 %10, label %.split.us.i.us, label %11
+  br i1 %10, label %.split.us.i.us, label %.split87.us.loopexit
 
-11:                                               ; preds = %9
-  %.sroa.620.sroa.5.0.copyload.us = load i32, ptr %.sroa.620.sroa.5.0..sroa.620.0..sroa_idx.sroa_idx, align 4
-  %trunc.i.us = trunc i32 %.sroa.620.sroa.5.0.copyload.us to i1
-  %.sroa.5.0.extract.shift.i.us = lshr i32 %.sroa.620.sroa.5.0.copyload.us, 16
-  %.sroa.4.0.extract.shift.i.us = lshr i32 %.sroa.620.sroa.5.0.copyload.us, 8
-  %12 = and i32 %.sroa.4.0.extract.shift.i.us, 255
-  %.0.in.i.us = select i1 %trunc.i.us, i32 %.sroa.5.0.extract.shift.i.us, i32 %12
-  %.not.us95 = icmp ne i32 %.0.in.i.us, 255
-  %.not.us = select i1 %not.trunc.i69.us, i1 true, i1 %.not.us95
-  %or.cond.us = or i1 %6, %.not.us
-  br i1 %or.cond.us, label %.split87.us, label %.split.us.i.us
-
-.split.us.i.us:                                   ; preds = %9, %11
-  %storemerge107 = phi i24 [ %.sroa.620.0..sroa_idx.promoted128, %11 ], [ 65536, %9 ]
-  %13 = phi i8 [ %.promoted81, %11 ], [ %.sroa.057.0.extract.trunc.us, %9 ]
-  store i8 %13, ptr %0, align 8
-  store i24 %storemerge107, ptr %.sroa.620.0..sroa_idx, align 1
-  store i8 %.sroa.057.0.extract.trunc.us, ptr %.sroa.620.sroa.5.0..sroa.620.0..sroa_idx.sroa_idx, align 4
+.split.us.i.us:                                   ; preds = %9
+  store i8 %6, ptr %0, align 8
+  store i24 65536, ptr %.sroa.620.0..sroa_idx, align 1
+  store i8 %6, ptr %.sroa.620.sroa.5.0..sroa.620.0..sroa_idx.sroa_idx, align 4
   store i24 65536, ptr %.sroa.652.0..sroa_idx, align 1
   br label %.split85.us
 
-.split.i.preheader:                               ; preds = %.split.i.preheader.preheader, %30
-  %storemerge127 = phi i24 [ %storemerge, %30 ], [ %.sroa.620.0..sroa_idx.promoted, %.split.i.preheader.preheader ]
-  %14 = phi i8 [ %31, %30 ], [ %.promoted81, %.split.i.preheader.preheader ]
-  %.promoted.i80 = phi i64 [ %.promoted.i77, %30 ], [ %.promoted, %.split.i.preheader.preheader ]
+.split.i.preheader:                               ; preds = %.split.i.preheader.preheader, %27
+  %storemerge124 = phi i24 [ %storemerge, %27 ], [ %.sroa.620.0..sroa_idx.promoted, %.split.i.preheader.preheader ]
+  %11 = phi i8 [ %28, %27 ], [ %.promoted81, %.split.i.preheader.preheader ]
+  %.promoted.i80 = phi i64 [ %.promoted.i77, %27 ], [ %.promoted, %.split.i.preheader.preheader ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3393)
   br label %.split.i
 
-.split.i:                                         ; preds = %.split.i.preheader, %17
-  %.promoted.i79 = phi i64 [ %18, %17 ], [ %.promoted.i80, %.split.i.preheader ]
-  %15 = icmp ult i64 %.promoted.i79, 256
-  br i1 %15, label %17, label %.split21.us.i.loopexit
+.split.i:                                         ; preds = %.split.i.preheader, %14
+  %.promoted.i79 = phi i64 [ %15, %14 ], [ %.promoted.i80, %.split.i.preheader ]
+  %12 = icmp ult i64 %.promoted.i79, 256
+  br i1 %12, label %14, label %.split21.us.i.loopexit
 
 .split21.us.i.loopexit:                           ; preds = %.split.i
-  %16 = icmp eq i64 %.promoted.i79, 256
-  br i1 %16, label %.split21.us.thread.i, label %.split85.us
+  %13 = icmp eq i64 %.promoted.i79, 256
+  br i1 %13, label %.split21.us.thread.i, label %.split85.us
 
 .split21.us.thread.i:                             ; preds = %.split21.us.i.loopexit
   store i64 257, ptr %3, align 8, !alias.scope !3393
   br label %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit"
 
-17:                                               ; preds = %.split.i
-  %18 = add nuw nsw i64 %.promoted.i79, 1
-  store i64 %18, ptr %3, align 8, !alias.scope !3393
-  %19 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %.promoted.i79
-  %20 = load i8, ptr %19, align 1, !noalias !3393, !noundef !9
-  %.not25.i = icmp eq i8 %20, %.sroa.4.0.extract.trunc.i.i.i
-  br i1 %.not25.i, label %21, label %.split.i
+14:                                               ; preds = %.split.i
+  %15 = add nuw nsw i64 %.promoted.i79, 1
+  store i64 %15, ptr %3, align 8, !alias.scope !3393
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %.promoted.i79
+  %17 = load i8, ptr %16, align 1, !noalias !3393, !noundef !9
+  %.not25.i = icmp eq i8 %17, %.sroa.4.0.extract.trunc.i.i.i
+  br i1 %.not25.i, label %18, label %.split.i
 
-21:                                               ; preds = %17
+18:                                               ; preds = %14
   %.sroa.4.0.insert.ext.i.i = trunc nuw nsw i64 %.promoted.i79 to i32
   %.sroa.4.0.insert.shift.i.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i.i, 8
   br label %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit"
 
-"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit": ; preds = %.split21.us.thread.i, %21
-  %.promoted.i77 = phi i64 [ %18, %21 ], [ 257, %.split21.us.thread.i ]
-  %.sroa.4.sroa.0.0.i = phi i32 [ %.sroa.4.0.insert.shift.i.i, %21 ], [ %spec.select.i, %.split21.us.thread.i ]
-  %.sroa.0.0.i = phi i32 [ %.sroa.4.0.insert.shift.i.i, %21 ], [ %spec.select15.i, %.split21.us.thread.i ]
+"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit": ; preds = %.split21.us.thread.i, %18
+  %.promoted.i77 = phi i64 [ %15, %18 ], [ 257, %.split21.us.thread.i ]
+  %.sroa.4.sroa.0.0.i = phi i32 [ %.sroa.4.0.insert.shift.i.i, %18 ], [ %spec.select.i, %.split21.us.thread.i ]
+  %.sroa.0.0.i = phi i32 [ %.sroa.4.0.insert.shift.i.i, %18 ], [ %spec.select15.i, %.split21.us.thread.i ]
   %.sroa.057.0.extract.trunc = trunc i32 %.sroa.0.0.i to i8
   %.sroa.458.0.extract.shift = lshr exact i32 %.sroa.4.sroa.0.0.i, 8
   %.sroa.458.0.extract.trunc = trunc nuw nsw i32 %.sroa.458.0.extract.shift to i24
-  %22 = icmp eq i8 %.sroa.057.0.extract.trunc, 2
-  br i1 %22, label %.split85.us, label %23
+  %19 = icmp eq i8 %.sroa.057.0.extract.trunc, 2
+  br i1 %19, label %.split85.us, label %20
 
 .split85.us:                                      ; preds = %.split21.us.i.loopexit, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit", %.split.us.i.us.preheader, %.split.us.i.us, %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.us.lr.ph"
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   store i8 2, ptr %0, align 8
-  br label %25
+  br label %22
 
-23:                                               ; preds = %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit"
-  %24 = icmp eq i8 %14, 2
-  br i1 %24, label %30, label %26
+20:                                               ; preds = %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit"
+  %21 = icmp eq i8 %11, 2
+  br i1 %21, label %27, label %23
 
-25:                                               ; preds = %.split87.us, %.split85.us
+22:                                               ; preds = %.split87.us, %.split85.us
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %.split85.us ], [ %.sroa.040.0.insert.insert, %.split87.us ]
   ret i64 %.sroa.0.0
 
-26:                                               ; preds = %23
+23:                                               ; preds = %20
   %.sroa.620.sroa.5.0.copyload = load i32, ptr %.sroa.620.sroa.5.0..sroa.620.0..sroa_idx.sroa_idx, align 4
   %trunc.i = trunc i32 %.sroa.620.sroa.5.0.copyload to i1
   %.sroa.5.0.extract.shift.i = lshr i32 %.sroa.620.sroa.5.0.copyload, 16
   %.sroa.4.0.extract.shift.i = lshr i32 %.sroa.620.sroa.5.0.copyload, 8
-  %27 = and i32 %.sroa.4.0.extract.shift.i, 255
-  %.0.in.i = select i1 %trunc.i, i32 %.sroa.5.0.extract.shift.i, i32 %27
+  %24 = and i32 %.sroa.4.0.extract.shift.i, 255
+  %.0.in.i = select i1 %trunc.i, i32 %.sroa.5.0.extract.shift.i, i32 %24
   %narrow = add nuw nsw i32 %.0.in.i, 1
   %trunc.i69 = trunc i32 %.sroa.0.0.i to i1
   %.sroa.5.0.extract.shift.i70 = lshr i32 %.sroa.4.sroa.0.0.i, 16
-  %28 = and i32 %.sroa.458.0.extract.shift, 255
-  %.0.in.i72 = select i1 %trunc.i69, i32 %.sroa.5.0.extract.shift.i70, i32 %28
+  %25 = and i32 %.sroa.458.0.extract.shift, 255
+  %.0.in.i72 = select i1 %trunc.i69, i32 %.sroa.5.0.extract.shift.i70, i32 %25
   %.not = icmp ne i32 %narrow, %.0.in.i72
   %..i2.i = and i32 %.sroa.0.0.i, 1
-  %29 = icmp ne i32 %..i2.i, 0
-  %or.cond = or i1 %29, %.not
-  br i1 %or.cond, label %.split87.us, label %30
+  %26 = icmp ne i32 %..i2.i, 0
+  %or.cond = or i1 %26, %.not
+  br i1 %or.cond, label %.split87.us, label %27
 
-30:                                               ; preds = %26, %23
-  %storemerge = phi i24 [ %.sroa.458.0.extract.trunc, %23 ], [ %storemerge127, %26 ]
-  %31 = phi i8 [ %.sroa.057.0.extract.trunc, %23 ], [ %14, %26 ]
-  store i8 %31, ptr %0, align 8
+27:                                               ; preds = %23, %20
+  %storemerge = phi i24 [ %.sroa.458.0.extract.trunc, %20 ], [ %storemerge124, %23 ]
+  %28 = phi i8 [ %.sroa.057.0.extract.trunc, %20 ], [ %11, %23 ]
+  store i8 %28, ptr %0, align 8
   store i24 %storemerge, ptr %.sroa.620.0..sroa_idx, align 1
   store i8 %.sroa.057.0.extract.trunc, ptr %.sroa.620.sroa.5.0..sroa.620.0..sroa_idx.sroa_idx, align 4
   store i24 %.sroa.458.0.extract.trunc, ptr %.sroa.652.0..sroa_idx, align 1
   br label %.split.i.preheader
 
-.split87.us:                                      ; preds = %26, %11
-  %.us-phi = phi i8 [ %.promoted81, %11 ], [ %14, %26 ]
-  %.us-phi89 = phi i24 [ %.sroa.620.0..sroa_idx.promoted128, %11 ], [ %storemerge127, %26 ]
-  %.us-phi91 = phi i32 [ %.sroa.620.sroa.5.0.copyload.us, %11 ], [ %.sroa.620.sroa.5.0.copyload, %26 ]
-  %.us-phi92 = phi i8 [ %.sroa.057.0.extract.trunc.us, %11 ], [ %.sroa.057.0.extract.trunc, %26 ]
-  %.us-phi93 = phi i24 [ 65536, %11 ], [ %.sroa.458.0.extract.trunc, %26 ]
+.split87.us.loopexit:                             ; preds = %9
+  %.sroa.620.sroa.5.0.copyload.us = load i32, ptr %.sroa.620.sroa.5.0..sroa.620.0..sroa_idx.sroa_idx, align 4
+  br label %.split87.us
+
+.split87.us:                                      ; preds = %23, %.split87.us.loopexit
+  %.us-phi = phi i8 [ %.promoted81, %.split87.us.loopexit ], [ %11, %23 ]
+  %.us-phi89 = phi i24 [ %.sroa.620.0..sroa_idx.promoted125, %.split87.us.loopexit ], [ %storemerge124, %23 ]
+  %.us-phi91 = phi i32 [ %.sroa.620.sroa.5.0.copyload.us, %.split87.us.loopexit ], [ %.sroa.620.sroa.5.0.copyload, %23 ]
+  %.us-phi92 = phi i8 [ %6, %.split87.us.loopexit ], [ %.sroa.057.0.extract.trunc, %23 ]
+  %.us-phi93 = phi i24 [ 65536, %.split87.us.loopexit ], [ %.sroa.458.0.extract.trunc, %23 ]
   store i8 %.us-phi92, ptr %0, align 8
   store i24 %.us-phi93, ptr %.sroa.620.0..sroa_idx, align 1
   store i8 %.us-phi92, ptr %.sroa.620.sroa.5.0..sroa.620.0..sroa_idx.sroa_idx, align 4
@@ -13286,7 +13250,7 @@ define i64 @"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u
   %.sroa.040.0.insert.ext = zext i8 %.us-phi to i64
   %.sroa.441.0.insert.insert = or disjoint i64 %.sroa.441.0.insert.shift, %.sroa.040.0.insert.ext
   %.sroa.040.0.insert.insert = or disjoint i64 %.sroa.441.0.insert.insert, %.sroa.542.0.insert.shift
-  br label %25
+  br label %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

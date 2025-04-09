@@ -64762,8 +64762,8 @@ define internal fastcc noundef zeroext i1 @"_ZN64_$LT$sqlparser..ast..ListAgg$u2
   br i1 %41, label %42, label %.critedge
 
 42:                                               ; preds = %40
-  %or.cond.i = trunc nuw i8 %27 to i1
-  br i1 %or.cond.i, label %43, label %.thread11
+  %or.cond.not.i = icmp eq i8 %27, 0
+  br i1 %or.cond.not.i, label %.thread11, label %43
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -7193,14 +7193,14 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN15context_servers6client6Client3new
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i8, ptr %5, align 8, !range !4, !noundef !5
-  switch i8 %6, label %default.unreachable22 [
+  switch i8 %6, label %default.unreachable21 [
     i8 0, label %7
     i8 1, label %20
     i8 2, label %21
     i8 3, label %22
   ]
 
-default.unreachable22:                            ; preds = %2
+default.unreachable21:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -7217,7 +7217,7 @@ default.unreachable22:                            ; preds = %2
   store ptr %11, ptr %13, align 8
   br label %22
 
-14:                                               ; preds = %63, %43, %25
+14:                                               ; preds = %64, %43, %25
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
@@ -7228,7 +7228,7 @@ default.unreachable22:                            ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %18 = load i8, ptr %17, align 1, !range !249, !noundef !5
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %63, label %62
+  br i1 %19, label %64, label %63
 
 20:                                               ; preds = %2
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed97a724074c627c2e55439af897c4ac.85) #32
@@ -7294,7 +7294,7 @@ default.unreachable22:                            ; preds = %2
 
 common.ret:                                       ; preds = %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h71a78bb7979ed716E.exit", %60
   %storemerge = phi i8 [ 1, %60 ], [ 3, %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h71a78bb7979ed716E.exit" ]
-  %common.ret.op = phi i8 [ %61, %60 ], [ 2, %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h71a78bb7979ed716E.exit" ]
+  %common.ret.op = phi i8 [ %62, %60 ], [ 2, %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h71a78bb7979ed716E.exit" ]
   store i8 %storemerge, ptr %5, align 8
   ret i8 %common.ret.op
 
@@ -7351,18 +7351,18 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
   br label %16
 
 60:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hbf79128e278841e2E.llvm.6018374997465442611.exit", %"_ZN4core3ptr87drop_in_place$LT$async_task..task..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17h1bb685c2410903cdE.exit.i.i16"
-  %..i21 = or i8 %28, %31
-  %61 = and i8 %..i21, 1
+  %61 = or i8 %28, %31
+  %62 = and i8 %61, 1
   br label %common.ret
 
-62:                                               ; preds = %63, %16
+63:                                               ; preds = %64, %16
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn11
 
-63:                                               ; preds = %16
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17h12b07f769763556cE.llvm.6018374997465442611"(ptr noalias noundef nonnull align 8 dereferenceable(16) %64) #34
-          to label %62 unwind label %14
+64:                                               ; preds = %16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17h12b07f769763556cE.llvm.6018374997465442611"(ptr noalias noundef nonnull align 8 dereferenceable(16) %65) #34
+          to label %63 unwind label %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

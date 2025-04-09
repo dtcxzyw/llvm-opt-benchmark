@@ -21674,7 +21674,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -21685,7 +21685,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -21994,7 +21994,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -22005,7 +22005,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -22281,7 +22281,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -22292,7 +22292,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -22568,7 +22568,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -22579,7 +22579,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -22855,7 +22855,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -22866,7 +22866,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -23142,7 +23142,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -23153,7 +23153,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -23429,7 +23429,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -23440,7 +23440,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -23716,7 +23716,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -23727,7 +23727,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -24003,7 +24003,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -24014,7 +24014,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -24290,7 +24290,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -24301,7 +24301,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -24577,7 +24577,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -24588,7 +24588,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -24864,7 +24864,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -24875,7 +24875,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -25151,7 +25151,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -25162,7 +25162,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -25438,7 +25438,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -25449,7 +25449,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -25725,7 +25725,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -25736,7 +25736,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -26012,7 +26012,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -26023,7 +26023,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -26299,7 +26299,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -26310,7 +26310,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -26586,7 +26586,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -26597,7 +26597,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -26873,7 +26873,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -26884,7 +26884,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -27160,7 +27160,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -27171,7 +27171,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -27447,7 +27447,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -27458,7 +27458,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -27734,7 +27734,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -27745,7 +27745,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -28021,7 +28021,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -28032,7 +28032,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -28308,7 +28308,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -28319,7 +28319,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -28595,7 +28595,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -28606,7 +28606,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -28882,7 +28882,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -28893,7 +28893,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -29169,7 +29169,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -29180,7 +29180,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114
@@ -29456,7 +29456,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
           to label %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge unwind label %120
 
 ._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge: ; preds = %119
-  %.pre34 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 120:                                              ; preds = %119
@@ -29467,7 +29467,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %107, %102, %_ZN4c
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %113
-  %123 = phi i64 [ %.pre34, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
+  %123 = phi i64 [ %.pre36, %._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit_crit_edge ], [ %111, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %117, %113 ]
   %124 = and i64 %123, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %124, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %125, !prof !114

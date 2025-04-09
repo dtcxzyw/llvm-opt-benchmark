@@ -196,7 +196,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %12 = load ptr, ptr @wlancap_handle, align 8
   %13 = tail call i32 @call_dissector(ptr noundef %12, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %14 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %419
+  br label %420
 
 15:                                               ; preds = %4
   switch i32 %9, label %16 [
@@ -216,7 +216,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = load ptr, ptr @ieee80211_handle, align 8
   %20 = tail call i32 @call_dissector(ptr noundef %19, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %21 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %419
+  br label %420
 
 22:                                               ; preds = %16, %16, %15, %15
   %.0306 = phi i32 [ 0, %15 ], [ 0, %15 ], [ -2147483648, %16 ], [ -2147483648, %16 ]
@@ -264,13 +264,13 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 48
   br label %59
 
-59:                                               ; preds = %22, %391
-  %.0300321 = phi ptr [ null, %22 ], [ %.1, %391 ]
-  %.0301320 = phi ptr [ null, %22 ], [ %.1302, %391 ]
-  %.0303319 = phi i32 [ 24, %22 ], [ %392, %391 ]
-  %.0304318 = phi i32 [ 0, %22 ], [ %.1305, %391 ]
-  %.0307317 = phi i32 [ 0, %22 ], [ %.1308, %391 ]
-  %.0309316 = phi i32 [ 0, %22 ], [ %.1310, %391 ]
+59:                                               ; preds = %22, %392
+  %.0300321 = phi ptr [ null, %22 ], [ %.1, %392 ]
+  %.0301320 = phi ptr [ null, %22 ], [ %.1302, %392 ]
+  %.0303319 = phi i32 [ 24, %22 ], [ %393, %392 ]
+  %.0304318 = phi i32 [ 0, %22 ], [ %.1305, %392 ]
+  %.0307317 = phi i32 [ 0, %22 ], [ %.1308, %392 ]
+  %.0309316 = phi i32 [ 0, %22 ], [ %.1310, %392 ]
   br i1 %43, label %60, label %69
 
 60:                                               ; preds = %59
@@ -298,10 +298,10 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %76 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef %.0306)
   %77 = add nuw nsw i32 %.0303319, 8
   %78 = icmp eq i16 %71, 0
-  br i1 %78, label %79, label %391
+  br i1 %78, label %79, label %392
 
 79:                                               ; preds = %69
-  switch i32 %.1305, label %388 [
+  switch i32 %.1305, label %389 [
     i32 65604, label %80
     i32 4161, label %80
     i32 131140, label %85
@@ -324,21 +324,21 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
     i32 49220, label %154
     i32 852036, label %160
     i32 53316, label %160
-    i32 589892, label %378
-    i32 36929, label %378
-    i32 655428, label %383
-    i32 41025, label %383
+    i32 589892, label %379
+    i32 36929, label %379
+    i32 655428, label %384
+    i32 41025, label %384
   ]
 
 80:                                               ; preds = %79, %79
-  br i1 %43, label %81, label %391
+  br i1 %43, label %81, label %392
 
 81:                                               ; preds = %80
   %82 = load i32, ptr @hf_ieee80211_prism_did_hosttime, align 4
   %83 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %82, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
   %84 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.77, i32 noundef %84)
-  br label %391
+  br label %392
 
 85:                                               ; preds = %79, %79
   %86 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
@@ -347,13 +347,13 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i16 %88, ptr %54, align 8
   %89 = zext i32 %86 to i64
   store i64 %89, ptr %58, align 8
-  br i1 %43, label %90, label %391
+  br i1 %43, label %90, label %392
 
 90:                                               ; preds = %85
   %91 = load i32, ptr @hf_ieee80211_prism_did_mactime, align 4
   %92 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %91, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.77, i32 noundef %86)
-  br label %391
+  br label %392
 
 93:                                               ; preds = %79, %79
   %94 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
@@ -373,7 +373,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 101:                                              ; preds = %98, %93
   %102 = load ptr, ptr %24, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %102, i32 noundef 15, ptr noundef nonnull @.str.79, i32 noundef %94)
-  br label %391
+  br label %392
 
 103:                                              ; preds = %79, %79
   %104 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
@@ -393,37 +393,37 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 111:                                              ; preds = %108, %103
   %112 = load ptr, ptr %24, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %112, i32 noundef 22, ptr noundef nonnull @.str.80, i32 noundef %104)
-  br label %391
+  br label %392
 
 113:                                              ; preds = %79, %79
-  br i1 %43, label %114, label %391
+  br i1 %43, label %114, label %392
 
 114:                                              ; preds = %113
   %115 = load i32, ptr @hf_ieee80211_prism_did_sq, align 4
   %116 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %115, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
   %117 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.81, i32 noundef %117)
-  br label %391
+  br label %392
 
 118:                                              ; preds = %79, %79
-  br i1 %43, label %119, label %391
+  br i1 %43, label %119, label %392
 
 119:                                              ; preds = %118
   %120 = load i32, ptr @hf_ieee80211_prism_did_signal, align 4
   %121 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %120, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
   %122 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.81, i32 noundef %122)
-  br label %391
+  br label %392
 
 123:                                              ; preds = %79, %79
-  br i1 %43, label %124, label %391
+  br i1 %43, label %124, label %392
 
 124:                                              ; preds = %123
   %125 = load i32, ptr @hf_ieee80211_prism_did_noise, align 4
   %126 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %125, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
   %127 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.81, i32 noundef %127)
-  br label %391
+  br label %392
 
 128:                                              ; preds = %79, %79
   %129 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
@@ -464,36 +464,36 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %146 = select i1 %.not.i.i315, i32 0, i32 5
   %147 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %145, i64 noundef 240, i32 noundef 2, i64 noundef 256, ptr noundef nonnull @.str.70, i32 noundef %.pre-phi, i32 noundef %146)
   call void @col_add_str(ptr noundef %143, i32 noundef 23, ptr noundef %145)
-  br label %391
+  br label %392
 
 148:                                              ; preds = %79, %79
   %149 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %77)
-  br i1 %43, label %150, label %391
+  br i1 %43, label %150, label %392
 
 150:                                              ; preds = %148
   %151 = load i32, ptr @hf_ieee80211_prism_did_sig_a1, align 4
   %152 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %151, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
   %153 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %77)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.81, i32 noundef %153)
-  br label %391
+  br label %392
 
 154:                                              ; preds = %79, %79
   %155 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %77)
-  br i1 %43, label %156, label %391
+  br i1 %43, label %156, label %392
 
 156:                                              ; preds = %154
   %157 = load i32, ptr @hf_ieee80211_prism_did_sig_a2, align 4
   %158 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %157, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
   %159 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %77)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.81, i32 noundef %159)
-  br label %391
+  br label %392
 
 160:                                              ; preds = %79, %79
   %161 = icmp ne i32 %.0309316, 0
   %or.cond7 = select i1 %43, i1 %161, i1 false
   %162 = icmp ne i32 %.0307317, 0
   %or.cond9 = select i1 %or.cond7, i1 %162, i1 false
-  br i1 %or.cond9, label %163, label %391
+  br i1 %or.cond9, label %163, label %392
 
 163:                                              ; preds = %160
   %164 = load i32, ptr @hf_ieee80211_prism_did_sig_b, align 4
@@ -508,7 +508,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
     i32 0, label %171
     i32 1, label %187
     i32 2, label %204
-    i32 3, label %256
+    i32 3, label %257
   ]
 
 171:                                              ; preds = %163
@@ -597,341 +597,342 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i32 %228, ptr %47, align 8
   %229 = lshr i32 %206, 3
   %230 = add nuw nsw i32 %229, 1
-  %or.cond.i = icmp samesign ult i32 %206, 32
-  br i1 %or.cond.i, label %231, label %248
+  %231 = and i32 %.0309316, 1536
+  %or.cond.i = icmp eq i32 %231, 0
+  br i1 %or.cond.i, label %232, label %249
 
-231:                                              ; preds = %204
-  switch i32 %211, label %248 [
-    i32 20, label %232
-    i32 40, label %240
+232:                                              ; preds = %204
+  switch i32 %211, label %249 [
+    i32 20, label %233
+    i32 40, label %241
   ]
 
-232:                                              ; preds = %231
+233:                                              ; preds = %232
   %.not210.i = icmp eq i32 %213, 0
-  %233 = zext nneg i32 %206 to i64
-  br i1 %.not210.i, label %237, label %234
+  %234 = zext nneg i32 %206 to i64
+  br i1 %.not210.i, label %238, label %235
 
-234:                                              ; preds = %232
-  %235 = getelementptr [32 x [2 x i32]], ptr @ht_20_tbl, i64 0, i64 %233, i64 1
-  %236 = load i32, ptr %235, align 4
-  br label %248
+235:                                              ; preds = %233
+  %236 = getelementptr [32 x [2 x i32]], ptr @ht_20_tbl, i64 0, i64 %234, i64 1
+  %237 = load i32, ptr %236, align 4
+  br label %249
 
-237:                                              ; preds = %232
-  %238 = getelementptr [32 x [2 x i32]], ptr @ht_20_tbl, i64 0, i64 %233
-  %239 = load i32, ptr %238, align 8
-  br label %248
+238:                                              ; preds = %233
+  %239 = getelementptr [32 x [2 x i32]], ptr @ht_20_tbl, i64 0, i64 %234
+  %240 = load i32, ptr %239, align 8
+  br label %249
 
-240:                                              ; preds = %231
+241:                                              ; preds = %232
   %.not209.i = icmp eq i32 %213, 0
-  %241 = zext nneg i32 %206 to i64
-  br i1 %.not209.i, label %245, label %242
+  %242 = zext nneg i32 %206 to i64
+  br i1 %.not209.i, label %246, label %243
 
-242:                                              ; preds = %240
-  %243 = getelementptr [32 x [2 x i32]], ptr @ht_40_tbl, i64 0, i64 %241, i64 1
-  %244 = load i32, ptr %243, align 4
-  br label %248
+243:                                              ; preds = %241
+  %244 = getelementptr [32 x [2 x i32]], ptr @ht_40_tbl, i64 0, i64 %242, i64 1
+  %245 = load i32, ptr %244, align 4
+  br label %249
 
-245:                                              ; preds = %240
-  %246 = getelementptr [32 x [2 x i32]], ptr @ht_40_tbl, i64 0, i64 %241
-  %247 = load i32, ptr %246, align 8
-  br label %248
+246:                                              ; preds = %241
+  %247 = getelementptr [32 x [2 x i32]], ptr @ht_40_tbl, i64 0, i64 %242
+  %248 = load i32, ptr %247, align 8
+  br label %249
 
-248:                                              ; preds = %245, %242, %237, %234, %231, %204
-  %.0193.i = phi i32 [ 0, %231 ], [ %244, %242 ], [ %247, %245 ], [ %236, %234 ], [ %239, %237 ], [ 0, %204 ]
-  %249 = udiv i32 %.0193.i, 10
-  %250 = urem i32 %.0193.i, 10
+249:                                              ; preds = %246, %243, %238, %235, %232, %204
+  %.0193.i = phi i32 [ 0, %232 ], [ %245, %243 ], [ %248, %246 ], [ %237, %235 ], [ %240, %238 ], [ 0, %204 ]
+  %250 = udiv i32 %.0193.i, 10
+  %251 = urem i32 %.0193.i, 10
   %.not211.i = icmp eq i32 %213, 0
-  %251 = select i1 %.not211.i, ptr @.str.91, ptr @.str.90
-  %252 = and i32 %.0307317, 64
-  %.not212.i = icmp eq i32 %252, 0
-  %253 = select i1 %.not212.i, ptr @.str.91, ptr @.str.92
-  %254 = select i1 %.not208.not.i, ptr @.str.91, ptr @.str.93
-  %255 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %169, ptr noundef nonnull @.str.89, i32 noundef %249, i32 noundef %250, i32 noundef %206, i32 noundef %230, i32 noundef %211, ptr noundef nonnull %251, ptr noundef nonnull %253, ptr noundef nonnull %254)
+  %252 = select i1 %.not211.i, ptr @.str.91, ptr @.str.90
+  %253 = and i32 %.0307317, 64
+  %.not212.i = icmp eq i32 %253, 0
+  %254 = select i1 %.not212.i, ptr @.str.91, ptr @.str.92
+  %255 = select i1 %.not208.not.i, ptr @.str.91, ptr @.str.93
+  %256 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %169, ptr noundef nonnull @.str.89, i32 noundef %250, i32 noundef %251, i32 noundef %206, i32 noundef %230, i32 noundef %211, ptr noundef nonnull %252, ptr noundef nonnull %254, ptr noundef nonnull %255)
   br label %prism_rate_return_sig.exit
 
-256:                                              ; preds = %163
+257:                                              ; preds = %163
   store i32 8, ptr %23, align 8
-  %257 = lshr i32 %.0309316, 4
-  %258 = lshr i32 %.0309316, 7
-  %259 = and i32 %258, 1
-  %260 = load i16, ptr %44, align 4
-  %261 = trunc i32 %258 to i16
-  %262 = shl i16 %261, 10
-  %263 = and i16 %262, 1024
-  %264 = and i16 %260, -5574
-  %265 = and i32 %.0307317, 1
-  %266 = trunc i32 %.0307317 to i16
-  %267 = shl i16 %266, 12
-  %268 = and i16 %267, 4096
-  %269 = and i32 %257, 3
-  %270 = shl nuw nsw i32 20, %269
-  %271 = zext nneg i32 %269 to i64
-  %272 = getelementptr [4 x i32], ptr @prism_rate_return_sig.bw_map, i64 0, i64 %271
-  %273 = load i32, ptr %272, align 4
-  %274 = trunc i32 %273 to i8
-  store i8 %274, ptr %45, align 2
-  %275 = lshr i32 %.0307317, 2
-  %276 = and i32 %275, 1
-  %277 = trunc nuw nsw i32 %276 to i8
-  store i8 %277, ptr %46, align 1
-  %278 = lshr i32 %.0309316, 8
-  %279 = and i32 %278, 63
-  %280 = or disjoint i16 %263, %268
-  %281 = or disjoint i16 %280, %264
-  %282 = or disjoint i16 %281, 453
-  store i16 %282, ptr %44, align 4
-  %283 = trunc nuw nsw i32 %279 to i8
-  store i8 %283, ptr %47, align 8
-  switch i32 %279, label %365 [
-    i32 63, label %284
-    i32 0, label %284
+  %258 = lshr i32 %.0309316, 4
+  %259 = lshr i32 %.0309316, 7
+  %260 = and i32 %259, 1
+  %261 = load i16, ptr %44, align 4
+  %262 = trunc i32 %259 to i16
+  %263 = shl i16 %262, 10
+  %264 = and i16 %263, 1024
+  %265 = and i16 %261, -5574
+  %266 = and i32 %.0307317, 1
+  %267 = trunc i32 %.0307317 to i16
+  %268 = shl i16 %267, 12
+  %269 = and i16 %268, 4096
+  %270 = and i32 %258, 3
+  %271 = shl nuw nsw i32 20, %270
+  %272 = zext nneg i32 %270 to i64
+  %273 = getelementptr [4 x i32], ptr @prism_rate_return_sig.bw_map, i64 0, i64 %272
+  %274 = load i32, ptr %273, align 4
+  %275 = trunc i32 %274 to i8
+  store i8 %275, ptr %45, align 2
+  %276 = lshr i32 %.0307317, 2
+  %277 = and i32 %276, 1
+  %278 = trunc nuw nsw i32 %277 to i8
+  store i8 %278, ptr %46, align 1
+  %279 = lshr i32 %.0309316, 8
+  %280 = and i32 %279, 63
+  %281 = or disjoint i16 %264, %269
+  %282 = or disjoint i16 %281, %265
+  %283 = or disjoint i16 %282, 453
+  store i16 %283, ptr %44, align 4
+  %284 = trunc nuw nsw i32 %280 to i8
+  store i8 %284, ptr %47, align 8
+  switch i32 %280, label %366 [
+    i32 63, label %285
+    i32 0, label %285
   ]
 
-284:                                              ; preds = %256, %256
-  %285 = lshr i32 %.0309316, 14
-  %286 = and i32 %285, 7
-  %.not200.i = icmp eq i32 %259, 0
-  %287 = shl nuw nsw i32 %259, 1
-  %.0192.i = lshr i32 %286, %287
-  %288 = add nuw nsw i32 %.0192.i, 1
-  %289 = lshr i32 %.0307317, 4
-  %290 = and i32 %289, 15
-  %291 = trunc nuw nsw i32 %290 to i8
-  store i8 %291, ptr %48, align 1
-  %292 = trunc nuw nsw i32 %288 to i8
-  store i8 %292, ptr %49, align 1
-  %293 = shl i16 %266, 7
-  %294 = and i16 %293, -32768
-  %295 = and i16 %282, 32223
-  %296 = lshr i32 %.0309316, 17
-  %297 = and i32 %296, 511
-  %298 = or disjoint i16 %294, %295
-  %299 = or disjoint i16 %298, 544
-  store i16 %299, ptr %44, align 4
-  %300 = trunc nuw nsw i32 %297 to i16
-  store i16 %300, ptr %50, align 2
-  %301 = icmp samesign ult i32 %.0192.i, 4
-  %302 = icmp samesign ult i32 %290, 10
-  %or.cond7.i = select i1 %301, i1 %302, i1 false
-  br i1 %or.cond7.i, label %303, label %356
+285:                                              ; preds = %257, %257
+  %286 = lshr i32 %.0309316, 14
+  %287 = and i32 %286, 7
+  %.not200.i = icmp eq i32 %260, 0
+  %288 = shl nuw nsw i32 %260, 1
+  %.0192.i = lshr i32 %287, %288
+  %289 = add nuw nsw i32 %.0192.i, 1
+  %290 = lshr i32 %.0307317, 4
+  %291 = and i32 %290, 15
+  %292 = trunc nuw nsw i32 %291 to i8
+  store i8 %292, ptr %48, align 1
+  %293 = trunc nuw nsw i32 %289 to i8
+  store i8 %293, ptr %49, align 1
+  %294 = shl i16 %267, 7
+  %295 = and i16 %294, -32768
+  %296 = and i16 %283, 32223
+  %297 = lshr i32 %.0309316, 17
+  %298 = and i32 %297, 511
+  %299 = or disjoint i16 %295, %296
+  %300 = or disjoint i16 %299, 544
+  store i16 %300, ptr %44, align 4
+  %301 = trunc nuw nsw i32 %298 to i16
+  store i16 %301, ptr %50, align 2
+  %302 = icmp samesign ult i32 %.0192.i, 4
+  %303 = icmp samesign ult i32 %291, 10
+  %or.cond7.i = select i1 %302, i1 %303, i1 false
+  br i1 %or.cond7.i, label %304, label %357
 
-303:                                              ; preds = %284
-  %trunc.i = trunc nuw i32 %270 to i8
-  switch i8 %trunc.i, label %356 [
-    i8 20, label %304
-    i8 40, label %317
-    i8 80, label %330
-    i8 -96, label %343
+304:                                              ; preds = %285
+  %trunc.i = trunc nuw i32 %271 to i8
+  switch i8 %trunc.i, label %357 [
+    i8 20, label %305
+    i8 40, label %318
+    i8 80, label %331
+    i8 -96, label %344
   ]
 
-304:                                              ; preds = %303
-  %.not204.i = icmp eq i32 %265, 0
-  %305 = zext nneg i32 %290 to i64
-  br i1 %.not204.i, label %312, label %306
+305:                                              ; preds = %304
+  %.not204.i = icmp eq i32 %266, 0
+  %306 = zext nneg i32 %291 to i64
+  br i1 %.not204.i, label %313, label %307
 
-306:                                              ; preds = %304
-  %307 = shl nuw nsw i32 %288, 1
-  %308 = add nsw i32 %307, -1
-  %309 = zext nneg i32 %308 to i64
-  %310 = getelementptr [10 x [8 x i32]], ptr @vht_20_tbl, i64 0, i64 %305, i64 %309
-  %311 = load i32, ptr %310, align 4
-  br label %356
+307:                                              ; preds = %305
+  %308 = shl nuw nsw i32 %289, 1
+  %309 = add nsw i32 %308, -1
+  %310 = zext nneg i32 %309 to i64
+  %311 = getelementptr [10 x [8 x i32]], ptr @vht_20_tbl, i64 0, i64 %306, i64 %310
+  %312 = load i32, ptr %311, align 4
+  br label %357
 
-312:                                              ; preds = %304
-  %313 = shl nuw nsw i32 %.0192.i, 1
-  %314 = zext nneg i32 %313 to i64
-  %315 = getelementptr [10 x [8 x i32]], ptr @vht_20_tbl, i64 0, i64 %305, i64 %314
-  %316 = load i32, ptr %315, align 8
-  br label %356
+313:                                              ; preds = %305
+  %314 = shl nuw nsw i32 %.0192.i, 1
+  %315 = zext nneg i32 %314 to i64
+  %316 = getelementptr [10 x [8 x i32]], ptr @vht_20_tbl, i64 0, i64 %306, i64 %315
+  %317 = load i32, ptr %316, align 8
+  br label %357
 
-317:                                              ; preds = %303
-  %.not203.i = icmp eq i32 %265, 0
-  %318 = zext nneg i32 %290 to i64
-  br i1 %.not203.i, label %325, label %319
+318:                                              ; preds = %304
+  %.not203.i = icmp eq i32 %266, 0
+  %319 = zext nneg i32 %291 to i64
+  br i1 %.not203.i, label %326, label %320
 
-319:                                              ; preds = %317
-  %320 = shl nuw nsw i32 %288, 1
-  %321 = add nsw i32 %320, -1
-  %322 = zext nneg i32 %321 to i64
-  %323 = getelementptr [10 x [8 x i32]], ptr @vht_40_tbl, i64 0, i64 %318, i64 %322
-  %324 = load i32, ptr %323, align 4
-  br label %356
+320:                                              ; preds = %318
+  %321 = shl nuw nsw i32 %289, 1
+  %322 = add nsw i32 %321, -1
+  %323 = zext nneg i32 %322 to i64
+  %324 = getelementptr [10 x [8 x i32]], ptr @vht_40_tbl, i64 0, i64 %319, i64 %323
+  %325 = load i32, ptr %324, align 4
+  br label %357
 
-325:                                              ; preds = %317
-  %326 = shl nuw nsw i32 %.0192.i, 1
-  %327 = zext nneg i32 %326 to i64
-  %328 = getelementptr [10 x [8 x i32]], ptr @vht_40_tbl, i64 0, i64 %318, i64 %327
-  %329 = load i32, ptr %328, align 8
-  br label %356
+326:                                              ; preds = %318
+  %327 = shl nuw nsw i32 %.0192.i, 1
+  %328 = zext nneg i32 %327 to i64
+  %329 = getelementptr [10 x [8 x i32]], ptr @vht_40_tbl, i64 0, i64 %319, i64 %328
+  %330 = load i32, ptr %329, align 8
+  br label %357
 
-330:                                              ; preds = %303
-  %.not202.i = icmp eq i32 %265, 0
-  %331 = zext nneg i32 %290 to i64
-  br i1 %.not202.i, label %338, label %332
+331:                                              ; preds = %304
+  %.not202.i = icmp eq i32 %266, 0
+  %332 = zext nneg i32 %291 to i64
+  br i1 %.not202.i, label %339, label %333
 
-332:                                              ; preds = %330
-  %333 = shl nuw nsw i32 %288, 1
-  %334 = add nsw i32 %333, -1
-  %335 = zext nneg i32 %334 to i64
-  %336 = getelementptr [10 x [8 x i32]], ptr @vht_80_tbl, i64 0, i64 %331, i64 %335
-  %337 = load i32, ptr %336, align 4
-  br label %356
+333:                                              ; preds = %331
+  %334 = shl nuw nsw i32 %289, 1
+  %335 = add nsw i32 %334, -1
+  %336 = zext nneg i32 %335 to i64
+  %337 = getelementptr [10 x [8 x i32]], ptr @vht_80_tbl, i64 0, i64 %332, i64 %336
+  %338 = load i32, ptr %337, align 4
+  br label %357
 
-338:                                              ; preds = %330
-  %339 = shl nuw nsw i32 %.0192.i, 1
-  %340 = zext nneg i32 %339 to i64
-  %341 = getelementptr [10 x [8 x i32]], ptr @vht_80_tbl, i64 0, i64 %331, i64 %340
-  %342 = load i32, ptr %341, align 8
-  br label %356
+339:                                              ; preds = %331
+  %340 = shl nuw nsw i32 %.0192.i, 1
+  %341 = zext nneg i32 %340 to i64
+  %342 = getelementptr [10 x [8 x i32]], ptr @vht_80_tbl, i64 0, i64 %332, i64 %341
+  %343 = load i32, ptr %342, align 8
+  br label %357
 
-343:                                              ; preds = %303
-  %.not201.i = icmp eq i32 %265, 0
-  %344 = zext nneg i32 %290 to i64
-  br i1 %.not201.i, label %351, label %345
+344:                                              ; preds = %304
+  %.not201.i = icmp eq i32 %266, 0
+  %345 = zext nneg i32 %291 to i64
+  br i1 %.not201.i, label %352, label %346
 
-345:                                              ; preds = %343
-  %346 = shl nuw nsw i32 %288, 1
-  %347 = add nsw i32 %346, -1
-  %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr [10 x [8 x i32]], ptr @vht_160_tbl, i64 0, i64 %344, i64 %348
-  %350 = load i32, ptr %349, align 4
-  br label %356
+346:                                              ; preds = %344
+  %347 = shl nuw nsw i32 %289, 1
+  %348 = add nsw i32 %347, -1
+  %349 = zext nneg i32 %348 to i64
+  %350 = getelementptr [10 x [8 x i32]], ptr @vht_160_tbl, i64 0, i64 %345, i64 %349
+  %351 = load i32, ptr %350, align 4
+  br label %357
 
-351:                                              ; preds = %343
-  %352 = shl nuw nsw i32 %.0192.i, 1
-  %353 = zext nneg i32 %352 to i64
-  %354 = getelementptr [10 x [8 x i32]], ptr @vht_160_tbl, i64 0, i64 %344, i64 %353
-  %355 = load i32, ptr %354, align 8
-  br label %356
+352:                                              ; preds = %344
+  %353 = shl nuw nsw i32 %.0192.i, 1
+  %354 = zext nneg i32 %353 to i64
+  %355 = getelementptr [10 x [8 x i32]], ptr @vht_160_tbl, i64 0, i64 %345, i64 %354
+  %356 = load i32, ptr %355, align 8
+  br label %357
 
-356:                                              ; preds = %351, %345, %338, %332, %325, %319, %312, %306, %303, %284
-  %.1.i = phi i32 [ 0, %303 ], [ %350, %345 ], [ %355, %351 ], [ %337, %332 ], [ %342, %338 ], [ %324, %319 ], [ %329, %325 ], [ %311, %306 ], [ %316, %312 ], [ 0, %284 ]
-  %357 = udiv i32 %.1.i, 10
-  %358 = urem i32 %.1.i, 10
-  %.not205.i = icmp eq i32 %265, 0
-  %359 = select i1 %.not205.i, ptr @.str.91, ptr @.str.90
-  %.not206.i = icmp eq i32 %276, 0
-  %360 = select i1 %.not206.i, ptr @.str.91, ptr @.str.92
-  %361 = select i1 %.not200.i, ptr @.str.91, ptr @.str.93
-  %362 = and i32 %.0307317, 256
-  %.not207.i = icmp eq i32 %362, 0
-  %363 = select i1 %.not207.i, ptr @.str.91, ptr @.str.96
-  %364 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %169, ptr noundef nonnull @.str.94, i32 noundef %357, i32 noundef %358, i32 noundef %290, i32 noundef %288, i32 noundef %297, i32 noundef %270, ptr noundef nonnull %359, ptr noundef nonnull %360, ptr noundef nonnull %361, i32 noundef %279, ptr noundef nonnull @.str.95, ptr noundef nonnull %363)
+357:                                              ; preds = %352, %346, %339, %333, %326, %320, %313, %307, %304, %285
+  %.1.i = phi i32 [ 0, %304 ], [ %351, %346 ], [ %356, %352 ], [ %338, %333 ], [ %343, %339 ], [ %325, %320 ], [ %330, %326 ], [ %312, %307 ], [ %317, %313 ], [ 0, %285 ]
+  %358 = udiv i32 %.1.i, 10
+  %359 = urem i32 %.1.i, 10
+  %.not205.i = icmp eq i32 %266, 0
+  %360 = select i1 %.not205.i, ptr @.str.91, ptr @.str.90
+  %.not206.i = icmp eq i32 %277, 0
+  %361 = select i1 %.not206.i, ptr @.str.91, ptr @.str.92
+  %362 = select i1 %.not200.i, ptr @.str.91, ptr @.str.93
+  %363 = and i32 %.0307317, 256
+  %.not207.i = icmp eq i32 %363, 0
+  %364 = select i1 %.not207.i, ptr @.str.91, ptr @.str.96
+  %365 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %169, ptr noundef nonnull @.str.94, i32 noundef %358, i32 noundef %359, i32 noundef %291, i32 noundef %289, i32 noundef %298, i32 noundef %271, ptr noundef nonnull %360, ptr noundef nonnull %361, ptr noundef nonnull %362, i32 noundef %280, ptr noundef nonnull @.str.95, ptr noundef nonnull %364)
   br label %prism_rate_return_sig.exit
 
-365:                                              ; preds = %256
-  %366 = lshr i32 %.0309316, 14
-  %367 = and i32 %366, 7
-  %368 = lshr i32 %.0309316, 17
-  %369 = and i32 %368, 7
-  %370 = lshr i32 %.0309316, 20
-  %371 = and i32 %370, 7
-  %372 = lshr i32 %.0309316, 23
-  %373 = and i32 %372, 7
-  %.not.i = icmp eq i32 %265, 0
-  %374 = select i1 %.not.i, ptr @.str.91, ptr @.str.90
-  %.not198.i = icmp eq i32 %276, 0
-  %375 = select i1 %.not198.i, ptr @.str.91, ptr @.str.92
-  %.not199.i = icmp eq i32 %259, 0
-  %376 = select i1 %.not199.i, ptr @.str.91, ptr @.str.93
-  %377 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %169, ptr noundef nonnull @.str.97, i32 noundef %367, i32 noundef %369, i32 noundef %371, i32 noundef %373, i32 noundef %270, ptr noundef nonnull %374, ptr noundef nonnull %375, ptr noundef nonnull %376, i32 noundef %279, ptr noundef nonnull @.str.98)
+366:                                              ; preds = %257
+  %367 = lshr i32 %.0309316, 14
+  %368 = and i32 %367, 7
+  %369 = lshr i32 %.0309316, 17
+  %370 = and i32 %369, 7
+  %371 = lshr i32 %.0309316, 20
+  %372 = and i32 %371, 7
+  %373 = lshr i32 %.0309316, 23
+  %374 = and i32 %373, 7
+  %.not.i = icmp eq i32 %266, 0
+  %375 = select i1 %.not.i, ptr @.str.91, ptr @.str.90
+  %.not198.i = icmp eq i32 %277, 0
+  %376 = select i1 %.not198.i, ptr @.str.91, ptr @.str.92
+  %.not199.i = icmp eq i32 %260, 0
+  %377 = select i1 %.not199.i, ptr @.str.91, ptr @.str.93
+  %378 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %169, ptr noundef nonnull @.str.97, i32 noundef %368, i32 noundef %370, i32 noundef %372, i32 noundef %374, i32 noundef %271, ptr noundef nonnull %375, ptr noundef nonnull %376, ptr noundef nonnull %377, i32 noundef %280, ptr noundef nonnull @.str.98)
   br label %prism_rate_return_sig.exit
 
-prism_rate_return_sig.exit:                       ; preds = %163, %171, %187, %248, %356, %365
-  %.0.i = phi ptr [ null, %163 ], [ %364, %356 ], [ %377, %365 ], [ %255, %248 ], [ %203, %187 ], [ %186, %171 ]
+prism_rate_return_sig.exit:                       ; preds = %163, %171, %187, %249, %357, %366
+  %.0.i = phi ptr [ null, %163 ], [ %365, %357 ], [ %378, %366 ], [ %256, %249 ], [ %203, %187 ], [ %186, %171 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %168, ptr noundef nonnull @.str.75, ptr noundef %.0.i)
-  br label %391
+  br label %392
 
-378:                                              ; preds = %79, %79
-  br i1 %43, label %379, label %391
+379:                                              ; preds = %79, %79
+  br i1 %43, label %380, label %392
 
-379:                                              ; preds = %378
-  %380 = load i32, ptr @hf_ieee80211_prism_did_istx, align 4
-  %381 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %380, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
-  %382 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.81, i32 noundef %382)
-  br label %391
+380:                                              ; preds = %379
+  %381 = load i32, ptr @hf_ieee80211_prism_did_istx, align 4
+  %382 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %381, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
+  %383 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.81, i32 noundef %383)
+  br label %392
 
-383:                                              ; preds = %79, %79
-  br i1 %43, label %384, label %391
+384:                                              ; preds = %79, %79
+  br i1 %43, label %385, label %392
 
-384:                                              ; preds = %383
-  %385 = load i32, ptr @hf_ieee80211_prism_did_frmlen, align 4
-  %386 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %385, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
-  %387 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.77, i32 noundef %387)
-  br label %391
+385:                                              ; preds = %384
+  %386 = load i32, ptr @hf_ieee80211_prism_did_frmlen, align 4
+  %387 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %386, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
+  %388 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %77, i32 noundef %.0306)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.77, i32 noundef %388)
+  br label %392
 
-388:                                              ; preds = %79
-  %389 = load i32, ptr @hf_ieee80211_prism_did_unknown, align 4
-  %390 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %389, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
-  br label %391
+389:                                              ; preds = %79
+  %390 = load i32, ptr @hf_ieee80211_prism_did_unknown, align 4
+  %391 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %390, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %.0306)
+  br label %392
 
-391:                                              ; preds = %101, %111, %142, %388, %81, %80, %90, %85, %114, %113, %119, %118, %124, %123, %150, %148, %156, %154, %prism_rate_return_sig.exit, %160, %379, %378, %384, %383, %69
-  %.1310 = phi i32 [ %.0309316, %388 ], [ %.0309316, %384 ], [ %.0309316, %383 ], [ %.0309316, %379 ], [ %.0309316, %378 ], [ %.0309316, %prism_rate_return_sig.exit ], [ %.0309316, %160 ], [ %.0309316, %156 ], [ %.0309316, %154 ], [ %149, %150 ], [ %149, %148 ], [ %.0309316, %142 ], [ %.0309316, %124 ], [ %.0309316, %123 ], [ %.0309316, %119 ], [ %.0309316, %118 ], [ %.0309316, %114 ], [ %.0309316, %113 ], [ %.0309316, %111 ], [ %.0309316, %101 ], [ %.0309316, %90 ], [ %.0309316, %85 ], [ %.0309316, %81 ], [ %.0309316, %80 ], [ %.0309316, %69 ]
-  %.1308 = phi i32 [ %.0307317, %388 ], [ %.0307317, %384 ], [ %.0307317, %383 ], [ %.0307317, %379 ], [ %.0307317, %378 ], [ %.0307317, %prism_rate_return_sig.exit ], [ %.0307317, %160 ], [ %155, %156 ], [ %155, %154 ], [ %.0307317, %150 ], [ %.0307317, %148 ], [ %.0307317, %142 ], [ %.0307317, %124 ], [ %.0307317, %123 ], [ %.0307317, %119 ], [ %.0307317, %118 ], [ %.0307317, %114 ], [ %.0307317, %113 ], [ %.0307317, %111 ], [ %.0307317, %101 ], [ %.0307317, %90 ], [ %.0307317, %85 ], [ %.0307317, %81 ], [ %.0307317, %80 ], [ %.0307317, %69 ]
-  %392 = add nuw nsw i32 %.0303319, 12
-  %393 = icmp samesign ult i32 %.0303319, 132
-  br i1 %393, label %59, label %394, !llvm.loop !6
+392:                                              ; preds = %101, %111, %142, %389, %81, %80, %90, %85, %114, %113, %119, %118, %124, %123, %150, %148, %156, %154, %prism_rate_return_sig.exit, %160, %380, %379, %385, %384, %69
+  %.1310 = phi i32 [ %.0309316, %389 ], [ %.0309316, %385 ], [ %.0309316, %384 ], [ %.0309316, %380 ], [ %.0309316, %379 ], [ %.0309316, %prism_rate_return_sig.exit ], [ %.0309316, %160 ], [ %.0309316, %156 ], [ %.0309316, %154 ], [ %149, %150 ], [ %149, %148 ], [ %.0309316, %142 ], [ %.0309316, %124 ], [ %.0309316, %123 ], [ %.0309316, %119 ], [ %.0309316, %118 ], [ %.0309316, %114 ], [ %.0309316, %113 ], [ %.0309316, %111 ], [ %.0309316, %101 ], [ %.0309316, %90 ], [ %.0309316, %85 ], [ %.0309316, %81 ], [ %.0309316, %80 ], [ %.0309316, %69 ]
+  %.1308 = phi i32 [ %.0307317, %389 ], [ %.0307317, %385 ], [ %.0307317, %384 ], [ %.0307317, %380 ], [ %.0307317, %379 ], [ %.0307317, %prism_rate_return_sig.exit ], [ %.0307317, %160 ], [ %155, %156 ], [ %155, %154 ], [ %.0307317, %150 ], [ %.0307317, %148 ], [ %.0307317, %142 ], [ %.0307317, %124 ], [ %.0307317, %123 ], [ %.0307317, %119 ], [ %.0307317, %118 ], [ %.0307317, %114 ], [ %.0307317, %113 ], [ %.0307317, %111 ], [ %.0307317, %101 ], [ %.0307317, %90 ], [ %.0307317, %85 ], [ %.0307317, %81 ], [ %.0307317, %80 ], [ %.0307317, %69 ]
+  %393 = add nuw nsw i32 %.0303319, 12
+  %394 = icmp samesign ult i32 %.0303319, 132
+  br i1 %394, label %59, label %395, !llvm.loop !6
 
-394:                                              ; preds = %391
-  %395 = load i16, ptr %54, align 8
-  %396 = and i16 %395, 4
-  %.not = icmp eq i16 %396, 0
-  br i1 %.not, label %414, label %397
+395:                                              ; preds = %392
+  %396 = load i16, ptr %54, align 8
+  %397 = and i16 %396, 4
+  %.not = icmp eq i16 %397, 0
+  br i1 %.not, label %415, label %398
 
-397:                                              ; preds = %394
-  %398 = load i32, ptr %23, align 8
-  switch i32 %398, label %414 [
-    i32 0, label %399
-    i32 5, label %406
+398:                                              ; preds = %395
+  %399 = load i32, ptr %23, align 8
+  switch i32 %399, label %415 [
+    i32 0, label %400
+    i32 5, label %407
   ]
 
-399:                                              ; preds = %397
-  %400 = load i16, ptr %55, align 8
-  switch i16 %400, label %414 [
+400:                                              ; preds = %398
+  %401 = load i16, ptr %55, align 8
+  switch i16 %401, label %415 [
     i16 66, label %.sink.split
     i16 44, label %.sink.split
     i16 22, label %.sink.split
     i16 11, label %.sink.split
     i16 4, label %.sink.split
     i16 2, label %.sink.split
-    i16 108, label %401
-    i16 96, label %401
-    i16 72, label %401
-    i16 48, label %401
-    i16 36, label %401
-    i16 24, label %401
-    i16 18, label %401
-    i16 12, label %401
+    i16 108, label %402
+    i16 96, label %402
+    i16 72, label %402
+    i16 48, label %402
+    i16 36, label %402
+    i16 24, label %402
+    i16 18, label %402
+    i16 12, label %402
   ]
 
-401:                                              ; preds = %399, %399, %399, %399, %399, %399, %399, %399
-  %402 = and i16 %395, 1
-  %.not314 = icmp eq i16 %402, 0
-  br i1 %.not314, label %414, label %403
+402:                                              ; preds = %400, %400, %400, %400, %400, %400, %400, %400
+  %403 = and i16 %396, 1
+  %.not314 = icmp eq i16 %403, 0
+  br i1 %.not314, label %415, label %404
 
-403:                                              ; preds = %401
-  %404 = load i16, ptr %57, align 2
-  %405 = icmp ult i16 %404, 15
-  %. = select i1 %405, i32 6, i32 5
+404:                                              ; preds = %402
+  %405 = load i16, ptr %57, align 2
+  %406 = icmp ult i16 %405, 15
+  %. = select i1 %406, i32 6, i32 5
   br label %.sink.split
 
-406:                                              ; preds = %397
-  %407 = and i16 %395, 1
-  %408 = icmp ne i16 %407, 0
-  %409 = load i16, ptr %57, align 2
-  %410 = icmp ult i16 %409, 15
-  %or.cond81 = select i1 %408, i1 %410, i1 false
-  br i1 %or.cond81, label %411, label %412
+407:                                              ; preds = %398
+  %408 = and i16 %396, 1
+  %409 = icmp ne i16 %408, 0
+  %410 = load i16, ptr %57, align 2
+  %411 = icmp ult i16 %410, 15
+  %or.cond81 = select i1 %409, i1 %411, i1 false
+  br i1 %or.cond81, label %412, label %413
 
-411:                                              ; preds = %406
+412:                                              ; preds = %407
   store i32 6, ptr %23, align 8
-  br label %412
+  br label %413
 
-412:                                              ; preds = %411, %406
-  %413 = load i16, ptr %55, align 8
-  switch i16 %413, label %414 [
+413:                                              ; preds = %412, %407
+  %414 = load i16, ptr %55, align 8
+  switch i16 %414, label %415 [
     i16 66, label %.sink.split
     i16 44, label %.sink.split
     i16 22, label %.sink.split
@@ -940,20 +941,20 @@ prism_rate_return_sig.exit:                       ; preds = %163, %171, %187, %2
     i16 2, label %.sink.split
   ]
 
-.sink.split:                                      ; preds = %412, %412, %412, %412, %412, %412, %403, %399, %399, %399, %399, %399, %399
-  %.sink = phi i32 [ 4, %399 ], [ 4, %399 ], [ 4, %399 ], [ 4, %399 ], [ 4, %399 ], [ 4, %399 ], [ %., %403 ], [ 4, %412 ], [ 4, %412 ], [ 4, %412 ], [ 4, %412 ], [ 4, %412 ], [ 4, %412 ]
+.sink.split:                                      ; preds = %413, %413, %413, %413, %413, %413, %404, %400, %400, %400, %400, %400, %400
+  %.sink = phi i32 [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ %., %404 ], [ 4, %413 ], [ 4, %413 ], [ 4, %413 ], [ 4, %413 ], [ 4, %413 ], [ 4, %413 ]
   store i32 %.sink, ptr %23, align 8
-  br label %414
+  br label %415
 
-414:                                              ; preds = %.sink.split, %399, %412, %397, %401, %394
-  %415 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 144)
-  %416 = load ptr, ptr @ieee80211_radio_handle, align 8
-  %417 = call i32 @call_dissector_with_data(ptr noundef %416, ptr noundef %415, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
-  %418 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %419
+415:                                              ; preds = %.sink.split, %400, %413, %398, %402, %395
+  %416 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 144)
+  %417 = load ptr, ptr @ieee80211_radio_handle, align 8
+  %418 = call i32 @call_dissector_with_data(ptr noundef %417, ptr noundef %416, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  %419 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %420
 
-419:                                              ; preds = %414, %18, %11
-  %.0 = phi i32 [ %14, %11 ], [ %418, %414 ], [ %21, %18 ]
+420:                                              ; preds = %415, %18, %11
+  %.0 = phi i32 [ %14, %11 ], [ %419, %415 ], [ %21, %18 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8

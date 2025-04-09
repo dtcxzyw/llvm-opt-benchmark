@@ -2669,10 +2669,8 @@ if.end100:                                        ; preds = %do.body90.if.end100
   %cmp120 = icmp ne i32 %and119, 0
   call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, i1 noundef zeroext %cmp120) #24
   %call130 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor) #24
-  %tobool.i328 = trunc i16 %call130 to i1
-  %16 = and i16 %call130, 256
-  %tobool2.i334 = icmp ne i16 %16, 0
-  %cond.i331.not = and i1 %tobool2.i334, %tobool.i328
+  %16 = and i16 %call130, 257
+  %cond.i331.not = icmp eq i16 %16, 257
   br i1 %cond.i331.not, label %for.inc.sink.split, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.end100
@@ -2717,10 +2715,8 @@ do.end153:                                        ; preds = %if.then142
   %cmp171 = icmp ne i32 %and170, 0
   call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, i1 noundef zeroext %cmp171) #24
   %call182 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor154) #24
-  %tobool.i317 = trunc i16 %call182 to i1
-  %22 = and i16 %call182, 256
-  %tobool2.i323 = icmp ne i16 %22, 0
-  %cond.i320.not = and i1 %tobool2.i323, %tobool.i317
+  %22 = and i16 %call182, 257
+  %cond.i320.not = icmp eq i16 %22, 257
   br i1 %cond.i320.not, label %for.inc.sink.split, label %cleanup194.thread
 
 cleanup194.thread:                                ; preds = %do.end153
@@ -2766,10 +2762,8 @@ if.else231:                                       ; preds = %if.else197
 
 do.body258:                                       ; preds = %if.then215, %if.else231
   %define_maybe203.sroa.0.0.in = phi i16 [ %call230, %if.then215 ], [ %call256, %if.else231 ]
-  %tobool.i = trunc i16 %define_maybe203.sroa.0.0.in to i1
-  %28 = and i16 %define_maybe203.sroa.0.0.in, 256
-  %tobool2.i = icmp ne i16 %28, 0
-  %cond.i.not = and i1 %tobool2.i, %tobool.i
+  %28 = and i16 %define_maybe203.sroa.0.0.in, 257
+  %cond.i.not = icmp eq i16 %28, 257
   br i1 %cond.i.not, label %for.inc, label %if.then262
 
 if.then262:                                       ; preds = %do.body258
@@ -3101,10 +3095,8 @@ do.end39:                                         ; preds = %do.end28
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end39
   %call88 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key, ptr nonnull %value) #24
-  %tobool.i = trunc i16 %call88 to i1
-  %6 = and i16 %call88, 256
-  %tobool2.i = icmp ne i16 %6, 0
-  %cond.i.not = and i1 %tobool2.i, %tobool.i
+  %6 = and i16 %call88, 257
+  %cond.i.not = icmp eq i16 %6, 257
   %call99 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %cond.i.not, label %do.end98, label %if.then92
 
@@ -3860,10 +3852,8 @@ do.end70:                                         ; preds = %_ZN2v810MaybeLocalI
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end70
   %call115 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call71, ptr nonnull %value) #24
-  %tobool.i = trunc i16 %call115 to i1
-  %7 = and i16 %call115, 256
-  %tobool2.i = icmp ne i16 %7, 0
-  %cond.i.not = and i1 %tobool2.i, %tobool.i
+  %7 = and i16 %call115, 257
+  %cond.i.not = icmp eq i16 %7, 257
   %call126 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %cond.i.not, label %do.end125, label %if.then119
 
@@ -4310,10 +4300,8 @@ do.end32:                                         ; preds = %do.end21
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
   %call73 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEEjNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index, ptr nonnull %value) #24
-  %tobool.i = trunc i16 %call73 to i1
-  %6 = and i16 %call73, 256
-  %tobool2.i = icmp ne i16 %6, 0
-  %cond.i.not = and i1 %tobool2.i, %tobool.i
+  %6 = and i16 %call73, 257
+  %cond.i.not = icmp eq i16 %6, 257
   %call84 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %cond.i.not, label %do.end83, label %if.then77
 
@@ -4907,10 +4895,8 @@ do.end25:                                         ; preds = %do.end14
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end25
   %call58 = call i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef 0) #24
-  %tobool.i = trunc i16 %call58 to i1
-  %6 = and i16 %call58, 256
-  %tobool2.i = icmp ne i16 %6, 0
-  %cond.i.not = and i1 %tobool2.i, %tobool.i
+  %6 = and i16 %call58, 257
+  %cond.i.not = icmp eq i16 %6, 257
   %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %cond.i.not, label %do.end68, label %if.then62
 
@@ -5048,10 +5034,8 @@ do.end25:                                         ; preds = %do.end14
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end25
   %call58 = call i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef 1) #24
-  %tobool.i = trunc i16 %call58 to i1
-  %6 = and i16 %call58, 256
-  %tobool2.i = icmp ne i16 %6, 0
-  %cond.i.not = and i1 %tobool2.i, %tobool.i
+  %6 = and i16 %call58, 257
+  %cond.i.not = icmp eq i16 %6, 257
   %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %cond.i.not, label %do.end68, label %if.then62
 
@@ -7096,10 +7080,8 @@ if.end54.i:                                       ; preds = %if.end.i.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
-  %tobool.i.i = trunc i16 %call100.i to i1
-  %13 = and i16 %call100.i, 256
-  %tobool2.i.i = icmp ne i16 %13, 0
-  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
+  %13 = and i16 %call100.i, 257
+  %cond.i.not.i = icmp eq i16 %13, 257
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -7230,10 +7212,8 @@ if.end54.i:                                       ; preds = %if.end.i.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
-  %tobool.i.i = trunc i16 %call100.i to i1
-  %13 = and i16 %call100.i, 256
-  %tobool2.i.i = icmp ne i16 %13, 0
-  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
+  %13 = and i16 %call100.i, 257
+  %cond.i.not.i = icmp eq i16 %13, 257
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -7364,10 +7344,8 @@ if.end54.i:                                       ; preds = %if.end.i.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
-  %tobool.i.i = trunc i16 %call100.i to i1
-  %13 = and i16 %call100.i, 256
-  %tobool2.i.i = icmp ne i16 %13, 0
-  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
+  %13 = and i16 %call100.i, 257
+  %cond.i.not.i = icmp eq i16 %13, 257
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -7498,10 +7476,8 @@ if.end54.i:                                       ; preds = %if.end.i.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
-  %tobool.i.i = trunc i16 %call100.i to i1
-  %13 = and i16 %call100.i, 256
-  %tobool2.i.i = icmp ne i16 %13, 0
-  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
+  %13 = and i16 %call100.i, 257
+  %cond.i.not.i = icmp eq i16 %13, 257
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -8424,10 +8400,8 @@ if.end54.i:                                       ; preds = %do.end33.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
-  %tobool.i.i = trunc i16 %call100.i to i1
-  %9 = and i16 %call100.i, 256
-  %tobool2.i.i = icmp ne i16 %9, 0
-  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
+  %9 = and i16 %call100.i, 257
+  %cond.i.not.i = icmp eq i16 %9, 257
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -8595,10 +8569,8 @@ if.end54.i:                                       ; preds = %do.end33.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
-  %tobool.i.i = trunc i16 %call100.i to i1
-  %9 = and i16 %call100.i, 256
-  %tobool2.i.i = icmp ne i16 %9, 0
-  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
+  %9 = and i16 %call100.i, 257
+  %cond.i.not.i = icmp eq i16 %9, 257
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -8766,10 +8738,8 @@ if.end54.i:                                       ; preds = %do.end33.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
-  %tobool.i.i = trunc i16 %call100.i to i1
-  %9 = and i16 %call100.i, 256
-  %tobool2.i.i = icmp ne i16 %9, 0
-  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
+  %9 = and i16 %call100.i, 257
+  %cond.i.not.i = icmp eq i16 %9, 257
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -8937,10 +8907,8 @@ if.end54.i:                                       ; preds = %do.end33.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
-  %tobool.i.i = trunc i16 %call100.i to i1
-  %9 = and i16 %call100.i, 256
-  %tobool2.i.i = icmp ne i16 %9, 0
-  %cond.i.not.i = and i1 %tobool2.i.i, %tobool.i.i
+  %9 = and i16 %call100.i, 257
+  %cond.i.not.i = icmp eq i16 %9, 257
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -14558,10 +14526,8 @@ if.end.i.i:                                       ; preds = %delete.notnull
 
 _ZN2v86GlobalINS_5ValueEED2Ev.exit:               ; preds = %delete.notnull, %if.end.i.i
   call void @_ZdlPv(ptr noundef nonnull %deferred) #26
-  %tobool.i = trunc i16 %success.sroa.0.0.in to i1
-  %10 = and i16 %success.sroa.0.0.in, 256
-  %tobool2.i = icmp ne i16 %10, 0
-  %cond.i.not = and i1 %tobool2.i, %tobool.i
+  %10 = and i16 %success.sroa.0.0.in, 257
+  %cond.i.not = icmp eq i16 %10, 257
   br i1 %cond.i.not, label %do.end67, label %cleanup.sink.split
 
 do.end67:                                         ; preds = %_ZN2v86GlobalINS_5ValueEED2Ev.exit

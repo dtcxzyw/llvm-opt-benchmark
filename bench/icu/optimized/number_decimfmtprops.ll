@@ -188,45 +188,45 @@ declare void @_ZN6icu_7713UnicodeString10setToBogusEv(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_776number4impl23DecimalFormatProperties7_equalsERKS2_b(ptr noundef nonnull align 8 dereferenceable(757) %0, ptr noundef nonnull align 8 dereferenceable(757) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load i8, ptr %0, align 8, !tbaa !3, !range !57, !noundef !58
-  %5 = trunc nuw i8 %4 to i1
-  %6 = load i8, ptr %1, align 8, !tbaa !3, !range !57, !noundef !58
-  %7 = trunc nuw i8 %6 to i1
-  %brmerge.i = select i1 %5, i1 true, i1 %7
-  br i1 %brmerge.i, label %_ZNK6icu_776number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit, label %8
+  %5 = load i8, ptr %1, align 8, !tbaa !3, !range !57, !noundef !58
+  %6 = or i8 %5, %4
+  %brmerge.not.i = icmp eq i8 %6, 0
+  br i1 %brmerge.not.i, label %7, label %_ZNK6icu_776number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !59
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !59
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %.critedge112
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !59
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !59
+  %12 = icmp eq i32 %9, %11
+  br i1 %12, label %14, label %.critedge112
 
 _ZNK6icu_776number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit: ; preds = %3
-  %.mux.i = select i1 %5, i1 %7, i1 false
-  br i1 %.mux.i, label %14, label %.critedge112
+  %13 = and i8 %5, %4
+  %.mux.i.not = icmp eq i8 %13, 0
+  br i1 %.mux.i.not, label %.critedge112, label %14
 
-14:                                               ; preds = %8, %_ZNK6icu_776number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit
+14:                                               ; preds = %7, %_ZNK6icu_776number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i8, ptr %15, align 8, !tbaa !9, !range !57, !noundef !58
-  %18 = trunc nuw i8 %17 to i1
-  %19 = load i8, ptr %16, align 8, !tbaa !9, !range !57, !noundef !58
-  %20 = trunc nuw i8 %19 to i1
-  %brmerge.i129 = select i1 %18, i1 true, i1 %20
-  br i1 %brmerge.i129, label %_ZNK6icu_776number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit, label %21
+  %18 = load i8, ptr %16, align 8, !tbaa !9, !range !57, !noundef !58
+  %19 = or i8 %18, %17
+  %brmerge.not.i129 = icmp eq i8 %19, 0
+  br i1 %brmerge.not.i129, label %20, label %_ZNK6icu_776number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = tail call noundef zeroext i1 @_ZNK6icu_7711MeasureUniteqERKNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(19) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
-  br i1 %24, label %.critedge, label %.critedge112
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = tail call noundef zeroext i1 @_ZNK6icu_7711MeasureUniteqERKNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(19) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  br i1 %23, label %.critedge, label %.critedge112
 
 _ZNK6icu_776number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit: ; preds = %14
-  %.mux.i130 = select i1 %18, i1 %20, i1 false
-  br i1 %.mux.i130, label %.critedge, label %.critedge112
+  %24 = and i8 %18, %17
+  %.mux.i130.not = icmp eq i8 %24, 0
+  br i1 %.mux.i130.not, label %.critedge112, label %.critedge
 
-.critedge:                                        ; preds = %21, %_ZNK6icu_776number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit
+.critedge:                                        ; preds = %20, %_ZNK6icu_776number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -238,25 +238,25 @@ _ZNK6icu_776number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit: ; preds
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %32 = load i8, ptr %30, align 8, !tbaa !20, !range !57, !noundef !58
-  %33 = trunc nuw i8 %32 to i1
-  %34 = load i8, ptr %31, align 8, !tbaa !20, !range !57, !noundef !58
-  %35 = trunc nuw i8 %34 to i1
-  %brmerge.i131 = select i1 %33, i1 true, i1 %35
-  br i1 %brmerge.i131, label %_ZNK6icu_776number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit, label %36
+  %33 = load i8, ptr %31, align 8, !tbaa !20, !range !57, !noundef !58
+  %34 = or i8 %33, %32
+  %brmerge.not.i131 = icmp eq i8 %34, 0
+  br i1 %brmerge.not.i131, label %35, label %_ZNK6icu_776number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit
 
-36:                                               ; preds = %.critedge90
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %38 = load i32, ptr %37, align 4, !tbaa !60
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %40 = load i32, ptr %39, align 4, !tbaa !60
-  %41 = icmp eq i32 %38, %40
-  br i1 %41, label %.critedge91, label %.critedge112
+35:                                               ; preds = %.critedge90
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %37 = load i32, ptr %36, align 4, !tbaa !60
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %39 = load i32, ptr %38, align 4, !tbaa !60
+  %40 = icmp eq i32 %37, %39
+  br i1 %40, label %.critedge91, label %.critedge112
 
 _ZNK6icu_776number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit: ; preds = %.critedge90
-  %.mux.i132 = select i1 %33, i1 %35, i1 false
-  br i1 %.mux.i132, label %.critedge91, label %.critedge112
+  %41 = and i8 %33, %32
+  %.mux.i132.not = icmp eq i8 %41, 0
+  br i1 %.mux.i132.not, label %.critedge112, label %.critedge91
 
-.critedge91:                                      ; preds = %36, %_ZNK6icu_776number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit
+.critedge91:                                      ; preds = %35, %_ZNK6icu_776number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %43 = load i8, ptr %42, align 1, !tbaa !61, !range !57, !noundef !58
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 65
@@ -368,25 +368,25 @@ _ZNK6icu_776number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit: ; preds =
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %110 = load i8, ptr %108, align 8, !tbaa !26, !range !57, !noundef !58
-  %111 = trunc nuw i8 %110 to i1
-  %112 = load i8, ptr %109, align 8, !tbaa !26, !range !57, !noundef !58
-  %113 = trunc nuw i8 %112 to i1
-  %brmerge.i133 = select i1 %111, i1 true, i1 %113
-  br i1 %brmerge.i133, label %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit, label %114
+  %111 = load i8, ptr %109, align 8, !tbaa !26, !range !57, !noundef !58
+  %112 = or i8 %111, %110
+  %brmerge.not.i133 = icmp eq i8 %112, 0
+  br i1 %brmerge.not.i133, label %113, label %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit
 
-114:                                              ; preds = %.critedge105
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  %116 = load i32, ptr %115, align 4, !tbaa !69
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 388
-  %118 = load i32, ptr %117, align 4, !tbaa !69
-  %119 = icmp eq i32 %116, %118
-  br i1 %119, label %.critedge106, label %.critedge112
+113:                                              ; preds = %.critedge105
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 388
+  %115 = load i32, ptr %114, align 4, !tbaa !69
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 388
+  %117 = load i32, ptr %116, align 4, !tbaa !69
+  %118 = icmp eq i32 %115, %117
+  br i1 %118, label %.critedge106, label %.critedge112
 
 _ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit: ; preds = %.critedge105
-  %.mux.i134 = select i1 %111, i1 %113, i1 false
-  br i1 %.mux.i134, label %.critedge106, label %.critedge112
+  %119 = and i8 %111, %110
+  %.mux.i134.not = icmp eq i8 %119, 0
+  br i1 %.mux.i134.not, label %.critedge112, label %.critedge106
 
-.critedge106:                                     ; preds = %114, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit
+.critedge106:                                     ; preds = %113, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %122 = tail call noundef zeroext i1 @_ZNK6icu_7713UnicodeStringeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %120, ptr noundef nonnull align 8 dereferenceable(64) %121)
@@ -416,25 +416,25 @@ _ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit:
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %136 = load i8, ptr %134, align 8, !tbaa !32, !range !57, !noundef !58
-  %137 = trunc nuw i8 %136 to i1
-  %138 = load i8, ptr %135, align 8, !tbaa !32, !range !57, !noundef !58
-  %139 = trunc nuw i8 %138 to i1
-  %brmerge.i135 = select i1 %137, i1 true, i1 %139
-  br i1 %brmerge.i135, label %_ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit, label %140
+  %137 = load i8, ptr %135, align 8, !tbaa !32, !range !57, !noundef !58
+  %138 = or i8 %137, %136
+  %brmerge.not.i135 = icmp eq i8 %138, 0
+  br i1 %brmerge.not.i135, label %139, label %_ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit
 
-140:                                              ; preds = %.critedge110
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 748
-  %142 = load i32, ptr %141, align 4, !tbaa !70
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 748
-  %144 = load i32, ptr %143, align 4, !tbaa !70
-  %145 = icmp eq i32 %142, %144
-  br i1 %145, label %.critedge111, label %.critedge112
+139:                                              ; preds = %.critedge110
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 748
+  %141 = load i32, ptr %140, align 4, !tbaa !70
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 748
+  %143 = load i32, ptr %142, align 4, !tbaa !70
+  %144 = icmp eq i32 %141, %143
+  br i1 %144, label %.critedge111, label %.critedge112
 
 _ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit: ; preds = %.critedge110
-  %.mux.i136 = select i1 %137, i1 %139, i1 false
-  br i1 %.mux.i136, label %.critedge111, label %.critedge112
+  %145 = and i8 %137, %136
+  %.mux.i136.not = icmp eq i8 %145, 0
+  br i1 %.mux.i136.not, label %.critedge112, label %.critedge111
 
-.critedge111:                                     ; preds = %140, %_ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit
+.critedge111:                                     ; preds = %139, %_ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %147 = load i32, ptr %146, align 8, !tbaa !55
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 752
@@ -450,8 +450,8 @@ _ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit
   %156 = icmp eq i8 %153, %155
   br label %.critedge112
 
-.critedge112:                                     ; preds = %140, %114, %36, %21, %8, %_ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit, %.critedge108, %.critedge106, %.critedge104, %.critedge102, %.critedge100, %.critedge98, %.critedge96, %.critedge94, %.critedge92, %_ZNK6icu_776number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit, %_ZNK6icu_776number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit, %_ZNK6icu_776number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit, %.critedge, %.critedge91, %.critedge93, %.critedge95, %.critedge97, %.critedge99, %.critedge101, %.critedge103, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit, %.critedge107, %.critedge109, %151, %.critedge111
-  %157 = phi i1 [ false, %.critedge111 ], [ %156, %151 ], [ false, %.critedge109 ], [ false, %.critedge107 ], [ false, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit ], [ false, %.critedge103 ], [ false, %.critedge101 ], [ false, %.critedge99 ], [ false, %.critedge97 ], [ false, %.critedge95 ], [ false, %.critedge93 ], [ false, %.critedge91 ], [ false, %.critedge ], [ false, %_ZNK6icu_776number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit ], [ false, %_ZNK6icu_776number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit ], [ false, %_ZNK6icu_776number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit ], [ false, %.critedge92 ], [ false, %.critedge94 ], [ false, %.critedge96 ], [ false, %.critedge98 ], [ false, %.critedge100 ], [ false, %.critedge102 ], [ false, %.critedge104 ], [ false, %.critedge106 ], [ false, %.critedge108 ], [ false, %_ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit ], [ false, %8 ], [ false, %21 ], [ false, %36 ], [ false, %114 ], [ false, %140 ]
+.critedge112:                                     ; preds = %139, %113, %35, %20, %7, %_ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit, %.critedge108, %.critedge106, %.critedge104, %.critedge102, %.critedge100, %.critedge98, %.critedge96, %.critedge94, %.critedge92, %_ZNK6icu_776number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit, %_ZNK6icu_776number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit, %_ZNK6icu_776number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit, %.critedge, %.critedge91, %.critedge93, %.critedge95, %.critedge97, %.critedge99, %.critedge101, %.critedge103, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit, %.critedge107, %.critedge109, %151, %.critedge111
+  %157 = phi i1 [ false, %.critedge111 ], [ %156, %151 ], [ false, %.critedge109 ], [ false, %.critedge107 ], [ false, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit ], [ false, %.critedge103 ], [ false, %.critedge101 ], [ false, %.critedge99 ], [ false, %.critedge97 ], [ false, %.critedge95 ], [ false, %.critedge93 ], [ false, %.critedge91 ], [ false, %.critedge ], [ false, %_ZNK6icu_776number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit ], [ false, %_ZNK6icu_776number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit ], [ false, %_ZNK6icu_776number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit ], [ false, %.critedge92 ], [ false, %.critedge94 ], [ false, %.critedge96 ], [ false, %.critedge98 ], [ false, %.critedge100 ], [ false, %.critedge102 ], [ false, %.critedge104 ], [ false, %.critedge106 ], [ false, %.critedge108 ], [ false, %_ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit ], [ false, %7 ], [ false, %20 ], [ false, %35 ], [ false, %113 ], [ false, %139 ]
   br i1 %2, label %.critedge128, label %158
 
 158:                                              ; preds = %.critedge112
@@ -555,25 +555,25 @@ _ZNK6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 460
   %220 = load i8, ptr %218, align 4, !tbaa !29, !range !57, !noundef !58
-  %221 = trunc nuw i8 %220 to i1
-  %222 = load i8, ptr %219, align 4, !tbaa !29, !range !57, !noundef !58
-  %223 = trunc nuw i8 %222 to i1
-  %brmerge.i137 = select i1 %221, i1 true, i1 %223
-  br i1 %brmerge.i137, label %_ZNK6icu_776number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit, label %224
+  %221 = load i8, ptr %219, align 4, !tbaa !29, !range !57, !noundef !58
+  %222 = or i8 %221, %220
+  %brmerge.not.i137 = icmp eq i8 %222, 0
+  br i1 %brmerge.not.i137, label %223, label %_ZNK6icu_776number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit
 
-224:                                              ; preds = %.critedge125
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %226 = load i32, ptr %225, align 8, !tbaa !76
-  %227 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  %228 = load i32, ptr %227, align 8, !tbaa !76
-  %229 = icmp eq i32 %226, %228
-  br i1 %229, label %.critedge126, label %.critedge128
+223:                                              ; preds = %.critedge125
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %225 = load i32, ptr %224, align 8, !tbaa !76
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 464
+  %227 = load i32, ptr %226, align 8, !tbaa !76
+  %228 = icmp eq i32 %225, %227
+  br i1 %228, label %.critedge126, label %.critedge128
 
 _ZNK6icu_776number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit: ; preds = %.critedge125
-  %.mux.i138 = select i1 %221, i1 %223, i1 false
-  br i1 %.mux.i138, label %.critedge126, label %.critedge128
+  %229 = and i8 %221, %220
+  %.mux.i138.not = icmp eq i8 %229, 0
+  br i1 %.mux.i138.not, label %.critedge128, label %.critedge126
 
-.critedge126:                                     ; preds = %224, %_ZNK6icu_776number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit
+.critedge126:                                     ; preds = %223, %_ZNK6icu_776number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %231 = load i8, ptr %230, align 4, !tbaa !51, !range !57, !noundef !58
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 468
@@ -597,8 +597,8 @@ _ZNK6icu_776number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit: ; preds = 
   %245 = icmp eq i32 %242, %244
   br label %.critedge128
 
-.critedge128:                                     ; preds = %224, %.critedge127, %240, %_ZNK6icu_776number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit, %.critedge123, %.critedge121, %.critedge119, %.critedge117, %.critedge115, %165, %158, %.critedge114, %.critedge116, %.critedge118, %.critedge120, %.critedge122, %.critedge124, %.critedge126, %.critedge112
-  %.0 = phi i1 [ %157, %.critedge112 ], [ false, %.critedge127 ], [ %245, %240 ], [ false, %_ZNK6icu_776number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit ], [ false, %.critedge123 ], [ false, %.critedge121 ], [ false, %.critedge119 ], [ false, %.critedge117 ], [ false, %.critedge115 ], [ false, %165 ], [ false, %158 ], [ false, %.critedge114 ], [ false, %.critedge116 ], [ false, %.critedge118 ], [ false, %.critedge120 ], [ false, %.critedge122 ], [ false, %.critedge124 ], [ false, %.critedge126 ], [ false, %224 ]
+.critedge128:                                     ; preds = %223, %.critedge127, %240, %_ZNK6icu_776number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit, %.critedge123, %.critedge121, %.critedge119, %.critedge117, %.critedge115, %165, %158, %.critedge114, %.critedge116, %.critedge118, %.critedge120, %.critedge122, %.critedge124, %.critedge126, %.critedge112
+  %.0 = phi i1 [ %157, %.critedge112 ], [ false, %.critedge127 ], [ %245, %240 ], [ false, %_ZNK6icu_776number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit ], [ false, %.critedge123 ], [ false, %.critedge121 ], [ false, %.critedge119 ], [ false, %.critedge117 ], [ false, %.critedge115 ], [ false, %165 ], [ false, %158 ], [ false, %.critedge114 ], [ false, %.critedge116 ], [ false, %.critedge118 ], [ false, %.critedge120 ], [ false, %.critedge122 ], [ false, %.critedge124 ], [ false, %.critedge126 ], [ false, %223 ]
   ret i1 %.0
 }
 

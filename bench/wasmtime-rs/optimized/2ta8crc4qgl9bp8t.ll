@@ -24028,9 +24028,10 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !4192
-  %18 = trunc i8 %14 to i1
+  %18 = and i8 %14, 1
+  %spec.select.i.i.not.i = icmp eq i8 %18, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !4190
-  br i1 %18, label %24, label %19
+  br i1 %spec.select.i.i.not.i, label %19, label %24
 
 19:                                               ; preds = %17
   store i64 0, ptr %0, align 8, !alias.scope !4178, !noalias !4181
@@ -24095,9 +24096,10 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 
 39:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4216
-  %40 = trunc i8 %35 to i1
+  %40 = and i8 %35, 1
+  %spec.select.i.i.not.i.i.i = icmp eq i8 %40, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !4213
-  br i1 %40, label %41, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h85ca2babf1c6a3baE.exit.i.i"
+  br i1 %spec.select.i.i.not.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h85ca2babf1c6a3baE.exit.i.i", label %41
 
 41:                                               ; preds = %39
   %42 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4221, !noalias !4222, !noundef !5

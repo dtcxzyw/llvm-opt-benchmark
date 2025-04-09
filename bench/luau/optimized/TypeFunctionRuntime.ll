@@ -11800,100 +11800,98 @@ _ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %38 = load i8, ptr %37, align 8, !tbaa !113, !range !101, !noundef !102
-  %39 = trunc nuw i8 %38 to i1
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %42 = load i8, ptr %41, align 8, !tbaa !113, !range !101, !noundef !102
-  %43 = trunc nuw i8 %42 to i1
-  %44 = xor i1 %39, %43
-  br i1 %44, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %45
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %41 = load i8, ptr %40, align 8, !tbaa !113, !range !101, !noundef !102
+  %.not48 = icmp eq i8 %38, %41
+  br i1 %.not48, label %42, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-45:                                               ; preds = %35
-  %brmerge.demorgan = and i1 %39, %43
-  br i1 %brmerge.demorgan, label %46, label %56
+42:                                               ; preds = %35
+  %brmerge.demorgan.not = icmp eq i8 %38, 0
+  br i1 %brmerge.demorgan.not, label %53, label %43
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr %36, align 8, !tbaa !115
-  %48 = load ptr, ptr %40, align 8, !tbaa !115
-  %49 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_16TypeFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(152) %47, ptr noundef nonnull align 8 dereferenceable(152) %48)
-  br i1 %49, label %50, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %36, align 8, !tbaa !115
+  %45 = load ptr, ptr %39, align 8, !tbaa !115
+  %46 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_16TypeFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(152) %44, ptr noundef nonnull align 8 dereferenceable(152) %45)
+  br i1 %46, label %47, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %52 = load ptr, ptr %51, align 8, !tbaa !117
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !117
-  %55 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_16TypeFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(152) %52, ptr noundef nonnull align 8 dereferenceable(152) %54)
-  br i1 %55, label %56, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %49 = load ptr, ptr %48, align 8, !tbaa !117
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %51 = load ptr, ptr %50, align 8, !tbaa !117
+  %52 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_16TypeFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(152) %49, ptr noundef nonnull align 8 dereferenceable(152) %51)
+  br i1 %52, label %53, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-56:                                               ; preds = %45, %50
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
+53:                                               ; preds = %42, %47
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %55 = load ptr, ptr %54, align 8, !tbaa !64
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.not4950 = icmp eq ptr %55, %56
+  br i1 %.not4950, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !64
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not4849 = icmp eq ptr %58, %59
-  br i1 %.not4849, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %91
-  %.sroa.031.051 = phi ptr [ %92, %91 ], [ %58, %.lr.ph.preheader ]
-  %.sroa.022.050 = phi ptr [ %93, %91 ], [ %61, %.lr.ph.preheader ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.031.051, i64 64
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.031.051, i64 72
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %88
+  %.sroa.031.052 = phi ptr [ %89, %88 ], [ %55, %.lr.ph.preheader ]
+  %.sroa.022.051 = phi ptr [ %90, %88 ], [ %58, %.lr.ph.preheader ]
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.031.052, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.031.052, i64 72
+  %61 = load i8, ptr %60, align 8, !tbaa !110, !range !101, !noundef !102
+  %62 = trunc nuw i8 %61 to i1
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.022.051, i64 72
   %64 = load i8, ptr %63, align 8, !tbaa !110, !range !101, !noundef !102
   %65 = trunc nuw i8 %64 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.022.050, i64 72
-  %67 = load i8, ptr %66, align 8, !tbaa !110, !range !101, !noundef !102
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %65, label %69, label %70
+  br i1 %62, label %66, label %67
 
-69:                                               ; preds = %.lr.ph
-  br i1 %68, label %71, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
+66:                                               ; preds = %.lr.ph
+  br i1 %65, label %68, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-70:                                               ; preds = %.lr.ph
-  br i1 %68, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %76
+67:                                               ; preds = %.lr.ph
+  br i1 %65, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %73
 
-71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.022.050, i64 64
-  %73 = load ptr, ptr %62, align 8, !tbaa !29
-  %74 = load ptr, ptr %72, align 8, !tbaa !29
-  %75 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_16TypeFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(152) %73, ptr noundef nonnull align 8 dereferenceable(152) %74)
-  br i1 %75, label %76, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.022.051, i64 64
+  %70 = load ptr, ptr %59, align 8, !tbaa !29
+  %71 = load ptr, ptr %69, align 8, !tbaa !29
+  %72 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_16TypeFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(152) %70, ptr noundef nonnull align 8 dereferenceable(152) %71)
+  br i1 %72, label %73, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-76:                                               ; preds = %70, %71
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.031.051, i64 80
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.031.051, i64 88
+73:                                               ; preds = %67, %68
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.031.052, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.031.052, i64 88
+  %76 = load i8, ptr %75, align 8, !tbaa !110, !range !101, !noundef !102
+  %77 = trunc nuw i8 %76 to i1
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.022.051, i64 88
   %79 = load i8, ptr %78, align 8, !tbaa !110, !range !101, !noundef !102
   %80 = trunc nuw i8 %79 to i1
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.022.050, i64 88
-  %82 = load i8, ptr %81, align 8, !tbaa !110, !range !101, !noundef !102
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %80, label %84, label %85
+  br i1 %77, label %81, label %82
 
-84:                                               ; preds = %76
-  br i1 %83, label %86, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
+81:                                               ; preds = %73
+  br i1 %80, label %83, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-85:                                               ; preds = %76
-  br i1 %83, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %91
+82:                                               ; preds = %73
+  br i1 %80, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %88
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.022.050, i64 80
-  %88 = load ptr, ptr %77, align 8, !tbaa !29
-  %89 = load ptr, ptr %87, align 8, !tbaa !29
-  %90 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_16TypeFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(152) %88, ptr noundef nonnull align 8 dereferenceable(152) %89)
-  br i1 %90, label %91, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.022.051, i64 80
+  %85 = load ptr, ptr %74, align 8, !tbaa !29
+  %86 = load ptr, ptr %84, align 8, !tbaa !29
+  %87 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_16TypeFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(152) %85, ptr noundef nonnull align 8 dereferenceable(152) %86)
+  br i1 %87, label %88, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread
 
-91:                                               ; preds = %85, %86
-  %92 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.031.051) #32
-  %93 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.022.050) #32
-  %.not48 = icmp eq ptr %92, %59
-  br i1 %.not48, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %.lr.ph, !llvm.loop !134
+88:                                               ; preds = %82, %83
+  %89 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.031.052) #32
+  %90 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.022.051) #32
+  %.not49 = icmp eq ptr %89, %56
+  br i1 %.not49, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread, label %.lr.ph, !llvm.loop !134
 
-_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread: ; preds = %91, %86, %84, %85, %71, %69, %70, %56, %3, %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread42, %50, %46, %35, %29
-  %.0 = phi i1 [ false, %29 ], [ false, %35 ], [ false, %46 ], [ false, %50 ], [ true, %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread42 ], [ true, %3 ], [ true, %56 ], [ true, %91 ], [ false, %86 ], [ false, %84 ], [ false, %85 ], [ false, %71 ], [ false, %69 ], [ false, %70 ]
+_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread: ; preds = %88, %83, %81, %82, %68, %66, %67, %53, %3, %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread42, %47, %43, %35, %29
+  %.0 = phi i1 [ false, %29 ], [ false, %35 ], [ false, %43 ], [ false, %47 ], [ true, %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread42 ], [ true, %3 ], [ true, %53 ], [ true, %88 ], [ false, %83 ], [ false, %81 ], [ false, %82 ], [ false, %68 ], [ false, %66 ], [ false, %67 ]
   ret i1 %.0
 }
 

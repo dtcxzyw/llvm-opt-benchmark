@@ -118254,15 +118254,15 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN6hir_ty5lower17TyLoweringContext15
 
 12:                                               ; preds = %3
   %13 = icmp eq i64 %11, 2
-  br i1 %13, label %18, label %53
+  br i1 %13, label %18, label %54
 
 14:                                               ; preds = %3
   %15 = add nsw i64 %11, -2
   %16 = icmp ult i64 %15, 4
   %17 = select i1 %16, i64 %15, i64 1
-  switch i64 %17, label %54 [
-    i64 0, label %53
-    i64 1, label %55
+  switch i64 %17, label %55 [
+    i64 0, label %54
+    i64 1, label %56
   ]
 
 18:                                               ; preds = %12
@@ -118305,73 +118305,73 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN6hir_ty5lower17TyLoweringContext15
   call void @llvm.experimental.noalias.scope.decl(metadata !31658)
   %41 = atomicrmw sub ptr %38, i64 1 release, align 8, !noalias !31661
   %42 = icmp eq i64 %41, 1
-  br i1 %42, label %43, label %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit6"
+  br i1 %42, label %43, label %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit5"
 
 43:                                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit"
   %44 = load ptr, ptr %4, align 8, !alias.scope !31661, !nonnull !9, !noundef !9
   %45 = load atomic i64, ptr %44 acquire, align 8, !noalias !31661
   call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hde9243afe9cce15cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-  br label %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit6"
+  br label %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit5"
 
-"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit6": ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit", %43
+"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit5": ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit", %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %brmerge4 = or i8 %40, %29
-  %brmerge = trunc nuw i8 %brmerge4 to i1
-  br i1 %brmerge, label %46, label %49
+  %46 = or i8 %40, %29
+  %brmerge.not = icmp eq i8 %46, 0
+  br i1 %brmerge.not, label %50, label %47
 
-46:                                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit6", %49
-  %47 = sub nsw i8 %29, %40
-  %48 = icmp eq i8 %47, 0
-  br i1 %48, label %52, label %53
+47:                                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit5", %50
+  %48 = sub nsw i8 %29, %40
+  %49 = icmp eq i8 %48, 0
+  br i1 %49, label %53, label %54
 
-49:                                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit6"
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8, !nonnull !9, !align !883, !noundef !9
-  store i8 1, ptr %51, align 1
-  br label %46
+50:                                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit5"
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %52 = load ptr, ptr %51, align 8, !nonnull !9, !align !883, !noundef !9
+  store i8 1, ptr %52, align 1
+  br label %47
 
-52:                                               ; preds = %46
+53:                                               ; preds = %47
   %.0.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %20, i32 %36)
-  br label %53
+  br label %54
 
-53:                                               ; preds = %46, %52, %68, %14, %12
-  %.0 = phi i8 [ -1, %12 ], [ 1, %14 ], [ %spec.select, %68 ], [ %.0.i.i, %52 ], [ %47, %46 ]
+54:                                               ; preds = %47, %53, %69, %14, %12
+  %.0 = phi i8 [ -1, %12 ], [ 1, %14 ], [ %spec.select, %69 ], [ %.0.i.i, %53 ], [ %48, %47 ]
   ret i8 %.0
 
-54:                                               ; preds = %55, %14
+55:                                               ; preds = %56, %14
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.4126a6de56952dc86980097524692137.422, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4126a6de56952dc86980097524692137.430) #56
   unreachable
 
-55:                                               ; preds = %14
-  %56 = icmp eq i64 %9, 1
-  br i1 %56, label %57, label %54
+56:                                               ; preds = %14
+  %57 = icmp eq i64 %9, 1
+  br i1 %57, label %58, label %55
 
-57:                                               ; preds = %55
-  %58 = or i64 %11, %6
-  %or.cond = icmp eq i64 %58, 0
-  br i1 %or.cond, label %60, label %59
+58:                                               ; preds = %56
+  %59 = or i64 %11, %6
+  %or.cond = icmp eq i64 %59, 0
+  br i1 %or.cond, label %61, label %60
 
-59:                                               ; preds = %57
+60:                                               ; preds = %58
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.4126a6de56952dc86980097524692137.422, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4126a6de56952dc86980097524692137.429) #56
   unreachable
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %62 = load i32, ptr %61, align 8, !noundef !9
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %64 = load i32, ptr %63, align 8, !noundef !9
-  %.not = icmp eq i32 %62, %64
-  br i1 %.not, label %65, label %68
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %63 = load i32, ptr %62, align 8, !noundef !9
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %65 = load i32, ptr %64, align 8, !noundef !9
+  %.not = icmp eq i32 %63, %65
+  br i1 %.not, label %66, label %69
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %67 = load ptr, ptr %66, align 8, !nonnull !9, !align !883, !noundef !9
-  store i8 1, ptr %67, align 1
-  br label %68
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %68 = load ptr, ptr %67, align 8, !nonnull !9, !align !883, !noundef !9
+  store i8 1, ptr %68, align 1
+  br label %69
 
-68:                                               ; preds = %60, %65
-  %spec.select = tail call i8 @llvm.ucmp.i8.i32(i32 %62, i32 %64)
-  br label %53
+69:                                               ; preds = %61, %66
+  %spec.select = tail call i8 @llvm.ucmp.i8.i32(i32 %63, i32 %65)
+  br label %54
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

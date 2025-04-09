@@ -1767,10 +1767,8 @@ do.body:                                          ; preds = %lor.lhs.false75, %l
   %arrow_message_private_symbol_.i.i34 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %23 = load ptr, ptr %arrow_message_private_symbol_.i.i34, align 8
   %call110 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %err_obj.sroa.0.0, ptr %call2.i32, ptr %23, ptr nonnull %call11.i) #20
-  %tobool.i = trunc i16 %call110 to i1
-  %24 = and i16 %call110, 256
-  %tobool2.i = icmp ne i16 %24, 0
-  %cond.i.not = and i1 %tobool2.i, %tobool.i
+  %24 = and i16 %call110, 257
+  %cond.i.not = icmp eq i16 %24, 257
   br i1 %cond.i.not, label %cleanup, label %do.body117
 
 do.body117:                                       ; preds = %do.body

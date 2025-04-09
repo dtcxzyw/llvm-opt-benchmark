@@ -10311,10 +10311,11 @@ define hidden noundef zeroext i1 @"_ZN4just6recipe15Recipe$LT$D$GT$7enabled17hd9
 
 26:                                               ; preds = %24, %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1), !noalias !1578
-  %.demorgan = and i1 %trunc.i, %trunc.i15
-  %27 = and i1 %trunc.i8, %trunc.i22
-  %28 = xor i1 %27, true
-  %29 = or i1 %.demorgan, %28
+  %27 = and i64 %19, %11
+  %.demorgan.not = icmp ne i64 %27, 0
+  %28 = and i64 %23, %15
+  %.not = icmp eq i64 %28, 0
+  %29 = or i1 %.demorgan.not, %.not
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17ha5cdde376751ca9eE.exit28"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17ha5cdde376751ca9eE.exit28": ; preds = %.critedge, %26

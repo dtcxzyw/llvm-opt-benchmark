@@ -121,15 +121,16 @@ _ZN9CDSConfig31is_logging_lambda_form_invokersEv.exit.thread: ; preds = %_ZN15Cl
   %8 = phi i32 [ 4, %_ZN9CDSConfig31is_logging_lambda_form_invokersEv.exit.thread ], [ 0, %_ZN9CDSConfig31is_logging_lambda_form_invokersEv.exit ], [ 0, %_ZN15ClassListWriter10is_enabledEv.exit.i ]
   %9 = trunc i8 %1 to i1
   %10 = select i1 %9, i32 2, i32 0
-  %11 = or i1 %9, %3
-  %12 = zext i1 %11 to i32
-  %13 = or disjoint i32 %10, %12
-  %14 = or disjoint i32 %13, %8
-  %15 = load i8, ptr @UseSharedSpaces, align 1
-  %.not = icmp eq i8 %15, 0
-  %16 = select i1 %.not, i32 0, i32 8
-  %17 = or disjoint i32 %14, %16
-  ret i32 %17
+  %11 = or i8 %.fr, %1
+  %12 = and i8 %11, 1
+  %13 = zext nneg i8 %12 to i32
+  %14 = or disjoint i32 %10, %13
+  %15 = or disjoint i32 %14, %8
+  %16 = load i8, ptr @UseSharedSpaces, align 1
+  %.not = icmp eq i8 %16, 0
+  %17 = select i1 %.not, i32 0, i32 8
+  %18 = or disjoint i32 %15, %17
+  ret i32 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

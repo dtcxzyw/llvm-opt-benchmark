@@ -12142,7 +12142,6 @@ _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32, !noalias !393
   %lowerUnbounded_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i8, ptr %lowerUnbounded_.i.i, align 8, !noalias !393
-  %tobool.i.i3 = trunc i8 %1 to i1
   %lowerExclusive_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 17
   %2 = load i8, ptr %lowerExclusive_.i.i, align 1, !noalias !393
   %upperUnbounded_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 18
@@ -12169,25 +12168,27 @@ _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %entry
   store i8 %frombool2.i.i.i, ptr %upperUnbounded_.i.i.i, align 2, !noalias !393
   %upperExclusive_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19
   store i8 %frombool3.i.i.i, ptr %upperExclusive_.i.i.i, align 1, !noalias !393
-  %lnot18.i.i.i = and i1 %tobool.i.i3, %tobool3.i.i
-  br i1 %lnot18.i.i.i, label %if.then.i.i.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
+  %5 = and i8 %3, %frombool.i.i.i
+  %lnot18.i.not.i.i = icmp eq i8 %5, 0
+  br i1 %lnot18.i.not.i.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNRSt8optionalIbE5valueEv.exit
   tail call void @llvm.trap()
   unreachable
 
 _ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i: ; preds = %_ZNRSt8optionalIbE5valueEv.exit
+  %tobool.i.i3 = trunc i8 %1 to i1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i64 16), ptr %call.i, align 8, !noalias !393
   %lower_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %lower_6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %5 = load double, ptr %lower_6.i.i, align 8, !noalias !393
-  store double %5, ptr %lower_.i.i, align 8, !noalias !393
+  %6 = load double, ptr %lower_6.i.i, align 8, !noalias !393
+  store double %6, ptr %lower_.i.i, align 8, !noalias !393
   %upper_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %upper_7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %6 = load double, ptr %upper_7.i.i, align 8, !noalias !393
-  store double %6, ptr %upper_.i.i, align 8, !noalias !393
-  %7 = fcmp ord double %5, 0.000000e+00
-  %or.cond.not.i.i = select i1 %tobool.i.i3, i1 true, i1 %7
+  %7 = load double, ptr %upper_7.i.i, align 8, !noalias !393
+  store double %7, ptr %upper_.i.i, align 8, !noalias !393
+  %8 = fcmp ord double %6, 0.000000e+00
+  %or.cond.not.i.i = select i1 %tobool.i.i3, i1 true, i1 %8
   br i1 %or.cond.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
@@ -12195,8 +12196,8 @@ if.then.i.i:                                      ; preds = %_ZN8facebook5velox6
   unreachable
 
 if.end.i.i:                                       ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
-  %8 = fcmp ord double %6, 0.000000e+00
-  %or.cond6.not.i.i = select i1 %tobool3.i.i, i1 true, i1 %8
+  %9 = fcmp ord double %7, 0.000000e+00
+  %or.cond6.not.i.i = select i1 %tobool3.i.i, i1 true, i1 %9
   br i1 %or.cond6.not.i.i, label %return, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %if.end.i.i
@@ -12207,12 +12208,12 @@ _ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIdEESt14default_del
   %call.i5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32, !noalias !396
   %nullAllowed_.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i5, i64 8
   %nullAllowed_2.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %9 = load i64, ptr %nullAllowed_2.i.i.i.i, align 8, !noalias !396
-  store i64 %9, ptr %nullAllowed_.i.i.i.i6, align 8, !noalias !396
+  %10 = load i64, ptr %nullAllowed_2.i.i.i.i, align 8, !noalias !396
+  store i64 %10, ptr %nullAllowed_.i.i.i.i6, align 8, !noalias !396
   %lowerUnbounded_.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i5, i64 16
   %lowerUnbounded_2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load i32, ptr %lowerUnbounded_2.i.i.i, align 8, !noalias !396
-  store i32 %10, ptr %lowerUnbounded_.i.i.i7, align 8, !noalias !396
+  %11 = load i32, ptr %lowerUnbounded_2.i.i.i, align 8, !noalias !396
+  store i32 %11, ptr %lowerUnbounded_.i.i.i7, align 8, !noalias !396
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i64 16), ptr %call.i5, align 8, !noalias !396
   %lower_.i.i8 = getelementptr inbounds nuw i8, ptr %call.i5, i64 24
   %lower_2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -12749,7 +12750,6 @@ sw.bb2:                                           ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32, !noalias !403
   %2 = load double, ptr %lower_, align 8, !noalias !403
   %3 = load i8, ptr %lowerUnbounded_, align 8, !noalias !403
-  %tobool.i = trunc i8 %3 to i1
   %4 = load i8, ptr %lowerExclusive_, align 1, !noalias !403
   %5 = load double, ptr %upper_, align 8, !noalias !403
   %6 = load i8, ptr %upperUnbounded_, align 2, !noalias !403
@@ -12773,21 +12773,23 @@ sw.bb2:                                           ; preds = %entry
   store i8 %frombool2.i.i.i, ptr %upperUnbounded_.i.i.i, align 2, !noalias !403
   %upperExclusive_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19
   store i8 %frombool3.i.i.i, ptr %upperExclusive_.i.i.i, align 1, !noalias !403
-  %lnot18.i.i.i = and i1 %tobool.i, %tobool14.i
-  br i1 %lnot18.i.i.i, label %if.then.i.i.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
+  %8 = and i8 %6, %frombool.i.i.i
+  %lnot18.i.i.not.i = icmp eq i8 %8, 0
+  br i1 %lnot18.i.i.not.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb2
   tail call void @llvm.trap()
   unreachable
 
 _ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i: ; preds = %sw.bb2
+  %tobool.i = trunc i8 %3 to i1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i64 16), ptr %call.i, align 8, !noalias !403
   %lower_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store double %2, ptr %lower_.i.i, align 8, !noalias !403
   %upper_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store double %5, ptr %upper_.i.i, align 8, !noalias !403
-  %8 = fcmp ord double %2, 0.000000e+00
-  %or.cond.not.i.i = or i1 %8, %tobool.i
+  %9 = fcmp ord double %2, 0.000000e+00
+  %or.cond.not.i.i = or i1 %9, %tobool.i
   br i1 %or.cond.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
@@ -12795,8 +12797,8 @@ if.then.i.i:                                      ; preds = %_ZN8facebook5velox6
   unreachable
 
 if.end.i.i:                                       ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
-  %9 = fcmp ord double %5, 0.000000e+00
-  %or.cond3.not.i.i = or i1 %9, %tobool14.i
+  %10 = fcmp ord double %5, 0.000000e+00
+  %or.cond3.not.i.i = or i1 %10, %tobool14.i
   br i1 %or.cond3.not.i.i, label %_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIdEESt14default_deleteIS4_EED2Ev.exit, label %if.then21.i.i
 
 if.then21.i.i:                                    ; preds = %if.end.i.i
@@ -12809,77 +12811,77 @@ _ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIdEESt14default_del
 
 sw.bb4:                                           ; preds = %entry, %entry
   %nullAllowed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %10 = load i8, ptr %nullAllowed_, align 8
-  %tobool = trunc i8 %10 to i1
+  %11 = load i8, ptr %nullAllowed_, align 8
+  %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %sw.bb4
   %vtable5 = load ptr, ptr %other, align 8
   %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 64
-  %11 = load ptr, ptr %vfn6, align 8
-  %call7 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %other)
-  %12 = zext i1 %call7 to i8
+  %12 = load ptr, ptr %vfn6, align 8
+  %call7 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %other)
+  %13 = zext i1 %call7 to i8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %sw.bb4
-  %frombool = phi i8 [ 0, %sw.bb4 ], [ %12, %land.rhs ]
+  %frombool = phi i8 [ 0, %sw.bb4 ], [ %13, %land.rhs ]
   %lower_8 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %lower_9 = getelementptr inbounds nuw i8, ptr %other, i64 24
-  %13 = load double, ptr %lower_8, align 8
-  %14 = load double, ptr %lower_9, align 8
-  %cmp.i = fcmp olt double %13, %14
-  %15 = select i1 %cmp.i, double %14, double %13
+  %14 = load double, ptr %lower_8, align 8
+  %15 = load double, ptr %lower_9, align 8
+  %cmp.i = fcmp olt double %14, %15
+  %16 = select i1 %cmp.i, double %15, double %14
   %upper_11 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %upper_12 = getelementptr inbounds nuw i8, ptr %other, i64 32
-  %16 = load double, ptr %upper_12, align 8
-  %17 = load double, ptr %upper_11, align 8
-  %cmp.i10 = fcmp olt double %16, %17
-  %18 = select i1 %cmp.i10, double %16, double %17
+  %17 = load double, ptr %upper_12, align 8
+  %18 = load double, ptr %upper_11, align 8
+  %cmp.i10 = fcmp olt double %17, %18
+  %19 = select i1 %cmp.i10, double %17, double %18
   %lowerUnbounded_14 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %19 = load i8, ptr %lowerUnbounded_14, align 8
-  %tobool15 = trunc i8 %19 to i1
+  %20 = load i8, ptr %lowerUnbounded_14, align 8
+  %tobool15 = trunc i8 %20 to i1
   br i1 %tobool15, label %land.rhs16, label %land.end19
 
 land.rhs16:                                       ; preds = %land.end
   %lowerUnbounded_17 = getelementptr inbounds nuw i8, ptr %other, i64 16
-  %20 = load i8, ptr %lowerUnbounded_17, align 8
-  %21 = and i8 %20, 1
+  %21 = load i8, ptr %lowerUnbounded_17, align 8
+  %22 = and i8 %21, 1
   br label %land.end19
 
 land.end19:                                       ; preds = %land.rhs16, %land.end
-  %frombool20 = phi i8 [ 0, %land.end ], [ %21, %land.rhs16 ]
+  %frombool20 = phi i8 [ 0, %land.end ], [ %22, %land.rhs16 ]
   %upperUnbounded_21 = getelementptr inbounds nuw i8, ptr %this, i64 18
-  %22 = load i8, ptr %upperUnbounded_21, align 2
-  %tobool22 = trunc i8 %22 to i1
+  %23 = load i8, ptr %upperUnbounded_21, align 2
+  %tobool22 = trunc i8 %23 to i1
   br i1 %tobool22, label %land.rhs23, label %land.end26
 
 land.rhs23:                                       ; preds = %land.end19
   %upperUnbounded_24 = getelementptr inbounds nuw i8, ptr %other, i64 18
-  %23 = load i8, ptr %upperUnbounded_24, align 2
-  %24 = and i8 %23, 1
+  %24 = load i8, ptr %upperUnbounded_24, align 2
+  %25 = and i8 %24, 1
   br label %land.end26
 
 land.end26:                                       ; preds = %land.rhs23, %land.end19
-  %frombool27 = phi i8 [ 0, %land.end19 ], [ %24, %land.rhs23 ]
+  %frombool27 = phi i8 [ 0, %land.end19 ], [ %25, %land.rhs23 ]
   %tobool28 = trunc nuw i8 %frombool20 to i1
   br i1 %tobool28, label %land.end34, label %land.rhs29
 
 land.rhs29:                                       ; preds = %land.end26
-  %25 = fcmp uno double %15, 0.000000e+00
-  br i1 %25, label %land.end34, label %if.end.i.i12
+  %26 = fcmp uno double %16, 0.000000e+00
+  br i1 %26, label %land.end34, label %if.end.i.i12
 
 if.end.i.i12:                                     ; preds = %land.rhs29
   br i1 %tobool15, label %if.end10.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i12
-  %cmp.i.i = fcmp olt double %15, %13
+  %cmp.i.i = fcmp olt double %16, %14
   br i1 %cmp.i.i, label %land.end34, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then2.i.i
   %lowerExclusive_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 17
-  %26 = load i8, ptr %lowerExclusive_.i.i, align 1
-  %tobool5.i.i = trunc i8 %26 to i1
-  %cmp7.i.i = fcmp oeq double %13, %15
+  %27 = load i8, ptr %lowerExclusive_.i.i, align 1
+  %tobool5.i.i = trunc i8 %27 to i1
+  %cmp7.i.i = fcmp oeq double %14, %16
   %or.cond.i.i = and i1 %cmp7.i.i, %tobool5.i.i
   br i1 %or.cond.i.i, label %land.end34, label %if.end10.i.i
 
@@ -12887,93 +12889,93 @@ if.end10.i.i:                                     ; preds = %if.end4.i.i, %if.en
   br i1 %tobool22, label %lor.rhs, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end10.i.i
-  %cmp13.i.i = fcmp ogt double %15, %17
+  %cmp13.i.i = fcmp ogt double %16, %18
   br i1 %cmp13.i.i, label %land.end34, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then12.i.i
   %upperExclusive_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 19
-  %27 = load i8, ptr %upperExclusive_.i.i, align 1
-  %tobool16.i.i = trunc i8 %27 to i1
-  %cmp19.i.i = fcmp oeq double %15, %17
+  %28 = load i8, ptr %upperExclusive_.i.i, align 1
+  %tobool16.i.i = trunc i8 %28 to i1
+  %cmp19.i.i = fcmp oeq double %16, %18
   %or.cond6.i.i = and i1 %cmp19.i.i, %tobool16.i.i
   br i1 %or.cond6.i.i, label %land.end34, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end15.i.i, %if.end10.i.i
   %vtable31 = load ptr, ptr %other, align 8
   %vfn32 = getelementptr inbounds nuw i8, ptr %vtable31, i64 96
-  %28 = load ptr, ptr %vfn32, align 8
-  %call33 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %15)
+  %29 = load ptr, ptr %vfn32, align 8
+  %call33 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %16)
   %lnot = xor i1 %call33, true
-  %29 = zext i1 %lnot to i8
+  %30 = zext i1 %lnot to i8
   br label %land.end34
 
 land.end34:                                       ; preds = %if.end15.i.i, %if.then12.i.i, %if.end4.i.i, %if.then2.i.i, %land.rhs29, %lor.rhs, %land.end26
-  %frombool35 = phi i8 [ 0, %land.end26 ], [ %29, %lor.rhs ], [ 1, %land.rhs29 ], [ 1, %if.then2.i.i ], [ 1, %if.end4.i.i ], [ 1, %if.then12.i.i ], [ 1, %if.end15.i.i ]
+  %frombool35 = phi i8 [ 0, %land.end26 ], [ %30, %lor.rhs ], [ 1, %land.rhs29 ], [ 1, %if.then2.i.i ], [ 1, %if.end4.i.i ], [ 1, %if.then12.i.i ], [ 1, %if.end15.i.i ]
   %tobool36 = trunc nuw i8 %frombool27 to i1
   br i1 %tobool36, label %land.end45, label %land.rhs37
 
 land.rhs37:                                       ; preds = %land.end34
-  %30 = fcmp uno double %18, 0.000000e+00
-  br i1 %30, label %land.end45, label %if.end.i.i15
+  %31 = fcmp uno double %19, 0.000000e+00
+  br i1 %31, label %land.end45, label %if.end.i.i15
 
 if.end.i.i15:                                     ; preds = %land.rhs37
-  %31 = load i8, ptr %lowerUnbounded_14, align 8
-  %tobool.i.i17 = trunc i8 %31 to i1
+  %32 = load i8, ptr %lowerUnbounded_14, align 8
+  %tobool.i.i17 = trunc i8 %32 to i1
   br i1 %tobool.i.i17, label %if.end10.i.i26, label %if.then2.i.i18
 
 if.then2.i.i18:                                   ; preds = %if.end.i.i15
-  %32 = load double, ptr %lower_8, align 8
-  %cmp.i.i20 = fcmp olt double %18, %32
+  %33 = load double, ptr %lower_8, align 8
+  %cmp.i.i20 = fcmp olt double %19, %33
   br i1 %cmp.i.i20, label %land.end45, label %if.end4.i.i21
 
 if.end4.i.i21:                                    ; preds = %if.then2.i.i18
   %lowerExclusive_.i.i22 = getelementptr inbounds nuw i8, ptr %this, i64 17
-  %33 = load i8, ptr %lowerExclusive_.i.i22, align 1
-  %tobool5.i.i23 = trunc i8 %33 to i1
-  %cmp7.i.i24 = fcmp oeq double %32, %18
+  %34 = load i8, ptr %lowerExclusive_.i.i22, align 1
+  %tobool5.i.i23 = trunc i8 %34 to i1
+  %cmp7.i.i24 = fcmp oeq double %33, %19
   %or.cond.i.i25 = and i1 %cmp7.i.i24, %tobool5.i.i23
   br i1 %or.cond.i.i25, label %land.end45, label %if.end10.i.i26
 
 if.end10.i.i26:                                   ; preds = %if.end4.i.i21, %if.end.i.i15
-  %34 = load i8, ptr %upperUnbounded_21, align 2
-  %tobool11.i.i28 = trunc i8 %34 to i1
+  %35 = load i8, ptr %upperUnbounded_21, align 2
+  %tobool11.i.i28 = trunc i8 %35 to i1
   br i1 %tobool11.i.i28, label %lor.rhs39, label %if.then12.i.i29
 
 if.then12.i.i29:                                  ; preds = %if.end10.i.i26
-  %35 = load double, ptr %upper_11, align 8
-  %cmp13.i.i31 = fcmp ogt double %18, %35
+  %36 = load double, ptr %upper_11, align 8
+  %cmp13.i.i31 = fcmp ogt double %19, %36
   br i1 %cmp13.i.i31, label %land.end45, label %if.end15.i.i32
 
 if.end15.i.i32:                                   ; preds = %if.then12.i.i29
   %upperExclusive_.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 19
-  %36 = load i8, ptr %upperExclusive_.i.i33, align 1
-  %tobool16.i.i34 = trunc i8 %36 to i1
-  %cmp19.i.i35 = fcmp oeq double %18, %35
+  %37 = load i8, ptr %upperExclusive_.i.i33, align 1
+  %tobool16.i.i34 = trunc i8 %37 to i1
+  %cmp19.i.i35 = fcmp oeq double %19, %36
   %or.cond6.i.i36 = and i1 %cmp19.i.i35, %tobool16.i.i34
   br i1 %or.cond6.i.i36, label %land.end45, label %lor.rhs39
 
 lor.rhs39:                                        ; preds = %if.end15.i.i32, %if.end10.i.i26
   %vtable40 = load ptr, ptr %other, align 8
   %vfn41 = getelementptr inbounds nuw i8, ptr %vtable40, i64 96
-  %37 = load ptr, ptr %vfn41, align 8
-  %call42 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %18)
+  %38 = load ptr, ptr %vfn41, align 8
+  %call42 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %19)
   %lnot43 = xor i1 %call42, true
-  %38 = zext i1 %lnot43 to i8
+  %39 = zext i1 %lnot43 to i8
   br label %land.end45
 
 land.end45:                                       ; preds = %if.end15.i.i32, %if.then12.i.i29, %if.end4.i.i21, %if.then2.i.i18, %land.rhs37, %lor.rhs39, %land.end34
-  %frombool46 = phi i8 [ 0, %land.end34 ], [ %38, %lor.rhs39 ], [ 1, %land.rhs37 ], [ 1, %if.then2.i.i18 ], [ 1, %if.end4.i.i21 ], [ 1, %if.then12.i.i29 ], [ 1, %if.end15.i.i32 ]
-  %cmp = fcmp ogt double %15, %18
+  %frombool46 = phi i8 [ 0, %land.end34 ], [ %39, %lor.rhs39 ], [ 1, %land.rhs37 ], [ 1, %if.then2.i.i18 ], [ 1, %if.end4.i.i21 ], [ 1, %if.then12.i.i29 ], [ 1, %if.end15.i.i32 ]
+  %cmp = fcmp ogt double %16, %19
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.end45
-  %cmp47 = fcmp oeq double %15, %18
+  %cmp47 = fcmp oeq double %16, %19
   br i1 %cmp47, label %land.lhs.true, label %if.end54
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %lowerExclusive_48 = getelementptr inbounds nuw i8, ptr %this, i64 17
-  %39 = load i8, ptr %lowerExclusive_48, align 1
-  %tobool49 = trunc i8 %39 to i1
+  %40 = load i8, ptr %lowerExclusive_48, align 1
+  %tobool49 = trunc i8 %40 to i1
   br i1 %tobool49, label %if.then, label %if.end54
 
 if.then:                                          ; preds = %land.lhs.true, %land.end45
@@ -13002,51 +13004,52 @@ _ZNSt10unique_ptrIN8facebook5velox6common11AlwaysFalseESt14default_deleteIS3_EED
 
 if.end54:                                         ; preds = %land.lhs.true, %lor.lhs.false
   %call.i47 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32, !noalias !412
-  %nullAllowed_.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %call.i47, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i.i55, align 8, !noalias !412
-  %deterministic_.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %call.i47, i64 9
-  store i8 1, ptr %deterministic_.i.i.i.i56, align 1, !noalias !412
-  %kind_.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %call.i47, i64 12
-  store i32 11, ptr %kind_.i.i.i.i57, align 4, !noalias !412
-  %lowerUnbounded_.i.i.i58 = getelementptr inbounds nuw i8, ptr %call.i47, i64 16
-  store i8 %frombool20, ptr %lowerUnbounded_.i.i.i58, align 8, !noalias !412
-  %lowerExclusive_.i.i.i59 = getelementptr inbounds nuw i8, ptr %call.i47, i64 17
-  store i8 %frombool35, ptr %lowerExclusive_.i.i.i59, align 1, !noalias !412
-  %upperUnbounded_.i.i.i60 = getelementptr inbounds nuw i8, ptr %call.i47, i64 18
-  store i8 %frombool27, ptr %upperUnbounded_.i.i.i60, align 2, !noalias !412
-  %upperExclusive_.i.i.i61 = getelementptr inbounds nuw i8, ptr %call.i47, i64 19
-  store i8 %frombool46, ptr %upperExclusive_.i.i.i61, align 1, !noalias !412
-  %lnot18.i.i.i62 = and i1 %tobool28, %tobool36
-  br i1 %lnot18.i.i.i62, label %if.then.i.i.i71, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
+  %nullAllowed_.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %call.i47, i64 8
+  store i8 %frombool, ptr %nullAllowed_.i.i.i.i54, align 8, !noalias !412
+  %deterministic_.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %call.i47, i64 9
+  store i8 1, ptr %deterministic_.i.i.i.i55, align 1, !noalias !412
+  %kind_.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %call.i47, i64 12
+  store i32 11, ptr %kind_.i.i.i.i56, align 4, !noalias !412
+  %lowerUnbounded_.i.i.i57 = getelementptr inbounds nuw i8, ptr %call.i47, i64 16
+  store i8 %frombool20, ptr %lowerUnbounded_.i.i.i57, align 8, !noalias !412
+  %lowerExclusive_.i.i.i58 = getelementptr inbounds nuw i8, ptr %call.i47, i64 17
+  store i8 %frombool35, ptr %lowerExclusive_.i.i.i58, align 1, !noalias !412
+  %upperUnbounded_.i.i.i59 = getelementptr inbounds nuw i8, ptr %call.i47, i64 18
+  store i8 %frombool27, ptr %upperUnbounded_.i.i.i59, align 2, !noalias !412
+  %upperExclusive_.i.i.i60 = getelementptr inbounds nuw i8, ptr %call.i47, i64 19
+  store i8 %frombool46, ptr %upperExclusive_.i.i.i60, align 1, !noalias !412
+  %41 = and i8 %frombool27, %frombool20
+  %lnot18.i.i.not.i61 = icmp eq i8 %41, 0
+  br i1 %lnot18.i.i.not.i61, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63, label %if.then.i.i.i62
 
-if.then.i.i.i71:                                  ; preds = %if.end54
+if.then.i.i.i62:                                  ; preds = %if.end54
   tail call void @llvm.trap()
   unreachable
 
 _ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63: ; preds = %if.end54
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i64 16), ptr %call.i47, align 8, !noalias !412
-  %lower_.i.i64 = getelementptr inbounds nuw i8, ptr %call.i47, i64 24
-  store double %15, ptr %lower_.i.i64, align 8, !noalias !412
-  %upper_.i.i65 = getelementptr inbounds nuw i8, ptr %call.i47, i64 32
-  store double %18, ptr %upper_.i.i65, align 8, !noalias !412
-  %40 = fcmp ord double %15, 0.000000e+00
-  %or.cond.not.i.i66 = or i1 %40, %tobool28
-  br i1 %or.cond.not.i.i66, label %if.end.i.i68, label %if.then.i.i67
+  %lower_.i.i65 = getelementptr inbounds nuw i8, ptr %call.i47, i64 24
+  store double %16, ptr %lower_.i.i65, align 8, !noalias !412
+  %upper_.i.i66 = getelementptr inbounds nuw i8, ptr %call.i47, i64 32
+  store double %19, ptr %upper_.i.i66, align 8, !noalias !412
+  %42 = fcmp ord double %16, 0.000000e+00
+  %or.cond.not.i.i67 = or i1 %42, %tobool28
+  br i1 %or.cond.not.i.i67, label %if.end.i.i69, label %if.then.i.i68
 
-if.then.i.i67:                                    ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
+if.then.i.i68:                                    ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
   tail call void @llvm.trap()
   unreachable
 
-if.end.i.i68:                                     ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
-  %41 = fcmp ord double %18, 0.000000e+00
-  %or.cond3.not.i.i69 = or i1 %41, %tobool36
-  br i1 %or.cond3.not.i.i69, label %_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIdEESt14default_deleteIS4_EED2Ev.exit74, label %if.then21.i.i70
+if.end.i.i69:                                     ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
+  %43 = fcmp ord double %19, 0.000000e+00
+  %or.cond3.not.i.i70 = or i1 %43, %tobool36
+  br i1 %or.cond3.not.i.i70, label %_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIdEESt14default_deleteIS4_EED2Ev.exit74, label %if.then21.i.i71
 
-if.then21.i.i70:                                  ; preds = %if.end.i.i68
+if.then21.i.i71:                                  ; preds = %if.end.i.i69
   tail call void @llvm.trap()
   unreachable
 
-_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIdEESt14default_deleteIS4_EED2Ev.exit74: ; preds = %if.end.i.i68
+_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIdEESt14default_deleteIS4_EED2Ev.exit74: ; preds = %if.end.i.i69
   store ptr %call.i47, ptr %agg.result, align 8
   br label %return
 
@@ -13230,7 +13233,8 @@ entry:
   %1 = load i8, ptr %lowerUnbounded_, align 8
   %tobool2 = trunc i8 %1 to i1
   %2 = or i8 %1, %0
-  %3 = trunc i8 %2 to i1
+  %3 = and i8 %2, 1
+  %.not = icmp eq i8 %3, 0
   br i1 %tobool2, label %cond.true5, label %cond.false7
 
 cond.true5:                                       ; preds = %entry
@@ -13303,7 +13307,7 @@ cond.false17:                                     ; preds = %cond.end9
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #31, !noalias !417
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #31, !noalias !417
   %13 = ptrtoint ptr %call.i.i.i to i64
-  %14 = select i1 %3, i64 ptrtoint (ptr @.str.27 to i64), i64 ptrtoint (ptr @.str.28 to i64)
+  %14 = select i1 %.not, i64 ptrtoint (ptr @.str.28 to i64), i64 ptrtoint (ptr @.str.27 to i64)
   %call.i.i55.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #31, !noalias !417
   %call2.i.i56.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #31, !noalias !417
   %15 = ptrtoint ptr %call.i.i55.i to i64
@@ -13646,7 +13650,6 @@ _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32, !noalias !420
   %lowerUnbounded_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i8, ptr %lowerUnbounded_.i.i, align 8, !noalias !420
-  %tobool.i.i3 = trunc i8 %1 to i1
   %lowerExclusive_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 17
   %2 = load i8, ptr %lowerExclusive_.i.i, align 1, !noalias !420
   %upperUnbounded_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 18
@@ -13673,25 +13676,27 @@ _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %entry
   store i8 %frombool2.i.i.i, ptr %upperUnbounded_.i.i.i, align 2, !noalias !420
   %upperExclusive_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19
   store i8 %frombool3.i.i.i, ptr %upperExclusive_.i.i.i, align 1, !noalias !420
-  %lnot18.i.i.i = and i1 %tobool.i.i3, %tobool3.i.i
-  br i1 %lnot18.i.i.i, label %if.then.i.i.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
+  %5 = and i8 %3, %frombool.i.i.i
+  %lnot18.i.not.i.i = icmp eq i8 %5, 0
+  br i1 %lnot18.i.not.i.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNRSt8optionalIbE5valueEv.exit
   tail call void @llvm.trap()
   unreachable
 
 _ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i: ; preds = %_ZNRSt8optionalIbE5valueEv.exit
+  %tobool.i.i3 = trunc i8 %1 to i1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i64 16), ptr %call.i, align 8, !noalias !420
   %lower_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 20
   %lower_6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %5 = load float, ptr %lower_6.i.i, align 4, !noalias !420
-  store float %5, ptr %lower_.i.i, align 4, !noalias !420
+  %6 = load float, ptr %lower_6.i.i, align 4, !noalias !420
+  store float %6, ptr %lower_.i.i, align 4, !noalias !420
   %upper_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %upper_7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %6 = load float, ptr %upper_7.i.i, align 8, !noalias !420
-  store float %6, ptr %upper_.i.i, align 8, !noalias !420
-  %7 = fcmp ord float %5, 0.000000e+00
-  %or.cond.not.i.i = select i1 %tobool.i.i3, i1 true, i1 %7
+  %7 = load float, ptr %upper_7.i.i, align 8, !noalias !420
+  store float %7, ptr %upper_.i.i, align 8, !noalias !420
+  %8 = fcmp ord float %6, 0.000000e+00
+  %or.cond.not.i.i = select i1 %tobool.i.i3, i1 true, i1 %8
   br i1 %or.cond.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
@@ -13699,8 +13704,8 @@ if.then.i.i:                                      ; preds = %_ZN8facebook5velox6
   unreachable
 
 if.end.i.i:                                       ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
-  %8 = fcmp ord float %6, 0.000000e+00
-  %or.cond6.not.i.i = select i1 %tobool3.i.i, i1 true, i1 %8
+  %9 = fcmp ord float %7, 0.000000e+00
+  %or.cond6.not.i.i = select i1 %tobool3.i.i, i1 true, i1 %9
   br i1 %or.cond6.not.i.i, label %return, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %if.end.i.i
@@ -13711,17 +13716,17 @@ _ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIfEESt14default_del
   %call.i5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32, !noalias !423
   %nullAllowed_.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i5, i64 8
   %nullAllowed_2.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %9 = load i64, ptr %nullAllowed_2.i.i.i.i, align 8, !noalias !423
-  store i64 %9, ptr %nullAllowed_.i.i.i.i6, align 8, !noalias !423
+  %10 = load i64, ptr %nullAllowed_2.i.i.i.i, align 8, !noalias !423
+  store i64 %10, ptr %nullAllowed_.i.i.i.i6, align 8, !noalias !423
   %lowerUnbounded_.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i5, i64 16
   %lowerUnbounded_2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load i32, ptr %lowerUnbounded_2.i.i.i, align 8, !noalias !423
-  store i32 %10, ptr %lowerUnbounded_.i.i.i7, align 8, !noalias !423
+  %11 = load i32, ptr %lowerUnbounded_2.i.i.i, align 8, !noalias !423
+  store i32 %11, ptr %lowerUnbounded_.i.i.i7, align 8, !noalias !423
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i64 16), ptr %call.i5, align 8, !noalias !423
   %lower_.i.i8 = getelementptr inbounds nuw i8, ptr %call.i5, i64 20
   %lower_2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %11 = load i64, ptr %lower_2.i.i, align 4, !noalias !423
-  store i64 %11, ptr %lower_.i.i8, align 4, !noalias !423
+  %12 = load i64, ptr %lower_2.i.i, align 4, !noalias !423
+  store i64 %12, ptr %lower_.i.i8, align 4, !noalias !423
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIfEESt14default_deleteIS4_EED2Ev.exit12
@@ -14017,7 +14022,6 @@ sw.bb2:                                           ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32, !noalias !426
   %2 = load float, ptr %lower_, align 4, !noalias !426
   %3 = load i8, ptr %lowerUnbounded_, align 8, !noalias !426
-  %tobool.i = trunc i8 %3 to i1
   %4 = load i8, ptr %lowerExclusive_, align 1, !noalias !426
   %5 = load float, ptr %upper_, align 8, !noalias !426
   %6 = load i8, ptr %upperUnbounded_, align 2, !noalias !426
@@ -14041,21 +14045,23 @@ sw.bb2:                                           ; preds = %entry
   store i8 %frombool2.i.i.i, ptr %upperUnbounded_.i.i.i, align 2, !noalias !426
   %upperExclusive_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19
   store i8 %frombool3.i.i.i, ptr %upperExclusive_.i.i.i, align 1, !noalias !426
-  %lnot18.i.i.i = and i1 %tobool.i, %tobool14.i
-  br i1 %lnot18.i.i.i, label %if.then.i.i.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
+  %8 = and i8 %6, %frombool.i.i.i
+  %lnot18.i.i.not.i = icmp eq i8 %8, 0
+  br i1 %lnot18.i.i.not.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb2
   tail call void @llvm.trap()
   unreachable
 
 _ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i: ; preds = %sw.bb2
+  %tobool.i = trunc i8 %3 to i1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i64 16), ptr %call.i, align 8, !noalias !426
   %lower_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 20
   store float %2, ptr %lower_.i.i, align 4, !noalias !426
   %upper_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store float %5, ptr %upper_.i.i, align 8, !noalias !426
-  %8 = fcmp ord float %2, 0.000000e+00
-  %or.cond.not.i.i = or i1 %8, %tobool.i
+  %9 = fcmp ord float %2, 0.000000e+00
+  %or.cond.not.i.i = or i1 %9, %tobool.i
   br i1 %or.cond.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
@@ -14063,8 +14069,8 @@ if.then.i.i:                                      ; preds = %_ZN8facebook5velox6
   unreachable
 
 if.end.i.i:                                       ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
-  %9 = fcmp ord float %5, 0.000000e+00
-  %or.cond3.not.i.i = or i1 %9, %tobool14.i
+  %10 = fcmp ord float %5, 0.000000e+00
+  %or.cond3.not.i.i = or i1 %10, %tobool14.i
   br i1 %or.cond3.not.i.i, label %_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIfEESt14default_deleteIS4_EED2Ev.exit, label %if.then21.i.i
 
 if.then21.i.i:                                    ; preds = %if.end.i.i
@@ -14077,77 +14083,77 @@ _ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIfEESt14default_del
 
 sw.bb4:                                           ; preds = %entry, %entry
   %nullAllowed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %10 = load i8, ptr %nullAllowed_, align 8
-  %tobool = trunc i8 %10 to i1
+  %11 = load i8, ptr %nullAllowed_, align 8
+  %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %sw.bb4
   %vtable5 = load ptr, ptr %other, align 8
   %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 64
-  %11 = load ptr, ptr %vfn6, align 8
-  %call7 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %other)
-  %12 = zext i1 %call7 to i8
+  %12 = load ptr, ptr %vfn6, align 8
+  %call7 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %other)
+  %13 = zext i1 %call7 to i8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %sw.bb4
-  %frombool = phi i8 [ 0, %sw.bb4 ], [ %12, %land.rhs ]
+  %frombool = phi i8 [ 0, %sw.bb4 ], [ %13, %land.rhs ]
   %lower_8 = getelementptr inbounds nuw i8, ptr %this, i64 20
   %lower_9 = getelementptr inbounds nuw i8, ptr %other, i64 20
-  %13 = load float, ptr %lower_8, align 4
-  %14 = load float, ptr %lower_9, align 4
-  %cmp.i = fcmp olt float %13, %14
-  %15 = select i1 %cmp.i, float %14, float %13
+  %14 = load float, ptr %lower_8, align 4
+  %15 = load float, ptr %lower_9, align 4
+  %cmp.i = fcmp olt float %14, %15
+  %16 = select i1 %cmp.i, float %15, float %14
   %upper_11 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %upper_12 = getelementptr inbounds nuw i8, ptr %other, i64 24
-  %16 = load float, ptr %upper_12, align 4
-  %17 = load float, ptr %upper_11, align 8
-  %cmp.i10 = fcmp olt float %16, %17
-  %18 = select i1 %cmp.i10, float %16, float %17
+  %17 = load float, ptr %upper_12, align 4
+  %18 = load float, ptr %upper_11, align 8
+  %cmp.i10 = fcmp olt float %17, %18
+  %19 = select i1 %cmp.i10, float %17, float %18
   %lowerUnbounded_14 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %19 = load i8, ptr %lowerUnbounded_14, align 8
-  %tobool15 = trunc i8 %19 to i1
+  %20 = load i8, ptr %lowerUnbounded_14, align 8
+  %tobool15 = trunc i8 %20 to i1
   br i1 %tobool15, label %land.rhs16, label %land.end19
 
 land.rhs16:                                       ; preds = %land.end
   %lowerUnbounded_17 = getelementptr inbounds nuw i8, ptr %other, i64 16
-  %20 = load i8, ptr %lowerUnbounded_17, align 8
-  %21 = and i8 %20, 1
+  %21 = load i8, ptr %lowerUnbounded_17, align 8
+  %22 = and i8 %21, 1
   br label %land.end19
 
 land.end19:                                       ; preds = %land.rhs16, %land.end
-  %frombool20 = phi i8 [ 0, %land.end ], [ %21, %land.rhs16 ]
+  %frombool20 = phi i8 [ 0, %land.end ], [ %22, %land.rhs16 ]
   %upperUnbounded_21 = getelementptr inbounds nuw i8, ptr %this, i64 18
-  %22 = load i8, ptr %upperUnbounded_21, align 2
-  %tobool22 = trunc i8 %22 to i1
+  %23 = load i8, ptr %upperUnbounded_21, align 2
+  %tobool22 = trunc i8 %23 to i1
   br i1 %tobool22, label %land.rhs23, label %land.end26
 
 land.rhs23:                                       ; preds = %land.end19
   %upperUnbounded_24 = getelementptr inbounds nuw i8, ptr %other, i64 18
-  %23 = load i8, ptr %upperUnbounded_24, align 2
-  %24 = and i8 %23, 1
+  %24 = load i8, ptr %upperUnbounded_24, align 2
+  %25 = and i8 %24, 1
   br label %land.end26
 
 land.end26:                                       ; preds = %land.rhs23, %land.end19
-  %frombool27 = phi i8 [ 0, %land.end19 ], [ %24, %land.rhs23 ]
+  %frombool27 = phi i8 [ 0, %land.end19 ], [ %25, %land.rhs23 ]
   %tobool28 = trunc nuw i8 %frombool20 to i1
   br i1 %tobool28, label %land.end35, label %land.rhs29
 
 land.rhs29:                                       ; preds = %land.end26
-  %25 = fcmp uno float %15, 0.000000e+00
-  br i1 %25, label %land.end35, label %if.end.i.i12
+  %26 = fcmp uno float %16, 0.000000e+00
+  br i1 %26, label %land.end35, label %if.end.i.i12
 
 if.end.i.i12:                                     ; preds = %land.rhs29
   br i1 %tobool15, label %if.end10.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i12
-  %cmp.i.i = fcmp ogt float %13, %15
+  %cmp.i.i = fcmp ogt float %14, %16
   br i1 %cmp.i.i, label %land.end35, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then2.i.i
   %lowerExclusive_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 17
-  %26 = load i8, ptr %lowerExclusive_.i.i, align 1
-  %tobool5.i.i = trunc i8 %26 to i1
-  %cmp7.i.i = fcmp oeq float %13, %15
+  %27 = load i8, ptr %lowerExclusive_.i.i, align 1
+  %tobool5.i.i = trunc i8 %27 to i1
+  %cmp7.i.i = fcmp oeq float %14, %16
   %or.cond.i.i = and i1 %cmp7.i.i, %tobool5.i.i
   br i1 %or.cond.i.i, label %land.end35, label %if.end10.i.i
 
@@ -14155,95 +14161,95 @@ if.end10.i.i:                                     ; preds = %if.end4.i.i, %if.en
   br i1 %tobool22, label %lor.rhs, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end10.i.i
-  %cmp13.i.i = fcmp olt float %17, %15
+  %cmp13.i.i = fcmp olt float %18, %16
   br i1 %cmp13.i.i, label %land.end35, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then12.i.i
   %upperExclusive_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 19
-  %27 = load i8, ptr %upperExclusive_.i.i, align 1
-  %tobool16.i.i = trunc i8 %27 to i1
-  %cmp19.i.i = fcmp oeq float %17, %15
+  %28 = load i8, ptr %upperExclusive_.i.i, align 1
+  %tobool16.i.i = trunc i8 %28 to i1
+  %cmp19.i.i = fcmp oeq float %18, %16
   %or.cond6.i.i = and i1 %cmp19.i.i, %tobool16.i.i
   br i1 %or.cond6.i.i, label %land.end35, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end15.i.i, %if.end10.i.i
-  %conv31 = fpext float %15 to double
+  %conv31 = fpext float %16 to double
   %vtable32 = load ptr, ptr %other, align 8
   %vfn33 = getelementptr inbounds nuw i8, ptr %vtable32, i64 96
-  %28 = load ptr, ptr %vfn33, align 8
-  %call34 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %conv31)
+  %29 = load ptr, ptr %vfn33, align 8
+  %call34 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %conv31)
   %lnot = xor i1 %call34, true
-  %29 = zext i1 %lnot to i8
+  %30 = zext i1 %lnot to i8
   br label %land.end35
 
 land.end35:                                       ; preds = %if.end15.i.i, %if.then12.i.i, %if.end4.i.i, %if.then2.i.i, %land.rhs29, %lor.rhs, %land.end26
-  %frombool36 = phi i8 [ 0, %land.end26 ], [ %29, %lor.rhs ], [ 1, %land.rhs29 ], [ 1, %if.then2.i.i ], [ 1, %if.end4.i.i ], [ 1, %if.then12.i.i ], [ 1, %if.end15.i.i ]
+  %frombool36 = phi i8 [ 0, %land.end26 ], [ %30, %lor.rhs ], [ 1, %land.rhs29 ], [ 1, %if.then2.i.i ], [ 1, %if.end4.i.i ], [ 1, %if.then12.i.i ], [ 1, %if.end15.i.i ]
   %tobool37 = trunc nuw i8 %frombool27 to i1
   br i1 %tobool37, label %land.end48, label %land.rhs38
 
 land.rhs38:                                       ; preds = %land.end35
-  %30 = fcmp uno float %18, 0.000000e+00
-  br i1 %30, label %land.end48, label %if.end.i.i15
+  %31 = fcmp uno float %19, 0.000000e+00
+  br i1 %31, label %land.end48, label %if.end.i.i15
 
 if.end.i.i15:                                     ; preds = %land.rhs38
-  %31 = load i8, ptr %lowerUnbounded_14, align 8
-  %tobool.i.i17 = trunc i8 %31 to i1
+  %32 = load i8, ptr %lowerUnbounded_14, align 8
+  %tobool.i.i17 = trunc i8 %32 to i1
   br i1 %tobool.i.i17, label %if.end10.i.i26, label %if.then2.i.i18
 
 if.then2.i.i18:                                   ; preds = %if.end.i.i15
-  %32 = load float, ptr %lower_8, align 4
-  %cmp.i.i20 = fcmp ogt float %32, %18
+  %33 = load float, ptr %lower_8, align 4
+  %cmp.i.i20 = fcmp ogt float %33, %19
   br i1 %cmp.i.i20, label %land.end48, label %if.end4.i.i21
 
 if.end4.i.i21:                                    ; preds = %if.then2.i.i18
   %lowerExclusive_.i.i22 = getelementptr inbounds nuw i8, ptr %this, i64 17
-  %33 = load i8, ptr %lowerExclusive_.i.i22, align 1
-  %tobool5.i.i23 = trunc i8 %33 to i1
-  %cmp7.i.i24 = fcmp oeq float %32, %18
+  %34 = load i8, ptr %lowerExclusive_.i.i22, align 1
+  %tobool5.i.i23 = trunc i8 %34 to i1
+  %cmp7.i.i24 = fcmp oeq float %33, %19
   %or.cond.i.i25 = and i1 %cmp7.i.i24, %tobool5.i.i23
   br i1 %or.cond.i.i25, label %land.end48, label %if.end10.i.i26
 
 if.end10.i.i26:                                   ; preds = %if.end4.i.i21, %if.end.i.i15
-  %34 = load i8, ptr %upperUnbounded_21, align 2
-  %tobool11.i.i28 = trunc i8 %34 to i1
+  %35 = load i8, ptr %upperUnbounded_21, align 2
+  %tobool11.i.i28 = trunc i8 %35 to i1
   br i1 %tobool11.i.i28, label %lor.rhs41, label %if.then12.i.i29
 
 if.then12.i.i29:                                  ; preds = %if.end10.i.i26
-  %35 = load float, ptr %upper_11, align 8
-  %cmp13.i.i31 = fcmp olt float %35, %18
+  %36 = load float, ptr %upper_11, align 8
+  %cmp13.i.i31 = fcmp olt float %36, %19
   br i1 %cmp13.i.i31, label %land.end48, label %if.end15.i.i32
 
 if.end15.i.i32:                                   ; preds = %if.then12.i.i29
   %upperExclusive_.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 19
-  %36 = load i8, ptr %upperExclusive_.i.i33, align 1
-  %tobool16.i.i34 = trunc i8 %36 to i1
-  %cmp19.i.i35 = fcmp oeq float %35, %18
+  %37 = load i8, ptr %upperExclusive_.i.i33, align 1
+  %tobool16.i.i34 = trunc i8 %37 to i1
+  %cmp19.i.i35 = fcmp oeq float %36, %19
   %or.cond6.i.i36 = and i1 %cmp19.i.i35, %tobool16.i.i34
   br i1 %or.cond6.i.i36, label %land.end48, label %lor.rhs41
 
 lor.rhs41:                                        ; preds = %if.end15.i.i32, %if.end10.i.i26
-  %conv42 = fpext float %18 to double
+  %conv42 = fpext float %19 to double
   %vtable43 = load ptr, ptr %other, align 8
   %vfn44 = getelementptr inbounds nuw i8, ptr %vtable43, i64 96
-  %37 = load ptr, ptr %vfn44, align 8
-  %call45 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %conv42)
+  %38 = load ptr, ptr %vfn44, align 8
+  %call45 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %conv42)
   %lnot46 = xor i1 %call45, true
-  %38 = zext i1 %lnot46 to i8
+  %39 = zext i1 %lnot46 to i8
   br label %land.end48
 
 land.end48:                                       ; preds = %if.end15.i.i32, %if.then12.i.i29, %if.end4.i.i21, %if.then2.i.i18, %land.rhs38, %lor.rhs41, %land.end35
-  %frombool49 = phi i8 [ 0, %land.end35 ], [ %38, %lor.rhs41 ], [ 1, %land.rhs38 ], [ 1, %if.then2.i.i18 ], [ 1, %if.end4.i.i21 ], [ 1, %if.then12.i.i29 ], [ 1, %if.end15.i.i32 ]
-  %cmp = fcmp ogt float %15, %18
+  %frombool49 = phi i8 [ 0, %land.end35 ], [ %39, %lor.rhs41 ], [ 1, %land.rhs38 ], [ 1, %if.then2.i.i18 ], [ 1, %if.end4.i.i21 ], [ 1, %if.then12.i.i29 ], [ 1, %if.end15.i.i32 ]
+  %cmp = fcmp ogt float %16, %19
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.end48
-  %cmp50 = fcmp oeq float %15, %18
+  %cmp50 = fcmp oeq float %16, %19
   br i1 %cmp50, label %land.lhs.true, label %if.end57
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %lowerExclusive_51 = getelementptr inbounds nuw i8, ptr %this, i64 17
-  %39 = load i8, ptr %lowerExclusive_51, align 1
-  %tobool52 = trunc i8 %39 to i1
+  %40 = load i8, ptr %lowerExclusive_51, align 1
+  %tobool52 = trunc i8 %40 to i1
   br i1 %tobool52, label %if.then, label %if.end57
 
 if.then:                                          ; preds = %land.lhs.true, %land.end48
@@ -14272,51 +14278,52 @@ _ZNSt10unique_ptrIN8facebook5velox6common11AlwaysFalseESt14default_deleteIS3_EED
 
 if.end57:                                         ; preds = %land.lhs.true, %lor.lhs.false
   %call.i47 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32, !noalias !435
-  %nullAllowed_.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %call.i47, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i.i55, align 8, !noalias !435
-  %deterministic_.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %call.i47, i64 9
-  store i8 1, ptr %deterministic_.i.i.i.i56, align 1, !noalias !435
-  %kind_.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %call.i47, i64 12
-  store i32 12, ptr %kind_.i.i.i.i57, align 4, !noalias !435
-  %lowerUnbounded_.i.i.i58 = getelementptr inbounds nuw i8, ptr %call.i47, i64 16
-  store i8 %frombool20, ptr %lowerUnbounded_.i.i.i58, align 8, !noalias !435
-  %lowerExclusive_.i.i.i59 = getelementptr inbounds nuw i8, ptr %call.i47, i64 17
-  store i8 %frombool36, ptr %lowerExclusive_.i.i.i59, align 1, !noalias !435
-  %upperUnbounded_.i.i.i60 = getelementptr inbounds nuw i8, ptr %call.i47, i64 18
-  store i8 %frombool27, ptr %upperUnbounded_.i.i.i60, align 2, !noalias !435
-  %upperExclusive_.i.i.i61 = getelementptr inbounds nuw i8, ptr %call.i47, i64 19
-  store i8 %frombool49, ptr %upperExclusive_.i.i.i61, align 1, !noalias !435
-  %lnot18.i.i.i62 = and i1 %tobool28, %tobool37
-  br i1 %lnot18.i.i.i62, label %if.then.i.i.i71, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
+  %nullAllowed_.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %call.i47, i64 8
+  store i8 %frombool, ptr %nullAllowed_.i.i.i.i54, align 8, !noalias !435
+  %deterministic_.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %call.i47, i64 9
+  store i8 1, ptr %deterministic_.i.i.i.i55, align 1, !noalias !435
+  %kind_.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %call.i47, i64 12
+  store i32 12, ptr %kind_.i.i.i.i56, align 4, !noalias !435
+  %lowerUnbounded_.i.i.i57 = getelementptr inbounds nuw i8, ptr %call.i47, i64 16
+  store i8 %frombool20, ptr %lowerUnbounded_.i.i.i57, align 8, !noalias !435
+  %lowerExclusive_.i.i.i58 = getelementptr inbounds nuw i8, ptr %call.i47, i64 17
+  store i8 %frombool36, ptr %lowerExclusive_.i.i.i58, align 1, !noalias !435
+  %upperUnbounded_.i.i.i59 = getelementptr inbounds nuw i8, ptr %call.i47, i64 18
+  store i8 %frombool27, ptr %upperUnbounded_.i.i.i59, align 2, !noalias !435
+  %upperExclusive_.i.i.i60 = getelementptr inbounds nuw i8, ptr %call.i47, i64 19
+  store i8 %frombool49, ptr %upperExclusive_.i.i.i60, align 1, !noalias !435
+  %41 = and i8 %frombool27, %frombool20
+  %lnot18.i.i.not.i61 = icmp eq i8 %41, 0
+  br i1 %lnot18.i.i.not.i61, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63, label %if.then.i.i.i62
 
-if.then.i.i.i71:                                  ; preds = %if.end57
+if.then.i.i.i62:                                  ; preds = %if.end57
   tail call void @llvm.trap()
   unreachable
 
 _ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63: ; preds = %if.end57
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i64 16), ptr %call.i47, align 8, !noalias !435
-  %lower_.i.i64 = getelementptr inbounds nuw i8, ptr %call.i47, i64 20
-  store float %15, ptr %lower_.i.i64, align 4, !noalias !435
-  %upper_.i.i65 = getelementptr inbounds nuw i8, ptr %call.i47, i64 24
-  store float %18, ptr %upper_.i.i65, align 8, !noalias !435
-  %40 = fcmp ord float %15, 0.000000e+00
-  %or.cond.not.i.i66 = or i1 %40, %tobool28
-  br i1 %or.cond.not.i.i66, label %if.end.i.i68, label %if.then.i.i67
+  %lower_.i.i65 = getelementptr inbounds nuw i8, ptr %call.i47, i64 20
+  store float %16, ptr %lower_.i.i65, align 4, !noalias !435
+  %upper_.i.i66 = getelementptr inbounds nuw i8, ptr %call.i47, i64 24
+  store float %19, ptr %upper_.i.i66, align 8, !noalias !435
+  %42 = fcmp ord float %16, 0.000000e+00
+  %or.cond.not.i.i67 = or i1 %42, %tobool28
+  br i1 %or.cond.not.i.i67, label %if.end.i.i69, label %if.then.i.i68
 
-if.then.i.i67:                                    ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
+if.then.i.i68:                                    ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
   tail call void @llvm.trap()
   unreachable
 
-if.end.i.i68:                                     ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
-  %41 = fcmp ord float %18, 0.000000e+00
-  %or.cond3.not.i.i69 = or i1 %41, %tobool37
-  br i1 %or.cond3.not.i.i69, label %_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIfEESt14default_deleteIS4_EED2Ev.exit74, label %if.then21.i.i70
+if.end.i.i69:                                     ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
+  %43 = fcmp ord float %19, 0.000000e+00
+  %or.cond3.not.i.i70 = or i1 %43, %tobool37
+  br i1 %or.cond3.not.i.i70, label %_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIfEESt14default_deleteIS4_EED2Ev.exit74, label %if.then21.i.i71
 
-if.then21.i.i70:                                  ; preds = %if.end.i.i68
+if.then21.i.i71:                                  ; preds = %if.end.i.i69
   tail call void @llvm.trap()
   unreachable
 
-_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIfEESt14default_deleteIS4_EED2Ev.exit74: ; preds = %if.end.i.i68
+_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIfEESt14default_deleteIS4_EED2Ev.exit74: ; preds = %if.end.i.i69
   store ptr %call.i47, ptr %agg.result, align 8
   br label %return
 
@@ -14391,7 +14398,8 @@ entry:
   %1 = load i8, ptr %lowerUnbounded_, align 8
   %tobool2 = trunc i8 %1 to i1
   %2 = or i8 %1, %0
-  %3 = trunc i8 %2 to i1
+  %3 = and i8 %2, 1
+  %.not = icmp eq i8 %3, 0
   br i1 %tobool2, label %cond.true5, label %cond.false7
 
 cond.true5:                                       ; preds = %entry
@@ -14466,7 +14474,7 @@ cond.false17:                                     ; preds = %cond.end9
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #31, !noalias !438
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #31, !noalias !438
   %13 = ptrtoint ptr %call.i.i.i to i64
-  %14 = select i1 %3, i64 ptrtoint (ptr @.str.27 to i64), i64 ptrtoint (ptr @.str.28 to i64)
+  %14 = select i1 %.not, i64 ptrtoint (ptr @.str.28 to i64), i64 ptrtoint (ptr @.str.27 to i64)
   %call.i.i55.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #31, !noalias !438
   %call2.i.i56.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #31, !noalias !438
   %15 = ptrtoint ptr %call.i.i55.i to i64

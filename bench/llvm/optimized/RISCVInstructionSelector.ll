@@ -375,360 +375,361 @@ define dso_local noundef nonnull ptr @_ZN4llvm30createRISCVInstructionSelectorER
   %128 = zext nneg i8 %127 to i64
   %129 = shl nuw nsw i64 %128, 41
   %.sroa.0.31.i.i = or i64 %.sroa.0.30264.i.i, %129
-  %brmerge.i.i = select i1 %113, i1 true, i1 %124
-  %130 = or i64 %.sroa.0.31.i.i, 8589934592
-  %.sroa.0.32.i.i = select i1 %brmerge.i.i, i64 %130, i64 %.sroa.0.31.i.i
-  br i1 %116, label %135, label %131
+  %130 = or i8 %123, %112
+  %brmerge.not.i.i = icmp eq i8 %130, 0
+  %131 = or i64 %.sroa.0.31.i.i, 8589934592
+  %.sroa.0.32.i.i = select i1 %brmerge.not.i.i, i64 %.sroa.0.31.i.i, i64 %131
+  br i1 %116, label %136, label %132
 
-131:                                              ; preds = %106
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 399
-  %133 = load i8, ptr %132, align 1, !tbaa !217, !range !189, !noundef !190
-  %134 = trunc nuw i8 %133 to i1
-  br i1 %134, label %135, label %137
+132:                                              ; preds = %106
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 399
+  %134 = load i8, ptr %133, align 1, !tbaa !217, !range !189, !noundef !190
+  %135 = trunc nuw i8 %134 to i1
+  br i1 %135, label %136, label %138
 
-135:                                              ; preds = %131, %106
-  %136 = or i64 %.sroa.0.32.i.i, 549755813888
-  br label %137
+136:                                              ; preds = %132, %106
+  %137 = or i64 %.sroa.0.32.i.i, 549755813888
+  br label %138
 
-137:                                              ; preds = %135, %131
-  %.sroa.0.33.i.i = phi i64 [ %136, %135 ], [ %.sroa.0.32.i.i, %131 ]
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 438
-  %139 = load i8, ptr %138, align 2, !tbaa !218, !range !189, !noundef !190
-  %140 = trunc nuw i8 %139 to i1
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 439
-  %142 = load i8, ptr %141, align 1, !tbaa !219, !range !189, !noundef !190
-  %143 = trunc nuw i8 %142 to i1
-  br i1 %140, label %144, label %.thread278.i.i
+138:                                              ; preds = %136, %132
+  %.sroa.0.33.i.i = phi i64 [ %137, %136 ], [ %.sroa.0.32.i.i, %132 ]
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 438
+  %140 = load i8, ptr %139, align 2, !tbaa !218, !range !189, !noundef !190
+  %141 = trunc nuw i8 %140 to i1
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 439
+  %143 = load i8, ptr %142, align 1, !tbaa !219, !range !189, !noundef !190
+  %144 = trunc nuw i8 %143 to i1
+  br i1 %141, label %145, label %.thread278.i.i
 
-144:                                              ; preds = %137
-  %spec.select286.v.i.i = select i1 %143, i64 21990232555520, i64 4398046511104
+145:                                              ; preds = %138
+  %spec.select286.v.i.i = select i1 %144, i64 21990232555520, i64 4398046511104
   %spec.select286.i.i = or i64 %spec.select286.v.i.i, %.sroa.0.33.i.i
   br label %.thread265.i.i
 
-.thread278.i.i:                                   ; preds = %137
-  br i1 %143, label %.thread282.i.i, label %.thread269.i.i
+.thread278.i.i:                                   ; preds = %138
+  br i1 %144, label %.thread282.i.i, label %.thread269.i.i
 
 .thread282.i.i:                                   ; preds = %.thread278.i.i
-  %145 = or i64 %.sroa.0.33.i.i, 17592186044416
+  %146 = or i64 %.sroa.0.33.i.i, 17592186044416
   br label %.thread265.i.i
 
-.thread265.i.i:                                   ; preds = %.thread282.i.i, %144
-  %.sroa.0.35268.i.i = phi i64 [ %145, %.thread282.i.i ], [ %spec.select286.i.i, %144 ]
-  %146 = or i64 %.sroa.0.35268.i.i, 8796093022208
+.thread265.i.i:                                   ; preds = %.thread282.i.i, %145
+  %.sroa.0.35268.i.i = phi i64 [ %146, %.thread282.i.i ], [ %spec.select286.i.i, %145 ]
+  %147 = or i64 %.sroa.0.35268.i.i, 8796093022208
   br label %.thread269.i.i
 
 .thread269.i.i:                                   ; preds = %.thread265.i.i, %.thread278.i.i
-  %.sroa.0.36.i.i = phi i64 [ %146, %.thread265.i.i ], [ %.sroa.0.33.i.i, %.thread278.i.i ]
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %148 = load i8, ptr %147, align 8, !tbaa !220, !range !189, !noundef !190
-  %149 = zext nneg i8 %148 to i64
-  %150 = shl nuw nsw i64 %149, 45
-  %spec.select287.i.i = or i64 %150, %.sroa.0.36.i.i
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 443
-  %152 = load i8, ptr %151, align 1, !tbaa !221, !range !189, !noundef !190
-  %153 = zext nneg i8 %152 to i64
-  %154 = shl nuw nsw i64 %153, 46
-  %.sroa.0.38.i.i = or i64 %spec.select287.i.i, %154
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 444
-  %156 = load i8, ptr %155, align 4, !tbaa !222, !range !189, !noundef !190
-  %157 = zext nneg i8 %156 to i64
-  %158 = shl nuw nsw i64 %157, 47
-  %.sroa.0.39.i.i = or i64 %.sroa.0.38.i.i, %158
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 460
-  %160 = load i8, ptr %159, align 4, !tbaa !223, !range !189, !noundef !190
-  %161 = zext nneg i8 %160 to i64
-  %162 = shl nuw nsw i64 %161, 55
-  %.sroa.0.40.i.i = or i64 %.sroa.0.39.i.i, %162
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %164 = load i8, ptr %163, align 8, !tbaa !224, !range !189, !noundef !190
-  %165 = zext nneg i8 %164 to i64
-  %166 = shl nuw nsw i64 %165, 54
-  %.sroa.0.41.i.i = or i64 %.sroa.0.40.i.i, %166
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 449
-  %168 = load i8, ptr %167, align 1, !tbaa !225, !range !189, !noundef !190
-  %169 = zext nneg i8 %168 to i64
-  %170 = shl nuw nsw i64 %169, 59
-  %.sroa.0.42.i.i = or i64 %.sroa.0.41.i.i, %170
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 461
-  %172 = load i8, ptr %171, align 1, !tbaa !226, !range !189, !noundef !190
-  %173 = zext nneg i8 %172 to i64
-  %174 = shl nuw nsw i64 %173, 56
-  %.sroa.0.43.i.i = or i64 %.sroa.0.42.i.i, %174
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 465
-  %176 = load i8, ptr %175, align 1, !tbaa !227, !range !189, !noundef !190
-  %177 = zext nneg i8 %176 to i64
-  %178 = shl nuw nsw i64 %177, 57
-  %.sroa.0.44.i.i = or i64 %.sroa.0.43.i.i, %178
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 467
-  %180 = load i8, ptr %179, align 1, !tbaa !228, !range !189, !noundef !190
-  %181 = zext nneg i8 %180 to i64
-  %182 = shl nuw nsw i64 %181, 60
-  %.sroa.0.45.i.i = or i64 %.sroa.0.44.i.i, %182
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 468
-  %184 = load i8, ptr %183, align 4, !tbaa !229, !range !189, !noundef !190
-  %185 = zext nneg i8 %184 to i64
-  %186 = shl nuw nsw i64 %185, 61
-  %.sroa.0.46.i.i = or i64 %.sroa.0.45.i.i, %186
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 471
-  %188 = load i8, ptr %187, align 1, !tbaa !230, !range !189, !noundef !190
-  %189 = zext nneg i8 %188 to i64
-  %190 = shl nuw nsw i64 %189, 62
-  %.sroa.0.47.i.i = or i64 %.sroa.0.46.i.i, %190
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 473
-  %192 = load i8, ptr %191, align 1, !tbaa !231, !range !189, !noundef !190
-  %193 = zext nneg i8 %192 to i64
-  %194 = shl nuw nsw i64 %193, 58
-  %.sroa.0.48.i.i = or i64 %.sroa.0.47.i.i, %194
-  %195 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  %196 = load i8, ptr %195, align 4, !tbaa !232, !range !189, !noundef !190
-  %197 = zext nneg i8 %196 to i64
-  %198 = shl nuw nsw i64 %197, 14
-  %.sroa.0.49.i.i = or i64 %.sroa.0.48.i.i, %198
-  %199 = getelementptr inbounds nuw i8, ptr %1, i64 455
-  %200 = load i8, ptr %199, align 1, !tbaa !233, !range !189, !noundef !190
-  %201 = zext nneg i8 %200 to i64
-  %202 = shl nuw nsw i64 %201, 50
-  %.sroa.0.50.i.i = or i64 %.sroa.0.49.i.i, %202
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 451
-  %204 = load i8, ptr %203, align 1, !tbaa !234, !range !189, !noundef !190
-  %205 = zext nneg i8 %204 to i64
-  %206 = shl nuw nsw i64 %205, 49
-  %.sroa.0.51.i.i = or i64 %.sroa.0.50.i.i, %206
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 459
-  %208 = load i8, ptr %207, align 1, !tbaa !235, !range !189, !noundef !190
-  %209 = zext nneg i8 %208 to i64
-  %210 = shl nuw nsw i64 %209, 52
-  %.sroa.0.52.i.i = or i64 %.sroa.0.51.i.i, %210
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 458
-  %212 = load i8, ptr %211, align 2, !tbaa !236, !range !189, !noundef !190
-  %213 = zext nneg i8 %212 to i64
-  %214 = shl nuw nsw i64 %213, 48
-  %.sroa.0.53.i.i = or i64 %.sroa.0.52.i.i, %214
-  %215 = getelementptr inbounds nuw i8, ptr %1, i64 453
-  %216 = load i8, ptr %215, align 1, !tbaa !237, !range !189, !noundef !190
-  %217 = zext nneg i8 %216 to i64
-  %218 = shl nuw nsw i64 %217, 53
-  %.sroa.0.54.i.i = or i64 %.sroa.0.53.i.i, %218
-  %219 = getelementptr inbounds nuw i8, ptr %1, i64 385
-  %220 = load i8, ptr %219, align 1, !tbaa !238, !range !189, !noundef !190
-  %221 = zext nneg i8 %220 to i64
-  %222 = shl nuw nsw i64 %221, 51
-  %.sroa.0.55.i.i = or i64 %.sroa.0.54.i.i, %222
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 504
-  %224 = load i8, ptr %223, align 8, !tbaa !239, !range !189, !noundef !190
-  %225 = getelementptr inbounds nuw i8, ptr %1, i64 493
-  %226 = load i8, ptr %225, align 1, !tbaa !240, !range !189, !noundef !190
-  %227 = getelementptr inbounds nuw i8, ptr %1, i64 494
-  %228 = load i8, ptr %227, align 2, !tbaa !241, !range !189, !noundef !190
-  %229 = getelementptr inbounds nuw i8, ptr %1, i64 495
-  %230 = load i8, ptr %229, align 1, !tbaa !242, !range !189, !noundef !190
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 497
-  %232 = load i8, ptr %231, align 1, !tbaa !243, !range !189, !noundef !190
-  %233 = getelementptr inbounds nuw i8, ptr %1, i64 498
-  %234 = load i8, ptr %233, align 2, !tbaa !244, !range !189, !noundef !190
-  %235 = getelementptr inbounds nuw i8, ptr %1, i64 499
-  %236 = load i8, ptr %235, align 1, !tbaa !245, !range !189, !noundef !190
-  %237 = getelementptr inbounds nuw i8, ptr %1, i64 500
-  %238 = load i8, ptr %237, align 4, !tbaa !246, !range !189, !noundef !190
-  %239 = getelementptr inbounds nuw i8, ptr %1, i64 501
-  %240 = load i8, ptr %239, align 1, !tbaa !247, !range !189, !noundef !190
-  %241 = getelementptr inbounds nuw i8, ptr %1, i64 503
-  %242 = load i8, ptr %241, align 1, !tbaa !248, !range !189, !noundef !190
-  %243 = getelementptr inbounds nuw i8, ptr %1, i64 486
-  %244 = load i8, ptr %243, align 2, !tbaa !249, !range !189, !noundef !190
-  %245 = getelementptr inbounds nuw i8, ptr %1, i64 489
-  %246 = load i8, ptr %245, align 1, !tbaa !250, !range !189, !noundef !190
-  %247 = getelementptr inbounds nuw i8, ptr %1, i64 490
-  %248 = load i8, ptr %247, align 2, !tbaa !251, !range !189, !noundef !190
-  %249 = getelementptr inbounds nuw i8, ptr %1, i64 487
-  %250 = load i8, ptr %249, align 1, !tbaa !252, !range !189, !noundef !190
-  %251 = getelementptr inbounds nuw i8, ptr %1, i64 478
-  %252 = load i8, ptr %251, align 2, !tbaa !253, !range !189, !noundef !190
-  %253 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %254 = load i8, ptr %253, align 8, !tbaa !254, !range !189, !noundef !190
-  %255 = getelementptr inbounds nuw i8, ptr %1, i64 481
-  %256 = load i8, ptr %255, align 1, !tbaa !255, !range !189, !noundef !190
-  %257 = getelementptr inbounds nuw i8, ptr %1, i64 476
-  %258 = load i8, ptr %257, align 4, !tbaa !256, !range !189, !noundef !190
-  %259 = getelementptr inbounds nuw i8, ptr %1, i64 477
-  %260 = load i8, ptr %259, align 1, !tbaa !257, !range !189, !noundef !190
-  %261 = tail call noundef zeroext i1 @_ZNK4llvm14RISCVSubtarget12useCCMovInsnEv(ptr noundef nonnull align 8 dereferenceable(413544) %1) #25
-  %262 = getelementptr inbounds nuw i8, ptr %1, i64 519
-  %263 = load i8, ptr %262, align 1, !tbaa !258, !range !189, !noundef !190
-  %264 = trunc nuw i8 %263 to i1
-  %.sroa.0.57.v.i.i = select i1 %264, i64 16, i64 8
+  %.sroa.0.36.i.i = phi i64 [ %147, %.thread265.i.i ], [ %.sroa.0.33.i.i, %.thread278.i.i ]
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %149 = load i8, ptr %148, align 8, !tbaa !220, !range !189, !noundef !190
+  %150 = zext nneg i8 %149 to i64
+  %151 = shl nuw nsw i64 %150, 45
+  %spec.select287.i.i = or i64 %151, %.sroa.0.36.i.i
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 443
+  %153 = load i8, ptr %152, align 1, !tbaa !221, !range !189, !noundef !190
+  %154 = zext nneg i8 %153 to i64
+  %155 = shl nuw nsw i64 %154, 46
+  %.sroa.0.38.i.i = or i64 %spec.select287.i.i, %155
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 444
+  %157 = load i8, ptr %156, align 4, !tbaa !222, !range !189, !noundef !190
+  %158 = zext nneg i8 %157 to i64
+  %159 = shl nuw nsw i64 %158, 47
+  %.sroa.0.39.i.i = or i64 %.sroa.0.38.i.i, %159
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 460
+  %161 = load i8, ptr %160, align 4, !tbaa !223, !range !189, !noundef !190
+  %162 = zext nneg i8 %161 to i64
+  %163 = shl nuw nsw i64 %162, 55
+  %.sroa.0.40.i.i = or i64 %.sroa.0.39.i.i, %163
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %165 = load i8, ptr %164, align 8, !tbaa !224, !range !189, !noundef !190
+  %166 = zext nneg i8 %165 to i64
+  %167 = shl nuw nsw i64 %166, 54
+  %.sroa.0.41.i.i = or i64 %.sroa.0.40.i.i, %167
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 449
+  %169 = load i8, ptr %168, align 1, !tbaa !225, !range !189, !noundef !190
+  %170 = zext nneg i8 %169 to i64
+  %171 = shl nuw nsw i64 %170, 59
+  %.sroa.0.42.i.i = or i64 %.sroa.0.41.i.i, %171
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 461
+  %173 = load i8, ptr %172, align 1, !tbaa !226, !range !189, !noundef !190
+  %174 = zext nneg i8 %173 to i64
+  %175 = shl nuw nsw i64 %174, 56
+  %.sroa.0.43.i.i = or i64 %.sroa.0.42.i.i, %175
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 465
+  %177 = load i8, ptr %176, align 1, !tbaa !227, !range !189, !noundef !190
+  %178 = zext nneg i8 %177 to i64
+  %179 = shl nuw nsw i64 %178, 57
+  %.sroa.0.44.i.i = or i64 %.sroa.0.43.i.i, %179
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 467
+  %181 = load i8, ptr %180, align 1, !tbaa !228, !range !189, !noundef !190
+  %182 = zext nneg i8 %181 to i64
+  %183 = shl nuw nsw i64 %182, 60
+  %.sroa.0.45.i.i = or i64 %.sroa.0.44.i.i, %183
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 468
+  %185 = load i8, ptr %184, align 4, !tbaa !229, !range !189, !noundef !190
+  %186 = zext nneg i8 %185 to i64
+  %187 = shl nuw nsw i64 %186, 61
+  %.sroa.0.46.i.i = or i64 %.sroa.0.45.i.i, %187
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 471
+  %189 = load i8, ptr %188, align 1, !tbaa !230, !range !189, !noundef !190
+  %190 = zext nneg i8 %189 to i64
+  %191 = shl nuw nsw i64 %190, 62
+  %.sroa.0.47.i.i = or i64 %.sroa.0.46.i.i, %191
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 473
+  %193 = load i8, ptr %192, align 1, !tbaa !231, !range !189, !noundef !190
+  %194 = zext nneg i8 %193 to i64
+  %195 = shl nuw nsw i64 %194, 58
+  %.sroa.0.48.i.i = or i64 %.sroa.0.47.i.i, %195
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 452
+  %197 = load i8, ptr %196, align 4, !tbaa !232, !range !189, !noundef !190
+  %198 = zext nneg i8 %197 to i64
+  %199 = shl nuw nsw i64 %198, 14
+  %.sroa.0.49.i.i = or i64 %.sroa.0.48.i.i, %199
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 455
+  %201 = load i8, ptr %200, align 1, !tbaa !233, !range !189, !noundef !190
+  %202 = zext nneg i8 %201 to i64
+  %203 = shl nuw nsw i64 %202, 50
+  %.sroa.0.50.i.i = or i64 %.sroa.0.49.i.i, %203
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 451
+  %205 = load i8, ptr %204, align 1, !tbaa !234, !range !189, !noundef !190
+  %206 = zext nneg i8 %205 to i64
+  %207 = shl nuw nsw i64 %206, 49
+  %.sroa.0.51.i.i = or i64 %.sroa.0.50.i.i, %207
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 459
+  %209 = load i8, ptr %208, align 1, !tbaa !235, !range !189, !noundef !190
+  %210 = zext nneg i8 %209 to i64
+  %211 = shl nuw nsw i64 %210, 52
+  %.sroa.0.52.i.i = or i64 %.sroa.0.51.i.i, %211
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 458
+  %213 = load i8, ptr %212, align 2, !tbaa !236, !range !189, !noundef !190
+  %214 = zext nneg i8 %213 to i64
+  %215 = shl nuw nsw i64 %214, 48
+  %.sroa.0.53.i.i = or i64 %.sroa.0.52.i.i, %215
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 453
+  %217 = load i8, ptr %216, align 1, !tbaa !237, !range !189, !noundef !190
+  %218 = zext nneg i8 %217 to i64
+  %219 = shl nuw nsw i64 %218, 53
+  %.sroa.0.54.i.i = or i64 %.sroa.0.53.i.i, %219
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 385
+  %221 = load i8, ptr %220, align 1, !tbaa !238, !range !189, !noundef !190
+  %222 = zext nneg i8 %221 to i64
+  %223 = shl nuw nsw i64 %222, 51
+  %.sroa.0.55.i.i = or i64 %.sroa.0.54.i.i, %223
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 504
+  %225 = load i8, ptr %224, align 8, !tbaa !239, !range !189, !noundef !190
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 493
+  %227 = load i8, ptr %226, align 1, !tbaa !240, !range !189, !noundef !190
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 494
+  %229 = load i8, ptr %228, align 2, !tbaa !241, !range !189, !noundef !190
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 495
+  %231 = load i8, ptr %230, align 1, !tbaa !242, !range !189, !noundef !190
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 497
+  %233 = load i8, ptr %232, align 1, !tbaa !243, !range !189, !noundef !190
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 498
+  %235 = load i8, ptr %234, align 2, !tbaa !244, !range !189, !noundef !190
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 499
+  %237 = load i8, ptr %236, align 1, !tbaa !245, !range !189, !noundef !190
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 500
+  %239 = load i8, ptr %238, align 4, !tbaa !246, !range !189, !noundef !190
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 501
+  %241 = load i8, ptr %240, align 1, !tbaa !247, !range !189, !noundef !190
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 503
+  %243 = load i8, ptr %242, align 1, !tbaa !248, !range !189, !noundef !190
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 486
+  %245 = load i8, ptr %244, align 2, !tbaa !249, !range !189, !noundef !190
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 489
+  %247 = load i8, ptr %246, align 1, !tbaa !250, !range !189, !noundef !190
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 490
+  %249 = load i8, ptr %248, align 2, !tbaa !251, !range !189, !noundef !190
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 487
+  %251 = load i8, ptr %250, align 1, !tbaa !252, !range !189, !noundef !190
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 478
+  %253 = load i8, ptr %252, align 2, !tbaa !253, !range !189, !noundef !190
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 480
+  %255 = load i8, ptr %254, align 8, !tbaa !254, !range !189, !noundef !190
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 481
+  %257 = load i8, ptr %256, align 1, !tbaa !255, !range !189, !noundef !190
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 476
+  %259 = load i8, ptr %258, align 4, !tbaa !256, !range !189, !noundef !190
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 477
+  %261 = load i8, ptr %260, align 1, !tbaa !257, !range !189, !noundef !190
+  %262 = tail call noundef zeroext i1 @_ZNK4llvm14RISCVSubtarget12useCCMovInsnEv(ptr noundef nonnull align 8 dereferenceable(413544) %1) #25
+  %263 = getelementptr inbounds nuw i8, ptr %1, i64 519
+  %264 = load i8, ptr %263, align 1, !tbaa !258, !range !189, !noundef !190
+  %265 = trunc nuw i8 %264 to i1
+  %.sroa.0.57.v.i.i = select i1 %265, i64 16, i64 8
   %.sroa.0.57.i.i = or i64 %.sroa.0.55.i.i, %.sroa.0.57.v.i.i
-  %265 = getelementptr inbounds nuw i8, ptr %1, i64 330
-  %266 = load i8, ptr %265, align 2, !tbaa !259, !range !189, !noundef !190
-  %267 = trunc nuw i8 %266 to i1
-  %.sroa.0.59.v.i.i = select i1 %267, i64 32768, i64 131072
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 330
+  %267 = load i8, ptr %266, align 2, !tbaa !259, !range !189, !noundef !190
+  %268 = trunc nuw i8 %267 to i1
+  %.sroa.0.59.v.i.i = select i1 %268, i64 32768, i64 131072
   %.sroa.0.59.i.i = or i64 %.sroa.0.57.i.i, %.sroa.0.59.v.i.i
-  %268 = getelementptr inbounds nuw i8, ptr %1, i64 316
-  %269 = load i8, ptr %268, align 4, !tbaa !260, !range !189, !noundef !190
-  %270 = trunc nuw i8 %269 to i1
-  br i1 %270, label %.thread.i.i, label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 316
+  %270 = load i8, ptr %269, align 4, !tbaa !260, !range !189, !noundef !190
+  %271 = trunc nuw i8 %270 to i1
+  br i1 %271, label %.thread.i.i, label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i
 
 .thread.i.i:                                      ; preds = %.thread269.i.i
-  %271 = load i8, ptr %94, align 1, !tbaa !210, !range !189, !noundef !190
-  %272 = trunc nuw i8 %271 to i1
-  %273 = load i8, ptr %107, align 2, !range !189
-  %274 = trunc nuw i8 %273 to i1
-  %275 = select i1 %272, i1 true, i1 %274
-  %brmerge288.i.i = select i1 %275, i1 true, i1 %267
-  %276 = or i64 %.sroa.0.59.i.i, 65536
-  %spec.select.i.i = select i1 %brmerge288.i.i, i64 %276, i64 %.sroa.0.59.i.i
-  br i1 %275, label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i, label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i
+  %272 = load i8, ptr %94, align 1, !tbaa !210, !range !189, !noundef !190
+  %273 = trunc nuw i8 %272 to i1
+  %274 = load i8, ptr %107, align 2, !range !189
+  %275 = trunc nuw i8 %274 to i1
+  %276 = select i1 %273, i1 true, i1 %275
+  %brmerge288.i.i = select i1 %276, i1 true, i1 %268
+  %277 = or i64 %.sroa.0.59.i.i, 65536
+  %spec.select.i.i = select i1 %brmerge288.i.i, i64 %277, i64 %.sroa.0.59.i.i
+  br i1 %276, label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i, label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i
 
 _ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i: ; preds = %.thread269.i.i
-  %277 = or i64 %.sroa.0.59.i.i, 65536
-  %spec.select299.i.i = select i1 %267, i64 %277, i64 %.sroa.0.59.i.i
+  %278 = or i64 %.sroa.0.59.i.i, 65536
+  %spec.select299.i.i = select i1 %268, i64 %278, i64 %.sroa.0.59.i.i
   br label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i
 
 _ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i: ; preds = %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i, %.thread.i.i
   %.sroa.0.60295.i.i = phi i64 [ %spec.select.i.i, %.thread.i.i ], [ %spec.select299.i.i, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i ]
-  %not..i.i = xor i1 %267, true
-  %278 = zext i1 %not..i.i to i64
-  %spec.select289.i.i = or i64 %.sroa.0.60295.i.i, %278
+  %not..i.i = xor i1 %268, true
+  %279 = zext i1 %not..i.i to i64
+  %spec.select289.i.i = or i64 %.sroa.0.60295.i.i, %279
   br label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i
 
 _ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i: ; preds = %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i, %.thread.i.i
   %.sroa.0.61.i.i = phi i64 [ %spec.select.i.i, %.thread.i.i ], [ %spec.select289.i.i, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i ]
-  %279 = load i8, ptr %41, align 1, !tbaa !196, !range !189, !noundef !190
-  %280 = trunc nuw i8 %279 to i1
-  br i1 %280, label %285, label %281
+  %280 = load i8, ptr %41, align 1, !tbaa !196, !range !189, !noundef !190
+  %281 = trunc nuw i8 %280 to i1
+  br i1 %281, label %286, label %282
 
-281:                                              ; preds = %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i
-  %282 = getelementptr inbounds nuw i8, ptr %1, i64 318
-  %283 = load i8, ptr %282, align 2, !tbaa !261, !range !189, !noundef !190
-  %284 = trunc nuw i8 %283 to i1
-  br i1 %284, label %285, label %287
+282:                                              ; preds = %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 318
+  %284 = load i8, ptr %283, align 2, !tbaa !261, !range !189, !noundef !190
+  %285 = trunc nuw i8 %284 to i1
+  br i1 %285, label %286, label %288
 
-285:                                              ; preds = %281, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i
-  %286 = or i64 %.sroa.0.61.i.i, 16777216
-  br label %287
+286:                                              ; preds = %282, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i
+  %287 = or i64 %.sroa.0.61.i.i, 16777216
+  br label %288
 
-287:                                              ; preds = %285, %281
-  %.sroa.0.62.i.i = phi i64 [ %286, %285 ], [ %.sroa.0.61.i.i, %281 ]
-  %288 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %289 = load ptr, ptr %288, align 8, !tbaa !262
-  %.not.i.i = icmp eq ptr %289, null
-  br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_124RISCVInstructionSelector30computeAvailableModuleFeaturesEPKN4llvm14RISCVSubtargetE.exit.i, label %290
+288:                                              ; preds = %286, %282
+  %.sroa.0.62.i.i = phi i64 [ %287, %286 ], [ %.sroa.0.61.i.i, %282 ]
+  %289 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %290 = load ptr, ptr %289, align 8, !tbaa !262
+  %.not.i.i = icmp eq ptr %290, null
+  br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_124RISCVInstructionSelector30computeAvailableModuleFeaturesEPKN4llvm14RISCVSubtargetE.exit.i, label %291
 
-290:                                              ; preds = %287
-  %291 = load ptr, ptr %289, align 8, !tbaa !263
-  %292 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %291, i32 noundef 18) #25
-  %293 = or i64 %.sroa.0.62.i.i, 524288
-  %spec.select290.i.i = select i1 %292, i64 %293, i64 %.sroa.0.62.i.i
-  %.pre.i.i = load i8, ptr %262, align 1, !tbaa !258, !range !189
+291:                                              ; preds = %288
+  %292 = load ptr, ptr %290, align 8, !tbaa !263
+  %293 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %292, i32 noundef 18) #25
+  %294 = or i64 %.sroa.0.62.i.i, 524288
+  %spec.select290.i.i = select i1 %293, i64 %294, i64 %.sroa.0.62.i.i
+  %.pre.i.i = load i8, ptr %263, align 1, !tbaa !258, !range !189
   %.pre292.i.i = trunc nuw i8 %.pre.i.i to i1
   br label %_ZNK12_GLOBAL__N_124RISCVInstructionSelector30computeAvailableModuleFeaturesEPKN4llvm14RISCVSubtargetE.exit.i
 
-_ZNK12_GLOBAL__N_124RISCVInstructionSelector30computeAvailableModuleFeaturesEPKN4llvm14RISCVSubtargetE.exit.i: ; preds = %290, %287
-  %.pre-phi.i.i = phi i1 [ %.pre292.i.i, %290 ], [ %264, %287 ]
-  %.sroa.0.63.i.i = phi i64 [ %spec.select290.i.i, %290 ], [ %.sroa.0.62.i.i, %287 ]
-  %294 = shl nuw nsw i8 %26, 1
-  %.sroa.131.1291.i.i = or disjoint i8 %294, %24
+_ZNK12_GLOBAL__N_124RISCVInstructionSelector30computeAvailableModuleFeaturesEPKN4llvm14RISCVSubtargetE.exit.i: ; preds = %291, %288
+  %.pre-phi.i.i = phi i1 [ %.pre292.i.i, %291 ], [ %265, %288 ]
+  %.sroa.0.63.i.i = phi i64 [ %spec.select290.i.i, %291 ], [ %.sroa.0.62.i.i, %288 ]
+  %295 = shl nuw nsw i8 %26, 1
+  %.sroa.131.1291.i.i = or disjoint i8 %295, %24
   %.sroa.131.1.i.i = zext nneg i8 %.sroa.131.1291.i.i to i64
-  %295 = or disjoint i64 %.sroa.131.1.i.i, 4194304
-  %.sroa.131.2.i.i = select i1 %124, i64 %.sroa.131.1.i.i, i64 %295
-  %296 = shl nuw nsw i8 %224, 2
-  %297 = zext nneg i8 %296 to i64
-  %.sroa.131.3.i.i = or i64 %.sroa.131.2.i.i, %297
-  %298 = shl nuw nsw i8 %226, 3
-  %299 = zext nneg i8 %298 to i64
-  %.sroa.131.4.i.i = or i64 %.sroa.131.3.i.i, %299
-  %300 = shl nuw nsw i8 %228, 4
-  %301 = zext nneg i8 %300 to i64
-  %.sroa.131.5.i.i = or i64 %.sroa.131.4.i.i, %301
-  %302 = shl nuw nsw i8 %230, 5
-  %303 = zext nneg i8 %302 to i64
-  %.sroa.131.6.i.i = or i64 %.sroa.131.5.i.i, %303
-  %304 = shl nuw nsw i8 %232, 6
-  %305 = zext nneg i8 %304 to i64
-  %.sroa.131.7.i.i = or i64 %.sroa.131.6.i.i, %305
-  %306 = zext nneg i8 %234 to i64
-  %307 = shl nuw nsw i64 %306, 11
-  %.sroa.131.8.i.i = or i64 %.sroa.131.7.i.i, %307
-  %308 = shl nuw i8 %236, 7
-  %309 = zext i8 %308 to i64
-  %.sroa.131.9.i.i = or i64 %.sroa.131.8.i.i, %309
-  %310 = zext nneg i8 %238 to i64
-  %311 = shl nuw nsw i64 %310, 10
-  %.sroa.131.10.i.i = or i64 %.sroa.131.9.i.i, %311
-  %312 = zext nneg i8 %240 to i64
-  %313 = shl nuw nsw i64 %312, 9
-  %.sroa.131.11.i.i = or i64 %.sroa.131.10.i.i, %313
-  %314 = zext nneg i8 %242 to i64
-  %315 = shl nuw nsw i64 %314, 8
-  %.sroa.131.12.i.i = or i64 %.sroa.131.11.i.i, %315
-  %316 = zext nneg i8 %244 to i64
-  %317 = shl nuw nsw i64 %316, 12
-  %.sroa.131.13.i.i = or i64 %.sroa.131.12.i.i, %317
-  %318 = zext nneg i8 %246 to i64
-  %319 = shl nuw nsw i64 %318, 13
-  %.sroa.131.14.i.i = or i64 %.sroa.131.13.i.i, %319
-  %320 = zext nneg i8 %248 to i64
-  %321 = shl nuw nsw i64 %320, 14
-  %.sroa.131.15.i.i = or i64 %.sroa.131.14.i.i, %321
-  %322 = zext nneg i8 %250 to i64
-  %323 = shl nuw nsw i64 %322, 15
-  %.sroa.131.16.i.i = or i64 %.sroa.131.15.i.i, %323
-  %324 = zext nneg i8 %252 to i64
-  %325 = shl nuw nsw i64 %324, 17
-  %.sroa.131.17.i.i = or i64 %.sroa.131.16.i.i, %325
-  %326 = zext nneg i8 %254 to i64
-  %327 = shl nuw nsw i64 %326, 20
-  %.sroa.131.18.i.i = or i64 %.sroa.131.17.i.i, %327
-  %328 = zext nneg i8 %256 to i64
-  %329 = shl nuw nsw i64 %328, 16
-  %.sroa.131.19.i.i = or i64 %.sroa.131.18.i.i, %329
-  %330 = zext nneg i8 %258 to i64
-  %331 = shl nuw nsw i64 %330, 18
-  %.sroa.131.20.i.i = or i64 %.sroa.131.19.i.i, %331
-  %332 = zext nneg i8 %260 to i64
-  %333 = shl nuw nsw i64 %332, 19
-  %.sroa.131.21.i.i = or i64 %.sroa.131.20.i.i, %333
-  %334 = or i64 %.sroa.131.21.i.i, 2097152
-  %.sroa.131.22.i.i = select i1 %261, i64 %334, i64 %.sroa.131.21.i.i
+  %296 = or disjoint i64 %.sroa.131.1.i.i, 4194304
+  %.sroa.131.2.i.i = select i1 %124, i64 %.sroa.131.1.i.i, i64 %296
+  %297 = shl nuw nsw i8 %225, 2
+  %298 = zext nneg i8 %297 to i64
+  %.sroa.131.3.i.i = or i64 %.sroa.131.2.i.i, %298
+  %299 = shl nuw nsw i8 %227, 3
+  %300 = zext nneg i8 %299 to i64
+  %.sroa.131.4.i.i = or i64 %.sroa.131.3.i.i, %300
+  %301 = shl nuw nsw i8 %229, 4
+  %302 = zext nneg i8 %301 to i64
+  %.sroa.131.5.i.i = or i64 %.sroa.131.4.i.i, %302
+  %303 = shl nuw nsw i8 %231, 5
+  %304 = zext nneg i8 %303 to i64
+  %.sroa.131.6.i.i = or i64 %.sroa.131.5.i.i, %304
+  %305 = shl nuw nsw i8 %233, 6
+  %306 = zext nneg i8 %305 to i64
+  %.sroa.131.7.i.i = or i64 %.sroa.131.6.i.i, %306
+  %307 = zext nneg i8 %235 to i64
+  %308 = shl nuw nsw i64 %307, 11
+  %.sroa.131.8.i.i = or i64 %.sroa.131.7.i.i, %308
+  %309 = shl nuw i8 %237, 7
+  %310 = zext i8 %309 to i64
+  %.sroa.131.9.i.i = or i64 %.sroa.131.8.i.i, %310
+  %311 = zext nneg i8 %239 to i64
+  %312 = shl nuw nsw i64 %311, 10
+  %.sroa.131.10.i.i = or i64 %.sroa.131.9.i.i, %312
+  %313 = zext nneg i8 %241 to i64
+  %314 = shl nuw nsw i64 %313, 9
+  %.sroa.131.11.i.i = or i64 %.sroa.131.10.i.i, %314
+  %315 = zext nneg i8 %243 to i64
+  %316 = shl nuw nsw i64 %315, 8
+  %.sroa.131.12.i.i = or i64 %.sroa.131.11.i.i, %316
+  %317 = zext nneg i8 %245 to i64
+  %318 = shl nuw nsw i64 %317, 12
+  %.sroa.131.13.i.i = or i64 %.sroa.131.12.i.i, %318
+  %319 = zext nneg i8 %247 to i64
+  %320 = shl nuw nsw i64 %319, 13
+  %.sroa.131.14.i.i = or i64 %.sroa.131.13.i.i, %320
+  %321 = zext nneg i8 %249 to i64
+  %322 = shl nuw nsw i64 %321, 14
+  %.sroa.131.15.i.i = or i64 %.sroa.131.14.i.i, %322
+  %323 = zext nneg i8 %251 to i64
+  %324 = shl nuw nsw i64 %323, 15
+  %.sroa.131.16.i.i = or i64 %.sroa.131.15.i.i, %324
+  %325 = zext nneg i8 %253 to i64
+  %326 = shl nuw nsw i64 %325, 17
+  %.sroa.131.17.i.i = or i64 %.sroa.131.16.i.i, %326
+  %327 = zext nneg i8 %255 to i64
+  %328 = shl nuw nsw i64 %327, 20
+  %.sroa.131.18.i.i = or i64 %.sroa.131.17.i.i, %328
+  %329 = zext nneg i8 %257 to i64
+  %330 = shl nuw nsw i64 %329, 16
+  %.sroa.131.19.i.i = or i64 %.sroa.131.18.i.i, %330
+  %331 = zext nneg i8 %259 to i64
+  %332 = shl nuw nsw i64 %331, 18
+  %.sroa.131.20.i.i = or i64 %.sroa.131.19.i.i, %332
+  %333 = zext nneg i8 %261 to i64
+  %334 = shl nuw nsw i64 %333, 19
+  %.sroa.131.21.i.i = or i64 %.sroa.131.20.i.i, %334
+  %335 = or i64 %.sroa.131.21.i.i, 2097152
+  %.sroa.131.22.i.i = select i1 %262, i64 %335, i64 %.sroa.131.21.i.i
   %.sroa.131.24.v.i.i = select i1 %.pre-phi.i.i, i64 8388608, i64 16777216
   %.sroa.131.24.i.i = or i64 %.sroa.131.24.v.i.i, %.sroa.131.22.i.i
   store i64 %.sroa.0.63.i.i, ptr %22, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i64 %.sroa.131.24.i.i, ptr %335, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %337 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %336, i8 0, i64 16, i1 false)
-  tail call void @_ZN4llvm20GIMatchTableExecutor12MatcherStateC1Ej(ptr noundef nonnull align 8 dereferenceable(168) %337, i32 noundef 4) #25
-  %338 = getelementptr inbounds nuw i8, ptr %4, i64 336
-  store ptr @_ZL11TypeObjects, ptr %338, align 8, !tbaa !373
-  %339 = getelementptr inbounds nuw i8, ptr %4, i64 344
-  store ptr @_ZL14FeatureBitsets, ptr %339, align 8, !tbaa !374
-  %340 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  store ptr @_ZN12_GLOBAL__N_124RISCVInstructionSelector19ComplexPredicateFnsE, ptr %340, align 8, !tbaa !375
-  %341 = getelementptr inbounds nuw i8, ptr %4, i64 360
-  store ptr @_ZN12_GLOBAL__N_124RISCVInstructionSelector15CustomRenderersE, ptr %341, align 8, !tbaa !376
-  %342 = getelementptr inbounds nuw i8, ptr %4, i64 368
-  store i32 1, ptr %342, align 8
-  %343 = getelementptr inbounds nuw i8, ptr %4, i64 372
-  store i32 0, ptr %343, align 4, !tbaa !377
+  %336 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  store i64 %.sroa.131.24.i.i, ptr %336, align 8
+  %337 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %338 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %337, i8 0, i64 16, i1 false)
+  tail call void @_ZN4llvm20GIMatchTableExecutor12MatcherStateC1Ej(ptr noundef nonnull align 8 dereferenceable(168) %338, i32 noundef 4) #25
+  %339 = getelementptr inbounds nuw i8, ptr %4, i64 336
+  store ptr @_ZL11TypeObjects, ptr %339, align 8, !tbaa !373
+  %340 = getelementptr inbounds nuw i8, ptr %4, i64 344
+  store ptr @_ZL14FeatureBitsets, ptr %340, align 8, !tbaa !374
+  %341 = getelementptr inbounds nuw i8, ptr %4, i64 352
+  store ptr @_ZN12_GLOBAL__N_124RISCVInstructionSelector19ComplexPredicateFnsE, ptr %341, align 8, !tbaa !375
+  %342 = getelementptr inbounds nuw i8, ptr %4, i64 360
+  store ptr @_ZN12_GLOBAL__N_124RISCVInstructionSelector15CustomRenderersE, ptr %342, align 8, !tbaa !376
+  %343 = getelementptr inbounds nuw i8, ptr %4, i64 368
+  store i32 1, ptr %343, align 8
+  %344 = getelementptr inbounds nuw i8, ptr %4, i64 372
+  store i32 0, ptr %344, align 4, !tbaa !377
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZNK12_GLOBAL__N_124RISCVInstructionSelector30computeAvailableModuleFeaturesEPKN4llvm14RISCVSubtargetE.exit.i
   %.06.i.i.i.idx.i.i = phi i64 [ %.06.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i ], [ 40, %_ZNK12_GLOBAL__N_124RISCVInstructionSelector30computeAvailableModuleFeaturesEPKN4llvm14RISCVSubtargetE.exit.i ]
-  %.06.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %338, i64 %.06.i.i.i.idx.i.i
+  %.06.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %339, i64 %.06.i.i.i.idx.i.i
   store i64 2, ptr %.06.i.i.i.ptr.i.i, align 8, !tbaa !378
   %.06.i.i.i.add.i.i = add nuw nsw i64 %.06.i.i.i.idx.i.i, 16
   %.not.i.i.i.i.i = icmp eq i64 %.06.i.i.i.add.i.i, 1064
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !379
 
 _ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i
-  %.01.i.i = phi i64 [ %347, %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
-  %344 = trunc nuw nsw i64 %.01.i.i to i32
-  %345 = getelementptr inbounds nuw %"class.llvm::LLT", ptr @_ZL11TypeObjects, i64 %.01.i.i
-  %346 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_EixERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %342, ptr noundef nonnull align 8 dereferenceable(8) %345)
-  store i32 %344, ptr %346, align 4, !tbaa !381
-  %347 = add nuw nsw i64 %.01.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %347, 34
+  %.01.i.i = phi i64 [ %348, %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
+  %345 = trunc nuw nsw i64 %.01.i.i to i32
+  %346 = getelementptr inbounds nuw %"class.llvm::LLT", ptr @_ZL11TypeObjects, i64 %.01.i.i
+  %347 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_EixERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %343, ptr noundef nonnull align 8 dereferenceable(8) %346)
+  store i32 %345, ptr %347, align 4, !tbaa !381
+  %348 = add nuw nsw i64 %.01.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %348, 34
   br i1 %exitcond.not.i.i, label %_ZN12_GLOBAL__N_124RISCVInstructionSelectorC2ERKN4llvm18RISCVTargetMachineERKNS1_14RISCVSubtargetERKNS1_21RISCVRegisterBankInfoE.exit, label %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i, !llvm.loop !382
 
 _ZN12_GLOBAL__N_124RISCVInstructionSelectorC2ERKN4llvm18RISCVTargetMachineERKNS1_14RISCVSubtargetERKNS1_21RISCVRegisterBankInfoE.exit: ; preds = %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i

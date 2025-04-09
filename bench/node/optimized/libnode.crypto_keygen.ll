@@ -1461,10 +1461,8 @@ arrayctor.loop.preheader:                         ; preds = %do.end
   %vfn19 = getelementptr inbounds nuw i8, ptr %vtable18, i64 152
   %25 = load ptr, ptr %vfn19, align 8
   %call20 = call i16 %25(ptr noundef nonnull align 8 dereferenceable(376) %retval.i11.0.i, ptr noundef nonnull %ret, ptr noundef nonnull %arrayidx17) #17
-  %tobool.i = trunc i16 %call20 to i1
-  %26 = and i16 %call20, 256
-  %tobool.i46.not = icmp ne i16 %26, 0
-  %or.cond.not = and i1 %tobool.i46.not, %tobool.i
+  %26 = and i16 %call20, 257
+  %or.cond.not = icmp eq i16 %26, 257
   br i1 %or.cond.not, label %if.then23, label %if.end36
 
 if.then14:                                        ; preds = %do.end
@@ -5263,10 +5261,8 @@ arrayctor.loop.preheader:                         ; preds = %do.end
   %vfn19 = getelementptr inbounds nuw i8, ptr %vtable18, i64 152
   %25 = load ptr, ptr %vfn19, align 8
   %call20 = call i16 %25(ptr noundef nonnull align 8 dereferenceable(288) %retval.i11.0.i, ptr noundef nonnull %ret, ptr noundef nonnull %arrayidx17) #17
-  %tobool.i = trunc i16 %call20 to i1
-  %26 = and i16 %call20, 256
-  %tobool.i46.not = icmp ne i16 %26, 0
-  %or.cond.not = and i1 %tobool.i46.not, %tobool.i
+  %26 = and i16 %call20, 257
+  %or.cond.not = icmp eq i16 %26, 257
   br i1 %or.cond.not, label %if.then23, label %if.end36
 
 if.then14:                                        ; preds = %do.end

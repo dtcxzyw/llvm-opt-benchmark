@@ -934,12 +934,9 @@ declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN9grpc_core11Channel
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_126NeedsClientAuthorityFilterERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 36, ptr nonnull @.str.7)
-  %3 = and i16 %2, 256
-  %.not = icmp ne i16 %3, 0
-  %4 = trunc i16 %2 to i1
-  %.0.i = and i1 %.not, %4
-  %5 = xor i1 %.0.i, true
-  ret i1 %5
+  %3 = and i16 %2, 257
+  %.0.i = icmp ne i16 %3, 257
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable

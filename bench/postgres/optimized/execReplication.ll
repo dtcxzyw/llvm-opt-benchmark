@@ -333,8 +333,8 @@ slot_getallattrs.exit39:                          ; preds = %slot_getallattrs.ex
   br label %27
 
 27:                                               ; preds = %.lr.ph, %select.unfold
-  %28 = phi i32 [ %21, %.lr.ph ], [ %79, %select.unfold ]
-  %29 = phi ptr [ %20, %.lr.ph ], [ %80, %select.unfold ]
+  %28 = phi i32 [ %21, %.lr.ph ], [ %78, %select.unfold ]
+  %29 = phi ptr [ %20, %.lr.ph ], [ %79, %select.unfold ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
   %30 = sext i32 %28 to i64
   %31 = shl nsw i64 %30, 4
@@ -363,55 +363,55 @@ slot_getallattrs.exit39:                          ; preds = %slot_getallattrs.ex
   br i1 %.not37, label %48, label %._crit_edge
 
 48:                                               ; preds = %41
-  %49 = trunc nuw i8 %44 to i1
-  br i1 %49, label %select.unfold, label %50
+  %brmerge.not = icmp eq i8 %44, 0
+  br i1 %brmerge.not, label %49, label %select.unfold
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %68
+49:                                               ; preds = %48
+  %50 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %67
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %34, i64 68
-  %56 = load i32, ptr %55, align 4
-  %57 = tail call ptr @lookup_type_cache(i32 noundef %56, i32 noundef 32) #5
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
-  %59 = load i32, ptr %58, align 8
-  %.not38 = icmp eq i32 %59, 0
-  br i1 %.not38, label %60, label %67
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %34, i64 68
+  %55 = load i32, ptr %54, align 4
+  %56 = tail call ptr @lookup_type_cache(i32 noundef %55, i32 noundef 32) #5
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 80
+  %58 = load i32, ptr %57, align 8
+  %.not38 = icmp eq i32 %58, 0
+  br i1 %.not38, label %59, label %66
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds nuw i8, ptr %34, i64 68
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %62)
-  %63 = tail call i32 @errcode(i32 noundef 52461700) #5
-  %64 = load i32, ptr %61, align 4
-  %65 = tail call ptr @format_type_be(i32 noundef %64) #5
-  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %65) #5
+59:                                               ; preds = %53
+  %60 = getelementptr inbounds nuw i8, ptr %34, i64 68
+  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  tail call void @llvm.assume(i1 %61)
+  %62 = tail call i32 @errcode(i32 noundef 52461700) #5
+  %63 = load i32, ptr %60, align 4
+  %64 = tail call ptr @format_type_be(i32 noundef %63) #5
+  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %64) #5
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 330, ptr noundef nonnull @__func__.tuples_equal) #5
   unreachable
 
-67:                                               ; preds = %54
-  store ptr %57, ptr %51, align 8
-  br label %68
+66:                                               ; preds = %53
+  store ptr %56, ptr %50, align 8
+  br label %67
 
-68:                                               ; preds = %67, %50
-  %.033 = phi ptr [ %57, %67 ], [ %52, %50 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.033, i64 72
-  %70 = getelementptr inbounds nuw i8, ptr %34, i64 96
-  %71 = load i32, ptr %70, align 4
-  %72 = load ptr, ptr %25, align 8
-  %73 = getelementptr inbounds nuw i64, ptr %72, i64 %indvars.iv
-  %74 = load i64, ptr %73, align 8
-  %75 = load ptr, ptr %26, align 8
-  %76 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv
-  %77 = load i64, ptr %76, align 8
-  %78 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %69, i32 noundef %71, i64 noundef %74, i64 noundef %77) #5
-  %.not41 = icmp eq i64 %78, 0
+67:                                               ; preds = %66, %49
+  %.033 = phi ptr [ %56, %66 ], [ %51, %49 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.033, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %34, i64 96
+  %70 = load i32, ptr %69, align 4
+  %71 = load ptr, ptr %25, align 8
+  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv
+  %73 = load i64, ptr %72, align 8
+  %74 = load ptr, ptr %26, align 8
+  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv
+  %76 = load i64, ptr %75, align 8
+  %77 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %68, i32 noundef %70, i64 noundef %73, i64 noundef %76) #5
+  %.not41 = icmp eq i64 %77, 0
   br i1 %.not41, label %._crit_edge, label %.select.unfold_crit_edge
 
-.select.unfold_crit_edge:                         ; preds = %68
+.select.unfold_crit_edge:                         ; preds = %67
   %.pre = load ptr, ptr %4, align 8
   %.pre53 = load i32, ptr %.pre, align 8
   %.pre54 = sext i32 %.pre53 to i64
@@ -419,14 +419,14 @@ slot_getallattrs.exit39:                          ; preds = %slot_getallattrs.ex
 
 select.unfold:                                    ; preds = %.select.unfold_crit_edge, %38, %27, %48
   %.pre-phi = phi i64 [ %.pre54, %.select.unfold_crit_edge ], [ %30, %38 ], [ %30, %27 ], [ %30, %48 ]
-  %79 = phi i32 [ %.pre53, %.select.unfold_crit_edge ], [ %28, %38 ], [ %28, %27 ], [ %28, %48 ]
-  %80 = phi ptr [ %.pre, %.select.unfold_crit_edge ], [ %29, %38 ], [ %29, %27 ], [ %29, %48 ]
+  %78 = phi i32 [ %.pre53, %.select.unfold_crit_edge ], [ %28, %38 ], [ %28, %27 ], [ %28, %48 ]
+  %79 = phi ptr [ %.pre, %.select.unfold_crit_edge ], [ %29, %38 ], [ %29, %27 ], [ %29, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not50 = icmp slt i64 %indvars.iv.next, %.pre-phi
   br i1 %.not50, label %27, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %select.unfold, %68, %41, %slot_getallattrs.exit39
-  %.lcssa42 = phi i1 [ true, %slot_getallattrs.exit39 ], [ false, %41 ], [ false, %68 ], [ true, %select.unfold ]
+._crit_edge:                                      ; preds = %select.unfold, %67, %41, %slot_getallattrs.exit39
+  %.lcssa42 = phi i1 [ true, %slot_getallattrs.exit39 ], [ false, %41 ], [ false, %67 ], [ true, %select.unfold ]
   ret i1 %.lcssa42
 }
 

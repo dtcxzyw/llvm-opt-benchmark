@@ -18595,17 +18595,17 @@ declare noundef ptr @_ZNK4llvm20DbgVariableIntrinsic21getVariableLocationOpEj(pt
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD_ABS_rEN4llvm3MVTES2_j(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit [
     i16 39, label %5
-    i16 40, label %31
-    i16 41, label %53
-    i16 50, label %62
-    i16 51, label %88
-    i16 52, label %110
-    i16 60, label %119
-    i16 64, label %140
-    i16 69, label %157
-    i16 78, label %166
-    i16 80, label %179
-    i16 81, label %192
+    i16 40, label %32
+    i16 41, label %55
+    i16 50, label %64
+    i16 51, label %91
+    i16 52, label %114
+    i16 60, label %123
+    i16 64, label %144
+    i16 69, label %161
+    i16 78, label %170
+    i16 80, label %183
+    i16 81, label %196
   ]
 
 5:                                                ; preds = %4
@@ -18647,329 +18647,329 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 458
   %28 = load i8, ptr %27, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %28, %10
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit, label %29
+  %29 = and i8 %28, %10
+  %brmerge.demorgan.not.i = icmp eq i8 %29, 0
+  br i1 %brmerge.demorgan.not.i, label %30, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14825, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+30:                                               ; preds = %26
+  %31 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14825, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-31:                                               ; preds = %4
+32:                                               ; preds = %4
   %.not.i37 = icmp eq i16 %2, 40
-  br i1 %.not.i37, label %32, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+  br i1 %.not.i37, label %33, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %34 = load ptr, ptr %33, align 8, !tbaa !202
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 355
-  %36 = load i8, ptr %35, align 1, !tbaa !1343, !range !414, !noundef !415
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %44
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %35 = load ptr, ptr %34, align 8, !tbaa !202
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
+  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %39, label %45
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 458
-  %40 = load i8, ptr %39, align 2, !tbaa !846, !range !414, !noundef !415
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %42, label %44
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
+  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %38
-  %43 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14815, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+43:                                               ; preds = %39
+  %44 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14815, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-44:                                               ; preds = %38, %32
-  %45 = getelementptr inbounds nuw i8, ptr %34, i64 320
-  %46 = load i32, ptr %45, align 8, !tbaa !267
-  %47 = icmp sgt i32 %46, 7
-  br i1 %47, label %48, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+45:                                               ; preds = %39, %33
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
+  %47 = load i32, ptr %46, align 8, !tbaa !267
+  %48 = icmp sgt i32 %47, 7
+  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %34, i64 458
-  %50 = load i8, ptr %49, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan6.i = and i8 %50, %36
-  %brmerge.demorgan.i39 = trunc nuw i8 %brmerge.demorgan6.i to i1
-  br i1 %brmerge.demorgan.i39, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit, label %51
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
+  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
+  %52 = and i8 %51, %37
+  %brmerge.demorgan.not.i39 = icmp eq i8 %52, 0
+  br i1 %brmerge.demorgan.not.i39, label %53, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-51:                                               ; preds = %48
-  %52 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14805, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
+53:                                               ; preds = %49
+  %54 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14805, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-53:                                               ; preds = %4
+55:                                               ; preds = %4
   %.not.i40 = icmp eq i16 %2, 41
-  br i1 %.not.i40, label %54, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+  br i1 %.not.i40, label %56, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %56 = load ptr, ptr %55, align 8, !tbaa !202
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 355
-  %58 = load i8, ptr %57, align 1, !tbaa !1343, !range !414, !noundef !415
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %58 = load ptr, ptr %57, align 8, !tbaa !202
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 355
+  %60 = load i8, ptr %59, align 1, !tbaa !1343, !range !414, !noundef !415
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %62, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-60:                                               ; preds = %54
-  %61 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14821, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+62:                                               ; preds = %56
+  %63 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14821, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-62:                                               ; preds = %4
+64:                                               ; preds = %4
   %.not.i42 = icmp eq i16 %2, 50
-  br i1 %.not.i42, label %63, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+  br i1 %.not.i42, label %65, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %65 = load ptr, ptr %64, align 8, !tbaa !202
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 355
-  %67 = load i8, ptr %66, align 1, !tbaa !1343, !range !414, !noundef !415
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %69, label %75
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %67 = load ptr, ptr %66, align 8, !tbaa !202
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 355
+  %69 = load i8, ptr %68, align 1, !tbaa !1343, !range !414, !noundef !415
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %71, label %77
 
-69:                                               ; preds = %63
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 458
-  %71 = load i8, ptr %70, align 2, !tbaa !846, !range !414, !noundef !415
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %73, label %75
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 458
+  %73 = load i8, ptr %72, align 2, !tbaa !846, !range !414, !noundef !415
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %75, label %77
 
-73:                                               ; preds = %69
-  %74 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14889, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
+75:                                               ; preds = %71
+  %76 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14889, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-75:                                               ; preds = %69, %63
-  %76 = getelementptr inbounds nuw i8, ptr %65, i64 320
-  %77 = load i32, ptr %76, align 8, !tbaa !267
-  %78 = icmp sgt i32 %77, 3
-  br i1 %78, label %79, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+77:                                               ; preds = %71, %65
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 320
+  %79 = load i32, ptr %78, align 8, !tbaa !267
+  %80 = icmp sgt i32 %79, 3
+  br i1 %80, label %81, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-79:                                               ; preds = %75
-  %80 = icmp samesign ugt i32 %77, 6
-  br i1 %80, label %83, label %81
+81:                                               ; preds = %77
+  %82 = icmp samesign ugt i32 %79, 6
+  br i1 %82, label %85, label %83
 
-81:                                               ; preds = %79
-  %82 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3058, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+83:                                               ; preds = %81
+  %84 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3058, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %65, i64 458
-  %85 = load i8, ptr %84, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i44 = and i8 %85, %67
-  %brmerge.demorgan.i45 = trunc nuw i8 %brmerge.demorgan8.i44 to i1
-  br i1 %brmerge.demorgan.i45, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit, label %86
+85:                                               ; preds = %81
+  %86 = getelementptr inbounds nuw i8, ptr %67, i64 458
+  %87 = load i8, ptr %86, align 2, !tbaa !846, !range !414, !noundef !415
+  %88 = and i8 %87, %69
+  %brmerge.demorgan.not.i44 = icmp eq i8 %88, 0
+  br i1 %brmerge.demorgan.not.i44, label %89, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-86:                                               ; preds = %83
-  %87 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14905, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+89:                                               ; preds = %85
+  %90 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14905, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-88:                                               ; preds = %4
-  %.not.i46 = icmp eq i16 %2, 51
-  br i1 %.not.i46, label %89, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+91:                                               ; preds = %4
+  %.not.i45 = icmp eq i16 %2, 51
+  br i1 %.not.i45, label %92, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-89:                                               ; preds = %88
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %91 = load ptr, ptr %90, align 8, !tbaa !202
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 355
-  %93 = load i8, ptr %92, align 1, !tbaa !1343, !range !414, !noundef !415
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %101
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %94 = load ptr, ptr %93, align 8, !tbaa !202
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 355
+  %96 = load i8, ptr %95, align 1, !tbaa !1343, !range !414, !noundef !415
+  %97 = trunc nuw i8 %96 to i1
+  br i1 %97, label %98, label %104
 
-95:                                               ; preds = %89
-  %96 = getelementptr inbounds nuw i8, ptr %91, i64 458
-  %97 = load i8, ptr %96, align 2, !tbaa !846, !range !414, !noundef !415
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %101
+98:                                               ; preds = %92
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 458
+  %100 = load i8, ptr %99, align 2, !tbaa !846, !range !414, !noundef !415
+  %101 = trunc nuw i8 %100 to i1
+  br i1 %101, label %102, label %104
 
-99:                                               ; preds = %95
-  %100 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14895, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+102:                                              ; preds = %98
+  %103 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14895, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-101:                                              ; preds = %95, %89
-  %102 = getelementptr inbounds nuw i8, ptr %91, i64 320
-  %103 = load i32, ptr %102, align 8, !tbaa !267
-  %104 = icmp sgt i32 %103, 7
-  br i1 %104, label %105, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+104:                                              ; preds = %98, %92
+  %105 = getelementptr inbounds nuw i8, ptr %94, i64 320
+  %106 = load i32, ptr %105, align 8, !tbaa !267
+  %107 = icmp sgt i32 %106, 7
+  br i1 %107, label %108, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %91, i64 458
-  %107 = load i8, ptr %106, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan6.i48 = and i8 %107, %93
-  %brmerge.demorgan.i49 = trunc nuw i8 %brmerge.demorgan6.i48 to i1
-  br i1 %brmerge.demorgan.i49, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit, label %108
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds nuw i8, ptr %94, i64 458
+  %110 = load i8, ptr %109, align 2, !tbaa !846, !range !414, !noundef !415
+  %111 = and i8 %110, %96
+  %brmerge.demorgan.not.i47 = icmp eq i8 %111, 0
+  br i1 %brmerge.demorgan.not.i47, label %112, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-108:                                              ; preds = %105
-  %109 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14885, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
+112:                                              ; preds = %108
+  %113 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14885, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-110:                                              ; preds = %4
-  %.not.i50 = icmp eq i16 %2, 52
-  br i1 %.not.i50, label %111, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+114:                                              ; preds = %4
+  %.not.i48 = icmp eq i16 %2, 52
+  br i1 %.not.i48, label %115, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-111:                                              ; preds = %110
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %113 = load ptr, ptr %112, align 8, !tbaa !202
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 355
-  %115 = load i8, ptr %114, align 1, !tbaa !1343, !range !414, !noundef !415
-  %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %117, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+115:                                              ; preds = %114
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %117 = load ptr, ptr %116, align 8, !tbaa !202
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 355
+  %119 = load i8, ptr %118, align 1, !tbaa !1343, !range !414, !noundef !415
+  %120 = trunc nuw i8 %119 to i1
+  br i1 %120, label %121, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-117:                                              ; preds = %111
-  %118 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14901, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+121:                                              ; preds = %115
+  %122 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14901, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-119:                                              ; preds = %4
-  %.not.i52 = icmp eq i16 %2, 60
-  br i1 %.not.i52, label %120, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+123:                                              ; preds = %4
+  %.not.i50 = icmp eq i16 %2, 60
+  br i1 %.not.i50, label %124, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-120:                                              ; preds = %119
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %122 = load ptr, ptr %121, align 8, !tbaa !202
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 320
-  %124 = load i32, ptr %123, align 8, !tbaa !267
-  %125 = icmp sgt i32 %124, 8
-  br i1 %125, label %126, label %132
+124:                                              ; preds = %123
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %126 = load ptr, ptr %125, align 8, !tbaa !202
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 320
+  %128 = load i32, ptr %127, align 8, !tbaa !267
+  %129 = icmp sgt i32 %128, 8
+  br i1 %129, label %130, label %136
 
-126:                                              ; preds = %120
-  %127 = getelementptr inbounds nuw i8, ptr %122, i64 458
-  %128 = load i8, ptr %127, align 2, !tbaa !846, !range !414, !noundef !415
-  %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %130, label %.thread6.thread.i
+130:                                              ; preds = %124
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 458
+  %132 = load i8, ptr %131, align 2, !tbaa !846, !range !414, !noundef !415
+  %133 = trunc nuw i8 %132 to i1
+  br i1 %133, label %134, label %.thread6.thread.i
 
-130:                                              ; preds = %126
-  %131 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14834, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
+134:                                              ; preds = %130
+  %135 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14834, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-132:                                              ; preds = %120
-  %133 = icmp sgt i32 %124, 3
-  br i1 %133, label %134, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+136:                                              ; preds = %124
+  %137 = icmp sgt i32 %128, 3
+  br i1 %137, label %138, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-134:                                              ; preds = %132
-  %135 = icmp samesign ugt i32 %124, 6
-  br i1 %135, label %.thread6.i, label %136
+138:                                              ; preds = %136
+  %139 = icmp samesign ugt i32 %128, 6
+  br i1 %139, label %.thread6.i, label %140
 
-136:                                              ; preds = %134
-  %137 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3056, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+140:                                              ; preds = %138
+  %141 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3056, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-.thread6.i:                                       ; preds = %134
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %122, i64 458
+.thread6.i:                                       ; preds = %138
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %126, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %138 = trunc nuw i8 %.pre.i to i1
-  br i1 %138, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit, label %.thread6.thread.i
+  %142 = trunc nuw i8 %.pre.i to i1
+  br i1 %142, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit, label %.thread6.thread.i
 
-.thread6.thread.i:                                ; preds = %.thread6.i, %126
-  %139 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14856, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+.thread6.thread.i:                                ; preds = %.thread6.i, %130
+  %143 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14856, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-140:                                              ; preds = %4
-  %.not.i54 = icmp eq i16 %2, 64
-  br i1 %.not.i54, label %141, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+144:                                              ; preds = %4
+  %.not.i52 = icmp eq i16 %2, 64
+  br i1 %.not.i52, label %145, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-141:                                              ; preds = %140
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %143 = load ptr, ptr %142, align 8, !tbaa !202
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 320
-  %145 = load i32, ptr %144, align 8, !tbaa !267
-  %146 = icmp sgt i32 %145, 8
-  br i1 %146, label %147, label %153
+145:                                              ; preds = %144
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %147 = load ptr, ptr %146, align 8, !tbaa !202
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 320
+  %149 = load i32, ptr %148, align 8, !tbaa !267
+  %150 = icmp sgt i32 %149, 8
+  br i1 %150, label %151, label %157
 
-147:                                              ; preds = %141
-  %148 = getelementptr inbounds nuw i8, ptr %143, i64 458
-  %149 = load i8, ptr %148, align 2, !tbaa !846, !range !414, !noundef !415
-  %150 = trunc nuw i8 %149 to i1
-  br i1 %150, label %151, label %.thread.thread.i
+151:                                              ; preds = %145
+  %152 = getelementptr inbounds nuw i8, ptr %147, i64 458
+  %153 = load i8, ptr %152, align 2, !tbaa !846, !range !414, !noundef !415
+  %154 = trunc nuw i8 %153 to i1
+  br i1 %154, label %155, label %.thread.thread.i
 
-151:                                              ; preds = %147
-  %152 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14843, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+155:                                              ; preds = %151
+  %156 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14843, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-153:                                              ; preds = %141
-  %154 = icmp eq i32 %145, 8
-  br i1 %154, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+157:                                              ; preds = %145
+  %158 = icmp eq i32 %149, 8
+  br i1 %158, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-.thread.i:                                        ; preds = %153
-  %.phi.trans.insert.i56 = getelementptr inbounds nuw i8, ptr %143, i64 458
-  %.pre.i57 = load i8, ptr %.phi.trans.insert.i56, align 2, !tbaa !846, !range !414
-  %155 = trunc nuw i8 %.pre.i57 to i1
-  br i1 %155, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit, label %.thread.thread.i
+.thread.i:                                        ; preds = %157
+  %.phi.trans.insert.i54 = getelementptr inbounds nuw i8, ptr %147, i64 458
+  %.pre.i55 = load i8, ptr %.phi.trans.insert.i54, align 2, !tbaa !846, !range !414
+  %159 = trunc nuw i8 %.pre.i55 to i1
+  br i1 %159, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit, label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %147
-  %156 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14827, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
+.thread.thread.i:                                 ; preds = %.thread.i, %151
+  %160 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14827, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-157:                                              ; preds = %4
-  %.not.i58 = icmp eq i16 %2, 69
-  br i1 %.not.i58, label %158, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+161:                                              ; preds = %4
+  %.not.i56 = icmp eq i16 %2, 69
+  br i1 %.not.i56, label %162, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-158:                                              ; preds = %157
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %160 = load ptr, ptr %159, align 8, !tbaa !202
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 320
-  %162 = load i32, ptr %161, align 8, !tbaa !267
-  %163 = icmp sgt i32 %162, 8
-  br i1 %163, label %164, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+162:                                              ; preds = %161
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %164 = load ptr, ptr %163, align 8, !tbaa !202
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 320
+  %166 = load i32, ptr %165, align 8, !tbaa !267
+  %167 = icmp sgt i32 %166, 8
+  br i1 %167, label %168, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-164:                                              ; preds = %158
-  %165 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14852, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+168:                                              ; preds = %162
+  %169 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14852, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-166:                                              ; preds = %4
-  %.not.i60 = icmp eq i16 %2, 78
-  br i1 %.not.i60, label %167, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+170:                                              ; preds = %4
+  %.not.i58 = icmp eq i16 %2, 78
+  br i1 %.not.i58, label %171, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-167:                                              ; preds = %166
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %169 = load ptr, ptr %168, align 8, !tbaa !202
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 320
-  %171 = load i32, ptr %170, align 8, !tbaa !267
-  %172 = icmp sgt i32 %171, 8
-  br i1 %172, label %173, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
-
-173:                                              ; preds = %167
-  %174 = getelementptr inbounds nuw i8, ptr %169, i64 458
-  %175 = load i8, ptr %174, align 2, !tbaa !846, !range !414, !noundef !415
-  %176 = trunc nuw i8 %175 to i1
+171:                                              ; preds = %170
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %173 = load ptr, ptr %172, align 8, !tbaa !202
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 320
+  %175 = load i32, ptr %174, align 8, !tbaa !267
+  %176 = icmp sgt i32 %175, 8
   br i1 %176, label %177, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-177:                                              ; preds = %173
-  %178 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14863, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
+177:                                              ; preds = %171
+  %178 = getelementptr inbounds nuw i8, ptr %173, i64 458
+  %179 = load i8, ptr %178, align 2, !tbaa !846, !range !414, !noundef !415
+  %180 = trunc nuw i8 %179 to i1
+  br i1 %180, label %181, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+
+181:                                              ; preds = %177
+  %182 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14863, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-179:                                              ; preds = %4
-  %.not.i62 = icmp eq i16 %2, 80
-  br i1 %.not.i62, label %180, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+183:                                              ; preds = %4
+  %.not.i60 = icmp eq i16 %2, 80
+  br i1 %.not.i60, label %184, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-180:                                              ; preds = %179
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %182 = load ptr, ptr %181, align 8, !tbaa !202
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 320
-  %184 = load i32, ptr %183, align 8, !tbaa !267
-  %185 = icmp sgt i32 %184, 8
-  br i1 %185, label %186, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
-
-186:                                              ; preds = %180
-  %187 = getelementptr inbounds nuw i8, ptr %182, i64 458
-  %188 = load i8, ptr %187, align 2, !tbaa !846, !range !414, !noundef !415
-  %189 = trunc nuw i8 %188 to i1
+184:                                              ; preds = %183
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %186 = load ptr, ptr %185, align 8, !tbaa !202
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 320
+  %188 = load i32, ptr %187, align 8, !tbaa !267
+  %189 = icmp sgt i32 %188, 8
   br i1 %189, label %190, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-190:                                              ; preds = %186
-  %191 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14872, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+190:                                              ; preds = %184
+  %191 = getelementptr inbounds nuw i8, ptr %186, i64 458
+  %192 = load i8, ptr %191, align 2, !tbaa !846, !range !414, !noundef !415
+  %193 = trunc nuw i8 %192 to i1
+  br i1 %193, label %194, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+
+194:                                              ; preds = %190
+  %195 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14872, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-192:                                              ; preds = %4
-  %.not.i64 = icmp eq i16 %2, 81
-  br i1 %.not.i64, label %193, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+196:                                              ; preds = %4
+  %.not.i62 = icmp eq i16 %2, 81
+  br i1 %.not.i62, label %197, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-193:                                              ; preds = %192
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %195 = load ptr, ptr %194, align 8, !tbaa !202
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 320
-  %197 = load i32, ptr %196, align 8, !tbaa !267
-  %198 = icmp sgt i32 %197, 8
-  br i1 %198, label %199, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
+197:                                              ; preds = %196
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %199 = load ptr, ptr %198, align 8, !tbaa !202
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 320
+  %201 = load i32, ptr %200, align 8, !tbaa !267
+  %202 = icmp sgt i32 %201, 8
+  br i1 %202, label %203, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-199:                                              ; preds = %193
-  %200 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14881, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+203:                                              ; preds = %197
+  %204 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14881, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit: ; preds = %199, %193, %192, %190, %186, %180, %179, %177, %173, %167, %166, %164, %158, %157, %.thread.thread.i, %.thread.i, %153, %151, %140, %.thread6.thread.i, %.thread6.i, %136, %132, %130, %119, %117, %111, %110, %108, %105, %101, %99, %88, %86, %83, %81, %75, %73, %62, %60, %54, %53, %51, %48, %44, %42, %31, %29, %26, %24, %18, %16, %5, %4
-  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ %30, %29 ], [ %25, %24 ], [ 0, %5 ], [ 0, %18 ], [ 0, %26 ], [ %43, %42 ], [ %52, %51 ], [ 0, %31 ], [ 0, %44 ], [ 0, %48 ], [ %61, %60 ], [ 0, %53 ], [ 0, %54 ], [ %74, %73 ], [ %87, %86 ], [ %82, %81 ], [ 0, %62 ], [ 0, %75 ], [ 0, %83 ], [ %100, %99 ], [ %109, %108 ], [ 0, %88 ], [ 0, %101 ], [ 0, %105 ], [ %118, %117 ], [ 0, %110 ], [ 0, %111 ], [ %131, %130 ], [ %139, %.thread6.thread.i ], [ %137, %136 ], [ 0, %119 ], [ 0, %.thread6.i ], [ 0, %132 ], [ %152, %151 ], [ %156, %.thread.thread.i ], [ 0, %140 ], [ 0, %.thread.i ], [ 0, %153 ], [ %165, %164 ], [ 0, %157 ], [ 0, %158 ], [ %178, %177 ], [ 0, %166 ], [ 0, %173 ], [ 0, %167 ], [ %191, %190 ], [ 0, %179 ], [ 0, %186 ], [ 0, %180 ], [ %200, %199 ], [ 0, %192 ], [ 0, %193 ]
+_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit: ; preds = %203, %197, %196, %194, %190, %184, %183, %181, %177, %171, %170, %168, %162, %161, %.thread.thread.i, %.thread.i, %157, %155, %144, %.thread6.thread.i, %.thread6.i, %140, %136, %134, %123, %121, %115, %114, %112, %108, %104, %102, %91, %89, %85, %83, %77, %75, %64, %62, %56, %55, %53, %49, %45, %43, %32, %30, %26, %24, %18, %16, %5, %4
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ %31, %30 ], [ %25, %24 ], [ 0, %5 ], [ 0, %18 ], [ 0, %26 ], [ %44, %43 ], [ %54, %53 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %63, %62 ], [ 0, %55 ], [ 0, %56 ], [ %76, %75 ], [ %90, %89 ], [ %84, %83 ], [ 0, %64 ], [ 0, %77 ], [ 0, %85 ], [ %103, %102 ], [ %113, %112 ], [ 0, %91 ], [ 0, %104 ], [ 0, %108 ], [ %122, %121 ], [ 0, %114 ], [ 0, %115 ], [ %135, %134 ], [ %143, %.thread6.thread.i ], [ %141, %140 ], [ 0, %123 ], [ 0, %.thread6.i ], [ 0, %136 ], [ %156, %155 ], [ %160, %.thread.thread.i ], [ 0, %144 ], [ 0, %.thread.i ], [ 0, %157 ], [ %169, %168 ], [ 0, %161 ], [ 0, %162 ], [ %182, %181 ], [ 0, %170 ], [ 0, %177 ], [ 0, %171 ], [ %195, %194 ], [ 0, %183 ], [ 0, %190 ], [ 0, %184 ], [ %204, %203 ], [ 0, %196 ], [ 0, %197 ]
   ret i32 %.0
 }
 
@@ -33793,13 +33793,13 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
     i16 7, label %5
     i16 8, label %38
     i16 39, label %71
-    i16 50, label %122
-    i16 60, label %173
-    i16 78, label %214
-    i16 92, label %255
-    i16 103, label %306
-    i16 111, label %339
-    i16 129, label %376
+    i16 50, label %124
+    i16 60, label %177
+    i16 78, label %218
+    i16 92, label %259
+    i16 103, label %312
+    i16 111, label %345
+    i16 129, label %382
   ]
 
 5:                                                ; preds = %4
@@ -33915,8 +33915,8 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
 71:                                               ; preds = %4
   switch i16 %2, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit [
     i16 39, label %72
-    i16 40, label %93
-    i16 41, label %114
+    i16 40, label %94
+    i16 41, label %116
   ]
 
 72:                                               ; preds = %71
@@ -33946,592 +33946,592 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %74, i64 458
   %90 = load i8, ptr %89, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan5.i.i = and i8 %90, %76
-  %brmerge.demorgan.i.i = trunc nuw i8 %brmerge.demorgan5.i.i to i1
-  br i1 %brmerge.demorgan.i.i, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %91
+  %91 = and i8 %90, %76
+  %brmerge.demorgan.not.i.i = icmp eq i8 %91, 0
+  br i1 %brmerge.demorgan.not.i.i, label %92, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-91:                                               ; preds = %88
-  %92 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15520, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+92:                                               ; preds = %88
+  %93 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15520, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-93:                                               ; preds = %71
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %95 = load ptr, ptr %94, align 8, !tbaa !202
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
-  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %105
+94:                                               ; preds = %71
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %96 = load ptr, ptr %95, align 8, !tbaa !202
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 355
+  %98 = load i8, ptr %97, align 1, !tbaa !1343, !range !414, !noundef !415
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %106
 
-99:                                               ; preds = %93
-  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
-  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
-  %102 = trunc nuw i8 %101 to i1
-  br i1 %102, label %103, label %105
+100:                                              ; preds = %94
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 458
+  %102 = load i8, ptr %101, align 2, !tbaa !846, !range !414, !noundef !415
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %104, label %106
 
-103:                                              ; preds = %99
-  %104 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15501, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+104:                                              ; preds = %100
+  %105 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15501, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-105:                                              ; preds = %99, %93
-  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
-  %107 = load i32, ptr %106, align 8, !tbaa !267
-  %108 = icmp sgt i32 %107, 7
-  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+106:                                              ; preds = %100, %94
+  %107 = getelementptr inbounds nuw i8, ptr %96, i64 320
+  %108 = load i32, ptr %107, align 8, !tbaa !267
+  %109 = icmp sgt i32 %108, 7
+  br i1 %109, label %110, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
-  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan5.i5.i = and i8 %111, %97
-  %brmerge.demorgan.i6.i = trunc nuw i8 %brmerge.demorgan5.i5.i to i1
-  br i1 %brmerge.demorgan.i6.i, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %112
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds nuw i8, ptr %96, i64 458
+  %112 = load i8, ptr %111, align 2, !tbaa !846, !range !414, !noundef !415
+  %113 = and i8 %112, %98
+  %brmerge.demorgan.not.i5.i = icmp eq i8 %113, 0
+  br i1 %brmerge.demorgan.not.i5.i, label %114, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-112:                                              ; preds = %109
-  %113 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15491, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
+114:                                              ; preds = %110
+  %115 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15491, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-114:                                              ; preds = %71
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %116 = load ptr, ptr %115, align 8, !tbaa !202
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 355
-  %118 = load i8, ptr %117, align 1, !tbaa !1343, !range !414, !noundef !415
-  %119 = trunc nuw i8 %118 to i1
-  br i1 %119, label %120, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+116:                                              ; preds = %71
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-120:                                              ; preds = %114
-  %121 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15507, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15507, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-122:                                              ; preds = %4
+124:                                              ; preds = %4
   switch i16 %2, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit [
-    i16 50, label %123
-    i16 51, label %144
-    i16 52, label %165
+    i16 50, label %125
+    i16 51, label %147
+    i16 52, label %169
   ]
 
-123:                                              ; preds = %122
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %125 = load ptr, ptr %124, align 8, !tbaa !202
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 355
-  %127 = load i8, ptr %126, align 1, !tbaa !1343, !range !414, !noundef !415
-  %128 = trunc nuw i8 %127 to i1
-  br i1 %128, label %129, label %135
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %127 = load ptr, ptr %126, align 8, !tbaa !202
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 355
+  %129 = load i8, ptr %128, align 1, !tbaa !1343, !range !414, !noundef !415
+  %130 = trunc nuw i8 %129 to i1
+  br i1 %130, label %131, label %137
 
-129:                                              ; preds = %123
-  %130 = getelementptr inbounds nuw i8, ptr %125, i64 458
-  %131 = load i8, ptr %130, align 2, !tbaa !846, !range !414, !noundef !415
-  %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %133, label %135
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 458
+  %133 = load i8, ptr %132, align 2, !tbaa !846, !range !414, !noundef !415
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %135, label %137
 
-133:                                              ; preds = %129
-  %134 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15594, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
+135:                                              ; preds = %131
+  %136 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15594, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-135:                                              ; preds = %129, %123
-  %136 = getelementptr inbounds nuw i8, ptr %125, i64 320
-  %137 = load i32, ptr %136, align 8, !tbaa !267
-  %138 = icmp sgt i32 %137, 7
-  br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+137:                                              ; preds = %131, %125
+  %138 = getelementptr inbounds nuw i8, ptr %127, i64 320
+  %139 = load i32, ptr %138, align 8, !tbaa !267
+  %140 = icmp sgt i32 %139, 7
+  br i1 %140, label %141, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw i8, ptr %125, i64 458
-  %141 = load i8, ptr %140, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan5.i.i36 = and i8 %141, %127
-  %brmerge.demorgan.i.i37 = trunc nuw i8 %brmerge.demorgan5.i.i36 to i1
-  br i1 %brmerge.demorgan.i.i37, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %142
+141:                                              ; preds = %137
+  %142 = getelementptr inbounds nuw i8, ptr %127, i64 458
+  %143 = load i8, ptr %142, align 2, !tbaa !846, !range !414, !noundef !415
+  %144 = and i8 %143, %129
+  %brmerge.demorgan.not.i.i35 = icmp eq i8 %144, 0
+  br i1 %brmerge.demorgan.not.i.i35, label %145, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-142:                                              ; preds = %139
-  %143 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15619, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+145:                                              ; preds = %141
+  %146 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15619, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-144:                                              ; preds = %122
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %146 = load ptr, ptr %145, align 8, !tbaa !202
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 355
-  %148 = load i8, ptr %147, align 1, !tbaa !1343, !range !414, !noundef !415
-  %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %150, label %156
+147:                                              ; preds = %124
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %149 = load ptr, ptr %148, align 8, !tbaa !202
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 355
+  %151 = load i8, ptr %150, align 1, !tbaa !1343, !range !414, !noundef !415
+  %152 = trunc nuw i8 %151 to i1
+  br i1 %152, label %153, label %159
 
-150:                                              ; preds = %144
-  %151 = getelementptr inbounds nuw i8, ptr %146, i64 458
-  %152 = load i8, ptr %151, align 2, !tbaa !846, !range !414, !noundef !415
-  %153 = trunc nuw i8 %152 to i1
-  br i1 %153, label %154, label %156
+153:                                              ; preds = %147
+  %154 = getelementptr inbounds nuw i8, ptr %149, i64 458
+  %155 = load i8, ptr %154, align 2, !tbaa !846, !range !414, !noundef !415
+  %156 = trunc nuw i8 %155 to i1
+  br i1 %156, label %157, label %159
 
-154:                                              ; preds = %150
-  %155 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15600, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+157:                                              ; preds = %153
+  %158 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15600, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-156:                                              ; preds = %150, %144
-  %157 = getelementptr inbounds nuw i8, ptr %146, i64 320
-  %158 = load i32, ptr %157, align 8, !tbaa !267
-  %159 = icmp sgt i32 %158, 7
-  br i1 %159, label %160, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+159:                                              ; preds = %153, %147
+  %160 = getelementptr inbounds nuw i8, ptr %149, i64 320
+  %161 = load i32, ptr %160, align 8, !tbaa !267
+  %162 = icmp sgt i32 %161, 7
+  br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %146, i64 458
-  %162 = load i8, ptr %161, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan5.i5.i34 = and i8 %162, %148
-  %brmerge.demorgan.i6.i35 = trunc nuw i8 %brmerge.demorgan5.i5.i34 to i1
-  br i1 %brmerge.demorgan.i6.i35, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %163
+163:                                              ; preds = %159
+  %164 = getelementptr inbounds nuw i8, ptr %149, i64 458
+  %165 = load i8, ptr %164, align 2, !tbaa !846, !range !414, !noundef !415
+  %166 = and i8 %165, %151
+  %brmerge.demorgan.not.i5.i34 = icmp eq i8 %166, 0
+  br i1 %brmerge.demorgan.not.i5.i34, label %167, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-163:                                              ; preds = %160
-  %164 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15590, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
+167:                                              ; preds = %163
+  %168 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15590, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-165:                                              ; preds = %122
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %167 = load ptr, ptr %166, align 8, !tbaa !202
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 355
-  %169 = load i8, ptr %168, align 1, !tbaa !1343, !range !414, !noundef !415
-  %170 = trunc nuw i8 %169 to i1
-  br i1 %170, label %171, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+169:                                              ; preds = %124
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %171 = load ptr, ptr %170, align 8, !tbaa !202
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 355
+  %173 = load i8, ptr %172, align 1, !tbaa !1343, !range !414, !noundef !415
+  %174 = trunc nuw i8 %173 to i1
+  br i1 %174, label %175, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-171:                                              ; preds = %165
-  %172 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15606, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+175:                                              ; preds = %169
+  %176 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15606, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-173:                                              ; preds = %4
+177:                                              ; preds = %4
   switch i16 %2, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit [
-    i16 60, label %174
-    i16 64, label %190
-    i16 69, label %206
+    i16 60, label %178
+    i16 64, label %194
+    i16 69, label %210
   ]
 
-174:                                              ; preds = %173
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %176 = load ptr, ptr %175, align 8, !tbaa !202
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 320
-  %178 = load i32, ptr %177, align 8, !tbaa !267
-  %179 = icmp sgt i32 %178, 8
-  br i1 %179, label %180, label %186
+178:                                              ; preds = %177
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %180 = load ptr, ptr %179, align 8, !tbaa !202
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 320
+  %182 = load i32, ptr %181, align 8, !tbaa !267
+  %183 = icmp sgt i32 %182, 8
+  br i1 %183, label %184, label %190
 
-180:                                              ; preds = %174
-  %181 = getelementptr inbounds nuw i8, ptr %176, i64 458
-  %182 = load i8, ptr %181, align 2, !tbaa !846, !range !414, !noundef !415
-  %183 = trunc nuw i8 %182 to i1
-  br i1 %183, label %184, label %.thread.thread.i.i
+184:                                              ; preds = %178
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 458
+  %186 = load i8, ptr %185, align 2, !tbaa !846, !range !414, !noundef !415
+  %187 = trunc nuw i8 %186 to i1
+  br i1 %187, label %188, label %.thread.thread.i.i
 
-184:                                              ; preds = %180
-  %185 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15526, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
+188:                                              ; preds = %184
+  %189 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15526, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-186:                                              ; preds = %174
-  %187 = icmp eq i32 %178, 8
-  br i1 %187, label %.thread.i.i, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+190:                                              ; preds = %178
+  %191 = icmp eq i32 %182, 8
+  br i1 %191, label %.thread.i.i, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-.thread.i.i:                                      ; preds = %186
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %176, i64 458
+.thread.i.i:                                      ; preds = %190
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %180, i64 458
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 2, !tbaa !846, !range !414
-  %188 = trunc nuw i8 %.pre.i.i to i1
-  br i1 %188, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %.thread.thread.i.i
+  %192 = trunc nuw i8 %.pre.i.i to i1
+  br i1 %192, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %.thread.thread.i.i
 
-.thread.thread.i.i:                               ; preds = %.thread.i.i, %180
-  %189 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15551, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+.thread.thread.i.i:                               ; preds = %.thread.i.i, %184
+  %193 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15551, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-190:                                              ; preds = %173
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %192 = load ptr, ptr %191, align 8, !tbaa !202
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 320
-  %194 = load i32, ptr %193, align 8, !tbaa !267
-  %195 = icmp sgt i32 %194, 8
-  br i1 %195, label %196, label %202
+194:                                              ; preds = %177
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %196 = load ptr, ptr %195, align 8, !tbaa !202
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 320
+  %198 = load i32, ptr %197, align 8, !tbaa !267
+  %199 = icmp sgt i32 %198, 8
+  br i1 %199, label %200, label %206
 
-196:                                              ; preds = %190
-  %197 = getelementptr inbounds nuw i8, ptr %192, i64 458
-  %198 = load i8, ptr %197, align 2, !tbaa !846, !range !414, !noundef !415
-  %199 = trunc nuw i8 %198 to i1
-  br i1 %199, label %200, label %.thread.thread.i8.i
+200:                                              ; preds = %194
+  %201 = getelementptr inbounds nuw i8, ptr %196, i64 458
+  %202 = load i8, ptr %201, align 2, !tbaa !846, !range !414, !noundef !415
+  %203 = trunc nuw i8 %202 to i1
+  br i1 %203, label %204, label %.thread.thread.i8.i
 
-200:                                              ; preds = %196
-  %201 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15532, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+204:                                              ; preds = %200
+  %205 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15532, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-202:                                              ; preds = %190
-  %203 = icmp eq i32 %194, 8
-  br i1 %203, label %.thread.i5.i, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+206:                                              ; preds = %194
+  %207 = icmp eq i32 %198, 8
+  br i1 %207, label %.thread.i5.i, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-.thread.i5.i:                                     ; preds = %202
-  %.phi.trans.insert.i6.i = getelementptr inbounds nuw i8, ptr %192, i64 458
+.thread.i5.i:                                     ; preds = %206
+  %.phi.trans.insert.i6.i = getelementptr inbounds nuw i8, ptr %196, i64 458
   %.pre.i7.i = load i8, ptr %.phi.trans.insert.i6.i, align 2, !tbaa !846, !range !414
-  %204 = trunc nuw i8 %.pre.i7.i to i1
-  br i1 %204, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %.thread.thread.i8.i
+  %208 = trunc nuw i8 %.pre.i7.i to i1
+  br i1 %208, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %.thread.thread.i8.i
 
-.thread.thread.i8.i:                              ; preds = %.thread.i5.i, %196
-  %205 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15522, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
+.thread.thread.i8.i:                              ; preds = %.thread.i5.i, %200
+  %209 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15522, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-206:                                              ; preds = %173
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %208 = load ptr, ptr %207, align 8, !tbaa !202
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 320
-  %210 = load i32, ptr %209, align 8, !tbaa !267
-  %211 = icmp sgt i32 %210, 8
-  br i1 %211, label %212, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+210:                                              ; preds = %177
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %212 = load ptr, ptr %211, align 8, !tbaa !202
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 320
+  %214 = load i32, ptr %213, align 8, !tbaa !267
+  %215 = icmp sgt i32 %214, 8
+  br i1 %215, label %216, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-212:                                              ; preds = %206
-  %213 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15538, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+216:                                              ; preds = %210
+  %217 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15538, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-214:                                              ; preds = %4
+218:                                              ; preds = %4
   switch i16 %2, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit [
-    i16 78, label %215
-    i16 80, label %231
-    i16 81, label %247
+    i16 78, label %219
+    i16 80, label %235
+    i16 81, label %251
   ]
 
-215:                                              ; preds = %214
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %217 = load ptr, ptr %216, align 8, !tbaa !202
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 320
-  %219 = load i32, ptr %218, align 8, !tbaa !267
-  %220 = icmp sgt i32 %219, 8
-  br i1 %220, label %221, label %227
+219:                                              ; preds = %218
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %221 = load ptr, ptr %220, align 8, !tbaa !202
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 320
+  %223 = load i32, ptr %222, align 8, !tbaa !267
+  %224 = icmp sgt i32 %223, 8
+  br i1 %224, label %225, label %231
 
-221:                                              ; preds = %215
-  %222 = getelementptr inbounds nuw i8, ptr %217, i64 458
-  %223 = load i8, ptr %222, align 2, !tbaa !846, !range !414, !noundef !415
-  %224 = trunc nuw i8 %223 to i1
-  br i1 %224, label %225, label %.thread.thread.i.i47
+225:                                              ; preds = %219
+  %226 = getelementptr inbounds nuw i8, ptr %221, i64 458
+  %227 = load i8, ptr %226, align 2, !tbaa !846, !range !414, !noundef !415
+  %228 = trunc nuw i8 %227 to i1
+  br i1 %228, label %229, label %.thread.thread.i.i45
 
-225:                                              ; preds = %221
-  %226 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15563, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
+229:                                              ; preds = %225
+  %230 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15563, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-227:                                              ; preds = %215
-  %228 = icmp eq i32 %219, 8
-  br i1 %228, label %.thread.i.i44, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+231:                                              ; preds = %219
+  %232 = icmp eq i32 %223, 8
+  br i1 %232, label %.thread.i.i42, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-.thread.i.i44:                                    ; preds = %227
-  %.phi.trans.insert.i.i45 = getelementptr inbounds nuw i8, ptr %217, i64 458
-  %.pre.i.i46 = load i8, ptr %.phi.trans.insert.i.i45, align 2, !tbaa !846, !range !414
-  %229 = trunc nuw i8 %.pre.i.i46 to i1
-  br i1 %229, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %.thread.thread.i.i47
+.thread.i.i42:                                    ; preds = %231
+  %.phi.trans.insert.i.i43 = getelementptr inbounds nuw i8, ptr %221, i64 458
+  %.pre.i.i44 = load i8, ptr %.phi.trans.insert.i.i43, align 2, !tbaa !846, !range !414
+  %233 = trunc nuw i8 %.pre.i.i44 to i1
+  br i1 %233, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %.thread.thread.i.i45
 
-.thread.thread.i.i47:                             ; preds = %.thread.i.i44, %221
-  %230 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15588, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+.thread.thread.i.i45:                             ; preds = %.thread.i.i42, %225
+  %234 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15588, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-231:                                              ; preds = %214
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %233 = load ptr, ptr %232, align 8, !tbaa !202
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 320
-  %235 = load i32, ptr %234, align 8, !tbaa !267
-  %236 = icmp sgt i32 %235, 8
-  br i1 %236, label %237, label %243
+235:                                              ; preds = %218
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %237 = load ptr, ptr %236, align 8, !tbaa !202
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 320
+  %239 = load i32, ptr %238, align 8, !tbaa !267
+  %240 = icmp sgt i32 %239, 8
+  br i1 %240, label %241, label %247
 
-237:                                              ; preds = %231
-  %238 = getelementptr inbounds nuw i8, ptr %233, i64 458
-  %239 = load i8, ptr %238, align 2, !tbaa !846, !range !414, !noundef !415
-  %240 = trunc nuw i8 %239 to i1
-  br i1 %240, label %241, label %.thread.thread.i8.i43
+241:                                              ; preds = %235
+  %242 = getelementptr inbounds nuw i8, ptr %237, i64 458
+  %243 = load i8, ptr %242, align 2, !tbaa !846, !range !414, !noundef !415
+  %244 = trunc nuw i8 %243 to i1
+  br i1 %244, label %245, label %.thread.thread.i8.i41
 
-241:                                              ; preds = %237
-  %242 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15569, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+245:                                              ; preds = %241
+  %246 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15569, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-243:                                              ; preds = %231
-  %244 = icmp eq i32 %235, 8
-  br i1 %244, label %.thread.i5.i40, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+247:                                              ; preds = %235
+  %248 = icmp eq i32 %239, 8
+  br i1 %248, label %.thread.i5.i38, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-.thread.i5.i40:                                   ; preds = %243
-  %.phi.trans.insert.i6.i41 = getelementptr inbounds nuw i8, ptr %233, i64 458
-  %.pre.i7.i42 = load i8, ptr %.phi.trans.insert.i6.i41, align 2, !tbaa !846, !range !414
-  %245 = trunc nuw i8 %.pre.i7.i42 to i1
-  br i1 %245, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %.thread.thread.i8.i43
+.thread.i5.i38:                                   ; preds = %247
+  %.phi.trans.insert.i6.i39 = getelementptr inbounds nuw i8, ptr %237, i64 458
+  %.pre.i7.i40 = load i8, ptr %.phi.trans.insert.i6.i39, align 2, !tbaa !846, !range !414
+  %249 = trunc nuw i8 %.pre.i7.i40 to i1
+  br i1 %249, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %.thread.thread.i8.i41
 
-.thread.thread.i8.i43:                            ; preds = %.thread.i5.i40, %237
-  %246 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15559, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
+.thread.thread.i8.i41:                            ; preds = %.thread.i5.i38, %241
+  %250 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15559, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-247:                                              ; preds = %214
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %249 = load ptr, ptr %248, align 8, !tbaa !202
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 320
-  %251 = load i32, ptr %250, align 8, !tbaa !267
-  %252 = icmp sgt i32 %251, 8
-  br i1 %252, label %253, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+251:                                              ; preds = %218
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %253 = load ptr, ptr %252, align 8, !tbaa !202
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 320
+  %255 = load i32, ptr %254, align 8, !tbaa !267
+  %256 = icmp sgt i32 %255, 8
+  br i1 %256, label %257, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-253:                                              ; preds = %247
-  %254 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15575, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+257:                                              ; preds = %251
+  %258 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15575, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-255:                                              ; preds = %4
+259:                                              ; preds = %4
   switch i16 %2, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit [
-    i16 92, label %256
-    i16 93, label %277
-    i16 94, label %298
+    i16 92, label %260
+    i16 93, label %282
+    i16 94, label %304
   ]
 
-256:                                              ; preds = %255
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %258 = load ptr, ptr %257, align 8, !tbaa !202
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 355
-  %260 = load i8, ptr %259, align 1, !tbaa !1343, !range !414, !noundef !415
-  %261 = trunc nuw i8 %260 to i1
-  br i1 %261, label %262, label %268
-
-262:                                              ; preds = %256
-  %263 = getelementptr inbounds nuw i8, ptr %258, i64 458
-  %264 = load i8, ptr %263, align 2, !tbaa !846, !range !414, !noundef !415
+260:                                              ; preds = %259
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %262 = load ptr, ptr %261, align 8, !tbaa !202
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 355
+  %264 = load i8, ptr %263, align 1, !tbaa !1343, !range !414, !noundef !415
   %265 = trunc nuw i8 %264 to i1
-  br i1 %265, label %266, label %268
+  br i1 %265, label %266, label %272
 
-266:                                              ; preds = %262
-  %267 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15594, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
+266:                                              ; preds = %260
+  %267 = getelementptr inbounds nuw i8, ptr %262, i64 458
+  %268 = load i8, ptr %267, align 2, !tbaa !846, !range !414, !noundef !415
+  %269 = trunc nuw i8 %268 to i1
+  br i1 %269, label %270, label %272
+
+270:                                              ; preds = %266
+  %271 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15594, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-268:                                              ; preds = %262, %256
-  %269 = getelementptr inbounds nuw i8, ptr %258, i64 320
-  %270 = load i32, ptr %269, align 8, !tbaa !267
-  %271 = icmp sgt i32 %270, 7
-  br i1 %271, label %272, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+272:                                              ; preds = %266, %260
+  %273 = getelementptr inbounds nuw i8, ptr %262, i64 320
+  %274 = load i32, ptr %273, align 8, !tbaa !267
+  %275 = icmp sgt i32 %274, 7
+  br i1 %275, label %276, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-272:                                              ; preds = %268
-  %273 = getelementptr inbounds nuw i8, ptr %258, i64 458
-  %274 = load i8, ptr %273, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan5.i.i51 = and i8 %274, %260
-  %brmerge.demorgan.i.i52 = trunc nuw i8 %brmerge.demorgan5.i.i51 to i1
-  br i1 %brmerge.demorgan.i.i52, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %275
+276:                                              ; preds = %272
+  %277 = getelementptr inbounds nuw i8, ptr %262, i64 458
+  %278 = load i8, ptr %277, align 2, !tbaa !846, !range !414, !noundef !415
+  %279 = and i8 %278, %264
+  %brmerge.demorgan.not.i.i48 = icmp eq i8 %279, 0
+  br i1 %brmerge.demorgan.not.i.i48, label %280, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-275:                                              ; preds = %272
-  %276 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15619, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+280:                                              ; preds = %276
+  %281 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15619, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-277:                                              ; preds = %255
-  %278 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %279 = load ptr, ptr %278, align 8, !tbaa !202
-  %280 = getelementptr inbounds nuw i8, ptr %279, i64 355
-  %281 = load i8, ptr %280, align 1, !tbaa !1343, !range !414, !noundef !415
-  %282 = trunc nuw i8 %281 to i1
-  br i1 %282, label %283, label %289
+282:                                              ; preds = %259
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %284 = load ptr, ptr %283, align 8, !tbaa !202
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 355
+  %286 = load i8, ptr %285, align 1, !tbaa !1343, !range !414, !noundef !415
+  %287 = trunc nuw i8 %286 to i1
+  br i1 %287, label %288, label %294
 
-283:                                              ; preds = %277
-  %284 = getelementptr inbounds nuw i8, ptr %279, i64 458
-  %285 = load i8, ptr %284, align 2, !tbaa !846, !range !414, !noundef !415
-  %286 = trunc nuw i8 %285 to i1
-  br i1 %286, label %287, label %289
+288:                                              ; preds = %282
+  %289 = getelementptr inbounds nuw i8, ptr %284, i64 458
+  %290 = load i8, ptr %289, align 2, !tbaa !846, !range !414, !noundef !415
+  %291 = trunc nuw i8 %290 to i1
+  br i1 %291, label %292, label %294
 
-287:                                              ; preds = %283
-  %288 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15600, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+292:                                              ; preds = %288
+  %293 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15600, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-289:                                              ; preds = %283, %277
-  %290 = getelementptr inbounds nuw i8, ptr %279, i64 320
-  %291 = load i32, ptr %290, align 8, !tbaa !267
-  %292 = icmp sgt i32 %291, 7
-  br i1 %292, label %293, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+294:                                              ; preds = %288, %282
+  %295 = getelementptr inbounds nuw i8, ptr %284, i64 320
+  %296 = load i32, ptr %295, align 8, !tbaa !267
+  %297 = icmp sgt i32 %296, 7
+  br i1 %297, label %298, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-293:                                              ; preds = %289
-  %294 = getelementptr inbounds nuw i8, ptr %279, i64 458
-  %295 = load i8, ptr %294, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan5.i5.i49 = and i8 %295, %281
-  %brmerge.demorgan.i6.i50 = trunc nuw i8 %brmerge.demorgan5.i5.i49 to i1
-  br i1 %brmerge.demorgan.i6.i50, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit, label %296
+298:                                              ; preds = %294
+  %299 = getelementptr inbounds nuw i8, ptr %284, i64 458
+  %300 = load i8, ptr %299, align 2, !tbaa !846, !range !414, !noundef !415
+  %301 = and i8 %300, %286
+  %brmerge.demorgan.not.i5.i47 = icmp eq i8 %301, 0
+  br i1 %brmerge.demorgan.not.i5.i47, label %302, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-296:                                              ; preds = %293
-  %297 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15590, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
+302:                                              ; preds = %298
+  %303 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15590, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-298:                                              ; preds = %255
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %300 = load ptr, ptr %299, align 8, !tbaa !202
-  %301 = getelementptr inbounds nuw i8, ptr %300, i64 355
-  %302 = load i8, ptr %301, align 1, !tbaa !1343, !range !414, !noundef !415
-  %303 = trunc nuw i8 %302 to i1
-  br i1 %303, label %304, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+304:                                              ; preds = %259
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %306 = load ptr, ptr %305, align 8, !tbaa !202
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 355
+  %308 = load i8, ptr %307, align 1, !tbaa !1343, !range !414, !noundef !415
+  %309 = trunc nuw i8 %308 to i1
+  br i1 %309, label %310, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-304:                                              ; preds = %298
-  %305 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15606, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+310:                                              ; preds = %304
+  %311 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15606, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-306:                                              ; preds = %4
+312:                                              ; preds = %4
   switch i16 %2, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit [
-    i16 103, label %307
-    i16 104, label %319
-    i16 105, label %331
+    i16 103, label %313
+    i16 104, label %325
+    i16 105, label %337
   ]
 
-307:                                              ; preds = %306
-  %308 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %309 = load ptr, ptr %308, align 8, !tbaa !202
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 351
-  %311 = load i8, ptr %310, align 1, !tbaa !1354, !range !414, !noundef !415
-  %312 = trunc nuw i8 %311 to i1
-  br i1 %312, label %313, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+313:                                              ; preds = %312
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %315 = load ptr, ptr %314, align 8, !tbaa !202
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 351
+  %317 = load i8, ptr %316, align 1, !tbaa !1354, !range !414, !noundef !415
+  %318 = trunc nuw i8 %317 to i1
+  br i1 %318, label %319, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-313:                                              ; preds = %307
-  %314 = getelementptr inbounds nuw i8, ptr %309, i64 458
-  %315 = load i8, ptr %314, align 2, !tbaa !846, !range !414, !noundef !415
-  %316 = trunc nuw i8 %315 to i1
-  br i1 %316, label %317, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+319:                                              ; preds = %313
+  %320 = getelementptr inbounds nuw i8, ptr %315, i64 458
+  %321 = load i8, ptr %320, align 2, !tbaa !846, !range !414, !noundef !415
+  %322 = trunc nuw i8 %321 to i1
+  br i1 %322, label %323, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-317:                                              ; preds = %313
-  %318 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15594, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
+323:                                              ; preds = %319
+  %324 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15594, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-319:                                              ; preds = %306
-  %320 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %321 = load ptr, ptr %320, align 8, !tbaa !202
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 351
-  %323 = load i8, ptr %322, align 1, !tbaa !1354, !range !414, !noundef !415
-  %324 = trunc nuw i8 %323 to i1
-  br i1 %324, label %325, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+325:                                              ; preds = %312
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %327 = load ptr, ptr %326, align 8, !tbaa !202
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 351
+  %329 = load i8, ptr %328, align 1, !tbaa !1354, !range !414, !noundef !415
+  %330 = trunc nuw i8 %329 to i1
+  br i1 %330, label %331, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-325:                                              ; preds = %319
-  %326 = getelementptr inbounds nuw i8, ptr %321, i64 458
-  %327 = load i8, ptr %326, align 2, !tbaa !846, !range !414, !noundef !415
-  %328 = trunc nuw i8 %327 to i1
-  br i1 %328, label %329, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+331:                                              ; preds = %325
+  %332 = getelementptr inbounds nuw i8, ptr %327, i64 458
+  %333 = load i8, ptr %332, align 2, !tbaa !846, !range !414, !noundef !415
+  %334 = trunc nuw i8 %333 to i1
+  br i1 %334, label %335, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-329:                                              ; preds = %325
-  %330 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15600, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+335:                                              ; preds = %331
+  %336 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15600, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-331:                                              ; preds = %306
-  %332 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %333 = load ptr, ptr %332, align 8, !tbaa !202
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 351
-  %335 = load i8, ptr %334, align 1, !tbaa !1354, !range !414, !noundef !415
-  %336 = trunc nuw i8 %335 to i1
-  br i1 %336, label %337, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+337:                                              ; preds = %312
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %339 = load ptr, ptr %338, align 8, !tbaa !202
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 351
+  %341 = load i8, ptr %340, align 1, !tbaa !1354, !range !414, !noundef !415
+  %342 = trunc nuw i8 %341 to i1
+  br i1 %342, label %343, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-337:                                              ; preds = %331
-  %338 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15606, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+343:                                              ; preds = %337
+  %344 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15606, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-339:                                              ; preds = %4
+345:                                              ; preds = %4
   switch i16 %2, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit [
-    i16 111, label %340
-    i16 115, label %354
-    i16 120, label %368
+    i16 111, label %346
+    i16 115, label %360
+    i16 120, label %374
   ]
 
-340:                                              ; preds = %339
-  %341 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %342 = load ptr, ptr %341, align 8, !tbaa !202
-  %343 = getelementptr inbounds nuw i8, ptr %342, i64 458
-  %344 = load i8, ptr %343, align 2, !tbaa !846, !range !414, !noundef !415
-  %345 = trunc nuw i8 %344 to i1
-  br i1 %345, label %346, label %348
+346:                                              ; preds = %345
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %348 = load ptr, ptr %347, align 8, !tbaa !202
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 458
+  %350 = load i8, ptr %349, align 2, !tbaa !846, !range !414, !noundef !415
+  %351 = trunc nuw i8 %350 to i1
+  br i1 %351, label %352, label %354
 
-346:                                              ; preds = %340
-  %347 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5711, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
+352:                                              ; preds = %346
+  %353 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5711, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-348:                                              ; preds = %340
-  %349 = getelementptr inbounds nuw i8, ptr %342, i64 320
-  %350 = load i32, ptr %349, align 8, !tbaa !267
-  %351 = icmp sgt i32 %350, 7
-  br i1 %351, label %352, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+354:                                              ; preds = %346
+  %355 = getelementptr inbounds nuw i8, ptr %348, i64 320
+  %356 = load i32, ptr %355, align 8, !tbaa !267
+  %357 = icmp sgt i32 %356, 7
+  br i1 %357, label %358, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-352:                                              ; preds = %348
-  %353 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5727, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
+358:                                              ; preds = %354
+  %359 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5727, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-354:                                              ; preds = %339
-  %355 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %356 = load ptr, ptr %355, align 8, !tbaa !202
-  %357 = getelementptr inbounds nuw i8, ptr %356, i64 458
-  %358 = load i8, ptr %357, align 2, !tbaa !846, !range !414, !noundef !415
-  %359 = trunc nuw i8 %358 to i1
-  br i1 %359, label %360, label %362
+360:                                              ; preds = %345
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %362 = load ptr, ptr %361, align 8, !tbaa !202
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 458
+  %364 = load i8, ptr %363, align 2, !tbaa !846, !range !414, !noundef !415
+  %365 = trunc nuw i8 %364 to i1
+  br i1 %365, label %366, label %368
 
-360:                                              ; preds = %354
-  %361 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5717, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+366:                                              ; preds = %360
+  %367 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5717, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-362:                                              ; preds = %354
-  %363 = getelementptr inbounds nuw i8, ptr %356, i64 320
-  %364 = load i32, ptr %363, align 8, !tbaa !267
-  %365 = icmp sgt i32 %364, 7
-  br i1 %365, label %366, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+368:                                              ; preds = %360
+  %369 = getelementptr inbounds nuw i8, ptr %362, i64 320
+  %370 = load i32, ptr %369, align 8, !tbaa !267
+  %371 = icmp sgt i32 %370, 7
+  br i1 %371, label %372, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-366:                                              ; preds = %362
-  %367 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5707, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
+372:                                              ; preds = %368
+  %373 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5707, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-368:                                              ; preds = %339
-  %369 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %370 = load ptr, ptr %369, align 8, !tbaa !202
-  %371 = getelementptr inbounds nuw i8, ptr %370, i64 320
-  %372 = load i32, ptr %371, align 8, !tbaa !267
-  %373 = icmp sgt i32 %372, 8
-  br i1 %373, label %374, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+374:                                              ; preds = %345
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %376 = load ptr, ptr %375, align 8, !tbaa !202
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 320
+  %378 = load i32, ptr %377, align 8, !tbaa !267
+  %379 = icmp sgt i32 %378, 8
+  br i1 %379, label %380, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-374:                                              ; preds = %368
-  %375 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5723, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+380:                                              ; preds = %374
+  %381 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5723, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-376:                                              ; preds = %4
+382:                                              ; preds = %4
   switch i16 %2, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit [
-    i16 129, label %377
-    i16 131, label %393
-    i16 132, label %407
+    i16 129, label %383
+    i16 131, label %399
+    i16 132, label %413
   ]
 
-377:                                              ; preds = %376
-  %378 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %379 = load ptr, ptr %378, align 8, !tbaa !202
-  %380 = getelementptr inbounds nuw i8, ptr %379, i64 320
-  %381 = load i32, ptr %380, align 8, !tbaa !267
-  %382 = icmp sgt i32 %381, 6
-  br i1 %382, label %383, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
-
-383:                                              ; preds = %377
-  %384 = getelementptr inbounds nuw i8, ptr %379, i64 458
-  %385 = load i8, ptr %384, align 2, !tbaa !846, !range !414, !noundef !415
-  %386 = trunc nuw i8 %385 to i1
-  br i1 %386, label %389, label %387
-
-387:                                              ; preds = %383
-  %388 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 13997, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
-  br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+383:                                              ; preds = %382
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %385 = load ptr, ptr %384, align 8, !tbaa !202
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 320
+  %387 = load i32, ptr %386, align 8, !tbaa !267
+  %388 = icmp sgt i32 %387, 6
+  br i1 %388, label %389, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
 389:                                              ; preds = %383
-  %390 = icmp samesign ugt i32 %381, 8
-  br i1 %390, label %391, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+  %390 = getelementptr inbounds nuw i8, ptr %385, i64 458
+  %391 = load i8, ptr %390, align 2, !tbaa !846, !range !414, !noundef !415
+  %392 = trunc nuw i8 %391 to i1
+  br i1 %392, label %395, label %393
 
-391:                                              ; preds = %389
-  %392 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 13981, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
+393:                                              ; preds = %389
+  %394 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 13997, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-393:                                              ; preds = %376
-  %394 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %395 = load ptr, ptr %394, align 8, !tbaa !202
-  %396 = getelementptr inbounds nuw i8, ptr %395, i64 458
-  %397 = load i8, ptr %396, align 2, !tbaa !846, !range !414, !noundef !415
-  %398 = trunc nuw i8 %397 to i1
-  br i1 %398, label %399, label %401
+395:                                              ; preds = %389
+  %396 = icmp samesign ugt i32 %387, 8
+  br i1 %396, label %397, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-399:                                              ; preds = %393
-  %400 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5697, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
+397:                                              ; preds = %395
+  %398 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 13981, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-401:                                              ; preds = %393
-  %402 = getelementptr inbounds nuw i8, ptr %395, i64 320
-  %403 = load i32, ptr %402, align 8, !tbaa !267
-  %404 = icmp sgt i32 %403, 7
-  br i1 %404, label %405, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+399:                                              ; preds = %382
+  %400 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %401 = load ptr, ptr %400, align 8, !tbaa !202
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 458
+  %403 = load i8, ptr %402, align 2, !tbaa !846, !range !414, !noundef !415
+  %404 = trunc nuw i8 %403 to i1
+  br i1 %404, label %405, label %407
 
-405:                                              ; preds = %401
-  %406 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5693, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
+405:                                              ; preds = %399
+  %406 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5697, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-407:                                              ; preds = %376
-  %408 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %409 = load ptr, ptr %408, align 8, !tbaa !202
-  %410 = getelementptr inbounds nuw i8, ptr %409, i64 320
-  %411 = load i32, ptr %410, align 8, !tbaa !267
-  %412 = icmp sgt i32 %411, 8
-  br i1 %412, label %413, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+407:                                              ; preds = %399
+  %408 = getelementptr inbounds nuw i8, ptr %401, i64 320
+  %409 = load i32, ptr %408, align 8, !tbaa !267
+  %410 = icmp sgt i32 %409, 7
+  br i1 %410, label %411, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-413:                                              ; preds = %407
-  %414 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5703, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+411:                                              ; preds = %407
+  %412 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5693, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %413, %407, %405, %401, %399, %391, %389, %387, %377, %376, %374, %368, %366, %362, %360, %352, %348, %346, %339, %337, %331, %329, %325, %319, %317, %313, %307, %306, %304, %298, %296, %293, %289, %287, %275, %272, %268, %266, %255, %253, %247, %.thread.thread.i8.i43, %.thread.i5.i40, %243, %241, %.thread.thread.i.i47, %.thread.i.i44, %227, %225, %214, %212, %206, %.thread.thread.i8.i, %.thread.i5.i, %202, %200, %.thread.thread.i.i, %.thread.i.i, %186, %184, %173, %171, %165, %163, %160, %156, %154, %142, %139, %135, %133, %122, %120, %114, %112, %109, %105, %103, %91, %88, %84, %82, %71, %69, %63, %61, %57, %51, %49, %45, %39, %38, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %37, %36 ], [ 0, %30 ], [ 0, %38 ], [ %50, %49 ], [ 0, %45 ], [ 0, %39 ], [ %62, %61 ], [ 0, %57 ], [ 0, %51 ], [ %70, %69 ], [ 0, %63 ], [ 0, %71 ], [ %83, %82 ], [ %92, %91 ], [ 0, %84 ], [ 0, %88 ], [ %104, %103 ], [ %113, %112 ], [ 0, %105 ], [ 0, %109 ], [ %121, %120 ], [ 0, %114 ], [ 0, %122 ], [ %134, %133 ], [ %143, %142 ], [ 0, %135 ], [ 0, %139 ], [ %155, %154 ], [ %164, %163 ], [ 0, %156 ], [ 0, %160 ], [ %172, %171 ], [ 0, %165 ], [ 0, %173 ], [ %185, %184 ], [ %189, %.thread.thread.i.i ], [ 0, %.thread.i.i ], [ 0, %186 ], [ %201, %200 ], [ %205, %.thread.thread.i8.i ], [ 0, %.thread.i5.i ], [ 0, %202 ], [ %213, %212 ], [ 0, %206 ], [ 0, %214 ], [ %226, %225 ], [ %230, %.thread.thread.i.i47 ], [ 0, %.thread.i.i44 ], [ 0, %227 ], [ %242, %241 ], [ %246, %.thread.thread.i8.i43 ], [ 0, %.thread.i5.i40 ], [ 0, %243 ], [ %254, %253 ], [ 0, %247 ], [ 0, %255 ], [ %267, %266 ], [ %276, %275 ], [ 0, %268 ], [ 0, %272 ], [ %288, %287 ], [ %297, %296 ], [ 0, %289 ], [ 0, %293 ], [ %305, %304 ], [ 0, %298 ], [ 0, %306 ], [ %318, %317 ], [ 0, %313 ], [ 0, %307 ], [ %330, %329 ], [ 0, %325 ], [ 0, %319 ], [ %338, %337 ], [ 0, %331 ], [ 0, %339 ], [ %347, %346 ], [ %353, %352 ], [ 0, %348 ], [ %361, %360 ], [ %367, %366 ], [ 0, %362 ], [ %375, %374 ], [ 0, %368 ], [ 0, %376 ], [ %392, %391 ], [ %388, %387 ], [ 0, %389 ], [ 0, %377 ], [ %400, %399 ], [ %406, %405 ], [ 0, %401 ], [ %414, %413 ], [ 0, %407 ]
+413:                                              ; preds = %382
+  %414 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %415 = load ptr, ptr %414, align 8, !tbaa !202
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 320
+  %417 = load i32, ptr %416, align 8, !tbaa !267
+  %418 = icmp sgt i32 %417, 8
+  br i1 %418, label %419, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+
+419:                                              ; preds = %413
+  %420 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5703, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3) #19
+  br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
+
+_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %419, %413, %411, %407, %405, %397, %395, %393, %383, %382, %380, %374, %372, %368, %366, %358, %354, %352, %345, %343, %337, %335, %331, %325, %323, %319, %313, %312, %310, %304, %302, %298, %294, %292, %280, %276, %272, %270, %259, %257, %251, %.thread.thread.i8.i41, %.thread.i5.i38, %247, %245, %.thread.thread.i.i45, %.thread.i.i42, %231, %229, %218, %216, %210, %.thread.thread.i8.i, %.thread.i5.i, %206, %204, %.thread.thread.i.i, %.thread.i.i, %190, %188, %177, %175, %169, %167, %163, %159, %157, %145, %141, %137, %135, %124, %122, %116, %114, %110, %106, %104, %92, %88, %84, %82, %71, %69, %63, %61, %57, %51, %49, %45, %39, %38, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %37, %36 ], [ 0, %30 ], [ 0, %38 ], [ %50, %49 ], [ 0, %45 ], [ 0, %39 ], [ %62, %61 ], [ 0, %57 ], [ 0, %51 ], [ %70, %69 ], [ 0, %63 ], [ 0, %71 ], [ %83, %82 ], [ %93, %92 ], [ 0, %84 ], [ 0, %88 ], [ %105, %104 ], [ %115, %114 ], [ 0, %106 ], [ 0, %110 ], [ %123, %122 ], [ 0, %116 ], [ 0, %124 ], [ %136, %135 ], [ %146, %145 ], [ 0, %137 ], [ 0, %141 ], [ %158, %157 ], [ %168, %167 ], [ 0, %159 ], [ 0, %163 ], [ %176, %175 ], [ 0, %169 ], [ 0, %177 ], [ %189, %188 ], [ %193, %.thread.thread.i.i ], [ 0, %.thread.i.i ], [ 0, %190 ], [ %205, %204 ], [ %209, %.thread.thread.i8.i ], [ 0, %.thread.i5.i ], [ 0, %206 ], [ %217, %216 ], [ 0, %210 ], [ 0, %218 ], [ %230, %229 ], [ %234, %.thread.thread.i.i45 ], [ 0, %.thread.i.i42 ], [ 0, %231 ], [ %246, %245 ], [ %250, %.thread.thread.i8.i41 ], [ 0, %.thread.i5.i38 ], [ 0, %247 ], [ %258, %257 ], [ 0, %251 ], [ 0, %259 ], [ %271, %270 ], [ %281, %280 ], [ 0, %272 ], [ 0, %276 ], [ %293, %292 ], [ %303, %302 ], [ 0, %294 ], [ 0, %298 ], [ %311, %310 ], [ 0, %304 ], [ 0, %312 ], [ %324, %323 ], [ 0, %319 ], [ 0, %313 ], [ %336, %335 ], [ 0, %331 ], [ 0, %325 ], [ %344, %343 ], [ 0, %337 ], [ 0, %345 ], [ %353, %352 ], [ %359, %358 ], [ 0, %354 ], [ %367, %366 ], [ %373, %372 ], [ 0, %368 ], [ %381, %380 ], [ 0, %374 ], [ 0, %382 ], [ %398, %397 ], [ %394, %393 ], [ 0, %395 ], [ 0, %383 ], [ %406, %405 ], [ %412, %411 ], [ 0, %407 ], [ %420, %419 ], [ 0, %413 ]
   ret i32 %.0
 }
 
@@ -36428,17 +36428,17 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
     i16 7, label %20
     i16 8, label %27
     i16 39, label %34
-    i16 40, label %60
-    i16 41, label %82
-    i16 50, label %91
-    i16 51, label %117
-    i16 52, label %139
-    i16 60, label %148
-    i16 64, label %169
-    i16 69, label %186
-    i16 78, label %195
-    i16 80, label %216
-    i16 81, label %233
+    i16 40, label %61
+    i16 41, label %84
+    i16 50, label %93
+    i16 51, label %120
+    i16 52, label %143
+    i16 60, label %152
+    i16 64, label %173
+    i16 69, label %190
+    i16 78, label %199
+    i16 80, label %220
+    i16 81, label %237
   ]
 
 6:                                                ; preds = %5
@@ -36536,365 +36536,365 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 458
   %57 = load i8, ptr %56, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %57, %39
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %58
+  %58 = and i8 %57, %39
+  %brmerge.demorgan.not.i = icmp eq i8 %58, 0
+  br i1 %brmerge.demorgan.not.i, label %59, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-58:                                               ; preds = %55
-  %59 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15033, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+59:                                               ; preds = %55
+  %60 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15033, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-60:                                               ; preds = %5
+61:                                               ; preds = %5
   %.not.i79 = icmp eq i16 %2, 40
-  br i1 %.not.i79, label %61, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i79, label %62, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %63 = load ptr, ptr %62, align 8, !tbaa !202
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 355
-  %65 = load i8, ptr %64, align 1, !tbaa !1343, !range !414, !noundef !415
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %67, label %73
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %64 = load ptr, ptr %63, align 8, !tbaa !202
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 355
+  %66 = load i8, ptr %65, align 1, !tbaa !1343, !range !414, !noundef !415
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %68, label %74
 
-67:                                               ; preds = %61
-  %68 = getelementptr inbounds nuw i8, ptr %63, i64 458
-  %69 = load i8, ptr %68, align 2, !tbaa !846, !range !414, !noundef !415
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %73
+68:                                               ; preds = %62
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 458
+  %70 = load i8, ptr %69, align 2, !tbaa !846, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %74
 
-71:                                               ; preds = %67
-  %72 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15023, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+72:                                               ; preds = %68
+  %73 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15023, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-73:                                               ; preds = %67, %61
-  %74 = getelementptr inbounds nuw i8, ptr %63, i64 320
-  %75 = load i32, ptr %74, align 8, !tbaa !267
-  %76 = icmp sgt i32 %75, 7
-  br i1 %76, label %77, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+74:                                               ; preds = %68, %62
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 320
+  %76 = load i32, ptr %75, align 8, !tbaa !267
+  %77 = icmp sgt i32 %76, 7
+  br i1 %77, label %78, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %63, i64 458
-  %79 = load i8, ptr %78, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %79, %65
-  %brmerge.demorgan.i81 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i81, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %80
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 458
+  %80 = load i8, ptr %79, align 2, !tbaa !846, !range !414, !noundef !415
+  %81 = and i8 %80, %66
+  %brmerge.demorgan.not.i81 = icmp eq i8 %81, 0
+  br i1 %brmerge.demorgan.not.i81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %77
-  %81 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15013, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+82:                                               ; preds = %78
+  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15013, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-82:                                               ; preds = %5
+84:                                               ; preds = %5
   %.not.i82 = icmp eq i16 %2, 41
-  br i1 %.not.i82, label %83, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i82, label %85, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-83:                                               ; preds = %82
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %85 = load ptr, ptr %84, align 8, !tbaa !202
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 355
-  %87 = load i8, ptr %86, align 1, !tbaa !1343, !range !414, !noundef !415
-  %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %89, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %87 = load ptr, ptr %86, align 8, !tbaa !202
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 355
+  %89 = load i8, ptr %88, align 1, !tbaa !1343, !range !414, !noundef !415
+  %90 = trunc nuw i8 %89 to i1
+  br i1 %90, label %91, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %83
-  %90 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15029, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+91:                                               ; preds = %85
+  %92 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15029, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-91:                                               ; preds = %5
+93:                                               ; preds = %5
   %.not.i84 = icmp eq i16 %2, 50
-  br i1 %.not.i84, label %92, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i84, label %94, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-92:                                               ; preds = %91
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %94 = load ptr, ptr %93, align 8, !tbaa !202
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 355
-  %96 = load i8, ptr %95, align 1, !tbaa !1343, !range !414, !noundef !415
-  %97 = trunc nuw i8 %96 to i1
-  br i1 %97, label %98, label %104
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %96 = load ptr, ptr %95, align 8, !tbaa !202
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 355
+  %98 = load i8, ptr %97, align 1, !tbaa !1343, !range !414, !noundef !415
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %106
 
-98:                                               ; preds = %92
-  %99 = getelementptr inbounds nuw i8, ptr %94, i64 458
-  %100 = load i8, ptr %99, align 2, !tbaa !846, !range !414, !noundef !415
-  %101 = trunc nuw i8 %100 to i1
-  br i1 %101, label %102, label %104
+100:                                              ; preds = %94
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 458
+  %102 = load i8, ptr %101, align 2, !tbaa !846, !range !414, !noundef !415
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %104, label %106
 
-102:                                              ; preds = %98
-  %103 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15189, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+104:                                              ; preds = %100
+  %105 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15189, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-104:                                              ; preds = %98, %92
-  %105 = getelementptr inbounds nuw i8, ptr %94, i64 320
-  %106 = load i32, ptr %105, align 8, !tbaa !267
-  %107 = icmp sgt i32 %106, 1
-  br i1 %107, label %108, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+106:                                              ; preds = %100, %94
+  %107 = getelementptr inbounds nuw i8, ptr %96, i64 320
+  %108 = load i32, ptr %107, align 8, !tbaa !267
+  %109 = icmp sgt i32 %108, 1
+  br i1 %109, label %110, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-108:                                              ; preds = %104
-  %109 = icmp samesign ugt i32 %106, 6
-  br i1 %109, label %112, label %110
+110:                                              ; preds = %106
+  %111 = icmp samesign ugt i32 %108, 6
+  br i1 %111, label %114, label %112
 
-110:                                              ; preds = %108
-  %111 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3082, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+112:                                              ; preds = %110
+  %113 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3082, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %94, i64 458
-  %114 = load i8, ptr %113, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i86 = and i8 %114, %96
-  %brmerge.demorgan.i87 = trunc nuw i8 %brmerge.demorgan11.i86 to i1
-  br i1 %brmerge.demorgan.i87, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %115
+114:                                              ; preds = %110
+  %115 = getelementptr inbounds nuw i8, ptr %96, i64 458
+  %116 = load i8, ptr %115, align 2, !tbaa !846, !range !414, !noundef !415
+  %117 = and i8 %116, %98
+  %brmerge.demorgan.not.i86 = icmp eq i8 %117, 0
+  br i1 %brmerge.demorgan.not.i86, label %118, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-115:                                              ; preds = %112
-  %116 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15205, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+118:                                              ; preds = %114
+  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15205, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-117:                                              ; preds = %5
-  %.not.i88 = icmp eq i16 %2, 51
-  br i1 %.not.i88, label %118, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+120:                                              ; preds = %5
+  %.not.i87 = icmp eq i16 %2, 51
+  br i1 %.not.i87, label %121, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %117
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %120 = load ptr, ptr %119, align 8, !tbaa !202
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 355
-  %122 = load i8, ptr %121, align 1, !tbaa !1343, !range !414, !noundef !415
-  %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %124, label %130
+121:                                              ; preds = %120
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %123 = load ptr, ptr %122, align 8, !tbaa !202
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 355
+  %125 = load i8, ptr %124, align 1, !tbaa !1343, !range !414, !noundef !415
+  %126 = trunc nuw i8 %125 to i1
+  br i1 %126, label %127, label %133
 
-124:                                              ; preds = %118
-  %125 = getelementptr inbounds nuw i8, ptr %120, i64 458
-  %126 = load i8, ptr %125, align 2, !tbaa !846, !range !414, !noundef !415
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %127, label %128, label %130
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 458
+  %129 = load i8, ptr %128, align 2, !tbaa !846, !range !414, !noundef !415
+  %130 = trunc nuw i8 %129 to i1
+  br i1 %130, label %131, label %133
 
-128:                                              ; preds = %124
-  %129 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15195, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+131:                                              ; preds = %127
+  %132 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15195, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-130:                                              ; preds = %124, %118
-  %131 = getelementptr inbounds nuw i8, ptr %120, i64 320
-  %132 = load i32, ptr %131, align 8, !tbaa !267
-  %133 = icmp sgt i32 %132, 7
-  br i1 %133, label %134, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+133:                                              ; preds = %127, %121
+  %134 = getelementptr inbounds nuw i8, ptr %123, i64 320
+  %135 = load i32, ptr %134, align 8, !tbaa !267
+  %136 = icmp sgt i32 %135, 7
+  br i1 %136, label %137, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-134:                                              ; preds = %130
-  %135 = getelementptr inbounds nuw i8, ptr %120, i64 458
-  %136 = load i8, ptr %135, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i90 = and i8 %136, %122
-  %brmerge.demorgan.i91 = trunc nuw i8 %brmerge.demorgan8.i90 to i1
-  br i1 %brmerge.demorgan.i91, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %137
+137:                                              ; preds = %133
+  %138 = getelementptr inbounds nuw i8, ptr %123, i64 458
+  %139 = load i8, ptr %138, align 2, !tbaa !846, !range !414, !noundef !415
+  %140 = and i8 %139, %125
+  %brmerge.demorgan.not.i89 = icmp eq i8 %140, 0
+  br i1 %brmerge.demorgan.not.i89, label %141, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-137:                                              ; preds = %134
-  %138 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15185, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+141:                                              ; preds = %137
+  %142 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15185, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-139:                                              ; preds = %5
-  %.not.i92 = icmp eq i16 %2, 52
-  br i1 %.not.i92, label %140, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+143:                                              ; preds = %5
+  %.not.i90 = icmp eq i16 %2, 52
+  br i1 %.not.i90, label %144, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-140:                                              ; preds = %139
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %142 = load ptr, ptr %141, align 8, !tbaa !202
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 355
-  %144 = load i8, ptr %143, align 1, !tbaa !1343, !range !414, !noundef !415
-  %145 = trunc nuw i8 %144 to i1
-  br i1 %145, label %146, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+144:                                              ; preds = %143
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %146 = load ptr, ptr %145, align 8, !tbaa !202
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 355
+  %148 = load i8, ptr %147, align 1, !tbaa !1343, !range !414, !noundef !415
+  %149 = trunc nuw i8 %148 to i1
+  br i1 %149, label %150, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-146:                                              ; preds = %140
-  %147 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15201, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+150:                                              ; preds = %144
+  %151 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15201, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-148:                                              ; preds = %5
-  %.not.i94 = icmp eq i16 %2, 60
-  br i1 %.not.i94, label %149, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+152:                                              ; preds = %5
+  %.not.i92 = icmp eq i16 %2, 60
+  br i1 %.not.i92, label %153, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-149:                                              ; preds = %148
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %151 = load ptr, ptr %150, align 8, !tbaa !202
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 320
-  %153 = load i32, ptr %152, align 8, !tbaa !267
-  %154 = icmp sgt i32 %153, 8
-  br i1 %154, label %155, label %161
+153:                                              ; preds = %152
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %155 = load ptr, ptr %154, align 8, !tbaa !202
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 320
+  %157 = load i32, ptr %156, align 8, !tbaa !267
+  %158 = icmp sgt i32 %157, 8
+  br i1 %158, label %159, label %165
 
-155:                                              ; preds = %149
-  %156 = getelementptr inbounds nuw i8, ptr %151, i64 458
-  %157 = load i8, ptr %156, align 2, !tbaa !846, !range !414, !noundef !415
-  %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %159, label %.thread9.thread.i
+159:                                              ; preds = %153
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 458
+  %161 = load i8, ptr %160, align 2, !tbaa !846, !range !414, !noundef !415
+  %162 = trunc nuw i8 %161 to i1
+  br i1 %162, label %163, label %.thread9.thread.i
 
-159:                                              ; preds = %155
-  %160 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15042, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+163:                                              ; preds = %159
+  %164 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15042, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-161:                                              ; preds = %149
-  %162 = icmp sgt i32 %153, 1
-  br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+165:                                              ; preds = %153
+  %166 = icmp sgt i32 %157, 1
+  br i1 %166, label %167, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-163:                                              ; preds = %161
-  %164 = icmp samesign ugt i32 %153, 6
-  br i1 %164, label %.thread9.i, label %165
+167:                                              ; preds = %165
+  %168 = icmp samesign ugt i32 %157, 6
+  br i1 %168, label %.thread9.i, label %169
 
-165:                                              ; preds = %163
-  %166 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3070, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+169:                                              ; preds = %167
+  %170 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3070, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %163
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %151, i64 458
+.thread9.i:                                       ; preds = %167
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %155, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %167 = trunc nuw i8 %.pre.i to i1
-  br i1 %167, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %171 = trunc nuw i8 %.pre.i to i1
+  br i1 %171, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %155
-  %168 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15064, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %159
+  %172 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15064, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-169:                                              ; preds = %5
-  %.not.i96 = icmp eq i16 %2, 64
-  br i1 %.not.i96, label %170, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+173:                                              ; preds = %5
+  %.not.i94 = icmp eq i16 %2, 64
+  br i1 %.not.i94, label %174, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-170:                                              ; preds = %169
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %172 = load ptr, ptr %171, align 8, !tbaa !202
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 320
-  %174 = load i32, ptr %173, align 8, !tbaa !267
-  %175 = icmp sgt i32 %174, 8
-  br i1 %175, label %176, label %182
+174:                                              ; preds = %173
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %176 = load ptr, ptr %175, align 8, !tbaa !202
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 320
+  %178 = load i32, ptr %177, align 8, !tbaa !267
+  %179 = icmp sgt i32 %178, 8
+  br i1 %179, label %180, label %186
 
-176:                                              ; preds = %170
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 458
-  %178 = load i8, ptr %177, align 2, !tbaa !846, !range !414, !noundef !415
-  %179 = trunc nuw i8 %178 to i1
-  br i1 %179, label %180, label %.thread.thread.i
+180:                                              ; preds = %174
+  %181 = getelementptr inbounds nuw i8, ptr %176, i64 458
+  %182 = load i8, ptr %181, align 2, !tbaa !846, !range !414, !noundef !415
+  %183 = trunc nuw i8 %182 to i1
+  br i1 %183, label %184, label %.thread.thread.i
 
-180:                                              ; preds = %176
-  %181 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15051, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+184:                                              ; preds = %180
+  %185 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15051, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-182:                                              ; preds = %170
-  %183 = icmp eq i32 %174, 8
-  br i1 %183, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+186:                                              ; preds = %174
+  %187 = icmp eq i32 %178, 8
+  br i1 %187, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i:                                        ; preds = %182
-  %.phi.trans.insert.i98 = getelementptr inbounds nuw i8, ptr %172, i64 458
-  %.pre.i99 = load i8, ptr %.phi.trans.insert.i98, align 2, !tbaa !846, !range !414
-  %184 = trunc nuw i8 %.pre.i99 to i1
-  br i1 %184, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
+.thread.i:                                        ; preds = %186
+  %.phi.trans.insert.i96 = getelementptr inbounds nuw i8, ptr %176, i64 458
+  %.pre.i97 = load i8, ptr %.phi.trans.insert.i96, align 2, !tbaa !846, !range !414
+  %188 = trunc nuw i8 %.pre.i97 to i1
+  br i1 %188, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %176
-  %185 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15035, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i:                                 ; preds = %.thread.i, %180
+  %189 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15035, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-186:                                              ; preds = %5
-  %.not.i100 = icmp eq i16 %2, 69
-  br i1 %.not.i100, label %187, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+190:                                              ; preds = %5
+  %.not.i98 = icmp eq i16 %2, 69
+  br i1 %.not.i98, label %191, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-187:                                              ; preds = %186
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %189 = load ptr, ptr %188, align 8, !tbaa !202
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 320
-  %191 = load i32, ptr %190, align 8, !tbaa !267
-  %192 = icmp sgt i32 %191, 8
-  br i1 %192, label %193, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+191:                                              ; preds = %190
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %193 = load ptr, ptr %192, align 8, !tbaa !202
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 320
+  %195 = load i32, ptr %194, align 8, !tbaa !267
+  %196 = icmp sgt i32 %195, 8
+  br i1 %196, label %197, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-193:                                              ; preds = %187
-  %194 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15060, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+197:                                              ; preds = %191
+  %198 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15060, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-195:                                              ; preds = %5
-  %.not.i102 = icmp eq i16 %2, 78
-  br i1 %.not.i102, label %196, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+199:                                              ; preds = %5
+  %.not.i100 = icmp eq i16 %2, 78
+  br i1 %.not.i100, label %200, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-196:                                              ; preds = %195
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %198 = load ptr, ptr %197, align 8, !tbaa !202
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 320
-  %200 = load i32, ptr %199, align 8, !tbaa !267
-  %201 = icmp sgt i32 %200, 8
-  br i1 %201, label %202, label %208
+200:                                              ; preds = %199
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %202 = load ptr, ptr %201, align 8, !tbaa !202
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 320
+  %204 = load i32, ptr %203, align 8, !tbaa !267
+  %205 = icmp sgt i32 %204, 8
+  br i1 %205, label %206, label %212
 
-202:                                              ; preds = %196
-  %203 = getelementptr inbounds nuw i8, ptr %198, i64 458
-  %204 = load i8, ptr %203, align 2, !tbaa !846, !range !414, !noundef !415
-  %205 = trunc nuw i8 %204 to i1
-  br i1 %205, label %206, label %.thread9.thread.i107
+206:                                              ; preds = %200
+  %207 = getelementptr inbounds nuw i8, ptr %202, i64 458
+  %208 = load i8, ptr %207, align 2, !tbaa !846, !range !414, !noundef !415
+  %209 = trunc nuw i8 %208 to i1
+  br i1 %209, label %210, label %.thread9.thread.i105
 
-206:                                              ; preds = %202
-  %207 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15073, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+210:                                              ; preds = %206
+  %211 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15073, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-208:                                              ; preds = %196
-  %209 = icmp sgt i32 %200, 1
-  br i1 %209, label %210, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+212:                                              ; preds = %200
+  %213 = icmp sgt i32 %204, 1
+  br i1 %213, label %214, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-210:                                              ; preds = %208
-  %211 = icmp samesign ugt i32 %200, 6
-  br i1 %211, label %.thread9.i104, label %212
+214:                                              ; preds = %212
+  %215 = icmp samesign ugt i32 %204, 6
+  br i1 %215, label %.thread9.i102, label %216
 
-212:                                              ; preds = %210
-  %213 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3072, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+216:                                              ; preds = %214
+  %217 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3072, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i104:                                    ; preds = %210
-  %.phi.trans.insert.i105 = getelementptr inbounds nuw i8, ptr %198, i64 458
-  %.pre.i106 = load i8, ptr %.phi.trans.insert.i105, align 2, !tbaa !846, !range !414
-  %214 = trunc nuw i8 %.pre.i106 to i1
-  br i1 %214, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i107
+.thread9.i102:                                    ; preds = %214
+  %.phi.trans.insert.i103 = getelementptr inbounds nuw i8, ptr %202, i64 458
+  %.pre.i104 = load i8, ptr %.phi.trans.insert.i103, align 2, !tbaa !846, !range !414
+  %218 = trunc nuw i8 %.pre.i104 to i1
+  br i1 %218, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i105
 
-.thread9.thread.i107:                             ; preds = %.thread9.i104, %202
-  %215 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15095, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i105:                             ; preds = %.thread9.i102, %206
+  %219 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15095, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-216:                                              ; preds = %5
-  %.not.i108 = icmp eq i16 %2, 80
-  br i1 %.not.i108, label %217, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+220:                                              ; preds = %5
+  %.not.i106 = icmp eq i16 %2, 80
+  br i1 %.not.i106, label %221, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-217:                                              ; preds = %216
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %219 = load ptr, ptr %218, align 8, !tbaa !202
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 320
-  %221 = load i32, ptr %220, align 8, !tbaa !267
-  %222 = icmp sgt i32 %221, 8
-  br i1 %222, label %223, label %229
+221:                                              ; preds = %220
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %223 = load ptr, ptr %222, align 8, !tbaa !202
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 320
+  %225 = load i32, ptr %224, align 8, !tbaa !267
+  %226 = icmp sgt i32 %225, 8
+  br i1 %226, label %227, label %233
 
-223:                                              ; preds = %217
-  %224 = getelementptr inbounds nuw i8, ptr %219, i64 458
-  %225 = load i8, ptr %224, align 2, !tbaa !846, !range !414, !noundef !415
-  %226 = trunc nuw i8 %225 to i1
-  br i1 %226, label %227, label %.thread.thread.i113
+227:                                              ; preds = %221
+  %228 = getelementptr inbounds nuw i8, ptr %223, i64 458
+  %229 = load i8, ptr %228, align 2, !tbaa !846, !range !414, !noundef !415
+  %230 = trunc nuw i8 %229 to i1
+  br i1 %230, label %231, label %.thread.thread.i111
 
-227:                                              ; preds = %223
-  %228 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15082, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+231:                                              ; preds = %227
+  %232 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15082, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-229:                                              ; preds = %217
-  %230 = icmp eq i32 %221, 8
-  br i1 %230, label %.thread.i110, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+233:                                              ; preds = %221
+  %234 = icmp eq i32 %225, 8
+  br i1 %234, label %.thread.i108, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i110:                                     ; preds = %229
-  %.phi.trans.insert.i111 = getelementptr inbounds nuw i8, ptr %219, i64 458
-  %.pre.i112 = load i8, ptr %.phi.trans.insert.i111, align 2, !tbaa !846, !range !414
-  %231 = trunc nuw i8 %.pre.i112 to i1
-  br i1 %231, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i113
+.thread.i108:                                     ; preds = %233
+  %.phi.trans.insert.i109 = getelementptr inbounds nuw i8, ptr %223, i64 458
+  %.pre.i110 = load i8, ptr %.phi.trans.insert.i109, align 2, !tbaa !846, !range !414
+  %235 = trunc nuw i8 %.pre.i110 to i1
+  br i1 %235, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i111
 
-.thread.thread.i113:                              ; preds = %.thread.i110, %223
-  %232 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15066, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i111:                              ; preds = %.thread.i108, %227
+  %236 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15066, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-233:                                              ; preds = %5
-  %.not.i114 = icmp eq i16 %2, 81
-  br i1 %.not.i114, label %234, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+237:                                              ; preds = %5
+  %.not.i112 = icmp eq i16 %2, 81
+  br i1 %.not.i112, label %238, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-234:                                              ; preds = %233
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %236 = load ptr, ptr %235, align 8, !tbaa !202
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 320
-  %238 = load i32, ptr %237, align 8, !tbaa !267
-  %239 = icmp sgt i32 %238, 8
-  br i1 %239, label %240, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
+238:                                              ; preds = %237
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %240 = load ptr, ptr %239, align 8, !tbaa !202
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 320
+  %242 = load i32, ptr %241, align 8, !tbaa !267
+  %243 = icmp sgt i32 %242, 8
+  br i1 %243, label %244, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-240:                                              ; preds = %234
-  %241 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15091, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+244:                                              ; preds = %238
+  %245 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15091, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %240, %234, %233, %.thread.thread.i113, %.thread.i110, %229, %227, %216, %.thread9.thread.i107, %.thread9.i104, %212, %208, %206, %195, %193, %187, %186, %.thread.thread.i, %.thread.i, %182, %180, %169, %.thread9.thread.i, %.thread9.i, %165, %161, %159, %148, %146, %140, %139, %137, %134, %130, %128, %117, %115, %112, %110, %104, %102, %91, %89, %83, %82, %80, %77, %73, %71, %60, %58, %55, %53, %47, %45, %34, %.sink.split.i75, %27, %.sink.split.i71, %20, %.sink.split.i67, %13, %.sink.split.i, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ %12, %.sink.split.i ], [ 0, %13 ], [ %19, %.sink.split.i67 ], [ 0, %20 ], [ %26, %.sink.split.i71 ], [ 0, %27 ], [ %33, %.sink.split.i75 ], [ %46, %45 ], [ %59, %58 ], [ %54, %53 ], [ 0, %34 ], [ 0, %47 ], [ 0, %55 ], [ %72, %71 ], [ %81, %80 ], [ 0, %60 ], [ 0, %73 ], [ 0, %77 ], [ %90, %89 ], [ 0, %82 ], [ 0, %83 ], [ %103, %102 ], [ %116, %115 ], [ %111, %110 ], [ 0, %91 ], [ 0, %104 ], [ 0, %112 ], [ %129, %128 ], [ %138, %137 ], [ 0, %117 ], [ 0, %130 ], [ 0, %134 ], [ %147, %146 ], [ 0, %139 ], [ 0, %140 ], [ %160, %159 ], [ %168, %.thread9.thread.i ], [ %166, %165 ], [ 0, %148 ], [ 0, %.thread9.i ], [ 0, %161 ], [ %181, %180 ], [ %185, %.thread.thread.i ], [ 0, %169 ], [ 0, %.thread.i ], [ 0, %182 ], [ %194, %193 ], [ 0, %186 ], [ 0, %187 ], [ %207, %206 ], [ %215, %.thread9.thread.i107 ], [ %213, %212 ], [ 0, %195 ], [ 0, %.thread9.i104 ], [ 0, %208 ], [ %228, %227 ], [ %232, %.thread.thread.i113 ], [ 0, %216 ], [ 0, %.thread.i110 ], [ 0, %229 ], [ %241, %240 ], [ 0, %233 ], [ 0, %234 ]
+_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %244, %238, %237, %.thread.thread.i111, %.thread.i108, %233, %231, %220, %.thread9.thread.i105, %.thread9.i102, %216, %212, %210, %199, %197, %191, %190, %.thread.thread.i, %.thread.i, %186, %184, %173, %.thread9.thread.i, %.thread9.i, %169, %165, %163, %152, %150, %144, %143, %141, %137, %133, %131, %120, %118, %114, %112, %106, %104, %93, %91, %85, %84, %82, %78, %74, %72, %61, %59, %55, %53, %47, %45, %34, %.sink.split.i75, %27, %.sink.split.i71, %20, %.sink.split.i67, %13, %.sink.split.i, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ %12, %.sink.split.i ], [ 0, %13 ], [ %19, %.sink.split.i67 ], [ 0, %20 ], [ %26, %.sink.split.i71 ], [ 0, %27 ], [ %33, %.sink.split.i75 ], [ %46, %45 ], [ %60, %59 ], [ %54, %53 ], [ 0, %34 ], [ 0, %47 ], [ 0, %55 ], [ %73, %72 ], [ %83, %82 ], [ 0, %61 ], [ 0, %74 ], [ 0, %78 ], [ %92, %91 ], [ 0, %84 ], [ 0, %85 ], [ %105, %104 ], [ %119, %118 ], [ %113, %112 ], [ 0, %93 ], [ 0, %106 ], [ 0, %114 ], [ %132, %131 ], [ %142, %141 ], [ 0, %120 ], [ 0, %133 ], [ 0, %137 ], [ %151, %150 ], [ 0, %143 ], [ 0, %144 ], [ %164, %163 ], [ %172, %.thread9.thread.i ], [ %170, %169 ], [ 0, %152 ], [ 0, %.thread9.i ], [ 0, %165 ], [ %185, %184 ], [ %189, %.thread.thread.i ], [ 0, %173 ], [ 0, %.thread.i ], [ 0, %186 ], [ %198, %197 ], [ 0, %190 ], [ 0, %191 ], [ %211, %210 ], [ %219, %.thread9.thread.i105 ], [ %217, %216 ], [ 0, %199 ], [ 0, %.thread9.i102 ], [ 0, %212 ], [ %232, %231 ], [ %236, %.thread.thread.i111 ], [ 0, %220 ], [ 0, %.thread.i108 ], [ 0, %233 ], [ %245, %244 ], [ 0, %237 ], [ 0, %238 ]
   ret i32 %.0
 }
 
@@ -37413,11 +37413,11 @@ _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit: ;
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_ISD_AVGCEILU_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
   ]
 
 6:                                                ; preds = %5
@@ -37459,173 +37459,173 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15365, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15365, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i25 = icmp eq i16 %2, 40
-  br i1 %.not.i25, label %33, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i25, label %34, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15355, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15355, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i27 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i27, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i27 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i27, label %54, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15345, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15345, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i28 = icmp eq i16 %2, 41
-  br i1 %.not.i28, label %55, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i28, label %57, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15361, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15361, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i30 = icmp eq i16 %2, 50
-  br i1 %.not.i30, label %64, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i30, label %66, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15371, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15371, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3095, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3095, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i32 = and i8 %86, %68
-  %brmerge.demorgan.i33 = trunc nuw i8 %brmerge.demorgan11.i32 to i1
-  br i1 %brmerge.demorgan.i33, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i32 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i32, label %90, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15387, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15387, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i34 = icmp eq i16 %2, 51
-  br i1 %.not.i34, label %90, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i33 = icmp eq i16 %2, 51
+  br i1 %.not.i33, label %93, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15377, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15377, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i36 = and i8 %108, %94
-  %brmerge.demorgan.i37 = trunc nuw i8 %brmerge.demorgan8.i36 to i1
-  br i1 %brmerge.demorgan.i37, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i35 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i35, label %113, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15367, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15367, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i38 = icmp eq i16 %2, 52
-  br i1 %.not.i38, label %112, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i36 = icmp eq i16 %2, 52
+  br i1 %.not.i36, label %116, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15383, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15383, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ]
+_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -39358,14 +39358,14 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
     i16 7, label %34
     i16 8, label %41
     i16 50, label %48
-    i16 51, label %74
-    i16 52, label %96
-    i16 60, label %105
-    i16 64, label %126
-    i16 69, label %143
-    i16 78, label %152
-    i16 80, label %165
-    i16 81, label %178
+    i16 51, label %75
+    i16 52, label %98
+    i16 60, label %107
+    i16 64, label %128
+    i16 69, label %145
+    i16 78, label %154
+    i16 80, label %167
+    i16 81, label %180
   ]
 
 7:                                                ; preds = %5
@@ -39482,227 +39482,227 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %51, i64 458
   %71 = load i8, ptr %70, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %71, %53
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit, label %72
+  %72 = and i8 %71, %53
+  %brmerge.demorgan.not.i = icmp eq i8 %72, 0
+  br i1 %brmerge.demorgan.not.i, label %73, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-72:                                               ; preds = %69
-  %73 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18646, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+73:                                               ; preds = %69
+  %74 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18646, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-74:                                               ; preds = %5
+75:                                               ; preds = %5
   %.not.i65 = icmp eq i16 %2, 51
-  br i1 %.not.i65, label %75, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i65, label %76, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %77 = load ptr, ptr %76, align 8, !tbaa !202
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 355
-  %79 = load i8, ptr %78, align 1, !tbaa !1343, !range !414, !noundef !415
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %81, label %87
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %78 = load ptr, ptr %77, align 8, !tbaa !202
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 355
+  %80 = load i8, ptr %79, align 1, !tbaa !1343, !range !414, !noundef !415
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %88
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %77, i64 458
-  %83 = load i8, ptr %82, align 2, !tbaa !846, !range !414, !noundef !415
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %87
+82:                                               ; preds = %76
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 458
+  %84 = load i8, ptr %83, align 2, !tbaa !846, !range !414, !noundef !415
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %86, label %88
 
-85:                                               ; preds = %81
-  %86 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18636, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+86:                                               ; preds = %82
+  %87 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18636, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %81, %75
-  %88 = getelementptr inbounds nuw i8, ptr %77, i64 320
-  %89 = load i32, ptr %88, align 8, !tbaa !267
-  %90 = icmp sgt i32 %89, 7
-  br i1 %90, label %91, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+88:                                               ; preds = %82, %76
+  %89 = getelementptr inbounds nuw i8, ptr %78, i64 320
+  %90 = load i32, ptr %89, align 8, !tbaa !267
+  %91 = icmp sgt i32 %90, 7
+  br i1 %91, label %92, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %77, i64 458
-  %93 = load i8, ptr %92, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %93, %79
-  %brmerge.demorgan.i67 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i67, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit, label %94
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %78, i64 458
+  %94 = load i8, ptr %93, align 2, !tbaa !846, !range !414, !noundef !415
+  %95 = and i8 %94, %80
+  %brmerge.demorgan.not.i67 = icmp eq i8 %95, 0
+  br i1 %brmerge.demorgan.not.i67, label %96, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-94:                                               ; preds = %91
-  %95 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18626, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+96:                                               ; preds = %92
+  %97 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18626, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-96:                                               ; preds = %5
+98:                                               ; preds = %5
   %.not.i68 = icmp eq i16 %2, 52
-  br i1 %.not.i68, label %97, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i68, label %99, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-97:                                               ; preds = %96
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %99 = load ptr, ptr %98, align 8, !tbaa !202
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 355
-  %101 = load i8, ptr %100, align 1, !tbaa !1343, !range !414, !noundef !415
-  %102 = trunc nuw i8 %101 to i1
-  br i1 %102, label %103, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+99:                                               ; preds = %98
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %101 = load ptr, ptr %100, align 8, !tbaa !202
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 355
+  %103 = load i8, ptr %102, align 1, !tbaa !1343, !range !414, !noundef !415
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %105, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-103:                                              ; preds = %97
-  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18642, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+105:                                              ; preds = %99
+  %106 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18642, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-105:                                              ; preds = %5
+107:                                              ; preds = %5
   %.not.i70 = icmp eq i16 %2, 60
-  br i1 %.not.i70, label %106, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i70, label %108, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %105
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %108 = load ptr, ptr %107, align 8, !tbaa !202
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 320
-  %110 = load i32, ptr %109, align 8, !tbaa !267
-  %111 = icmp sgt i32 %110, 8
-  br i1 %111, label %112, label %118
+108:                                              ; preds = %107
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %110 = load ptr, ptr %109, align 8, !tbaa !202
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 320
+  %112 = load i32, ptr %111, align 8, !tbaa !267
+  %113 = icmp sgt i32 %112, 8
+  br i1 %113, label %114, label %120
 
-112:                                              ; preds = %106
-  %113 = getelementptr inbounds nuw i8, ptr %108, i64 458
-  %114 = load i8, ptr %113, align 2, !tbaa !846, !range !414, !noundef !415
-  %115 = trunc nuw i8 %114 to i1
-  br i1 %115, label %116, label %.thread9.thread.i
+114:                                              ; preds = %108
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 458
+  %116 = load i8, ptr %115, align 2, !tbaa !846, !range !414, !noundef !415
+  %117 = trunc nuw i8 %116 to i1
+  br i1 %117, label %118, label %.thread9.thread.i
 
-116:                                              ; preds = %112
-  %117 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18575, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+118:                                              ; preds = %114
+  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18575, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %106
-  %119 = icmp sgt i32 %110, 4
-  br i1 %119, label %120, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
-
-120:                                              ; preds = %118
-  %121 = icmp samesign ugt i32 %110, 6
-  br i1 %121, label %.thread9.i, label %122
+120:                                              ; preds = %108
+  %121 = icmp sgt i32 %112, 4
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 122:                                              ; preds = %120
-  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3281, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+  %123 = icmp samesign ugt i32 %112, 6
+  br i1 %123, label %.thread9.i, label %124
+
+124:                                              ; preds = %122
+  %125 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3281, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %120
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %108, i64 458
+.thread9.i:                                       ; preds = %122
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %110, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %124 = trunc nuw i8 %.pre.i to i1
-  br i1 %124, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %126 = trunc nuw i8 %.pre.i to i1
+  br i1 %126, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %112
-  %125 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18597, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %114
+  %127 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18597, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-126:                                              ; preds = %5
+128:                                              ; preds = %5
   %.not.i72 = icmp eq i16 %2, 64
-  br i1 %.not.i72, label %127, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i72, label %129, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-127:                                              ; preds = %126
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %129 = load ptr, ptr %128, align 8, !tbaa !202
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 320
-  %131 = load i32, ptr %130, align 8, !tbaa !267
-  %132 = icmp sgt i32 %131, 8
-  br i1 %132, label %133, label %139
+129:                                              ; preds = %128
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %131 = load ptr, ptr %130, align 8, !tbaa !202
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 320
+  %133 = load i32, ptr %132, align 8, !tbaa !267
+  %134 = icmp sgt i32 %133, 8
+  br i1 %134, label %135, label %141
 
-133:                                              ; preds = %127
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 458
-  %135 = load i8, ptr %134, align 2, !tbaa !846, !range !414, !noundef !415
-  %136 = trunc nuw i8 %135 to i1
-  br i1 %136, label %137, label %.thread.thread.i
+135:                                              ; preds = %129
+  %136 = getelementptr inbounds nuw i8, ptr %131, i64 458
+  %137 = load i8, ptr %136, align 2, !tbaa !846, !range !414, !noundef !415
+  %138 = trunc nuw i8 %137 to i1
+  br i1 %138, label %139, label %.thread.thread.i
 
-137:                                              ; preds = %133
-  %138 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18584, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+139:                                              ; preds = %135
+  %140 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18584, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-139:                                              ; preds = %127
-  %140 = icmp eq i32 %131, 8
-  br i1 %140, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+141:                                              ; preds = %129
+  %142 = icmp eq i32 %133, 8
+  br i1 %142, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i:                                        ; preds = %139
-  %.phi.trans.insert.i74 = getelementptr inbounds nuw i8, ptr %129, i64 458
+.thread.i:                                        ; preds = %141
+  %.phi.trans.insert.i74 = getelementptr inbounds nuw i8, ptr %131, i64 458
   %.pre.i75 = load i8, ptr %.phi.trans.insert.i74, align 2, !tbaa !846, !range !414
-  %141 = trunc nuw i8 %.pre.i75 to i1
-  br i1 %141, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
+  %143 = trunc nuw i8 %.pre.i75 to i1
+  br i1 %143, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %133
-  %142 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18568, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i:                                 ; preds = %.thread.i, %135
+  %144 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18568, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-143:                                              ; preds = %5
+145:                                              ; preds = %5
   %.not.i76 = icmp eq i16 %2, 69
-  br i1 %.not.i76, label %144, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i76, label %146, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-144:                                              ; preds = %143
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %146 = load ptr, ptr %145, align 8, !tbaa !202
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 320
-  %148 = load i32, ptr %147, align 8, !tbaa !267
-  %149 = icmp sgt i32 %148, 8
-  br i1 %149, label %150, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+146:                                              ; preds = %145
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %148 = load ptr, ptr %147, align 8, !tbaa !202
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 320
+  %150 = load i32, ptr %149, align 8, !tbaa !267
+  %151 = icmp sgt i32 %150, 8
+  br i1 %151, label %152, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-150:                                              ; preds = %144
-  %151 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18593, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+152:                                              ; preds = %146
+  %153 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18593, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-152:                                              ; preds = %5
+154:                                              ; preds = %5
   %.not.i78 = icmp eq i16 %2, 78
-  br i1 %.not.i78, label %153, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i78, label %155, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-153:                                              ; preds = %152
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %155 = load ptr, ptr %154, align 8, !tbaa !202
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 370
-  %157 = load i8, ptr %156, align 2, !tbaa !936, !range !414, !noundef !415
-  %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %159, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+155:                                              ; preds = %154
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %157 = load ptr, ptr %156, align 8, !tbaa !202
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 370
+  %159 = load i8, ptr %158, align 2, !tbaa !936, !range !414, !noundef !415
+  %160 = trunc nuw i8 %159 to i1
+  br i1 %160, label %161, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-159:                                              ; preds = %153
-  %160 = getelementptr inbounds nuw i8, ptr %155, i64 458
-  %161 = load i8, ptr %160, align 2, !tbaa !846, !range !414, !noundef !415
-  %162 = trunc nuw i8 %161 to i1
-  br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+161:                                              ; preds = %155
+  %162 = getelementptr inbounds nuw i8, ptr %157, i64 458
+  %163 = load i8, ptr %162, align 2, !tbaa !846, !range !414, !noundef !415
+  %164 = trunc nuw i8 %163 to i1
+  br i1 %164, label %165, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-163:                                              ; preds = %159
-  %164 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18604, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+165:                                              ; preds = %161
+  %166 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18604, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-165:                                              ; preds = %5
+167:                                              ; preds = %5
   %.not.i80 = icmp eq i16 %2, 80
-  br i1 %.not.i80, label %166, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i80, label %168, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-166:                                              ; preds = %165
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %168 = load ptr, ptr %167, align 8, !tbaa !202
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 370
-  %170 = load i8, ptr %169, align 2, !tbaa !936, !range !414, !noundef !415
-  %171 = trunc nuw i8 %170 to i1
-  br i1 %171, label %172, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+168:                                              ; preds = %167
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %170 = load ptr, ptr %169, align 8, !tbaa !202
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 370
+  %172 = load i8, ptr %171, align 2, !tbaa !936, !range !414, !noundef !415
+  %173 = trunc nuw i8 %172 to i1
+  br i1 %173, label %174, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-172:                                              ; preds = %166
-  %173 = getelementptr inbounds nuw i8, ptr %168, i64 458
-  %174 = load i8, ptr %173, align 2, !tbaa !846, !range !414, !noundef !415
-  %175 = trunc nuw i8 %174 to i1
-  br i1 %175, label %176, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+174:                                              ; preds = %168
+  %175 = getelementptr inbounds nuw i8, ptr %170, i64 458
+  %176 = load i8, ptr %175, align 2, !tbaa !846, !range !414, !noundef !415
+  %177 = trunc nuw i8 %176 to i1
+  br i1 %177, label %178, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-176:                                              ; preds = %172
-  %177 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18613, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+178:                                              ; preds = %174
+  %179 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18613, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-178:                                              ; preds = %5
+180:                                              ; preds = %5
   %.not.i82 = icmp eq i16 %2, 81
-  br i1 %.not.i82, label %179, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i82, label %181, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-179:                                              ; preds = %178
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %181 = load ptr, ptr %180, align 8, !tbaa !202
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 370
-  %183 = load i8, ptr %182, align 2, !tbaa !936, !range !414, !noundef !415
-  %184 = trunc nuw i8 %183 to i1
-  br i1 %184, label %185, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
+181:                                              ; preds = %180
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %183 = load ptr, ptr %182, align 8, !tbaa !202
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 370
+  %185 = load i8, ptr %184, align 2, !tbaa !936, !range !414, !noundef !415
+  %186 = trunc nuw i8 %185 to i1
+  br i1 %186, label %187, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-185:                                              ; preds = %179
-  %186 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18622, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+187:                                              ; preds = %181
+  %188 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18622, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %185, %179, %178, %176, %172, %166, %165, %163, %159, %153, %152, %150, %144, %143, %.thread.thread.i, %.thread.i, %139, %137, %126, %.thread9.thread.i, %.thread9.i, %122, %118, %116, %105, %103, %97, %96, %94, %91, %87, %85, %74, %72, %69, %67, %61, %59, %48, %.sink.split.i61, %41, %.sink.split.i57, %34, %.sink.split.i, %27, %8, %7, %5
-  %.0 = phi i32 [ 0, %5 ], [ %26, %8 ], [ 0, %7 ], [ 0, %27 ], [ %33, %.sink.split.i ], [ 0, %34 ], [ %40, %.sink.split.i57 ], [ 0, %41 ], [ %47, %.sink.split.i61 ], [ %60, %59 ], [ %73, %72 ], [ %68, %67 ], [ 0, %48 ], [ 0, %61 ], [ 0, %69 ], [ %86, %85 ], [ %95, %94 ], [ 0, %74 ], [ 0, %87 ], [ 0, %91 ], [ %104, %103 ], [ 0, %96 ], [ 0, %97 ], [ %117, %116 ], [ %125, %.thread9.thread.i ], [ %123, %122 ], [ 0, %105 ], [ 0, %.thread9.i ], [ 0, %118 ], [ %138, %137 ], [ %142, %.thread.thread.i ], [ 0, %126 ], [ 0, %.thread.i ], [ 0, %139 ], [ %151, %150 ], [ 0, %143 ], [ 0, %144 ], [ %164, %163 ], [ 0, %152 ], [ 0, %159 ], [ 0, %153 ], [ %177, %176 ], [ 0, %165 ], [ 0, %172 ], [ 0, %166 ], [ %186, %185 ], [ 0, %178 ], [ 0, %179 ]
+_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %187, %181, %180, %178, %174, %168, %167, %165, %161, %155, %154, %152, %146, %145, %.thread.thread.i, %.thread.i, %141, %139, %128, %.thread9.thread.i, %.thread9.i, %124, %120, %118, %107, %105, %99, %98, %96, %92, %88, %86, %75, %73, %69, %67, %61, %59, %48, %.sink.split.i61, %41, %.sink.split.i57, %34, %.sink.split.i, %27, %8, %7, %5
+  %.0 = phi i32 [ 0, %5 ], [ %26, %8 ], [ 0, %7 ], [ 0, %27 ], [ %33, %.sink.split.i ], [ 0, %34 ], [ %40, %.sink.split.i57 ], [ 0, %41 ], [ %47, %.sink.split.i61 ], [ %60, %59 ], [ %74, %73 ], [ %68, %67 ], [ 0, %48 ], [ 0, %61 ], [ 0, %69 ], [ %87, %86 ], [ %97, %96 ], [ 0, %75 ], [ 0, %88 ], [ 0, %92 ], [ %106, %105 ], [ 0, %98 ], [ 0, %99 ], [ %119, %118 ], [ %127, %.thread9.thread.i ], [ %125, %124 ], [ 0, %107 ], [ 0, %.thread9.i ], [ 0, %120 ], [ %140, %139 ], [ %144, %.thread.thread.i ], [ 0, %128 ], [ 0, %.thread.i ], [ 0, %141 ], [ %153, %152 ], [ 0, %145 ], [ 0, %146 ], [ %166, %165 ], [ 0, %154 ], [ 0, %161 ], [ 0, %155 ], [ %179, %178 ], [ 0, %167 ], [ 0, %174 ], [ 0, %168 ], [ %188, %187 ], [ 0, %180 ], [ 0, %181 ]
   ret i32 %.0
 }
 
@@ -39710,8 +39710,8 @@ _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit: ;
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD_MULHS_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit [
     i16 50, label %6
-    i16 51, label %32
-    i16 52, label %54
+    i16 51, label %33
+    i16 52, label %56
   ]
 
 6:                                                ; preds = %5
@@ -39753,71 +39753,71 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18566, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18566, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i13 = icmp eq i16 %2, 51
-  br i1 %.not.i13, label %33, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i13, label %34, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18556, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18556, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i15 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i15, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i15 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i15, label %54, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18546, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18546, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i16 = icmp eq i16 %2, 52
-  br i1 %.not.i16, label %55, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i16, label %57, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18562, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18562, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ]
+_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -39825,8 +39825,8 @@ _ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.ex
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD_MULHU_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit [
     i16 50, label %6
-    i16 51, label %32
-    i16 52, label %54
+    i16 51, label %33
+    i16 52, label %56
   ]
 
 6:                                                ; preds = %5
@@ -39868,71 +39868,71 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18544, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18544, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i13 = icmp eq i16 %2, 51
-  br i1 %.not.i13, label %33, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i13, label %34, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18534, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18534, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i15 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i15, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i15 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i15, label %54, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18524, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18524, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i16 = icmp eq i16 %2, 52
-  br i1 %.not.i16, label %55, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i16, label %57, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18540, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18540, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ]
+_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -40941,11 +40941,11 @@ _ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_ROTR_MVT_i8_rrEN4llvm3MVTEjj.exit: 
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD_SADDSAT_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
   ]
 
 6:                                                ; preds = %5
@@ -40987,173 +40987,173 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15117, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15117, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i25 = icmp eq i16 %2, 40
-  br i1 %.not.i25, label %33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i25, label %34, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15107, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15107, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i27 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i27, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i27 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i27, label %54, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15097, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15097, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i28 = icmp eq i16 %2, 41
-  br i1 %.not.i28, label %55, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i28, label %57, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15113, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15113, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i30 = icmp eq i16 %2, 50
-  br i1 %.not.i30, label %64, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i30, label %66, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15123, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15123, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3076, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3076, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i32 = and i8 %86, %68
-  %brmerge.demorgan.i33 = trunc nuw i8 %brmerge.demorgan11.i32 to i1
-  br i1 %brmerge.demorgan.i33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i32 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i32, label %90, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15139, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15139, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i34 = icmp eq i16 %2, 51
-  br i1 %.not.i34, label %90, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i33 = icmp eq i16 %2, 51
+  br i1 %.not.i33, label %93, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15129, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15129, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i36 = and i8 %108, %94
-  %brmerge.demorgan.i37 = trunc nuw i8 %brmerge.demorgan8.i36 to i1
-  br i1 %brmerge.demorgan.i37, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i35 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i35, label %113, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15119, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15119, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i38 = icmp eq i16 %2, 52
-  br i1 %.not.i38, label %112, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i36 = icmp eq i16 %2, 52
+  br i1 %.not.i36, label %116, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15135, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15135, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ]
+_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -41250,17 +41250,17 @@ _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SHL_MVT_i8_rrEN4llvm3MVTEjj.exit: ;
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD_SMAX_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
-    i16 60, label %120
-    i16 64, label %141
-    i16 69, label %158
-    i16 78, label %167
-    i16 80, label %180
-    i16 81, label %193
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
+    i16 60, label %124
+    i16 64, label %145
+    i16 69, label %162
+    i16 78, label %171
+    i16 80, label %184
+    i16 81, label %197
   ]
 
 6:                                                ; preds = %5
@@ -41302,329 +41302,329 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17523, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17523, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i49 = icmp eq i16 %2, 40
-  br i1 %.not.i49, label %33, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i49, label %34, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17513, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17513, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i51 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i51, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i51 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i51, label %54, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17503, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17503, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i52 = icmp eq i16 %2, 41
-  br i1 %.not.i52, label %55, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i52, label %57, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17519, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17519, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i54 = icmp eq i16 %2, 50
-  br i1 %.not.i54, label %64, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i54, label %66, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17587, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17587, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3226, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3226, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i56 = and i8 %86, %68
-  %brmerge.demorgan.i57 = trunc nuw i8 %brmerge.demorgan11.i56 to i1
-  br i1 %brmerge.demorgan.i57, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i56 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i56, label %90, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17603, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17603, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i58 = icmp eq i16 %2, 51
-  br i1 %.not.i58, label %90, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i57 = icmp eq i16 %2, 51
+  br i1 %.not.i57, label %93, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17593, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17593, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i60 = and i8 %108, %94
-  %brmerge.demorgan.i61 = trunc nuw i8 %brmerge.demorgan8.i60 to i1
-  br i1 %brmerge.demorgan.i61, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i59 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i59, label %113, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17583, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17583, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i62 = icmp eq i16 %2, 52
-  br i1 %.not.i62, label %112, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i60 = icmp eq i16 %2, 52
+  br i1 %.not.i60, label %116, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17599, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17599, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-120:                                              ; preds = %5
-  %.not.i64 = icmp eq i16 %2, 60
-  br i1 %.not.i64, label %121, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+124:                                              ; preds = %5
+  %.not.i62 = icmp eq i16 %2, 60
+  br i1 %.not.i62, label %125, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %123 = load ptr, ptr %122, align 8, !tbaa !202
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 320
-  %125 = load i32, ptr %124, align 8, !tbaa !267
-  %126 = icmp sgt i32 %125, 8
-  br i1 %126, label %127, label %133
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %127 = load ptr, ptr %126, align 8, !tbaa !202
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 320
+  %129 = load i32, ptr %128, align 8, !tbaa !267
+  %130 = icmp sgt i32 %129, 8
+  br i1 %130, label %131, label %137
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 458
-  %129 = load i8, ptr %128, align 2, !tbaa !846, !range !414, !noundef !415
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %131, label %.thread9.thread.i
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 458
+  %133 = load i8, ptr %132, align 2, !tbaa !846, !range !414, !noundef !415
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %135, label %.thread9.thread.i
 
-131:                                              ; preds = %127
-  %132 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17532, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+135:                                              ; preds = %131
+  %136 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17532, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-133:                                              ; preds = %121
-  %134 = icmp sgt i32 %125, 4
-  br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+137:                                              ; preds = %125
+  %138 = icmp sgt i32 %129, 4
+  br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-135:                                              ; preds = %133
-  %136 = icmp samesign ugt i32 %125, 6
-  br i1 %136, label %.thread9.i, label %137
+139:                                              ; preds = %137
+  %140 = icmp samesign ugt i32 %129, 6
+  br i1 %140, label %.thread9.i, label %141
 
-137:                                              ; preds = %135
-  %138 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3224, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+141:                                              ; preds = %139
+  %142 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3224, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %135
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %123, i64 458
+.thread9.i:                                       ; preds = %139
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %127, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %139 = trunc nuw i8 %.pre.i to i1
-  br i1 %139, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %143 = trunc nuw i8 %.pre.i to i1
+  br i1 %143, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %127
-  %140 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17554, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %131
+  %144 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17554, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-141:                                              ; preds = %5
-  %.not.i66 = icmp eq i16 %2, 64
-  br i1 %.not.i66, label %142, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+145:                                              ; preds = %5
+  %.not.i64 = icmp eq i16 %2, 64
+  br i1 %.not.i64, label %146, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-142:                                              ; preds = %141
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %144 = load ptr, ptr %143, align 8, !tbaa !202
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 320
-  %146 = load i32, ptr %145, align 8, !tbaa !267
-  %147 = icmp sgt i32 %146, 8
-  br i1 %147, label %148, label %154
+146:                                              ; preds = %145
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %148 = load ptr, ptr %147, align 8, !tbaa !202
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 320
+  %150 = load i32, ptr %149, align 8, !tbaa !267
+  %151 = icmp sgt i32 %150, 8
+  br i1 %151, label %152, label %158
 
-148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %144, i64 458
-  %150 = load i8, ptr %149, align 2, !tbaa !846, !range !414, !noundef !415
-  %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %152, label %.thread.thread.i
+152:                                              ; preds = %146
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 458
+  %154 = load i8, ptr %153, align 2, !tbaa !846, !range !414, !noundef !415
+  %155 = trunc nuw i8 %154 to i1
+  br i1 %155, label %156, label %.thread.thread.i
 
-152:                                              ; preds = %148
-  %153 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17541, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+156:                                              ; preds = %152
+  %157 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17541, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-154:                                              ; preds = %142
-  %155 = icmp eq i32 %146, 8
-  br i1 %155, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+158:                                              ; preds = %146
+  %159 = icmp eq i32 %150, 8
+  br i1 %159, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i:                                        ; preds = %154
-  %.phi.trans.insert.i68 = getelementptr inbounds nuw i8, ptr %144, i64 458
-  %.pre.i69 = load i8, ptr %.phi.trans.insert.i68, align 2, !tbaa !846, !range !414
-  %156 = trunc nuw i8 %.pre.i69 to i1
-  br i1 %156, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
+.thread.i:                                        ; preds = %158
+  %.phi.trans.insert.i66 = getelementptr inbounds nuw i8, ptr %148, i64 458
+  %.pre.i67 = load i8, ptr %.phi.trans.insert.i66, align 2, !tbaa !846, !range !414
+  %160 = trunc nuw i8 %.pre.i67 to i1
+  br i1 %160, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %148
-  %157 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17525, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i:                                 ; preds = %.thread.i, %152
+  %161 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17525, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-158:                                              ; preds = %5
-  %.not.i70 = icmp eq i16 %2, 69
-  br i1 %.not.i70, label %159, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+162:                                              ; preds = %5
+  %.not.i68 = icmp eq i16 %2, 69
+  br i1 %.not.i68, label %163, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-159:                                              ; preds = %158
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %161 = load ptr, ptr %160, align 8, !tbaa !202
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 320
-  %163 = load i32, ptr %162, align 8, !tbaa !267
-  %164 = icmp sgt i32 %163, 8
-  br i1 %164, label %165, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+163:                                              ; preds = %162
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %165 = load ptr, ptr %164, align 8, !tbaa !202
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 320
+  %167 = load i32, ptr %166, align 8, !tbaa !267
+  %168 = icmp sgt i32 %167, 8
+  br i1 %168, label %169, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-165:                                              ; preds = %159
-  %166 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17550, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+169:                                              ; preds = %163
+  %170 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17550, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-167:                                              ; preds = %5
-  %.not.i72 = icmp eq i16 %2, 78
-  br i1 %.not.i72, label %168, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+171:                                              ; preds = %5
+  %.not.i70 = icmp eq i16 %2, 78
+  br i1 %.not.i70, label %172, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-168:                                              ; preds = %167
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %170 = load ptr, ptr %169, align 8, !tbaa !202
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 320
-  %172 = load i32, ptr %171, align 8, !tbaa !267
-  %173 = icmp sgt i32 %172, 8
-  br i1 %173, label %174, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
-
-174:                                              ; preds = %168
-  %175 = getelementptr inbounds nuw i8, ptr %170, i64 458
-  %176 = load i8, ptr %175, align 2, !tbaa !846, !range !414, !noundef !415
-  %177 = trunc nuw i8 %176 to i1
+172:                                              ; preds = %171
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %174 = load ptr, ptr %173, align 8, !tbaa !202
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 320
+  %176 = load i32, ptr %175, align 8, !tbaa !267
+  %177 = icmp sgt i32 %176, 8
   br i1 %177, label %178, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-178:                                              ; preds = %174
-  %179 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17561, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+178:                                              ; preds = %172
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 458
+  %180 = load i8, ptr %179, align 2, !tbaa !846, !range !414, !noundef !415
+  %181 = trunc nuw i8 %180 to i1
+  br i1 %181, label %182, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+
+182:                                              ; preds = %178
+  %183 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17561, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-180:                                              ; preds = %5
-  %.not.i74 = icmp eq i16 %2, 80
-  br i1 %.not.i74, label %181, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+184:                                              ; preds = %5
+  %.not.i72 = icmp eq i16 %2, 80
+  br i1 %.not.i72, label %185, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-181:                                              ; preds = %180
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %183 = load ptr, ptr %182, align 8, !tbaa !202
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 320
-  %185 = load i32, ptr %184, align 8, !tbaa !267
-  %186 = icmp sgt i32 %185, 8
-  br i1 %186, label %187, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
-
-187:                                              ; preds = %181
-  %188 = getelementptr inbounds nuw i8, ptr %183, i64 458
-  %189 = load i8, ptr %188, align 2, !tbaa !846, !range !414, !noundef !415
-  %190 = trunc nuw i8 %189 to i1
+185:                                              ; preds = %184
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %187 = load ptr, ptr %186, align 8, !tbaa !202
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 320
+  %189 = load i32, ptr %188, align 8, !tbaa !267
+  %190 = icmp sgt i32 %189, 8
   br i1 %190, label %191, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-191:                                              ; preds = %187
-  %192 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17570, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+191:                                              ; preds = %185
+  %192 = getelementptr inbounds nuw i8, ptr %187, i64 458
+  %193 = load i8, ptr %192, align 2, !tbaa !846, !range !414, !noundef !415
+  %194 = trunc nuw i8 %193 to i1
+  br i1 %194, label %195, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+
+195:                                              ; preds = %191
+  %196 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17570, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-193:                                              ; preds = %5
-  %.not.i76 = icmp eq i16 %2, 81
-  br i1 %.not.i76, label %194, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+197:                                              ; preds = %5
+  %.not.i74 = icmp eq i16 %2, 81
+  br i1 %.not.i74, label %198, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-194:                                              ; preds = %193
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %196 = load ptr, ptr %195, align 8, !tbaa !202
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 320
-  %198 = load i32, ptr %197, align 8, !tbaa !267
-  %199 = icmp sgt i32 %198, 8
-  br i1 %199, label %200, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+198:                                              ; preds = %197
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %200 = load ptr, ptr %199, align 8, !tbaa !202
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 320
+  %202 = load i32, ptr %201, align 8, !tbaa !267
+  %203 = icmp sgt i32 %202, 8
+  br i1 %203, label %204, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-200:                                              ; preds = %194
-  %201 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17579, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+204:                                              ; preds = %198
+  %205 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17579, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %200, %194, %193, %191, %187, %181, %180, %178, %174, %168, %167, %165, %159, %158, %.thread.thread.i, %.thread.i, %154, %152, %141, %.thread9.thread.i, %.thread9.i, %137, %133, %131, %120, %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ], [ %132, %131 ], [ %140, %.thread9.thread.i ], [ %138, %137 ], [ 0, %120 ], [ 0, %.thread9.i ], [ 0, %133 ], [ %153, %152 ], [ %157, %.thread.thread.i ], [ 0, %141 ], [ 0, %.thread.i ], [ 0, %154 ], [ %166, %165 ], [ 0, %158 ], [ 0, %159 ], [ %179, %178 ], [ 0, %167 ], [ 0, %174 ], [ 0, %168 ], [ %192, %191 ], [ 0, %180 ], [ 0, %187 ], [ 0, %181 ], [ %201, %200 ], [ 0, %193 ], [ 0, %194 ]
+_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %204, %198, %197, %195, %191, %185, %184, %182, %178, %172, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ 0, %171 ], [ 0, %178 ], [ 0, %172 ], [ %196, %195 ], [ 0, %184 ], [ 0, %191 ], [ 0, %185 ], [ %205, %204 ], [ 0, %197 ], [ 0, %198 ]
   ret i32 %.0
 }
 
@@ -41632,17 +41632,17 @@ _ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exi
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD_SMIN_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
-    i16 60, label %120
-    i16 64, label %141
-    i16 69, label %158
-    i16 78, label %167
-    i16 80, label %180
-    i16 81, label %193
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
+    i16 60, label %124
+    i16 64, label %145
+    i16 69, label %162
+    i16 78, label %171
+    i16 80, label %184
+    i16 81, label %197
   ]
 
 6:                                                ; preds = %5
@@ -41684,329 +41684,329 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17727, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17727, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i49 = icmp eq i16 %2, 40
-  br i1 %.not.i49, label %33, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i49, label %34, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17717, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17717, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i51 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i51, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i51 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i51, label %54, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17707, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17707, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i52 = icmp eq i16 %2, 41
-  br i1 %.not.i52, label %55, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i52, label %57, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17723, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17723, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i54 = icmp eq i16 %2, 50
-  br i1 %.not.i54, label %64, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i54, label %66, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17791, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17791, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3238, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3238, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i56 = and i8 %86, %68
-  %brmerge.demorgan.i57 = trunc nuw i8 %brmerge.demorgan11.i56 to i1
-  br i1 %brmerge.demorgan.i57, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i56 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i56, label %90, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17807, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17807, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i58 = icmp eq i16 %2, 51
-  br i1 %.not.i58, label %90, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i57 = icmp eq i16 %2, 51
+  br i1 %.not.i57, label %93, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17797, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17797, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i60 = and i8 %108, %94
-  %brmerge.demorgan.i61 = trunc nuw i8 %brmerge.demorgan8.i60 to i1
-  br i1 %brmerge.demorgan.i61, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i59 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i59, label %113, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17787, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17787, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i62 = icmp eq i16 %2, 52
-  br i1 %.not.i62, label %112, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i60 = icmp eq i16 %2, 52
+  br i1 %.not.i60, label %116, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17803, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17803, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-120:                                              ; preds = %5
-  %.not.i64 = icmp eq i16 %2, 60
-  br i1 %.not.i64, label %121, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+124:                                              ; preds = %5
+  %.not.i62 = icmp eq i16 %2, 60
+  br i1 %.not.i62, label %125, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %123 = load ptr, ptr %122, align 8, !tbaa !202
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 320
-  %125 = load i32, ptr %124, align 8, !tbaa !267
-  %126 = icmp sgt i32 %125, 8
-  br i1 %126, label %127, label %133
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %127 = load ptr, ptr %126, align 8, !tbaa !202
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 320
+  %129 = load i32, ptr %128, align 8, !tbaa !267
+  %130 = icmp sgt i32 %129, 8
+  br i1 %130, label %131, label %137
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 458
-  %129 = load i8, ptr %128, align 2, !tbaa !846, !range !414, !noundef !415
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %131, label %.thread9.thread.i
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 458
+  %133 = load i8, ptr %132, align 2, !tbaa !846, !range !414, !noundef !415
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %135, label %.thread9.thread.i
 
-131:                                              ; preds = %127
-  %132 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17736, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+135:                                              ; preds = %131
+  %136 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17736, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-133:                                              ; preds = %121
-  %134 = icmp sgt i32 %125, 4
-  br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+137:                                              ; preds = %125
+  %138 = icmp sgt i32 %129, 4
+  br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-135:                                              ; preds = %133
-  %136 = icmp samesign ugt i32 %125, 6
-  br i1 %136, label %.thread9.i, label %137
+139:                                              ; preds = %137
+  %140 = icmp samesign ugt i32 %129, 6
+  br i1 %140, label %.thread9.i, label %141
 
-137:                                              ; preds = %135
-  %138 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3236, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+141:                                              ; preds = %139
+  %142 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3236, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %135
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %123, i64 458
+.thread9.i:                                       ; preds = %139
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %127, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %139 = trunc nuw i8 %.pre.i to i1
-  br i1 %139, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %143 = trunc nuw i8 %.pre.i to i1
+  br i1 %143, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %127
-  %140 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17758, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %131
+  %144 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17758, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-141:                                              ; preds = %5
-  %.not.i66 = icmp eq i16 %2, 64
-  br i1 %.not.i66, label %142, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+145:                                              ; preds = %5
+  %.not.i64 = icmp eq i16 %2, 64
+  br i1 %.not.i64, label %146, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-142:                                              ; preds = %141
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %144 = load ptr, ptr %143, align 8, !tbaa !202
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 320
-  %146 = load i32, ptr %145, align 8, !tbaa !267
-  %147 = icmp sgt i32 %146, 8
-  br i1 %147, label %148, label %154
+146:                                              ; preds = %145
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %148 = load ptr, ptr %147, align 8, !tbaa !202
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 320
+  %150 = load i32, ptr %149, align 8, !tbaa !267
+  %151 = icmp sgt i32 %150, 8
+  br i1 %151, label %152, label %158
 
-148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %144, i64 458
-  %150 = load i8, ptr %149, align 2, !tbaa !846, !range !414, !noundef !415
-  %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %152, label %.thread.thread.i
+152:                                              ; preds = %146
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 458
+  %154 = load i8, ptr %153, align 2, !tbaa !846, !range !414, !noundef !415
+  %155 = trunc nuw i8 %154 to i1
+  br i1 %155, label %156, label %.thread.thread.i
 
-152:                                              ; preds = %148
-  %153 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17745, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+156:                                              ; preds = %152
+  %157 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17745, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-154:                                              ; preds = %142
-  %155 = icmp eq i32 %146, 8
-  br i1 %155, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+158:                                              ; preds = %146
+  %159 = icmp eq i32 %150, 8
+  br i1 %159, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i:                                        ; preds = %154
-  %.phi.trans.insert.i68 = getelementptr inbounds nuw i8, ptr %144, i64 458
-  %.pre.i69 = load i8, ptr %.phi.trans.insert.i68, align 2, !tbaa !846, !range !414
-  %156 = trunc nuw i8 %.pre.i69 to i1
-  br i1 %156, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
+.thread.i:                                        ; preds = %158
+  %.phi.trans.insert.i66 = getelementptr inbounds nuw i8, ptr %148, i64 458
+  %.pre.i67 = load i8, ptr %.phi.trans.insert.i66, align 2, !tbaa !846, !range !414
+  %160 = trunc nuw i8 %.pre.i67 to i1
+  br i1 %160, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %148
-  %157 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17729, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i:                                 ; preds = %.thread.i, %152
+  %161 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17729, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-158:                                              ; preds = %5
-  %.not.i70 = icmp eq i16 %2, 69
-  br i1 %.not.i70, label %159, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+162:                                              ; preds = %5
+  %.not.i68 = icmp eq i16 %2, 69
+  br i1 %.not.i68, label %163, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-159:                                              ; preds = %158
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %161 = load ptr, ptr %160, align 8, !tbaa !202
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 320
-  %163 = load i32, ptr %162, align 8, !tbaa !267
-  %164 = icmp sgt i32 %163, 8
-  br i1 %164, label %165, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+163:                                              ; preds = %162
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %165 = load ptr, ptr %164, align 8, !tbaa !202
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 320
+  %167 = load i32, ptr %166, align 8, !tbaa !267
+  %168 = icmp sgt i32 %167, 8
+  br i1 %168, label %169, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-165:                                              ; preds = %159
-  %166 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17754, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+169:                                              ; preds = %163
+  %170 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17754, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-167:                                              ; preds = %5
-  %.not.i72 = icmp eq i16 %2, 78
-  br i1 %.not.i72, label %168, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+171:                                              ; preds = %5
+  %.not.i70 = icmp eq i16 %2, 78
+  br i1 %.not.i70, label %172, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-168:                                              ; preds = %167
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %170 = load ptr, ptr %169, align 8, !tbaa !202
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 320
-  %172 = load i32, ptr %171, align 8, !tbaa !267
-  %173 = icmp sgt i32 %172, 8
-  br i1 %173, label %174, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
-
-174:                                              ; preds = %168
-  %175 = getelementptr inbounds nuw i8, ptr %170, i64 458
-  %176 = load i8, ptr %175, align 2, !tbaa !846, !range !414, !noundef !415
-  %177 = trunc nuw i8 %176 to i1
+172:                                              ; preds = %171
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %174 = load ptr, ptr %173, align 8, !tbaa !202
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 320
+  %176 = load i32, ptr %175, align 8, !tbaa !267
+  %177 = icmp sgt i32 %176, 8
   br i1 %177, label %178, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-178:                                              ; preds = %174
-  %179 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17765, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+178:                                              ; preds = %172
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 458
+  %180 = load i8, ptr %179, align 2, !tbaa !846, !range !414, !noundef !415
+  %181 = trunc nuw i8 %180 to i1
+  br i1 %181, label %182, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+
+182:                                              ; preds = %178
+  %183 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17765, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-180:                                              ; preds = %5
-  %.not.i74 = icmp eq i16 %2, 80
-  br i1 %.not.i74, label %181, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+184:                                              ; preds = %5
+  %.not.i72 = icmp eq i16 %2, 80
+  br i1 %.not.i72, label %185, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-181:                                              ; preds = %180
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %183 = load ptr, ptr %182, align 8, !tbaa !202
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 320
-  %185 = load i32, ptr %184, align 8, !tbaa !267
-  %186 = icmp sgt i32 %185, 8
-  br i1 %186, label %187, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
-
-187:                                              ; preds = %181
-  %188 = getelementptr inbounds nuw i8, ptr %183, i64 458
-  %189 = load i8, ptr %188, align 2, !tbaa !846, !range !414, !noundef !415
-  %190 = trunc nuw i8 %189 to i1
+185:                                              ; preds = %184
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %187 = load ptr, ptr %186, align 8, !tbaa !202
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 320
+  %189 = load i32, ptr %188, align 8, !tbaa !267
+  %190 = icmp sgt i32 %189, 8
   br i1 %190, label %191, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-191:                                              ; preds = %187
-  %192 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17774, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+191:                                              ; preds = %185
+  %192 = getelementptr inbounds nuw i8, ptr %187, i64 458
+  %193 = load i8, ptr %192, align 2, !tbaa !846, !range !414, !noundef !415
+  %194 = trunc nuw i8 %193 to i1
+  br i1 %194, label %195, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+
+195:                                              ; preds = %191
+  %196 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17774, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-193:                                              ; preds = %5
-  %.not.i76 = icmp eq i16 %2, 81
-  br i1 %.not.i76, label %194, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+197:                                              ; preds = %5
+  %.not.i74 = icmp eq i16 %2, 81
+  br i1 %.not.i74, label %198, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-194:                                              ; preds = %193
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %196 = load ptr, ptr %195, align 8, !tbaa !202
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 320
-  %198 = load i32, ptr %197, align 8, !tbaa !267
-  %199 = icmp sgt i32 %198, 8
-  br i1 %199, label %200, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+198:                                              ; preds = %197
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %200 = load ptr, ptr %199, align 8, !tbaa !202
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 320
+  %202 = load i32, ptr %201, align 8, !tbaa !267
+  %203 = icmp sgt i32 %202, 8
+  br i1 %203, label %204, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-200:                                              ; preds = %194
-  %201 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17783, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+204:                                              ; preds = %198
+  %205 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17783, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %200, %194, %193, %191, %187, %181, %180, %178, %174, %168, %167, %165, %159, %158, %.thread.thread.i, %.thread.i, %154, %152, %141, %.thread9.thread.i, %.thread9.i, %137, %133, %131, %120, %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ], [ %132, %131 ], [ %140, %.thread9.thread.i ], [ %138, %137 ], [ 0, %120 ], [ 0, %.thread9.i ], [ 0, %133 ], [ %153, %152 ], [ %157, %.thread.thread.i ], [ 0, %141 ], [ 0, %.thread.i ], [ 0, %154 ], [ %166, %165 ], [ 0, %158 ], [ 0, %159 ], [ %179, %178 ], [ 0, %167 ], [ 0, %174 ], [ 0, %168 ], [ %192, %191 ], [ 0, %180 ], [ 0, %187 ], [ 0, %181 ], [ %201, %200 ], [ 0, %193 ], [ 0, %194 ]
+_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %204, %198, %197, %195, %191, %185, %184, %182, %178, %172, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ 0, %171 ], [ 0, %178 ], [ 0, %172 ], [ %196, %195 ], [ 0, %184 ], [ 0, %191 ], [ 0, %185 ], [ %205, %204 ], [ 0, %197 ], [ 0, %198 ]
   ret i32 %.0
 }
 
@@ -42192,11 +42192,11 @@ _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SRL_MVT_i8_rrEN4llvm3MVTEjj.exit: ;
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD_SSUBSAT_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
   ]
 
 6:                                                ; preds = %5
@@ -42238,173 +42238,173 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20343, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20343, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i25 = icmp eq i16 %2, 40
-  br i1 %.not.i25, label %33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i25, label %34, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20333, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20333, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i27 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i27, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i27 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i27, label %54, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20323, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20323, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i28 = icmp eq i16 %2, 41
-  br i1 %.not.i28, label %55, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i28, label %57, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20339, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20339, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i30 = icmp eq i16 %2, 50
-  br i1 %.not.i30, label %64, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i30, label %66, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20349, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20349, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3399, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3399, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i32 = and i8 %86, %68
-  %brmerge.demorgan.i33 = trunc nuw i8 %brmerge.demorgan11.i32 to i1
-  br i1 %brmerge.demorgan.i33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i32 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i32, label %90, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20365, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20365, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i34 = icmp eq i16 %2, 51
-  br i1 %.not.i34, label %90, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i33 = icmp eq i16 %2, 51
+  br i1 %.not.i33, label %93, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20355, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20355, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i36 = and i8 %108, %94
-  %brmerge.demorgan.i37 = trunc nuw i8 %brmerge.demorgan8.i36 to i1
-  br i1 %brmerge.demorgan.i37, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i35 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i35, label %113, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20345, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20345, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i38 = icmp eq i16 %2, 52
-  br i1 %.not.i38, label %112, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i36 = icmp eq i16 %2, 52
+  br i1 %.not.i36, label %116, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20361, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20361, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ]
+_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -43932,17 +43932,17 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
     i16 7, label %20
     i16 8, label %27
     i16 39, label %34
-    i16 40, label %60
-    i16 41, label %82
-    i16 50, label %91
-    i16 51, label %117
-    i16 52, label %139
-    i16 60, label %148
-    i16 64, label %169
-    i16 69, label %186
-    i16 78, label %195
-    i16 80, label %216
-    i16 81, label %233
+    i16 40, label %61
+    i16 41, label %84
+    i16 50, label %93
+    i16 51, label %120
+    i16 52, label %143
+    i16 60, label %152
+    i16 64, label %173
+    i16 69, label %190
+    i16 78, label %199
+    i16 80, label %220
+    i16 81, label %237
   ]
 
 6:                                                ; preds = %5
@@ -44040,365 +44040,365 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 458
   %57 = load i8, ptr %56, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %57, %39
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %58
+  %58 = and i8 %57, %39
+  %brmerge.demorgan.not.i = icmp eq i8 %58, 0
+  br i1 %brmerge.demorgan.not.i, label %59, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-58:                                               ; preds = %55
-  %59 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20259, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+59:                                               ; preds = %55
+  %60 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20259, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-60:                                               ; preds = %5
+61:                                               ; preds = %5
   %.not.i79 = icmp eq i16 %2, 40
-  br i1 %.not.i79, label %61, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i79, label %62, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %63 = load ptr, ptr %62, align 8, !tbaa !202
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 355
-  %65 = load i8, ptr %64, align 1, !tbaa !1343, !range !414, !noundef !415
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %67, label %73
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %64 = load ptr, ptr %63, align 8, !tbaa !202
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 355
+  %66 = load i8, ptr %65, align 1, !tbaa !1343, !range !414, !noundef !415
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %68, label %74
 
-67:                                               ; preds = %61
-  %68 = getelementptr inbounds nuw i8, ptr %63, i64 458
-  %69 = load i8, ptr %68, align 2, !tbaa !846, !range !414, !noundef !415
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %73
+68:                                               ; preds = %62
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 458
+  %70 = load i8, ptr %69, align 2, !tbaa !846, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %74
 
-71:                                               ; preds = %67
-  %72 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20249, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+72:                                               ; preds = %68
+  %73 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20249, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-73:                                               ; preds = %67, %61
-  %74 = getelementptr inbounds nuw i8, ptr %63, i64 320
-  %75 = load i32, ptr %74, align 8, !tbaa !267
-  %76 = icmp sgt i32 %75, 7
-  br i1 %76, label %77, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+74:                                               ; preds = %68, %62
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 320
+  %76 = load i32, ptr %75, align 8, !tbaa !267
+  %77 = icmp sgt i32 %76, 7
+  br i1 %77, label %78, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %63, i64 458
-  %79 = load i8, ptr %78, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %79, %65
-  %brmerge.demorgan.i81 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i81, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %80
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 458
+  %80 = load i8, ptr %79, align 2, !tbaa !846, !range !414, !noundef !415
+  %81 = and i8 %80, %66
+  %brmerge.demorgan.not.i81 = icmp eq i8 %81, 0
+  br i1 %brmerge.demorgan.not.i81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %77
-  %81 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20239, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+82:                                               ; preds = %78
+  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20239, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-82:                                               ; preds = %5
+84:                                               ; preds = %5
   %.not.i82 = icmp eq i16 %2, 41
-  br i1 %.not.i82, label %83, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i82, label %85, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-83:                                               ; preds = %82
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %85 = load ptr, ptr %84, align 8, !tbaa !202
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 355
-  %87 = load i8, ptr %86, align 1, !tbaa !1343, !range !414, !noundef !415
-  %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %89, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %87 = load ptr, ptr %86, align 8, !tbaa !202
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 355
+  %89 = load i8, ptr %88, align 1, !tbaa !1343, !range !414, !noundef !415
+  %90 = trunc nuw i8 %89 to i1
+  br i1 %90, label %91, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %83
-  %90 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20255, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+91:                                               ; preds = %85
+  %92 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20255, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-91:                                               ; preds = %5
+93:                                               ; preds = %5
   %.not.i84 = icmp eq i16 %2, 50
-  br i1 %.not.i84, label %92, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i84, label %94, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-92:                                               ; preds = %91
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %94 = load ptr, ptr %93, align 8, !tbaa !202
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 355
-  %96 = load i8, ptr %95, align 1, !tbaa !1343, !range !414, !noundef !415
-  %97 = trunc nuw i8 %96 to i1
-  br i1 %97, label %98, label %104
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %96 = load ptr, ptr %95, align 8, !tbaa !202
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 355
+  %98 = load i8, ptr %97, align 1, !tbaa !1343, !range !414, !noundef !415
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %106
 
-98:                                               ; preds = %92
-  %99 = getelementptr inbounds nuw i8, ptr %94, i64 458
-  %100 = load i8, ptr %99, align 2, !tbaa !846, !range !414, !noundef !415
-  %101 = trunc nuw i8 %100 to i1
-  br i1 %101, label %102, label %104
+100:                                              ; preds = %94
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 458
+  %102 = load i8, ptr %101, align 2, !tbaa !846, !range !414, !noundef !415
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %104, label %106
 
-102:                                              ; preds = %98
-  %103 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20415, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+104:                                              ; preds = %100
+  %105 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20415, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-104:                                              ; preds = %98, %92
-  %105 = getelementptr inbounds nuw i8, ptr %94, i64 320
-  %106 = load i32, ptr %105, align 8, !tbaa !267
-  %107 = icmp sgt i32 %106, 1
-  br i1 %107, label %108, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+106:                                              ; preds = %100, %94
+  %107 = getelementptr inbounds nuw i8, ptr %96, i64 320
+  %108 = load i32, ptr %107, align 8, !tbaa !267
+  %109 = icmp sgt i32 %108, 1
+  br i1 %109, label %110, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-108:                                              ; preds = %104
-  %109 = icmp samesign ugt i32 %106, 6
-  br i1 %109, label %112, label %110
+110:                                              ; preds = %106
+  %111 = icmp samesign ugt i32 %108, 6
+  br i1 %111, label %114, label %112
 
-110:                                              ; preds = %108
-  %111 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3405, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+112:                                              ; preds = %110
+  %113 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3405, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %94, i64 458
-  %114 = load i8, ptr %113, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i86 = and i8 %114, %96
-  %brmerge.demorgan.i87 = trunc nuw i8 %brmerge.demorgan11.i86 to i1
-  br i1 %brmerge.demorgan.i87, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %115
+114:                                              ; preds = %110
+  %115 = getelementptr inbounds nuw i8, ptr %96, i64 458
+  %116 = load i8, ptr %115, align 2, !tbaa !846, !range !414, !noundef !415
+  %117 = and i8 %116, %98
+  %brmerge.demorgan.not.i86 = icmp eq i8 %117, 0
+  br i1 %brmerge.demorgan.not.i86, label %118, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-115:                                              ; preds = %112
-  %116 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20431, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+118:                                              ; preds = %114
+  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20431, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-117:                                              ; preds = %5
-  %.not.i88 = icmp eq i16 %2, 51
-  br i1 %.not.i88, label %118, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+120:                                              ; preds = %5
+  %.not.i87 = icmp eq i16 %2, 51
+  br i1 %.not.i87, label %121, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %117
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %120 = load ptr, ptr %119, align 8, !tbaa !202
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 355
-  %122 = load i8, ptr %121, align 1, !tbaa !1343, !range !414, !noundef !415
-  %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %124, label %130
+121:                                              ; preds = %120
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %123 = load ptr, ptr %122, align 8, !tbaa !202
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 355
+  %125 = load i8, ptr %124, align 1, !tbaa !1343, !range !414, !noundef !415
+  %126 = trunc nuw i8 %125 to i1
+  br i1 %126, label %127, label %133
 
-124:                                              ; preds = %118
-  %125 = getelementptr inbounds nuw i8, ptr %120, i64 458
-  %126 = load i8, ptr %125, align 2, !tbaa !846, !range !414, !noundef !415
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %127, label %128, label %130
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 458
+  %129 = load i8, ptr %128, align 2, !tbaa !846, !range !414, !noundef !415
+  %130 = trunc nuw i8 %129 to i1
+  br i1 %130, label %131, label %133
 
-128:                                              ; preds = %124
-  %129 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20421, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+131:                                              ; preds = %127
+  %132 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20421, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-130:                                              ; preds = %124, %118
-  %131 = getelementptr inbounds nuw i8, ptr %120, i64 320
-  %132 = load i32, ptr %131, align 8, !tbaa !267
-  %133 = icmp sgt i32 %132, 7
-  br i1 %133, label %134, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+133:                                              ; preds = %127, %121
+  %134 = getelementptr inbounds nuw i8, ptr %123, i64 320
+  %135 = load i32, ptr %134, align 8, !tbaa !267
+  %136 = icmp sgt i32 %135, 7
+  br i1 %136, label %137, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-134:                                              ; preds = %130
-  %135 = getelementptr inbounds nuw i8, ptr %120, i64 458
-  %136 = load i8, ptr %135, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i90 = and i8 %136, %122
-  %brmerge.demorgan.i91 = trunc nuw i8 %brmerge.demorgan8.i90 to i1
-  br i1 %brmerge.demorgan.i91, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %137
+137:                                              ; preds = %133
+  %138 = getelementptr inbounds nuw i8, ptr %123, i64 458
+  %139 = load i8, ptr %138, align 2, !tbaa !846, !range !414, !noundef !415
+  %140 = and i8 %139, %125
+  %brmerge.demorgan.not.i89 = icmp eq i8 %140, 0
+  br i1 %brmerge.demorgan.not.i89, label %141, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-137:                                              ; preds = %134
-  %138 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20411, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+141:                                              ; preds = %137
+  %142 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20411, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-139:                                              ; preds = %5
-  %.not.i92 = icmp eq i16 %2, 52
-  br i1 %.not.i92, label %140, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+143:                                              ; preds = %5
+  %.not.i90 = icmp eq i16 %2, 52
+  br i1 %.not.i90, label %144, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-140:                                              ; preds = %139
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %142 = load ptr, ptr %141, align 8, !tbaa !202
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 355
-  %144 = load i8, ptr %143, align 1, !tbaa !1343, !range !414, !noundef !415
-  %145 = trunc nuw i8 %144 to i1
-  br i1 %145, label %146, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+144:                                              ; preds = %143
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %146 = load ptr, ptr %145, align 8, !tbaa !202
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 355
+  %148 = load i8, ptr %147, align 1, !tbaa !1343, !range !414, !noundef !415
+  %149 = trunc nuw i8 %148 to i1
+  br i1 %149, label %150, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-146:                                              ; preds = %140
-  %147 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20427, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+150:                                              ; preds = %144
+  %151 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20427, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-148:                                              ; preds = %5
-  %.not.i94 = icmp eq i16 %2, 60
-  br i1 %.not.i94, label %149, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+152:                                              ; preds = %5
+  %.not.i92 = icmp eq i16 %2, 60
+  br i1 %.not.i92, label %153, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-149:                                              ; preds = %148
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %151 = load ptr, ptr %150, align 8, !tbaa !202
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 320
-  %153 = load i32, ptr %152, align 8, !tbaa !267
-  %154 = icmp sgt i32 %153, 8
-  br i1 %154, label %155, label %161
+153:                                              ; preds = %152
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %155 = load ptr, ptr %154, align 8, !tbaa !202
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 320
+  %157 = load i32, ptr %156, align 8, !tbaa !267
+  %158 = icmp sgt i32 %157, 8
+  br i1 %158, label %159, label %165
 
-155:                                              ; preds = %149
-  %156 = getelementptr inbounds nuw i8, ptr %151, i64 458
-  %157 = load i8, ptr %156, align 2, !tbaa !846, !range !414, !noundef !415
-  %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %159, label %.thread9.thread.i
+159:                                              ; preds = %153
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 458
+  %161 = load i8, ptr %160, align 2, !tbaa !846, !range !414, !noundef !415
+  %162 = trunc nuw i8 %161 to i1
+  br i1 %162, label %163, label %.thread9.thread.i
 
-159:                                              ; preds = %155
-  %160 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20268, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+163:                                              ; preds = %159
+  %164 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20268, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-161:                                              ; preds = %149
-  %162 = icmp sgt i32 %153, 1
-  br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+165:                                              ; preds = %153
+  %166 = icmp sgt i32 %157, 1
+  br i1 %166, label %167, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-163:                                              ; preds = %161
-  %164 = icmp samesign ugt i32 %153, 6
-  br i1 %164, label %.thread9.i, label %165
+167:                                              ; preds = %165
+  %168 = icmp samesign ugt i32 %157, 6
+  br i1 %168, label %.thread9.i, label %169
 
-165:                                              ; preds = %163
-  %166 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3393, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+169:                                              ; preds = %167
+  %170 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3393, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %163
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %151, i64 458
+.thread9.i:                                       ; preds = %167
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %155, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %167 = trunc nuw i8 %.pre.i to i1
-  br i1 %167, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %171 = trunc nuw i8 %.pre.i to i1
+  br i1 %171, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %155
-  %168 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20290, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %159
+  %172 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20290, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-169:                                              ; preds = %5
-  %.not.i96 = icmp eq i16 %2, 64
-  br i1 %.not.i96, label %170, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+173:                                              ; preds = %5
+  %.not.i94 = icmp eq i16 %2, 64
+  br i1 %.not.i94, label %174, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-170:                                              ; preds = %169
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %172 = load ptr, ptr %171, align 8, !tbaa !202
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 320
-  %174 = load i32, ptr %173, align 8, !tbaa !267
-  %175 = icmp sgt i32 %174, 8
-  br i1 %175, label %176, label %182
+174:                                              ; preds = %173
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %176 = load ptr, ptr %175, align 8, !tbaa !202
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 320
+  %178 = load i32, ptr %177, align 8, !tbaa !267
+  %179 = icmp sgt i32 %178, 8
+  br i1 %179, label %180, label %186
 
-176:                                              ; preds = %170
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 458
-  %178 = load i8, ptr %177, align 2, !tbaa !846, !range !414, !noundef !415
-  %179 = trunc nuw i8 %178 to i1
-  br i1 %179, label %180, label %.thread.thread.i
+180:                                              ; preds = %174
+  %181 = getelementptr inbounds nuw i8, ptr %176, i64 458
+  %182 = load i8, ptr %181, align 2, !tbaa !846, !range !414, !noundef !415
+  %183 = trunc nuw i8 %182 to i1
+  br i1 %183, label %184, label %.thread.thread.i
 
-180:                                              ; preds = %176
-  %181 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20277, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+184:                                              ; preds = %180
+  %185 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20277, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-182:                                              ; preds = %170
-  %183 = icmp eq i32 %174, 8
-  br i1 %183, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+186:                                              ; preds = %174
+  %187 = icmp eq i32 %178, 8
+  br i1 %187, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i:                                        ; preds = %182
-  %.phi.trans.insert.i98 = getelementptr inbounds nuw i8, ptr %172, i64 458
-  %.pre.i99 = load i8, ptr %.phi.trans.insert.i98, align 2, !tbaa !846, !range !414
-  %184 = trunc nuw i8 %.pre.i99 to i1
-  br i1 %184, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
+.thread.i:                                        ; preds = %186
+  %.phi.trans.insert.i96 = getelementptr inbounds nuw i8, ptr %176, i64 458
+  %.pre.i97 = load i8, ptr %.phi.trans.insert.i96, align 2, !tbaa !846, !range !414
+  %188 = trunc nuw i8 %.pre.i97 to i1
+  br i1 %188, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %176
-  %185 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20261, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i:                                 ; preds = %.thread.i, %180
+  %189 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20261, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-186:                                              ; preds = %5
-  %.not.i100 = icmp eq i16 %2, 69
-  br i1 %.not.i100, label %187, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+190:                                              ; preds = %5
+  %.not.i98 = icmp eq i16 %2, 69
+  br i1 %.not.i98, label %191, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-187:                                              ; preds = %186
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %189 = load ptr, ptr %188, align 8, !tbaa !202
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 320
-  %191 = load i32, ptr %190, align 8, !tbaa !267
-  %192 = icmp sgt i32 %191, 8
-  br i1 %192, label %193, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+191:                                              ; preds = %190
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %193 = load ptr, ptr %192, align 8, !tbaa !202
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 320
+  %195 = load i32, ptr %194, align 8, !tbaa !267
+  %196 = icmp sgt i32 %195, 8
+  br i1 %196, label %197, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-193:                                              ; preds = %187
-  %194 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20286, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+197:                                              ; preds = %191
+  %198 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20286, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-195:                                              ; preds = %5
-  %.not.i102 = icmp eq i16 %2, 78
-  br i1 %.not.i102, label %196, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+199:                                              ; preds = %5
+  %.not.i100 = icmp eq i16 %2, 78
+  br i1 %.not.i100, label %200, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-196:                                              ; preds = %195
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %198 = load ptr, ptr %197, align 8, !tbaa !202
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 320
-  %200 = load i32, ptr %199, align 8, !tbaa !267
-  %201 = icmp sgt i32 %200, 8
-  br i1 %201, label %202, label %208
+200:                                              ; preds = %199
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %202 = load ptr, ptr %201, align 8, !tbaa !202
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 320
+  %204 = load i32, ptr %203, align 8, !tbaa !267
+  %205 = icmp sgt i32 %204, 8
+  br i1 %205, label %206, label %212
 
-202:                                              ; preds = %196
-  %203 = getelementptr inbounds nuw i8, ptr %198, i64 458
-  %204 = load i8, ptr %203, align 2, !tbaa !846, !range !414, !noundef !415
-  %205 = trunc nuw i8 %204 to i1
-  br i1 %205, label %206, label %.thread9.thread.i107
+206:                                              ; preds = %200
+  %207 = getelementptr inbounds nuw i8, ptr %202, i64 458
+  %208 = load i8, ptr %207, align 2, !tbaa !846, !range !414, !noundef !415
+  %209 = trunc nuw i8 %208 to i1
+  br i1 %209, label %210, label %.thread9.thread.i105
 
-206:                                              ; preds = %202
-  %207 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20299, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+210:                                              ; preds = %206
+  %211 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20299, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-208:                                              ; preds = %196
-  %209 = icmp sgt i32 %200, 1
-  br i1 %209, label %210, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+212:                                              ; preds = %200
+  %213 = icmp sgt i32 %204, 1
+  br i1 %213, label %214, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-210:                                              ; preds = %208
-  %211 = icmp samesign ugt i32 %200, 6
-  br i1 %211, label %.thread9.i104, label %212
+214:                                              ; preds = %212
+  %215 = icmp samesign ugt i32 %204, 6
+  br i1 %215, label %.thread9.i102, label %216
 
-212:                                              ; preds = %210
-  %213 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3395, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+216:                                              ; preds = %214
+  %217 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3395, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i104:                                    ; preds = %210
-  %.phi.trans.insert.i105 = getelementptr inbounds nuw i8, ptr %198, i64 458
-  %.pre.i106 = load i8, ptr %.phi.trans.insert.i105, align 2, !tbaa !846, !range !414
-  %214 = trunc nuw i8 %.pre.i106 to i1
-  br i1 %214, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i107
+.thread9.i102:                                    ; preds = %214
+  %.phi.trans.insert.i103 = getelementptr inbounds nuw i8, ptr %202, i64 458
+  %.pre.i104 = load i8, ptr %.phi.trans.insert.i103, align 2, !tbaa !846, !range !414
+  %218 = trunc nuw i8 %.pre.i104 to i1
+  br i1 %218, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i105
 
-.thread9.thread.i107:                             ; preds = %.thread9.i104, %202
-  %215 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20321, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i105:                             ; preds = %.thread9.i102, %206
+  %219 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20321, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-216:                                              ; preds = %5
-  %.not.i108 = icmp eq i16 %2, 80
-  br i1 %.not.i108, label %217, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+220:                                              ; preds = %5
+  %.not.i106 = icmp eq i16 %2, 80
+  br i1 %.not.i106, label %221, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-217:                                              ; preds = %216
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %219 = load ptr, ptr %218, align 8, !tbaa !202
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 320
-  %221 = load i32, ptr %220, align 8, !tbaa !267
-  %222 = icmp sgt i32 %221, 8
-  br i1 %222, label %223, label %229
+221:                                              ; preds = %220
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %223 = load ptr, ptr %222, align 8, !tbaa !202
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 320
+  %225 = load i32, ptr %224, align 8, !tbaa !267
+  %226 = icmp sgt i32 %225, 8
+  br i1 %226, label %227, label %233
 
-223:                                              ; preds = %217
-  %224 = getelementptr inbounds nuw i8, ptr %219, i64 458
-  %225 = load i8, ptr %224, align 2, !tbaa !846, !range !414, !noundef !415
-  %226 = trunc nuw i8 %225 to i1
-  br i1 %226, label %227, label %.thread.thread.i113
+227:                                              ; preds = %221
+  %228 = getelementptr inbounds nuw i8, ptr %223, i64 458
+  %229 = load i8, ptr %228, align 2, !tbaa !846, !range !414, !noundef !415
+  %230 = trunc nuw i8 %229 to i1
+  br i1 %230, label %231, label %.thread.thread.i111
 
-227:                                              ; preds = %223
-  %228 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20308, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+231:                                              ; preds = %227
+  %232 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20308, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-229:                                              ; preds = %217
-  %230 = icmp eq i32 %221, 8
-  br i1 %230, label %.thread.i110, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+233:                                              ; preds = %221
+  %234 = icmp eq i32 %225, 8
+  br i1 %234, label %.thread.i108, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i110:                                     ; preds = %229
-  %.phi.trans.insert.i111 = getelementptr inbounds nuw i8, ptr %219, i64 458
-  %.pre.i112 = load i8, ptr %.phi.trans.insert.i111, align 2, !tbaa !846, !range !414
-  %231 = trunc nuw i8 %.pre.i112 to i1
-  br i1 %231, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i113
+.thread.i108:                                     ; preds = %233
+  %.phi.trans.insert.i109 = getelementptr inbounds nuw i8, ptr %223, i64 458
+  %.pre.i110 = load i8, ptr %.phi.trans.insert.i109, align 2, !tbaa !846, !range !414
+  %235 = trunc nuw i8 %.pre.i110 to i1
+  br i1 %235, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i111
 
-.thread.thread.i113:                              ; preds = %.thread.i110, %223
-  %232 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20292, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i111:                              ; preds = %.thread.i108, %227
+  %236 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20292, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-233:                                              ; preds = %5
-  %.not.i114 = icmp eq i16 %2, 81
-  br i1 %.not.i114, label %234, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+237:                                              ; preds = %5
+  %.not.i112 = icmp eq i16 %2, 81
+  br i1 %.not.i112, label %238, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-234:                                              ; preds = %233
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %236 = load ptr, ptr %235, align 8, !tbaa !202
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 320
-  %238 = load i32, ptr %237, align 8, !tbaa !267
-  %239 = icmp sgt i32 %238, 8
-  br i1 %239, label %240, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
+238:                                              ; preds = %237
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %240 = load ptr, ptr %239, align 8, !tbaa !202
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 320
+  %242 = load i32, ptr %241, align 8, !tbaa !267
+  %243 = icmp sgt i32 %242, 8
+  br i1 %243, label %244, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-240:                                              ; preds = %234
-  %241 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20317, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+244:                                              ; preds = %238
+  %245 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20317, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %240, %234, %233, %.thread.thread.i113, %.thread.i110, %229, %227, %216, %.thread9.thread.i107, %.thread9.i104, %212, %208, %206, %195, %193, %187, %186, %.thread.thread.i, %.thread.i, %182, %180, %169, %.thread9.thread.i, %.thread9.i, %165, %161, %159, %148, %146, %140, %139, %137, %134, %130, %128, %117, %115, %112, %110, %104, %102, %91, %89, %83, %82, %80, %77, %73, %71, %60, %58, %55, %53, %47, %45, %34, %.sink.split.i75, %27, %.sink.split.i71, %20, %.sink.split.i67, %13, %.sink.split.i, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ %12, %.sink.split.i ], [ 0, %13 ], [ %19, %.sink.split.i67 ], [ 0, %20 ], [ %26, %.sink.split.i71 ], [ 0, %27 ], [ %33, %.sink.split.i75 ], [ %46, %45 ], [ %59, %58 ], [ %54, %53 ], [ 0, %34 ], [ 0, %47 ], [ 0, %55 ], [ %72, %71 ], [ %81, %80 ], [ 0, %60 ], [ 0, %73 ], [ 0, %77 ], [ %90, %89 ], [ 0, %82 ], [ 0, %83 ], [ %103, %102 ], [ %116, %115 ], [ %111, %110 ], [ 0, %91 ], [ 0, %104 ], [ 0, %112 ], [ %129, %128 ], [ %138, %137 ], [ 0, %117 ], [ 0, %130 ], [ 0, %134 ], [ %147, %146 ], [ 0, %139 ], [ 0, %140 ], [ %160, %159 ], [ %168, %.thread9.thread.i ], [ %166, %165 ], [ 0, %148 ], [ 0, %.thread9.i ], [ 0, %161 ], [ %181, %180 ], [ %185, %.thread.thread.i ], [ 0, %169 ], [ 0, %.thread.i ], [ 0, %182 ], [ %194, %193 ], [ 0, %186 ], [ 0, %187 ], [ %207, %206 ], [ %215, %.thread9.thread.i107 ], [ %213, %212 ], [ 0, %195 ], [ 0, %.thread9.i104 ], [ 0, %208 ], [ %228, %227 ], [ %232, %.thread.thread.i113 ], [ 0, %216 ], [ 0, %.thread.i110 ], [ 0, %229 ], [ %241, %240 ], [ 0, %233 ], [ 0, %234 ]
+_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %244, %238, %237, %.thread.thread.i111, %.thread.i108, %233, %231, %220, %.thread9.thread.i105, %.thread9.i102, %216, %212, %210, %199, %197, %191, %190, %.thread.thread.i, %.thread.i, %186, %184, %173, %.thread9.thread.i, %.thread9.i, %169, %165, %163, %152, %150, %144, %143, %141, %137, %133, %131, %120, %118, %114, %112, %106, %104, %93, %91, %85, %84, %82, %78, %74, %72, %61, %59, %55, %53, %47, %45, %34, %.sink.split.i75, %27, %.sink.split.i71, %20, %.sink.split.i67, %13, %.sink.split.i, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ %12, %.sink.split.i ], [ 0, %13 ], [ %19, %.sink.split.i67 ], [ 0, %20 ], [ %26, %.sink.split.i71 ], [ 0, %27 ], [ %33, %.sink.split.i75 ], [ %46, %45 ], [ %60, %59 ], [ %54, %53 ], [ 0, %34 ], [ 0, %47 ], [ 0, %55 ], [ %73, %72 ], [ %83, %82 ], [ 0, %61 ], [ 0, %74 ], [ 0, %78 ], [ %92, %91 ], [ 0, %84 ], [ 0, %85 ], [ %105, %104 ], [ %119, %118 ], [ %113, %112 ], [ 0, %93 ], [ 0, %106 ], [ 0, %114 ], [ %132, %131 ], [ %142, %141 ], [ 0, %120 ], [ 0, %133 ], [ 0, %137 ], [ %151, %150 ], [ 0, %143 ], [ 0, %144 ], [ %164, %163 ], [ %172, %.thread9.thread.i ], [ %170, %169 ], [ 0, %152 ], [ 0, %.thread9.i ], [ 0, %165 ], [ %185, %184 ], [ %189, %.thread.thread.i ], [ 0, %173 ], [ 0, %.thread.i ], [ 0, %186 ], [ %198, %197 ], [ 0, %190 ], [ 0, %191 ], [ %211, %210 ], [ %219, %.thread9.thread.i105 ], [ %217, %216 ], [ 0, %199 ], [ 0, %.thread9.i102 ], [ 0, %212 ], [ %232, %231 ], [ %236, %.thread.thread.i111 ], [ 0, %220 ], [ 0, %.thread.i108 ], [ 0, %233 ], [ %245, %244 ], [ 0, %237 ], [ 0, %238 ]
   ret i32 %.0
 }
 
@@ -44406,11 +44406,11 @@ _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit: ;
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD_UADDSAT_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
   ]
 
 6:                                                ; preds = %5
@@ -44452,173 +44452,173 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15161, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15161, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i25 = icmp eq i16 %2, 40
-  br i1 %.not.i25, label %33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i25, label %34, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15151, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15151, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i27 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i27, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i27 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i27, label %54, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15141, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15141, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i28 = icmp eq i16 %2, 41
-  br i1 %.not.i28, label %55, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i28, label %57, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15157, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15157, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i30 = icmp eq i16 %2, 50
-  br i1 %.not.i30, label %64, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i30, label %66, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15167, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15167, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3080, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3080, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i32 = and i8 %86, %68
-  %brmerge.demorgan.i33 = trunc nuw i8 %brmerge.demorgan11.i32 to i1
-  br i1 %brmerge.demorgan.i33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i32 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i32, label %90, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15183, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15183, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i34 = icmp eq i16 %2, 51
-  br i1 %.not.i34, label %90, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i33 = icmp eq i16 %2, 51
+  br i1 %.not.i33, label %93, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15173, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15173, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i36 = and i8 %108, %94
-  %brmerge.demorgan.i37 = trunc nuw i8 %brmerge.demorgan8.i36 to i1
-  br i1 %brmerge.demorgan.i37, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i35 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i35, label %113, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15163, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15163, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i38 = icmp eq i16 %2, 52
-  br i1 %.not.i38, label %112, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i36 = icmp eq i16 %2, 52
+  br i1 %.not.i36, label %116, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15179, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15179, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ]
+_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -44626,17 +44626,17 @@ _ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD_UMAX_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
-    i16 60, label %120
-    i16 64, label %141
-    i16 69, label %158
-    i16 78, label %167
-    i16 80, label %180
-    i16 81, label %193
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
+    i16 60, label %124
+    i16 64, label %145
+    i16 69, label %162
+    i16 78, label %171
+    i16 80, label %184
+    i16 81, label %197
   ]
 
 6:                                                ; preds = %5
@@ -44678,329 +44678,329 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17625, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17625, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i49 = icmp eq i16 %2, 40
-  br i1 %.not.i49, label %33, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i49, label %34, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17615, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17615, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i51 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i51, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i51 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i51, label %54, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17605, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17605, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i52 = icmp eq i16 %2, 41
-  br i1 %.not.i52, label %55, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i52, label %57, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17621, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17621, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i54 = icmp eq i16 %2, 50
-  br i1 %.not.i54, label %64, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i54, label %66, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17689, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17689, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 4
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 4
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3232, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3232, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i56 = and i8 %86, %68
-  %brmerge.demorgan.i57 = trunc nuw i8 %brmerge.demorgan11.i56 to i1
-  br i1 %brmerge.demorgan.i57, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i56 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i56, label %90, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17705, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17705, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i58 = icmp eq i16 %2, 51
-  br i1 %.not.i58, label %90, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i57 = icmp eq i16 %2, 51
+  br i1 %.not.i57, label %93, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17695, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17695, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i60 = and i8 %108, %94
-  %brmerge.demorgan.i61 = trunc nuw i8 %brmerge.demorgan8.i60 to i1
-  br i1 %brmerge.demorgan.i61, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i59 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i59, label %113, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17685, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17685, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i62 = icmp eq i16 %2, 52
-  br i1 %.not.i62, label %112, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i60 = icmp eq i16 %2, 52
+  br i1 %.not.i60, label %116, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17701, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17701, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-120:                                              ; preds = %5
-  %.not.i64 = icmp eq i16 %2, 60
-  br i1 %.not.i64, label %121, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+124:                                              ; preds = %5
+  %.not.i62 = icmp eq i16 %2, 60
+  br i1 %.not.i62, label %125, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %123 = load ptr, ptr %122, align 8, !tbaa !202
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 320
-  %125 = load i32, ptr %124, align 8, !tbaa !267
-  %126 = icmp sgt i32 %125, 8
-  br i1 %126, label %127, label %133
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %127 = load ptr, ptr %126, align 8, !tbaa !202
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 320
+  %129 = load i32, ptr %128, align 8, !tbaa !267
+  %130 = icmp sgt i32 %129, 8
+  br i1 %130, label %131, label %137
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 458
-  %129 = load i8, ptr %128, align 2, !tbaa !846, !range !414, !noundef !415
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %131, label %.thread9.thread.i
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 458
+  %133 = load i8, ptr %132, align 2, !tbaa !846, !range !414, !noundef !415
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %135, label %.thread9.thread.i
 
-131:                                              ; preds = %127
-  %132 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17634, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+135:                                              ; preds = %131
+  %136 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17634, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-133:                                              ; preds = %121
-  %134 = icmp sgt i32 %125, 4
-  br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+137:                                              ; preds = %125
+  %138 = icmp sgt i32 %129, 4
+  br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-135:                                              ; preds = %133
-  %136 = icmp samesign ugt i32 %125, 6
-  br i1 %136, label %.thread9.i, label %137
+139:                                              ; preds = %137
+  %140 = icmp samesign ugt i32 %129, 6
+  br i1 %140, label %.thread9.i, label %141
 
-137:                                              ; preds = %135
-  %138 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3230, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+141:                                              ; preds = %139
+  %142 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3230, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %135
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %123, i64 458
+.thread9.i:                                       ; preds = %139
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %127, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %139 = trunc nuw i8 %.pre.i to i1
-  br i1 %139, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %143 = trunc nuw i8 %.pre.i to i1
+  br i1 %143, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %127
-  %140 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17656, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %131
+  %144 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17656, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-141:                                              ; preds = %5
-  %.not.i66 = icmp eq i16 %2, 64
-  br i1 %.not.i66, label %142, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+145:                                              ; preds = %5
+  %.not.i64 = icmp eq i16 %2, 64
+  br i1 %.not.i64, label %146, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-142:                                              ; preds = %141
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %144 = load ptr, ptr %143, align 8, !tbaa !202
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 320
-  %146 = load i32, ptr %145, align 8, !tbaa !267
-  %147 = icmp sgt i32 %146, 8
-  br i1 %147, label %148, label %154
+146:                                              ; preds = %145
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %148 = load ptr, ptr %147, align 8, !tbaa !202
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 320
+  %150 = load i32, ptr %149, align 8, !tbaa !267
+  %151 = icmp sgt i32 %150, 8
+  br i1 %151, label %152, label %158
 
-148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %144, i64 458
-  %150 = load i8, ptr %149, align 2, !tbaa !846, !range !414, !noundef !415
-  %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %152, label %.thread.thread.i
+152:                                              ; preds = %146
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 458
+  %154 = load i8, ptr %153, align 2, !tbaa !846, !range !414, !noundef !415
+  %155 = trunc nuw i8 %154 to i1
+  br i1 %155, label %156, label %.thread.thread.i
 
-152:                                              ; preds = %148
-  %153 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17643, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+156:                                              ; preds = %152
+  %157 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17643, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-154:                                              ; preds = %142
-  %155 = icmp eq i32 %146, 8
-  br i1 %155, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+158:                                              ; preds = %146
+  %159 = icmp eq i32 %150, 8
+  br i1 %159, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i:                                        ; preds = %154
-  %.phi.trans.insert.i68 = getelementptr inbounds nuw i8, ptr %144, i64 458
-  %.pre.i69 = load i8, ptr %.phi.trans.insert.i68, align 2, !tbaa !846, !range !414
-  %156 = trunc nuw i8 %.pre.i69 to i1
-  br i1 %156, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
+.thread.i:                                        ; preds = %158
+  %.phi.trans.insert.i66 = getelementptr inbounds nuw i8, ptr %148, i64 458
+  %.pre.i67 = load i8, ptr %.phi.trans.insert.i66, align 2, !tbaa !846, !range !414
+  %160 = trunc nuw i8 %.pre.i67 to i1
+  br i1 %160, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %148
-  %157 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17627, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i:                                 ; preds = %.thread.i, %152
+  %161 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17627, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-158:                                              ; preds = %5
-  %.not.i70 = icmp eq i16 %2, 69
-  br i1 %.not.i70, label %159, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+162:                                              ; preds = %5
+  %.not.i68 = icmp eq i16 %2, 69
+  br i1 %.not.i68, label %163, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-159:                                              ; preds = %158
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %161 = load ptr, ptr %160, align 8, !tbaa !202
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 320
-  %163 = load i32, ptr %162, align 8, !tbaa !267
-  %164 = icmp sgt i32 %163, 8
-  br i1 %164, label %165, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+163:                                              ; preds = %162
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %165 = load ptr, ptr %164, align 8, !tbaa !202
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 320
+  %167 = load i32, ptr %166, align 8, !tbaa !267
+  %168 = icmp sgt i32 %167, 8
+  br i1 %168, label %169, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-165:                                              ; preds = %159
-  %166 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17652, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+169:                                              ; preds = %163
+  %170 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17652, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-167:                                              ; preds = %5
-  %.not.i72 = icmp eq i16 %2, 78
-  br i1 %.not.i72, label %168, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+171:                                              ; preds = %5
+  %.not.i70 = icmp eq i16 %2, 78
+  br i1 %.not.i70, label %172, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-168:                                              ; preds = %167
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %170 = load ptr, ptr %169, align 8, !tbaa !202
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 320
-  %172 = load i32, ptr %171, align 8, !tbaa !267
-  %173 = icmp sgt i32 %172, 8
-  br i1 %173, label %174, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
-
-174:                                              ; preds = %168
-  %175 = getelementptr inbounds nuw i8, ptr %170, i64 458
-  %176 = load i8, ptr %175, align 2, !tbaa !846, !range !414, !noundef !415
-  %177 = trunc nuw i8 %176 to i1
+172:                                              ; preds = %171
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %174 = load ptr, ptr %173, align 8, !tbaa !202
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 320
+  %176 = load i32, ptr %175, align 8, !tbaa !267
+  %177 = icmp sgt i32 %176, 8
   br i1 %177, label %178, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-178:                                              ; preds = %174
-  %179 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17663, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+178:                                              ; preds = %172
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 458
+  %180 = load i8, ptr %179, align 2, !tbaa !846, !range !414, !noundef !415
+  %181 = trunc nuw i8 %180 to i1
+  br i1 %181, label %182, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+
+182:                                              ; preds = %178
+  %183 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17663, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-180:                                              ; preds = %5
-  %.not.i74 = icmp eq i16 %2, 80
-  br i1 %.not.i74, label %181, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+184:                                              ; preds = %5
+  %.not.i72 = icmp eq i16 %2, 80
+  br i1 %.not.i72, label %185, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-181:                                              ; preds = %180
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %183 = load ptr, ptr %182, align 8, !tbaa !202
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 320
-  %185 = load i32, ptr %184, align 8, !tbaa !267
-  %186 = icmp sgt i32 %185, 8
-  br i1 %186, label %187, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
-
-187:                                              ; preds = %181
-  %188 = getelementptr inbounds nuw i8, ptr %183, i64 458
-  %189 = load i8, ptr %188, align 2, !tbaa !846, !range !414, !noundef !415
-  %190 = trunc nuw i8 %189 to i1
+185:                                              ; preds = %184
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %187 = load ptr, ptr %186, align 8, !tbaa !202
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 320
+  %189 = load i32, ptr %188, align 8, !tbaa !267
+  %190 = icmp sgt i32 %189, 8
   br i1 %190, label %191, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-191:                                              ; preds = %187
-  %192 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17672, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+191:                                              ; preds = %185
+  %192 = getelementptr inbounds nuw i8, ptr %187, i64 458
+  %193 = load i8, ptr %192, align 2, !tbaa !846, !range !414, !noundef !415
+  %194 = trunc nuw i8 %193 to i1
+  br i1 %194, label %195, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+
+195:                                              ; preds = %191
+  %196 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17672, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-193:                                              ; preds = %5
-  %.not.i76 = icmp eq i16 %2, 81
-  br i1 %.not.i76, label %194, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+197:                                              ; preds = %5
+  %.not.i74 = icmp eq i16 %2, 81
+  br i1 %.not.i74, label %198, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-194:                                              ; preds = %193
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %196 = load ptr, ptr %195, align 8, !tbaa !202
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 320
-  %198 = load i32, ptr %197, align 8, !tbaa !267
-  %199 = icmp sgt i32 %198, 8
-  br i1 %199, label %200, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+198:                                              ; preds = %197
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %200 = load ptr, ptr %199, align 8, !tbaa !202
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 320
+  %202 = load i32, ptr %201, align 8, !tbaa !267
+  %203 = icmp sgt i32 %202, 8
+  br i1 %203, label %204, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-200:                                              ; preds = %194
-  %201 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17681, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+204:                                              ; preds = %198
+  %205 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17681, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %200, %194, %193, %191, %187, %181, %180, %178, %174, %168, %167, %165, %159, %158, %.thread.thread.i, %.thread.i, %154, %152, %141, %.thread9.thread.i, %.thread9.i, %137, %133, %131, %120, %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ], [ %132, %131 ], [ %140, %.thread9.thread.i ], [ %138, %137 ], [ 0, %120 ], [ 0, %.thread9.i ], [ 0, %133 ], [ %153, %152 ], [ %157, %.thread.thread.i ], [ 0, %141 ], [ 0, %.thread.i ], [ 0, %154 ], [ %166, %165 ], [ 0, %158 ], [ 0, %159 ], [ %179, %178 ], [ 0, %167 ], [ 0, %174 ], [ 0, %168 ], [ %192, %191 ], [ 0, %180 ], [ 0, %187 ], [ 0, %181 ], [ %201, %200 ], [ 0, %193 ], [ 0, %194 ]
+_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %204, %198, %197, %195, %191, %185, %184, %182, %178, %172, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ 0, %171 ], [ 0, %178 ], [ 0, %172 ], [ %196, %195 ], [ 0, %184 ], [ 0, %191 ], [ 0, %185 ], [ %205, %204 ], [ 0, %197 ], [ 0, %198 ]
   ret i32 %.0
 }
 
@@ -45008,17 +45008,17 @@ _ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exi
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD_UMIN_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
-    i16 60, label %120
-    i16 64, label %141
-    i16 69, label %158
-    i16 78, label %167
-    i16 80, label %180
-    i16 81, label %193
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
+    i16 60, label %124
+    i16 64, label %145
+    i16 69, label %162
+    i16 78, label %171
+    i16 80, label %184
+    i16 81, label %197
   ]
 
 6:                                                ; preds = %5
@@ -45060,329 +45060,329 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17829, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17829, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i49 = icmp eq i16 %2, 40
-  br i1 %.not.i49, label %33, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i49, label %34, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17819, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17819, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i51 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i51, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i51 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i51, label %54, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17809, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17809, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i52 = icmp eq i16 %2, 41
-  br i1 %.not.i52, label %55, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i52, label %57, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17825, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17825, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i54 = icmp eq i16 %2, 50
-  br i1 %.not.i54, label %64, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i54, label %66, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17893, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17893, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 4
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 4
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3244, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3244, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i56 = and i8 %86, %68
-  %brmerge.demorgan.i57 = trunc nuw i8 %brmerge.demorgan11.i56 to i1
-  br i1 %brmerge.demorgan.i57, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i56 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i56, label %90, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17909, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17909, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i58 = icmp eq i16 %2, 51
-  br i1 %.not.i58, label %90, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i57 = icmp eq i16 %2, 51
+  br i1 %.not.i57, label %93, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17899, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17899, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i60 = and i8 %108, %94
-  %brmerge.demorgan.i61 = trunc nuw i8 %brmerge.demorgan8.i60 to i1
-  br i1 %brmerge.demorgan.i61, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i59 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i59, label %113, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17889, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17889, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i62 = icmp eq i16 %2, 52
-  br i1 %.not.i62, label %112, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i60 = icmp eq i16 %2, 52
+  br i1 %.not.i60, label %116, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17905, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17905, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-120:                                              ; preds = %5
-  %.not.i64 = icmp eq i16 %2, 60
-  br i1 %.not.i64, label %121, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+124:                                              ; preds = %5
+  %.not.i62 = icmp eq i16 %2, 60
+  br i1 %.not.i62, label %125, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %123 = load ptr, ptr %122, align 8, !tbaa !202
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 320
-  %125 = load i32, ptr %124, align 8, !tbaa !267
-  %126 = icmp sgt i32 %125, 8
-  br i1 %126, label %127, label %133
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %127 = load ptr, ptr %126, align 8, !tbaa !202
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 320
+  %129 = load i32, ptr %128, align 8, !tbaa !267
+  %130 = icmp sgt i32 %129, 8
+  br i1 %130, label %131, label %137
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 458
-  %129 = load i8, ptr %128, align 2, !tbaa !846, !range !414, !noundef !415
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %131, label %.thread9.thread.i
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 458
+  %133 = load i8, ptr %132, align 2, !tbaa !846, !range !414, !noundef !415
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %135, label %.thread9.thread.i
 
-131:                                              ; preds = %127
-  %132 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17838, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+135:                                              ; preds = %131
+  %136 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17838, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-133:                                              ; preds = %121
-  %134 = icmp sgt i32 %125, 4
-  br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+137:                                              ; preds = %125
+  %138 = icmp sgt i32 %129, 4
+  br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-135:                                              ; preds = %133
-  %136 = icmp samesign ugt i32 %125, 6
-  br i1 %136, label %.thread9.i, label %137
+139:                                              ; preds = %137
+  %140 = icmp samesign ugt i32 %129, 6
+  br i1 %140, label %.thread9.i, label %141
 
-137:                                              ; preds = %135
-  %138 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3242, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+141:                                              ; preds = %139
+  %142 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3242, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %135
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %123, i64 458
+.thread9.i:                                       ; preds = %139
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %127, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %139 = trunc nuw i8 %.pre.i to i1
-  br i1 %139, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %143 = trunc nuw i8 %.pre.i to i1
+  br i1 %143, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %127
-  %140 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17860, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %131
+  %144 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17860, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-141:                                              ; preds = %5
-  %.not.i66 = icmp eq i16 %2, 64
-  br i1 %.not.i66, label %142, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+145:                                              ; preds = %5
+  %.not.i64 = icmp eq i16 %2, 64
+  br i1 %.not.i64, label %146, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-142:                                              ; preds = %141
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %144 = load ptr, ptr %143, align 8, !tbaa !202
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 320
-  %146 = load i32, ptr %145, align 8, !tbaa !267
-  %147 = icmp sgt i32 %146, 8
-  br i1 %147, label %148, label %154
+146:                                              ; preds = %145
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %148 = load ptr, ptr %147, align 8, !tbaa !202
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 320
+  %150 = load i32, ptr %149, align 8, !tbaa !267
+  %151 = icmp sgt i32 %150, 8
+  br i1 %151, label %152, label %158
 
-148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %144, i64 458
-  %150 = load i8, ptr %149, align 2, !tbaa !846, !range !414, !noundef !415
-  %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %152, label %.thread.thread.i
+152:                                              ; preds = %146
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 458
+  %154 = load i8, ptr %153, align 2, !tbaa !846, !range !414, !noundef !415
+  %155 = trunc nuw i8 %154 to i1
+  br i1 %155, label %156, label %.thread.thread.i
 
-152:                                              ; preds = %148
-  %153 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17847, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+156:                                              ; preds = %152
+  %157 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17847, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-154:                                              ; preds = %142
-  %155 = icmp eq i32 %146, 8
-  br i1 %155, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+158:                                              ; preds = %146
+  %159 = icmp eq i32 %150, 8
+  br i1 %159, label %.thread.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i:                                        ; preds = %154
-  %.phi.trans.insert.i68 = getelementptr inbounds nuw i8, ptr %144, i64 458
-  %.pre.i69 = load i8, ptr %.phi.trans.insert.i68, align 2, !tbaa !846, !range !414
-  %156 = trunc nuw i8 %.pre.i69 to i1
-  br i1 %156, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
+.thread.i:                                        ; preds = %158
+  %.phi.trans.insert.i66 = getelementptr inbounds nuw i8, ptr %148, i64 458
+  %.pre.i67 = load i8, ptr %.phi.trans.insert.i66, align 2, !tbaa !846, !range !414
+  %160 = trunc nuw i8 %.pre.i67 to i1
+  br i1 %160, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %148
-  %157 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17831, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i:                                 ; preds = %.thread.i, %152
+  %161 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17831, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-158:                                              ; preds = %5
-  %.not.i70 = icmp eq i16 %2, 69
-  br i1 %.not.i70, label %159, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+162:                                              ; preds = %5
+  %.not.i68 = icmp eq i16 %2, 69
+  br i1 %.not.i68, label %163, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-159:                                              ; preds = %158
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %161 = load ptr, ptr %160, align 8, !tbaa !202
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 320
-  %163 = load i32, ptr %162, align 8, !tbaa !267
-  %164 = icmp sgt i32 %163, 8
-  br i1 %164, label %165, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+163:                                              ; preds = %162
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %165 = load ptr, ptr %164, align 8, !tbaa !202
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 320
+  %167 = load i32, ptr %166, align 8, !tbaa !267
+  %168 = icmp sgt i32 %167, 8
+  br i1 %168, label %169, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-165:                                              ; preds = %159
-  %166 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17856, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+169:                                              ; preds = %163
+  %170 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17856, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-167:                                              ; preds = %5
-  %.not.i72 = icmp eq i16 %2, 78
-  br i1 %.not.i72, label %168, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+171:                                              ; preds = %5
+  %.not.i70 = icmp eq i16 %2, 78
+  br i1 %.not.i70, label %172, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-168:                                              ; preds = %167
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %170 = load ptr, ptr %169, align 8, !tbaa !202
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 320
-  %172 = load i32, ptr %171, align 8, !tbaa !267
-  %173 = icmp sgt i32 %172, 8
-  br i1 %173, label %174, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
-
-174:                                              ; preds = %168
-  %175 = getelementptr inbounds nuw i8, ptr %170, i64 458
-  %176 = load i8, ptr %175, align 2, !tbaa !846, !range !414, !noundef !415
-  %177 = trunc nuw i8 %176 to i1
+172:                                              ; preds = %171
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %174 = load ptr, ptr %173, align 8, !tbaa !202
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 320
+  %176 = load i32, ptr %175, align 8, !tbaa !267
+  %177 = icmp sgt i32 %176, 8
   br i1 %177, label %178, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-178:                                              ; preds = %174
-  %179 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17867, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+178:                                              ; preds = %172
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 458
+  %180 = load i8, ptr %179, align 2, !tbaa !846, !range !414, !noundef !415
+  %181 = trunc nuw i8 %180 to i1
+  br i1 %181, label %182, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+
+182:                                              ; preds = %178
+  %183 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17867, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-180:                                              ; preds = %5
-  %.not.i74 = icmp eq i16 %2, 80
-  br i1 %.not.i74, label %181, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+184:                                              ; preds = %5
+  %.not.i72 = icmp eq i16 %2, 80
+  br i1 %.not.i72, label %185, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-181:                                              ; preds = %180
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %183 = load ptr, ptr %182, align 8, !tbaa !202
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 320
-  %185 = load i32, ptr %184, align 8, !tbaa !267
-  %186 = icmp sgt i32 %185, 8
-  br i1 %186, label %187, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
-
-187:                                              ; preds = %181
-  %188 = getelementptr inbounds nuw i8, ptr %183, i64 458
-  %189 = load i8, ptr %188, align 2, !tbaa !846, !range !414, !noundef !415
-  %190 = trunc nuw i8 %189 to i1
+185:                                              ; preds = %184
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %187 = load ptr, ptr %186, align 8, !tbaa !202
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 320
+  %189 = load i32, ptr %188, align 8, !tbaa !267
+  %190 = icmp sgt i32 %189, 8
   br i1 %190, label %191, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-191:                                              ; preds = %187
-  %192 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17876, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+191:                                              ; preds = %185
+  %192 = getelementptr inbounds nuw i8, ptr %187, i64 458
+  %193 = load i8, ptr %192, align 2, !tbaa !846, !range !414, !noundef !415
+  %194 = trunc nuw i8 %193 to i1
+  br i1 %194, label %195, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+
+195:                                              ; preds = %191
+  %196 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17876, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-193:                                              ; preds = %5
-  %.not.i76 = icmp eq i16 %2, 81
-  br i1 %.not.i76, label %194, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+197:                                              ; preds = %5
+  %.not.i74 = icmp eq i16 %2, 81
+  br i1 %.not.i74, label %198, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-194:                                              ; preds = %193
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %196 = load ptr, ptr %195, align 8, !tbaa !202
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 320
-  %198 = load i32, ptr %197, align 8, !tbaa !267
-  %199 = icmp sgt i32 %198, 8
-  br i1 %199, label %200, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+198:                                              ; preds = %197
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %200 = load ptr, ptr %199, align 8, !tbaa !202
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 320
+  %202 = load i32, ptr %201, align 8, !tbaa !267
+  %203 = icmp sgt i32 %202, 8
+  br i1 %203, label %204, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-200:                                              ; preds = %194
-  %201 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17885, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+204:                                              ; preds = %198
+  %205 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17885, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %200, %194, %193, %191, %187, %181, %180, %178, %174, %168, %167, %165, %159, %158, %.thread.thread.i, %.thread.i, %154, %152, %141, %.thread9.thread.i, %.thread9.i, %137, %133, %131, %120, %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ], [ %132, %131 ], [ %140, %.thread9.thread.i ], [ %138, %137 ], [ 0, %120 ], [ 0, %.thread9.i ], [ 0, %133 ], [ %153, %152 ], [ %157, %.thread.thread.i ], [ 0, %141 ], [ 0, %.thread.i ], [ 0, %154 ], [ %166, %165 ], [ 0, %158 ], [ 0, %159 ], [ %179, %178 ], [ 0, %167 ], [ 0, %174 ], [ 0, %168 ], [ %192, %191 ], [ 0, %180 ], [ 0, %187 ], [ 0, %181 ], [ %201, %200 ], [ 0, %193 ], [ 0, %194 ]
+_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %204, %198, %197, %195, %191, %185, %184, %182, %178, %172, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ 0, %171 ], [ 0, %178 ], [ 0, %172 ], [ %196, %195 ], [ 0, %184 ], [ 0, %191 ], [ 0, %185 ], [ %205, %204 ], [ 0, %197 ], [ 0, %198 ]
   ret i32 %.0
 }
 
@@ -45390,11 +45390,11 @@ _ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exi
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD_USUBSAT_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
   ]
 
 6:                                                ; preds = %5
@@ -45436,173 +45436,173 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20387, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20387, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i25 = icmp eq i16 %2, 40
-  br i1 %.not.i25, label %33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i25, label %34, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20377, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20377, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i27 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i27, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i27 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i27, label %54, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20367, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20367, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i28 = icmp eq i16 %2, 41
-  br i1 %.not.i28, label %55, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i28, label %57, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20383, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20383, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i30 = icmp eq i16 %2, 50
-  br i1 %.not.i30, label %64, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i30, label %66, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20393, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20393, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3403, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3403, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i32 = and i8 %86, %68
-  %brmerge.demorgan.i33 = trunc nuw i8 %brmerge.demorgan11.i32 to i1
-  br i1 %brmerge.demorgan.i33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i32 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i32, label %90, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20409, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20409, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i34 = icmp eq i16 %2, 51
-  br i1 %.not.i34, label %90, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i33 = icmp eq i16 %2, 51
+  br i1 %.not.i33, label %93, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20399, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20399, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i36 = and i8 %108, %94
-  %brmerge.demorgan.i37 = trunc nuw i8 %brmerge.demorgan8.i36 to i1
-  br i1 %brmerge.demorgan.i37, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i35 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i35, label %113, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20389, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20389, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i38 = icmp eq i16 %2, 52
-  br i1 %.not.i38, label %112, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i36 = icmp eq i16 %2, 52
+  br i1 %.not.i36, label %116, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20405, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20405, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ]
+_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -50533,8 +50533,8 @@ _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVSS_MVT_v4f32_rrEN4llvm3MVTEjj
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86ISD_MULHRS_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit [
     i16 50, label %6
-    i16 51, label %32
-    i16 52, label %54
+    i16 51, label %33
+    i16 52, label %56
   ]
 
 6:                                                ; preds = %5
@@ -50576,71 +50576,71 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18522, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18522, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i13 = icmp eq i16 %2, 51
-  br i1 %.not.i13, label %33, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i13, label %34, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18512, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18512, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i15 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i15, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i15 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i15, label %54, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18502, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18502, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i16 = icmp eq i16 %2, 52
-  br i1 %.not.i16, label %55, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i16, label %57, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18518, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 18518, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ]
+_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -50721,11 +50721,11 @@ _ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_MULTISHIFT_MVT_v16i8_rrEN4llvm3M
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86ISD_PACKSS_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit [
     i16 50, label %6
-    i16 51, label %32
-    i16 52, label %54
-    i16 60, label %63
-    i16 64, label %89
-    i16 69, label %111
+    i16 51, label %33
+    i16 52, label %56
+    i16 60, label %65
+    i16 64, label %92
+    i16 69, label %115
   ]
 
 6:                                                ; preds = %5
@@ -50767,173 +50767,173 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14958, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14958, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i25 = icmp eq i16 %2, 40
-  br i1 %.not.i25, label %33, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i25, label %34, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14948, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14948, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i27 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i27, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i27 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i27, label %54, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14938, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14938, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i28 = icmp eq i16 %2, 41
-  br i1 %.not.i28, label %55, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i28, label %57, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14954, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14954, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i30 = icmp eq i16 %2, 50
-  br i1 %.not.i30, label %64, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i30, label %66, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14914, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14914, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3060, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3060, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i32 = and i8 %86, %68
-  %brmerge.demorgan.i33 = trunc nuw i8 %brmerge.demorgan11.i32 to i1
-  br i1 %brmerge.demorgan.i33, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i32 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i32, label %90, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14936, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14936, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i34 = icmp eq i16 %2, 51
-  br i1 %.not.i34, label %90, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i33 = icmp eq i16 %2, 51
+  br i1 %.not.i33, label %93, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14923, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14923, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i36 = and i8 %108, %94
-  %brmerge.demorgan.i37 = trunc nuw i8 %brmerge.demorgan8.i36 to i1
-  br i1 %brmerge.demorgan.i37, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i35 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i35, label %113, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14907, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14907, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i38 = icmp eq i16 %2, 52
-  br i1 %.not.i38, label %112, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i36 = icmp eq i16 %2, 52
+  br i1 %.not.i36, label %116, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14932, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14932, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ]
+_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -50941,11 +50941,11 @@ _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEj
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86ISD_PACKUS_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit [
     i16 50, label %6
-    i16 51, label %32
-    i16 52, label %54
-    i16 60, label %63
-    i16 64, label %89
-    i16 69, label %111
+    i16 51, label %33
+    i16 52, label %56
+    i16 60, label %65
+    i16 64, label %92
+    i16 69, label %115
   ]
 
 6:                                                ; preds = %5
@@ -50987,173 +50987,173 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15011, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15011, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i25 = icmp eq i16 %2, 40
-  br i1 %.not.i25, label %33, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i25, label %34, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15001, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15001, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i27 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i27, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i27 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i27, label %54, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14991, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14991, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i28 = icmp eq i16 %2, 41
-  br i1 %.not.i28, label %55, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i28, label %57, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15007, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 15007, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i30 = icmp eq i16 %2, 50
-  br i1 %.not.i30, label %64, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i30, label %66, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14967, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14967, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 4
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 4
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3064, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3064, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i32 = and i8 %86, %68
-  %brmerge.demorgan.i33 = trunc nuw i8 %brmerge.demorgan11.i32 to i1
-  br i1 %brmerge.demorgan.i33, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i32 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i32, label %90, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14989, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14989, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i34 = icmp eq i16 %2, 51
-  br i1 %.not.i34, label %90, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i33 = icmp eq i16 %2, 51
+  br i1 %.not.i33, label %93, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14976, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14976, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i36 = and i8 %108, %94
-  %brmerge.demorgan.i37 = trunc nuw i8 %brmerge.demorgan8.i36 to i1
-  br i1 %brmerge.demorgan.i37, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i35 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i35, label %113, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14960, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14960, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i38 = icmp eq i16 %2, 52
-  br i1 %.not.i38, label %112, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i36 = icmp eq i16 %2, 52
+  br i1 %.not.i36, label %116, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14985, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 14985, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ]
+_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -51791,8 +51791,8 @@ _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_PMULUDQ_MVT_v2i64_rrEN4llvm3MVTE
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86ISD_PSADBW_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
+    i16 40, label %33
+    i16 41, label %56
   ]
 
 6:                                                ; preds = %5
@@ -51834,71 +51834,71 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19106, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19106, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i13 = icmp eq i16 %2, 80
-  br i1 %.not.i13, label %33, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i13, label %34, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19102, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19102, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i15 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i15, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i15 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i15, label %54, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19098, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19098, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i16 = icmp eq i16 %2, 81
-  br i1 %.not.i16, label %55, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i16, label %57, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19104, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19104, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ]
+_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -51906,8 +51906,8 @@ _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEj
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86ISD_PSHUFB_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
+    i16 40, label %33
+    i16 41, label %56
   ]
 
 6:                                                ; preds = %5
@@ -51949,71 +51949,71 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19472, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19472, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i13 = icmp eq i16 %2, 40
-  br i1 %.not.i13, label %33, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i13, label %34, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19462, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19462, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i15 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i15, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i15 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i15, label %54, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19452, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19452, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i16 = icmp eq i16 %2, 41
-  br i1 %.not.i16, label %55, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i16, label %57, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19468, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19468, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ]
+_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -53754,23 +53754,23 @@ _ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_UCOMX_MVT_f16_rrEN4llvm3MVTEjj.e
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86ISD_UNPCKH_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
-    i16 60, label %120
-    i16 64, label %141
-    i16 69, label %161
-    i16 78, label %170
-    i16 80, label %191
-    i16 81, label %211
-    i16 111, label %220
-    i16 115, label %241
-    i16 120, label %258
-    i16 129, label %267
-    i16 131, label %288
-    i16 132, label %305
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
+    i16 60, label %124
+    i16 64, label %145
+    i16 69, label %165
+    i16 78, label %174
+    i16 80, label %195
+    i16 81, label %215
+    i16 111, label %224
+    i16 115, label %245
+    i16 120, label %262
+    i16 129, label %271
+    i16 131, label %292
+    i16 132, label %309
   ]
 
 6:                                                ; preds = %5
@@ -53812,567 +53812,567 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20631, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20631, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i73 = icmp eq i16 %2, 40
-  br i1 %.not.i73, label %33, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i73, label %34, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20621, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20621, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i75 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i75, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i75 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i75, label %54, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20611, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20611, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i76 = icmp eq i16 %2, 41
-  br i1 %.not.i76, label %55, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i76, label %57, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20627, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20627, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i78 = icmp eq i16 %2, 50
-  br i1 %.not.i78, label %64, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i78, label %66, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20699, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20699, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3495, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3495, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i80 = and i8 %86, %68
-  %brmerge.demorgan.i81 = trunc nuw i8 %brmerge.demorgan11.i80 to i1
-  br i1 %brmerge.demorgan.i81, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i80 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i80, label %90, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20715, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20715, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i82 = icmp eq i16 %2, 51
-  br i1 %.not.i82, label %90, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i81 = icmp eq i16 %2, 51
+  br i1 %.not.i81, label %93, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20705, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20705, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i84 = and i8 %108, %94
-  %brmerge.demorgan.i85 = trunc nuw i8 %brmerge.demorgan8.i84 to i1
-  br i1 %brmerge.demorgan.i85, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i83 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i83, label %113, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20695, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20695, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i86 = icmp eq i16 %2, 52
-  br i1 %.not.i86, label %112, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i84 = icmp eq i16 %2, 52
+  br i1 %.not.i84, label %116, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20711, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20711, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-120:                                              ; preds = %5
-  %.not.i88 = icmp eq i16 %2, 60
-  br i1 %.not.i88, label %121, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+124:                                              ; preds = %5
+  %.not.i86 = icmp eq i16 %2, 60
+  br i1 %.not.i86, label %125, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %123 = load ptr, ptr %122, align 8, !tbaa !202
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 320
-  %125 = load i32, ptr %124, align 8, !tbaa !267
-  %126 = icmp sgt i32 %125, 8
-  br i1 %126, label %127, label %133
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %127 = load ptr, ptr %126, align 8, !tbaa !202
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 320
+  %129 = load i32, ptr %128, align 8, !tbaa !267
+  %130 = icmp sgt i32 %129, 8
+  br i1 %130, label %131, label %137
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 458
-  %129 = load i8, ptr %128, align 2, !tbaa !846, !range !414, !noundef !415
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %131, label %.thread9.thread.i
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 458
+  %133 = load i8, ptr %132, align 2, !tbaa !846, !range !414, !noundef !415
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %135, label %.thread9.thread.i
 
-131:                                              ; preds = %127
-  %132 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20640, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+135:                                              ; preds = %131
+  %136 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20640, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-133:                                              ; preds = %121
-  %134 = icmp sgt i32 %125, 1
-  br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+137:                                              ; preds = %125
+  %138 = icmp sgt i32 %129, 1
+  br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-135:                                              ; preds = %133
-  %136 = icmp samesign ugt i32 %125, 6
-  br i1 %136, label %.thread9.i, label %137
+139:                                              ; preds = %137
+  %140 = icmp samesign ugt i32 %129, 6
+  br i1 %140, label %.thread9.i, label %141
 
-137:                                              ; preds = %135
-  %138 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3491, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+141:                                              ; preds = %139
+  %142 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3491, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %135
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %123, i64 458
+.thread9.i:                                       ; preds = %139
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %127, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %139 = trunc nuw i8 %.pre.i to i1
-  br i1 %139, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %143 = trunc nuw i8 %.pre.i to i1
+  br i1 %143, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %127
-  %140 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20662, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %131
+  %144 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20662, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-141:                                              ; preds = %5
-  %.not.i90 = icmp eq i16 %2, 64
-  br i1 %.not.i90, label %142, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+145:                                              ; preds = %5
+  %.not.i88 = icmp eq i16 %2, 64
+  br i1 %.not.i88, label %146, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-142:                                              ; preds = %141
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %144 = load ptr, ptr %143, align 8, !tbaa !202
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 320
-  %146 = load i32, ptr %145, align 8, !tbaa !267
-  %147 = icmp sgt i32 %146, 6
-  br i1 %147, label %148, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+146:                                              ; preds = %145
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %148 = load ptr, ptr %147, align 8, !tbaa !202
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 320
+  %150 = load i32, ptr %149, align 8, !tbaa !267
+  %151 = icmp sgt i32 %150, 6
+  br i1 %151, label %152, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-148:                                              ; preds = %142
-  %.not10.i = icmp eq i32 %146, 7
-  br i1 %.not10.i, label %149, label %151
+152:                                              ; preds = %146
+  %.not10.i = icmp eq i32 %150, 7
+  br i1 %.not10.i, label %153, label %155
 
-149:                                              ; preds = %148
-  %150 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22409, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+153:                                              ; preds = %152
+  %154 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22409, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-151:                                              ; preds = %148
-  %152 = icmp samesign ugt i32 %146, 8
-  %153 = getelementptr inbounds nuw i8, ptr %144, i64 458
-  %154 = load i8, ptr %153, align 2, !tbaa !846, !range !414
-  %155 = trunc nuw i8 %154 to i1
-  br i1 %152, label %156, label %159
+155:                                              ; preds = %152
+  %156 = icmp samesign ugt i32 %150, 8
+  %157 = getelementptr inbounds nuw i8, ptr %148, i64 458
+  %158 = load i8, ptr %157, align 2, !tbaa !846, !range !414
+  %159 = trunc nuw i8 %158 to i1
+  br i1 %156, label %160, label %163
 
-156:                                              ; preds = %151
-  br i1 %155, label %157, label %.thread.i
+160:                                              ; preds = %155
+  br i1 %159, label %161, label %.thread.i
 
-157:                                              ; preds = %156
-  %158 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20649, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+161:                                              ; preds = %160
+  %162 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20649, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-159:                                              ; preds = %151
-  br i1 %155, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.i
+163:                                              ; preds = %155
+  br i1 %159, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %159, %156
-  %160 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20633, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.i:                                        ; preds = %163, %160
+  %164 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20633, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-161:                                              ; preds = %5
-  %.not.i92 = icmp eq i16 %2, 69
-  br i1 %.not.i92, label %162, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+165:                                              ; preds = %5
+  %.not.i90 = icmp eq i16 %2, 69
+  br i1 %.not.i90, label %166, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-162:                                              ; preds = %161
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %164 = load ptr, ptr %163, align 8, !tbaa !202
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 320
-  %166 = load i32, ptr %165, align 8, !tbaa !267
-  %167 = icmp sgt i32 %166, 8
-  br i1 %167, label %168, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+166:                                              ; preds = %165
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %168 = load ptr, ptr %167, align 8, !tbaa !202
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 320
+  %170 = load i32, ptr %169, align 8, !tbaa !267
+  %171 = icmp sgt i32 %170, 8
+  br i1 %171, label %172, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-168:                                              ; preds = %162
-  %169 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20658, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+172:                                              ; preds = %166
+  %173 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20658, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-170:                                              ; preds = %5
-  %.not.i94 = icmp eq i16 %2, 78
-  br i1 %.not.i94, label %171, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+174:                                              ; preds = %5
+  %.not.i92 = icmp eq i16 %2, 78
+  br i1 %.not.i92, label %175, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-171:                                              ; preds = %170
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %173 = load ptr, ptr %172, align 8, !tbaa !202
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 320
-  %175 = load i32, ptr %174, align 8, !tbaa !267
-  %176 = icmp sgt i32 %175, 8
-  br i1 %176, label %177, label %183
+175:                                              ; preds = %174
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %177 = load ptr, ptr %176, align 8, !tbaa !202
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 320
+  %179 = load i32, ptr %178, align 8, !tbaa !267
+  %180 = icmp sgt i32 %179, 8
+  br i1 %180, label %181, label %187
 
-177:                                              ; preds = %171
-  %178 = getelementptr inbounds nuw i8, ptr %173, i64 458
-  %179 = load i8, ptr %178, align 2, !tbaa !846, !range !414, !noundef !415
-  %180 = trunc nuw i8 %179 to i1
-  br i1 %180, label %181, label %.thread9.thread.i99
+181:                                              ; preds = %175
+  %182 = getelementptr inbounds nuw i8, ptr %177, i64 458
+  %183 = load i8, ptr %182, align 2, !tbaa !846, !range !414, !noundef !415
+  %184 = trunc nuw i8 %183 to i1
+  br i1 %184, label %185, label %.thread9.thread.i97
 
-181:                                              ; preds = %177
-  %182 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20671, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+185:                                              ; preds = %181
+  %186 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20671, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-183:                                              ; preds = %171
-  %184 = icmp sgt i32 %175, 1
-  br i1 %184, label %185, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+187:                                              ; preds = %175
+  %188 = icmp sgt i32 %179, 1
+  br i1 %188, label %189, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-185:                                              ; preds = %183
-  %186 = icmp samesign ugt i32 %175, 6
-  br i1 %186, label %.thread9.i96, label %187
+189:                                              ; preds = %187
+  %190 = icmp samesign ugt i32 %179, 6
+  br i1 %190, label %.thread9.i94, label %191
 
-187:                                              ; preds = %185
-  %188 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3493, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+191:                                              ; preds = %189
+  %192 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3493, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i96:                                     ; preds = %185
-  %.phi.trans.insert.i97 = getelementptr inbounds nuw i8, ptr %173, i64 458
-  %.pre.i98 = load i8, ptr %.phi.trans.insert.i97, align 2, !tbaa !846, !range !414
-  %189 = trunc nuw i8 %.pre.i98 to i1
-  br i1 %189, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i99
+.thread9.i94:                                     ; preds = %189
+  %.phi.trans.insert.i95 = getelementptr inbounds nuw i8, ptr %177, i64 458
+  %.pre.i96 = load i8, ptr %.phi.trans.insert.i95, align 2, !tbaa !846, !range !414
+  %193 = trunc nuw i8 %.pre.i96 to i1
+  br i1 %193, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i97
 
-.thread9.thread.i99:                              ; preds = %.thread9.i96, %177
-  %190 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20693, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i97:                              ; preds = %.thread9.i94, %181
+  %194 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20693, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-191:                                              ; preds = %5
-  %.not.i100 = icmp eq i16 %2, 80
-  br i1 %.not.i100, label %192, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+195:                                              ; preds = %5
+  %.not.i98 = icmp eq i16 %2, 80
+  br i1 %.not.i98, label %196, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-192:                                              ; preds = %191
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %194 = load ptr, ptr %193, align 8, !tbaa !202
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 320
-  %196 = load i32, ptr %195, align 8, !tbaa !267
-  %197 = icmp sgt i32 %196, 6
-  br i1 %197, label %198, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+196:                                              ; preds = %195
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %198 = load ptr, ptr %197, align 8, !tbaa !202
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 320
+  %200 = load i32, ptr %199, align 8, !tbaa !267
+  %201 = icmp sgt i32 %200, 6
+  br i1 %201, label %202, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-198:                                              ; preds = %192
-  %.not10.i102 = icmp eq i32 %196, 7
-  br i1 %.not10.i102, label %199, label %201
+202:                                              ; preds = %196
+  %.not10.i100 = icmp eq i32 %200, 7
+  br i1 %.not10.i100, label %203, label %205
 
-199:                                              ; preds = %198
-  %200 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22378, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+203:                                              ; preds = %202
+  %204 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22378, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-201:                                              ; preds = %198
-  %202 = icmp samesign ugt i32 %196, 8
-  %203 = getelementptr inbounds nuw i8, ptr %194, i64 458
-  %204 = load i8, ptr %203, align 2, !tbaa !846, !range !414
-  %205 = trunc nuw i8 %204 to i1
-  br i1 %202, label %206, label %209
+205:                                              ; preds = %202
+  %206 = icmp samesign ugt i32 %200, 8
+  %207 = getelementptr inbounds nuw i8, ptr %198, i64 458
+  %208 = load i8, ptr %207, align 2, !tbaa !846, !range !414
+  %209 = trunc nuw i8 %208 to i1
+  br i1 %206, label %210, label %213
 
-206:                                              ; preds = %201
-  br i1 %205, label %207, label %.thread.i103
+210:                                              ; preds = %205
+  br i1 %209, label %211, label %.thread.i101
 
-207:                                              ; preds = %206
-  %208 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20680, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+211:                                              ; preds = %210
+  %212 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20680, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-209:                                              ; preds = %201
-  br i1 %205, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.i103
+213:                                              ; preds = %205
+  br i1 %209, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.i101
 
-.thread.i103:                                     ; preds = %209, %206
-  %210 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20664, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.i101:                                     ; preds = %213, %210
+  %214 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20664, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-211:                                              ; preds = %5
-  %.not.i104 = icmp eq i16 %2, 81
-  br i1 %.not.i104, label %212, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+215:                                              ; preds = %5
+  %.not.i102 = icmp eq i16 %2, 81
+  br i1 %.not.i102, label %216, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-212:                                              ; preds = %211
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %214 = load ptr, ptr %213, align 8, !tbaa !202
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 320
-  %216 = load i32, ptr %215, align 8, !tbaa !267
-  %217 = icmp sgt i32 %216, 8
-  br i1 %217, label %218, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+216:                                              ; preds = %215
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %218 = load ptr, ptr %217, align 8, !tbaa !202
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 320
+  %220 = load i32, ptr %219, align 8, !tbaa !267
+  %221 = icmp sgt i32 %220, 8
+  br i1 %221, label %222, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-218:                                              ; preds = %212
-  %219 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20689, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+222:                                              ; preds = %216
+  %223 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20689, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-220:                                              ; preds = %5
-  %.not.i106 = icmp eq i16 %2, 111
-  br i1 %.not.i106, label %221, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+224:                                              ; preds = %5
+  %.not.i104 = icmp eq i16 %2, 111
+  br i1 %.not.i104, label %225, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-221:                                              ; preds = %220
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %223 = load ptr, ptr %222, align 8, !tbaa !202
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 320
-  %225 = load i32, ptr %224, align 8, !tbaa !267
-  %226 = icmp sgt i32 %225, 8
-  br i1 %226, label %227, label %233
+225:                                              ; preds = %224
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %227 = load ptr, ptr %226, align 8, !tbaa !202
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 320
+  %229 = load i32, ptr %228, align 8, !tbaa !267
+  %230 = icmp sgt i32 %229, 8
+  br i1 %230, label %231, label %237
 
-227:                                              ; preds = %221
-  %228 = getelementptr inbounds nuw i8, ptr %223, i64 458
-  %229 = load i8, ptr %228, align 2, !tbaa !846, !range !414, !noundef !415
-  %230 = trunc nuw i8 %229 to i1
-  br i1 %230, label %231, label %.thread9.thread.i111
+231:                                              ; preds = %225
+  %232 = getelementptr inbounds nuw i8, ptr %227, i64 458
+  %233 = load i8, ptr %232, align 2, !tbaa !846, !range !414, !noundef !415
+  %234 = trunc nuw i8 %233 to i1
+  br i1 %234, label %235, label %.thread9.thread.i109
 
-231:                                              ; preds = %227
-  %232 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22416, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+235:                                              ; preds = %231
+  %236 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22416, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-233:                                              ; preds = %221
-  %234 = icmp sgt i32 %225, 0
-  br i1 %234, label %235, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+237:                                              ; preds = %225
+  %238 = icmp sgt i32 %229, 0
+  br i1 %238, label %239, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-235:                                              ; preds = %233
-  %236 = icmp samesign ugt i32 %225, 6
-  br i1 %236, label %.thread9.i108, label %237
+239:                                              ; preds = %237
+  %240 = icmp samesign ugt i32 %229, 6
+  br i1 %240, label %.thread9.i106, label %241
 
-237:                                              ; preds = %235
-  %238 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5117, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+241:                                              ; preds = %239
+  %242 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5117, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i108:                                    ; preds = %235
-  %.phi.trans.insert.i109 = getelementptr inbounds nuw i8, ptr %223, i64 458
-  %.pre.i110 = load i8, ptr %.phi.trans.insert.i109, align 2, !tbaa !846, !range !414
-  %239 = trunc nuw i8 %.pre.i110 to i1
-  br i1 %239, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i111
+.thread9.i106:                                    ; preds = %239
+  %.phi.trans.insert.i107 = getelementptr inbounds nuw i8, ptr %227, i64 458
+  %.pre.i108 = load i8, ptr %.phi.trans.insert.i107, align 2, !tbaa !846, !range !414
+  %243 = trunc nuw i8 %.pre.i108 to i1
+  br i1 %243, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i109
 
-.thread9.thread.i111:                             ; preds = %.thread9.i108, %227
-  %240 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22438, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i109:                             ; preds = %.thread9.i106, %231
+  %244 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22438, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-241:                                              ; preds = %5
-  %.not.i112 = icmp eq i16 %2, 115
-  br i1 %.not.i112, label %242, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+245:                                              ; preds = %5
+  %.not.i110 = icmp eq i16 %2, 115
+  br i1 %.not.i110, label %246, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-242:                                              ; preds = %241
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %244 = load ptr, ptr %243, align 8, !tbaa !202
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 320
-  %246 = load i32, ptr %245, align 8, !tbaa !267
-  %247 = icmp sgt i32 %246, 8
-  br i1 %247, label %248, label %254
+246:                                              ; preds = %245
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %248 = load ptr, ptr %247, align 8, !tbaa !202
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 320
+  %250 = load i32, ptr %249, align 8, !tbaa !267
+  %251 = icmp sgt i32 %250, 8
+  br i1 %251, label %252, label %258
 
-248:                                              ; preds = %242
-  %249 = getelementptr inbounds nuw i8, ptr %244, i64 458
-  %250 = load i8, ptr %249, align 2, !tbaa !846, !range !414, !noundef !415
-  %251 = trunc nuw i8 %250 to i1
-  br i1 %251, label %252, label %.thread.thread.i
+252:                                              ; preds = %246
+  %253 = getelementptr inbounds nuw i8, ptr %248, i64 458
+  %254 = load i8, ptr %253, align 2, !tbaa !846, !range !414, !noundef !415
+  %255 = trunc nuw i8 %254 to i1
+  br i1 %255, label %256, label %.thread.thread.i
 
-252:                                              ; preds = %248
-  %253 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22425, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+256:                                              ; preds = %252
+  %257 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22425, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-254:                                              ; preds = %242
-  %255 = icmp sgt i32 %246, 6
-  br i1 %255, label %.thread.i114, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+258:                                              ; preds = %246
+  %259 = icmp sgt i32 %250, 6
+  br i1 %259, label %.thread.i112, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i114:                                     ; preds = %254
-  %.phi.trans.insert.i115 = getelementptr inbounds nuw i8, ptr %244, i64 458
-  %.pre.i116 = load i8, ptr %.phi.trans.insert.i115, align 2, !tbaa !846, !range !414
-  %256 = trunc nuw i8 %.pre.i116 to i1
-  br i1 %256, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
+.thread.i112:                                     ; preds = %258
+  %.phi.trans.insert.i113 = getelementptr inbounds nuw i8, ptr %248, i64 458
+  %.pre.i114 = load i8, ptr %.phi.trans.insert.i113, align 2, !tbaa !846, !range !414
+  %260 = trunc nuw i8 %.pre.i114 to i1
+  br i1 %260, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %.thread.i114, %248
-  %257 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22409, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i:                                 ; preds = %.thread.i112, %252
+  %261 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22409, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-258:                                              ; preds = %5
-  %.not.i117 = icmp eq i16 %2, 120
-  br i1 %.not.i117, label %259, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+262:                                              ; preds = %5
+  %.not.i115 = icmp eq i16 %2, 120
+  br i1 %.not.i115, label %263, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-259:                                              ; preds = %258
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %261 = load ptr, ptr %260, align 8, !tbaa !202
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 320
-  %263 = load i32, ptr %262, align 8, !tbaa !267
-  %264 = icmp sgt i32 %263, 8
-  br i1 %264, label %265, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+263:                                              ; preds = %262
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %265 = load ptr, ptr %264, align 8, !tbaa !202
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 320
+  %267 = load i32, ptr %266, align 8, !tbaa !267
+  %268 = icmp sgt i32 %267, 8
+  br i1 %268, label %269, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-265:                                              ; preds = %259
-  %266 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22434, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+269:                                              ; preds = %263
+  %270 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22434, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-267:                                              ; preds = %5
-  %.not.i119 = icmp eq i16 %2, 129
-  br i1 %.not.i119, label %268, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+271:                                              ; preds = %5
+  %.not.i117 = icmp eq i16 %2, 129
+  br i1 %.not.i117, label %272, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-268:                                              ; preds = %267
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %270 = load ptr, ptr %269, align 8, !tbaa !202
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 320
-  %272 = load i32, ptr %271, align 8, !tbaa !267
-  %273 = icmp sgt i32 %272, 8
-  br i1 %273, label %274, label %280
+272:                                              ; preds = %271
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %274 = load ptr, ptr %273, align 8, !tbaa !202
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 320
+  %276 = load i32, ptr %275, align 8, !tbaa !267
+  %277 = icmp sgt i32 %276, 8
+  br i1 %277, label %278, label %284
 
-274:                                              ; preds = %268
-  %275 = getelementptr inbounds nuw i8, ptr %270, i64 458
-  %276 = load i8, ptr %275, align 2, !tbaa !846, !range !414, !noundef !415
-  %277 = trunc nuw i8 %276 to i1
-  br i1 %277, label %278, label %.thread9.thread.i124
+278:                                              ; preds = %272
+  %279 = getelementptr inbounds nuw i8, ptr %274, i64 458
+  %280 = load i8, ptr %279, align 2, !tbaa !846, !range !414, !noundef !415
+  %281 = trunc nuw i8 %280 to i1
+  br i1 %281, label %282, label %.thread9.thread.i122
 
-278:                                              ; preds = %274
-  %279 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22385, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+282:                                              ; preds = %278
+  %283 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22385, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-280:                                              ; preds = %268
-  %281 = icmp sgt i32 %272, 1
-  br i1 %281, label %282, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+284:                                              ; preds = %272
+  %285 = icmp sgt i32 %276, 1
+  br i1 %285, label %286, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-282:                                              ; preds = %280
-  %283 = icmp samesign ugt i32 %272, 6
-  br i1 %283, label %.thread9.i121, label %284
+286:                                              ; preds = %284
+  %287 = icmp samesign ugt i32 %276, 6
+  br i1 %287, label %.thread9.i119, label %288
 
-284:                                              ; preds = %282
-  %285 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5115, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+288:                                              ; preds = %286
+  %289 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5115, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i121:                                    ; preds = %282
-  %.phi.trans.insert.i122 = getelementptr inbounds nuw i8, ptr %270, i64 458
-  %.pre.i123 = load i8, ptr %.phi.trans.insert.i122, align 2, !tbaa !846, !range !414
-  %286 = trunc nuw i8 %.pre.i123 to i1
-  br i1 %286, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i124
+.thread9.i119:                                    ; preds = %286
+  %.phi.trans.insert.i120 = getelementptr inbounds nuw i8, ptr %274, i64 458
+  %.pre.i121 = load i8, ptr %.phi.trans.insert.i120, align 2, !tbaa !846, !range !414
+  %290 = trunc nuw i8 %.pre.i121 to i1
+  br i1 %290, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i122
 
-.thread9.thread.i124:                             ; preds = %.thread9.i121, %274
-  %287 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22407, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i122:                             ; preds = %.thread9.i119, %278
+  %291 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22407, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-288:                                              ; preds = %5
-  %.not.i125 = icmp eq i16 %2, 131
-  br i1 %.not.i125, label %289, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+292:                                              ; preds = %5
+  %.not.i123 = icmp eq i16 %2, 131
+  br i1 %.not.i123, label %293, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-289:                                              ; preds = %288
-  %290 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %291 = load ptr, ptr %290, align 8, !tbaa !202
-  %292 = getelementptr inbounds nuw i8, ptr %291, i64 320
-  %293 = load i32, ptr %292, align 8, !tbaa !267
-  %294 = icmp sgt i32 %293, 8
-  br i1 %294, label %295, label %301
+293:                                              ; preds = %292
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %295 = load ptr, ptr %294, align 8, !tbaa !202
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 320
+  %297 = load i32, ptr %296, align 8, !tbaa !267
+  %298 = icmp sgt i32 %297, 8
+  br i1 %298, label %299, label %305
 
-295:                                              ; preds = %289
-  %296 = getelementptr inbounds nuw i8, ptr %291, i64 458
-  %297 = load i8, ptr %296, align 2, !tbaa !846, !range !414, !noundef !415
-  %298 = trunc nuw i8 %297 to i1
-  br i1 %298, label %299, label %.thread.thread.i130
+299:                                              ; preds = %293
+  %300 = getelementptr inbounds nuw i8, ptr %295, i64 458
+  %301 = load i8, ptr %300, align 2, !tbaa !846, !range !414, !noundef !415
+  %302 = trunc nuw i8 %301 to i1
+  br i1 %302, label %303, label %.thread.thread.i128
 
-299:                                              ; preds = %295
-  %300 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22394, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+303:                                              ; preds = %299
+  %304 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22394, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-301:                                              ; preds = %289
-  %302 = icmp sgt i32 %293, 6
-  br i1 %302, label %.thread.i127, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+305:                                              ; preds = %293
+  %306 = icmp sgt i32 %297, 6
+  br i1 %306, label %.thread.i125, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i127:                                     ; preds = %301
-  %.phi.trans.insert.i128 = getelementptr inbounds nuw i8, ptr %291, i64 458
-  %.pre.i129 = load i8, ptr %.phi.trans.insert.i128, align 2, !tbaa !846, !range !414
-  %303 = trunc nuw i8 %.pre.i129 to i1
-  br i1 %303, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i130
+.thread.i125:                                     ; preds = %305
+  %.phi.trans.insert.i126 = getelementptr inbounds nuw i8, ptr %295, i64 458
+  %.pre.i127 = load i8, ptr %.phi.trans.insert.i126, align 2, !tbaa !846, !range !414
+  %307 = trunc nuw i8 %.pre.i127 to i1
+  br i1 %307, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i128
 
-.thread.thread.i130:                              ; preds = %.thread.i127, %295
-  %304 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22378, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i128:                              ; preds = %.thread.i125, %299
+  %308 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22378, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-305:                                              ; preds = %5
-  %.not.i131 = icmp eq i16 %2, 132
-  br i1 %.not.i131, label %306, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+309:                                              ; preds = %5
+  %.not.i129 = icmp eq i16 %2, 132
+  br i1 %.not.i129, label %310, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-306:                                              ; preds = %305
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %308 = load ptr, ptr %307, align 8, !tbaa !202
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 320
-  %310 = load i32, ptr %309, align 8, !tbaa !267
-  %311 = icmp sgt i32 %310, 8
-  br i1 %311, label %312, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+310:                                              ; preds = %309
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %312 = load ptr, ptr %311, align 8, !tbaa !202
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 320
+  %314 = load i32, ptr %313, align 8, !tbaa !267
+  %315 = icmp sgt i32 %314, 8
+  br i1 %315, label %316, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-312:                                              ; preds = %306
-  %313 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22403, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+316:                                              ; preds = %310
+  %317 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22403, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %312, %306, %305, %.thread.thread.i130, %.thread.i127, %301, %299, %288, %.thread9.thread.i124, %.thread9.i121, %284, %280, %278, %267, %265, %259, %258, %.thread.thread.i, %.thread.i114, %254, %252, %241, %.thread9.thread.i111, %.thread9.i108, %237, %233, %231, %220, %218, %212, %211, %.thread.i103, %209, %207, %199, %192, %191, %.thread9.thread.i99, %.thread9.i96, %187, %183, %181, %170, %168, %162, %161, %.thread.i, %159, %157, %149, %142, %141, %.thread9.thread.i, %.thread9.i, %137, %133, %131, %120, %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ], [ %132, %131 ], [ %140, %.thread9.thread.i ], [ %138, %137 ], [ 0, %120 ], [ 0, %.thread9.i ], [ 0, %133 ], [ %158, %157 ], [ %160, %.thread.i ], [ %150, %149 ], [ 0, %141 ], [ 0, %159 ], [ 0, %142 ], [ %169, %168 ], [ 0, %161 ], [ 0, %162 ], [ %182, %181 ], [ %190, %.thread9.thread.i99 ], [ %188, %187 ], [ 0, %170 ], [ 0, %.thread9.i96 ], [ 0, %183 ], [ %208, %207 ], [ %210, %.thread.i103 ], [ %200, %199 ], [ 0, %191 ], [ 0, %209 ], [ 0, %192 ], [ %219, %218 ], [ 0, %211 ], [ 0, %212 ], [ %232, %231 ], [ %240, %.thread9.thread.i111 ], [ %238, %237 ], [ 0, %220 ], [ 0, %.thread9.i108 ], [ 0, %233 ], [ %253, %252 ], [ %257, %.thread.thread.i ], [ 0, %241 ], [ 0, %.thread.i114 ], [ 0, %254 ], [ %266, %265 ], [ 0, %258 ], [ 0, %259 ], [ %279, %278 ], [ %287, %.thread9.thread.i124 ], [ %285, %284 ], [ 0, %267 ], [ 0, %.thread9.i121 ], [ 0, %280 ], [ %300, %299 ], [ %304, %.thread.thread.i130 ], [ 0, %288 ], [ 0, %.thread.i127 ], [ 0, %301 ], [ %313, %312 ], [ 0, %305 ], [ 0, %306 ]
+_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %316, %310, %309, %.thread.thread.i128, %.thread.i125, %305, %303, %292, %.thread9.thread.i122, %.thread9.i119, %288, %284, %282, %271, %269, %263, %262, %.thread.thread.i, %.thread.i112, %258, %256, %245, %.thread9.thread.i109, %.thread9.i106, %241, %237, %235, %224, %222, %216, %215, %.thread.i101, %213, %211, %203, %196, %195, %.thread9.thread.i97, %.thread9.i94, %191, %187, %185, %174, %172, %166, %165, %.thread.i, %163, %161, %153, %146, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %162, %161 ], [ %164, %.thread.i ], [ %154, %153 ], [ 0, %145 ], [ 0, %163 ], [ 0, %146 ], [ %173, %172 ], [ 0, %165 ], [ 0, %166 ], [ %186, %185 ], [ %194, %.thread9.thread.i97 ], [ %192, %191 ], [ 0, %174 ], [ 0, %.thread9.i94 ], [ 0, %187 ], [ %212, %211 ], [ %214, %.thread.i101 ], [ %204, %203 ], [ 0, %195 ], [ 0, %213 ], [ 0, %196 ], [ %223, %222 ], [ 0, %215 ], [ 0, %216 ], [ %236, %235 ], [ %244, %.thread9.thread.i109 ], [ %242, %241 ], [ 0, %224 ], [ 0, %.thread9.i106 ], [ 0, %237 ], [ %257, %256 ], [ %261, %.thread.thread.i ], [ 0, %245 ], [ 0, %.thread.i112 ], [ 0, %258 ], [ %270, %269 ], [ 0, %262 ], [ 0, %263 ], [ %283, %282 ], [ %291, %.thread9.thread.i122 ], [ %289, %288 ], [ 0, %271 ], [ 0, %.thread9.i119 ], [ 0, %284 ], [ %304, %303 ], [ %308, %.thread.thread.i128 ], [ 0, %292 ], [ 0, %.thread.i125 ], [ 0, %305 ], [ %317, %316 ], [ 0, %309 ], [ 0, %310 ]
   ret i32 %.0
 }
 
@@ -54380,23 +54380,23 @@ _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEj
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86ISD_UNPCKL_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
-    i16 50, label %63
-    i16 51, label %89
-    i16 52, label %111
-    i16 60, label %120
-    i16 64, label %141
-    i16 69, label %161
-    i16 78, label %170
-    i16 80, label %191
-    i16 81, label %211
-    i16 111, label %220
-    i16 115, label %241
-    i16 120, label %258
-    i16 129, label %267
-    i16 131, label %288
-    i16 132, label %305
+    i16 40, label %33
+    i16 41, label %56
+    i16 50, label %65
+    i16 51, label %92
+    i16 52, label %115
+    i16 60, label %124
+    i16 64, label %145
+    i16 69, label %165
+    i16 78, label %174
+    i16 80, label %195
+    i16 81, label %215
+    i16 111, label %224
+    i16 115, label %245
+    i16 120, label %262
+    i16 129, label %271
+    i16 131, label %292
+    i16 132, label %309
   ]
 
 6:                                                ; preds = %5
@@ -54438,567 +54438,567 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20737, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20737, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i73 = icmp eq i16 %2, 40
-  br i1 %.not.i73, label %33, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i73, label %34, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20727, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20727, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i75 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i75, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i75 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i75, label %54, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20717, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20717, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i76 = icmp eq i16 %2, 41
-  br i1 %.not.i76, label %55, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i76, label %57, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20733, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20733, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-63:                                               ; preds = %5
+65:                                               ; preds = %5
   %.not.i78 = icmp eq i16 %2, 50
-  br i1 %.not.i78, label %64, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i78, label %66, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load ptr, ptr %65, align 8, !tbaa !202
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 355
-  %68 = load i8, ptr %67, align 1, !tbaa !1343, !range !414, !noundef !415
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 355
+  %70 = load i8, ptr %69, align 1, !tbaa !1343, !range !414, !noundef !415
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %78
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %72 = load i8, ptr %71, align 2, !tbaa !846, !range !414, !noundef !415
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %74 = load i8, ptr %73, align 2, !tbaa !846, !range !414, !noundef !415
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %70
-  %75 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20805, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+76:                                               ; preds = %72
+  %77 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20805, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-76:                                               ; preds = %70, %64
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !267
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+78:                                               ; preds = %72, %66
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 320
+  %80 = load i32, ptr %79, align 8, !tbaa !267
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %78, 6
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %78
+  %83 = icmp samesign ugt i32 %80, 6
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3503, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+84:                                               ; preds = %82
+  %85 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3503, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %66, i64 458
-  %86 = load i8, ptr %85, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i80 = and i8 %86, %68
-  %brmerge.demorgan.i81 = trunc nuw i8 %brmerge.demorgan11.i80 to i1
-  br i1 %brmerge.demorgan.i81, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 458
+  %88 = load i8, ptr %87, align 2, !tbaa !846, !range !414, !noundef !415
+  %89 = and i8 %88, %70
+  %brmerge.demorgan.not.i80 = icmp eq i8 %89, 0
+  br i1 %brmerge.demorgan.not.i80, label %90, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-87:                                               ; preds = %84
-  %88 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20821, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+90:                                               ; preds = %86
+  %91 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20821, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-89:                                               ; preds = %5
-  %.not.i82 = icmp eq i16 %2, 51
-  br i1 %.not.i82, label %90, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+92:                                               ; preds = %5
+  %.not.i81 = icmp eq i16 %2, 51
+  br i1 %.not.i81, label %93, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load ptr, ptr %91, align 8, !tbaa !202
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 355
-  %94 = load i8, ptr %93, align 1, !tbaa !1343, !range !414, !noundef !415
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %102
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 355
+  %97 = load i8, ptr %96, align 1, !tbaa !1343, !range !414, !noundef !415
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %98 = load i8, ptr %97, align 2, !tbaa !846, !range !414, !noundef !415
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %102
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %101 = load i8, ptr %100, align 2, !tbaa !846, !range !414, !noundef !415
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-100:                                              ; preds = %96
-  %101 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20811, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+103:                                              ; preds = %99
+  %104 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20811, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-102:                                              ; preds = %96, %90
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 320
-  %104 = load i32, ptr %103, align 8, !tbaa !267
-  %105 = icmp sgt i32 %104, 7
-  br i1 %105, label %106, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+105:                                              ; preds = %99, %93
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 320
+  %107 = load i32, ptr %106, align 8, !tbaa !267
+  %108 = icmp sgt i32 %107, 7
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 458
-  %108 = load i8, ptr %107, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i84 = and i8 %108, %94
-  %brmerge.demorgan.i85 = trunc nuw i8 %brmerge.demorgan8.i84 to i1
-  br i1 %brmerge.demorgan.i85, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %109
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 458
+  %111 = load i8, ptr %110, align 2, !tbaa !846, !range !414, !noundef !415
+  %112 = and i8 %111, %97
+  %brmerge.demorgan.not.i83 = icmp eq i8 %112, 0
+  br i1 %brmerge.demorgan.not.i83, label %113, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20801, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+113:                                              ; preds = %109
+  %114 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20801, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-111:                                              ; preds = %5
-  %.not.i86 = icmp eq i16 %2, 52
-  br i1 %.not.i86, label %112, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+115:                                              ; preds = %5
+  %.not.i84 = icmp eq i16 %2, 52
+  br i1 %.not.i84, label %116, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !202
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 355
-  %116 = load i8, ptr %115, align 1, !tbaa !1343, !range !414, !noundef !415
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %118 = load ptr, ptr %117, align 8, !tbaa !202
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 355
+  %120 = load i8, ptr %119, align 1, !tbaa !1343, !range !414, !noundef !415
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-118:                                              ; preds = %112
-  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20817, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+122:                                              ; preds = %116
+  %123 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20817, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-120:                                              ; preds = %5
-  %.not.i88 = icmp eq i16 %2, 60
-  br i1 %.not.i88, label %121, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+124:                                              ; preds = %5
+  %.not.i86 = icmp eq i16 %2, 60
+  br i1 %.not.i86, label %125, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %123 = load ptr, ptr %122, align 8, !tbaa !202
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 320
-  %125 = load i32, ptr %124, align 8, !tbaa !267
-  %126 = icmp sgt i32 %125, 8
-  br i1 %126, label %127, label %133
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %127 = load ptr, ptr %126, align 8, !tbaa !202
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 320
+  %129 = load i32, ptr %128, align 8, !tbaa !267
+  %130 = icmp sgt i32 %129, 8
+  br i1 %130, label %131, label %137
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 458
-  %129 = load i8, ptr %128, align 2, !tbaa !846, !range !414, !noundef !415
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %131, label %.thread9.thread.i
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 458
+  %133 = load i8, ptr %132, align 2, !tbaa !846, !range !414, !noundef !415
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %135, label %.thread9.thread.i
 
-131:                                              ; preds = %127
-  %132 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20746, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+135:                                              ; preds = %131
+  %136 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20746, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-133:                                              ; preds = %121
-  %134 = icmp sgt i32 %125, 1
-  br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+137:                                              ; preds = %125
+  %138 = icmp sgt i32 %129, 1
+  br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-135:                                              ; preds = %133
-  %136 = icmp samesign ugt i32 %125, 6
-  br i1 %136, label %.thread9.i, label %137
+139:                                              ; preds = %137
+  %140 = icmp samesign ugt i32 %129, 6
+  br i1 %140, label %.thread9.i, label %141
 
-137:                                              ; preds = %135
-  %138 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3499, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+141:                                              ; preds = %139
+  %142 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3499, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %135
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %123, i64 458
+.thread9.i:                                       ; preds = %139
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %127, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %139 = trunc nuw i8 %.pre.i to i1
-  br i1 %139, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %143 = trunc nuw i8 %.pre.i to i1
+  br i1 %143, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %127
-  %140 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20768, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %131
+  %144 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20768, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-141:                                              ; preds = %5
-  %.not.i90 = icmp eq i16 %2, 64
-  br i1 %.not.i90, label %142, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+145:                                              ; preds = %5
+  %.not.i88 = icmp eq i16 %2, 64
+  br i1 %.not.i88, label %146, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-142:                                              ; preds = %141
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %144 = load ptr, ptr %143, align 8, !tbaa !202
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 320
-  %146 = load i32, ptr %145, align 8, !tbaa !267
-  %147 = icmp sgt i32 %146, 6
-  br i1 %147, label %148, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+146:                                              ; preds = %145
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %148 = load ptr, ptr %147, align 8, !tbaa !202
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 320
+  %150 = load i32, ptr %149, align 8, !tbaa !267
+  %151 = icmp sgt i32 %150, 6
+  br i1 %151, label %152, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-148:                                              ; preds = %142
-  %.not10.i = icmp eq i32 %146, 7
-  br i1 %.not10.i, label %149, label %151
+152:                                              ; preds = %146
+  %.not10.i = icmp eq i32 %150, 7
+  br i1 %.not10.i, label %153, label %155
 
-149:                                              ; preds = %148
-  %150 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22471, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+153:                                              ; preds = %152
+  %154 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22471, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-151:                                              ; preds = %148
-  %152 = icmp samesign ugt i32 %146, 8
-  %153 = getelementptr inbounds nuw i8, ptr %144, i64 458
-  %154 = load i8, ptr %153, align 2, !tbaa !846, !range !414
-  %155 = trunc nuw i8 %154 to i1
-  br i1 %152, label %156, label %159
+155:                                              ; preds = %152
+  %156 = icmp samesign ugt i32 %150, 8
+  %157 = getelementptr inbounds nuw i8, ptr %148, i64 458
+  %158 = load i8, ptr %157, align 2, !tbaa !846, !range !414
+  %159 = trunc nuw i8 %158 to i1
+  br i1 %156, label %160, label %163
 
-156:                                              ; preds = %151
-  br i1 %155, label %157, label %.thread.i
+160:                                              ; preds = %155
+  br i1 %159, label %161, label %.thread.i
 
-157:                                              ; preds = %156
-  %158 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20755, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+161:                                              ; preds = %160
+  %162 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20755, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-159:                                              ; preds = %151
-  br i1 %155, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.i
+163:                                              ; preds = %155
+  br i1 %159, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %159, %156
-  %160 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20739, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.i:                                        ; preds = %163, %160
+  %164 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20739, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-161:                                              ; preds = %5
-  %.not.i92 = icmp eq i16 %2, 69
-  br i1 %.not.i92, label %162, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+165:                                              ; preds = %5
+  %.not.i90 = icmp eq i16 %2, 69
+  br i1 %.not.i90, label %166, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-162:                                              ; preds = %161
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %164 = load ptr, ptr %163, align 8, !tbaa !202
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 320
-  %166 = load i32, ptr %165, align 8, !tbaa !267
-  %167 = icmp sgt i32 %166, 8
-  br i1 %167, label %168, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+166:                                              ; preds = %165
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %168 = load ptr, ptr %167, align 8, !tbaa !202
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 320
+  %170 = load i32, ptr %169, align 8, !tbaa !267
+  %171 = icmp sgt i32 %170, 8
+  br i1 %171, label %172, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-168:                                              ; preds = %162
-  %169 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20764, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+172:                                              ; preds = %166
+  %173 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20764, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-170:                                              ; preds = %5
-  %.not.i94 = icmp eq i16 %2, 78
-  br i1 %.not.i94, label %171, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+174:                                              ; preds = %5
+  %.not.i92 = icmp eq i16 %2, 78
+  br i1 %.not.i92, label %175, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-171:                                              ; preds = %170
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %173 = load ptr, ptr %172, align 8, !tbaa !202
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 320
-  %175 = load i32, ptr %174, align 8, !tbaa !267
-  %176 = icmp sgt i32 %175, 8
-  br i1 %176, label %177, label %183
+175:                                              ; preds = %174
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %177 = load ptr, ptr %176, align 8, !tbaa !202
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 320
+  %179 = load i32, ptr %178, align 8, !tbaa !267
+  %180 = icmp sgt i32 %179, 8
+  br i1 %180, label %181, label %187
 
-177:                                              ; preds = %171
-  %178 = getelementptr inbounds nuw i8, ptr %173, i64 458
-  %179 = load i8, ptr %178, align 2, !tbaa !846, !range !414, !noundef !415
-  %180 = trunc nuw i8 %179 to i1
-  br i1 %180, label %181, label %.thread9.thread.i99
+181:                                              ; preds = %175
+  %182 = getelementptr inbounds nuw i8, ptr %177, i64 458
+  %183 = load i8, ptr %182, align 2, !tbaa !846, !range !414, !noundef !415
+  %184 = trunc nuw i8 %183 to i1
+  br i1 %184, label %185, label %.thread9.thread.i97
 
-181:                                              ; preds = %177
-  %182 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20777, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+185:                                              ; preds = %181
+  %186 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20777, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-183:                                              ; preds = %171
-  %184 = icmp sgt i32 %175, 1
-  br i1 %184, label %185, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+187:                                              ; preds = %175
+  %188 = icmp sgt i32 %179, 1
+  br i1 %188, label %189, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-185:                                              ; preds = %183
-  %186 = icmp samesign ugt i32 %175, 6
-  br i1 %186, label %.thread9.i96, label %187
+189:                                              ; preds = %187
+  %190 = icmp samesign ugt i32 %179, 6
+  br i1 %190, label %.thread9.i94, label %191
 
-187:                                              ; preds = %185
-  %188 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3501, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+191:                                              ; preds = %189
+  %192 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3501, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i96:                                     ; preds = %185
-  %.phi.trans.insert.i97 = getelementptr inbounds nuw i8, ptr %173, i64 458
-  %.pre.i98 = load i8, ptr %.phi.trans.insert.i97, align 2, !tbaa !846, !range !414
-  %189 = trunc nuw i8 %.pre.i98 to i1
-  br i1 %189, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i99
+.thread9.i94:                                     ; preds = %189
+  %.phi.trans.insert.i95 = getelementptr inbounds nuw i8, ptr %177, i64 458
+  %.pre.i96 = load i8, ptr %.phi.trans.insert.i95, align 2, !tbaa !846, !range !414
+  %193 = trunc nuw i8 %.pre.i96 to i1
+  br i1 %193, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i97
 
-.thread9.thread.i99:                              ; preds = %.thread9.i96, %177
-  %190 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20799, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i97:                              ; preds = %.thread9.i94, %181
+  %194 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20799, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-191:                                              ; preds = %5
-  %.not.i100 = icmp eq i16 %2, 80
-  br i1 %.not.i100, label %192, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+195:                                              ; preds = %5
+  %.not.i98 = icmp eq i16 %2, 80
+  br i1 %.not.i98, label %196, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-192:                                              ; preds = %191
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %194 = load ptr, ptr %193, align 8, !tbaa !202
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 320
-  %196 = load i32, ptr %195, align 8, !tbaa !267
-  %197 = icmp sgt i32 %196, 6
-  br i1 %197, label %198, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+196:                                              ; preds = %195
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %198 = load ptr, ptr %197, align 8, !tbaa !202
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 320
+  %200 = load i32, ptr %199, align 8, !tbaa !267
+  %201 = icmp sgt i32 %200, 6
+  br i1 %201, label %202, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-198:                                              ; preds = %192
-  %.not10.i102 = icmp eq i32 %196, 7
-  br i1 %.not10.i102, label %199, label %201
+202:                                              ; preds = %196
+  %.not10.i100 = icmp eq i32 %200, 7
+  br i1 %.not10.i100, label %203, label %205
 
-199:                                              ; preds = %198
-  %200 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22440, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+203:                                              ; preds = %202
+  %204 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22440, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-201:                                              ; preds = %198
-  %202 = icmp samesign ugt i32 %196, 8
-  %203 = getelementptr inbounds nuw i8, ptr %194, i64 458
-  %204 = load i8, ptr %203, align 2, !tbaa !846, !range !414
-  %205 = trunc nuw i8 %204 to i1
-  br i1 %202, label %206, label %209
+205:                                              ; preds = %202
+  %206 = icmp samesign ugt i32 %200, 8
+  %207 = getelementptr inbounds nuw i8, ptr %198, i64 458
+  %208 = load i8, ptr %207, align 2, !tbaa !846, !range !414
+  %209 = trunc nuw i8 %208 to i1
+  br i1 %206, label %210, label %213
 
-206:                                              ; preds = %201
-  br i1 %205, label %207, label %.thread.i103
+210:                                              ; preds = %205
+  br i1 %209, label %211, label %.thread.i101
 
-207:                                              ; preds = %206
-  %208 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20786, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+211:                                              ; preds = %210
+  %212 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20786, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-209:                                              ; preds = %201
-  br i1 %205, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.i103
+213:                                              ; preds = %205
+  br i1 %209, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.i101
 
-.thread.i103:                                     ; preds = %209, %206
-  %210 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20770, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.i101:                                     ; preds = %213, %210
+  %214 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20770, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-211:                                              ; preds = %5
-  %.not.i104 = icmp eq i16 %2, 81
-  br i1 %.not.i104, label %212, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+215:                                              ; preds = %5
+  %.not.i102 = icmp eq i16 %2, 81
+  br i1 %.not.i102, label %216, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-212:                                              ; preds = %211
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %214 = load ptr, ptr %213, align 8, !tbaa !202
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 320
-  %216 = load i32, ptr %215, align 8, !tbaa !267
-  %217 = icmp sgt i32 %216, 8
-  br i1 %217, label %218, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+216:                                              ; preds = %215
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %218 = load ptr, ptr %217, align 8, !tbaa !202
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 320
+  %220 = load i32, ptr %219, align 8, !tbaa !267
+  %221 = icmp sgt i32 %220, 8
+  br i1 %221, label %222, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-218:                                              ; preds = %212
-  %219 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20795, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+222:                                              ; preds = %216
+  %223 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20795, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-220:                                              ; preds = %5
-  %.not.i106 = icmp eq i16 %2, 111
-  br i1 %.not.i106, label %221, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+224:                                              ; preds = %5
+  %.not.i104 = icmp eq i16 %2, 111
+  br i1 %.not.i104, label %225, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-221:                                              ; preds = %220
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %223 = load ptr, ptr %222, align 8, !tbaa !202
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 320
-  %225 = load i32, ptr %224, align 8, !tbaa !267
-  %226 = icmp sgt i32 %225, 8
-  br i1 %226, label %227, label %233
+225:                                              ; preds = %224
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %227 = load ptr, ptr %226, align 8, !tbaa !202
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 320
+  %229 = load i32, ptr %228, align 8, !tbaa !267
+  %230 = icmp sgt i32 %229, 8
+  br i1 %230, label %231, label %237
 
-227:                                              ; preds = %221
-  %228 = getelementptr inbounds nuw i8, ptr %223, i64 458
-  %229 = load i8, ptr %228, align 2, !tbaa !846, !range !414, !noundef !415
-  %230 = trunc nuw i8 %229 to i1
-  br i1 %230, label %231, label %.thread9.thread.i111
+231:                                              ; preds = %225
+  %232 = getelementptr inbounds nuw i8, ptr %227, i64 458
+  %233 = load i8, ptr %232, align 2, !tbaa !846, !range !414, !noundef !415
+  %234 = trunc nuw i8 %233 to i1
+  br i1 %234, label %235, label %.thread9.thread.i109
 
-231:                                              ; preds = %227
-  %232 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22478, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+235:                                              ; preds = %231
+  %236 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22478, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-233:                                              ; preds = %221
-  %234 = icmp sgt i32 %225, 0
-  br i1 %234, label %235, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+237:                                              ; preds = %225
+  %238 = icmp sgt i32 %229, 0
+  br i1 %238, label %239, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-235:                                              ; preds = %233
-  %236 = icmp samesign ugt i32 %225, 6
-  br i1 %236, label %.thread9.i108, label %237
+239:                                              ; preds = %237
+  %240 = icmp samesign ugt i32 %229, 6
+  br i1 %240, label %.thread9.i106, label %241
 
-237:                                              ; preds = %235
-  %238 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5121, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+241:                                              ; preds = %239
+  %242 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5121, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i108:                                    ; preds = %235
-  %.phi.trans.insert.i109 = getelementptr inbounds nuw i8, ptr %223, i64 458
-  %.pre.i110 = load i8, ptr %.phi.trans.insert.i109, align 2, !tbaa !846, !range !414
-  %239 = trunc nuw i8 %.pre.i110 to i1
-  br i1 %239, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i111
+.thread9.i106:                                    ; preds = %239
+  %.phi.trans.insert.i107 = getelementptr inbounds nuw i8, ptr %227, i64 458
+  %.pre.i108 = load i8, ptr %.phi.trans.insert.i107, align 2, !tbaa !846, !range !414
+  %243 = trunc nuw i8 %.pre.i108 to i1
+  br i1 %243, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i109
 
-.thread9.thread.i111:                             ; preds = %.thread9.i108, %227
-  %240 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22500, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i109:                             ; preds = %.thread9.i106, %231
+  %244 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22500, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-241:                                              ; preds = %5
-  %.not.i112 = icmp eq i16 %2, 115
-  br i1 %.not.i112, label %242, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+245:                                              ; preds = %5
+  %.not.i110 = icmp eq i16 %2, 115
+  br i1 %.not.i110, label %246, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-242:                                              ; preds = %241
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %244 = load ptr, ptr %243, align 8, !tbaa !202
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 320
-  %246 = load i32, ptr %245, align 8, !tbaa !267
-  %247 = icmp sgt i32 %246, 8
-  br i1 %247, label %248, label %254
+246:                                              ; preds = %245
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %248 = load ptr, ptr %247, align 8, !tbaa !202
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 320
+  %250 = load i32, ptr %249, align 8, !tbaa !267
+  %251 = icmp sgt i32 %250, 8
+  br i1 %251, label %252, label %258
 
-248:                                              ; preds = %242
-  %249 = getelementptr inbounds nuw i8, ptr %244, i64 458
-  %250 = load i8, ptr %249, align 2, !tbaa !846, !range !414, !noundef !415
-  %251 = trunc nuw i8 %250 to i1
-  br i1 %251, label %252, label %.thread.thread.i
+252:                                              ; preds = %246
+  %253 = getelementptr inbounds nuw i8, ptr %248, i64 458
+  %254 = load i8, ptr %253, align 2, !tbaa !846, !range !414, !noundef !415
+  %255 = trunc nuw i8 %254 to i1
+  br i1 %255, label %256, label %.thread.thread.i
 
-252:                                              ; preds = %248
-  %253 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22487, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+256:                                              ; preds = %252
+  %257 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22487, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-254:                                              ; preds = %242
-  %255 = icmp sgt i32 %246, 6
-  br i1 %255, label %.thread.i114, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+258:                                              ; preds = %246
+  %259 = icmp sgt i32 %250, 6
+  br i1 %259, label %.thread.i112, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i114:                                     ; preds = %254
-  %.phi.trans.insert.i115 = getelementptr inbounds nuw i8, ptr %244, i64 458
-  %.pre.i116 = load i8, ptr %.phi.trans.insert.i115, align 2, !tbaa !846, !range !414
-  %256 = trunc nuw i8 %.pre.i116 to i1
-  br i1 %256, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
+.thread.i112:                                     ; preds = %258
+  %.phi.trans.insert.i113 = getelementptr inbounds nuw i8, ptr %248, i64 458
+  %.pre.i114 = load i8, ptr %.phi.trans.insert.i113, align 2, !tbaa !846, !range !414
+  %260 = trunc nuw i8 %.pre.i114 to i1
+  br i1 %260, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %.thread.i114, %248
-  %257 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22471, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i:                                 ; preds = %.thread.i112, %252
+  %261 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22471, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-258:                                              ; preds = %5
-  %.not.i117 = icmp eq i16 %2, 120
-  br i1 %.not.i117, label %259, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+262:                                              ; preds = %5
+  %.not.i115 = icmp eq i16 %2, 120
+  br i1 %.not.i115, label %263, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-259:                                              ; preds = %258
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %261 = load ptr, ptr %260, align 8, !tbaa !202
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 320
-  %263 = load i32, ptr %262, align 8, !tbaa !267
-  %264 = icmp sgt i32 %263, 8
-  br i1 %264, label %265, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+263:                                              ; preds = %262
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %265 = load ptr, ptr %264, align 8, !tbaa !202
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 320
+  %267 = load i32, ptr %266, align 8, !tbaa !267
+  %268 = icmp sgt i32 %267, 8
+  br i1 %268, label %269, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-265:                                              ; preds = %259
-  %266 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22496, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+269:                                              ; preds = %263
+  %270 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22496, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-267:                                              ; preds = %5
-  %.not.i119 = icmp eq i16 %2, 129
-  br i1 %.not.i119, label %268, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+271:                                              ; preds = %5
+  %.not.i117 = icmp eq i16 %2, 129
+  br i1 %.not.i117, label %272, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-268:                                              ; preds = %267
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %270 = load ptr, ptr %269, align 8, !tbaa !202
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 320
-  %272 = load i32, ptr %271, align 8, !tbaa !267
-  %273 = icmp sgt i32 %272, 8
-  br i1 %273, label %274, label %280
+272:                                              ; preds = %271
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %274 = load ptr, ptr %273, align 8, !tbaa !202
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 320
+  %276 = load i32, ptr %275, align 8, !tbaa !267
+  %277 = icmp sgt i32 %276, 8
+  br i1 %277, label %278, label %284
 
-274:                                              ; preds = %268
-  %275 = getelementptr inbounds nuw i8, ptr %270, i64 458
-  %276 = load i8, ptr %275, align 2, !tbaa !846, !range !414, !noundef !415
-  %277 = trunc nuw i8 %276 to i1
-  br i1 %277, label %278, label %.thread9.thread.i124
+278:                                              ; preds = %272
+  %279 = getelementptr inbounds nuw i8, ptr %274, i64 458
+  %280 = load i8, ptr %279, align 2, !tbaa !846, !range !414, !noundef !415
+  %281 = trunc nuw i8 %280 to i1
+  br i1 %281, label %282, label %.thread9.thread.i122
 
-278:                                              ; preds = %274
-  %279 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22447, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+282:                                              ; preds = %278
+  %283 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22447, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-280:                                              ; preds = %268
-  %281 = icmp sgt i32 %272, 1
-  br i1 %281, label %282, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+284:                                              ; preds = %272
+  %285 = icmp sgt i32 %276, 1
+  br i1 %285, label %286, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-282:                                              ; preds = %280
-  %283 = icmp samesign ugt i32 %272, 6
-  br i1 %283, label %.thread9.i121, label %284
+286:                                              ; preds = %284
+  %287 = icmp samesign ugt i32 %276, 6
+  br i1 %287, label %.thread9.i119, label %288
 
-284:                                              ; preds = %282
-  %285 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5119, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+288:                                              ; preds = %286
+  %289 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 5119, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread9.i121:                                    ; preds = %282
-  %.phi.trans.insert.i122 = getelementptr inbounds nuw i8, ptr %270, i64 458
-  %.pre.i123 = load i8, ptr %.phi.trans.insert.i122, align 2, !tbaa !846, !range !414
-  %286 = trunc nuw i8 %.pre.i123 to i1
-  br i1 %286, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i124
+.thread9.i119:                                    ; preds = %286
+  %.phi.trans.insert.i120 = getelementptr inbounds nuw i8, ptr %274, i64 458
+  %.pre.i121 = load i8, ptr %.phi.trans.insert.i120, align 2, !tbaa !846, !range !414
+  %290 = trunc nuw i8 %.pre.i121 to i1
+  br i1 %290, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i122
 
-.thread9.thread.i124:                             ; preds = %.thread9.i121, %274
-  %287 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22469, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i122:                             ; preds = %.thread9.i119, %278
+  %291 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22469, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-288:                                              ; preds = %5
-  %.not.i125 = icmp eq i16 %2, 131
-  br i1 %.not.i125, label %289, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+292:                                              ; preds = %5
+  %.not.i123 = icmp eq i16 %2, 131
+  br i1 %.not.i123, label %293, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-289:                                              ; preds = %288
-  %290 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %291 = load ptr, ptr %290, align 8, !tbaa !202
-  %292 = getelementptr inbounds nuw i8, ptr %291, i64 320
-  %293 = load i32, ptr %292, align 8, !tbaa !267
-  %294 = icmp sgt i32 %293, 8
-  br i1 %294, label %295, label %301
+293:                                              ; preds = %292
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %295 = load ptr, ptr %294, align 8, !tbaa !202
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 320
+  %297 = load i32, ptr %296, align 8, !tbaa !267
+  %298 = icmp sgt i32 %297, 8
+  br i1 %298, label %299, label %305
 
-295:                                              ; preds = %289
-  %296 = getelementptr inbounds nuw i8, ptr %291, i64 458
-  %297 = load i8, ptr %296, align 2, !tbaa !846, !range !414, !noundef !415
-  %298 = trunc nuw i8 %297 to i1
-  br i1 %298, label %299, label %.thread.thread.i130
+299:                                              ; preds = %293
+  %300 = getelementptr inbounds nuw i8, ptr %295, i64 458
+  %301 = load i8, ptr %300, align 2, !tbaa !846, !range !414, !noundef !415
+  %302 = trunc nuw i8 %301 to i1
+  br i1 %302, label %303, label %.thread.thread.i128
 
-299:                                              ; preds = %295
-  %300 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22456, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+303:                                              ; preds = %299
+  %304 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22456, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-301:                                              ; preds = %289
-  %302 = icmp sgt i32 %293, 6
-  br i1 %302, label %.thread.i127, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+305:                                              ; preds = %293
+  %306 = icmp sgt i32 %297, 6
+  br i1 %306, label %.thread.i125, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-.thread.i127:                                     ; preds = %301
-  %.phi.trans.insert.i128 = getelementptr inbounds nuw i8, ptr %291, i64 458
-  %.pre.i129 = load i8, ptr %.phi.trans.insert.i128, align 2, !tbaa !846, !range !414
-  %303 = trunc nuw i8 %.pre.i129 to i1
-  br i1 %303, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i130
+.thread.i125:                                     ; preds = %305
+  %.phi.trans.insert.i126 = getelementptr inbounds nuw i8, ptr %295, i64 458
+  %.pre.i127 = load i8, ptr %.phi.trans.insert.i126, align 2, !tbaa !846, !range !414
+  %307 = trunc nuw i8 %.pre.i127 to i1
+  br i1 %307, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %.thread.thread.i128
 
-.thread.thread.i130:                              ; preds = %.thread.i127, %295
-  %304 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22440, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread.thread.i128:                              ; preds = %.thread.i125, %299
+  %308 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22440, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-305:                                              ; preds = %5
-  %.not.i131 = icmp eq i16 %2, 132
-  br i1 %.not.i131, label %306, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+309:                                              ; preds = %5
+  %.not.i129 = icmp eq i16 %2, 132
+  br i1 %.not.i129, label %310, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-306:                                              ; preds = %305
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %308 = load ptr, ptr %307, align 8, !tbaa !202
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 320
-  %310 = load i32, ptr %309, align 8, !tbaa !267
-  %311 = icmp sgt i32 %310, 8
-  br i1 %311, label %312, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+310:                                              ; preds = %309
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %312 = load ptr, ptr %311, align 8, !tbaa !202
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 320
+  %314 = load i32, ptr %313, align 8, !tbaa !267
+  %315 = icmp sgt i32 %314, 8
+  br i1 %315, label %316, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-312:                                              ; preds = %306
-  %313 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22465, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+316:                                              ; preds = %310
+  %317 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 22465, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %312, %306, %305, %.thread.thread.i130, %.thread.i127, %301, %299, %288, %.thread9.thread.i124, %.thread9.i121, %284, %280, %278, %267, %265, %259, %258, %.thread.thread.i, %.thread.i114, %254, %252, %241, %.thread9.thread.i111, %.thread9.i108, %237, %233, %231, %220, %218, %212, %211, %.thread.i103, %209, %207, %199, %192, %191, %.thread9.thread.i99, %.thread9.i96, %187, %183, %181, %170, %168, %162, %161, %.thread.i, %159, %157, %149, %142, %141, %.thread9.thread.i, %.thread9.i, %137, %133, %131, %120, %118, %112, %111, %109, %106, %102, %100, %89, %87, %84, %82, %76, %74, %63, %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ], [ %75, %74 ], [ %88, %87 ], [ %83, %82 ], [ 0, %63 ], [ 0, %76 ], [ 0, %84 ], [ %101, %100 ], [ %110, %109 ], [ 0, %89 ], [ 0, %102 ], [ 0, %106 ], [ %119, %118 ], [ 0, %111 ], [ 0, %112 ], [ %132, %131 ], [ %140, %.thread9.thread.i ], [ %138, %137 ], [ 0, %120 ], [ 0, %.thread9.i ], [ 0, %133 ], [ %158, %157 ], [ %160, %.thread.i ], [ %150, %149 ], [ 0, %141 ], [ 0, %159 ], [ 0, %142 ], [ %169, %168 ], [ 0, %161 ], [ 0, %162 ], [ %182, %181 ], [ %190, %.thread9.thread.i99 ], [ %188, %187 ], [ 0, %170 ], [ 0, %.thread9.i96 ], [ 0, %183 ], [ %208, %207 ], [ %210, %.thread.i103 ], [ %200, %199 ], [ 0, %191 ], [ 0, %209 ], [ 0, %192 ], [ %219, %218 ], [ 0, %211 ], [ 0, %212 ], [ %232, %231 ], [ %240, %.thread9.thread.i111 ], [ %238, %237 ], [ 0, %220 ], [ 0, %.thread9.i108 ], [ 0, %233 ], [ %253, %252 ], [ %257, %.thread.thread.i ], [ 0, %241 ], [ 0, %.thread.i114 ], [ 0, %254 ], [ %266, %265 ], [ 0, %258 ], [ 0, %259 ], [ %279, %278 ], [ %287, %.thread9.thread.i124 ], [ %285, %284 ], [ 0, %267 ], [ 0, %.thread9.i121 ], [ 0, %280 ], [ %300, %299 ], [ %304, %.thread.thread.i130 ], [ 0, %288 ], [ 0, %.thread.i127 ], [ 0, %301 ], [ %313, %312 ], [ 0, %305 ], [ 0, %306 ]
+_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %316, %310, %309, %.thread.thread.i128, %.thread.i125, %305, %303, %292, %.thread9.thread.i122, %.thread9.i119, %288, %284, %282, %271, %269, %263, %262, %.thread.thread.i, %.thread.i112, %258, %256, %245, %.thread9.thread.i109, %.thread9.i106, %241, %237, %235, %224, %222, %216, %215, %.thread.i101, %213, %211, %203, %196, %195, %.thread9.thread.i97, %.thread9.i94, %191, %187, %185, %174, %172, %166, %165, %.thread.i, %163, %161, %153, %146, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %162, %161 ], [ %164, %.thread.i ], [ %154, %153 ], [ 0, %145 ], [ 0, %163 ], [ 0, %146 ], [ %173, %172 ], [ 0, %165 ], [ 0, %166 ], [ %186, %185 ], [ %194, %.thread9.thread.i97 ], [ %192, %191 ], [ 0, %174 ], [ 0, %.thread9.i94 ], [ 0, %187 ], [ %212, %211 ], [ %214, %.thread.i101 ], [ %204, %203 ], [ 0, %195 ], [ 0, %213 ], [ 0, %196 ], [ %223, %222 ], [ 0, %215 ], [ 0, %216 ], [ %236, %235 ], [ %244, %.thread9.thread.i109 ], [ %242, %241 ], [ 0, %224 ], [ 0, %.thread9.i106 ], [ 0, %237 ], [ %257, %256 ], [ %261, %.thread.thread.i ], [ 0, %245 ], [ 0, %.thread.i112 ], [ 0, %258 ], [ %270, %269 ], [ 0, %262 ], [ 0, %263 ], [ %283, %282 ], [ %291, %.thread9.thread.i122 ], [ %289, %288 ], [ 0, %271 ], [ 0, %.thread9.i119 ], [ 0, %284 ], [ %304, %303 ], [ %308, %.thread.thread.i128 ], [ 0, %292 ], [ 0, %.thread.i125 ], [ 0, %305 ], [ %317, %316 ], [ 0, %309 ], [ 0, %310 ]
   ret i32 %.0
 }
 
@@ -55904,8 +55904,8 @@ _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VPERMV_MVT_v16i8_rrEN4llvm3MVTEj
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86ISD_VPMADDUBSW_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit [
     i16 39, label %6
-    i16 40, label %32
-    i16 41, label %54
+    i16 40, label %33
+    i16 41, label %56
   ]
 
 6:                                                ; preds = %5
@@ -55947,71 +55947,71 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17471, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17471, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i13 = icmp eq i16 %2, 51
-  br i1 %.not.i13, label %33, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i13, label %34, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17461, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17461, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i15 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i15, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i15 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i15, label %54, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17451, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17451, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i16 = icmp eq i16 %2, 52
-  br i1 %.not.i16, label %55, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i16, label %57, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17467, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17467, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ]
+_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -56019,8 +56019,8 @@ _ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3M
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86ISD_VPMADDWD_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit [
     i16 50, label %6
-    i16 51, label %32
-    i16 52, label %54
+    i16 51, label %33
+    i16 52, label %56
   ]
 
 6:                                                ; preds = %5
@@ -56062,71 +56062,71 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17493, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17493, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i13 = icmp eq i16 %2, 64
-  br i1 %.not.i13, label %33, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i13, label %34, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 355
-  %37 = load i8, ptr %36, align 1, !tbaa !1343, !range !414, !noundef !415
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %38 = load i8, ptr %37, align 1, !tbaa !1343, !range !414, !noundef !415
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17483, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17483, ptr noundef nonnull @_ZN4llvm3X8614VR256XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %47 = load i32, ptr %46, align 8, !tbaa !267
-  %48 = icmp sgt i32 %47, 7
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %40, %34
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %48 = load i32, ptr %47, align 8, !tbaa !267
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %50, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %51 = load i8, ptr %50, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan8.i = and i8 %51, %37
-  %brmerge.demorgan.i15 = trunc nuw i8 %brmerge.demorgan8.i to i1
-  br i1 %brmerge.demorgan.i15, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %52 = load i8, ptr %51, align 2, !tbaa !846, !range !414, !noundef !415
+  %53 = and i8 %52, %38
+  %brmerge.demorgan.not.i15 = icmp eq i8 %53, 0
+  br i1 %brmerge.demorgan.not.i15, label %54, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17473, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
+54:                                               ; preds = %50
+  %55 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17473, ptr noundef nonnull @_ZN4llvm3X8613VR256RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %5
+56:                                               ; preds = %5
   %.not.i16 = icmp eq i16 %2, 69
-  br i1 %.not.i16, label %55, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i16, label %57, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = load ptr, ptr %56, align 8, !tbaa !202
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 355
-  %59 = load i8, ptr %58, align 1, !tbaa !1343, !range !414, !noundef !415
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %59 = load ptr, ptr %58, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 355
+  %61 = load i8, ptr %60, align 1, !tbaa !1343, !range !414, !noundef !415
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-61:                                               ; preds = %55
-  %62 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17489, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
+63:                                               ; preds = %57
+  %64 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 17489, ptr noundef nonnull @_ZN4llvm3X8613VR512RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %61, %55, %54, %52, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %53, %52 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %62, %61 ], [ 0, %54 ], [ 0, %55 ]
+_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -56341,8 +56341,8 @@ _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_VPSHUFBITQMB_MVT_v16i8_rrEN4llvm
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86ISD_VSHL_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit [
     i16 50, label %6
-    i16 60, label %32
-    i16 78, label %53
+    i16 60, label %33
+    i16 78, label %54
   ]
 
 6:                                                ; preds = %5
@@ -56384,104 +56384,104 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19791, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19791, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i13 = icmp eq i16 %2, 60
-  br i1 %.not.i13, label %33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i13, label %34, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %37 = load i32, ptr %36, align 8, !tbaa !267
-  %38 = icmp sgt i32 %37, 8
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %38 = load i32, ptr %37, align 8, !tbaa !267
+  %39 = icmp sgt i32 %38, 8
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %.thread9.thread.i
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %.thread9.thread.i
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19583, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19583, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %33
-  %46 = icmp sgt i32 %37, 1
-  br i1 %46, label %47, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %34
+  %47 = icmp sgt i32 %38, 1
+  br i1 %47, label %48, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-47:                                               ; preds = %45
-  %48 = icmp samesign ugt i32 %37, 6
-  br i1 %48, label %.thread9.i, label %49
+48:                                               ; preds = %46
+  %49 = icmp samesign ugt i32 %38, 6
+  br i1 %49, label %.thread9.i, label %50
 
-49:                                               ; preds = %47
-  %50 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3366, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+50:                                               ; preds = %48
+  %51 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3366, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %47
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %35, i64 458
+.thread9.i:                                       ; preds = %48
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %36, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %51 = trunc nuw i8 %.pre.i to i1
-  br i1 %51, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %52 = trunc nuw i8 %.pre.i to i1
+  br i1 %52, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %39
-  %52 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19618, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %40
+  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19618, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-53:                                               ; preds = %5
+54:                                               ; preds = %5
   %.not.i15 = icmp eq i16 %2, 78
-  br i1 %.not.i15, label %54, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i15, label %55, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %56 = load ptr, ptr %55, align 8, !tbaa !202
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 320
-  %58 = load i32, ptr %57, align 8, !tbaa !267
-  %59 = icmp sgt i32 %58, 8
-  br i1 %59, label %60, label %66
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %57 = load ptr, ptr %56, align 8, !tbaa !202
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 320
+  %59 = load i32, ptr %58, align 8, !tbaa !267
+  %60 = icmp sgt i32 %59, 8
+  br i1 %60, label %61, label %67
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 458
-  %62 = load i8, ptr %61, align 2, !tbaa !846, !range !414, !noundef !415
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %.thread9.thread.i20
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 458
+  %63 = load i8, ptr %62, align 2, !tbaa !846, !range !414, !noundef !415
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %65, label %.thread9.thread.i20
 
-64:                                               ; preds = %60
-  %65 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19634, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+65:                                               ; preds = %61
+  %66 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19634, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-66:                                               ; preds = %54
-  %67 = icmp sgt i32 %58, 1
-  br i1 %67, label %68, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+67:                                               ; preds = %55
+  %68 = icmp sgt i32 %59, 1
+  br i1 %68, label %69, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-68:                                               ; preds = %66
-  %69 = icmp samesign ugt i32 %58, 6
-  br i1 %69, label %.thread9.i17, label %70
+69:                                               ; preds = %67
+  %70 = icmp samesign ugt i32 %59, 6
+  br i1 %70, label %.thread9.i17, label %71
 
-70:                                               ; preds = %68
-  %71 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3369, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+71:                                               ; preds = %69
+  %72 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3369, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-.thread9.i17:                                     ; preds = %68
-  %.phi.trans.insert.i18 = getelementptr inbounds nuw i8, ptr %56, i64 458
+.thread9.i17:                                     ; preds = %69
+  %.phi.trans.insert.i18 = getelementptr inbounds nuw i8, ptr %57, i64 458
   %.pre.i19 = load i8, ptr %.phi.trans.insert.i18, align 2, !tbaa !846, !range !414
-  %72 = trunc nuw i8 %.pre.i19 to i1
-  br i1 %72, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i20
+  %73 = trunc nuw i8 %.pre.i19 to i1
+  br i1 %73, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i20
 
-.thread9.thread.i20:                              ; preds = %.thread9.i17, %60
-  %73 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19669, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i20:                              ; preds = %.thread9.i17, %61
+  %74 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19669, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %.thread9.thread.i20, %.thread9.i17, %70, %66, %64, %53, %.thread9.thread.i, %.thread9.i, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %52, %.thread9.thread.i ], [ %50, %49 ], [ 0, %32 ], [ 0, %.thread9.i ], [ 0, %45 ], [ %65, %64 ], [ %73, %.thread9.thread.i20 ], [ %71, %70 ], [ 0, %53 ], [ 0, %.thread9.i17 ], [ 0, %66 ]
+_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %.thread9.thread.i20, %.thread9.i17, %71, %67, %65, %54, %.thread9.thread.i, %.thread9.i, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %53, %.thread9.thread.i ], [ %51, %50 ], [ 0, %33 ], [ 0, %.thread9.i ], [ 0, %46 ], [ %66, %65 ], [ %74, %.thread9.thread.i20 ], [ %72, %71 ], [ 0, %54 ], [ 0, %.thread9.i17 ], [ 0, %67 ]
   ret i32 %.0
 }
 
@@ -56744,8 +56744,8 @@ _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VSHLV_MVT_v8i16_rrEN4llvm3MVTEjj
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86ISD_VSRA_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit [
     i16 50, label %6
-    i16 60, label %32
-    i16 78, label %53
+    i16 60, label %33
+    i16 78, label %54
   ]
 
 6:                                                ; preds = %5
@@ -56787,82 +56787,82 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20005, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20005, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i13 = icmp eq i16 %2, 60
-  br i1 %.not.i13, label %33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i13, label %34, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %37 = load i32, ptr %36, align 8, !tbaa !267
-  %38 = icmp sgt i32 %37, 8
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %38 = load i32, ptr %37, align 8, !tbaa !267
+  %39 = icmp sgt i32 %38, 8
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %.thread9.thread.i
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %.thread9.thread.i
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19807, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19807, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %33
-  %46 = icmp sgt i32 %37, 1
-  br i1 %46, label %47, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %34
+  %47 = icmp sgt i32 %38, 1
+  br i1 %47, label %48, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-47:                                               ; preds = %45
-  %48 = icmp samesign ugt i32 %37, 6
-  br i1 %48, label %.thread9.i, label %49
+48:                                               ; preds = %46
+  %49 = icmp samesign ugt i32 %38, 6
+  br i1 %49, label %.thread9.i, label %50
 
-49:                                               ; preds = %47
-  %50 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3376, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+50:                                               ; preds = %48
+  %51 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3376, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %47
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %35, i64 458
+.thread9.i:                                       ; preds = %48
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %36, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %51 = trunc nuw i8 %.pre.i to i1
-  br i1 %51, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %52 = trunc nuw i8 %.pre.i to i1
+  br i1 %52, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %39
-  %52 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19842, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %40
+  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19842, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-53:                                               ; preds = %5
+54:                                               ; preds = %5
   %.not.i15 = icmp eq i16 %2, 78
-  br i1 %.not.i15, label %54, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i15, label %55, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %56 = load ptr, ptr %55, align 8, !tbaa !202
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 320
-  %58 = load i32, ptr %57, align 8, !tbaa !267
-  %59 = icmp sgt i32 %58, 8
-  br i1 %59, label %60, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %57 = load ptr, ptr %56, align 8, !tbaa !202
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 320
+  %59 = load i32, ptr %58, align 8, !tbaa !267
+  %60 = icmp sgt i32 %59, 8
+  br i1 %60, label %61, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 458
-  %62 = load i8, ptr %61, align 2, !tbaa !846, !range !414, !noundef !415
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 458
+  %63 = load i8, ptr %62, align 2, !tbaa !846, !range !414, !noundef !415
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %65, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-64:                                               ; preds = %60
-  %65 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19855, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+65:                                               ; preds = %61
+  %66 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 19855, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %64, %60, %54, %53, %.thread9.thread.i, %.thread9.i, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %52, %.thread9.thread.i ], [ %50, %49 ], [ 0, %32 ], [ 0, %.thread9.i ], [ 0, %45 ], [ %65, %64 ], [ 0, %53 ], [ 0, %60 ], [ 0, %54 ]
+_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %65, %61, %55, %54, %.thread9.thread.i, %.thread9.i, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %53, %.thread9.thread.i ], [ %51, %50 ], [ 0, %33 ], [ 0, %.thread9.i ], [ 0, %46 ], [ %66, %65 ], [ 0, %54 ], [ 0, %61 ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -57097,8 +57097,8 @@ _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VSRAV_MVT_v8i16_rrEN4llvm3MVTEjj
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86ISD_VSRL_rrEN4llvm3MVTES2_jj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %1, i16 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   switch i16 %1, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit [
     i16 50, label %6
-    i16 60, label %32
-    i16 78, label %53
+    i16 60, label %33
+    i16 78, label %54
   ]
 
 6:                                                ; preds = %5
@@ -57140,104 +57140,104 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 458
   %29 = load i8, ptr %28, align 2, !tbaa !846, !range !414, !noundef !415
-  %brmerge.demorgan11.i = and i8 %29, %11
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan11.i to i1
-  br i1 %brmerge.demorgan.i, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %30
+  %30 = and i8 %29, %11
+  %brmerge.demorgan.not.i = icmp eq i8 %30, 0
+  br i1 %brmerge.demorgan.not.i, label %31, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20237, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+31:                                               ; preds = %27
+  %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20237, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   %.not.i13 = icmp eq i16 %2, 60
-  br i1 %.not.i13, label %33, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i13, label %34, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 320
-  %37 = load i32, ptr %36, align 8, !tbaa !267
-  %38 = icmp sgt i32 %37, 8
-  br i1 %38, label %39, label %45
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %38 = load i32, ptr %37, align 8, !tbaa !267
+  %39 = icmp sgt i32 %38, 8
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 458
-  %41 = load i8, ptr %40, align 2, !tbaa !846, !range !414, !noundef !415
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %.thread9.thread.i
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 458
+  %42 = load i8, ptr %41, align 2, !tbaa !846, !range !414, !noundef !415
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %.thread9.thread.i
 
-43:                                               ; preds = %39
-  %44 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20029, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+44:                                               ; preds = %40
+  %45 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20029, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-45:                                               ; preds = %33
-  %46 = icmp sgt i32 %37, 1
-  br i1 %46, label %47, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+46:                                               ; preds = %34
+  %47 = icmp sgt i32 %38, 1
+  br i1 %47, label %48, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-47:                                               ; preds = %45
-  %48 = icmp samesign ugt i32 %37, 6
-  br i1 %48, label %.thread9.i, label %49
+48:                                               ; preds = %46
+  %49 = icmp samesign ugt i32 %38, 6
+  br i1 %49, label %.thread9.i, label %50
 
-49:                                               ; preds = %47
-  %50 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3383, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+50:                                               ; preds = %48
+  %51 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3383, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-.thread9.i:                                       ; preds = %47
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %35, i64 458
+.thread9.i:                                       ; preds = %48
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %36, i64 458
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !tbaa !846, !range !414
-  %51 = trunc nuw i8 %.pre.i to i1
-  br i1 %51, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
+  %52 = trunc nuw i8 %.pre.i to i1
+  br i1 %52, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i
 
-.thread9.thread.i:                                ; preds = %.thread9.i, %39
-  %52 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20064, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i:                                ; preds = %.thread9.i, %40
+  %53 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20064, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-53:                                               ; preds = %5
+54:                                               ; preds = %5
   %.not.i15 = icmp eq i16 %2, 78
-  br i1 %.not.i15, label %54, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+  br i1 %.not.i15, label %55, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %56 = load ptr, ptr %55, align 8, !tbaa !202
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 320
-  %58 = load i32, ptr %57, align 8, !tbaa !267
-  %59 = icmp sgt i32 %58, 8
-  br i1 %59, label %60, label %66
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %57 = load ptr, ptr %56, align 8, !tbaa !202
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 320
+  %59 = load i32, ptr %58, align 8, !tbaa !267
+  %60 = icmp sgt i32 %59, 8
+  br i1 %60, label %61, label %67
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 458
-  %62 = load i8, ptr %61, align 2, !tbaa !846, !range !414, !noundef !415
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %.thread9.thread.i20
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 458
+  %63 = load i8, ptr %62, align 2, !tbaa !846, !range !414, !noundef !415
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %65, label %.thread9.thread.i20
 
-64:                                               ; preds = %60
-  %65 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20080, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
+65:                                               ; preds = %61
+  %66 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20080, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-66:                                               ; preds = %54
-  %67 = icmp sgt i32 %58, 1
-  br i1 %67, label %68, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
+67:                                               ; preds = %55
+  %68 = icmp sgt i32 %59, 1
+  br i1 %68, label %69, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-68:                                               ; preds = %66
-  %69 = icmp samesign ugt i32 %58, 6
-  br i1 %69, label %.thread9.i17, label %70
+69:                                               ; preds = %67
+  %70 = icmp samesign ugt i32 %59, 6
+  br i1 %70, label %.thread9.i17, label %71
 
-70:                                               ; preds = %68
-  %71 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3386, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+71:                                               ; preds = %69
+  %72 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 3386, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-.thread9.i17:                                     ; preds = %68
-  %.phi.trans.insert.i18 = getelementptr inbounds nuw i8, ptr %56, i64 458
+.thread9.i17:                                     ; preds = %69
+  %.phi.trans.insert.i18 = getelementptr inbounds nuw i8, ptr %57, i64 458
   %.pre.i19 = load i8, ptr %.phi.trans.insert.i18, align 2, !tbaa !846, !range !414
-  %72 = trunc nuw i8 %.pre.i19 to i1
-  br i1 %72, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i20
+  %73 = trunc nuw i8 %.pre.i19 to i1
+  br i1 %73, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit, label %.thread9.thread.i20
 
-.thread9.thread.i20:                              ; preds = %.thread9.i17, %60
-  %73 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20115, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
+.thread9.thread.i20:                              ; preds = %.thread9.i17, %61
+  %74 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef 20115, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
-_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %.thread9.thread.i20, %.thread9.i17, %70, %66, %64, %53, %.thread9.thread.i, %.thread9.i, %49, %45, %43, %32, %30, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %31, %30 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %44, %43 ], [ %52, %.thread9.thread.i ], [ %50, %49 ], [ 0, %32 ], [ 0, %.thread9.i ], [ 0, %45 ], [ %65, %64 ], [ %73, %.thread9.thread.i20 ], [ %71, %70 ], [ 0, %53 ], [ 0, %.thread9.i17 ], [ 0, %66 ]
+_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %.thread9.thread.i20, %.thread9.i17, %71, %67, %65, %54, %.thread9.thread.i, %.thread9.i, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %53, %.thread9.thread.i ], [ %51, %50 ], [ 0, %33 ], [ 0, %.thread9.i ], [ 0, %46 ], [ %66, %65 ], [ %74, %.thread9.thread.i20 ], [ %72, %71 ], [ 0, %54 ], [ 0, %.thread9.i17 ], [ 0, %67 ]
   ret i32 %.0
 }
 

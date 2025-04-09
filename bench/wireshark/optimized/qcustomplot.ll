@@ -229136,40 +229136,40 @@ _ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit:    ; preds = %56, %70, %74
   %80 = fmul double %66, %79
   %81 = load i64, ptr %2, align 8
   %82 = inttoptr i64 %81 to ptr
-  %.sroa.0.0.copyload143 = load ptr, ptr %3, align 8
-  %.not139144 = icmp eq ptr %.sroa.0.0.copyload143, %82
-  br i1 %.not139144, label %._crit_edge.thread, label %.lr.ph
+  %.sroa.0.0.copyload140 = load ptr, ptr %3, align 8
+  %.not139141 = icmp eq ptr %.sroa.0.0.copyload140, %82
+  br i1 %.not139141, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit, %128
-  %.0149 = phi double [ %.2, %128 ], [ 0.000000e+00, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
-  %.051148 = phi i8 [ %.253, %128 ], [ 0, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
-  %.055147 = phi i8 [ %.257, %128 ], [ 0, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
-  %.sroa.090.0145 = phi ptr [ %129, %128 ], [ %82, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.090.0145, i64 8
+.lr.ph:                                           ; preds = %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit, %130
+  %.0146 = phi double [ %.2, %130 ], [ 0.000000e+00, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
+  %.051145 = phi i8 [ %.253, %130 ], [ 0, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
+  %.055144 = phi i8 [ %.257, %130 ], [ 0, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
+  %.sroa.090.0142 = phi ptr [ %131, %130 ], [ %82, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.090.0142, i64 8
   %84 = load double, ptr %83, align 8
   %85 = fcmp olt double %84, %59
   br i1 %85, label %86, label %103
 
 86:                                               ; preds = %.lr.ph
-  %87 = trunc i8 %.051148 to i1
+  %87 = trunc i8 %.051145 to i1
   %.not = xor i1 %87, true
   %brmerge = or i1 %47, %.not
-  %.051.mux = select i1 %87, i8 0, i8 %.051148
+  %.051.mux = select i1 %87, i8 0, i8 %.051145
   br i1 %brmerge, label %91, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr i8, ptr %.sroa.090.0145, i64 -16
+  %89 = getelementptr i8, ptr %.sroa.090.0142, i64 -16
   %90 = load i64, ptr %10, align 8
   call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %90, ptr noundef align 8 dereferenceable(16) %89)
   br label %91
 
 91:                                               ; preds = %86, %88
   %.152 = phi i8 [ 0, %88 ], [ %.051.mux, %86 ]
-  %92 = trunc nuw i8 %.055147 to i1
+  %92 = trunc nuw i8 %.055144 to i1
   br i1 %92, label %96, label %93
 
 93:                                               ; preds = %91
-  %94 = load double, ptr %.sroa.090.0145, align 8
+  %94 = load double, ptr %.sroa.090.0142, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #53
   call void @_ZN12QCPGraphDataC1Edd(ptr noundef nonnull align 8 dereferenceable_or_null(16) %6, double noundef %94, double noundef %59)
   %95 = load i64, ptr %10, align 8
@@ -229178,11 +229178,11 @@ _ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit:    ; preds = %56, %70, %74
   br label %96
 
 96:                                               ; preds = %93, %91
-  %.1 = phi double [ %.0149, %91 ], [ %94, %93 ]
-  %97 = load double, ptr %.sroa.090.0145, align 8
+  %.1 = phi double [ %.0146, %91 ], [ %94, %93 ]
+  %97 = load double, ptr %.sroa.090.0142, align 8
   %98 = fsub double %97, %.1
   %99 = fcmp ogt double %98, %80
-  br i1 %99, label %100, label %128
+  br i1 %99, label %100, label %130
 
 100:                                              ; preds = %96
   %101 = fadd double %80, %.1
@@ -229191,108 +229191,108 @@ _ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit:    ; preds = %56, %70, %74
   %102 = load i64, ptr %10, align 8
   call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %102, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #53
-  br label %128
+  br label %130
 
 103:                                              ; preds = %.lr.ph
   %104 = fcmp ogt double %84, %57
-  br i1 %104, label %105, label %121
+  br i1 %104, label %105, label %122
 
 105:                                              ; preds = %103
-  %brmerge66.not142 = and i8 %.055147, %46
-  %brmerge66.not = trunc nuw i8 %brmerge66.not142 to i1
-  br i1 %brmerge66.not, label %106, label %109
+  %106 = and i8 %.055144, %46
+  %brmerge66.not.not = icmp eq i8 %106, 0
+  br i1 %brmerge66.not.not, label %110, label %107
 
-106:                                              ; preds = %105
-  %107 = getelementptr i8, ptr %.sroa.090.0145, i64 -16
-  %108 = load i64, ptr %10, align 8
-  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %108, ptr noundef align 8 dereferenceable(16) %107)
-  br label %109
+107:                                              ; preds = %105
+  %108 = getelementptr i8, ptr %.sroa.090.0142, i64 -16
+  %109 = load i64, ptr %10, align 8
+  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %109, ptr noundef align 8 dereferenceable(16) %108)
+  br label %110
 
-109:                                              ; preds = %105, %106
-  %110 = trunc i8 %.051148 to i1
-  br i1 %110, label %114, label %111
+110:                                              ; preds = %105, %107
+  %111 = trunc i8 %.051145 to i1
+  br i1 %111, label %115, label %112
 
-111:                                              ; preds = %109
-  %112 = load double, ptr %.sroa.090.0145, align 8
+112:                                              ; preds = %110
+  %113 = load double, ptr %.sroa.090.0142, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #53
-  call void @_ZN12QCPGraphDataC1Edd(ptr noundef nonnull align 8 dereferenceable_or_null(16) %8, double noundef %112, double noundef %57)
-  %113 = load i64, ptr %10, align 8
-  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %113, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call void @_ZN12QCPGraphDataC1Edd(ptr noundef nonnull align 8 dereferenceable_or_null(16) %8, double noundef %113, double noundef %57)
+  %114 = load i64, ptr %10, align 8
+  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %114, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #53
-  br label %114
+  br label %115
 
-114:                                              ; preds = %111, %109
-  %.354 = phi i8 [ %.051148, %109 ], [ 1, %111 ]
-  %.3 = phi double [ %.0149, %109 ], [ %112, %111 ]
-  %115 = load double, ptr %.sroa.090.0145, align 8
-  %116 = fsub double %115, %.3
-  %117 = fcmp ogt double %116, %80
-  br i1 %117, label %118, label %128
+115:                                              ; preds = %112, %110
+  %.354 = phi i8 [ %.051145, %110 ], [ 1, %112 ]
+  %.3 = phi double [ %.0146, %110 ], [ %113, %112 ]
+  %116 = load double, ptr %.sroa.090.0142, align 8
+  %117 = fsub double %116, %.3
+  %118 = fcmp ogt double %117, %80
+  br i1 %118, label %119, label %130
 
-118:                                              ; preds = %114
-  %119 = fadd double %80, %.3
+119:                                              ; preds = %115
+  %120 = fadd double %80, %.3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #53
-  call void @_ZN12QCPGraphDataC1Edd(ptr noundef nonnull align 8 dereferenceable_or_null(16) %9, double noundef %119, double noundef %57)
-  %120 = load i64, ptr %10, align 8
-  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %120, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  call void @_ZN12QCPGraphDataC1Edd(ptr noundef nonnull align 8 dereferenceable_or_null(16) %9, double noundef %120, double noundef %57)
+  %121 = load i64, ptr %10, align 8
+  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %121, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #53
-  br label %128
+  br label %130
 
-121:                                              ; preds = %103
-  %122 = trunc i8 %.051148 to i1
-  %.not67 = xor i1 %122, true
+122:                                              ; preds = %103
+  %123 = trunc i8 %.051145 to i1
+  %.not67 = xor i1 %123, true
   %brmerge68 = or i1 %47, %.not67
-  br i1 %brmerge68, label %123, label %.sink.split
+  br i1 %brmerge68, label %124, label %.sink.split
 
-123:                                              ; preds = %121
-  %.051.mux69 = select i1 %122, i8 0, i8 %.051148
-  %brmerge72.not141 = and i8 %.055147, %46
-  %brmerge72.not = trunc nuw i8 %brmerge72.not141 to i1
-  br i1 %brmerge72.not, label %.sink.split, label %126
+124:                                              ; preds = %122
+  %.051.mux69 = select i1 %123, i8 0, i8 %.051145
+  %125 = and i8 %.055144, %46
+  %brmerge72.not.not = icmp eq i8 %125, 0
+  br i1 %brmerge72.not.not, label %128, label %.sink.split
 
-.sink.split:                                      ; preds = %123, %121
-  %.4134.ph = phi i8 [ 0, %121 ], [ %.051.mux69, %123 ]
-  %124 = getelementptr i8, ptr %.sroa.090.0145, i64 -16
-  %125 = load i64, ptr %10, align 8
-  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %125, ptr noundef align 8 dereferenceable(16) %124)
-  br label %126
-
-126:                                              ; preds = %.sink.split, %123
-  %.4134 = phi i8 [ %.051.mux69, %123 ], [ %.4134.ph, %.sink.split ]
+.sink.split:                                      ; preds = %124, %122
+  %.4134.ph = phi i8 [ 0, %122 ], [ %.051.mux69, %124 ]
+  %126 = getelementptr i8, ptr %.sroa.090.0142, i64 -16
   %127 = load i64, ptr %10, align 8
-  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %127, ptr noundef align 8 dereferenceable(16) %.sroa.090.0145)
+  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %127, ptr noundef align 8 dereferenceable(16) %126)
   br label %128
 
-128:                                              ; preds = %126, %118, %114, %96, %100
-  %.257 = phi i8 [ 1, %100 ], [ 1, %96 ], [ 0, %118 ], [ 0, %114 ], [ 0, %126 ]
-  %.253 = phi i8 [ %.152, %100 ], [ %.152, %96 ], [ %.354, %118 ], [ %.354, %114 ], [ %.4134, %126 ]
-  %.2 = phi double [ %101, %100 ], [ %.1, %96 ], [ %119, %118 ], [ %.3, %114 ], [ %.0149, %126 ]
-  %129 = getelementptr i8, ptr %.sroa.090.0145, i64 16
+128:                                              ; preds = %.sink.split, %124
+  %.4134 = phi i8 [ %.051.mux69, %124 ], [ %.4134.ph, %.sink.split ]
+  %129 = load i64, ptr %10, align 8
+  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %129, ptr noundef align 8 dereferenceable(16) %.sroa.090.0142)
+  br label %130
+
+130:                                              ; preds = %128, %119, %115, %96, %100
+  %.257 = phi i8 [ 1, %100 ], [ 1, %96 ], [ 0, %119 ], [ 0, %115 ], [ 0, %128 ]
+  %.253 = phi i8 [ %.152, %100 ], [ %.152, %96 ], [ %.354, %119 ], [ %.354, %115 ], [ %.4134, %128 ]
+  %.2 = phi double [ %101, %100 ], [ %.1, %96 ], [ %120, %119 ], [ %.3, %115 ], [ %.0146, %128 ]
+  %131 = getelementptr i8, ptr %.sroa.090.0142, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8
-  %.not139 = icmp eq ptr %129, %.sroa.0.0.copyload
+  %.not139 = icmp eq ptr %131, %.sroa.0.0.copyload
   br i1 %.not139, label %._crit_edge, label %.lr.ph, !llvm.loop !1423
 
-._crit_edge:                                      ; preds = %128
-  %130 = trunc i8 %.253 to i1
-  %131 = xor i1 %130, true
-  %brmerge75 = or i1 %131, %47
-  br i1 %brmerge75, label %._crit_edge.thread, label %.sink.split159
+._crit_edge:                                      ; preds = %130
+  %132 = trunc i8 %.253 to i1
+  %133 = xor i1 %132, true
+  %brmerge75 = or i1 %133, %47
+  br i1 %brmerge75, label %._crit_edge.thread, label %.sink.split156
 
 ._crit_edge.thread:                               ; preds = %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit, %._crit_edge
-  %.055.lcssa157 = phi i8 [ %.257, %._crit_edge ], [ 0, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
-  %.sroa.090.0.lcssa156 = phi ptr [ %129, %._crit_edge ], [ %82, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
-  %brmerge78.demorgan140 = and i8 %.055.lcssa157, %46
-  %brmerge78.demorgan = trunc nuw i8 %brmerge78.demorgan140 to i1
-  br i1 %brmerge78.demorgan, label %.sink.split159, label %134
+  %.055.lcssa154 = phi i8 [ %.257, %._crit_edge ], [ 0, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
+  %.sroa.090.0.lcssa153 = phi ptr [ %131, %._crit_edge ], [ %82, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit ]
+  %134 = and i8 %.055.lcssa154, %46
+  %brmerge78.demorgan.not = icmp eq i8 %134, 0
+  br i1 %brmerge78.demorgan.not, label %137, label %.sink.split156
 
-.sink.split159:                                   ; preds = %._crit_edge.thread, %._crit_edge
-  %.lcssa.sink = phi ptr [ %129, %._crit_edge ], [ %.sroa.090.0.lcssa156, %._crit_edge.thread ]
-  %132 = getelementptr i8, ptr %.lcssa.sink, i64 -16
-  %133 = load i64, ptr %10, align 8
-  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %133, ptr noundef align 8 dereferenceable(16) %132)
-  br label %134
+.sink.split156:                                   ; preds = %._crit_edge.thread, %._crit_edge
+  %.lcssa.sink = phi ptr [ %131, %._crit_edge ], [ %.sroa.090.0.lcssa153, %._crit_edge.thread ]
+  %135 = getelementptr i8, ptr %.lcssa.sink, i64 -16
+  %136 = load i64, ptr %10, align 8
+  call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %136, ptr noundef align 8 dereferenceable(16) %135)
+  br label %137
 
-134:                                              ; preds = %.sink.split159, %._crit_edge.thread
+137:                                              ; preds = %.sink.split156, %._crit_edge.thread
   ret void
 }
 

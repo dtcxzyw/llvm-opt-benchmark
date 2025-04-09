@@ -14695,7 +14695,7 @@ define linkonce_odr dso_local void @_ZN12ConstVisitor5visitEP8AstWhile(ptr nound
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %6 = load i8, ptr %4, align 2, !tbaa !130, !range !80, !noundef !81
   %7 = trunc nuw i8 %6 to i1
-  %8 = select i1 %7, i8 1, i8 %5
+  %8 = or i8 %6, %5
   store i8 %8, ptr %4, align 2, !tbaa !130
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %10 = load i8, ptr %9, align 2, !tbaa !74, !range !80, !noundef !81

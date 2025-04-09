@@ -920,7 +920,7 @@ define dso_local void @pgstat_before_server_shutdown(i32 noundef %0, i64 noundef
   %7 = alloca %struct.nameData, align 1
   %8 = tail call i64 @pgstat_report_stat(i1 noundef zeroext true)
   %9 = icmp eq i32 %0, 0
-  br i1 %9, label %10, label %179
+  br i1 %9, label %10, label %177
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr @pgStatLocal, align 8
@@ -998,263 +998,259 @@ pgstat_get_kind_info.exit.i:                      ; preds = %39
 44:                                               ; preds = %34
   %45 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %indvars.iv.i
   %46 = load i8, ptr %45, align 16
-  %47 = trunc i8 %46 to i1
-  %48 = and i8 %46, 4
-  %.not58.i = icmp ne i8 %48, 0
-  %or.cond.not.i = and i1 %.not58.i, %47
+  %47 = and i8 %46, 5
+  %or.cond.not.i = icmp eq i8 %47, 5
   br i1 %or.cond.not.i, label %pgstat_get_kind_info.exit.i.i, label %pgstat_get_kind_info.exit.thread.i
 
 .thread.i:                                        ; preds = %pgstat_get_kind_info.exit.i
-  %49 = load i8, ptr %43, align 8
-  %50 = trunc i8 %49 to i1
-  %51 = and i8 %49, 4
-  %.not5878.i = icmp ne i8 %51, 0
-  %or.cond.not79.i = and i1 %.not5878.i, %50
-  br i1 %or.cond.not79.i, label %pgstat_get_kind_info.exit.i.i, label %pgstat_get_kind_info.exit.thread.i
+  %48 = load i8, ptr %43, align 8
+  %49 = and i8 %48, 5
+  %or.cond.not78.i = icmp eq i8 %49, 5
+  br i1 %or.cond.not78.i, label %pgstat_get_kind_info.exit.i.i, label %pgstat_get_kind_info.exit.thread.i
 
 pgstat_get_kind_info.exit.i.i:                    ; preds = %.thread.i, %44
-  %.0.i718083.i = phi ptr [ %45, %44 ], [ %43, %.thread.i ]
+  %.0.i717982.i = phi ptr [ %45, %44 ], [ %43, %.thread.i ]
   %.010.i.i = phi i64 [ %indvars.iv.i, %44 ], [ %37, %.thread.i ]
   %.0.i59.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), %44 ], [ getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 49864), %.thread.i ]
-  %52 = load i32, ptr @pgstat_fetch_consistency, align 4
-  %53 = icmp eq i32 %52, 0
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i59.i, i64 %.010.i.i
-  br i1 %53, label %55, label %56
+  %50 = load i32, ptr @pgstat_fetch_consistency, align 4
+  %51 = icmp eq i32 %50, 0
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i59.i, i64 %.010.i.i
+  br i1 %51, label %53, label %54
 
-55:                                               ; preds = %pgstat_get_kind_info.exit.i.i
-  store i8 0, ptr %54, align 1
-  br label %59
+53:                                               ; preds = %pgstat_get_kind_info.exit.i.i
+  store i8 0, ptr %52, align 1
+  br label %57
 
-56:                                               ; preds = %pgstat_get_kind_info.exit.i.i
-  %57 = load i8, ptr %54, align 1, !range !8, !noundef !7
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %pgstat_build_snapshot_fixed.exit.i, label %59
+54:                                               ; preds = %pgstat_get_kind_info.exit.i.i
+  %55 = load i8, ptr %52, align 1, !range !8, !noundef !7
+  %56 = trunc nuw i8 %55 to i1
+  br i1 %56, label %pgstat_build_snapshot_fixed.exit.i, label %57
 
-59:                                               ; preds = %56, %55
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i718083.i, i64 112
-  %61 = load ptr, ptr %60, align 8
-  tail call void %61() #17
-  store i8 1, ptr %54, align 1
+57:                                               ; preds = %54, %53
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i717982.i, i64 112
+  %59 = load ptr, ptr %58, align 8
+  tail call void %59() #17
+  store i8 1, ptr %52, align 1
   br label %pgstat_build_snapshot_fixed.exit.i
 
-pgstat_build_snapshot_fixed.exit.i:               ; preds = %59, %56
-  br i1 %35, label %62, label %67
+pgstat_build_snapshot_fixed.exit.i:               ; preds = %57, %54
+  br i1 %35, label %60, label %65
 
-62:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
-  %63 = getelementptr inbounds nuw i8, ptr %.0.i718083.i, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), i64 %65
-  br label %72
+60:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i717982.i, i64 8
+  %62 = load i32, ptr %61, align 8
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), i64 %63
+  br label %70
 
-67:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
-  %68 = add nuw nsw i64 %indvars.iv.i, 4294967168
-  %69 = and i64 %68, 4294967295
-  %70 = getelementptr inbounds nuw [129 x ptr], ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 0, i64 %69
-  %71 = load ptr, ptr %70, align 8
-  br label %72
+65:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
+  %66 = add nuw nsw i64 %indvars.iv.i, 4294967168
+  %67 = and i64 %66, 4294967295
+  %68 = getelementptr inbounds nuw [129 x ptr], ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 0, i64 %67
+  %69 = load ptr, ptr %68, align 8
+  br label %70
 
-72:                                               ; preds = %67, %62
-  %.0.i = phi ptr [ %66, %62 ], [ %71, %67 ]
-  %73 = tail call i32 @fputc(i32 noundef 70, ptr noundef nonnull %21)
-  %74 = call i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %21)
-  %75 = getelementptr inbounds nuw i8, ptr %.0.i718083.i, i64 20
-  %76 = load i32, ptr %75, align 4
-  %77 = zext i32 %76 to i64
-  %78 = tail call i64 @fwrite(ptr noundef readonly %.0.i, i64 noundef range(i64 0, 4294967296) %77, i64 noundef 1, ptr noundef nonnull %21)
+70:                                               ; preds = %65, %60
+  %.0.i = phi ptr [ %64, %60 ], [ %69, %65 ]
+  %71 = tail call i32 @fputc(i32 noundef 70, ptr noundef nonnull %21)
+  %72 = call i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %21)
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i717982.i, i64 20
+  %74 = load i32, ptr %73, align 4
+  %75 = zext i32 %74 to i64
+  %76 = tail call i64 @fwrite(ptr noundef readonly %.0.i, i64 noundef range(i64 0, 4294967296) %75, i64 noundef 1, ptr noundef nonnull %21)
   br label %pgstat_get_kind_info.exit.thread.i
 
-pgstat_get_kind_info.exit.thread.i:               ; preds = %72, %.thread.i, %44, %pgstat_get_kind_info.exit.i, %39, %36
+pgstat_get_kind_info.exit.thread.i:               ; preds = %70, %.thread.i, %44, %pgstat_get_kind_info.exit.i, %39, %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %79 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  store i32 %79, ptr %6, align 4
+  %77 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  store i32 %77, ptr %6, align 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 257
   br i1 %exitcond.not.i, label %31, label %34, !llvm.loop !9
 
-.lr.ph.i:                                         ; preds = %31, %152
-  %80 = phi ptr [ %153, %152 ], [ %33, %31 ]
-  %81 = load volatile i32, ptr @InterruptPending, align 4
-  %.not54.i = icmp eq i32 %81, 0
-  br i1 %.not54.i, label %83, label %82, !prof !6
+.lr.ph.i:                                         ; preds = %31, %150
+  %78 = phi ptr [ %151, %150 ], [ %33, %31 ]
+  %79 = load volatile i32, ptr @InterruptPending, align 4
+  %.not54.i = icmp eq i32 %79, 0
+  br i1 %.not54.i, label %81, label %80, !prof !6
 
-82:                                               ; preds = %.lr.ph.i
+80:                                               ; preds = %.lr.ph.i
   call void @ProcessInterrupts() #17
-  br label %83
+  br label %81
 
-83:                                               ; preds = %82, %.lr.ph.i
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %85 = load i8, ptr %84, align 8, !range !8, !noundef !7
-  %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %152, label %87, !llvm.loop !10
+81:                                               ; preds = %80, %.lr.ph.i
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %83 = load i8, ptr %82, align 8, !range !8, !noundef !7
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %150, label %85, !llvm.loop !10
 
-87:                                               ; preds = %83
-  %88 = load i32, ptr %80, align 8
-  %89 = add i32 %88, -1
-  %90 = icmp ult i32 %89, 12
-  %91 = add i32 %88, -128
-  %92 = icmp ult i32 %91, 129
-  %93 = or i1 %90, %92
-  br i1 %93, label %103, label %94
+85:                                               ; preds = %81
+  %86 = load i32, ptr %78, align 8
+  %87 = add i32 %86, -1
+  %88 = icmp ult i32 %87, 12
+  %89 = add i32 %86, -128
+  %90 = icmp ult i32 %89, 129
+  %91 = or i1 %88, %90
+  br i1 %91, label %101, label %92
 
-94:                                               ; preds = %87
-  %95 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %95, label %96, label %152, !llvm.loop !10
+92:                                               ; preds = %85
+  %93 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  br i1 %93, label %94, label %150, !llvm.loop !10
 
-96:                                               ; preds = %94
-  %97 = load i32, ptr %80, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %99 = load i32, ptr %98, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %101 = load i64, ptr %100, align 8
-  %102 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %97, i32 noundef %99, i64 noundef %101) #17
+94:                                               ; preds = %92
+  %95 = load i32, ptr %78, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %99 = load i64, ptr %98, align 8
+  %100 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %95, i32 noundef %97, i64 noundef %99) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1689, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
-  br label %152, !llvm.loop !10
+  br label %150, !llvm.loop !10
 
-103:                                              ; preds = %87
-  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  %105 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %106 = load i64, ptr %105, align 8
-  %107 = call ptr @dsa_get_address(ptr noundef %104, i64 noundef %106) #17
-  %108 = load i32, ptr %80, align 8
-  %109 = add i32 %108, -1
-  %110 = icmp ult i32 %109, 12
-  br i1 %110, label %111, label %114
+101:                                              ; preds = %85
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
+  %103 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %104 = load i64, ptr %103, align 8
+  %105 = call ptr @dsa_get_address(ptr noundef %102, i64 noundef %104) #17
+  %106 = load i32, ptr %78, align 8
+  %107 = add i32 %106, -1
+  %108 = icmp ult i32 %107, 12
+  br i1 %108, label %109, label %112
 
-111:                                              ; preds = %103
-  %112 = zext nneg i32 %108 to i64
-  %113 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %112
+109:                                              ; preds = %101
+  %110 = zext nneg i32 %106 to i64
+  %111 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %110
   br label %pgstat_get_kind_info.exit61.i
 
-114:                                              ; preds = %103
-  %115 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
-  %116 = sext i32 %108 to i64
-  %117 = getelementptr ptr, ptr %115, i64 %116
-  %118 = getelementptr i8, ptr %117, i64 -1024
-  %119 = load ptr, ptr %118, align 8
+112:                                              ; preds = %101
+  %113 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
+  %114 = sext i32 %106 to i64
+  %115 = getelementptr ptr, ptr %113, i64 %114
+  %116 = getelementptr i8, ptr %115, i64 -1024
+  %117 = load ptr, ptr %116, align 8
   br label %pgstat_get_kind_info.exit61.i
 
-pgstat_get_kind_info.exit61.i:                    ; preds = %114, %111
-  %.0.i60.i = phi ptr [ %113, %111 ], [ %119, %114 ]
-  %120 = load i8, ptr %.0.i60.i, align 8
-  %121 = and i8 %120, 4
-  %.not55.i = icmp eq i8 %121, 0
-  br i1 %.not55.i, label %152, label %122, !llvm.loop !10
+pgstat_get_kind_info.exit61.i:                    ; preds = %112, %109
+  %.0.i60.i = phi ptr [ %111, %109 ], [ %117, %112 ]
+  %118 = load i8, ptr %.0.i60.i, align 8
+  %119 = and i8 %118, 4
+  %.not55.i = icmp eq i8 %119, 0
+  br i1 %.not55.i, label %150, label %120, !llvm.loop !10
 
-122:                                              ; preds = %pgstat_get_kind_info.exit61.i
-  %123 = getelementptr inbounds nuw i8, ptr %.0.i60.i, i64 64
-  %124 = load ptr, ptr %123, align 8
-  %.not56.i = icmp eq ptr %124, null
-  br i1 %.not56.i, label %125, label %128
+120:                                              ; preds = %pgstat_get_kind_info.exit61.i
+  %121 = getelementptr inbounds nuw i8, ptr %.0.i60.i, i64 64
+  %122 = load ptr, ptr %121, align 8
+  %.not56.i = icmp eq ptr %122, null
+  br i1 %.not56.i, label %123, label %126
 
-125:                                              ; preds = %122
-  %126 = call i32 @fputc(i32 noundef 83, ptr noundef nonnull %21)
-  %127 = call i64 @fwrite(ptr noundef nonnull readonly %80, i64 noundef 16, i64 noundef 1, ptr noundef nonnull %21)
-  br label %132
+123:                                              ; preds = %120
+  %124 = call i32 @fputc(i32 noundef 83, ptr noundef nonnull %21)
+  %125 = call i64 @fwrite(ptr noundef nonnull readonly %78, i64 noundef 16, i64 noundef 1, ptr noundef nonnull %21)
+  br label %130
 
-128:                                              ; preds = %122
+126:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17
-  call void %124(ptr noundef nonnull %80, ptr noundef %107, ptr noundef nonnull %7) #17
-  %129 = call i32 @fputc(i32 noundef 78, ptr noundef nonnull %21)
-  %130 = call i64 @fwrite(ptr noundef nonnull readonly %80, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %21)
-  %131 = call i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 64, i64 noundef 1, ptr noundef nonnull %21)
+  call void %122(ptr noundef nonnull %78, ptr noundef %105, ptr noundef nonnull %7) #17
+  %127 = call i32 @fputc(i32 noundef 78, ptr noundef nonnull %21)
+  %128 = call i64 @fwrite(ptr noundef nonnull readonly %78, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %21)
+  %129 = call i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 64, i64 noundef 1, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
-  br label %132
+  br label %130
 
-132:                                              ; preds = %128, %125
-  %133 = load i32, ptr %80, align 8
-  %134 = add i32 %133, -1
-  %135 = icmp ult i32 %134, 12
-  br i1 %135, label %136, label %140
+130:                                              ; preds = %126, %123
+  %131 = load i32, ptr %78, align 8
+  %132 = add i32 %131, -1
+  %133 = icmp ult i32 %132, 12
+  br i1 %133, label %134, label %138
 
-136:                                              ; preds = %132
-  %137 = zext nneg i32 %133 to i64
-  %138 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %137, i32 4
-  %139 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %137
+134:                                              ; preds = %130
+  %135 = zext nneg i32 %131 to i64
+  %136 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %135, i32 4
+  %137 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %135
   br label %pgstat_get_entry_len.exit.i
 
-140:                                              ; preds = %132
-  %141 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
-  %142 = sext i32 %133 to i64
-  %143 = getelementptr ptr, ptr %141, i64 %142
-  %144 = getelementptr i8, ptr %143, i64 -1024
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
+138:                                              ; preds = %130
+  %139 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
+  %140 = sext i32 %131 to i64
+  %141 = getelementptr ptr, ptr %139, i64 %140
+  %142 = getelementptr i8, ptr %141, i64 -1024
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   br label %pgstat_get_entry_len.exit.i
 
-pgstat_get_entry_len.exit.i:                      ; preds = %140, %136
-  %.pn.in.in.i = phi ptr [ %138, %136 ], [ %146, %140 ]
-  %.0.i.i65.i = phi ptr [ %139, %136 ], [ %145, %140 ]
+pgstat_get_entry_len.exit.i:                      ; preds = %138, %134
+  %.pn.in.in.i = phi ptr [ %136, %134 ], [ %144, %138 ]
+  %.0.i.i65.i = phi ptr [ %137, %134 ], [ %143, %138 ]
   %.pn.in.i = load i32, ptr %.pn.in.in.i, align 8
   %.pn.i = zext i32 %.pn.in.i to i64
-  %147 = getelementptr inbounds nuw i8, ptr %107, i64 %.pn.i
-  %148 = getelementptr inbounds nuw i8, ptr %.0.i.i65.i, i64 20
-  %149 = load i32, ptr %148, align 4
-  %150 = zext i32 %149 to i64
-  %151 = call i64 @fwrite(ptr noundef readonly %147, i64 noundef range(i64 0, 4294967296) %150, i64 noundef 1, ptr noundef nonnull %21)
-  br label %152
+  %145 = getelementptr inbounds nuw i8, ptr %105, i64 %.pn.i
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i.i65.i, i64 20
+  %147 = load i32, ptr %146, align 4
+  %148 = zext i32 %147 to i64
+  %149 = call i64 @fwrite(ptr noundef readonly %145, i64 noundef range(i64 0, 4294967296) %148, i64 noundef 1, ptr noundef nonnull %21)
+  br label %150
 
-152:                                              ; preds = %pgstat_get_entry_len.exit.i, %pgstat_get_kind_info.exit61.i, %96, %94, %83
-  %153 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #17
-  %.not.i = icmp eq ptr %153, null
+150:                                              ; preds = %pgstat_get_entry_len.exit.i, %pgstat_get_kind_info.exit61.i, %94, %92, %81
+  %151 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #17
+  %.not.i = icmp eq ptr %151, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %152, %31
+._crit_edge.i:                                    ; preds = %150, %31
   call void @dshash_seq_term(ptr noundef nonnull %5) #17
-  %154 = call i32 @fputc(i32 noundef 69, ptr noundef nonnull %21)
-  %155 = call i32 @ferror(ptr noundef nonnull %21) #17
-  %.not53.i = icmp eq i32 %155, 0
-  br i1 %.not53.i, label %164, label %156
+  %152 = call i32 @fputc(i32 noundef 69, ptr noundef nonnull %21)
+  %153 = call i32 @ferror(ptr noundef nonnull %21) #17
+  %.not53.i = icmp eq i32 %153, 0
+  br i1 %.not53.i, label %162, label %154
 
-156:                                              ; preds = %._crit_edge.i
-  %157 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
-  br i1 %157, label %158, label %161
+154:                                              ; preds = %._crit_edge.i
+  %155 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  br i1 %155, label %156, label %159
 
-158:                                              ; preds = %156
-  %159 = call i32 @errcode_for_file_access() #17
-  %160 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.35) #17
+156:                                              ; preds = %154
+  %157 = call i32 @errcode_for_file_access() #17
+  %158 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.35) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1741, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
-  br label %161
+  br label %159
 
-161:                                              ; preds = %158, %156
-  %162 = call i32 @FreeFile(ptr noundef nonnull %21) #17
-  %163 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
+159:                                              ; preds = %156, %154
+  %160 = call i32 @FreeFile(ptr noundef nonnull %21) #17
+  %161 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
   br label %pgstat_write_statsfile.exit
 
-164:                                              ; preds = %._crit_edge.i
-  %165 = call i32 @FreeFile(ptr noundef nonnull %21) #17
-  %166 = icmp slt i32 %165, 0
-  br i1 %166, label %167, label %174
+162:                                              ; preds = %._crit_edge.i
+  %163 = call i32 @FreeFile(ptr noundef nonnull %21) #17
+  %164 = icmp slt i32 %163, 0
+  br i1 %164, label %165, label %172
 
-167:                                              ; preds = %164
-  %168 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
-  br i1 %168, label %169, label %172
+165:                                              ; preds = %162
+  %166 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  br i1 %166, label %167, label %170
 
-169:                                              ; preds = %167
-  %170 = call i32 @errcode_for_file_access() #17
-  %171 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.35) #17
+167:                                              ; preds = %165
+  %168 = call i32 @errcode_for_file_access() #17
+  %169 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.35) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1750, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
-  br label %172
+  br label %170
 
-172:                                              ; preds = %169, %167
-  %173 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
+170:                                              ; preds = %167, %165
+  %171 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
   br label %pgstat_write_statsfile.exit
 
-174:                                              ; preds = %164
-  %175 = call i32 @durable_rename(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str, i32 noundef 15) #17
-  %176 = icmp slt i32 %175, 0
-  br i1 %176, label %177, label %pgstat_write_statsfile.exit
+172:                                              ; preds = %162
+  %173 = call i32 @durable_rename(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str, i32 noundef 15) #17
+  %174 = icmp slt i32 %173, 0
+  br i1 %174, label %175, label %pgstat_write_statsfile.exit
 
-177:                                              ; preds = %174
-  %178 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
+175:                                              ; preds = %172
+  %176 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
   br label %pgstat_write_statsfile.exit
 
-pgstat_write_statsfile.exit:                      ; preds = %23, %25, %161, %172, %174, %177
+pgstat_write_statsfile.exit:                      ; preds = %23, %25, %159, %170, %172, %175
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %179
+  br label %177
 
-179:                                              ; preds = %pgstat_write_statsfile.exit, %2
+177:                                              ; preds = %pgstat_write_statsfile.exit, %2
   ret void
 }
 

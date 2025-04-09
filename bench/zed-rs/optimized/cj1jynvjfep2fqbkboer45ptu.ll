@@ -50880,9 +50880,9 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h6ce61a656e189a8dE.exit68: ; preds = %"_ZN
           to label %234 unwind label %228, !noalias !10119
 
 .sink.split.i:                                    ; preds = %304, %240
-  %.sink94.i = phi i64 [ %305, %304 ], [ %241, %240 ]
+  %.sink89.i = phi i64 [ %305, %304 ], [ %241, %240 ]
   %.sink.i = phi i32 [ %306, %304 ], [ %242, %240 ]
-  store i64 %.sink94.i, ptr %243, align 8, !noalias !10119
+  store i64 %.sink89.i, ptr %243, align 8, !noalias !10119
   store i32 %.sink.i, ptr %214, align 8, !noalias !10119
   br label %219
 
@@ -51079,62 +51079,62 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h6ce61a656e189a8dE.exit68: ; preds = %"_ZN
   br i1 %315, label %318, label %319
 
 318:                                              ; preds = %307
-  %.not81.i = icmp eq i32 %317, 0
-  br i1 %.not81.i, label %.thread85.thread.i, label %.thread85.i
+  %or.cond.i = icmp eq i32 %317, 0
+  br i1 %or.cond.i, label %.thread80.thread.i, label %.thread80.i
 
 319:                                              ; preds = %307
   %320 = icmp eq i32 %317, 3
   br i1 %320, label %329, label %331
 
-.thread85.i:                                      ; preds = %318
+.thread80.i:                                      ; preds = %318
   %321 = sitofp i32 %310 to float
   %.sroa.010.0.in.in.i = bitcast float %321 to i32
   %.sroa.010.0.in.i = zext i32 %.sroa.010.0.in.in.i to i64
   %.sroa.010.0.i = shl nuw i64 %.sroa.010.0.in.i, 32
   store i64 %.sroa.010.0.i, ptr %313, align 8, !alias.scope !10116, !noalias !10148
   %322 = icmp eq i32 %317, 3
-  br i1 %322, label %.thread88.i, label %331
+  br i1 %322, label %.thread83.i, label %331
 
-.thread85.thread.i:                               ; preds = %318
+.thread80.thread.i:                               ; preds = %318
   %323 = getelementptr inbounds nuw i8, ptr %12, i64 332
   %324 = load float, ptr %323, align 4, !alias.scope !10116, !noalias !10148, !noundef !9
   %325 = sitofp i32 %310 to float
   %326 = fmul float %324, %325
   %327 = sitofp i32 %312 to float
   %328 = fdiv float %326, %327
-  %.sroa.010.0.in.in91.i = bitcast float %328 to i32
-  %.sroa.010.0.in92.i = zext i32 %.sroa.010.0.in.in91.i to i64
-  %.sroa.010.093.i = shl nuw i64 %.sroa.010.0.in92.i, 32
-  store i64 %.sroa.010.093.i, ptr %313, align 8, !alias.scope !10116, !noalias !10148
+  %.sroa.010.0.in.in86.i = bitcast float %328 to i32
+  %.sroa.010.0.in87.i = zext i32 %.sroa.010.0.in.in86.i to i64
+  %.sroa.010.088.i = shl nuw i64 %.sroa.010.0.in87.i, 32
+  store i64 %.sroa.010.088.i, ptr %313, align 8, !alias.scope !10116, !noalias !10148
   br label %331
 
 329:                                              ; preds = %319
   %330 = icmp eq i32 %314, 0
-  br i1 %330, label %..thread88.i_crit_edge, label %340
+  br i1 %330, label %..thread83.i_crit_edge, label %340
 
-..thread88.i_crit_edge:                           ; preds = %329
+..thread83.i_crit_edge:                           ; preds = %329
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 324
   %.pre102 = load float, ptr %.phi.trans.insert, align 4, !alias.scope !10116, !noalias !10148
   %.pre103 = sitofp i32 %310 to float
-  br label %.thread88.i
+  br label %.thread83.i
 
-331:                                              ; preds = %339, %.thread85.thread.i, %.thread85.i, %319
+331:                                              ; preds = %339, %.thread80.thread.i, %.thread80.i, %319
   %332 = icmp ne ptr %.sroa.6.0.copyload, null
   call void @llvm.assume(i1 %332)
   %333 = load ptr, ptr %.sroa.6.0.copyload, align 8, !noalias !10119, !noundef !9
   %334 = icmp eq ptr %333, null
   br i1 %334, label %350, label %342
 
-.thread88.i:                                      ; preds = %..thread88.i_crit_edge, %.thread85.i
-  %.pre-phi = phi float [ %.pre103, %..thread88.i_crit_edge ], [ %321, %.thread85.i ]
-  %335 = phi float [ %.pre102, %..thread88.i_crit_edge ], [ %321, %.thread85.i ]
+.thread83.i:                                      ; preds = %..thread83.i_crit_edge, %.thread80.i
+  %.pre-phi = phi float [ %.pre103, %..thread83.i_crit_edge ], [ %321, %.thread80.i ]
+  %335 = phi float [ %.pre102, %..thread83.i_crit_edge ], [ %321, %.thread80.i ]
   %336 = sitofp i32 %312 to float
   %337 = fmul float %335, %336
   %338 = fdiv float %337, %.pre-phi
   br label %339
 
-339:                                              ; preds = %340, %.thread88.i
-  %.sroa.015.0.in.in.in.i = phi float [ %338, %.thread88.i ], [ %341, %340 ]
+339:                                              ; preds = %340, %.thread83.i
+  %.sroa.015.0.in.in.in.i = phi float [ %338, %.thread83.i ], [ %341, %340 ]
   %.sroa.015.0.in.in.i = bitcast float %.sroa.015.0.in.in.in.i to i32
   %.sroa.015.0.in.i = zext i32 %.sroa.015.0.in.in.i to i64
   %.sroa.015.0.i = shl nuw i64 %.sroa.015.0.in.i, 32

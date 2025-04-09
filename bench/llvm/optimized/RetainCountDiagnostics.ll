@@ -3830,105 +3830,101 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %717, %_ZNK5clang4Ty
   %.fca.1.extract = extractvalue { ptr, i8 } %731, 1
   %732 = load ptr, ptr %0, align 8, !tbaa !99
   %733 = call i16 @_ZNK5clang4ento12ProgramState6isNullENS0_4SValE(ptr noundef nonnull align 8 dereferenceable(48) %732, ptr %.fca.0.extract, i8 %.fca.1.extract) #20
-  %734 = and i16 %733, 256
-  %735 = icmp ne i16 %734, 0
-  %736 = trunc i16 %733 to i1
-  %737 = and i1 %735, %736
-  br i1 %737, label %738, label %750
+  %734 = and i16 %733, 257
+  %735 = icmp eq i16 %734, 257
+  br i1 %735, label %736, label %748
 
-738:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread
-  %739 = load ptr, ptr %682, align 8, !tbaa !125
-  %740 = load ptr, ptr %684, align 8, !tbaa !126
-  %741 = ptrtoint ptr %739 to i64
-  %742 = ptrtoint ptr %740 to i64
-  %743 = sub i64 %741, %742
-  %744 = icmp ult i64 %743, 33
-  br i1 %744, label %745, label %747
+736:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread
+  %737 = load ptr, ptr %682, align 8, !tbaa !125
+  %738 = load ptr, ptr %684, align 8, !tbaa !126
+  %739 = ptrtoint ptr %737 to i64
+  %740 = ptrtoint ptr %738 to i64
+  %741 = sub i64 %739, %740
+  %742 = icmp ult i64 %741, 33
+  br i1 %742, label %743, label %745
 
-745:                                              ; preds = %738
-  %746 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.67, i64 noundef 33) #20
+743:                                              ; preds = %736
+  %744 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.67, i64 noundef 33) #20
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit174
 
-747:                                              ; preds = %738
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %740, ptr noundef nonnull align 1 dereferenceable(33) @.str.67, i64 33, i1 false)
-  %748 = load ptr, ptr %684, align 8, !tbaa !126
-  %749 = getelementptr inbounds nuw i8, ptr %748, i64 33
-  store ptr %749, ptr %684, align 8, !tbaa !126
+745:                                              ; preds = %736
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %738, ptr noundef nonnull align 1 dereferenceable(33) @.str.67, i64 33, i1 false)
+  %746 = load ptr, ptr %684, align 8, !tbaa !126
+  %747 = getelementptr inbounds nuw i8, ptr %746, i64 33
+  store ptr %747, ptr %684, align 8, !tbaa !126
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit174
 
-750:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread
-  %751 = load ptr, ptr %0, align 8, !tbaa !99
-  %752 = call i16 @_ZNK5clang4ento12ProgramState9isNonNullENS0_4SValE(ptr noundef nonnull align 8 dereferenceable(48) %751, ptr %.fca.0.extract, i8 %.fca.1.extract) #20
-  %753 = and i16 %752, 256
-  %754 = icmp ne i16 %753, 0
-  %755 = trunc i16 %752 to i1
-  %756 = and i1 %754, %755
-  br i1 %756, label %757, label %_ZN4llvm11raw_ostreamlsEPKc.exit174
+748:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread
+  %749 = load ptr, ptr %0, align 8, !tbaa !99
+  %750 = call i16 @_ZNK5clang4ento12ProgramState9isNonNullENS0_4SValE(ptr noundef nonnull align 8 dereferenceable(48) %749, ptr %.fca.0.extract, i8 %.fca.1.extract) #20
+  %751 = and i16 %750, 257
+  %752 = icmp eq i16 %751, 257
+  br i1 %752, label %753, label %_ZN4llvm11raw_ostreamlsEPKc.exit174
 
-757:                                              ; preds = %750
-  %758 = load ptr, ptr %682, align 8, !tbaa !125
-  %759 = load ptr, ptr %684, align 8, !tbaa !126
-  %760 = ptrtoint ptr %758 to i64
-  %761 = ptrtoint ptr %759 to i64
-  %762 = sub i64 %760, %761
-  %763 = icmp ult i64 %762, 37
-  br i1 %763, label %764, label %766
+753:                                              ; preds = %748
+  %754 = load ptr, ptr %682, align 8, !tbaa !125
+  %755 = load ptr, ptr %684, align 8, !tbaa !126
+  %756 = ptrtoint ptr %754 to i64
+  %757 = ptrtoint ptr %755 to i64
+  %758 = sub i64 %756, %757
+  %759 = icmp ult i64 %758, 37
+  br i1 %759, label %760, label %762
 
-764:                                              ; preds = %757
-  %765 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.68, i64 noundef 37) #20
+760:                                              ; preds = %753
+  %761 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.68, i64 noundef 37) #20
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit174
 
-766:                                              ; preds = %757
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %759, ptr noundef nonnull align 1 dereferenceable(37) @.str.68, i64 37, i1 false)
-  %767 = load ptr, ptr %684, align 8, !tbaa !126
-  %768 = getelementptr inbounds nuw i8, ptr %767, i64 37
-  store ptr %768, ptr %684, align 8, !tbaa !126
+762:                                              ; preds = %753
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %755, ptr noundef nonnull align 1 dereferenceable(37) @.str.68, i64 37, i1 false)
+  %763 = load ptr, ptr %684, align 8, !tbaa !126
+  %764 = getelementptr inbounds nuw i8, ptr %763, i64 37
+  store ptr %764, ptr %684, align 8, !tbaa !126
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit174
 
-_ZN4llvm11raw_ostreamlsEPKc.exit174:              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit169, %_ZNK5clang4Type10isVoidTypeEv.exit, %750, %745, %747, %764, %766, %_ZN4llvm11raw_ostreamlsEPKc.exit160
-  %769 = load i32, ptr %350, align 4, !tbaa !139
-  %770 = add i32 %769, -1
-  store i32 %770, ptr %350, align 4, !tbaa !139
-  %.not.i.i.i.i.i.i.i.i179 = icmp eq i32 %770, 0
-  br i1 %.not.i.i.i.i.i.i.i.i179, label %771, label %_ZNSt14_Optional_baseIN5clang4ento12CallEventRefINS1_9CallEventEEELb0ELb0EED2Ev.exit183
+_ZN4llvm11raw_ostreamlsEPKc.exit174:              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit169, %_ZNK5clang4Type10isVoidTypeEv.exit, %748, %743, %745, %760, %762, %_ZN4llvm11raw_ostreamlsEPKc.exit160
+  %765 = load i32, ptr %350, align 4, !tbaa !139
+  %766 = add i32 %765, -1
+  store i32 %766, ptr %350, align 4, !tbaa !139
+  %.not.i.i.i.i.i.i.i.i179 = icmp eq i32 %766, 0
+  br i1 %.not.i.i.i.i.i.i.i.i179, label %767, label %_ZNSt14_Optional_baseIN5clang4ento12CallEventRefINS1_9CallEventEEELb0ELb0EED2Ev.exit183
 
-771:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit174
-  %772 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  %773 = load ptr, ptr %772, align 8, !tbaa !99
+767:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit174
+  %768 = getelementptr inbounds nuw i8, ptr %269, i64 8
+  %769 = load ptr, ptr %768, align 8, !tbaa !99
+  %770 = getelementptr inbounds nuw i8, ptr %769, i64 8
+  %771 = load ptr, ptr %770, align 8, !tbaa !153
+  %772 = getelementptr inbounds nuw i8, ptr %771, i64 248
+  %773 = load ptr, ptr %772, align 8, !tbaa !73
   %774 = getelementptr inbounds nuw i8, ptr %773, i64 8
-  %775 = load ptr, ptr %774, align 8, !tbaa !153
-  %776 = getelementptr inbounds nuw i8, ptr %775, i64 248
-  %777 = load ptr, ptr %776, align 8, !tbaa !73
-  %778 = getelementptr inbounds nuw i8, ptr %777, i64 8
-  %779 = getelementptr inbounds nuw i8, ptr %777, i64 16
-  %780 = load i32, ptr %779, align 8, !tbaa !116
-  %781 = getelementptr inbounds nuw i8, ptr %777, i64 20
-  %782 = load i32, ptr %781, align 4, !tbaa !163
-  %.not.i.i.not.i.i.i.i.i.i.i.i.i.i180 = icmp ult i32 %780, %782
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i180, label %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i.i.i.i.i182, label %783, !prof !164
+  %775 = getelementptr inbounds nuw i8, ptr %773, i64 16
+  %776 = load i32, ptr %775, align 8, !tbaa !116
+  %777 = getelementptr inbounds nuw i8, ptr %773, i64 20
+  %778 = load i32, ptr %777, align 4, !tbaa !163
+  %.not.i.i.not.i.i.i.i.i.i.i.i.i.i180 = icmp ult i32 %776, %778
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i180, label %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i.i.i.i.i182, label %779, !prof !164
 
-783:                                              ; preds = %771
-  %784 = zext i32 %780 to i64
-  %785 = add nuw nsw i64 %784, 1
-  %786 = getelementptr inbounds nuw i8, ptr %777, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %778, ptr noundef nonnull %786, i64 noundef %785, i64 noundef 8) #20
-  %.pre.i.i.i.i.i.i.i.i.i.i181 = load i32, ptr %779, align 8, !tbaa !116
+779:                                              ; preds = %767
+  %780 = zext i32 %776 to i64
+  %781 = add nuw nsw i64 %780, 1
+  %782 = getelementptr inbounds nuw i8, ptr %773, i64 24
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %774, ptr noundef nonnull %782, i64 noundef %781, i64 noundef 8) #20
+  %.pre.i.i.i.i.i.i.i.i.i.i181 = load i32, ptr %775, align 8, !tbaa !116
   br label %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i.i.i.i.i182
 
-_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i.i.i.i.i182: ; preds = %783, %771
-  %787 = phi i32 [ %780, %771 ], [ %.pre.i.i.i.i.i.i.i.i.i.i181, %783 ]
-  %788 = load ptr, ptr %778, align 8, !tbaa !115
-  %789 = zext i32 %787 to i64
-  %790 = getelementptr inbounds nuw ptr, ptr %788, i64 %789
-  %791 = ptrtoint ptr %269 to i64
-  store i64 %791, ptr %790, align 1
-  %792 = load i32, ptr %779, align 8, !tbaa !116
-  %793 = add i32 %792, 1
-  store i32 %793, ptr %779, align 8, !tbaa !116
-  %794 = load ptr, ptr %269, align 8, !tbaa !21
-  %795 = getelementptr inbounds nuw i8, ptr %794, i64 16
-  %796 = load ptr, ptr %795, align 8
-  call void %796(ptr noundef nonnull align 8 dereferenceable(72) %269) #20
+_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i.i.i.i.i182: ; preds = %779, %767
+  %783 = phi i32 [ %776, %767 ], [ %.pre.i.i.i.i.i.i.i.i.i.i181, %779 ]
+  %784 = load ptr, ptr %774, align 8, !tbaa !115
+  %785 = zext i32 %783 to i64
+  %786 = getelementptr inbounds nuw ptr, ptr %784, i64 %785
+  %787 = ptrtoint ptr %269 to i64
+  store i64 %787, ptr %786, align 1
+  %788 = load i32, ptr %775, align 8, !tbaa !116
+  %789 = add i32 %788, 1
+  store i32 %789, ptr %775, align 8, !tbaa !116
+  %790 = load ptr, ptr %269, align 8, !tbaa !21
+  %791 = getelementptr inbounds nuw i8, ptr %790, i64 16
+  %792 = load ptr, ptr %791, align 8
+  call void %792(ptr noundef nonnull align 8 dereferenceable(72) %269) #20
   br label %_ZNSt14_Optional_baseIN5clang4ento12CallEventRefINS1_9CallEventEEELb0ELb0EED2Ev.exit183
 
 _ZNSt14_Optional_baseIN5clang4ento12CallEventRefINS1_9CallEventEEELb0ELb0EED2Ev.exit183: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit174, %_ZN5clang4ento16CallEventManager7reclaimEPKv.exit.i.i.i.i.i.i.i.i182

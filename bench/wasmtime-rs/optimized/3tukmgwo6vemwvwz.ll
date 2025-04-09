@@ -12500,9 +12500,9 @@ _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit6: ; pred
   %31 = phi i32 [ 1, %.lr.ph ], [ %..i9, %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit ]
   %32 = phi i32 [ 0, %.lr.ph ], [ %58, %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit ]
   %33 = phi i32 [ 1, %.lr.ph ], [ %..i, %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit ]
-  %.011 = phi i64 [ 0, %.lr.ph ], [ %70, %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit ]
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %71, %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit ]
   %34 = phi i32 [ 0, %.lr.ph ], [ %46, %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit ]
-  %35 = getelementptr inbounds [0 x { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }], ptr %1, i64 0, i64 %.011
+  %35 = getelementptr inbounds [0 x { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }], ptr %1, i64 0, i64 %.010
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !noundef !4
   %38 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %37)
@@ -12546,30 +12546,30 @@ _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8: ; pred
   store i32 %..i9, ptr %6, align 4
   %59 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %60 = load i8, ptr %59, align 4, !range !10, !noundef !4
-  %brmerge.demorgan.i10 = and i8 %60, %30
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan.i10 to i1
-  br i1 %brmerge.demorgan.i, label %61, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
+  %61 = and i8 %60, %30
+  %brmerge.demorgan.i.not = icmp eq i8 %61, 0
+  br i1 %brmerge.demorgan.i.not, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit, label %62
 
-61:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8
-  %62 = getelementptr inbounds nuw i8, ptr %35, i64 17
-  %63 = load i8, ptr %62, align 1
-  %64 = tail call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %29, i8 %63)
-  %65 = extractvalue { i8, i1 } %64, 1
-  br i1 %65, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit, label %66
+62:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8
+  %63 = getelementptr inbounds nuw i8, ptr %35, i64 17
+  %64 = load i8, ptr %63, align 1
+  %65 = tail call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %29, i8 %64)
+  %66 = extractvalue { i8, i1 } %65, 1
+  br i1 %66, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit, label %67
 
-66:                                               ; preds = %61
-  %67 = extractvalue { i8, i1 } %64, 0
-  %68 = icmp ult i8 %67, 17
-  %69 = zext i1 %68 to i8
+67:                                               ; preds = %62
+  %68 = extractvalue { i8, i1 } %65, 0
+  %69 = icmp ult i8 %68, 17
+  %70 = zext i1 %69 to i8
   br label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
-_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8, %61, %66
-  %.sroa.03.0.i = phi i8 [ 0, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8 ], [ 0, %61 ], [ %69, %66 ]
-  %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8 ], [ undef, %61 ], [ %67, %66 ]
+_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8, %62, %67
+  %.sroa.03.0.i = phi i8 [ 0, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8 ], [ 0, %62 ], [ %70, %67 ]
+  %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8 ], [ undef, %62 ], [ %68, %67 ]
   store i8 %.sroa.03.0.i, ptr %7, align 4
   store i8 %.sroa.5.0.i, ptr %8, align 1
-  %70 = add nuw i64 %.011, 1
-  %exitcond.not = icmp eq i64 %70, %2
+  %71 = add nuw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %71, %2
   br i1 %exitcond.not, label %._crit_edge, label %28
 }
 
@@ -12757,10 +12757,10 @@ define void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo14variant_st
   store i8 %5, ptr %4, align 1
   %9 = call noundef i32 @_ZN23wasmtime_component_util16DiscriminantSize9byte_size17hb85616a9932ddda1E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %.not50 = icmp eq i64 %2, 0
-  br i1 %.not50, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq i64 %2, 0
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %57
+._crit_edge.loopexit:                             ; preds = %58
   %10 = trunc nuw i8 %.sroa.0.1 to i1
   br label %._crit_edge
 
@@ -12833,49 +12833,49 @@ _ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds
   store i8 %.sroa.5.0.i, ptr %43, align 1
   ret void
 
-.lr.ph:                                           ; preds = %8, %57
-  %.sroa.4.044 = phi i8 [ %.sroa.4.1, %57 ], [ 0, %8 ]
-  %.043 = phi i64 [ %58, %57 ], [ 0, %8 ]
-  %.02142 = phi i32 [ %.1, %57 ], [ 0, %8 ]
-  %.02241 = phi i32 [ %.123, %57 ], [ %9, %8 ]
-  %.02440 = phi i32 [ %.125, %57 ], [ 0, %8 ]
-  %.02639 = phi i32 [ %.127, %57 ], [ %9, %8 ]
-  %.sroa.0.038 = phi i8 [ %.sroa.0.1, %57 ], [ 1, %8 ]
-  %44 = getelementptr inbounds [0 x { [16 x i8], i8, [3 x i8] }], ptr %1, i64 0, i64 %.043
+.lr.ph:                                           ; preds = %8, %58
+  %.sroa.4.043 = phi i8 [ %.sroa.4.1, %58 ], [ 0, %8 ]
+  %.042 = phi i64 [ %59, %58 ], [ 0, %8 ]
+  %.02141 = phi i32 [ %.1, %58 ], [ 0, %8 ]
+  %.02240 = phi i32 [ %.123, %58 ], [ %9, %8 ]
+  %.02439 = phi i32 [ %.125, %58 ], [ 0, %8 ]
+  %.02638 = phi i32 [ %.127, %58 ], [ %9, %8 ]
+  %.sroa.0.037 = phi i8 [ %.sroa.0.1, %58 ], [ 1, %8 ]
+  %44 = getelementptr inbounds [0 x { [16 x i8], i8, [3 x i8] }], ptr %1, i64 0, i64 %.042
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i8, ptr %45, align 4, !range !12, !noundef !4
   %.not = icmp eq i8 %46, 2
-  br i1 %.not, label %57, label %47
+  br i1 %.not, label %58, label %47
 
 47:                                               ; preds = %.lr.ph
   %48 = load i32, ptr %44, align 4, !noundef !4
-  %..i = call noundef i32 @llvm.umax.i32(i32 %.02142, i32 %48)
+  %..i = call noundef i32 @llvm.umax.i32(i32 %.02141, i32 %48)
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %50 = load i32, ptr %49, align 4, !noundef !4
-  %..i33 = call noundef i32 @llvm.umax.i32(i32 %.02241, i32 %50)
+  %..i33 = call noundef i32 @llvm.umax.i32(i32 %.02240, i32 %50)
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %52 = load i32, ptr %51, align 4, !noundef !4
-  %..i34 = call noundef i32 @llvm.umax.i32(i32 %.02440, i32 %52)
+  %..i34 = call noundef i32 @llvm.umax.i32(i32 %.02439, i32 %52)
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %54 = load i32, ptr %53, align 4, !noundef !4
-  %..i35 = call noundef i32 @llvm.umax.i32(i32 %.02639, i32 %54)
+  %..i35 = call noundef i32 @llvm.umax.i32(i32 %.02638, i32 %54)
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 17
   %56 = load i8, ptr %55, align 1
-  %brmerge.demorgan.i37 = and i8 %46, %.sroa.0.038
-  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan.i37 to i1
-  %..i36 = call i8 @llvm.umax.i8(i8 %.sroa.4.044, i8 %56)
-  %.sroa.4.0.i = select i1 %brmerge.demorgan.i, i8 %..i36, i8 undef
-  br label %57
+  %57 = and i8 %46, %.sroa.0.037
+  %brmerge.demorgan.i.not = icmp eq i8 %57, 0
+  %..i36 = call i8 @llvm.umax.i8(i8 %.sroa.4.043, i8 %56)
+  %.sroa.4.0.i = select i1 %brmerge.demorgan.i.not, i8 undef, i8 %..i36
+  br label %58
 
-57:                                               ; preds = %47, %.lr.ph
-  %.sroa.0.1 = phi i8 [ %brmerge.demorgan.i37, %47 ], [ %.sroa.0.038, %.lr.ph ]
-  %.127 = phi i32 [ %..i35, %47 ], [ %.02639, %.lr.ph ]
-  %.125 = phi i32 [ %..i34, %47 ], [ %.02440, %.lr.ph ]
-  %.123 = phi i32 [ %..i33, %47 ], [ %.02241, %.lr.ph ]
-  %.1 = phi i32 [ %..i, %47 ], [ %.02142, %.lr.ph ]
-  %.sroa.4.1 = phi i8 [ %.sroa.4.0.i, %47 ], [ %.sroa.4.044, %.lr.ph ]
-  %58 = add nuw i64 %.043, 1
-  %exitcond.not = icmp eq i64 %58, %2
+58:                                               ; preds = %47, %.lr.ph
+  %.sroa.0.1 = phi i8 [ %57, %47 ], [ %.sroa.0.037, %.lr.ph ]
+  %.127 = phi i32 [ %..i35, %47 ], [ %.02638, %.lr.ph ]
+  %.125 = phi i32 [ %..i34, %47 ], [ %.02439, %.lr.ph ]
+  %.123 = phi i32 [ %..i33, %47 ], [ %.02240, %.lr.ph ]
+  %.1 = phi i32 [ %..i, %47 ], [ %.02141, %.lr.ph ]
+  %.sroa.4.1 = phi i8 [ %.sroa.4.0.i, %47 ], [ %.sroa.4.043, %.lr.ph ]
+  %59 = add nuw i64 %.042, 1
+  %exitcond.not = icmp eq i64 %59, %2
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 

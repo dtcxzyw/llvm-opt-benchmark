@@ -9942,10 +9942,10 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit:    ; preds = %_ZNSt3__119__alloca
   br i1 %47, label %24, label %.critedge, !llvm.loop !129
 
 .critedge:                                        ; preds = %40
-  %48 = icmp eq i32 %spec.store.select103, -1
-  %49 = icmp eq i32 %.081107, -1
-  %or.cond.not116 = or i1 %49, %48
-  br i1 %or.cond.not116, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, label %.noexc.i94
+  %48 = icmp ne i32 %spec.store.select103, -1
+  %49 = icmp ne i32 %.081107, -1
+  %or.cond = and i1 %48, %49
+  br i1 %or.cond, label %.noexc.i94, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %.critedge
   %50 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
@@ -9987,11 +9987,11 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %.crit
 64:                                               ; preds = %56
   tail call void @_ZdaPv(ptr noundef nonnull %58) #28
   %.pre = load i64, ptr %61, align 8
-  %.pre119 = load ptr, ptr %57, align 8
+  %.pre118 = load ptr, ptr %57, align 8
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %64, %56
-  %65 = phi ptr [ %.pre119, %64 ], [ %55, %56 ]
+  %65 = phi ptr [ %.pre118, %64 ], [ %55, %56 ]
   %66 = phi i64 [ %.pre, %64 ], [ %2, %56 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.2.0.insert.ext = zext i32 %.081107 to i64

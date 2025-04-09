@@ -48194,7 +48194,8 @@ define noundef zeroext i1 @_ZN3hir5Local8is_param17hf3ee4baaa519e83fE(ptr noalia
 
 44:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !10800
-  %45 = trunc i8 %33 to i1
+  %45 = and i8 %33, 1
+  %spec.select.i = icmp ne i8 %45, 0
   call void @llvm.experimental.noalias.scope.decl(metadata !10832)
   call void @llvm.experimental.noalias.scope.decl(metadata !10835)
   call void @llvm.experimental.noalias.scope.decl(metadata !10838)
@@ -48248,7 +48249,7 @@ define noundef zeroext i1 @_ZN3hir5Local8is_param17hf3ee4baaa519e83fE(ptr noalia
   resume { ptr, i32 } %.pn
 
 "_ZN4core3ptr125drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..IdentPat$C$syntax..ast..generated..nodes..SelfParam$GT$$GT$17hb95d4def8373805aE.exit17": ; preds = %60, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h8a8990d7fe264993E.exit.sink.split.i16", %.thread
-  %.020 = phi i1 [ %45, %60 ], [ true, %.thread ], [ true, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h8a8990d7fe264993E.exit.sink.split.i16" ]
+  %.020 = phi i1 [ %spec.select.i, %60 ], [ true, %.thread ], [ true, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h8a8990d7fe264993E.exit.sink.split.i16" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret i1 %.020
 

@@ -37009,9 +37009,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store ptr %10, ptr %12, align 8, !noalias !10435
   %13 = call noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h05b9caecfb88d23dE.llvm.744410604731891449(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !range !10440
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !10435
-  %14 = trunc i8 %13 to i1
+  %14 = and i8 %13, 1
+  %spec.select.i.i.not = icmp eq i8 %14, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !10428
-  br i1 %14, label %18, label %15
+  br i1 %spec.select.i.i.not, label %15, label %18
 
 15:                                               ; preds = %2
   store i64 0, ptr %0, align 8
@@ -37053,9 +37054,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc:                                           ; preds = %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !10460
-  %28 = trunc i8 %27 to i1
+  %28 = and i8 %27, 1
+  %spec.select.i.i.not4.i.i = icmp eq i8 %28, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !10457
-  br i1 %28, label %.lr.ph.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h09be3affe09db008E.exit"
+  br i1 %spec.select.i.i.not4.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h09be3affe09db008E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.noexc5
   %29 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10459, !noalias !10465, !noundef !5
@@ -37082,9 +37084,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc5:                                          ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !10472
-  %34 = trunc i8 %33 to i1
+  %34 = and i8 %33, 1
+  %spec.select.i.i.not.i.i = icmp eq i8 %34, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !10470
-  br i1 %34, label %.lr.ph.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h09be3affe09db008E.exit"
+  br i1 %spec.select.i.i.not.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h09be3affe09db008E.exit", label %.lr.ph.i.i
 
 35:                                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h09be3affe09db008E.exit", %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -89417,9 +89420,10 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %44
 
 12:                                               ; preds = %2
-  %13 = trunc i8 %9 to i1
+  %13 = and i8 %9, 1
+  %spec.select.i.i.not.i = icmp eq i8 %13, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !19736
-  br i1 %13, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd22ebfd2f05f2677E.exit.i", label %14
+  br i1 %spec.select.i.i.not.i, label %14, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd22ebfd2f05f2677E.exit.i"
 
 14:                                               ; preds = %12
   store i64 0, ptr %0, align 8, !alias.scope !19727, !noalias !19730
@@ -89475,9 +89479,10 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %27
 
 30:                                               ; preds = %24
-  %31 = trunc i8 %26 to i1
+  %31 = and i8 %26, 1
+  %spec.select.i.i.not.i.i.i = icmp eq i8 %31, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !19753
-  br i1 %31, label %32, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h10ff86a348345e84E.exit.i.i"
+  br i1 %spec.select.i.i.not.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h10ff86a348345e84E.exit.i.i", label %32
 
 32:                                               ; preds = %30
   %33 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !19758, !noalias !19759, !noundef !5

@@ -1003,10 +1003,8 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %274, %284
   %.0.sroa.speculated.i.i = zext i1 %207 to i32
   store i32 %.0.sroa.speculated.i.i, ptr %.sroa.12.0..sroa_idx190, align 8, !alias.scope !111, !noalias !108
   %208 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %trunc17.i = trunc i64 %75 to i1
-  %209 = icmp ugt i64 %75, 4294967295
-  %not.trunc17.i = xor i1 %trunc17.i, true
-  %narrow.i = or i1 %209, %not.trunc17.i
+  %209 = and i64 %75, -4294967295
+  %narrow.i = icmp ne i64 %209, 1
   %spec.select26.i = zext i1 %narrow.i to i32
   store i32 1, ptr %21, align 8, !alias.scope !111, !noalias !108
   store i32 %spec.select26.i, ptr %208, align 4, !alias.scope !111, !noalias !108

@@ -4482,10 +4482,8 @@ if.end.i40:                                       ; preds = %entry
 
 _ZN8facebook5velox9functionsL7isAsciiEPNS0_10BaseVectorERKNS0_17SelectivityVectorE.exit: ; preds = %entry
   %call1.i39 = tail call i16 @_ZNK8facebook5velox12SimpleVectorINS0_10StringViewEE7isAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EESt8optionalIbEE4typeERKNS0_17SelectivityVectorEPKi(ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef null)
-  %3 = and i16 %call1.i39, 256
-  %tobool.i.i.i = icmp ne i16 %3, 0
-  %tobool6.i = trunc i16 %call1.i39 to i1
-  %4 = and i1 %tobool.i.i.i, %tobool6.i
+  %3 = and i16 %call1.i39, 257
+  %4 = icmp eq i16 %3, 257
   %5 = load ptr, ptr %args, align 8
   %call5 = tail call noundef zeroext i1 @_ZN8facebook5velox9functions24prepareFlatResultsVectorERSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxES5_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(104) %context, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %6 = load ptr, ptr %result, align 8

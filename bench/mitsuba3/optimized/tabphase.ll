@@ -3853,10 +3853,10 @@ common.resume:                                    ; preds = %13, %24, %111, %33,
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %70
-  %78 = icmp eq i32 %76, -1
-  %79 = icmp eq i32 %74, -1
-  %or.cond141.not = or i1 %79, %78
-  br i1 %or.cond141.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, label %.noexc.i128
+  %78 = icmp ne i32 %76, -1
+  %79 = icmp ne i32 %74, -1
+  %or.cond141 = and i1 %78, %79
+  br i1 %or.cond141, label %.noexc.i128, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %._crit_edge
   %80 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8

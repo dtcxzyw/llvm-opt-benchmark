@@ -445,10 +445,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i74:   ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit77: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i52, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i44, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit67, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i72, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i74
   %.sroa.14.4 = phi i16 [ %.sroa.14.3, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit67 ], [ %.sroa.0.0.insert.insert.i.i76, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i74 ], [ %.sroa.14.3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i72 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i44 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i52 ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
-  %85 = and i16 %.sroa.14.4, 256
-  %86 = icmp ne i16 %85, 0
-  %87 = trunc i16 %.sroa.14.4 to i1
-  %.0.i78 = and i1 %86, %87
+  %85 = and i16 %.sroa.14.4, 257
+  %.0.i78 = icmp eq i16 %85, 257
   br label %_ZNK5clang14IdentifierInfo5isStrILm5EEEbRAT__Kc.exit.thread
 
 _ZNK5clang14IdentifierInfo5isStrILm5EEEbRAT__Kc.exit.thread: ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %52, %.critedge, %_ZNK5clang14IdentifierInfo5isStrILm8EEEbRAT__Kc.exit, %24, %_ZN5clang4Decl14getDeclContextEv.exit, %61, %_ZNK5clang14IdentifierInfo5isStrILm10EEEbRAT__Kc.exit, %46, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit77, %2, %11, %16, %18, %_ZNK5clang14IdentifierInfo5isStrILm5EEEbRAT__Kc.exit

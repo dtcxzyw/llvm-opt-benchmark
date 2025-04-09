@@ -2460,7 +2460,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZeqRK10QByteArrayS
 
 68:                                               ; preds = %66
   %69 = trunc nuw i8 %.036 to i1
-  br i1 %69, label %177, label %70
+  br i1 %69, label %176, label %70
 
 70:                                               ; preds = %68, %66
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -2515,7 +2515,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZeqRK10QByteArrayS
 
 102:                                              ; preds = %98
   %103 = call zeroext i1 @is_broadcast_bssid(ptr noundef %1)
-  br i1 %103, label %177, label %.thread68.thread
+  br i1 %103, label %176, label %.thread68.thread
 
 104:                                              ; preds = %70
   br i1 %74, label %105, label %111
@@ -2719,13 +2719,12 @@ _ZN7QStringD2Ev.exit63:                           ; preds = %.body, %_ZN17QArray
 .thread68.thread:                                 ; preds = %134, %80, %.thread, %85, %76, %89, %102, %98, %93, %.thread68, %135, %_ZN7QStringD2Ev.exit, %136
   %.275 = phi i8 [ 1, %_ZN7QStringD2Ev.exit ], [ 1, %136 ], [ 1, %135 ], [ %27, %.thread68 ], [ %27, %93 ], [ %27, %98 ], [ %27, %102 ], [ %27, %89 ], [ %27, %76 ], [ %27, %85 ], [ 1, %.thread ], [ %.1, %134 ], [ %27, %80 ]
   %.4 = phi i8 [ 1, %_ZN7QStringD2Ev.exit ], [ %.3, %136 ], [ %.3, %135 ], [ 0, %.thread68 ], [ 0, %93 ], [ 0, %98 ], [ 0, %102 ], [ 0, %89 ], [ 1, %76 ], [ 0, %85 ], [ %.23882.ph, %.thread ], [ %.3, %134 ], [ 1, %80 ]
-  %174 = trunc nuw i8 %.275 to i1
-  %175 = trunc nuw i8 %.4 to i1
-  %176 = select i1 %174, i1 %175, i1 false
-  br label %177
+  %174 = and i8 %.4, %.275
+  %175 = icmp ne i8 %174, 0
+  br label %176
 
-177:                                              ; preds = %102, %68, %.thread68.thread
-  %.0 = phi i1 [ %176, %.thread68.thread ], [ true, %68 ], [ true, %102 ]
+176:                                              ; preds = %102, %68, %.thread68.thread
+  %.0 = phi i1 [ %175, %.thread68.thread ], [ true, %68 ], [ true, %102 ]
   ret i1 %.0
 }
 

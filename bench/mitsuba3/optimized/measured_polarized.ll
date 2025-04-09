@@ -7403,18 +7403,18 @@ define linkonce_odr hidden void @_ZN7mitsuba14Distribution2DIfLm4EEC2ERKNS_6Vect
   store i8 1, ptr %8, align 8
   %.add = add nuw nsw i64 %.idx, 24
   %9 = icmp eq i64 %.add, 128
-  br i1 %9, label %.critedge128, label %7
+  br i1 %9, label %.critedge127, label %7
 
-.critedge128:                                     ; preds = %7
+.critedge127:                                     ; preds = %7
   %10 = load i32, ptr %1, align 4
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp ugt i32 %10, 1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ult i32 %13, 2
-  %or.cond.not125 = or i1 %14, %11
-  br i1 %or.cond.not125, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, label %.critedge
+  %14 = icmp ugt i32 %13, 1
+  %or.cond = and i1 %11, %14
+  br i1 %or.cond, label %.critedge, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
 
-_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %.critedge128
+_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %.critedge127
   %15 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
   invoke void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %5, ptr noundef nonnull @.str.21)
           to label %16 unwind label %.loopexit.split-lp
@@ -7442,7 +7442,7 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %.crit
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #26
   br label %66
 
-.critedge:                                        ; preds = %.critedge128
+.critedge:                                        ; preds = %.critedge127
   %20 = load i32, ptr %1, align 4
   %21 = add i32 %20, -1
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4

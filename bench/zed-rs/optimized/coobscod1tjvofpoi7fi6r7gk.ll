@@ -67268,8 +67268,9 @@ _ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.thread7.i.i.i.i:
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7386)
   %151 = load i64, ptr %34, align 8, !range !1083, !noundef !4
   %152 = icmp eq i64 %151, 2
-  %153 = trunc i64 %151 to i1
-  br i1 %153, label %154, label %156
+  %153 = and i64 %151, 1
+  %.sroa.013.0.off.not = icmp eq i64 %153, 0
+  br i1 %.sroa.013.0.off.not, label %156, label %154
 
 154:                                              ; preds = %"_ZN105_$LT$language_model..settings..AllLanguageModelSettings$u20$as$u20$settings..settings_store..Settings$GT$4load5merge17hf9f3c82ea66b3f25E.exit"
   %155 = load i64, ptr %.sroa.014.0.sroa.gep, align 8
@@ -67882,8 +67883,9 @@ _ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.thread7.i.i.i.i:
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7411)
   %322 = load i64, ptr %32, align 8, !range !1083, !noundef !4
   %323 = icmp eq i64 %322, 2
-  %324 = trunc i64 %322 to i1
-  br i1 %324, label %325, label %327
+  %324 = and i64 %322, 1
+  %.sroa.049.0.off.not = icmp eq i64 %324, 0
+  br i1 %.sroa.049.0.off.not, label %327, label %325
 
 325:                                              ; preds = %"_ZN105_$LT$language_model..settings..AllLanguageModelSettings$u20$as$u20$settings..settings_store..Settings$GT$4load5merge17hf9f3c82ea66b3f25E.exit344"
   %326 = load i64, ptr %.sroa.051.0.sroa.gep, align 8

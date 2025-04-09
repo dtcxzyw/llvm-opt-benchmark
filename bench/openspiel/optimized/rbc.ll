@@ -5727,33 +5727,28 @@ define void @_ZNK10open_spiel3rbc7RbcGame12MakeObserverEN4absl7debian28optionalI
   %.sroa.0.4..sroa.0.4..sroa.0.4..sroa.0.4..val.i = load i64, ptr %.sroa.0.4..sroa_idx8, align 4
   %.sroa.0.0.i = select i1 %23, i64 %.sroa.0.4..sroa.0.4..sroa.0.4..sroa.0.4..val.i, i64 4294967297
   store i64 %.sroa.0.0.i, ptr %9, align 8
-  %24 = trunc i64 %.sroa.0.0.i to i1
-  %25 = and i64 %.sroa.0.0.i, -4294967040
-  %26 = icmp eq i64 %25, 4294967296
-  %27 = and i1 %26, %24
-  %28 = and i64 %.sroa.0.0.i, 256
-  %.not.i = icmp eq i64 %28, 0
-  %or.cond = or i1 %.not.i, %27
-  br i1 %or.cond, label %_ZNSt10shared_ptrIN10open_spiel3rbc11RbcObserverEED2Ev.exit, label %33
+  %24 = and i64 %.sroa.0.0.i, 256
+  %or.cond = icmp eq i64 %24, 0
+  br i1 %or.cond, label %_ZNSt10shared_ptrIN10open_spiel3rbc11RbcObserverEED2Ev.exit, label %29
 
 _ZNSt10shared_ptrIN10open_spiel3rbc11RbcObserverEED2Ev.exit: ; preds = %22
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store ptr null, ptr %10, align 8, !alias.scope !41
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN10open_spiel3rbc11RbcObserverESaIvEJRNS4_18IIGObservationTypeEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull %6, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN10open_spiel3rbc11RbcObserverESaIvEJRNS4_18IIGObservationTypeEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull %6, ptr noundef nonnull align 4 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %30 = load ptr, ptr %10, align 8
-  store ptr %30, ptr %0, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %29, align 8
-  store ptr %32, ptr %31, align 8
-  br label %34
+  %26 = load ptr, ptr %10, align 8
+  store ptr %26, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %25, align 8
+  store ptr %28, ptr %27, align 8
+  br label %30
 
-33:                                               ; preds = %22
+29:                                               ; preds = %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %34
+  br label %30
 
-34:                                               ; preds = %33, %_ZNSt10shared_ptrIN10open_spiel3rbc11RbcObserverEED2Ev.exit
+30:                                               ; preds = %29, %_ZNSt10shared_ptrIN10open_spiel3rbc11RbcObserverEED2Ev.exit
   ret void
 }
 
@@ -12146,38 +12141,35 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcOb
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %3, align 4
-  %10 = trunc i64 %.sroa.0.0.copyload.i.i.i to i1
-  %11 = and i64 %.sroa.0.0.copyload.i.i.i, -4294967040
-  %12 = icmp eq i64 %11, 4294967296
-  %13 = and i1 %12, %10
-  %14 = and i64 %.sroa.0.0.copyload.i.i.i, 256
-  %.not.i.i.i.i.i = icmp eq i64 %14, 0
+  %10 = and i64 %.sroa.0.0.copyload.i.i.i, -4294967039
+  %11 = icmp eq i64 %10, 4294967297
+  %12 = and i64 %.sroa.0.0.copyload.i.i.i, 256
+  %.not.i.i.i.i.i = icmp eq i64 %12, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %15 = zext i1 %13 to i8
-  %16 = zext i1 %.not.i.i.i.i.i to i8
+  %13 = zext i1 %11 to i8
+  %14 = zext i1 %.not.i.i.i.i.i to i8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel8ObserverE, i64 16), ptr %9, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 %15, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  store i8 %16, ptr %18, align 1
-  %19 = or i1 %.not.i.i.i.i.i, %13
-  br i1 %19, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %.noexc.i
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i8 %13, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 25
+  store i8 %14, ptr %16, align 1
+  br i1 %.not.i.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %.noexc.i
 
 .noexc.i:                                         ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
   store i32 326, ptr %5, align 4
   invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA134_KcRA2_S2_iRA13_S2_RA25_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 1 dereferenceable(134) @.str.77, ptr noundef nonnull align 1 dereferenceable(2) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(13) @.str.14, ptr noundef nonnull align 1 dereferenceable(25) @.str.78, ptr noundef nonnull align 1 dereferenceable(2) @.str.16)
-          to label %.noexc unwind label %23
+          to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %.noexc.i
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-          to label %20 unwind label %.body.i
+          to label %17 unwind label %.body.i
 
-20:                                               ; preds = %.noexc
+17:                                               ; preds = %.noexc
   unreachable
 
 .body.i:                                          ; preds = %.noexc
-  %21 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
@@ -12186,19 +12178,19 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObse
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel3rbc11RbcObserverE, i64 16), ptr %9, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i64 %.sroa.0.0.copyload.i.i.i, ptr %22, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store i64 %.sroa.0.0.copyload.i.i.i, ptr %19, align 4
   store ptr %6, ptr %0, align 8
   store ptr %9, ptr %1, align 8
   ret void
 
-23:                                               ; preds = %.noexc.i
-  %24 = landingpad { ptr, i32 }
+20:                                               ; preds = %.noexc.i
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10: ; preds = %.body.i, %23
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %21, %.body.i ]
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10: ; preds = %.body.i, %20
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %18, %.body.i ]
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 40) #30
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -14343,38 +14335,35 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcOb
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %3, align 4
-  %10 = trunc i64 %.sroa.0.0.copyload.i.i.i to i1
-  %11 = and i64 %.sroa.0.0.copyload.i.i.i, -4294967040
-  %12 = icmp eq i64 %11, 4294967296
-  %13 = and i1 %12, %10
-  %14 = and i64 %.sroa.0.0.copyload.i.i.i, 256
-  %.not.i.i.i.i.i = icmp eq i64 %14, 0
+  %10 = and i64 %.sroa.0.0.copyload.i.i.i, -4294967039
+  %11 = icmp eq i64 %10, 4294967297
+  %12 = and i64 %.sroa.0.0.copyload.i.i.i, 256
+  %.not.i.i.i.i.i = icmp eq i64 %12, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %15 = zext i1 %13 to i8
-  %16 = zext i1 %.not.i.i.i.i.i to i8
+  %13 = zext i1 %11 to i8
+  %14 = zext i1 %.not.i.i.i.i.i to i8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel8ObserverE, i64 16), ptr %9, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 %15, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  store i8 %16, ptr %18, align 1
-  %19 = or i1 %.not.i.i.i.i.i, %13
-  br i1 %19, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %.noexc.i
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i8 %13, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 25
+  store i8 %14, ptr %16, align 1
+  br i1 %.not.i.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %.noexc.i
 
 .noexc.i:                                         ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
   store i32 326, ptr %5, align 4
   invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA134_KcRA2_S2_iRA13_S2_RA25_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 1 dereferenceable(134) @.str.77, ptr noundef nonnull align 1 dereferenceable(2) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(13) @.str.14, ptr noundef nonnull align 1 dereferenceable(25) @.str.78, ptr noundef nonnull align 1 dereferenceable(2) @.str.16)
-          to label %.noexc unwind label %23
+          to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %.noexc.i
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-          to label %20 unwind label %.body.i
+          to label %17 unwind label %.body.i
 
-20:                                               ; preds = %.noexc
+17:                                               ; preds = %.noexc
   unreachable
 
 .body.i:                                          ; preds = %.noexc
-  %21 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
@@ -14383,19 +14372,19 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObse
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel3rbc11RbcObserverE, i64 16), ptr %9, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i64 %.sroa.0.0.copyload.i.i.i, ptr %22, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store i64 %.sroa.0.0.copyload.i.i.i, ptr %19, align 4
   store ptr %6, ptr %0, align 8
   store ptr %9, ptr %1, align 8
   ret void
 
-23:                                               ; preds = %.noexc.i
-  %24 = landingpad { ptr, i32 }
+20:                                               ; preds = %.noexc.i
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10: ; preds = %.body.i, %23
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %21, %.body.i ]
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel3rbc11RbcObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10: ; preds = %.body.i, %20
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %18, %.body.i ]
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 40) #30
   resume { ptr, i32 } %eh.lpad-body
 }

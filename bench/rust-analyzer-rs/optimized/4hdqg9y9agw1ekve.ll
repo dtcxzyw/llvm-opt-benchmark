@@ -63226,10 +63226,8 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers15merge_nested_if15ha
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = tail call i16 @"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
-  %.sroa.47.0.extract.shift.mask = and i16 %6, -256
-  %cond = icmp eq i16 %.sroa.47.0.extract.shift.mask, 768
-  %7 = trunc i16 %6 to i1
-  %spec.select = and i1 %cond, %7
+  %7 = and i16 %6, -255
+  %spec.select = icmp eq i16 %7, 769
   br label %8
 
 8:                                                ; preds = %4, %1

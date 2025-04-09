@@ -53963,8 +53963,8 @@ define hidden void @"_ZN157_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$p
   %.0.i5 = phi float [ %11, %47 ], [ 0.000000e+00, %45 ], [ %24, %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17ha9409b02cbb2be85E.exit" ]
   %48 = or i1 %27, %30
   %49 = or i1 %39, %36
-  %.0.i.i32 = select i1 %49, float %11, float %24
-  %.0.i = select i1 %48, float 0.000000e+00, float %.0.i.i32
+  %.0.i.i34 = select i1 %49, float %11, float %24
+  %.0.i = select i1 %48, float 0.000000e+00, float %.0.i.i34
   %50 = fmul float %11, 5.000000e-01
   %51 = fsub float %4, %50
   %52 = fadd float %51, %.0.i4
@@ -54040,8 +54040,8 @@ define hidden void @"_ZN157_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$p
   %.0.i5 = phi float [ %7, %43 ], [ 0.000000e+00, %41 ], [ %20, %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h20e216c90eea90c6E.exit" ]
   %44 = or i1 %23, %26
   %45 = or i1 %35, %32
-  %.0.i.i32 = select i1 %45, float %7, float %20
-  %.0.i4 = select i1 %44, float 0.000000e+00, float %.0.i.i32
+  %.0.i.i34 = select i1 %45, float %7, float %20
+  %.0.i4 = select i1 %44, float 0.000000e+00, float %.0.i.i34
   %46 = fsub float %4, %7
   %47 = fadd float %46, %.0.i
   %48 = fadd float %46, %.0.i5

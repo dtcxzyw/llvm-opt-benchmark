@@ -3617,8 +3617,8 @@ _ZL22forwardStdioConnectionRN3nix11RemoteStoreE.exit: ; preds = %131, %150, %163
 _ZN3nix3refINS_5StoreEEC2ERKS2_.exit:             ; preds = %179, %182, %.thread51
   %.val = phi ptr [ %172, %.thread51 ], [ %.val.pre.pre, %182 ], [ %172, %179 ]
   %.val8 = phi ptr [ null, %.thread51 ], [ %.val8.pr.pre, %182 ], [ %175, %179 ]
-  %184 = trunc i16 %1 to i1
-  %.0.i = or i1 %.not52, %184
+  %184 = and i16 %1, 257
+  %.0.i = icmp ne i16 %184, 256
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)

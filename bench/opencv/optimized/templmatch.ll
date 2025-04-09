@@ -3130,7 +3130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i: ; preds = %
   %353 = load i32, ptr %352, align 4, !tbaa !27
   %354 = icmp sgt i32 %353, 0
   %355 = and i1 %181, %183
-  %or.cond7.i = or i1 %183, %switch.idx.cast
+  %or.cond7.i.not = icmp eq i32 %3, 4
   %.not200.i = icmp eq i32 %3, 1
   %356 = uitofp i1 %.not200.i to double
   br i1 %354, label %.lr.ph.us.preheader.i, label %.loopexit.i
@@ -3192,7 +3192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i: ; preds = %
 385:                                              ; preds = %366, %362
   %.0140.us.i = phi double [ %384, %366 ], [ %365, %362 ]
   %.0137.us.i = phi double [ %367, %366 ], [ 0.000000e+00, %362 ]
-  br i1 %or.cond7.i, label %.preheader.us.i, label %392
+  br i1 %or.cond7.i.not, label %392, label %.preheader.us.i
 
 386:                                              ; preds = %.preheader.us.i
   br i1 %355, label %387, label %392

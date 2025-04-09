@@ -1958,7 +1958,7 @@ range_contains_elem_internal.exit:                ; preds = %range_get_typcache.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @range_eq_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @range_eq_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.RangeBound, align 8
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca %struct.RangeBound, align 8
@@ -2091,13 +2091,13 @@ range_cmp_bounds.exit:                            ; preds = %53, %30, %59
 83:                                               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %85 = load i8, ptr %84, align 1, !range !7, !noundef !8
-  %86 = trunc nuw i8 %85 to i1
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %88 = load i8, ptr %87, align 1, !range !7, !noundef !8
-  %89 = trunc nuw i8 %88 to i1
-  %brmerge = select i1 %86, i1 true, i1 %89
-  %.mux = select i1 %86, i1 %89, i1 false
-  br i1 %brmerge, label %range_cmp_bounds.exit.thread, label %90
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %87 = load i8, ptr %86, align 1, !range !7, !noundef !8
+  %88 = or i8 %85, %87
+  %brmerge.not = icmp eq i8 %88, 0
+  %89 = and i8 %85, %87
+  %.mux = icmp ne i8 %89, 0
+  br i1 %brmerge.not, label %90, label %range_cmp_bounds.exit.thread
 
 90:                                               ; preds = %83
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 10
@@ -2268,7 +2268,7 @@ range_get_typcache.exit:                          ; preds = %16, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @range_ne_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @range_ne_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @range_eq_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = xor i1 %4, true
   ret i1 %5

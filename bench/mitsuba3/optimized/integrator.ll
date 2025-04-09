@@ -2443,7 +2443,7 @@ define weak_odr void @_ZNK7mitsuba18SamplingIntegratorIfN5drjit6MatrixINS_8Spect
   br label %22
 
 22:                                               ; preds = %.lr.ph113, %.critedge2
-  %.088112 = phi i32 [ 0, %.lr.ph113 ], [ %71, %.critedge2 ]
+  %.088112 = phi i32 [ 0, %.lr.ph113 ], [ %70, %.critedge2 ]
   %23 = load i8, ptr %19, align 4
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.critedge, label %25
@@ -2477,59 +2477,59 @@ _ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_sto
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = icmp uge i32 %41, %43
-  %.not123 = icmp uge i32 %40, %45
-  %or.cond.not = or i1 %.not123, %46
-  br i1 %or.cond.not, label %.critedge2, label %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4add_ERKS3_.exit.critedge
+  %.not123 = icmp ult i32 %41, %43
+  %.not = icmp ult i32 %40, %45
+  %or.cond = and i1 %.not123, %.not
+  br i1 %or.cond, label %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4add_ERKS3_.exit.critedge, label %.critedge2
 
 _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4add_ERKS3_.exit.critedge: ; preds = %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit.thread104
-  %47 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6offsetEv(ptr noundef nonnull align 8 dereferenceable(149) %4)
-  %48 = load i32, ptr %47, align 4
-  %49 = add nsw i32 %48, %41
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = add nsw i32 %51, %40
-  %53 = sitofp i32 %49 to float
-  %54 = sitofp i32 %52 to float
+  %46 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6offsetEv(ptr noundef nonnull align 8 dereferenceable(149) %4)
+  %47 = load i32, ptr %46, align 4
+  %48 = add nsw i32 %47, %41
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %50 = load i32, ptr %49, align 4
+  %51 = add nsw i32 %50, %40
+  %52 = sitofp i32 %48 to float
+  %53 = sitofp i32 %51 to float
   br i1 %.not116, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4add_ERKS3_.exit.critedge, %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93.thread106
-  %.0110 = phi i32 [ %70, %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93.thread106 ], [ 0, %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4add_ERKS3_.exit.critedge ]
-  %55 = load i8, ptr %19, align 4
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %.critedge2, label %57
+  %.0110 = phi i32 [ %69, %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93.thread106 ], [ 0, %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4add_ERKS3_.exit.critedge ]
+  %54 = load i8, ptr %19, align 4
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %.critedge2, label %56
 
-57:                                               ; preds = %.lr.ph
-  %58 = load float, ptr %20, align 8
-  %59 = fcmp contract ogt float %58, 0.000000e+00
-  br i1 %59, label %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93, label %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93.thread106
+56:                                               ; preds = %.lr.ph
+  %57 = load float, ptr %20, align 8
+  %58 = fcmp contract ogt float %57, 0.000000e+00
+  br i1 %58, label %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93, label %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93.thread106
 
-_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93: ; preds = %57
-  %60 = call i64 @_ZNSt3__16chrono12system_clock3nowEv() #29
+_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93: ; preds = %56
+  %59 = call i64 @_ZNSt3__16chrono12system_clock3nowEv() #29
   %.sroa.0.0.copyload.i2.i.i.i92 = load i64, ptr %18, align 8
-  %61 = sub nsw i64 %60, %.sroa.0.0.copyload.i2.i.i.i92
-  %62 = sdiv i64 %61, 1000
-  %63 = uitofp i64 %62 to float
-  %64 = load float, ptr %20, align 8
-  %65 = fmul contract float %64, 1.000000e+03
-  %66 = fcmp contract olt float %65, %63
-  br i1 %66, label %.critedge2, label %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93.thread106
+  %60 = sub nsw i64 %59, %.sroa.0.0.copyload.i2.i.i.i92
+  %61 = sdiv i64 %60, 1000
+  %62 = uitofp i64 %61 to float
+  %63 = load float, ptr %20, align 8
+  %64 = fmul contract float %63, 1.000000e+03
+  %65 = fcmp contract olt float %64, %62
+  br i1 %65, label %.critedge2, label %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93.thread106
 
-_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93.thread106: ; preds = %57, %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93
-  store float %53, ptr %11, align 4
-  store float %54, ptr %21, align 4
+_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93.thread106: ; preds = %56, %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93
+  store float %52, ptr %11, align 4
+  store float %53, ptr %21, align 4
   call void @_ZNK7mitsuba18SamplingIntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13render_sampleEPKNS_5SceneIfS5_EEPKNS_6SensorIfS5_EEPNS_7SamplerIfS5_EEPNS_10ImageBlockIfS5_EEPfRKNS_6VectorIfLm2EEEfb(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %11, float noundef %17, i1 noundef zeroext true)
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 96
-  %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(36) %3)
-  %70 = add nuw i32 %.0110, 1
-  %exitcond.not = icmp eq i32 %70, %6
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 96
+  %68 = load ptr, ptr %67, align 8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(36) %3)
+  %69 = add nuw i32 %.0110, 1
+  %exitcond.not = icmp eq i32 %69, %6
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !27
 
 .critedge2:                                       ; preds = %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93.thread106, %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit93, %.lr.ph, %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4add_ERKS3_.exit.critedge, %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit.thread104
-  %71 = add nuw i32 %.088112, 1
-  %exitcond117.not = icmp eq i32 %71, %12
+  %70 = add nuw i32 %.088112, 1
+  %exitcond117.not = icmp eq i32 %70, %12
   br i1 %exitcond117.not, label %.critedge, label %22, !llvm.loop !28
 
 .critedge:                                        ; preds = %_ZNK7mitsuba10IntegratorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11should_stopEv.exit, %.critedge2, %22, %10

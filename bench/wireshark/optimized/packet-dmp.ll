@@ -5570,8 +5570,9 @@ define internal fastcc ptr @msg_type_to_str() unnamed_addr #0 {
   %24 = select i1 %23, ptr @.str.786, ptr @.str.576
   %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 64), align 8, !range !11
   %26 = trunc nuw i8 %25 to i1
-  %27 = and i1 %23, %26
-  %28 = select i1 %27, ptr @.str.696, ptr @.str.576
+  %27 = and i8 %25, %22
+  %.not5 = icmp eq i8 %27, 0
+  %28 = select i1 %.not5, ptr @.str.576, ptr @.str.696
   %29 = select i1 %26, ptr @.str.787, ptr @.str.576
   %30 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %21, ptr noundef nonnull @.str.785, ptr noundef nonnull %24, ptr noundef nonnull %28, ptr noundef nonnull %29)
   br label %58
@@ -5584,9 +5585,9 @@ define internal fastcc ptr @msg_type_to_str() unnamed_addr #0 {
 34:                                               ; preds = %0
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 72), align 8
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %.thread5, label %37
+  br i1 %.not, label %.thread6, label %37
 
-.thread5:                                         ; preds = %34
+.thread6:                                         ; preds = %34
   %36 = tail call ptr @wmem_packet_scope()
   br label %52
 
@@ -5614,9 +5615,9 @@ define internal fastcc ptr @msg_type_to_str() unnamed_addr #0 {
   %51 = tail call ptr @val_to_str(i32 noundef %50, ptr noundef nonnull @ack_msg_type, ptr noundef nonnull @.str.789)
   br label %52
 
-52:                                               ; preds = %.thread5, %42, %47
-  %53 = phi ptr [ %48, %47 ], [ %46, %42 ], [ %36, %.thread5 ]
-  %54 = phi ptr [ %51, %47 ], [ @.str.576, %42 ], [ @.str.576, %.thread5 ]
+52:                                               ; preds = %.thread6, %42, %47
+  %53 = phi ptr [ %48, %47 ], [ %46, %42 ], [ %36, %.thread6 ]
+  %54 = phi ptr [ %51, %47 ], [ @.str.576, %42 ], [ @.str.576, %.thread6 ]
   %55 = load i8, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 56), align 8
   %.not4 = icmp eq i8 %55, 0
   %56 = select i1 %.not4, ptr @.str.576, ptr @.str.790

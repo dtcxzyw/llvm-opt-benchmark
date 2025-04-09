@@ -2861,14 +2861,14 @@ _ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit: ; preds = %5, %_ZNK4llvm
   switch i32 %2, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit [
     i32 283, label %56
     i32 393, label %56
-    i32 329, label %65
-    i32 330, label %65
-    i32 331, label %65
-    i32 356, label %65
-    i32 361, label %65
-    i32 460, label %65
-    i32 355, label %74
-    i32 186, label %83
+    i32 329, label %63
+    i32 330, label %63
+    i32 331, label %63
+    i32 356, label %63
+    i32 361, label %63
+    i32 460, label %63
+    i32 355, label %70
+    i32 186, label %77
   ]
 
 56:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit
@@ -2877,77 +2877,73 @@ _ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit: ; preds = %5, %_ZNK4llvm
   %.val.val = load i8, ptr %57, align 8, !tbaa !81, !range !88, !noundef !89
   %58 = getelementptr i8, ptr %.val, i64 162
   %.val.val20 = load i8, ptr %58, align 2, !tbaa !90, !range !88, !noundef !89
-  %59 = trunc nuw i8 %.val.val to i1
-  %60 = trunc nuw i8 %.val.val20 to i1
-  %61 = select i1 %59, i1 true, i1 %60
-  br i1 %61, label %62, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  %59 = or i8 %.val.val20, %.val.val
+  %.not27 = icmp eq i8 %59, 0
+  br i1 %.not27, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %60
 
-62:                                               ; preds = %56
-  %63 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 0, i32 noundef 54) #7
-  br i1 %63, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %64
+60:                                               ; preds = %56
+  %61 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 0, i32 noundef 54) #7
+  br i1 %61, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %62
 
-64:                                               ; preds = %62
+62:                                               ; preds = %60
   tail call void @_ZN4llvm8Function12addParamAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 0, i32 noundef 54) #7
   br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
 
-65:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit
+63:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit
   %.val16 = load ptr, ptr %1, align 8, !tbaa !3
-  %66 = getelementptr i8, ptr %.val16, i64 160
-  %.val16.val = load i8, ptr %66, align 8, !tbaa !81, !range !88, !noundef !89
-  %67 = getelementptr i8, ptr %.val16, i64 162
-  %.val16.val19 = load i8, ptr %67, align 2, !tbaa !90, !range !88, !noundef !89
-  %68 = trunc nuw i8 %.val16.val to i1
-  %69 = trunc nuw i8 %.val16.val19 to i1
-  %70 = select i1 %68, i1 true, i1 %69
-  br i1 %70, label %71, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  %64 = getelementptr i8, ptr %.val16, i64 160
+  %.val16.val = load i8, ptr %64, align 8, !tbaa !81, !range !88, !noundef !89
+  %65 = getelementptr i8, ptr %.val16, i64 162
+  %.val16.val19 = load i8, ptr %65, align 2, !tbaa !90, !range !88, !noundef !89
+  %66 = or i8 %.val16.val19, %.val16.val
+  %.not26 = icmp eq i8 %66, 0
+  br i1 %.not26, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %67
 
-71:                                               ; preds = %65
-  %72 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 1, i32 noundef 54) #7
-  br i1 %72, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %73
+67:                                               ; preds = %63
+  %68 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 1, i32 noundef 54) #7
+  br i1 %68, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %69
 
-73:                                               ; preds = %71
+69:                                               ; preds = %67
   tail call void @_ZN4llvm8Function12addParamAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 1, i32 noundef 54) #7
   br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
 
-74:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit
+70:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit
   %.val17 = load ptr, ptr %1, align 8, !tbaa !3
-  %75 = getelementptr i8, ptr %.val17, i64 160
-  %.val17.val = load i8, ptr %75, align 8, !tbaa !81, !range !88, !noundef !89
-  %76 = getelementptr i8, ptr %.val17, i64 162
-  %.val17.val18 = load i8, ptr %76, align 2, !tbaa !90, !range !88, !noundef !89
-  %77 = trunc nuw i8 %.val17.val to i1
-  %78 = trunc nuw i8 %.val17.val18 to i1
-  %79 = select i1 %77, i1 true, i1 %78
-  br i1 %79, label %80, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  %71 = getelementptr i8, ptr %.val17, i64 160
+  %.val17.val = load i8, ptr %71, align 8, !tbaa !81, !range !88, !noundef !89
+  %72 = getelementptr i8, ptr %.val17, i64 162
+  %.val17.val18 = load i8, ptr %72, align 2, !tbaa !90, !range !88, !noundef !89
+  %73 = or i8 %.val17.val18, %.val17.val
+  %.not25 = icmp eq i8 %73, 0
+  br i1 %.not25, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %74
 
-80:                                               ; preds = %74
-  %81 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 2, i32 noundef 54) #7
-  br i1 %81, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %82
+74:                                               ; preds = %70
+  %75 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 2, i32 noundef 54) #7
+  br i1 %75, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %76
 
-82:                                               ; preds = %80
+76:                                               ; preds = %74
   tail call void @_ZN4llvm8Function12addParamAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 2, i32 noundef 54) #7
   br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
 
-83:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit
+77:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit
   %.val21 = load ptr, ptr %1, align 8, !tbaa !3
-  %84 = getelementptr i8, ptr %.val21, i64 161
-  %.val21.val = load i8, ptr %84, align 1, !tbaa !91, !range !88, !noundef !89
-  %85 = getelementptr i8, ptr %.val21, i64 163
-  %.val21.val22 = load i8, ptr %85, align 1, !tbaa !92, !range !88, !noundef !89
-  %86 = trunc nuw i8 %.val21.val to i1
-  %87 = trunc nuw i8 %.val21.val22 to i1
-  %88 = select i1 %86, i1 true, i1 %87
-  br i1 %88, label %89, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  %78 = getelementptr i8, ptr %.val21, i64 161
+  %.val21.val = load i8, ptr %78, align 1, !tbaa !91, !range !88, !noundef !89
+  %79 = getelementptr i8, ptr %.val21, i64 163
+  %.val21.val22 = load i8, ptr %79, align 1, !tbaa !92, !range !88, !noundef !89
+  %80 = or i8 %.val21.val22, %.val21.val
+  %.not = icmp eq i8 %80, 0
+  br i1 %.not, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %81
 
-89:                                               ; preds = %83
-  %90 = tail call noundef zeroext i1 @_ZNK4llvm8Function15hasRetAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 54) #7
-  br i1 %90, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %91
+81:                                               ; preds = %77
+  %82 = tail call noundef zeroext i1 @_ZNK4llvm8Function15hasRetAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 54) #7
+  br i1 %82, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %83
 
-91:                                               ; preds = %89
+83:                                               ; preds = %81
   tail call void @_ZN4llvm8Function10addRetAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %55, i32 noundef 54) #7
   br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
 
-_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit: ; preds = %91, %89, %83, %82, %80, %74, %73, %71, %65, %64, %62, %56, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit
+_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit: ; preds = %83, %81, %77, %76, %74, %70, %69, %67, %63, %62, %60, %56, %_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE.exit
   tail call void @_ZN4llvm31markRegisterParameterAttributesEPNS_8FunctionE(ptr noundef %55)
   ret { ptr, ptr } %54
 }

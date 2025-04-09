@@ -249,9 +249,9 @@ define noundef i64 @_Z19fast_rv64i_amoand_dP11processor_t6insn_tm(ptr noundef ca
   %23 = getelementptr inbounds nuw [32 x i64], ptr %20, i64 0, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !14
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %19, i64 noundef %24, i64 noundef 8, ptr noundef null, i8 0, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %_ZNK13xlate_flags_t17is_special_accessEv.exit.i unwind label %74
+          to label %.noexc.i unwind label %74
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
+.noexc.i:                                         ; preds = %17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
   store i64 0, ptr %6, align 8, !tbaa !140
   %25 = lshr i64 %24, 12
@@ -265,7 +265,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %brmerge.i.not.i = select i1 %32, i1 %30, i1 false
   br i1 %brmerge.i.not.i, label %33, label %.critedge.i.i, !prof !142
 
-33:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
+33:                                               ; preds = %.noexc.i
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 32912
   %35 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %34, i64 0, i64 %27
   %36 = load ptr, ptr %35, align 8, !tbaa !143
@@ -274,7 +274,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   store i64 %38, ptr %6, align 8
   br label %.noexc59.i
 
-.critedge.i.i:                                    ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
+.critedge.i.i:                                    ; preds = %.noexc.i
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %19, i64 noundef %24, i64 noundef 8, ptr noundef nonnull %6, i8 0)
           to label %.noexc59.i unwind label %76
 
@@ -724,9 +724,9 @@ define noundef i64 @_Z21logged_rv64i_amoand_dP11processor_t6insn_tm(ptr noundef 
   %24 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !14
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %20, i64 noundef %25, i64 noundef 8, ptr noundef null, i8 0, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %_ZNK13xlate_flags_t17is_special_accessEv.exit.i unwind label %75
+          to label %.noexc.i unwind label %75
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %18
+.noexc.i:                                         ; preds = %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
   store i64 0, ptr %6, align 8, !tbaa !140
   %26 = lshr i64 %25, 12
@@ -740,7 +740,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %18
   %brmerge.i.not.i = select i1 %33, i1 %31, i1 false
   br i1 %brmerge.i.not.i, label %34, label %.critedge.i.i, !prof !142
 
-34:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
+34:                                               ; preds = %.noexc.i
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 32912
   %36 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %35, i64 0, i64 %28
   %37 = load ptr, ptr %36, align 8, !tbaa !143
@@ -749,7 +749,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %18
   store i64 %39, ptr %6, align 8
   br label %.noexc59.i
 
-.critedge.i.i:                                    ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
+.critedge.i.i:                                    ; preds = %.noexc.i
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %20, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %6, i8 0)
           to label %.noexc59.i unwind label %77
 
@@ -1324,9 +1324,9 @@ define noundef i64 @_Z19fast_rv64e_amoand_dP11processor_t6insn_tm(ptr noundef ca
   %39 = getelementptr inbounds nuw [32 x i64], ptr %38, i64 0, i64 %30
   %40 = load i64, ptr %39, align 8, !tbaa !14
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %28, i64 noundef %40, i64 noundef 8, ptr noundef null, i8 0, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %_ZNK13xlate_flags_t17is_special_accessEv.exit.i unwind label %97
+          to label %.noexc.i unwind label %97
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %37
+.noexc.i:                                         ; preds = %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
   store i64 0, ptr %6, align 8, !tbaa !140
   %41 = lshr i64 %40, 12
@@ -1340,7 +1340,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %37
   %brmerge.i.not.i = select i1 %48, i1 %46, i1 false
   br i1 %brmerge.i.not.i, label %49, label %.critedge.i.i, !prof !142
 
-49:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
+49:                                               ; preds = %.noexc.i
   %50 = getelementptr inbounds nuw i8, ptr %28, i64 32912
   %51 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %50, i64 0, i64 %43
   %52 = load ptr, ptr %51, align 8, !tbaa !143
@@ -1349,7 +1349,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %37
   store i64 %54, ptr %6, align 8
   br label %.noexc59.i
 
-.critedge.i.i:                                    ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
+.critedge.i.i:                                    ; preds = %.noexc.i
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %28, i64 noundef %40, i64 noundef 8, ptr noundef nonnull %6, i8 0)
           to label %.noexc59.i unwind label %99
 
@@ -1847,9 +1847,9 @@ define noundef i64 @_Z21logged_rv64e_amoand_dP11processor_t6insn_tm(ptr noundef 
   %40 = getelementptr inbounds nuw [32 x i64], ptr %39, i64 0, i64 %31
   %41 = load i64, ptr %40, align 8, !tbaa !14
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %29, i64 noundef %41, i64 noundef 8, ptr noundef null, i8 0, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %_ZNK13xlate_flags_t17is_special_accessEv.exit.i unwind label %98
+          to label %.noexc.i unwind label %98
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %38
+.noexc.i:                                         ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
   store i64 0, ptr %6, align 8, !tbaa !140
   %42 = lshr i64 %41, 12
@@ -1863,7 +1863,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %38
   %brmerge.i.not.i = select i1 %49, i1 %47, i1 false
   br i1 %brmerge.i.not.i, label %50, label %.critedge.i.i, !prof !142
 
-50:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
+50:                                               ; preds = %.noexc.i
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 32912
   %52 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %51, i64 0, i64 %44
   %53 = load ptr, ptr %52, align 8, !tbaa !143
@@ -1872,7 +1872,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %38
   store i64 %55, ptr %6, align 8
   br label %.noexc59.i
 
-.critedge.i.i:                                    ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
+.critedge.i.i:                                    ; preds = %.noexc.i
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %29, i64 noundef %41, i64 noundef 8, ptr noundef nonnull %6, i8 0)
           to label %.noexc59.i unwind label %100
 

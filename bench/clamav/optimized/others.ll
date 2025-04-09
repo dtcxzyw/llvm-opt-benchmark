@@ -2724,11 +2724,10 @@ cli_virus_found_cb.exit:                          ; preds = %30, %25, %23
 
 56:                                               ; preds = %53, %39, %cli_virus_found_cb.exit
   %57 = phi i32 [ %.pre43, %53 ], [ %37, %39 ], [ %37, %cli_virus_found_cb.exit ]
-  %58 = and i32 %57, 1
-  %.not35 = icmp ne i32 %58, 0
-  %trunc = trunc nuw i32 %2 to i1
-  %or.cond.not = select i1 %.not35, i1 true, i1 %trunc
-  br i1 %or.cond.not, label %61, label %59
+  %.masked = and i32 %57, 1
+  %58 = or i32 %.masked, %2
+  %or.cond = icmp eq i32 %58, 0
+  br i1 %or.cond, label %59, label %61
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 185

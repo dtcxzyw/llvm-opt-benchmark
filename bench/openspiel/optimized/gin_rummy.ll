@@ -3593,7 +3593,7 @@ define void @_ZN10open_spiel9gin_rummy13GinRummyState18ApplyDiscardActionEl(ptr 
   store i32 %42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 4, ptr %44, align 8
-  br label %152
+  br label %154
 
 45:                                               ; preds = %13
   store i32 440, ptr %6, align 4
@@ -3607,7 +3607,7 @@ define void @_ZN10open_spiel9gin_rummy13GinRummyState18ApplyDiscardActionEl(ptr 
 47:                                               ; preds = %45
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %153
+  br label %155
 
 49:                                               ; preds = %2
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -3736,7 +3736,7 @@ _ZN4absl7debian215c_linear_searchISt6vectorIiSaIiEERlEEbRKT_OT0_.exit.thread: ; 
 104:                                              ; preds = %_ZN4absl7debian215c_linear_searchISt6vectorIiSaIiEERlEEbRKT_OT0_.exit.thread
   %105 = landingpad { ptr, i32 }
           cleanup
-  br label %153
+  br label %155
 
 106:                                              ; preds = %_ZN4absl7debian215c_linear_searchISt6vectorIiSaIiEERlEEbRKT_OT0_.exit
   tail call void @_ZN10open_spiel9gin_rummy13GinRummyState14RemoveFromHandEil(ptr noundef nonnull align 8 dereferenceable(528) %0, i32 noundef %11, i64 noundef %1)
@@ -3772,61 +3772,70 @@ _ZN4absl7debian28optionalIiEaSIRlvEERS2_OT_.exit: ; preds = %106, %121
   %126 = sub nsw i32 1, %124
   store i32 %126, ptr %10, align 4
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %128 = trunc i8 %122 to i1
-  %129 = load i8, ptr %127, align 8
-  %130 = trunc i8 %129 to i1
-  %131 = and i1 %128, %130
-  br i1 %131, label %_ZNKR4absl7debian28optionalIiEdeEv.exit5.i, label %_ZN4absl7debian2eqIiiEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
+  %128 = load i8, ptr %127, align 8
+  %129 = and i8 %122, 1
+  %130 = and i8 %129, %128
+  %.not.i = icmp eq i8 %130, 0
+  br i1 %.not.i, label %_ZN4absl7debian2eqIiiEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit, label %_ZNKR4absl7debian28optionalIiEdeEv.exit.i
 
-_ZNKR4absl7debian28optionalIiEdeEv.exit5.i:       ; preds = %_ZN4absl7debian28optionalIiEaSIRlvEERS2_OT_.exit
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  %133 = load i32, ptr %132, align 4
-  %134 = icmp eq i32 %133, %.sink.i.i
-  br i1 %134, label %136, label %143
+_ZNKR4absl7debian28optionalIiEdeEv.exit.i:        ; preds = %_ZN4absl7debian28optionalIiEaSIRlvEERS2_OT_.exit
+  %131 = trunc i8 %128 to i1
+  br i1 %131, label %_ZNKR4absl7debian28optionalIiEdeEv.exit5.i, label %132
+
+132:                                              ; preds = %_ZNKR4absl7debian28optionalIiEdeEv.exit.i
+  tail call void @llvm.trap()
+  unreachable
+
+_ZNKR4absl7debian28optionalIiEdeEv.exit5.i:       ; preds = %_ZNKR4absl7debian28optionalIiEdeEv.exit.i
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 244
+  %134 = load i32, ptr %133, align 4
+  %135 = icmp eq i32 %134, %.sink.i.i
+  br i1 %135, label %138, label %145
 
 _ZN4absl7debian2eqIiiEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit: ; preds = %_ZN4absl7debian28optionalIiEaSIRlvEERS2_OT_.exit
-  %135 = xor i1 %128, %130
-  br i1 %135, label %143, label %136
+  %136 = xor i8 %128, %122
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %145, label %138
 
-136:                                              ; preds = %_ZNKR4absl7debian28optionalIiEdeEv.exit5.i, %_ZN4absl7debian2eqIiiEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %138 = load i8, ptr %137, align 4
-  %139 = trunc i8 %138 to i1
-  br i1 %139, label %140, label %142
+138:                                              ; preds = %_ZNKR4absl7debian28optionalIiEdeEv.exit5.i, %_ZN4absl7debian2eqIiiEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %140 = load i8, ptr %139, align 4
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %144
 
-140:                                              ; preds = %136
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i32 7, ptr %141, align 8
-  br label %152
+142:                                              ; preds = %138
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i32 7, ptr %143, align 8
+  br label %154
 
-142:                                              ; preds = %136
-  store i8 1, ptr %137, align 4
-  br label %145
+144:                                              ; preds = %138
+  store i8 1, ptr %139, align 4
+  br label %147
 
-143:                                              ; preds = %_ZNKR4absl7debian28optionalIiEdeEv.exit5.i, %_ZN4absl7debian2eqIiiEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i8 0, ptr %144, align 4
-  br label %145
+145:                                              ; preds = %_ZNKR4absl7debian28optionalIiEdeEv.exit5.i, %_ZN4absl7debian2eqIiiEEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqdefp_defp0_EERKNS0_8optionalIT_EERKNS4_IT0_EE.exit
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  store i8 0, ptr %146, align 4
+  br label %147
 
-145:                                              ; preds = %143, %142
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %147 = load i32, ptr %146, align 8
-  %148 = icmp eq i32 %147, 2
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  br i1 %148, label %150, label %151
+147:                                              ; preds = %145, %144
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %149 = load i32, ptr %148, align 8
+  %150 = icmp eq i32 %149, 2
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  br i1 %150, label %152, label %153
 
-150:                                              ; preds = %145
-  store i32 6, ptr %149, align 8
-  br label %152
+152:                                              ; preds = %147
+  store i32 6, ptr %151, align 8
+  br label %154
 
-151:                                              ; preds = %145
-  store i32 2, ptr %149, align 8
-  br label %152
+153:                                              ; preds = %147
+  store i32 2, ptr %151, align 8
+  br label %154
 
-152:                                              ; preds = %150, %151, %140, %.preheader
+154:                                              ; preds = %152, %153, %142, %.preheader
   ret void
 
-153:                                              ; preds = %104, %47
+155:                                              ; preds = %104, %47
   %.sink = phi ptr [ %7, %104 ], [ %5, %47 ]
   %.pn = phi { ptr, i32 } [ %105, %104 ], [ %48, %47 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #26
@@ -19511,68 +19520,55 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy1
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %3, align 4
   %10 = and i64 %.sroa.0.0.copyload.i.i.i, 256
   %.not.i.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.thread.i.i.i.i, label %_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.i.i.i.i
-
-_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.thread.i.i.i.i: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
+  %11 = and i64 %.sroa.0.0.copyload.i.i.i, -4294967295
+  %12 = icmp eq i64 %11, 4294967297
+  %13 = or i1 %.not.i.i.i.i.i, %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  %14 = zext i1 %13 to i8
+  %15 = zext i1 %.not.i.i.i.i.i to i8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel8ObserverE, i64 16), ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 1, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  store i8 1, ptr %12, align 1
-  br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i8 %14, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 25
+  store i8 %15, ptr %17, align 1
+  br i1 %13, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %.noexc.i
 
-_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.i.i.i.i: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
-  %13 = trunc i64 %.sroa.0.0.copyload.i.i.i to i1
-  %.sroa.31.0.extract.shift.mask.i.i.i.i.i = and i64 %.sroa.0.0.copyload.i.i.i, -4294967296
-  %14 = icmp eq i64 %.sroa.31.0.extract.shift.mask.i.i.i.i.i, 4294967296
-  %15 = and i1 %14, %13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %16 = zext i1 %15 to i8
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel8ObserverE, i64 16), ptr %9, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  store i8 0, ptr %18, align 1
-  br i1 %15, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %.noexc.i
-
-.noexc.i:                                         ; preds = %_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.i.i.i.i
+.noexc.i:                                         ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
   store i32 326, ptr %5, align 4
   invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA134_KcRA2_S2_iRA13_S2_RA25_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 1 dereferenceable(134) @.str.130, ptr noundef nonnull align 1 dereferenceable(2) @.str.15, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(13) @.str.16, ptr noundef nonnull align 1 dereferenceable(25) @.str.131, ptr noundef nonnull align 1 dereferenceable(2) @.str.18)
-          to label %.noexc unwind label %22
+          to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %.noexc.i
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-          to label %19 unwind label %.body.i
+          to label %18 unwind label %.body.i
 
-19:                                               ; preds = %.noexc
+18:                                               ; preds = %.noexc
   unreachable
 
 .body.i:                                          ; preds = %.noexc
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.thread.i.i.i.i, %_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.i.i.i.i
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel9gin_rummy16GinRummyObserverE, i64 16), ptr %9, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i64 %.sroa.0.0.copyload.i.i.i, ptr %21, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store i64 %.sroa.0.0.copyload.i.i.i, ptr %20, align 4
   store ptr %6, ptr %0, align 8
   store ptr %9, ptr %1, align 8
   ret void
 
-22:                                               ; preds = %.noexc.i
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %.noexc.i
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10: ; preds = %.body.i, %22
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %20, %.body.i ]
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10: ; preds = %.body.i, %21
+  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %19, %.body.i ]
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 40) #29
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -22202,68 +22198,55 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy1
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %3, align 4
   %10 = and i64 %.sroa.0.0.copyload.i.i.i, 256
   %.not.i.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.thread.i.i.i.i, label %_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.i.i.i.i
-
-_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.thread.i.i.i.i: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
+  %11 = and i64 %.sroa.0.0.copyload.i.i.i, -4294967295
+  %12 = icmp eq i64 %11, 4294967297
+  %13 = or i1 %.not.i.i.i.i.i, %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  %14 = zext i1 %13 to i8
+  %15 = zext i1 %.not.i.i.i.i.i to i8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel8ObserverE, i64 16), ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 1, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  store i8 1, ptr %12, align 1
-  br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i8 %14, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 25
+  store i8 %15, ptr %17, align 1
+  br i1 %13, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %.noexc.i
 
-_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.i.i.i.i: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
-  %13 = trunc i64 %.sroa.0.0.copyload.i.i.i to i1
-  %.sroa.31.0.extract.shift.mask.i.i.i.i.i = and i64 %.sroa.0.0.copyload.i.i.i, -4294967296
-  %14 = icmp eq i64 %.sroa.31.0.extract.shift.mask.i.i.i.i.i, 4294967296
-  %15 = and i1 %14, %13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %16 = zext i1 %15 to i8
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel8ObserverE, i64 16), ptr %9, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  store i8 0, ptr %18, align 1
-  br i1 %15, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %.noexc.i
-
-.noexc.i:                                         ; preds = %_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.i.i.i.i
+.noexc.i:                                         ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
   store i32 326, ptr %5, align 4
   invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA134_KcRA2_S2_iRA13_S2_RA25_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 1 dereferenceable(134) @.str.130, ptr noundef nonnull align 1 dereferenceable(2) @.str.15, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(13) @.str.16, ptr noundef nonnull align 1 dereferenceable(25) @.str.131, ptr noundef nonnull align 1 dereferenceable(2) @.str.18)
-          to label %.noexc unwind label %22
+          to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %.noexc.i
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-          to label %19 unwind label %.body.i
+          to label %18 unwind label %.body.i
 
-19:                                               ; preds = %.noexc
+18:                                               ; preds = %.noexc
   unreachable
 
 .body.i:                                          ; preds = %.noexc
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.thread.i.i.i.i, %_ZN10open_spiel9gin_rummy12_GLOBAL__N_117ObserverHasStringENS_18IIGObservationTypeE.exit.i.i.i.i
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel9gin_rummy16GinRummyObserverE, i64 16), ptr %9, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i64 %.sroa.0.0.copyload.i.i.i, ptr %21, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store i64 %.sroa.0.0.copyload.i.i.i, ptr %20, align 4
   store ptr %6, ptr %0, align 8
   store ptr %9, ptr %1, align 8
   ret void
 
-22:                                               ; preds = %.noexc.i
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %.noexc.i
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10: ; preds = %.body.i, %22
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %20, %.body.i ]
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel9gin_rummy16GinRummyObserverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10: ; preds = %.body.i, %21
+  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %19, %.body.i ]
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 40) #29
   resume { ptr, i32 } %eh.lpad-body
 }

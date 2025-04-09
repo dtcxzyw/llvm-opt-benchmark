@@ -1849,10 +1849,8 @@ cleanup.cont488:                                  ; preds = %_ZNSt10unique_ptrIN
   %url_string_.i = getelementptr inbounds nuw i8, ptr %170, i64 2448
   %171 = load ptr, ptr %url_string_.i, align 8
   %call516 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr nonnull %context.sroa.0.0, ptr %171, ptr %retval.i974.sroa.0.0158) #19
-  %tobool.i1144 = trunc i16 %call516 to i1
-  %172 = and i16 %call516, 256
-  %tobool2.i = icmp ne i16 %172, 0
-  %cond.i.not = and i1 %tobool2.i, %tobool.i1144
+  %172 = and i16 %call516, 257
+  %cond.i.not = icmp eq i16 %172, 257
   br i1 %cond.i.not, label %if.end521, label %cleanup605
 
 if.end521:                                        ; preds = %cleanup.cont488

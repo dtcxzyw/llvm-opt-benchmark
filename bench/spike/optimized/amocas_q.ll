@@ -341,9 +341,9 @@ define linkonce_odr noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_m
   %.sroa.051.0.insert.ext = zext i64 %2 to i128
   %.sroa.051.0.insert.insert = or disjoint i128 %.sroa.252.0.insert.shift, %.sroa.051.0.insert.ext
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef 16, ptr noundef null, i8 0, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %_ZNK13xlate_flags_t17is_special_accessEv.exit unwind label %57
+          to label %.noexc unwind label %57
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %6
+.noexc:                                           ; preds = %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #22
   store i128 0, ptr %9, align 16, !tbaa !141
   %11 = lshr i64 %1, 12
@@ -357,7 +357,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %6
   %brmerge.i.not = select i1 %18, i1 %16, i1 false
   br i1 %brmerge.i.not, label %19, label %.critedge.i, !prof !144
 
-19:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit
+19:                                               ; preds = %.noexc
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32912
   %21 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %20, i64 0, i64 %13
   %22 = load ptr, ptr %21, align 8, !tbaa !145
@@ -365,7 +365,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %23, i64 16, i1 false)
   br label %.noexc70
 
-.critedge.i:                                      ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit
+.critedge.i:                                      ; preds = %.noexc
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef 16, ptr noundef nonnull %9, i8 0)
           to label %.noexc70 unwind label %59
 

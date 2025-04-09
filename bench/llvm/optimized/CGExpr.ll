@@ -31802,26 +31802,26 @@ define internal fastcc void @_ZL20setObjCGCLValueClassRKN5clang10ASTContextEPKNS
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 192
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %common.ret315, label %.lr.ph.preheader
+  br i1 %10, label %common.ret314, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
   %11 = load i16, ptr %1, align 8
   %12 = and i16 %11, 511
   %13 = icmp eq i16 %12, 36
-  br i1 %13, label %.split, label %.lr.ph216.preheader
+  br i1 %13, label %.split, label %.lr.ph215.preheader
 
-.lr.ph216.preheader:                              ; preds = %.lr.ph.preheader, %.split206
-  %14 = phi i16 [ %156, %.split206 ], [ %12, %.lr.ph.preheader ]
-  %15 = phi i16 [ %155, %.split206 ], [ %11, %.lr.ph.preheader ]
-  %.tr184.ph220288 = phi ptr [ %154, %.split206 ], [ %1, %.lr.ph.preheader ]
-  %.tr186.ph221287 = phi i1 [ false, %.split206 ], [ %3, %.lr.ph.preheader ]
-  br label %.lr.ph216
+.lr.ph215.preheader:                              ; preds = %.lr.ph.preheader, %.split205
+  %14 = phi i16 [ %156, %.split205 ], [ %12, %.lr.ph.preheader ]
+  %15 = phi i16 [ %155, %.split205 ], [ %11, %.lr.ph.preheader ]
+  %.tr183.ph219287 = phi ptr [ %154, %.split205 ], [ %1, %.lr.ph.preheader ]
+  %.tr185.ph220286 = phi i1 [ false, %.split205 ], [ %3, %.lr.ph.preheader ]
+  br label %.lr.ph215
 
-.split:                                           ; preds = %.split206, %tailrecurse.backedge, %.lr.ph.preheader
-  %.tr186.ph221286 = phi i1 [ %3, %.lr.ph.preheader ], [ %.tr186.ph221287, %tailrecurse.backedge ], [ false, %.split206 ]
-  %.tr184.lcssa187 = phi ptr [ %1, %.lr.ph.preheader ], [ %.tr184.be, %tailrecurse.backedge ], [ %154, %.split206 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.tr184.lcssa187, i64 8
-  br i1 %.tr186.ph221286, label %17, label %48
+.split:                                           ; preds = %.split205, %tailrecurse.backedge, %.lr.ph.preheader
+  %.tr185.ph220285 = phi i1 [ %3, %.lr.ph.preheader ], [ %.tr185.ph220286, %tailrecurse.backedge ], [ false, %.split205 ]
+  %.tr183.lcssa186 = phi ptr [ %1, %.lr.ph.preheader ], [ %.tr183.be, %tailrecurse.backedge ], [ %154, %.split205 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.tr183.lcssa186, i64 8
+  br i1 %.tr185.ph220285, label %17, label %48
 
 17:                                               ; preds = %.split
   %.sroa.0.0.copyload.i = load i64, ptr %16, align 8, !tbaa !669
@@ -31870,14 +31870,14 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %28, %31
   %46 = load i8, ptr %45, align 8
   %47 = and i8 %46, -2
   store i8 %47, ptr %45, align 8
-  br label %common.ret315
+  br label %common.ret314
 
 48:                                               ; preds = %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit, %17, %.split
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %50 = load i8, ptr %49, align 8
   %51 = or i8 %50, 1
   store i8 %51, ptr %49, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %.tr184.lcssa187, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.tr183.lcssa186, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !2198
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %53, ptr %54, align 8, !tbaa !834
@@ -31898,28 +31898,28 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %28, %31
   %66 = and i8 %51, -3
   %67 = or disjoint i8 %65, %66
   store i8 %67, ptr %49, align 8
-  br label %common.ret315
+  br label %common.ret314
 
-.lr.ph216:                                        ; preds = %.lr.ph216.preheader, %tailrecurse.backedge
-  %68 = phi i16 [ %107, %tailrecurse.backedge ], [ %15, %.lr.ph216.preheader ]
-  %69 = phi i16 [ %108, %tailrecurse.backedge ], [ %14, %.lr.ph216.preheader ]
-  %.tr184196215 = phi ptr [ %.tr184.be, %tailrecurse.backedge ], [ %.tr184.ph220288, %.lr.ph216.preheader ]
-  %.not233 = icmp eq i16 %69, 73
-  br i1 %.not233, label %.split199, label %105
+.lr.ph215:                                        ; preds = %.lr.ph215.preheader, %tailrecurse.backedge
+  %68 = phi i16 [ %107, %tailrecurse.backedge ], [ %15, %.lr.ph215.preheader ]
+  %69 = phi i16 [ %108, %tailrecurse.backedge ], [ %14, %.lr.ph215.preheader ]
+  %.tr183195214 = phi ptr [ %.tr183.be, %tailrecurse.backedge ], [ %.tr183.ph219287, %.lr.ph215.preheader ]
+  %.not232 = icmp eq i16 %69, 73
+  br i1 %.not232, label %.split198, label %105
 
-.split199:                                        ; preds = %.lr.ph216
-  %70 = getelementptr inbounds nuw i8, ptr %.tr184196215, i64 16
+.split198:                                        ; preds = %.lr.ph215
+  %70 = getelementptr inbounds nuw i8, ptr %.tr183195214, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !1620
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 28
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 127
   %75 = add nsw i32 %74, -45
   %76 = icmp ult i32 %75, -7
-  %.not79182 = icmp eq ptr %71, null
-  %.not79 = or i1 %.not79182, %76
+  %.not79181 = icmp eq ptr %71, null
+  %.not79 = or i1 %.not79181, %76
   br i1 %.not79, label %88, label %77
 
-77:                                               ; preds = %.split199
+77:                                               ; preds = %.split198
   %78 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %71)
   br i1 %78, label %88, label %79
 
@@ -31929,16 +31929,16 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %28, %31
   %82 = or i8 %81, 8
   store i8 %82, ptr %80, align 8
   %83 = tail call noundef i32 @_ZNK5clang7VarDecl10getTLSKindEv(ptr noundef nonnull align 8 dereferenceable(100) %71) #26
-  %.not183 = icmp eq i32 %83, 0
+  %.not182 = icmp eq i32 %83, 0
   %84 = load i8, ptr %80, align 8
-  %85 = select i1 %.not183, i8 0, i8 16
+  %85 = select i1 %.not182, i8 0, i8 16
   %86 = and i8 %84, -17
   %87 = or disjoint i8 %86, %85
   store i8 %87, ptr %80, align 8
   br label %88
 
-88:                                               ; preds = %.split199, %79, %77
-  %89 = getelementptr inbounds nuw i8, ptr %.tr184196215, i64 8
+88:                                               ; preds = %.split198, %79, %77
+  %89 = getelementptr inbounds nuw i8, ptr %.tr183195214, i64 8
   %.sroa.0.0.copyload.i110 = load i64, ptr %89, align 8, !tbaa !669
   %90 = and i64 %.sroa.0.0.copyload.i110, -16
   %91 = inttoptr i64 %90 to ptr
@@ -31958,40 +31958,40 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %28, %31
   %103 = and i8 %101, -3
   %104 = or disjoint i8 %102, %103
   store i8 %104, ptr %100, align 8
-  br label %common.ret315
+  br label %common.ret314
 
-105:                                              ; preds = %.lr.ph216
+105:                                              ; preds = %.lr.ph215
   %106 = and i16 %68, 511
-  switch i16 %106, label %common.ret315 [
+  switch i16 %106, label %common.ret314 [
     i16 4, label %tailrecurse.backedge
-    i16 22, label %.split202
-    i16 59, label %.split206
+    i16 22, label %.split201
+    i16 59, label %.split205
     i16 81, label %tailrecurse.backedge
     i16 89, label %tailrecurse.backedge
     i16 82, label %tailrecurse.backedge
     i16 125, label %158
-    i16 48, label %171
+    i16 48, label %169
   ]
 
 tailrecurse.backedge:                             ; preds = %105, %105, %105, %105
-  %.tr184.be.in = getelementptr inbounds nuw i8, ptr %.tr184196215, i64 16
-  %.tr184.be = load ptr, ptr %.tr184.be.in, align 8, !tbaa !716
-  %107 = load i16, ptr %.tr184.be, align 8
+  %.tr183.be.in = getelementptr inbounds nuw i8, ptr %.tr183195214, i64 16
+  %.tr183.be = load ptr, ptr %.tr183.be.in, align 8, !tbaa !716
+  %107 = load i16, ptr %.tr183.be, align 8
   %108 = and i16 %107, 511
   %109 = icmp eq i16 %108, 36
-  br i1 %109, label %.split, label %.lr.ph216
+  br i1 %109, label %.split, label %.lr.ph215
 
-.split202:                                        ; preds = %105
-  %110 = getelementptr inbounds nuw i8, ptr %.tr184196215, i64 24
+.split201:                                        ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %.tr183195214, i64 24
   %111 = load ptr, ptr %110, align 8, !tbaa !1829
-  tail call fastcc void @_ZL20setObjCGCLValueClassRKN5clang10ASTContextEPKNS_4ExprERNS_7CodeGen6LValueEb(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %111, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %.tr186.ph221287)
+  tail call fastcc void @_ZL20setObjCGCLValueClassRKN5clang10ASTContextEPKNS_4ExprERNS_7CodeGen6LValueEb(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %111, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %.tr185.ph220286)
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %113 = load i8, ptr %112, align 8
   %114 = trunc i8 %113 to i1
-  br i1 %114, label %115, label %common.ret315
+  br i1 %114, label %115, label %common.ret314
 
-115:                                              ; preds = %.split202
-  %116 = getelementptr inbounds nuw i8, ptr %.tr184196215, i64 8
+115:                                              ; preds = %.split201
+  %116 = getelementptr inbounds nuw i8, ptr %.tr183195214, i64 8
   %.sroa.0.0.copyload.i116 = load i64, ptr %116, align 8, !tbaa !669
   %117 = and i64 %.sroa.0.0.copyload.i116, -16
   %118 = inttoptr i64 %117 to ptr
@@ -32021,12 +32021,12 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit122: ; preds = %127, %130
   %132 = getelementptr inbounds nuw i8, ptr %.1.i121, i64 32
   %.sroa.0.0.copyload.i123 = load i64, ptr %132, align 16, !tbaa !669
   %.pre = and i64 %.sroa.0.0.copyload.i123, -16
-  %.pre248 = inttoptr i64 %.pre to ptr
+  %.pre247 = inttoptr i64 %.pre to ptr
   br label %133
 
 133:                                              ; preds = %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit122, %115
-  %.pre-phi249 = phi ptr [ %.pre248, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit122 ], [ %118, %115 ]
-  %134 = load ptr, ptr %.pre-phi249, align 8, !tbaa !699
+  %.pre-phi248 = phi ptr [ %.pre247, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit122 ], [ %118, %115 ]
+  %134 = load ptr, ptr %.pre-phi248, align 8, !tbaa !699
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %.sroa.0.0.copyload.i.i.i.i125 = load i64, ptr %135, align 8, !tbaa !669
   %136 = and i64 %.sroa.0.0.copyload.i.i.i.i125, -16
@@ -32035,17 +32035,17 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit122: ; preds = %127, %130
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load i8, ptr %139, align 16
   %141 = icmp eq i8 %140, 47
-  br i1 %141, label %142, label %common.ret315
+  br i1 %141, label %142, label %common.ret314
 
 142:                                              ; preds = %133
   %143 = load i8, ptr %112, align 8
   %144 = and i8 %143, -2
   store i8 %144, ptr %112, align 8
-  br label %common.ret315
+  br label %common.ret314
 
-.split206:                                        ; preds = %105
-  %145 = getelementptr inbounds nuw i8, ptr %.tr184196215, i64 32
-  %146 = getelementptr inbounds nuw i8, ptr %.tr184196215, i64 16
+.split205:                                        ; preds = %105
+  %145 = getelementptr inbounds nuw i8, ptr %.tr183195214, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %.tr183195214, i64 16
   %147 = load i32, ptr %146, align 8
   %148 = lshr i32 %147, 30
   %.lobit.i.i = and i32 %148, 1
@@ -32058,62 +32058,60 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit122: ; preds = %127, %130
   %155 = load i16, ptr %154, align 8
   %156 = and i16 %155, 511
   %157 = icmp eq i16 %156, 36
-  br i1 %157, label %.split, label %.lr.ph216.preheader
+  br i1 %157, label %.split, label %.lr.ph215.preheader
 
 158:                                              ; preds = %105
-  %159 = tail call noundef ptr @_ZNK5clang18ArraySubscriptExpr7getBaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr184196215)
+  %159 = tail call noundef ptr @_ZNK5clang18ArraySubscriptExpr7getBaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr183195214)
   tail call fastcc void @_ZL20setObjCGCLValueClassRKN5clang10ASTContextEPKNS_4ExprERNS_7CodeGen6LValueEb(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %159, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext false)
   %160 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %161 = load i8, ptr %160, align 8
-  %162 = trunc i8 %161 to i1
-  %163 = and i8 %161, 2
-  %164 = icmp eq i8 %163, 0
-  %or.cond.not = and i1 %164, %162
-  br i1 %or.cond.not, label %165, label %167
+  %162 = and i8 %161, 3
+  %or.cond.not = icmp eq i8 %162, 1
+  br i1 %or.cond.not, label %163, label %165
+
+163:                                              ; preds = %158
+  %164 = and i8 %161, -4
+  store i8 %164, ptr %160, align 8
+  br label %common.ret314
 
 165:                                              ; preds = %158
-  %166 = and i8 %161, -4
-  store i8 %166, ptr %160, align 8
-  br label %common.ret315
+  %166 = and i8 %161, 10
+  %or.cond178.not = icmp eq i8 %166, 8
+  br i1 %or.cond178.not, label %167, label %common.ret314
 
-167:                                              ; preds = %158
-  %168 = and i8 %161, 10
-  %or.cond178.not = icmp eq i8 %168, 8
-  br i1 %or.cond178.not, label %169, label %common.ret315
+167:                                              ; preds = %165
+  %168 = and i8 %161, -11
+  store i8 %168, ptr %160, align 8
+  br label %common.ret314
 
-169:                                              ; preds = %167
-  %170 = and i8 %161, -11
-  store i8 %170, ptr %160, align 8
-  br label %common.ret315
-
-common.ret315:                                    ; preds = %167, %169, %165, %.split202, %142, %133, %88, %44, %48, %4, %105, %171
+common.ret314:                                    ; preds = %165, %167, %163, %.split201, %142, %133, %88, %44, %48, %4, %105, %169
   ret void
 
-171:                                              ; preds = %105
-  %172 = getelementptr inbounds nuw i8, ptr %.tr184196215, i64 16
-  %173 = load ptr, ptr %172, align 8, !tbaa !1759
-  tail call fastcc void @_ZL20setObjCGCLValueClassRKN5clang10ASTContextEPKNS_4ExprERNS_7CodeGen6LValueEb(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %173, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext true)
-  %174 = getelementptr inbounds nuw i8, ptr %.tr184196215, i64 8
-  %.sroa.0.0.copyload.i132 = load i64, ptr %174, align 8, !tbaa !669
-  %175 = and i64 %.sroa.0.0.copyload.i132, -16
-  %176 = inttoptr i64 %175 to ptr
-  %177 = load ptr, ptr %176, align 16, !tbaa !699
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %.sroa.0.0.copyload.i.i.i.i134 = load i64, ptr %178, align 8, !tbaa !669
-  %179 = and i64 %.sroa.0.0.copyload.i.i.i.i134, -16
-  %180 = inttoptr i64 %179 to ptr
-  %181 = load ptr, ptr %180, align 16, !tbaa !699
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  %183 = load i8, ptr %182, align 16
-  %184 = add i8 %183, -2
-  %switch.i.i.i.i.i.i.i.i.i135 = icmp ult i8 %184, 5
-  %185 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %186 = load i8, ptr %185, align 8
-  %187 = select i1 %switch.i.i.i.i.i.i.i.i.i135, i8 2, i8 0
-  %188 = and i8 %186, -3
-  %189 = or disjoint i8 %187, %188
-  store i8 %189, ptr %185, align 8
-  br label %common.ret315
+169:                                              ; preds = %105
+  %170 = getelementptr inbounds nuw i8, ptr %.tr183195214, i64 16
+  %171 = load ptr, ptr %170, align 8, !tbaa !1759
+  tail call fastcc void @_ZL20setObjCGCLValueClassRKN5clang10ASTContextEPKNS_4ExprERNS_7CodeGen6LValueEb(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %171, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext true)
+  %172 = getelementptr inbounds nuw i8, ptr %.tr183195214, i64 8
+  %.sroa.0.0.copyload.i132 = load i64, ptr %172, align 8, !tbaa !669
+  %173 = and i64 %.sroa.0.0.copyload.i132, -16
+  %174 = inttoptr i64 %173 to ptr
+  %175 = load ptr, ptr %174, align 16, !tbaa !699
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %.sroa.0.0.copyload.i.i.i.i134 = load i64, ptr %176, align 8, !tbaa !669
+  %177 = and i64 %.sroa.0.0.copyload.i.i.i.i134, -16
+  %178 = inttoptr i64 %177 to ptr
+  %179 = load ptr, ptr %178, align 16, !tbaa !699
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
+  %181 = load i8, ptr %180, align 16
+  %182 = add i8 %181, -2
+  %switch.i.i.i.i.i.i.i.i.i135 = icmp ult i8 %182, 5
+  %183 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %184 = load i8, ptr %183, align 8
+  %185 = select i1 %switch.i.i.i.i.i.i.i.i.i135, i8 2, i8 0
+  %186 = and i8 %184, -3
+  %187 = or disjoint i8 %185, %186
+  store i8 %187, ptr %183, align 8
+  br label %common.ret314
 }
 
 declare void @_ZN5clang7CodeGen13CodeGenModule19GetAddrOfMSGuidDeclEPKNS_10MSGuidDeclE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::ConstantAddress") align 8, ptr noundef nonnull align 8 dereferenceable(3608), ptr noundef) local_unnamed_addr #5

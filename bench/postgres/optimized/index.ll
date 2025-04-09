@@ -2654,38 +2654,38 @@ define dso_local ptr @BuildIndexInfo(ptr noundef %0) local_unnamed_addr #0 {
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 15
   %37 = load i8, ptr %36, align 1, !range !4, !noundef !5
-  %spec.select31 = and i8 %37, %23
-  %spec.select = trunc nuw i8 %spec.select31 to i1
-  %38 = tail call ptr @makeIndexInfo(i32 noundef %6, i32 noundef %15, i32 noundef %19, ptr noundef %20, ptr noundef %21, i1 noundef zeroext %24, i1 noundef zeroext %27, i1 noundef zeroext %30, i1 noundef zeroext false, i1 noundef zeroext %35, i1 noundef zeroext %spec.select) #11
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %38 = and i8 %37, %23
+  %spec.select = icmp ne i8 %38, 0
+  %39 = tail call ptr @makeIndexInfo(i32 noundef %6, i32 noundef %15, i32 noundef %19, ptr noundef %20, ptr noundef %21, i1 noundef zeroext %24, i1 noundef zeroext %27, i1 noundef zeroext %30, i1 noundef zeroext false, i1 noundef zeroext %35, i1 noundef zeroext %spec.select) #11
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %41
+  br label %42
 
-41:                                               ; preds = %.lr.ph, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw [0 x i16], ptr %39, i64 0, i64 %indvars.iv
-  %43 = load i16, ptr %42, align 2
-  %44 = getelementptr inbounds nuw [32 x i16], ptr %40, i64 0, i64 %indvars.iv
-  store i16 %43, ptr %44, align 2
+42:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %43 = getelementptr inbounds nuw [0 x i16], ptr %40, i64 0, i64 %indvars.iv
+  %44 = load i16, ptr %43, align 2
+  %45 = getelementptr inbounds nuw [32 x i16], ptr %41, i64 0, i64 %indvars.iv
+  store i16 %44, ptr %45, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %41
-  %45 = load i8, ptr %36, align 1, !range !4, !noundef !5
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %51
+._crit_edge:                                      ; preds = %42
+  %46 = load i8, ptr %36, align 1, !range !4, !noundef !5
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %52
 
-47:                                               ; preds = %._crit_edge
-  %48 = getelementptr inbounds nuw i8, ptr %38, i64 112
-  %49 = getelementptr inbounds nuw i8, ptr %38, i64 120
-  %50 = getelementptr inbounds nuw i8, ptr %38, i64 128
-  tail call void @RelationGetExclusionInfo(ptr noundef nonnull %0, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %50) #11
-  br label %51
+48:                                               ; preds = %._crit_edge
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 112
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 128
+  tail call void @RelationGetExclusionInfo(ptr noundef nonnull %0, ptr noundef nonnull %49, ptr noundef nonnull %50, ptr noundef nonnull %51) #11
+  br label %52
 
-51:                                               ; preds = %47, %._crit_edge
-  ret ptr %38
+52:                                               ; preds = %48, %._crit_edge
+  ret ptr %39
 }
 
 declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signext) local_unnamed_addr #3
@@ -3477,26 +3477,26 @@ define dso_local ptr @BuildDummyIndexInfo(ptr noundef %0) local_unnamed_addr #0 
   %34 = trunc nuw i8 %33 to i1
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 15
   %36 = load i8, ptr %35, align 1, !range !4, !noundef !5
-  %spec.select25 = and i8 %36, %22
-  %spec.select = trunc nuw i8 %spec.select25 to i1
-  %37 = tail call ptr @makeIndexInfo(i32 noundef %6, i32 noundef %15, i32 noundef %19, ptr noundef %20, ptr noundef null, i1 noundef zeroext %23, i1 noundef zeroext %26, i1 noundef zeroext %29, i1 noundef zeroext false, i1 noundef zeroext %34, i1 noundef zeroext %spec.select) #11
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  %37 = and i8 %36, %22
+  %spec.select = icmp ne i8 %37, 0
+  %38 = tail call ptr @makeIndexInfo(i32 noundef %6, i32 noundef %15, i32 noundef %19, ptr noundef %20, ptr noundef null, i1 noundef zeroext %23, i1 noundef zeroext %26, i1 noundef zeroext %29, i1 noundef zeroext false, i1 noundef zeroext %34, i1 noundef zeroext %spec.select) #11
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %40
+  br label %41
 
-40:                                               ; preds = %.lr.ph, %40
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw [0 x i16], ptr %38, i64 0, i64 %indvars.iv
-  %42 = load i16, ptr %41, align 2
-  %43 = getelementptr inbounds nuw [32 x i16], ptr %39, i64 0, i64 %indvars.iv
-  store i16 %42, ptr %43, align 2
+41:                                               ; preds = %.lr.ph, %41
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
+  %42 = getelementptr inbounds nuw [0 x i16], ptr %39, i64 0, i64 %indvars.iv
+  %43 = load i16, ptr %42, align 2
+  %44 = getelementptr inbounds nuw [32 x i16], ptr %40, i64 0, i64 %indvars.iv
+  store i16 %43, ptr %44, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %40
-  ret ptr %37
+._crit_edge:                                      ; preds = %41
+  ret ptr %38
 }
 
 declare ptr @RelationGetDummyIndexExpressions(ptr noundef) local_unnamed_addr #3

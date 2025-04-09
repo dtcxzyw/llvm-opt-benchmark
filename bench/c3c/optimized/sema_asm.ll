@@ -166,14 +166,14 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i8
-  switch i8 %9, label %489 [
+  switch i8 %9, label %487 [
     i8 6, label %sema_check_asm_arg_reg.exit
     i8 0, label %10
     i8 1, label %55
     i8 5, label %144
     i8 2, label %296
-    i8 4, label %442
-    i8 3, label %488
+    i8 4, label %441
+    i8 3, label %486
   ]
 
 10:                                               ; preds = %6
@@ -822,372 +822,370 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 
 .critedge.i43:                                    ; preds = %318, %308
   %322 = trunc i64 %3 to i1
-  %323 = and i64 %3, 2
-  %324 = icmp eq i64 %323, 0
-  %.not109.i = and i1 %324, %322
-  %325 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %326 = load i8, ptr %325, align 8
-  %327 = select i1 %322, i8 0, i8 4
-  %328 = and i8 %326, -5
-  %329 = or disjoint i8 %328, %327
-  store i8 %329, ptr %325, align 8
-  br i1 %.not109.i, label %338, label %330
+  %323 = and i64 %3, 3
+  %.not108.i = icmp eq i64 %323, 1
+  %324 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %325 = load i8, ptr %324, align 8
+  %326 = select i1 %322, i8 0, i8 4
+  %327 = and i8 %325, -5
+  %328 = or disjoint i8 %327, %326
+  store i8 %328, ptr %324, align 8
+  br i1 %.not108.i, label %337, label %329
 
-330:                                              ; preds = %.critedge.i43
-  %331 = getelementptr inbounds nuw i8, ptr %301, i64 80
-  %332 = load i32, ptr %331, align 8
-  %333 = or i32 %332, 4096
-  store i32 %333, ptr %331, align 8
-  %334 = and i32 %332, 16384
-  %.not110.i = icmp eq i32 %334, 0
-  br i1 %.not110.i, label %337, label %335
+329:                                              ; preds = %.critedge.i43
+  %330 = getelementptr inbounds nuw i8, ptr %301, i64 80
+  %331 = load i32, ptr %330, align 8
+  %332 = or i32 %331, 4096
+  store i32 %332, ptr %330, align 8
+  %333 = and i32 %331, 16384
+  %.not109.i = icmp eq i32 %333, 0
+  br i1 %.not109.i, label %336, label %334
 
-335:                                              ; preds = %330
-  %336 = load i64, ptr %299, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %336, ptr noundef nonnull @.str.22) #4
+334:                                              ; preds = %329
+  %335 = load i64, ptr %299, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %335, ptr noundef nonnull @.str.22) #4
   br label %sema_check_asm_arg_reg.exit
 
-337:                                              ; preds = %330
+336:                                              ; preds = %329
   tail call fastcc void @asm_reg_add_input(ptr noundef %1, ptr noundef nonnull %7)
-  br label %338
+  br label %337
 
-338:                                              ; preds = %337, %.critedge.i43
-  br i1 %322, label %339, label %347
+337:                                              ; preds = %336, %.critedge.i43
+  br i1 %322, label %338, label %346
 
-339:                                              ; preds = %338
-  %340 = getelementptr inbounds nuw i8, ptr %301, i64 80
-  %341 = load i32, ptr %340, align 8
-  %342 = or i32 %341, 65536
-  store i32 %342, ptr %340, align 8
-  %343 = and i32 %341, 32768
-  %.not111.i = icmp eq i32 %343, 0
-  br i1 %.not111.i, label %346, label %344
+338:                                              ; preds = %337
+  %339 = getelementptr inbounds nuw i8, ptr %301, i64 80
+  %340 = load i32, ptr %339, align 8
+  %341 = or i32 %340, 65536
+  store i32 %341, ptr %339, align 8
+  %342 = and i32 %340, 32768
+  %.not110.i = icmp eq i32 %342, 0
+  br i1 %.not110.i, label %345, label %343
 
-344:                                              ; preds = %339
-  %345 = load i64, ptr %299, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %345, ptr noundef nonnull @.str.23) #4
+343:                                              ; preds = %338
+  %344 = load i64, ptr %299, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %344, ptr noundef nonnull @.str.23) #4
   br label %sema_check_asm_arg_reg.exit
 
-346:                                              ; preds = %339
+345:                                              ; preds = %338
   tail call fastcc void @asm_reg_add_output(ptr noundef %1, ptr noundef nonnull %7)
-  br label %347
+  br label %346
 
-347:                                              ; preds = %346, %338
-  %348 = load ptr, ptr %309, align 8
-  br label %349
+346:                                              ; preds = %345, %337
+  %347 = load ptr, ptr %309, align 8
+  br label %348
 
-349:                                              ; preds = %362, %347
-  %.0.i.i = phi ptr [ %348, %347 ], [ %.1.i.i, %362 ]
-  %350 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %351 = load ptr, ptr %350, align 8
-  %352 = load i32, ptr %351, align 8
-  switch i32 %352, label %.thread.i45 [
-    i32 32, label %353
-    i32 40, label %359
-    i32 31, label %361
-    i32 23, label %363
+348:                                              ; preds = %361, %346
+  %.0.i.i = phi ptr [ %347, %346 ], [ %.1.i.i, %361 ]
+  %349 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %350 = load ptr, ptr %349, align 8
+  %351 = load i32, ptr %350, align 8
+  switch i32 %351, label %.thread.i45 [
+    i32 32, label %352
+    i32 40, label %358
+    i32 31, label %360
+    i32 23, label %362
   ]
 
-353:                                              ; preds = %349
-  %354 = getelementptr inbounds nuw i8, ptr %351, i64 56
-  %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 96
-  %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  br label %362
+352:                                              ; preds = %348
+  %353 = getelementptr inbounds nuw i8, ptr %350, i64 56
+  %354 = load ptr, ptr %353, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 96
+  %356 = load ptr, ptr %355, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %361
 
-359:                                              ; preds = %349
-  %360 = getelementptr inbounds nuw i8, ptr %351, i64 56
-  br label %362
+358:                                              ; preds = %348
+  %359 = getelementptr inbounds nuw i8, ptr %350, i64 56
+  br label %361
 
-361:                                              ; preds = %349
+360:                                              ; preds = %348
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.18, i32 noundef 2984) #5
   unreachable
 
-362:                                              ; preds = %359, %353
-  %.1.in.i.i63 = phi ptr [ %360, %359 ], [ %358, %353 ]
+361:                                              ; preds = %358, %352
+  %.1.in.i.i63 = phi ptr [ %359, %358 ], [ %357, %352 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i63, align 8
-  br label %349
+  br label %348
 
-363:                                              ; preds = %349
-  %364 = load ptr, ptr @type_uptr, align 8
-  %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
-  %366 = load ptr, ptr %365, align 8
-  %.pr.i44 = load i32, ptr %366, align 8
-  %367 = icmp eq i32 %.pr.i44, 31
-  br i1 %367, label %.thread.thread.i62, label %.thread.i45
+362:                                              ; preds = %348
+  %363 = load ptr, ptr @type_uptr, align 8
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 8
+  %365 = load ptr, ptr %364, align 8
+  %.pr.i44 = load i32, ptr %365, align 8
+  %366 = icmp eq i32 %.pr.i44, 31
+  br i1 %366, label %.thread.thread.i62, label %.thread.i45
 
-.thread.i45:                                      ; preds = %349, %363
-  %.0962.i = phi ptr [ %366, %363 ], [ %351, %349 ]
-  %368 = phi i32 [ %.pr.i44, %363 ], [ %352, %349 ]
-  %369 = add i32 %368, -3
-  %370 = icmp ult i32 %369, 10
-  br i1 %370, label %376, label %423
+.thread.i45:                                      ; preds = %348, %362
+  %.0962.i = phi ptr [ %365, %362 ], [ %350, %348 ]
+  %367 = phi i32 [ %.pr.i44, %362 ], [ %351, %348 ]
+  %368 = add i32 %367, -3
+  %369 = icmp ult i32 %368, 10
+  br i1 %369, label %375, label %422
 
-.thread.thread.i62:                               ; preds = %363
-  %371 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  %372 = load ptr, ptr %371, align 8
-  %373 = load i32, ptr %372, align 8
-  %374 = add i32 %373, -3
-  %375 = icmp ult i32 %374, 10
-  br i1 %375, label %376, label %423
+.thread.thread.i62:                               ; preds = %362
+  %370 = getelementptr inbounds nuw i8, ptr %365, i64 8
+  %371 = load ptr, ptr %370, align 8
+  %372 = load i32, ptr %371, align 8
+  %373 = add i32 %372, -3
+  %374 = icmp ult i32 %373, 10
+  br i1 %374, label %375, label %422
 
-376:                                              ; preds = %.thread.thread.i62, %.thread.i45
-  %.096216.i = phi ptr [ %366, %.thread.thread.i62 ], [ %.0962.i, %.thread.i45 ]
-  %377 = lshr i64 %3, 48
-  %378 = trunc nuw nsw i64 %377 to i32
-  %.not114.i = icmp ult i64 %3, 281474976710656
-  br i1 %.not114.i, label %379, label %384
+375:                                              ; preds = %.thread.thread.i62, %.thread.i45
+  %.096216.i = phi ptr [ %365, %.thread.thread.i62 ], [ %.0962.i, %.thread.i45 ]
+  %376 = lshr i64 %3, 48
+  %377 = trunc nuw nsw i64 %376 to i32
+  %.not113.i = icmp ult i64 %3, 281474976710656
+  br i1 %.not113.i, label %378, label %383
 
-379:                                              ; preds = %376
-  %380 = and i64 %3, 4
-  %.not115.i = icmp eq i64 %380, 0
-  %381 = load i64, ptr %299, align 8
-  br i1 %.not115.i, label %383, label %382
+378:                                              ; preds = %375
+  %379 = and i64 %3, 4
+  %.not114.i = icmp eq i64 %379, 0
+  %380 = load i64, ptr %299, align 8
+  br i1 %.not114.i, label %382, label %381
 
-382:                                              ; preds = %379
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %381, ptr noundef nonnull @.str.24) #4
+381:                                              ; preds = %378
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %380, ptr noundef nonnull @.str.24) #4
   br label %sema_check_asm_arg_reg.exit
 
-383:                                              ; preds = %379
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %381, ptr noundef nonnull @.str.25) #4
+382:                                              ; preds = %378
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %380, ptr noundef nonnull @.str.25) #4
   br label %sema_check_asm_arg_reg.exit
 
-384:                                              ; preds = %376
-  %385 = tail call i32 @type_size(ptr noundef nonnull %.096216.i) #4
-  %386 = shl i32 %385, 3
-  %387 = icmp eq i32 %386, 0
-  %spec.store.select.i.i46 = select i1 %387, i32 -1, i32 %386
-  %388 = icmp ult i32 %spec.store.select.i.i46, 128
-  %389 = and i32 %378, 16
-  %.not.i.i47 = icmp eq i32 %389, 0
-  %or.cond.i.i48 = select i1 %388, i1 true, i1 %.not.i.i47
-  br i1 %or.cond.i.i48, label %390, label %sema_reg_int_suported_type.exit.i49
+383:                                              ; preds = %375
+  %384 = tail call i32 @type_size(ptr noundef nonnull %.096216.i) #4
+  %385 = shl i32 %384, 3
+  %386 = icmp eq i32 %385, 0
+  %spec.store.select.i.i46 = select i1 %386, i32 -1, i32 %385
+  %387 = icmp ult i32 %spec.store.select.i.i46, 128
+  %388 = and i32 %377, 16
+  %.not.i.i47 = icmp eq i32 %388, 0
+  %or.cond.i.i48 = select i1 %387, i1 true, i1 %.not.i.i47
+  br i1 %or.cond.i.i48, label %389, label %sema_reg_int_suported_type.exit.i49
 
-390:                                              ; preds = %384
-  %391 = icmp ult i32 %spec.store.select.i.i46, 80
-  %392 = and i32 %378, 128
-  %.not19.i.i51 = icmp eq i32 %392, 0
-  %or.cond24.i.i52 = select i1 %391, i1 true, i1 %.not19.i.i51
-  br i1 %or.cond24.i.i52, label %393, label %sema_reg_int_suported_type.exit.i49
+389:                                              ; preds = %383
+  %390 = icmp ult i32 %spec.store.select.i.i46, 80
+  %391 = and i32 %377, 128
+  %.not19.i.i51 = icmp eq i32 %391, 0
+  %or.cond24.i.i52 = select i1 %390, i1 true, i1 %.not19.i.i51
+  br i1 %or.cond24.i.i52, label %392, label %sema_reg_int_suported_type.exit.i49
 
-393:                                              ; preds = %390
-  %394 = icmp ult i32 %spec.store.select.i.i46, 64
-  %395 = and i32 %378, 8
-  %.not20.i.i53 = icmp eq i32 %395, 0
-  %or.cond25.i.i54 = select i1 %394, i1 true, i1 %.not20.i.i53
-  br i1 %or.cond25.i.i54, label %396, label %sema_reg_int_suported_type.exit.i49
+392:                                              ; preds = %389
+  %393 = icmp ult i32 %spec.store.select.i.i46, 64
+  %394 = and i32 %377, 8
+  %.not20.i.i53 = icmp eq i32 %394, 0
+  %or.cond25.i.i54 = select i1 %393, i1 true, i1 %.not20.i.i53
+  br i1 %or.cond25.i.i54, label %395, label %sema_reg_int_suported_type.exit.i49
 
-396:                                              ; preds = %393
-  %397 = icmp ult i32 %spec.store.select.i.i46, 32
-  %398 = and i32 %378, 4
-  %.not21.i.i55 = icmp eq i32 %398, 0
-  %or.cond26.i.i56 = select i1 %397, i1 true, i1 %.not21.i.i55
-  br i1 %or.cond26.i.i56, label %399, label %sema_reg_int_suported_type.exit.i49
+395:                                              ; preds = %392
+  %396 = icmp ult i32 %spec.store.select.i.i46, 32
+  %397 = and i32 %377, 4
+  %.not21.i.i55 = icmp eq i32 %397, 0
+  %or.cond26.i.i56 = select i1 %396, i1 true, i1 %.not21.i.i55
+  br i1 %or.cond26.i.i56, label %398, label %sema_reg_int_suported_type.exit.i49
 
-399:                                              ; preds = %396
-  %400 = icmp ult i32 %spec.store.select.i.i46, 16
-  %401 = and i32 %378, 2
-  %.not22.i.i57 = icmp eq i32 %401, 0
-  %or.cond27.i.i58 = select i1 %400, i1 true, i1 %.not22.i.i57
-  br i1 %or.cond27.i.i58, label %402, label %sema_reg_int_suported_type.exit.i49
+398:                                              ; preds = %395
+  %399 = icmp ult i32 %spec.store.select.i.i46, 16
+  %400 = and i32 %377, 2
+  %.not22.i.i57 = icmp eq i32 %400, 0
+  %or.cond27.i.i58 = select i1 %399, i1 true, i1 %.not22.i.i57
+  br i1 %or.cond27.i.i58, label %401, label %sema_reg_int_suported_type.exit.i49
 
-402:                                              ; preds = %399
-  %403 = icmp ult i32 %spec.store.select.i.i46, 8
-  %404 = and i32 %378, 1
-  %.not23.i.i59 = icmp eq i32 %404, 0
-  %or.cond28.i.i60 = select i1 %403, i1 true, i1 %.not23.i.i59
+401:                                              ; preds = %398
+  %402 = icmp ult i32 %spec.store.select.i.i46, 8
+  %403 = and i32 %377, 1
+  %.not23.i.i59 = icmp eq i32 %403, 0
+  %or.cond28.i.i60 = select i1 %402, i1 true, i1 %.not23.i.i59
   %spec.select.i.i61 = select i1 %or.cond28.i.i60, i32 0, i32 8
   br label %sema_reg_int_suported_type.exit.i49
 
-sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %393, %390, %384
-  %.0.i122.i = phi i32 [ 128, %384 ], [ 80, %390 ], [ 64, %393 ], [ 32, %396 ], [ 16, %399 ], [ %spec.select.i.i61, %402 ]
-  %405 = icmp eq i32 %.0.i122.i, %386
-  br i1 %405, label %sema_check_asm_arg_reg.exit, label %406
+sema_reg_int_suported_type.exit.i49:              ; preds = %401, %398, %395, %392, %389, %383
+  %.0.i121.i = phi i32 [ 128, %383 ], [ 80, %389 ], [ 64, %392 ], [ 32, %395 ], [ 16, %398 ], [ %spec.select.i.i61, %401 ]
+  %404 = icmp eq i32 %.0.i121.i, %385
+  br i1 %404, label %sema_check_asm_arg_reg.exit, label %405
 
-406:                                              ; preds = %sema_reg_int_suported_type.exit.i49
-  br i1 %.not.i.i47, label %407, label %417
+405:                                              ; preds = %sema_reg_int_suported_type.exit.i49
+  br i1 %.not.i.i47, label %406, label %416
 
-407:                                              ; preds = %406
-  %408 = and i32 %378, 128
-  %.not117.i = icmp eq i32 %408, 0
-  br i1 %.not117.i, label %409, label %417
+406:                                              ; preds = %405
+  %407 = and i32 %377, 128
+  %.not116.i = icmp eq i32 %407, 0
+  br i1 %.not116.i, label %408, label %416
 
-409:                                              ; preds = %407
-  %410 = and i32 %378, 8
-  %.not118.i = icmp eq i32 %410, 0
-  br i1 %.not118.i, label %411, label %417
+408:                                              ; preds = %406
+  %409 = and i32 %377, 8
+  %.not117.i = icmp eq i32 %409, 0
+  br i1 %.not117.i, label %410, label %416
 
-411:                                              ; preds = %409
-  %412 = and i32 %378, 4
-  %.not119.i = icmp eq i32 %412, 0
-  br i1 %.not119.i, label %413, label %417
+410:                                              ; preds = %408
+  %411 = and i32 %377, 4
+  %.not118.i = icmp eq i32 %411, 0
+  br i1 %.not118.i, label %412, label %416
 
-413:                                              ; preds = %411
-  %414 = and i32 %378, 2
-  %.not120.i = icmp eq i32 %414, 0
-  br i1 %.not120.i, label %415, label %417
+412:                                              ; preds = %410
+  %413 = and i32 %377, 2
+  %.not119.i = icmp eq i32 %413, 0
+  br i1 %.not119.i, label %414, label %416
 
-415:                                              ; preds = %413
-  %416 = shl nuw nsw i64 %377, 3
-  %..i50 = and i64 %416, 8
-  br label %417
+414:                                              ; preds = %412
+  %415 = shl nuw nsw i64 %376, 3
+  %..i50 = and i64 %415, 8
+  br label %416
 
-417:                                              ; preds = %415, %413, %411, %409, %407, %406
-  %.097.i = phi i64 [ 128, %406 ], [ 80, %407 ], [ 64, %409 ], [ 32, %411 ], [ 16, %413 ], [ %..i50, %415 ]
-  %418 = load ptr, ptr %309, align 8
-  %419 = tail call ptr @type_quoted_error_string(ptr noundef %418) #4
-  %420 = tail call ptr @type_int_signed_by_bitsize(i64 noundef %.097.i) #4
-  %421 = tail call ptr @type_quoted_error_string(ptr noundef %420) #4
-  %422 = load i64, ptr %299, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %422, ptr noundef nonnull @.str.26, ptr noundef %419, ptr noundef %421) #4
+416:                                              ; preds = %414, %412, %410, %408, %406, %405
+  %.097.i = phi i64 [ 128, %405 ], [ 80, %406 ], [ 64, %408 ], [ 32, %410 ], [ 16, %412 ], [ %..i50, %414 ]
+  %417 = load ptr, ptr %309, align 8
+  %418 = tail call ptr @type_quoted_error_string(ptr noundef %417) #4
+  %419 = tail call ptr @type_int_signed_by_bitsize(i64 noundef %.097.i) #4
+  %420 = tail call ptr @type_quoted_error_string(ptr noundef %419) #4
+  %421 = load i64, ptr %299, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %421, ptr noundef nonnull @.str.26, ptr noundef %418, ptr noundef %420) #4
   br label %sema_check_asm_arg_reg.exit
 
-423:                                              ; preds = %.thread.thread.i62, %.thread.i45
-  %.09621519.i = phi ptr [ %.0962.i, %.thread.i45 ], [ %366, %.thread.thread.i62 ]
-  %.093.i = phi i32 [ %368, %.thread.i45 ], [ %373, %.thread.thread.i62 ]
-  %424 = add i32 %.093.i, -13
-  %425 = icmp ult i32 %424, 5
-  br i1 %425, label %426, label %439
+422:                                              ; preds = %.thread.thread.i62, %.thread.i45
+  %.09621519.i = phi ptr [ %.0962.i, %.thread.i45 ], [ %365, %.thread.thread.i62 ]
+  %.093.i = phi i32 [ %367, %.thread.i45 ], [ %372, %.thread.thread.i62 ]
+  %423 = add i32 %.093.i, -13
+  %424 = icmp ult i32 %423, 5
+  br i1 %424, label %425, label %438
 
-426:                                              ; preds = %423
-  %427 = and i32 %4, 65535
-  %.not112.i = icmp eq i32 %427, 0
-  br i1 %.not112.i, label %428, label %433
+425:                                              ; preds = %422
+  %426 = and i32 %4, 65535
+  %.not111.i = icmp eq i32 %426, 0
+  br i1 %.not111.i, label %427, label %432
 
-428:                                              ; preds = %426
-  %429 = and i64 %3, 4
-  %.not113.i = icmp eq i64 %429, 0
-  %430 = load i64, ptr %299, align 8
-  br i1 %.not113.i, label %432, label %431
+427:                                              ; preds = %425
+  %428 = and i64 %3, 4
+  %.not112.i = icmp eq i64 %428, 0
+  %429 = load i64, ptr %299, align 8
+  br i1 %.not112.i, label %431, label %430
 
-431:                                              ; preds = %428
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %430, ptr noundef nonnull @.str.24) #4
+430:                                              ; preds = %427
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %429, ptr noundef nonnull @.str.24) #4
   br label %sema_check_asm_arg_reg.exit
 
-432:                                              ; preds = %428
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %430, ptr noundef nonnull @.str.27) #4
+431:                                              ; preds = %427
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %429, ptr noundef nonnull @.str.27) #4
   br label %sema_check_asm_arg_reg.exit
 
-433:                                              ; preds = %426
-  %434 = tail call fastcc zeroext i1 @sema_reg_float_suported_type(i32 %4, ptr noundef nonnull %.09621519.i)
-  br i1 %434, label %sema_check_asm_arg_reg.exit, label %435
+432:                                              ; preds = %425
+  %433 = tail call fastcc zeroext i1 @sema_reg_float_suported_type(i32 %4, ptr noundef nonnull %.09621519.i)
+  br i1 %433, label %sema_check_asm_arg_reg.exit, label %434
 
-435:                                              ; preds = %433
-  %436 = load ptr, ptr %309, align 8
-  %437 = tail call ptr @type_quoted_error_string(ptr noundef %436) #4
-  %438 = load i64, ptr %299, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %438, ptr noundef nonnull @.str.28, ptr noundef %437) #4
+434:                                              ; preds = %432
+  %435 = load ptr, ptr %309, align 8
+  %436 = tail call ptr @type_quoted_error_string(ptr noundef %435) #4
+  %437 = load i64, ptr %299, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %437, ptr noundef nonnull @.str.28, ptr noundef %436) #4
   br label %sema_check_asm_arg_reg.exit
 
-439:                                              ; preds = %423
-  %440 = tail call ptr @type_quoted_error_string(ptr noundef %348) #4
-  %441 = load i64, ptr %299, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %441, ptr noundef nonnull @.str.29, ptr noundef %440) #4
+438:                                              ; preds = %422
+  %439 = tail call ptr @type_quoted_error_string(ptr noundef %347) #4
+  %440 = load i64, ptr %299, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %440, ptr noundef nonnull @.str.29, ptr noundef %439) #4
   br label %sema_check_asm_arg_reg.exit
 
-442:                                              ; preds = %6
-  %443 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %444 = load ptr, ptr %443, align 8
-  %445 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %446 = load i64, ptr %445, align 8
-  %447 = tail call ptr @sema_resolve_symbol(ptr noundef %0, ptr noundef %444, ptr noundef null, i64 %446) #4
-  %.not.i64 = icmp eq ptr %447, null
-  br i1 %.not.i64, label %sema_check_asm_arg_reg.exit, label %448
+441:                                              ; preds = %6
+  %442 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %443 = load ptr, ptr %442, align 8
+  %444 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %445 = load i64, ptr %444, align 8
+  %446 = tail call ptr @sema_resolve_symbol(ptr noundef %0, ptr noundef %443, ptr noundef null, i64 %445) #4
+  %.not.i64 = icmp eq ptr %446, null
+  br i1 %.not.i64, label %sema_check_asm_arg_reg.exit, label %447
 
-448:                                              ; preds = %442
-  store ptr %447, ptr %443, align 8
-  %449 = getelementptr inbounds nuw i8, ptr %447, i64 24
-  %450 = load i64, ptr %449, align 8
-  %451 = and i64 %450, 127
-  %.not42.i = icmp eq i64 %451, 26
-  br i1 %.not42.i, label %452, label %.sink.split.i
+447:                                              ; preds = %441
+  store ptr %446, ptr %442, align 8
+  %448 = getelementptr inbounds nuw i8, ptr %446, i64 24
+  %449 = load i64, ptr %448, align 8
+  %450 = and i64 %449, 127
+  %.not42.i = icmp eq i64 %450, 26
+  br i1 %.not42.i, label %451, label %.sink.split.i
 
-452:                                              ; preds = %448
-  %453 = getelementptr inbounds nuw i8, ptr %447, i64 72
-  %454 = load ptr, ptr %453, align 8
-  %.not43.i = icmp eq ptr %454, null
-  br i1 %.not43.i, label %.critedge.i65, label %455
+451:                                              ; preds = %447
+  %452 = getelementptr inbounds nuw i8, ptr %446, i64 72
+  %453 = load ptr, ptr %452, align 8
+  %.not43.i = icmp eq ptr %453, null
+  br i1 %.not43.i, label %.critedge.i65, label %454
 
-455:                                              ; preds = %452
-  %456 = load i32, ptr %454, align 8
-  %457 = icmp eq i32 %456, 31
-  br i1 %457, label %458, label %462
+454:                                              ; preds = %451
+  %455 = load i32, ptr %453, align 8
+  %456 = icmp eq i32 %455, 31
+  br i1 %456, label %457, label %461
 
-458:                                              ; preds = %455
-  %459 = getelementptr inbounds nuw i8, ptr %454, i64 8
-  %460 = load ptr, ptr %459, align 8
-  %461 = load i32, ptr %460, align 8
-  br label %462
+457:                                              ; preds = %454
+  %458 = getelementptr inbounds nuw i8, ptr %453, i64 8
+  %459 = load ptr, ptr %458, align 8
+  %460 = load i32, ptr %459, align 8
+  br label %461
 
-462:                                              ; preds = %458, %455
-  %.037.i = phi i32 [ %461, %458 ], [ %456, %455 ]
-  %463 = icmp eq i32 %.037.i, 40
-  br i1 %463, label %.sink.split.i, label %.critedge.i65
+461:                                              ; preds = %457, %454
+  %.037.i = phi i32 [ %460, %457 ], [ %455, %454 ]
+  %462 = icmp eq i32 %.037.i, 40
+  br i1 %462, label %.sink.split.i, label %.critedge.i65
 
-.critedge.i65:                                    ; preds = %462, %452
-  %464 = trunc i64 %3 to i1
-  %465 = and i64 %3, 2
-  %466 = icmp eq i64 %465, 0
-  %.not45.i = and i1 %466, %464
-  %467 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %468 = load i8, ptr %467, align 8
-  %469 = select i1 %464, i8 0, i8 4
-  %470 = and i8 %468, -5
-  %471 = or disjoint i8 %470, %469
-  store i8 %471, ptr %467, align 8
-  br i1 %.not45.i, label %478, label %472
+.critedge.i65:                                    ; preds = %461, %451
+  %463 = trunc i64 %3 to i1
+  %464 = and i64 %3, 3
+  %.not44.i = icmp eq i64 %464, 1
+  %465 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %466 = load i8, ptr %465, align 8
+  %467 = select i1 %463, i8 0, i8 4
+  %468 = and i8 %466, -5
+  %469 = or disjoint i8 %468, %467
+  store i8 %469, ptr %465, align 8
+  br i1 %.not44.i, label %476, label %470
 
-472:                                              ; preds = %.critedge.i65
-  %473 = getelementptr inbounds nuw i8, ptr %447, i64 80
-  %474 = load i32, ptr %473, align 8
-  %475 = or i32 %474, 4096
-  store i32 %475, ptr %473, align 8
-  %476 = and i32 %474, 16384
-  %.not46.i = icmp eq i32 %476, 0
-  br i1 %.not46.i, label %477, label %.sink.split.i
+470:                                              ; preds = %.critedge.i65
+  %471 = getelementptr inbounds nuw i8, ptr %446, i64 80
+  %472 = load i32, ptr %471, align 8
+  %473 = or i32 %472, 4096
+  store i32 %473, ptr %471, align 8
+  %474 = and i32 %472, 16384
+  %.not45.i = icmp eq i32 %474, 0
+  br i1 %.not45.i, label %475, label %.sink.split.i
 
-477:                                              ; preds = %472
+475:                                              ; preds = %470
   tail call fastcc void @asm_reg_add_input(ptr noundef %1, ptr noundef nonnull %7)
-  br label %478
+  br label %476
 
-478:                                              ; preds = %477, %.critedge.i65
-  br i1 %464, label %479, label %485
+476:                                              ; preds = %475, %.critedge.i65
+  br i1 %463, label %477, label %483
 
-479:                                              ; preds = %478
-  %480 = getelementptr inbounds nuw i8, ptr %447, i64 80
-  %481 = load i32, ptr %480, align 8
-  %482 = or i32 %481, 65536
-  store i32 %482, ptr %480, align 8
-  %483 = and i32 %481, 32768
-  %.not47.i = icmp eq i32 %483, 0
-  br i1 %.not47.i, label %484, label %.sink.split.i
+477:                                              ; preds = %476
+  %478 = getelementptr inbounds nuw i8, ptr %446, i64 80
+  %479 = load i32, ptr %478, align 8
+  %480 = or i32 %479, 65536
+  store i32 %480, ptr %478, align 8
+  %481 = and i32 %479, 32768
+  %.not46.i = icmp eq i32 %481, 0
+  br i1 %.not46.i, label %482, label %.sink.split.i
 
-484:                                              ; preds = %479
+482:                                              ; preds = %477
   tail call fastcc void @asm_reg_add_output(ptr noundef %1, ptr noundef nonnull %7)
-  br label %485
+  br label %483
 
-485:                                              ; preds = %484, %478
-  %486 = and i64 %3, 4
-  %.not48.i = icmp eq i64 %486, 0
-  br i1 %.not48.i, label %.sink.split.i, label %sema_check_asm_arg_reg.exit
+483:                                              ; preds = %482, %476
+  %484 = and i64 %3, 4
+  %.not47.i = icmp eq i64 %484, 0
+  br i1 %.not47.i, label %.sink.split.i, label %sema_check_asm_arg_reg.exit
 
-.sink.split.i:                                    ; preds = %485, %479, %472, %462, %448
-  %.str.31.sink.i = phi ptr [ @.str.20, %448 ], [ @.str.21, %462 ], [ @.str.22, %472 ], [ @.str.23, %479 ], [ @.str.31, %485 ]
-  %487 = load i64, ptr %445, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %487, ptr noundef nonnull %.str.31.sink.i) #4
+.sink.split.i:                                    ; preds = %483, %477, %470, %461, %447
+  %.str.31.sink.i = phi ptr [ @.str.20, %447 ], [ @.str.21, %461 ], [ @.str.22, %470 ], [ @.str.23, %477 ], [ @.str.31, %483 ]
+  %485 = load i64, ptr %444, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %485, ptr noundef nonnull %.str.31.sink.i) #4
   br label %sema_check_asm_arg_reg.exit
 
-488:                                              ; preds = %6
+486:                                              ; preds = %6
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.sema_check_asm_arg, ptr noundef nonnull @.str.7, i32 noundef 479) #5
   unreachable
 
-489:                                              ; preds = %6
+487:                                              ; preds = %6
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.sema_check_asm_arg, ptr noundef nonnull @.str.7, i32 noundef 482) #5
   unreachable
 
-sema_check_asm_arg_reg.exit:                      ; preds = %.sink.split.i, %485, %442, %439, %435, %433, %432, %431, %417, %sema_reg_int_suported_type.exit.i49, %383, %382, %344, %335, %320, %306, %296, %294, %sema_reg_float_suported_type.exit.thread.i, %267, %262, %210, %205, %194, %max_supported_imm_int.exit.thread.i.i, %144, %141, %140, %137, %128, %110, %100, %97, %87, %69, %57, %44, %42, %38, %14, %6
-  %.0 = phi i1 [ true, %6 ], [ false, %38 ], [ false, %14 ], [ true, %44 ], [ true, %42 ], [ false, %97 ], [ false, %137 ], [ false, %141 ], [ false, %57 ], [ false, %69 ], [ false, %87 ], [ false, %110 ], [ false, %128 ], [ true, %140 ], [ true, %100 ], [ false, %210 ], [ true, %267 ], [ false, %262 ], [ true, %294 ], [ false, %sema_reg_float_suported_type.exit.thread.i ], [ false, %144 ], [ true, %205 ], [ false, %194 ], [ false, %max_supported_imm_int.exit.thread.i.i ], [ false, %306 ], [ false, %320 ], [ false, %335 ], [ false, %344 ], [ false, %417 ], [ false, %382 ], [ false, %383 ], [ false, %435 ], [ false, %431 ], [ false, %432 ], [ false, %439 ], [ false, %296 ], [ true, %sema_reg_int_suported_type.exit.i49 ], [ true, %433 ], [ false, %442 ], [ true, %485 ], [ false, %.sink.split.i ]
+sema_check_asm_arg_reg.exit:                      ; preds = %.sink.split.i, %483, %441, %438, %434, %432, %431, %430, %416, %sema_reg_int_suported_type.exit.i49, %382, %381, %343, %334, %320, %306, %296, %294, %sema_reg_float_suported_type.exit.thread.i, %267, %262, %210, %205, %194, %max_supported_imm_int.exit.thread.i.i, %144, %141, %140, %137, %128, %110, %100, %97, %87, %69, %57, %44, %42, %38, %14, %6
+  %.0 = phi i1 [ true, %6 ], [ false, %38 ], [ false, %14 ], [ true, %44 ], [ true, %42 ], [ false, %97 ], [ false, %137 ], [ false, %141 ], [ false, %57 ], [ false, %69 ], [ false, %87 ], [ false, %110 ], [ false, %128 ], [ true, %140 ], [ true, %100 ], [ false, %210 ], [ true, %267 ], [ false, %262 ], [ true, %294 ], [ false, %sema_reg_float_suported_type.exit.thread.i ], [ false, %144 ], [ true, %205 ], [ false, %194 ], [ false, %max_supported_imm_int.exit.thread.i.i ], [ false, %306 ], [ false, %320 ], [ false, %334 ], [ false, %343 ], [ false, %416 ], [ false, %381 ], [ false, %382 ], [ false, %434 ], [ false, %430 ], [ false, %431 ], [ false, %438 ], [ false, %296 ], [ true, %sema_reg_int_suported_type.exit.i49 ], [ true, %432 ], [ false, %441 ], [ true, %483 ], [ false, %.sink.split.i ]
   ret i1 %.0
 }
 

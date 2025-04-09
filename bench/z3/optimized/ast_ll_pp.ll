@@ -1637,7 +1637,7 @@ define linkonce_odr hidden void @_ZN10ll_printerclEP9func_decl(ptr noundef nonnu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8, !tbaa !19, !range !72, !noundef !73
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %76, label %6
+  br i1 %5, label %74, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1648,7 +1648,7 @@ define linkonce_odr hidden void @_ZN10ll_printerclEP9func_decl(ptr noundef nonnu
 _ZNK4decl13get_family_idEv.exit:                  ; preds = %6
   %10 = load i32, ptr %8, align 8, !tbaa !75
   %.not = icmp eq i32 %10, -1
-  br i1 %.not, label %_ZNK4decl13get_family_idEv.exit.thread, label %76
+  br i1 %.not, label %_ZNK4decl13get_family_idEv.exit.thread, label %74
 
 _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %6, %_ZNK4decl13get_family_idEv.exit
   %11 = load ptr, ptr %0, align 8, !tbaa !26
@@ -1741,53 +1741,51 @@ _ZN10ll_printer16display_childrenI4sortEEvjPKPT_.exit: ; preds = %44, %36
 _ZNK9func_decl14is_associativeEv.exit:            ; preds = %_ZN10ll_printer16display_childrenI4sortEEvjPKPT_.exit
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 17
   %55 = load i16, ptr %54, align 1
-  %56 = trunc i16 %55 to i1
-  %57 = and i16 %55, 2
-  %58 = icmp ne i16 %57, 0
-  %59 = and i1 %58, %56
-  br i1 %59, label %60, label %_ZNK9func_decl14is_commutativeEv.exit
+  %56 = and i16 %55, 3
+  %57 = icmp eq i16 %56, 3
+  br i1 %57, label %58, label %_ZNK9func_decl14is_commutativeEv.exit
 
-60:                                               ; preds = %_ZNK9func_decl14is_associativeEv.exit
-  %61 = load ptr, ptr %0, align 8, !tbaa !26
-  %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull @.str.21, i64 noundef 7)
+58:                                               ; preds = %_ZNK9func_decl14is_associativeEv.exit
+  %59 = load ptr, ptr %0, align 8, !tbaa !26
+  %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull @.str.21, i64 noundef 7)
   %.pr.pre = load ptr, ptr %7, align 8, !tbaa !39
   %.not.i13 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i13, label %_ZNK9func_decl12is_injectiveEv.exit.thread, label %_ZNK9func_decl14is_commutativeEv.exit
 
-_ZNK9func_decl14is_commutativeEv.exit:            ; preds = %_ZNK9func_decl14is_associativeEv.exit, %60
-  %.pr25 = phi ptr [ %.pr.pre, %60 ], [ %53, %_ZNK9func_decl14is_associativeEv.exit ]
-  %63 = getelementptr inbounds nuw i8, ptr %.pr25, i64 17
-  %64 = load i16, ptr %63, align 1
-  %65 = and i16 %64, 8
-  %.not19 = icmp eq i16 %65, 0
+_ZNK9func_decl14is_commutativeEv.exit:            ; preds = %_ZNK9func_decl14is_associativeEv.exit, %58
+  %.pr25 = phi ptr [ %.pr.pre, %58 ], [ %53, %_ZNK9func_decl14is_associativeEv.exit ]
+  %61 = getelementptr inbounds nuw i8, ptr %.pr25, i64 17
+  %62 = load i16, ptr %61, align 1
+  %63 = and i16 %62, 8
+  %.not19 = icmp eq i16 %63, 0
   br i1 %.not19, label %_ZNK9func_decl12is_injectiveEv.exit, label %_ZNK9func_decl14is_commutativeEv.exit.thread
 
 _ZNK9func_decl14is_commutativeEv.exit.thread:     ; preds = %_ZNK9func_decl14is_commutativeEv.exit
-  %66 = load ptr, ptr %0, align 8, !tbaa !26
-  %67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull @.str.22, i64 noundef 6)
+  %64 = load ptr, ptr %0, align 8, !tbaa !26
+  %65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull @.str.22, i64 noundef 6)
   %.pr17.pre = load ptr, ptr %7, align 8, !tbaa !39
   %.not.i14 = icmp eq ptr %.pr17.pre, null
   br i1 %.not.i14, label %_ZNK9func_decl12is_injectiveEv.exit.thread, label %_ZNK9func_decl12is_injectiveEv.exit
 
 _ZNK9func_decl12is_injectiveEv.exit:              ; preds = %_ZNK9func_decl14is_commutativeEv.exit, %_ZNK9func_decl14is_commutativeEv.exit.thread
   %.pr1728 = phi ptr [ %.pr17.pre, %_ZNK9func_decl14is_commutativeEv.exit.thread ], [ %.pr25, %_ZNK9func_decl14is_commutativeEv.exit ]
-  %68 = getelementptr inbounds nuw i8, ptr %.pr1728, i64 17
-  %69 = load i16, ptr %68, align 1
-  %70 = and i16 %69, 64
-  %.not20 = icmp eq i16 %70, 0
-  br i1 %.not20, label %_ZNK9func_decl12is_injectiveEv.exit.thread, label %71
+  %66 = getelementptr inbounds nuw i8, ptr %.pr1728, i64 17
+  %67 = load i16, ptr %66, align 1
+  %68 = and i16 %67, 64
+  %.not20 = icmp eq i16 %68, 0
+  br i1 %.not20, label %_ZNK9func_decl12is_injectiveEv.exit.thread, label %69
 
-71:                                               ; preds = %_ZNK9func_decl12is_injectiveEv.exit
-  %72 = load ptr, ptr %0, align 8, !tbaa !26
-  %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull @.str.23, i64 noundef 5)
+69:                                               ; preds = %_ZNK9func_decl12is_injectiveEv.exit
+  %70 = load ptr, ptr %0, align 8, !tbaa !26
+  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.23, i64 noundef 5)
   br label %_ZNK9func_decl12is_injectiveEv.exit.thread
 
-_ZNK9func_decl12is_injectiveEv.exit.thread:       ; preds = %60, %_ZN10ll_printer16display_childrenI4sortEEvjPKPT_.exit, %_ZNK9func_decl14is_commutativeEv.exit.thread, %_ZNK9func_decl12is_injectiveEv.exit, %71, %33
-  %74 = load ptr, ptr %0, align 8, !tbaa !26
-  %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull @.str.24, i64 noundef 1)
-  br label %76
+_ZNK9func_decl12is_injectiveEv.exit.thread:       ; preds = %58, %_ZN10ll_printer16display_childrenI4sortEEvjPKPT_.exit, %_ZNK9func_decl14is_commutativeEv.exit.thread, %_ZNK9func_decl12is_injectiveEv.exit, %69, %33
+  %72 = load ptr, ptr %0, align 8, !tbaa !26
+  %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull @.str.24, i64 noundef 1)
+  br label %74
 
-76:                                               ; preds = %_ZNK4decl13get_family_idEv.exit, %2, %_ZNK9func_decl12is_injectiveEv.exit.thread
+74:                                               ; preds = %_ZNK4decl13get_family_idEv.exit, %2, %_ZNK9func_decl12is_injectiveEv.exit.thread
   ret void
 }
 

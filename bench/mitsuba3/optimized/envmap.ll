@@ -1793,12 +1793,12 @@ define linkonce_odr hidden void @_ZN7mitsuba14Hierarchical2DIfLm0EEC2EPKfRKNS_6V
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %.026.i272.sroa.gep317 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %10 = load i32, ptr %2, align 4
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp ugt i32 %10, 1
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ult i32 %13, 2
-  %or.cond.not.i = or i1 %11, %14
-  br i1 %or.cond.not.i, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread.i, label %.critedge416
+  %14 = icmp ugt i32 %13, 1
+  %or.cond.i = and i1 %11, %14
+  br i1 %or.cond.i, label %.critedge416, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread.i
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread.i: ; preds = %.critedge
   %15 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8

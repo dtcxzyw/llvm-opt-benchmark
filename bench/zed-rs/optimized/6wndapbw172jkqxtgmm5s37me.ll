@@ -18664,8 +18664,8 @@ define void @_ZN4call4room4Room11toggle_mute17h7f6d5e98cf2495eaE(ptr noalias nou
   %17 = trunc nuw i8 %16 to i1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %19 = load i8, ptr %18, align 8, !range !48, !noundef !4
-  %20 = trunc nuw i8 %19 to i1
-  %brmerge = select i1 %20, i1 true, i1 %17
+  %20 = or i8 %19, %16
+  %brmerge = icmp ne i8 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %22 = load i64, ptr %21, align 8, !range !205
   %23 = icmp eq i64 %22, -9223372036854775808

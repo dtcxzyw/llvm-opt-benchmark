@@ -14070,10 +14070,8 @@ lor.lhs.false286:                                 ; preds = %_ZN4node9ToV8ValueE
   %help_text_string_.i.i = getelementptr inbounds nuw i8, ptr %180, i64 1088
   %181 = load ptr, ptr %help_text_string_.i.i, align 8
   %call309 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call268, ptr nonnull %call2.i, ptr %181, ptr nonnull %call11.i471) #22
-  %tobool.i801 = trunc i16 %call309 to i1
-  %182 = and i16 %call309, 256
-  %tobool2.i807 = icmp ne i16 %182, 0
-  %cond.i804 = and i1 %tobool2.i807, %tobool.i801
+  %182 = and i16 %call309, 257
+  %cond.i804 = icmp eq i16 %182, 257
   br i1 %cond.i804, label %lor.lhs.false312, label %cleanup
 
 lor.lhs.false312:                                 ; preds = %lor.lhs.false286
@@ -14084,10 +14082,8 @@ lor.lhs.false312:                                 ; preds = %lor.lhs.false286
   %185 = load i32, ptr %env_setting, align 8
   %call327 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %16, i32 noundef %185) #22
   %call343 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call268, ptr nonnull %call2.i, ptr %184, ptr %call327) #22
-  %tobool.i790 = trunc i16 %call343 to i1
-  %186 = and i16 %call343, 256
-  %tobool2.i796 = icmp ne i16 %186, 0
-  %cond.i793 = and i1 %tobool2.i796, %tobool.i790
+  %186 = and i16 %call343, 257
+  %cond.i793 = icmp eq i16 %186, 257
   br i1 %cond.i793, label %lor.lhs.false346, label %cleanup
 
 lor.lhs.false346:                                 ; preds = %lor.lhs.false312
@@ -14097,10 +14093,8 @@ lor.lhs.false346:                                 ; preds = %lor.lhs.false312
   %189 = load i32, ptr %second, align 8
   %call362 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %16, i32 noundef %189) #22
   %call378 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call268, ptr nonnull %call2.i, ptr %188, ptr %call362) #22
-  %tobool.i779 = trunc i16 %call378 to i1
-  %190 = and i16 %call378, 256
-  %tobool2.i785 = icmp ne i16 %190, 0
-  %cond.i782 = and i1 %tobool2.i785, %tobool.i779
+  %190 = and i16 %call378, 257
+  %cond.i782 = icmp eq i16 %190, 257
   br i1 %cond.i782, label %lor.lhs.false381, label %cleanup
 
 lor.lhs.false381:                                 ; preds = %lor.lhs.false346
@@ -14114,10 +14108,8 @@ lor.lhs.false381:                                 ; preds = %lor.lhs.false346
   %retval.i.sroa.0.0.in = add i64 %retval.i.sroa.0.0.in.v, %69
   %retval.i.sroa.0.0 = inttoptr i64 %retval.i.sroa.0.0.in to ptr
   %call413 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call268, ptr nonnull %call2.i, ptr %192, ptr %retval.i.sroa.0.0) #22
-  %tobool.i773 = trunc i16 %call413 to i1
-  %194 = and i16 %call413, 256
-  %tobool2.i = icmp ne i16 %194, 0
-  %cond.i = and i1 %tobool2.i, %tobool.i773
+  %194 = and i16 %call413, 257
+  %cond.i = icmp eq i16 %194, 257
   br i1 %cond.i, label %lor.lhs.false416, label %cleanup
 
 lor.lhs.false416:                                 ; preds = %lor.lhs.false381

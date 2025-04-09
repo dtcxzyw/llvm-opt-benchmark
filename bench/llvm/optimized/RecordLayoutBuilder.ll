@@ -8272,8 +8272,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder12la
   %7 = and i8 %6, -3
   store i8 %7, ptr %5, align 4
   %8 = tail call ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %1) #19
-  %.not118125 = icmp eq ptr %8, null
-  br i1 %.not118125, label %._crit_edge129, label %.lr.ph
+  %.not118126 = icmp eq ptr %8, null
+  br i1 %.not118126, label %._crit_edge130, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -8289,19 +8289,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder12la
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %20
 
-._crit_edge129:                                   ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %2
+._crit_edge130:                                   ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %2
   ret void
 
 20:                                               ; preds = %.lr.ph, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit
-  %.sroa.030.0126 = phi ptr [ %8, %.lr.ph ], [ %.sroa.030.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.030.0126, i64 68
+  %.sroa.030.0127 = phi ptr [ %8, %.lr.ph ], [ %.sroa.030.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.030.0127, i64 68
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 1
   %.not119 = icmp eq i32 %23, 0
   br i1 %.not119, label %202, label %24
 
 24:                                               ; preds = %20
-  %25 = call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.030.0126) #19
+  %25 = call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.030.0127) #19
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %91
 
@@ -8343,7 +8343,7 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9Char
 45:                                               ; preds = %27
   %46 = and i8 %28, -3
   store i8 %46, ptr %5, align 4
-  %47 = call fastcc { i64, i64 } @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder22getAdjustedElementInfoEPKN5clang9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %.sroa.030.0126)
+  %47 = call fastcc { i64, i64 } @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder22getAdjustedElementInfoEPKN5clang9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %.sroa.030.0127)
   %48 = extractvalue { i64, i64 } %47, 0
   %49 = extractvalue { i64, i64 } %47, 1
   %50 = load i8, ptr %5, align 4
@@ -8422,7 +8422,7 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9Char
   br label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder11layoutFieldEPKN5clang9FieldDeclE.exit
 
 91:                                               ; preds = %24
-  %92 = call fastcc { i64, i64 } @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder22getAdjustedElementInfoEPKN5clang9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %.sroa.030.0126)
+  %92 = call fastcc { i64, i64 } @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder22getAdjustedElementInfoEPKN5clang9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %.sroa.030.0127)
   %93 = extractvalue { i64, i64 } %92, 0
   %94 = extractvalue { i64, i64 } %92, 1
   %95 = zext i32 %25 to i64
@@ -8442,107 +8442,106 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9Char
   %104 = load i8, ptr %5, align 4
   %105 = and i8 %104, 64
   %.not.i14 = icmp eq i8 %105, 0
-  br i1 %.not.i14, label %106, label %131
+  br i1 %.not.i14, label %106, label %130
 
 106:                                              ; preds = %103
-  %107 = trunc i8 %104 to i1
-  %108 = and i8 %104, 2
-  %.not20.i = icmp eq i8 %108, 0
-  %or.cond.i = or i1 %.not20.i, %107
-  %109 = load i64, ptr %9, align 8
-  %110 = icmp ne i64 %109, %93
-  %or.cond.not = select i1 %or.cond.i, i1 true, i1 %110
-  %111 = load i32, ptr %17, align 8
-  %.not21.i = icmp ugt i32 %.0.i, %111
-  %or.cond = select i1 %or.cond.not, i1 true, i1 %.not21.i
-  br i1 %or.cond, label %156, label %112
+  %107 = and i8 %104, 3
+  %or.cond.i.not123 = icmp ne i8 %107, 2
+  %108 = load i64, ptr %9, align 8
+  %109 = icmp ne i64 %108, %93
+  %or.cond.not132 = select i1 %or.cond.i.not123, i1 true, i1 %109
+  %110 = load i32, ptr %17, align 8
+  %.not21.i = icmp ugt i32 %.0.i, %110
+  %or.cond131 = select i1 %or.cond.not132, i1 true, i1 %.not21.i
+  br i1 %or.cond131, label %155, label %111
 
-112:                                              ; preds = %106
-  %113 = load ptr, ptr %0, align 8, !tbaa !417
+111:                                              ; preds = %106
+  %112 = load ptr, ptr %0, align 8, !tbaa !417
   %.sroa.07.0.copyload.i = load i64, ptr %15, align 8, !tbaa !416
-  %114 = call noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(23216) %113, i64 %.sroa.07.0.copyload.i) #19
-  %115 = load i32, ptr %17, align 8, !tbaa !763
-  %116 = zext i32 %115 to i64
-  %117 = sub nsw i64 %114, %116
-  %118 = load i32, ptr %12, align 8, !tbaa !414
-  %119 = load i32, ptr %13, align 4, !tbaa !415
-  %.not.i.i.not.i.i.i = icmp ult i32 %118, %119
-  br i1 %.not.i.i.not.i.i.i, label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit.i, label %120, !prof !528
+  %113 = call noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(23216) %112, i64 %.sroa.07.0.copyload.i) #19
+  %114 = load i32, ptr %17, align 8, !tbaa !763
+  %115 = zext i32 %114 to i64
+  %116 = sub nsw i64 %113, %115
+  %117 = load i32, ptr %12, align 8, !tbaa !414
+  %118 = load i32, ptr %13, align 4, !tbaa !415
+  %.not.i.i.not.i.i.i = icmp ult i32 %117, %118
+  br i1 %.not.i.i.not.i.i.i, label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit.i, label %119, !prof !528
 
-120:                                              ; preds = %112
-  %121 = zext i32 %118 to i64
-  %122 = add nuw nsw i64 %121, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %14, i64 noundef %122, i64 noundef 8) #19
+119:                                              ; preds = %111
+  %120 = zext i32 %117 to i64
+  %121 = add nuw nsw i64 %120, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %14, i64 noundef %121, i64 noundef 8) #19
   %.pre.i.i.i = load i32, ptr %12, align 8, !tbaa !414
   br label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit.i
 
-_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit.i: ; preds = %120, %112
-  %123 = phi i32 [ %118, %112 ], [ %.pre.i.i.i, %120 ]
-  %124 = load ptr, ptr %11, align 8, !tbaa !413
-  %125 = zext i32 %123 to i64
-  %126 = getelementptr inbounds nuw i64, ptr %124, i64 %125
-  store i64 %117, ptr %126, align 1
-  %127 = load i32, ptr %12, align 8, !tbaa !414
-  %128 = add i32 %127, 1
-  store i32 %128, ptr %12, align 8, !tbaa !414
-  %129 = load i32, ptr %17, align 8, !tbaa !763
-  %130 = sub i32 %129, %.0.i
-  store i32 %130, ptr %17, align 8, !tbaa !763
+_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit.i: ; preds = %119, %111
+  %122 = phi i32 [ %117, %111 ], [ %.pre.i.i.i, %119 ]
+  %123 = load ptr, ptr %11, align 8, !tbaa !413
+  %124 = zext i32 %122 to i64
+  %125 = getelementptr inbounds nuw i64, ptr %123, i64 %124
+  store i64 %116, ptr %125, align 1
+  %126 = load i32, ptr %12, align 8, !tbaa !414
+  %127 = add i32 %126, 1
+  store i32 %127, ptr %12, align 8, !tbaa !414
+  %128 = load i32, ptr %17, align 8, !tbaa !763
+  %129 = sub i32 %128, %.0.i
+  store i32 %129, ptr %17, align 8, !tbaa !763
   br label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder11layoutFieldEPKN5clang9FieldDeclE.exit
 
-131:                                              ; preds = %103
-  %132 = or i8 %104, 2
-  store i8 %132, ptr %5, align 4
+130:                                              ; preds = %103
+  %131 = or i8 %104, 2
+  store i8 %131, ptr %5, align 4
   store i64 %93, ptr %9, align 8, !tbaa !416
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %.sroa.030.0126, ptr %3, align 8, !tbaa !764
-  %133 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FieldDeclEmNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_mEEEES5_mS7_SA_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %134 = load i64, ptr %133, align 8, !tbaa !416
+  store ptr %.sroa.030.0127, ptr %3, align 8, !tbaa !764
+  %132 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FieldDeclEmNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_mEEEES5_mS7_SA_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %133 = load i64, ptr %132, align 8, !tbaa !416
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %135 = load i32, ptr %12, align 8, !tbaa !414
-  %136 = load i32, ptr %13, align 4, !tbaa !415
-  %.not.i.i.not.i.i23.i = icmp ult i32 %135, %136
-  br i1 %.not.i.i.not.i.i23.i, label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit25.i, label %137, !prof !528
+  %134 = load i32, ptr %12, align 8, !tbaa !414
+  %135 = load i32, ptr %13, align 4, !tbaa !415
+  %.not.i.i.not.i.i23.i = icmp ult i32 %134, %135
+  br i1 %.not.i.i.not.i.i23.i, label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit25.i, label %136, !prof !528
 
-137:                                              ; preds = %131
-  %138 = zext i32 %135 to i64
-  %139 = add nuw nsw i64 %138, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %14, i64 noundef %139, i64 noundef 8) #19
+136:                                              ; preds = %130
+  %137 = zext i32 %134 to i64
+  %138 = add nuw nsw i64 %137, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %14, i64 noundef %138, i64 noundef 8) #19
   %.pre.i.i24.i = load i32, ptr %12, align 8, !tbaa !414
   br label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit25.i
 
-_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit25.i: ; preds = %137, %131
-  %140 = phi i32 [ %135, %131 ], [ %.pre.i.i24.i, %137 ]
-  %141 = load ptr, ptr %11, align 8, !tbaa !413
-  %142 = zext i32 %140 to i64
-  %143 = getelementptr inbounds nuw i64, ptr %141, i64 %142
-  store i64 %134, ptr %143, align 1
-  %144 = load i32, ptr %12, align 8, !tbaa !414
-  %145 = add i32 %144, 1
-  store i32 %145, ptr %12, align 8, !tbaa !414
-  %146 = load ptr, ptr %0, align 8, !tbaa !417
-  %147 = call noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(23216) %146, i64 %94) #19
-  %148 = urem i64 %134, %147
-  %149 = sub i64 %134, %148
-  %150 = load ptr, ptr %0, align 8, !tbaa !417
-  %151 = call noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(23216) %150, i64 %93) #19
-  %152 = add i64 %149, %151
-  %153 = call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23216) %146, i64 noundef %152) #19
-  %154 = load i64, ptr %15, align 8, !tbaa !428
-  %.sroa.speculated70 = call i64 @llvm.smax.i64(i64 %154, i64 %153)
+_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit25.i: ; preds = %136, %130
+  %139 = phi i32 [ %134, %130 ], [ %.pre.i.i24.i, %136 ]
+  %140 = load ptr, ptr %11, align 8, !tbaa !413
+  %141 = zext i32 %139 to i64
+  %142 = getelementptr inbounds nuw i64, ptr %140, i64 %141
+  store i64 %133, ptr %142, align 1
+  %143 = load i32, ptr %12, align 8, !tbaa !414
+  %144 = add i32 %143, 1
+  store i32 %144, ptr %12, align 8, !tbaa !414
+  %145 = load ptr, ptr %0, align 8, !tbaa !417
+  %146 = call noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(23216) %145, i64 %94) #19
+  %147 = urem i64 %133, %146
+  %148 = sub i64 %133, %147
+  %149 = load ptr, ptr %0, align 8, !tbaa !417
+  %150 = call noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(23216) %149, i64 %93) #19
+  %151 = add i64 %148, %150
+  %152 = call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23216) %145, i64 noundef %151) #19
+  %153 = load i64, ptr %15, align 8, !tbaa !428
+  %.sroa.speculated70 = call i64 @llvm.smax.i64(i64 %153, i64 %152)
   store i64 %.sroa.speculated70, ptr %15, align 8, !tbaa !416
-  %155 = load i64, ptr %16, align 8, !tbaa !428
-  %.sroa.speculated82 = call i64 @llvm.smax.i64(i64 %155, i64 %94)
+  %154 = load i64, ptr %16, align 8, !tbaa !428
+  %.sroa.speculated82 = call i64 @llvm.smax.i64(i64 %154, i64 %94)
   store i64 %.sroa.speculated82, ptr %16, align 8, !tbaa !416
   br label %200
 
-156:                                              ; preds = %106
-  %157 = or i8 %104, 2
-  store i8 %157, ptr %5, align 4
+155:                                              ; preds = %106
+  %156 = or i8 %104, 2
+  store i8 %156, ptr %5, align 4
   store i64 %93, ptr %9, align 8, !tbaa !416
-  br i1 %107, label %158, label %173
+  %157 = trunc i8 %104 to i1
+  br i1 %157, label %158, label %173
 
-158:                                              ; preds = %156
+158:                                              ; preds = %155
   %159 = load ptr, ptr %0, align 8, !tbaa !417
   %160 = call noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(23216) %159, i64 0) #19
   %161 = load i32, ptr %12, align 8, !tbaa !414
@@ -8571,7 +8570,7 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9Char
   store i64 %.sroa.speculated85, ptr %15, align 8, !tbaa !416
   br label %200
 
-173:                                              ; preds = %156
+173:                                              ; preds = %155
   %174 = load i64, ptr %15, align 8, !tbaa !428
   %175 = icmp ne i64 %174, 0
   %176 = zext i1 %175 to i64
@@ -8624,19 +8623,19 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9Char
   %203 = load i8, ptr %5, align 4
   %204 = and i8 %203, -3
   store i8 %204, ptr %5, align 4
-  %205 = call fastcc { i64, i64 } @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder22getAdjustedElementInfoEPKN5clang9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %.sroa.030.0126)
+  %205 = call fastcc { i64, i64 } @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder22getAdjustedElementInfoEPKN5clang9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %.sroa.030.0127)
   %206 = extractvalue { i64, i64 } %205, 0
   %207 = extractvalue { i64, i64 } %205, 1
   %208 = load i64, ptr %16, align 8, !tbaa !428
   %.sroa.speculated61 = call i64 @llvm.smax.i64(i64 %208, i64 %207)
   store i64 %.sroa.speculated61, ptr %16, align 8, !tbaa !416
-  %209 = getelementptr inbounds nuw i8, ptr %.sroa.030.0126, i64 48
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.030.0127, i64 48
   %.sroa.0.0.copyload.i12 = load i64, ptr %209, align 8, !tbaa !386
   %210 = and i64 %.sroa.0.0.copyload.i12, -16
   %211 = inttoptr i64 %210 to ptr
   %212 = load ptr, ptr %211, align 16, !tbaa !387
   %213 = call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %212) #19
-  %214 = call noundef zeroext i1 @_ZNK5clang9FieldDecl24isPotentiallyOverlappingEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.030.0126) #19
+  %214 = call noundef zeroext i1 @_ZNK5clang9FieldDecl24isPotentiallyOverlappingEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.030.0127) #19
   br i1 %214, label %215, label %227
 
 215:                                              ; preds = %202
@@ -8666,7 +8665,7 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9Char
 231:                                              ; preds = %227
   %232 = load ptr, ptr %0, align 8, !tbaa !417
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %.sroa.030.0126, ptr %4, align 8, !tbaa !764
+  store ptr %.sroa.030.0127, ptr %4, align 8, !tbaa !764
   %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FieldDeclEmNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_mEEEES5_mS7_SA_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %234 = load i64, ptr %233, align 8, !tbaa !416
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -8697,17 +8696,17 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9Char
 
 249:                                              ; preds = %241, %240
   %.sroa.045.1 = phi i64 [ 0, %240 ], [ %248, %241 ]
-  %250 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117EmptySubobjectMap30CanPlaceFieldSubobjectAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(64) %239, ptr noundef nonnull %.sroa.030.0126, i64 %.sroa.045.1)
+  %250 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117EmptySubobjectMap30CanPlaceFieldSubobjectAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(64) %239, ptr noundef nonnull %.sroa.030.0127, i64 %.sroa.045.1)
   br i1 %250, label %._crit_edge, label %_ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit.thread.lr.ph
 
 _ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit.thread.lr.ph: ; preds = %249
-  %251 = getelementptr inbounds nuw i8, ptr %.sroa.030.0126, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %.sroa.030.0127, i64 16
   br label %_ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit.thread
 
 ._crit_edge:                                      ; preds = %299, %249
   %.sroa.045.2.lcssa = phi i64 [ %.sroa.045.1, %249 ], [ %.sroa.045.3, %299 ]
   %.lcssa = phi ptr [ %239, %249 ], [ %300, %299 ]
-  %252 = getelementptr inbounds nuw i8, ptr %.sroa.030.0126, i64 28
+  %252 = getelementptr inbounds nuw i8, ptr %.sroa.030.0127, i64 28
   %253 = load i32, ptr %252, align 4
   %254 = and i32 %253, 256
   %.not.i.i9 = icmp eq i32 %254, 0
@@ -8719,7 +8718,7 @@ _ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclE
   br label %310
 
 255:                                              ; preds = %._crit_edge
-  %256 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.030.0126) #19
+  %256 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.030.0127) #19
   %257 = load ptr, ptr %256, align 8, !tbaa !413
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %259 = load i32, ptr %258, align 8, !tbaa !414
@@ -8754,7 +8753,7 @@ _ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclE
   br label %310
 
 _ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit.thread.lr.ph, %299
-  %.sroa.045.2123 = phi i64 [ %.sroa.045.1, %_ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit.thread.lr.ph ], [ %.sroa.045.3, %299 ]
+  %.sroa.045.2124 = phi i64 [ %.sroa.045.1, %_ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit.thread.lr.ph ], [ %.sroa.045.3, %299 ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %251, align 8
   %269 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %270 = icmp eq i64 %269, 0
@@ -8791,7 +8790,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit:            ; preds = %_ZN12_GLOBAL__N_117
 
 289:                                              ; preds = %284, %279, %_ZNK5clang9FieldDecl9getParentEv.exit
   %.not117 = phi i1 [ true, %_ZNK5clang9FieldDecl9getParentEv.exit ], [ false, %279 ], [ %288, %284 ]
-  %290 = icmp eq i64 %.sroa.045.2123, 0
+  %290 = icmp eq i64 %.sroa.045.2124, 0
   br i1 %290, label %291, label %.critedge.i
 
 291:                                              ; preds = %289
@@ -8808,13 +8807,13 @@ _ZNK5clang9FieldDecl9getParentEv.exit:            ; preds = %_ZN12_GLOBAL__N_117
   br label %299
 
 .critedge.i:                                      ; preds = %291, %289
-  %298 = add nsw i64 %.sroa.045.2123, %207
+  %298 = add nsw i64 %.sroa.045.2124, %207
   br label %299
 
 299:                                              ; preds = %.critedge.i, %293
   %.sroa.045.3 = phi i64 [ %297, %293 ], [ %298, %.critedge.i ]
   %300 = load ptr, ptr %19, align 8, !tbaa !397
-  %301 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117EmptySubobjectMap30CanPlaceFieldSubobjectAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(64) %300, ptr noundef nonnull %.sroa.030.0126, i64 %.sroa.045.3)
+  %301 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117EmptySubobjectMap30CanPlaceFieldSubobjectAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(64) %300, ptr noundef nonnull %.sroa.030.0127, i64 %.sroa.045.3)
   br i1 %301, label %._crit_edge, label %_ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit.thread, !llvm.loop !767
 
 302:                                              ; preds = %238
@@ -8852,23 +8851,23 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9Char
   %322 = load i32, ptr %12, align 8, !tbaa !414
   %323 = add i32 %322, 1
   store i32 %323, ptr %12, align 8, !tbaa !414
-  %.pre131 = add nsw i64 %.sroa.045.0, %206
+  %.pre134 = add nsw i64 %.sroa.045.0, %206
   br i1 %228, label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9CharUnitsE.exit._crit_edge, label %324
 
 324:                                              ; preds = %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9CharUnitsE.exit
   %325 = load i64, ptr %18, align 8, !tbaa !428
-  %.sroa.speculated37 = call i64 @llvm.smax.i64(i64 %325, i64 %.pre131)
+  %.sroa.speculated37 = call i64 @llvm.smax.i64(i64 %325, i64 %.pre134)
   store i64 %.sroa.speculated37, ptr %18, align 8, !tbaa !416
   br label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9CharUnitsE.exit._crit_edge
 
 _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9CharUnitsE.exit._crit_edge: ; preds = %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9CharUnitsE.exit, %324
   %326 = load i64, ptr %15, align 8, !tbaa !428
-  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %326, i64 %.pre131)
+  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %326, i64 %.pre134)
   store i64 %.sroa.speculated, ptr %15, align 8, !tbaa !416
   br label %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder11layoutFieldEPKN5clang9FieldDeclE.exit
 
 _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder11layoutFieldEPKN5clang9FieldDeclE.exit: ; preds = %89, %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9CharUnitsE.exit29, %200, %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21placeFieldAtBitOffsetEm.exit.i, %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18placeFieldAtOffsetEN5clang9CharUnitsE.exit._crit_edge
-  %327 = getelementptr inbounds nuw i8, ptr %.sroa.030.0126, i64 8
+  %327 = getelementptr inbounds nuw i8, ptr %.sroa.030.0127, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %327, align 8
   %328 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %329 = inttoptr i64 %328 to ptr
@@ -8895,7 +8894,7 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder11layoutFieldEPKN5clang9FieldDecl
 _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds = %.lr.ph.i.i, %335, %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder11layoutFieldEPKN5clang9FieldDeclE.exit
   %.sroa.030.2 = phi ptr [ %329, %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder11layoutFieldEPKN5clang9FieldDeclE.exit ], [ %338, %335 ], [ %.sroa.030.1, %.lr.ph.i.i ]
   %.not118 = icmp eq ptr %.sroa.030.2, null
-  br i1 %.not118, label %._crit_edge129, label %20
+  br i1 %.not118, label %._crit_edge130, label %20
 }
 
 declare i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23216), i64 noundef) local_unnamed_addr #3

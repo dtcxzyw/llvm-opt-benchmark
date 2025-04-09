@@ -21846,7 +21846,7 @@ define internal fastcc { i64, i32 } @ATExecAddConstraint(ptr noundef nonnull cap
   %26 = alloca [128 x i8], align 16
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %28 = load i32, ptr %27, align 4
-  switch i32 %28, label %693 [
+  switch i32 %28, label %694 [
     i32 5, label %29
     i32 1, label %29
     i32 9, label %31
@@ -21854,7 +21854,7 @@ define internal fastcc { i64, i32 } @ATExecAddConstraint(ptr noundef nonnull cap
 
 29:                                               ; preds = %7, %7
   %30 = tail call fastcc { i64, i32 } @ATAddCheckNNConstraint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i1 noundef zeroext %4, i1 noundef zeroext false, i1 noundef zeroext %5, i32 noundef %6)
-  br label %697
+  br label %698
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -22371,7 +22371,7 @@ transformFkeyGetPrimaryKey.exit.i:                ; preds = %._crit_edge.loopexi
 296:                                              ; preds = %transformFkeyGetPrimaryKey.exit.i
   %297 = load i8, ptr %184, align 8, !range !6, !noundef !7
   %298 = trunc nuw i8 %297 to i1
-  br i1 %298, label %427, label %299
+  br i1 %298, label %428, label %299
 
 299:                                              ; preds = %296
   %300 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -22462,13 +22462,13 @@ transformFkeyGetPrimaryKey.exit.i:                ; preds = %._crit_edge.loopexi
   %336 = icmp sgt i32 %335, 0
   br i1 %336, label %.lr.ph.i36, label %.thread160.i.i
 
-.lr.ph.i36:                                       ; preds = %.lr.ph123.i.i, %408
-  %.069119.i484.i = phi i1 [ %.271106.i.i, %408 ], [ false, %.lr.ph123.i.i ]
-  %.067120.i483.i = phi i8 [ %.2107.i.i, %408 ], [ 0, %.lr.ph123.i.i ]
-  %indvars.iv154.i482.i = phi i64 [ %indvars.iv.next155.i.i, %408 ], [ 0, %.lr.ph123.i.i ]
-  %.1335481.i = phi i8 [ %.4.i, %408 ], [ undef, %.lr.ph123.i.i ]
+.lr.ph.i36:                                       ; preds = %.lr.ph123.i.i, %409
+  %.069119.i483.i = phi i1 [ %.271106.i.i, %409 ], [ false, %.lr.ph123.i.i ]
+  %.067120.i482.i = phi i8 [ %.2107.i.i, %409 ], [ 0, %.lr.ph123.i.i ]
+  %indvars.iv154.i481.i = phi i64 [ %indvars.iv.next155.i.i, %409 ], [ 0, %.lr.ph123.i.i ]
+  %.1335480.i = phi i8 [ %.4.i, %409 ], [ undef, %.lr.ph123.i.i ]
   %337 = load ptr, ptr %331, align 8
-  %338 = getelementptr inbounds nuw %union.ListCell, ptr %337, i64 %indvars.iv154.i482.i
+  %338 = getelementptr inbounds nuw %union.ListCell, ptr %337, i64 %indvars.iv154.i481.i
   %339 = load i32, ptr %338, align 8
   %340 = zext i32 %339 to i64
   %341 = call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %340) #15
@@ -22493,7 +22493,7 @@ transformFkeyGetPrimaryKey.exit.i:                ; preds = %._crit_edge.loopexi
   %352 = load i16, ptr %351, align 2
   %353 = sext i16 %352 to i32
   %354 = icmp eq i32 %306, %353
-  br i1 %354, label %355, label %406
+  br i1 %354, label %355, label %407
 
 355:                                              ; preds = %345
   br i1 %186, label %356, label %360
@@ -22502,27 +22502,27 @@ transformFkeyGetPrimaryKey.exit.i:                ; preds = %._crit_edge.loopexi
   %357 = getelementptr inbounds nuw i8, ptr %350, i64 15
   %358 = load i8, ptr %357, align 1, !range !6, !noundef !7
   %359 = trunc nuw i8 %358 to i1
-  br i1 %359, label %364, label %406
+  br i1 %359, label %364, label %407
 
 360:                                              ; preds = %355
   %361 = getelementptr inbounds nuw i8, ptr %350, i64 12
   %362 = load i8, ptr %361, align 4, !range !6, !noundef !7
   %363 = trunc nuw i8 %362 to i1
-  br i1 %363, label %364, label %406
+  br i1 %363, label %364, label %407
 
 364:                                              ; preds = %360, %356
   %365 = getelementptr inbounds nuw i8, ptr %350, i64 18
   %366 = load i8, ptr %365, align 2, !range !6, !noundef !7
   %367 = trunc nuw i8 %366 to i1
-  br i1 %367, label %368, label %406
+  br i1 %367, label %368, label %407
 
 368:                                              ; preds = %364
   %369 = call zeroext i1 @heap_attisnull(ptr noundef nonnull %341, i32 noundef 21, ptr noundef null) #15
-  br i1 %369, label %370, label %406
+  br i1 %369, label %370, label %407
 
 370:                                              ; preds = %368
   %371 = call zeroext i1 @heap_attisnull(ptr noundef nonnull %341, i32 noundef 20, ptr noundef null) #15
-  br i1 %371, label %372, label %406
+  br i1 %371, label %372, label %407
 
 372:                                              ; preds = %370
   %373 = call i64 @SysCacheGetAttrNotNull(i32 noundef 34, ptr noundef nonnull %341, i16 noundef signext 18) #15
@@ -22547,7 +22547,7 @@ transformFkeyGetPrimaryKey.exit.i:                ; preds = %._crit_edge.loopexi
 
 ..thread103_crit_edge.i.i:                        ; preds = %379
   call void @ReleaseSysCache(ptr noundef nonnull %341) #15
-  br label %408
+  br label %409
 
 380:                                              ; preds = %379, %.preheader.i.i
   %indvars.iv144.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next145.i.i, %379 ]
@@ -22566,646 +22566,646 @@ transformFkeyGetPrimaryKey.exit.i:                ; preds = %._crit_edge.loopexi
   br i1 %exitcond153.not.i.i, label %._crit_edge117.i.i, label %.preheader.i.i, !llvm.loop !79
 
 ._crit_edge117.i.i:                               ; preds = %384, %372
-  %.3.lcssa.i.i = phi i8 [ %.067120.i483.i, %372 ], [ 1, %384 ]
-  %brmerge.demorgan.i363.i = and i8 %.3.lcssa.i.i, %185
-  %brmerge.demorgan.i.i = trunc nuw i8 %brmerge.demorgan.i363.i to i1
-  br i1 %brmerge.demorgan.i.i, label %388, label %395
+  %.3.lcssa.i.i = phi i8 [ %.067120.i482.i, %372 ], [ 1, %384 ]
+  %388 = and i8 %.3.lcssa.i.i, %185
+  %brmerge.demorgan.i.not.i = icmp eq i8 %388, 0
+  br i1 %brmerge.demorgan.i.not.i, label %396, label %389
 
-388:                                              ; preds = %._crit_edge117.i.i
-  %389 = load i16, ptr %334, align 2
-  %390 = getelementptr inbounds nuw i8, ptr %350, i64 48
-  %391 = getelementptr inbounds [0 x i16], ptr %390, i64 0, i64 %333
-  %392 = load i16, ptr %391, align 2
-  %393 = icmp eq i16 %389, %392
-  %394 = zext i1 %393 to i8
-  br label %395
+389:                                              ; preds = %._crit_edge117.i.i
+  %390 = load i16, ptr %334, align 2
+  %391 = getelementptr inbounds nuw i8, ptr %350, i64 48
+  %392 = getelementptr inbounds [0 x i16], ptr %391, i64 0, i64 %333
+  %393 = load i16, ptr %392, align 2
+  %394 = icmp eq i16 %390, %393
+  %395 = zext i1 %394 to i8
+  br label %396
 
-395:                                              ; preds = %388, %._crit_edge117.i.i
-  %.6.i.i = phi i8 [ %394, %388 ], [ %.3.lcssa.i.i, %._crit_edge117.i.i ]
-  %396 = trunc i8 %.6.i.i to i1
-  br i1 %396, label %397, label %401
+396:                                              ; preds = %389, %._crit_edge117.i.i
+  %.6.i.i = phi i8 [ %395, %389 ], [ %.3.lcssa.i.i, %._crit_edge117.i.i ]
+  %397 = trunc i8 %.6.i.i to i1
+  br i1 %397, label %398, label %402
 
-397:                                              ; preds = %395
-  %398 = getelementptr inbounds nuw i8, ptr %350, i64 16
-  %399 = load i8, ptr %398, align 4, !range !6, !noundef !7
-  %400 = trunc nuw i8 %399 to i1
-  %not..i.i = xor i1 %400, true
-  %spec.select.i.i = select i1 %not..i.i, i1 true, i1 %.069119.i484.i
-  %spec.select87.i.i = select i1 %400, i8 %.6.i.i, i8 0
-  br label %401
+398:                                              ; preds = %396
+  %399 = getelementptr inbounds nuw i8, ptr %350, i64 16
+  %400 = load i8, ptr %399, align 4, !range !6, !noundef !7
+  %401 = trunc nuw i8 %400 to i1
+  %not..i.i = xor i1 %401, true
+  %spec.select.i.i = select i1 %not..i.i, i1 true, i1 %.069119.i483.i
+  %spec.select87.i.i = select i1 %401, i8 %.6.i.i, i8 0
+  br label %402
 
-401:                                              ; preds = %397, %395
-  %.372.i.i = phi i1 [ %.069119.i484.i, %395 ], [ %spec.select.i.i, %397 ]
-  %.7.i.i = phi i8 [ %.6.i.i, %395 ], [ %spec.select87.i.i, %397 ]
-  %402 = trunc i8 %.7.i.i to i1
-  br i1 %402, label %403, label %406
+402:                                              ; preds = %398, %396
+  %.372.i.i = phi i1 [ %.069119.i483.i, %396 ], [ %spec.select.i.i, %398 ]
+  %.7.i.i = phi i8 [ %.6.i.i, %396 ], [ %spec.select87.i.i, %398 ]
+  %403 = trunc i8 %.7.i.i to i1
+  br i1 %403, label %404, label %407
 
-403:                                              ; preds = %401
-  %404 = getelementptr inbounds nuw i8, ptr %350, i64 15
-  %405 = load i8, ptr %404, align 1, !range !6, !noundef !7
-  br label %406
+404:                                              ; preds = %402
+  %405 = getelementptr inbounds nuw i8, ptr %350, i64 15
+  %406 = load i8, ptr %405, align 1, !range !6, !noundef !7
+  br label %407
 
-406:                                              ; preds = %403, %401, %370, %368, %364, %360, %356, %345
-  %.3.i = phi i8 [ %405, %403 ], [ %.1335481.i, %401 ], [ %.1335481.i, %370 ], [ %.1335481.i, %368 ], [ %.1335481.i, %364 ], [ %.1335481.i, %356 ], [ %.1335481.i, %360 ], [ %.1335481.i, %345 ]
-  %.271.i.i = phi i1 [ %.372.i.i, %403 ], [ %.372.i.i, %401 ], [ %.069119.i484.i, %370 ], [ %.069119.i484.i, %368 ], [ %.069119.i484.i, %364 ], [ %.069119.i484.i, %356 ], [ %.069119.i484.i, %360 ], [ %.069119.i484.i, %345 ]
-  %.2.i.i = phi i8 [ %.7.i.i, %403 ], [ %.7.i.i, %401 ], [ %.067120.i483.i, %370 ], [ %.067120.i483.i, %368 ], [ %.067120.i483.i, %364 ], [ %.067120.i483.i, %356 ], [ %.067120.i483.i, %360 ], [ %.067120.i483.i, %345 ]
+407:                                              ; preds = %404, %402, %370, %368, %364, %360, %356, %345
+  %.3.i = phi i8 [ %406, %404 ], [ %.1335480.i, %402 ], [ %.1335480.i, %370 ], [ %.1335480.i, %368 ], [ %.1335480.i, %364 ], [ %.1335480.i, %356 ], [ %.1335480.i, %360 ], [ %.1335480.i, %345 ]
+  %.271.i.i = phi i1 [ %.372.i.i, %404 ], [ %.372.i.i, %402 ], [ %.069119.i483.i, %370 ], [ %.069119.i483.i, %368 ], [ %.069119.i483.i, %364 ], [ %.069119.i483.i, %356 ], [ %.069119.i483.i, %360 ], [ %.069119.i483.i, %345 ]
+  %.2.i.i = phi i8 [ %.7.i.i, %404 ], [ %.7.i.i, %402 ], [ %.067120.i482.i, %370 ], [ %.067120.i482.i, %368 ], [ %.067120.i482.i, %364 ], [ %.067120.i482.i, %356 ], [ %.067120.i482.i, %360 ], [ %.067120.i482.i, %345 ]
   call void @ReleaseSysCache(ptr noundef nonnull %341) #15
-  %407 = trunc i8 %.2.i.i to i1
-  br i1 %407, label %.thread.i312.i, label %408
+  %408 = trunc i8 %.2.i.i to i1
+  br i1 %408, label %.thread.i312.i, label %409
 
-408:                                              ; preds = %406, %..thread103_crit_edge.i.i
-  %.4.i = phi i8 [ %.3.i, %406 ], [ %.1335481.i, %..thread103_crit_edge.i.i ]
-  %.2107.i.i = phi i8 [ %.2.i.i, %406 ], [ 0, %..thread103_crit_edge.i.i ]
-  %.271106.i.i = phi i1 [ %.271.i.i, %406 ], [ %.069119.i484.i, %..thread103_crit_edge.i.i ]
-  %indvars.iv.next155.i.i = add nuw nsw i64 %indvars.iv154.i482.i, 1
-  %409 = load i32, ptr %330, align 4
-  %410 = sext i32 %409 to i64
-  %411 = icmp slt i64 %indvars.iv.next155.i.i, %410
-  br i1 %411, label %.lr.ph.i36, label %.thread.i312.i
+409:                                              ; preds = %407, %..thread103_crit_edge.i.i
+  %.4.i = phi i8 [ %.3.i, %407 ], [ %.1335480.i, %..thread103_crit_edge.i.i ]
+  %.2107.i.i = phi i8 [ %.2.i.i, %407 ], [ 0, %..thread103_crit_edge.i.i ]
+  %.271106.i.i = phi i1 [ %.271.i.i, %407 ], [ %.069119.i483.i, %..thread103_crit_edge.i.i ]
+  %indvars.iv.next155.i.i = add nuw nsw i64 %indvars.iv154.i481.i, 1
+  %410 = load i32, ptr %330, align 4
+  %411 = sext i32 %410 to i64
+  %412 = icmp slt i64 %indvars.iv.next155.i.i, %411
+  br i1 %412, label %.lr.ph.i36, label %.thread.i312.i
 
-.thread.i312.i:                                   ; preds = %408, %406
-  %.2336.ph.i = phi i8 [ %.4.i, %408 ], [ %.3.i, %406 ]
-  %.170.ph.ph.i.ph.i = phi i1 [ %.271106.i.i, %408 ], [ %.271.i.i, %406 ]
-  %.168.ph.ph.i.ph.i = phi i8 [ %.2107.i.i, %408 ], [ %.2.i.i, %406 ]
-  %412 = trunc i8 %.168.ph.ph.i.ph.i to i1
-  br i1 %412, label %transformFkeyCheckAttrs.exit.i, label %413
+.thread.i312.i:                                   ; preds = %409, %407
+  %.2336.ph.i = phi i8 [ %.4.i, %409 ], [ %.3.i, %407 ]
+  %.170.ph.ph.i.ph.i = phi i1 [ %.271106.i.i, %409 ], [ %.271.i.i, %407 ]
+  %.168.ph.ph.i.ph.i = phi i8 [ %.2107.i.i, %409 ], [ %.2.i.i, %407 ]
+  %413 = trunc i8 %.168.ph.ph.i.ph.i to i1
+  br i1 %413, label %transformFkeyCheckAttrs.exit.i, label %414
 
-413:                                              ; preds = %.thread.i312.i
-  br i1 %.170.ph.ph.i.ph.i, label %414, label %.thread160.i.i
+414:                                              ; preds = %.thread.i312.i
+  br i1 %.170.ph.ph.i.ph.i, label %415, label %.thread160.i.i
 
-414:                                              ; preds = %413
-  %415 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %415)
-  %416 = call i32 @errcode(i32 noundef 325) #15
-  %417 = load ptr, ptr %115, align 8
-  %418 = getelementptr inbounds nuw i8, ptr %417, i64 4
-  %419 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.356, ptr noundef nonnull %418) #15
+415:                                              ; preds = %414
+  %416 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %416)
+  %417 = call i32 @errcode(i32 noundef 325) #15
+  %418 = load ptr, ptr %115, align 8
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 4
+  %420 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.356, ptr noundef nonnull %419) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 12707, ptr noundef nonnull @__func__.transformFkeyCheckAttrs) #15
   unreachable
 
-.thread160.i.i:                                   ; preds = %413, %.lr.ph123.i.i, %._crit_edge.i.i
-  %420 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %420)
-  %421 = call i32 @errcode(i32 noundef 819332) #15
-  %422 = load ptr, ptr %115, align 8
-  %423 = getelementptr inbounds nuw i8, ptr %422, i64 4
-  %424 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.357, ptr noundef nonnull %423) #15
+.thread160.i.i:                                   ; preds = %414, %.lr.ph123.i.i, %._crit_edge.i.i
+  %421 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %421)
+  %422 = call i32 @errcode(i32 noundef 819332) #15
+  %423 = load ptr, ptr %115, align 8
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 4
+  %425 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.357, ptr noundef nonnull %424) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 12712, ptr noundef nonnull @__func__.transformFkeyCheckAttrs) #15
   unreachable
 
 transformFkeyCheckAttrs.exit.i:                   ; preds = %.thread.i312.i
-  %425 = trunc nuw i8 %.2336.ph.i to i1
-  %426 = xor i1 %425, true
+  %426 = trunc nuw i8 %.2336.ph.i to i1
+  %427 = xor i1 %426, true
   call void @list_free(ptr noundef nonnull %329) #15
-  br label %427
+  br label %428
 
-427:                                              ; preds = %transformFkeyCheckAttrs.exit.i, %296
-  %.0334.i = phi i1 [ false, %296 ], [ %426, %transformFkeyCheckAttrs.exit.i ]
+428:                                              ; preds = %transformFkeyCheckAttrs.exit.i, %296
+  %.0334.i = phi i1 [ false, %296 ], [ %427, %transformFkeyCheckAttrs.exit.i ]
   %.0332.i = phi i32 [ %227, %296 ], [ %339, %transformFkeyCheckAttrs.exit.i ]
   %.0255.i = phi i32 [ %.057.lcssa.i.i, %296 ], [ %306, %transformFkeyCheckAttrs.exit.i ]
   %brmerge.i = or i1 %.0334.i, %186
-  br i1 %brmerge.i, label %.thread342.i, label %428
+  br i1 %brmerge.i, label %.thread342.i, label %429
 
-428:                                              ; preds = %427
-  %429 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %429)
-  %430 = call i32 @errcode(i32 noundef 819332) #15
-  %431 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.332) #15
+429:                                              ; preds = %428
+  %430 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %430)
+  %431 = call i32 @errcode(i32 noundef 819332) #15
+  %432 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.332) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 9983, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-.thread342.i:                                     ; preds = %427, %transformFkeyGetPrimaryKey.exit.i
-  %.0255349.i = phi i32 [ %.0255.i, %427 ], [ %.057.lcssa.i.i, %transformFkeyGetPrimaryKey.exit.i ]
-  %.0332348.i = phi i32 [ %.0332.i, %427 ], [ %227, %transformFkeyGetPrimaryKey.exit.i ]
-  %432 = call i32 @GetUserId() #15
-  %433 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
-  %434 = load i32, ptr %433, align 8
-  %435 = call i32 @pg_class_aclcheck(i32 noundef %434, i32 noundef %432, i64 noundef 32) #15
-  %436 = icmp ne i32 %435, 0
-  %437 = icmp sgt i32 %.0255349.i, 0
-  %or.cond.i.i = and i1 %437, %436
+.thread342.i:                                     ; preds = %428, %transformFkeyGetPrimaryKey.exit.i
+  %.0255349.i = phi i32 [ %.0255.i, %428 ], [ %.057.lcssa.i.i, %transformFkeyGetPrimaryKey.exit.i ]
+  %.0332348.i = phi i32 [ %.0332.i, %428 ], [ %227, %transformFkeyGetPrimaryKey.exit.i ]
+  %433 = call i32 @GetUserId() #15
+  %434 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
+  %435 = load i32, ptr %434, align 8
+  %436 = call i32 @pg_class_aclcheck(i32 noundef %435, i32 noundef %433, i64 noundef 32) #15
+  %437 = icmp ne i32 %436, 0
+  %438 = icmp sgt i32 %.0255349.i, 0
+  %or.cond.i.i = and i1 %438, %437
   br i1 %or.cond.i.i, label %.lr.ph.i319.i, label %checkFkeyPermissions.exit.i
 
 .lr.ph.i319.i:                                    ; preds = %.thread342.i
   %wide.trip.count.i320.i = zext nneg i32 %.0255349.i to i64
-  br label %438
+  br label %439
 
-438:                                              ; preds = %450, %.lr.ph.i319.i
-  %indvars.iv.i321.i = phi i64 [ 0, %.lr.ph.i319.i ], [ %indvars.iv.next.i323.i, %450 ]
-  %439 = load i32, ptr %433, align 8
-  %440 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i321.i
-  %441 = load i16, ptr %440, align 2
-  %442 = call i32 @pg_attribute_aclcheck(i32 noundef %439, i16 noundef signext %441, i32 noundef %432, i64 noundef 32) #15
-  %.not.i322.i = icmp eq i32 %442, 0
-  br i1 %.not.i322.i, label %450, label %443
+439:                                              ; preds = %451, %.lr.ph.i319.i
+  %indvars.iv.i321.i = phi i64 [ 0, %.lr.ph.i319.i ], [ %indvars.iv.next.i323.i, %451 ]
+  %440 = load i32, ptr %434, align 8
+  %441 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i321.i
+  %442 = load i16, ptr %441, align 2
+  %443 = call i32 @pg_attribute_aclcheck(i32 noundef %440, i16 noundef signext %442, i32 noundef %433, i64 noundef 32) #15
+  %.not.i322.i = icmp eq i32 %443, 0
+  br i1 %.not.i322.i, label %451, label %444
 
-443:                                              ; preds = %438
-  %444 = load ptr, ptr %115, align 8
-  %445 = getelementptr inbounds nuw i8, ptr %444, i64 115
-  %446 = load i8, ptr %445, align 1
-  %447 = call i32 @get_relkind_objtype(i8 noundef signext %446) #15
-  %448 = load ptr, ptr %115, align 8
-  %449 = getelementptr inbounds nuw i8, ptr %448, i64 4
-  call void @aclcheck_error(i32 noundef %442, i32 noundef %447, ptr noundef nonnull %449) #15
-  br label %450
+444:                                              ; preds = %439
+  %445 = load ptr, ptr %115, align 8
+  %446 = getelementptr inbounds nuw i8, ptr %445, i64 115
+  %447 = load i8, ptr %446, align 1
+  %448 = call i32 @get_relkind_objtype(i8 noundef signext %447) #15
+  %449 = load ptr, ptr %115, align 8
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 4
+  call void @aclcheck_error(i32 noundef %443, i32 noundef %448, ptr noundef nonnull %450) #15
+  br label %451
 
-450:                                              ; preds = %443, %438
+451:                                              ; preds = %444, %439
   %indvars.iv.next.i323.i = add nuw nsw i64 %indvars.iv.i321.i, 1
   %exitcond.not.i324.i = icmp eq i64 %indvars.iv.next.i323.i, %wide.trip.count.i320.i
-  br i1 %exitcond.not.i324.i, label %checkFkeyPermissions.exit.i, label %438, !llvm.loop !80
+  br i1 %exitcond.not.i324.i, label %checkFkeyPermissions.exit.i, label %439, !llvm.loop !80
 
-checkFkeyPermissions.exit.i:                      ; preds = %450, %.thread342.i
-  %.not502.i = icmp eq i32 %183, 0
-  br i1 %.not502.i, label %._crit_edge.i, label %.lr.ph494.i
+checkFkeyPermissions.exit.i:                      ; preds = %451, %.thread342.i
+  %.not501.i = icmp eq i32 %183, 0
+  br i1 %.not501.i, label %._crit_edge.i, label %.lr.ph493.i
 
-.lr.ph494.i:                                      ; preds = %checkFkeyPermissions.exit.i
-  %451 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %452 = load ptr, ptr %451, align 8
-  %453 = load i32, ptr %452, align 8
-  %454 = sext i32 %453 to i64
-  %455 = shl nsw i64 %454, 4
-  %456 = getelementptr i8, ptr %452, i64 %455
-  %457 = getelementptr i8, ptr %456, i64 14
-  %458 = getelementptr inbounds nuw i8, ptr %3, i64 155
-  %459 = getelementptr inbounds nuw i8, ptr %3, i64 156
+.lr.ph493.i:                                      ; preds = %checkFkeyPermissions.exit.i
+  %452 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %453 = load ptr, ptr %452, align 8
+  %454 = load i32, ptr %453, align 8
+  %455 = sext i32 %454 to i64
+  %456 = shl nsw i64 %455, 4
+  %457 = getelementptr i8, ptr %453, i64 %456
+  %458 = getelementptr i8, ptr %457, i64 14
+  %459 = getelementptr inbounds nuw i8, ptr %3, i64 155
+  %460 = getelementptr inbounds nuw i8, ptr %3, i64 156
   %wide.trip.count.i = zext nneg i32 %183 to i64
-  br label %460
+  br label %461
 
-460:                                              ; preds = %484, %.lr.ph494.i
-  %indvars.iv.i37 = phi i64 [ 0, %.lr.ph494.i ], [ %indvars.iv.next.i38, %484 ]
-  %461 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %indvars.iv.i37
-  %462 = load i16, ptr %461, align 2
-  %463 = sext i16 %462 to i64
-  %.idx.i = mul nsw i64 %463, 100
-  %464 = getelementptr i8, ptr %457, i64 %.idx.i
-  %465 = load i8, ptr %464, align 2
-  %cond.i = icmp eq i8 %465, 0
-  br i1 %cond.i, label %484, label %466
+461:                                              ; preds = %485, %.lr.ph493.i
+  %indvars.iv.i37 = phi i64 [ 0, %.lr.ph493.i ], [ %indvars.iv.next.i38, %485 ]
+  %462 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %indvars.iv.i37
+  %463 = load i16, ptr %462, align 2
+  %464 = sext i16 %463 to i64
+  %.idx.i = mul nsw i64 %464, 100
+  %465 = getelementptr i8, ptr %458, i64 %.idx.i
+  %466 = load i8, ptr %465, align 2
+  %cond.i = icmp eq i8 %466, 0
+  br i1 %cond.i, label %485, label %467
 
-466:                                              ; preds = %460
-  %467 = load i8, ptr %458, align 1
-  switch i8 %467, label %472 [
-    i8 110, label %468
-    i8 100, label %468
-    i8 99, label %468
+467:                                              ; preds = %461
+  %468 = load i8, ptr %459, align 1
+  switch i8 %468, label %473 [
+    i8 110, label %469
+    i8 100, label %469
+    i8 99, label %469
   ]
 
-468:                                              ; preds = %466, %466, %466
-  %469 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %469)
-  %470 = call i32 @errcode(i32 noundef 16801924) #15
-  %471 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.333, ptr noundef nonnull @.str.334) #15
+469:                                              ; preds = %467, %467, %467
+  %470 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %470)
+  %471 = call i32 @errcode(i32 noundef 16801924) #15
+  %472 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.333, ptr noundef nonnull @.str.334) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10008, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-472:                                              ; preds = %466
-  %473 = load i8, ptr %459, align 4
-  switch i8 %473, label %478 [
-    i8 110, label %474
-    i8 100, label %474
+473:                                              ; preds = %467
+  %474 = load i8, ptr %460, align 4
+  switch i8 %474, label %479 [
+    i8 110, label %475
+    i8 100, label %475
   ]
 
-474:                                              ; preds = %472, %472
-  %475 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %475)
-  %476 = call i32 @errcode(i32 noundef 16801924) #15
-  %477 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.333, ptr noundef nonnull @.str.335) #15
+475:                                              ; preds = %473, %473
+  %476 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %476)
+  %477 = call i32 @errcode(i32 noundef 16801924) #15
+  %478 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.333, ptr noundef nonnull @.str.335) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10014, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-478:                                              ; preds = %472
-  %479 = icmp eq i8 %465, 118
-  br i1 %479, label %480, label %484
+479:                                              ; preds = %473
+  %480 = icmp eq i8 %466, 118
+  br i1 %480, label %481, label %485
 
-480:                                              ; preds = %478
-  %481 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %481)
-  %482 = call i32 @errcode(i32 noundef 1088) #15
-  %483 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.336) #15
+481:                                              ; preds = %479
+  %482 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %482)
+  %483 = call i32 @errcode(i32 noundef 1088) #15
+  %484 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.336) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10028, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-484:                                              ; preds = %478, %460
+485:                                              ; preds = %479, %461
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %460, !llvm.loop !81
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %461, !llvm.loop !81
 
-._crit_edge.i:                                    ; preds = %484, %checkFkeyPermissions.exit.i
-  %485 = load i8, ptr %184, align 8, !range !6, !noundef !7
-  %486 = trunc nuw i8 %485 to i1
-  br i1 %486, label %487, label %501
+._crit_edge.i:                                    ; preds = %485, %checkFkeyPermissions.exit.i
+  %486 = load i8, ptr %184, align 8, !range !6, !noundef !7
+  %487 = trunc nuw i8 %486 to i1
+  br i1 %487, label %488, label %502
 
-487:                                              ; preds = %._crit_edge.i
-  %488 = getelementptr inbounds nuw i8, ptr %3, i64 155
-  %489 = load i8, ptr %488, align 1
-  switch i8 %489, label %494 [
-    i8 99, label %490
-    i8 110, label %490
-    i8 100, label %490
+488:                                              ; preds = %._crit_edge.i
+  %489 = getelementptr inbounds nuw i8, ptr %3, i64 155
+  %490 = load i8, ptr %489, align 1
+  switch i8 %490, label %495 [
+    i8 99, label %491
+    i8 110, label %491
+    i8 100, label %491
   ]
 
-490:                                              ; preds = %487, %487, %487
-  %491 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %491)
-  %492 = call i32 @errcode(i32 noundef 1088) #15
-  %493 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.337, ptr noundef nonnull @.str.334) #15
+491:                                              ; preds = %488, %488, %488
+  %492 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %492)
+  %493 = call i32 @errcode(i32 noundef 1088) #15
+  %494 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.337, ptr noundef nonnull @.str.334) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10042, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-494:                                              ; preds = %487
-  %495 = getelementptr inbounds nuw i8, ptr %3, i64 156
-  %496 = load i8, ptr %495, align 4
-  switch i8 %496, label %501 [
-    i8 99, label %497
-    i8 110, label %497
-    i8 100, label %497
+495:                                              ; preds = %488
+  %496 = getelementptr inbounds nuw i8, ptr %3, i64 156
+  %497 = load i8, ptr %496, align 4
+  switch i8 %497, label %502 [
+    i8 99, label %498
+    i8 110, label %498
+    i8 100, label %498
   ]
 
-497:                                              ; preds = %494, %494, %494
-  %498 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %498)
-  %499 = call i32 @errcode(i32 noundef 1088) #15
-  %500 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.337, ptr noundef nonnull @.str.335) #15
+498:                                              ; preds = %495, %495, %495
+  %499 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %499)
+  %500 = call i32 @errcode(i32 noundef 1088) #15
+  %501 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.337, ptr noundef nonnull @.str.335) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10050, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-501:                                              ; preds = %494, %._crit_edge.i
+502:                                              ; preds = %495, %._crit_edge.i
   %.not289.i = icmp eq i32 %183, %.0255349.i
-  br i1 %.not289.i, label %506, label %502
+  br i1 %.not289.i, label %507, label %503
 
-502:                                              ; preds = %501
-  %503 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %503)
-  %504 = call i32 @errcode(i32 noundef 819332) #15
-  %505 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.338) #15
+503:                                              ; preds = %502
+  %504 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %504)
+  %505 = call i32 @errcode(i32 noundef 819332) #15
+  %506 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.338) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10064, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-506:                                              ; preds = %501
-  %507 = load ptr, ptr %84, align 8
-  %508 = icmp ne ptr %507, null
-  br i1 %.not502.i, label %._crit_edge500.i, label %.lr.ph499.i
+507:                                              ; preds = %502
+  %508 = load ptr, ptr %84, align 8
+  %509 = icmp ne ptr %508, null
+  br i1 %.not501.i, label %._crit_edge499.i, label %.lr.ph498.i
 
-.lr.ph499.i:                                      ; preds = %506
-  %509 = zext i1 %508 to i8
-  %510 = add nsw i32 %183, -1
-  %511 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %512 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %513 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %514 = zext i32 %510 to i64
-  %wide.trip.count626.i = zext nneg i32 %183 to i64
-  br label %515
+.lr.ph498.i:                                      ; preds = %507
+  %510 = zext i1 %509 to i8
+  %511 = add nsw i32 %183, -1
+  %512 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %513 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %514 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %515 = zext i32 %511 to i64
+  %wide.trip.count625.i = zext nneg i32 %183 to i64
+  br label %516
 
-515:                                              ; preds = %.thread356.i, %.lr.ph499.i
-  %indvars.iv624.i = phi i64 [ 0, %.lr.ph499.i ], [ %indvars.iv.next625.i, %.thread356.i ]
-  %.0256496.i = phi i8 [ %509, %.lr.ph499.i ], [ %.2.i, %.thread356.i ]
-  %.0258495.i = phi ptr [ %89, %.lr.ph499.i ], [ %.1259359.i, %.thread356.i ]
-  %516 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv624.i
-  %517 = load i32, ptr %516, align 4
-  %518 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv624.i
-  %519 = load i32, ptr %518, align 4
-  %520 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv624.i
-  %521 = load i32, ptr %520, align 4
-  %522 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv624.i
-  %523 = load i32, ptr %522, align 4
-  %524 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %indvars.iv624.i
-  %525 = load i32, ptr %524, align 4
-  %526 = zext i32 %525 to i64
-  %527 = call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %526) #15
-  %.not290.i = icmp eq ptr %527, null
-  br i1 %.not290.i, label %528, label %531
+516:                                              ; preds = %.thread356.i, %.lr.ph498.i
+  %indvars.iv623.i = phi i64 [ 0, %.lr.ph498.i ], [ %indvars.iv.next624.i, %.thread356.i ]
+  %.0256495.i = phi i8 [ %510, %.lr.ph498.i ], [ %.2.i, %.thread356.i ]
+  %.0258494.i = phi ptr [ %89, %.lr.ph498.i ], [ %.1259359.i, %.thread356.i ]
+  %517 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv623.i
+  %518 = load i32, ptr %517, align 4
+  %519 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv623.i
+  %520 = load i32, ptr %519, align 4
+  %521 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv623.i
+  %522 = load i32, ptr %521, align 4
+  %523 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv623.i
+  %524 = load i32, ptr %523, align 4
+  %525 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %indvars.iv623.i
+  %526 = load i32, ptr %525, align 4
+  %527 = zext i32 %526 to i64
+  %528 = call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %527) #15
+  %.not290.i = icmp eq ptr %528, null
+  br i1 %.not290.i, label %529, label %532
 
-528:                                              ; preds = %515
-  %529 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %529)
-  %530 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.339, i32 noundef %525) #15
+529:                                              ; preds = %516
+  %530 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %530)
+  %531 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.339, i32 noundef %526) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10096, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-531:                                              ; preds = %515
-  %532 = getelementptr i8, ptr %527, i64 16
-  %.val303.i = load ptr, ptr %532, align 8
-  %533 = getelementptr inbounds nuw i8, ptr %.val303.i, i64 22
-  %534 = load i8, ptr %533, align 2
-  %535 = zext i8 %534 to i64
-  %536 = getelementptr inbounds nuw i8, ptr %.val303.i, i64 %535
-  %537 = getelementptr inbounds nuw i8, ptr %536, i64 4
-  %538 = load i32, ptr %537, align 4
-  %539 = getelementptr inbounds nuw i8, ptr %536, i64 80
-  %540 = load i32, ptr %539, align 4
-  %541 = getelementptr inbounds nuw i8, ptr %536, i64 84
-  %542 = load i32, ptr %541, align 4
-  call void @ReleaseSysCache(ptr noundef nonnull %527) #15
-  %543 = icmp eq i64 %indvars.iv624.i, %514
-  %544 = select i1 %186, i1 %543, i1 false
-  %545 = select i1 %544, i32 7, i32 3
-  %546 = call zeroext i16 @IndexAmTranslateCompareType(i32 noundef %545, i32 noundef %538, i32 noundef %540, i32 noundef %542, i1 noundef zeroext true) #15
-  %547 = icmp eq i16 %546, 0
-  br i1 %547, label %548, label %556
+532:                                              ; preds = %516
+  %533 = getelementptr i8, ptr %528, i64 16
+  %.val303.i = load ptr, ptr %533, align 8
+  %534 = getelementptr inbounds nuw i8, ptr %.val303.i, i64 22
+  %535 = load i8, ptr %534, align 2
+  %536 = zext i8 %535 to i64
+  %537 = getelementptr inbounds nuw i8, ptr %.val303.i, i64 %536
+  %538 = getelementptr inbounds nuw i8, ptr %537, i64 4
+  %539 = load i32, ptr %538, align 4
+  %540 = getelementptr inbounds nuw i8, ptr %537, i64 80
+  %541 = load i32, ptr %540, align 4
+  %542 = getelementptr inbounds nuw i8, ptr %537, i64 84
+  %543 = load i32, ptr %542, align 4
+  call void @ReleaseSysCache(ptr noundef nonnull %528) #15
+  %544 = icmp eq i64 %indvars.iv623.i, %515
+  %545 = select i1 %186, i1 %544, i1 false
+  %546 = select i1 %545, i32 7, i32 3
+  %547 = call zeroext i16 @IndexAmTranslateCompareType(i32 noundef %546, i32 noundef %539, i32 noundef %541, i32 noundef %543, i1 noundef zeroext true) #15
+  %548 = icmp eq i16 %547, 0
+  br i1 %548, label %549, label %557
 
-548:                                              ; preds = %531
-  %549 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %549)
-  %550 = call i32 @errcode(i32 noundef 67137668) #15
-  %.str.340..str.341.i = select i1 %544, ptr @.str.340, ptr @.str.341
-  %551 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.340..str.341.i) #15
-  %552 = call ptr @get_opfamily_name(i32 noundef %540, i1 noundef zeroext false) #15
-  %553 = call ptr @format_type_be(i32 noundef %542) #15
-  %554 = call ptr @get_am_name(i32 noundef %538) #15
-  %555 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.342, i32 noundef %545, ptr noundef %552, ptr noundef %553, ptr noundef %554) #15
+549:                                              ; preds = %532
+  %550 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %550)
+  %551 = call i32 @errcode(i32 noundef 67137668) #15
+  %.str.340..str.341.i = select i1 %545, ptr @.str.340, ptr @.str.341
+  %552 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.340..str.341.i) #15
+  %553 = call ptr @get_opfamily_name(i32 noundef %541, i1 noundef zeroext false) #15
+  %554 = call ptr @format_type_be(i32 noundef %543) #15
+  %555 = call ptr @get_am_name(i32 noundef %539) #15
+  %556 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.342, i32 noundef %546, ptr noundef %553, ptr noundef %554, ptr noundef %555) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10123, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-556:                                              ; preds = %531
-  %557 = call i32 @get_opfamily_member(i32 noundef %540, i32 noundef %542, i32 noundef %542, i16 noundef signext %546) #15
-  %.not291.i = icmp eq i32 %557, 0
-  br i1 %.not291.i, label %558, label %562
+557:                                              ; preds = %532
+  %558 = call i32 @get_opfamily_member(i32 noundef %541, i32 noundef %543, i32 noundef %543, i16 noundef signext %547) #15
+  %.not291.i = icmp eq i32 %558, 0
+  br i1 %.not291.i, label %559, label %563
 
-558:                                              ; preds = %556
-  %559 = sext i16 %546 to i32
-  %560 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %560)
-  %561 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.343, i32 noundef %559, i32 noundef %542, i32 noundef %542, i32 noundef %540) #15
+559:                                              ; preds = %557
+  %560 = sext i16 %547 to i32
+  %561 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %561)
+  %562 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.343, i32 noundef %560, i32 noundef %543, i32 noundef %543, i32 noundef %541) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10134, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-562:                                              ; preds = %556
-  %563 = call i32 @getBaseType(i32 noundef %519) #15
-  %564 = call i32 @get_opfamily_member(i32 noundef %540, i32 noundef %542, i32 noundef %563, i16 noundef signext %546) #15
-  %.not364.i = icmp eq i32 %564, 0
-  br i1 %.not364.i, label %.thread350.i, label %565
+563:                                              ; preds = %557
+  %564 = call i32 @getBaseType(i32 noundef %520) #15
+  %565 = call i32 @get_opfamily_member(i32 noundef %541, i32 noundef %543, i32 noundef %564, i16 noundef signext %547) #15
+  %.not363.i = icmp eq i32 %565, 0
+  br i1 %.not363.i, label %.thread350.i, label %566
 
-565:                                              ; preds = %562
-  %566 = call i32 @get_opfamily_member(i32 noundef %540, i32 noundef %563, i32 noundef %563, i16 noundef signext %546) #15
-  %.not365.i = icmp eq i32 %566, 0
-  br i1 %.not365.i, label %.thread350.i, label %568
+566:                                              ; preds = %563
+  %567 = call i32 @get_opfamily_member(i32 noundef %541, i32 noundef %564, i32 noundef %564, i16 noundef signext %547) #15
+  %.not364.i = icmp eq i32 %567, 0
+  br i1 %.not364.i, label %.thread350.i, label %569
 
-.thread350.i:                                     ; preds = %565, %562
-  %.0265354.i = phi i32 [ %563, %565 ], [ 0, %562 ]
+.thread350.i:                                     ; preds = %566, %563
+  %.0265354.i = phi i32 [ %564, %566 ], [ 0, %563 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #15
-  store i32 %517, ptr %19, align 4
-  store i32 %519, ptr %511, align 4
-  store i32 %542, ptr %20, align 4
-  store i32 %542, ptr %512, align 4
-  %567 = call zeroext i1 @can_coerce_type(i32 noundef 2, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 0) #15
-  %.2267.i = select i1 %567, i32 %542, i32 %.0265354.i
-  %.2264.i = select i1 %567, i32 %557, i32 0
-  %.1261.i = select i1 %567, i32 %557, i32 %564
+  store i32 %518, ptr %19, align 4
+  store i32 %520, ptr %512, align 4
+  store i32 %543, ptr %20, align 4
+  store i32 %543, ptr %513, align 4
+  %568 = call zeroext i1 @can_coerce_type(i32 noundef 2, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 0) #15
+  %.2267.i = select i1 %568, i32 %543, i32 %.0265354.i
+  %.2264.i = select i1 %568, i32 %558, i32 0
+  %.1261.i = select i1 %568, i32 %558, i32 %565
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #15
-  br label %568
+  br label %569
 
-568:                                              ; preds = %.thread350.i, %565
-  %.1266.i = phi i32 [ %563, %565 ], [ %.2267.i, %.thread350.i ]
-  %.1263.i = phi i32 [ %566, %565 ], [ %.2264.i, %.thread350.i ]
-  %.0260.i = phi i32 [ %564, %565 ], [ %.1261.i, %.thread350.i ]
-  %569 = icmp ne i32 %.0260.i, 0
-  %570 = icmp ne i32 %.1263.i, 0
-  %or.cond3.i = select i1 %569, i1 %570, i1 false
-  br i1 %or.cond3.i, label %591, label %571
+569:                                              ; preds = %.thread350.i, %566
+  %.1266.i = phi i32 [ %564, %566 ], [ %.2267.i, %.thread350.i ]
+  %.1263.i = phi i32 [ %567, %566 ], [ %.2264.i, %.thread350.i ]
+  %.0260.i = phi i32 [ %565, %566 ], [ %.1261.i, %.thread350.i ]
+  %570 = icmp ne i32 %.0260.i, 0
+  %571 = icmp ne i32 %.1263.i, 0
+  %or.cond3.i = select i1 %570, i1 %571, i1 false
+  br i1 %or.cond3.i, label %592, label %572
 
-571:                                              ; preds = %568
-  %572 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %572)
-  %573 = call i32 @errcode(i32 noundef 67141764) #15
-  %574 = load ptr, ptr %32, align 8
-  %575 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.344, ptr noundef %574) #15
-  %576 = load ptr, ptr %181, align 8
-  %577 = getelementptr i8, ptr %576, i64 16
-  %.val302.i = load ptr, ptr %577, align 8
-  %578 = getelementptr inbounds nuw %union.ListCell, ptr %.val302.i, i64 %indvars.iv624.i
-  %579 = load ptr, ptr %578, align 8
-  %580 = getelementptr inbounds nuw i8, ptr %579, i64 8
-  %581 = load ptr, ptr %580, align 8
-  %582 = load ptr, ptr %216, align 8
-  %583 = getelementptr i8, ptr %582, i64 16
-  %.val301.i = load ptr, ptr %583, align 8
-  %584 = getelementptr inbounds nuw %union.ListCell, ptr %.val301.i, i64 %indvars.iv624.i
-  %585 = load ptr, ptr %584, align 8
-  %586 = getelementptr inbounds nuw i8, ptr %585, i64 8
-  %587 = load ptr, ptr %586, align 8
-  %588 = call ptr @format_type_be(i32 noundef %519) #15
-  %589 = call ptr @format_type_be(i32 noundef %517) #15
-  %590 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.345, ptr noundef %581, ptr noundef %587, ptr noundef %588, ptr noundef %589) #15
+572:                                              ; preds = %569
+  %573 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %573)
+  %574 = call i32 @errcode(i32 noundef 67141764) #15
+  %575 = load ptr, ptr %32, align 8
+  %576 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.344, ptr noundef %575) #15
+  %577 = load ptr, ptr %181, align 8
+  %578 = getelementptr i8, ptr %577, i64 16
+  %.val302.i = load ptr, ptr %578, align 8
+  %579 = getelementptr inbounds nuw %union.ListCell, ptr %.val302.i, i64 %indvars.iv623.i
+  %580 = load ptr, ptr %579, align 8
+  %581 = getelementptr inbounds nuw i8, ptr %580, i64 8
+  %582 = load ptr, ptr %581, align 8
+  %583 = load ptr, ptr %216, align 8
+  %584 = getelementptr i8, ptr %583, i64 16
+  %.val301.i = load ptr, ptr %584, align 8
+  %585 = getelementptr inbounds nuw %union.ListCell, ptr %.val301.i, i64 %indvars.iv623.i
+  %586 = load ptr, ptr %585, align 8
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 8
+  %588 = load ptr, ptr %587, align 8
+  %589 = call ptr @format_type_be(i32 noundef %520) #15
+  %590 = call ptr @format_type_be(i32 noundef %518) #15
+  %591 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.345, ptr noundef %582, ptr noundef %588, ptr noundef %589, ptr noundef %590) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10193, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-591:                                              ; preds = %568
-  %592 = icmp ne i32 %521, 0
-  %593 = icmp ne i32 %523, 0
-  %or.cond295.i = xor i1 %592, %593
-  br i1 %or.cond295.i, label %594, label %597
+592:                                              ; preds = %569
+  %593 = icmp ne i32 %522, 0
+  %594 = icmp ne i32 %524, 0
+  %or.cond295.i = xor i1 %593, %594
+  br i1 %or.cond295.i, label %595, label %598
 
-594:                                              ; preds = %591
-  %595 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %595)
-  %596 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.346) #15
+595:                                              ; preds = %592
+  %596 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %596)
+  %597 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.346) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10200, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-597:                                              ; preds = %591
-  %or.cond9.i = and i1 %592, %593
-  br i1 %or.cond9.i, label %598, label %622
+598:                                              ; preds = %592
+  %or.cond9.i = and i1 %593, %594
+  br i1 %or.cond9.i, label %599, label %623
 
-598:                                              ; preds = %597
-  %599 = call zeroext i1 @get_collation_isdeterministic(i32 noundef %521) #15
-  %600 = call zeroext i1 @get_collation_isdeterministic(i32 noundef %523) #15
-  %601 = select i1 %599, i1 %600, i1 false
-  %.not292.i = icmp eq i32 %521, %523
-  %or.cond299.i = select i1 %601, i1 true, i1 %.not292.i
-  br i1 %or.cond299.i, label %622, label %602
+599:                                              ; preds = %598
+  %600 = call zeroext i1 @get_collation_isdeterministic(i32 noundef %522) #15
+  %601 = call zeroext i1 @get_collation_isdeterministic(i32 noundef %524) #15
+  %602 = select i1 %600, i1 %601, i1 false
+  %.not292.i = icmp eq i32 %522, %524
+  %or.cond299.i = select i1 %602, i1 true, i1 %.not292.i
+  br i1 %or.cond299.i, label %623, label %603
 
-602:                                              ; preds = %598
-  %603 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %603)
-  %604 = call i32 @errcode(i32 noundef 17432708) #15
-  %605 = load ptr, ptr %32, align 8
-  %606 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.344, ptr noundef %605) #15
-  %607 = load ptr, ptr %181, align 8
-  %608 = getelementptr i8, ptr %607, i64 16
-  %.val300.i = load ptr, ptr %608, align 8
-  %609 = getelementptr inbounds nuw %union.ListCell, ptr %.val300.i, i64 %indvars.iv624.i
-  %610 = load ptr, ptr %609, align 8
-  %611 = getelementptr inbounds nuw i8, ptr %610, i64 8
-  %612 = load ptr, ptr %611, align 8
-  %613 = load ptr, ptr %216, align 8
-  %614 = getelementptr i8, ptr %613, i64 16
-  %.val.i = load ptr, ptr %614, align 8
-  %615 = getelementptr inbounds nuw %union.ListCell, ptr %.val.i, i64 %indvars.iv624.i
-  %616 = load ptr, ptr %615, align 8
-  %617 = getelementptr inbounds nuw i8, ptr %616, i64 8
-  %618 = load ptr, ptr %617, align 8
-  %619 = call ptr @get_collation_name(i32 noundef %523) #15
-  %620 = call ptr @get_collation_name(i32 noundef %521) #15
-  %621 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.347, ptr noundef %612, ptr noundef %618, ptr noundef %619, ptr noundef %620) #15
+603:                                              ; preds = %599
+  %604 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %604)
+  %605 = call i32 @errcode(i32 noundef 17432708) #15
+  %606 = load ptr, ptr %32, align 8
+  %607 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.344, ptr noundef %606) #15
+  %608 = load ptr, ptr %181, align 8
+  %609 = getelementptr i8, ptr %608, i64 16
+  %.val300.i = load ptr, ptr %609, align 8
+  %610 = getelementptr inbounds nuw %union.ListCell, ptr %.val300.i, i64 %indvars.iv623.i
+  %611 = load ptr, ptr %610, align 8
+  %612 = getelementptr inbounds nuw i8, ptr %611, i64 8
+  %613 = load ptr, ptr %612, align 8
+  %614 = load ptr, ptr %216, align 8
+  %615 = getelementptr i8, ptr %614, i64 16
+  %.val.i = load ptr, ptr %615, align 8
+  %616 = getelementptr inbounds nuw %union.ListCell, ptr %.val.i, i64 %indvars.iv623.i
+  %617 = load ptr, ptr %616, align 8
+  %618 = getelementptr inbounds nuw i8, ptr %617, i64 8
+  %619 = load ptr, ptr %618, align 8
+  %620 = call ptr @get_collation_name(i32 noundef %524) #15
+  %621 = call ptr @get_collation_name(i32 noundef %522) #15
+  %622 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.347, ptr noundef %613, ptr noundef %619, ptr noundef %620, ptr noundef %621) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10227, ptr noundef nonnull @__func__.ATAddForeignKeyConstraint) #15
   unreachable
 
-622:                                              ; preds = %598, %597
-  %623 = trunc nuw i8 %.0256496.i to i1
-  br i1 %623, label %624, label %.thread356.i
+623:                                              ; preds = %599, %598
+  %624 = trunc nuw i8 %.0256495.i to i1
+  br i1 %624, label %625, label %.thread356.i
 
-624:                                              ; preds = %622
-  %625 = load i32, ptr %.0258495.i, align 8
-  %626 = icmp eq i32 %.0260.i, %625
-  %627 = load ptr, ptr %84, align 8
-  %628 = getelementptr i8, ptr %627, i64 4
-  %.val304.i = load i32, ptr %628, align 4
-  %629 = getelementptr i8, ptr %627, i64 16
-  %.val305.i = load ptr, ptr %629, align 8
-  %630 = getelementptr inbounds nuw i8, ptr %.0258495.i, i64 8
-  %631 = sext i32 %.val304.i to i64
-  %632 = getelementptr inbounds %union.ListCell, ptr %.val305.i, i64 %631
-  %633 = icmp ult ptr %630, %632
-  %..i.i = select i1 %633, ptr %630, ptr null
-  br i1 %626, label %634, label %.thread356.i
+625:                                              ; preds = %623
+  %626 = load i32, ptr %.0258494.i, align 8
+  %627 = icmp eq i32 %.0260.i, %626
+  %628 = load ptr, ptr %84, align 8
+  %629 = getelementptr i8, ptr %628, i64 4
+  %.val304.i = load i32, ptr %629, align 4
+  %630 = getelementptr i8, ptr %628, i64 16
+  %.val305.i = load ptr, ptr %630, align 8
+  %631 = getelementptr inbounds nuw i8, ptr %.0258494.i, i64 8
+  %632 = sext i32 %.val304.i to i64
+  %633 = getelementptr inbounds %union.ListCell, ptr %.val305.i, i64 %632
+  %634 = icmp ult ptr %631, %633
+  %..i.i = select i1 %634, ptr %631, ptr null
+  br i1 %627, label %635, label %.thread356.i
 
-634:                                              ; preds = %624
+635:                                              ; preds = %625
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #15
-  %635 = load ptr, ptr %513, align 8
-  %636 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %indvars.iv624.i
-  %637 = load i16, ptr %636, align 2
-  %638 = sext i16 %637 to i64
-  %639 = load i32, ptr %635, align 8
-  %640 = sext i32 %639 to i64
-  %641 = shl nsw i64 %640, 4
-  %642 = getelementptr i8, ptr %635, i64 %641
-  %643 = getelementptr i8, ptr %642, i64 -76
-  %644 = getelementptr %struct.FormData_pg_attribute, ptr %643, i64 %638
-  %645 = getelementptr inbounds nuw i8, ptr %644, i64 68
-  %646 = load i32, ptr %645, align 4
-  %647 = icmp eq i32 %.1266.i, %646
-  br i1 %647, label %648, label %649
+  %636 = load ptr, ptr %514, align 8
+  %637 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %indvars.iv623.i
+  %638 = load i16, ptr %637, align 2
+  %639 = sext i16 %638 to i64
+  %640 = load i32, ptr %636, align 8
+  %641 = sext i32 %640 to i64
+  %642 = shl nsw i64 %641, 4
+  %643 = getelementptr i8, ptr %636, i64 %642
+  %644 = getelementptr i8, ptr %643, i64 -76
+  %645 = getelementptr %struct.FormData_pg_attribute, ptr %644, i64 %639
+  %646 = getelementptr inbounds nuw i8, ptr %645, i64 68
+  %647 = load i32, ptr %646, align 4
+  %648 = icmp eq i32 %.1266.i, %647
+  br i1 %648, label %649, label %650
 
-648:                                              ; preds = %634
+649:                                              ; preds = %635
   store i32 0, ptr %21, align 4
   br label %findFkeyCast.exit.i
 
-649:                                              ; preds = %634
-  %650 = call i32 @find_coercion_pathway(i32 noundef %.1266.i, i32 noundef %646, i32 noundef 0, ptr noundef nonnull %21) #15
-  %651 = icmp eq i32 %650, 0
-  br i1 %651, label %652, label %findFkeyCast.exit.i
+650:                                              ; preds = %635
+  %651 = call i32 @find_coercion_pathway(i32 noundef %.1266.i, i32 noundef %647, i32 noundef 0, ptr noundef nonnull %21) #15
+  %652 = icmp eq i32 %651, 0
+  br i1 %652, label %653, label %findFkeyCast.exit.i
 
-652:                                              ; preds = %649
-  %653 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %653)
-  %654 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.358, i32 noundef %646, i32 noundef %.1266.i) #15
+653:                                              ; preds = %650
+  %654 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %654)
+  %655 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.358, i32 noundef %647, i32 noundef %.1266.i) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 12743, ptr noundef nonnull @__func__.findFkeyCast) #15
   unreachable
 
-findFkeyCast.exit.i:                              ; preds = %649, %648
-  %.0.i.i = phi i32 [ 2, %648 ], [ %650, %649 ]
-  %655 = icmp eq i32 %.1266.i, %519
-  br i1 %655, label %656, label %657
+findFkeyCast.exit.i:                              ; preds = %650, %649
+  %.0.i.i = phi i32 [ 2, %649 ], [ %651, %650 ]
+  %656 = icmp eq i32 %.1266.i, %520
+  br i1 %656, label %657, label %658
 
-656:                                              ; preds = %findFkeyCast.exit.i
+657:                                              ; preds = %findFkeyCast.exit.i
   store i32 0, ptr %22, align 4
   br label %findFkeyCast.exit326.i
 
-657:                                              ; preds = %findFkeyCast.exit.i
-  %658 = call i32 @find_coercion_pathway(i32 noundef %.1266.i, i32 noundef %519, i32 noundef 0, ptr noundef nonnull %22) #15
-  %659 = icmp eq i32 %658, 0
-  br i1 %659, label %660, label %findFkeyCast.exit326.i
+658:                                              ; preds = %findFkeyCast.exit.i
+  %659 = call i32 @find_coercion_pathway(i32 noundef %.1266.i, i32 noundef %520, i32 noundef 0, ptr noundef nonnull %22) #15
+  %660 = icmp eq i32 %659, 0
+  br i1 %660, label %661, label %findFkeyCast.exit326.i
 
-660:                                              ; preds = %657
-  %661 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %661)
-  %662 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.358, i32 noundef %519, i32 noundef %.1266.i) #15
+661:                                              ; preds = %658
+  %662 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %662)
+  %663 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.358, i32 noundef %520, i32 noundef %.1266.i) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 12743, ptr noundef nonnull @__func__.findFkeyCast) #15
   unreachable
 
-findFkeyCast.exit326.i:                           ; preds = %657, %656
-  %.0.i325.i = phi i32 [ 2, %656 ], [ %658, %657 ]
-  %663 = getelementptr inbounds nuw i8, ptr %644, i64 96
-  %664 = load i32, ptr %663, align 4
-  %665 = icmp eq i32 %.0.i325.i, %.0.i.i
-  br i1 %665, label %666, label %680
+findFkeyCast.exit326.i:                           ; preds = %658, %657
+  %.0.i325.i = phi i32 [ 2, %657 ], [ %659, %658 ]
+  %664 = getelementptr inbounds nuw i8, ptr %645, i64 96
+  %665 = load i32, ptr %664, align 4
+  %666 = icmp eq i32 %.0.i325.i, %.0.i.i
+  br i1 %666, label %667, label %681
 
-666:                                              ; preds = %findFkeyCast.exit326.i
-  %667 = load i32, ptr %22, align 4
-  %668 = load i32, ptr %21, align 4
-  %669 = icmp eq i32 %667, %668
-  br i1 %669, label %670, label %680
+667:                                              ; preds = %findFkeyCast.exit326.i
+  %668 = load i32, ptr %22, align 4
+  %669 = load i32, ptr %21, align 4
+  %670 = icmp eq i32 %668, %669
+  br i1 %670, label %671, label %681
 
-670:                                              ; preds = %666
-  switch i32 %.1266.i, label %673 [
-    i32 5080, label %671
-    i32 5079, label %671
-    i32 5078, label %671
-    i32 5077, label %671
-    i32 4538, label %671
-    i32 4537, label %671
-    i32 3831, label %671
-    i32 3500, label %671
-    i32 2776, label %671
-    i32 2283, label %671
-    i32 2277, label %671
+671:                                              ; preds = %667
+  switch i32 %.1266.i, label %674 [
+    i32 5080, label %672
+    i32 5079, label %672
+    i32 5078, label %672
+    i32 5077, label %672
+    i32 4538, label %672
+    i32 4537, label %672
+    i32 3831, label %672
+    i32 3500, label %672
+    i32 2776, label %672
+    i32 2283, label %672
+    i32 2277, label %672
   ]
 
-671:                                              ; preds = %670, %670, %670, %670, %670, %670, %670, %670, %670, %670, %670
-  %672 = icmp eq i32 %519, %646
-  br i1 %672, label %673, label %680
+672:                                              ; preds = %671, %671, %671, %671, %671, %671, %671, %671, %671, %671, %671
+  %673 = icmp eq i32 %520, %647
+  br i1 %673, label %674, label %681
 
-673:                                              ; preds = %671, %670
-  %674 = icmp eq i32 %523, %664
-  br i1 %674, label %680, label %675
+674:                                              ; preds = %672, %671
+  %675 = icmp eq i32 %524, %665
+  br i1 %675, label %681, label %676
 
-675:                                              ; preds = %673
-  %676 = call zeroext i1 @get_collation_isdeterministic(i32 noundef %664) #15
-  br i1 %676, label %677, label %680
+676:                                              ; preds = %674
+  %677 = call zeroext i1 @get_collation_isdeterministic(i32 noundef %665) #15
+  br i1 %677, label %678, label %681
 
-677:                                              ; preds = %675
-  %678 = call zeroext i1 @get_collation_isdeterministic(i32 noundef %523) #15
-  %679 = zext i1 %678 to i8
-  br label %680
+678:                                              ; preds = %676
+  %679 = call zeroext i1 @get_collation_isdeterministic(i32 noundef %524) #15
+  %680 = zext i1 %679 to i8
+  br label %681
 
-680:                                              ; preds = %677, %675, %673, %671, %666, %findFkeyCast.exit326.i
-  %681 = phi i8 [ 0, %671 ], [ 0, %666 ], [ 0, %findFkeyCast.exit326.i ], [ 1, %673 ], [ 0, %675 ], [ %679, %677 ]
+681:                                              ; preds = %678, %676, %674, %672, %667, %findFkeyCast.exit326.i
+  %682 = phi i8 [ 0, %672 ], [ 0, %667 ], [ 0, %findFkeyCast.exit326.i ], [ 1, %674 ], [ 0, %676 ], [ %680, %678 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #15
   br label %.thread356.i
 
-.thread356.i:                                     ; preds = %680, %624, %622
-  %.1259359.i = phi ptr [ %..i.i, %680 ], [ %..i.i, %624 ], [ %.0258495.i, %622 ]
-  %.2.i = phi i8 [ %681, %680 ], [ 0, %624 ], [ 0, %622 ]
-  %682 = getelementptr inbounds nuw [32 x i32], ptr %15, i64 0, i64 %indvars.iv624.i
-  store i32 %.0260.i, ptr %682, align 4
-  %683 = getelementptr inbounds nuw [32 x i32], ptr %16, i64 0, i64 %indvars.iv624.i
-  store i32 %557, ptr %683, align 4
-  %684 = getelementptr inbounds nuw [32 x i32], ptr %17, i64 0, i64 %indvars.iv624.i
-  store i32 %.1263.i, ptr %684, align 4
-  %indvars.iv.next625.i = add nuw nsw i64 %indvars.iv624.i, 1
-  %exitcond627.not.i = icmp eq i64 %indvars.iv.next625.i, %wide.trip.count626.i
-  br i1 %exitcond627.not.i, label %._crit_edge500.loopexit.i, label %515, !llvm.loop !82
+.thread356.i:                                     ; preds = %681, %625, %623
+  %.1259359.i = phi ptr [ %..i.i, %681 ], [ %..i.i, %625 ], [ %.0258494.i, %623 ]
+  %.2.i = phi i8 [ %682, %681 ], [ 0, %625 ], [ 0, %623 ]
+  %683 = getelementptr inbounds nuw [32 x i32], ptr %15, i64 0, i64 %indvars.iv623.i
+  store i32 %.0260.i, ptr %683, align 4
+  %684 = getelementptr inbounds nuw [32 x i32], ptr %16, i64 0, i64 %indvars.iv623.i
+  store i32 %558, ptr %684, align 4
+  %685 = getelementptr inbounds nuw [32 x i32], ptr %17, i64 0, i64 %indvars.iv623.i
+  store i32 %.1263.i, ptr %685, align 4
+  %indvars.iv.next624.i = add nuw nsw i64 %indvars.iv623.i, 1
+  %exitcond626.not.i = icmp eq i64 %indvars.iv.next624.i, %wide.trip.count625.i
+  br i1 %exitcond626.not.i, label %._crit_edge499.loopexit.i, label %516, !llvm.loop !82
 
-._crit_edge500.loopexit.i:                        ; preds = %.thread356.i
-  %685 = trunc nuw i8 %.2.i to i1
-  br label %._crit_edge500.i
+._crit_edge499.loopexit.i:                        ; preds = %.thread356.i
+  %686 = trunc nuw i8 %.2.i to i1
+  br label %._crit_edge499.i
 
-._crit_edge500.i:                                 ; preds = %._crit_edge500.loopexit.i, %506
-  %.0256.lcssa.i = phi i1 [ %508, %506 ], [ %685, %._crit_edge500.loopexit.i ]
-  br i1 %186, label %686, label %ATAddForeignKeyConstraint.exit
+._crit_edge499.i:                                 ; preds = %._crit_edge499.loopexit.i, %507
+  %.0256.lcssa.i = phi i1 [ %509, %507 ], [ %686, %._crit_edge499.loopexit.i ]
+  br i1 %186, label %687, label %ATAddForeignKeyConstraint.exit
 
-686:                                              ; preds = %._crit_edge500.i
+687:                                              ; preds = %._crit_edge499.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #15
-  %687 = add nsw i32 %183, -1
-  %688 = sext i32 %687 to i64
-  %689 = getelementptr inbounds [32 x i32], ptr %14, i64 0, i64 %688
-  %690 = load i32, ptr %689, align 4
-  call void @FindFKPeriodOpers(i32 noundef %690, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #15
+  %688 = add nsw i32 %183, -1
+  %689 = sext i32 %688 to i64
+  %690 = getelementptr inbounds [32 x i32], ptr %14, i64 0, i64 %689
+  %691 = load i32, ptr %690, align 4
+  call void @FindFKPeriodOpers(i32 noundef %691, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #15
   br label %ATAddForeignKeyConstraint.exit
 
-ATAddForeignKeyConstraint.exit:                   ; preds = %._crit_edge500.i, %686
-  %691 = load ptr, ptr %32, align 8
-  %692 = call fastcc { i64, i32 } @addFkConstraint(i32 noundef 2, ptr noundef %691, ptr noundef %3, ptr noundef %2, ptr noundef %.0.i, i32 noundef %.0332348.i, i32 noundef 0, i32 noundef %183, ptr noundef nonnull %8, ptr noundef %9, ptr noundef %15, ptr noundef %16, ptr noundef %17, i32 noundef %198, ptr noundef %18, i1 noundef zeroext false, i1 noundef zeroext %186)
-  %.fca.0.extract.i = extractvalue { i64, i32 } %692, 0
+ATAddForeignKeyConstraint.exit:                   ; preds = %._crit_edge499.i, %687
+  %692 = load ptr, ptr %32, align 8
+  %693 = call fastcc { i64, i32 } @addFkConstraint(i32 noundef 2, ptr noundef %692, ptr noundef %3, ptr noundef %2, ptr noundef %.0.i, i32 noundef %.0332348.i, i32 noundef 0, i32 noundef %183, ptr noundef nonnull %8, ptr noundef %9, ptr noundef %15, ptr noundef %16, ptr noundef %17, i32 noundef %198, ptr noundef %18, i1 noundef zeroext false, i1 noundef zeroext %186)
+  %.fca.0.extract.i = extractvalue { i64, i32 } %693, 0
   %.sroa.2251.0.extract.shift.i = lshr i64 %.fca.0.extract.i, 32
   %.sroa.2251.0.extract.trunc.i = trunc nuw i64 %.sroa.2251.0.extract.shift.i to i32
   call fastcc void @addFkRecurseReferenced(ptr noundef %3, ptr noundef %2, ptr noundef %.0.i, i32 noundef %.0332348.i, i32 noundef %.sroa.2251.0.extract.trunc.i, i32 noundef %183, ptr noundef nonnull %8, ptr noundef %9, ptr noundef %15, ptr noundef %16, ptr noundef %17, i32 noundef %198, ptr noundef %18, i32 noundef 0, i32 noundef 0, i1 noundef zeroext %186)
@@ -23222,18 +23222,18 @@ ATAddForeignKeyConstraint.exit:                   ; preds = %._crit_edge500.i, %
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #15
-  br label %697
+  br label %698
 
-693:                                              ; preds = %7
-  %694 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %694)
-  %695 = load i32, ptr %27, align 4
-  %696 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.323, i32 noundef %695) #15
+694:                                              ; preds = %7
+  %695 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %695)
+  %696 = load i32, ptr %27, align 4
+  %697 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.323, i32 noundef %696) #15
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 9612, ptr noundef nonnull @__func__.ATExecAddConstraint) #15
   unreachable
 
-697:                                              ; preds = %ATAddForeignKeyConstraint.exit, %29
-  %.pn = phi { i64, i32 } [ %692, %ATAddForeignKeyConstraint.exit ], [ %30, %29 ]
+698:                                              ; preds = %ATAddForeignKeyConstraint.exit, %29
+  %.pn = phi { i64, i32 } [ %693, %ATAddForeignKeyConstraint.exit ], [ %30, %29 ]
   ret { i64, i32 } %.pn
 }
 

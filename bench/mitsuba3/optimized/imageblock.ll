@@ -379,7 +379,10 @@ define weak_odr void @_ZN7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4E
   %13 = load i32, ptr %11, align 4
   %14 = load i32, ptr %12, align 8
   %15 = icmp eq i32 %13, %14
-  %.016.lcssa.i.i = and i1 %15, %10
+  %.sroa.2.0.insert.shift = select i1 %15, i16 256, i16 0
+  %.sroa.0.0.insert.ext = zext i1 %10 to i16
+  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
+  %.016.lcssa.i.i = icmp eq i16 %.sroa.0.0.insert.insert, 257
   br i1 %.016.lcssa.i.i, label %130, label %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge
 
 _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge: ; preds = %.critedge
@@ -825,12 +828,12 @@ _ZN7mitsuba3refIKNS_20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEEL
 
 .critedge109:                                     ; preds = %70
   %77 = load i32, ptr %65, align 4
-  %78 = icmp ult i32 %77, %76
+  %78 = icmp uge i32 %77, %76
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %80 = load i32, ptr %79, align 8
-  %81 = icmp ult i32 %80, %76
-  %or.cond.not = or i1 %81, %78
-  br i1 %or.cond.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, label %.critedge
+  %81 = icmp uge i32 %80, %76
+  %or.cond = and i1 %78, %81
+  br i1 %or.cond, label %.critedge, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %.critedge109
   %82 = load ptr, ptr @_ZN7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
@@ -1407,10 +1410,10 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   %..i.i186.c = tail call noundef i32 @llvm.smax.i32(i32 %26, i32 0)
   %27 = sub i32 %21, %..i.i186
   %28 = sub i32 %22, %..i.i186.c
-  %29 = icmp slt i32 %27, 1
-  %30 = icmp slt i32 %28, 1
-  %or.cond.not = or i1 %30, %29
-  br i1 %or.cond.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader.lr.ph
+  %29 = icmp sgt i32 %27, 0
+  %30 = icmp sgt i32 %28, 0
+  %or.cond = and i1 %29, %30
+  br i1 %or.cond, label %.preheader.lr.ph, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread
 
 .preheader.lr.ph:                                 ; preds = %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   %31 = trunc i64 %7 to i32
@@ -1989,7 +1992,10 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %120 = load i32, ptr %119, align 8
   %121 = icmp ult i32 %113, %116
   %122 = icmp ult i32 %114, %120
-  %123 = and i1 %122, %121
+  %.sroa.2877.0.insert.shift = select i1 %122, i16 256, i16 0
+  %.sroa.0876.0.insert.ext = zext i1 %121 to i16
+  %.sroa.0876.0.insert.insert = or disjoint i16 %.sroa.2877.0.insert.shift, %.sroa.0876.0.insert.ext
+  %123 = icmp eq i16 %.sroa.0876.0.insert.insert, 257
   %or.cond = and i1 %3, %123
   %.not782 = icmp ne i32 %118, 0
   %or.cond850.not = select i1 %or.cond, i1 %.not782, i1 false
@@ -2071,15 +2077,15 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %182 = load i32, ptr %181, align 4
   %183 = fmul contract float %139, 2.000000e+00
   %184 = call contract noundef float @llvm.ceil.f32(float %183)
-  %185 = icmp ugt i32 %..i.i, %..i.i494
-  %186 = icmp ugt i32 %..i.i.c, %..i.i494.c
+  %185 = icmp ule i32 %..i.i, %..i.i494
+  %186 = icmp ule i32 %..i.i.c, %..i.i494.c
   %187 = sub i32 %..i.i494.c, %..i.i.c
   %188 = add i32 %187, 1
   %189 = add i32 %180, %..i.i
   %190 = mul i32 %182, %189
   %191 = fptoui float %184 to i32
-  %or.cond719.not = or i1 %186, %185
-  br i1 %or.cond719.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4all_Ev.exit.thread, label %192
+  %or.cond719 = and i1 %185, %186
+  br i1 %or.cond719, label %192, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4all_Ev.exit.thread
 
 192:                                              ; preds = %.critedge
   %193 = uitofp nneg i32 %..i.i.c to float
@@ -2372,7 +2378,10 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4all_Ev.exit.critedge: ; preds = %18
   %31 = load i32, ptr %30, align 8
   %32 = icmp ugt i32 %24, %21
   %33 = icmp ugt i32 %31, %22
-  %.016.lcssa.i = and i1 %33, %32
+  %.sroa.2879.0.insert.shift = select i1 %33, i16 256, i16 0
+  %.sroa.0878.0.insert.ext = zext i1 %32 to i16
+  %.sroa.0878.0.insert.insert = or disjoint i16 %.sroa.2879.0.insert.shift, %.sroa.0878.0.insert.ext
+  %.016.lcssa.i = icmp eq i16 %.sroa.0878.0.insert.insert, 257
   br label %34
 
 34:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4all_Ev.exit.critedge, %18
@@ -2423,7 +2432,10 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge: ; 
   %60 = fcmp contract oge float %15, 0.000000e+00
   %61 = shl i32 %55, 1
   %62 = add i32 %61, %56
-  %or.cond.not = and i1 %60, %59
+  %.sroa.2883.0.insert.shift = select i1 %60, i16 256, i16 0
+  %.sroa.0882.0.insert.ext = zext i1 %59 to i16
+  %.sroa.0882.0.insert.insert = or disjoint i16 %.sroa.2883.0.insert.shift, %.sroa.0882.0.insert.ext
+  %or.cond.not = icmp eq i16 %.sroa.0882.0.insert.insert, 257
   br i1 %or.cond.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit522.critedge, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit.thread
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit522.critedge: ; preds = %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge
@@ -2431,12 +2443,16 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit522.critedge: ; preds = %
   %64 = uitofp i32 %58 to float
   %65 = fcmp contract olt float %14, %63
   %66 = fcmp contract olt float %15, %64
-  %.016.lcssa.i521 = and i1 %66, %65
-  %67 = freeze i1 %.016.lcssa.i521
+  %.sroa.2885.0.insert.shift = select i1 %66, i16 256, i16 0
+  %.sroa.0884.0.insert.ext = zext i1 %65 to i16
+  %.sroa.0884.0.insert.insert = or disjoint i16 %.sroa.2885.0.insert.shift, %.sroa.0884.0.insert.ext
+  %.sroa.0444.0.copyload.fr = freeze i16 %.sroa.0884.0.insert.insert
+  %67 = and i16 %.sroa.0444.0.copyload.fr, 257
+  %.016.lcssa.i521 = icmp eq i16 %67, 257
   br label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit.thread
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit.thread: ; preds = %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit522.critedge
-  %.fr766 = phi i1 [ %67, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit522.critedge ], [ false, %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge ]
+  %.fr766 = phi i1 [ %.016.lcssa.i521, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit522.critedge ], [ false, %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %69 = load i32, ptr %68, align 4
   %.not758 = icmp eq i32 %69, 0
@@ -2486,13 +2502,13 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4add_ERKS3_.exit.critedge: ; p
   %96 = add i32 %95, 1
   %97 = mul i32 %..i.i.c, %62
   %98 = add i32 %97, %..i.i
-  %99 = icmp ugt i32 %..i.i, %..i.i536
-  %100 = icmp ugt i32 %..i.i.c, %..i.i536.c
+  %99 = icmp ule i32 %..i.i, %..i.i536
+  %100 = icmp ule i32 %..i.i.c, %..i.i536.c
   %101 = sub i32 %..i.i536.c, %..i.i.c
   %102 = add i32 %101, 1
   %103 = mul i32 %98, %74
-  %or.cond700.not = or i1 %100, %99
-  br i1 %or.cond700.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, label %104
+  %or.cond700 = and i1 %99, %100
+  br i1 %or.cond700, label %104, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
 
 104:                                              ; preds = %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4add_ERKS3_.exit.critedge
   %105 = uitofp nneg i32 %..i.i.c to float

@@ -309,7 +309,7 @@ define dso_local noundef ptr @_ZN5clang6interp7Context19getOrCreateFunctionEPKNS
   %9 = load ptr, ptr %8, align 8, !tbaa !53
   %10 = tail call noundef ptr @_ZN5clang6interp7Program11getFunctionEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(328) %9, ptr noundef %7) #15
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %29, label %11
+  br i1 %.not, label %28, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 509
@@ -327,128 +327,126 @@ define dso_local noundef ptr @_ZN5clang6interp7Context19getOrCreateFunctionEPKNS
   %20 = phi i1 [ %18, %15 ], [ true, %11 ]
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 504
   %22 = load i8, ptr %21, align 8, !tbaa !65, !range !101, !noundef !102
-  %23 = trunc nuw i8 %22 to i1
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp ne i32 %25, 3
-  %not. = xor i1 %23, true
-  %27 = select i1 %not., i1 %26, i1 false
-  %28 = xor i1 %14, true
-  %spec.select23 = and i1 %27, %28
-  br label %29
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp ne i32 %24, 3
+  %26 = or i8 %13, %22
+  %27 = icmp eq i8 %26, 0
+  %spec.select23 = select i1 %27, i1 %25, i1 false
+  br label %28
 
-29:                                               ; preds = %19, %2
+28:                                               ; preds = %19, %2
   %.not22 = phi i1 [ true, %2 ], [ %20, %19 ]
-  %30 = phi i1 [ false, %2 ], [ %spec.select23, %19 ]
-  %brmerge = or i1 %.not, %30
+  %29 = phi i1 [ false, %2 ], [ %spec.select23, %19 ]
+  %brmerge = or i1 %.not, %29
   %or.cond = and i1 %brmerge, %.not22
-  br i1 %or.cond, label %31, label %85
+  br i1 %or.cond, label %30, label %84
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 744, ptr nonnull %3) #15
-  %32 = load ptr, ptr %8, align 8, !tbaa !53
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = load ptr, ptr %8, align 8, !tbaa !53
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %32, i8 0, i64 20, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %33, i8 0, i64 20, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %34, i8 0, i64 20, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 0, ptr %35, align 8, !tbaa !114
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  store i8 0, ptr %36, align 4, !tbaa !116
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr %38, ptr %37, align 8, !tbaa !10
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i32 0, ptr %39, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 76
-  store i32 2, ptr %40, align 4, !tbaa !14
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 368
-  store ptr %0, ptr %41, align 8, !tbaa !8
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 376
-  store ptr %32, ptr %42, align 8, !tbaa !53
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 384
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 416
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %44, i8 0, i64 20, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 440
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %45, i8 0, i64 48, i1 false)
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store i32 0, ptr %34, align 8, !tbaa !114
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 60
+  store i8 0, ptr %35, align 4, !tbaa !116
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store ptr %37, ptr %36, align 8, !tbaa !10
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store i32 0, ptr %38, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 76
+  store i32 2, ptr %39, align 4, !tbaa !14
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 368
+  store ptr %0, ptr %40, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 376
+  store ptr %31, ptr %41, align 8, !tbaa !53
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 384
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 416
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %43, i8 0, i64 20, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 440
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %42, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp8CompilerINS0_15ByteCodeEmitterEEE, i64 16), ptr %3, align 8, !tbaa !117
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store ptr %0, ptr %46, align 8, !tbaa !8
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store ptr %32, ptr %47, align 8, !tbaa !53
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 504
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store ptr %0, ptr %45, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store ptr %31, ptr %46, align 8, !tbaa !53
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 504
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %47, i8 0, i64 20, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %48, i8 0, i64 20, i1 false)
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 528
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %49, i8 0, i64 20, i1 false)
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 552
-  store ptr null, ptr %50, align 8, !tbaa !119
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 568
-  store i8 0, ptr %51, align 8, !tbaa !161
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 576
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 592
-  store ptr null, ptr %53, align 8, !tbaa !162
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 600
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 616
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %52, i8 0, i64 11, i1 false)
-  store ptr %55, ptr %54, align 8, !tbaa !10
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 608
-  store i32 0, ptr %56, align 8, !tbaa !13
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 612
-  store i32 3, ptr %57, align 4, !tbaa !14
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 664
-  store i8 0, ptr %58, align 8, !tbaa !163
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 672
-  store i8 0, ptr %59, align 8, !tbaa !164
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 680
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %60, i8 0, i64 20, i1 false)
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 704
-  store ptr null, ptr %61, align 8, !tbaa !165
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 716
-  store i8 0, ptr %62, align 4, !tbaa !166
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 720
-  store ptr null, ptr %63, align 8, !tbaa !167
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 732
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 552
+  store ptr null, ptr %49, align 8, !tbaa !119
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 568
+  store i8 0, ptr %50, align 8, !tbaa !161
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 576
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 592
+  store ptr null, ptr %52, align 8, !tbaa !162
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 600
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 616
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %51, i8 0, i64 11, i1 false)
+  store ptr %54, ptr %53, align 8, !tbaa !10
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 608
+  store i32 0, ptr %55, align 8, !tbaa !13
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 612
+  store i32 3, ptr %56, align 4, !tbaa !14
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 664
+  store i8 0, ptr %57, align 8, !tbaa !163
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 672
+  store i8 0, ptr %58, align 8, !tbaa !164
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 680
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %59, i8 0, i64 20, i1 false)
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 704
+  store ptr null, ptr %60, align 8, !tbaa !165
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 716
+  store i8 0, ptr %61, align 4, !tbaa !166
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 720
+  store ptr null, ptr %62, align 8, !tbaa !167
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 732
+  store i8 0, ptr %63, align 4, !tbaa !166
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 740
   store i8 0, ptr %64, align 4, !tbaa !166
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 740
-  store i8 0, ptr %65, align 4, !tbaa !166
-  %66 = call noundef ptr @_ZN5clang6interp15ByteCodeEmitter11compileFuncEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef %7) #15
+  %65 = call noundef ptr @_ZN5clang6interp15ByteCodeEmitter11compileFuncEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef %7) #15
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp8CompilerINS0_15ByteCodeEmitterEEE, i64 16), ptr %3, align 8, !tbaa !117
-  %67 = load ptr, ptr %60, align 8, !tbaa !168
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 696
-  %69 = load i32, ptr %68, align 8, !tbaa !169
-  %70 = zext i32 %69 to i64
-  %71 = shl nuw nsw i64 %70, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %67, i64 noundef %71, i64 noundef 8) #15
-  %72 = load ptr, ptr %54, align 8, !tbaa !10
-  %73 = icmp eq ptr %72, %55
-  br i1 %73, label %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit, label %74
+  %66 = load ptr, ptr %59, align 8, !tbaa !168
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 696
+  %68 = load i32, ptr %67, align 8, !tbaa !169
+  %69 = zext i32 %68 to i64
+  %70 = shl nuw nsw i64 %69, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %66, i64 noundef %70, i64 noundef 8) #15
+  %71 = load ptr, ptr %53, align 8, !tbaa !10
+  %72 = icmp eq ptr %71, %54
+  br i1 %72, label %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit, label %73
 
-74:                                               ; preds = %31
-  call void @free(ptr noundef %72) #15
+73:                                               ; preds = %30
+  call void @free(ptr noundef %71) #15
   br label %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit
 
-_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %31, %74
-  %75 = load ptr, ptr %49, align 8, !tbaa !170
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 544
-  %77 = load i32, ptr %76, align 8, !tbaa !171
-  %78 = zext i32 %77 to i64
-  %79 = shl nuw nsw i64 %78, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %75, i64 noundef %79, i64 noundef 8) #15
-  %80 = load ptr, ptr %48, align 8, !tbaa !172
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 520
-  %82 = load i32, ptr %81, align 8, !tbaa !173
-  %83 = zext i32 %82 to i64
-  %84 = mul nuw nsw i64 %83, 24
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %80, i64 noundef %84, i64 noundef 8) #15
+_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %30, %73
+  %74 = load ptr, ptr %48, align 8, !tbaa !170
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 544
+  %76 = load i32, ptr %75, align 8, !tbaa !171
+  %77 = zext i32 %76 to i64
+  %78 = shl nuw nsw i64 %77, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %74, i64 noundef %78, i64 noundef 8) #15
+  %79 = load ptr, ptr %47, align 8, !tbaa !172
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 520
+  %81 = load i32, ptr %80, align 8, !tbaa !173
+  %82 = zext i32 %81 to i64
+  %83 = mul nuw nsw i64 %82, 24
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %79, i64 noundef %83, i64 noundef 8) #15
   call void @_ZN5clang6interp15ByteCodeEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %3) #15
   call void @llvm.lifetime.end.p0(i64 744, ptr nonnull %3) #15
-  %.not21 = icmp eq ptr %66, null
-  %spec.select = select i1 %.not21, ptr %10, ptr %66
-  br label %85
+  %.not21 = icmp eq ptr %65, null
+  %spec.select = select i1 %.not21, ptr %10, ptr %65
+  br label %84
 
-85:                                               ; preds = %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit, %29
-  %.0 = phi ptr [ %10, %29 ], [ %spec.select, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit ]
+84:                                               ; preds = %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit, %28
+  %.0 = phi ptr [ %10, %28 ], [ %spec.select, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit ]
   ret ptr %.0
 }
 

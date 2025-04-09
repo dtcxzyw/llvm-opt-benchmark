@@ -92882,129 +92882,129 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internal19
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i8, ptr %15, align 4, !tbaa !1329, !range !279, !noundef !280
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %spec.select.i60 = and i8 %16, %14
-  %spec.select.i = trunc nuw i8 %spec.select.i60 to i1
-  br i1 %spec.select.i, label %18, label %19, !prof !346
+  %18 = and i8 %16, %14
+  %spec.select.i.not = icmp eq i8 %18, 0
+  br i1 %spec.select.i.not, label %20, label %19, !prof !540
 
-18:                                               ; preds = %7
+19:                                               ; preds = %7
   tail call void @_ZN4absl18container_internal15ForcedTrySampleEmmmt(i64 noundef %9, i64 noundef %4, i64 noundef %5, i16 noundef zeroext 1)
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %7
-  %20 = load i64, ptr %1, align 8, !tbaa !1285
-  %21 = add nuw nsw i64 %12, 23
-  %22 = add i64 %21, %20
-  %23 = sub nsw i64 0, %12
-  %24 = and i64 %22, %23
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !1340
-  %27 = mul i64 %20, %9
-  %28 = add i64 %27, %24
-  %29 = tail call noundef ptr %26(ptr noundef %2, i64 noundef %28)
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %33 = load i8, ptr %32, align 1, !tbaa !1326, !range !279, !noundef !280
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %59
+20:                                               ; preds = %19, %7
+  %21 = load i64, ptr %1, align 8, !tbaa !1285
+  %22 = add nuw nsw i64 %12, 23
+  %23 = add i64 %22, %21
+  %24 = sub nsw i64 0, %12
+  %25 = and i64 %23, %24
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %27 = load ptr, ptr %26, align 8, !tbaa !1340
+  %28 = mul i64 %21, %9
+  %29 = add i64 %28, %25
+  %30 = tail call noundef ptr %27(ptr noundef %2, i64 noundef %29)
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %25
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %34 = load i8, ptr %33, align 1, !tbaa !1326, !range !279, !noundef !280
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %60
 
-35:                                               ; preds = %19
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %37 = load i8, ptr %36, align 2, !tbaa !1327, !range !279, !noundef !280
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %45, label %39
+36:                                               ; preds = %20
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %38 = load i8, ptr %37, align 2, !tbaa !1327, !range !279, !noundef !280
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %46, label %40
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %30, ptr %40, align 8, !tbaa !1341
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %31, ptr %41, align 8, !tbaa !29
-  %42 = load i64, ptr %1, align 8, !tbaa !1285
-  %43 = add i64 %42, 16
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %30, i8 -128, i64 %43, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %30, i64 %42
-  store i8 -1, ptr %44, align 1, !tbaa !1330
-  br label %77
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %31, ptr %41, align 8, !tbaa !1341
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %32, ptr %42, align 8, !tbaa !29
+  %43 = load i64, ptr %1, align 8, !tbaa !1285
+  %44 = add i64 %43, 16
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 -128, i64 %44, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %31, i64 %43
+  store i8 -1, ptr %45, align 1, !tbaa !1330
+  br label %78
 
-45:                                               ; preds = %35
-  %.not = icmp ugt i64 %20, 7
-  br i1 %.not, label %58, label %46, !prof !346
+46:                                               ; preds = %36
+  %.not = icmp ugt i64 %21, 7
+  br i1 %.not, label %59, label %47, !prof !346
 
-46:                                               ; preds = %45
-  %47 = load i64, ptr %1, align 8, !tbaa !1285
-  %48 = getelementptr inbounds nuw i8, ptr %30, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i64 -9187201950435737472, ptr %49, align 1
-  %50 = shl i64 %3, 8
-  %51 = and i64 %50, 32512
-  %52 = or disjoint i64 %51, -9187201950435770240
-  store i64 %52, ptr %30, align 1
-  %53 = shl i64 %52, 8
-  %54 = or disjoint i64 %53, 255
-  store i64 %54, ptr %48, align 1
-  %55 = getelementptr inbounds nuw i8, ptr %31, i64 %9
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
-  store ptr %30, ptr %56, align 8, !tbaa !1341
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %31, ptr %57, align 8, !tbaa !29
-  br label %77
+47:                                               ; preds = %46
+  %48 = load i64, ptr %1, align 8, !tbaa !1285
+  %49 = getelementptr inbounds nuw i8, ptr %31, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i64 -9187201950435737472, ptr %50, align 1
+  %51 = shl i64 %3, 8
+  %52 = and i64 %51, 32512
+  %53 = or disjoint i64 %52, -9187201950435770240
+  store i64 %53, ptr %31, align 1
+  %54 = shl i64 %53, 8
+  %55 = or disjoint i64 %54, 255
+  store i64 %55, ptr %49, align 1
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 %9
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
+  store ptr %31, ptr %57, align 8, !tbaa !1341
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %32, ptr %58, align 8, !tbaa !29
+  br label %78
 
-58:                                               ; preds = %45
-  tail call void @_ZN4absl18container_internal19HashSetResizeHelper46InsertOldSooSlotAndInitializeControlBytesLargeERNS0_12CommonFieldsEmPNS0_6ctrl_tEPvRKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %3, ptr noundef nonnull %30, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  br label %77
+59:                                               ; preds = %46
+  tail call void @_ZN4absl18container_internal19HashSetResizeHelper46InsertOldSooSlotAndInitializeControlBytesLargeERNS0_12CommonFieldsEmPNS0_6ctrl_tEPvRKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %3, ptr noundef nonnull %31, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(56) %6)
+  br label %78
 
-59:                                               ; preds = %19
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i = load ptr, ptr %60, align 8
+60:                                               ; preds = %20
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0.0.copyload.i = load ptr, ptr %61, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !29
   store ptr %.sroa.0.0.copyload.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !29
-  store ptr %30, ptr %60, align 8, !tbaa !1341
-  store ptr %31, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !29
-  %61 = load i64, ptr %17, align 8, !tbaa !1323
-  %62 = icmp ult i64 %20, 17
-  %63 = icmp ult i64 %61, %20
-  %64 = and i1 %62, %63
-  br i1 %64, label %65, label %73
+  store ptr %31, ptr %61, align 8, !tbaa !1341
+  store ptr %32, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !29
+  %62 = load i64, ptr %17, align 8, !tbaa !1323
+  %63 = icmp ult i64 %21, 17
+  %64 = icmp ult i64 %62, %21
+  %65 = and i1 %63, %64
+  br i1 %65, label %66, label %74
 
-65:                                               ; preds = %59
+66:                                               ; preds = %60
   tail call void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS0_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9)
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %67 = load ptr, ptr %66, align 8, !tbaa !1342
-  %68 = load i64, ptr %17, align 8, !tbaa !1323
-  %69 = load ptr, ptr %0, align 8, !tbaa !29
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %71 = load i8, ptr %70, align 8, !tbaa !1325, !range !279, !noundef !280
-  %72 = trunc nuw i8 %71 to i1
-  tail call void %67(ptr noundef %2, i64 noundef %68, ptr noundef %69, i64 noundef %9, i64 noundef %12, i1 noundef zeroext %72)
-  br label %77
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %68 = load ptr, ptr %67, align 8, !tbaa !1342
+  %69 = load i64, ptr %17, align 8, !tbaa !1323
+  %70 = load ptr, ptr %0, align 8, !tbaa !29
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %72 = load i8, ptr %71, align 8, !tbaa !1325, !range !279, !noundef !280
+  %73 = trunc nuw i8 %72 to i1
+  tail call void %68(ptr noundef %2, i64 noundef %69, ptr noundef %70, i64 noundef %9, i64 noundef %12, i1 noundef zeroext %73)
+  br label %78
 
-73:                                               ; preds = %59
-  %74 = load i64, ptr %1, align 8, !tbaa !1285
-  %75 = add i64 %74, 16
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %30, i8 -128, i64 %75, i1 false)
-  %76 = getelementptr inbounds nuw i8, ptr %30, i64 %74
-  store i8 -1, ptr %76, align 1, !tbaa !1330
-  br label %77
+74:                                               ; preds = %60
+  %75 = load i64, ptr %1, align 8, !tbaa !1285
+  %76 = add i64 %75, 16
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 -128, i64 %76, i1 false)
+  %77 = getelementptr inbounds nuw i8, ptr %31, i64 %75
+  store i8 -1, ptr %77, align 1, !tbaa !1330
+  br label %78
 
-77:                                               ; preds = %46, %58, %39, %73, %65
-  %.0.shrunk = phi i1 [ true, %46 ], [ true, %58 ], [ true, %39 ], [ true, %65 ], [ false, %73 ]
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !29
-  %80 = getelementptr inbounds i8, ptr %79, i64 -8
-  %81 = load i64, ptr %1, align 8, !tbaa !1285
-  %82 = lshr i64 %81, 3
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %84 = load i64, ptr %83, align 8, !tbaa !1287
-  %85 = lshr i64 %84, 1
-  %86 = add nuw i64 %82, %85
-  %87 = sub i64 %81, %86
-  store i64 %87, ptr %80, align 8, !tbaa !1343
-  %88 = and i64 %84, -2
-  store i64 %88, ptr %83, align 8, !tbaa !1287
+78:                                               ; preds = %47, %59, %40, %74, %66
+  %.0.shrunk = phi i1 [ true, %47 ], [ true, %59 ], [ true, %40 ], [ true, %66 ], [ false, %74 ]
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %80 = load ptr, ptr %79, align 8, !tbaa !29
+  %81 = getelementptr inbounds i8, ptr %80, i64 -8
+  %82 = load i64, ptr %1, align 8, !tbaa !1285
+  %83 = lshr i64 %82, 3
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %85 = load i64, ptr %84, align 8, !tbaa !1287
+  %86 = lshr i64 %85, 1
+  %87 = add nuw i64 %83, %86
+  %88 = sub i64 %82, %87
+  store i64 %88, ptr %81, align 8, !tbaa !1343
+  %89 = and i64 %85, -2
+  store i64 %89, ptr %84, align 8, !tbaa !1287
   ret i1 %.0.shrunk
 }
 
