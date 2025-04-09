@@ -5993,12 +5993,12 @@ define noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef n
   br label %9
 
 9:                                                ; preds = %6, %9
-  %.011 = phi i32 [ 0, %6 ], [ %11, %9 ]
-  %.0810 = phi i1 [ false, %6 ], [ %spec.select, %9 ]
-  %10 = tail call noundef zeroext i1 @_ZN7glslang8TProgram9linkStageE11EShLanguage11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 noundef %.011, i32 noundef %1)
+  %.012 = phi i32 [ 0, %6 ], [ %11, %9 ]
+  %.0811 = phi i1 [ false, %6 ], [ %spec.select, %9 ]
+  %10 = tail call noundef zeroext i1 @_ZN7glslang8TProgram9linkStageE11EShLanguage11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 noundef %.012, i32 noundef %1)
   %not. = xor i1 %10, true
-  %spec.select = select i1 %not., i1 true, i1 %.0810
-  %11 = add nuw nsw i32 %.011, 1
+  %spec.select = select i1 %not., i1 true, i1 %.0811
+  %11 = add nuw nsw i32 %.012, 1
   %exitcond.not = icmp eq i32 %11, 14
   br i1 %exitcond.not, label %12, label %9, !llvm.loop !37
 

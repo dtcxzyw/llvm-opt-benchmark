@@ -1235,14 +1235,14 @@ define hidden void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h3ea
 
 15:                                               ; preds = %13
   %16 = icmp ult i64 %3, 9
-  br i1 %16, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit", label %17
+  br i1 %16, label %20, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8, !noundef !4
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit"
 
-"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit": ; preds = %15, %13, %17
+20:                                               ; preds = %15, %13, %17
   %.0.i = phi i32 [ %19, %17 ], [ 0, %13 ], [ 15, %15 ]
   %20 = add i32 %.0.i, %.0
   store ptr %5, ptr %0, align 8
@@ -1250,11 +1250,11 @@ define hidden void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h3ea
   store i32 %20, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.03, ptr %.sroa.5.0..sroa_idx, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = trunc nuw nsw i64 %6 to i8
-  store i8 %22, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.0, ptr %23, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = trunc nuw nsw i64 %6 to i8
+  store i8 %24, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.0, ptr %25, align 4
   ret void
 }
 

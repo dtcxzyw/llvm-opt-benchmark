@@ -332,13 +332,13 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   br label %.thread136
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge155
-  %72 = phi i64 [ %126, %._crit_edge155 ], [ %58, %.preheader.lr.ph ]
-  %73 = phi ptr [ %127, %._crit_edge155 ], [ %55, %.preheader.lr.ph ]
-  %74 = phi ptr [ %128, %._crit_edge155 ], [ %56, %.preheader.lr.ph ]
-  %75 = phi i32 [ %129, %._crit_edge155 ], [ %70, %.preheader.lr.ph ]
+  %72 = phi i64 [ %136, %._crit_edge155 ], [ %58, %.preheader.lr.ph ]
+  %73 = phi ptr [ %137, %._crit_edge155 ], [ %55, %.preheader.lr.ph ]
+  %74 = phi ptr [ %138, %._crit_edge155 ], [ %56, %.preheader.lr.ph ]
+  %75 = phi i32 [ %139, %._crit_edge155 ], [ %70, %.preheader.lr.ph ]
   %.0101159 = phi i32 [ %.1102.lcssa, %._crit_edge155 ], [ %63, %.preheader.lr.ph ]
   %.0107158 = phi i64 [ %.1108.lcssa, %._crit_edge155 ], [ %61, %.preheader.lr.ph ]
-  %.0116157 = phi i32 [ %131, %._crit_edge155 ], [ 0, %.preheader.lr.ph ]
+  %.0116157 = phi i32 [ %141, %._crit_edge155 ], [ 0, %.preheader.lr.ph ]
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %.lr.ph154, label %._crit_edge155
 
@@ -426,23 +426,23 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   %115 = sub nsw i32 %.8, %.296.ph
   br label %116
 
-116:                                              ; preds = %105, %106, %114
+116:; preds = %105, %106, %114
   %.7114 = phi i64 [ %.3110.ph, %106 ], [ %.8115, %114 ], [ %.3110.ph, %105 ]
   %.7 = phi i32 [ %.3104.ph, %106 ], [ %115, %114 ], [ %.3104.ph, %105 ]
   %.5 = phi i32 [ 32768, %106 ], [ 0, %114 ], [ %.296.ph, %105 ]
-  %117 = getelementptr inbounds nuw [10 x i32], ptr %69, i64 0, i64 %indvars.iv167
-  %118 = load i32, ptr %117, align 4, !tbaa !53
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds [10 x ptr], ptr %68, i64 0, i64 %119
-  %121 = load ptr, ptr %120, align 8, !tbaa !71
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  store ptr %122, ptr %120, align 8, !tbaa !71
-  store i32 %.5, ptr %121, align 4, !tbaa !53
+  %127 = getelementptr inbounds nuw [10 x i32], ptr %69, i64 0, i64 %indvars.iv167
+  %128 = load i32, ptr %127, align 4, !tbaa !53
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds [10 x ptr], ptr %68, i64 0, i64 %129
+  %131 = load ptr, ptr %130, align 8, !tbaa !71
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
+  store ptr %132, ptr %130, align 8, !tbaa !71
+  store i32 %.5, ptr %131, align 4, !tbaa !53
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %123 = load i32, ptr %64, align 8, !tbaa !42
-  %124 = sext i32 %123 to i64
-  %125 = icmp slt i64 %indvars.iv.next168, %124
-  br i1 %125, label %.lr.ph154, label %._crit_edge155.loopexit, !llvm.loop !88
+  %133 = load i32, ptr %64, align 8, !tbaa !42
+  %134 = sext i32 %133 to i64
+  %135 = icmp slt i64 %indvars.iv.next168, %134
+  br i1 %135, label %.lr.ph154, label %._crit_edge155.loopexit, !llvm.loop !88
 
 ._crit_edge155.loopexit:                          ; preds = %116
   %.pre = load ptr, ptr %6, align 8, !tbaa !83
@@ -451,19 +451,19 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   br label %._crit_edge155
 
 ._crit_edge155:                                   ; preds = %._crit_edge155.loopexit, %.preheader
-  %126 = phi i64 [ %72, %.preheader ], [ %.pre172, %._crit_edge155.loopexit ]
-  %127 = phi ptr [ %73, %.preheader ], [ %.pre171, %._crit_edge155.loopexit ]
-  %128 = phi ptr [ %74, %.preheader ], [ %.pre, %._crit_edge155.loopexit ]
-  %129 = phi i32 [ %75, %.preheader ], [ %123, %._crit_edge155.loopexit ]
+  %136 = phi i64 [ %72, %.preheader ], [ %.pre172, %._crit_edge155.loopexit ]
+  %137 = phi ptr [ %73, %.preheader ], [ %.pre171, %._crit_edge155.loopexit ]
+  %138 = phi ptr [ %74, %.preheader ], [ %.pre, %._crit_edge155.loopexit ]
+  %139 = phi i32 [ %75, %.preheader ], [ %133, %._crit_edge155.loopexit ]
   %.1108.lcssa = phi i64 [ %.0107158, %.preheader ], [ %.7114, %._crit_edge155.loopexit ]
   %.1102.lcssa = phi i32 [ %.0101159, %.preheader ], [ %.7, %._crit_edge155.loopexit ]
-  store ptr %128, ptr %127, align 8, !tbaa !81
-  %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store i64 %126, ptr %130, align 8, !tbaa !84
+  store ptr %138, ptr %137, align 8, !tbaa !81
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  store i64 %136, ptr %140, align 8, !tbaa !84
   store i64 %.1108.lcssa, ptr %60, align 8, !tbaa !67
   store i32 %.1102.lcssa, ptr %62, align 8, !tbaa !66
-  %131 = add nuw i32 %.0116157, 1
-  %exitcond170.not = icmp eq i32 %131, %4
+  %141 = add nuw i32 %.0116157, 1
+  %exitcond170.not = icmp eq i32 %141, %4
   br i1 %exitcond170.not, label %.thread136, label %.preheader, !llvm.loop !89
 
 .thread136:                                       ; preds = %._crit_edge155, %80, %99, %109, %52, %.preheader.lr.ph.split.us, %._crit_edge150

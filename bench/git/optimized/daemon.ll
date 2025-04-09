@@ -2949,8 +2949,8 @@ define internal fastcc void @sanitize_client(ptr noundef nonnull %0, ptr noundef
 
 .preheader:                                       ; preds = %5
   %7 = load i64, ptr %3, align 8, !tbaa !23
-  %.not1722 = icmp eq i64 %7, 0
-  br i1 %.not1722, label %.critedge, label %.lr.ph
+  %.not1721 = icmp eq i64 %7, 0
+  br i1 %.not1721, label %.critedge, label %.lr.ph
 
 8:                                                ; preds = %5
   %9 = load i64, ptr %3, align 8, !tbaa !23

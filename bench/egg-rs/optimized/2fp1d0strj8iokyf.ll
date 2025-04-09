@@ -582,48 +582,48 @@ define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13
   %12 = or disjoint i32 %11, 128
   br i1 %9, label %18, label %21
 
-13:                                               ; preds = %6
+13:; preds = %6
   %14 = lshr i32 %1, 6
   %15 = or disjoint i32 %14, 192
   %16 = and i32 %1, 63
   %17 = or disjoint i32 %16, 128
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2a359a226381e8b3E.llvm.6823518425481094615.exit"
 
-18:                                               ; preds = %8
+15:                                               ; preds = %8
   %19 = and i32 %1, 63
   %20 = or disjoint i32 %19, 128
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2a359a226381e8b3E.llvm.6823518425481094615.exit"
 
-21:                                               ; preds = %8
+23:                                               ; preds = %8
   %22 = shl i32 %1, 24
-  %23 = and i32 %22, 1056964608
-  %24 = or disjoint i32 %23, -2147483648
+  %25 = and i32 %22, 1056964608
+  %26 = or disjoint i32 %25, -2147483648
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2a359a226381e8b3E.llvm.6823518425481094615.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2a359a226381e8b3E.llvm.6823518425481094615.exit": ; preds = %4, %21, %18, %13
-  %.sroa.13.0 = phi i32 [ 0, %13 ], [ 0, %18 ], [ %24, %21 ], [ 0, %4 ]
-  %.sroa.11.0 = phi i32 [ 0, %13 ], [ %20, %18 ], [ %12, %21 ], [ 0, %4 ]
-  %.sroa.8.0 = phi i32 [ %17, %13 ], [ %12, %18 ], [ 128, %21 ], [ 0, %4 ]
-  %.sroa.0.0 = phi i32 [ %15, %13 ], [ 224, %18 ], [ 240, %21 ], [ %1, %4 ]
-  %25 = phi i8 [ 2, %13 ], [ 3, %18 ], [ 4, %21 ], [ 1, %4 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2a359a226381e8b3E.llvm.6823518425481094615.exit": ; preds = %4, %23, %15, %13
+  %.sroa.13.0 = phi i32 [ 0, %13 ], [ 0, %15 ], [ %24, %23 ], [ 0, %4 ]
+  %.sroa.11.0 = phi i32 [ 0, %13 ], [ %20, %15 ], [ %12, %23 ], [ 0, %4 ]
+  %.sroa.8.0 = phi i32 [ %17, %13 ], [ %12, %15 ], [ 128, %23 ], [ 0, %4 ]
+  %.sroa.0.0 = phi i32 [ %15, %13 ], [ 224, %15 ], [ 240, %23 ], [ %1, %4 ]
+  %36 = phi i8 [ 2, %13 ], [ 3, %15 ], [ 4, %23 ], [ 1, %4 ]
   %.sroa.11.0.insert.shift = shl nuw nsw i32 %.sroa.11.0, 16
   %.sroa.11.0.insert.insert = or i32 %.sroa.13.0, %.sroa.11.0.insert.shift
   %.sroa.8.0.insert.shift = shl nuw nsw i32 %.sroa.8.0, 8
   %.sroa.8.0.insert.insert = or i32 %.sroa.11.0.insert.insert, %.sroa.8.0.insert.shift
   %.sroa.0.0.insert.insert = or i32 %.sroa.8.0.insert.insert, %.sroa.0.0
   store ptr %2, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %3, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %3, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %1, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %25, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sroa.0.0.insert.insert, ptr %31, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %3, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %3, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %1, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 %36, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %.sroa.0.0.insert.insert, ptr %42, align 8
   ret void
 }
 

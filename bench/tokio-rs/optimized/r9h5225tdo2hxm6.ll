@@ -3664,7 +3664,7 @@ _ZN5tokio7runtime9thread_id8ThreadId4next17h8ffabff2ed186df3E.exit.i.i: ; preds 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @_ZN5tokio7runtime7context19set_current_task_id17h3b9ed7880b23a815E(i64 noundef %0, i64 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE, align 1, !noalias !426, !noundef !10
-  switch i8 %3, label %7 [
+  switch i8 %3, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f587b64c3217e8bE.llvm.11424388141523703806.exit" [
     i8 0, label %4
     i8 1, label %5
   ]
@@ -3678,14 +3678,14 @@ define hidden { i64, i64 } @_ZN5tokio7runtime7context19set_current_task_id17h3b9
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 40), align 8, !noalias !426
   store i64 %0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 32), align 8, !noalias !426
   store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 40), align 8, !noalias !426
-  br label %7
+  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f587b64c3217e8bE.llvm.11424388141523703806.exit"
 
-7:                                                ; preds = %2, %5
-  %8 = phi i64 [ %6, %5 ], [ undef, %2 ]
-  %9 = phi i64 [ 2, %5 ], [ 0, %2 ]
-  %10 = insertvalue { i64, i64 } poison, i64 %9, 0
-  %11 = insertvalue { i64, i64 } %10, i64 %8, 1
-  ret { i64, i64 } %11
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f587b64c3217e8bE.llvm.11424388141523703806.exit": ; preds = %2, %5
+  %.sroa.3.0.i = phi i64 [ %6, %5 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 2, %5 ], [ 0, %2 ]
+  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %11 = insertvalue { i64, i64 } %10, i64 %.sroa.3.0.i, 1
+  ret { i64, i65 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3747,7 +3747,7 @@ define hidden void @_ZN5tokio7runtime4coop3set17hb7f01af0012abaa0E(i1 noundef ze
 ; Function Attrs: nonlazybind uwtable
 define { i8, i8 } @_ZN5tokio7runtime4coop4stop17habafc357e565a6a7E() unnamed_addr #5 personality ptr @rust_eh_personality {
   %1 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE, align 1, !noalias !440, !noundef !10
-  switch i8 %1, label %4 [
+  switch i8 %1, label %5 [
     i8 0, label %2
     i8 1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfad8171f0259d39aE.llvm.11424388141523703806.exit"
   ]
@@ -3760,10 +3760,10 @@ define { i8, i8 } @_ZN5tokio7runtime4coop4stop17habafc357e565a6a7E() unnamed_add
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfad8171f0259d39aE.llvm.11424388141523703806.exit": ; preds = %0, %2
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 77), align 1, !noalias !440
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 76), align 4, !noalias !440
-  br label %4
+  br label %5
 
-4:                                                ; preds = %0, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfad8171f0259d39aE.llvm.11424388141523703806.exit"
-  %5 = phi i8 [ %3, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfad8171f0259d39aE.llvm.11424388141523703806.exit" ], [ undef, %0 ]
+5:                                                ; preds = %0, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfad8171f0259d39aE.llvm.11424388141523703806.exit"
+  %6 = phi i8 [ %3, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfad8171f0259d39aE.llvm.11424388141523703806.exit" ], [ undef, %0 ]
   %6 = insertvalue { i8, i8 } { i8 0, i8 poison }, i8 %5, 1
   ret { i8, i8 } %6
 }

@@ -331,7 +331,7 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope6prefix17h0716dd12a0758169
 
 20:                                               ; preds = %3
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %29
+  br label %31
 
 21:                                               ; preds = %3
   %22 = load i64, ptr %9, align 8
@@ -350,17 +350,17 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope6prefix17h0716dd12a0758169
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %34, label %30
 
-29:                                               ; preds = %35, %34, %20
+31:                                               ; preds = %35, %34, %20
   ret void
 
-30:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11190927024b44d9E.exit"
+32:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11190927024b44d9E.exit"
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %35
 
-34:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11190927024b44d9E.exit", %30
-  %.pn = phi ptr [ %1, %30 ], [ %2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11190927024b44d9E.exit" ]
+34:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11190927024b44d9E.exit", %32
+  %.sroa.08.0 = phi ptr [ %1, %32 ], [ %2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11190927024b44d9E.exit" ]
   %.sroa.4.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 28
   %.sroa.4.0 = load i32, ptr %.sroa.4.0.in, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -368,12 +368,12 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope6prefix17h0716dd12a0758169
   store i32 %27, ptr %.sroa.26.0..sroa_idx, align 8
   %.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.4.0, ptr %.sroa.37.0..sroa_idx, align 4
-  br label %29
+  br label %31
 
-35:                                               ; preds = %30
+35:                                               ; preds = %32
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr56drop_in_place$LT$logos_codegen..graph..rope..Pattern$GT$17h695bea186d767e7aE"(ptr nonnull align 8 %4)
-  br label %29
+  br label %31
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -7054,8 +7054,8 @@ define hidden noundef ptr @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io.
   %.not = icmp ugt i64 %7, %14
   br i1 %.not, label %16, label %32
 
-15:                                               ; preds = %_ZN3std2io4Read8read_buf17h001763ae1b8bad81E.exit56, %49, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h533491fc70b5a692E.exit57", %_ZN3std2io4Read8read_buf17h001763ae1b8bad81E.exit, %3
-  %.046 = phi ptr [ null, %3 ], [ %29, %_ZN3std2io4Read8read_buf17h001763ae1b8bad81E.exit ], [ null, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h533491fc70b5a692E.exit57" ], [ null, %49 ], [ %47, %_ZN3std2io4Read8read_buf17h001763ae1b8bad81E.exit56 ]
+.sink.split:                                      ; preds = %_ZN3std2io4Read8read_buf17h001763ae1b8bad81E.exit56, %49, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h533491fc70b5a692E.exit57", %_ZN3std2io4Read8read_buf17h001763ae1b8bad81E.exit, %3
+  %.sink = phi ptr [ null, %3 ], [ %29, %_ZN3std2io4Read8read_buf17h001763ae1b8bad81E.exit ], [ null, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h533491fc70b5a692E.exit57" ], [ null, %49 ], [ %47, %_ZN3std2io4Read8read_buf17h001763ae1b8bad81E.exit56 ]
   ret ptr %.046
 
 16:                                               ; preds = %9
@@ -9556,7 +9556,7 @@ _ZN4core3str7pattern14TwoWaySearcher9next_back17hb22b869579dabd1dE.exit: ; preds
   br i1 %164, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit.thread", label %.lr.ph
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit.thread": ; preds = %.backedge.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit", %157, %162, %87, %.loopexit
-  %.015.lcssa = phi i64 [ 0, %.loopexit ], [ 0, %87 ], [ 0, %162 ], [ %94, %157 ], [ %.01559, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit" ], [ 0, %.backedge.i ]
+  %165 = phi i64 [ 0, %.loopexit ], [ 0, %87 ], [ 0, %162 ], [ %94, %157 ], [ %.01559, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit" ], [ 0, %.backedge.i ]
   store i64 0, ptr %9, align 8
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.015.lcssa, ptr %165, align 8

@@ -157,7 +157,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
 
 ._crit_edge:                                      ; preds = %50
   %.pre = load ptr, ptr %46, align 8, !tbaa !25
-  %.pre78 = load ptr, ptr %48, align 8, !tbaa !21
+  %.pre80 = load ptr, ptr %48, align 8, !tbaa !21
   br label %55
 
 53:                                               ; preds = %50
@@ -166,7 +166,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   br label %55
 
 55:                                               ; preds = %._crit_edge, %53
-  %56 = phi ptr [ %.pre78, %._crit_edge ], [ %54, %53 ]
+  %56 = phi ptr [ %.pre80, %._crit_edge ], [ %54, %53 ]
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %54, %53 ]
   %58 = zext i32 %51 to i64
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
@@ -228,7 +228,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   %or.cond = select i1 %.not66, i1 true, i1 %.not67
   br i1 %or.cond, label %.critedge70, label %85, !llvm.loop !26
 
-.critedge70:                                      ; preds = %37, %85, %55, %74, %21, %80, %9, %3
+89:                                               ; preds = %37, %85, %55, %74, %21, %80, %9, %3
   ret i64 0
 }
 

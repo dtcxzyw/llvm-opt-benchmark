@@ -1730,14 +1730,14 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor22AllocateBufferIfNeededEv.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
-  %34 = sext i32 %.pre to i64
-  %35 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #21
-  store ptr %35, ptr %32, align 8, !tbaa !53
+  %35 = sext i32 %.pre to i64
+  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #21
+  store ptr %36, ptr %32, align 8, !tbaa !53
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor22AllocateBufferIfNeededEv.exit
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor22AllocateBufferIfNeededEv.exit: ; preds = %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i
-  %36 = phi ptr [ %33, %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit ], [ %35, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i ]
-  store ptr %36, ptr %1, align 8, !tbaa !18
+  %37 = phi ptr [ %33, %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit ], [ %36, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i ]
+  store ptr %37, ptr %1, align 8, !tbaa !18
   store i32 %.pre, ptr %2, align 4, !tbaa !17
   %37 = load i32, ptr %6, align 8, !tbaa !60
   store i32 %37, ptr %4, align 4, !tbaa !61

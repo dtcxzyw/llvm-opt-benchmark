@@ -787,11 +787,11 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   br i1 %or.cond6.not.i, label %145, label %140
 
 140:                                              ; preds = %139, %.thread.i
-  %.1108149.i = phi i32 [ %135, %.thread.i ], [ 1, %139 ]
+  %.1108150.i = phi i32 [ %135, %.thread.i ], [ 1, %139 ]
   %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
   %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %143 = load i64, ptr %95, align 8, !tbaa !140
-  %144 = call i32 %141(ptr noundef %142, i64 noundef %143, i64 noundef %113, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %16, i32 noundef %.1108149.i) #17
+  %144 = call i32 %141(ptr noundef %142, i64 noundef %143, i64 noundef %113, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %16, i32 noundef %.1108150.i) #17
   br label %145
 
 145:                                              ; preds = %140, %139
@@ -841,9 +841,9 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141360), align 8, !tbaa !223
   %172 = call ptr %171() #17
   %.not128.not.i = icmp eq ptr %172, null
-  br i1 %.not128.not.i, label %.thread150.i, label %173
+  br i1 %.not128.not.i, label %.thread151.i, label %173
 
-.thread150.i:                                     ; preds = %170
+.thread151.i:                                     ; preds = %170
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65541, ptr noundef nonnull @.str.36) #17
   br label %createNativeWindow.exit.thread
 
@@ -860,9 +860,9 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141352), align 8, !tbaa !228
   %182 = call ptr %181() #17
   %.not129.not.i = icmp eq ptr %182, null
-  br i1 %.not129.not.i, label %.thread151.i, label %183
+  br i1 %.not129.not.i, label %.thread152.i, label %183
 
-.thread151.i:                                     ; preds = %173
+.thread152.i:                                     ; preds = %173
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65541, ptr noundef nonnull @.str.37) #17
   br label %createNativeWindow.exit.thread
 
@@ -899,11 +899,11 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %197 = load i32, ptr %196, align 4, !tbaa !196
   %.not132.i = icmp eq i32 %197, -2147483648
-  %.pre154.i = load i64, ptr %182, align 8, !tbaa !230
+  %.pre155.i = load i64, ptr %182, align 8, !tbaa !230
   br i1 %.not132.i, label %202, label %198
 
 198:                                              ; preds = %195
-  %199 = or i64 %.pre154.i, 4
+  %199 = or i64 %.pre155.i, 4
   %200 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i32 0, ptr %200, align 8, !tbaa !236
   %201 = getelementptr inbounds nuw i8, ptr %182, i64 12
@@ -911,7 +911,7 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   br label %202
 
 202:                                              ; preds = %198, %195, %._crit_edge.i
-  %203 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %199, %198 ], [ %.pre154.i, %195 ]
+  %203 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %199, %198 ], [ %.pre155.i, %195 ]
   %204 = or i64 %203, 512
   store i64 %204, ptr %182, align 8, !tbaa !230
   %205 = getelementptr inbounds nuw i8, ptr %182, i64 72
@@ -954,7 +954,7 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
 221:                                              ; preds = %220
   store ptr %219, ptr %212, align 8, !tbaa !241
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre155.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !244
+  %.pre156.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !244
   br label %227
 
 222:                                              ; preds = %220, %218
@@ -973,7 +973,7 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   br label %227
 
 227:                                              ; preds = %226, %225, %221
-  %228 = phi ptr [ %224, %225 ], [ %224, %226 ], [ %.pre155.i, %221 ]
+  %228 = phi ptr [ %224, %225 ], [ %224, %226 ], [ %.pre156.i, %221 ]
   %char0141.i = load i8, ptr %228, align 1
   %.not142.i = icmp eq i8 %char0141.i, 0
   %229 = getelementptr inbounds nuw i8, ptr %212, i64 8
@@ -1016,8 +1016,8 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   %249 = call ptr (ptr, ...) %247(ptr noundef nonnull %244, ptr noundef nonnull @.str, i64 noundef 1032, ptr noundef nonnull @.str.1, i64 noundef %248, ptr noundef nonnull @.str.2, i64 noundef %248, ptr noundef nonnull @.str.3, ptr noundef nonnull %11, ptr noundef null) #17
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   store ptr %249, ptr %250, align 8, !tbaa !174
-  %.not.i144.i = icmp eq ptr %249, null
-  br i1 %.not.i144.i, label %_glfwCreateInputContextX11.exit.i, label %251
+  %.not.i145.i = icmp eq ptr %249, null
+  br i1 %.not.i145.i, label %_glfwCreateInputContextX11.exit.i, label %251
 
 251:                                              ; preds = %245
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %12) #17
@@ -1053,7 +1053,7 @@ _glfwCreateInputContextX11.exit.i:                ; preds = %269, %245
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #17
   br label %270
 
-createNativeWindow.exit.thread:                   ; preds = %97, %.thread150.i, %.thread151.i
+createNativeWindow.exit.thread:                   ; preds = %97, %.thread151.i, %.thread152.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15) #17
   br label %363
 

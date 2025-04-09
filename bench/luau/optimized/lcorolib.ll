@@ -64,7 +64,7 @@ define internal noundef i32 @_ZL9coresumeyP9lua_State(ptr noundef %0) #0 {
   %14 = add nsw i32 %13, -1
   %15 = tail call fastcc noundef i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %14)
   %16 = icmp eq i32 %15, -2
-  br i1 %16, label %17, label %_ZL14coresumefinishP9lua_Statei.exit
+  br i1 %16, label %17, label %24
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -82,17 +82,17 @@ _ZL15interruptThreadP9lua_StateS0_.exit:          ; preds = %17, %22
   %23 = tail call noundef i32 @_Z9lua_breakP9lua_State(ptr noundef nonnull %0)
   br label %25
 
-_ZL14coresumefinishP9lua_Statei.exit:             ; preds = %4
-  %24 = icmp sgt i32 %15, -1
-  %. = zext i1 %24 to i32
+24:                                               ; preds = %4
+  %25 = icmp sgt i32 %15, -1
+  %. = zext i1 %25 to i32
   %.15 = select i1 %24, i32 -1, i32 -2
   %.16 = select i1 %24, i32 1, i32 2
   tail call void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef nonnull %0, i32 noundef %.)
   tail call void @_Z10lua_insertP9lua_Statei(ptr noundef nonnull %0, i32 noundef %.15)
   br label %25
 
-25:                                               ; preds = %_ZL14coresumefinishP9lua_Statei.exit, %_ZL15interruptThreadP9lua_StateS0_.exit
-  %.0 = phi i32 [ %23, %_ZL15interruptThreadP9lua_StateS0_.exit ], [ %.16, %_ZL14coresumefinishP9lua_Statei.exit ]
+25: ; preds = %24, %_ZL15interruptThreadP9lua_StateS0_.exit
+  %.0 = phi i32 [ %23, %_ZL15interruptThreadP9lua_StateS0_.exit ], [ %.16, %24 ]
   ret i32 %.0
 }
 

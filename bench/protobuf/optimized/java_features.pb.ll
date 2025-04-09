@@ -447,8 +447,8 @@ if.then7:                                         ; preds = %entry
   %mul.i.i.i = mul nuw nsw i64 %sub.i.i.i, 9
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 73
   %div1.i.i.i = lshr i64 %add.i.i.i, 6
-  %6 = or disjoint i32 %2, 1
-  %add10 = zext nneg i32 %6 to i64
+  %add10 = or disjoint i32 %2, 1
+  %add10 = zext nneg i32 %add10 to i64
   %add11 = add nuw nsw i64 %div1.i.i.i, %add10
   br label %if.end13
 

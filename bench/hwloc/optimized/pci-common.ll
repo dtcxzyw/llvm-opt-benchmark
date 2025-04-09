@@ -1534,14 +1534,14 @@ define noundef range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr noundef readonl
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.015.in24 = load i8, ptr %8, align 1, !tbaa !35
-  %.01525 = and i8 %.015.in24, -4
-  %.not1726 = icmp eq i8 %.01525, 0
-  br i1 %.not1726, label %.thread, label %.lr.ph
+  %.015.in25 = load i8, ptr %8, align 1, !tbaa !35
+  %.01526 = and i8 %.015.in25, -4
+  %.not1727 = icmp eq i8 %.01526, 0
+  br i1 %.not1727, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %18
-  %.01527 = phi i8 [ %.015, %18 ], [ %.01525, %7 ]
-  %9 = zext i8 %.01527 to i64
+  %.01528 = phi i8 [ %.015, %18 ], [ %.01526, %7 ]
+  %9 = zext i8 %.01528 to i64
   %10 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %9
   %11 = load i8, ptr %10, align 4, !tbaa !35
   %.not18 = icmp eq i8 %11, 0

@@ -10049,8 +10049,8 @@ entry:
   %ref.tmp = alloca %"struct.re2::hooks::DFASearchFailure", align 1
   store i8 0, ptr %failed, align 1
   %cmp = icmp eq ptr %context.coerce0, null
-  %spec.select44 = select i1 %cmp, ptr %text.coerce0, ptr %context.coerce0
-  %spec.select45 = select i1 %cmp, i64 %text.coerce1, i64 %context.coerce1
+  %spec.select45 = select i1 %cmp, ptr %text.coerce0, ptr %context.coerce0
+  %spec.select46 = select i1 %cmp, i64 %text.coerce1, i64 %context.coerce1
   %0 = load i8, ptr %this, align 8
   %tobool.i = trunc i8 %0 to i1
   %anchor_end_.i = getelementptr inbounds nuw i8, ptr %this, i64 1
@@ -10061,18 +10061,18 @@ entry:
   %tobool = trunc i8 %2 to i1
   %caret.0 = select i1 %tobool, i8 %1, i8 %0
   %tobool7 = trunc i8 %caret.0 to i1
-  %cmp11.not = icmp ne ptr %spec.select44, %text.coerce0
+  %cmp11.not = icmp ne ptr %spec.select45, %text.coerce0
   %or.cond.not = select i1 %tobool7, i1 %cmp11.not, i1 false
   br i1 %or.cond.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %entry
   %dollar.0.v = select i1 %tobool, i8 %0, i8 %1
   %tobool14 = trunc i8 %dollar.0.v to i1
-  %add.ptr.i = getelementptr inbounds i8, ptr %spec.select44, i64 %spec.select45
+  %add.ptr.i = getelementptr inbounds i8, ptr %spec.select45, i64 %spec.select46
   %add.ptr.i16 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
   %cmp20.not = icmp ne ptr %add.ptr.i, %add.ptr.i16
-  %or.cond46.not = select i1 %tobool14, i1 %cmp20.not, i1 false
-  br i1 %or.cond46.not, label %return, label %if.end22
+  %or.cond47.not = select i1 %tobool14, i1 %cmp20.not, i1 false
+  br i1 %or.cond47.not, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end13
   %cmp23 = icmp eq i32 %anchor, 1
@@ -10093,19 +10093,19 @@ lor.end:                                          ; preds = %lor.lhs.false, %if.
 lor.lhs.false30:                                  ; preds = %lor.end
   br i1 %tobool.i15, label %if.end46, label %if.then36
 
-if.then36:                                        ; preds = %lor.end, %lor.lhs.false30
+if.then32:                                        ; preds = %lor.end, %lor.lhs.false30
   %cmp37 = icmp eq ptr %matches, null
   br label %if.end46
 
-if.end46:                                         ; preds = %lor.lhs.false30, %lor.end, %if.then36
-  %endmatch.042 = phi i1 [ false, %if.then36 ], [ true, %lor.end ], [ true, %lor.lhs.false30 ]
-  %want_earliest_match.0 = phi i1 [ %cmp37, %if.then36 ], [ false, %lor.end ], [ false, %lor.lhs.false30 ]
+if.else40:                                        ; preds = %lor.lhs.false30, %lor.end, %if.then36
+  %endmatch.0.ph = phi i1 [ false, %if.then36 ], [ true, %lor.end ], [ true, %lor.lhs.false30 ]
+  %kind.addr.0.ph = phi i1 [ %cmp37, %if.then36 ], [ false, %lor.end ], [ false, %lor.lhs.false30 ]
   %kind.addr.1 = phi i32 [ 3, %if.then36 ], [ 1, %lor.end ], [ 1, %lor.lhs.false30 ]
   %call47 = tail call noundef ptr @_ZN3re24Prog6GetDFAENS0_9MatchKindE(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %kind.addr.1)
   %4 = load i8, ptr %reversed_, align 2
   %tobool53 = trunc i8 %4 to i1
   %lnot = xor i1 %tobool53, true
-  %call54 = call noundef zeroext i1 @_ZN3re23DFA6SearchEN4absl7debian211string_viewES3_bbbPbPPKcPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(184) %call47, ptr %text.coerce0, i64 %text.coerce1, ptr %spec.select44, i64 %spec.select45, i1 noundef zeroext %3, i1 noundef zeroext %want_earliest_match.0, i1 noundef zeroext %lnot, ptr noundef nonnull %failed, ptr noundef nonnull %ep, ptr noundef %matches)
+  %call54 = call noundef zeroext i1 @_ZN3re23DFA6SearchEN4absl7debian211string_viewES3_bbbPbPPKcPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(184) %call47, ptr %text.coerce0, i64 %text.coerce1, ptr %spec.select45, i64 %spec.select46, i1 noundef zeroext %3, i1 noundef zeroext %want_earliest_match.0, i1 noundef zeroext %lnot, ptr noundef nonnull %failed, ptr noundef nonnull %ep, ptr noundef %matches)
   %5 = load i8, ptr %failed, align 1
   %tobool56 = trunc i8 %5 to i1
   br i1 %tobool56, label %if.then57, label %if.end59
@@ -10125,9 +10125,9 @@ land.lhs.true64:                                  ; preds = %if.end62
   %6 = load ptr, ptr %ep, align 8
   %7 = load i8, ptr %reversed_, align 2
   %tobool66 = trunc i8 %7 to i1
-  %spec.select47.idx = select i1 %tobool66, i64 0, i64 %text.coerce1
-  %spec.select47 = getelementptr inbounds i8, ptr %text.coerce0, i64 %spec.select47.idx
-  %cmp70.not = icmp eq ptr %6, %spec.select47
+  %spec.select48.idx = select i1 %tobool66, i64 0, i64 %text.coerce1
+  %spec.select48 = getelementptr inbounds i8, ptr %text.coerce0, i64 %spec.select48.idx
+  %cmp70.not = icmp eq ptr %6, %spec.select48
   br i1 %cmp70.not, label %if.end72, label %return
 
 if.end72:                                         ; preds = %land.lhs.true64, %if.end62

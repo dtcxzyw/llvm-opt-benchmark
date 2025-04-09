@@ -891,7 +891,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %92 = lshr i64 %87, 6
   %93 = getelementptr inbounds nuw i64, ptr %83, i64 %92
   %94 = icmp samesign ult i64 %91, %90
-  br i1 %94, label %95, label %.preheader134
+  br i1 %94, label %95, label %.preheader135
 
 95:                                               ; preds = %81
   %96 = load i64, ptr %93, align 8, !tbaa !51
@@ -899,19 +899,19 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %98 = and i64 %87, 63
   %99 = shl nsw i64 -1, %98
   %100 = and i64 %99, %97
-  br label %.preheader134
+  br label %.preheader135
 
-.preheader134:                                    ; preds = %95, %81
-  %.ph135 = phi i64 [ 0, %81 ], [ %100, %95 ]
+.preheader135:                                    ; preds = %95, %81
+  %.ph136 = phi i64 [ 0, %81 ], [ %100, %95 ]
   br label %101
 
-101:                                              ; preds = %.preheader134, %167
-  %102 = phi i64 [ %164, %167 ], [ %91, %.preheader134 ]
-  %103 = phi ptr [ %163, %167 ], [ %93, %.preheader134 ]
-  %104 = phi i64 [ %162, %167 ], [ %84, %.preheader134 ]
-  %105 = phi i64 [ %168, %167 ], [ -1, %.preheader134 ]
-  %106 = phi i64 [ %169, %167 ], [ 0, %.preheader134 ]
-  %107 = phi i64 [ %161, %167 ], [ %.ph135, %.preheader134 ]
+101:                                              ; preds = %.preheader135, %167
+  %102 = phi i64 [ %164, %167 ], [ %91, %.preheader135 ]
+  %103 = phi ptr [ %163, %167 ], [ %93, %.preheader135 ]
+  %104 = phi i64 [ %162, %167 ], [ %84, %.preheader135 ]
+  %105 = phi i64 [ %168, %167 ], [ -1, %.preheader135 ]
+  %106 = phi i64 [ %169, %167 ], [ 0, %.preheader135 ]
+  %107 = phi i64 [ %161, %167 ], [ %.ph136, %.preheader135 ]
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %.preheader30, label %119
 

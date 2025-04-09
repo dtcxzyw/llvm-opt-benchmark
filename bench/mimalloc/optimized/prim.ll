@@ -493,9 +493,9 @@ define hidden noundef range(i64 1, 4294967296) i64 @_mi_prim_numa_node_count() l
   %6 = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %1, i32 noundef 4) #10
   %7 = and i64 %6, 4294967295
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %2, label %._crit_edge, !llvm.loop !23
+  br i1 %.not, label %2, label %split, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %2, %3
+split:                                            ; preds = %2, %3
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #11
   ret i64 257
 }

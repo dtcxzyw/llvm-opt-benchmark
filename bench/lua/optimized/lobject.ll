@@ -113,19 +113,19 @@ define hidden range(i64 -72057594037927936, 2233785415175765986) i64 @luaO_apply
   %6 = icmp slt i64 %1, 297528130221121800
   br i1 %6, label %7, label %11
 
-7:                                                ; preds = %2
-  %8 = zext nneg i32 %spec.select to i64
-  %9 = mul nsw i64 %1, %8
+9:                                                ; preds = %2
+  %10 = zext nneg i32 %spec.select to i64
+  %9 = mul nsw i64 %1, %10
   %10 = ashr i64 %9, %spec.select31
   br label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %12 = lshr i64 %1, %spec.select31
   %13 = zext nneg i32 %spec.select to i64
   %14 = mul nuw nsw i64 %12, %13
   br label %15
 
-15:                                               ; preds = %11, %7
+17:                                               ; preds = %11, %7
   %.024 = phi i64 [ %10, %7 ], [ %14, %11 ]
   ret i64 %.024
 }

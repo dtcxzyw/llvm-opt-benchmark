@@ -8412,19 +8412,19 @@ simd_desc.exit:                                   ; preds = %172, %174
   tail call void @tcg_temp_free_ptr(ptr noundef %169) #10
   tail call void @tcg_temp_free_ptr(ptr noundef %170) #10
   tail call void @tcg_temp_free_i32(ptr noundef %171) #10
-  br label %195
+  br label %198
 
 expand_2sh_vec.exit159:                           ; preds = %.lr.ph.i161, %.lr.ph.i157, %expand_2sh_vec.exit, %49, %62, %expand_2s_vec.exit170, %expand_2s_i32.exit, %expand_2s_i64.exit
   %.2142 = phi i32 [ %.4144, %expand_2s_vec.exit170 ], [ %5, %expand_2s_i32.exit ], [ %5, %expand_2s_i64.exit ], [ %5, %expand_2sh_vec.exit ], [ %.0140, %49 ], [ %5, %62 ], [ %.0140, %.lr.ph.i157 ], [ %5, %.lr.ph.i161 ]
   %.2 = phi i32 [ %.4, %expand_2s_vec.exit170 ], [ %1, %expand_2s_i32.exit ], [ %1, %expand_2s_i64.exit ], [ %1, %expand_2sh_vec.exit ], [ %.0, %49 ], [ %1, %62 ], [ %.0, %.lr.ph.i157 ], [ %1, %.lr.ph.i161 ]
-  %.not = icmp eq i32 %.2142, 0
-  br i1 %.not, label %195, label %194
+  %194 = icmp eq i32 %.2142, 0
+  br i1 %194, label %195, label %194
 
-194:                                              ; preds = %expand_2sh_vec.exit159
+195:                                              ; preds = %expand_2sh_vec.exit159
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %.2, i32 noundef %.2142, i32 noundef %.2142, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %195
 
-195:                                              ; preds = %expand_2sh_vec.exit159, %194, %simd_desc.exit
+198:                                              ; preds = %expand_2sh_vec.exit159, %195, %simd_desc.exit
   ret void
 }
 

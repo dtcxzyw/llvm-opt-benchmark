@@ -3098,7 +3098,7 @@ define void @_ZN5folly6detail29insertThousandsGroupingUnsafeEPcPS1_(ptr noundef 
 
 17:                                               ; preds = %18
   %.not = icmp eq i32 %.140, 0
-  br i1 %.not, label %31, label %27
+  br i1 %.not, label %32, label %27
 
 18:                                               ; preds = %16, %18
   %.041 = phi i32 [ 0, %16 ], [ %26, %18 ]
@@ -3123,7 +3123,7 @@ define void @_ZN5folly6detail29insertThousandsGroupingUnsafeEPcPS1_(ptr noundef 
   %30 = sub i32 %.03842, %.sroa.speculated
   br label %16, !llvm.loop !150
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   ret void
 }
 

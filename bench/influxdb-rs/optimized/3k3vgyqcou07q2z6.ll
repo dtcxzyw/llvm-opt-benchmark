@@ -4303,18 +4303,18 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$parquet..schema..types..Ba
 .thread14:                                        ; preds = %41, %54, %64, %74, %31, %33
   %80 = load i32, ptr %0, align 8, !range !786, !noundef !5
   %trunc = trunc nuw i32 %80 to i1
-  br i1 %trunc, label %81, label %.critedge
+  br i1 %trunc, label %82, label %.critedge
 
 .critedge:                                        ; preds = %.thread14, %68, %58, %48, %42, %39, %2, %54, %64, %74, %31, %14, %81, %32, %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h150e7aca27e11e91E.exit", %18, %33, %83
   %.0 = phi i1 [ %88, %83 ], [ false, %33 ], [ false, %18 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h150e7aca27e11e91E.exit" ], [ false, %16 ], [ false, %32 ], [ false, %81 ], [ false, %14 ], [ false, %31 ], [ false, %74 ], [ false, %64 ], [ false, %54 ], [ false, %2 ], [ false, %39 ], [ false, %42 ], [ false, %48 ], [ false, %58 ], [ false, %68 ], [ true, %.thread14 ]
   ret i1 %.0
 
-81:                                               ; preds = %.thread14
+82:                                               ; preds = %.thread14
   %82 = load i32, ptr %1, align 8, !range !786, !noundef !5
   %.not7 = icmp eq i32 %82, 0
   br i1 %.not7, label %.critedge, label %83
 
-83:                                               ; preds = %81
+85:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %85 = load i32, ptr %84, align 4, !noundef !5
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 4

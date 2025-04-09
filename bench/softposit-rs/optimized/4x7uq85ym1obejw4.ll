@@ -122,8 +122,8 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182: ; preds 
   %51 = icmp eq i8 %2, 0
   br i1 %51, label %.loopexit, label %53
 
-52:                                               ; preds = %11, %83, %4, %173
-  %.0131 = phi i8 [ %.0.i, %173 ], [ -128, %4 ], [ 0, %83 ], [ %spec.select168, %11 ]
+52:                                               ; preds = %11, %83, %4, %175
+  %.0131 = phi i8 [ %.0.i, %175 ], [ -128, %4 ], [ 0, %83 ], [ %spec.select168, %11 ]
   ret i8 %.0131
 
 53:                                               ; preds = %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182
@@ -171,10 +171,10 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit196: ; preds 
   br i1 %68, label %81, label %80
 
 .loopexit:                                        ; preds = %.lr.ph, %150, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182, %152
-  %.1145 = phi i16 [ %.0144, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182 ], [ 0, %150 ], [ 0, %152 ], [ %155, %.lr.ph ]
-  %.0140 = phi i8 [ 0, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182 ], [ %.1141202, %150 ], [ %.1141, %152 ], [ %.1141202, %.lr.ph ]
-  %.0135 = phi i8 [ %20, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182 ], [ %.1136203, %150 ], [ %.1136, %152 ], [ %.1136203, %.lr.ph ]
-  %.1 = phi i8 [ %.0130, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182 ], [ %.2204, %150 ], [ %153, %152 ], [ %154, %.lr.ph ]
+  %.1145 = phi i16 [ %.0144, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182 ], [ 0, %150 ], [ 0, %.preheader ], [ %157, %.lr.ph ]
+  %.0140 = phi i8 [ 0, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182 ], [ %.1141202, %150 ], [ %.1141, %.preheader ], [ %.1141202, %.lr.ph ]
+  %.0135 = phi i8 [ %20, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182 ], [ %.1136203, %150 ], [ %.1136, %.preheader ], [ %.1136203, %.lr.ph ]
+  %.1 = phi i8 [ %.0130, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit182 ], [ %.2204, %150 ], [ %153, %.preheader ], [ %156, %.lr.ph ]
   %69 = icmp sgt i8 %.1, -1
   br i1 %69, label %70, label %75
 
@@ -196,7 +196,7 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit: ; preds = %7
   %.sroa.3.0.i = phi i8 [ %78, %75 ], [ %74, %70 ]
   %.sroa.6.0.extract.trunc = sext i8 %.sroa.51.0.in.i to i16
   %79 = icmp ugt i8 %.sroa.51.0.in.i, 6
-  br i1 %79, label %165, label %157
+  br i1 %79, label %167, label %159
 
 80:                                               ; preds = %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit196
   %.not = icmp eq i8 %67, 0
@@ -347,47 +347,47 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit: ; preds = %7
   %or.cond247 = icmp ult i16 %151, 16383
   br i1 %or.cond247, label %.lr.ph, label %.loopexit
 
-152:                                              ; preds = %121
+.preheader:                                       ; preds = %121
   %153 = add i8 %.2, 1
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %150, %.lr.ph
-  %.3219 = phi i8 [ %154, %.lr.ph ], [ %.2204, %150 ]
-  %.8152218 = phi i16 [ %155, %.lr.ph ], [ %.2146201, %150 ]
-  %154 = add i8 %.3219, -1
-  %155 = shl nuw nsw i16 %.8152218, 1
-  %156 = icmp samesign ult i16 %.8152218, 8192
-  br i1 %156, label %.lr.ph, label %.loopexit
+  %.3219 = phi i8 [ %156, %.lr.ph ], [ %.2204, %150 ]
+  %.8152218 = phi i16 [ %157, %.lr.ph ], [ %.2146201, %150 ]
+  %156 = add i8 %.3219, -1
+  %157 = shl nuw nsw i16 %.8152218, 1
+  %158 = icmp samesign ult i16 %.8152218, 8192
+  br i1 %158, label %.lr.ph, label %.loopexit
 
-157:                                              ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit
-  %158 = and i16 %.1145, 16383
-  %159 = lshr i16 %158, %.sroa.6.0.extract.trunc
-  %160 = lshr i16 %159, 8
-  %161 = trunc nuw nsw i16 %160 to i8
-  %162 = and i16 %159, 128
-  %163 = add nuw i8 %.sroa.3.0.i, %161
-  %164 = icmp eq i16 %162, 0
-  br i1 %164, label %173, label %166
+159:                                              ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit
+  %160 = and i16 %.1145, 16383
+  %161 = lshr i16 %160, %.sroa.6.0.extract.trunc
+  %162 = lshr i16 %161, 8
+  %163 = trunc nuw nsw i16 %162 to i8
+  %164 = and i16 %161, 128
+  %165 = add nuw i8 %.sroa.3.0.i, %163
+  %166 = icmp eq i16 %164, 0
+  br i1 %166, label %175, label %168
 
-165:                                              ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit
+167:                                              ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit
   %. = select i1 %69, i8 127, i8 1
-  br label %173
+  br label %175
 
-166:                                              ; preds = %157
-  %167 = sub nuw nsw i16 9, %.sroa.6.0.extract.trunc
-  %168 = shl i16 %158, %167
-  %169 = icmp eq i16 %168, 0
-  %spec.select167 = select i1 %169, i8 %.0140, i8 1
-  %170 = or i8 %163, %spec.select167
-  %171 = and i8 %170, 1
-  %172 = add nuw i8 %171, %163
-  br label %173
+168:                                              ; preds = %159
+  %169 = sub nuw nsw i16 9, %.sroa.6.0.extract.trunc
+  %170 = shl i16 %160, %169
+  %171 = icmp eq i16 %170, 0
+  %spec.select167 = select i1 %171, i8 %.0140, i8 1
+  %172 = or i8 %165, %spec.select167
+  %173 = and i8 %172, 1
+  %174 = add nuw i8 %173, %165
+  br label %175
 
-173:                                              ; preds = %165, %157, %166
-  %.0139 = phi i8 [ %163, %157 ], [ %172, %166 ], [ %., %165 ]
-  %174 = trunc nuw i8 %.0135 to i1
-  %175 = sub i8 0, %.0139
-  %.0.i = select i1 %174, i8 %175, i8 %.0139
+175:                                              ; preds = %167, %159, %168
+  %.0139 = phi i8 [ %165, %159 ], [ %174, %168 ], [ %., %167 ]
+  %176 = trunc nuw i8 %.0135 to i1
+  %177 = sub i8 0, %.0139
+  %.0.i = select i1 %176, i8 %177, i8 %.0139
   br label %52
 }
 

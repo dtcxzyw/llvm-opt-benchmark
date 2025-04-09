@@ -2230,20 +2230,20 @@ define hidden range(i32 -1, 2) i32 @lj_tab_next(ptr noundef readonly captures(no
 define hidden i32 @lj_tab_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !4
-  %.not.not = icmp ne i32 %3, 0
-  %spec.select = sext i1 %.not.not to i64
-  br i1 %.not.not, label %4, label %20
+  %.not = icmp ne i32 %3, 0
+  %spec.select = sext i1 %.not to i64
+  br i1 %.not, label %4, label %20
 
-4:                                                ; preds = %1
+4:; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !12
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 -8
-  %9 = load i64, ptr %8, align 8, !tbaa !13
-  %10 = icmp eq i64 %9, -1
+  %7 = getelementptr inbounds nuw i8, ptr %7, i64 -8
+  %8 = load i64, ptr %7, align 8, !tbaa !13
+  %10 = icmp eq i64 %8, -1
   br i1 %10, label %.preheader, label %20, !prof !63
 
-.preheader:                                       ; preds = %4, %.preheader
+.preheader:; preds = %4, %.preheader
   %.01925 = phi i64 [ %.019., %.preheader ], [ 0, %4 ]
   %.12124 = phi i64 [ %..121, %.preheader ], [ -1, %4 ]
   %11 = add i64 %.01925, %.12124
@@ -2257,25 +2257,25 @@ define hidden i32 @lj_tab_len(ptr noundef readonly captures(none) %0) local_unna
   %17 = icmp ugt i64 %16, 1
   br i1 %17, label %.preheader, label %18, !llvm.loop !69
 
-18:                                               ; preds = %.preheader
+18:; preds = %.preheader
   %19 = trunc i64 %.019. to i32
   br label %27
 
-20:                                               ; preds = %4, %1
+24:                                               ; preds = %4, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %22 = load i32, ptr %21, align 4, !tbaa !14
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %25, label %23
 
-23:                                               ; preds = %20
+26:                                               ; preds = %20
   %24 = tail call fastcc i32 @tab_len_slow(ptr noundef nonnull %0, i64 noundef %spec.select)
-  br label %27
+  br label %._crit_edge
 
 25:                                               ; preds = %20
   %26 = sext i1 %.not.not to i32
   br label %27
 
-27:                                               ; preds = %23, %25, %18
+._crit_edge:                                      ; preds = %23, %25, %18
   %.0 = phi i32 [ %19, %18 ], [ %24, %23 ], [ %26, %25 ]
   ret i32 %.0
 }

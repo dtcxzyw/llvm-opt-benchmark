@@ -2314,15 +2314,15 @@ define noundef i32 @_ZN6google8protobuf16strtou32_adaptorEPKcPPci(ptr noundef %0
   %6 = tail call i64 @strtoul(ptr noundef %0, ptr noundef %1, i32 noundef %2) #31
   %7 = load i32, ptr %4, align 4, !tbaa !65
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.sink.split, label %10
+  br i1 %8, label %14, label %10
 
-.sink.split:                                      ; preds = %3
+14:                                               ; preds = %3
   %9 = icmp ugt i64 %6, 4294967295
   %.mux = select i1 %9, i32 34, i32 %5
   store i32 %.mux, ptr %4, align 4, !tbaa !65
   br label %10
 
-10:                                               ; preds = %.sink.split, %3
+18:                                               ; preds = %14, %3
   ret i32 -1
 }
 

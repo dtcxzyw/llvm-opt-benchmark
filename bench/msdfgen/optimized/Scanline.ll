@@ -684,7 +684,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp23, label %if.end24.loopexit19.split.loop.exit20, label %while.cond, !llvm.loop !10
 
 if.end24.loopexit19.split.loop.exit20:            ; preds = %land.rhs
-  %7 = trunc nsw i64 %indvars.iv to i32
+  %8 = trunc nsw i64 %indvars.iv to i32
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %while.cond, %do.body, %if.end9, %if.end24.loopexit19.split.loop.exit20
@@ -752,18 +752,18 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %cmp23.i, label %if.end24.loopexit19.split.loop.exit20.i, label %while.cond.i, !llvm.loop !10
 
 if.end24.loopexit19.split.loop.exit20.i:          ; preds = %land.rhs.i
-  %7 = trunc nsw i64 %indvars.iv.i to i32
+  %8 = trunc nsw i64 %indvars.iv.i to i32
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %while.cond.i, %if.end9.i, %do.body.i, %if.end24.loopexit19.split.loop.exit20.i
   %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit19.split.loop.exit20.i ], [ -1, %if.end9.i ], [ 0, %do.body.i ], [ %smax.i, %while.cond.i ]
   %retval.0.ph.i = phi i32 [ %7, %if.end24.loopexit19.split.loop.exit20.i ], [ -1, %do.body.i ], [ -1, %if.end9.i ], [ %smax.i, %while.cond.i ]
   store i32 %index.1.sink.i, ptr %lastIndex.i, align 8
-  %8 = add nsw i32 %retval.0.ph.i, 1
+  %9 = add nsw i32 %retval.0.ph.i, 1
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
 
 _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %entry, %return.sink.split.i
-  %retval.0.i = phi i32 [ 0, %entry ], [ %8, %return.sink.split.i ]
+  %retval.0.i = phi i32 [ 0, %entry ], [ %9, %return.sink.split.i ]
   ret i32 %retval.0.i
 }
 
@@ -806,7 +806,7 @@ if.end9.i:                                        ; preds = %do.body.i
   %add.ptr.i11.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next17.i
   %5 = load double, ptr %add.ptr.i11.i, align 8
   %cmp14.i = fcmp olt double %x, %5
-  br i1 %cmp14.i, label %do.body.i, label %_ZNK7msdfgen8Scanline6moveToEd.exit.thread4, !llvm.loop !9
+  br i1 %cmp14.i, label %do.body.i, label %_ZNK7msdfgen8Scanline6moveToEd.exit, !llvm.loop !9
 
 while.cond.i:                                     ; preds = %land.rhs.i, %while.cond.preheader.i
   %indvars.iv.i = phi i64 [ %conv.i, %while.cond.preheader.i ], [ %indvars.iv.next.i, %land.rhs.i ]
@@ -821,11 +821,11 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %cmp23.i, label %if.end24.loopexit19.split.loop.exit20.i, label %while.cond.i, !llvm.loop !10
 
 if.end24.loopexit19.split.loop.exit20.i:          ; preds = %land.rhs.i
-  %7 = trunc nsw i64 %indvars.iv.i to i32
+  %8 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
 
-_ZNK7msdfgen8Scanline6moveToEd.exit.thread4:      ; preds = %do.body.i, %if.end9.i
-  %index.1.sink.i.ph = phi i32 [ -1, %if.end9.i ], [ 0, %do.body.i ]
+_ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %do.body.i, %if.end9.i
+  %index.1.sink.i = phi i32 [ -1, %if.end9.i ], [ 0, %do.body.i ]
   store i32 %index.1.sink.i.ph, ptr %lastIndex.i, align 8
   br label %return
 
@@ -838,11 +838,11 @@ _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %while.cond.i, %if.e
 if.then:                                          ; preds = %_ZNK7msdfgen8Scanline6moveToEd.exit
   %conv = zext nneg i32 %index.1.sink.i to i64
   %direction = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv, i32 1
-  %8 = load i32, ptr %direction, align 8
+  %9 = load i32, ptr %direction, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZNK7msdfgen8Scanline6moveToEd.exit.thread4, %_ZNK7msdfgen8Scanline6moveToEd.exit, %if.then
-  %retval.0 = phi i32 [ %8, %if.then ], [ 0, %_ZNK7msdfgen8Scanline6moveToEd.exit ], [ 0, %_ZNK7msdfgen8Scanline6moveToEd.exit.thread4 ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %9, %if.then ], [ 0, %_ZNK7msdfgen8Scanline6moveToEd.exit ], [ 0, %_ZNK7msdfgen8Scanline6moveToEd.exit.thread4 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -885,7 +885,7 @@ if.end9.i.i:                                      ; preds = %do.body.i.i
   %add.ptr.i11.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next17.i.i
   %5 = load double, ptr %add.ptr.i11.i.i, align 8
   %cmp14.i.i = fcmp olt double %x, %5
-  br i1 %cmp14.i.i, label %do.body.i.i, label %_ZNK7msdfgen8Scanline6moveToEd.exit.thread4.i, !llvm.loop !9
+  br i1 %cmp14.i.i, label %do.body.i.i, label %_ZNK7msdfgen8Scanline6moveToEd.exit.i, !llvm.loop !9
 
 while.cond.i.i:                                   ; preds = %land.rhs.i.i, %while.cond.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %conv.i.i, %while.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %land.rhs.i.i ]
@@ -900,11 +900,11 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
   br i1 %cmp23.i.i, label %if.end24.loopexit19.split.loop.exit20.i.i, label %while.cond.i.i, !llvm.loop !10
 
 if.end24.loopexit19.split.loop.exit20.i.i:        ; preds = %land.rhs.i.i
-  %7 = trunc nsw i64 %indvars.iv.i.i to i32
+  %8 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit.i
 
-_ZNK7msdfgen8Scanline6moveToEd.exit.thread4.i:    ; preds = %if.end9.i.i, %do.body.i.i
-  %index.1.sink.i.ph.i = phi i32 [ -1, %if.end9.i.i ], [ 0, %do.body.i.i ]
+_ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %if.end9.i.i, %do.body.i.i
+  %index.1.sink.i.i = phi i32 [ -1, %if.end9.i.i ], [ 0, %do.body.i.i ]
   store i32 %index.1.sink.i.ph.i, ptr %lastIndex.i.i, align 8
   br label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit
 
@@ -917,11 +917,11 @@ _ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %while.cond.i.i, %if
 if.then.i:                                        ; preds = %_ZNK7msdfgen8Scanline6moveToEd.exit.i
   %conv.i = zext nneg i32 %index.1.sink.i.i to i64
   %direction.i = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i, i32 1
-  %8 = load i32, ptr %direction.i, align 8
+  %9 = load i32, ptr %direction.i, align 8
   br label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit
 
 _ZNK7msdfgen8Scanline16sumIntersectionsEd.exit:   ; preds = %entry, %_ZNK7msdfgen8Scanline6moveToEd.exit.thread4.i, %_ZNK7msdfgen8Scanline6moveToEd.exit.i, %if.then.i
-  %retval.0.i = phi i32 [ %8, %if.then.i ], [ 0, %_ZNK7msdfgen8Scanline6moveToEd.exit.i ], [ 0, %_ZNK7msdfgen8Scanline6moveToEd.exit.thread4.i ], [ 0, %entry ]
+  %retval.0.i = phi i32 [ %9, %if.then.i ], [ 0, %_ZNK7msdfgen8Scanline6moveToEd.exit.i ], [ 0, %_ZNK7msdfgen8Scanline6moveToEd.exit.thread4.i ], [ 0, %entry ]
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i

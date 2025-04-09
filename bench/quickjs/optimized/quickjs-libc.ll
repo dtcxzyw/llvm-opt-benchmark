@@ -2398,19 +2398,19 @@ js_std_file_get.exit.thread:                      ; preds = %12, %5
   %.sroa.02.0.copyload = load i64, ptr %4, align 8, !tbaa !11
   %19 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %7, i64 %.sroa.02.0.copyload, i64 %.sroa.7.0.copyload) #30
   %.not32 = icmp eq i32 %19, 0
-  br i1 %.not32, label %.thread, label %38
+  br i1 %.not32, label %20, label %38
 
-.thread:                                          ; preds = %14, %18, %16
+20:                                               ; preds = %14, %18, %16
   %20 = call ptr @JS_GetRuntime(ptr noundef %0) #30
-  call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %20, ptr noundef nonnull @js_realloc_rt) #30
+  call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %20, ptr noundef nonnull @js_realloc_rt) #._crit_edge
   br label %23
 
-21:                                               ; preds = %26
+.thread:                                          ; preds = %26
   %22 = add i64 %.141, -1
   %.not34 = icmp eq i64 %22, 0
   br i1 %.not34, label %30, label %23, !llvm.loop !68
 
-23:                                               ; preds = %.thread, %21
+30:                                               ; preds = %20, %21
   %.141 = phi i64 [ -1, %.thread ], [ %22, %21 ]
   %24 = call i32 @fgetc(ptr noundef nonnull %11)
   %25 = icmp eq i32 %24, -1
@@ -2426,7 +2426,7 @@ js_std_file_get.exit.thread:                      ; preds = %12, %5
   call void @dbuf_free(ptr noundef nonnull %6) #30
   br label %38
 
-30:                                               ; preds = %23, %21
+._crit_edge:                                      ; preds = %23, %.thread
   %31 = load ptr, ptr %6, align 8, !tbaa !67
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !65
@@ -2438,10 +2438,10 @@ js_std_file_get.exit.thread:                      ; preds = %12, %5
   %37 = and i64 %35, 4294967295
   br label %38
 
-38:                                               ; preds = %js_std_file_get.exit.thread, %18, %30, %29
-  %.sroa.027.0 = phi i64 [ %37, %30 ], [ 0, %29 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
-  %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %30 ], [ 0, %29 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
-  %.sroa.8.0 = phi i64 [ %36, %30 ], [ 6, %29 ], [ 6, %18 ], [ 6, %js_std_file_get.exit.thread ]
+38:                                               ; preds = %js_std_file_get.exit.thread, %18, %._crit_edge, %29
+  %.sroa.027.0 = phi i64 [ %37, %._crit_edge ], [ 0, %29 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
+  %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %._crit_edge ], [ 0, %29 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
+  %.sroa.8.0 = phi i64 [ %36, %._crit_edge ], [ 6, %29 ], [ 6, %18 ], [ 6, %js_std_file_get.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #30
   %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.027.0

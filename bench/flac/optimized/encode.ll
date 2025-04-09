@@ -7092,12 +7092,12 @@ define internal range(i32 0, 3) i32 @flac_decoder_read_callback(ptr readnone cap
 21:                                               ; preds = %10, %7
   %.027 = phi ptr [ %15, %10 ], [ %1, %7 ]
   %22 = load i64, ptr %2, align 8, !tbaa !35
-  %.not36 = icmp eq i64 %22, 0
-  br i1 %.not36, label %30, label %fread.inline.exit
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %30, label %fread.inline.exit
 
 fread.inline.exit:                                ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8416
-  %24 = load ptr, ptr %23, align 8, !tbaa !31
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8416
+  %25 = load ptr, ptr %24, align 8, !tbaa !31
   %25 = tail call i64 @fread(ptr noundef %.027, i64 noundef 1, i64 noundef %22, ptr noundef %24)
   store i64 %25, ptr %2, align 8, !tbaa !35
   %26 = load ptr, ptr %23, align 8, !tbaa !31
@@ -7105,12 +7105,12 @@ fread.inline.exit:                                ; preds = %21
   %.not34 = icmp eq i32 %27, 0
   br i1 %.not34, label %28, label %30
 
-28:                                               ; preds = %fread.inline.exit
+28:; preds = %fread.inline.exit
   %29 = icmp eq i64 %25, 0
   %.35 = zext i1 %29 to i32
   br label %30
 
-30:                                               ; preds = %21, %28, %fread.inline.exit, %4
+30:; preds = %21, %28, %fread.inline.exit, %4
   %.0 = phi i32 [ 2, %4 ], [ 2, %fread.inline.exit ], [ %.35, %28 ], [ 0, %21 ]
   ret i32 %.0
 }

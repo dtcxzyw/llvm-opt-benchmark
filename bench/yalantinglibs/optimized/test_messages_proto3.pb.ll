@@ -52247,7 +52247,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680: ; preds = %if.
   br label %if.end277
 
 if.end277:                                        ; preds = %if.end254, %for.end270, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680
-  %total_size.18 = phi i64 [ %add276, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680 ], [ %total_size.17, %for.end270 ], [ %total_size.17, %if.end254 ]
+  %data_size258.0.lcssa3338 = phi i64 [ %add276, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680 ], [ %total_size.17, %for.end270 ], [ %total_size.17, %if.end254 ]
   %_repeated_foreign_enum_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   store atomic i32 0, ptr %_repeated_foreign_enum_cached_byte_size_ monotonic, align 8
   %repeated_string_piece_ = getelementptr inbounds nuw i8, ptr %this, i64 472
@@ -54812,7 +54812,7 @@ for.end1017:                                      ; preds = %_ZN6google8protobuf
   %reass.add3020 = add nuw nsw i64 %conv958, %conv938
   %reass.add3021 = add nuw nsw i64 %reass.add3020, %conv978
   %reass.mul3022 = shl nuw nsw i64 %reass.add3021, 2
-  %add964 = add i64 %total_size.53, %call894
+  %add963 = add i64 %total_size.53, %call894
   %add973 = add i64 %add964, %call901
   %add974 = add i64 %add973, %call908
   %add983 = add i64 %add974, %call915

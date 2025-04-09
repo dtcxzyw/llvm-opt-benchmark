@@ -447,22 +447,22 @@ define internal noundef range(i32 8, 1) i32 @riscv_gdb_get_vector(ptr noundef %0
 .lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 11712
   %11 = mul i32 %2, %9
-  br label %12
+  br label %14
 
-12:                                               ; preds = %.lr.ph, %12
-  %.019 = phi i32 [ 0, %.lr.ph ], [ %19, %12 ]
-  %13 = add i32 %.019, %11
-  %14 = sdiv i32 %13, 8
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [512 x i64], ptr %10, i64 0, i64 %15
-  %17 = load i64, ptr %16, align 8
+14:                                               ; preds = %.lr.ph, %14
+  %.019 = phi i32 [ 0, %.lr.ph ], [ %21, %14 ]
+  %15 = add i32 %.019, %11
+  %16 = sdiv i32 %15, 8
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [512 x i64], ptr %10, i64 0, i64 %17
+  %19 = load i64, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store i64 %17, ptr %4, align 8
-  %18 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 8) #7
+  store i64 %19, ptr %4, align 8
+  %20 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 8) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  %19 = add nuw nsw i32 %.019, 8
-  %20 = icmp samesign ult i32 %19, %9
-  br i1 %20, label %12, label %.loopexit, !llvm.loop !12
+  %21 = add nuw nsw i32 %.019, 8
+  %22 = icmp samesign ult i32 %21, %9
+  br i1 %22, label %14, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %12, %.preheader, %3
   ret i32 0

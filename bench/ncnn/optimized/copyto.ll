@@ -1740,14 +1740,14 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
   br label %.thread132.us147.sink.split
 
 .thread132.us147.sink.split:                      ; preds = %.lr.ph144.split.us145, %.thread122.us
-  %.sink186 = phi i32 [ %11, %.thread122.us ], [ %9, %.lr.ph144.split.us145 ]
-  %.sink184 = phi ptr [ %3, %.thread122.us ], [ %2, %.lr.ph144.split.us145 ]
+  %.sink188 = phi i32 [ %11, %.thread122.us ], [ %9, %.lr.ph144.split.us145 ]
+  %.sink186 = phi ptr [ %3, %.thread122.us ], [ %2, %.lr.ph144.split.us145 ]
   %51 = icmp eq i32 %50, -233
   %spec.store.select1.us = select i1 %51, i32 0, i32 %50
   %52 = icmp slt i32 %spec.store.select1.us, 0
-  %53 = select i1 %52, i32 %.sink186, i32 0
+  %53 = select i1 %52, i32 %.sink188, i32 0
   %54 = add nsw i32 %53, %spec.store.select1.us
-  store i32 %54, ptr %.sink184, align 4, !tbaa !51
+  store i32 %54, ptr %.sink186, align 4, !tbaa !51
   br label %.thread132.us147
 
 .thread132.us147:                                 ; preds = %.thread132.us147.sink.split, %.lr.ph144.split.us145
@@ -1774,14 +1774,14 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
   br label %.thread132.us150.sink.split
 
 .thread132.us150.sink.split:                      ; preds = %.lr.ph144.split.us148, %59, %.thread126.us
-  %.sink190 = phi i32 [ %15, %.thread126.us ], [ %11, %59 ], [ %9, %.lr.ph144.split.us148 ]
-  %.sink188 = phi ptr [ %5, %.thread126.us ], [ %3, %59 ], [ %2, %.lr.ph144.split.us148 ]
+  %.sink192 = phi i32 [ %15, %.thread126.us ], [ %11, %59 ], [ %9, %.lr.ph144.split.us148 ]
+  %.sink190 = phi ptr [ %5, %.thread126.us ], [ %3, %59 ], [ %2, %.lr.ph144.split.us148 ]
   %60 = icmp eq i32 %58, -233
   %spec.store.select3.us = select i1 %60, i32 0, i32 %58
   %61 = icmp slt i32 %spec.store.select3.us, 0
-  %62 = select i1 %61, i32 %.sink190, i32 0
+  %62 = select i1 %61, i32 %.sink192, i32 0
   %63 = add nsw i32 %62, %spec.store.select3.us
-  store i32 %63, ptr %.sink188, align 4, !tbaa !51
+  store i32 %63, ptr %.sink190, align 4, !tbaa !51
   br label %.thread132.us150
 
 .thread132.us150:                                 ; preds = %.thread132.us150.sink.split, %.lr.ph144.split.us148
@@ -1812,14 +1812,14 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
   br label %.thread132.us153.sink.split
 
 .thread132.us153.sink.split:                      ; preds = %.lr.ph144.split.us151, %68, %69, %.thread134.us
-  %.sink194 = phi i32 [ %15, %.thread134.us ], [ %13, %69 ], [ %11, %68 ], [ %9, %.lr.ph144.split.us151 ]
-  %.sink192 = phi ptr [ %5, %.thread134.us ], [ %4, %69 ], [ %3, %68 ], [ %2, %.lr.ph144.split.us151 ]
+  %.sink196 = phi i32 [ %15, %.thread134.us ], [ %13, %69 ], [ %11, %68 ], [ %9, %.lr.ph144.split.us151 ]
+  %.sink194 = phi ptr [ %5, %.thread134.us ], [ %4, %69 ], [ %3, %68 ], [ %2, %.lr.ph144.split.us151 ]
   %70 = icmp eq i32 %67, -233
   %spec.store.select6.us = select i1 %70, i32 0, i32 %67
   %71 = icmp slt i32 %spec.store.select6.us, 0
-  %72 = select i1 %71, i32 %.sink194, i32 0
+  %72 = select i1 %71, i32 %.sink196, i32 0
   %73 = add nsw i32 %72, %spec.store.select6.us
-  store i32 %73, ptr %.sink192, align 4, !tbaa !51
+  store i32 %73, ptr %.sink194, align 4, !tbaa !51
   br label %.thread132.us153
 
 .thread132.us153:                                 ; preds = %.thread132.us153.sink.split, %.lr.ph144.split.us151

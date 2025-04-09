@@ -859,26 +859,26 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$8as_s
 define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h48890ca755b5e0f6E.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8, !range !240, !noundef !4
   %trunc = trunc nuw i64 %3 to i1
-  br i1 %trunc, label %4, label %6
+  br i1 %trunc, label %5, label %6
 
-4:                                                ; preds = %2
+5:                                                ; preds = %2
   %5 = load i64, ptr %1, align 8, !range !240, !noundef !4
   %trunc1 = trunc nuw i64 %5 to i1
   br i1 %trunc1, label %7, label %6
 
-6:                                                ; preds = %2, %4, %7
-  %.sroa.0.0 = phi i1 [ %12, %7 ], [ false, %4 ], [ true, %2 ]
+7:                                                ; preds = %2, %5, %8
+  %.sroa.0.0 = phi i1 [ %13, %8 ], [ false, %5 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  %10 = load i64, ptr %8, align 8, !alias.scope !241, !noalias !244, !noundef !4
-  %11 = load i64, ptr %9, align 8, !alias.scope !244, !noalias !241, !noundef !4
-  %12 = icmp eq i64 %10, %11
-  br label %6
+  %11 = load i64, ptr %9, align 8, !alias.scope !241, !noalias !244, !noundef !4
+  %12 = load i64, ptr %10, align 8, !alias.scope !244, !noalias !241, !noundef !4
+  %13 = icmp eq i64 %11, %12
+  br label %7
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

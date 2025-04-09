@@ -345,10 +345,10 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
   store ptr null, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 16
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 856
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  store ptr %32, ptr %56, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %53, i64 856
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  store ptr %32, ptr %55, align 8
   br label %nxtask_setup_stackargs.exit
 
 nxtask_setup_stackargs.exit:                      ; preds = %21, %26, %.loopexit.i, %._crit_edge.i

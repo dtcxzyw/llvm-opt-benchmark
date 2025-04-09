@@ -9483,7 +9483,7 @@ define void @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5ChainIB
 
 8:                                                ; preds = %2
   invoke void @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5ChainINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iter8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEB10_ENtNtNtB9_6traits8iterator8Iterator4folduQNCINvNvB3b_8for_each4callB29_NCINvMsi_NtB19_3vecINtB4s_3VecB29_E14extend_trustedIBP_BO_B10_EE0E0EB2f_(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %9 unwind label %.thread37
+          to label %9 unwind label %36
 
 9:                                                ; preds = %8, %2
   %10 = load i64, ptr %0, align 8, !range !17, !noundef !8
@@ -9507,7 +9507,7 @@ define void @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5ChainIB
   %.val4.i = load i64, ptr %15, align 8, !alias.scope !3300, !noalias !3297, !noundef !8
   store i64 %.val4.i, ptr %.val3.i, align 8
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iter8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1V_(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #25
-          to label %.body unwind label %33
+          to label %.body.thread unwind label %33
 
 16:                                               ; preds = %12
   %.val.i = load ptr, ptr %3, align 8, !alias.scope !3300, !noalias !3297, !nonnull !8, !align !16, !noundef !8
@@ -9526,14 +9526,14 @@ define void @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5ChainIB
   call void @llvm.experimental.noalias.scope.decl(metadata !3311)
   %20 = load i64, ptr %4, align 8, !alias.scope !3314, !noalias !3317, !noundef !8
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %.body, label %22
+  br i1 %21, label %.body.thread, label %22
 
 22:                                               ; preds = %18
   %23 = shl nuw i64 %20, 5
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !3314, !noalias !3317, !nonnull !8, !noundef !8
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %23, i64 noundef 8) #27, !noalias !3319
-  br label %.body
+  br label %.body.thread
 
 26:                                               ; preds = %16
   call void @llvm.experimental.noalias.scope.decl(metadata !3320)
@@ -9562,8 +9562,8 @@ _RINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB6_8IntoI
 35:                                               ; preds = %38, %_RINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB6_8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4folduNCINvNvB2f_8for_each4callB1i_NCINvMsi_NtBc_3vecINtB3S_3VecB1i_E14extend_trustedINtNtNtB2l_8adapters5chain5ChainIB4y_B13_B13_EB13_EE0E0EB1o_.exit
   ret void
 
-.thread37:                                        ; preds = %8
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %8
+  %37 = landingpad { ptr, i32 }
           cleanup
   %.val18 = load ptr, ptr %1, align 8, !nonnull !8, !align !16, !noundef !8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9574,13 +9574,13 @@ _RINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB6_8IntoI
 38:                                               ; preds = %9
   %.val = load ptr, ptr %1, align 8, !nonnull !8, !align !16, !noundef !8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val17 = load i64, ptr %39, align 8, !noundef !8
-  store i64 %.val17, ptr %.val, align 8
+  %.val16 = load i64, ptr %39, align 8, !noundef !8
+  store i64 %.val16, ptr %.val, align 8
   br label %35
 
-.body:                                            ; preds = %13, %18, %22, %.thread37
-  %.pn11 = phi { ptr, i32 } [ %36, %.thread37 ], [ %19, %22 ], [ %19, %18 ], [ %14, %13 ]
-  resume { ptr, i32 } %.pn11
+.body.thread:                                     ; preds = %13, %18, %22, %36
+  %.pn3039 = phi { ptr, i32 } [ %36, %36 ], [ %19, %22 ], [ %19, %18 ], [ %14, %13 ]
+  resume { ptr, i32 } %.pn3039
 }
 
 ; Function Attrs: nonlazybind uwtable

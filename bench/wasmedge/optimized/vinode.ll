@@ -2014,14 +2014,14 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %301, %299, %297, %_
 306:                                              ; preds = %303
   store i8 47, ptr %25, align 1
   invoke void @_ZNSt6vectorIcSaIcEE9push_backEOc(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(1) %25)
-          to label %._crit_edge375 unwind label %261
+          to label %._crit_edge376 unwind label %261
 
-._crit_edge375:                                   ; preds = %306
-  %.pre376 = load ptr, ptr %48, align 8
+._crit_edge376:                                   ; preds = %306
+  %.pre377 = load ptr, ptr %48, align 8
   br label %307
 
-307:                                              ; preds = %._crit_edge375, %303
-  %308 = phi ptr [ %.pre376, %._crit_edge375 ], [ %302, %303 ]
+307:                                              ; preds = %._crit_edge376, %303
+  %308 = phi ptr [ %.pre377, %._crit_edge376 ], [ %302, %303 ]
   %309 = getelementptr inbounds i8, ptr %.pn166185, i64 %.sroa.0134.0200
   %310 = load ptr, ptr %20, align 8
   %311 = ptrtoint ptr %308 to i64
@@ -2371,7 +2371,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit106: ; preds = %_ZNSt10s
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
-  %.pre374 = load i8, ptr %26, align 8
+  %.pre375 = load i8, ptr %26, align 8
   br label %.critedge62
 
 454:                                              ; preds = %382
@@ -2418,7 +2418,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %461, %
   br label %532
 
 .critedge62:                                      ; preds = %453, %361
-  %470 = phi i8 [ %.pre374, %453 ], [ %359, %361 ]
+  %470 = phi i8 [ %.pre375, %453 ], [ %359, %361 ]
   %471 = trunc i8 %470 to i1
   br i1 %471, label %472, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit109
 

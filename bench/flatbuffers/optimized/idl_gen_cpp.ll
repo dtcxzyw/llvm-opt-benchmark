@@ -55664,55 +55664,55 @@ define linkonce_odr dso_local void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__norm
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %select.unfold.i, %.lr.ph.preheader.i
-  %.011.i = phi i64 [ 1, %select.unfold.i ], [ %7, %.lr.ph.preheader.i ]
-  %8 = shl nuw nsw i64 %.011.i, 6
+  %.010.i = phi i64 [ 1, %select.unfold.i ], [ %7, %.lr.ph.preheader.i ]
+  %8 = shl nuw nsw i64 %.010.i, 6
   %9 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %8, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #32
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %select.unfold.i, label %10
+  br i1 %.not.i, label %select.unfold.i, label %12
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
-  %.not15.i = icmp eq i64 %.011.i, 1
+  %.not15.i = icmp eq i64 %.010.i, 1
   br i1 %.not15.i, label %_ZSt20get_temporary_bufferIN11flatbuffers12IncludedFileEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !813
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  invoke void @_ZNSt38__uninitialized_construct_buf_dispatchILb0EE5__ucrIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEEEvT_SB_T0_(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr %1)
-          to label %_ZSt29__uninitialized_construct_bufIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEvT_S9_T0_.exit unwind label %12
+12:                                               ; preds = %.lr.ph.i
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  invoke void @_ZNSt38__uninitialized_construct_buf_dispatchILb0EE5__ucrIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEEEvT_SB_T0_(ptr noundef nonnull %9, ptr noundef nonnull %13, ptr %1)
+          to label %_ZSt29__uninitialized_construct_bufIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEvT_S9_T0_.exit unwind label %14
 
-_ZSt29__uninitialized_construct_bufIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEvT_S9_T0_.exit: ; preds = %10
+_ZSt29__uninitialized_construct_bufIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEvT_S9_T0_.exit: ; preds = %12
   store ptr %9, ptr %5, align 8, !tbaa !809
   store i64 1, ptr %4, align 8, !tbaa !811
   br label %_ZSt20get_temporary_bufferIN11flatbuffers12IncludedFileEESt4pairIPT_lEl.exit.thread
 
-12:                                               ; preds = %10
-  %13 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #28
+  %16 = extractvalue { ptr, i32 } %15, 0
+  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 64) #28
   invoke void @__cxa_rethrow() #30
-          to label %22 unwind label %16
+          to label %24 unwind label %18
 
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %14
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %18 unwind label %19
+          to label %20 unwind label %21
 
-18:                                               ; preds = %16
-  resume { ptr, i32 } %17
+20:                                               ; preds = %18
+  resume { ptr, i32 } %19
 
 _ZSt20get_temporary_bufferIN11flatbuffers12IncludedFileEESt4pairIPT_lEl.exit.thread: ; preds = %select.unfold.i, %3, %_ZSt29__uninitialized_construct_bufIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEvT_S9_T0_.exit
   ret void
 
-19:                                               ; preds = %16
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %18
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #31
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #31
   unreachable
 
-22:                                               ; preds = %12
+24:                                               ; preds = %14
   unreachable
 }
 

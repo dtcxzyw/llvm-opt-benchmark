@@ -3417,7 +3417,7 @@ define hidden void @_ZN5which9which_all17h8e9e19801d68a928E.llvm.608294853053048
 22:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   invoke void @_ZN3std3env7_var_os17h0ce52d8c124bf7d4E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 @anon.136a0f00885e88ca4faf7725f88798c7.30, i64 noundef 4)
-          to label %_ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit unwind label %23
+          to label %_ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit unwind label %25
 
 _ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit:      ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -3432,25 +3432,25 @@ _ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit:      ; preds = %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret void
 
-23:                                               ; preds = %22
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %22
+  %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$which..checker..CompositeChecker$GT$17h077442d1b07a1eceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #24
-          to label %.thread6 unwind label %25
+          to label %30 unwind label %27
 
-25:                                               ; preds = %27, %23
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %29, %25
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #25
   unreachable
 
-27:                                               ; preds = %15
+29:                                               ; preds = %15
   %28 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h430dbe4773754c14E"(ptr noalias noundef align 8 dereferenceable(24) %11) #24
-          to label %.thread6 unwind label %25
+          to label %30 unwind label %27
 
-.thread6:                                         ; preds = %23, %27
+30:                                               ; preds = %23, %29
   %.pn9 = phi { ptr, i32 } [ %28, %27 ], [ %24, %23 ]
   resume { ptr, i32 } %.pn9
 }

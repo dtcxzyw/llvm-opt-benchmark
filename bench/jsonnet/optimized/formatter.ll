@@ -26034,8 +26034,8 @@ _ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElemen
 
 _ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread: ; preds = %.lr.ph.i
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.0996.01098, i64 88
-  %.not10831153 = icmp eq ptr %161, %123
-  br i1 %.not10831153, label %._crit_edge.thread, label %.lr.ph.outer
+  %.not10831152 = icmp eq ptr %161, %123
+  br i1 %.not10831152, label %._crit_edge.thread, label %.lr.ph.outer
 
 ._crit_edge.thread:                               ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
@@ -26492,7 +26492,7 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
 339:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit586, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 340:                                              ; preds = %71
   %341 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #28
@@ -26553,7 +26553,7 @@ _ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3
   %362 = load ptr, ptr %361, align 8, !tbaa !437
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %362, ptr noundef nonnull align 4 dereferenceable(8) %7, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 363:                                              ; preds = %340
   %364 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ArrayE, i64 0) #28
@@ -26646,8 +26646,8 @@ _ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElemen
 
 _ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit621.thread: ; preds = %.lr.ph.i616
   %393 = getelementptr inbounds nuw i8, ptr %.sroa.0988.01108, i64 32
-  %.not10851158 = icmp eq ptr %393, %370
-  br i1 %.not10851158, label %._crit_edge1113.thread, label %.lr.ph1112.outer
+  %.not10851156 = icmp eq ptr %393, %370
+  br i1 %.not10851156, label %._crit_edge1113.thread, label %.lr.ph1112.outer
 
 ._crit_edge1113.thread:                           ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit621.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
@@ -26906,7 +26906,7 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
   %502 = add i32 %spec.select, 1
   store i32 %502, ptr %366, align 4, !tbaa !93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 .lr.ph.i7.i684:                                   ; preds = %516, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i682
   %.06.i.i685 = phi i8 [ %.1.i.i691, %516 ], [ %497, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i682 ]
@@ -27153,11 +27153,11 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
   %601 = phi i32 [ %618, %._crit_edge.loopexit.i.i761 ], [ %.promoted.i11.i765, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.thread.i764 ]
   %.0.lcssa.i.i763 = phi i32 [ %600, %._crit_edge.loopexit.i.i761 ], [ 1, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.thread.i764 ]
   %602 = select i1 %584, i32 %.0.lcssa.i.i763, i32 0
-  %spec.select1177 = add i32 %601, %602
-  %603 = add i32 %spec.select1177, 1
+  %spec.select1174 = add i32 %601, %602
+  %603 = add i32 %spec.select1174, 1
   store i32 %603, ptr %522, align 4, !tbaa !93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 .lr.ph.i7.i752:                                   ; preds = %617, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i750
   %.06.i.i753 = phi i8 [ %.1.i.i759, %617 ], [ 1, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i750 ]
@@ -27273,7 +27273,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %659 = load ptr, ptr %658, align 8, !tbaa !496
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %659, ptr noundef nonnull align 4 dereferenceable(8) %2, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 660:                                              ; preds = %620
   %661 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #28
@@ -27416,7 +27416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %723 = load ptr, ptr %722, align 8, !tbaa !202
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %723, ptr noundef nonnull align 4 dereferenceable(8) %11, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 724:                                              ; preds = %660
   %725 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal15BuiltinFunctionE, i64 0) #28
@@ -27431,7 +27431,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %731 = add i32 %69, 19
   %732 = add i32 %731, %730
   store i32 %732, ptr %727, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 733:                                              ; preds = %724
   %734 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal11ConditionalE, i64 0) #28
@@ -27573,7 +27573,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 802:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit827, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit820
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 803:                                              ; preds = %733
   %804 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6DollarE, i64 0) #28
@@ -27584,7 +27584,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %807 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %808 = add i32 %69, 1
   store i32 %808, ptr %807, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 .critedge464:                                     ; preds = %803
   %809 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ErrorE, i64 0) #28
@@ -27632,7 +27632,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   store i64 %.sroa.0.0.insert.insert.i833, ptr %16, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %814, ptr noundef nonnull align 4 dereferenceable(8) %16, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 831:                                              ; preds = %.critedge464
   %832 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal8FunctionE, i64 0) #28
@@ -27688,7 +27688,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   store i64 %.sroa.0.0.insert.insert.i840, ptr %17, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %843, ptr noundef nonnull align 4 dereferenceable(8) %17, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 861:                                              ; preds = %831
   %862 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6ImportE, i64 0) #28
@@ -27736,7 +27736,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   store i64 %.sroa.0.0.insert.insert.i847, ptr %18, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %867, ptr noundef nonnull align 4 dereferenceable(8) %18, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 884:                                              ; preds = %861
   %885 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal9ImportstrE, i64 0) #28
@@ -27784,7 +27784,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   store i64 %.sroa.0.0.insert.insert.i854, ptr %19, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %890, ptr noundef nonnull align 4 dereferenceable(8) %19, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 907:                                              ; preds = %884
   %908 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal9ImportbinE, i64 0) #28
@@ -27832,14 +27832,14 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   store i64 %.sroa.0.0.insert.insert.i861, ptr %20, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %913, ptr noundef nonnull align 4 dereferenceable(8) %20, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 930:                                              ; preds = %907
   %931 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #28
   %.not430 = icmp eq ptr %931, null
   br i1 %.not430, label %944, label %932
 
-common.ret1225:                                   ; preds = %_ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit602, %._crit_edge.i.i762, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %802, %806, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit841, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit855, %._crit_edge1125, %1202, %1332, %1425, %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit944, %1487, %1584, %1587, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit951, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit958, %._crit_edge1139, %1210, %1282, %1213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit925, %1220, %1193, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit869, %1108, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit862, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit848, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit834, %726, %652, %._crit_edge.i.i, %339, %1262, %1273, %1437, %932
+common.ret1222:                                   ; preds = %_ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit602, %._crit_edge.i.i762, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %802, %806, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit841, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit855, %._crit_edge1125, %1202, %1332, %1425, %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit944, %1487, %1584, %1587, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit951, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit958, %._crit_edge1139, %1210, %1282, %1213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit925, %1220, %1193, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit869, %1108, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit862, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit848, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit834, %726, %652, %._crit_edge.i.i, %339, %1262, %1273, %1437, %932
   ret void
 
 932:                                              ; preds = %930
@@ -27859,7 +27859,7 @@ common.ret1225:                                   ; preds = %_ZN7jsonnet8interna
   %942 = load i32, ptr %937, align 4, !tbaa !93
   %943 = add i32 %942, 5
   store i32 %943, ptr %937, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 944:                                              ; preds = %930
   %945 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #28
@@ -27912,7 +27912,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %974 = trunc i64 %972 to i32
   %975 = add i32 %973, %974
   store i32 %975, ptr %955, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 976:                                              ; preds = %946
   %977 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -28183,7 +28183,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1109 = load i32, ptr %977, align 4, !tbaa !93
   %1110 = add i32 %1109, 1
   store i32 %1110, ptr %977, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 1111:                                             ; preds = %944
   %1112 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5LocalE, i64 0) #28
@@ -28251,7 +28251,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1141 = load ptr, ptr %1140, align 8, !tbaa !218
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1141, ptr noundef nonnull align 4 dereferenceable(8) %2, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 1142:                                             ; preds = %.lr.ph1124, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit918
   %.03761123 = phi i1 [ true, %.lr.ph1124 ], [ false, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit918 ]
@@ -28354,7 +28354,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1198 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1199 = add i32 %1197, %69
   store i32 %1199, ptr %1198, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 1200:                                             ; preds = %1191
   %1201 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal13LiteralNumberE, i64 0) #28
@@ -28368,7 +28368,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1206 = trunc i64 %1204 to i32
   %1207 = add i32 %69, %1206
   store i32 %1207, ptr %1205, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 1208:                                             ; preds = %1200
   %1209 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal13LiteralStringE, i64 0) #28
@@ -28378,7 +28378,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 1210:                                             ; preds = %1208
   %1211 = getelementptr inbounds nuw i8, ptr %1209, i64 160
   %1212 = load i32, ptr %1211, align 8, !tbaa !228
-  switch i32 %1212, label %common.ret1225 [
+  switch i32 %1212, label %common.ret1222 [
     i32 1, label %1213
     i32 0, label %1220
     i32 2, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
@@ -28394,7 +28394,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1218 = add i32 %1217, 2
   %1219 = add i32 %1218, %69
   store i32 %1219, ptr %1216, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 1220:                                             ; preds = %1210
   %1221 = getelementptr inbounds nuw i8, ptr %1209, i64 136
@@ -28404,7 +28404,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1225 = add i32 %1224, 2
   %1226 = add i32 %1225, %69
   store i32 %1226, ptr %1223, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %1210
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #28
@@ -28468,7 +28468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit925: ; preds = %_Z
   %1255 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1256 = add i32 %1254, 3
   store i32 %1256, ptr %1255, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 1257:                                             ; preds = %1210
   %1258 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -28483,7 +28483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit925: ; preds = %_Z
   %.0379 = phi ptr [ %1261, %1257 ], [ %1267, %1265 ]
   %1263 = load i32, ptr %.0379, align 4, !tbaa !167
   switch i32 %1263, label %1264 [
-    i32 0, label %common.ret1225
+    i32 0, label %common.ret1222
     i32 39, label %1265
   ]
 
@@ -28510,7 +28510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit925: ; preds = %_Z
   %.0380 = phi ptr [ %1272, %1268 ], [ %1278, %1276 ]
   %1274 = load i32, ptr %.0380, align 4, !tbaa !167
   switch i32 %1274, label %1275 [
-    i32 0, label %common.ret1225
+    i32 0, label %common.ret1222
     i32 34, label %1276
   ]
 
@@ -28518,8 +28518,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit925: ; preds = %_Z
   br label %1276
 
 1276:                                             ; preds = %1273, %1275
-  %.sink1178 = phi i32 [ 1, %1275 ], [ 2, %1273 ]
-  %1277 = add i32 %storemerge1126, %.sink1178
+  %.sink1175 = phi i32 [ 1, %1275 ], [ 2, %1273 ]
+  %1277 = add i32 %storemerge1126, %.sink1175
   store i32 %1277, ptr %1269, align 4, !tbaa !93
   %1278 = getelementptr inbounds nuw i8, ptr %.0380, i64 4
   br label %1273, !llvm.loop !505
@@ -28533,7 +28533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit925: ; preds = %_Z
   %1283 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1284 = add i32 %69, 4
   store i32 %1284, ptr %1283, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 .critedge467:                                     ; preds = %1279
   %1285 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6ObjectE, i64 0) #28
@@ -28635,7 +28635,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1343 = add i32 %1342, 1
   store i32 %1343, ptr %1287, align 4, !tbaa !93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 1344:                                             ; preds = %.critedge467
   %1345 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal15DesugaredObjectE, i64 0) #28
@@ -28683,7 +28683,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1361 = phi i32 [ %.pre1149, %._crit_edge1139.loopexit ], [ %1350, %._crit_edge1134 ]
   %1362 = add i32 %1361, 1
   store i32 %1362, ptr %1347, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 .lr.ph1138:                                       ; preds = %._crit_edge1134, %1373
   %.sroa.0970.01136 = phi ptr [ %1376, %1373 ], [ %1352, %._crit_edge1134 ]
@@ -28815,7 +28815,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1434 = add i32 %1433, 1
   store i32 %1434, ptr %1380, align 4, !tbaa !93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 1435:                                             ; preds = %1377
   %1436 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal25ObjectComprehensionSimpleE, i64 0) #28
@@ -28850,7 +28850,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1456 = load i32, ptr %1438, align 4, !tbaa !93
   %1457 = add i32 %1456, 1
   store i32 %1457, ptr %1438, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 1458:                                             ; preds = %1435
   %1459 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6ParensE, i64 0) #28
@@ -28898,7 +28898,7 @@ _ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderEl
   %1483 = add i32 %1482, 1
   store i32 %1483, ptr %1461, align 4, !tbaa !93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 1484:                                             ; preds = %1458
   %1485 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal4SelfE, i64 0) #28
@@ -28909,7 +28909,7 @@ _ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderEl
   %1488 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1489 = add i32 %69, 4
   store i32 %1489, ptr %1488, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 .critedge470:                                     ; preds = %1484
   %1490 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10SuperIndexE, i64 0) #28
@@ -28961,7 +28961,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1518 = trunc i64 %1516 to i32
   %1519 = add i32 %1517, %1518
   store i32 %1519, ptr %1492, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 1520:                                             ; preds = %1491
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #28
@@ -29008,7 +29008,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1543 = add i32 %1542, 1
   store i32 %1543, ptr %1492, align 4, !tbaa !93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 1544:                                             ; preds = %.critedge470
   %1545 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5UnaryE, i64 0) #28
@@ -29094,10 +29094,10 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   br label %1584
 
 1584:                                             ; preds = %1581, %.critedge472
-  %.sink1181 = phi i1 [ false, %.critedge472 ], [ true, %1581 ]
-  call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1563, ptr noundef nonnull align 4 dereferenceable(8) %32, i1 noundef zeroext %.sink1181)
+  %.sink1178 = phi i1 [ false, %.critedge472 ], [ true, %1581 ]
+  call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1563, ptr noundef nonnull align 4 dereferenceable(8) %32, i1 noundef zeroext %.sink1178)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #28
-  br label %common.ret1225
+  br label %common.ret1222
 
 1585:                                             ; preds = %1544
   %1586 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal3VarE, i64 0) #28
@@ -29113,7 +29113,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1593 = trunc i64 %1591 to i32
   %1594 = add i32 %69, %1593
   store i32 %1594, ptr %1592, align 4, !tbaa !93
-  br label %common.ret1225
+  br label %common.ret1222
 
 .thread1081:                                      ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit, %1585
   %1595 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.40)

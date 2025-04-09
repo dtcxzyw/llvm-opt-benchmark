@@ -6111,10 +6111,10 @@ afm_tokenize.exit.thread.i39.i.backedge:          ; preds = %.loopexit17.i.i36.i
   br label %.thread.i45.i
 
 .thread.i45.i:                                    ; preds = %433, %427
-  %.sink93.i.i = phi i32 [ %432, %433 ], [ 0, %427 ]
+  %.sink96.i.i = phi i32 [ %432, %433 ], [ 0, %427 ]
   %.sink.i.i101 = phi i32 [ %437, %433 ], [ %432, %427 ]
   %438 = getelementptr inbounds nuw i8, ptr %424, i64 8
-  store i32 %.sink93.i.i, ptr %438, align 4, !tbaa !408
+  store i32 %.sink96.i.i, ptr %438, align 4, !tbaa !408
   %439 = getelementptr inbounds nuw i8, ptr %424, i64 12
   store i32 %.sink.i.i101, ptr %439, align 4, !tbaa !409
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #20
@@ -20415,14 +20415,14 @@ define internal fastcc i32 @cf2_hintmap_map(ptr noundef captures(none) %0, i32 n
   %28 = getelementptr i8, ptr %24, i64 %.idx
   %29 = load i32, ptr %28, align 8, !tbaa !720
   %.not38 = icmp slt i32 %1, %29
-  br i1 %.not38, label %.critedge.split.loop.exit49, label %26, !llvm.loop !746
+  br i1 %.not38, label %.critedge.split.loop.exit48, label %26, !llvm.loop !746
 
-.critedge.split.loop.exit49:                      ; preds = %27
+.critedge.split.loop.exit48:                      ; preds = %27
   %30 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %26, %.critedge.split.loop.exit49
-  %.0.lcssa = phi i32 [ %30, %.critedge.split.loop.exit49 ], [ %umax, %26 ]
+.critedge:                                        ; preds = %26, %.critedge.split.loop.exit48
+  %.0.lcssa = phi i32 [ %30, %.critedge.split.loop.exit48 ], [ %umax, %26 ]
   %.not3943 = icmp eq i32 %.0.lcssa, 0
   br i1 %.not3943, label %._crit_edge, label %.lr.ph
 
@@ -20446,28 +20446,28 @@ define internal fastcc i32 @cf2_hintmap_map(ptr noundef captures(none) %0, i32 n
 
 ._crit_edge:                                      ; preds = %35, %.critedge
   store i32 0, ptr %21, align 4, !tbaa !716
-  %37 = load i32, ptr %24, align 8, !tbaa !720
-  %38 = icmp slt i32 %1, %37
-  br i1 %38, label %39, label %54
+  %38 = load i32, ptr %24, align 8, !tbaa !720
+  %39 = icmp slt i32 %1, %38
+  br i1 %39, label %40, label %._crit_edge._crit_edge
 
-39:                                               ; preds = %._crit_edge
-  %40 = sub i32 %1, %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %42 = load i32, ptr %41, align 4, !tbaa !588
-  %43 = sext i32 %40 to i64
-  %44 = sext i32 %42 to i64
-  %45 = mul nsw i64 %44, %43
-  %46 = ashr i64 %45, 63
-  %47 = add nsw i64 %45, 32768
-  %48 = add nsw i64 %47, %46
-  %49 = lshr i64 %48, 16
-  %50 = trunc i64 %49 to i32
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %52 = load i32, ptr %51, align 4, !tbaa !723
-  %53 = add i32 %52, %50
+40:                                               ; preds = %._crit_edge
+  %41 = sub i32 %1, %38
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %43 = load i32, ptr %42, align 4, !tbaa !588
+  %44 = sext i32 %41 to i64
+  %45 = sext i32 %43 to i64
+  %46 = mul nsw i64 %45, %44
+  %47 = ashr i64 %46, 63
+  %48 = add nsw i64 %46, 32768
+  %49 = add nsw i64 %48, %47
+  %50 = lshr i64 %49, 16
+  %51 = trunc i64 %50 to i32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %53 = load i32, ptr %52, align 4, !tbaa !723
+  %54 = add i32 %53, %51
   br label %73
 
-54:                                               ; preds = %.critedge2, %._crit_edge
+._crit_edge._crit_edge:                           ; preds = %.critedge2, %._crit_edge
   %.142 = phi i64 [ %31, %.critedge2 ], [ 0, %._crit_edge ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = getelementptr inbounds nuw [192 x %struct.CF2_HintRec_], ptr %55, i64 0, i64 %.142
@@ -20489,8 +20489,8 @@ define internal fastcc i32 @cf2_hintmap_map(ptr noundef captures(none) %0, i32 n
   %72 = add i32 %71, %69
   br label %73
 
-73:                                               ; preds = %39, %54, %9
-  %.034 = phi i32 [ %19, %9 ], [ %53, %39 ], [ %72, %54 ]
+73:                                               ; preds = %40, %._crit_edge._crit_edge, %9
+  %.034 = phi i32 [ %19, %9 ], [ %54, %40 ], [ %72, %._crit_edge._crit_edge ]
   ret i32 %.034
 }
 

@@ -653,7 +653,7 @@ define range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, p
   store i8 %32, ptr %34, align 1, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %35 = icmp ult i64 %indvars.iv.next.i, %20
-  br i1 %35, label %.lr.ph.i, label %.loopexit.thread.i, !llvm.loop !13
+  br i1 %35, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !13
 
 36:                                               ; preds = %15
   %.not87.i.i = icmp ugt i64 %6, %17
@@ -666,7 +666,7 @@ define range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, p
   %41 = icmp ult i64 %40, -119
   br i1 %41, label %.loopexit.i, label %HUF_readStats_body_default.exit
 
-.loopexit.thread.i:                               ; preds = %.lr.ph.i, %24
+.loopexit.i:                                      ; preds = %.lr.ph.i, %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
   br label %HUF_readStats_body_default.exit
 
@@ -801,7 +801,7 @@ define internal fastcc range(i64 1, 0) i64 @HUF_readStats_body_bmi2(ptr noundef 
   %indvars.iv.next = add nuw i64 %indvars.iv, 2
   %indvars = trunc i64 %indvars.iv.next to i32
   %31 = icmp ugt i32 %21, %indvars
-  br i1 %31, label %.lr.ph, label %.loopexit.thread, !llvm.loop !13
+  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 32:                                               ; preds = %10
   %.not87.i = icmp ugt i64 %6, %12
@@ -814,7 +814,7 @@ define internal fastcc range(i64 1, 0) i64 @HUF_readStats_body_bmi2(ptr noundef 
   %37 = icmp ult i64 %36, -119
   br i1 %37, label %.loopexit, label %HUF_readStats_body.exit
 
-.loopexit.thread:                                 ; preds = %.lr.ph, %19
+.loopexit:                                        ; preds = %.lr.ph, %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
   br label %HUF_readStats_body.exit
 

@@ -1765,7 +1765,7 @@ define internal fastcc range(i64 1, 0) i64 @HUFv06_readStats(ptr noundef nonnull
   %indvars.iv.next = add nuw i64 %indvars.iv, 2
   %indvars = trunc i64 %indvars.iv.next to i32
   %38 = icmp ugt i32 %28, %indvars
-  br i1 %38, label %.lr.ph, label %.loopexit.thread, !llvm.loop !32
+  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !32
 
 39:                                               ; preds = %11
   %.not88 = icmp ugt i64 %5, %13
@@ -1816,7 +1816,7 @@ FSEv06_decompress.exit:                           ; preds = %47
   %55 = icmp ult i64 %54, -119
   br i1 %55, label %.loopexit, label %.critedge95
 
-.loopexit.thread:                                 ; preds = %.lr.ph, %26
+.loopexit:                                        ; preds = %.lr.ph, %26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %1, i8 0, i64 68, i1 false)
   br label %.critedge95
 
@@ -7648,10 +7648,10 @@ default.unreachable:                              ; preds = %66, %29
   %45 = ptrtoint ptr %7 to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph, %81
-  %.157113 = phi ptr [ %44, %.lr.ph ], [ %84, %81 ]
-  %.162112 = phi i64 [ %gepdiff, %.lr.ph ], [ %85, %81 ]
-  %.064111 = phi ptr [ %1, %.lr.ph ], [ %83, %81 ]
+46:                                               ; preds = %.lr.ph, %82
+  %.157113 = phi ptr [ %44, %.lr.ph ], [ %85, %82 ]
+  %.162112 = phi i64 [ %gepdiff, %.lr.ph ], [ %86, %82 ]
+  %.064111 = phi ptr [ %1, %.lr.ph ], [ %84, %82 ]
   %47 = load i8, ptr %.157113, align 1, !tbaa !27
   %48 = lshr i8 %47, 6
   switch i8 %48, label %49 [
@@ -7713,35 +7713,35 @@ default.unreachable:                              ; preds = %66, %29
 ZSTDv06_copyRawBlock.exit:                        ; preds = %76, %.thread91, %67
   %.0.i.ph90 = phi i64 [ 0, %.thread91 ], [ %.0.i.ph, %67 ], [ %.0.i.ph, %76 ]
   %.055 = phi i64 [ 0, %.thread91 ], [ %70, %67 ], [ %.0.i.ph, %76 ]
-  %77 = icmp eq i64 %.0.i.ph90, 0
-  br i1 %77, label %.loopexit, label %79
+  %78 = icmp eq i64 %.0.i.ph90, 0
+  br i1 %78, label %.loopexit, label %80
 
 ZSTDv06_copyRawBlock.exit.thread:                 ; preds = %71
-  %78 = icmp eq i64 %.0.i.ph, 0
-  br i1 %78, label %.loopexit, label %.thread
+  %79 = icmp eq i64 %.0.i.ph, 0
+  br i1 %79, label %.loopexit, label %.thread
 
-79:                                               ; preds = %ZSTDv06_copyRawBlock.exit
-  %80 = icmp ult i64 %.055, -119
-  br i1 %80, label %81, label %.thread
+80:                                               ; preds = %ZSTDv06_copyRawBlock.exit
+  %81 = icmp ult i64 %.055, -119
+  br i1 %81, label %82, label %.thread
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw i8, ptr %.157113, i64 3
-  %83 = getelementptr inbounds nuw i8, ptr %.064111, i64 %.055
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %.0.i.ph90
-  %85 = sub nsw i64 0, %.0.i.ph90
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %42, %86
-  %88 = icmp ult i64 %87, 3
-  br i1 %88, label %.thread, label %46
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw i8, ptr %.157113, i64 3
+  %84 = getelementptr inbounds nuw i8, ptr %.064111, i64 %.055
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %.0.i.ph90
+  %86 = sub nsw i64 0, %.0.i.ph90
+  %87 = ptrtoint ptr %85 to i64
+  %88 = sub i64 %42, %87
+  %89 = icmp ult i64 %88, 3
+  br i1 %89, label %.thread, label %46
 
 .loopexit:                                        ; preds = %ZSTDv06_copyRawBlock.exit, %ZSTDv06_copyRawBlock.exit.thread
-  %89 = ptrtoint ptr %.064111 to i64
-  %90 = ptrtoint ptr %1 to i64
-  %91 = sub i64 %89, %90
+  %90 = ptrtoint ptr %.064111 to i64
+  %91 = ptrtoint ptr %1 to i64
+  %92 = sub i64 %90, %91
   br label %.thread
 
-.thread:                                          ; preds = %66, %62, %.thread91, %79, %81, %ZSTDv06_copyRawBlock.exit.thread, %41, %ZSTDv06_frameHeaderSize.exit.i.i, %21, %18, %9, %5, %.loopexit
-  %.0 = phi i64 [ %91, %.loopexit ], [ -72, %5 ], [ -72, %18 ], [ %16, %9 ], [ -20, %21 ], [ -20, %ZSTDv06_frameHeaderSize.exit.i.i ], [ -72, %41 ], [ -70, %ZSTDv06_copyRawBlock.exit.thread ], [ -72, %62 ], [ -72, %.thread91 ], [ %.055, %79 ], [ -1, %66 ], [ -72, %81 ]
+.thread:                                          ; preds = %66, %62, %.thread91, %80, %82, %ZSTDv06_copyRawBlock.exit.thread, %41, %ZSTDv06_frameHeaderSize.exit.i.i, %21, %18, %9, %5, %.loopexit
+  %.0 = phi i64 [ %92, %.loopexit ], [ -72, %5 ], [ -72, %18 ], [ %16, %9 ], [ -20, %21 ], [ -20, %ZSTDv06_frameHeaderSize.exit.i.i ], [ -72, %41 ], [ -70, %ZSTDv06_copyRawBlock.exit.thread ], [ -72, %62 ], [ -72, %.thread91 ], [ %.055, %80 ], [ -1, %66 ], [ -72, %82 ]
   ret i64 %.0
 }
 

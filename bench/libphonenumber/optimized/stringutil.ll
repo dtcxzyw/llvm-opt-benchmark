@@ -351,18 +351,18 @@ define dso_local noundef i64 @_ZN4i18n12phonenumbers7FindNthERKNSt7__cxx1112basi
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.011 = phi i32 [ %8, %.lr.ph ], [ 0, %3 ]
-  %.0710 = phi i64 [ %6, %.lr.ph ], [ -1, %3 ]
+5:                                                ; preds = %3, %.lr.ph
+  %.011 = phi i32 [ %8, %5 ], [ 0, %3 ]
+  %.0710 = phi i64 [ %6, %5 ], [ -1, %3 ]
   %5 = add i64 %.0710, 1
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %1, i64 noundef %5) #19
   %7 = icmp eq i64 %6, -1
   %8 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %8, %2
   %or.cond = select i1 %7, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %or.cond, label %._crit_edge, label %5, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph, %3
+._crit_edge:; preds = %5, %3
   ret i64 -1
 }
 

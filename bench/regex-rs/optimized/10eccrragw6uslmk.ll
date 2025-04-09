@@ -13957,7 +13957,7 @@ define void @"_ZN110_$LT$regex_automata..util..captures..CapturesPatternIter$u20
   %5 = load ptr, ptr %4, align 8, !alias.scope !2850, !noalias !2857, !nonnull !12, !noundef !12
   %6 = load ptr, ptr %3, align 8, !alias.scope !2850, !noalias !2857, !nonnull !12, !noundef !12
   %7 = icmp eq ptr %6, %5
-  br i1 %7, label %63, label %8
+  br i1 %7, label %65, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -14050,19 +14050,19 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
 
 _ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E.exit: ; preds = %58, %8, %24, %26, %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i.i, %47, %53
   %.sroa.45.0 = phi i64 [ undef, %53 ], [ undef, %47 ], [ undef, %24 ], [ undef, %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i.i ], [ undef, %26 ], [ undef, %8 ], [ %62, %58 ]
-  %.sink.i = phi i64 [ 0, %53 ], [ 0, %47 ], [ 0, %24 ], [ 0, %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i.i ], [ 0, %26 ], [ 0, %8 ], [ %spec.select12, %58 ]
+  %.sroa.5.0 = phi i64 [ 0, %53 ], [ 0, %47 ], [ 0, %24 ], [ 0, %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i.i ], [ 0, %26 ], [ 0, %8 ], [ %spec.select12, %58 ]
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.45.0, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -1, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %64
+  br label %66
 
-63:                                               ; preds = %2
+65:                                               ; preds = %2
   store i64 2, ptr %0, align 8
-  br label %64
+  br label %66
 
-64:                                               ; preds = %63, %_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E.exit
+66:                                               ; preds = %65, %_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E.exit
   ret void
 }
 

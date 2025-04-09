@@ -350,43 +350,43 @@ define internal fastcc ptr @module_name(ptr noundef readonly captures(none) %0) 
 
 .lr.ph:                                           ; preds = %1, %15
   %.026 = phi i1 [ true, %15 ], [ false, %1 ]
-  %.02325 = phi i64 [ %16, %15 ], [ 0, %1 ]
+  %.02325 = phi i64 [ %17, %15 ], [ 0, %1 ]
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 %.02325
   %7 = load i8, ptr %6, align 1
   %8 = add i8 %7, -48
   %or.cond = icmp ult i8 %8, 10
-  br i1 %or.cond, label %9, label %11
+  br i1 %or.cond, label %9, label %12
 
 9:                                                ; preds = %.lr.ph
   br i1 %.026, label %15, label %10
 
-10:                                               ; preds = %9
+11:                                               ; preds = %9
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.46) #9
   br label %15
 
-11:                                               ; preds = %.lr.ph
-  %12 = and i8 %7, -33
-  %13 = add i8 %12, -65
-  %or.cond24 = icmp ult i8 %13, 26
-  %14 = or i8 %7, 32
-  %spec.select = select i1 %or.cond24, i8 %14, i8 95
+12:                                               ; preds = %.lr.ph
+  %13 = and i8 %7, -33
+  %14 = add i8 %13, -65
+  %or.cond24 = icmp ult i8 %14, 26
+  %15 = or i8 %7, 32
+  %spec.select = select i1 %or.cond24, i8 %15, i8 95
   br label %15
 
 15:                                               ; preds = %11, %9, %10
   %.sink = phi i8 [ %7, %10 ], [ %7, %9 ], [ %spec.select, %11 ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #9
-  %16 = add nuw i64 %.02325, 1
-  %exitcond.not = icmp eq i64 %16, %4
+  %17 = add nuw i64 %.02325, 1
+  %exitcond.not = icmp eq i64 %17, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge.thread:                               ; preds = %1
+._crit_edge:                                      ; preds = %1
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.47) #9
-  br label %._crit_edge
+  br label %19
 
-._crit_edge:                                      ; preds = %15, %._crit_edge.thread
-  %17 = tail call ptr @scratch_buffer_to_string() #9
-  ret ptr %17
+19:                                               ; preds = %15, %._crit_edge.thread
+  %20 = tail call ptr @scratch_buffer_to_string() #9
+  ret ptr %20
 }
 
 declare ptr @scratch_buffer_to_string() local_unnamed_addr #3

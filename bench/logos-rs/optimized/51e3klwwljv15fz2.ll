@@ -47,7 +47,7 @@ define { i64, i8 } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
 
 8:                                                ; preds = %1, %4
   %.sroa.2.0 = phi i8 [ 0, %4 ], [ 2, %1 ]
-  %.sroa.0.0 = phi i64 [ %6, %4 ], [ undef, %1 ]
+  %.sroa.2.0 = phi i64 [ %6, %4 ], [ undef, %1 ]
   %9 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i8 } %9, i8 %.sroa.2.0, 1
   ret { i64, i8 } %10

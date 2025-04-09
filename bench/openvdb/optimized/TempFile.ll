@@ -3343,14 +3343,14 @@ if.then23.fold.split:                             ; preds = %entry
   br label %if.then23
 
 if.then23:                                        ; preds = %entry, %if.then23.fold.split
-  %0 = phi i32 [ 3, %entry ], [ 1, %if.then23.fold.split ]
+  %cond20 = phi i32 [ 3, %entry ], [ 1, %if.then23.fold.split ]
   %cond20 = phi i64 [ 4096, %entry ], [ -1, %if.then23.fold.split ]
   %buffer_.i9 = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @_ZN5boost9iostreams6detail12basic_bufferIcSaIcEE6resizeEl(ptr noundef nonnull align 8 dereferenceable(16) %buffer_.i9, i64 noundef %cond20)
   br label %if.end30
 
 if.end30:                                         ; preds = %entry, %if.then23
-  %cond21 = phi i32 [ %0, %if.then23 ], [ 1, %entry ]
+  %cond21 = phi i32 [ %cond20, %if.then23 ], [ 1, %entry ]
   %vtable28 = load ptr, ptr %this, align 8
   %vfn29 = getelementptr inbounds nuw i8, ptr %vtable28, i64 176
   %1 = load ptr, ptr %vfn29, align 8

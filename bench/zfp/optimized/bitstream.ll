@@ -250,20 +250,20 @@ define void @stream_rseek(ptr noundef captures(none) initializes((0, 24)) %0, i6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !11
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %13, label %9
+  br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %8, align 8, !tbaa !11
   %11 = load i64, ptr %7, align 8, !tbaa !14
   %12 = lshr i64 %11, %3
-  br label %13
+  br label %14
 
-13:                                               ; preds = %2, %9
+14:                                               ; preds = %2, %9
   %.sink = phi i64 [ %12, %9 ], [ 0, %2 ]
   %storemerge = phi i64 [ 64, %9 ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %14, align 8, !tbaa !15
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %15, align 8, !tbaa !15
   store i64 %storemerge, ptr %0, align 8, !tbaa !13
   ret void
 }
@@ -313,8 +313,8 @@ define void @stream_skip(ptr noundef captures(none) initializes((8, 16)) %0, i64
 stream_rseek.exit:                                ; preds = %2, %17
   %.sink.i = phi i64 [ %20, %17 ], [ 0, %2 ]
   %storemerge.i = phi i64 [ 64, %17 ], [ 0, %2 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i, ptr %21, align 8, !tbaa !15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i, ptr %22, align 8, !tbaa !15
   store i64 %storemerge.i, ptr %0, align 8, !tbaa !13
   ret void
 }
@@ -358,7 +358,7 @@ define void @stream_pad(ptr noundef captures(none) %0, i64 noundef %1) local_unn
 define i64 @stream_align(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !tbaa !13
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %20, label %3
+  br i1 %.not, label %21, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -386,12 +386,12 @@ define i64 @stream_align(ptr noundef captures(none) %0) local_unnamed_addr #2 {
 stream_skip.exit:                                 ; preds = %3, %15
   %.sink.i.i = phi i64 [ %18, %15 ], [ 0, %3 ]
   %storemerge.i.i = phi i64 [ 64, %15 ], [ 0, %3 ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i.i, ptr %19, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i.i, ptr %20, align 8, !tbaa !15
   store i64 %storemerge.i.i, ptr %0, align 8, !tbaa !13
-  br label %20
+  br label %21
 
-20:                                               ; preds = %stream_skip.exit, %1
+21:                                               ; preds = %stream_skip.exit, %1
   ret i64 %2
 }
 

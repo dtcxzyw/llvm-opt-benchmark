@@ -3784,8 +3784,8 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
 
 27:                                               ; preds = %24, %20
   %28 = load volatile i32, ptr @do_run_lru_maintainer_thread, align 4, !tbaa !22
-  %.not84 = icmp eq i32 %28, 0
-  br i1 %.not84, label %._crit_edge, label %.lr.ph
+  %.not83 = icmp eq i32 %28, 0
+  br i1 %.not83, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -3793,19 +3793,19 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
   br label %31
 
 31:                                               ; preds = %.lr.ph, %256
-  %.04186 = phi i32 [ 1000, %.lr.ph ], [ %.4, %256 ]
-  %.04285 = phi i32 [ 0, %.lr.ph ], [ %.143, %256 ]
+  %.04185 = phi i32 [ 1000, %.lr.ph ], [ %.4, %256 ]
+  %.04284 = phi i32 [ 0, %.lr.ph ], [ %.143, %256 ]
   %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_maintainer_lock) #19
-  %.not52 = icmp eq i32 %.04186, 0
+  %.not52 = icmp eq i32 %.04185, 0
   br i1 %.not52, label %35, label %33
 
 33:                                               ; preds = %31
-  %34 = call i32 @usleep(i32 noundef %.04186) #19
+  %34 = call i32 @usleep(i32 noundef %.04185) #19
   br label %35
 
 35:                                               ; preds = %33, %31
   %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_maintainer_lock) #19
-  %37 = call i32 @llvm.umax.i32(i32 %.04186, i32 1000)
+  %37 = call i32 @llvm.umax.i32(i32 %.04185, i32 1000)
   call void @STATS_LOCK() #19
   %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 104), align 8, !tbaa !126
   %39 = add i64 %38, 1
@@ -3815,7 +3815,7 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
 
 40:                                               ; preds = %35, %121
   %indvars.iv = phi i64 [ 1, %35 ], [ %indvars.iv.next, %121 ]
-  %.180 = phi i32 [ 999999, %35 ], [ %spec.select57, %121 ]
+  %.179 = phi i32 [ 999999, %35 ], [ %spec.select57, %121 ]
   %41 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !22
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %42, i32 %37)
@@ -3974,7 +3974,7 @@ lru_maintainer_juggle.exit:                       ; preds = %102
 
 121:                                              ; preds = %40, %119
   %spec.select.sink = phi i32 [ %120, %119 ], [ %spec.select, %40 ]
-  %spec.select57 = call i32 @llvm.umin.i32(i32 %spec.select.sink, i32 %.180)
+  %spec.select57 = call i32 @llvm.umin.i32(i32 %spec.select.sink, i32 %.179)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %122, label %40, !llvm.loop !131
@@ -4064,18 +4064,18 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   %160 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @bump_buf_lock) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
   %161 = call i32 @llvm.umin.i32(i32 %spec.select57, i32 1000)
-  %spec.select68 = select i1 %.1.i61, i32 %161, i32 %spec.select57
+  %spec.select67 = select i1 %.1.i61, i32 %161, i32 %spec.select57
   br label %162
 
 162:                                              ; preds = %lru_maintainer_bumps.exit, %lru_maintainer_bumps.exit.thread, %122
-  %.4 = phi i32 [ %spec.select57, %122 ], [ %spec.select57, %lru_maintainer_bumps.exit.thread ], [ %spec.select68, %lru_maintainer_bumps.exit ]
+  %.4 = phi i32 [ %spec.select57, %122 ], [ %spec.select57, %lru_maintainer_bumps.exit.thread ], [ %spec.select67, %lru_maintainer_bumps.exit ]
   %163 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 134), align 2, !tbaa !134, !range !24, !noundef !25
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %165, label %256
 
 165:                                              ; preds = %162
   %166 = load volatile i32, ptr @current_time, align 4, !tbaa !22
-  %.not53 = icmp eq i32 %.04285, %166
+  %.not53 = icmp eq i32 %.04284, %166
   br i1 %.not53, label %256, label %167
 
 167:                                              ; preds = %165
@@ -4145,8 +4145,8 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 
 203:                                              ; preds = %186
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i, 60
-  br i1 %exitcond.not.i64, label %204, label %186, !llvm.loop !140
+  %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i, 60
+  br i1 %exitcond.not.i63, label %204, label %186, !llvm.loop !140
 
 204:                                              ; preds = %203
   %205 = icmp eq i64 %189, 0
@@ -4238,9 +4238,9 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 .thread99.i:                                      ; preds = %.thread92.i, %251
   %.16197102.i = phi i32 [ %.06080.ph.i, %251 ], [ %spec.select.i, %.thread92.i ]
   %252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 204), align 4, !tbaa !144
-  %.not.i63 = icmp ne i32 %252, 0
+  %.not.not.i = icmp ne i32 %252, 0
   %253 = icmp ult i32 %252, %.16197102.i
-  %or.cond.i = select i1 %.not.i63, i1 %253, i1 false
+  %.3.i = select i1 %.not.not.i, i1 %253, i1 false
   %.3.i = select i1 %or.cond.i, i32 0, i32 %.16197102.i
   %254 = call i32 @lru_crawler_start(ptr noundef nonnull %2, i32 noundef %.3.i, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #19
   br label %lru_maintainer_crawler_check.exit
@@ -4251,7 +4251,7 @@ lru_maintainer_crawler_check.exit:                ; preds = %251, %.thread99.i
   br label %256
 
 256:                                              ; preds = %lru_maintainer_crawler_check.exit, %165, %162
-  %.143 = phi i32 [ %255, %lru_maintainer_crawler_check.exit ], [ %.04285, %165 ], [ %.04285, %162 ]
+  %.143 = phi i32 [ %255, %lru_maintainer_crawler_check.exit ], [ %.04284, %165 ], [ %.04284, %162 ]
   %257 = load volatile i32, ptr @do_run_lru_maintainer_thread, align 4, !tbaa !22
   %.not = icmp eq i32 %257, 0
   br i1 %.not, label %._crit_edge, label %31, !llvm.loop !145

@@ -3269,9 +3269,9 @@ define hidden void @_ZN6diesel5mysql10connection33update_transaction_manager_sta
   %12 = load i8, ptr %11, align 8, !range !501
   %13 = icmp eq i8 %12, 3
   %or.cond = select i1 %10, i1 %13, i1 false
-  br i1 %or.cond, label %24, label %.thread12
+  br i1 %or.cond, label %24, label %.thread19
 
-.thread12:                                        ; preds = %6, %9
+.thread19:                                        ; preds = %6, %9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   br label %16
 

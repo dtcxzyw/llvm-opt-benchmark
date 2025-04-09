@@ -14389,7 +14389,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit209: ; preds = %_ZN5
 .lr.ph316:                                        ; preds = %.preheader
   %88 = and i64 %.sroa.speculated231, 3
   %.not174 = icmp eq i64 %88, 0
-  %spec.select.neg = select i1 %.not174, i64 4, i64 0
+  %spec.select = select i1 %.not174, i64 4, i64 0
   %spec.select = select i1 %.not174, i64 -4, i64 0
   %89 = add i64 %spec.select, %.sroa.speculated231
   %90 = icmp sgt i64 %89, -1
@@ -14453,7 +14453,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit209: ; preds = %_ZN5
   br i1 %80, label %165, label %170
 
 115:                                              ; preds = %.lr.ph314, %160
-  %indvars.iv = phi i64 [ %spec.select.neg, %.lr.ph314 ], [ %indvars.iv.next, %160 ]
+  %indvars.iv = phi i64 [ %spec.select, %.lr.ph314 ], [ %indvars.iv.next, %160 ]
   %.0159313 = phi i64 [ %89, %.lr.ph314 ], [ %161, %160 ]
   %smin331 = call i64 @llvm.smin.i64(i64 %indvars.iv, i64 4)
   %smax332 = call i64 @llvm.smax.i64(i64 %smin331, i64 1)

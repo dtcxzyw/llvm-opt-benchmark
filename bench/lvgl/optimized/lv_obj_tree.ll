@@ -596,25 +596,25 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %11
   tail call fastcc void @obj_delete_core(ptr noundef %13)
-  %.val1852 = load ptr, ptr %3, align 8, !tbaa !37
-  %17 = icmp eq ptr %.val1852, null
-  br i1 %17, label %._crit_edge, label %.lr.ph54
+  %.val1855 = load ptr, ptr %3, align 8, !tbaa !37
+  %17 = icmp eq ptr %.val1855, null
+  br i1 %17, label %._crit_edge, label %.lr.ph57
 
 .lr.ph.loopexit:                                  ; preds = %23
   tail call fastcc void @obj_delete_core(ptr noundef %25)
   %.val18 = load ptr, ptr %3, align 8, !tbaa !37
   %18 = icmp eq ptr %.val18, null
-  br i1 %18, label %._crit_edge, label %.lr.ph54, !llvm.loop !61
+  br i1 %18, label %._crit_edge, label %.lr.ph57, !llvm.loop !61
 
-.lr.ph54:                                         ; preds = %.lr.ph.preheader, %.lr.ph.loopexit
-  %.val1853 = phi ptr [ %.val18, %.lr.ph.loopexit ], [ %.val1852, %.lr.ph.preheader ]
-  %19 = getelementptr inbounds nuw i8, ptr %.val1853, i64 64
+.lr.ph57:                                         ; preds = %.lr.ph.preheader, %.lr.ph.loopexit
+  %.val1856 = phi ptr [ %.val18, %.lr.ph.loopexit ], [ %.val1855, %.lr.ph.preheader ]
+  %19 = getelementptr inbounds nuw i8, ptr %.val1856, i64 64
   %20 = load i16, ptr %19, align 8, !tbaa !38
   %.not4.i21 = icmp eq i16 %20, 0
   br i1 %.not4.i21, label %._crit_edge, label %.lr.ph.i22
 
-.lr.ph.i22:                                       ; preds = %.lr.ph54
-  %21 = load ptr, ptr %.val1853, align 8, !tbaa !42
+.lr.ph.i22:                                       ; preds = %.lr.ph57
+  %21 = load ptr, ptr %.val1856, align 8, !tbaa !42
   %wide.trip.count.i23 = zext i16 %20 to i64
   br label %23
 
@@ -633,7 +633,7 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
   %.not.i25 = icmp eq i16 %28, 0
   br i1 %.not.i25, label %.lr.ph.loopexit, label %22
 
-._crit_edge:                                      ; preds = %10, %.lr.ph.loopexit, %.lr.ph54, %22, %.lr.ph.preheader, %2, %6
+._crit_edge:                                      ; preds = %10, %.lr.ph.loopexit, %.lr.ph57, %22, %.lr.ph.preheader, %2, %6
   tail call void @lv_obj_scroll_to(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #6
   %29 = load ptr, ptr %3, align 8, !tbaa !37
   %.not17 = icmp eq ptr %29, null
