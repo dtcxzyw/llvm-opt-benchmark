@@ -402,11 +402,10 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   br i1 %171, label %.loopexit, label %.preheader58
 
 .preheader58:                                     ; preds = %170, %156
-  %.ph = phi i64 [ %159, %170 ], [ 0, %156 ]
   br label %172
 
 172:                                              ; preds = %.preheader58, %172
-  %173 = phi i64 [ %175, %172 ], [ %.ph, %.preheader58 ]
+  %173 = phi i64 [ %175, %172 ], [ 0, %.preheader58 ]
   %174 = getelementptr inbounds nuw i32, ptr %150, i64 %173
   store i32 %153, ptr %174, align 4, !tbaa !55
   %175 = add nuw nsw i64 %173, 1
@@ -532,9 +531,8 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
 .preheader:                                       ; preds = %177, %12
   %.ph = phi i64 [ %181, %177 ], [ 0, %12 ]
   %.ph79 = phi i64 [ %185, %177 ], [ 0, %12 ]
-  %.ph80 = phi i64 [ %19, %177 ], [ 0, %12 ]
-  %.ph81 = phi i64 [ %189, %177 ], [ 0, %12 ]
-  %.ph82 = phi i64 [ %193, %177 ], [ 0, %12 ]
+  %.ph80 = phi i64 [ %189, %177 ], [ 0, %12 ]
+  %.ph81 = phi i64 [ %193, %177 ], [ 0, %12 ]
   br label %206
 
 18:                                               ; preds = %12
@@ -744,9 +742,9 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
 206:                                              ; preds = %.preheader, %206
   %207 = phi i64 [ %230, %206 ], [ %.ph, %.preheader ]
   %208 = phi i64 [ %223, %206 ], [ %.ph79, %.preheader ]
-  %209 = phi i64 [ %231, %206 ], [ %.ph80, %.preheader ]
-  %210 = phi i64 [ %216, %206 ], [ %.ph81, %.preheader ]
-  %211 = phi i64 [ %227, %206 ], [ %.ph82, %.preheader ]
+  %209 = phi i64 [ %231, %206 ], [ 0, %.preheader ]
+  %210 = phi i64 [ %216, %206 ], [ %.ph80, %.preheader ]
+  %211 = phi i64 [ %227, %206 ], [ %.ph81, %.preheader ]
   %212 = getelementptr inbounds %"class.asmjit::_abi_1_10::JitAllocatorPool", ptr %14, i64 %209
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %214 = load i32, ptr %213, align 8, !tbaa !67
@@ -893,7 +891,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %92 = lshr i64 %87, 6
   %93 = getelementptr inbounds nuw i64, ptr %83, i64 %92
   %94 = icmp samesign ult i64 %91, %90
-  br i1 %94, label %95, label %.preheader135
+  br i1 %94, label %95, label %.preheader134
 
 95:                                               ; preds = %81
   %96 = load i64, ptr %93, align 8, !tbaa !51
@@ -901,19 +899,19 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %98 = and i64 %87, 63
   %99 = shl nsw i64 -1, %98
   %100 = and i64 %99, %97
-  br label %.preheader135
+  br label %.preheader134
 
-.preheader135:                                    ; preds = %95, %81
-  %.ph136 = phi i64 [ 0, %81 ], [ %100, %95 ]
+.preheader134:                                    ; preds = %95, %81
+  %.ph135 = phi i64 [ 0, %81 ], [ %100, %95 ]
   br label %101
 
-101:                                              ; preds = %.preheader135, %167
-  %102 = phi i64 [ %164, %167 ], [ %91, %.preheader135 ]
-  %103 = phi ptr [ %163, %167 ], [ %93, %.preheader135 ]
-  %104 = phi i64 [ %162, %167 ], [ %84, %.preheader135 ]
-  %105 = phi i64 [ %168, %167 ], [ -1, %.preheader135 ]
-  %106 = phi i64 [ %169, %167 ], [ 0, %.preheader135 ]
-  %107 = phi i64 [ %161, %167 ], [ %.ph136, %.preheader135 ]
+101:                                              ; preds = %.preheader134, %167
+  %102 = phi i64 [ %164, %167 ], [ %91, %.preheader134 ]
+  %103 = phi ptr [ %163, %167 ], [ %93, %.preheader134 ]
+  %104 = phi i64 [ %162, %167 ], [ %84, %.preheader134 ]
+  %105 = phi i64 [ %168, %167 ], [ -1, %.preheader134 ]
+  %106 = phi i64 [ %169, %167 ], [ 0, %.preheader134 ]
+  %107 = phi i64 [ %161, %167 ], [ %.ph135, %.preheader134 ]
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %.preheader30, label %119
 
@@ -1170,11 +1168,10 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br i1 %267, label %.loopexit, label %.preheader133
 
 .preheader133:                                    ; preds = %266, %252
-  %.ph = phi i64 [ %255, %266 ], [ 0, %252 ]
   br label %268
 
 268:                                              ; preds = %.preheader133, %268
-  %269 = phi i64 [ %271, %268 ], [ %.ph, %.preheader133 ]
+  %269 = phi i64 [ %271, %268 ], [ 0, %.preheader133 ]
   %270 = getelementptr inbounds nuw i32, ptr %247, i64 %269
   store i32 %249, ptr %270, align 4, !tbaa !55
   %271 = add nuw nsw i64 %269, 1
@@ -1677,11 +1674,10 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %181, label %.loopexit, label %.preheader47
 
 .preheader47:                                     ; preds = %180, %166
-  %.ph = phi i64 [ %169, %180 ], [ 0, %166 ]
   br label %182
 
 182:                                              ; preds = %.preheader47, %182
-  %183 = phi i64 [ %185, %182 ], [ %.ph, %.preheader47 ]
+  %183 = phi i64 [ %185, %182 ], [ 0, %.preheader47 ]
   %184 = getelementptr inbounds nuw i32, ptr %159, i64 %183
   store i32 %163, ptr %184, align 4, !tbaa !55
   %185 = add nuw nsw i64 %183, 1
@@ -2072,11 +2068,10 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %199, label %.loopexit, label %.preheader37
 
 .preheader37:                                     ; preds = %198, %184
-  %.ph = phi i64 [ %187, %198 ], [ 0, %184 ]
   br label %200
 
 200:                                              ; preds = %.preheader37, %200
-  %201 = phi i64 [ %203, %200 ], [ %.ph, %.preheader37 ]
+  %201 = phi i64 [ %203, %200 ], [ 0, %.preheader37 ]
   %202 = getelementptr inbounds nuw i32, ptr %176, i64 %201
   store i32 %181, ptr %202, align 4, !tbaa !55
   %203 = add nuw nsw i64 %201, 1

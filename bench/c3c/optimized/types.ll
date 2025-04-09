@@ -1751,9 +1751,10 @@ define dso_local i32 @type_abi_alignment(ptr noundef readonly captures(none) %0)
 32:                                               ; preds = %19, %11
   %.0 = phi i32 [ %31, %19 ], [ %17, %11 ]
   %33 = load i32, ptr @max_alignment_vector, align 4
-  %.not22.not = icmp eq i32 %33, 0
-  %34 = tail call i32 @llvm.umin.i32(i32 %.0, i32 %33)
-  %.1 = select i1 %.not22.not, i32 %.0, i32 %34
+  %.not22 = icmp ne i32 %33, 0
+  %34 = icmp ugt i32 %.0, %33
+  %or.cond = select i1 %.not22, i1 %34, i1 false
+  %.1 = select i1 %or.cond, i32 0, i32 %.0
   br label %.loopexit
 
 35:                                               ; preds = %2

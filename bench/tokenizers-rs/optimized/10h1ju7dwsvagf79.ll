@@ -8850,7 +8850,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %18
 
 18:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %17, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ 0, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8871,7 +8870,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   store i64 %8, ptr %.sroa.52.0..sroa_idx, align 8, !alias.scope !2122, !noalias !2124
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !2126, !noalias !2127
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2126, !noalias !2127
+  store i64 33, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2126, !noalias !2127
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !2126, !noalias !2127
   ret void
@@ -8903,7 +8902,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %18
 
 18:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %17, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ 0, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8924,7 +8922,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   store i64 %8, ptr %.sroa.52.0..sroa_idx, align 8, !alias.scope !2141, !noalias !2143
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !2145, !noalias !2146
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2145, !noalias !2146
+  store i64 81, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2145, !noalias !2146
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !2145, !noalias !2146
   ret void
@@ -8956,7 +8954,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %18
 
 18:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %17, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ 0, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8977,7 +8974,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   store i64 %8, ptr %.sroa.52.0..sroa_idx, align 8, !alias.scope !2160, !noalias !2162
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !2164, !noalias !2165
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2164, !noalias !2165
+  store i64 49, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2164, !noalias !2165
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !2164, !noalias !2165
   ret void
@@ -9009,7 +9006,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %18
 
 18:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %17, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ 0, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -9030,7 +9026,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   store i64 %8, ptr %.sroa.52.0..sroa_idx, align 8, !alias.scope !2179, !noalias !2181
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !2183, !noalias !2184
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2183, !noalias !2184
+  store i64 33, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2183, !noalias !2184
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !2183, !noalias !2184
   ret void
@@ -9062,7 +9058,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %18
 
 18:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %17, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ 0, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -9083,7 +9078,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   store i64 %8, ptr %.sroa.52.0..sroa_idx, align 8, !alias.scope !2198, !noalias !2200
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !2202, !noalias !2203
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2202, !noalias !2203
+  store i64 33, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2202, !noalias !2203
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !2202, !noalias !2203
   ret void
@@ -9115,7 +9110,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %18
 
 18:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %17, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ undef, %2 ]
   %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i.i ], [ 0, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -9136,7 +9130,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   store i64 %8, ptr %.sroa.52.0..sroa_idx, align 8, !alias.scope !2217, !noalias !2219
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !2221, !noalias !2222
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2221, !noalias !2222
+  store i64 49, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2221, !noalias !2222
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !2221, !noalias !2222
   ret void
@@ -17508,14 +17502,13 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h64276af13516b27fE.llvm.11083375685992158394.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h64276af13516b27fE.llvm.11083375685992158394.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %9, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %12, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 33, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
@@ -17542,14 +17535,13 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h607b39bbeb4835a0E.llvm.11083375685992158394.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h607b39bbeb4835a0E.llvm.11083375685992158394.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %9, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %12, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 49, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
@@ -17576,14 +17568,13 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17ha3f9275ef1f6eff5E.llvm.11083375685992158394.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17ha3f9275ef1f6eff5E.llvm.11083375685992158394.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %9, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %12, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 33, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
@@ -17610,14 +17601,13 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5ba7472a8ef7f9c3E.llvm.11083375685992158394.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5ba7472a8ef7f9c3E.llvm.11083375685992158394.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %9, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %12, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 81, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
@@ -17644,14 +17634,13 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17hf6499c251a9cb80fE.llvm.11083375685992158394.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17hf6499c251a9cb80fE.llvm.11083375685992158394.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %9, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %12, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 33, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
@@ -17678,14 +17667,13 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5b498141224f8c06E.llvm.11083375685992158394.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5b498141224f8c06E.llvm.11083375685992158394.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %9, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %12, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit.i ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 49, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
@@ -28248,12 +28236,11 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %15
 
 15:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %10, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.5.sroa.4.0 = phi ptr [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 49, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
@@ -28280,12 +28267,11 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %15
 
 15:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %10, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.5.sroa.4.0 = phi ptr [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 81, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
@@ -28312,12 +28298,11 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %15
 
 15:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %10, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.5.sroa.4.0 = phi ptr [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 49, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
@@ -28344,12 +28329,11 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %15
 
 15:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %10, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.5.sroa.4.0 = phi ptr [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 33, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
@@ -28376,12 +28360,11 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %15
 
 15:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %10, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.5.sroa.4.0 = phi ptr [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 33, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
@@ -28408,12 +28391,11 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11
   br label %15
 
 15:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %10, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.5.sroa.4.0 = phi ptr [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h49c0bfa79281e5d3E.llvm.11083375685992158394.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 33, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void

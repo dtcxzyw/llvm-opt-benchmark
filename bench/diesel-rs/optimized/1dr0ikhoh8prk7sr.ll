@@ -281,7 +281,7 @@ common.resume:                                    ; preds = %47, %8
   br i1 %22, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bbe595d087057b5E.exit.i.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bbe595d087057b5E.exit.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h93f560bfb06eb29aE.exit.thread.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h93f560bfb06eb29aE.exit.i.i.i", %18, %.noexc.i
-  %23 = phi i64 [ %spec.select.i15.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h93f560bfb06eb29aE.exit.thread.i.i.i" ], [ %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h93f560bfb06eb29aE.exit.i.i.i" ], [ %16, %18 ], [ 0, %.noexc.i ]
+  %23 = phi i64 [ %spec.select.i15.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h93f560bfb06eb29aE.exit.thread.i.i.i" ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h93f560bfb06eb29aE.exit.i.i.i" ], [ 0, %18 ], [ 0, %.noexc.i ]
   %24 = load i64, ptr %5, align 8, !alias.scope !34, !noalias !20, !noundef !7
   %25 = lshr i64 %24, 2
   %26 = icmp ult i64 %23, %25
@@ -2172,8 +2172,6 @@ define noundef range(i8 0, 20) i8 @"_ZN6diesel5mysql10connection4bind173_$LT$imp
   unreachable
 
 10:                                               ; preds = %2
-  %.lobit = lshr exact i32 %8, 5
-  %. = trunc nuw nsw i32 %.lobit to i8
   br label %51
 
 11:                                               ; preds = %2
@@ -2289,7 +2287,7 @@ define noundef range(i8 0, 20) i8 @"_ZN6diesel5mysql10connection4bind173_$LT$imp
   br i1 %.not59, label %80, label %51
 
 51:                                               ; preds = %39, %41, %43, %45, %47, %49, %59, %64, %68, %72, %76, %80, %61, %66, %70, %74, %78, %82, %12, %22, %11, %21, %10, %2, %2, %63, %53, %52, %38, %37, %25, %24, %23, %20, %14, %13
-  %.0 = phi i8 [ 16, %63 ], [ 15, %38 ], [ 17, %37 ], [ 3, %52 ], [ 13, %25 ], [ 11, %24 ], [ 12, %23 ], [ 5, %53 ], [ 14, %20 ], [ 9, %14 ], [ 8, %13 ], [ 10, %2 ], [ 10, %2 ], [ %., %10 ], [ %.77, %21 ], [ 2, %11 ], [ 4, %22 ], [ 4, %12 ], [ 15, %82 ], [ 15, %78 ], [ 15, %74 ], [ 15, %70 ], [ 15, %66 ], [ 15, %61 ], [ 18, %80 ], [ 18, %76 ], [ 18, %72 ], [ 18, %68 ], [ 18, %64 ], [ 18, %59 ], [ 19, %49 ], [ 19, %47 ], [ 19, %45 ], [ 19, %43 ], [ 19, %41 ], [ 19, %39 ]
+  %.0 = phi i8 [ 16, %63 ], [ 15, %38 ], [ 17, %37 ], [ 3, %52 ], [ 13, %25 ], [ 11, %24 ], [ 12, %23 ], [ 5, %53 ], [ 14, %20 ], [ 9, %14 ], [ 8, %13 ], [ 10, %2 ], [ 10, %2 ], [ 0, %10 ], [ %.77, %21 ], [ 2, %11 ], [ 4, %22 ], [ 4, %12 ], [ 15, %82 ], [ 15, %78 ], [ 15, %74 ], [ 15, %70 ], [ 15, %66 ], [ 15, %61 ], [ 18, %80 ], [ 18, %76 ], [ 18, %72 ], [ 18, %68 ], [ 18, %64 ], [ 18, %59 ], [ 19, %49 ], [ 19, %47 ], [ 19, %45 ], [ 19, %43 ], [ 19, %41 ], [ 19, %39 ]
   ret i8 %.0
 
 52:                                               ; preds = %26, %11

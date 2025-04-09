@@ -1926,7 +1926,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   %.sroa.013.0.ph.be = phi i16 [ %spec.select, %488 ], [ %.sroa.013.1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit165 ], [ %.sroa.013.1, %306 ]
   %.sroa.515.0.ph.be = phi ptr [ %spec.select78, %488 ], [ %.sroa.515.1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit165 ], [ %.sroa.515.1, %306 ]
   %.sroa.020.2.ph.be = phi i16 [ %.sroa.020.4, %488 ], [ %5, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit165 ], [ %.sroa.020.4, %306 ]
-  %.sroa.15.2.ph.be = phi i16 [ %.sroa.15.4, %488 ], [ %590, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit165 ], [ %.sroa.15.4, %306 ]
+  %.sroa.15.2.ph.be = phi i16 [ %.sroa.15.4, %488 ], [ %., %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit165 ], [ %.sroa.15.4, %306 ]
   br label %.outer
 
 489:                                              ; preds = %485
@@ -1936,7 +1936,6 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %.sroa.042.0, label %515, label %_RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9write_buf.exit155
 
 _RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9write_buf.exit155: ; preds = %.critedge.i151, %536, %534, %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i153, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.4083057626633162689.exit157, %489
-  %.sroa.15.6 = phi i16 [ %303, %489 ], [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.4083057626633162689.exit157 ], [ 0, %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i153 ], [ %303, %534 ], [ %303, %536 ], [ %303, %.critedge.i151 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
   call void @llvm.experimental.noalias.scope.decl(metadata !269)
   %492 = load i8, ptr %22, align 1, !range !153, !alias.scope !266, !noalias !269, !noundef !7
@@ -2166,7 +2165,6 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit165: ; preds = %580
-  %590 = add i16 %., %.sroa.15.6
   call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br label %.outer.backedge
@@ -3703,7 +3701,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
 .outer:                                           ; preds = %687, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit239, %504
   %.sroa.533.2 = phi ptr [ %.sroa.533.1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit239 ], [ %.sroa.533.1, %504 ], [ %spec.select, %687 ]
   %.sroa.031.2 = phi i16 [ %.sroa.031.1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit239 ], [ %.sroa.031.1, %504 ], [ %spec.select99, %687 ]
-  %.sroa.16.6 = phi i16 [ %789, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit239 ], [ %.sroa.16.5, %504 ], [ %.sroa.16.5, %687 ]
+  %.sroa.16.6 = phi i16 [ %.98, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit239 ], [ %.sroa.16.5, %504 ], [ %.sroa.16.5, %687 ]
   %.sroa.0.5 = phi i16 [ %6, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit239 ], [ %.sroa.0.4, %504 ], [ %.sroa.0.4, %687 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7250)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.13)
@@ -3744,7 +3742,6 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %.sroa.046.0, label %714, label %_RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9write_buf.exit228
 
 _RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9write_buf.exit228: ; preds = %.critedge.i224, %735, %733, %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i226, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.4083057626633162689.exit230, %688
-  %.sroa.16.7 = phi i16 [ %501, %688 ], [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.4083057626633162689.exit230 ], [ 0, %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i226 ], [ %501, %733 ], [ %501, %735 ], [ %501, %.critedge.i224 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !483)
   call void @llvm.experimental.noalias.scope.decl(metadata !486)
   %691 = load i8, ptr %11, align 1, !range !153, !alias.scope !483, !noalias !486, !noundef !7
@@ -3974,7 +3971,6 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit239: ; preds = %779
-  %789 = add i16 %.98, %.sroa.16.7
   call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   br label %.outer

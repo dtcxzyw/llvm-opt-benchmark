@@ -505,12 +505,13 @@ readstream.exit.i.i:                              ; preds = %readstream.exit.i.i
 
 .sink.split.i.i:                                  ; preds = %235, %234
   %.sink.i.i = phi i32 [ %233, %234 ], [ %237, %235 ]
+  %.ph.i.i = phi i32 [ %233, %234 ], [ -3, %235 ]
   store i32 %.sink.i.i, ptr %9, align 16, !tbaa !16
   br label %238
 
 238:                                              ; preds = %.sink.split.i.i, %230
-  %239 = phi i32 [ %110, %230 ], [ %.sink.i.i, %.sink.split.i.i ]
-  %.078.i.i = phi i32 [ %233, %230 ], [ %.sink.i.i, %.sink.split.i.i ]
+  %239 = phi i32 [ %110, %230 ], [ %.ph.i.i, %.sink.split.i.i ]
+  %.078.i.i = phi i32 [ %233, %230 ], [ %.ph.i.i, %.sink.split.i.i ]
   %.neg.i.i = xor i32 %.078.i.i, -1
   %or.cond96.i.i = icmp uge i32 %.078.i.i, %.075.ph.i21.i
   %240 = sub i32 %90, %.075.ph.i21.i

@@ -5559,8 +5559,8 @@ static_metadata_append.exit583:                   ; preds = %606
   br label %792
 
 .thread54.i:                                      ; preds = %788, %784, %782
-  %.335.ph.i = phi i32 [ %.03258.i, %788 ], [ %.03258.i, %782 ], [ 1, %784 ]
-  %.330.ph.i = phi i32 [ 1, %788 ], [ %.02759.i, %782 ], [ %.02759.i, %784 ]
+  %.335.ph.i = phi i32 [ 0, %788 ], [ 0, %782 ], [ 1, %784 ]
+  %.330.ph.i = phi i32 [ 1, %788 ], [ 0, %782 ], [ 0, %784 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   br label %.thread.i591
 
@@ -7064,7 +7064,7 @@ define internal range(i32 0, 3) i32 @flac_decoder_read_callback(ptr readnone cap
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8400
   %6 = load i32, ptr %5, align 8, !tbaa !175
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %33
+  br i1 %.not, label %7, label %30
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 184
@@ -7090,31 +7090,28 @@ define internal range(i32 0, 3) i32 @flac_decoder_read_callback(ptr readnone cap
   br label %21
 
 21:                                               ; preds = %10, %7
-  %.028 = phi i64 [ %., %10 ], [ 0, %7 ]
   %.027 = phi ptr [ %15, %10 ], [ %1, %7 ]
   %22 = load i64, ptr %2, align 8, !tbaa !35
-  %23 = icmp ugt i64 %22, %.028
-  br i1 %23, label %fread.inline.exit, label %33
+  %.not36 = icmp eq i64 %22, 0
+  br i1 %.not36, label %30, label %fread.inline.exit
 
 fread.inline.exit:                                ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8416
-  %25 = load ptr, ptr %24, align 8, !tbaa !31
-  %26 = sub nuw i64 %22, %.028
-  %27 = tail call i64 @fread(ptr noundef %.027, i64 noundef 1, i64 noundef %26, ptr noundef %25)
-  %28 = add i64 %27, %.028
-  store i64 %28, ptr %2, align 8, !tbaa !35
-  %29 = load ptr, ptr %24, align 8, !tbaa !31
-  %30 = tail call i32 @ferror(ptr noundef %29) #20
-  %.not34 = icmp eq i32 %30, 0
-  br i1 %.not34, label %31, label %33
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8416
+  %24 = load ptr, ptr %23, align 8, !tbaa !31
+  %25 = tail call i64 @fread(ptr noundef %.027, i64 noundef 1, i64 noundef %22, ptr noundef %24)
+  store i64 %25, ptr %2, align 8, !tbaa !35
+  %26 = load ptr, ptr %23, align 8, !tbaa !31
+  %27 = tail call i32 @ferror(ptr noundef %26) #20
+  %.not34 = icmp eq i32 %27, 0
+  br i1 %.not34, label %28, label %30
 
-31:                                               ; preds = %fread.inline.exit
-  %32 = icmp eq i64 %28, 0
-  %.35 = zext i1 %32 to i32
-  br label %33
+28:                                               ; preds = %fread.inline.exit
+  %29 = icmp eq i64 %25, 0
+  %.35 = zext i1 %29 to i32
+  br label %30
 
-33:                                               ; preds = %21, %31, %fread.inline.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ 2, %fread.inline.exit ], [ %.35, %31 ], [ 0, %21 ]
+30:                                               ; preds = %21, %28, %fread.inline.exit, %4
+  %.0 = phi i32 [ 2, %4 ], [ 2, %fread.inline.exit ], [ %.35, %28 ], [ 0, %21 ]
   ret i32 %.0
 }
 

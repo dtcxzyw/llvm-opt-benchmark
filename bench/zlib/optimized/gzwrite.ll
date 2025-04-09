@@ -157,7 +157,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
 
 ._crit_edge:                                      ; preds = %50
   %.pre = load ptr, ptr %46, align 8, !tbaa !25
-  %.pre80 = load ptr, ptr %48, align 8, !tbaa !21
+  %.pre78 = load ptr, ptr %48, align 8, !tbaa !21
   br label %55
 
 53:                                               ; preds = %50
@@ -166,7 +166,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   br label %55
 
 55:                                               ; preds = %._crit_edge, %53
-  %56 = phi ptr [ %.pre80, %._crit_edge ], [ %54, %53 ]
+  %56 = phi ptr [ %.pre78, %._crit_edge ], [ %54, %53 ]
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %54, %53 ]
   %58 = zext i32 %51 to i64
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
@@ -213,8 +213,8 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %85
 
-85:                                               ; preds = %89, %83
-  %.161 = phi i64 [ %2, %83 ], [ %90, %89 ]
+85:                                               ; preds = %85, %83
+  %.161 = phi i64 [ %2, %83 ], [ %89, %85 ]
   %spec.select6972 = tail call i64 @llvm.umin.i64(i64 %.161, i64 4294967295)
   %spec.select69 = trunc nuw i64 %spec.select6972 to i32
   store i32 %spec.select69, ptr %47, align 8, !tbaa !24
@@ -223,16 +223,13 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   store i64 %87, ptr %84, align 8, !tbaa !23
   %88 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
   %.not66 = icmp eq i32 %88, -1
-  br i1 %.not66, label %.critedge70, label %89
+  %89 = sub i64 %.161, %spec.select6972
+  %.not67 = icmp eq i64 %89, 0
+  %or.cond = select i1 %.not66, i1 true, i1 %.not67
+  br i1 %or.cond, label %.critedge70, label %85, !llvm.loop !26
 
-89:                                               ; preds = %85
-  %90 = sub i64 %.161, %spec.select6972
-  %.not67 = icmp eq i64 %90, 0
-  br i1 %.not67, label %.critedge70, label %85, !llvm.loop !26
-
-.critedge70:                                      ; preds = %37, %89, %85, %55, %74, %21, %80, %9, %3
-  %.056 = phi i64 [ 0, %3 ], [ 0, %9 ], [ 0, %80 ], [ 0, %21 ], [ %2, %55 ], [ 0, %74 ], [ %2, %89 ], [ 0, %85 ], [ 0, %37 ]
-  ret i64 %.056
+.critedge70:                                      ; preds = %37, %85, %55, %74, %21, %80, %9, %3
+  ret i64 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -663,7 +660,7 @@ gz_zero.exit._crit_edge:                          ; preds = %gz_zero.exit
   br label %102
 
 102:                                              ; preds = %82, %94, %58, %75, %77, %5, %9, %3, %92, %.loopexit, %19
-  %.0 = phi i32 [ %20, %19 ], [ %51, %.loopexit ], [ %93, %92 ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ 0, %77 ], [ 0, %75 ], [ 0, %58 ], [ %73, %94 ], [ %73, %82 ]
+  %.0 = phi i32 [ %20, %19 ], [ %51, %.loopexit ], [ %93, %92 ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ 0, %77 ], [ 0, %75 ], [ 0, %58 ], [ 0, %94 ], [ 0, %82 ]
   ret i32 %.0
 }
 

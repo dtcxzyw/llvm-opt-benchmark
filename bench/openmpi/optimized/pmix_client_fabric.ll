@@ -1136,12 +1136,13 @@ define internal void @frecv(ptr noundef readonly captures(none) %0, ptr readnone
 .sink.split:                                      ; preds = %114, %108, %76, %70, %48, %40
   %.386.sink = phi i32 [ %54, %48 ], [ -20, %40 ], [ %84, %76 ], [ -20, %70 ], [ %122, %114 ], [ -20, %108 ]
   %.sink87 = phi i32 [ 105, %48 ], [ 105, %40 ], [ 116, %76 ], [ 116, %70 ], [ 124, %114 ], [ 124, %108 ]
+  %.0.ph = phi i32 [ -2, %48 ], [ -2, %40 ], [ -2, %76 ], [ -2, %70 ], [ %122, %114 ], [ -20, %108 ]
   %123 = call ptr @PMIx_Error_string(i32 noundef %.386.sink) #11
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %123, ptr noundef nonnull @.str.3, i32 noundef %.sink87) #11
   br label %124
 
 124:                                              ; preds = %.sink.split, %114, %114, %76, %48, %16, %20, %85, %55
-  %.0 = phi i32 [ 0, %55 ], [ %122, %114 ], [ %84, %85 ], [ -25, %20 ], [ -25, %16 ], [ %54, %48 ], [ %84, %76 ], [ %122, %114 ], [ %.386.sink, %.sink.split ]
+  %.0 = phi i32 [ 0, %55 ], [ %122, %114 ], [ -2, %85 ], [ -25, %20 ], [ -25, %16 ], [ %54, %48 ], [ %84, %76 ], [ %122, %114 ], [ %.0.ph, %.sink.split ]
   %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8, !tbaa !40
   %or.cond11 = icmp ult i32 %125, 64
   br i1 %or.cond11, label %126, label %132

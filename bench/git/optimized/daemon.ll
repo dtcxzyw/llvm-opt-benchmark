@@ -2949,8 +2949,8 @@ define internal fastcc void @sanitize_client(ptr noundef nonnull %0, ptr noundef
 
 .preheader:                                       ; preds = %5
   %7 = load i64, ptr %3, align 8, !tbaa !23
-  %.not1721 = icmp eq i64 %7, 0
-  br i1 %.not1721, label %.critedge, label %.lr.ph
+  %.not1722 = icmp eq i64 %7, 0
+  br i1 %.not1722, label %.critedge, label %.lr.ph
 
 8:                                                ; preds = %5
   %9 = load i64, ptr %3, align 8, !tbaa !23
@@ -3010,7 +3010,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 33:                                               ; preds = %.lr.ph
   %34 = load i64, ptr %0, align 8, !tbaa !26
-  %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %34, i64 1)
+  %.not.i20 = icmp ne i64 %34, 0
+  %spec.select.i = sext i1 %.not.i20 to i64
   %35 = icmp ugt i64 %29, %spec.select.i
   br i1 %35, label %36, label %37
 
@@ -3484,9 +3485,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

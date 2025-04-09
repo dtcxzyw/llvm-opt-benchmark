@@ -59,7 +59,7 @@ define dso_local void @FLAC__replaygain_synthesis__init_dither_context(ptr nound
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply_gain(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, double noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef captures(none) %11) local_unnamed_addr #1 {
+define dso_local noundef range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply_gain(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, double noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef captures(none) %11) local_unnamed_addr #1 {
   %13 = zext i32 %7 to i64
   %14 = getelementptr inbounds nuw [33 x i64], ptr @FLAC__replaygain_synthesis__apply_gain.hard_clip_factors_, i64 0, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !21
@@ -484,13 +484,10 @@ dither_output_.exit.us:                           ; preds = %298, %281, %123
   br i1 %exitcond103.not, label %._crit_edge98, label %.lr.ph.us, !llvm.loop !28
 
 ._crit_edge98:                                    ; preds = %._crit_edge.us, %12, %.lr.ph97
-  %.pre-phi = phi i32 [ %28, %.lr.ph97 ], [ 0, %12 ], [ %28, %._crit_edge.us ]
   %334 = add i32 %22, %4
   %335 = and i32 %334, 31
   store i32 %335, ptr %21, align 4, !tbaa !20
-  %336 = mul i32 %.pre-phi, %4
-  %337 = zext i32 %336 to i64
-  ret i64 %337
+  ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)

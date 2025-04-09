@@ -47,16 +47,10 @@ define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returne
   store i8 %26, ptr %28, align 1
   %29 = add nuw nsw i64 %.024, 1
   %exitcond.not = icmp eq i64 %29, %3
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %30 = shl nuw i64 %3, 1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit
-  %.0.lcssa = phi i64 [ %30, %._crit_edge.loopexit ], [ 0, %.preheader ]
-  %31 = getelementptr i8, ptr %0, i64 %.0.lcssa
-  store i8 0, ptr %31, align 1
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader
+  store i8 0, ptr %0, align 1
   ret ptr %0
 }
 

@@ -250,27 +250,26 @@ define void @stream_rseek(ptr noundef captures(none) initializes((0, 24)) %0, i6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !11
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %14, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %8, align 8, !tbaa !11
   %11 = load i64, ptr %7, align 8, !tbaa !14
   %12 = lshr i64 %11, %3
-  %13 = sub nuw nsw i64 64, %3
-  br label %14
+  br label %13
 
-14:                                               ; preds = %2, %9
+13:                                               ; preds = %2, %9
   %.sink = phi i64 [ %12, %9 ], [ 0, %2 ]
-  %storemerge = phi i64 [ %13, %9 ], [ 0, %2 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %15, align 8, !tbaa !15
+  %storemerge = phi i64 [ 64, %9 ], [ 0, %2 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %14, align 8, !tbaa !15
   store i64 %storemerge, ptr %0, align 8, !tbaa !13
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stream_wseek(ptr noundef captures(none) initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @stream_wseek(ptr noundef captures(none) initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = and i64 %1, 63
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !4
@@ -278,20 +277,8 @@ define void @stream_wseek(ptr noundef captures(none) initializes((0, 24)) %0, i6
   %7 = getelementptr inbounds nuw i64, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !11
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %13, label %9
-
-9:                                                ; preds = %2
-  %10 = load i64, ptr %7, align 8, !tbaa !14
-  %notmask = shl nsw i64 -1, %3
-  %11 = xor i64 %notmask, -1
-  %12 = and i64 %10, %11
-  br label %13
-
-13:                                               ; preds = %2, %9
-  %.sink = phi i64 [ %12, %9 ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %14, align 8, !tbaa !15
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %9, align 8, !tbaa !15
   store i64 %3, ptr %0, align 8, !tbaa !13
   ret void
 }
@@ -321,14 +308,13 @@ define void @stream_skip(ptr noundef captures(none) initializes((8, 16)) %0, i64
   store ptr %18, ptr %3, align 8, !tbaa !11
   %19 = load i64, ptr %16, align 8, !tbaa !14
   %20 = lshr i64 %19, %14
-  %21 = sub nuw nsw i64 64, %14
   br label %stream_rseek.exit
 
 stream_rseek.exit:                                ; preds = %2, %17
   %.sink.i = phi i64 [ %20, %17 ], [ 0, %2 ]
-  %storemerge.i = phi i64 [ %21, %17 ], [ 0, %2 ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i, ptr %22, align 8, !tbaa !15
+  %storemerge.i = phi i64 [ 64, %17 ], [ 0, %2 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i, ptr %21, align 8, !tbaa !15
   store i64 %storemerge.i, ptr %0, align 8, !tbaa !13
   ret void
 }
@@ -372,7 +358,7 @@ define void @stream_pad(ptr noundef captures(none) %0, i64 noundef %1) local_unn
 define i64 @stream_align(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !tbaa !13
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %21, label %3
+  br i1 %.not, label %20, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -395,18 +381,17 @@ define i64 @stream_align(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   store ptr %16, ptr %4, align 8, !tbaa !11
   %17 = load i64, ptr %14, align 8, !tbaa !14
   %18 = lshr i64 %17, %12
-  %19 = sub nuw nsw i64 64, %12
   br label %stream_skip.exit
 
 stream_skip.exit:                                 ; preds = %3, %15
   %.sink.i.i = phi i64 [ %18, %15 ], [ 0, %3 ]
-  %storemerge.i.i = phi i64 [ %19, %15 ], [ 0, %3 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i.i, ptr %20, align 8, !tbaa !15
+  %storemerge.i.i = phi i64 [ 64, %15 ], [ 0, %3 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i.i, ptr %19, align 8, !tbaa !15
   store i64 %storemerge.i.i, ptr %0, align 8, !tbaa !13
-  br label %21
+  br label %20
 
-21:                                               ; preds = %stream_skip.exit, %1
+20:                                               ; preds = %stream_skip.exit, %1
   ret i64 %2
 }
 

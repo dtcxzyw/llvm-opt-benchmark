@@ -431,19 +431,13 @@ define noundef i64 @_ZNK2pb12JavaFeatures12ByteSizeLongEv(ptr noundef nonnull al
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %0, align 8
-  %and = and i32 %1, 3
-  %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %if.end13, label %if.then
-
-if.then:                                          ; preds = %entry
-  %and2 = shl i32 %1, 1
-  %2 = and i32 %and2, 2
-  %spec.select = zext nneg i32 %2 to i64
   %and5 = and i32 %1, 2
   %tobool6.not = icmp eq i32 %and5, 0
   br i1 %tobool6.not, label %if.end13, label %if.then7
 
-if.then7:                                         ; preds = %if.then
+if.then7:                                         ; preds = %entry
+  %and2 = shl i32 %1, 1
+  %2 = and i32 %and2, 2
   %utf8_validation_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %3 = load i32, ptr %utf8_validation_.i, align 4
   %4 = or i32 %3, 1
@@ -453,12 +447,13 @@ if.then7:                                         ; preds = %if.then
   %mul.i.i.i = mul nuw nsw i64 %sub.i.i.i, 9
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 73
   %div1.i.i.i = lshr i64 %add.i.i.i, 6
-  %add10 = or disjoint i64 %spec.select, 1
-  %add11 = add nuw nsw i64 %add10, %div1.i.i.i
+  %6 = or disjoint i32 %2, 1
+  %add10 = zext nneg i32 %6 to i64
+  %add11 = add nuw nsw i64 %div1.i.i.i, %add10
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then, %if.then7, %entry
-  %total_size.0 = phi i64 [ %add11, %if.then7 ], [ %spec.select, %if.then ], [ 0, %entry ]
+if.end13:                                         ; preds = %if.then7, %entry
+  %total_size.0 = phi i64 [ %add11, %if.then7 ], [ 0, %entry ]
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   %call14 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.0, ptr noundef nonnull %_cached_size_)
   ret i64 %call14

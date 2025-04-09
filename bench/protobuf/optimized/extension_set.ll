@@ -1119,7 +1119,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, !llvm.loop !33
 
 _ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i
-  %s.addr.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i ], [ %conv3.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
+  %s.addr.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i.i.i.i.i, i64 11
   %7 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %7, 0
@@ -8368,7 +8368,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !33
 
 _ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %while.body.i.i.i.i.i.i, %for.cond.i.i.i
-  %s.addr.0.lcssa.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i ], [ %s.addr.05.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %conv3.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
+  %s.addr.0.lcssa.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i ], [ %s.addr.05.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i.i.i, i64 11
   %5 = load i8, ptr %arrayidx.i.i.i.i, align 1, !noalias !94
   %cmp.i.not.i.i.i = icmp eq i8 %5, 0
@@ -10668,7 +10668,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !33
 
 _ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i, %for.cond.i.i.i.i
-  %s.addr.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i.i ], [ %conv3.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %s.addr.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i.i ], [ 0, %if.end.i.i.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i.i.i.i, i64 11
   %6 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.not.i.i.i.i = icmp eq i8 %6, 0
@@ -15046,7 +15046,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !33
 
 _ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i, %for.cond.i.i.i.i
-  %s.addr.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i.i ], [ %conv3.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %s.addr.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i.i ], [ 0, %if.end.i.i.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i.i.i.i, i64 11
   %3 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.not.i.i.i.i = icmp eq i8 %3, 0
@@ -15153,7 +15153,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, !llvm.loop !33
 
 _ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i
-  %s.addr.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i ], [ %conv3.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
+  %s.addr.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i.i.i.i.i, i64 11
   %3 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -15263,7 +15263,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !33
 
 _ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i, %for.cond.i.i.i.i
-  %s.addr.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i.i ], [ %conv3.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %s.addr.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i.i.i ], [ 0, %if.end.i.i.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i.i.i.i, i64 11
   %3 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !noalias !170
   %cmp.i.not.i.i.i.i = icmp eq i8 %3, 0
@@ -18288,7 +18288,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 _ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE16internal_emplaceIJSD_EEENS1_14btree_iteratorINS1_10btree_nodeISF_EERSD_PSD_EESN_DpOT_ENKUlhE_clEh.exit: ; preds = %for.body.i.i.i, %if.then12
   %arrayidx.i2.i.i.i7 = getelementptr i8, ptr %call5.i.i2.i.i.i.i, i64 10
-  store i8 %15, ptr %arrayidx.i2.i.i.i7, align 1
+  store i8 0, ptr %arrayidx.i2.i.i.i7, align 1
   tail call void @_ZdlPv(ptr noundef nonnull %10) #34
   %rightmost_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call5.i.i2.i.i.i.i, ptr %rightmost_.i.i, align 8
@@ -19311,7 +19311,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !33
 
 _ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i: ; preds = %if.end.i.i.i.i.i, %while.body.i.i.i.i.i, %for.cond.i.i
-  %s.addr.0.lcssa.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i ], [ %conv3.i.i.i.i, %if.end.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %s.addr.0.lcssa.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i ], [ 0, %if.end.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %arrayidx.i.i.i52 = getelementptr i8, ptr %iter.sroa.0.0.i.i, i64 11
   %42 = load i8, ptr %arrayidx.i.i.i52, align 1, !noalias !199
   %cmp.i.not.i.i53 = icmp eq i8 %42, 0
@@ -19467,10 +19467,9 @@ if.end52:                                         ; preds = %if.else, %if.then28
   br i1 %cmp25, label %while.body, label %return, !llvm.loop !202
 
 return:                                           ; preds = %if.end52, %if.end21, %entry, %if.then10, %if.then4
-  %call.sink = phi i64 [ %call, %if.then10 ], [ %call, %if.then4 ], [ 0, %entry ], [ %call, %if.end21 ], [ %call, %if.end52 ]
   %begin.sroa.0.0.lcssa.sink = phi ptr [ %7, %if.then10 ], [ %2, %if.then4 ], [ %begin.coerce0, %entry ], [ %begin.coerce0, %if.end21 ], [ %storemerge4, %if.end52 ]
   %begin.sroa.11.0.lcssa.sink = phi i32 [ %8, %if.then10 ], [ %conv.i6, %if.then4 ], [ %begin.coerce1, %entry ], [ %begin.coerce1, %if.end21 ], [ %storemerge, %if.end52 ]
-  store i64 %call.sink, ptr %agg.result, align 8
+  store i64 0, ptr %agg.result, align 8
   %second.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %begin.sroa.0.0.lcssa.sink, ptr %second.i12, align 8
   %begin.sroa.11.0.second.i12.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16

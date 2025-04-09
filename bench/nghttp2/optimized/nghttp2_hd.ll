@@ -1598,14 +1598,17 @@ declare i32 @nghttp2_bufs_wrap_init2(ptr noundef, ptr noundef, i64 noundef, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i64 @nghttp2_hd_deflate_bound(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %3
   %4 = mul i64 %2, 12
   %5 = add i64 %4, 12
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.013 = phi i64 [ %13, %.lr.ph ], [ 0, %3 ]
-  %.01112 = phi i64 [ %12, %.lr.ph ], [ %5, %3 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.013 = phi i64 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01112 = phi i64 [ %12, %.lr.ph ], [ %5, %.lr.ph.preheader ]
   %6 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %1, i64 %.013
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !84
@@ -1618,7 +1621,7 @@ define i64 @nghttp2_hd_deflate_bound(ptr noundef readnone captures(none) %0, ptr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.011.lcssa = phi i64 [ %5, %3 ], [ %12, %.lr.ph ]
+  %.011.lcssa = phi i64 [ 12, %3 ], [ %12, %.lr.ph ]
   ret i64 %.011.lcssa
 }
 

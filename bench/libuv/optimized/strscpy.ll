@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden range(i64 0, -1) i64 @uv__strscpy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %11
   %.014 = phi i64 [ %12, %11 ], [ 0, %3 ]
@@ -20,21 +20,15 @@ define hidden range(i64 0, -1) i64 @uv__strscpy(ptr noundef writeonly captures(n
 8:                                                ; preds = %.lr.ph
   %9 = icmp slt i64 %.014, 0
   %10 = select i1 %9, i64 -7, i64 %.014
-  br label %._crit_edge.thread
+  br label %._crit_edge
 
 11:                                               ; preds = %.lr.ph
   %12 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %12, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %11
-  %13 = getelementptr i8, ptr %0, i64 %2
-  %14 = getelementptr i8, ptr %13, i64 -1
-  store i8 0, ptr %14, align 1
-  br label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %3, %._crit_edge, %8
-  %.012 = phi i64 [ %10, %8 ], [ -7, %._crit_edge ], [ 0, %3 ]
+._crit_edge:                                      ; preds = %11, %3, %8
+  %.012 = phi i64 [ %10, %8 ], [ 0, %3 ], [ 0, %11 ]
   ret i64 %.012
 }
 

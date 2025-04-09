@@ -6738,7 +6738,6 @@ _ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit: ; pr
   br i1 %268, label %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit.thread, label %.thread402
 
 _ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit.thread: ; preds = %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit, %"_ZN60_$LT$http..method..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb6beec0af782f80aE.exit"
-  %.sroa.12307.0 = phi i64 [ %.sroa.5361.0.copyload, %"_ZN60_$LT$http..method..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb6beec0af782f80aE.exit" ], [ undef, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit ]
   %.sroa.8304.0 = phi i8 [ %.sroa.0359.0.copyload, %"_ZN60_$LT$http..method..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb6beec0af782f80aE.exit" ], [ undef, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit ]
   %.sroa.0301.0 = phi i64 [ %173, %"_ZN60_$LT$http..method..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb6beec0af782f80aE.exit" ], [ 4, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit ]
   %269 = add nsw i64 %.sroa.0301.0, -3
@@ -6754,7 +6753,7 @@ _ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit.threa
 .thread402:                                       ; preds = %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit.thread
   %.sroa.0301.0408 = phi i64 [ %.sroa.0301.0, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit.thread ], [ 1, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit ]
   %.sroa.8304.0407 = phi i8 [ %.sroa.8304.0, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit.thread ], [ 0, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit ]
-  %.sroa.12307.0406 = phi i64 [ %.sroa.12307.0, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit.thread ], [ %.sroa.5361.0.copyload, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit ]
+  %.sroa.12307.0406 = phi i64 [ 0, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit.thread ], [ %.sroa.5361.0.copyload, %_ZN10actix_http2h17decoder13PayloadLength7is_zero17h08e8311cfa992811E.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5100.sroa.4, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.764.sroa.7, i64 7, i1 false)
   br label %275
 
@@ -8016,7 +8015,7 @@ define noundef ptr @"_ZN100_$LT$actix_http..requests..head..RequestHeadType$u20$
   %54 = load ptr, ptr %53, align 8, !noundef !4
   %55 = icmp eq ptr %54, null
   %spec.select31 = select i1 %55, ptr @anon.00b28e0f3c0f469f196e1cba87ef1ba3.55, ptr %54
-  %spec.select32 = select i1 %55, i64 1, i64 %50
+  %spec.select32 = zext i1 %55 to i64
   br label %.thread
 
 .thread:                                          ; preds = %52, %48, %44

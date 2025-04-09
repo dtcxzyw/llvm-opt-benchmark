@@ -2306,7 +2306,7 @@ _ZN7glslang13TInputScannerC2EiPKPKcPmS4_iib.exit162.i: ; preds = %_ZN7glslang13T
   br label %414
 
 414:                                              ; preds = %.critedge.i.i, %404, %401, %396
-  %.1.i.i = phi i1 [ true, %401 ], [ %407, %404 ], [ false, %.critedge.i.i ], [ true, %396 ]
+  %.1.i.i = phi i1 [ true, %401 ], [ %407, %404 ], [ true, %.critedge.i.i ], [ true, %396 ]
   %415 = and i32 %.17479.i, 4
   %.not18.i.i = icmp eq i32 %415, 0
   br i1 %.not18.i.i, label %_ZN12_GLOBAL__N_111DoFullParseclERN7glslang17TParseContextBaseERNS1_10TPpContextERNS1_13TInputScannerEbRNS1_12TSymbolTableERNS1_13TIntermediateE20EShOptimizationLevel11EShMessages.exit.i, label %416
@@ -5993,12 +5993,12 @@ define noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef n
   br label %9
 
 9:                                                ; preds = %6, %9
-  %.012 = phi i32 [ 0, %6 ], [ %11, %9 ]
-  %.0811 = phi i1 [ false, %6 ], [ %spec.select, %9 ]
-  %10 = tail call noundef zeroext i1 @_ZN7glslang8TProgram9linkStageE11EShLanguage11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 noundef %.012, i32 noundef %1)
+  %.011 = phi i32 [ 0, %6 ], [ %11, %9 ]
+  %.0810 = phi i1 [ false, %6 ], [ %spec.select, %9 ]
+  %10 = tail call noundef zeroext i1 @_ZN7glslang8TProgram9linkStageE11EShLanguage11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 noundef %.011, i32 noundef %1)
   %not. = xor i1 %10, true
-  %spec.select = select i1 %not., i1 true, i1 %.0811
-  %11 = add nuw nsw i32 %.012, 1
+  %spec.select = select i1 %not., i1 true, i1 %.0810
+  %11 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %11, 14
   br i1 %exitcond.not, label %12, label %9, !llvm.loop !37
 
@@ -6009,9 +6009,8 @@ define noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef n
   %14 = tail call noundef zeroext i1 @_ZN7glslang8TProgram15crossStageCheckE11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 poison)
   br label %15
 
-15:                                               ; preds = %12, %13, %2
-  %.09 = phi i1 [ false, %2 ], [ false, %12 ], [ %14, %13 ]
-  ret i1 %.09
+15:                                               ; preds = %13, %12, %2
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

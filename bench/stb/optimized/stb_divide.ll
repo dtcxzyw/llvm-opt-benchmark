@@ -128,88 +128,78 @@ define i32 @stb_div_floor(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @stb_div_eucl(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %0, -1
-  br i1 %3, label %4, label %13
+  br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
   %5 = icmp sgt i32 %1, -1
-  br i1 %5, label %6, label %8
+  br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %4
   %7 = udiv i32 %0, %1
   br label %.thread
 
-8:                                                ; preds = %4
-  %.not51 = icmp eq i32 %1, -2147483648
-  br i1 %.not51, label %.thread, label %9
-
-9:                                                ; preds = %8
-  %10 = sub nsw i32 0, %1
-  %11 = udiv i32 %0, %10
-  %12 = sub nsw i32 0, %11
-  br label %.thread
-
-13:                                               ; preds = %2
+8:                                                ; preds = %2
   %.not = icmp eq i32 %0, -2147483648
-  %14 = icmp sgt i32 %1, -1
-  br i1 %.not, label %27, label %15
+  %9 = icmp sgt i32 %1, -1
+  br i1 %.not, label %22, label %10
 
-15:                                               ; preds = %13
-  br i1 %14, label %16, label %21
+10:                                               ; preds = %8
+  br i1 %9, label %11, label %16
 
-16:                                               ; preds = %15
-  %17 = sub nsw i32 0, %0
-  %18 = udiv i32 %17, %1
-  %19 = sub nsw i32 0, %18
-  %20 = urem i32 %17, %1
-  br label %38
+11:                                               ; preds = %10
+  %12 = sub nsw i32 0, %0
+  %13 = udiv i32 %12, %1
+  %14 = sub nsw i32 0, %13
+  %15 = urem i32 %12, %1
+  br label %33
 
-21:                                               ; preds = %15
+16:                                               ; preds = %10
   %.not50 = icmp eq i32 %1, -2147483648
-  br i1 %.not50, label %.thread, label %22
+  br i1 %.not50, label %.thread, label %17
 
-22:                                               ; preds = %21
-  %23 = sub nsw i32 0, %0
-  %24 = sub nsw i32 0, %1
-  %25 = udiv i32 %23, %24
-  %26 = urem i32 %23, %24
-  br label %38
+17:                                               ; preds = %16
+  %18 = sub nsw i32 0, %0
+  %19 = sub nsw i32 0, %1
+  %20 = udiv i32 %18, %19
+  %21 = urem i32 %18, %19
+  br label %33
 
-27:                                               ; preds = %13
-  br i1 %14, label %28, label %32
+22:                                               ; preds = %8
+  br i1 %9, label %23, label %27
+
+23:                                               ; preds = %22
+  %.neg49 = sub nuw i32 -2147483648, %1
+  %24 = udiv i32 %.neg49, %1
+  %25 = xor i32 %24, -1
+  %26 = urem i32 %.neg49, %1
+  br label %33
+
+27:                                               ; preds = %22
+  %.not48 = icmp eq i32 %1, -2147483648
+  br i1 %.not48, label %.thread, label %28
 
 28:                                               ; preds = %27
-  %.neg49 = sub nuw i32 -2147483648, %1
-  %29 = udiv i32 %.neg49, %1
-  %30 = xor i32 %29, -1
-  %31 = urem i32 %.neg49, %1
-  br label %38
-
-32:                                               ; preds = %27
-  %.not48 = icmp eq i32 %1, -2147483648
-  br i1 %.not48, label %.thread, label %33
-
-33:                                               ; preds = %32
   %.neg = and i32 %1, 2147483647
-  %34 = sub nsw i32 0, %1
-  %35 = udiv i32 %.neg, %34
-  %36 = add nuw nsw i32 %35, 1
-  %37 = urem i32 %.neg, %34
-  br label %38
+  %29 = sub nsw i32 0, %1
+  %30 = udiv i32 %.neg, %29
+  %31 = add nuw nsw i32 %30, 1
+  %32 = urem i32 %.neg, %29
+  br label %33
 
-38:                                               ; preds = %22, %16, %33, %28
-  %.043 = phi i32 [ %19, %16 ], [ %25, %22 ], [ %30, %28 ], [ %36, %33 ]
-  %.pn = phi i32 [ %20, %16 ], [ %26, %22 ], [ %31, %28 ], [ %37, %33 ]
-  %39 = icmp eq i32 %.pn, 0
-  br i1 %39, label %.thread, label %40
+33:                                               ; preds = %17, %11, %28, %23
+  %.043 = phi i32 [ %14, %11 ], [ %20, %17 ], [ %25, %23 ], [ %31, %28 ]
+  %.pn = phi i32 [ %15, %11 ], [ %21, %17 ], [ %26, %23 ], [ %32, %28 ]
+  %34 = icmp eq i32 %.pn, 0
+  br i1 %34, label %.thread, label %35
 
-40:                                               ; preds = %38
+35:                                               ; preds = %33
   %.inv = icmp slt i32 %1, 1
-  %41 = select i1 %.inv, i32 1, i32 -1
-  %42 = add nsw i32 %.043, %41
+  %36 = select i1 %.inv, i32 1, i32 -1
+  %37 = add nsw i32 %.043, %36
   br label %.thread
 
-.thread:                                          ; preds = %21, %32, %8, %9, %38, %40, %6
-  %.044 = phi i32 [ %7, %6 ], [ %42, %40 ], [ %.043, %38 ], [ 1, %32 ], [ 0, %8 ], [ %12, %9 ], [ 1, %21 ]
+.thread:                                          ; preds = %4, %16, %27, %33, %35, %6
+  %.044 = phi i32 [ %7, %6 ], [ %37, %35 ], [ %.043, %33 ], [ 1, %27 ], [ 1, %16 ], [ 0, %4 ]
   ret i32 %.044
 }
 

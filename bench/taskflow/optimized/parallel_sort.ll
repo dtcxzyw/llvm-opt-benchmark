@@ -10009,7 +10009,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN2tf4NodeESt14default_deleteIS2_EESaIS5_EE13_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(28) ptr @_ZN2tf15SmallVectorImplIiEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(28) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = icmp eq ptr %0, %1
-  br i1 %3, label %67, label %4
+  br i1 %3, label %64, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8, !tbaa !199
@@ -10042,7 +10042,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(28) ptr @_
   store ptr %6, ptr %18, align 8, !tbaa !308
   store ptr %6, ptr %16, align 8, !tbaa !307
   store ptr %6, ptr %1, align 8, !tbaa !199
-  br label %67
+  br label %64
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10056,97 +10056,93 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(28) ptr @_
   %30 = ptrtoint ptr %28 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr exact i64 %32, 2
   %.not = icmp ult i64 %32, %26
-  br i1 %.not, label %38, label %34
+  br i1 %.not, label %37, label %33
 
-34:                                               ; preds = %21
+33:                                               ; preds = %21
   %.not36 = icmp eq ptr %23, %5
-  br i1 %.not36, label %36, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit
+  br i1 %.not36, label %35, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit
 
-_ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %34
+_ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %33
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %29, ptr align 4 %5, i64 %26, i1 false)
-  %35 = getelementptr inbounds i8, ptr %29, i64 %26
+  %34 = getelementptr inbounds i8, ptr %29, i64 %26
   %.pre39 = load ptr, ptr %1, align 8, !tbaa !199
-  br label %36
+  br label %35
 
-36:                                               ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %34
-  %37 = phi ptr [ %.pre39, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %5, %34 ]
-  %.0 = phi ptr [ %35, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %29, %34 ]
+35:                                               ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %33
+  %36 = phi ptr [ %.pre39, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %5, %33 ]
+  %.0 = phi ptr [ %34, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %29, %33 ]
   store ptr %.0, ptr %27, align 8, !tbaa !307
-  store ptr %37, ptr %22, align 8, !tbaa !307
-  br label %67
+  store ptr %36, ptr %22, align 8, !tbaa !307
+  br label %64
 
-38:                                               ; preds = %21
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !308
-  %41 = ptrtoint ptr %40 to i64
-  %42 = sub i64 %41, %31
-  %43 = icmp ult i64 %42, %26
-  br i1 %43, label %44, label %54
+37:                                               ; preds = %21
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !308
+  %40 = ptrtoint ptr %39 to i64
+  %41 = sub i64 %40, %31
+  %42 = icmp ult i64 %41, %26
+  br i1 %42, label %43, label %53
 
-44:                                               ; preds = %38
+43:                                               ; preds = %37
   store ptr %29, ptr %27, align 8, !tbaa !307
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = shl i64 %42, 1
-  %47 = add i64 %46, 4
-  %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %47, i64 %26)
-  %48 = icmp eq ptr %29, %45
-  br i1 %48, label %49, label %51
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %45 = shl i64 %41, 1
+  %46 = add i64 %45, 4
+  %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %26)
+  %47 = icmp eq ptr %29, %44
+  br i1 %47, label %48, label %50
 
-49:                                               ; preds = %44
-  %50 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i) #39
+48:                                               ; preds = %43
+  %49 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i) #39
   br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit
 
-51:                                               ; preds = %44
-  %52 = tail call ptr @realloc(ptr noundef %29, i64 noundef %spec.select.i.i.i) #40
+50:                                               ; preds = %43
+  %51 = tail call ptr @realloc(ptr noundef %29, i64 noundef %spec.select.i.i.i) #40
   br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit
 
-_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit: ; preds = %49, %51
-  %.0.i.i.i = phi ptr [ %50, %49 ], [ %52, %51 ]
+_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit: ; preds = %48, %50
+  %.0.i.i.i = phi ptr [ %49, %48 ], [ %51, %50 ]
   store ptr %.0.i.i.i, ptr %27, align 8, !tbaa !307
   store ptr %.0.i.i.i, ptr %0, align 8, !tbaa !199
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %spec.select.i.i.i
-  store ptr %53, ptr %39, align 8, !tbaa !308
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %spec.select.i.i.i
+  store ptr %52, ptr %38, align 8, !tbaa !308
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38
 
-54:                                               ; preds = %38
+53:                                               ; preds = %37
   %.not35 = icmp eq ptr %28, %29
-  br i1 %.not35, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38, label %55
+  br i1 %.not35, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38, label %54
 
-55:                                               ; preds = %54
+54:                                               ; preds = %53
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %29, ptr align 4 %5, i64 %32, i1 false)
   %.pre41.pre = load ptr, ptr %0, align 8, !tbaa !199
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38
 
-_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38:               ; preds = %55, %54, %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit
-  %.pre41 = phi ptr [ %.0.i.i.i, %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit ], [ %29, %54 ], [ %.pre41.pre, %55 ]
-  %.029 = phi i64 [ 0, %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit ], [ 0, %54 ], [ %33, %55 ]
-  %56 = load ptr, ptr %1, align 8, !tbaa !199
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %.029
-  %58 = load ptr, ptr %22, align 8, !tbaa !307
-  %.not.i.i = icmp eq ptr %57, %58
-  br i1 %.not.i.i, label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit, label %59
+_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38:               ; preds = %54, %53, %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit
+  %.pre41 = phi ptr [ %.pre41.pre, %54 ], [ %29, %53 ], [ %.0.i.i.i, %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit ]
+  %55 = load ptr, ptr %1, align 8, !tbaa !199
+  %56 = load ptr, ptr %22, align 8, !tbaa !307
+  %.not.i.i = icmp eq ptr %55, %56
+  br i1 %.not.i.i, label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit, label %57
 
-59:                                               ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38
-  %60 = getelementptr inbounds nuw i32, ptr %.pre41, i64 %.029
-  %61 = ptrtoint ptr %58 to i64
-  %62 = ptrtoint ptr %57 to i64
-  %63 = sub i64 %61, %62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %60, ptr align 4 %57, i64 %63, i1 false)
+57:                                               ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38
+  %58 = ptrtoint ptr %56 to i64
+  %59 = ptrtoint ptr %55 to i64
+  %60 = sub i64 %58, %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.pre41, ptr align 4 %55, i64 %60, i1 false)
   %.pre40 = load ptr, ptr %0, align 8, !tbaa !199
   %.pre42 = load ptr, ptr %1, align 8, !tbaa !199
   br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit
 
-_ZN2tf23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit: ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38, %59
-  %64 = phi ptr [ %56, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38 ], [ %.pre42, %59 ]
-  %65 = phi ptr [ %.pre41, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38 ], [ %.pre40, %59 ]
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %26
-  store ptr %66, ptr %27, align 8, !tbaa !307
-  store ptr %64, ptr %22, align 8, !tbaa !307
-  br label %67
+_ZN2tf23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit: ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38, %57
+  %61 = phi ptr [ %55, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38 ], [ %.pre42, %57 ]
+  %62 = phi ptr [ %.pre41, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38 ], [ %.pre40, %57 ]
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %26
+  store ptr %63, ptr %27, align 8, !tbaa !307
+  store ptr %61, ptr %22, align 8, !tbaa !307
+  br label %64
 
-67:                                               ; preds = %36, %_ZN2tf23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit, %2, %14
+64:                                               ; preds = %35, %_ZN2tf23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit, %2, %14
   ret ptr %0
 }
 

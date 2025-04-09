@@ -4110,7 +4110,7 @@ dup_const.exit:                                   ; preds = %19, %16, %13, %12
 .thread:                                          ; preds = %dup_const.exit, %24, %28
   %.0149197 = phi i32 [ %.tr266393, %28 ], [ %spec.select, %24 ], [ 0, %dup_const.exit ]
   %.0150195 = phi i32 [ %.tr217268391, %28 ], [ %.tr217268391, %24 ], [ %.tr218269390, %dup_const.exit ]
-  %.0154193 = phi i64 [ %.tr221272387, %28 ], [ %22, %24 ], [ 0, %dup_const.exit ]
+  %.0154193 = phi i64 [ %.tr221272387, %28 ], [ 0, %24 ], [ 0, %dup_const.exit ]
   %29 = icmp eq i32 %.0149197, 3
   %30 = or i1 %11, %29
   br label %31
@@ -8278,7 +8278,6 @@ expand_2s_vec.exit:                               ; preds = %.lr.ph.split.i, %85
 
 expand_2s_vec.exit170:                            ; preds = %.lr.ph.split.i173, %.lr.ph.split.i168, %119, %106, %expand_2s_vec.exit
   %.4144 = phi i32 [ %5, %expand_2s_vec.exit ], [ %.3143, %106 ], [ %5, %119 ], [ %.3143, %.lr.ph.split.i168 ], [ %5, %.lr.ph.split.i173 ]
-  %.4139 = phi i32 [ %4, %expand_2s_vec.exit ], [ 0, %106 ], [ 0, %119 ], [ %.3138, %.lr.ph.split.i168 ], [ %4, %.lr.ph.split.i173 ]
   %.4 = phi i32 [ %1, %expand_2s_vec.exit ], [ %.3, %106 ], [ %1, %119 ], [ %.3, %.lr.ph.split.i168 ], [ %1, %.lr.ph.split.i173 ]
   tail call void @tcg_temp_free_vec(ptr noundef %80) #10
   br label %expand_2sh_vec.exit159
@@ -8413,22 +8412,19 @@ simd_desc.exit:                                   ; preds = %172, %174
   tail call void @tcg_temp_free_ptr(ptr noundef %169) #10
   tail call void @tcg_temp_free_ptr(ptr noundef %170) #10
   tail call void @tcg_temp_free_i32(ptr noundef %171) #10
-  br label %198
+  br label %195
 
 expand_2sh_vec.exit159:                           ; preds = %.lr.ph.i161, %.lr.ph.i157, %expand_2sh_vec.exit, %49, %62, %expand_2s_vec.exit170, %expand_2s_i32.exit, %expand_2s_i64.exit
   %.2142 = phi i32 [ %.4144, %expand_2s_vec.exit170 ], [ %5, %expand_2s_i32.exit ], [ %5, %expand_2s_i64.exit ], [ %5, %expand_2sh_vec.exit ], [ %.0140, %49 ], [ %5, %62 ], [ %.0140, %.lr.ph.i157 ], [ %5, %.lr.ph.i161 ]
-  %.2137 = phi i32 [ %.4139, %expand_2s_vec.exit170 ], [ %4, %expand_2s_i32.exit ], [ %4, %expand_2s_i64.exit ], [ %4, %expand_2sh_vec.exit ], [ 0, %49 ], [ 0, %62 ], [ %.0135, %.lr.ph.i157 ], [ %4, %.lr.ph.i161 ]
   %.2 = phi i32 [ %.4, %expand_2s_vec.exit170 ], [ %1, %expand_2s_i32.exit ], [ %1, %expand_2s_i64.exit ], [ %1, %expand_2sh_vec.exit ], [ %.0, %49 ], [ %1, %62 ], [ %.0, %.lr.ph.i157 ], [ %1, %.lr.ph.i161 ]
-  %194 = icmp ult i32 %.2137, %.2142
-  br i1 %194, label %195, label %198
+  %.not = icmp eq i32 %.2142, 0
+  br i1 %.not, label %195, label %194
 
-195:                                              ; preds = %expand_2sh_vec.exit159
-  %196 = add i32 %.2, %.2137
-  %197 = sub nuw i32 %.2142, %.2137
-  tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %196, i32 noundef %197, i32 noundef %197, ptr noundef null, ptr noundef null, i64 noundef 0)
-  br label %198
+194:                                              ; preds = %expand_2sh_vec.exit159
+  tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %.2, i32 noundef %.2142, i32 noundef %.2142, ptr noundef null, ptr noundef null, i64 noundef 0)
+  br label %195
 
-198:                                              ; preds = %expand_2sh_vec.exit159, %195, %simd_desc.exit
+195:                                              ; preds = %expand_2sh_vec.exit159, %194, %simd_desc.exit
   ret void
 }
 

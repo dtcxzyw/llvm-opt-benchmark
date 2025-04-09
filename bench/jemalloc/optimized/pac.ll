@@ -315,7 +315,7 @@ define internal void @pac_dalloc_impl(ptr noundef %0, ptr noundef %1, ptr nounde
 declare void @je_pai_dalloc_batch_default(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @pac_time_until_deferred_work(ptr noundef %0, ptr noundef %1) #0 {
+define internal noundef i64 @pac_time_until_deferred_work(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 58648
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %5 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %4) #9
@@ -364,7 +364,7 @@ pac_ns_until_purge.exit:                          ; preds = %11, %18
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 60504
   %33 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %32) #9
   %.not.i16 = icmp eq i32 %33, 0
-  br i1 %.not.i16, label %34, label %pac_ns_until_purge.exit19
+  br i1 %.not.i16, label %34, label %pac_ns_until_purge.exit.thread
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 60496
@@ -390,16 +390,10 @@ pac_ns_until_purge.exit:                          ; preds = %11, %18
   %46 = tail call i64 @je_decay_ns_until_purge(ptr noundef nonnull %26, i64 noundef %31, i64 noundef 1024) #9
   store atomic i8 0, ptr %35 monotonic, align 1
   %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #9
-  br label %pac_ns_until_purge.exit19
-
-pac_ns_until_purge.exit19:                        ; preds = %25, %45
-  %.0.i17 = phi i64 [ %46, %45 ], [ 0, %25 ]
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.0.i17, i64 %22)
   br label %pac_ns_until_purge.exit.thread
 
-pac_ns_until_purge.exit.thread:                   ; preds = %2, %pac_ns_until_purge.exit, %pac_ns_until_purge.exit19
-  %.0 = phi i64 [ %spec.select, %pac_ns_until_purge.exit19 ], [ 0, %pac_ns_until_purge.exit ], [ 0, %2 ]
-  ret i64 %.0
+pac_ns_until_purge.exit.thread:                   ; preds = %45, %25, %2, %pac_ns_until_purge.exit
+  ret i64 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -981,9 +975,6 @@ declare ptr @je_base_ehooks_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

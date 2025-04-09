@@ -155,7 +155,7 @@ compute_sampled_height.exit.us:                   ; preds = %77, %.lr.ph.split.u
   br label %compute_sampled_width.exit.us
 
 compute_sampled_width.exit.us:                    ; preds = %85, %compute_sampled_height.exit.us
-  %.0.i50.us = phi i32 [ %.fr, %compute_sampled_height.exit.us ], [ %86, %85 ]
+  %.0.i50.us = phi i32 [ 1, %compute_sampled_height.exit.us ], [ %86, %85 ]
   %87 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 %.0.i50.us, ptr %87, align 4, !tbaa !39
   %88 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -227,16 +227,15 @@ compute_sampled_height.exit:                      ; preds = %.lr.ph.split, %111,
   %124 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %125 = load i32, ptr %124, align 8, !tbaa !38
   %126 = icmp slt i32 %125, 2
-  %brmerge = or i1 %126, %39
-  %.mux = select i1 %126, i32 %.fr, i32 1
-  br i1 %brmerge, label %compute_sampled_width.exit, label %127
+  %or.cond.i = or i1 %39, %126
+  br i1 %or.cond.i, label %compute_sampled_width.exit, label %127
 
 127:                                              ; preds = %compute_sampled_height.exit
   %128 = sdiv i32 %.fr, %125
   br label %compute_sampled_width.exit
 
 compute_sampled_width.exit:                       ; preds = %compute_sampled_height.exit, %127
-  %.0.i50 = phi i32 [ %.mux, %compute_sampled_height.exit ], [ %128, %127 ]
+  %.0.i50 = phi i32 [ 1, %compute_sampled_height.exit ], [ %128, %127 ]
   %129 = getelementptr inbounds nuw i8, ptr %105, i64 12
   store i32 %.0.i50, ptr %129, align 4, !tbaa !39
   %130 = getelementptr inbounds nuw i8, ptr %105, i64 16
@@ -306,16 +305,16 @@ define hidden i32 @internal_coding_update_channel_info(ptr noundef writeonly cap
   %25 = load i32, ptr %24, align 8, !tbaa !31
   %.fr = freeze i32 %25
   %26 = icmp eq i32 %.fr, 1
-  %wide.trip.count67 = zext nneg i32 %10 to i64
+  %wide.trip.count66 = zext nneg i32 %10 to i64
   br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %26, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %compute_sampled_height.exit.us.us
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %compute_sampled_height.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %27 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %14, i64 %indvars.iv64
-  %28 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %0, i64 %indvars.iv64
+  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %compute_sampled_height.exit.us.us ], [ 0, %.lr.ph.split.us ]
+  %27 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %14, i64 %indvars.iv63
+  %28 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %0, i64 %indvars.iv63
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !32
   store ptr %30, ptr %28, align 8, !tbaa !34
@@ -355,14 +354,14 @@ compute_sampled_height.exit.us.us:                ; preds = %34, %.lr.ph.split.u
   %52 = trunc i32 %48 to i16
   %53 = getelementptr inbounds nuw i8, ptr %28, i64 26
   store i16 %52, ptr %53, align 2, !tbaa !46
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !53
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
+  br i1 %exitcond67.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !53
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %compute_sampled_width.exit.us
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %compute_sampled_width.exit.us ], [ 0, %.lr.ph.split.us ]
-  %54 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %14, i64 %indvars.iv59
-  %55 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %0, i64 %indvars.iv59
+  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %compute_sampled_width.exit.us ], [ 0, %.lr.ph.split.us ]
+  %54 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %14, i64 %indvars.iv58
+  %55 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %0, i64 %indvars.iv58
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !32
   store ptr %57, ptr %55, align 8, !tbaa !34
@@ -391,7 +390,7 @@ compute_sampled_height.exit.us:                   ; preds = %61, %.lr.ph.split.u
   br label %compute_sampled_width.exit.us
 
 compute_sampled_width.exit.us:                    ; preds = %69, %compute_sampled_height.exit.us
-  %.0.i38.us = phi i32 [ %.fr, %compute_sampled_height.exit.us ], [ %70, %69 ]
+  %.0.i38.us = phi i32 [ 1, %compute_sampled_height.exit.us ], [ %70, %69 ]
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 12
   store i32 %.0.i38.us, ptr %71, align 4, !tbaa !39
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -411,17 +410,17 @@ compute_sampled_width.exit.us:                    ; preds = %69, %compute_sample
   %82 = trunc i32 %78 to i16
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 26
   store i16 %82, ptr %83, align 2, !tbaa !46
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count67
-  br i1 %exitcond63.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !53
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count66
+  br i1 %exitcond62.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !53
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %compute_sampled_height.exit.us41
-  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %compute_sampled_height.exit.us41 ], [ 0, %.lr.ph.split ]
-  %84 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %14, i64 %indvars.iv54
-  %85 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %0, i64 %indvars.iv54
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %compute_sampled_height.exit.us41 ], [ 0, %.lr.ph.split ]
+  %84 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %14, i64 %indvars.iv53
+  %85 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %0, i64 %indvars.iv53
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !32
   store ptr %87, ptr %85, align 8, !tbaa !34
@@ -472,9 +471,9 @@ compute_sampled_height.exit.us41:                 ; preds = %99, %91, %.lr.ph.sp
   %117 = trunc i32 %113 to i16
   %118 = getelementptr inbounds nuw i8, ptr %85, i64 26
   store i16 %117, ptr %118, align 2, !tbaa !46
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count67
-  br i1 %exitcond58.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !53
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count66
+  br i1 %exitcond57.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !53
 
 119:                                              ; preds = %5
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -525,7 +524,7 @@ compute_sampled_height.exit:                      ; preds = %.lr.ph.split.split,
   br label %compute_sampled_width.exit
 
 compute_sampled_width.exit:                       ; preds = %compute_sampled_height.exit, %146
-  %.0.i38 = phi i32 [ %.fr, %compute_sampled_height.exit ], [ %147, %146 ]
+  %.0.i38 = phi i32 [ 1, %compute_sampled_height.exit ], [ %147, %146 ]
   %148 = getelementptr inbounds nuw i8, ptr %124, i64 12
   store i32 %.0.i38, ptr %148, align 4, !tbaa !39
   %149 = getelementptr inbounds nuw i8, ptr %124, i64 16
@@ -546,7 +545,7 @@ compute_sampled_width.exit:                       ; preds = %compute_sampled_hei
   %160 = getelementptr inbounds nuw i8, ptr %124, i64 26
   store i16 %159, ptr %160, align 2, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count67
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count66
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !53
 
 .loopexit:                                        ; preds = %compute_sampled_width.exit, %compute_sampled_height.exit.us41, %compute_sampled_width.exit.us, %compute_sampled_height.exit.us.us, %.preheader, %119

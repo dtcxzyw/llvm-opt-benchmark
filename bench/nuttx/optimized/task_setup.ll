@@ -341,16 +341,14 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
   br i1 %exitcond72.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %34
-  %.pre-phi.i = phi i64 [ 0, %34 ], [ %wide.trip.count.i, %.lr.ph.i ]
-  %51 = getelementptr inbounds nuw ptr, ptr %32, i64 %.pre-phi.i
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr null, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load ptr, ptr %53, align 16
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 856
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store ptr %32, ptr %57, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr null, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = load ptr, ptr %52, align 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 856
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  store ptr %32, ptr %56, align 8
   br label %nxtask_setup_stackargs.exit
 
 nxtask_setup_stackargs.exit:                      ; preds = %21, %26, %.loopexit.i, %._crit_edge.i

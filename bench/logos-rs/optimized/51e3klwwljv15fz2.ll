@@ -36,22 +36,21 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 define { i64, i8 } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b2041566bb8069E"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = tail call i8 @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h17cfa0388baf90ccE"(ptr align 8 %0)
   %3 = icmp eq i8 %2, 2
-  br i1 %3, label %9, label %4
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = and i8 %2, 1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i64, ptr %6, align 8
-  %8 = add i64 %7, 1
-  store i64 %8, ptr %6, align 8
-  br label %9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = load i64, ptr %5, align 8
+  %7 = add i64 %6, 1
+  store i64 %7, ptr %5, align 8
+  br label %8
 
-9:                                                ; preds = %1, %4
-  %.sroa.2.0 = phi i8 [ %5, %4 ], [ 2, %1 ]
-  %.sroa.0.0 = phi i64 [ %7, %4 ], [ undef, %1 ]
-  %10 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
-  %11 = insertvalue { i64, i8 } %10, i8 %.sroa.2.0, 1
-  ret { i64, i8 } %11
+8:                                                ; preds = %1, %4
+  %.sroa.2.0 = phi i8 [ 0, %4 ], [ 2, %1 ]
+  %.sroa.0.0 = phi i64 [ %6, %4 ], [ undef, %1 ]
+  %9 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
+  %10 = insertvalue { i64, i8 } %9, i8 %.sroa.2.0, 1
+  ret { i64, i8 } %10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

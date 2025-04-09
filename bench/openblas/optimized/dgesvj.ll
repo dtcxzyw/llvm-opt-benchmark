@@ -280,7 +280,7 @@ cdce.end:                                         ; preds = %106, %cdce.call
 
 144:                                              ; preds = %.lr.ph1789, %.loopexit1729
   %.01788 = phi i32 [ 1, %.lr.ph1789 ], [ %.1, %.loopexit1729 ]
-  %.014561787 = phi i32 [ 1, %.lr.ph1789 ], [ %.11457, %.loopexit1729 ]
+  %.014561787 = phi i1 [ false, %.lr.ph1789 ], [ true, %.loopexit1729 ]
   %storemerge16271786 = phi i32 [ 1, %.lr.ph1789 ], [ %178, %.loopexit1729 ]
   store double 0.000000e+00, ptr %20, align 8, !tbaa !7
   store double 1.000000e+00, ptr %21, align 8, !tbaa !7
@@ -328,8 +328,7 @@ cdce.end:                                         ; preds = %106, %cdce.call
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds double, ptr %34, i64 %170
   store double %168, ptr %171, align 8, !tbaa !7
-  %.not1679 = icmp eq i32 %.014561787, 0
-  br i1 %.not1679, label %.loopexit1729, label %172
+  br i1 %.014561787, label %.loopexit1729, label %172
 
 172:                                              ; preds = %165
   %173 = add nsw i32 %169, -1
@@ -353,7 +352,6 @@ cdce.end:                                         ; preds = %106, %cdce.call
 
 .loopexit1729:                                    ; preds = %.lr.ph1784, %172, %160, %165
   %177 = phi i32 [ %162, %160 ], [ %169, %165 ], [ %169, %172 ], [ %169, %.lr.ph1784 ]
-  %.11457 = phi i32 [ %.014561787, %160 ], [ 0, %165 ], [ 0, %172 ], [ 0, %.lr.ph1784 ]
   %.1 = phi i32 [ 1, %160 ], [ 0, %165 ], [ 0, %172 ], [ 0, %.lr.ph1784 ]
   %178 = add nsw i32 %177, 1
   store i32 %178, ptr %24, align 4, !tbaa !3
@@ -372,7 +370,7 @@ cdce.end:                                         ; preds = %106, %cdce.call
 
 .lr.ph1780:                                       ; preds = %181, %.loopexit1731
   %.31779 = phi i32 [ %.4, %.loopexit1731 ], [ 1, %181 ]
-  %.214581778 = phi i32 [ %.31459, %.loopexit1731 ], [ 1, %181 ]
+  %.214581778 = phi i1 [ true, %.loopexit1731 ], [ false, %181 ]
   %storemerge16231777 = phi i32 [ %212, %.loopexit1731 ], [ 1, %181 ]
   store double 0.000000e+00, ptr %20, align 8, !tbaa !7
   store double 1.000000e+00, ptr %21, align 8, !tbaa !7
@@ -416,8 +414,7 @@ cdce.end:                                         ; preds = %106, %cdce.call
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds double, ptr %34, i64 %204
   store double %202, ptr %205, align 8, !tbaa !7
-  %.not1625 = icmp eq i32 %.214581778, 0
-  br i1 %.not1625, label %.loopexit1731, label %206
+  br i1 %.214581778, label %.loopexit1731, label %206
 
 206:                                              ; preds = %199
   %207 = add nsw i32 %203, -1
@@ -441,7 +438,6 @@ cdce.end:                                         ; preds = %106, %cdce.call
 
 .loopexit1731:                                    ; preds = %.lr.ph1773, %206, %194, %199
   %211 = phi i32 [ %196, %194 ], [ %203, %199 ], [ %203, %206 ], [ %203, %.lr.ph1773 ]
-  %.31459 = phi i32 [ %.214581778, %194 ], [ 0, %199 ], [ 0, %206 ], [ 0, %.lr.ph1773 ]
   %.4 = phi i32 [ 1, %194 ], [ 0, %199 ], [ 0, %206 ], [ 0, %.lr.ph1773 ]
   %212 = add nsw i32 %211, 1
   store i32 %212, ptr %24, align 4, !tbaa !3
@@ -454,7 +450,7 @@ cdce.end:                                         ; preds = %106, %cdce.call
 
 .lr.ph1770:                                       ; preds = %214, %.loopexit1733
   %.51769 = phi i32 [ %.6, %.loopexit1733 ], [ 1, %214 ]
-  %.414601768 = phi i32 [ %.51461, %.loopexit1733 ], [ 1, %214 ]
+  %.414601768 = phi i1 [ true, %.loopexit1733 ], [ false, %214 ]
   %storemerge1767 = phi i32 [ %245, %.loopexit1733 ], [ 1, %214 ]
   store double 0.000000e+00, ptr %20, align 8, !tbaa !7
   store double 1.000000e+00, ptr %21, align 8, !tbaa !7
@@ -498,8 +494,7 @@ cdce.end:                                         ; preds = %106, %cdce.call
   %237 = sext i32 %236 to i64
   %238 = getelementptr inbounds double, ptr %34, i64 %237
   store double %235, ptr %238, align 8, !tbaa !7
-  %.not1621 = icmp eq i32 %.414601768, 0
-  br i1 %.not1621, label %.loopexit1733, label %239
+  br i1 %.414601768, label %.loopexit1733, label %239
 
 239:                                              ; preds = %232
   %240 = add nsw i32 %236, -1
@@ -523,7 +518,6 @@ cdce.end:                                         ; preds = %106, %cdce.call
 
 .loopexit1733:                                    ; preds = %.lr.ph, %239, %227, %232
   %244 = phi i32 [ %229, %227 ], [ %236, %232 ], [ %236, %239 ], [ %236, %.lr.ph ]
-  %.51461 = phi i32 [ %.414601768, %227 ], [ 0, %232 ], [ 0, %239 ], [ 0, %.lr.ph ]
   %.6 = phi i32 [ 1, %227 ], [ 0, %232 ], [ 0, %239 ], [ 0, %.lr.ph ]
   %245 = add nsw i32 %244, 1
   store i32 %245, ptr %24, align 4, !tbaa !3

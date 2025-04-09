@@ -344,23 +344,9 @@ define hidden void @nghttp2_frame_window_update_free(ptr noundef readnone captur
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @nghttp2_frame_trail_padlen(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = icmp eq i64 %1, 0
-  br i1 %3, label %10, label %4
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %6 = load i8, ptr %5, align 1, !tbaa !10
-  %7 = lshr i8 %6, 3
-  %.lobit = and i8 %7, 1
-  %8 = zext nneg i8 %.lobit to i64
-  %9 = sub nuw i64 %1, %8
-  br label %10
-
-10:                                               ; preds = %2, %4
-  %.0 = phi i64 [ %9, %4 ], [ 0, %2 ]
-  ret i64 %.0
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden noundef i64 @nghttp2_frame_trail_padlen(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
+  ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -406,7 +392,7 @@ define hidden void @nghttp2_frame_extension_free(ptr noundef readnone captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @nghttp2_frame_altsvc_init(ptr noundef captures(none) initializes((0, 15)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #8 {
+define hidden void @nghttp2_frame_altsvc_init(ptr noundef captures(none) initializes((0, 15)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #7 {
   %7 = add i64 %3, 2
   %8 = add i64 %7, %5
   store i64 %8, ptr %0, align 8, !tbaa !3
@@ -447,7 +433,7 @@ define hidden void @nghttp2_frame_altsvc_free(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @nghttp2_frame_origin_init(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
+define hidden void @nghttp2_frame_origin_init(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -499,7 +485,7 @@ define hidden void @nghttp2_frame_origin_free(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @nghttp2_frame_priority_update_init(ptr noundef captures(none) initializes((0, 15)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #8 {
+define hidden void @nghttp2_frame_priority_update_init(ptr noundef captures(none) initializes((0, 15)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = add i64 %3, 4
   store i64 %5, ptr %0, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -546,7 +532,7 @@ define hidden noundef range(i64 0, 6) i64 @nghttp2_frame_priority_len(i8 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 6) i64 @nghttp2_frame_headers_payload_nv_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define hidden range(i64 0, 6) i64 @nghttp2_frame_headers_payload_nv_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %3 = load i8, ptr %2, align 1, !tbaa !64
   %4 = and i8 %3, 32
@@ -1541,7 +1527,7 @@ define hidden void @nghttp2_frame_pack_altsvc(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @nghttp2_frame_unpack_altsvc_payload(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #8 {
+define hidden void @nghttp2_frame_unpack_altsvc_payload(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !46
   store ptr %2, ptr %6, align 8, !tbaa !48
@@ -2392,9 +2378,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -351,22 +351,19 @@ define dso_local noundef i64 @_ZN4i18n12phonenumbers7FindNthERKNSt7__cxx1112basi
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
-5:                                                ; preds = %.lr.ph
-  %6 = add nuw nsw i32 %.011, 1
-  %exitcond.not = icmp eq i32 %6, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.011 = phi i32 [ %8, %.lr.ph ], [ 0, %3 ]
+  %.0710 = phi i64 [ %6, %.lr.ph ], [ -1, %3 ]
+  %5 = add i64 %.0710, 1
+  %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %1, i64 noundef %5) #19
+  %7 = icmp eq i64 %6, -1
+  %8 = add nuw nsw i32 %.011, 1
+  %exitcond.not = icmp eq i32 %8, %2
+  %or.cond = select i1 %7, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
-.lr.ph:                                           ; preds = %3, %5
-  %.011 = phi i32 [ %6, %5 ], [ 0, %3 ]
-  %.0710 = phi i64 [ %8, %5 ], [ -1, %3 ]
-  %7 = add i64 %.0710, 1
-  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %1, i64 noundef %7) #19
-  %9 = icmp eq i64 %8, -1
-  br i1 %9, label %._crit_edge, label %5
-
-._crit_edge:                                      ; preds = %5, %.lr.ph, %3
-  %.1 = phi i64 [ -1, %3 ], [ -1, %.lr.ph ], [ %8, %5 ]
-  ret i64 %.1
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  ret i64 -1
 }
 
 ; Function Attrs: mustprogress uwtable

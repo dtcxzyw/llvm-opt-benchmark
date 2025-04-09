@@ -64,7 +64,7 @@ define internal noundef i32 @_ZL9coresumeyP9lua_State(ptr noundef %0) #0 {
   %14 = add nsw i32 %13, -1
   %15 = tail call fastcc noundef i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %14)
   %16 = icmp eq i32 %15, -2
-  br i1 %16, label %17, label %24
+  br i1 %16, label %17, label %_ZL14coresumefinishP9lua_Statei.exit
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -80,30 +80,19 @@ define internal noundef i32 @_ZL9coresumeyP9lua_State(ptr noundef %0) #0 {
 
 _ZL15interruptThreadP9lua_StateS0_.exit:          ; preds = %17, %22
   %23 = tail call noundef i32 @_Z9lua_breakP9lua_State(ptr noundef nonnull %0)
-  br label %30
+  br label %25
 
-24:                                               ; preds = %4
-  %25 = icmp slt i32 %15, 0
-  br i1 %25, label %26, label %27
+_ZL14coresumefinishP9lua_Statei.exit:             ; preds = %4
+  %24 = icmp sgt i32 %15, -1
+  %. = zext i1 %24 to i32
+  %.15 = select i1 %24, i32 -1, i32 -2
+  %.16 = select i1 %24, i32 1, i32 2
+  tail call void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef nonnull %0, i32 noundef %.)
+  tail call void @_Z10lua_insertP9lua_Statei(ptr noundef nonnull %0, i32 noundef %.15)
+  br label %25
 
-26:                                               ; preds = %24
-  tail call void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef nonnull %0, i32 noundef 0)
-  br label %_ZL14coresumefinishP9lua_Statei.exit
-
-27:                                               ; preds = %24
-  tail call void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef nonnull %0, i32 noundef 1)
-  %28 = add nuw nsw i32 %15, 1
-  %29 = xor i32 %15, -1
-  br label %_ZL14coresumefinishP9lua_Statei.exit
-
-_ZL14coresumefinishP9lua_Statei.exit:             ; preds = %26, %27
-  %.sink.i = phi i32 [ %29, %27 ], [ -2, %26 ]
-  %.0.i = phi i32 [ %28, %27 ], [ 2, %26 ]
-  tail call void @_Z10lua_insertP9lua_Statei(ptr noundef nonnull %0, i32 noundef %.sink.i)
-  br label %30
-
-30:                                               ; preds = %_ZL14coresumefinishP9lua_Statei.exit, %_ZL15interruptThreadP9lua_StateS0_.exit
-  %.0 = phi i32 [ %23, %_ZL15interruptThreadP9lua_StateS0_.exit ], [ %.0.i, %_ZL14coresumefinishP9lua_Statei.exit ]
+25:                                               ; preds = %_ZL14coresumefinishP9lua_Statei.exit, %_ZL15interruptThreadP9lua_StateS0_.exit
+  %.0 = phi i32 [ %23, %_ZL15interruptThreadP9lua_StateS0_.exit ], [ %.16, %_ZL14coresumefinishP9lua_Statei.exit ]
   ret i32 %.0
 }
 
@@ -417,7 +406,7 @@ _ZL15interruptThreadP9lua_StateS0_.exit:          ; preds = %14, %19
   unreachable
 
 _ZL13auxwrapfinishP9lua_Statei.exit:              ; preds = %21, %_ZL15interruptThreadP9lua_StateS0_.exit
-  %.0 = phi i32 [ %20, %_ZL15interruptThreadP9lua_StateS0_.exit ], [ %12, %21 ]
+  %.0 = phi i32 [ %20, %_ZL15interruptThreadP9lua_StateS0_.exit ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -499,7 +488,7 @@ _ZL13auxwrapfinishP9lua_Statei.exit:              ; preds = %_ZL13auxresumecontP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %5 = load i8, ptr %4, align 1, !tbaa !36
   %.not = icmp eq i8 %5, 1
@@ -598,7 +587,7 @@ define internal fastcc noundef i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0,
   br label %52
 
 52:                                               ; preds = %8, %51, %48, %32, %49
-  %.1 = phi i32 [ -1, %8 ], [ -1, %51 ], [ %41, %48 ], [ 0, %32 ], [ -2, %49 ]
+  %.1 = phi i32 [ -1, %8 ], [ -1, %51 ], [ 0, %48 ], [ 0, %32 ], [ -2, %49 ]
   ret i32 %.1
 }
 

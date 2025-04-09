@@ -180854,7 +180854,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   br label %if.end109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIbEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 36
   %cmp.i.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIbEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i
 
@@ -180896,11 +180896,7 @@ _ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIbEES5_SaIS4_EET0_T_
   %4 = phi ptr [ %.pre86, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIbEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIbEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit ]
   %add.ptr58 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i45 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i45, label %if.end109, label %if.then.i.i.i.i.i46
-
-if.then.i.i.i.i.i46:                              ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIbEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__position.coerce, ptr align 4 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__position.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__first.coerce, i64 36, i1 false)
   br label %if.end109
 
 if.else68:                                        ; preds = %if.then
@@ -180986,7 +180982,7 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE13_M_deallocateEPS
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8
   br label %if.end109
 
-if.end109:                                        ; preds = %if.then.i.i.i.i.i46, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIbEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE13_M_deallocateEPS4_m.exit, %entry
+if.end109:                                        ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIbEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE13_M_deallocateEPS4_m.exit, %entry
   ret void
 }
 
@@ -183866,7 +183862,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   br label %if.end109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIiEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 36
   %cmp.i.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIiEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i
 
@@ -183908,11 +183904,7 @@ _ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIiEES5_SaIS4_EET0_T_
   %4 = phi ptr [ %.pre86, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIiEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIiEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit ]
   %add.ptr58 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i45 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i45, label %if.end109, label %if.then.i.i.i.i.i46
-
-if.then.i.i.i.i.i46:                              ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIiEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__position.coerce, ptr align 4 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__position.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__first.coerce, i64 36, i1 false)
   br label %if.end109
 
 if.else68:                                        ; preds = %if.then
@@ -183998,7 +183990,7 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE13_M_deallocateEPS
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8
   br label %if.end109
 
-if.end109:                                        ; preds = %if.then.i.i.i.i.i46, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIiEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE13_M_deallocateEPS4_m.exit, %entry
+if.end109:                                        ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIiEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE13_M_deallocateEPS4_m.exit, %entry
   ret void
 }
 
@@ -186878,7 +186870,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   br label %if.end109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIlEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 40
   %cmp.i.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIlEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i
 
@@ -186920,11 +186912,7 @@ _ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIlEES5_SaIS4_EET0_T_
   %4 = phi ptr [ %.pre86, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIlEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIlEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit ]
   %add.ptr58 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i45 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i45, label %if.end109, label %if.then.i.i.i.i.i46
-
-if.then.i.i.i.i.i46:                              ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIlEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__position.coerce, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__position.coerce, ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, i64 40, i1 false)
   br label %if.end109
 
 if.else68:                                        ; preds = %if.then
@@ -187010,7 +186998,7 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE13_M_deallocateEPS
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8
   br label %if.end109
 
-if.end109:                                        ; preds = %if.then.i.i.i.i.i46, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIlEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE13_M_deallocateEPS4_m.exit, %entry
+if.end109:                                        ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIlEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE13_M_deallocateEPS4_m.exit, %entry
   ret void
 }
 
@@ -189890,7 +189878,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   br label %if.end109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIfEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 36
   %cmp.i.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIfEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i
 
@@ -189932,11 +189920,7 @@ _ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIfEES5_SaIS4_EET0_T_
   %4 = phi ptr [ %.pre86, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIfEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIfEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit ]
   %add.ptr58 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i45 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i45, label %if.end109, label %if.then.i.i.i.i.i46
-
-if.then.i.i.i.i.i46:                              ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIfEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__position.coerce, ptr align 4 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__position.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__first.coerce, i64 36, i1 false)
   br label %if.end109
 
 if.else68:                                        ; preds = %if.then
@@ -190022,7 +190006,7 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE13_M_deallocateEPS
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8
   br label %if.end109
 
-if.end109:                                        ; preds = %if.then.i.i.i.i.i46, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIfEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE13_M_deallocateEPS4_m.exit, %entry
+if.end109:                                        ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIfEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE13_M_deallocateEPS4_m.exit, %entry
   ret void
 }
 
@@ -192902,7 +192886,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   br label %if.end109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIdEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 40
   %cmp.i.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIdEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i
 
@@ -192944,11 +192928,7 @@ _ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIdEES5_SaIS4_EET0_T_
   %4 = phi ptr [ %.pre86, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIdEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIdEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit ]
   %add.ptr58 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i45 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i45, label %if.end109, label %if.then.i.i.i.i.i46
-
-if.then.i.i.i.i.i46:                              ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIdEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__position.coerce, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__position.coerce, ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, i64 40, i1 false)
   br label %if.end109
 
 if.else68:                                        ; preds = %if.then
@@ -193034,7 +193014,7 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE13_M_deallocateEPS
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8
   br label %if.end109
 
-if.end109:                                        ; preds = %if.then.i.i.i.i.i46, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIdEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE13_M_deallocateEPS4_m.exit, %entry
+if.end109:                                        ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIdEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE13_M_deallocateEPS4_m.exit, %entry
   ret void
 }
 
@@ -195728,7 +195708,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   br label %if.end109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IfEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 44
   %cmp.i.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IfEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit, label %for.body.i.i.i.i
 
@@ -195770,11 +195750,7 @@ _ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEE
   %4 = phi ptr [ %.pre86, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IfEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit ]
   %add.ptr58 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i45 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i45, label %if.end109, label %if.then.i.i.i.i.i46
-
-if.then.i.i.i.i.i46:                              ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__position.coerce, ptr align 4 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %__position.coerce, ptr noundef nonnull align 4 dereferenceable(44) %__first.coerce, i64 44, i1 false)
   br label %if.end109
 
 if.else68:                                        ; preds = %if.then
@@ -195860,7 +195836,7 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE1
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8
   br label %if.end109
 
-if.end109:                                        ; preds = %if.then.i.i.i.i.i46, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE13_M_deallocateEPS7_m.exit, %entry
+if.end109:                                        ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE13_M_deallocateEPS7_m.exit, %entry
   ret void
 }
 
@@ -198554,7 +198530,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   br label %if.end109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IdEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 56
   %cmp.i.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IdEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit, label %for.body.i.i.i.i
 
@@ -198596,11 +198572,7 @@ _ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEE
   %4 = phi ptr [ %.pre86, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IdEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit ]
   %add.ptr58 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i45 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i45, label %if.end109, label %if.then.i.i.i.i.i46
-
-if.then.i.i.i.i.i46:                              ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__position.coerce, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__position.coerce, ptr noundef nonnull align 8 dereferenceable(56) %__first.coerce, i64 56, i1 false)
   br label %if.end109
 
 if.else68:                                        ; preds = %if.then
@@ -198686,7 +198658,7 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE1
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8
   br label %if.end109
 
-if.end109:                                        ; preds = %if.then.i.i.i.i.i46, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE13_M_deallocateEPS7_m.exit, %entry
+if.end109:                                        ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE13_M_deallocateEPS7_m.exit, %entry
   ret void
 }
 
@@ -201380,7 +201352,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   br label %if.end109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IiEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 44
   %cmp.i.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IiEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit, label %for.body.i.i.i.i
 
@@ -201422,11 +201394,7 @@ _ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEE
   %4 = phi ptr [ %.pre86, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IiEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit ]
   %add.ptr58 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i45 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i45, label %if.end109, label %if.then.i.i.i.i.i46
-
-if.then.i.i.i.i.i46:                              ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__position.coerce, ptr align 4 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %__position.coerce, ptr noundef nonnull align 4 dereferenceable(44) %__first.coerce, i64 44, i1 false)
   br label %if.end109
 
 if.else68:                                        ; preds = %if.then
@@ -201512,7 +201480,7 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE1
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8
   br label %if.end109
 
-if.end109:                                        ; preds = %if.then.i.i.i.i.i46, %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE13_M_deallocateEPS7_m.exit, %entry
+if.end109:                                        ; preds = %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE13_M_deallocateEPS7_m.exit, %entry
   ret void
 }
 

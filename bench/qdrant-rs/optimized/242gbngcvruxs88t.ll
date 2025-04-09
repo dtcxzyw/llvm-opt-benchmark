@@ -107,7 +107,7 @@ define i64 @_ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E(i64 %0) unnamed_a
   switch i8 %.0, label %default.unreachable [
     i8 -1, label %2
     i8 0, label %6
-    i8 1, label %22
+    i8 1, label %21
   ]
 
 default.unreachable:                              ; preds = %1
@@ -142,24 +142,21 @@ default.unreachable:                              ; preds = %1
 
 17:                                               ; preds = %15
   %18 = icmp ult i64 %7, 129
-  br i1 %18, label %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit, label %19
-
-19:                                               ; preds = %17
-  %.neg.i.neg = sdiv i64 %7, 16
+  %spec.select = select i1 %18, i64 6, i64 0
   br label %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit
 
-_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit: ; preds = %6, %9, %11, %13, %15, %17, %19
-  %.0.i.neg = phi i64 [ %.neg.i.neg, %19 ], [ 0, %6 ], [ 1, %9 ], [ 2, %11 ], [ 3, %13 ], [ 4, %15 ], [ 6, %17 ]
-  %20 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %.0.i.neg)
+_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit: ; preds = %17, %6, %9, %11, %13, %15
+  %.0.i.neg = phi i64 [ 0, %6 ], [ 1, %9 ], [ 2, %11 ], [ 3, %13 ], [ 4, %15 ], [ %spec.select, %17 ]
+  %19 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %.0.i.neg)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit
-  %.sink = phi i64 [ %20, %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit ], [ %5, %2 ]
-  %21 = tail call i64 @_ZN4core3cmp6max_by17h8d07869766a11c32E(i64 %.sink, i64 1)
-  br label %22
+  %.sink = phi i64 [ %19, %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit ], [ %5, %2 ]
+  %20 = tail call i64 @_ZN4core3cmp6max_by17h8d07869766a11c32E(i64 %.sink, i64 1)
+  br label %21
 
-22:                                               ; preds = %.sink.split, %1
-  %.07 = phi i64 [ %0, %1 ], [ %21, %.sink.split ]
+21:                                               ; preds = %.sink.split, %1
+  %.07 = phi i64 [ %0, %1 ], [ %20, %.sink.split ]
   ret i64 %.07
 }
 
@@ -301,31 +298,28 @@ define { ptr, i64 } @"_ZN65_$LT$common..cpu..CpuBudget$u20$as$u20$core..default.
 
 12:                                               ; preds = %10
   %13 = icmp ult i64 %2, 129
-  br i1 %13, label %_ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E.exit, label %14
-
-14:                                               ; preds = %12
-  %.neg.i.neg.i = sdiv i64 %2, 16
+  %spec.select.i = select i1 %13, i64 6, i64 0
   br label %_ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E.exit
 
-_ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E.exit: ; preds = %0, %4, %6, %8, %10, %12, %14
-  %.0.i.neg.i = phi i64 [ %.neg.i.neg.i, %14 ], [ 0, %0 ], [ 1, %4 ], [ 2, %6 ], [ 3, %8 ], [ 4, %10 ], [ 6, %12 ]
-  %15 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %.0.i.neg.i)
-  %16 = tail call i64 @_ZN4core3cmp6max_by17h8d07869766a11c32E(i64 %15, i64 1)
+_ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E.exit: ; preds = %0, %4, %6, %8, %10, %12
+  %.0.i.neg.i = phi i64 [ 0, %0 ], [ 1, %4 ], [ 2, %6 ], [ 3, %8 ], [ 4, %10 ], [ %spec.select.i, %12 ]
+  %14 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %.0.i.neg.i)
+  %15 = tail call i64 @_ZN4core3cmp6max_by17h8d07869766a11c32E(i64 %14, i64 1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
-  call void @_ZN5tokio4sync9semaphore9Semaphore3new17h24677e77db170fb8E(ptr nonnull sret({ { { {}, { { { i8 } }, [7 x i8], { { { ptr, ptr, {} }, i8, [7 x i8] } } } }, { { { i64 } } } } }) align 8 %1, i64 %16, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.2)
+  call void @_ZN5tokio4sync9semaphore9Semaphore3new17h24677e77db170fb8E(ptr nonnull sret({ { { {}, { { { i8 } }, [7 x i8], { { { ptr, ptr, {} }, i8, [7 x i8] } } } }, { { { i64 } } } } }) align 8 %1, i64 %15, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.i, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  %17 = call ptr @_ZN5alloc5alloc15exchange_malloc17hf3f6835a3d5df5f4E(i64 56, i64 8)
-  store i64 1, ptr %17, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %16 = call ptr @_ZN5alloc5alloc15exchange_malloc17hf3f6835a3d5df5f4E(i64 56, i64 8)
+  store i64 1, ptr %16, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 1, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.i, i64 40, i1 false)
-  %18 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %19 = insertvalue { ptr, i64 } %18, i64 %16, 1
+  %17 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %18 = insertvalue { ptr, i64 } %17, i64 %15, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)
-  ret { ptr, i64 } %19
+  ret { ptr, i64 } %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

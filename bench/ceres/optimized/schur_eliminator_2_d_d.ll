@@ -1427,7 +1427,7 @@ _ZN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkD2Ev.exit: ; preds = %_
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS5_iE15checked_compareE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !114
 
 _ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS5_iE15checked_compareE.exit.i.i.i.i: ; preds = %160, %.lr.ph.i.i.i.i.i.i.i, %152
-  %.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %152 ], [ %155, %160 ], [ %.07.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %152 ], [ 0, %160 ], [ %.07.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %162 = getelementptr i8, ptr %.sroa.0.0.i.i.i.i, i64 11
   %163 = load i8, ptr %162, align 1, !tbaa !113, !noalias !108
   %.not.i.i.i.i = icmp eq i8 %163, 0
@@ -1569,7 +1569,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_
 
 _ZZN4absl12lts_2024011618container_internal5btreeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEE16internal_emplaceIJS8_EEENS1_14btree_iteratorINS1_10btree_nodeISA_EERS8_PS8_EESI_DpOT_ENKUlhE_clEh.exit.i: ; preds = %.lr.ph.i.i.i4.i, %213
   %232 = getelementptr i8, ptr %220, i64 10
-  store i8 %224, ptr %232, align 1, !tbaa !113, !noalias !108
+  store i8 0, ptr %232, align 1, !tbaa !113, !noalias !108
   %233 = getelementptr i8, ptr %208, i64 11
   %234 = load i8, ptr %233, align 1, !tbaa !113, !noalias !108
   %.not57.i = icmp eq i8 %234, 0
@@ -2740,7 +2740,7 @@ _ZN5ceres8internal29MatrixTransposeVectorMultiplyILi2ELin1ELi1EEEvPKdiiS3_Pd.exi
   br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS5_iE15checked_compareE.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !114
 
 _ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS5_iE15checked_compareE.exit.i.i.i.i.i: ; preds = %158, %.lr.ph.i.i.i.i.i.i.i.i, %150
-  %.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ 0, %150 ], [ %.07.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %153, %158 ]
+  %.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ 0, %150 ], [ %.07.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %158 ]
   %160 = getelementptr i8, ptr %.sroa.0.0.i.i.i.i.i, i64 11
   %161 = load i8, ptr %160, align 1, !tbaa !113
   %.not.i.i.i.i.i = icmp eq i8 %161, 0
@@ -14387,10 +14387,11 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit209: ; preds = %_ZN5
   br i1 %65, label %.lr.ph316, label %._crit_edge317
 
 .lr.ph316:                                        ; preds = %.preheader
-  %88 = srem i64 %.sroa.speculated231, 4
+  %88 = and i64 %.sroa.speculated231, 3
   %.not174 = icmp eq i64 %88, 0
-  %spec.select = select i1 %.not174, i64 4, i64 %88
-  %89 = sub nsw i64 %.sroa.speculated231, %spec.select
+  %spec.select.neg = select i1 %.not174, i64 4, i64 0
+  %spec.select = select i1 %.not174, i64 -4, i64 0
+  %89 = add i64 %spec.select, %.sroa.speculated231
   %90 = icmp sgt i64 %89, -1
   br label %111
 
@@ -14452,7 +14453,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit209: ; preds = %_ZN5
   br i1 %80, label %165, label %170
 
 115:                                              ; preds = %.lr.ph314, %160
-  %indvars.iv = phi i64 [ %spec.select, %.lr.ph314 ], [ %indvars.iv.next, %160 ]
+  %indvars.iv = phi i64 [ %spec.select.neg, %.lr.ph314 ], [ %indvars.iv.next, %160 ]
   %.0159313 = phi i64 [ %89, %.lr.ph314 ], [ %161, %160 ]
   %smin331 = call i64 @llvm.smin.i64(i64 %indvars.iv, i64 4)
   %smax332 = call i64 @llvm.smax.i64(i64 %smin331, i64 1)
@@ -14570,7 +14571,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit209: ; preds = %_ZN5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #33
   %161 = add nsw i64 %.0159313, -4
   %162 = icmp sgt i64 %.0159313, 3
-  %indvars.iv.next = add i64 %indvars.iv, 4
+  %indvars.iv.next = add nuw i64 %indvars.iv, 4
   br i1 %162, label %115, label %._crit_edge, !llvm.loop !585
 
 163:                                              ; preds = %._crit_edge305

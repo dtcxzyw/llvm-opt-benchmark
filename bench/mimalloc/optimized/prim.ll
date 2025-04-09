@@ -349,7 +349,7 @@ unix_madvise.exit:                                ; preds = %unix_madvise.exit.l
   br label %.critedge11
 
 .critedge11:                                      ; preds = %9, %unix_madvise.exit, %2, %17, %14, %.critedge
-  %.0 = phi i32 [ %8, %.critedge ], [ %18, %17 ], [ 0, %14 ], [ 0, %2 ], [ 0, %9 ], [ %8, %unix_madvise.exit ]
+  %.0 = phi i32 [ 0, %.critedge ], [ %18, %17 ], [ 0, %14 ], [ 0, %2 ], [ 0, %9 ], [ %8, %unix_madvise.exit ]
   ret i32 %.0
 }
 
@@ -477,7 +477,7 @@ define hidden i64 @_mi_prim_numa_node() local_unnamed_addr #0 {
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 1, 4294967296) i64 @_mi_prim_numa_node_count() local_unnamed_addr #0 {
+define hidden noundef range(i64 1, 4294967296) i64 @_mi_prim_numa_node_count() local_unnamed_addr #0 {
   %1 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #11
   br label %2
@@ -493,17 +493,11 @@ define hidden range(i64 1, 4294967296) i64 @_mi_prim_numa_node_count() local_unn
   %6 = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %1, i32 noundef 4) #10
   %7 = and i64 %6, 4294967295
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %2, label %split, !llvm.loop !23
+  br i1 %.not, label %2, label %._crit_edge, !llvm.loop !23
 
-split:                                            ; preds = %3
-  %8 = add nuw nsw i32 %.0, 1
-  %9 = zext nneg i32 %8 to i64
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %2, %split
-  %.0.lcssa = phi i64 [ %9, %split ], [ 257, %2 ]
+._crit_edge:                                      ; preds = %2, %3
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #11
-  ret i64 %.0.lcssa
+  ret i64 257
 }
 
 declare i32 @_mi_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3

@@ -1242,7 +1242,7 @@ _mi_os_free_ex.exit:                              ; preds = %51, %53
   br i1 %exitcond.not, label %.thread68, label %35, !llvm.loop !21
 
 .thread68:                                        ; preds = %66, %mi_unix_mmapx.exit.thread.i.i, %mi_unix_mmapx.exit.thread.i.i, %27, %.thread66, %50, %_mi_os_free_ex.exit
-  %.04373 = phi i64 [ %.04376, %.thread66 ], [ %.04376, %50 ], [ %.04376, %_mi_os_free_ex.exit ], [ 0, %27 ], [ %0, %66 ], [ %.04376, %mi_unix_mmapx.exit.thread.i.i ], [ %.04376, %mi_unix_mmapx.exit.thread.i.i ]
+  %.04373 = phi i64 [ %.04376, %.thread66 ], [ %.04376, %50 ], [ %.04376, %_mi_os_free_ex.exit ], [ 0, %27 ], [ 0, %66 ], [ %.04376, %mi_unix_mmapx.exit.thread.i.i ], [ %.04376, %mi_unix_mmapx.exit.thread.i.i ]
   br i1 %.not53, label %69, label %68
 
 68:                                               ; preds = %.thread68
@@ -1309,12 +1309,12 @@ define hidden range(i64 1, 0) i64 @_mi_os_numa_node_count_get() local_unnamed_ad
   %1 = alloca [128 x i8], align 16
   %2 = load atomic i64, ptr @_mi_numa_node_count acquire, align 8
   %3 = icmp eq i64 %2, 0
-  br i1 %3, label %4, label %15
+  br i1 %3, label %4, label %14
 
 4:                                                ; preds = %0
   %5 = tail call i64 @mi_option_get(i32 noundef 16) #10
   %6 = icmp sgt i64 %5, 0
-  br i1 %6, label %14, label %7
+  br i1 %6, label %13, label %7
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #10
@@ -1330,25 +1330,20 @@ define hidden range(i64 1, 0) i64 @_mi_os_numa_node_count_get() local_unnamed_ad
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 127, ptr noundef nonnull @.str.14, i32 noundef %10) #10
   %12 = call i32 @access(ptr noundef nonnull %1, i32 noundef 4) #10
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %8, label %split.i, !llvm.loop !23
+  br i1 %.not.i, label %8, label %mi_os_numa_node_countx.exit, !llvm.loop !23
 
-split.i:                                          ; preds = %9
-  %13 = zext nneg i32 %10 to i64
-  br label %mi_os_numa_node_countx.exit
-
-mi_os_numa_node_countx.exit:                      ; preds = %8, %split.i
-  %.0.lcssa.i = phi i64 [ %13, %split.i ], [ 257, %8 ]
+mi_os_numa_node_countx.exit:                      ; preds = %9, %8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #10
-  br label %14
+  br label %13
 
-14:                                               ; preds = %4, %mi_os_numa_node_countx.exit
-  %.1 = phi i64 [ %.0.lcssa.i, %mi_os_numa_node_countx.exit ], [ %5, %4 ]
+13:                                               ; preds = %4, %mi_os_numa_node_countx.exit
+  %.1 = phi i64 [ 257, %mi_os_numa_node_countx.exit ], [ %5, %4 ]
   store atomic i64 %.1, ptr @_mi_numa_node_count release, align 8
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.2, i64 noundef %.1) #10
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %0
-  %.0 = phi i64 [ %.1, %14 ], [ %2, %0 ]
+14:                                               ; preds = %13, %0
+  %.0 = phi i64 [ %.1, %13 ], [ %2, %0 ]
   ret i64 %.0
 }
 

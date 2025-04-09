@@ -2398,41 +2398,35 @@ js_std_file_get.exit.thread:                      ; preds = %12, %5
   %.sroa.02.0.copyload = load i64, ptr %4, align 8, !tbaa !11
   %19 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %7, i64 %.sroa.02.0.copyload, i64 %.sroa.7.0.copyload) #30
   %.not32 = icmp eq i32 %19, 0
-  br i1 %.not32, label %20, label %38
+  br i1 %.not32, label %.thread, label %38
 
-20:                                               ; preds = %18
-  %21 = load i64, ptr %7, align 8, !tbaa !12
-  br label %.thread
+.thread:                                          ; preds = %14, %18, %16
+  %20 = call ptr @JS_GetRuntime(ptr noundef %0) #30
+  call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %20, ptr noundef nonnull @js_realloc_rt) #30
+  br label %23
 
-.thread:                                          ; preds = %14, %20, %16
-  %.0 = phi i64 [ -1, %16 ], [ %21, %20 ], [ -1, %14 ]
-  %22 = call ptr @JS_GetRuntime(ptr noundef %0) #30
-  call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %22, ptr noundef nonnull @js_realloc_rt) #30
-  %.not3441 = icmp eq i64 %.0, 0
-  br i1 %.not3441, label %._crit_edge, label %.lr.ph
+21:                                               ; preds = %26
+  %22 = add i64 %.141, -1
+  %.not34 = icmp eq i64 %22, 0
+  br i1 %.not34, label %30, label %23, !llvm.loop !68
 
-23:                                               ; preds = %27
-  %24 = add i64 %.142, -1
-  %.not34 = icmp eq i64 %24, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+23:                                               ; preds = %.thread, %21
+  %.141 = phi i64 [ -1, %.thread ], [ %22, %21 ]
+  %24 = call i32 @fgetc(ptr noundef nonnull %11)
+  %25 = icmp eq i32 %24, -1
+  br i1 %25, label %30, label %26
 
-.lr.ph:                                           ; preds = %.thread, %23
-  %.142 = phi i64 [ %24, %23 ], [ %.0, %.thread ]
-  %25 = call i32 @fgetc(ptr noundef nonnull %11)
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %._crit_edge, label %27
+26:                                               ; preds = %23
+  %27 = trunc i32 %24 to i8
+  %28 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext %27) #30
+  %.not35 = icmp eq i32 %28, 0
+  br i1 %.not35, label %21, label %29
 
-27:                                               ; preds = %.lr.ph
-  %28 = trunc i32 %25 to i8
-  %29 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext %28) #30
-  %.not35 = icmp eq i32 %29, 0
-  br i1 %.not35, label %23, label %30
-
-30:                                               ; preds = %27
+29:                                               ; preds = %26
   call void @dbuf_free(ptr noundef nonnull %6) #30
   br label %38
 
-._crit_edge:                                      ; preds = %23, %.lr.ph, %.thread
+30:                                               ; preds = %23, %21
   %31 = load ptr, ptr %6, align 8, !tbaa !67
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !65
@@ -2444,10 +2438,10 @@ js_std_file_get.exit.thread:                      ; preds = %12, %5
   %37 = and i64 %35, 4294967295
   br label %38
 
-38:                                               ; preds = %js_std_file_get.exit.thread, %18, %._crit_edge, %30
-  %.sroa.027.0 = phi i64 [ %37, %._crit_edge ], [ 0, %30 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
-  %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %._crit_edge ], [ 0, %30 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
-  %.sroa.8.0 = phi i64 [ %36, %._crit_edge ], [ 6, %30 ], [ 6, %18 ], [ 6, %js_std_file_get.exit.thread ]
+38:                                               ; preds = %js_std_file_get.exit.thread, %18, %30, %29
+  %.sroa.027.0 = phi i64 [ %37, %30 ], [ 0, %29 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
+  %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %30 ], [ 0, %29 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
+  %.sroa.8.0 = phi i64 [ %36, %30 ], [ 6, %29 ], [ 6, %18 ], [ 6, %js_std_file_get.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #30
   %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.027.0
@@ -9193,10 +9187,10 @@ define internal fastcc ptr @build_envp(ptr noundef %0, i64 %1, i64 %2) unnamed_a
   %12 = add nuw nsw i64 %11, 8
   %13 = call ptr @js_mallocz(ptr noundef %0, i64 noundef %12) #30
   %.not = icmp eq ptr %13, null
-  %.pre103 = load i32, ptr %4, align 4, !tbaa !7
-  br i1 %.not, label %.critedge, label %.preheader
+  br i1 %.not, label %._crit_edge87, label %.preheader
 
 .preheader:                                       ; preds = %8
+  %.pre103 = load i32, ptr %4, align 4, !tbaa !7
   %.not88 = icmp eq i32 %.pre103, 0
   br i1 %.not88, label %._crit_edge87, label %.lr.ph
 
@@ -9273,9 +9267,9 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph, label %.critedge, !llvm.loop !150
 
-.critedge:                                        ; preds = %43, %8, %._crit_edge
-  %51 = phi i32 [ %.pre, %._crit_edge ], [ %.pre103, %8 ], [ %48, %43 ]
-  %.067 = phi ptr [ null, %._crit_edge ], [ null, %8 ], [ %13, %43 ]
+.critedge:                                        ; preds = %43, %._crit_edge
+  %51 = phi i32 [ %.pre, %._crit_edge ], [ %48, %43 ]
+  %.067 = phi ptr [ null, %._crit_edge ], [ %13, %43 ]
   %.not90 = icmp eq i32 %51, 0
   br i1 %.not90, label %._crit_edge87, label %.lr.ph86
 
@@ -9291,8 +9285,8 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   %57 = icmp samesign ult i64 %indvars.iv.next101, %56
   br i1 %57, label %.lr.ph86, label %._crit_edge87, !llvm.loop !151
 
-._crit_edge87:                                    ; preds = %.lr.ph86, %.preheader, %.critedge
-  %.067106 = phi ptr [ %.067, %.critedge ], [ %13, %.preheader ], [ %.067, %.lr.ph86 ]
+._crit_edge87:                                    ; preds = %.lr.ph86, %.preheader, %8, %.critedge
+  %.067106 = phi ptr [ %.067, %.critedge ], [ %13, %.preheader ], [ null, %8 ], [ %.067, %.lr.ph86 ]
   %58 = load ptr, ptr %5, align 8, !tbaa !146
   call void @js_free(ptr noundef %0, ptr noundef %58) #30
   br label %65

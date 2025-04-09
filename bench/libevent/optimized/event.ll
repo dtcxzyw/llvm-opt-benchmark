@@ -3819,9 +3819,8 @@ event_debug_assert_is_setup_.exit:                ; preds = %3, %event_debug_map
 
 71:                                               ; preds = %64
   %.not.i155 = icmp eq i64 %69, 0
-  %72 = shl i64 %69, 1
-  %spec.select.i = select i1 %.not.i155, i64 8, i64 %72
-  %.014.i = tail call i64 @llvm.umax.i64(i64 %spec.select.i, i64 %67)
+  %72 = tail call i64 @llvm.umax.i64(i64 %67, i64 8)
+  %.014.i = select i1 %.not.i155, i64 %72, i64 %67
   %73 = load ptr, ptr %65, align 8
   %74 = shl i64 %.014.i, 3
   %75 = load ptr, ptr @mm_realloc_fn_, align 8
@@ -4349,9 +4348,8 @@ is_common_timeout.exit.thread.i:                  ; preds = %is_common_timeout.e
 
 328:                                              ; preds = %is_common_timeout.exit.thread.i
   %.not.i.i.i164 = icmp eq i64 %326, 0
-  %329 = shl i64 %326, 1
-  %spec.select.i.i.i = select i1 %.not.i.i.i164, i64 8, i64 %329
-  %.014.i.i.i = call i64 @llvm.umax.i64(i64 %spec.select.i.i.i, i64 %324)
+  %329 = call i64 @llvm.umax.i64(i64 %324, i64 8)
+  %.014.i.i.i = select i1 %.not.i.i.i164, i64 %329, i64 %324
   %330 = load ptr, ptr %321, align 8
   %331 = shl i64 %.014.i.i.i, 3
   %332 = load ptr, ptr @mm_realloc_fn_, align 8
@@ -4418,7 +4416,7 @@ event_mm_realloc_.exit.i.i.i:                     ; preds = %335, %333
   br i1 %.not.i5.i.i, label %min_heap_shift_up_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !30
 
 min_heap_shift_up_.exit.i.i:                      ; preds = %353, %351, %346, %337
-  %.021.lcssa.i.i.i = phi i64 [ 0, %337 ], [ %.02127.i.i.i, %351 ], [ %.028.i.i.i, %353 ], [ %.02127.i.i.i, %346 ]
+  %.021.lcssa.i.i.i = phi i64 [ 0, %337 ], [ %.02127.i.i.i, %351 ], [ 0, %353 ], [ %.02127.i.i.i, %346 ]
   %356 = load ptr, ptr %321, align 8
   %357 = getelementptr inbounds nuw ptr, ptr %356, i64 %.021.lcssa.i.i.i
   store ptr %0, ptr %357, align 8
@@ -9468,7 +9466,7 @@ is_common_timeout.exit.thread:                    ; preds = %2, %is_common_timeo
   br i1 %.not.i.i, label %min_heap_shift_up_unconditional_.exit.i, label %71, !llvm.loop !38
 
 min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85, %80, %67
-  %.0.lcssa.i.i = phi i64 [ %51, %67 ], [ %.025.i.i, %80 ], [ %72, %.backedge.i.i ], [ %.025.i.i, %85 ]
+  %.0.lcssa.i.i = phi i64 [ 0, %67 ], [ %.025.i.i, %80 ], [ 0, %.backedge.i.i ], [ %.025.i.i, %85 ]
   %89 = load ptr, ptr %38, align 8
   %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %.0.lcssa.i.i
   store ptr %47, ptr %90, align 8
@@ -10267,7 +10265,7 @@ event_queue_insert_active_later.exit.i:           ; preds = %13
   br label %event_callback_activate_later_nolock_.exit
 
 event_callback_activate_later_nolock_.exit:       ; preds = %49, %46, %43, %39, %36, %event_queue_insert_active_later.exit.i, %13, %51, %53
-  %.0 = phi i32 [ 1, %53 ], [ 0, %51 ], [ 0, %13 ], [ 1, %39 ], [ 1, %36 ], [ 1, %event_queue_insert_active_later.exit.i ], [ 1, %43 ], [ 1, %46 ], [ 1, %49 ]
+  %.0 = phi i32 [ 0, %53 ], [ 0, %51 ], [ 0, %13 ], [ 1, %39 ], [ 1, %36 ], [ 1, %event_queue_insert_active_later.exit.i ], [ 1, %43 ], [ 1, %46 ], [ 1, %49 ]
   %56 = load ptr, ptr %4, align 8
   %.not19 = icmp eq ptr %56, null
   br i1 %.not19, label %60, label %57

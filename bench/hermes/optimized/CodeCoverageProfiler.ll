@@ -378,13 +378,11 @@ if.then.i2.i.i:                                   ; preds = %_ZN4llvh6detail12De
   %div.i.i.i.i.i.i575859 = lshr i32 %18, 6
   %div.i.i.i.i.i.i57.zext = zext nneg i32 %div.i.i.i.i.i.i575859 to i64
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i, i64 %div.i.i.i.i.i.i57.zext
-  %conv4.i.i.i.i.i.i = and i32 %18, 63
   %add.ptr.i.idx.i.i = shl nuw nsw i64 %div1.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i, i8 0, i64 %add.ptr.i.idx.i.i, i1 false)
   br label %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
 
 _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit, %if.then.i2.i.i
-  %ref.tmp12.sroa.14.0 = phi i32 [ 0, %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit ], [ %conv4.i.i.i.i.i.i, %if.then.i2.i.i ]
   %ref.tmp12.sroa.1052.0 = phi ptr [ null, %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit ], [ %add.ptr.i.i.i.i.i.i, %if.then.i2.i.i ]
   %ref.tmp12.sroa.1853.0 = phi ptr [ null, %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit ], [ %add.ptr.i.i.i6, %if.then.i2.i.i ]
   %ref.tmp12.sroa.0.0 = phi ptr [ null, %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit ], [ %call5.i.i.i.i.i.i, %if.then.i2.i.i ]
@@ -396,7 +394,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %_ZN4llvh6detail12De
   %ref.tmp12.sroa.1052.0.second.i.i7.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 24
   store ptr %ref.tmp12.sroa.1052.0, ptr %ref.tmp12.sroa.1052.0.second.i.i7.sroa_idx, align 8
   %ref.tmp12.sroa.14.0.second.i.i7.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 32
-  store i32 %ref.tmp12.sroa.14.0, ptr %ref.tmp12.sroa.14.0.second.i.i7.sroa_idx, align 8
+  store i32 0, ptr %ref.tmp12.sroa.14.0.second.i.i7.sroa_idx, align 8
   %ref.tmp12.sroa.1853.0.second.i.i7.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 40
   store ptr %ref.tmp12.sroa.1853.0, ptr %ref.tmp12.sroa.1853.0.second.i.i7.sroa_idx, align 8
   %20 = load ptr, ptr %executedFuncBitsArrayMap_, align 8, !noalias !17

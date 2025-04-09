@@ -324,47 +324,33 @@ define i32 @wc_ChaCha20Poly1305_Final(ptr noundef %0, ptr noundef %1) local_unna
   %31 = trunc i64 %30 to i32
   %32 = sub i32 0, %31
   %33 = and i32 %32, 7
-  %34 = sub nuw nsw i32 184, %33
   %.not24.i = icmp eq i32 %33, 0
   br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
 
 .lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %.thread28
-  %.01528.i.ph = phi ptr [ %0, %.thread28 ], [ %36, %.lr.ph.i ]
+  %.01528.i.ph = phi ptr [ %0, %.thread28 ], [ %35, %.lr.ph.i ]
   br label %.lr.ph29.i
 
 .lr.ph.i:                                         ; preds = %.thread28, %.lr.ph.i
-  %.126.i = phi i32 [ %35, %.lr.ph.i ], [ %33, %.thread28 ]
-  %.01625.i = phi ptr [ %36, %.lr.ph.i ], [ %0, %.thread28 ]
-  %35 = add nsw i32 %.126.i, -1
-  %36 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
+  %.126.i = phi i32 [ %34, %.lr.ph.i ], [ %33, %.thread28 ]
+  %.01625.i = phi ptr [ %35, %.lr.ph.i ], [ %0, %.thread28 ]
+  %34 = add nsw i32 %.126.i, -1
+  %35 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !13
-  %.not.i = icmp eq i32 %35, 0
+  %.not.i = icmp eq i32 %34, 0
   br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !14
 
-.preheader.i:                                     ; preds = %.lr.ph29.i
-  %.not2232.i = icmp eq i32 %38, 0
-  br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
-
 .lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
-  %.01528.i = phi ptr [ %37, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
-  %.01827.i = phi i32 [ %38, %.lr.ph29.i ], [ %34, %.lr.ph29.i.preheader ]
-  %37 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
+  %.01528.i = phi ptr [ %36, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
+  %.01827.i = phi i32 [ %37, %.lr.ph29.i ], [ 184, %.lr.ph29.i.preheader ]
+  %36 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !16
-  %38 = add nsw i32 %.01827.i, -8
-  %39 = icmp ugt i32 %38, 7
-  br i1 %39, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !17
+  %37 = add nsw i32 %.01827.i, -8
+  %.not = icmp eq i32 %37, 0
+  br i1 %.not, label %ForceZero.exit, label %.lr.ph29.i, !llvm.loop !17
 
-.lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
-  %.11734.i = phi ptr [ %41, %.lr.ph35.i ], [ %37, %.preheader.i ]
-  %.11933.i = phi i32 [ %40, %.lr.ph35.i ], [ %38, %.preheader.i ]
-  %40 = add i32 %.11933.i, -1
-  %41 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
-  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !13
-  %.not22.i = icmp eq i32 %40, 0
-  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !18
-
-ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %5, %2
-  %.020 = phi i32 [ -173, %2 ], [ -192, %5 ], [ %.3, %.preheader.i ], [ %.3, %.lr.ph35.i ]
+ForceZero.exit:                                   ; preds = %.lr.ph29.i, %5, %2
+  %.020 = phi i32 [ -173, %2 ], [ -192, %5 ], [ %.3, %.lr.ph29.i ]
   ret i32 %.020
 }
 
@@ -458,7 +444,7 @@ define i32 @wc_ChaCha20Poly1305_Decrypt(ptr noundef %0, ptr noundef %1, ptr noun
   %53 = or i32 %.010.i.i, %52
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %wc_ChaCha20Poly1305_CheckTag.exit, label %.preheader.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %wc_ChaCha20Poly1305_CheckTag.exit, label %.preheader.i, !llvm.loop !18
 
 wc_ChaCha20Poly1305_CheckTag.exit:                ; preds = %.preheader.i
   %.not.i = icmp eq i32 %53, 0
@@ -494,7 +480,7 @@ define range(i32 -213, 1) i32 @wc_ChaCha20Poly1305_CheckTag(ptr noundef readonly
   %11 = or i32 %.010.i, %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %ConstantCompare.exit, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not.i, label %ConstantCompare.exit, label %.preheader, !llvm.loop !18
 
 ConstantCompare.exit:                             ; preds = %.preheader
   %.not = icmp eq i32 %11, 0
@@ -550,4 +536,3 @@ attributes #5 = { nounwind }
 !16 = !{!10, !10, i64 0}
 !17 = distinct !{!17, !15}
 !18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}

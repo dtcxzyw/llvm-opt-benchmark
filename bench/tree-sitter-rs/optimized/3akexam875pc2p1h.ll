@@ -2475,7 +2475,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc19f7036509a
   br label %"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdbeee70e30137753E.llvm.6082948530530484711.exit"
 
 "_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdbeee70e30137753E.llvm.6082948530530484711.exit": ; preds = %10, %11
-  %.sroa.03.0 = phi i64 [ %4, %11 ], [ -9223372036854775807, %10 ]
+  %.sroa.03.0 = phi i64 [ -9223372036854775791, %11 ], [ -9223372036854775807, %10 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !600
   store i64 %.sroa.03.0, ptr %0, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3389,7 +3389,7 @@ define hidden void @_ZN5which9which_all17h8e9e19801d68a928E.llvm.608294853053048
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   invoke void @_ZN5which20build_binary_checker17hee3fca6b8a5f208bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %9)
-          to label %24 unwind label %22
+          to label %22 unwind label %27
 
 16:                                               ; preds = %3
   store i64 -9223372036854775808, ptr %11, align 8
@@ -3415,16 +3415,11 @@ define hidden void @_ZN5which9which_all17h8e9e19801d68a928E.llvm.608294853053048
   br label %15
 
 22:                                               ; preds = %15
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  br label %29
-
-24:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   invoke void @_ZN3std3env7_var_os17h0ce52d8c124bf7d4E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 @anon.136a0f00885e88ca4faf7725f88798c7.30, i64 noundef 4)
-          to label %_ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit unwind label %25
+          to label %_ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit unwind label %23
 
-_ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit:      ; preds = %24
+_ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit:      ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -3437,25 +3432,27 @@ _ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit:      ; preds = %24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret void
 
-25:                                               ; preds = %24
-  %26 = landingpad { ptr, i32 }
+23:                                               ; preds = %22
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$which..checker..CompositeChecker$GT$17h077442d1b07a1eceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #24
-          to label %29 unwind label %27
+          to label %.thread6 unwind label %25
 
-27:                                               ; preds = %29, %25
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %27, %23
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #25
   unreachable
 
-29:                                               ; preds = %25, %22
-  %.pn.ph = phi { ptr, i32 } [ %23, %22 ], [ %26, %25 ]
+27:                                               ; preds = %15
+  %28 = landingpad { ptr, i32 }
+          cleanup
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h430dbe4773754c14E"(ptr noalias noundef align 8 dereferenceable(24) %11) #24
-          to label %30 unwind label %27
+          to label %.thread6 unwind label %25
 
-30:                                               ; preds = %29
-  resume { ptr, i32 } %.pn.ph
+.thread6:                                         ; preds = %23, %27
+  %.pn9 = phi { ptr, i32 } [ %28, %27 ], [ %24, %23 ]
+  resume { ptr, i32 } %.pn9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

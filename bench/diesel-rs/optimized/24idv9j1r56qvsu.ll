@@ -3261,11 +3261,7 @@ define hidden void @_ZN6diesel5mysql10connection33update_transaction_manager_sta
   %7 = alloca { i32, [7 x i32] }, align 8
   %8 = load i64, ptr %1, align 8, !range !35, !noundef !5
   %.not = icmp eq i64 %8, -9223372036854775798
-  br i1 %.not, label %.thread15, label %9
-
-.thread15:                                        ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  br label %16
+  br i1 %.not, label %.thread12, label %9
 
 9:                                                ; preds = %6
   %10 = icmp eq i64 %8, -9223372036854775808
@@ -3273,11 +3269,11 @@ define hidden void @_ZN6diesel5mysql10connection33update_transaction_manager_sta
   %12 = load i8, ptr %11, align 8, !range !501
   %13 = icmp eq i8 %12, 3
   %or.cond = select i1 %10, i1 %13, i1 false
-  br i1 %or.cond, label %24, label %.thread19
+  br i1 %or.cond, label %24, label %.thread12
 
-.thread19:                                        ; preds = %9
+.thread12:                                        ; preds = %6, %9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  br label %17
+  br label %16
 
 14:                                               ; preds = %24
   %.pre = load i64, ptr %1, align 8, !range !35
@@ -3286,11 +3282,11 @@ define hidden void @_ZN6diesel5mysql10connection33update_transaction_manager_sta
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   br i1 %15, label %16, label %17
 
-16:                                               ; preds = %14, %.thread15
+16:                                               ; preds = %14, %.thread12
   br label %17
 
-17:                                               ; preds = %14, %.thread19, %16
-  %18 = phi ptr [ null, %16 ], [ %1, %.thread19 ], [ %1, %14 ]
+17:                                               ; preds = %14, %16
+  %18 = phi ptr [ null, %16 ], [ %1, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %4, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 24

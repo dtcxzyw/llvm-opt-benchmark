@@ -1422,12 +1422,10 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit:           ; preds = %if.end8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end8, %_ZNSt11char_traitsIcE4moveEPcPKcm.exit
-  %idx.neg23.pre-phi = phi i64 [ %idx.neg, %_ZNSt11char_traitsIcE4moveEPcPKcm.exit ], [ 0, %if.end8 ]
   %4 = phi i64 [ %.pre, %_ZNSt11char_traitsIcE4moveEPcPKcm.exit ], [ %2, %if.end8 ]
   %5 = load ptr, ptr %buffer_.i, align 8
   %add.ptr22 = getelementptr inbounds i8, ptr %5, i64 %4
-  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr22, i64 %idx.neg23.pre-phi
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %add.ptr24, ptr noundef %add.ptr22, ptr noundef %add.ptr22)
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %add.ptr22, ptr noundef %add.ptr22, ptr noundef %add.ptr22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt17iostream_categoryv() #30
@@ -1472,7 +1470,7 @@ if.then5:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
-  %spec.select.i = phi i32 [ %c, %if.then5 ], [ 0, %if.then ]
+  %spec.select.i = phi i32 [ -1, %if.then5 ], [ 0, %if.then ]
   ret i32 %spec.select.i
 
 if.else:                                          ; preds = %entry
@@ -1549,12 +1547,10 @@ if.else:                                          ; preds = %if.then9
   store i8 %conv.i5, ptr %d, align 1
   %storage_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call.i.i.i.i = call noundef i64 @_ZN5boost9iostreams15file_descriptor5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i, ptr noundef nonnull %d, i64 noundef 1)
-  %cmp28.not = icmp eq i64 %call.i.i.i.i, 1
-  %spec.select = select i1 %cmp28.not, i32 %c, i32 -1
   br label %return
 
 return:                                           ; preds = %if.else, %if.end, %if.end22, %if.then15
-  %retval.0 = phi i32 [ -1, %if.then15 ], [ %c, %if.end22 ], [ 0, %if.end ], [ %spec.select, %if.else ]
+  %retval.0 = phi i32 [ -1, %if.then15 ], [ -1, %if.end22 ], [ -1, %if.else ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -3347,17 +3343,14 @@ if.then23.fold.split:                             ; preds = %entry
   br label %if.then23
 
 if.then23:                                        ; preds = %entry, %if.then23.fold.split
-  %cond20 = phi i64 [ 4096, %entry ], [ %buffer_size, %if.then23.fold.split ]
+  %0 = phi i32 [ 3, %entry ], [ 1, %if.then23.fold.split ]
+  %cond20 = phi i64 [ 4096, %entry ], [ -1, %if.then23.fold.split ]
   %buffer_.i9 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %sext8 = shl i64 %cond20, 32
-  %conv26 = ashr exact i64 %sext8, 32
-  tail call void @_ZN5boost9iostreams6detail12basic_bufferIcSaIcEE6resizeEl(ptr noundef nonnull align 8 dereferenceable(16) %buffer_.i9, i64 noundef %conv26)
-  %0 = icmp sgt i64 %cond20, 1
-  %spec.select22 = select i1 %0, i32 3, i32 1
+  tail call void @_ZN5boost9iostreams6detail12basic_bufferIcSaIcEE6resizeEl(ptr noundef nonnull align 8 dereferenceable(16) %buffer_.i9, i64 noundef %cond20)
   br label %if.end30
 
-if.end30:                                         ; preds = %if.then23, %entry
-  %cond21 = phi i32 [ 1, %entry ], [ %spec.select22, %if.then23 ]
+if.end30:                                         ; preds = %entry, %if.then23
+  %cond21 = phi i32 [ %0, %if.then23 ], [ 1, %entry ]
   %vtable28 = load ptr, ptr %this, align 8
   %vfn29 = getelementptr inbounds nuw i8, ptr %vtable28, i64 176
   %1 = load ptr, ptr %vfn29, align 8

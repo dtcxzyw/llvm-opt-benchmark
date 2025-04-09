@@ -8,7 +8,7 @@ define hidden noundef zeroext i1 @je_pa_central_init(ptr noundef %0, ptr noundef
   br i1 %2, label %5, label %7
 
 5:                                                ; preds = %4
-  %6 = tail call zeroext i1 @je_hpa_central_init(ptr noundef %0, ptr noundef %1, ptr noundef %3) #4
+  %6 = tail call zeroext i1 @je_hpa_central_init(ptr noundef %0, ptr noundef %1, ptr noundef %3) #3
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5, %4
@@ -24,13 +24,13 @@ declare zeroext i1 @je_hpa_central_init(ptr noundef, ptr noundef, ptr noundef) l
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @je_pa_shard_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 68168
-  %14 = tail call zeroext i1 @je_edata_cache_init(ptr noundef nonnull %13, ptr noundef %4) #4
+  %14 = tail call zeroext i1 @je_edata_cache_init(ptr noundef nonnull %13, ptr noundef %4) #3
   br i1 %14, label %28, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %18 = tail call zeroext i1 @je_pac_init(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %4, ptr noundef %3, ptr noundef nonnull %13, ptr noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %17, ptr noundef %7) #4
+  %18 = tail call zeroext i1 @je_pac_init(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %4, ptr noundef %3, ptr noundef nonnull %13, ptr noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %17, ptr noundef %7) #3
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %15
@@ -77,13 +77,13 @@ define hidden noundef zeroext i1 @je_pa_shard_enable_hpa(ptr noundef %0, ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 68168
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 68312
   %13 = load i32, ptr %12, align 8, !tbaa !4
-  %14 = tail call zeroext i1 @je_hpa_shard_init(ptr noundef nonnull %5, ptr noundef %6, ptr noundef %8, ptr noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef %2) #4
+  %14 = tail call zeroext i1 @je_hpa_shard_init(ptr noundef nonnull %5, ptr noundef %6, ptr noundef %8, ptr noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef %2) #3
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 62264
   %17 = load ptr, ptr %9, align 8, !tbaa !55
-  %18 = tail call zeroext i1 @je_sec_init(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %17, ptr noundef nonnull %5, ptr noundef %3) #4
+  %18 = tail call zeroext i1 @je_sec_init(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %17, ptr noundef nonnull %5, ptr noundef %3) #3
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %15
@@ -113,9 +113,9 @@ define hidden void @je_pa_shard_disable_hpa(ptr noundef %0, ptr noundef %1) loca
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 62264
-  tail call void @je_sec_disable(ptr noundef %0, ptr noundef nonnull %8) #4
+  tail call void @je_sec_disable(ptr noundef %0, ptr noundef nonnull %8) #3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 62384
-  tail call void @je_hpa_shard_disable(ptr noundef %0, ptr noundef nonnull %9) #4
+  tail call void @je_hpa_shard_disable(ptr noundef %0, ptr noundef nonnull %9) #3
   br label %10
 
 10:                                               ; preds = %7, %2
@@ -137,7 +137,7 @@ define hidden void @je_pa_shard_reset(ptr noundef %0, ptr noundef %1) local_unna
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 62264
-  tail call void @je_sec_flush(ptr noundef %0, ptr noundef nonnull %8) #4
+  tail call void @je_sec_flush(ptr noundef %0, ptr noundef nonnull %8) #3
   br label %9
 
 9:                                                ; preds = %7, %2
@@ -149,7 +149,7 @@ declare void @je_sec_flush(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @je_pa_shard_destroy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @je_pac_destroy(ptr noundef %0, ptr noundef nonnull %3) #4
+  tail call void @je_pac_destroy(ptr noundef %0, ptr noundef nonnull %3) #3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %5 = load i8, ptr %4, align 1, !tbaa !50, !range !56, !noundef !57
   %6 = trunc nuw i8 %5 to i1
@@ -157,9 +157,9 @@ define hidden void @je_pa_shard_destroy(ptr noundef %0, ptr noundef %1) local_un
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 62264
-  tail call void @je_sec_flush(ptr noundef %0, ptr noundef nonnull %8) #4
+  tail call void @je_sec_flush(ptr noundef %0, ptr noundef nonnull %8) #3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 62384
-  tail call void @je_hpa_shard_destroy(ptr noundef %0, ptr noundef nonnull %9) #4
+  tail call void @je_hpa_shard_destroy(ptr noundef %0, ptr noundef nonnull %9) #3
   br label %10
 
 10:                                               ; preds = %7, %2
@@ -184,14 +184,14 @@ tsdn_witness_tsdp_get.exit:
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 62264
   %15 = load ptr, ptr %14, align 8, !tbaa !58
-  %16 = tail call ptr %15(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext %4, ptr noundef %8) #4
+  %16 = tail call ptr %15(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext %4, ptr noundef %8) #3
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %.thread39
 
 .thread:                                          ; preds = %9, %tsdn_witness_tsdp_get.exit, %13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !58
-  %20 = tail call ptr %19(ptr noundef %0, ptr noundef nonnull %18, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %4, ptr noundef %8) #4
+  %20 = tail call ptr %19(ptr noundef %0, ptr noundef nonnull %18, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %4, ptr noundef %8) #3
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %36, label %.thread39
 
@@ -202,7 +202,7 @@ tsdn_witness_tsdp_get.exit:
   %23 = atomicrmw add ptr %22, i64 %21 monotonic, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 68336
   %25 = load ptr, ptr %24, align 8, !tbaa !54
-  tail call void @je_emap_remap(ptr noundef %0, ptr noundef %25, ptr noundef nonnull %.142, i32 noundef %5, i1 noundef zeroext %4) #4
+  tail call void @je_emap_remap(ptr noundef %0, ptr noundef %25, ptr noundef nonnull %.142, i32 noundef %5, i1 noundef zeroext %4) #3
   %26 = load i64, ptr %.142, align 8, !tbaa !59
   %27 = and i64 %26, -267390977
   %28 = zext i32 %5 to i64
@@ -217,7 +217,7 @@ tsdn_witness_tsdp_get.exit:
 
 34:                                               ; preds = %.thread39
   %35 = load ptr, ptr %24, align 8, !tbaa !54
-  tail call void @je_emap_register_interior(ptr noundef %0, ptr noundef %35, ptr noundef nonnull %.142, i32 noundef %5) #4
+  tail call void @je_emap_register_interior(ptr noundef %0, ptr noundef %35, ptr noundef nonnull %.142, i32 noundef %5) #3
   br label %36
 
 36:                                               ; preds = %34, %.thread39, %.thread
@@ -243,7 +243,7 @@ define hidden noundef zeroext i1 @je_pa_expand(ptr noundef %0, ptr noundef %1, p
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.v.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
-  %16 = tail call zeroext i1 %15(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %6, ptr noundef %7) #4
+  %16 = tail call zeroext i1 %15(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %6, ptr noundef %7) #3
   br i1 %16, label %29, label %17
 
 17:                                               ; preds = %10
@@ -259,7 +259,7 @@ define hidden noundef zeroext i1 @je_pa_expand(ptr noundef %0, ptr noundef %1, p
   store i64 %26, ptr %2, align 8, !tbaa !59
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 68336
   %28 = load ptr, ptr %27, align 8, !tbaa !54
-  tail call void @je_emap_remap(ptr noundef %0, ptr noundef %28, ptr noundef nonnull %2, i32 noundef %5, i1 noundef zeroext false) #4
+  tail call void @je_emap_remap(ptr noundef %0, ptr noundef %28, ptr noundef nonnull %2, i32 noundef %5, i1 noundef zeroext false) #3
   br label %29
 
 29:                                               ; preds = %17, %10, %8
@@ -281,7 +281,7 @@ define hidden noundef zeroext i1 @je_pa_shrink(ptr noundef %0, ptr noundef %1, p
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.v.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !62
-  %15 = tail call zeroext i1 %14(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, ptr noundef %6) #4
+  %15 = tail call zeroext i1 %14(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, ptr noundef %6) #3
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %9
@@ -297,7 +297,7 @@ define hidden noundef zeroext i1 @je_pa_shrink(ptr noundef %0, ptr noundef %1, p
   store i64 %25, ptr %2, align 8, !tbaa !59
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 68336
   %27 = load ptr, ptr %26, align 8, !tbaa !54
-  tail call void @je_emap_remap(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %2, i32 noundef %5, i1 noundef zeroext false) #4
+  tail call void @je_emap_remap(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %2, i32 noundef %5, i1 noundef zeroext false) #3
   br label %28
 
 28:                                               ; preds = %16, %9, %7
@@ -309,7 +309,7 @@ define hidden noundef zeroext i1 @je_pa_shrink(ptr noundef %0, ptr noundef %1, p
 define hidden void @je_pa_dalloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 68336
   %6 = load ptr, ptr %5, align 8, !tbaa !54
-  tail call void @je_emap_remap(ptr noundef %0, ptr noundef %6, ptr noundef %2, i32 noundef 232, i1 noundef zeroext false) #4
+  tail call void @je_emap_remap(ptr noundef %0, ptr noundef %6, ptr noundef %2, i32 noundef 232, i1 noundef zeroext false) #3
   %.val18 = load i64, ptr %2, align 8, !tbaa !59
   %7 = and i64 %.val18, 4096
   %.not = icmp eq i64 %7, 0
@@ -317,7 +317,7 @@ define hidden void @je_pa_dalloc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %5, align 8, !tbaa !54
-  tail call void @je_emap_deregister_interior(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %2) #4
+  tail call void @je_emap_deregister_interior(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %2) #3
   %.pre = load i64, ptr %2, align 8, !tbaa !59
   br label %10
 
@@ -345,7 +345,7 @@ define hidden void @je_pa_dalloc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.v.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !65
-  tail call void %27(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %2, ptr noundef %3) #4
+  tail call void %27(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %2, ptr noundef %3) #3
   ret void
 }
 
@@ -354,7 +354,7 @@ declare void @je_emap_deregister_interior(ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_pa_decay_ms_set(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = tail call zeroext i1 @je_pac_decay_ms_set(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %2, i64 noundef %3, i32 noundef %4) #4
+  %7 = tail call zeroext i1 @je_pac_decay_ms_set(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %2, i64 noundef %3, i32 noundef %4) #3
   ret i1 %7
 }
 
@@ -363,7 +363,7 @@ declare zeroext i1 @je_pac_decay_ms_set(ptr noundef, ptr noundef, i32 noundef, i
 ; Function Attrs: nounwind uwtable
 define hidden i64 @je_pa_decay_ms_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = tail call i64 @je_pac_decay_ms_get(ptr noundef nonnull %3, i32 noundef %1) #4
+  %4 = tail call i64 @je_pac_decay_ms_get(ptr noundef nonnull %3, i32 noundef %1) #3
   ret i64 %4
 }
 
@@ -378,7 +378,7 @@ define hidden void @je_pa_shard_set_deferral_allowed(ptr noundef %0, ptr noundef
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 62384
-  tail call void @je_hpa_shard_set_deferral_allowed(ptr noundef %0, ptr noundef nonnull %8, i1 noundef zeroext %2) #4
+  tail call void @je_hpa_shard_set_deferral_allowed(ptr noundef %0, ptr noundef nonnull %8, i1 noundef zeroext %2) #3
   br label %9
 
 9:                                                ; preds = %7, %3
@@ -396,7 +396,7 @@ define hidden void @je_pa_shard_do_deferred_work(ptr noundef %0, ptr noundef %1)
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 62384
-  tail call void @je_hpa_shard_do_deferred_work(ptr noundef %0, ptr noundef nonnull %7) #4
+  tail call void @je_hpa_shard_do_deferred_work(ptr noundef %0, ptr noundef nonnull %7) #3
   br label %8
 
 8:                                                ; preds = %6, %2
@@ -406,11 +406,11 @@ define hidden void @je_pa_shard_do_deferred_work(ptr noundef %0, ptr noundef %1)
 declare void @je_hpa_shard_do_deferred_work(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @je_pa_shard_time_until_deferred_work(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i64 @je_pa_shard_time_until_deferred_work(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !66
-  %6 = tail call i64 %5(ptr noundef %0, ptr noundef nonnull %3) #4
+  %6 = tail call i64 %5(ptr noundef %0, ptr noundef nonnull %3) #3
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %17, label %8
 
@@ -424,23 +424,17 @@ define hidden i64 @je_pa_shard_time_until_deferred_work(ptr noundef %0, ptr noun
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 62384
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 62432
   %15 = load ptr, ptr %14, align 8, !tbaa !66
-  %16 = tail call i64 %15(ptr noundef %0, ptr noundef nonnull %13) #4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %16, i64 %6)
+  %16 = tail call i64 %15(ptr noundef %0, ptr noundef nonnull %13) #3
   br label %17
 
 17:                                               ; preds = %8, %12, %2
-  %.0 = phi i64 [ 0, %2 ], [ %spec.select, %12 ], [ %6, %8 ]
-  ret i64 %.0
+  ret i64 0
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

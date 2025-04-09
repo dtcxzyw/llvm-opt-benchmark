@@ -1756,16 +1756,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %1)
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %16, label %14
-
-14:                                               ; preds = %2
-  %15 = sdiv i64 %7, %12
-  br label %16
-
-16:                                               ; preds = %2, %14
-  %.0 = phi i64 [ %15, %14 ], [ 0, %2 ]
-  ret i64 %.0
+  ret i64 0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

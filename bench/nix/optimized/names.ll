@@ -2322,7 +2322,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit36
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit36: ; preds = %20, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i29, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit28, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit, %11
-  %.0 = phi i1 [ %12, %11 ], [ %27, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit ], [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %21, %20 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33 ], [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit28 ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i29 ]
+  %.0 = phi i1 [ %12, %11 ], [ %27, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit ], [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ true, %20 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33 ], [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit28 ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i29 ]
   ret i1 %.0
 }
 
@@ -5854,7 +5854,6 @@ define linkonce_odr void @_ZNSt8__detail8_ScannerIcE18_M_eat_escape_ecmaEv(ptr n
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %8, %17, %22
-  %.0.i = phi i8 [ %16, %8 ], [ %21, %22 ], [ 0, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %24, align 1
@@ -5864,7 +5863,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %8, %17, %22
 .lr.ph.i:                                         ; preds = %_ZNKSt5ctypeIcE6narrowEcc.exit, %28
   %26 = phi i8 [ %30, %28 ], [ %25, %_ZNKSt5ctypeIcE6narrowEcc.exit ]
   %.010.i = phi ptr [ %29, %28 ], [ %24, %_ZNKSt5ctypeIcE6narrowEcc.exit ]
-  %27 = icmp eq i8 %26, %.0.i
+  %27 = icmp eq i8 %26, %16
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %.lr.ph.i
@@ -6308,8 +6307,7 @@ define linkonce_odr void @_ZNSt8__detail8_ScannerIcE19_M_eat_escape_posixEv(ptr 
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %8, %18, %23
-  %.0.i = phi i8 [ %17, %8 ], [ %22, %23 ], [ 0, %18 ]
-  %24 = sext i8 %.0.i to i32
+  %24 = sext i8 %17 to i32
   %25 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef %24) #28
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %40, label %26
@@ -6561,7 +6559,6 @@ define linkonce_odr void @_ZNSt8__detail8_ScannerIcE17_M_eat_escape_awkEv(ptr no
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %1, %12, %17
-  %.0.i = phi i8 [ %11, %1 ], [ %16, %17 ], [ 0, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load ptr, ptr %18, align 8
   %20 = load i8, ptr %19, align 1
@@ -6571,7 +6568,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %1, %12, %17
 .lr.ph.i:                                         ; preds = %_ZNKSt5ctypeIcE6narrowEcc.exit, %23
   %21 = phi i8 [ %25, %23 ], [ %20, %_ZNKSt5ctypeIcE6narrowEcc.exit ]
   %.010.i = phi ptr [ %24, %23 ], [ %19, %_ZNKSt5ctypeIcE6narrowEcc.exit ]
-  %22 = icmp eq i8 %21, %.0.i
+  %22 = icmp eq i8 %21, %11
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %.lr.ph.i
@@ -6770,7 +6767,7 @@ define linkonce_odr void @_ZNSt8__detail8_ScannerIcE14_M_scan_normalEv(ptr nound
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %1, %14, %19
-  %.0.i = phi i8 [ %13, %1 ], [ %18, %19 ], [ 32, %14 ]
+  %.0.i = phi i8 [ %13, %1 ], [ 32, %19 ], [ 32, %14 ]
   %20 = sext i8 %.0.i to i32
   %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef %20) #28
   %22 = icmp eq ptr %21, null
@@ -7076,7 +7073,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc.exit46: ; preds 
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit50
 
 _ZNKSt5ctypeIcE6narrowEcc.exit50:                 ; preds = %143, %149, %154
-  %.0.i48 = phi i8 [ %148, %143 ], [ %153, %154 ], [ 0, %149 ]
   %155 = load i8, ptr %0, align 8
   %.not2966 = icmp eq i8 %155, 0
   br i1 %.not2966, label %.loopexit, label %.lr.ph
@@ -7084,7 +7080,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit50:                 ; preds = %143, %149, %154
 .lr.ph:                                           ; preds = %_ZNKSt5ctypeIcE6narrowEcc.exit50, %162
   %156 = phi i8 [ %164, %162 ], [ %155, %_ZNKSt5ctypeIcE6narrowEcc.exit50 ]
   %.02067 = phi ptr [ %163, %162 ], [ %0, %_ZNKSt5ctypeIcE6narrowEcc.exit50 ]
-  %157 = icmp eq i8 %156, %.0.i48
+  %157 = icmp eq i8 %156, %148
   br i1 %157, label %158, label %162
 
 158:                                              ; preds = %.lr.ph
@@ -14713,7 +14709,6 @@ _ZNKSt5ctypeIcE7tolowerEc.exit:                   ; preds = %14
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %28, %.noexc, %_ZNKSt5ctypeIcE7tolowerEc.exit
-  %.0.i = phi i8 [ %22, %_ZNKSt5ctypeIcE7tolowerEc.exit ], [ %27, %28 ], [ 0, %.noexc ]
   %29 = load i64, ptr %9, align 8
   %30 = add i64 %29, 1
   %31 = load ptr, ptr %6, align 8
@@ -14796,7 +14791,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
 50:                                               ; preds = %.noexc18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.thread
   %51 = phi ptr [ %45, %.noexc18 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.thread ]
   %52 = getelementptr inbounds i8, ptr %51, i64 %29
-  store i8 %.0.i, ptr %52, align 1
+  store i8 %22, ptr %52, align 1
   store i64 %30, ptr %9, align 8
   %53 = load ptr, ptr %6, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 %30
@@ -22160,7 +22155,6 @@ define linkonce_odr void @_ZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPK
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %26, %.noexc, %16
-  %.0.i = phi i8 [ %20, %16 ], [ %25, %26 ], [ 0, %.noexc ]
   %27 = load i64, ptr %11, align 8
   %28 = add i64 %27, 1
   %29 = load ptr, ptr %7, align 8
@@ -22243,7 +22237,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 48:                                               ; preds = %.noexc19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.thread
   %49 = phi ptr [ %43, %.noexc19 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.thread ]
   %50 = getelementptr inbounds i8, ptr %49, i64 %27
-  store i8 %.0.i, ptr %50, align 1
+  store i8 %20, ptr %50, align 1
   store i64 %28, ptr %11, align 8
   %51 = load ptr, ptr %7, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 %28

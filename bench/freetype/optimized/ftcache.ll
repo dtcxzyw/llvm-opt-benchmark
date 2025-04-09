@@ -5265,7 +5265,7 @@ FTC_MruNode_Up.exit.i.i:                          ; preds = %13
 FTC_Manager_LookupFace.exit.thread.i:             ; preds = %.loopexit.i.i, %3
   %.023.i.ph.i = phi i32 [ %22, %.loopexit.i.i ], [ 39, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  br label %ftc_scaler_lookup_size.exit.thread
+  br label %ftc_scaler_lookup_size.exit
 
 23:                                               ; preds = %.loopexit._crit_edge.i.i, %FTC_MruNode_Up.exit.i.i, %13
   %24 = phi ptr [ %.pre.i.i, %.loopexit._crit_edge.i.i ], [ %.0.i.i, %13 ], [ %.0.i.i, %FTC_MruNode_Up.exit.i.i ]
@@ -5274,7 +5274,7 @@ FTC_Manager_LookupFace.exit.thread.i:             ; preds = %.loopexit.i.i, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   %27 = call i32 @FT_New_Size(ptr noundef %26, ptr noundef nonnull %5) #12
   %.not15.i = icmp eq i32 %27, 0
-  br i1 %.not15.i, label %28, label %ftc_scaler_lookup_size.exit.thread
+  br i1 %.not15.i, label %28, label %ftc_scaler_lookup_size.exit
 
 28:                                               ; preds = %23
   %.pre26.i = load ptr, ptr %5, align 8, !tbaa !156
@@ -5312,23 +5312,24 @@ FTC_Manager_LookupFace.exit.thread.i:             ; preds = %.loopexit.i.i, %3
 
 49:                                               ; preds = %48
   %50 = call i32 @FT_Done_Size(ptr noundef %.pre.i) #12
-  br label %ftc_scaler_lookup_size.exit.thread
+  br label %51
 
-ftc_scaler_lookup_size.exit.thread:               ; preds = %23, %49, %FTC_Manager_LookupFace.exit.thread.i
-  %.0.i.ph = phi i32 [ %.023.i.ph.i, %FTC_Manager_LookupFace.exit.thread.i ], [ %.1.i, %49 ], [ %27, %23 ]
+ftc_scaler_lookup_size.exit:                      ; preds = %FTC_Manager_LookupFace.exit.thread.i, %23
+  %.0.i = phi i32 [ %27, %23 ], [ %.023.i.ph.i, %FTC_Manager_LookupFace.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   br label %54
 
-51:                                               ; preds = %48
+51:                                               ; preds = %49, %48
+  %.ph = phi ptr [ %.pre.i, %48 ], [ null, %49 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.pre.i, ptr %52, align 8, !tbaa !163
+  store ptr %.ph, ptr %52, align 8, !tbaa !163
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !107
   br label %54
 
-54:                                               ; preds = %ftc_scaler_lookup_size.exit.thread, %51
-  %.0.i11 = phi i32 [ %.0.i.ph, %ftc_scaler_lookup_size.exit.thread ], [ 0, %51 ]
+54:                                               ; preds = %ftc_scaler_lookup_size.exit, %51
+  %.0.i11 = phi i32 [ 0, %51 ], [ %.0.i, %ftc_scaler_lookup_size.exit ]
   ret i32 %.0.i11
 }
 

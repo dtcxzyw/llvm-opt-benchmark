@@ -2230,60 +2230,53 @@ define hidden range(i32 -1, 2) i32 @lj_tab_next(ptr noundef readonly captures(no
 define hidden i32 @lj_tab_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !4
-  %.not = icmp eq i32 %3, 0
-  %4 = zext i32 %3 to i64
-  %5 = add nsw i64 %4, -1
-  %.020 = select i1 %.not, i64 0, i64 %5
-  %.not24 = icmp eq i64 %.020, 0
-  br i1 %.not24, label %21, label %6
+  %.not.not = icmp ne i32 %3, 0
+  %spec.select = sext i1 %.not.not to i64
+  br i1 %.not.not, label %4, label %20
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !12
-  %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds nuw %union.TValue, ptr %9, i64 %.020
-  %11 = load i64, ptr %10, align 8, !tbaa !13
-  %12 = icmp eq i64 %11, -1
-  br i1 %12, label %.preheader, label %21, !prof !63
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i64, ptr %5, align 8, !tbaa !12
+  %7 = inttoptr i64 %6 to ptr
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 -8
+  %9 = load i64, ptr %8, align 8, !tbaa !13
+  %10 = icmp eq i64 %9, -1
+  br i1 %10, label %.preheader, label %20, !prof !63
 
-.preheader:                                       ; preds = %6
-  %.not28 = icmp eq i64 %.020, 1
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+.preheader:                                       ; preds = %4, %.preheader
+  %.01925 = phi i64 [ %.019., %.preheader ], [ 0, %4 ]
+  %.12124 = phi i64 [ %..121, %.preheader ], [ -1, %4 ]
+  %11 = add i64 %.01925, %.12124
+  %12 = lshr i64 %11, 1
+  %13 = getelementptr inbounds nuw %union.TValue, ptr %7, i64 %12
+  %14 = load i64, ptr %13, align 8, !tbaa !13
+  %15 = icmp eq i64 %14, -1
+  %..121 = select i1 %15, i64 %12, i64 %.12124
+  %.019. = select i1 %15, i64 %.01925, i64 %12
+  %16 = sub i64 %..121, %.019.
+  %17 = icmp ugt i64 %16, 1
+  br i1 %17, label %.preheader, label %18, !llvm.loop !69
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.01927 = phi i64 [ %.019., %.lr.ph ], [ 0, %.preheader ]
-  %.12126 = phi i64 [ %..121, %.lr.ph ], [ %.020, %.preheader ]
-  %13 = add i64 %.01927, %.12126
-  %14 = lshr i64 %13, 1
-  %15 = getelementptr inbounds nuw %union.TValue, ptr %9, i64 %14
-  %16 = load i64, ptr %15, align 8, !tbaa !13
-  %17 = icmp eq i64 %16, -1
-  %..121 = select i1 %17, i64 %14, i64 %.12126
-  %.019. = select i1 %17, i64 %.01927, i64 %14
-  %18 = sub nsw i64 %..121, %.019.
-  %19 = icmp ugt i64 %18, 1
-  br i1 %19, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !69
+18:                                               ; preds = %.preheader
+  %19 = trunc i64 %.019. to i32
+  br label %27
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %20 = trunc i64 %.019. to i32
-  br label %._crit_edge
+20:                                               ; preds = %4, %1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %22 = load i32, ptr %21, align 4, !tbaa !14
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %25, label %23
 
-21:                                               ; preds = %6, %1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %23 = load i32, ptr %22, align 4, !tbaa !14
-  %.not25 = icmp eq i32 %23, 0
-  br i1 %.not25, label %26, label %24
+23:                                               ; preds = %20
+  %24 = tail call fastcc i32 @tab_len_slow(ptr noundef nonnull %0, i64 noundef %spec.select)
+  br label %27
 
-24:                                               ; preds = %21
-  %25 = tail call fastcc i32 @tab_len_slow(ptr noundef nonnull %0, i64 noundef %.020)
-  br label %._crit_edge
+25:                                               ; preds = %20
+  %26 = sext i1 %.not.not to i32
+  br label %27
 
-26:                                               ; preds = %21
-  %27 = trunc nuw i64 %.020 to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %24, %26
-  %.0 = phi i32 [ %25, %24 ], [ %27, %26 ], [ 0, %.preheader ], [ %20, %._crit_edge.loopexit ]
+27:                                               ; preds = %23, %25, %18
+  %.0 = phi i32 [ %19, %18 ], [ %24, %23 ], [ %26, %25 ]
   ret i32 %.0
 }
 

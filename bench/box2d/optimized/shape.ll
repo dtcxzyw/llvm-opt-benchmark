@@ -3742,22 +3742,18 @@ define i64 @b2Shape_GetParentChain(i64 %0) local_unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1272
   %.val11 = load ptr, ptr %16, align 8, !tbaa !10
   %17 = sext i32 %14 to i64
-  %18 = add nuw nsw i32 %14, 1
-  %19 = getelementptr inbounds %struct.b2ChainShape, ptr %.val11, i64 %17, i32 7
-  %20 = load i16, ptr %19, align 8, !tbaa !125
-  %21 = zext i16 %20 to i64
-  %22 = shl nuw i64 %21, 48
-  %23 = and i64 %0, 281470681743360
-  %24 = zext i32 %18 to i64
+  %18 = getelementptr inbounds %struct.b2ChainShape, ptr %.val11, i64 %17, i32 7
+  %19 = load i16, ptr %18, align 8, !tbaa !125
+  %20 = zext i16 %19 to i64
+  %21 = shl nuw i64 %20, 48
+  %22 = and i64 %0, 281470681743360
   br label %.thread
 
 .thread:                                          ; preds = %12, %1, %15
-  %.sroa.09.1 = phi i64 [ %24, %15 ], [ 0, %1 ], [ 0, %12 ]
-  %.sroa.3.1 = phi i64 [ %23, %15 ], [ 0, %1 ], [ 0, %12 ]
-  %.sroa.5.1 = phi i64 [ %22, %15 ], [ 0, %1 ], [ 0, %12 ]
-  %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.3.1, %.sroa.09.1
-  %.sroa.09.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.5.1
-  ret i64 %.sroa.09.0.insert.insert
+  %.sroa.3.1 = phi i64 [ %22, %15 ], [ 0, %1 ], [ 0, %12 ]
+  %.sroa.5.1 = phi i64 [ %21, %15 ], [ 0, %1 ], [ 0, %12 ]
+  %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.5.1, %.sroa.3.1
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nounwind uwtable

@@ -24,36 +24,35 @@ define noundef i32 @dtpmv_NLN(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
   %13 = getelementptr double, ptr %1, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = getelementptr double, ptr %.0, i64 %0
-  br label %16
+  %16 = getelementptr i8, ptr %15, i64 -8
+  br label %17
 
-16:                                               ; preds = %.lr.ph, %._crit_edge40
+17:                                               ; preds = %.lr.ph, %._crit_edge40
   %.03239 = phi i64 [ 0, %.lr.ph ], [ %31, %._crit_edge40 ]
   %.03338 = phi ptr [ %14, %.lr.ph ], [ %30, %._crit_edge40 ]
   %.not37 = icmp eq i64 %.03239, 0
-  br i1 %.not37, label %._crit_edge40, label %17
+  br i1 %.not37, label %._crit_edge40, label %18
 
-17:                                               ; preds = %16
-  %18 = xor i64 %.03239, -1
-  %19 = getelementptr double, ptr %15, i64 %18
-  %20 = load double, ptr %19, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %.03338, i64 8
-  %22 = sub nsw i64 0, %.03239
-  %23 = getelementptr inbounds double, ptr %15, i64 %22
-  %24 = tail call i32 @daxpy_k(i64 noundef %.03239, i64 noundef 0, i64 noundef 0, double noundef %20, ptr noundef nonnull %21, i64 noundef 1, ptr noundef nonnull %23, i64 noundef 1, ptr noundef null, i64 noundef 0) #2
+18:                                               ; preds = %17
+  %19 = xor i64 %.03239, -1
+  %20 = getelementptr double, ptr %15, i64 %19
+  %21 = load double, ptr %20, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %.03338, i64 8
+  %23 = sub nsw i64 0, %.03239
+  %24 = getelementptr inbounds double, ptr %15, i64 %23
+  %25 = tail call i32 @daxpy_k(i64 noundef %.03239, i64 noundef 0, i64 noundef 0, double noundef %21, ptr noundef nonnull %22, i64 noundef 1, ptr noundef nonnull %24, i64 noundef 1, ptr noundef null, i64 noundef 0) #2
   br label %._crit_edge40
 
-._crit_edge40:                                    ; preds = %16, %17
-  %.pre-phi = phi i64 [ %18, %17 ], [ -1, %16 ]
-  %25 = load double, ptr %.03338, align 8, !tbaa !3
-  %26 = getelementptr double, ptr %15, i64 %.pre-phi
-  %27 = load double, ptr %26, align 8, !tbaa !3
-  %28 = fmul double %25, %27
-  store double %28, ptr %26, align 8, !tbaa !3
+._crit_edge40:                                    ; preds = %17, %18
+  %26 = load double, ptr %.03338, align 8, !tbaa !3
+  %27 = load double, ptr %16, align 8, !tbaa !3
+  %28 = fmul double %26, %27
+  store double %28, ptr %16, align 8, !tbaa !3
   %29 = sub nuw nsw i64 -2, %.03239
   %30 = getelementptr inbounds double, ptr %.03338, i64 %29
   %31 = add nuw nsw i64 %.03239, 1
   %exitcond.not = icmp eq i64 %31, %0
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %._crit_edge40, %8
   br i1 %.not, label %34, label %32

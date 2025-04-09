@@ -130103,34 +130103,25 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7AstNode9privateIsI14AstStr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK12AstNodeDType9widthPow2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZNK12AstNodeDType9widthPow2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8, !tbaa !421
   %4 = zext i32 %3 to i64
   br label %5
 
-5:                                                ; preds = %1, %14
-  %.0710 = phi i32 [ 30, %1 ], [ %15, %14 ]
-  %6 = zext nneg i32 %.0710 to i64
-  %7 = shl nuw i64 1, %6
-  %8 = icmp ult i64 %7, %4
-  br i1 %8, label %9, label %14
+5:                                                ; preds = %5, %1
+  %.07 = phi i32 [ 30, %1 ], [ %10, %5 ]
+  %6 = icmp slt i32 %.07, 0
+  %7 = zext nneg i32 %.07 to i64
+  %8 = shl nuw i64 1, %7
+  %9 = icmp ult i64 %8, %4
+  %or.cond = select i1 %6, i1 true, i1 %9
+  %10 = add nsw i32 %.07, -1
+  br i1 %or.cond, label %11, label %5, !llvm.loop !644
 
-9:                                                ; preds = %5
-  %10 = add nuw nsw i32 %.0710, 1
-  %11 = zext nneg i32 %10 to i64
-  %12 = shl nuw i64 1, %11
-  %13 = trunc i64 %12 to i32
-  br label %.loopexit
-
-14:                                               ; preds = %5
-  %15 = add nsw i32 %.0710, -1
-  %16 = icmp eq i32 %.0710, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !644
-
-.loopexit:                                        ; preds = %14, %9
-  %spec.select = phi i32 [ %13, %9 ], [ 1, %14 ]
-  ret i32 %spec.select
+11:                                               ; preds = %5
+  %.07.lobit = lshr i32 %.07, 31
+  ret i32 %.07.lobit
 }
 
 ; Function Attrs: mustprogress uwtable

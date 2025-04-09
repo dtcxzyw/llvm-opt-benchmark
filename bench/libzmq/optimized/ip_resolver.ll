@@ -498,14 +498,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %108, label %.sink.split, label %110
 
 .sink.split:                                      ; preds = %103, %93
-  %.141.ph = phi i16 [ undef, %93 ], [ %106, %103 ]
   %109 = tail call ptr @__errno_location() #23
   store i32 22, ptr %109, align 4, !tbaa !33
   br label %110
 
 110:                                              ; preds = %.sink.split, %103, %93, %100
   %111 = phi i1 [ true, %100 ], [ true, %93 ], [ true, %103 ], [ false, %.sink.split ]
-  %.141 = phi i16 [ 0, %100 ], [ 0, %93 ], [ %106, %103 ], [ %.141.ph, %.sink.split ]
+  %.141 = phi i16 [ 0, %100 ], [ 0, %93 ], [ %106, %103 ], [ 0, %.sink.split ]
   %112 = load ptr, ptr %13, align 8, !tbaa !35
   %113 = icmp eq ptr %112, %77
   br i1 %113, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i91
@@ -1352,7 +1351,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %400 = load i8, ptr %399, align 1, !tbaa !17, !range !22, !noundef !23
   %401 = trunc nuw i8 %400 to i1
-  br i1 %401, label %402, label %411
+  br i1 %401, label %402, label %.thread190
 
 402:                                              ; preds = %398
   %403 = invoke noundef i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %0, ptr noundef %1, ptr noundef %385)
@@ -1373,7 +1372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
   %.not80 = icmp eq i32 %410, 19
   br i1 %.not80, label %411, label %421
 
-411:                                              ; preds = %398, %408
+411:                                              ; preds = %408
   %412 = invoke noundef i32 @_ZN3zmq13ip_resolver_t19resolve_getaddrinfoEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %0, ptr noundef %1, ptr noundef %385)
           to label %413 unwind label %414
 
@@ -1386,7 +1385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
           cleanup
   br label %426
 
-.thread190:                                       ; preds = %404, %397, %413
+.thread190:                                       ; preds = %404, %398, %397, %413
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %.343)
   %416 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %rev.i.i, ptr %416, align 2, !tbaa !3

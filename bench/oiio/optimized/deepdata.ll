@@ -6186,83 +6186,81 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit: ; preds = %8
   %22 = add nuw nsw i32 %.08.i, 1
   %23 = getelementptr inbounds nuw i8, ptr %.057.i, i64 4
   %.not.i38 = icmp eq ptr %23, %21
-  br i1 %.not.i38, label %24, label %.lr.ph.i, !llvm.loop !159
+  br i1 %.not.i38, label %.lr.ph.i.i.preheader.i.i, label %.lr.ph.i, !llvm.loop !159
 
-24:                                               ; preds = %.lr.ph.i
-  %25 = trunc i64 %1 to i32
+.lr.ph.i.i.preheader.i.i:                         ; preds = %.lr.ph.i
+  %24 = trunc i64 %1 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %25, ptr %.sroa.2.0..sroa_idx, align 8
+  store i32 %24, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %6, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %6, ptr %.sroa.4.0..sroa_idx, align 8
+  %25 = add nuw nsw i64 %18, 1
+  %26 = lshr i64 %25, 1
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %24, %select.unfold.i.i.i.i
-  %.010.i.i.in.in.i.i = phi i64 [ %.010.i.i.i.i, %select.unfold.i.i.i.i ], [ %18, %24 ]
-  %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
-  %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
-  %26 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %27 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %26, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
-  %.not.i.i.i.i = icmp eq ptr %27, null
+.lr.ph.i.i.i.i:                                   ; preds = %select.unfold.i.i.i.i, %.lr.ph.i.i.preheader.i.i
+  %.011.i.i.i.i = phi i64 [ 1, %select.unfold.i.i.i.i ], [ %26, %.lr.ph.i.i.preheader.i.i ]
+  %27 = shl nuw nsw i64 %.011.i.i.i.i, 2
+  %28 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %27, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
+  %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not15.i.i.i.i = icmp eq i64 %.011.i.i.i.i, 1
+  br i1 %.not15.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i
   invoke fastcc void @_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN11OpenImageIO6v3_1_012_GLOBAL__N_116SampleComparatorEEEEvT_S9_T0_(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %3)
-          to label %.loopexit._crit_edge.i.i unwind label %28
+          to label %_ZSt11stable_sortIPiN11OpenImageIO6v3_1_012_GLOBAL__N_116SampleComparatorEEvT_S5_T0_.exit unwind label %29
 
-28:                                               ; preds = %_ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i, %.loopexit.i.i
-  %.sroa.4.025.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i ], [ 0, %.loopexit.i.i ]
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %_ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i, %.loopexit.i.i
+  %.sroa.4.025.i.i = phi i64 [ 4, %_ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i ], [ 0, %.loopexit.i.i ]
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = shl nuw nsw i64 %.sroa.4.025.i.i, 2
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %30) #30
-  resume { ptr, i32 } %29
+  call void @_ZdlPvm(ptr noundef %28, i64 noundef %.sroa.4.025.i.i) #30
+  resume { ptr, i32 } %30
 
 _ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i:    ; preds = %.lr.ph.i.i.i.i
-  invoke fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN11OpenImageIO6v3_1_012_GLOBAL__N_116SampleComparatorEEEEvT_S9_T0_T1_T2_(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %27, i64 noundef %.010.i.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %3)
-          to label %.loopexit._crit_edge.i.i unwind label %28
+  invoke fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN11OpenImageIO6v3_1_012_GLOBAL__N_116SampleComparatorEEEEvT_S9_T0_T1_T2_(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %28, i64 noundef 1, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %3)
+          to label %_ZSt11stable_sortIPiN11OpenImageIO6v3_1_012_GLOBAL__N_116SampleComparatorEEvT_S5_T0_.exit unwind label %29
 
-.loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i
-  %.sroa.4.023.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i ], [ 0, %.loopexit.i.i ]
-  %31 = shl nuw nsw i64 %.sroa.4.023.i.i, 2
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %31) #30
+_ZSt11stable_sortIPiN11OpenImageIO6v3_1_012_GLOBAL__N_116SampleComparatorEEvT_S5_T0_.exit: ; preds = %_ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i, %.loopexit.i.i
+  %.sroa.4.023.i.i = phi i64 [ 4, %_ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i ], [ 0, %.loopexit.i.i ]
+  call void @_ZdlPvm(ptr noundef %28, i64 noundef %.sroa.4.023.i.i) #30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %32 = load ptr, ptr %0, align 8, !tbaa !35
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 216
-  %34 = load i64, ptr %33, align 8, !tbaa !93
-  %35 = mul i64 %34, %18
-  %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %.lr.ph.preheader, label %36
+  %31 = load ptr, ptr %0, align 8, !tbaa !35
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 216
+  %33 = load i64, ptr %32, align 8, !tbaa !93
+  %34 = mul i64 %33, %18
+  %.not = icmp eq i64 %34, 0
+  br i1 %.not, label %.lr.ph.preheader, label %35
 
-36:                                               ; preds = %.loopexit._crit_edge.i.i
-  %37 = alloca i8, i64 %35, align 16
+35:                                               ; preds = %_ZSt11stable_sortIPiN11OpenImageIO6v3_1_012_GLOBAL__N_116SampleComparatorEEvT_S5_T0_.exit
+  %36 = alloca i8, i64 %34, align 16
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %36, %.loopexit._crit_edge.i.i
-  %38 = phi ptr [ %37, %36 ], [ null, %.loopexit._crit_edge.i.i ]
-  %39 = call noundef ptr @_ZN11OpenImageIO6v3_1_08DeepData8data_ptrElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef 0, i32 noundef 0)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %38, ptr align 1 %39, i64 %35, i1 false)
+.lr.ph.preheader:                                 ; preds = %35, %_ZSt11stable_sortIPiN11OpenImageIO6v3_1_012_GLOBAL__N_116SampleComparatorEEvT_S5_T0_.exit
+  %37 = phi ptr [ %36, %35 ], [ null, %_ZSt11stable_sortIPiN11OpenImageIO6v3_1_012_GLOBAL__N_116SampleComparatorEEvT_S5_T0_.exit ]
+  %38 = call noundef ptr @_ZN11OpenImageIO6v3_1_08DeepData8data_ptrElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef 0, i32 noundef 0)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %37, ptr align 1 %38, i64 %34, i1 false)
   %smax = call i32 @llvm.smax.i32(i32 %15, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = trunc nuw nsw i64 %indvars.iv to i32
-  %41 = call noundef ptr @_ZN11OpenImageIO6v3_1_08DeepData8data_ptrElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef 0, i32 noundef %40)
-  %42 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
-  %43 = load i32, ptr %42, align 4, !tbaa !85
-  %44 = sext i32 %43 to i64
-  %45 = mul i64 %34, %44
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 %45
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %46, i64 %34, i1 false)
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
+  %40 = call noundef ptr @_ZN11OpenImageIO6v3_1_08DeepData8data_ptrElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef 0, i32 noundef %39)
+  %41 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %42 = load i32, ptr %41, align 4, !tbaa !85
+  %43 = sext i32 %42 to i64
+  %44 = mul i64 %33, %43
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 %44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %45, i64 %33, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.thread, label %.lr.ph, !llvm.loop !161

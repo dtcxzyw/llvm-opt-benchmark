@@ -6677,7 +6677,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.i: ; preds = %_ZNSt10shared_ptrI
   %34 = phi ptr [ null, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i ], [ %25, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit.i ]
   %35 = phi i16 [ %15, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i ], [ %.pre.i, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit.i ]
   %36 = icmp eq i16 %35, 13
-  br i1 %36, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i
+  br i1 %36, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.thread.i
 
 _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i: ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.i
   %.sroa.2.0..sroa_idx.i.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -6685,30 +6685,24 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i: ; preds = %_ZN4pkpy7is
   %.pre6.i = ptrtoint ptr %.sroa.2.0.copyload.i.i.pre.i to i64
   %.pre7.i = and i64 %.pre6.i, 3
   %37 = icmp eq i64 %.pre7.i, 2
-  br i1 %37, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.thread.i, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i._ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i_crit_edge
+  br i1 %37, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.thread.i, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i
 
-_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i._ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i_crit_edge: ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.pre.i, i64 10
-  %.pre = load i16, ptr %.phi.trans.insert, align 2
-  br label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i
-
-_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i: ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i._ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i_crit_edge, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.i
-  %38 = phi i16 [ %.pre, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i._ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i_crit_edge ], [ %35, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.i ]
-  %.02118.i = phi ptr [ %.sroa.2.0.copyload.i.i.pre.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i._ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i_crit_edge ], [ %10, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.i ]
-  %39 = getelementptr inbounds nuw i8, ptr %.02118.i, i64 10
-  %40 = icmp eq i16 %38, 11
+_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i: ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.pre.i, i64 10
+  %39 = load i16, ptr %38, align 2
+  %40 = icmp eq i16 %39, 11
   br i1 %40, label %43, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.thread.i
 
-_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.thread.i: ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i, %3
-  %41 = phi ptr [ %34, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i ], [ null, %3 ], [ %34, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i ]
-  %.0211221.i = phi ptr [ %.sroa.2.0.copyload.i.i.pre.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i ], [ %10, %3 ], [ %.02118.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i ]
-  %42 = phi ptr [ @_ZN4pkpy2VM6tp_intE, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i ], [ @_ZN4pkpy2VM6tp_intE, %3 ], [ %39, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i ]
+_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.thread.i: ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.i, %3
+  %41 = phi ptr [ %34, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i ], [ %34, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.i ], [ null, %3 ], [ %34, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i ]
+  %.0211217.i = phi ptr [ %.sroa.2.0.copyload.i.i.pre.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i ], [ %10, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.i ], [ %10, %3 ], [ %.sroa.2.0.copyload.i.i.pre.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i ]
+  %42 = phi ptr [ @_ZN4pkpy2VM6tp_intE, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.i ], [ @_ZN4pkpy2VM6tp_intE, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.i ], [ @_ZN4pkpy2VM6tp_intE, %3 ], [ %38, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i ]
   %.sroa.0.0.copyload.i.i.i.i35.i = load i16, ptr %42, align 2
   invoke void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 11, i16 %.sroa.0.0.copyload.i.i.i.i35.i)
           to label %43 unwind label %27
 
 43:                                               ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.thread.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i
-  %.02113.i = phi ptr [ %.02118.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i ], [ %.0211221.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.thread.i ]
+  %.02113.i = phi ptr [ %.sroa.2.0.copyload.i.i.pre.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i ], [ %.0211217.i, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.thread.i ]
   %44 = phi ptr [ %34, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i34.i ], [ %41, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit28.thread.thread.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.02113.i, i64 24
   %46 = load ptr, ptr %45, align 8

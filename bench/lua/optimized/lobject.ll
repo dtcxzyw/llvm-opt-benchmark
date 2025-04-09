@@ -103,55 +103,30 @@ luaO_ceillog2.exit:                               ; preds = %.lr.ph.i, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @luaO_applyparam(i8 noundef zeroext %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = zext i8 %0 to i32
-  %4 = and i32 %3, 15
+define hidden range(i64 -72057594037927936, 2233785415175765986) i64 @luaO_applyparam(i8 noundef zeroext %0, i64 noundef %1) local_unnamed_addr #2 {
+  %3 = and i8 %0, 15
+  %4 = zext nneg i8 %3 to i32
   %.not = icmp ult i8 %0, 16
-  %5 = lshr i32 %3, 4
-  %6 = or disjoint i32 %4, 16
-  %7 = add nsw i32 %5, -8
-  %.023 = select i1 %.not, i32 %4, i32 %6
-  %.0 = select i1 %.not, i32 -7, i32 %7
-  %8 = icmp sgt i32 %.0, -1
-  br i1 %8, label %9, label %17
+  %5 = or disjoint i32 %4, 16
+  %spec.select = select i1 %.not, i32 %4, i32 %5
+  %spec.select31 = select i1 %.not, i64 7, i64 8
+  %6 = icmp slt i64 %1, 297528130221121800
+  br i1 %6, label %7, label %11
 
-9:                                                ; preds = %2
-  %10 = zext nneg i32 %.0 to i64
-  %11 = lshr i64 297528130221121800, %10
-  %12 = icmp slt i64 %1, %11
-  br i1 %12, label %13, label %32
+7:                                                ; preds = %2
+  %8 = zext nneg i32 %spec.select to i64
+  %9 = mul nsw i64 %1, %8
+  %10 = ashr i64 %9, %spec.select31
+  br label %15
 
-13:                                               ; preds = %9
-  %14 = zext nneg i32 %.023 to i64
-  %15 = mul nsw i64 %1, %14
-  %16 = shl i64 %15, %10
-  br label %32
+11:                                               ; preds = %2
+  %12 = lshr i64 %1, %spec.select31
+  %13 = zext nneg i32 %spec.select to i64
+  %14 = mul nuw nsw i64 %12, %13
+  br label %15
 
-17:                                               ; preds = %2
-  %18 = sub nsw i32 0, %.0
-  %19 = icmp slt i64 %1, 297528130221121800
-  br i1 %19, label %20, label %25
-
-20:                                               ; preds = %17
-  %21 = zext nneg i32 %.023 to i64
-  %22 = mul nsw i64 %1, %21
-  %23 = zext nneg i32 %18 to i64
-  %24 = ashr i64 %22, %23
-  br label %32
-
-25:                                               ; preds = %17
-  %26 = zext nneg i32 %18 to i64
-  %27 = lshr i64 %1, %26
-  %28 = icmp samesign ult i64 %27, 297528130221121800
-  br i1 %28, label %29, label %32
-
-29:                                               ; preds = %25
-  %30 = zext nneg i32 %.023 to i64
-  %31 = mul nuw nsw i64 %27, %30
-  br label %32
-
-32:                                               ; preds = %25, %9, %29, %20, %13
-  %.024 = phi i64 [ %16, %13 ], [ %24, %20 ], [ %31, %29 ], [ 9223372036854775807, %9 ], [ 9223372036854775807, %25 ]
+15:                                               ; preds = %11, %7
+  %.024 = phi i64 [ %10, %7 ], [ %14, %11 ]
   ret i64 %.024
 }
 

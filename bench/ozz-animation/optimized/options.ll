@@ -5636,29 +5636,28 @@ define internal noundef zeroext i1 @_ZN3ozz7options12_GLOBAL__N_112sort_optionsE
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i8, ptr %6, align 8, !tbaa !12, !range !73
-  br i1 %5, label %8, label %._crit_edge
+  br i1 %5, label %8, label %10
 
 8:                                                ; preds = %2
   %9 = trunc nuw i8 %7 to i1
-  br i1 %9, label %._crit_edge, label %18
+  br i1 %9, label %.thread, label %17
 
-._crit_edge:                                      ; preds = %2, %8
-  %10 = phi i8 [ 1, %8 ], [ %7, %2 ]
-  %.not = icmp eq i8 %4, %10
-  br i1 %.not, label %11, label %18
+10:                                               ; preds = %2
+  %.not = icmp eq i8 %4, %7
+  br i1 %.not, label %.thread, label %17
 
-11:                                               ; preds = %._crit_edge
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !4
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !4
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #31
-  %17 = icmp slt i32 %16, 0
-  br label %18
+.thread:                                          ; preds = %8, %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !4
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %14) #31
+  %16 = icmp slt i32 %15, 0
+  br label %17
 
-18:                                               ; preds = %._crit_edge, %11, %8
-  %19 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ %17, %11 ]
-  ret i1 %19
+17:                                               ; preds = %10, %.thread, %8
+  %18 = phi i1 [ true, %8 ], [ false, %10 ], [ %16, %.thread ]
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -5801,7 +5800,7 @@ define linkonce_odr dso_local void @_ZSt15__inplace_mergeIPPN3ozz7options6Option
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %1, %2
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %25, label %7
+  br i1 %or.cond, label %22, label %7
 
 7:                                                ; preds = %4
   %8 = ptrtoint ptr %1 to i64
@@ -5816,44 +5815,40 @@ define linkonce_odr dso_local void @_ZSt15__inplace_mergeIPPN3ozz7options6Option
   br i1 %15, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %7, %select.unfold.i.i
-  %.010.i.i = phi i64 [ %19, %select.unfold.i.i ], [ %.sroa.speculated, %7 ]
-  %16 = shl nuw nsw i64 %.010.i.i, 3
+  %.011.i.i = phi i64 [ 1, %select.unfold.i.i ], [ %.sroa.speculated, %7 ]
+  %16 = shl nuw nsw i64 %.011.i.i, 3
   %17 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #34
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %select.unfold.i.i, label %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %18 = add nuw nsw i64 %.010.i.i, 1
-  %19 = lshr i64 %18, 1
-  %.not14.i.i = icmp samesign ult i64 %.010.i.i, 2
-  br i1 %.not14.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !155
+  %.not15.i.i = icmp eq i64 %.011.i.i, 1
+  br i1 %.not15.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !155
 
 .loopexit:                                        ; preds = %select.unfold.i.i, %7
   invoke void @_ZSt22__merge_without_bufferIPPN3ozz7options6OptionElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %11, i64 noundef %14, ptr %3)
-          to label %.loopexit._crit_edge unwind label %20
+          to label %21 unwind label %18
 
-20:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit, %.loopexit
-  %.sroa.4.043 = phi i64 [ %.010.i.i, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ 0, %.loopexit ]
+18:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit, %.loopexit
+  %.sroa.4.043 = phi i64 [ 8, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ 0, %.loopexit ]
   %.sroa.9.040 = phi ptr [ %17, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ null, %.loopexit ]
-  %21 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %22 = shl i64 %.sroa.4.043, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.040, i64 noundef %22) #29
-  resume { ptr, i32 } %21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.040, i64 noundef %.sroa.4.043) #29
+  resume { ptr, i32 } %19
 
 _ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit: ; preds = %.lr.ph.i.i
-  %23 = ptrtoint ptr %3 to i64
-  invoke void @_ZSt16__merge_adaptiveIPPN3ozz7options6OptionElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %11, i64 noundef %14, ptr noundef nonnull %17, i64 noundef %.010.i.i, i64 %23)
-          to label %.loopexit._crit_edge unwind label %20
+  %20 = ptrtoint ptr %3 to i64
+  invoke void @_ZSt16__merge_adaptiveIPPN3ozz7options6OptionElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %11, i64 noundef %14, ptr noundef nonnull %17, i64 noundef 1, i64 %20)
+          to label %21 unwind label %18
 
-.loopexit._crit_edge:                             ; preds = %.loopexit, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit
-  %.sroa.4.041 = phi i64 [ %.010.i.i, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ 0, %.loopexit ]
+21:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit, %.loopexit
+  %.sroa.4.041 = phi i64 [ 8, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ 0, %.loopexit ]
   %.sroa.9.038 = phi ptr [ %17, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ null, %.loopexit ]
-  %24 = shl i64 %.sroa.4.041, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.038, i64 noundef %24) #29
-  br label %25
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.038, i64 noundef %.sroa.4.041) #29
+  br label %22
 
-25:                                               ; preds = %4, %.loopexit._crit_edge
+22:                                               ; preds = %4, %21
   ret void
 }
 

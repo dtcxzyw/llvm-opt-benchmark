@@ -19638,7 +19638,7 @@ default.unreachable:                              ; preds = %"_ZN67_$LT$alloc..v
   ret i64 %110
 
 111:                                              ; preds = %98, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit7.i.i", %69, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb245dcfa6db25f7bE.exit.i"
-  %.sroa.7.0.i = phi i32 [ %67, %98 ], [ -254, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb245dcfa6db25f7bE.exit.i" ], [ -253, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit7.i.i" ], [ -253, %69 ]
+  %.sroa.7.0.i = phi i32 [ -255, %98 ], [ -254, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb245dcfa6db25f7bE.exit.i" ], [ -253, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit7.i.i" ], [ -253, %69 ]
   %.sroa.6.0.i = phi ptr [ %.sroa.0.0.i4.i, %98 ], [ undef, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb245dcfa6db25f7bE.exit.i" ], [ undef, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit7.i.i" ], [ undef, %69 ]
   %.sroa.5.09.i = phi ptr [ %.fca.0.extract.i.i.i.i, %98 ], [ undef, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb245dcfa6db25f7bE.exit.i" ], [ undef, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit7.i.i" ], [ undef, %69 ]
   %.sroa.0.08.i = phi i64 [ %99, %98 ], [ undef, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb245dcfa6db25f7bE.exit.i" ], [ %89, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit7.i.i" ], [ 0, %69 ]
@@ -20555,7 +20555,7 @@ default.unreachable:                              ; preds = %69
   %.sroa.3.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.032, i64 48
   store ptr %.sroa.0.0.i9, ptr %.sroa.3.0..0.sroa_idx, align 8
   %.sroa.4.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.032, i64 56
-  store i32 %98, ptr %.sroa.4.0..0.sroa_idx, align 8
+  store i32 -255, ptr %.sroa.4.0..0.sroa_idx, align 8
   %.sroa.513.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.032, i64 64
   store i64 %46, ptr %.sroa.513.0..0.sroa_idx, align 8
   %.sroa.6.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.032, i64 72
@@ -29604,7 +29604,7 @@ common.resume:                                    ; preds = %536, %165, %.loopex
 
 .thread137:                                       ; preds = %.thread, %175, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit.i.i59", %183, %172
   %.sroa.10.0119145 = phi ptr [ %174, %183 ], [ %174, %172 ], [ %164, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit.i.i59" ], [ %164, %175 ], [ %.sroa.212.0.copyload, %.thread ]
-  %.sroa.01.0121144 = phi i64 [ -9223372036854775807, %183 ], [ -9223372036854775807, %172 ], [ -9223372036854775807, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit.i.i59" ], [ -9223372036854775807, %175 ], [ %169, %.thread ]
+  %.sroa.01.0121144 = phi i64 [ -9223372036854775808, %183 ], [ -9223372036854775808, %172 ], [ -9223372036854775807, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit.i.i59" ], [ -9223372036854775807, %175 ], [ -9223372036854775808, %.thread ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %60)
   br label %184
 
@@ -29614,7 +29614,7 @@ common.resume:                                    ; preds = %536, %165, %.loopex
 
 184:                                              ; preds = %.thread189, %.thread137
   %.sroa.10.1 = phi ptr [ %.sroa.10.2171197, %.thread189 ], [ %.sroa.10.0119145, %.thread137 ]
-  %.sroa.01.1 = phi i64 [ %.sroa.01.2173196, %.thread189 ], [ %.sroa.01.0121144, %.thread137 ]
+  %.sroa.01.1 = phi i64 [ -9223372036854775807, %.thread189 ], [ %.sroa.01.0121144, %.thread137 ]
   %185 = icmp eq i64 %.sroa.01.1, -9223372036854775807
   br i1 %185, label %555, label %554
 
@@ -29749,7 +29749,7 @@ common.resume:                                    ; preds = %536, %165, %.loopex
   br label %.loopexit131.i
 
 .loopexit.i.i.i68:                                ; preds = %.lr.ph.i13.i.i.i, %.loopexit40.i.i.i75
-  %.sroa.5.1.i = phi i8 [ 0, %.loopexit40.i.i.i75 ], [ %.sroa.5.0367.i, %.lr.ph.i13.i.i.i ]
+  %.sroa.5.1.i = phi i8 [ 0, %.loopexit40.i.i.i75 ], [ 1, %.lr.ph.i13.i.i.i ]
   %227 = phi i64 [ %207, %.loopexit40.i.i.i75 ], [ %219, %.lr.ph.i13.i.i.i ]
   %.sroa.3.030.i.i.i = phi i8 [ %209, %.loopexit40.i.i.i75 ], [ %221, %.lr.ph.i13.i.i.i ]
   switch i8 %.sroa.3.030.i.i.i, label %.loopexit.i.i.thread.i [
@@ -30948,7 +30948,6 @@ _ZN5serde2de9MapAccess10next_value17hd27ffe8b662e6d9aE.exit.i: ; preds = %465
 
 .thread189:                                       ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17ha9132fedd21de1c9E.exit.thread", %.thread748, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17ha9132fedd21de1c9E.exit", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit.i.i82", %551
   %.sroa.10.2171197 = phi ptr [ %553, %551 ], [ %.1.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit.i.i82" ], [ %.1.i, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17ha9132fedd21de1c9E.exit" ], [ %543, %.thread748 ], [ %543, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17ha9132fedd21de1c9E.exit.thread" ]
-  %.sroa.01.2173196 = phi i64 [ -9223372036854775807, %551 ], [ -9223372036854775807, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit.i.i82" ], [ -9223372036854775807, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17ha9132fedd21de1c9E.exit" ], [ %541, %.thread748 ], [ -9223372036854775807, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17ha9132fedd21de1c9E.exit.thread" ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %57)
   br label %184
 

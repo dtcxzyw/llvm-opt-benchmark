@@ -1521,7 +1521,7 @@ hwloc__pci_find_by_busid.exit:                    ; preds = %tailrecurse.loopexi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
+define noundef range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
@@ -1534,14 +1534,14 @@ define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr noundef readonly captur
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.015.in25 = load i8, ptr %8, align 1, !tbaa !35
-  %.01526 = and i8 %.015.in25, -4
-  %.not1727 = icmp eq i8 %.01526, 0
-  br i1 %.not1727, label %.thread, label %.lr.ph
+  %.015.in24 = load i8, ptr %8, align 1, !tbaa !35
+  %.01525 = and i8 %.015.in24, -4
+  %.not1726 = icmp eq i8 %.01525, 0
+  br i1 %.not1726, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %20
-  %.01528 = phi i8 [ %.015, %20 ], [ %.01526, %7 ]
-  %9 = zext i8 %.01528 to i64
+.lr.ph:                                           ; preds = %7, %18
+  %.01527 = phi i8 [ %.015, %18 ], [ %.01525, %7 ]
+  %9 = zext i8 %.01527 to i64
   %10 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %9
   %11 = load i8, ptr %10, align 4, !tbaa !35
   %.not18 = icmp eq i8 %11, 0
@@ -1553,27 +1553,20 @@ define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr noundef readonly captur
   %14 = load i8, ptr %13, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
   %16 = icmp eq i32 %1, %15
-  br i1 %16, label %.thread21, label %18
-
-.thread21:                                        ; preds = %12
-  %17 = zext i8 %.01528 to i32
-  br label %.thread
+  %17 = icmp eq i8 %14, -1
+  %or.cond = or i1 %17, %16
+  br i1 %or.cond, label %.thread, label %18
 
 18:                                               ; preds = %12
-  %19 = icmp eq i8 %14, -1
-  br i1 %19, label %.thread, label %20
-
-20:                                               ; preds = %18
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %9
   %.015.in = load i8, ptr %gep, align 1, !tbaa !35
   %.015 = and i8 %.015.in, -4
   %.not17 = icmp eq i8 %.015, 0
   br i1 %.not17, label %.thread, label %.lr.ph, !llvm.loop !96
 
-.thread:                                          ; preds = %20, %.lr.ph, %18, %7, %.thread21, %2
-  %.0 = phi i32 [ 0, %2 ], [ %17, %.thread21 ], [ 0, %7 ], [ 0, %18 ], [ 0, %.lr.ph ], [ 0, %20 ]
+.thread:                                          ; preds = %18, %.lr.ph, %12, %7, %2
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #22
-  ret i32 %.0
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

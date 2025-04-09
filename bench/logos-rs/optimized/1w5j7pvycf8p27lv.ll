@@ -5580,13 +5580,12 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   br i1 %24, label %.loopexit56, label %26
 
 .loopexit56:                                      ; preds = %.loopexit, %22
-  %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
   %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %25, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -5655,13 +5654,12 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   br i1 %24, label %.loopexit56, label %26
 
 .loopexit56:                                      ; preds = %.loopexit, %22
-  %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
   %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %25, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -5730,13 +5728,12 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   br i1 %24, label %.loopexit56, label %26
 
 .loopexit56:                                      ; preds = %.loopexit, %22
-  %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
   %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %25, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -5805,13 +5802,12 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   br i1 %24, label %.loopexit56, label %26
 
 .loopexit56:                                      ; preds = %.loopexit, %22
-  %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
   %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %25, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -5880,13 +5876,12 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   br i1 %24, label %.loopexit56, label %26
 
 .loopexit56:                                      ; preds = %.loopexit, %22
-  %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
   %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %25, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8

@@ -137,7 +137,7 @@ _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN
 
 .split.i:                                         ; preds = %.split5.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store atomic i64 %40, ptr %42 release, align 8
+  store atomic i64 0, ptr %42 release, align 8
   %43 = load ptr, ptr %7, align 8, !tbaa !9
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store atomic i64 %29, ptr %44 release, align 8
@@ -216,9 +216,8 @@ _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit: ; preds = %_ZN4a
   br label %.split
 
 .split:                                           ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit, %.split5
-  %.sink = phi i64 [ %12, %.split5 ], [ 0, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store atomic i64 %.sink, ptr %14 release, align 8
+  store atomic i64 0, ptr %14 release, align 8
   %15 = load ptr, ptr %2, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store atomic i64 %.pre, ptr %16 release, align 8
@@ -305,7 +304,7 @@ _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN
 
 .split.i:                                         ; preds = %.split5.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store atomic i64 %30, ptr %32 release, align 8
+  store atomic i64 0, ptr %32 release, align 8
   %33 = load ptr, ptr %20, align 8, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store atomic i64 %18, ptr %34 release, align 8

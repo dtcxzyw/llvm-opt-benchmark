@@ -2294,30 +2294,28 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL13luauF_tunpackP9lua_
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
-  %.pre-phi = phi i64 [ 0, %47 ], [ %wide.trip.count, %.lr.ph ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !60
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !61
-  %54 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %.pre-phi
-  %55 = icmp ult ptr %53, %54
-  br i1 %55, label %58, label %.thread49
+  %54 = icmp ult ptr %53, %1
+  br i1 %54, label %57, label %.thread49
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %56 = getelementptr inbounds nuw %struct.lua_TValue, ptr %49, i64 %indvars.iv
-  %57 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !56
+  %55 = getelementptr inbounds nuw %struct.lua_TValue, ptr %49, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
-58:                                               ; preds = %._crit_edge
-  store ptr %54, ptr %52, align 8, !tbaa !61
+57:                                               ; preds = %._crit_edge
+  store ptr %1, ptr %52, align 8, !tbaa !61
   br label %.thread49
 
-.thread49:                                        ; preds = %13, %17, %21, %26, %32, %34, %37, %6, %9, %58, %._crit_edge
-  %.1 = phi i32 [ %.039, %58 ], [ %.039, %._crit_edge ], [ -1, %9 ], [ -1, %6 ], [ -1, %37 ], [ -1, %34 ], [ -1, %32 ], [ -1, %26 ], [ -1, %21 ], [ -1, %17 ], [ -1, %13 ]
+.thread49:                                        ; preds = %13, %17, %21, %26, %32, %34, %37, %6, %9, %57, %._crit_edge
+  %.1 = phi i32 [ %.039, %57 ], [ %.039, %._crit_edge ], [ -1, %9 ], [ -1, %6 ], [ -1, %37 ], [ -1, %34 ], [ -1, %32 ], [ -1, %26 ], [ -1, %21 ], [ -1, %17 ], [ -1, %13 ]
   ret i32 %.1
 }
 

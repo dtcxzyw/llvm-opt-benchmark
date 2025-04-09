@@ -1834,7 +1834,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %12, %10, %7
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %3, %_ZN5folly10canNallocxEv.exit.i, %18
-  %.0.i = phi i64 [ %20, %18 ], [ 0, %3 ], [ %5, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ %20, %18 ], [ 0, %3 ], [ 0, %_ZN5folly10canNallocxEv.exit.i ]
   %21 = call noalias ptr @malloc(i64 noundef %.0.i) #34
   %.not.i9 = icmp eq ptr %21, null
   br i1 %.not.i9, label %22, label %_ZN5folly13checkedMallocEm.exit
@@ -2268,7 +2268,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %25, %23, %20
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %18, %_ZN5folly10canNallocxEv.exit.i, %31
-  %.0.i10 = phi i64 [ %33, %31 ], [ 0, %18 ], [ %14, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i10 = phi i64 [ %33, %31 ], [ 0, %18 ], [ 0, %_ZN5folly10canNallocxEv.exit.i ]
   %34 = call noalias ptr @malloc(i64 noundef %.0.i10) #34
   %.not.i11 = icmp eq ptr %34, null
   br i1 %.not.i11, label %35, label %_ZN5folly13checkedMallocEm.exit
@@ -3089,16 +3089,16 @@ define void @_ZN5folly6detail29insertThousandsGroupingUnsafeEPcPS1_(ptr noundef 
   br label %16
 
 16:                                               ; preds = %27, %2
-  %.02145 = phi i32 [ %13, %2 ], [ %28, %27 ]
+  %.02145 = phi i32 [ %13, %2 ], [ -2, %27 ]
   %.02443 = phi i32 [ %8, %2 ], [ %19, %27 ]
-  %.03842 = phi i32 [ %7, %2 ], [ %31, %27 ]
+  %.03842 = phi i32 [ %7, %2 ], [ %30, %27 ]
   %.sroa.speculated29 = tail call i32 @llvm.umin.i32(i32 %.03842, i32 3)
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.sroa.speculated29, i32 1)
   br label %18
 
 17:                                               ; preds = %18
   %.not = icmp eq i32 %.140, 0
-  br i1 %.not, label %32, label %27
+  br i1 %.not, label %31, label %27
 
 18:                                               ; preds = %16, %18
   %.041 = phi i32 [ 0, %16 ], [ %26, %18 ]
@@ -3117,14 +3117,13 @@ define void @_ZN5folly6detail29insertThousandsGroupingUnsafeEPcPS1_(ptr noundef 
   br i1 %exitcond.not, label %17, label %18, !llvm.loop !149
 
 27:                                               ; preds = %17
-  %28 = add i32 %.140, -2
-  %29 = zext i32 %23 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
-  store i8 44, ptr %30, align 1, !tbaa !47
-  %31 = sub i32 %.03842, %.sroa.speculated
+  %28 = zext i32 %23 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
+  store i8 44, ptr %29, align 1, !tbaa !47
+  %30 = sub i32 %.03842, %.sroa.speculated
   br label %16, !llvm.loop !150
 
-32:                                               ; preds = %17
+31:                                               ; preds = %17
   ret void
 }
 

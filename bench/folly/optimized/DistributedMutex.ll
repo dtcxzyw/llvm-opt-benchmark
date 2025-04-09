@@ -285,9 +285,9 @@ switch.early.test.us:                             ; preds = %.split.us, %.thread
   %.028.us38 = phi i64 [ %27, %.thread.i.us ], [ 0, %.split.us ]
   %trunc.us = trunc i64 %14 to i8
   switch i8 %trunc.us, label %15 [
-    i8 10, label %.split36.us
-    i8 7, label %.split36.us
-    i8 2, label %.split36.us
+    i8 10, label %.split36.us.loopexit54
+    i8 7, label %.split36.us.loopexit54
+    i8 2, label %.split36.us.loopexit54
   ]
 
 15:                                               ; preds = %switch.early.test.us
@@ -329,7 +329,7 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8duratio
   %32 = atomicrmw xchg ptr %7, i64 %31 acq_rel, align 8
   %33 = and i64 %32, 255
   %.not53 = icmp eq i64 %33, 3
-  br i1 %.not53, label %.split36.us, label %switch.early.test.us, !llvm.loop !41
+  br i1 %.not53, label %.split36.us.loopexit54, label %switch.early.test.us, !llvm.loop !41
 
 .split:                                           ; preds = %3, %59
   %.0 = phi i1 [ %spec.select, %59 ], [ false, %3 ]
@@ -410,11 +410,16 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8duratio
   %61 = sub i64 %60, %6
   br label %.split, !llvm.loop !41
 
-.split36.us:                                      ; preds = %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %.thread.i.us, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit, %switch.early.test, %switch.early.test, %switch.early.test, %.split.us
-  %.us-phi = phi i64 [ 3, %.split.us ], [ 3, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit ], [ %47, %switch.early.test ], [ %47, %switch.early.test ], [ %47, %switch.early.test ], [ %13, %switch.early.test.us ], [ %13, %switch.early.test.us ], [ %13, %switch.early.test.us ], [ 3, %.thread.i.us ]
-  %.us-phi37 = phi i1 [ false, %.split.us ], [ %.not51.not.not, %switch.early.test ], [ %.not51.not.not, %switch.early.test ], [ %.not51.not.not, %switch.early.test ], [ %.not51.not.not, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ], [ false, %.thread.i.us ]
-  %62 = trunc nuw nsw i64 %.us-phi to i32
-  store i32 %62, ptr %1, align 4, !tbaa !30
+.split36.us.loopexit54:                           ; preds = %.thread.i.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us
+  %.us-phi.ph = phi i64 [ 3, %.thread.i.us ], [ %13, %switch.early.test.us ], [ %13, %switch.early.test.us ], [ %13, %switch.early.test.us ]
+  %.us-phi37.ph55 = phi i1 [ false, %.thread.i.us ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ]
+  %62 = trunc nuw nsw i64 %.us-phi.ph to i32
+  br label %.split36.us
+
+.split36.us:                                      ; preds = %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit, %switch.early.test, %switch.early.test, %switch.early.test, %.split36.us.loopexit54, %.split.us
+  %.us-phi = phi i32 [ 3, %.split.us ], [ %62, %.split36.us.loopexit54 ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit ]
+  %.us-phi37 = phi i1 [ false, %.split.us ], [ %.us-phi37.ph55, %.split36.us.loopexit54 ], [ %.not51.not.not, %switch.early.test ], [ %.not51.not.not, %switch.early.test ], [ %.not51.not.not, %switch.early.test ], [ %.not51.not.not, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit ]
+  store i32 %.us-phi, ptr %1, align 4, !tbaa !30
   ret i1 %.us-phi37
 }
 

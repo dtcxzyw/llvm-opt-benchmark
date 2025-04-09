@@ -3634,7 +3634,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail5valueINS0_7contextEE17for
   br label %_ZN3fmt3v116detail16native_formatterINS0_17basic_string_viewIcEEcLNS1_4typeE13EE5parseINS0_26basic_format_parse_contextIcEEEEPKcRT_.exit
 
 _ZN3fmt3v116detail16native_formatterINS0_17basic_string_viewIcEEcLNS1_4typeE13EE5parseINS0_26basic_format_parse_contextIcEEEEPKcRT_.exit: ; preds = %3, %16, %19
-  %21 = phi i64 [ %.pre7, %19 ], [ %13, %16 ], [ 0, %3 ]
+  %21 = phi i64 [ %.pre7, %19 ], [ 0, %16 ], [ 0, %3 ]
   %22 = phi ptr [ %.pre, %19 ], [ %11, %16 ], [ %11, %3 ]
   %.0.i = phi ptr [ %20, %19 ], [ %11, %16 ], [ %11, %3 ]
   %23 = ptrtoint ptr %.0.i to i64
@@ -6992,7 +6992,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail5valueINS0_7contextEE17for
   br label %_ZN3fmt3v119formatterINS0_9join_viewIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEESG_cEEcvE5parseINS0_26basic_format_parse_contextIcEEEEPKcRT_.exit
 
 _ZN3fmt3v119formatterINS0_9join_viewIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEESG_cEEcvE5parseINS0_26basic_format_parse_contextIcEEEEPKcRT_.exit: ; preds = %3, %16, %19
-  %21 = phi i64 [ %.pre6, %19 ], [ %13, %16 ], [ 0, %3 ]
+  %21 = phi i64 [ %.pre6, %19 ], [ 0, %16 ], [ 0, %3 ]
   %22 = phi ptr [ %.pre, %19 ], [ %11, %16 ], [ %11, %3 ]
   %.0.i.i = phi ptr [ %20, %19 ], [ %11, %16 ], [ %11, %3 ]
   %23 = ptrtoint ptr %.0.i.i to i64
@@ -7983,14 +7983,14 @@ _ZSt13move_backwardIPPKN5vcpkg15StatusParagraphES4_ET0_T_S6_S5_.exit: ; preds = 
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %17
-  %32 = getelementptr inbounds i8, ptr %2, i64 %19
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %32
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit, label %33
 
 33:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %6, %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %32, i64 %35, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %32, i64 %35, i1 false)
   %.pre = load ptr, ptr %12, align 8, !tbaa !75
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
 
@@ -8011,11 +8011,8 @@ _ZSt22__uninitialized_move_aIPPKN5vcpkg15StatusParagraphES4_SaIS3_EET0_T_S7_S6_R
   %40 = phi ptr [ %38, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit ], [ %.pre74, %39 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %19
   store ptr %41, ptr %12, align 8, !tbaa !75
-  %.not.i.i.i.i.i54 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i54, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %42
-
-42:                                               ; preds = %_ZSt22__uninitialized_move_aIPPKN5vcpkg15StatusParagraphES4_SaIS3_EET0_T_S7_S6_RT1_.exit53
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 %19, i1 false)
+  %42 = load i64, ptr %2, align 8
+  store i64 %42, ptr %1, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
 43:                                               ; preds = %5
@@ -8085,7 +8082,7 @@ _ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE13_M_deallocateEPS3_m.exi
   store ptr %71, ptr %10, align 8, !tbaa !39
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %42, %_ZSt22__uninitialized_move_aIPPKN5vcpkg15StatusParagraphES4_SaIS3_EET0_T_S7_S6_RT1_.exit53, %_ZSt13move_backwardIPPKN5vcpkg15StatusParagraphES4_ET0_T_S6_S5_.exit, %_ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE13_M_deallocateEPS3_m.exit, %4
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15StatusParagraphESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZSt22__uninitialized_move_aIPPKN5vcpkg15StatusParagraphES4_SaIS3_EET0_T_S7_S6_RT1_.exit53, %_ZSt13move_backwardIPPKN5vcpkg15StatusParagraphES4_ET0_T_S6_S5_.exit, %_ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE13_M_deallocateEPS3_m.exit, %4
   ret void
 }
 

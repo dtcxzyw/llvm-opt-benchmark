@@ -3408,13 +3408,11 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_BitStart.exit
 
 Vec_BitStart.exit:                                ; preds = %Vec_IntStart.exit, %52
-  %.pre-phi8.i = phi i64 [ %54, %52 ], [ 0, %Vec_IntStart.exit ]
   %56 = phi ptr [ %55, %52 ], [ null, %Vec_IntStart.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %56, ptr %58, align 8, !tbaa !125
   store i32 %51, ptr %57, align 4, !tbaa !126
-  tail call void @llvm.memset.p0.i64(ptr align 4 %56, i8 0, i64 %.pre-phi8.i, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %50, ptr %59, align 8, !tbaa !127
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 104

@@ -3011,7 +3011,6 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg18stylize_arg_suffix17h7ff5
   br label %.thread
 
 .thread:                                          ; preds = %77, %51, %87
-  %.pre106.i = phi i32 [ 1114112, %87 ], [ %48, %77 ], [ 1114112, %51 ]
   %.pre104.i = phi ptr [ null, %87 ], [ %45, %77 ], [ null, %51 ]
   %.052213 = phi i1 [ false, %87 ], [ %56, %77 ], [ false, %51 ]
   %78 = icmp eq i8 %3, 2
@@ -3261,11 +3260,9 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg18stylize_arg_suffix17h7ff5
 
 .lr.ph.i:                                         ; preds = %149
   %156 = icmp ne ptr %.pre104.i, null
-  %.not2.i.i = icmp ne i32 %.pre106.i, 1114112
-  %.0.i.not99.i = select i1 %156, i1 true, i1 %.not2.i.i
   %157 = icmp ne i64 %.sroa.0.0.i, 0
   %brmerge.not.i = and i1 %.051, %157
-  %or.cond.i = select i1 %.0.i.not99.i, i1 true, i1 %brmerge.not.i
+  %or.cond.i = select i1 %156, i1 true, i1 %brmerge.not.i
   %158 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.576.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.777.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3290,9 +3287,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg18stylize_arg_suffix17h7ff5
   %164 = phi i64 [ %.pre102.i, %._crit_edge.loopexit.i ], [ 0, %149 ]
   %165 = icmp ult i64 %164, %.sroa.6.0.i
   %166 = icmp eq ptr %.pre104.i, null
-  %.not2.i48.i = icmp eq i32 %.pre106.i, 1114112
-  %.0.i49.i = select i1 %166, i1 %.not2.i48.i, i1 false
-  br i1 %.0.i49.i, label %168, label %167
+  br i1 %166, label %168, label %167
 
 167:                                              ; preds = %._crit_edge.i
   br i1 %165, label %.critedge.i, label %.noexc52.i

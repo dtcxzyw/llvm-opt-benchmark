@@ -5044,14 +5044,13 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
   store i32 %spec.select, ptr %53, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph450, label %.lr.ph, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 .loopexit:                                        ; preds = %42
   %54 = icmp sgt i32 %21, 0
   br i1 %54, label %.lr.ph450, label %._crit_edge
 
-.lr.ph450:                                        ; preds = %.lr.ph, %.loopexit
-  %.0217486 = phi i32 [ %21, %.loopexit ], [ %46, %.lr.ph ]
+.lr.ph450:                                        ; preds = %.loopexit
   switch i32 %21, label %._crit_edge [
     i32 1, label %.thread.us.preheader
     i32 2, label %.lr.ph450.split.us451.preheader
@@ -5060,19 +5059,19 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
   ]
 
 .lr.ph450.split.us457.preheader:                  ; preds = %.lr.ph450
-  %wide.trip.count468 = zext nneg i32 %.0217486 to i64
+  %wide.trip.count468 = zext nneg i32 %21 to i64
   br label %.lr.ph450.split.us457
 
 .lr.ph450.split.us454.preheader:                  ; preds = %.lr.ph450
-  %wide.trip.count473 = zext nneg i32 %.0217486 to i64
+  %wide.trip.count473 = zext nneg i32 %21 to i64
   br label %.lr.ph450.split.us454
 
 .lr.ph450.split.us451.preheader:                  ; preds = %.lr.ph450
-  %wide.trip.count478 = zext nneg i32 %.0217486 to i64
+  %wide.trip.count478 = zext nneg i32 %21 to i64
   br label %.lr.ph450.split.us451
 
 .thread.us.preheader:                             ; preds = %.lr.ph450
-  %wide.trip.count483 = zext nneg i32 %.0217486 to i64
+  %wide.trip.count483 = zext nneg i32 %21 to i64
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %.thread.us
@@ -5116,23 +5115,23 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
   br label %.thread385.us453.sink.split
 
 .thread385.us453.sink.split:                      ; preds = %.lr.ph450.split.us451, %.thread371.us
-  %.sink502 = phi i32 [ %15, %.thread371.us ], [ %13, %.lr.ph450.split.us451 ]
-  %.sink498 = phi ptr [ %3, %.thread371.us ], [ %2, %.lr.ph450.split.us451 ]
-  %.sink492 = phi ptr [ %7, %.thread371.us ], [ %6, %.lr.ph450.split.us451 ]
+  %.sink500 = phi i32 [ %15, %.thread371.us ], [ %13, %.lr.ph450.split.us451 ]
+  %.sink496 = phi ptr [ %3, %.thread371.us ], [ %2, %.lr.ph450.split.us451 ]
+  %.sink490 = phi ptr [ %7, %.thread371.us ], [ %6, %.lr.ph450.split.us451 ]
   %74 = icmp eq i32 %71, -233
   %spec.store.select1.us = select i1 %74, i32 0, i32 %71
   %75 = icmp eq i32 %73, -233
-  %spec.select235.us = select i1 %75, i32 %.sink502, i32 %73
+  %spec.select235.us = select i1 %75, i32 %.sink500, i32 %73
   %76 = icmp slt i32 %spec.store.select1.us, 0
-  %77 = select i1 %76, i32 %.sink502, i32 0
+  %77 = select i1 %76, i32 %.sink500, i32 0
   %78 = add nsw i32 %77, %spec.store.select1.us
-  store i32 %78, ptr %.sink498, align 4, !tbaa !55
+  store i32 %78, ptr %.sink496, align 4, !tbaa !55
   %79 = icmp sgt i32 %spec.select235.us, 0
-  %80 = select i1 %79, i32 0, i32 %.sink502
+  %80 = select i1 %79, i32 0, i32 %.sink500
   %81 = add nsw i32 %80, %spec.select235.us
-  %.sroa.speculated294.us = tail call i32 @llvm.smin.i32(i32 %81, i32 %.sink502)
+  %.sroa.speculated294.us = tail call i32 @llvm.smin.i32(i32 %81, i32 %.sink500)
   %82 = sub nsw i32 %.sroa.speculated294.us, %78
-  store i32 %82, ptr %.sink492, align 4, !tbaa !55
+  store i32 %82, ptr %.sink490, align 4, !tbaa !55
   br label %.thread385.us453
 
 .thread385.us453:                                 ; preds = %.thread385.us453.sink.split, %.lr.ph450.split.us451
@@ -5161,23 +5160,23 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
   br label %.thread385.us456.sink.split
 
 .thread385.us456.sink.split:                      ; preds = %.lr.ph450.split.us454, %89, %.thread377.us
-  %.sink513 = phi i32 [ %19, %.thread377.us ], [ %15, %89 ], [ %13, %.lr.ph450.split.us454 ]
-  %.sink509 = phi ptr [ %5, %.thread377.us ], [ %3, %89 ], [ %2, %.lr.ph450.split.us454 ]
-  %.sink503 = phi ptr [ %9, %.thread377.us ], [ %7, %89 ], [ %6, %.lr.ph450.split.us454 ]
+  %.sink511 = phi i32 [ %19, %.thread377.us ], [ %15, %89 ], [ %13, %.lr.ph450.split.us454 ]
+  %.sink507 = phi ptr [ %5, %.thread377.us ], [ %3, %89 ], [ %2, %.lr.ph450.split.us454 ]
+  %.sink501 = phi ptr [ %9, %.thread377.us ], [ %7, %89 ], [ %6, %.lr.ph450.split.us454 ]
   %90 = icmp eq i32 %86, -233
   %spec.store.select3.us = select i1 %90, i32 0, i32 %86
   %91 = icmp eq i32 %88, -233
-  %spec.select237.us = select i1 %91, i32 %.sink513, i32 %88
+  %spec.select237.us = select i1 %91, i32 %.sink511, i32 %88
   %92 = icmp slt i32 %spec.store.select3.us, 0
-  %93 = select i1 %92, i32 %.sink513, i32 0
+  %93 = select i1 %92, i32 %.sink511, i32 0
   %94 = add nsw i32 %93, %spec.store.select3.us
-  store i32 %94, ptr %.sink509, align 4, !tbaa !55
+  store i32 %94, ptr %.sink507, align 4, !tbaa !55
   %95 = icmp sgt i32 %spec.select237.us, 0
-  %96 = select i1 %95, i32 0, i32 %.sink513
+  %96 = select i1 %95, i32 0, i32 %.sink511
   %97 = add nsw i32 %96, %spec.select237.us
-  %.sroa.speculated286.us = tail call i32 @llvm.smin.i32(i32 %97, i32 %.sink513)
+  %.sroa.speculated286.us = tail call i32 @llvm.smin.i32(i32 %97, i32 %.sink511)
   %98 = sub nsw i32 %.sroa.speculated286.us, %94
-  store i32 %98, ptr %.sink503, align 4, !tbaa !55
+  store i32 %98, ptr %.sink501, align 4, !tbaa !55
   br label %.thread385.us456
 
 .thread385.us456:                                 ; preds = %.thread385.us456.sink.split, %.lr.ph450.split.us454
@@ -5210,23 +5209,23 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
   br label %.thread385.us459.sink.split
 
 .thread385.us459.sink.split:                      ; preds = %.lr.ph450.split.us457, %105, %106, %.thread388.us
-  %.sink524 = phi i32 [ %19, %.thread388.us ], [ %17, %106 ], [ %15, %105 ], [ %13, %.lr.ph450.split.us457 ]
-  %.sink520 = phi ptr [ %5, %.thread388.us ], [ %4, %106 ], [ %3, %105 ], [ %2, %.lr.ph450.split.us457 ]
-  %.sink514 = phi ptr [ %9, %.thread388.us ], [ %8, %106 ], [ %7, %105 ], [ %6, %.lr.ph450.split.us457 ]
+  %.sink522 = phi i32 [ %19, %.thread388.us ], [ %17, %106 ], [ %15, %105 ], [ %13, %.lr.ph450.split.us457 ]
+  %.sink518 = phi ptr [ %5, %.thread388.us ], [ %4, %106 ], [ %3, %105 ], [ %2, %.lr.ph450.split.us457 ]
+  %.sink512 = phi ptr [ %9, %.thread388.us ], [ %8, %106 ], [ %7, %105 ], [ %6, %.lr.ph450.split.us457 ]
   %107 = icmp eq i32 %102, -233
   %spec.store.select6.us = select i1 %107, i32 0, i32 %102
   %108 = icmp eq i32 %104, -233
-  %spec.select240.us = select i1 %108, i32 %.sink524, i32 %104
+  %spec.select240.us = select i1 %108, i32 %.sink522, i32 %104
   %109 = icmp slt i32 %spec.store.select6.us, 0
-  %110 = select i1 %109, i32 %.sink524, i32 0
+  %110 = select i1 %109, i32 %.sink522, i32 0
   %111 = add nsw i32 %110, %spec.store.select6.us
-  store i32 %111, ptr %.sink520, align 4, !tbaa !55
+  store i32 %111, ptr %.sink518, align 4, !tbaa !55
   %112 = icmp sgt i32 %spec.select240.us, 0
-  %113 = select i1 %112, i32 0, i32 %.sink524
+  %113 = select i1 %112, i32 0, i32 %.sink522
   %114 = add nsw i32 %113, %spec.select240.us
-  %.sroa.speculated274.us = tail call i32 @llvm.smin.i32(i32 %114, i32 %.sink524)
+  %.sroa.speculated274.us = tail call i32 @llvm.smin.i32(i32 %114, i32 %.sink522)
   %115 = sub nsw i32 %.sroa.speculated274.us, %111
-  store i32 %115, ptr %.sink514, align 4, !tbaa !55
+  store i32 %115, ptr %.sink512, align 4, !tbaa !55
   br label %.thread385.us459
 
 .thread385.us459:                                 ; preds = %.thread385.us459.sink.split, %.lr.ph450.split.us457
@@ -5234,7 +5233,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
   %exitcond469.not = icmp eq i64 %indvars.iv.next466, %wide.trip.count468
   br i1 %exitcond469.not, label %._crit_edge, label %.lr.ph450.split.us457, !llvm.loop !95
 
-._crit_edge:                                      ; preds = %.thread385.us459, %.thread385.us456, %.thread385.us453, %.thread.us, %.preheader, %.lr.ph450, %.loopexit
+._crit_edge:                                      ; preds = %.lr.ph, %.thread385.us459, %.thread385.us456, %.thread385.us453, %.thread.us, %.preheader, %.lr.ph450, %.loopexit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
   br label %224
 

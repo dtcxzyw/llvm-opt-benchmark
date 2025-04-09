@@ -808,13 +808,11 @@ _ZNK6aiMesh15HasVertexColorsEj.exit201.thread:    ; preds = %_ZNK6aiMesh16HasTex
   %325 = load ptr, ptr %30, align 8
   %.not1.i204 = icmp eq ptr %325, null
   %or.cond.i205 = select i1 %.not.i203, i1 true, i1 %.not1.i204
-  br i1 %or.cond.i205, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206.thread, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206
-
-_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206:  ; preds = %323
   %.not = icmp eq i32 %.pre306, 0
-  br i1 %.not, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206.thread, label %326
+  %or.cond = select i1 %or.cond.i205, i1 true, i1 %.not
+  br i1 %or.cond, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206.thread, label %326
 
-326:                                              ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206
+326:                                              ; preds = %323
   tail call void @_ZdaPv(ptr noundef nonnull %324) #14
   store ptr %.0153317321, ptr %28, align 8
   %327 = load ptr, ptr %30, align 8
@@ -830,8 +828,8 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206:  ; preds = %323
   %.pre305 = load i32, ptr %5, align 4
   br label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206.thread
 
-_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206.thread: ; preds = %323, %330, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206
-  %331 = phi i32 [ %.pre306, %323 ], [ %.pre305, %330 ], [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206 ]
+_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit206.thread: ; preds = %323, %330
+  %331 = phi i32 [ 0, %323 ], [ %.pre305, %330 ]
   %332 = icmp ne i32 %331, %.fr250
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #13

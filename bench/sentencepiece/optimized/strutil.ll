@@ -2313,35 +2313,17 @@ define noundef i32 @_ZN6google8protobuf16strtou32_adaptorEPKcPPci(ptr noundef %0
   store i32 0, ptr %4, align 4, !tbaa !65
   %6 = tail call i64 @strtoul(ptr noundef %0, ptr noundef %1, i32 noundef %2) #31
   %7 = load i32, ptr %4, align 4, !tbaa !65
-  %8 = icmp eq i32 %7, 34
-  %9 = icmp eq i64 %6, -1
-  %or.cond = select i1 %8, i1 %9, i1 false
-  br i1 %or.cond, label %18, label %10
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %.sink.split, label %10
 
-10:                                               ; preds = %3
-  %11 = icmp eq i32 %7, 0
-  %12 = icmp ugt i64 %6, 4294967295
-  %or.cond3 = select i1 %11, i1 %12, i1 false
-  br i1 %or.cond3, label %13, label %14
+.sink.split:                                      ; preds = %3
+  %9 = icmp ugt i64 %6, 4294967295
+  %.mux = select i1 %9, i32 34, i32 %5
+  store i32 %.mux, ptr %4, align 4, !tbaa !65
+  br label %10
 
-13:                                               ; preds = %10
-  store i32 34, ptr %4, align 4, !tbaa !65
-  br label %18
-
-14:                                               ; preds = %10
-  br i1 %11, label %15, label %16
-
-15:                                               ; preds = %14
-  store i32 %5, ptr %4, align 4, !tbaa !65
-  br label %16
-
-16:                                               ; preds = %15, %14
-  %17 = trunc i64 %6 to i32
-  br label %18
-
-18:                                               ; preds = %3, %16, %13
-  %.0 = phi i32 [ -1, %13 ], [ %17, %16 ], [ -1, %3 ]
-  ret i32 %.0
+10:                                               ; preds = %.sink.split, %3
+  ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn

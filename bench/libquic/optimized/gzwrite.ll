@@ -168,7 +168,7 @@ gz_zero.exit:                                     ; preds = %38, %35, %24
   store i64 %80, ptr %58, align 8, !tbaa !23
   %81 = sub i32 %.057, %spec.select
   %.not65 = icmp eq i32 %81, 0
-  br i1 %.not65, label %.critedge66, label %82
+  br i1 %.not65, label %gz_zero.exit.thread, label %82
 
 82:                                               ; preds = %63
   %83 = getelementptr inbounds nuw i8, ptr %.056, i64 %76
@@ -195,15 +195,10 @@ gz_zero.exit:                                     ; preds = %38, %35, %24
   %95 = add nsw i64 %94, %92
   store i64 %95, ptr %93, align 8, !tbaa !23
   %96 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
-  %97 = icmp eq i32 %96, -1
-  br i1 %97, label %gz_zero.exit.thread, label %.critedge66
-
-.critedge66:                                      ; preds = %63, %91
   br label %gz_zero.exit.thread
 
-gz_zero.exit.thread:                              ; preds = %48, %82, %32, %91, %88, %21, %15, %5, %9, %3, %.critedge66, %14
-  %.054 = phi i32 [ 0, %14 ], [ %2, %.critedge66 ], [ 0, %3 ], [ 0, %9 ], [ 0, %5 ], [ 0, %15 ], [ 0, %21 ], [ 0, %88 ], [ 0, %91 ], [ 0, %32 ], [ 0, %82 ], [ 0, %48 ]
-  ret i32 %.054
+gz_zero.exit.thread:                              ; preds = %48, %63, %82, %91, %32, %88, %21, %15, %5, %9, %3, %14
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

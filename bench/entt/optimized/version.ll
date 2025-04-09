@@ -3404,7 +3404,6 @@ define linkonce_odr dso_local void @_ZNSt8__detail8_ScannerIcE18_M_eat_escape_ec
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %8, %17, %22
-  %.0.i = phi i8 [ %16, %8 ], [ %21, %22 ], [ 0, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !186
   %25 = load i8, ptr %24, align 1, !tbaa !180
@@ -3414,7 +3413,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %8, %17, %22
 .lr.ph.i:                                         ; preds = %_ZNKSt5ctypeIcE6narrowEcc.exit, %28
   %26 = phi i8 [ %30, %28 ], [ %25, %_ZNKSt5ctypeIcE6narrowEcc.exit ]
   %.010.i = phi ptr [ %29, %28 ], [ %24, %_ZNKSt5ctypeIcE6narrowEcc.exit ]
-  %27 = icmp eq i8 %26, %.0.i
+  %27 = icmp eq i8 %26, %16
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %.lr.ph.i
@@ -3721,8 +3720,7 @@ define linkonce_odr dso_local void @_ZNSt8__detail8_ScannerIcE19_M_eat_escape_po
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %8, %18, %23
-  %.0.i = phi i8 [ %17, %8 ], [ %22, %23 ], [ 0, %18 ]
-  %24 = sext i8 %.0.i to i32
+  %24 = sext i8 %17 to i32
   %25 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef %24) #27
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %28, label %26
@@ -3827,7 +3825,6 @@ define linkonce_odr dso_local void @_ZNSt8__detail8_ScannerIcE17_M_eat_escape_aw
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %1, %12, %17
-  %.0.i = phi i8 [ %11, %1 ], [ %16, %17 ], [ 0, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load ptr, ptr %18, align 8, !tbaa !186
   %20 = load i8, ptr %19, align 1, !tbaa !180
@@ -3837,7 +3834,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %1, %12, %17
 .lr.ph.i:                                         ; preds = %_ZNKSt5ctypeIcE6narrowEcc.exit, %23
   %21 = phi i8 [ %25, %23 ], [ %20, %_ZNKSt5ctypeIcE6narrowEcc.exit ]
   %.010.i = phi ptr [ %24, %23 ], [ %19, %_ZNKSt5ctypeIcE6narrowEcc.exit ]
-  %22 = icmp eq i8 %21, %.0.i
+  %22 = icmp eq i8 %21, %11
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %.lr.ph.i
@@ -3981,7 +3978,7 @@ define linkonce_odr dso_local void @_ZNSt8__detail8_ScannerIcE14_M_scan_normalEv
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %1, %14, %19
-  %.0.i = phi i8 [ %13, %1 ], [ %18, %19 ], [ 32, %14 ]
+  %.0.i = phi i8 [ %13, %1 ], [ 32, %19 ], [ 32, %14 ]
   %20 = sext i8 %.0.i to i32
   %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef %20) #27
   %22 = icmp eq ptr %21, null
@@ -4235,7 +4232,6 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %1, %14, %19
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit40
 
 _ZNKSt5ctypeIcE6narrowEcc.exit40:                 ; preds = %131, %137, %142
-  %.0.i38 = phi i8 [ %136, %131 ], [ %141, %142 ], [ 0, %137 ]
   %143 = load i8, ptr %0, align 8, !tbaa !177
   %.not3144 = icmp eq i8 %143, 0
   br i1 %.not3144, label %.critedge, label %.lr.ph
@@ -4243,7 +4239,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit40:                 ; preds = %131, %137, %142
 .lr.ph:                                           ; preds = %_ZNKSt5ctypeIcE6narrowEcc.exit40, %150
   %144 = phi i8 [ %152, %150 ], [ %143, %_ZNKSt5ctypeIcE6narrowEcc.exit40 ]
   %.02145 = phi ptr [ %151, %150 ], [ %0, %_ZNKSt5ctypeIcE6narrowEcc.exit40 ]
-  %145 = icmp eq i8 %144, %.0.i38
+  %145 = icmp eq i8 %144, %136
   br i1 %145, label %146, label %150
 
 146:                                              ; preds = %.lr.ph
@@ -12386,7 +12382,6 @@ _ZNKSt5ctypeIcE7tolowerEc.exit:                   ; preds = %10
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %24, %.noexc, %_ZNKSt5ctypeIcE7tolowerEc.exit
-  %.0.i = phi i8 [ %18, %_ZNKSt5ctypeIcE7tolowerEc.exit ], [ %23, %24 ], [ 0, %.noexc ]
   %25 = load i64, ptr %8, align 8, !tbaa !39
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %5, align 8, !tbaa !33
@@ -12415,7 +12410,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 35:                                               ; preds = %.noexc29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
   %36 = phi ptr [ %.pre.i.i, %.noexc29 ], [ %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %25
-  store i8 %.0.i, ptr %37, align 1, !tbaa !40
+  store i8 %18, ptr %37, align 1, !tbaa !40
   store i64 %26, ptr %8, align 8, !tbaa !39
   %38 = load ptr, ptr %5, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %26
@@ -21373,7 +21368,6 @@ define linkonce_odr dso_local void @_ZNKSt7__cxx1112regex_traitsIcE18lookup_coll
   br label %_ZNKSt5ctypeIcE6narrowEcc.exit
 
 _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %20, %.noexc, %10
-  %.0.i = phi i8 [ %14, %10 ], [ %19, %20 ], [ 0, %.noexc ]
   %21 = load i64, ptr %8, align 8, !tbaa !39
   %22 = add i64 %21, 1
   %23 = load ptr, ptr %5, align 8, !tbaa !33
@@ -21402,7 +21396,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 31:                                               ; preds = %.noexc29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
   %32 = phi ptr [ %.pre.i.i, %.noexc29 ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %21
-  store i8 %.0.i, ptr %33, align 1, !tbaa !40
+  store i8 %14, ptr %33, align 1, !tbaa !40
   store i64 %22, ptr %8, align 8, !tbaa !39
   %34 = load ptr, ptr %5, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %22

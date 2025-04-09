@@ -294,11 +294,9 @@ png_malloc_array_checked.exit:                    ; preds = %23, %25
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %27, %28
-  %.pre-phi44 = phi i64 [ %30, %28 ], [ 0, %27 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.pre-phi44
-  %32 = zext nneg i32 %3 to i64
-  %33 = mul i64 %4, %32
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 %33, i1 false)
+  %31 = zext nneg i32 %3 to i64
+  %32 = mul i64 %4, %31
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i, i8 0, i64 %32, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %15, %png_malloc_array_checked.exit, %13, %._crit_edge

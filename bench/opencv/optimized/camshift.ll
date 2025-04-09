@@ -1920,19 +1920,16 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i375: ; preds = %_ZSt8_DestroyI
   br label %699
 
 699:                                              ; preds = %681, %698, %._crit_edge.i.i379, %689, %677, %663
-  %.sroa.0.sroa.0.0.i = phi i32 [ 0, %698 ], [ %684, %._crit_edge.i.i379 ], [ 0, %677 ], [ 0, %663 ], [ 0, %689 ], [ 0, %681 ]
   %.sroa.0.sroa.9.0.i = phi i32 [ 0, %698 ], [ %692, %._crit_edge.i.i379 ], [ 0, %677 ], [ 0, %663 ], [ 0, %689 ], [ 0, %681 ]
   %.sroa.14.sroa.0.0.i = phi i32 [ 0, %698 ], [ %.sroa.speculated53.i.i, %._crit_edge.i.i379 ], [ 0, %677 ], [ 0, %663 ], [ 0, %689 ], [ 0, %681 ]
   %.sroa.14.sroa.12.0.i = phi i32 [ 0, %698 ], [ %.sroa.speculated.i.i, %._crit_edge.i.i379 ], [ 0, %677 ], [ 0, %663 ], [ 0, %689 ], [ 0, %681 ]
   %.sroa.0.sroa.9.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.9.0.i to i64
   %.sroa.0.sroa.9.0.insert.shift.i = shl nuw nsw i64 %.sroa.0.sroa.9.0.insert.ext.i, 32
-  %.sroa.0.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.0.0.i to i64
-  %.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift.i, %.sroa.0.sroa.0.0.insert.ext.i
   %.sroa.14.sroa.12.0.insert.ext.i = zext nneg i32 %.sroa.14.sroa.12.0.i to i64
   %.sroa.14.sroa.12.0.insert.shift.i = shl nuw nsw i64 %.sroa.14.sroa.12.0.insert.ext.i, 32
   %.sroa.14.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.14.sroa.0.0.i to i64
   %.sroa.14.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.14.sroa.12.0.insert.shift.i, %.sroa.14.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.sroa.0.0.insert.insert.i, ptr %5, align 8
+  store i64 %.sroa.0.sroa.9.0.insert.shift.i, ptr %5, align 8
   store i64 %.sroa.14.sroa.0.0.insert.insert.i, ptr %287, align 8
   br label %715
 

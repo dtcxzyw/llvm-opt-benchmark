@@ -419,7 +419,7 @@ lv_obj_get_display.exit:                          ; preds = %._crit_edge.i, %83,
   br label %._crit_edge118
 
 ._crit_edge118:                                   ; preds = %96, %._crit_edge118.loopexit.split.loop.exit, %lv_obj_get_display.exit
-  %.075.lcssa = phi i32 [ 0, %lv_obj_get_display.exit ], [ %97, %._crit_edge118.loopexit.split.loop.exit ], [ %89, %96 ]
+  %.075.lcssa = phi i32 [ 0, %lv_obj_get_display.exit ], [ %97, %._crit_edge118.loopexit.split.loop.exit ], [ 0, %96 ]
   %98 = add i32 %89, -1
   %99 = icmp ult i32 %.075.lcssa, %98
   %100 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 776
@@ -596,25 +596,25 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %11
   tail call fastcc void @obj_delete_core(ptr noundef %13)
-  %.val1855 = load ptr, ptr %3, align 8, !tbaa !37
-  %17 = icmp eq ptr %.val1855, null
-  br i1 %17, label %._crit_edge, label %.lr.ph57
+  %.val1852 = load ptr, ptr %3, align 8, !tbaa !37
+  %17 = icmp eq ptr %.val1852, null
+  br i1 %17, label %._crit_edge, label %.lr.ph54
 
 .lr.ph.loopexit:                                  ; preds = %23
   tail call fastcc void @obj_delete_core(ptr noundef %25)
   %.val18 = load ptr, ptr %3, align 8, !tbaa !37
   %18 = icmp eq ptr %.val18, null
-  br i1 %18, label %._crit_edge, label %.lr.ph57, !llvm.loop !61
+  br i1 %18, label %._crit_edge, label %.lr.ph54, !llvm.loop !61
 
-.lr.ph57:                                         ; preds = %.lr.ph.preheader, %.lr.ph.loopexit
-  %.val1856 = phi ptr [ %.val18, %.lr.ph.loopexit ], [ %.val1855, %.lr.ph.preheader ]
-  %19 = getelementptr inbounds nuw i8, ptr %.val1856, i64 64
+.lr.ph54:                                         ; preds = %.lr.ph.preheader, %.lr.ph.loopexit
+  %.val1853 = phi ptr [ %.val18, %.lr.ph.loopexit ], [ %.val1852, %.lr.ph.preheader ]
+  %19 = getelementptr inbounds nuw i8, ptr %.val1853, i64 64
   %20 = load i16, ptr %19, align 8, !tbaa !38
   %.not4.i21 = icmp eq i16 %20, 0
   br i1 %.not4.i21, label %._crit_edge, label %.lr.ph.i22
 
-.lr.ph.i22:                                       ; preds = %.lr.ph57
-  %21 = load ptr, ptr %.val1856, align 8, !tbaa !42
+.lr.ph.i22:                                       ; preds = %.lr.ph54
+  %21 = load ptr, ptr %.val1853, align 8, !tbaa !42
   %wide.trip.count.i23 = zext i16 %20 to i64
   br label %23
 
@@ -633,9 +633,7 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
   %.not.i25 = icmp eq i16 %28, 0
   br i1 %.not.i25, label %.lr.ph.loopexit, label %22
 
-._crit_edge:                                      ; preds = %10, %.lr.ph.loopexit, %.lr.ph57, %22, %.lr.ph.preheader, %2, %6
-  %.0.i35.shrunk41.shrunk = phi i16 [ 0, %6 ], [ 0, %2 ], [ %8, %.lr.ph.preheader ], [ %8, %22 ], [ %8, %.lr.ph57 ], [ %8, %.lr.ph.loopexit ], [ %8, %10 ]
-  %.0.i35.shrunk41 = zext i16 %.0.i35.shrunk41.shrunk to i32
+._crit_edge:                                      ; preds = %10, %.lr.ph.loopexit, %.lr.ph54, %22, %.lr.ph.preheader, %2, %6
   tail call void @lv_obj_scroll_to(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #6
   %29 = load ptr, ptr %3, align 8, !tbaa !37
   %.not17 = icmp eq ptr %29, null
@@ -646,22 +644,9 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %31, align 8, !tbaa !62
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 52
   store i32 0, ptr %32, align 4, !tbaa !63
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %34 = load i16, ptr %33, align 8, !tbaa !38
-  %35 = zext i16 %34 to i32
   br label %lv_obj_get_child_count.exit33
 
-lv_obj_get_child_count.exit33:                    ; preds = %._crit_edge, %30
-  %.0.i31 = phi i32 [ %35, %30 ], [ 0, %._crit_edge ]
-  %36 = icmp samesign ult i32 %.0.i31, %.0.i35.shrunk41
-  br i1 %36, label %37, label %40
-
-37:                                               ; preds = %lv_obj_get_child_count.exit33
-  %38 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 42, ptr noundef null) #6
-  %39 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 44, ptr noundef null) #6
-  br label %40
-
-40:                                               ; preds = %lv_obj_get_child_count.exit33, %37
+lv_obj_get_child_count.exit33:                    ; preds = %30, %._crit_edge
   ret void
 }
 

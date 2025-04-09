@@ -7744,7 +7744,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide13basic_filebufIcSt11cha
   store ptr %27, ptr %30, align 8, !tbaa !139
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %28, ptr %31, align 8, !tbaa !140
-  br label %51
+  br label %50
 
 32:                                               ; preds = %.thread.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7766,33 +7766,32 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide13basic_filebufIcSt11cha
   br label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit
 
 _ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit: ; preds = %32, %37, %38
-  %41 = phi i64 [ 0, %37 ], [ %36, %38 ], [ %36, %32 ]
-  %42 = phi ptr [ null, %37 ], [ %39, %38 ], [ %34, %32 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %44 = load ptr, ptr %43, align 8, !tbaa !125
-  %45 = tail call i64 @fread(ptr noundef %42, i64 noundef 1, i64 noundef %41, ptr noundef %44)
-  %46 = load ptr, ptr %33, align 8, !tbaa !132
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %45
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %46, ptr %48, align 8, !tbaa !142
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %46, ptr %49, align 8, !tbaa !139
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %47, ptr %50, align 8, !tbaa !140
-  %.not11 = icmp eq i64 %45, 0
+  %41 = phi ptr [ null, %37 ], [ %39, %38 ], [ %34, %32 ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %43 = load ptr, ptr %42, align 8, !tbaa !125
+  %44 = tail call i64 @fread(ptr noundef %41, i64 noundef 1, i64 noundef 0, ptr noundef %43)
+  %45 = load ptr, ptr %33, align 8, !tbaa !132
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %45, ptr %47, align 8, !tbaa !142
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %45, ptr %48, align 8, !tbaa !139
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %46, ptr %49, align 8, !tbaa !140
+  %.not11 = icmp eq i64 %44, 0
   br i1 %.not11, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge
 
 _ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge: ; preds = %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit
-  %.pre12 = load i8, ptr %46, align 1, !tbaa !12
-  br label %51
+  %.pre12 = load i8, ptr %45, align 1, !tbaa !12
+  br label %50
 
-51:                                               ; preds = %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge, %.thread
-  %52 = phi i8 [ %26, %.thread ], [ %.pre12, %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge ]
-  %53 = zext i8 %52 to i32
+50:                                               ; preds = %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge, %.thread
+  %51 = phi i8 [ %26, %.thread ], [ %.pre12, %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge ]
+  %52 = zext i8 %51 to i32
   br label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit
 
-_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit: ; preds = %21, %11, %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit, %1, %51
-  %.0 = phi i32 [ %53, %51 ], [ -1, %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit ], [ -1, %1 ], [ -1, %11 ], [ -1, %21 ]
+_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit: ; preds = %21, %11, %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit, %1, %50
+  %.0 = phi i32 [ %52, %50 ], [ -1, %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit ], [ -1, %1 ], [ -1, %11 ], [ -1, %21 ]
   ret i32 %.0
 }
 
@@ -7825,7 +7824,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide13basic_filebufIcSt11cha
   br label %14
 
 14:                                               ; preds = %8, %10, %13, %2
-  %.0 = phi i32 [ -1, %2 ], [ %1, %13 ], [ %1, %10 ], [ 0, %8 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %13 ], [ -1, %10 ], [ 0, %8 ]
   ret i32 %.0
 }
 

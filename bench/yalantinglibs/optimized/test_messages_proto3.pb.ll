@@ -51531,10 +51531,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit461: ; preds = %if.
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit461
-  %conv.i462.pre-phi = phi i32 [ %conv10, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit461 ], [ 0, %if.end ]
   %total_size.1 = phi i64 [ %add13, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit461 ], [ %add5, %if.end ]
   %_repeated_int64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store atomic i32 %conv.i462.pre-phi, ptr %_repeated_int64_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_int64_cached_byte_size_ monotonic, align 8
   %add17 = add i64 %total_size.1, %call7
   %repeated_uint32_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call19 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt32SizeERKNS0_13RepeatedFieldIjEE(ptr noundef nonnull align 8 dereferenceable(16) %repeated_uint32_)
@@ -51563,10 +51562,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit472: ; preds = %if.
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end14, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit472
-  %conv.i473.pre-phi = phi i32 [ %conv22, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit472 ], [ 0, %if.end14 ]
   %total_size.2 = phi i64 [ %add25, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit472 ], [ %add17, %if.end14 ]
   %_repeated_uint32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store atomic i32 %conv.i473.pre-phi, ptr %_repeated_uint32_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_uint32_cached_byte_size_ monotonic, align 8
   %add29 = add i64 %total_size.2, %call19
   %repeated_uint64_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %call31 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt64SizeERKNS0_13RepeatedFieldImEE(ptr noundef nonnull align 8 dereferenceable(16) %repeated_uint64_)
@@ -51595,10 +51593,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit483: ; preds = %if.
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end26, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit483
-  %conv.i484.pre-phi = phi i32 [ %conv34, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit483 ], [ 0, %if.end26 ]
   %total_size.3 = phi i64 [ %add37, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit483 ], [ %add29, %if.end26 ]
   %_repeated_uint64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store atomic i32 %conv.i484.pre-phi, ptr %_repeated_uint64_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_uint64_cached_byte_size_ monotonic, align 8
   %add41 = add i64 %total_size.3, %call31
   %repeated_sint32_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %call43 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10SInt32SizeERKNS0_13RepeatedFieldIiEE(ptr noundef nonnull align 8 dereferenceable(16) %repeated_sint32_)
@@ -51627,10 +51624,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit494: ; preds = %if.
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end38, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit494
-  %conv.i495.pre-phi = phi i32 [ %conv46, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit494 ], [ 0, %if.end38 ]
   %total_size.4 = phi i64 [ %add49, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit494 ], [ %add41, %if.end38 ]
   %_repeated_sint32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store atomic i32 %conv.i495.pre-phi, ptr %_repeated_sint32_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_sint32_cached_byte_size_ monotonic, align 8
   %add53 = add i64 %total_size.4, %call43
   %repeated_sint64_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %call55 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10SInt64SizeERKNS0_13RepeatedFieldIlEE(ptr noundef nonnull align 8 dereferenceable(16) %repeated_sint64_)
@@ -51659,10 +51655,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit505: ; preds = %if.
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end50, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit505
-  %conv.i506.pre-phi = phi i32 [ %conv58, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit505 ], [ 0, %if.end50 ]
   %total_size.5 = phi i64 [ %add61, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit505 ], [ %add53, %if.end50 ]
   %_repeated_sint64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 152
-  store atomic i32 %conv.i506.pre-phi, ptr %_repeated_sint64_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_sint64_cached_byte_size_ monotonic, align 8
   %add65 = add i64 %total_size.5, %call55
   %repeated_fixed32_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %call.i = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %repeated_fixed32_.i)
@@ -51693,10 +51688,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit516: ; preds = %if.
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end62, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit516
-  %conv.i517.pre-phi = phi i32 [ %conv71, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit516 ], [ 0, %if.end62 ]
   %total_size.6 = phi i64 [ %add74, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit516 ], [ %add65, %if.end62 ]
   %_repeated_fixed32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store atomic i32 %conv.i517.pre-phi, ptr %_repeated_fixed32_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_fixed32_cached_byte_size_ monotonic, align 8
   %add78 = add i64 %total_size.6, %mul
   %repeated_fixed64_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %call.i518 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %repeated_fixed64_.i)
@@ -51727,10 +51721,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit528: ; preds = %if.
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end75, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit528
-  %conv.i529.pre-phi = phi i32 [ %conv86, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit528 ], [ 0, %if.end75 ]
   %total_size.7 = phi i64 [ %add89, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit528 ], [ %add78, %if.end75 ]
   %_repeated_fixed64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 200
-  store atomic i32 %conv.i529.pre-phi, ptr %_repeated_fixed64_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_fixed64_cached_byte_size_ monotonic, align 8
   %add93 = add i64 %total_size.7, %mul83
   %repeated_sfixed32_.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %call.i530 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %repeated_sfixed32_.i)
@@ -51761,10 +51754,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit540: ; preds = %if.
   br label %if.end105
 
 if.end105:                                        ; preds = %if.end90, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit540
-  %conv.i541.pre-phi = phi i32 [ %conv101, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit540 ], [ 0, %if.end90 ]
   %total_size.8 = phi i64 [ %add104, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit540 ], [ %add93, %if.end90 ]
   %_repeated_sfixed32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 224
-  store atomic i32 %conv.i541.pre-phi, ptr %_repeated_sfixed32_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_sfixed32_cached_byte_size_ monotonic, align 8
   %add108 = add i64 %total_size.8, %mul98
   %repeated_sfixed64_.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %call.i542 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %repeated_sfixed64_.i)
@@ -51795,10 +51787,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit552: ; preds = %if.
   br label %if.end120
 
 if.end120:                                        ; preds = %if.end105, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit552
-  %conv.i553.pre-phi = phi i32 [ %conv116, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit552 ], [ 0, %if.end105 ]
   %total_size.9 = phi i64 [ %add119, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit552 ], [ %add108, %if.end105 ]
   %_repeated_sfixed64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 248
-  store atomic i32 %conv.i553.pre-phi, ptr %_repeated_sfixed64_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_sfixed64_cached_byte_size_ monotonic, align 8
   %add123 = add i64 %total_size.9, %mul113
   %repeated_float_.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   %call.i554 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %repeated_float_.i)
@@ -51829,10 +51820,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit564: ; preds = %if.
   br label %if.end135
 
 if.end135:                                        ; preds = %if.end120, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit564
-  %conv.i565.pre-phi = phi i32 [ %conv131, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit564 ], [ 0, %if.end120 ]
   %total_size.10 = phi i64 [ %add134, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit564 ], [ %add123, %if.end120 ]
   %_repeated_float_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 272
-  store atomic i32 %conv.i565.pre-phi, ptr %_repeated_float_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_float_cached_byte_size_ monotonic, align 8
   %add138 = add i64 %total_size.10, %mul128
   %repeated_double_.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %call.i566 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %repeated_double_.i)
@@ -51863,10 +51853,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit576: ; preds = %if.
   br label %if.end150
 
 if.end150:                                        ; preds = %if.end135, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit576
-  %conv.i577.pre-phi = phi i32 [ %conv146, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit576 ], [ 0, %if.end135 ]
   %total_size.11 = phi i64 [ %add149, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit576 ], [ %add138, %if.end135 ]
   %_repeated_double_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 296
-  store atomic i32 %conv.i577.pre-phi, ptr %_repeated_double_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_repeated_double_cached_byte_size_ monotonic, align 8
   %add153 = add i64 %total_size.11, %mul143
   %repeated_bool_.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %call.i578 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIbE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %repeated_bool_.i)
@@ -52199,12 +52188,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit656: ; preds = %if.
   br label %if.end254
 
 if.end254:                                        ; preds = %for.end234, %for.end247, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit656
-  %data_size235.0.lcssa3334 = phi i64 [ %add244, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit656 ], [ 0, %for.end247 ], [ 0, %for.end234 ]
-  %conv.i657.pre-phi = phi i32 [ %conv250, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit656 ], [ 0, %for.end247 ], [ 0, %for.end234 ]
   %total_size.17 = phi i64 [ %add253, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit656 ], [ %total_size.16.lcssa, %for.end247 ], [ %total_size.16.lcssa, %for.end234 ]
   %_repeated_nested_enum_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 440
-  store atomic i32 %conv.i657.pre-phi, ptr %_repeated_nested_enum_cached_byte_size_ monotonic, align 8
-  %add257 = add i64 %total_size.17, %data_size235.0.lcssa3334
+  store atomic i32 0, ptr %_repeated_nested_enum_cached_byte_size_ monotonic, align 8
   %repeated_foreign_enum_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   %call.i658 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %repeated_foreign_enum_.i)
   %cmp2633098.not = icmp eq i32 %call.i658, 0
@@ -52257,21 +52243,18 @@ if.else.i.i672:                                   ; preds = %if.then272
 
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680: ; preds = %if.then272, %if.else.i.i672
   %retval.0.i.i679 = phi i64 [ %58, %if.else.i.i672 ], [ 12, %if.then272 ]
-  %add276 = add i64 %retval.0.i.i679, %add257
+  %add276 = add i64 %retval.0.i.i679, %total_size.17
   br label %if.end277
 
 if.end277:                                        ; preds = %if.end254, %for.end270, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680
-  %data_size258.0.lcssa3338 = phi i64 [ %add267, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680 ], [ 0, %for.end270 ], [ 0, %if.end254 ]
-  %conv.i681.pre-phi = phi i32 [ %conv273, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680 ], [ 0, %for.end270 ], [ 0, %if.end254 ]
-  %total_size.18 = phi i64 [ %add276, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680 ], [ %add257, %for.end270 ], [ %add257, %if.end254 ]
+  %total_size.18 = phi i64 [ %add276, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680 ], [ %total_size.17, %for.end270 ], [ %total_size.17, %if.end254 ]
   %_repeated_foreign_enum_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 464
-  store atomic i32 %conv.i681.pre-phi, ptr %_repeated_foreign_enum_cached_byte_size_ monotonic, align 8
-  %add280 = add i64 %total_size.18, %data_size258.0.lcssa3338
+  store atomic i32 0, ptr %_repeated_foreign_enum_cached_byte_size_ monotonic, align 8
   %repeated_string_piece_ = getelementptr inbounds nuw i8, ptr %this, i64 472
   %call281 = tail call noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %repeated_string_piece_)
   %conv.i682 = zext i32 %call281 to i64
   %mul283 = shl nuw nsw i64 %conv.i682, 1
-  %add284 = add i64 %add280, %mul283
+  %add284 = add i64 %total_size.18, %mul283
   %call288 = tail call noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %repeated_string_piece_)
   %cmp2903102 = icmp sgt i32 %call288, 0
   br i1 %cmp2903102, label %for.body291, label %for.end298
@@ -54266,10 +54249,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1550: ; preds = %if
   br label %if.end701
 
 if.end701:                                        ; preds = %for.end692, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1550
-  %conv.i1551.pre-phi = phi i32 [ %conv697, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1550 ], [ 0, %for.end692 ]
   %total_size.40 = phi i64 [ %add700, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1550 ], [ %total_size.39.lcssa, %for.end692 ]
   %_packed_int32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2360
-  store atomic i32 %conv.i1551.pre-phi, ptr %_packed_int32_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_int32_cached_byte_size_ monotonic, align 8
   %add704 = add i64 %total_size.40, %call694
   %packed_int64_ = getelementptr inbounds nuw i8, ptr %this, i64 2368
   %call706 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int64SizeERKNS0_13RepeatedFieldIlEE(ptr noundef nonnull align 8 dereferenceable(16) %packed_int64_)
@@ -54298,10 +54280,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1561: ; preds = %if
   br label %if.end713
 
 if.end713:                                        ; preds = %if.end701, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1561
-  %conv.i1562.pre-phi = phi i32 [ %conv709, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1561 ], [ 0, %if.end701 ]
   %total_size.41 = phi i64 [ %add712, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1561 ], [ %add704, %if.end701 ]
   %_packed_int64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2384
-  store atomic i32 %conv.i1562.pre-phi, ptr %_packed_int64_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_int64_cached_byte_size_ monotonic, align 8
   %add716 = add i64 %total_size.41, %call706
   %packed_uint32_ = getelementptr inbounds nuw i8, ptr %this, i64 2392
   %call718 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt32SizeERKNS0_13RepeatedFieldIjEE(ptr noundef nonnull align 8 dereferenceable(16) %packed_uint32_)
@@ -54330,10 +54311,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1572: ; preds = %if
   br label %if.end725
 
 if.end725:                                        ; preds = %if.end713, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1572
-  %conv.i1573.pre-phi = phi i32 [ %conv721, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1572 ], [ 0, %if.end713 ]
   %total_size.42 = phi i64 [ %add724, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1572 ], [ %add716, %if.end713 ]
   %_packed_uint32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2408
-  store atomic i32 %conv.i1573.pre-phi, ptr %_packed_uint32_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_uint32_cached_byte_size_ monotonic, align 8
   %add728 = add i64 %total_size.42, %call718
   %packed_uint64_ = getelementptr inbounds nuw i8, ptr %this, i64 2416
   %call730 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt64SizeERKNS0_13RepeatedFieldImEE(ptr noundef nonnull align 8 dereferenceable(16) %packed_uint64_)
@@ -54362,10 +54342,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1583: ; preds = %if
   br label %if.end737
 
 if.end737:                                        ; preds = %if.end725, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1583
-  %conv.i1584.pre-phi = phi i32 [ %conv733, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1583 ], [ 0, %if.end725 ]
   %total_size.43 = phi i64 [ %add736, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1583 ], [ %add728, %if.end725 ]
   %_packed_uint64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2432
-  store atomic i32 %conv.i1584.pre-phi, ptr %_packed_uint64_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_uint64_cached_byte_size_ monotonic, align 8
   %add740 = add i64 %total_size.43, %call730
   %packed_sint32_ = getelementptr inbounds nuw i8, ptr %this, i64 2440
   %call742 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10SInt32SizeERKNS0_13RepeatedFieldIiEE(ptr noundef nonnull align 8 dereferenceable(16) %packed_sint32_)
@@ -54394,10 +54373,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1594: ; preds = %if
   br label %if.end749
 
 if.end749:                                        ; preds = %if.end737, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1594
-  %conv.i1595.pre-phi = phi i32 [ %conv745, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1594 ], [ 0, %if.end737 ]
   %total_size.44 = phi i64 [ %add748, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1594 ], [ %add740, %if.end737 ]
   %_packed_sint32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2456
-  store atomic i32 %conv.i1595.pre-phi, ptr %_packed_sint32_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_sint32_cached_byte_size_ monotonic, align 8
   %add752 = add i64 %total_size.44, %call742
   %packed_sint64_ = getelementptr inbounds nuw i8, ptr %this, i64 2464
   %call754 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10SInt64SizeERKNS0_13RepeatedFieldIlEE(ptr noundef nonnull align 8 dereferenceable(16) %packed_sint64_)
@@ -54426,10 +54404,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1605: ; preds = %if
   br label %if.end761
 
 if.end761:                                        ; preds = %if.end749, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1605
-  %conv.i1606.pre-phi = phi i32 [ %conv757, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1605 ], [ 0, %if.end749 ]
   %total_size.45 = phi i64 [ %add760, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1605 ], [ %add752, %if.end749 ]
   %_packed_sint64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2480
-  store atomic i32 %conv.i1606.pre-phi, ptr %_packed_sint64_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_sint64_cached_byte_size_ monotonic, align 8
   %add764 = add i64 %total_size.45, %call754
   %packed_fixed32_.i = getelementptr inbounds nuw i8, ptr %this, i64 2488
   %call.i1607 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_fixed32_.i)
@@ -54460,10 +54437,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1617: ; preds = %if
   br label %if.end776
 
 if.end776:                                        ; preds = %if.end761, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1617
-  %conv.i1618.pre-phi = phi i32 [ %conv772, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1617 ], [ 0, %if.end761 ]
   %total_size.46 = phi i64 [ %add775, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1617 ], [ %add764, %if.end761 ]
   %_packed_fixed32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2504
-  store atomic i32 %conv.i1618.pre-phi, ptr %_packed_fixed32_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_fixed32_cached_byte_size_ monotonic, align 8
   %add779 = add i64 %total_size.46, %mul769
   %packed_fixed64_.i = getelementptr inbounds nuw i8, ptr %this, i64 2512
   %call.i1619 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_fixed64_.i)
@@ -54494,10 +54470,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1629: ; preds = %if
   br label %if.end791
 
 if.end791:                                        ; preds = %if.end776, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1629
-  %conv.i1630.pre-phi = phi i32 [ %conv787, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1629 ], [ 0, %if.end776 ]
   %total_size.47 = phi i64 [ %add790, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1629 ], [ %add779, %if.end776 ]
   %_packed_fixed64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2528
-  store atomic i32 %conv.i1630.pre-phi, ptr %_packed_fixed64_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_fixed64_cached_byte_size_ monotonic, align 8
   %add794 = add i64 %total_size.47, %mul784
   %packed_sfixed32_.i = getelementptr inbounds nuw i8, ptr %this, i64 2536
   %call.i1631 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_sfixed32_.i)
@@ -54528,10 +54503,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1641: ; preds = %if
   br label %if.end806
 
 if.end806:                                        ; preds = %if.end791, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1641
-  %conv.i1642.pre-phi = phi i32 [ %conv802, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1641 ], [ 0, %if.end791 ]
   %total_size.48 = phi i64 [ %add805, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1641 ], [ %add794, %if.end791 ]
   %_packed_sfixed32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2552
-  store atomic i32 %conv.i1642.pre-phi, ptr %_packed_sfixed32_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_sfixed32_cached_byte_size_ monotonic, align 8
   %add809 = add i64 %total_size.48, %mul799
   %packed_sfixed64_.i = getelementptr inbounds nuw i8, ptr %this, i64 2560
   %call.i1643 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_sfixed64_.i)
@@ -54562,10 +54536,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1653: ; preds = %if
   br label %if.end821
 
 if.end821:                                        ; preds = %if.end806, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1653
-  %conv.i1654.pre-phi = phi i32 [ %conv817, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1653 ], [ 0, %if.end806 ]
   %total_size.49 = phi i64 [ %add820, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1653 ], [ %add809, %if.end806 ]
   %_packed_sfixed64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2576
-  store atomic i32 %conv.i1654.pre-phi, ptr %_packed_sfixed64_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_sfixed64_cached_byte_size_ monotonic, align 8
   %add824 = add i64 %total_size.49, %mul814
   %packed_float_.i = getelementptr inbounds nuw i8, ptr %this, i64 2584
   %call.i1655 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_float_.i)
@@ -54596,10 +54569,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1665: ; preds = %if
   br label %if.end836
 
 if.end836:                                        ; preds = %if.end821, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1665
-  %conv.i1666.pre-phi = phi i32 [ %conv832, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1665 ], [ 0, %if.end821 ]
   %total_size.50 = phi i64 [ %add835, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1665 ], [ %add824, %if.end821 ]
   %_packed_float_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2600
-  store atomic i32 %conv.i1666.pre-phi, ptr %_packed_float_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_float_cached_byte_size_ monotonic, align 8
   %add839 = add i64 %total_size.50, %mul829
   %packed_double_.i = getelementptr inbounds nuw i8, ptr %this, i64 2608
   %call.i1667 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_double_.i)
@@ -54630,10 +54602,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1677: ; preds = %if
   br label %if.end851
 
 if.end851:                                        ; preds = %if.end836, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1677
-  %conv.i1678.pre-phi = phi i32 [ %conv847, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1677 ], [ 0, %if.end836 ]
   %total_size.51 = phi i64 [ %add850, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1677 ], [ %add839, %if.end836 ]
   %_packed_double_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2624
-  store atomic i32 %conv.i1678.pre-phi, ptr %_packed_double_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_double_cached_byte_size_ monotonic, align 8
   %add854 = add i64 %total_size.51, %mul844
   %packed_bool_.i = getelementptr inbounds nuw i8, ptr %this, i64 2632
   %call.i1679 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIbE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_bool_.i)
@@ -54722,11 +54693,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713: ; preds = %if
   br label %if.end889
 
 if.end889:                                        ; preds = %if.end866, %for.end882, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713
-  %data_size870.0.lcssa3342 = phi i64 [ %add879, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713 ], [ 0, %for.end882 ], [ 0, %if.end866 ]
-  %conv.i1714.pre-phi = phi i32 [ %conv885, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713 ], [ 0, %for.end882 ], [ 0, %if.end866 ]
   %total_size.53 = phi i64 [ %add888, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713 ], [ %add869, %for.end882 ], [ %add869, %if.end866 ]
   %_packed_nested_enum_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2672
-  store atomic i32 %conv.i1714.pre-phi, ptr %_packed_nested_enum_cached_byte_size_ monotonic, align 8
+  store atomic i32 0, ptr %_packed_nested_enum_cached_byte_size_ monotonic, align 8
   %unpacked_int32_ = getelementptr inbounds nuw i8, ptr %this, i64 2680
   %call894 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeERKNS0_13RepeatedFieldIiEE(ptr noundef nonnull align 8 dereferenceable(16) %unpacked_int32_)
   %call.i1715 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %unpacked_int32_)
@@ -54843,8 +54812,7 @@ for.end1017:                                      ; preds = %_ZN6google8protobuf
   %reass.add3020 = add nuw nsw i64 %conv958, %conv938
   %reass.add3021 = add nuw nsw i64 %reass.add3020, %conv978
   %reass.mul3022 = shl nuw nsw i64 %reass.add3021, 2
-  %add963 = add i64 %total_size.53, %data_size870.0.lcssa3342
-  %add964 = add i64 %add963, %call894
+  %add964 = add i64 %total_size.53, %call894
   %add973 = add i64 %add964, %call901
   %add974 = add i64 %add973, %call908
   %add983 = add i64 %add974, %call915
