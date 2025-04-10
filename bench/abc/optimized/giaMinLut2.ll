@@ -1900,28 +1900,28 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %17 = shl nsw i64 %16, 3
   %18 = call noalias ptr @malloc(i64 noundef %17) #22
   %19 = icmp sgt i32 %15, 0
-  br i1 %19, label %.lr.ph18.preheader.i.i, label %Abc_TtDup.exit.split.critedge
+  br i1 %19, label %.lr.ph18.preheader.i.i, label %Abc_TtCopy.exit
 
-.lr.ph18.preheader.i.i:                           ; preds = %Abc_Clock.exit
+Abc_TtCopy.exit.preheader:                        ; preds = %Abc_Clock.exit
   %wide.trip.count24.i.i = zext nneg i32 %15 to i64
-  %20 = shl nuw nsw i64 %wide.trip.count24.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr readonly align 8 %0, i64 %20, i1 false), !tbaa !16
-  %21 = call i32 @Gia_ManRandom(i32 noundef 1) #24
+  %21 = shl nuw nsw i64 %wide.trip.count24.i.i, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr readonly align 8 %0, i64 %21, i1 false), !tbaa !16
+  %22 = call i32 @Gia_ManRandom(i32 noundef 1) #24
   br label %.lr.ph18.preheader.i.us
 
 .lr.ph18.preheader.i.us:                          ; preds = %.lr.ph18.preheader.i.i, %.lr.ph18.preheader.i.us
-  %.022.us = phi i32 [ %23, %.lr.ph18.preheader.i.us ], [ 0, %.lr.ph18.preheader.i.i ]
-  %22 = call i32 @Gia_ManPermuteTreeOne(ptr noundef %18, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef %5)
+  %.022.us = phi i32 [ %25, %.lr.ph18.preheader.i.us ], [ 0, %.lr.ph18.preheader.i.i ]
+  %24 = call i32 @Gia_ManPermuteTreeOne(ptr noundef %18, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef %5)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %0, i64 %20, i1 false), !tbaa !16
-  %23 = add nuw nsw i32 %.022.us, 1
-  %exitcond24.not = icmp eq i32 %23, 100
+  %25 = add nuw nsw i32 %.022.us, 1
+  %exitcond24.not = icmp eq i32 %25, 100
   br i1 %exitcond24.not, label %.split.us, label %.lr.ph18.preheader.i.us, !llvm.loop !60
 
-Abc_TtDup.exit.split.critedge:                    ; preds = %Abc_Clock.exit
+Abc_TtCopy.exit:                                  ; preds = %Abc_Clock.exit
   %24 = call i32 @Gia_ManRandom(i32 noundef 1) #24
   br label %Abc_TtCopy.exit
 
-Abc_TtCopy.exit:                                  ; preds = %Abc_TtDup.exit.split.critedge, %Abc_TtCopy.exit
+Abc_TtCopy.exit:; preds = %Abc_TtCopy.exit, %Abc_TtCopy.exit
   %.022 = phi i32 [ 0, %Abc_TtDup.exit.split.critedge ], [ %26, %Abc_TtCopy.exit ]
   %25 = call i32 @Gia_ManPermuteTreeOne(ptr noundef %18, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef %5)
   %26 = add nuw nsw i32 %.022, 1
@@ -1930,35 +1930,35 @@ Abc_TtCopy.exit:                                  ; preds = %Abc_TtDup.exit.spli
 
 .split.us:                                        ; preds = %Abc_TtCopy.exit, %.lr.ph18.preheader.i.us
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %29, label %28
 
-27:                                               ; preds = %.split.us
+28:                                               ; preds = %.split.us
   call void @free(ptr noundef nonnull %18) #24
-  br label %28
+  br label %29
 
-28:                                               ; preds = %.split.us, %27
+29:                                               ; preds = %.split.us, %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
-  %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #24
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %Abc_Clock.exit19, label %31
+  %30 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #24
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %Abc_Clock.exit19, label %32
 
-31:                                               ; preds = %28
-  %32 = load i64, ptr %7, align 8, !tbaa !57
-  %33 = mul nsw i64 %32, 1000000
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !59
-  %36 = sdiv i64 %35, 1000
-  %37 = add nsw i64 %36, %33
+32:                                               ; preds = %29
+  %33 = load i64, ptr %7, align 8, !tbaa !57
+  %34 = mul nsw i64 %33, 1000000
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !59
+  %37 = sdiv i64 %36, 1000
+  %38 = add nsw i64 %37, %34
   br label %Abc_Clock.exit19
 
-Abc_Clock.exit19:                                 ; preds = %28, %31
-  %.0.i18 = phi i64 [ %37, %31 ], [ -1, %28 ]
+Abc_Clock.exit19:                                 ; preds = %29, %32
+  %.0.i18 = phi i64 [ %38, %32 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #24
-  %38 = add i64 %.0.i18, %.0.i.neg
+  %39 = add i64 %.0.i18, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.11)
-  %39 = sitofp i64 %38 to double
-  %40 = fdiv double %39, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.22, double noundef %40)
+  %40 = sitofp i64 %39 to double
+  %41 = fdiv double %40, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.22, double noundef %41)
   ret void
 }
 

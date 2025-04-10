@@ -1438,7 +1438,7 @@ proto_item_set_generated.exit:                    ; preds = %247, %251, %254
   br i1 %or.cond.i, label %mqtt_user_decode_message.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %278
-  %.pre69.i = load ptr, ptr @mqtt_message_decodes, align 8
+  %.pre68.i = load ptr, ptr @mqtt_message_decodes, align 8
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %325
@@ -1446,7 +1446,7 @@ proto_item_set_generated.exit:                    ; preds = %247, %251, %254
 
 .lr.ph.i:                                         ; preds = %325, %.lr.ph.preheader.i
   %285 = phi i32 [ %283, %.lr.ph.preheader.i ], [ %326, %325 ]
-  %286 = phi ptr [ %.pre69.i, %.lr.ph.preheader.i ], [ %327, %325 ]
+  %286 = phi ptr [ %.pre68.i, %.lr.ph.preheader.i ], [ %327, %325 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %325 ]
   %287 = getelementptr %struct._mqtt_message_decode_t, ptr %286, i64 %indvars.iv.i
   %288 = load i32, ptr %287, align 8
@@ -1516,11 +1516,11 @@ proto_item_set_generated.exit:                    ; preds = %247, %251, %254
   call void @g_match_info_free(ptr noundef %324)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   %.pre.i = load ptr, ptr @mqtt_message_decodes, align 8
-  %.pre70.i = load i32, ptr @num_mqtt_message_decodes, align 4
+  %.pre69.i = load i32, ptr @num_mqtt_message_decodes, align 4
   br label %325
 
 325:                                              ; preds = %318, %315, %310, %306, %303, %299, %294, %289, %.lr.ph.i
-  %326 = phi i32 [ %285, %.lr.ph.i ], [ %.pre70.i, %318 ], [ %285, %315 ], [ %285, %294 ], [ %285, %289 ], [ %285, %299 ], [ %285, %303 ], [ %285, %306 ], [ %285, %310 ]
+  %326 = phi i32 [ %285, %.lr.ph.i ], [ %.pre69.i, %318 ], [ %285, %315 ], [ %285, %294 ], [ %285, %289 ], [ %285, %299 ], [ %285, %303 ], [ %285, %306 ], [ %285, %310 ]
   %327 = phi ptr [ %286, %.lr.ph.i ], [ %.pre.i, %318 ], [ %286, %315 ], [ %286, %294 ], [ %286, %289 ], [ %286, %299 ], [ %286, %303 ], [ %286, %306 ], [ %286, %310 ]
   %.1.i = phi i1 [ false, %.lr.ph.i ], [ %323, %318 ], [ false, %315 ], [ %298, %294 ], [ %293, %289 ], [ false, %299 ], [ %305, %303 ], [ false, %306 ], [ %314, %310 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

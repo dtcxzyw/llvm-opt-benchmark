@@ -101,7 +101,7 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionERKS
   %23 = fsub double %22, %18
   %24 = fdiv double %23, 1.000000e+03
   %25 = fcmp ugt double %18, %22
-  br i1 %25, label %.critedge, label %.lr.ph
+  br i1 %25, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -120,10 +120,10 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionERKS
   br label %32
 
 ._crit_edge:                                      ; preds = %79
-  br i1 %.035117.ph, label %.critedge, label %._crit_edge.thread
+  br i1 %.035117.ph, label %._crit_edge.thread, label %._crit_edge.thread
 
 32:                                               ; preds = %.outer, %79
-  %storemerge116 = phi double [ %80, %79 ], [ %storemerge116.ph, %.outer ]
+  %.035117 = phi double [ %80, %79 ], [ %storemerge116.ph, %.outer ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store double %storemerge116, ptr %10, align 8, !tbaa !10
   %33 = load ptr, ptr %26, align 8, !tbaa !12
@@ -247,12 +247,12 @@ _ZNKSt8functionIFddEEclEd.exit52:                 ; preds = %_ZNKSt8functionIFdd
   %81 = fcmp ugt double %80, %22
   br i1 %81, label %._crit_edge, label %32, !llvm.loop !17
 
-.thread120:                                       ; preds = %_ZNKSt8functionIFddEEclEd.exit52
+.thread120:; preds = %_ZNKSt8functionIFddEEclEd.exit52
   %82 = fcmp olt double %storemerge116, %.074115.ph
-  %.sroa.speculated64 = select i1 %82, double %storemerge116, double %.074115.ph
-  %83 = fcmp olt double %.076114.ph, %storemerge116
-  %.sroa.speculated = select i1 %83, double %storemerge116, double %.076114.ph
-  %84 = fadd double %24, %storemerge116
+  %.sroa.speculated64 = select i1 %82, double %.035117, double %.074115.ph
+  %83 = fcmp olt double %.076114.ph, %.035117
+  %.sroa.speculated = select i1 %83, double %.035117, double %.076114.ph
+  %84 = fadd double %24, %.035117
   %85 = fcmp ugt double %84, %22
   br i1 %85, label %._crit_edge.thread, label %.outer, !llvm.loop !17
 
@@ -371,7 +371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %97
   %.pn.pn.pn80 = phi { ptr, i32 } [ %.pn.pn.pn81, %115 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   resume { ptr, i32 } %.pn.pn.pn80
 
-.critedge:                                        ; preds = %3, %._crit_edge
+._crit_edge.thread:                               ; preds = %3, %._crit_edge
   ret void
 
 117:                                              ; preds = %91
@@ -670,7 +670,7 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionENS_
   %19 = fptoui double %18 to i64
   %20 = add i64 %14, 2
   %21 = icmp ult i64 %20, %19
-  br i1 %21, label %.lr.ph, label %.critedge
+  br i1 %21, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %6
   %22 = fmul double %4, 2.000000e+00
@@ -682,7 +682,7 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionENS_
   br label %24
 
 ._crit_edge:                                      ; preds = %24
-  br i1 %.128, label %.critedge, label %54
+  br i1 %.128, label %._crit_edge.thread, label %54
 
 24:                                               ; preds = %.lr.ph, %24
   %25 = phi double [ %.pre95, %.lr.ph ], [ %28, %24 ]
@@ -841,7 +841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %68
   %.pn.pn.pn75 = phi { ptr, i32 } [ %.pn.pn.pn76, %86 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   resume { ptr, i32 } %.pn.pn.pn75
 
-.critedge:                                        ; preds = %6, %._crit_edge
+._crit_edge.thread:                               ; preds = %6, %._crit_edge
   ret void
 
 88:                                               ; preds = %62

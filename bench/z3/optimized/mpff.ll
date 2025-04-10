@@ -6452,12 +6452,12 @@ _ZN12mpff_manager8allocateER4mpff.exit.i:         ; preds = %_ZN6vectorIjLb0EjE4
   %62 = or disjoint i32 %61, %60
   store i32 %62, ptr %3, align 4
   %.pre = load i32, ptr %1, align 4
-  %.pre31 = load i32, ptr %2, align 4
+  %.pre30 = load i32, ptr %2, align 4
   br label %_ZN12mpff_manager18allocate_if_neededER4mpff.exit
 
 _ZN12mpff_manager18allocate_if_neededER4mpff.exit: ; preds = %44, %_ZN12mpff_manager8allocateER4mpff.exit.i
   %63 = phi i32 [ %9, %44 ], [ %62, %_ZN12mpff_manager8allocateER4mpff.exit.i ]
-  %64 = phi i32 [ %7, %44 ], [ %.pre31, %_ZN12mpff_manager8allocateER4mpff.exit.i ]
+  %64 = phi i32 [ %7, %44 ], [ %.pre30, %_ZN12mpff_manager8allocateER4mpff.exit.i ]
   %65 = phi i32 [ %5, %44 ], [ %.pre, %_ZN12mpff_manager8allocateER4mpff.exit.i ]
   %66 = xor i32 %64, %65
   %67 = and i32 %66, 1
@@ -6519,18 +6519,18 @@ _ZN12mpff_manager18allocate_if_neededER4mpff.exit: ; preds = %44, %_ZN12mpff_man
   tail call void @_Z3shrjPKjjjPj(i32 noundef %118, ptr noundef %78, i32 noundef %99, i32 noundef %114, ptr noundef %117)
   br i1 %108, label %119, label %_ZN12mpff_manager15inc_significandEPjRl.exit
 
-119:                                              ; preds = %105
+119: ; preds = %105
   %120 = load i32, ptr %0, align 8, !tbaa !13
   %121 = tail call noundef zeroext i1 @_Z3incjPj(i32 noundef %120, ptr noundef %117)
   br i1 %121, label %_ZN12mpff_manager15inc_significandEPjRl.exit, label %122
 
-122:                                              ; preds = %119
-  %123 = load i32, ptr %0, align 8, !tbaa !13
-  %124 = add i32 %123, -1
-  %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw i32, ptr %117, i64 %125
-  store i32 -2147483648, ptr %126, align 4, !tbaa !21
-  %127 = add nsw i64 %110, 1
+124:                                              ; preds = %119
+  %125 = load i32, ptr %0, align 8, !tbaa !13
+  %126 = add i32 %125, -1
+  %127 = zext i32 %126 to i64
+  %128 = getelementptr inbounds nuw i32, ptr %117, i64 %127
+  store i32 -2147483648, ptr %128, align 4, !tbaa !21
+  %129 = add nsw i64 %110, 1
   br label %_ZN12mpff_manager15inc_significandEPjRl.exit
 
 .critedge:                                        ; preds = %_ZN12mpff_manager18allocate_if_neededER4mpff.exit
@@ -6546,23 +6546,23 @@ _ZN12mpff_manager18allocate_if_neededER4mpff.exit: ; preds = %44, %_ZN12mpff_man
   tail call void @_Z3shrjPKjjjPj(i32 noundef %136, ptr noundef %78, i32 noundef %99, i32 noundef %132, ptr noundef %135)
   br label %_ZN12mpff_manager15inc_significandEPjRl.exit
 
-_ZN12mpff_manager15inc_significandEPjRl.exit:     ; preds = %122, %119, %.critedge, %105
-  %.0 = phi i64 [ %129, %.critedge ], [ %110, %105 ], [ %110, %119 ], [ %127, %122 ]
-  %137 = add nsw i64 %.0, -2147483648
-  %or.cond.i = icmp ult i64 %137, -4294967296
-  br i1 %or.cond.i, label %138, label %139
+_ZN12mpff_manager15inc_significandEPjRl.exit:     ; preds = %124, %119, %.critedge, %105
+  %.0 = phi i64 [ %129, %.critedge ], [ %110, %105 ], [ %110, %119 ], [ %129, %124 ]
+  %130 = add nsw i64 %.0, -2147483648
+  %or.cond.i = icmp ult i64 %130, -4294967296
+  br i1 %or.cond.i, label %131, label %132
 
-138:                                              ; preds = %_ZN12mpff_manager15inc_significandEPjRl.exit
+131:                                              ; preds = %_ZN12mpff_manager15inc_significandEPjRl.exit
   tail call void @_ZN12mpff_manager16set_big_exponentER4mpffl(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 4 dereferenceable(8) %3, i64 noundef %.0)
   br label %_ZN12mpff_manager12set_exponentER4mpffl.exit
 
-139:                                              ; preds = %_ZN12mpff_manager15inc_significandEPjRl.exit
-  %140 = trunc nsw i64 %.0 to i32
-  %141 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %140, ptr %141, align 4, !tbaa !35
+132:                                              ; preds = %_ZN12mpff_manager15inc_significandEPjRl.exit
+  %133 = trunc nsw i64 %.0 to i32
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %133, ptr %134, align 4, !tbaa !35
   br label %_ZN12mpff_manager12set_exponentER4mpffl.exit
 
-_ZN12mpff_manager12set_exponentER4mpffl.exit:     ; preds = %139, %138, %_ZN12mpff_manager5resetER4mpff.exit
+_ZN12mpff_manager12set_exponentER4mpffl.exit:     ; preds = %132, %131, %_ZN12mpff_manager5resetER4mpff.exit
   ret void
 }
 

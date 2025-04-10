@@ -1592,12 +1592,12 @@ _PyWeakref_GET_REF.exit52:                        ; preds = %22, %24
   %28 = icmp eq ptr %.0.i, null
   br i1 %28, label %Py_XDECREF.exit, label %39
 
-29:                                               ; preds = %_PyWeakref_GET_REF.exit52.thread
+29:; preds = %_PyWeakref_GET_REF.exit52.thread
   %30 = load i32, ptr %.0.i, align 8, !tbaa !42
   %.not.i.i54 = icmp sgt i32 %30, -1
   br i1 %.not.i.i54, label %31, label %Py_XDECREF.exit57
 
-31:                                               ; preds = %29
+31:; preds = %29
   %32 = add nsw i32 %30, -1
   store i32 %32, ptr %.0.i, align 8, !tbaa !42
   %33 = icmp eq i32 %32, 0
@@ -1611,12 +1611,12 @@ Py_XDECREF.exit:                                  ; preds = %_PyWeakref_GET_REF.
   %.not.i.i56 = icmp sgt i32 %27, -1
   br i1 %.not.i.i56, label %35, label %Py_XDECREF.exit57
 
-35:                                               ; preds = %Py_XDECREF.exit
+Py_XDECREF.exit57.sink.split:                     ; preds = %Py_XDECREF.exit
   %36 = add nsw i32 %27, -1
   store i32 %36, ptr %.val43, align 8, !tbaa !42
   br label %Py_XDECREF.exit57
 
-Py_XDECREF.exit57:                                ; preds = %35, %29, %31, %34, %_PyWeakref_GET_REF.exit52.thread, %Py_XDECREF.exit
+Py_XDECREF.exit57:                                ; preds = %Py_XDECREF.exit57.sink.split, %29, %31, %34, %_PyWeakref_GET_REF.exit52.thread, %Py_XDECREF.exit
   %37 = icmp eq ptr %0, %1
   %38 = icmp eq i32 %2, 3
   %spec.select = xor i1 %37, %38

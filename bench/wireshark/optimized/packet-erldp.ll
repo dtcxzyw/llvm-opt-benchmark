@@ -664,7 +664,7 @@ dissect_erldp_handshake.exit:                     ; preds = %26, %.critedge.i, %
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
   %94 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %171
+  br label %172
 
 is_handshake.exit.thread:                         ; preds = %4, %22, %is_handshake.exit
   %95 = load i32, ptr @hf_erldp_length_4, align 4
@@ -676,11 +676,11 @@ is_handshake.exit.thread:                         ; preds = %4, %22, %is_handsha
 99:                                               ; preds = %is_handshake.exit.thread
   %100 = load ptr, ptr %13, align 8
   call void @col_set_str(ptr noundef %100, i32 noundef 25, ptr noundef nonnull @.str.221)
-  br label %171
+  br label %172
 
 101:                                              ; preds = %is_handshake.exit.thread
   %102 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
-  switch i8 %102, label %166 [
+  switch i8 %102, label %167 [
     i8 112, label %103
     i8 -125, label %124
   ]
@@ -767,7 +767,7 @@ dissect_etf_versioned_type.exit:                  ; preds = %107, %111
   %145 = load i8, ptr %144, align 8, !range !6, !noundef !7
   %146 = call i32 @tvb_reported_length_remaining(ptr noundef %126, i32 noundef 18)
   %147 = icmp sgt i32 %146, 0
-  br i1 %147, label %148, label %.critedge.i50
+  br i1 %147, label %148, label %166
 
 148:                                              ; preds = %139
   store i8 1, ptr %144, align 8
@@ -804,29 +804,29 @@ dissect_etf_versioned_type.exit:                  ; preds = %107, %111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   br label %dissect_etf_pdu.exit
 
-.critedge.i50:                                    ; preds = %139
+166:                                              ; preds = %139
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   br label %dissect_etf_pdu.exit
 
-dissect_etf_pdu.exit:                             ; preds = %124, %128, %136, %162, %.critedge.i50
+dissect_etf_pdu.exit:                             ; preds = %124, %128, %136, %162, %166
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   br label %dissect_etf_versioned_type.exit47
 
-166:                                              ; preds = %101
-  %167 = load i32, ptr @hf_erldp_type, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %167, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
-  %169 = load ptr, ptr %13, align 8
-  call void @col_set_str(ptr noundef %169, i32 noundef 25, ptr noundef nonnull @.str.225)
+167:                                              ; preds = %101
+  %168 = load i32, ptr @hf_erldp_type, align 4
+  %169 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %168, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %170 = load ptr, ptr %13, align 8
+  call void @col_set_str(ptr noundef %170, i32 noundef 25, ptr noundef nonnull @.str.225)
   br label %dissect_etf_versioned_type.exit47
 
-dissect_etf_versioned_type.exit47:                ; preds = %121, %117, %dissect_etf_versioned_type.exit, %166, %dissect_etf_pdu.exit
-  %170 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %171
+dissect_etf_versioned_type.exit47:                ; preds = %121, %117, %dissect_etf_versioned_type.exit, %167, %dissect_etf_pdu.exit
+  %171 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %172
 
-171:                                              ; preds = %dissect_etf_versioned_type.exit47, %99, %dissect_erldp_handshake.exit
-  %.0 = phi i32 [ %94, %dissect_erldp_handshake.exit ], [ 4, %99 ], [ %170, %dissect_etf_versioned_type.exit47 ]
+172:                                              ; preds = %dissect_etf_versioned_type.exit47, %99, %dissect_erldp_handshake.exit
+  %.0 = phi i32 [ %94, %dissect_erldp_handshake.exit ], [ 4, %99 ], [ %171, %dissect_etf_versioned_type.exit47 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5
   ret i32 %.0
 }

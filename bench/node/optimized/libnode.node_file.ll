@@ -32146,7 +32146,7 @@ _ZN4node2fs13FSReqWrapSyncD2Ev.exit339:           ; preds = %if.end267, %_ZNKSt1
   store ptr null, ptr %continuation_data_.i251, align 8
   br label %cleanup275
 
-cleanup275.critedge:                              ; preds = %if.end.i.i100, %if.end.i35.i
+cleanup275:                                       ; preds = %if.end.i.i100, %if.end.i35.i
   %.sink.i = phi i32 [ 1, %if.end.i35.i ], [ 2, %if.end.i.i100 ]
   call void @_ZN4node10permission10Permission17ThrowAccessDeniedEPNS_11EnvironmentENS0_15PermissionScopeERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull %retval.0.i.i, i32 noundef %.sink.i, ptr noundef nonnull align 8 dereferenceable(16) %pathView.i) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pathView.i)
@@ -32157,7 +32157,7 @@ cleanup275.critedge:                              ; preds = %if.end.i.i100, %if.
   %158 = select i1 %cmp.i.i.i.i341, i1 %cmp.i.i.i343, i1 false
   br i1 %158, label %if.then.i.i344, label %cleanup275
 
-if.then.i.i344:                                   ; preds = %cleanup275.critedge
+if.then.i.i344:                                   ; preds = %cleanup275
   call void @free(ptr noundef nonnull %157) #30
   br label %cleanup275
 
@@ -32173,7 +32173,7 @@ if.then.i.i350:                                   ; preds = %cleanup275
   call void @free(ptr noundef nonnull %159) #30
   br label %_ZN4node11BufferValueD2Ev.exit351
 
-_ZN4node11BufferValueD2Ev.exit351:                ; preds = %cleanup275, %if.then.i.i350
+_ZN4node11BufferValueD2Ev.exit345:                ; preds = %cleanup275, %if.then.i.i350
   ret void
 }
 

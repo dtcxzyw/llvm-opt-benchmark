@@ -43,10 +43,10 @@ common.resume.i.i:                                ; preds = %3
   %4 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17he76c3e43c8e1702dE.llvm.6590528771756919200"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %common.resume.i.i unwind label %5, !noalias !4
+          to label %common.resume.i.i unwind label %8, !noalias !4
 
-5:                                                ; preds = %3
-  %6 = landingpad { ptr, i32 }
+8:                                                ; preds = %3
+  %9 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11, !noalias !4
   unreachable
@@ -60,10 +60,10 @@ _ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h5436f43a4d59a023E.exit:
   store i8 2, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !14
   %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %.sroa.51.0..sroa_idx, align 8, !alias.scope !14
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 1, ptr %7, align 8, !alias.scope !16, !noalias !11
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %8, align 8, !alias.scope !16, !noalias !11
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 1, ptr %10, align 8, !alias.scope !16, !noalias !11
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 0, ptr %11, align 8, !alias.scope !16, !noalias !11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   ret void
 }

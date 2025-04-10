@@ -13394,7 +13394,7 @@ llvm_call_convention_from_call.exit:              ; preds = %11, %24, %25, %26
   store ptr %53, ptr %.sroa.418.0..sroa_idx, align 8
   %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.519.0..sroa_idx, i8 0, i64 16, i1 false)
-  br label %175
+  br label %177
 
 54:                                               ; preds = %47
   %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @attribute_id, i64 88), align 4
@@ -13568,58 +13568,58 @@ llvm_call_convention_from_call.exit:              ; preds = %11, %24, %25, %26
   store ptr %158, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.56.0..sroa_idx, i8 0, i64 16, i1 false)
-  br label %175
+  br label %177
 
 159:                                              ; preds = %156
   %160 = load i16, ptr %2, align 8
   %161 = and i16 %160, 64
   %.not179 = icmp eq i16 %161, 0
-  br i1 %.not179, label %175, label %162
+  br i1 %.not179, label %177, label %162
 
 162:                                              ; preds = %159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %.not180 = icmp eq ptr %8, null
-  br i1 %.not180, label %.critedge182, label %.critedge
+  br i1 %.not180, label %.critedge, label %163
 
-.critedge:                                        ; preds = %162
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %164 = load ptr, ptr %163, align 8
-  %165 = load ptr, ptr @type_anyfault, align 8
-  call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %14, ptr noundef %164, ptr noundef %165) #10
-  %166 = load ptr, ptr %163, align 8
-  store ptr null, ptr %163, align 8
+163:                                              ; preds = %162
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %165 = load ptr, ptr %164, align 8
+  %166 = load ptr, ptr @type_anyfault, align 8
+  call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %14, ptr noundef %165, ptr noundef %166) #10
+  %167 = load ptr, ptr %164, align 8
+  store ptr null, ptr %164, align 8
   %167 = call ptr @llvm_load_value(ptr noundef nonnull %0, ptr noundef nonnull %14) #10
   call void @llvm_emit_jump_to_optional_exit(ptr noundef nonnull %0, ptr noundef %167) #10
   store ptr %166, ptr %163, align 8
   br label %169
 
-.critedge182:                                     ; preds = %162
+.critedge:                                        ; preds = %162
   %168 = call ptr @llvm_load_value(ptr noundef nonnull %0, ptr noundef nonnull %14) #10
   call void @llvm_emit_jump_to_optional_exit(ptr noundef nonnull %0, ptr noundef %168) #10
   br label %169
 
-169:                                              ; preds = %.critedge182, %.critedge
-  %170 = load i16, ptr %2, align 8
-  %171 = and i16 %170, 128
-  %.not181 = icmp eq i16 %171, 0
-  br i1 %.not181, label %172, label %174
+171:                                              ; preds = %163, %.critedge
+  %172 = load i16, ptr %2, align 8
+  %173 = and i16 %172, 128
+  %.not181 = icmp eq i16 %173, 0
+  br i1 %.not181, label %174, label %176
 
-172:                                              ; preds = %169
-  %173 = load ptr, ptr @type_void, align 8
+174:                                              ; preds = %171
+  %175 = load ptr, ptr @type_void, align 8
   store i8 0, ptr %1, align 8
   %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %.sroa.31.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %173, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %175, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
-  br label %175
+  br label %177
 
-174:                                              ; preds = %169
+176:                                              ; preds = %171
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  br label %175
+  br label %177
 
-175:                                              ; preds = %174, %172, %159, %157, %52
+177:                                              ; preds = %176, %174, %159, %157, %52
   ret void
 }
 

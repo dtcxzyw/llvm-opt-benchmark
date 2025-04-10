@@ -1447,8 +1447,8 @@ pmix_obj_run_destructors.exit440:                 ; preds = %.lr.ph.i437, %629
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1503, i64 228
   %.pre532 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !86
   %.not362 = icmp slt i32 %.pre532, %645
-  %or.cond545 = select i1 %.not361, i1 true, i1 %.not362
-  br i1 %or.cond545, label %._crit_edge531, label %646
+  %or.cond546 = select i1 %.not361, i1 true, i1 %.not362
+  br i1 %or.cond546, label %._crit_edge531, label %646
 
 646:                                              ; preds = %643
   %647 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !37
@@ -1991,31 +1991,31 @@ define void @prte_rmaps_base_get_starting_point(ptr noundef %0, ptr noundef read
   %or.cond = icmp ult i32 %18, 64
   br i1 %or.cond, label %19, label %28
 
-19:                                               ; preds = %._crit_edge
+19:   ; preds = %._crit_edge
   %20 = zext nneg i32 %18 to i64
   %21 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %20, i32 2
   %22 = load i32, ptr %21, align 4, !tbaa !40
   %23 = icmp sgt i32 %22, 4
   br i1 %23, label %24, label %28
 
-24:                                               ; preds = %19
+24:; preds = %19
   %25 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #11
   %26 = getelementptr inbounds nuw i8, ptr %.015, i64 152
   %27 = load ptr, ptr %26, align 8, !tbaa !64
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %18, ptr noundef nonnull @.str.31, ptr noundef %25, ptr noundef %27) #11
   br label %28
 
-28:                                               ; preds = %24, %19, %._crit_edge
+28:; preds = %24, %19, %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %.015, i64 120
   %30 = load ptr, ptr %29, align 8, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %.015, i64 128
   %32 = load ptr, ptr %31, align 8, !tbaa !66
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 120
-  store volatile ptr %30, ptr %33, align 8, !tbaa !45
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  store volatile ptr %32, ptr %34, align 8, !tbaa !66
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %36 = load volatile i64, ptr %35, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw i8, ptr %32, i64 120
+  store volatile ptr %30, ptr %30, align 8, !tbaa !45
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 128
+  store volatile ptr %32, ptr %32, align 8, !tbaa !66
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %36 = load volatile i64, ptr %34, align 8, !tbaa !8
   %37 = add i64 %36, -1
   store volatile i64 %37, ptr %35, align 8, !tbaa !8
   %38 = load ptr, ptr %7, align 8, !tbaa !45
@@ -2026,7 +2026,7 @@ define void @prte_rmaps_base_get_starting_point(ptr noundef %0, ptr noundef read
   store ptr %.015, ptr %7, align 8, !tbaa !45
   %40 = load volatile i64, ptr %35, align 8, !tbaa !8
   %41 = add i64 %40, 1
-  store volatile i64 %41, ptr %35, align 8, !tbaa !8
+  store volatile i64 %41, ptr %34, align 8, !tbaa !8
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph34, %.lr.ph, %5, %2, %28

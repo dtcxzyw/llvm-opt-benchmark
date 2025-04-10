@@ -552,8 +552,8 @@ define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr readn
   %37 = extractvalue { i64, i64 } %35, 1
   tail call void @js_free(ptr noundef %0, ptr noundef nonnull %30) #30
   %38 = and i64 %37, 4294967295
-  %.not32 = icmp eq i64 %38, 6
-  br i1 %.not32, label %.critedge, label %39
+  %.not35 = icmp eq i64 %38, 6
+  br i1 %.not35, label %.critedge, label %39
 
 39:                                               ; preds = %33
   %40 = tail call i32 @js_module_set_import_meta(ptr noundef %0, i64 %36, i64 poison, i32 noundef 1, i32 noundef 0)
@@ -577,12 +577,12 @@ JS_FreeValue.exit:                                ; preds = %39, %43, %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
   br label %js_module_loader_so.exit
 
-.critedge:                                        ; preds = %33, %31
+48:                                               ; preds = %33, %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
   br label %js_module_loader_so.exit
 
-js_module_loader_so.exit:                         ; preds = %26, %24, %22, %9, %JS_FreeValue.exit, %.critedge
-  %.1 = phi ptr [ null, %.critedge ], [ %.sroa.02.0..sroa.02.0..cast, %JS_FreeValue.exit ], [ null, %9 ], [ null, %26 ], [ null, %24 ], [ %23, %22 ]
+js_module_loader_so.exit:                         ; preds = %26, %24, %22, %9, %JS_FreeValue.exit, %48
+  %.1 = phi ptr [ null, %48 ], [ %.sroa.02.0..sroa.02.0..cast, %JS_FreeValue.exit ], [ null, %9 ], [ null, %26 ], [ null, %24 ], [ %23, %22 ]
   ret ptr %.1
 }
 
@@ -5620,7 +5620,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %67, label %12
+  br i1 %.not, label %66, label %12
 
 12:                                               ; preds = %5
   %13 = load i64, ptr %4, align 8
@@ -5628,7 +5628,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   %15 = load i64, ptr %14, align 8
   %16 = call ptr @JS_WriteObject2(ptr noundef %0, ptr noundef nonnull %6, i64 %13, i64 %15, i32 noundef 12, ptr noundef nonnull %8, ptr noundef nonnull %7) #30
   %.not48 = icmp eq ptr %16, null
-  br i1 %.not48, label %67, label %17
+  br i1 %.not48, label %66, label %17
 
 17:                                               ; preds = %12
   %18 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #31
@@ -5643,7 +5643,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   %23 = call noalias ptr @malloc(i64 noundef %22) #31
   store ptr %23, ptr %20, align 8, !tbaa !57
   %.not50 = icmp eq ptr %23, null
-  br i1 %.not50, label %65, label %24
+  br i1 %.not50, label %64, label %24
 
 24:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %16, i64 %22, i1 false)
@@ -5651,14 +5651,14 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   store i64 %22, ptr %25, align 8, !tbaa !103
   %26 = load i64, ptr %7, align 8, !tbaa !12
   %.not51 = icmp eq i64 %26, 0
-  br i1 %.not51, label %._crit_edge.critedge, label %27
+  br i1 %.not51, label %._crit_edge48, label %27
 
 27:                                               ; preds = %24
   %28 = shl i64 %26, 3
   %29 = call noalias ptr @malloc(i64 noundef %28) #31
   store ptr %29, ptr %21, align 8, !tbaa !55
   %.not52 = icmp eq ptr %29, null
-  br i1 %.not52, label %65, label %30
+  br i1 %.not52, label %64, label %30
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %8, align 8, !tbaa !77
@@ -5670,8 +5670,8 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   call void @js_free(ptr noundef %0, ptr noundef %33) #30
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %30, %.lr.ph
-  %.056 = phi i64 [ %39, %.lr.ph ], [ 0, %30 ]
+32:                                               ; preds = %30, %32
+  %.056 = phi i64 [ %39, %32 ], [ 0, %30 ]
   %34 = load ptr, ptr %21, align 8, !tbaa !55
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.056
   %36 = load ptr, ptr %35, align 8, !tbaa !29
@@ -5686,11 +5686,11 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 %26, ptr %42, align 8, !tbaa !52
   call void @js_free(ptr noundef %0, ptr noundef nonnull %16) #30
-  %43 = load ptr, ptr %8, align 8, !tbaa !77
-  call void @js_free(ptr noundef %0, ptr noundef %43) #30
+  %34 = load ptr, ptr %8, align 8, !tbaa !77
+  call void @js_free(ptr noundef %0, ptr noundef %34) #30
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.critedge
+50:                                               ; preds = %32, %._crit_edge48
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !113
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -5704,46 +5704,46 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
 51:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #30
   store i8 0, ptr %9, align 1, !tbaa !11
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 68
-  br label %53
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 68
+  br label %52
 
-53:                                               ; preds = %53, %51
-  %54 = load i32, ptr %52, align 4, !tbaa !60
-  %55 = call i64 @write(i32 noundef %54, ptr noundef nonnull %9, i64 noundef 1) #30
-  %56 = trunc i64 %55 to i32
-  %57 = icmp eq i32 %56, 1
-  %58 = icmp slt i32 %56, 0
-  %or.cond = or i1 %57, %58
-  br i1 %or.cond, label %59, label %53
+52:                                               ; preds = %52, %51
+  %53 = load i32, ptr %51, align 4, !tbaa !60
+  %54 = call i64 @write(i32 noundef %53, ptr noundef nonnull %9, i64 noundef 1) #30
+  %55 = trunc i64 %54 to i32
+  %56 = icmp eq i32 %55, 1
+  %57 = icmp slt i32 %55, 0
+  %or.cond = or i1 %56, %57
+  br i1 %or.cond, label %58, label %52
 
-59:                                               ; preds = %53
+58:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #30
-  br label %60
+  br label %59
 
-60:                                               ; preds = %59, %._crit_edge
-  %61 = load ptr, ptr %48, align 8, !tbaa !34
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %18, ptr %62, align 8, !tbaa !35
-  store ptr %61, ptr %18, align 8, !tbaa !34
-  %63 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %48, ptr %63, align 8, !tbaa !35
+59:                                               ; preds = %58, %._crit_edge
+  %60 = load ptr, ptr %48, align 8, !tbaa !34
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store ptr %18, ptr %61, align 8, !tbaa !35
+  store ptr %60, ptr %18, align 8, !tbaa !34
+  %62 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %48, ptr %62, align 8, !tbaa !35
   store ptr %18, ptr %48, align 8, !tbaa !34
-  %64 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %46) #30
-  br label %67
+  %63 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %46) #30
+  br label %66
 
-65:                                               ; preds = %19, %27
+64:                                               ; preds = %19, %27
   call void @free(ptr noundef %23) #30
   call void @free(ptr noundef nonnull %18) #30
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %65
+.critedge:                                        ; preds = %17, %64
   call void @js_free(ptr noundef %0, ptr noundef nonnull %16) #30
-  %66 = load ptr, ptr %8, align 8, !tbaa !77
-  call void @js_free(ptr noundef %0, ptr noundef %66) #30
-  br label %67
+  %65 = load ptr, ptr %8, align 8, !tbaa !77
+  call void @js_free(ptr noundef %0, ptr noundef %65) #30
+  br label %66
 
-67:                                               ; preds = %12, %5, %.critedge, %60
-  %.sroa.9.0 = phi i64 [ 3, %60 ], [ 6, %.critedge ], [ 6, %5 ], [ 6, %12 ]
+66:                                               ; preds = %12, %5, %.critedge, %59
+  %.sroa.9.0 = phi i64 [ 3, %59 ], [ 6, %.critedge ], [ 6, %5 ], [ 6, %12 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30

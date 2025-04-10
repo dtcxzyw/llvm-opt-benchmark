@@ -6383,13 +6383,13 @@ define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$
   store i64 0, ptr %15, align 8
   br label %.lr.ph
 
-16:                                               ; preds = %.noexc, %29
+16:                                               ; preds = %.noexc, %24
   %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b6e01848106ce32E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #24
-          to label %41 unwind label %39
+          to label %36 unwind label %34
 
-._crit_edge.critedge:                             ; preds = %3
+._crit_edge:                                      ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %18 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7bd03435afd6f60aE"(i64 noundef 0, i1 noundef zeroext false)
   %19 = extractvalue { i64, ptr } %18, 0
@@ -6407,25 +6407,25 @@ define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$
   ret void
 
 .lr.ph:                                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c4a50b1c0ae525dE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit"
-  %23 = phi i64 [ %37, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit" ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c4a50b1c0ae525dE.exit" ]
-  %.sroa.0.014 = phi ptr [ %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit" ], [ %1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c4a50b1c0ae525dE.exit" ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 16
+  %18 = phi i64 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit" ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c4a50b1c0ae525dE.exit" ]
+  %.sroa.0.014 = phi ptr [ %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit" ], [ %1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c4a50b1c0ae525dE.exit" ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 16
   %.val = load ptr, ptr %.sroa.0.014, align 8, !nonnull !4, !align !22, !noundef !4
-  %25 = getelementptr i8, ptr %.sroa.0.014, i64 8
-  %.val9 = load i64, ptr %25, align 8, !noundef !4
-  %26 = load i64, ptr %4, align 8, !alias.scope !665, !noalias !672, !noundef !4
-  %27 = sub i64 %26, %23
-  %28 = icmp ugt i64 %.val9, %27
-  br i1 %28, label %29, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit"
+  %20 = getelementptr i8, ptr %.sroa.0.014, i64 8
+  %.val9 = load i64, ptr %20, align 8, !noundef !4
+  %21 = load i64, ptr %4, align 8, !alias.scope !665, !noalias !672, !noundef !4
+  %22 = sub i64 %21, %18
+  %23 = icmp ugt i64 %.val9, %22
+  br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit"
 
-29:                                               ; preds = %.lr.ph
-  %30 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h20d237124343c3e5E.llvm.11658830040512789610"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %23, i64 noundef %.val9)
+24:                                               ; preds = %.lr.ph
+  %25 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h20d237124343c3e5E.llvm.11658830040512789610"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %18, i64 noundef %.val9)
           to label %.noexc unwind label %16
 
-.noexc:                                           ; preds = %29
-  %31 = extractvalue { i64, i64 } %30, 0
-  %32 = extractvalue { i64, i64 } %30, 1
-  invoke void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.11658830040512789610(i64 noundef %31, i64 %32)
+.noexc:                                           ; preds = %24
+  %26 = extractvalue { i64, i64 } %25, 0
+  %27 = extractvalue { i64, i64 } %25, 1
+  invoke void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.11658830040512789610(i64 noundef %26, i64 %27)
           to label %.noexc11 unwind label %16
 
 .noexc11:                                         ; preds = %.noexc
@@ -6433,23 +6433,23 @@ define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit": ; preds = %.lr.ph, %.noexc11
-  %33 = phi i64 [ %23, %.lr.ph ], [ %.pre.i.i, %.noexc11 ]
-  %34 = load ptr, ptr %14, align 8, !alias.scope !674, !noalias !672, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %.val, i64 %.val9, i1 false)
-  %36 = load i64, ptr %15, align 8, !alias.scope !674, !noalias !672, !noundef !4
-  %37 = add i64 %36, %.val9
-  store i64 %37, ptr %15, align 8
-  %38 = icmp eq ptr %24, %5
-  br i1 %38, label %._crit_edge, label %.lr.ph
+  %28 = phi i64 [ %18, %.lr.ph ], [ %.pre.i.i, %.noexc11 ]
+  %29 = load ptr, ptr %14, align 8, !alias.scope !674, !noalias !672, !nonnull !4, !noundef !4
+  %30 = getelementptr inbounds i8, ptr %29, i64 %28
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %.val, i64 %.val9, i1 false)
+  %31 = load i64, ptr %15, align 8, !alias.scope !674, !noalias !672, !noundef !4
+  %32 = add i64 %31, %.val9
+  store i64 %32, ptr %15, align 8
+  %33 = icmp eq ptr %19, %5
+  br i1 %33, label %._crit_edge, label %.lr.ph
 
-39:                                               ; preds = %16
-  %40 = landingpad { ptr, i32 }
+34:                                               ; preds = %16
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #25
   unreachable
 
-41:                                               ; preds = %16
+36:                                               ; preds = %16
   resume { ptr, i32 } %17
 }
 

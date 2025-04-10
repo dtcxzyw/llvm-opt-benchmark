@@ -1908,11 +1908,11 @@ _Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 19232
-  br label %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit
+  br label %12
 
 7:                                                ; preds = %1, %select.unfold
-  %.02230 = phi i32 [ 0, %1 ], [ %10, %select.unfold ]
-  %8 = icmp ugt i32 %.02230, 100
+  %.02229 = phi i32 [ 0, %1 ], [ %10, %select.unfold ]
+  %8 = icmp ugt i32 %.02229, 100
   br i1 %8, label %9, label %select.unfold
 
 9:                                                ; preds = %7
@@ -1920,7 +1920,7 @@ _Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader
   br label %select.unfold
 
 select.unfold:                                    ; preds = %9, %7
-  %10 = add i32 %.02230, 1
+  %10 = add i32 %.02229, 1
   %11 = tail call noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__icoP20Vmycpu_top___024root(ptr noundef nonnull %0)
   store i8 0, ptr %2, align 4
   br i1 %11, label %7, label %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader
@@ -1929,18 +1929,18 @@ select.unfold28:                                  ; preds = %32
   %12 = add i32 %.019, 1
   tail call void @_Z31Vmycpu_top___024root___eval_nbaP20Vmycpu_top___024root(ptr noundef nonnull %0)
   store i64 0, ptr %3, align 8
-  br label %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit, !llvm.loop !11
+  br label %12, !llvm.loop !11
 
-_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit: ; preds = %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader, %select.unfold28
-  %.019 = phi i32 [ %12, %select.unfold28 ], [ 0, %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader ]
-  %13 = icmp ugt i32 %.019, 100
+12:                                               ; preds = %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader, %select.unfold28
+  %.01930 = phi i32 [ %12, %select.unfold28 ], [ 0, %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader ]
+  %13 = icmp ugt i32 %.01930, 100
   br i1 %13, label %14, label %15
 
-14:                                               ; preds = %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit
+14:                                               ; preds = %12
   tail call void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef nonnull @.str, i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3)
   br label %15
 
-15:                                               ; preds = %14, %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit
+15:                                               ; preds = %14, %12
   store i32 0, ptr %4, align 4
   store i8 1, ptr %5, align 8
   br label %16
@@ -1990,14 +1990,14 @@ _Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root.exit.thread: ;
 _Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root.exit: ; preds = %23
   %.pr.pre = load i8, ptr %5, align 8
   %31 = icmp eq i8 %.pr.pre, 0
-  br i1 %31, label %32, label %thread-pre-split, !llvm.loop !12
+  br i1 %31, label %.preheader, label %thread-pre-split, !llvm.loop !12
 
-32:                                               ; preds = %_Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root.exit
+.preheader:                                       ; preds = %_Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root.exit
   %33 = load i64, ptr %3, align 8
   %.not.i.i27 = icmp eq i64 %33, 0
   br i1 %.not.i.i27, label %.critedge, label %select.unfold28, !llvm.loop !10
 
-.critedge:                                        ; preds = %32
+33:                                               ; preds = %.preheader
   ret void
 }
 

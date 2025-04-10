@@ -10,7 +10,7 @@ define dso_local i32 @lzma_block_header_size(ptr noundef captures(none) %0) loca
   %2 = alloca i32, align 4
   %3 = load i32, ptr %0, align 8, !tbaa !4
   %4 = icmp ugt i32 %3, 1
-  br i1 %4, label %.critedge, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23,70 +23,70 @@ define dso_local i32 @lzma_block_header_size(ptr noundef captures(none) %0) loca
   %10 = icmp eq i32 %9, 0
   %11 = icmp eq i64 %7, 0
   %or.cond = or i1 %11, %10
-  br i1 %or.cond, label %.critedge, label %12
+  br i1 %or.cond, label %.thread, label %12
 
-12:                                               ; preds = %8
+12:    ; preds = %8
   %13 = add i32 %9, 6
   br label %14
 
-14:                                               ; preds = %12, %5
+14: ; preds = %12, %5
   %.035 = phi i32 [ %13, %12 ], [ 6, %5 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !12
   %.not53 = icmp eq i64 %16, -1
   br i1 %.not53, label %20, label %17
 
-17:                                               ; preds = %14
+17:; preds = %14
   %18 = tail call i32 @lzma_vli_size(i64 noundef %16) #5
   %.not54 = icmp eq i32 %18, 0
   %19 = add i32 %18, %.035
-  br i1 %.not54, label %.critedge, label %20
+  br i1 %.not54, label %.thread, label %20
 
-20:                                               ; preds = %17, %14
+20: ; preds = %17, %14
   %.237 = phi i32 [ %19, %17 ], [ %.035, %14 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.critedge, label %24
+  br i1 %23, label %.thread, label %24
 
-24:                                               ; preds = %20
+24:; preds = %20
   %25 = load i64, ptr %22, align 8, !tbaa !14
   %26 = icmp eq i64 %25, -1
-  br i1 %26, label %.critedge, label %.lr.ph
+  br i1 %26, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %24, %32
-  %27 = phi ptr [ %36, %32 ], [ %22, %24 ]
+.lr.ph:; preds = %24, %32
+  %.43964 = phi ptr [ %36, %31 ], [ %22, %24 ]
   %.03462 = phi i64 [ %34, %32 ], [ 0, %24 ]
   %.43961 = phi i32 [ %33, %32 ], [ %.237, %24 ]
   %28 = icmp eq i64 %.03462, 4
-  br i1 %28, label %.critedge, label %29
+  br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  %30 = call i32 @lzma_filter_flags_size(ptr noundef nonnull %2, ptr noundef nonnull %27) #6
-  %.not56 = icmp eq i32 %30, 0
-  %31 = load i32, ptr %2, align 4
+  %29 = call i32 @lzma_filter_flags_size(ptr noundef nonnull %2, ptr noundef nonnull %27) #6
+  %.not56 = icmp eq i32 %29, 0
+  %30 = load i32, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  br i1 %.not56, label %32, label %.critedge
+  br i1 %.not56, label %31, label %.thread
 
-32:                                               ; preds = %29
-  %33 = add i32 %31, %.43961
-  %34 = add nuw nsw i64 %.03462, 1
-  %35 = load ptr, ptr %21, align 8, !tbaa !13
-  %36 = getelementptr inbounds nuw %struct.lzma_filter, ptr %35, i64 %34
-  %37 = load i64, ptr %36, align 8, !tbaa !14
-  %.not55 = icmp eq i64 %37, -1
+31:                                               ; preds = %29
+  %32 = add i32 %30, %.43961
+  %33 = add nuw nsw i64 %.03462, 1
+  %34 = load ptr, ptr %21, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.lzma_filter, ptr %34, i64 %33
+  %36 = load i64, ptr %35, align 8, !tbaa !14
+  %.not55 = icmp eq i64 %36, -1
   br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %32
-  %38 = add i32 %33, 3
-  %39 = and i32 %38, -4
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %39, ptr %40, align 4, !tbaa !18
-  br label %.critedge
+._crit_edge:                                      ; preds = %31
+  %37 = add i32 %32, 3
+  %38 = and i32 %37, -4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %38, ptr %39, align 4, !tbaa !18
+  br label %.thread
 
-.critedge:                                        ; preds = %29, %.lr.ph, %._crit_edge, %17, %24, %20, %8, %1
-  %.0 = phi i32 [ 8, %1 ], [ 0, %._crit_edge ], [ 11, %17 ], [ 11, %24 ], [ 11, %20 ], [ 11, %8 ], [ %30, %29 ], [ 11, %.lr.ph ]
+.thread:                                          ; preds = %29, %.lr.ph, %._crit_edge, %17, %24, %20, %8, %1
+  %.0 = phi i32 [ 8, %1 ], [ 0, %._crit_edge ], [ 11, %17 ], [ 11, %24 ], [ 11, %20 ], [ 11, %8 ], [ %29, %29 ], [ 11, %.lr.ph ]
   ret i32 %.0
 }
 

@@ -619,8 +619,8 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
   %18 = and i1 %15, %17
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %19, align 4
-  %.not78 = icmp eq i32 %.sroa.0.0.copyload.i, -1
-  br i1 %.not78, label %20, label %.critedge
+  %.not75 = icmp eq i32 %.sroa.0.0.copyload.i, -1
+  br i1 %.not75, label %20, label %.critedge
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -629,12 +629,12 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %20
-  %.sroa.0.0.copyload.i68 = load i32, ptr %4, align 8
-  %.not79 = icmp eq i32 %.sroa.0.0.copyload.i68, %6
-  br i1 %.not79, label %35, label %25
+  %.sroa.0.0.copyload.i66 = load i32, ptr %4, align 8
+  %.not76 = icmp eq i32 %.sroa.0.0.copyload.i66, %6
+  br i1 %.not76, label %35, label %25
 
 25:                                               ; preds = %24
-  tail call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %6, i32 %.sroa.0.0.copyload.i68) #4
+  tail call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %6, i32 %.sroa.0.0.copyload.i66) #4
   br label %35
 
 .critedge:                                        ; preds = %9, %20
@@ -664,8 +664,8 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
   br label %37
 
 37:                                               ; preds = %36, %35
-  %.not80 = icmp eq i32 %5, -1
-  br i1 %.not80, label %38, label %47
+  %.not77 = icmp eq i32 %5, -1
+  br i1 %.not77, label %38, label %47
 
 38:                                               ; preds = %37
   store i32 %6, ptr %12, align 8
@@ -686,7 +686,7 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 0, ptr %46, align 8
   call void @_ZN19BarrierSetAssembler8store_atEP14MacroAssemblerm9BasicType7Address8RegisterS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull %12, i32 -1, i32 -1, i32 -1, i32 -1) #4
-  br label %69
+  br label %62
 
 47:                                               ; preds = %37
   br i1 %18, label %48, label %.critedge67
@@ -721,7 +721,7 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
   store i32 0, ptr %60, align 8
   call void @_ZN19BarrierSetAssembler8store_atEP14MacroAssemblerm9BasicType7Address8RegisterS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull %13, i32 %5, i32 -1, i32 -1, i32 -1) #4
   call void @_ZN21G1BarrierSetAssembler21g1_write_barrier_postEP14MacroAssembler8RegisterS2_S2_S2_S2_(ptr nonnull align 8 poison, ptr noundef %1, i32 %6, i32 %.sroa.012.0, i32 15, i32 %8, i32 %7)
-  br label %69
+  br label %62
 
 .critedge67:                                      ; preds = %47
   store i32 %6, ptr %13, align 8
@@ -744,7 +744,7 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
   call void @_ZN19BarrierSetAssembler8store_atEP14MacroAssemblerm9BasicType7Address8RegisterS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull %13, i32 %5, i32 -1, i32 -1, i32 -1) #4
   br label %69
 
-69:                                               ; preds = %.critedge67, %52, %38
+62:                                               ; preds = %.critedge67, %52, %38
   ret void
 }
 

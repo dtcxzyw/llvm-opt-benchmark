@@ -767,9 +767,9 @@ define dso_local void @_ZN5clang6format36BreakableStringLiteralUsingOperatorsC2E
   %46 = icmp eq i8 %45, 0
   %.not69 = select i1 %43, i1 true, i1 %46
   %47 = icmp eq i8 %42, 10
-  br i1 %47, label %.critedge, label %58
+  br i1 %47, label %.thread, label %58
 
-.critedge:                                        ; preds = %9
+.thread:                                          ; preds = %9
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 212
   %49 = load i8, ptr %48, align 4, !tbaa !169, !range !135, !noundef !136
   %50 = trunc nuw i8 %49 to i1
@@ -819,42 +819,42 @@ define dso_local void @_ZN5clang6format36BreakableStringLiteralUsingOperatorsC2E
   store i64 %69, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !126
   br label %85
 
-70:                                               ; preds = %58
+70:; preds = %58
   %71 = select i1 %61, i64 3, i64 2
   br i1 %11, label %72, label %76
 
 72:                                               ; preds = %70
   %73 = select i1 %61, ptr @.str.17, ptr @.str.18
-  %74 = select i1 %.not69, ptr @.str.4, ptr @.str.19
+  %75 = select i1 %.not69, ptr @.str.4, ptr @.str.19
   %75 = select i1 %.not69, i64 2, i64 4
   br label %80
 
-76:                                               ; preds = %70
-  %77 = select i1 %61, ptr @.str.20, ptr @.str.21
-  %78 = select i1 %.not69, ptr @.str.5, ptr @.str.22
+76:; preds = %70
+  %78 = select i1 %61, ptr @.str.20, ptr @.str.21
+  %79 = select i1 %.not69, ptr @.str.5, ptr @.str.22
   %79 = select i1 %.not69, i64 1, i64 3
   br label %80
 
-80:                                               ; preds = %76, %72
+80:; preds = %76, %72
   %.sink72 = phi ptr [ %77, %76 ], [ %73, %72 ]
-  %.sink70 = phi ptr [ %78, %76 ], [ %74, %72 ]
+  %.sink70 = phi ptr [ %79, %76 ], [ %74, %72 ]
   %.sink = phi i64 [ %79, %76 ], [ %75, %72 ]
   store ptr %.sink72, ptr %39, align 8, !tbaa !125
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %71, ptr %81, align 8, !tbaa !126
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %71, ptr %85, align 8, !tbaa !126
   store ptr %.sink70, ptr %22, align 8, !tbaa !125
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !126
-  %82 = select i1 %61, ptr @.str.23, ptr @.str.24
-  store ptr %82, ptr %40, align 8, !tbaa !125
+  %86 = select i1 %61, ptr @.str.23, ptr @.str.24
+  store ptr %86, ptr %40, align 8, !tbaa !125
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %71, ptr %.sroa.437.0..sroa_idx, align 8, !tbaa !126
-  %83 = select i1 %.not69, ptr @.str.25, ptr @.str.5
-  %84 = select i1 %.not69, i64 3, i64 1
-  store ptr %83, ptr %23, align 8, !tbaa !125
-  store i64 %84, ptr %.sroa.466.0..sroa_idx, align 8, !tbaa !126
+  %87 = select i1 %.not69, ptr @.str.25, ptr @.str.5
+  %88 = select i1 %.not69, i64 3, i64 1
+  store ptr %87, ptr %23, align 8, !tbaa !125
+  store i64 %88, ptr %.sroa.466.0..sroa_idx, align 8, !tbaa !126
   br label %85
 
-85:                                               ; preds = %62, %80
+85:; preds = %62, %80
   %86 = phi i64 [ %64, %62 ], [ %71, %80 ]
   %87 = trunc nuw nsw i64 %86 to i32
   %88 = add nsw i32 %87, -1
@@ -866,13 +866,13 @@ define dso_local void @_ZN5clang6format36BreakableStringLiteralUsingOperatorsC2E
 91:                                               ; preds = %85
   %.not = xor i1 %36, true
   %brmerge33.not = and i1 %3, %.not
-  %92 = getelementptr inbounds nuw i8, ptr %8, i64 65
-  %93 = load i8, ptr %92, align 1
-  %94 = icmp eq i8 %93, 2
-  %or.cond = select i1 %brmerge33.not, i1 %94, i1 false
-  br i1 %or.cond, label %95, label %96
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 65
+  %97 = load i8, ptr %96, align 1
+  %98 = icmp eq i8 %97, 2
+  %or.cond = select i1 %brmerge33.not, i1 %98, i1 false
+  br i1 %or.cond, label %99, label %96
 
-95:                                               ; preds = %91
+99:                                               ; preds = %91
   store i32 -2, ptr %90, align 8, !tbaa !170
   br label %96
 

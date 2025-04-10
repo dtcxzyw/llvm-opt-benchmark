@@ -4723,7 +4723,7 @@ define internal fastcc void @print_precision(ptr noundef nonnull %0, i64 noundef
   %7 = shl i64 %6, 3
   %8 = tail call i64 @H5Tget_precision(i64 noundef %1) #20
   %.not = icmp eq i64 %7, %8
-  br i1 %.not, label %64, label %9
+  br i1 %.not, label %61, label %9
 
 9:                                                ; preds = %3
   %10 = icmp eq i64 %8, 1
@@ -4776,7 +4776,7 @@ define internal fastcc void @print_precision(ptr noundef nonnull %0, i64 noundef
   br i1 %34, label %switch.lookup, label %35
 
 35:                                               ; preds = %32, %24
-  br i1 %25, label %.thread.thread, label %64
+  br i1 %25, label %.thread.thread, label %61
 
 .thread.thread:                                   ; preds = %35
   %36 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.173, i32 noundef %2, ptr noundef nonnull @.str.50) #20
@@ -4788,13 +4788,13 @@ define internal fastcc void @print_precision(ptr noundef nonnull %0, i64 noundef
   br label %.critedge
 
 switch.lookup:                                    ; preds = %32
-  %42 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.print_float_type.3, i64 0, i64 %42
+  %37 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.print_float_type.3, i64 0, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %43 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.173, i32 noundef %2, ptr noundef nonnull @.str.50) #20
-  br i1 %25, label %44, label %.thread43
+  %38 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.173, i32 noundef %2, ptr noundef nonnull @.str.50) #20
+  br i1 %25, label %39, label %.thread43
 
-44:                                               ; preds = %switch.lookup
+39:                                               ; preds = %switch.lookup
   %45 = call i32 @H5Tget_offset(i64 noundef %1) #20
   %46 = zext i32 %45 to i64
   %47 = icmp eq i32 %45, 1
@@ -4819,10 +4819,10 @@ switch.lookup:                                    ; preds = %32
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread.thread, %.thread43
-  %63 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.176) #20
-  br label %64
+  %60 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.176) #20
+  br label %61
 
-64:                                               ; preds = %.critedge, %35, %3
+61:                                               ; preds = %.critedge, %35, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
   ret void

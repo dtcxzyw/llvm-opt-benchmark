@@ -2542,7 +2542,7 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @mmput(ptr noundef nonnull %28) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %56, %48, %45, %.split.us, %.split7.us
+111:                                              ; preds = %56, %48, %45, %.split.us, %.split7.us
   %110 = tail call i32 @trace_handle_return(ptr noundef nonnull %5) #10
   ret i32 %110
 }

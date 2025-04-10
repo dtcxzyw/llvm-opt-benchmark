@@ -1648,7 +1648,7 @@ define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr noundef captures(n
   %18 = call i64 @read_tar_number(ptr noundef nonnull %9, i32 noundef 8) #17
   %19 = trunc i64 %18 to i32
   %20 = icmp eq i32 %17, %19
-  br i1 %20, label %.critedge, label %.preheader
+  br i1 %20, label %.loopexit52, label %.preheader
 
 21:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1659,10 +1659,10 @@ define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr noundef captures(n
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %16 ]
   %22 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
-  %.not32 = icmp eq i8 %23, 0
-  br i1 %.not32, label %21, label %.critedge
+  %.not32.not = icmp eq i8 %23, 0
+  br i1 %.not32.not, label %21, label %.loopexit52
 
-.critedge:                                        ; preds = %16, %.preheader
+.loopexit52:                                      ; preds = %16, %.preheader
   %24 = phi i32 [ %19, %.preheader ], [ %17, %16 ]
   %25 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 101) #17
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 124
@@ -1671,31 +1671,31 @@ define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr noundef captures(n
   %29 = icmp ult i32 %28, 2
   br i1 %29, label %30, label %31, !prof !11
 
-30:                                               ; preds = %.critedge
+30: ; preds = %.loopexit52
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull %4, i64 noundef %10, i64 noundef %27, i32 noundef %24) #17
   br label %31
 
-31:                                               ; preds = %30, %.critedge
+31: ; preds = %30, %.critedge
   %.not = icmp eq i32 %17, %24
   br i1 %.not, label %35, label %32
 
-32:                                               ; preds = %31
+32:; preds = %31
   %33 = load ptr, ptr %8, align 8
   %34 = call i64 @ftello(ptr noundef %33)
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.27, ptr noundef nonnull %4, i32 noundef %24, i32 noundef %17, i64 noundef %34) #17
   call void @exit_nicely(i32 noundef 1) #18
   unreachable
 
-35:                                               ; preds = %31
-  %36 = call ptr @pg_strdup(ptr noundef nonnull %4) #17
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i64 %27, ptr %38, align 8
+34:                                               ; preds = %31
+  %35 = call ptr @pg_strdup(ptr noundef nonnull %4) #17
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i64 %27, ptr %37, align 8
   br label %.loopexit33
 
-.loopexit33:                                      ; preds = %.loopexit, %35
-  %.029 = phi i32 [ 1, %35 ], [ 0, %.loopexit ]
+.loopexit33:                                      ; preds = %.loopexit, %34
+  %.029 = phi i32 [ 1, %34 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 101, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #17
   ret i32 %.029

@@ -493,7 +493,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %14, %17
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %31 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2)
   %32 = icmp slt i32 %31, 1
-  br i1 %32, label %113, label %33
+  br i1 %32, label %110, label %33
 
 33:                                               ; preds = %proto_item_set_hidden.exit
   switch i8 %21, label %107 [
@@ -653,7 +653,7 @@ dissect_q932_facility_ie.exit:                    ; preds = %85, %34
   %103 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %101, ptr noundef nonnull @ei_q932_asn1_encoded)
   br label %dissect_q932_ni_ie.exit
 
-.critedge.i:                                      ; preds = %87
+104:                                              ; preds = %87
   %104 = load i32, ptr @hf_q932_nd, align 4
   %105 = sub nuw nsw i32 2, %88
   %106 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %104, ptr noundef %0, i32 noundef %105, i32 noundef range(i32 0, 256) %88, i32 noundef 0)
@@ -661,20 +661,20 @@ dissect_q932_facility_ie.exit:                    ; preds = %85, %34
 
 107:                                              ; preds = %33
   %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %dissect_q932_ni_ie.exit, label %108
+  br i1 %.not, label %dissect_q932_ni_ie.exit, label %105
 
-108:                                              ; preds = %107
-  %109 = zext i8 %22 to i32
-  %110 = load i32, ptr @hf_q932_ie_data, align 4
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %110, ptr noundef %0, i32 noundef 2, i32 noundef %109, i32 noundef 0)
+105:                                              ; preds = %107
+  %106 = zext i8 %22 to i32
+  %107 = load i32, ptr @hf_q932_ie_data, align 4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %107, ptr noundef %0, i32 noundef 2, i32 noundef %106, i32 noundef 0)
   br label %dissect_q932_ni_ie.exit
 
-dissect_q932_ni_ie.exit:                          ; preds = %.critedge.i, %102, %._crit_edge.i, %107, %108, %dissect_q932_facility_ie.exit
-  %112 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %113
+dissect_q932_ni_ie.exit:                          ; preds = %104, %102, %._crit_edge.i, %107, %105, %dissect_q932_facility_ie.exit
+  %109 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %110
 
-113:                                              ; preds = %proto_item_set_hidden.exit, %dissect_q932_ni_ie.exit
-  %.0 = phi i32 [ %112, %dissect_q932_ni_ie.exit ], [ 2, %proto_item_set_hidden.exit ]
+110:                                              ; preds = %proto_item_set_hidden.exit, %dissect_q932_ni_ie.exit
+  %.0 = phi i32 [ %109, %dissect_q932_ni_ie.exit ], [ 2, %proto_item_set_hidden.exit ]
   ret i32 %.0
 }
 

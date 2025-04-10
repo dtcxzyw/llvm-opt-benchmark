@@ -149,7 +149,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
   %65 = tail call noalias ptr @malloc(i64 noundef %64) #20
   %66 = getelementptr inbounds ptr, ptr %65, i64 %63
   %67 = icmp sgt i32 %0, 0
-  br i1 %67, label %.lr.ph.preheader.i77, label %.preheader.critedge
+  br i1 %67, label %.lr.ph.preheader.i77, label %.preheader
 
 .lr.ph.preheader.i77:                             ; preds = %Vec_PtrAllocSimInfo.exit
   %wide.trip.count.i78 = zext nneg i32 %0 to i64
@@ -217,7 +217,7 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
   br i1 %exitcond105.not, label %.preheader, label %.lr.ph.us, !llvm.loop !50
 
-.preheader.critedge:                              ; preds = %Vec_PtrAllocSimInfo.exit
+.preheader:                                       ; preds = %Vec_PtrAllocSimInfo.exit
   %93 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 %0, ptr %94, align 4, !tbaa !21
@@ -236,13 +236,13 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79
   br i1 %98, label %.lr.ph.preheader.i84.us, label %.split.us
 
 .lr.ph.preheader.i84.us:                          ; preds = %.preheader, %Abc_InfoRandom.exit.loopexit.us
-  %.192.us = phi i32 [ %100, %Abc_InfoRandom.exit.loopexit.us ], [ %0, %.preheader ]
+  %.192.us = phi i32 [ %95, %Abc_InfoRandom.exit.loopexit.us ], [ %0, %.preheader ]
   %.val76.val.us = load ptr, ptr %61, align 8, !tbaa !24
-  %100 = add i32 %.192.us, 1
-  %101 = and i32 %100, 32767
-  %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %.val76.val.us, i64 %102
-  %104 = load ptr, ptr %103, align 8, !tbaa !44
+  %95 = add i32 %.192.us, 1
+  %96 = and i32 %95, 32767
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds nuw ptr, ptr %.val76.val.us, i64 %97
+  %99 = load ptr, ptr %98, align 8, !tbaa !44
   br label %.lr.ph.i85.us
 
 .lr.ph.i85.us:                                    ; preds = %.lr.ph.i85.us, %.lr.ph.preheader.i84.us
@@ -261,22 +261,22 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79
   br i1 %113, label %.lr.ph.i85.us, label %Abc_InfoRandom.exit.loopexit.us, !llvm.loop !51
 
 Abc_InfoRandom.exit.loopexit.us:                  ; preds = %.lr.ph.i85.us
-  %114 = icmp slt i32 %100, %22
-  br i1 %114, label %.lr.ph.preheader.i84.us, label %.split.us, !llvm.loop !52
+  %109 = icmp slt i32 %95, %22
+  br i1 %109, label %.lr.ph.preheader.i84.us, label %.split.us, !llvm.loop !52
 
 .lr.ph91.split:                                   ; preds = %Vec_PtrAllocSimInfo.exit83, %.lr.ph91.split
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph91.split ], [ 0, %Vec_PtrAllocSimInfo.exit83 ]
   %.val75 = load ptr, ptr %73, align 8, !tbaa !24
-  %115 = getelementptr inbounds nuw ptr, ptr %.val75, i64 %indvars.iv96
-  %116 = load ptr, ptr %115, align 8, !tbaa !44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %116, i8 0, i64 %51, i1 false)
+  %110 = getelementptr inbounds nuw ptr, ptr %.val75, i64 %indvars.iv96
+  %111 = load ptr, ptr %110, align 8, !tbaa !44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %111, i8 0, i64 %51, i1 false)
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count104
   br i1 %exitcond99.not, label %.preheader, label %.lr.ph91.split, !llvm.loop !50
 
 .split.us:                                        ; preds = %Abc_InfoRandom.exit.loopexit.us, %.preheader
-  %117 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
-  store i16 -1, ptr %117, align 8, !tbaa !53
+  %112 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
+  store i16 -1, ptr %112, align 8, !tbaa !53
   ret ptr %calloc
 }
 

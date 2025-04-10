@@ -14272,7 +14272,7 @@ define dso_local ptr @rb_resolve_me_location(ptr noundef readonly captures(ret: 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !371
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.critedge, label %.preheader
+  br i1 %.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %2, %.backedge
   %5 = phi ptr [ %.pre, %.backedge ], [ %4, %2 ]
@@ -14280,7 +14280,7 @@ define dso_local ptr @rb_resolve_me_location(ptr noundef readonly captures(ret: 
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 15
-  switch i32 %8, label %.critedge [
+  switch i32 %8, label %.thread [
     i32 0, label %9
     i32 4, label %15
     i32 6, label %23
@@ -14300,7 +14300,7 @@ define dso_local ptr @rb_resolve_me_location(ptr noundef readonly captures(ret: 
   %17 = load i64, ptr %16, align 8, !tbaa !44
   %18 = tail call ptr @rb_proc_get_iseq(i64 noundef %17, ptr noundef null) #17
   %.not53.not = icmp eq ptr %18, null
-  br i1 %.not53.not, label %.critedge, label %19
+  br i1 %.not53.not, label %.thread, label %19
 
 19:                                               ; preds = %15
   %20 = tail call i64 @rb_iseq_path(ptr noundef nonnull %18) #17
@@ -14323,7 +14323,7 @@ define dso_local ptr @rb_resolve_me_location(ptr noundef readonly captures(ret: 
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !44
   %.not52 = icmp eq ptr %28, null
-  br i1 %.not52, label %.critedge, label %.backedge
+  br i1 %.not52, label %.thread, label %.backedge
 
 29:                                               ; preds = %19, %9
   %.pn = phi ptr [ %22, %19 ], [ %13, %9 ]
@@ -14367,19 +14367,19 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %29
   %41 = and i64 %39, 7
   %42 = icmp ne i64 %41, 0
   %43 = or i1 %40, %42
-  br i1 %43, label %.critedge, label %rbimpl_RB_TYPE_P_fastpath.exit56
+  br i1 %43, label %.thread, label %rbimpl_RB_TYPE_P_fastpath.exit56
 
 rbimpl_RB_TYPE_P_fastpath.exit56:                 ; preds = %38
   %44 = inttoptr i64 %39 to ptr
   %45 = load i64, ptr %44, align 8, !tbaa !42
   %46 = and i64 %45, 31
   %47 = icmp eq i64 %46, 5
-  br i1 %47, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, label %.critedge
+  br i1 %47, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, label %.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %29, %rbimpl_RB_TYPE_P_fastpath.exit56, %rbimpl_RB_TYPE_P_fastpath.exit
   %.2 = phi i64 [ %39, %rbimpl_RB_TYPE_P_fastpath.exit56 ], [ %.139, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %.139, %29 ]
   %.not54 = icmp eq ptr %1, null
-  br i1 %.not54, label %.critedge, label %48
+  br i1 %.not54, label %.thread, label %48
 
 48:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
   store i64 %.2, ptr %1, align 8, !tbaa !145
@@ -14391,9 +14391,9 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %29, %rbimpl_RB_TYPE
   store i64 %.146, ptr %51, align 8, !tbaa !145
   %52 = getelementptr i8, ptr %1, i64 32
   store i64 %.144, ptr %52, align 8, !tbaa !145
-  br label %.critedge
+  br label %.thread
 
-.critedge:                                        ; preds = %.preheader, %26, %38, %15, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %48, %rbimpl_RB_TYPE_P_fastpath.exit56, %2
+.thread:                                          ; preds = %.preheader, %26, %38, %15, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %48, %rbimpl_RB_TYPE_P_fastpath.exit56, %2
   %.0 = phi ptr [ null, %2 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit56 ], [ %.037, %48 ], [ %.037, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ null, %15 ], [ null, %38 ], [ null, %26 ], [ null, %.preheader ]
   ret ptr %.0
 }
@@ -21237,7 +21237,7 @@ define internal noundef i64 @rb_queue_initialize(i32 noundef %0, ptr noundef rea
 
 14:                                               ; preds = %11, %3
   %15 = icmp slt i32 %0, 0
-  br i1 %15, label %16, label %.preheader.split.split
+  br i1 %15, label %17, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %14
   switch i32 %0, label %16 [
@@ -21245,13 +21245,13 @@ define internal noundef i64 @rb_queue_initialize(i32 noundef %0, ptr noundef rea
     i32 1, label %rb_scan_args_set.exit
   ]
 
-16:                                               ; preds = %.preheader.split.split, %14
+17:                                               ; preds = %.preheader.split.split, %14
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #38
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %.preheader.split.split
-  %17 = load i64, ptr %1, align 8, !tbaa !145
-  %18 = tail call i64 @rb_to_array(i64 noundef %17) #17
+  %18 = load i64, ptr %1, align 8, !tbaa !145
+  %19 = tail call i64 @rb_to_array(i64 noundef %18) #17
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = tail call i64 @rb_ary_hidden_new(i64 noundef 1) #17
   store i64 %20, ptr %19, align 8, !tbaa !145
@@ -21261,20 +21261,20 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.split.sp
   %24 = or i1 %21, %23
   br i1 %24, label %rb_obj_write.exit, label %25
 
-25:                                               ; preds = %rb_scan_args_set.exit
+27:                                               ; preds = %rb_scan_args_set.exit
   tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %20) #17
   %.pre = load i64, ptr %19, align 1, !tbaa !199
   br label %rb_obj_write.exit
 
-rb_obj_write.exit:                                ; preds = %rb_scan_args_set.exit, %25
+rb_obj_write.exit:                                ; preds = %rb_scan_args_set.exit, %27
   %26 = phi i64 [ %20, %rb_scan_args_set.exit ], [ %.pre, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %4, ptr %27, align 8, !tbaa !55
   store ptr %4, ptr %4, align 8, !tbaa !54
-  %28 = tail call i64 @rb_ary_concat(i64 noundef %26, i64 noundef %18) #17
+  %28 = tail call i64 @rb_ary_concat(i64 noundef %26, i64 noundef %19) #17
   br label %37
 
-.critedge:                                        ; preds = %.preheader.split.split
+.thread:; preds = %.preheader.split.split
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = tail call i64 @rb_ary_hidden_new(i64 noundef 1) #17
   store i64 %30, ptr %29, align 8, !tbaa !145
@@ -21294,7 +21294,7 @@ rb_obj_write.exit12:                              ; preds = %.critedge, %35
   store ptr %4, ptr %4, align 8, !tbaa !54
   br label %37
 
-37:                                               ; preds = %rb_obj_write.exit12, %rb_obj_write.exit
+32:                                               ; preds = %rb_obj_write.exit12, %rb_obj_write.exit
   ret i64 %2
 }
 

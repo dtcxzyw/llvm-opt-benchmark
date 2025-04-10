@@ -115,7 +115,7 @@ define noundef range(i32 -1, 2) i32 @_ZN3g2o32OptimizationAlgorithmGaussNewton5s
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(64) %16, i1 noundef zeroext false)
-  br i1 %20, label %21, label %57
+  br i1 %20, label %21, label %55
 
 21:                                               ; preds = %12, %14
   %22 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
@@ -142,7 +142,7 @@ define noundef range(i32 -1, 2) i32 @_ZN3g2o32OptimizationAlgorithmGaussNewton5s
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(64) %35)
-  br i1 %.not, label %.critedge, label %40
+  br i1 %.not, label %50, label %40
 
 40:                                               ; preds = %34
   %41 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
@@ -161,19 +161,19 @@ define noundef range(i32 -1, 2) i32 @_ZN3g2o32OptimizationAlgorithmGaussNewton5s
   store double %50, ptr %51, align 8, !tbaa !39
   br label %56
 
-.critedge:                                        ; preds = %34
+50:                                               ; preds = %34
   %52 = load ptr, ptr %5, align 8, !tbaa !10
   %53 = load ptr, ptr %23, align 8, !tbaa !30
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !35
+  %53 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %55 = load ptr, ptr %53, align 8, !tbaa !35
   tail call void @_ZN3g2o15SparseOptimizer6updateEPKd(ptr noundef nonnull align 8 dereferenceable(409) %52, ptr noundef %55)
   br label %56
 
 56:                                               ; preds = %.critedge, %40
   %. = select i1 %39, i32 1, i32 -1
-  br label %57
+  br label %55
 
-57:                                               ; preds = %56, %14
+55:                                               ; preds = %56, %14
   %.0 = phi i32 [ -1, %14 ], [ %., %56 ]
   ret i32 %.0
 }

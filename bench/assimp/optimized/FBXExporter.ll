@@ -54091,7 +54091,7 @@ define hidden void @_Z15WritePropDoublePK7aiSceneRN6Assimp3FBX4NodeERKNSt7__cxx1
   store i8 0, ptr %17, align 1
   %18 = load i32, ptr %8, align 8
   %.not14.not.i.i = icmp eq i32 %18, 0
-  br i1 %.not14.not.i.i, label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread.critedge, label %.lr.ph.i.i
+  br i1 %.not14.not.i.i, label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -54164,14 +54164,14 @@ _ZNK8aiStringeqERKS_.exit.i.i27:                  ; preds = %40
   %49 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %48, i64 %indvars.iv.i.i20
   %50 = load i32, ptr %49, align 8
   %.not7.i.i.i29 = icmp eq i32 %50, 3
-  br i1 %.not7.i.i.i29, label %53, label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread
+  br i1 %.not7.i.i.i29, label %51, label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread
 
 _ZNK8aiStringeqERKS_.exit.thread.i.i21:           ; preds = %_ZNK8aiStringeqERKS_.exit.i.i27, %40
   %indvars.iv.next.i.i22 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %exitcond.not.i.i23 = icmp eq i64 %indvars.iv.next.i.i22, %wide.trip.count.i.i19
   br i1 %exitcond.not.i.i23, label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, label %40, !llvm.loop !248
 
-_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread.critedge: ; preds = %9
+_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread: ; preds = %9
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %6) #34
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %5) #34
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -54185,16 +54185,16 @@ _ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %5) #34
   br label %.thread
 
-53:                                               ; preds = %46
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = load float, ptr %55, align 4
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = load float, ptr %53, align 4
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %5) #34
-  %57 = fpext float %56 to double
+  %55 = fpext float %54 to double
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, %4, %53, %32
-  %.sink = phi double [ %57, %53 ], [ %35, %32 ], [ %3, %4 ], [ %3, %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread ]
+.thread:                                          ; preds = %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, %4, %51, %32
+  %.sink = phi double [ %55, %51 ], [ %35, %32 ], [ %3, %4 ], [ %3, %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread ]
   tail call void @_ZN6Assimp3FBX4Node12AddP70doubleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, double noundef %.sink)
   ret void
 }

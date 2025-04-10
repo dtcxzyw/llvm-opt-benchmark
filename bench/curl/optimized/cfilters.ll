@@ -294,7 +294,7 @@ define hidden i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nounde
 
 .critedge100:                                     ; preds = %.critedge2, %3
   store i8 1, ptr %2, align 1, !tbaa !3
-  br label %120
+  br label %125
 
 .critedge:                                        ; preds = %.lr.ph
   store i8 0, ptr %2, align 1, !tbaa !3
@@ -322,7 +322,7 @@ define hidden i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nounde
   %26 = load i64, ptr %23, align 2
   %27 = and i64 %26, 2147483648
   %.not98 = icmp eq i64 %27, 0
-  br i1 %.not98, label %120, label %28
+  br i1 %.not98, label %125, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4864
@@ -334,11 +334,11 @@ define hidden i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nounde
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !113
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %120
+  br i1 %34, label %35, label %125
 
 35:                                               ; preds = %31, %28
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str) #12
-  br label %120
+  br label %125
 
 36:                                               ; preds = %.critedge
   call void @Curl_shutdown_start(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4) #12
@@ -388,13 +388,13 @@ define hidden i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nounde
   %.not84.us = icmp eq ptr %57, null
   br i1 %.not84.us, label %.split119.us, label %.split.us, !llvm.loop !118
 
-.split:                                           ; preds = %.split.preheader, %117
-  %.169110 = phi ptr [ %119, %117 ], [ %.068109, %.split.preheader ]
+.split:                                           ; preds = %.split.preheader, %122
+  %.169110 = phi ptr [ %124, %122 ], [ %.068109, %.split.preheader ]
   %58 = getelementptr inbounds nuw i8, ptr %.169110, i64 36
   %59 = load i8, ptr %58, align 4
   %60 = and i8 %59, 2
   %.not86 = icmp eq i8 %60, 0
-  br i1 %.not86, label %61, label %117
+  br i1 %.not86, label %61, label %122
 
 61:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
@@ -461,69 +461,69 @@ define hidden i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nounde
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load i32, ptr %91, align 8, !tbaa !113
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %94, label %.thread
+  %.not90 = icmp sgt i32 %92, 0
+  br i1 %.not90, label %94, label %.thread
 
-94:                                               ; preds = %88, %90
+93:                                               ; preds = %88, %90
   %95 = load ptr, ptr %.169110, align 8, !tbaa !14
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4, !tbaa !119
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %99, label %.thread
 
-99:                                               ; preds = %94
+99:; preds = %94
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %.169110, ptr noundef nonnull @.str.2) #12
   br label %.thread
 
-100:                                              ; preds = %83
+103:                                              ; preds = %83
   br i1 %.not92, label %114, label %101
 
-101:                                              ; preds = %100
-  %102 = load ptr, ptr %39, align 8, !tbaa !112
-  %.not93 = icmp eq ptr %102, null
-  br i1 %.not93, label %107, label %103
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %39, align 8, !tbaa !112
+  %.not93 = icmp eq ptr %107, null
+  br i1 %.not93, label %112, label %108
 
-103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %105 = load i32, ptr %104, align 8, !tbaa !113
-  %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %107, label %114
-
-107:                                              ; preds = %101, %103
-  %108 = load ptr, ptr %.169110, align 8, !tbaa !14
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 12
-  %110 = load i32, ptr %109, align 4, !tbaa !119
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %110 = load i32, ptr %109, align 8, !tbaa !113
   %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %112, label %114
+  br i1 %111, label %112, label %119
 
-112:                                              ; preds = %107
+112:                                              ; preds = %106, %108
+  %113 = load ptr, ptr %.169110, align 8, !tbaa !14
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 12
+  %115 = load i32, ptr %114, align 4, !tbaa !119
+  %116 = icmp sgt i32 %115, 0
+  br i1 %116, label %117, label %119
+
+117:                                              ; preds = %112
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %.169110, ptr noundef nonnull @.str.3) #12
-  br label %114
+  br label %119
 
-.thread:                                          ; preds = %49, %82, %77, %73, %68, %.split112.us, %99, %94, %90, %.split115.us
-  %113 = phi i32 [ %.us-phi, %82 ], [ %.us-phi, %77 ], [ %.us-phi, %73 ], [ %.us-phi, %68 ], [ %.us-phi, %.split112.us ], [ 0, %99 ], [ 0, %94 ], [ 0, %90 ], [ 0, %.split115.us ], [ 0, %49 ]
+.thread:                                          ; preds = %49, %82, %77, %73, %68, %.split112.us, %99, %93, %90, %.split115.us
+  %118 = phi i32 [ %.us-phi, %82 ], [ %.us-phi, %77 ], [ %.us-phi, %73 ], [ %.us-phi, %68 ], [ %.us-phi, %.split112.us ], [ 0, %99 ], [ 0, %94 ], [ 0, %90 ], [ 0, %.split115.us ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
-  br label %120
+  br label %125
 
-114:                                              ; preds = %100, %103, %107, %112
-  %115 = load i8, ptr %58, align 4
-  %116 = or i8 %115, 2
-  store i8 %116, ptr %58, align 4
+119:                                              ; preds = %103, %108, %112, %117
+  %120 = load i8, ptr %58, align 4
+  %121 = or i8 %120, 2
+  store i8 %121, ptr %58, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
-  br label %117
+  br label %122
 
-117:                                              ; preds = %114, %.split
-  %118 = getelementptr inbounds nuw i8, ptr %.169110, i64 8
-  %119 = load ptr, ptr %118, align 8, !tbaa !7
-  %.not84 = icmp eq ptr %119, null
+122:                                              ; preds = %119, %.split
+  %123 = getelementptr inbounds nuw i8, ptr %.169110, i64 8
+  %124 = load ptr, ptr %123, align 8, !tbaa !7
+  %.not84 = icmp eq ptr %124, null
   br i1 %.not84, label %.split119.us, label %.split, !llvm.loop !118
 
-.split119.us:                                     ; preds = %55, %117
+.split119.us:                                     ; preds = %55, %122
   store i8 1, ptr %2, align 1, !tbaa !3
-  br label %120
+  br label %125
 
-120:                                              ; preds = %.thread, %25, %31, %35, %.split119.us, %.critedge100
-  %.0 = phi i32 [ 0, %.split119.us ], [ 0, %.critedge100 ], [ 28, %35 ], [ 28, %31 ], [ 28, %25 ], [ %113, %.thread ]
+125:                                              ; preds = %.thread, %25, %31, %35, %.split119.us, %.critedge100
+  %.0 = phi i32 [ 0, %.split119.us ], [ 0, %.critedge100 ], [ 28, %35 ], [ 28, %31 ], [ 28, %25 ], [ %118, %.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   ret i32 %.0
 }

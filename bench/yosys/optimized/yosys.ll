@@ -100891,7 +100891,7 @@ define linkonce_odr void @_ZN5Yosys13ScriptCmdPass7executeESt6vectorINSt7__cxx11
   %25 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %28
   %26 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.577) #39
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.lr.ph183, label %._crit_edge.thread, !llvm.loop !755
+  br i1 %27, label %.lr.ph183, label %._crit_edge, !llvm.loop !755
 
 .lr.ph183:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.028128182 = phi i64 [ %28, %.lr.ph ], [ 1, %.lr.ph.preheader ]
@@ -100905,7 +100905,7 @@ define linkonce_odr void @_ZN5Yosys13ScriptCmdPass7executeESt6vectorINSt7__cxx11
   %35 = icmp ult i64 %28, %34
   br i1 %35, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !755
 
-._crit_edge.thread:                               ; preds = %.lr.ph183, %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph183, %.lr.ph
   %36 = load ptr, ptr %15, align 8, !tbaa !64
   %37 = load ptr, ptr %1, align 8, !tbaa !68
   %38 = ptrtoint ptr %36 to i64

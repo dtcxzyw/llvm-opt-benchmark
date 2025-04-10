@@ -3725,11 +3725,11 @@ tcache_max_set.exit:                              ; preds = %20, %26
   call fastcc void @duckdb_je_tsd_tcache_data_init(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %3)
   br label %41
 
-.critedge:                                        ; preds = %2
+30:                                               ; preds = %2
   %30 = icmp ult i64 %1, 4097
   br i1 %30, label %31, label %37, !prof !11
 
-31:                                               ; preds = %.critedge
+31:                                               ; preds = %30
   %32 = add nuw nsw i64 %1, 7
   %33 = lshr i64 %32, 3
   %34 = getelementptr inbounds nuw [0 x i8], ptr @duckdb_je_sz_size2index_tab, i64 0, i64 %33

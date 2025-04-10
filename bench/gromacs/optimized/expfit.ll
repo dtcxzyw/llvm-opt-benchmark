@@ -1640,14 +1640,14 @@ _Z11effnNparamsi.exit26.us.preheader:             ; preds = %_Z11effnNparamsi.ex
 
 _Z11effnNparamsi.exit26.us:                       ; preds = %_Z11effnNparamsi.exit26.us.preheader, %_Z11effnNparamsi.exit26.us
   %indvars.iv34 = phi i64 [ 0, %_Z11effnNparamsi.exit26.us.preheader ], [ %indvars.iv.next35, %_Z11effnNparamsi.exit26.us ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv34
-  %26 = load double, ptr %25, align 8, !tbaa !13
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, double noundef %26) #18
+  %29 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv34
+  %30 = load double, ptr %29, align 8, !tbaa !13
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, double noundef %30) #18
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
   br i1 %exitcond38.not, label %.split.us, label %_Z11effnNparamsi.exit26.us, !llvm.loop !36
 
-_Z11effnNparamsi.exit.split.critedge:             ; preds = %._crit_edge
+.split.us:                                        ; preds = %._crit_edge
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %4, i32 noundef -1, ptr noundef %3, double noundef %.022.lcssa) #18
   br label %.split.us
 

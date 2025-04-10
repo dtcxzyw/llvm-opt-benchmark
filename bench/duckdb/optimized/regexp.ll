@@ -4609,9 +4609,9 @@ define hidden noundef zeroext i1 @_ZNK10duckdb_re29CharClass8ContainsEi(ptr noun
   %7 = load ptr, ptr %6, align 8, !tbaa !66
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
-  %.01624 = phi i32 [ %.218, %22 ], [ %4, %.lr.ph.preheader ]
-  %.01923 = phi ptr [ %.221, %22 ], [ %7, %.lr.ph.preheader ]
+.outer:                                           ; preds = %.lr.ph.preheader, %22
+  %.019.ph = phi i32 [ %.218, %9 ], [ %4, %.lr.ph.preheader ]
+  %.016.ph = phi ptr [ %.221, %9 ], [ %7, %.lr.ph.preheader ]
   %8 = lshr i32 %.01624, 1
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw %"struct.duckdb_re2::RuneRange", ptr %.01923, i64 %9
@@ -4627,19 +4627,19 @@ define hidden noundef zeroext i1 @_ZNK10duckdb_re29CharClass8ContainsEi(ptr noun
   %18 = sub nsw i32 %.01624, %15
   br label %22
 
-19:                                               ; preds = %.lr.ph
+7:                                                ; preds = %.outer
   %20 = load i32, ptr %10, align 4, !tbaa !129
-  %21 = icmp slt i32 %1, %20
-  br i1 %21, label %22, label %.critedge
+  %8 = icmp slt i32 %1, %20
+  br i1 %8, label %9, label %.critedge
 
-22:                                               ; preds = %19, %14
-  %.221 = phi ptr [ %17, %14 ], [ %.01923, %19 ]
-  %.218 = phi i32 [ %18, %14 ], [ %8, %19 ]
+9:                                                ; preds = %7, %14
+  %.221 = phi ptr [ %17, %14 ], [ %.016.ph, %19 ]
+  %.218 = phi i32 [ %18, %14 ], [ %8, %7 ]
   %23 = icmp sgt i32 %.218, 0
   br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !150
 
-.critedge:                                        ; preds = %22, %19, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %19 ], [ false, %22 ]
+.critedge:; preds = %9, %19, %2
+  %.lcssa = phi i1 [ false, %2 ], [ true, %19 ], [ false, %9 ]
   ret i1 %.lcssa
 }
 

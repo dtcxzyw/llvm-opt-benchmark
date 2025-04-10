@@ -2109,15 +2109,15 @@ define dso_local i32 @bit_overlap(ptr noundef readonly captures(none) %0, ptr no
   br i1 %5, label %.lr.ph.split.us.i, label %_bit_overlap_internal.exit
 
 .lr.ph.split.us.i:                                ; preds = %2, %7
-  %.02940.us.i = phi i32 [ %18, %7 ], [ 0, %2 ]
-  %.03139.us.i = phi i64 [ %8, %7 ], [ 0, %2 ]
-  %6 = or disjoint i64 %.03139.us.i, 63
+  %.02943.us.i = phi i32 [ %18, %7 ], [ 0, %2 ]
+  %.03142.us.i = phi i64 [ %8, %7 ], [ 0, %2 ]
+  %6 = or disjoint i64 %.03142.us.i, 63
   %.not.us.i = icmp ult i64 %6, %4
   br i1 %.not.us.i, label %7, label %.split.us.i
 
 7:                                                ; preds = %.lr.ph.split.us.i
-  %8 = add i64 %.03139.us.i, 64
-  %9 = ashr exact i64 %.03139.us.i, 6
+  %8 = add i64 %.03142.us.i, 64
+  %9 = ashr exact i64 %.03142.us.i, 6
   %10 = add nsw i64 %9, 2
   %11 = getelementptr inbounds i64, ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
@@ -2126,7 +2126,7 @@ define dso_local i32 @bit_overlap(ptr noundef readonly captures(none) %0, ptr no
   %15 = and i64 %14, %12
   %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %15)
   %17 = trunc nuw nsw i64 %16 to i32
-  %18 = add nuw nsw i32 %.02940.us.i, %17
+  %18 = add nuw nsw i32 %.02943.us.i, %17
   %19 = icmp slt i64 %8, %4
   br i1 %19, label %.lr.ph.split.us.i, label %_bit_overlap_internal.exit, !llvm.loop !35
 
@@ -2134,7 +2134,7 @@ define dso_local i32 @bit_overlap(ptr noundef readonly captures(none) %0, ptr no
   %20 = and i64 %4, 63
   %notmask.i = shl nsw i64 -1, %20
   %21 = xor i64 %notmask.i, -1
-  %22 = ashr exact i64 %.03139.us.i, 6
+  %22 = ashr exact i64 %.03142.us.i, 6
   %23 = add nsw i64 %22, 2
   %24 = getelementptr inbounds i64, ptr %0, i64 %23
   %25 = load i64, ptr %24, align 8
@@ -2144,7 +2144,7 @@ define dso_local i32 @bit_overlap(ptr noundef readonly captures(none) %0, ptr no
   %29 = and i64 %28, %27
   %30 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %29)
   %31 = trunc nuw nsw i64 %30 to i32
-  %32 = add nuw nsw i32 %.02940.us.i, %31
+  %32 = add nuw nsw i32 %.02943.us.i, %31
   br label %_bit_overlap_internal.exit
 
 _bit_overlap_internal.exit:                       ; preds = %7, %2, %.split.us.i
@@ -2160,14 +2160,14 @@ define dso_local range(i32 0, 2) i32 @bit_overlap_any(ptr noundef readonly captu
   br i1 %5, label %.lr.ph.split.i, label %_bit_overlap_internal.exit
 
 .lr.ph.split.i:                                   ; preds = %2, %16
-  %.03139.i = phi i64 [ %6, %16 ], [ 0, %2 ]
-  %6 = add i64 %.03139.i, 64
-  %7 = or disjoint i64 %.03139.i, 63
+  %.03142.i = phi i64 [ %6, %16 ], [ 0, %2 ]
+  %6 = add i64 %.03142.i, 64
+  %7 = or disjoint i64 %.03142.i, 63
   %.not.i = icmp ult i64 %7, %4
   br i1 %.not.i, label %8, label %.split.us.i
 
 8:                                                ; preds = %.lr.ph.split.i
-  %9 = ashr exact i64 %.03139.i, 6
+  %9 = ashr exact i64 %.03142.i, 6
   %10 = add nsw i64 %9, 2
   %11 = getelementptr inbounds i64, ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
@@ -2185,7 +2185,7 @@ define dso_local range(i32 0, 2) i32 @bit_overlap_any(ptr noundef readonly captu
   %18 = and i64 %4, 63
   %notmask.i = shl nsw i64 -1, %18
   %19 = xor i64 %notmask.i, -1
-  %20 = ashr exact i64 %.03139.i, 6
+  %20 = ashr exact i64 %.03142.i, 6
   %21 = add nsw i64 %20, 2
   %22 = getelementptr inbounds i64, ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8

@@ -5794,7 +5794,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr noundef re
   %68 = phi i16 [ %98, %.loopexit ], [ 0, %.lr.ph.preheader ]
   %69 = tail call fastcc i32 @e1000_spi_eeprom_ready(ptr noundef %0), !range !9
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %.critedge
+  br i1 %70, label %71, label %.thread7
 
 71:                                               ; preds = %.lr.ph
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
@@ -5818,7 +5818,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr noundef re
 83:                                               ; preds = %86, %71
   %84 = phi i64 [ %90, %86 ], [ %82, %71 ]
   %85 = icmp eq i64 %84, %67
-  br i1 %85, label %.critedge, label %86
+  br i1 %85, label %.thread7, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr i16, ptr %3, i64 %84
@@ -5839,15 +5839,15 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr noundef re
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
   %98 = trunc i64 %90 to i16
   %99 = icmp ugt i16 %2, %98
-  br i1 %99, label %.lr.ph, label %.critedge
+  br i1 %99, label %.lr.ph, label %.thread7
 
-.critedge:                                        ; preds = %.loopexit, %.lr.ph, %83
+.thread7:                                         ; preds = %.loopexit, %.lr.ph, %83
   %.ph = phi i32 [ 0, %83 ], [ -1, %.lr.ph ], [ 0, %.loopexit ]
   tail call void @msleep(i32 noundef 10) #7
   br label %.thread
 
-.thread:                                          ; preds = %52, %.critedge, %59
-  %100 = phi i32 [ %.ph, %.critedge ], [ 0, %59 ], [ -1, %52 ]
+.thread:                                          ; preds = %52, %.thread7, %59
+  %100 = phi i32 [ %.ph, %.thread7 ], [ 0, %59 ], [ -1, %52 ]
   tail call fastcc void @e1000_release_eeprom(ptr noundef %0)
   br label %101
 

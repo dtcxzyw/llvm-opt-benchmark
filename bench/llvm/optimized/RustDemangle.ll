@@ -6534,7 +6534,7 @@ _ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit:     ; preds = %19
 .critedge.thread62:                               ; preds = %30
   %33 = add nuw i64 %4, 2
   store i64 %33, ptr %3, align 8, !tbaa !17
-  br label %.critedge
+  br label %56
 
 .lr.ph75:                                         ; preds = %.lr.ph, %53
   %34 = phi i64 [ %37, %53 ], [ %4, %.lr.ph ]
@@ -6583,32 +6583,32 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %.lr.ph75
 
 .critedge.thread:                                 ; preds = %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit, %.critedge.thread.sink.split
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  br label %63
+  br label %66
 
-.critedge:                                        ; preds = %.lr.ph75, %.critedge.thread62
+56:                                               ; preds = %.lr.ph75, %.critedge.thread62
   %.01764 = phi i64 [ 0, %.critedge.thread62 ], [ %.14574, %.lr.ph75 ]
-  %54 = phi i64 [ %33, %.critedge.thread62 ], [ %37, %.lr.ph75 ]
-  %55 = icmp ugt i64 %4, %9
-  br i1 %55, label %56, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+  %57 = phi i64 [ %33, %.critedge.thread62 ], [ %37, %.lr.ph75 ]
+  %58 = icmp ugt i64 %4, %9
+  br i1 %58, label %59, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
-56:                                               ; preds = %.critedge
+59:                                               ; preds = %56
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i64 noundef %4, i64 noundef %9) #14
   unreachable
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %.critedge
-  %57 = xor i64 %4, -1
-  %58 = add i64 %54, %57
-  %59 = sub nuw i64 %9, %4
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %59, i64 %58)
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !31
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %4
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %56
+  %60 = xor i64 %4, -1
+  %61 = add i64 %57, %60
+  %62 = sub nuw i64 %9, %4
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %62, i64 %61)
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %64 = load ptr, ptr %63, align 8, !tbaa !31
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %4
   store i64 %.sroa.speculated.i, ptr %1, align 8, !tbaa !20
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %62, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !21
-  br label %63
+  store ptr %65, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !21
+  br label %66
 
-63:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %.critedge.thread
+66:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %.critedge.thread
   %.0 = phi i64 [ 0, %.critedge.thread ], [ %.01764, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
   ret i64 %.0
 }

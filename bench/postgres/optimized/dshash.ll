@@ -815,13 +815,13 @@ define dso_local ptr @dshash_seq_next(ptr noundef captures(none) %0) local_unnam
   store i64 %29, ptr %15, align 8
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 64
-  %.pre47 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert48 = getelementptr inbounds nuw i8, ptr %.pre47, i64 3096
-  %.pre49 = load i64, ptr %.phi.trans.insert48, align 8
+  %.pre48 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %.pre48, i64 3096
+  %.pre50 = load i64, ptr %.phi.trans.insert49, align 8
   br label %ensure_valid_bucket_pointers.exit
 
 ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
-  %30 = phi i64 [ %16, %5 ], [ %.pre49, %21 ]
+  %30 = phi i64 [ %16, %5 ], [ %.pre50, %21 ]
   %31 = phi ptr [ %14, %5 ], [ %.pre, %21 ]
   %32 = shl nuw i64 1, %30
   %33 = trunc i64 %32 to i32
@@ -841,28 +841,28 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
 
 43:                                               ; preds = %41, %ensure_valid_bucket_pointers.exit
   %.035.in = phi ptr [ %40, %ensure_valid_bucket_pointers.exit ], [ %42, %41 ]
-  %.13644 = load i64, ptr %.035.in, align 8
-  %.not45 = icmp eq i64 %.13644, 0
-  br i1 %.not45, label %.lr.ph, label %.._crit_edge_crit_edge
+  %.13645 = load i64, ptr %.035.in, align 8
+  %.not46 = icmp eq i64 %.13645, 0
+  br i1 %.not46, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %43
-  %.pre53 = load ptr, ptr %0, align 8
+  %.pre54 = load ptr, ptr %0, align 8
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %43
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %.pre50 = load i32, ptr %44, align 8
+  %.pre51 = load i32, ptr %44, align 8
   br label %47
 
 47:                                               ; preds = %.lr.ph, %75
-  %48 = phi i32 [ %.pre50, %.lr.ph ], [ %76, %75 ]
+  %48 = phi i32 [ %.pre51, %.lr.ph ], [ %76, %75 ]
   %49 = add i32 %48, 1
   store i32 %49, ptr %44, align 8
   %50 = load i32, ptr %45, align 4
   %.not40 = icmp slt i32 %49, %50
-  br i1 %.not40, label %51, label %.critedge
+  br i1 %.not40, label %51, label %.thread
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %0, align 8
@@ -894,13 +894,13 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
   %74 = getelementptr inbounds [128 x %struct.dshash_partition], ptr %71, i64 0, i64 %73
   tail call void @LWLockRelease(ptr noundef nonnull %74) #13
   store i32 %57, ptr %2, align 8
-  %.pre51 = load ptr, ptr %0, align 8
-  %.pre52 = load i32, ptr %44, align 8
+  %.pre52 = load ptr, ptr %0, align 8
+  %.pre53 = load i32, ptr %44, align 8
   br label %75
 
 75:                                               ; preds = %59, %51
-  %76 = phi i32 [ %.pre52, %59 ], [ %49, %51 ]
-  %77 = phi ptr [ %.pre51, %59 ], [ %52, %51 ]
+  %76 = phi i32 [ %.pre53, %59 ], [ %49, %51 ]
+  %77 = phi ptr [ %.pre52, %59 ], [ %52, %51 ]
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 72
   %79 = load ptr, ptr %78, align 8
   %80 = sext i32 %76 to i64
@@ -910,8 +910,8 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
   br i1 %.not, label %47, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %75, %.._crit_edge_crit_edge
-  %82 = phi ptr [ %.pre53, %.._crit_edge_crit_edge ], [ %77, %75 ]
-  %.136.lcssa = phi i64 [ %.13644, %.._crit_edge_crit_edge ], [ %.136, %75 ]
+  %82 = phi ptr [ %.pre54, %.._crit_edge_crit_edge ], [ %77, %75 ]
+  %.136.lcssa = phi i64 [ %.13645, %.._crit_edge_crit_edge ], [ %.136, %75 ]
   %83 = load ptr, ptr %82, align 8
   %84 = tail call ptr @dsa_get_address(ptr noundef %83, i64 noundef %.136.lcssa) #13
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -920,9 +920,9 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %86, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  br label %.critedge
+  br label %.thread
 
-.critedge:                                        ; preds = %47, %._crit_edge
+.thread:                                          ; preds = %47, %._crit_edge
   %.2 = phi ptr [ %88, %._crit_edge ], [ null, %47 ]
   ret ptr %.2
 }

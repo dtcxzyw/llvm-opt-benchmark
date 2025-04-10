@@ -411,7 +411,7 @@ get_provider_store.exit:                          ; preds = %3
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %14) #11
   %.not21.not = icmp eq i32 %15, 0
-  br i1 %.not21.not, label %.critedge, label %16
+  br i1 %.not21.not, label %38, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -462,11 +462,11 @@ ossl_provider_up_ref.exit:                        ; preds = %28, %34
   br label %37
 
 37:                                               ; preds = %36, %ossl_provider_up_ref.exit, %.thread, %23
-  %.116 = phi ptr [ null, %23 ], [ null, %.thread ], [ null, %36 ], [ %25, %ossl_provider_up_ref.exit ]
+  %spec.select25 = phi ptr [ null, %23 ], [ null, %.thread ], [ null, %36 ], [ %25, %ossl_provider_up_ref.exit ]
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %4) #11
   br label %38
 
-.critedge:                                        ; preds = %11
+38:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %4) #11
   br label %38
 

@@ -3884,7 +3884,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %._crit_edge60.critedge, label %.lr.ph
+  br i1 %.not, label %._crit_edge60, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %6 = add i32 %3, 6
@@ -3950,7 +3950,7 @@ define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, pt
   %exitcond64.not = icmp eq i32 %48, %4
   br i1 %exitcond64.not, label %._crit_edge60, label %20, !llvm.loop !30
 
-._crit_edge60.critedge:                           ; preds = %5
+._crit_edge60:                                    ; preds = %5
   %49 = load i32, ptr @hf_btavrcp_attribute_entries, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %3, i32 noundef 0, i32 noundef 0)
   %51 = load i32, ptr @ett_btavrcp_attribute_entries, align 4

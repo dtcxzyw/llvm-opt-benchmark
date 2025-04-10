@@ -2847,7 +2847,7 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit.thread: ; preds = %19,
 .critedge34.preheader.split:                      ; preds = %.critedge34.preheader, %.critedge2
   %62 = phi ptr [ %75, %.critedge2 ], [ %21, %.critedge34.preheader ]
   %63 = phi ptr [ %76, %.critedge2 ], [ %21, %.critedge34.preheader ]
-  %.02772 = phi double [ %.128.lcssa, %.critedge2 ], [ %20, %.critedge34.preheader ]
+  %.02772 = phi double [ %.128.lcssa.ph, %.critedge2 ], [ %20, %.critedge34.preheader ]
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.critedge, label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit.thread
 
@@ -2873,15 +2873,15 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit39.thread: ; preds = %_Z
   %73 = load i32, ptr %72, align 4, !tbaa !87
   %74 = icmp uge i32 %.066, %73
   %.not32 = icmp ult i32 %73, %26
-  %or.cond77 = or i1 %74, %.not32
-  br i1 %or.cond77, label %.critedge2, label %77
+  %or.cond79 = or i1 %74, %.not32
+  br i1 %or.cond79, label %.critedge2, label %77
 
 .critedge2:                                       ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit39.thread, %93
   %75 = phi ptr [ null, %93 ], [ %70, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit39.thread ]
   %76 = phi ptr [ null, %93 ], [ %71, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit39.thread ]
-  %.128.lcssa = phi double [ %.229, %93 ], [ %.12864, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit39.thread ]
-  %.124.lcssa = phi i1 [ %.2, %93 ], [ %.12465, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit39.thread ]
-  br i1 %.124.lcssa, label %.critedge34.preheader.split, label %.critedge, !llvm.loop !271
+  %.128.lcssa.ph = phi double [ %.229, %93 ], [ %.12864, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit39.thread ]
+  %.124.lcssa.ph = phi i1 [ %.2, %93 ], [ %.12465, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit39.thread ]
+  br i1 %.124.lcssa.ph, label %.critedge34.preheader.split, label %.critedge, !llvm.loop !271
 
 77:                                               ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit39.thread
   %78 = zext i32 %.066 to i64

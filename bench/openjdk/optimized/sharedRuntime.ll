@@ -8235,11 +8235,11 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %21
   %63 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %62, i32 noundef 0) #18
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre74 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre71 = load ptr, ptr %.phi.trans.insert, align 8
   br label %64
 
 64:                                               ; preds = %57, %60
-  %65 = phi ptr [ %.pre74, %60 ], [ %51, %57 ]
+  %65 = phi ptr [ %.pre71, %60 ], [ %51, %57 ]
   %66 = phi ptr [ %.pre, %60 ], [ %49, %57 ]
   %67 = phi ptr [ %63, %60 ], [ %6, %57 ]
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -8267,7 +8267,7 @@ _ZNK11ConstMethod11fingerprintEv.exit:            ; preds = %64, %81
   %83 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %83, align 8
   %84 = and i32 %.sroa.0.0.copyload.i.i, 8
-  %.not72 = icmp eq i32 %84, 0
+  %.not69 = icmp eq i32 %84, 0
   store ptr %75, ptr %7, align 8
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 99, ptr %85, align 8
@@ -8298,7 +8298,7 @@ _ZN17SignatureIteratorC2EP6Symbolm.exit.i:        ; preds = %87, %_ZNK11ConstMet
   %95 = phi ptr [ %90, %89 ], [ %93, %91 ]
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %95, ptr %96, align 8
-  br i1 %.not72, label %97, label %_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit
+  br i1 %.not69, label %97, label %_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit
 
 97:                                               ; preds = %94
   %98 = load i32, ptr %88, align 8
@@ -8393,15 +8393,15 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %124, %126
 
 _ZN11MutexLockerD2Ev.exit50:                      ; preds = %_ZN12ResourceMarkD2Ev.exit, %127
   %.not43 = icmp eq ptr %.1, null
-  br i1 %.not43, label %_ZN11MutexLockerD2Ev.exit53, label %128
+  br i1 %.not43, label %149, label %128
 
 128:                                              ; preds = %_ZN11MutexLockerD2Ev.exit50
   %129 = load ptr, ptr %0, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 40
   %.sroa.0.0.copyload.i.i51 = load i32, ptr %130, align 8
   %131 = and i32 %.sroa.0.0.copyload.i.i51, 8
-  %.not73 = icmp eq i32 %131, 0
-  %132 = select i1 %.not73, ptr @.str.43, ptr @.str.49
+  %.not70 = icmp eq i32 %131, 0
+  %132 = select i1 %.not70, ptr @.str.43, ptr @.str.49
   call void @_ZN11CompileTask8print_ulEPK7nmethodPKc(ptr noundef nonnull %.1, ptr noundef nonnull %132) #18
   %133 = load i8, ptr @PrintCompilation, align 1
   %134 = trunc i8 %133 to i1
@@ -8426,7 +8426,7 @@ _ZN11MutexLockerD2Ev.exit50:                      ; preds = %_ZN12ResourceMarkD2
 
 148:                                              ; preds = %135, %128
   call void @_ZN7nmethod31post_compiled_method_load_eventEP16JvmtiThreadState(ptr noundef nonnull align 8 dereferenceable(214) %.1, ptr noundef null) #18
-  br label %_ZN11MutexLockerD2Ev.exit53
+  br label %149
 
 .critedge:                                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit53, label %149
@@ -8435,28 +8435,28 @@ _ZN11MutexLockerD2Ev.exit50:                      ; preds = %_ZN12ResourceMarkD2
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %20) #18
   br label %_ZN11MutexLockerD2Ev.exit53
 
-_ZN11MutexLockerD2Ev.exit53:                      ; preds = %149, %.critedge, %148, %_ZN11MutexLockerD2Ev.exit50
+149:                                              ; preds = %149, %.critedge, %148, %_ZN11MutexLockerD2Ev.exit50
   %150 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i54 = icmp eq ptr %150, null
-  br i1 %.not.i.i.i.i54, label %152, label %151
+  %.not.i.i.i.i52 = icmp eq ptr %150, null
+  br i1 %.not.i.i.i.i52, label %152, label %151
 
-151:                                              ; preds = %_ZN11MutexLockerD2Ev.exit53
+151:                                              ; preds = %149
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %19) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %13) #18
   br label %152
 
-152:                                              ; preds = %151, %_ZN11MutexLockerD2Ev.exit53
+152:                                              ; preds = %151, %149
   %153 = load ptr, ptr %14, align 8
-  %.not8.i.i.i.i55 = icmp eq ptr %153, %15
-  br i1 %.not8.i.i.i.i55, label %_ZN12ResourceMarkD2Ev.exit56, label %154
+  %.not8.i.i.i.i53 = icmp eq ptr %153, %15
+  br i1 %.not8.i.i.i.i53, label %_ZN12ResourceMarkD2Ev.exit54, label %154
 
 154:                                              ; preds = %152
   store ptr %13, ptr %12, align 8
   store ptr %15, ptr %14, align 8
   store ptr %17, ptr %16, align 8
-  br label %_ZN12ResourceMarkD2Ev.exit56
+  br label %_ZN12ResourceMarkD2Ev.exit54
 
-_ZN12ResourceMarkD2Ev.exit56:                     ; preds = %152, %154
+_ZN12ResourceMarkD2Ev.exit54:                     ; preds = %152, %154
   ret void
 }
 

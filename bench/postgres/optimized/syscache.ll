@@ -960,31 +960,31 @@ define dso_local noundef zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 nounde
 define dso_local noundef zeroext i1 @RelationHasSysCache(i32 noundef %0) local_unnamed_addr #8 {
   %2 = load i32, ptr @SysCacheRelationOidSize, align 4
   %3 = add i32 %2, -1
-  %.not22 = icmp sgt i32 %3, -1
-  br i1 %.not22, label %.lr.ph, label %.critedge
+  %.not24 = icmp sgt i32 %3, -1
+  br i1 %.not24, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %1, %10
-  %.01324 = phi i32 [ %.215, %10 ], [ %3, %1 ]
-  %.01623 = phi i32 [ %.218, %10 ], [ 0, %1 ]
-  %4 = sub i32 %.01324, %.01623
+  %.01326 = phi i32 [ %.215, %10 ], [ %3, %1 ]
+  %.01625 = phi i32 [ %.218, %10 ], [ 0, %1 ]
+  %4 = sub i32 %.01326, %.01625
   %5 = sdiv i32 %4, 2
-  %6 = add i32 %5, %.01623
+  %6 = add i32 %5, %.01625
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds [85 x i32], ptr @SysCacheRelationOid, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %.not21 = icmp eq i32 %9, %0
-  br i1 %.not21, label %.critedge, label %10
+  br i1 %.not21, label %.thread, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = icmp ult i32 %9, %0
   %12 = add i32 %6, 1
   %13 = add i32 %6, -1
-  %.218 = select i1 %11, i32 %12, i32 %.01623
-  %.215 = select i1 %11, i32 %.01324, i32 %13
+  %.218 = select i1 %11, i32 %12, i32 %.01625
+  %.215 = select i1 %11, i32 %.01326, i32 %13
   %.not.not = icmp sgt i32 %.218, %.215
-  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not.not, label %.thread, label %.lr.ph, !llvm.loop !10
 
-.critedge:                                        ; preds = %10, %.lr.ph, %1
+.thread:                                          ; preds = %10, %.lr.ph, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ %.not21, %.lr.ph ], [ %.not21, %10 ]
   ret i1 %.not.lcssa
 }
@@ -993,31 +993,31 @@ define dso_local noundef zeroext i1 @RelationHasSysCache(i32 noundef %0) local_u
 define dso_local noundef zeroext i1 @RelationSupportsSysCache(i32 noundef %0) local_unnamed_addr #8 {
   %2 = load i32, ptr @SysCacheSupportingRelOidSize, align 4
   %3 = add i32 %2, -1
-  %.not22 = icmp sgt i32 %3, -1
-  br i1 %.not22, label %.lr.ph, label %.critedge
+  %.not24 = icmp sgt i32 %3, -1
+  br i1 %.not24, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %1, %10
-  %.01324 = phi i32 [ %.215, %10 ], [ %3, %1 ]
-  %.01623 = phi i32 [ %.218, %10 ], [ 0, %1 ]
-  %4 = sub i32 %.01324, %.01623
+  %.01326 = phi i32 [ %.215, %10 ], [ %3, %1 ]
+  %.01625 = phi i32 [ %.218, %10 ], [ 0, %1 ]
+  %4 = sub i32 %.01326, %.01625
   %5 = sdiv i32 %4, 2
-  %6 = add i32 %5, %.01623
+  %6 = add i32 %5, %.01625
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds [170 x i32], ptr @SysCacheSupportingRelOid, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %.not21 = icmp eq i32 %9, %0
-  br i1 %.not21, label %.critedge, label %10
+  br i1 %.not21, label %.thread, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = icmp ult i32 %9, %0
   %12 = add i32 %6, 1
   %13 = add i32 %6, -1
-  %.218 = select i1 %11, i32 %12, i32 %.01623
-  %.215 = select i1 %11, i32 %.01324, i32 %13
+  %.218 = select i1 %11, i32 %12, i32 %.01625
+  %.215 = select i1 %11, i32 %.01326, i32 %13
   %.not.not = icmp sgt i32 %.218, %.215
-  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not.not, label %.thread, label %.lr.ph, !llvm.loop !11
 
-.critedge:                                        ; preds = %10, %.lr.ph, %1
+.thread:                                          ; preds = %10, %.lr.ph, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ %.not21, %.lr.ph ], [ %.not21, %10 ]
   ret i1 %.not.lcssa
 }

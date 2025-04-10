@@ -38131,7 +38131,7 @@ _ZN15rustfmt_nightly7matches9arm_comma17h727370e7f9dc8a35E.exit: ; preds = %112,
   %167 = icmp eq ptr %.fca.0.extract.i, null
   br i1 %167, label %.invoke96, label %_ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit
 
-.invoke96.critedge:                               ; preds = %237, %.thread.i.i.i, %.preheader.i.i
+.invoke96:                                        ; preds = %237, %.thread.i.i.i, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35), !noalias !5835
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %34), !noalias !5835
   br label %.invoke96

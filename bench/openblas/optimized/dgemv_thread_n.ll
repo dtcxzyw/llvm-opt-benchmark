@@ -209,30 +209,30 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   br i1 %26, label %.preheader.us, label %.loopexit
 
 .preheader.us:                                    ; preds = %.loopexit112.thread134, %._crit_edge122.us
-  %.2123.us = phi i64 [ %117, %._crit_edge122.us ], [ 0, %.loopexit112.thread134 ]
-  %108 = mul nuw nsw i64 %.2123.us, %0
-  br label %109
+  %.2123.us = phi i64 [ %119, %._crit_edge122.us ], [ 0, %.loopexit112.thread134 ]
+  %110 = mul nuw nsw i64 %.2123.us, %0
+  br label %111
 
-109:                                              ; preds = %.preheader.us, %109
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %109 ]
-  %110 = add nuw nsw i64 %indvars.iv, %108
-  %111 = getelementptr inbounds nuw [1024 x double], ptr %107, i64 0, i64 %110
-  %112 = load double, ptr %111, align 8, !tbaa !3
-  %113 = mul nsw i64 %indvars.iv, %8
-  %114 = getelementptr inbounds double, ptr %7, i64 %113
-  %115 = load double, ptr %114, align 8, !tbaa !3
-  %116 = fadd double %112, %115
-  store double %116, ptr %114, align 8, !tbaa !3
+111:                                              ; preds = %.preheader.us, %111
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %111 ]
+  %112 = add nuw nsw i64 %indvars.iv, %110
+  %113 = getelementptr inbounds nuw [1024 x double], ptr %107, i64 0, i64 %112
+  %114 = load double, ptr %113, align 8, !tbaa !3
+  %115 = mul nsw i64 %indvars.iv, %8
+  %116 = getelementptr inbounds double, ptr %7, i64 %115
+  %117 = load double, ptr %116, align 8, !tbaa !3
+  %118 = fadd double %114, %117
+  store double %118, ptr %116, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond.not, label %._crit_edge122.us, label %109, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge122.us, label %111, !llvm.loop !37
 
-._crit_edge122.us:                                ; preds = %109
-  %117 = add nuw nsw i64 %.2123.us, 1
+._crit_edge122.us:                                ; preds = %111
+  %119 = add nuw nsw i64 %.2123.us, 1
   %exitcond128.not = icmp eq i64 %.2123.us, %.2102115
   br i1 %exitcond128.not, label %.loopexit, label %.preheader.us, !llvm.loop !38
 
-.loopexit.critedge:                               ; preds = %.loopexit112
+.loopexit:                                        ; preds = %.loopexit112
   %118 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr null, ptr %118, align 16, !tbaa !35
   %119 = getelementptr inbounds nuw i8, ptr %16, i64 56

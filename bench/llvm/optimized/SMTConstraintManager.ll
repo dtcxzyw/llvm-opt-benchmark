@@ -2371,8 +2371,8 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.thread: ; preds = %23, %40, %_ZNK5
   br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
 
 84:                                               ; preds = %66
-  %85 = icmp eq i32 %53, 3
-  tail call void @llvm.assume(i1 %85)
+  %.not122 = icmp eq i32 %53, 3
+  tail call void @llvm.assume(i1 %.not122)
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %87 = load ptr, ptr %86, align 8, !tbaa !120
   %88 = tail call { ptr, i8 } @_ZN5clang4ento11SValBuilder13makeSymbolValEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(412) %57, ptr noundef %87)

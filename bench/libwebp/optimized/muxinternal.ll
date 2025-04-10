@@ -839,13 +839,13 @@ MuxImageCount.exit.i:                             ; preds = %2
   br i1 %.not19.i.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph24.i.i, %MuxImageCount.exit.i
-  %.01830.i = phi i32 [ %1, %MuxImageCount.exit.i ], [ %5, %.lr.ph24.i.i ]
-  %.not22.i8 = icmp eq i32 %.01830.i, 1
+  %.01832.i = phi i32 [ %1, %MuxImageCount.exit.i ], [ %5, %.lr.ph24.i.i ]
+  %.not22.i8 = icmp eq i32 %.01832.i, 1
   br i1 %.not22.i8, label %SearchImageToGetOrDelete.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %8 = add i32 %9, 1
-  %.not22.i = icmp eq i32 %8, %.01830.i
+  %.not22.i = icmp eq i32 %8, %.01832.i
   br i1 %.not22.i, label %SearchImageToGetOrDelete.exit.loopexit, label %.lr.ph, !llvm.loop !45
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
@@ -896,13 +896,13 @@ MuxImageCount.exit.i:                             ; preds = %3
   br i1 %.not19.i.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph24.i.i, %MuxImageCount.exit.i
-  %.01830.i = phi i32 [ %1, %MuxImageCount.exit.i ], [ %6, %.lr.ph24.i.i ]
-  %.not22.i7 = icmp eq i32 %.01830.i, 1
+  %.01832.i = phi i32 [ %1, %MuxImageCount.exit.i ], [ %6, %.lr.ph24.i.i ]
+  %.not22.i7 = icmp eq i32 %.01832.i, 1
   br i1 %.not22.i7, label %SearchImageToGetOrDelete.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %9 = add i32 %10, 1
-  %.not22.i = icmp eq i32 %9, %.01830.i
+  %.not22.i = icmp eq i32 %9, %.01832.i
   br i1 %.not22.i, label %SearchImageToGetOrDelete.exit, label %.lr.ph, !llvm.loop !45
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i

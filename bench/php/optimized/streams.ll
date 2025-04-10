@@ -4808,12 +4808,12 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   store ptr %0, ptr %4, align 8, !tbaa !42
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 80), align 8, !tbaa !44
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %43, label %11
+  br i1 %.not.i, label %42, label %11
 
 11:                                               ; preds = %9
   %12 = call ptr @zend_hash_str_find(ptr noundef nonnull %10, ptr noundef nonnull %4, i64 noundef 8) #27
   %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %43, label %13
+  br i1 %.not.i.i, label %42, label %13
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %12, align 8, !tbaa !21, !nonnull !39, !noundef !39
@@ -4826,25 +4826,25 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   %. = select i1 %18, i64 7, i64 1
   %.str.28..str.29 = select i1 %18, ptr @.str.28, ptr @.str.29
   %19 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull %14, ptr noundef nonnull %5) #27
-  %.not8392 = icmp eq ptr %19, null
-  br i1 %.not8392, label %._crit_edge, label %.lr.ph
+  %.not8388 = icmp eq ptr %19, null
+  br i1 %.not8388, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %20 = add nsw i32 %16, -1
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
-  %.095 = phi ptr [ %19, %.lr.ph ], [ %27, %21 ]
-  %.07194 = phi i32 [ 0, %.lr.ph ], [ %28, %21 ]
-  %.07493 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %21 ]
-  %22 = load ptr, ptr %.095, align 8, !tbaa !43
+  %.091 = phi ptr [ %19, %.lr.ph ], [ %27, %21 ]
+  %.07190 = phi i32 [ 0, %.lr.ph ], [ %28, %21 ]
+  %.07489 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %21 ]
+  %22 = load ptr, ptr %.091, align 8, !tbaa !43
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #28
-  %24 = icmp slt i32 %.07194, %20
+  %24 = icmp slt i32 %.07190, %20
   %25 = select i1 %24, i64 %., i64 0
-  %26 = add i64 %25, %.07493
+  %26 = add i64 %25, %.07489
   %spec.select = add i64 %26, %23
   %27 = call ptr @zend_llist_get_next_ex(ptr noundef nonnull %14, ptr noundef nonnull %5) #27
-  %28 = add nuw nsw i32 %.07194, 1
+  %28 = add nuw nsw i32 %.07190, 1
   %.not83 = icmp eq ptr %27, null
   br i1 %.not83, label %._crit_edge.loopexit, label %21
 
@@ -4857,19 +4857,19 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   %30 = call noalias ptr @_emalloc(i64 noundef %.074.lcssa) #29
   store i8 0, ptr %30, align 1, !tbaa !21
   %31 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull %14, ptr noundef nonnull %5) #27
-  %.not8496 = icmp eq ptr %31, null
-  br i1 %.not8496, label %._crit_edge101, label %.lr.ph100
+  %.not8492 = icmp eq ptr %31, null
+  br i1 %.not8492, label %._crit_edge97, label %.lr.ph96
 
-.lr.ph100:                                        ; preds = %._crit_edge
+.lr.ph96:                                         ; preds = %._crit_edge
   %32 = add nsw i32 %16, -1
   br label %33
 
-33:                                               ; preds = %.lr.ph100, %39
-  %.198 = phi ptr [ %31, %.lr.ph100 ], [ %40, %39 ]
-  %.17297 = phi i32 [ 0, %.lr.ph100 ], [ %41, %39 ]
-  %34 = load ptr, ptr %.198, align 8, !tbaa !43
+33:                                               ; preds = %.lr.ph96, %39
+  %.194 = phi ptr [ %31, %.lr.ph96 ], [ %40, %39 ]
+  %.17293 = phi i32 [ 0, %.lr.ph96 ], [ %41, %39 ]
+  %34 = load ptr, ptr %.194, align 8, !tbaa !43
   %35 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %34) #27
-  %36 = icmp slt i32 %.17297, %32
+  %36 = icmp slt i32 %.17293, %32
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
@@ -4878,11 +4878,11 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
 
 39:                                               ; preds = %33, %37
   %40 = call ptr @zend_llist_get_next_ex(ptr noundef nonnull %14, ptr noundef nonnull %5) #27
-  %41 = add nuw nsw i32 %.17297, 1
+  %41 = add nuw nsw i32 %.17293, 1
   %.not84 = icmp eq ptr %40, null
-  br i1 %.not84, label %._crit_edge101, label %33
+  br i1 %.not84, label %._crit_edge97, label %33
 
-._crit_edge101:                                   ; preds = %39, %._crit_edge
+._crit_edge97:                                    ; preds = %39, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   %42 = call ptr @php_strip_url_passwd(ptr noundef %8) #27
   call void (ptr, ptr, i32, ptr, ...) @php_error_docref1(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.32, ptr noundef %2, ptr noundef nonnull %30) #27
@@ -4890,10 +4890,10 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   call void @_efree(ptr noundef nonnull %30) #27
   br label %51
 
-43:                                               ; preds = %9, %11
+42:                                               ; preds = %9, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %44 = icmp eq ptr %0, @php_plain_files_wrapper
-  br i1 %44, label %45, label %.critedge91
+  %43 = icmp eq ptr %0, @php_plain_files_wrapper
+  br i1 %43, label %45, label %44
 
 45:                                               ; preds = %43
   %46 = tail call ptr @__errno_location() #31
@@ -4907,14 +4907,14 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   tail call void @_efree(ptr noundef %8) #27
   br label %51
 
-.critedge91:                                      ; preds = %43, %45
+44:                                               ; preds = %42, %45
   %.170.ph = phi ptr [ @.str.30, %43 ], [ %48, %45 ]
   %50 = call ptr @php_strip_url_passwd(ptr noundef %8) #27
   call void (ptr, ptr, i32, ptr, ...) @php_error_docref1(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.32, ptr noundef %2, ptr noundef %.170.ph) #27
   call void @_efree(ptr noundef %8) #27
   br label %51
 
-51:                                               ; preds = %.critedge91, %._crit_edge101, %.critedge, %3
+51:                                               ; preds = %44, %._crit_edge101, %.critedge, %3
   ret void
 }
 

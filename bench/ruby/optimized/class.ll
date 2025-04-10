@@ -2341,7 +2341,7 @@ define hidden i64 @rb_make_metaclass(i64 noundef %0, i64 %1) local_unnamed_addr 
   %20 = and i64 %15, 7
   %21 = icmp ne i64 %20, 0
   %22 = or i1 %19, %21
-  br i1 %22, label %RBASIC_SET_CLASS.exit.thread.critedge.i, label %rb_obj_write.exit.thread.i.i.i.i
+  br i1 %22, label %RBASIC_SET_CLASS.exit.thread.i, label %rb_obj_write.exit.thread.i.i.i.i
 
 rb_obj_write.exit.thread.i.i.i.i:                 ; preds = %9
   tail call void @rb_gc_writebarrier(i64 noundef %15, i64 noundef %15) #19
@@ -2363,7 +2363,7 @@ rb_obj_write.exit.thread.i.i.i.i:                 ; preds = %9
   store i64 %31, ptr %16, align 8, !tbaa !35
   br label %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
 
-RBASIC_SET_CLASS.exit.thread.critedge.i:          ; preds = %9
+RBASIC_SET_CLASS.exit.thread.i:                   ; preds = %9
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 120
   store i64 4, ptr %32, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 128
@@ -2378,43 +2378,43 @@ RBASIC_SET_CLASS.exit.thread.critedge.i:          ; preds = %9
 rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %30, %rb_obj_write.exit.thread.i.i.i.i
   store i64 %15, ptr %10, align 8, !tbaa !29
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %15) #19
-  %37 = load i64, ptr %16, align 8, !tbaa !35
-  %38 = and i64 %37, 8223
-  %or.cond.i.i = icmp eq i64 %38, 8194
-  br i1 %or.cond.i.i, label %39, label %rb_singleton_class_attached.exit.i
+  %32 = load i64, ptr %16, align 8, !tbaa !35
+  %33 = and i64 %32, 8223
+  %or.cond.i.i = icmp eq i64 %33, 8194
+  br i1 %or.cond.i.i, label %34, label %rb_singleton_class_attached.exit.i
 
-39:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
+34:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   store i64 %0, ptr %24, align 8, !tbaa !29
-  %40 = icmp eq i64 %0, 0
-  %41 = and i64 %0, 7
-  %42 = icmp ne i64 %41, 0
-  %43 = or i1 %40, %42
-  br i1 %43, label %rb_singleton_class_attached.exit.i, label %44
+  %35 = icmp eq i64 %0, 0
+  %36 = and i64 %0, 7
+  %37 = icmp ne i64 %36, 0
+  %38 = or i1 %35, %37
+  br i1 %38, label %rb_singleton_class_attached.exit.i, label %39
 
-44:                                               ; preds = %39
+39:                                               ; preds = %34
   tail call void @rb_gc_writebarrier(i64 noundef %15, i64 noundef %0) #19
   br label %rb_singleton_class_attached.exit.i
 
-rb_singleton_class_attached.exit.i:               ; preds = %44, %39, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %RBASIC_SET_CLASS.exit.thread.critedge.i
+rb_singleton_class_attached.exit.i:               ; preds = %39, %34, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %RBASIC_SET_CLASS.exit.thread.i
   tail call void @rb_yjit_invalidate_no_singleton_class(i64 noundef %11) #19
-  %45 = tail call i64 @rb_class_real(i64 noundef %11) #23
-  %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !42
-  %49 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %48, ptr %49, align 8, !tbaa !29
-  %50 = icmp eq i64 %48, 0
-  %51 = and i64 %48, 7
-  %52 = icmp ne i64 %51, 0
-  %53 = or i1 %50, %52
-  br i1 %53, label %make_singleton_class.exit, label %54
+  %40 = tail call i64 @rb_class_real(i64 noundef %11) #23
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !42
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 %43, ptr %44, align 8, !tbaa !29
+  %45 = icmp eq i64 %43, 0
+  %46 = and i64 %43, 7
+  %47 = icmp ne i64 %46, 0
+  %48 = or i1 %45, %47
+  br i1 %48, label %make_singleton_class.exit, label %49
 
-54:                                               ; preds = %rb_singleton_class_attached.exit.i
-  tail call void @rb_gc_writebarrier(i64 noundef %15, i64 noundef %48) #19
+49:                                               ; preds = %rb_singleton_class_attached.exit.i
+  tail call void @rb_gc_writebarrier(i64 noundef %15, i64 noundef %43) #19
   br label %make_singleton_class.exit
 
-make_singleton_class.exit:                        ; preds = %54, %rb_singleton_class_attached.exit.i, %7
-  %.0 = phi i64 [ %8, %7 ], [ %15, %rb_singleton_class_attached.exit.i ], [ %15, %54 ]
+make_singleton_class.exit:                        ; preds = %49, %rb_singleton_class_attached.exit.i, %7
+  %.0 = phi i64 [ %8, %7 ], [ %15, %rb_singleton_class_attached.exit.i ], [ %15, %49 ]
   ret i64 %.0
 }
 

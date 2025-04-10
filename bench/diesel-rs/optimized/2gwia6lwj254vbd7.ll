@@ -4462,67 +4462,67 @@ define void @"_ZN6diesel2pg5types8mac_addr153_$LT$impl$u20$diesel..deserialize..
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !741, !noundef !4
   %.not.not = icmp eq i64 %5, 6
-  br i1 %.not.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hebf60cc607ec5c97E.exit", label %.critedge
+  br i1 %.not.not, label %6, label %9
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17hebf60cc607ec5c97E.exit": ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !alias.scope !741, !nonnull !4, !align !153, !noundef !4
-  %.val.i = load i48, ptr %6, align 1, !alias.scope !744
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %1, align 8, !alias.scope !741, !nonnull !4, !align !153, !noundef !4
+  %.val.i = load i48, ptr %7, align 1, !alias.scope !744
   tail call void @llvm.experimental.noalias.scope.decl(metadata !747)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i48 %.val.i, ptr %7, align 8, !alias.scope !747
   store ptr null, ptr %0, align 8, !alias.scope !747
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd46ab739e197607dE.exit"
 
-.critedge:                                        ; preds = %2
+9:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !747)
-  %8 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb98e93f08ac7f736E"(i64 noundef 52, i1 noundef zeroext false), !noalias !750
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %11)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %10, ptr noundef nonnull align 1 dereferenceable(52) @anon.2e81c50020d01ae8187fdce9ab0139a8.50, i64 52, i1 false), !noalias !754
+  %10 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb98e93f08ac7f736E"(i64 noundef 52, i1 noundef zeroext false), !noalias !750
+  %11 = extractvalue { i64, ptr } %10, 0
+  %12 = extractvalue { i64, ptr } %10, 1
+  %13 = icmp ne ptr %12, null
+  tail call void @llvm.assume(i1 %13)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %12, ptr noundef nonnull align 1 dereferenceable(52) @anon.2e81c50020d01ae8187fdce9ab0139a8.50, i64 52, i1 false), !noalias !754
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !747
-  store i64 %9, ptr %3, align 8, !noalias !747
+  store i64 %11, ptr %3, align 8, !noalias !747
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %10, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !noalias !747
+  store ptr %12, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !noalias !747
   %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 52, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !noalias !747
-  %12 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !755
-  %13 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #34, !noalias !755
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %"_ZN6diesel2pg5types8mac_addr153_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..pg..types..sql_types..MacAddr$C$diesel..pg..backend..Pg$GT$$u20$for$u20$$u5b$u8$u3b$$u20$6$u5d$$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h1a0b50f249c338aaE.exit.i"
+  %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !755
+  %15 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #34, !noalias !755
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %"_ZN6diesel2pg5types8mac_addr153_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..pg..types..sql_types..MacAddr$C$diesel..pg..backend..Pg$GT$$u20$for$u20$$u5b$u8$u3b$$u20$6$u5d$$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h1a0b50f249c338aaE.exit.i"
 
-15:                                               ; preds = %.critedge
+17:                                               ; preds = %9
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #33
-          to label %.noexc.i.i unwind label %16, !noalias !747
+          to label %.noexc.i.i unwind label %18, !noalias !747
 
-.noexc.i.i:                                       ; preds = %15
+.noexc.i.i:                                       ; preds = %17
   unreachable
 
-16:                                               ; preds = %15
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %17
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$GT$17hfbe952fa3d1979e5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #31
-          to label %20 unwind label %18, !noalias !747
+          to label %22 unwind label %20, !noalias !747
 
-18:                                               ; preds = %16
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #32, !noalias !747
   unreachable
 
-20:                                               ; preds = %16
-  resume { ptr, i32 } %17
+22:                                               ; preds = %18
+  resume { ptr, i32 } %19
 
-"_ZN6diesel2pg5types8mac_addr153_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..pg..types..sql_types..MacAddr$C$diesel..pg..backend..Pg$GT$$u20$for$u20$$u5b$u8$u3b$$u20$6$u5d$$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h1a0b50f249c338aaE.exit.i": ; preds = %.critedge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !747
+"_ZN6diesel2pg5types8mac_addr153_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..pg..types..sql_types..MacAddr$C$diesel..pg..backend..Pg$GT$$u20$for$u20$$u5b$u8$u3b$$u20$6$u5d$$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h1a0b50f249c338aaE.exit.i": ; preds = %9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !747
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !747
-  store ptr %13, ptr %0, align 8, !alias.scope !747
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @anon.2e81c50020d01ae8187fdce9ab0139a8.37, ptr %21, align 8, !alias.scope !747
+  store ptr %15, ptr %0, align 8, !alias.scope !747
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @anon.2e81c50020d01ae8187fdce9ab0139a8.37, ptr %23, align 8, !alias.scope !747
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd46ab739e197607dE.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd46ab739e197607dE.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hebf60cc607ec5c97E.exit", %"_ZN6diesel2pg5types8mac_addr153_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..pg..types..sql_types..MacAddr$C$diesel..pg..backend..Pg$GT$$u20$for$u20$$u5b$u8$u3b$$u20$6$u5d$$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h1a0b50f249c338aaE.exit.i"
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd46ab739e197607dE.exit": ; preds = %6, %"_ZN6diesel2pg5types8mac_addr153_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..pg..types..sql_types..MacAddr$C$diesel..pg..backend..Pg$GT$$u20$for$u20$$u5b$u8$u3b$$u20$6$u5d$$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h1a0b50f249c338aaE.exit.i"
   ret void
 }
 

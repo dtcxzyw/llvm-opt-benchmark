@@ -2724,7 +2724,7 @@ define void @_ZN9grpc_core23GrpcXdsTransportFactory16GrpcXdsTransport28StopConne
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(144) %4)
-  br i1 %8, label %_ZN4absl12lts_202407229MutexLockD2Ev.exit9, label %9
+  br i1 %8, label %107, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2841,7 +2841,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %74 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit10 unwind label %109
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit9 unwind label %108
 
 75:                                               ; preds = %70
   %76 = extractvalue { ptr, ptr } %.pn.i, 1
@@ -2908,24 +2908,24 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_20240
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit9 unwind label %106
 
-106:                                              ; preds = %.critedge
+102:                                              ; preds = %.critedge
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
   tail call void @__clang_call_terminate(ptr %108) #36
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit9:       ; preds = %.critedge, %_ZN4absl12lts_202407229MutexLockD2Ev.exit, %2
+107:                                              ; preds = %.critedge, %_ZN4absl12lts_202407229MutexLockD2Ev.exit, %2
   ret void
 
-109:                                              ; preds = %73
-  %110 = landingpad { ptr, i32 }
+108:                                              ; preds = %73
+  %109 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  tail call void @__clang_call_terminate(ptr %111) #36
+  %110 = extractvalue { ptr, i32 } %109, 0
+  tail call void @__clang_call_terminate(ptr %110) #36
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit10:      ; preds = %73
+_ZN4absl12lts_202407229MutexLockD2Ev.exit9:       ; preds = %73
   resume { ptr, i32 } %74
 }
 

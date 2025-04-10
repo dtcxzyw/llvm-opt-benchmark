@@ -3717,17 +3717,17 @@ default.unreachable:                              ; preds = %55, %14
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %39
-  %43 = extractvalue { ptr, ptr } %42, 0
-  %44 = icmp eq ptr %43, null
-  %45 = extractvalue { ptr, ptr } %42, 1
-  %.sroa.0.0.i.i7.i.i = select i1 %44, ptr %45, ptr %43
-  %.not.not8.i.i = icmp eq ptr %.sroa.0.0.i.i7.i.i, null
-  br i1 %.not.not8.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h1ba8cec736db57b4E.exit", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20db648cc8f4e49eE.exit.lr.ph.i.i"
+  %46 = extractvalue { ptr, ptr } %42, 0
+  %47 = icmp eq ptr %46, null
+  %48 = extractvalue { ptr, ptr } %42, 1
+  %.sroa.0.0.i.i.i1.i = select i1 %47, ptr %48, ptr %46
+  %.not.not.i2.i = icmp eq ptr %.sroa.0.0.i.i.i1.i, null
+  br i1 %.not.not.i2.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h1ba8cec736db57b4E.exit", label %.lr.ph.i
 
-"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20db648cc8f4e49eE.exit.lr.ph.i.i": ; preds = %.noexc
+.lr.ph.i:                                         ; preds = %.noexc
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 136
   br label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20db648cc8f4e49eE.exit.i.i"
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20db648cc8f4e49eE.exit.i.i": ; preds = %.noexc9, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20db648cc8f4e49eE.exit.lr.ph.i.i"
@@ -5144,11 +5144,11 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %26
-  %30 = extractvalue { ptr, ptr } %29, 0
-  %.not.not7.i.i = icmp eq ptr %30, null
-  br i1 %.not.not7.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hf560dd3093b68b47E.exit", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe042d30fc9bd694E.exit.lr.ph.i.i"
+  %32 = extractvalue { ptr, ptr } %29, 0
+  %.not.not.i1.i = icmp eq ptr %32, null
+  br i1 %.not.not.i1.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hf560dd3093b68b47E.exit", label %.lr.ph.i
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe042d30fc9bd694E.exit.lr.ph.i.i": ; preds = %.noexc
+.lr.ph.i:                                         ; preds = %.noexc
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe042d30fc9bd694E.exit.i.i"

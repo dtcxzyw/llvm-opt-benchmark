@@ -1703,7 +1703,7 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = tail call i32 @nxmutex_lock(ptr noundef nonnull %4) #5
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %42
+  br i1 %6, label %7, label %38
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1717,8 +1717,8 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load volatile i16, ptr %9, align 8
   %14 = load volatile i16, ptr %10, align 2
-  %.not2 = icmp eq i16 %13, %14
-  br i1 %.not2, label %.critedge, label %.lr.ph
+  %.not1 = icmp eq i16 %13, %14
+  br i1 %.not1, label %.critedge, label %.lr.ph
 
 15:                                               ; preds = %.lr.ph
   %16 = load volatile i16, ptr %9, align 8
@@ -1739,7 +1739,7 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4
   %25 = icmp sgt i32 %21, -1
   br i1 %25, label %15, label %.critedge25, !llvm.loop !16
 
-.critedge:                                        ; preds = %15, %7
+..critedge_crit_edge:                             ; preds = %15, %7
   %.130.lcssa = phi i32 [ 0, %7 ], [ %21, %15 ]
   %26 = and i64 %8, 512
   %.not.i = icmp eq i64 %26, 0
@@ -1751,23 +1751,23 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4
 
 up_irq_restore.exit:                              ; preds = %.critedge, %27
   %28 = call i64 @clock_systime_ticks() #5
-  br label %29
+  br label %.preheader
 
-29:                                               ; preds = %up_irq_restore.exit, %34
-  %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 88
-  %32 = load ptr, ptr %31, align 8
-  %33 = call zeroext i1 %32(ptr noundef nonnull %0) #5
-  br i1 %33, label %.sink.split, label %34
+.preheader:                                       ; preds = %up_irq_restore.exit, %33
+  %29 = load ptr, ptr %11, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
+  %31 = load ptr, ptr %30, align 8
+  %32 = call zeroext i1 %32(ptr noundef nonnull %0) #5
+  br i1 %32, label %.sink.split, label %33
 
-34:                                               ; preds = %29
-  %35 = call i32 @nxsig_usleep(i32 noundef 1000) #5
-  %36 = call i64 @clock_systime_ticks() #5
-  %37 = sub i64 %36, %28
-  %.not24 = icmp ult i64 %37, %1
-  br i1 %.not24, label %29, label %.sink.split, !llvm.loop !17
+33:                                               ; preds = %.preheader
+  %34 = call i32 @nxsig_usleep(i32 noundef 1000) #5
+  %35 = call i64 @clock_systime_ticks() #5
+  %36 = sub i64 %35, %28
+  %.not24 = icmp ult i64 %36, %1
+  br i1 %.not24, label %.preheader, label %.sink.split, !llvm.loop !17
 
-.critedge25:                                      ; preds = %.lr.ph
+.sink.split:                                      ; preds = %.lr.ph
   %38 = and i64 %8, 512
   %.not.i26 = icmp eq i64 %38, 0
   br i1 %.not.i26, label %up_irq_restore.exit27, label %39
@@ -1785,7 +1785,7 @@ up_irq_restore.exit27:                            ; preds = %.critedge25, %39
   %41 = call i32 @nxmutex_unlock(ptr noundef nonnull %4) #5
   br label %42
 
-42:                                               ; preds = %.sink.split, %2
+38:                                               ; preds = %.sink.split, %2
   %.0 = phi i32 [ %5, %2 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

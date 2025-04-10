@@ -215,7 +215,7 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
   br i1 %exitcond57.not.i, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit, label %.lr.ph.i, !llvm.loop !15
 
-._crit_edge47.critedge.i:                         ; preds = %23
+_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit: ; preds = %23
   %46 = mul nsw i32 %2, 6
   %47 = sitofp i32 %46 to double
   %48 = fdiv double 0.000000e+00, %47

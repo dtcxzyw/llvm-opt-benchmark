@@ -13301,64 +13301,64 @@ define hidden void @_ZN14regex_automata4util8alphabet12ByteClassSet7add_set17h1b
 .split:
   br label %2
 
-2:                                                ; preds = %.backedge, %.split
+3:                                                ; preds = %.backedge, %.split
   %.sroa.4.1 = phi i64 [ 0, %.split ], [ %.sroa.4.1.be, %.backedge ]
-  %3 = icmp ult i64 %.sroa.4.1, 256
-  br i1 %3, label %4, label %.critedge
+  %4 = icmp ult i64 %.sroa.4.1, 256
+  br i1 %4, label %5, label %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread28"
 
-4:                                                ; preds = %2
-  %5 = trunc nuw i64 %.sroa.4.1 to i8
-  %6 = add nuw nsw i64 %.sroa.4.1, 1
+5:                                                ; preds = %3
+  %6 = trunc nuw i64 %.sroa.4.1 to i8
+  %7 = add nuw nsw i64 %.sroa.4.1, 1
   %.lobit.i.i = lshr i64 %.sroa.4.1, 7
-  %7 = getelementptr inbounds nuw [2 x i128], ptr %1, i64 0, i64 %.lobit.i.i
-  %8 = load i128, ptr %7, align 8, !alias.scope !3405, !noalias !3408, !noundef !9
-  %9 = and i8 %5, 127
-  %10 = zext nneg i8 %9 to i128
-  %11 = shl nuw i128 1, %10
-  %12 = and i128 %8, %11
-  %.not.i = icmp eq i128 %12, 0
+  %8 = getelementptr inbounds nuw [2 x i128], ptr %1, i64 0, i64 %.lobit.i.i
+  %9 = load i128, ptr %8, align 8, !alias.scope !3405, !noalias !3408, !noundef !9
+  %10 = and i8 %6, 127
+  %11 = zext nneg i8 %10 to i128
+  %12 = shl nuw i128 1, %11
+  %13 = and i128 %9, %12
+  %.not.i = icmp eq i128 %13, 0
   br i1 %.not.i, label %.backedge, label %thread-pre-split.i
 
-.backedge:                                        ; preds = %4, %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit
-  %.sroa.4.1.be = phi i64 [ %6, %4 ], [ %.sroa.4.322, %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit ]
-  br label %2
+.backedge:                                        ; preds = %5, %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit
+  %.sroa.4.1.be = phi i64 [ %7, %5 ], [ %.sroa.4.322, %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit ]
+  br label %3
 
-thread-pre-split.i:                               ; preds = %4
+thread-pre-split.i:                               ; preds = %5
   %.not21.i = icmp eq i64 %.sroa.4.1, 255
   br i1 %.not21.i, label %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread", label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %thread-pre-split.i
-  %13 = trunc nuw i64 %6 to i8
-  %.lobit.i11.i8 = lshr i64 %6, 7
-  %14 = getelementptr inbounds nuw [2 x i128], ptr %1, i64 0, i64 %.lobit.i11.i8
-  %15 = load i128, ptr %14, align 8, !alias.scope !3411, !noalias !3408, !noundef !9
-  %16 = and i8 %13, 127
-  %17 = zext nneg i8 %16 to i128
-  %18 = shl nuw i128 1, %17
-  %19 = and i128 %18, %15
-  %.not12.i9 = icmp eq i128 %19, 0
-  br i1 %.not12.i9, label %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit", label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.i"
+  %14 = trunc nuw i64 %7 to i8
+  %.lobit.i11.i10 = lshr i64 %7, 7
+  %15 = getelementptr inbounds nuw [2 x i128], ptr %1, i64 0, i64 %.lobit.i11.i10
+  %16 = load i128, ptr %15, align 8, !alias.scope !3411, !noalias !3408, !noundef !9
+  %17 = and i8 %14, 127
+  %18 = zext nneg i8 %17 to i128
+  %19 = shl nuw i128 1, %18
+  %20 = and i128 %19, %16
+  %.not12.i11 = icmp eq i128 %20, 0
+  br i1 %.not12.i11, label %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit", label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.i"
 
 .lr.ph.i:                                         ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.i"
-  %indvars = trunc i64 %26 to i8
-  %.lobit.i11.i = lshr i64 %26, 7
-  %20 = getelementptr inbounds nuw [2 x i128], ptr %1, i64 0, i64 %.lobit.i11.i
-  %21 = load i128, ptr %20, align 8, !alias.scope !3411, !noalias !3408, !noundef !9
-  %22 = and i8 %indvars, 127
-  %23 = zext nneg i8 %22 to i128
-  %24 = shl nuw i128 1, %23
-  %25 = and i128 %24, %21
-  %.not12.i = icmp eq i128 %25, 0
-  br i1 %.not12.i, label %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.loopexit.split.loop.exit", label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.i"
+  %indvars = trunc i64 %27 to i8
+  %.lobit.i11.i = lshr i64 %27, 7
+  %21 = getelementptr inbounds nuw [2 x i128], ptr %1, i64 0, i64 %.lobit.i11.i
+  %22 = load i128, ptr %21, align 8, !alias.scope !3411, !noalias !3408, !noundef !9
+  %23 = and i8 %indvars, 127
+  %24 = zext nneg i8 %23 to i128
+  %25 = shl nuw i128 1, %24
+  %26 = and i128 %25, %22
+  %.not12.i = icmp eq i128 %26, 0
+  br i1 %.not12.i, label %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.split.loop.exit46", label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.i": ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.sroa.4.210 = phi i64 [ %26, %.lr.ph.i ], [ %6, %.lr.ph.i.preheader ]
-  %26 = add i64 %.sroa.4.210, 1
-  %exitcond.not.i = icmp eq i64 %26, 256
+  %.sroa.4.212 = phi i64 [ %27, %.lr.ph.i ], [ %7, %.lr.ph.i.preheader ]
+  %27 = add i64 %.sroa.4.212, 1
+  %exitcond.not.i = icmp eq i64 %27, 256
   br i1 %exitcond.not.i, label %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit", label %.lr.ph.i
 
-"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.loopexit.split.loop.exit": ; preds = %.lr.ph.i
-  %indvars16.le = trunc i64 %.sroa.4.210 to i8
+"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.split.loop.exit46": ; preds = %.lr.ph.i
+  %indvars21.le = trunc i64 %.sroa.4.212 to i8
   br label %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit"
 
 "_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.i", %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.loopexit.split.loop.exit", %.lr.ph.i.preheader
@@ -13367,37 +13367,37 @@ thread-pre-split.i:                               ; preds = %4
   %.not.i3 = icmp eq i64 %.sroa.4.1, 0
   br i1 %.not.i3, label %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit, label %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread"
 
-.critedge:                                        ; preds = %2
+"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread28": ; preds = %3
   ret void
 
 "_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread": ; preds = %thread-pre-split.i, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit"
-  %.sroa.3.0.i25 = phi i8 [ %5, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ -1, %thread-pre-split.i ]
-  %.sroa.4.0.i23 = phi i8 [ %.sroa.4.0.i, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ -1, %thread-pre-split.i ]
+  %.sroa.4.0.i26 = phi i8 [ %6, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ -1, %thread-pre-split.i ]
+  %.sroa.4.325 = phi i8 [ %.sroa.4.0.i, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ -1, %thread-pre-split.i ]
   %.sroa.4.321 = phi i64 [ %.sroa.4.3, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ 256, %thread-pre-split.i ]
-  %27 = add i8 %.sroa.3.0.i25, -1
+  %27 = add i8 %.sroa.4.0.i26, -1
   %.lobit.i1.i = lshr i8 %27, 7
   %28 = zext nneg i8 %.lobit.i1.i to i64
   %29 = and i8 %27, 127
   %30 = zext nneg i8 %29 to i128
   %31 = shl nuw i128 1, %30
-  %32 = getelementptr inbounds nuw [2 x i128], ptr %0, i64 0, i64 %28
+  %32 = getelementptr inbounds nuw [3 x i128], ptr %0, i64 0, i64 %28
   %33 = load i128, ptr %32, align 8, !alias.scope !3414, !noundef !9
   %34 = or i128 %33, %31
   store i128 %34, ptr %32, align 8, !alias.scope !3414
   br label %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit
 
 _ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit: ; preds = %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit", %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread"
-  %.sroa.4.0.i24 = phi i8 [ %.sroa.4.0.i, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ %.sroa.4.0.i23, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread" ]
-  %.sroa.4.322 = phi i64 [ %.sroa.4.3, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ %.sroa.4.321, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread" ]
+  %.sroa.4.32540 = phi i8 [ %.sroa.4.0.i, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ %.sroa.4.325, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread" ]
+  %.sroa.4.0.i2638 = phi i64 [ %.sroa.4.3, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ %.sroa.4.321, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread" ]
   %.lobit.i.i4 = lshr i8 %.sroa.4.0.i24, 7
-  %35 = zext nneg i8 %.lobit.i.i4 to i64
-  %36 = and i8 %.sroa.4.0.i24, 127
-  %37 = zext nneg i8 %36 to i128
-  %38 = shl nuw i128 1, %37
-  %39 = getelementptr inbounds nuw [2 x i128], ptr %0, i64 0, i64 %35
-  %40 = load i128, ptr %39, align 8, !alias.scope !3419, !noundef !9
-  %41 = or i128 %40, %38
-  store i128 %41, ptr %39, align 8, !alias.scope !3419
+  %36 = zext nneg i8 %.lobit.i.i4 to i64
+  %37 = and i8 %.sroa.4.0.i24, 127
+  %38 = zext nneg i8 %37 to i128
+  %39 = shl nuw i128 1, %38
+  %40 = getelementptr inbounds nuw [2 x i128], ptr %0, i64 0, i64 %36
+  %41 = load i128, ptr %40, align 8, !alias.scope !3419, !noundef !9
+  %42 = or i128 %41, %39
+  store i128 %42, ptr %40, align 8, !alias.scope !3419
   br label %.backedge
 }
 

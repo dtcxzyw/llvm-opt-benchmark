@@ -696,8 +696,8 @@ define internal void @_lib_duplicate_init_callback(ptr readnone captures(none) %
   call void @gtk_widget_set_visible(ptr noundef %106, i32 noundef 0) #10
   br label %134
 
-.critedge:                                        ; preds = %62
-  %131 = load ptr, ptr %3, align 8, !tbaa !103
+131:                                              ; preds = %62
+  %132 = load ptr, ptr %3, align 8, !tbaa !103
   %132 = call i32 @sqlite3_finalize(ptr noundef %131) #10
   %133 = load ptr, ptr %7, align 8, !tbaa !66
   call void @gtk_widget_show(ptr noundef %133) #10

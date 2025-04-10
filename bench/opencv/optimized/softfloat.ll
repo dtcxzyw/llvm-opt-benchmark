@@ -9563,20 +9563,20 @@ _ZNK2cv10softdoubleleERKS0_.exit.thread:          ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 3)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL5piby4E)
-  %30 = load i64, ptr %6, align 8, !tbaa !27
+  %29 = load i64, ptr %6, align 8, !tbaa !27
   %31 = and i64 %30, 9218868437227405312
   %32 = icmp ne i64 %31, 9218868437227405312
-  %33 = and i64 %30, 4503599627370495
+  %33 = and i64 %29, 4503599627370495
   %.not19.i.i = icmp eq i64 %33, 0
   %or.cond23.i.i = or i1 %32, %.not19.i.i
   br i1 %or.cond23.i.i, label %34, label %_ZNK2cv10softdoubleleERKS0_.exit30.thread
 
 34:                                               ; preds = %_ZNK2cv10softdoubleleERKS0_.exit.thread
-  %.not21.i.i28 = icmp sgt i64 %30, -1
+  %.not21.i.i28 = icmp sgt i64 %29, -1
   br i1 %.not21.i.i28, label %37, label %35
 
 35:                                               ; preds = %34
-  %.masked.i.i69 = or i64 %30, %24
+  %.masked.i.i69 = or i64 %29, %24
   %36 = and i64 %.masked.i.i69, 9223372036854775807
   %.not22.i.i29 = icmp eq i64 %36, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
@@ -9584,7 +9584,7 @@ _ZNK2cv10softdoubleleERKS0_.exit.thread:          ; preds = %29
   br i1 %.not22.i.i29, label %40, label %50
 
 37:                                               ; preds = %34
-  %38 = icmp eq i64 %25, %30
+  %38 = icmp eq i64 %25, %29
   br i1 %38, label %_ZNK2cv10softdoubleleERKS0_.exit30.thread66, label %_ZNK2cv10softdoubleleERKS0_.exit30
 
 _ZNK2cv10softdoubleleERKS0_.exit30.thread66:      ; preds = %37
@@ -9592,7 +9592,7 @@ _ZNK2cv10softdoubleleERKS0_.exit30.thread66:      ; preds = %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   br label %40
 
-_ZNK2cv10softdoubleleERKS0_.exit30.thread.critedge: ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
+_ZNK2cv10softdoubleleERKS0_.exit30.thread:        ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 3)
@@ -9605,7 +9605,7 @@ _ZNK2cv10softdoubleleERKS0_.exit30.thread:        ; preds = %_ZNK2cv10softdouble
   br label %50
 
 _ZNK2cv10softdoubleleERKS0_.exit30:               ; preds = %37
-  %39 = icmp samesign ult i64 %25, %30
+  %39 = icmp samesign ult i64 %25, %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   br i1 %39, label %40, label %50

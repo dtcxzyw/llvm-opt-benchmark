@@ -72,12 +72,12 @@ define internal fastcc void @push_ancestry_name(ptr noundef nonnull %0, i32 noun
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = call ptr @git_fopen(ptr noundef %8, ptr noundef nonnull @.str.2) #8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %.critedge, label %10
+  br i1 %.not.i, label %stat_parent_pid.exit, label %10
 
 10:                                               ; preds = %2
   %11 = call i64 @strbuf_fread(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull %9) #8
   %.not8.i = icmp eq i64 %11, 0
-  br i1 %.not8.i, label %.critedge2, label %12
+  br i1 %.not8.i, label %33, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -88,19 +88,19 @@ define internal fastcc void @push_ancestry_name(ptr noundef nonnull %0, i32 noun
   %16 = icmp ne ptr %14, null
   %17 = icmp ne ptr %15, null
   %or.cond.i.i = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond.i.i, label %18, label %.critedge3
+  br i1 %or.cond.i.i, label %18, label %37
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %19, i32 noundef 32) #9
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %.critedge3, label %21
+  br i1 %.not.i.i, label %37, label %21
 
 21:                                               ; preds = %18
   %22 = call i64 @strtol(ptr noundef nonnull %19, ptr noundef nonnull %3, i32 noundef 10) #8
   %23 = load ptr, ptr %3, align 8, !tbaa !15
   %24 = icmp eq ptr %20, %23
-  br i1 %24, label %parse_proc_stat.exit.i, label %.critedge3
+  br i1 %24, label %parse_proc_stat.exit.i, label %37
 
 parse_proc_stat.exit.i:                           ; preds = %21
   %25 = trunc i64 %22 to i32
@@ -121,18 +121,18 @@ parse_proc_stat.exit.i:                           ; preds = %21
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %37, label %34
 
-34:                                               ; preds = %parse_proc_stat.exit.i
+31:                                               ; preds = %parse_proc_stat.exit.i
   call fastcc void @push_ancestry_name(ptr noundef %0, i32 noundef %25)
   br label %37
 
-.critedge:                                        ; preds = %2
+stat_parent_pid.exit:                             ; preds = %2
   call void @strbuf_release(ptr noundef nonnull %4) #8
   call void @strbuf_release(ptr noundef nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
-  br label %37
+  br label %38
 
-.critedge2:                                       ; preds = %10
+33:                                               ; preds = %10
   %35 = call i32 @fclose(ptr noundef nonnull %9)
   call void @strbuf_release(ptr noundef nonnull %4) #8
   call void @strbuf_release(ptr noundef nonnull %5) #8
@@ -140,7 +140,7 @@ parse_proc_stat.exit.i:                           ; preds = %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
   br label %37
 
-.critedge3:                                       ; preds = %12, %21, %18
+37:                                               ; preds = %12, %21, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   %36 = call i32 @fclose(ptr noundef nonnull %9)
   call void @strbuf_release(ptr noundef nonnull %4) #8
@@ -149,7 +149,7 @@ parse_proc_stat.exit.i:                           ; preds = %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
   br label %37
 
-37:                                               ; preds = %.critedge3, %.critedge2, %.critedge, %parse_proc_stat.exit.i, %34
+38:                                               ; preds = %37, %33, %stat_parent_pid.exit, %parse_proc_stat.exit.i, %34
   call void @strbuf_release(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
   ret void

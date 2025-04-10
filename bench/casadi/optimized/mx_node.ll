@@ -105345,7 +105345,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %148
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %160 = load ptr, ptr %159, align 8, !tbaa !268
   %.not229252 = icmp eq ptr %158, %160
-  br i1 %.not229252, label %.critedge, label %.lr.ph256
+  br i1 %.not229252, label %._crit_edge257.thread, label %.lr.ph256
 
 .lr.ph256:                                        ; preds = %157
   %161 = load ptr, ptr %4, align 8
@@ -105370,7 +105370,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %148
   br label %381
 
 166:                                              ; preds = %.outer, %174
-  %.sroa.0172.0253 = phi ptr [ %175, %174 ], [ %.sroa.0172.0253.ph, %.outer ]
+  %.065254 = phi ptr [ %175, %174 ], [ %.sroa.0172.0253.ph, %.outer ]
   %167 = load i64, ptr %.sroa.0172.0253, align 8, !tbaa !174
   %168 = icmp sgt i64 %167, -1
   br i1 %168, label %169, label %174
@@ -105379,7 +105379,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %148
   %170 = getelementptr inbounds nuw i64, ptr %161, i64 %167
   %171 = load i64, ptr %170, align 8, !tbaa !174
   %172 = icmp sgt i64 %171, -1
-  br i1 %172, label %.thread290, label %173
+  br i1 %172, label %176, label %173
 
 173:                                              ; preds = %169
   store i64 -1, ptr %.sroa.0172.0253, align 8, !tbaa !174
@@ -105390,7 +105390,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %148
   %.not229 = icmp eq ptr %175, %160
   br i1 %.not229, label %._crit_edge257, label %166, !llvm.loop !1332
 
-.thread290:                                       ; preds = %169
+176:                                              ; preds = %169
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.0172.0253, i64 8
   %.not229292 = icmp eq ptr %176, %160
   br i1 %.not229292, label %._crit_edge257.thread, label %.outer, !llvm.loop !1332
@@ -105744,14 +105744,14 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
 _ZN6casadi2MXaSERKS0_.exit103:                    ; preds = %324
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #34
-  br label %.critedge
+  br label %._crit_edge257.thread
 
-.critedge:                                        ; preds = %157, %._crit_edge257, %_ZN6casadi2MXaSERKS0_.exit103
+._crit_edge257.thread:                            ; preds = %157, %._crit_edge257, %_ZN6casadi2MXaSERKS0_.exit103
   %327 = load ptr, ptr %9, align 8, !tbaa !289
   %.not.i.i.i104 = icmp eq ptr %327, null
   br i1 %.not.i.i.i104, label %_ZNSt6vectorIxSaIxEED2Ev.exit, label %328
 
-328:                                              ; preds = %.critedge
+328:                                              ; preds = %._crit_edge257.thread
   %329 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %330 = load ptr, ptr %329, align 8, !tbaa !290
   %331 = ptrtoint ptr %330 to i64
@@ -105760,7 +105760,7 @@ _ZN6casadi2MXaSERKS0_.exit103:                    ; preds = %324
   call void @_ZdlPvm(ptr noundef nonnull %327, i64 noundef %333) #35
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit
 
-_ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %.critedge, %328
+_ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %._crit_edge257.thread, %328
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #34
   %334 = load ptr, ptr %8, align 8, !tbaa !289
   %.not.i.i.i105 = icmp eq ptr %334, null

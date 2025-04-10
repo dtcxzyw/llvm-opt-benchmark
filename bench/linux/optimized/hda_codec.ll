@@ -3233,14 +3233,14 @@ define dso_local i32 @snd_hda_override_amp_caps(ptr noundef %0, i16 noundef zero
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
   %9 = icmp ugt i16 %7, %1
-  br i1 %9, label %.critedge, label %10
+  br i1 %9, label %28, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, %8
   %14 = icmp ugt i32 %13, %5
-  br i1 %14, label %15, label %.critedge
+  br i1 %14, label %15, label %28
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1144
@@ -3251,13 +3251,13 @@ define dso_local i32 @snd_hda_override_amp_caps(ptr noundef %0, i16 noundef zero
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 8
   store i32 %22, ptr %20, align 4
-  br label %.critedge
+  br label %28
 
-.critedge:                                        ; preds = %10, %4, %15
-  %23 = icmp eq i32 %2, 1
-  %24 = select i1 %23, i32 18, i32 13
-  %25 = tail call i32 @snd_hdac_override_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %24, i32 noundef %3) #24
-  ret i32 %25
+28:                                               ; preds = %10, %4, %15
+  %29 = icmp eq i32 %2, 1
+  %30 = select i1 %29, i32 18, i32 13
+  %31 = tail call i32 @snd_hdac_override_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %30, i32 noundef %3) #24
+  ret i32 %31
 }
 
 ; Function Attrs: null_pointer_is_valid

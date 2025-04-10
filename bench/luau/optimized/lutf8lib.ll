@@ -278,13 +278,13 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   %40 = icmp ult ptr %39, %36
   br i1 %40, label %.lr.ph, label %.loopexit40
 
-.lr.ph:                                           ; preds = %33, %69
-  %.02948 = phi i32 [ %71, %69 ], [ 0, %33 ]
-  %.03047 = phi ptr [ %70, %69 ], [ %39, %33 ]
+.lr.ph:                                           ; preds = %33, %67
+  %.02948 = phi i32 [ %69, %67 ], [ 0, %33 ]
+  %.03047 = phi ptr [ %68, %67 ], [ %39, %33 ]
   %41 = load i8, ptr %.03047, align 1, !tbaa !8
   %42 = zext i8 %41 to i32
   %43 = icmp sgt i8 %41, -1
-  br i1 %43, label %69, label %.preheader.i
+  br i1 %43, label %67, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph, %45
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %.lr.ph ]
@@ -327,7 +327,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   %or.cond48.i = or i1 %66, %.not44.i
   br i1 %or.cond48.i, label %.loopexit, label %67
 
-67:                                               ; preds = %62
+.loopexit:                                        ; preds = %62
   %68 = getelementptr inbounds nuw i8, ptr %.03047, i64 %indvars.iv.i
   br label %69
 
@@ -335,17 +335,17 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   unreachable
 
-69:                                               ; preds = %67, %.lr.ph
+67:                                               ; preds = %67, %.lr.ph
   %.038.i = phi ptr [ %68, %67 ], [ %.03047, %.lr.ph ]
   %.032.i = phi i32 [ %59, %67 ], [ %42, %.lr.ph ]
-  %70 = getelementptr inbounds nuw i8, ptr %.038.i, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.038.i, i64 1
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %.032.i)
-  %71 = add nuw nsw i32 %.02948, 1
-  %72 = icmp ult ptr %70, %36
-  br i1 %72, label %.lr.ph, label %.loopexit40, !llvm.loop !18
+  %69 = add nuw nsw i32 %.02948, 1
+  %70 = icmp ult ptr %68, %36
+  br i1 %70, label %.lr.ph, label %.loopexit40, !llvm.loop !18
 
-.loopexit40:                                      ; preds = %69, %33, %31
-  %.0 = phi i32 [ 0, %31 ], [ 0, %33 ], [ %71, %69 ]
+.loopexit40:                                      ; preds = %67, %33, %31
+  %.0 = phi i32 [ 0, %31 ], [ 0, %33 ], [ %69, %67 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
   ret i32 %.0
 }
@@ -565,14 +565,14 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
   call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.15) #5
   unreachable
 
-34:                                               ; preds = %.lr.ph, %66
-  %.02354 = phi i32 [ %28, %.lr.ph ], [ %70, %66 ]
-  %.02553 = phi i32 [ 0, %.lr.ph ], [ %71, %66 ]
+34:                                               ; preds = %.lr.ph, %64
+  %.02354 = phi i32 [ %28, %.lr.ph ], [ %68, %64 ]
+  %.02553 = phi i32 [ 0, %.lr.ph ], [ %69, %64 ]
   %35 = sext i32 %.02354 to i64
   %36 = getelementptr inbounds i8, ptr %3, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = icmp sgt i8 %37, -1
-  br i1 %38, label %66, label %.preheader.i.preheader
+  br i1 %38, label %64, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %34
   %39 = zext i8 %37 to i32
@@ -619,28 +619,28 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
   %or.cond48.i = or i1 %62, %.not44.i
   br i1 %or.cond48.i, label %.thread, label %63
 
-63:                                               ; preds = %58
+63: ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i
   br label %66
 
 .thread:                                          ; preds = %58, %50, %41
   call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
-  %65 = add nsw i32 %.02354, 1
+  %63 = add nsw i32 %.02354, 1
   br label %._crit_edge
 
-66:                                               ; preds = %34, %63
+64:                                               ; preds = %34, %63
   %.038.i = phi ptr [ %64, %63 ], [ %36, %34 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.038.i, i64 1
-  %68 = ptrtoint ptr %67 to i64
-  %69 = sub i64 %68, %32
-  %70 = trunc i64 %69 to i32
-  %71 = add nuw nsw i32 %.02553, 1
-  %.not32.not = icmp sgt i32 %.0.i34, %70
+  %65 = getelementptr inbounds nuw i8, ptr %.038.i, i64 1
+  %66 = ptrtoint ptr %65 to i64
+  %67 = sub i64 %66, %32
+  %68 = trunc i64 %67 to i32
+  %69 = add nuw nsw i32 %.02553, 1
+  %.not32.not = icmp sgt i32 %.0.i34, %68
   br i1 %.not32.not, label %34, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %66, %.preheader, %.thread
-  %.sink = phi i32 [ %65, %.thread ], [ 0, %.preheader ], [ %71, %66 ]
-  %.2 = phi i32 [ 2, %.thread ], [ 1, %.preheader ], [ 1, %66 ]
+._crit_edge:                                      ; preds = %64, %.preheader, %.thread
+  %.sink = phi i32 [ %63, %.thread ], [ 0, %.preheader ], [ %69, %64 ]
+  %.2 = phi i32 [ 2, %.thread ], [ 1, %.preheader ], [ 1, %64 ]
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %.sink)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
   ret i32 %.2
@@ -729,7 +729,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   %.pre-phi = phi i32 [ %.pre31, %..loopexit_crit_edge ], [ %8, %.loopexit.loopexit ], [ %8, %6 ]
   %.017 = phi i32 [ 0, %..loopexit_crit_edge ], [ %13, %.loopexit.loopexit ], [ %7, %6 ]
   %.not20 = icmp slt i32 %.017, %.pre-phi
-  br i1 %.not20, label %14, label %51
+  br i1 %.not20, label %14, label %49
 
 14:                                               ; preds = %.loopexit
   %15 = sext i32 %.017 to i64
@@ -780,11 +780,11 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   %or.cond48.i = or i1 %42, %.not44.i
   br i1 %or.cond48.i, label %_ZL11utf8_decodePKcPi.exit.thread, label %43
 
-43:                                               ; preds = %38
+43: ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
   br label %45
 
-45:                                               ; preds = %43, %14
+45:; preds = %43, %14
   %.038.i = phi ptr [ %44, %43 ], [ %16, %14 ]
   %.032.i = phi i32 [ %35, %43 ], [ %18, %14 ]
   %46 = getelementptr inbounds nuw i8, ptr %.038.i, i64 1
@@ -796,14 +796,14 @@ _ZL11utf8_decodePKcPi.exit.thread:                ; preds = %21, %38, %30, %45
   call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   unreachable
 
-49:                                               ; preds = %45
-  %50 = add nsw i32 %.017, 1
-  call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %50)
+47:                                               ; preds = %45
+  %48 = add nsw i32 %.017, 1
+  call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %48)
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %.032.i)
-  br label %51
+  br label %49
 
-51:                                               ; preds = %.loopexit, %49
-  %.0 = phi i32 [ 2, %49 ], [ 0, %.loopexit ]
+49:                                               ; preds = %.loopexit, %47
+  %.0 = phi i32 [ 2, %47 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
   ret i32 %.0
 }
