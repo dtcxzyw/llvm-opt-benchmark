@@ -3,7 +3,6 @@ source_filename = "bench/lz4/original/lorem.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@g_ptr = internal unnamed_addr global ptr null, align 8
 @g_distribCount = internal unnamed_addr global i32 0, align 4
 @kWords = internal unnamed_addr constant [255 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119, ptr @.str.120, ptr @.str.121, ptr @.str.122, ptr @.str.123, ptr @.str.124, ptr @.str.125, ptr @.str.126, ptr @.str.127, ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139, ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.143, ptr @.str.144, ptr @.str.145, ptr @.str.146, ptr @.str.147, ptr @.str.148, ptr @.str.149, ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166, ptr @.str.167, ptr @.str.168, ptr @.str.169, ptr @.str.170, ptr @.str.171, ptr @.str.172, ptr @.str.173, ptr @.str.174, ptr @.str.175, ptr @.str.176, ptr @.str.177, ptr @.str.178, ptr @.str.179, ptr @.str.180, ptr @.str.181, ptr @.str.182, ptr @.str.183, ptr @.str.184, ptr @.str.185, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.189, ptr @.str.190, ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194, ptr @.str.195, ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214, ptr @.str.215, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219, ptr @.str.220, ptr @.str.221, ptr @.str.222, ptr @.str.223, ptr @.str.224, ptr @.str.225, ptr @.str.226, ptr @.str.227, ptr @.str.228, ptr @.str.229, ptr @.str.230, ptr @.str.231, ptr @.str.232, ptr @.str.233, ptr @.str.234, ptr @.str.235, ptr @.str.236, ptr @.str.237, ptr @.str.238, ptr @.str.239, ptr @.str.240, ptr @.str.241, ptr @.str.242, ptr @.str.243, ptr @.str.244, ptr @.str.245, ptr @.str.246, ptr @.str.247, ptr @.str.248, ptr @.str.249, ptr @.str.250, ptr @.str.251, ptr @.str.252, ptr @.str.253, ptr @.str.254], align 16
 @g_wordLen = internal unnamed_addr global [255 x i32] zeroinitializer, align 16
@@ -263,26 +262,24 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.252 = private unnamed_addr constant [5 x i8] c"duis\00", align 1
 @.str.253 = private unnamed_addr constant [5 x i8] c"aute\00", align 1
 @.str.254 = private unnamed_addr constant [6 x i8] c"irure\00", align 1
-@g_wordBuffer = internal unnamed_addr global ptr null, align 8
 @g_words = internal unnamed_addr global [255 x ptr] zeroinitializer, align 16
 @g_distrib = internal unnamed_addr global [650 x i32] zeroinitializer, align 16
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree norecurse nounwind uwtable
 define dso_local i64 @LOREM_genBlock(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  store ptr %0, ptr @g_ptr, align 8, !tbaa !4
-  %6 = load i32, ptr @g_distribCount, align 4, !tbaa !9
+  %6 = load i32, ptr @g_distribCount, align 4, !tbaa !4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.preheader, label %init_word_distrib.exit
 
 .preheader:                                       ; preds = %5, %.preheader
   %.01.i = phi i64 [ %14, %.preheader ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw ptr, ptr @kWords, i64 %.01.i
-  %9 = load ptr, ptr %8, align 8, !tbaa !4
+  %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #7
   %11 = trunc i64 %10 to i32
   %12 = and i32 %11, 255
   %13 = getelementptr inbounds nuw [255 x i32], ptr @g_wordLen, i64 0, i64 %.01.i
-  store i32 %12, ptr %13, align 4, !tbaa !9
+  store i32 %12, ptr %13, align 4, !tbaa !4
   %14 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %14, 255
   br i1 %exitcond.not.i, label %init_word_len.exit, label %.preheader, !llvm.loop !11
@@ -291,7 +288,7 @@ init_word_len.exit:                               ; preds = %.preheader, %init_w
   %.02.i.i = phi i64 [ %19, %init_word_len.exit ], [ 0, %.preheader ]
   %.061.i.i = phi i64 [ %18, %init_word_len.exit ], [ 0, %.preheader ]
   %15 = getelementptr inbounds nuw i32, ptr @g_wordLen, i64 %.02.i.i
-  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = zext i32 %16 to i64
   %18 = add i64 %.061.i.i, %17
   %19 = add nuw nsw i64 %.02.i.i, 1
@@ -301,7 +298,6 @@ init_word_len.exit:                               ; preds = %.preheader, %init_w
 sumLen.exit.i:                                    ; preds = %init_word_len.exit
   %20 = add i64 %18, 16
   %21 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %20) #8
-  store ptr %21, ptr @g_wordBuffer, align 8, !tbaa !4
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %.preheader.i
 
@@ -313,13 +309,13 @@ sumLen.exit.i:                                    ; preds = %init_word_len.exit
   %.012.i = phi ptr [ %30, %.preheader.i ], [ %21, %sumLen.exit.i ]
   %.0911.i = phi i64 [ %31, %.preheader.i ], [ 0, %sumLen.exit.i ]
   %24 = getelementptr inbounds nuw [255 x ptr], ptr @kWords, i64 0, i64 %.0911.i
-  %25 = load ptr, ptr %24, align 8, !tbaa !4
+  %25 = load ptr, ptr %24, align 8, !tbaa !8
   %26 = getelementptr inbounds nuw [255 x i32], ptr @g_wordLen, i64 0, i64 %.0911.i
-  %27 = load i32, ptr %26, align 4, !tbaa !9
+  %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = zext i32 %27 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.012.i, ptr align 1 %25, i64 %28, i1 false)
   %29 = getelementptr inbounds nuw [255 x ptr], ptr @g_words, i64 0, i64 %.0911.i
-  store ptr %.012.i, ptr %29, align 8, !tbaa !4
+  store ptr %.012.i, ptr %29, align 8, !tbaa !8
   %30 = getelementptr inbounds nuw i8, ptr %.012.i, i64 %28
   %31 = add nuw nsw i64 %.0911.i, 1
   %exitcond.not.i7 = icmp eq i64 %31, 255
@@ -329,29 +325,29 @@ init_word_buffer.exit:                            ; preds = %.preheader.i, %init
   %.02.i.i8 = phi i32 [ %36, %init_word_buffer.exit ], [ 0, %.preheader.i ]
   %.0131.i.i = phi i64 [ %37, %init_word_buffer.exit ], [ 0, %.preheader.i ]
   %32 = getelementptr inbounds nuw i32, ptr @g_wordLen, i64 %.0131.i.i
-  %33 = load i32, ptr %32, align 4, !tbaa !9
+  %33 = load i32, ptr %32, align 4, !tbaa !4
   %narrow.i.i = tail call i32 @llvm.umin.i32(i32 %33, i32 5)
   %spec.select.i.i = zext nneg i32 %narrow.i.i to i64
   %34 = getelementptr inbounds nuw i32, ptr @kWeights, i64 %spec.select.i.i
-  %35 = load i32, ptr %34, align 4, !tbaa !9
+  %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = add i32 %35, %.02.i.i8
   %37 = add nuw nsw i64 %.0131.i.i, 1
   %exitcond.not.i.i9 = icmp eq i64 %37, 255
   br i1 %exitcond.not.i.i9, label %countFreqs.exit.i, label %init_word_buffer.exit, !llvm.loop !15
 
 countFreqs.exit.i:                                ; preds = %init_word_buffer.exit
-  store i32 %36, ptr @g_distribCount, align 4, !tbaa !9
+  store i32 %36, ptr @g_distribCount, align 4, !tbaa !4
   br label %38
 
 38:                                               ; preds = %._crit_edge.i, %countFreqs.exit.i
   %.04.i = phi i64 [ 0, %countFreqs.exit.i ], [ %50, %._crit_edge.i ]
   %.0203.i = phi i64 [ 0, %countFreqs.exit.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %39 = getelementptr inbounds nuw i32, ptr @g_wordLen, i64 %.04.i
-  %40 = load i32, ptr %39, align 4, !tbaa !9
+  %40 = load i32, ptr %39, align 4, !tbaa !4
   %narrow.i = tail call i32 @llvm.umin.i32(i32 %40, i32 5)
   %spec.select.i = zext nneg i32 %narrow.i to i64
   %41 = getelementptr inbounds nuw i32, ptr @kWeights, i64 %spec.select.i
-  %42 = load i32, ptr %41, align 4, !tbaa !9
+  %42 = load i32, ptr %41, align 4, !tbaa !4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph.i, label %._crit_edge.i
 
@@ -365,7 +361,7 @@ countFreqs.exit.i:                                ; preds = %init_word_buffer.ex
   %.11.i = phi i64 [ %.0203.i, %.lr.ph.i ], [ %48, %47 ]
   %48 = add i64 %.11.i, 1
   %49 = getelementptr inbounds nuw [650 x i32], ptr @g_distrib, i64 0, i64 %.11.i
-  store i32 %44, ptr %49, align 4, !tbaa !9
+  store i32 %44, ptr %49, align 4, !tbaa !4
   %lftr.wideiv = trunc i64 %48 to i32
   %exitcond = icmp eq i32 %46, %lftr.wideiv
   br i1 %exitcond, label %._crit_edge.i, label %47, !llvm.loop !16
@@ -397,9 +393,9 @@ init_word_distrib.exit:                           ; preds = %._crit_edge.i, %5
   %60 = or i1 %59, %58
   %.1.i = select i1 %60, i64 2, i64 1
   %61 = getelementptr inbounds nuw [255 x ptr], ptr @g_words, i64 0, i64 %indvars.iv.i
-  %62 = load ptr, ptr %61, align 8, !tbaa !4
+  %62 = load ptr, ptr %61, align 8, !tbaa !8
   %63 = getelementptr inbounds nuw [255 x i32], ptr @g_wordLen, i64 0, i64 %indvars.iv.i
-  %64 = load i32, ptr %63, align 4, !tbaa !9
+  %64 = load i32, ptr %63, align 4, !tbaa !4
   %65 = zext i32 %64 to i64
   %.not.i = icmp eq i64 %indvars.iv.i, 0
   %66 = tail call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %65, i64 14)
@@ -495,8 +491,8 @@ generateWord.exit.i:                              ; preds = %80, %93, %writeLast
   br i1 %exitcond.not.i11, label %109, label %55, !llvm.loop !19
 
 109:                                              ; preds = %generateWord.exit.i
-  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_words, i64 144), align 16, !tbaa !4
-  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_wordLen, i64 72), align 8, !tbaa !9
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_words, i64 144), align 16, !tbaa !8
+  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_wordLen, i64 72), align 8, !tbaa !4
   %112 = zext i32 %111 to i64
   %113 = tail call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %112, i64 14)
   %114 = add i64 %107, 2
@@ -679,7 +675,7 @@ generateFirstSentence.exit:                       ; preds = %127, %136, %writeLa
   %241 = mul nuw i64 %240, %147
   %242 = lshr i64 %241, 32
   %243 = getelementptr inbounds nuw [650 x i32], ptr @g_distrib, i64 0, i64 %242
-  %244 = load i32, ptr %243, align 4, !tbaa !9
+  %244 = load i32, ptr %243, align 4, !tbaa !4
   %245 = icmp eq i32 %.01922.i.i, %206
   %246 = icmp eq i32 %.01922.i.i, %223
   %247 = or i1 %246, %245
@@ -688,9 +684,9 @@ generateFirstSentence.exit:                       ; preds = %127, %136, %writeLa
   %.2.i.i = select i1 %249, i64 2, i64 1
   %250 = sext i32 %244 to i64
   %251 = getelementptr inbounds [255 x ptr], ptr @g_words, i64 0, i64 %250
-  %252 = load ptr, ptr %251, align 8, !tbaa !4
+  %252 = load ptr, ptr %251, align 8, !tbaa !8
   %253 = getelementptr inbounds [255 x i32], ptr @g_wordLen, i64 0, i64 %250
-  %254 = load i32, ptr %253, align 4, !tbaa !9
+  %254 = load i32, ptr %253, align 4, !tbaa !4
   %255 = zext i32 %254 to i64
   %.not.i.i = icmp eq i32 %.01922.i.i, 0
   %256 = tail call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %255, i64 14)
@@ -825,19 +821,19 @@ generateParagraph.exit:                           ; preds = %308, %313
   ret i64 %319
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree norecurse nounwind uwtable
 define dso_local void @LOREM_genBuffer(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @LOREM_genBlock(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 1)
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: cold nofree noreturn nounwind
+; Function Attrs: cold nocallback nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -855,10 +851,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
-attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nocallback nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -873,12 +869,12 @@ attributes #9 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!5, !5, i64 0}
-!5 = !{!"p1 omnipotent char", !6, i64 0}
-!6 = !{!"any pointer", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"int", !7, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = distinct !{!13, !12}
@@ -886,7 +882,7 @@ attributes #9 = { noreturn nounwind }
 !15 = distinct !{!15, !12}
 !16 = distinct !{!16, !12}
 !17 = distinct !{!17, !12}
-!18 = !{!7, !7, i64 0}
+!18 = !{!6, !6, i64 0}
 !19 = distinct !{!19, !12}
 !20 = distinct !{!20, !12}
 !21 = distinct !{!21, !12}

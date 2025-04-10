@@ -38,7 +38,7 @@ define dso_local ptr @grabbag__picture_parse_specification(ptr noundef %0, ptr n
 
 5:                                                ; preds = %2
   store ptr null, ptr %1, align 8, !tbaa !4
-  %6 = tail call ptr @FLAC__metadata_object_new(i32 noundef 6) #13
+  %6 = tail call ptr @FLAC__metadata_object_new(i32 noundef 6) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
 
@@ -47,7 +47,7 @@ define dso_local ptr @grabbag__picture_parse_specification(ptr noundef %0, ptr n
   br label %.thread136.thread179
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 124) #14
+  %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 124) #13
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.thread, label %.preheader
 
@@ -127,15 +127,15 @@ define dso_local ptr @grabbag__picture_parse_specification(ptr noundef %0, ptr n
 
 safe_malloc_add_2op_.exit.i:                      ; preds = %36
   %41 = add nuw i64 %39, 1
-  %42 = tail call noalias noundef ptr @malloc(i64 noundef %41) #15
+  %42 = tail call noalias noundef ptr @malloc(i64 noundef %41) #14
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %.thread136.thread.sink.split, label %43
 
 43:                                               ; preds = %safe_malloc_add_2op_.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %42, ptr noundef nonnull readonly align 1 %.0161.ph, i64 noundef %39, i1 noundef false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %42, ptr noundef nonnull readonly align 1 %.0161.ph, i64 noundef %39, i1 noundef false) #12
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 %39
   store i8 0, ptr %44, align 1, !tbaa !9
-  %45 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %6, ptr noundef nonnull %42, i32 noundef 0) #13
+  %45 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %6, ptr noundef nonnull %42, i32 noundef 0) #12
   %.not104 = icmp eq i32 %45, 0
   br i1 %.not104, label %.thread136.thread.sink.split, label %local__parse_type_.exit.thread
 
@@ -148,15 +148,15 @@ safe_malloc_add_2op_.exit.i:                      ; preds = %36
 
 safe_malloc_add_2op_.exit.i106:                   ; preds = %46
   %51 = add nuw i64 %49, 1
-  %52 = tail call noalias noundef ptr @malloc(i64 noundef %51) #15
+  %52 = tail call noalias noundef ptr @malloc(i64 noundef %51) #14
   %.not.i107 = icmp eq ptr %52, null
   br i1 %.not.i107, label %.thread136.thread.sink.split, label %53
 
 53:                                               ; preds = %safe_malloc_add_2op_.exit.i106
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %52, ptr noundef nonnull readonly align 1 %.0161.ph, i64 noundef %49, i1 noundef false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %52, ptr noundef nonnull readonly align 1 %.0161.ph, i64 noundef %49, i1 noundef false) #12
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 %49
   store i8 0, ptr %54, align 1, !tbaa !9
-  %55 = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %6, ptr noundef nonnull %52, i32 noundef 0) #13
+  %55 = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %6, ptr noundef nonnull %52, i32 noundef 0) #12
   %.not102 = icmp eq i32 %55, 0
   br i1 %.not102, label %.thread136.thread.sink.split, label %local__parse_type_.exit.thread
 
@@ -285,18 +285,18 @@ local__parse_type_.exit.thread:                   ; preds = %local__parse_resolu
   %.281130135 = phi ptr [ %.0161.ph, %94 ], [ %0, %.thread ]
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %97 = load ptr, ptr %96, align 8, !tbaa !9
-  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(4) @.str.1) #14
+  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(4) @.str.1) #13
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %118
 
 100:                                              ; preds = %.thread132
-  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.281130135) #14
+  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.281130135) #13
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %.thread136.thread.sink.split, label %103
 
 103:                                              ; preds = %100
   %104 = trunc i64 %101 to i32
-  %105 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %6, ptr noundef nonnull %.281130135, i32 noundef %104, i32 noundef 1) #13
+  %105 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %6, ptr noundef nonnull %.281130135, i32 noundef %104, i32 noundef 1) #12
   %.not95 = icmp eq i32 %105, 0
   br i1 %.not95, label %.thread136.thread.sink.split, label %106
 
@@ -340,12 +340,12 @@ thread-pre-split:                                 ; preds = %114
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr %96, align 8, !tbaa !9
-  %128 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(10) @.str.2) #14
+  %128 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(10) @.str.2) #13
   %.not96 = icmp eq i32 %128, 0
   br i1 %.not96, label %131, label %129
 
 129:                                              ; preds = %126
-  %130 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(4) @.str.1) #14
+  %130 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(4) @.str.1) #13
   %.not97 = icmp eq i32 %130, 0
   br i1 %.not97, label %131, label %.thread136.thread.sink.split
 
@@ -367,7 +367,7 @@ thread-pre-split:                                 ; preds = %114
   br label %.thread136.thread
 
 .thread136.thread:                                ; preds = %local__parse_type_.exit.thread, %.thread136.thread.sink.split, %120, %.preheader, %.thread
-  tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %6) #13
+  tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %6) #12
   br label %.thread136.thread179
 
 .thread136.thread179:                             ; preds = %134, %122, %.thread136.thread, %2, %8
@@ -380,7 +380,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @FLAC__metadata_object_new(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -390,17 +390,17 @@ declare i32 @FLAC__metadata_object_picture_set_description(ptr noundef, ptr noun
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @FLAC__metadata_object_picture_set_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @read_file(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
-  %3 = tail call i64 @grabbag__file_get_filesize(ptr noundef %0) #13
+  %3 = tail call i64 @grabbag__file_get_filesize(ptr noundef %0) #12
   %4 = icmp slt i64 %3, 0
   br i1 %4, label %49, label %5
 
@@ -416,7 +416,7 @@ define internal fastcc ptr @read_file(ptr noundef %0, ptr noundef nonnull %1) un
   br i1 %.not, label %11, label %49
 
 11:                                               ; preds = %7
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %3) #15
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef %3) #14
   %13 = icmp eq ptr %12, null
   br i1 %13, label %49, label %14
 
@@ -426,7 +426,7 @@ define internal fastcc ptr @read_file(ptr noundef %0, ptr noundef nonnull %1) un
   br i1 %16, label %17, label %fread.inline.exit
 
 17:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %12) #13
+  tail call void @free(ptr noundef nonnull %12) #12
   br label %49
 
 fread.inline.exit:                                ; preds = %14
@@ -436,12 +436,12 @@ fread.inline.exit:                                ; preds = %14
   br i1 %.not29, label %21, label %20
 
 20:                                               ; preds = %fread.inline.exit
-  tail call void @free(ptr noundef nonnull %12) #13
+  tail call void @free(ptr noundef nonnull %12) #12
   br label %49
 
 21:                                               ; preds = %fread.inline.exit
   %22 = trunc nuw nsw i64 %3 to i32
-  %23 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %1, ptr noundef nonnull %12, i32 noundef %22, i32 noundef 0) #13
+  %23 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %1, ptr noundef nonnull %12, i32 noundef %22, i32 noundef 0) #12
   %.not30 = icmp eq i32 %23, 0
   br i1 %.not30, label %49, label %24
 
@@ -499,7 +499,7 @@ declare void @FLAC__metadata_object_delete(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @grabbag__picture_from_specification(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #12
   %8 = icmp eq ptr %5, null
   br i1 %8, label %.thread.thread74, label %9
 
@@ -508,7 +508,7 @@ define dso_local ptr @grabbag__picture_from_specification(i32 noundef %0, ptr no
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 63
   store i8 0, ptr %10, align 1, !tbaa !9
   store ptr null, ptr %5, align 8, !tbaa !4
-  %11 = call ptr @FLAC__metadata_object_new(i32 noundef 6) #13
+  %11 = call ptr @FLAC__metadata_object_new(i32 noundef 6) #12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
 
@@ -521,7 +521,7 @@ define dso_local ptr @grabbag__picture_from_specification(i32 noundef %0, ptr no
   %16 = select i1 %15, i32 %0, i32 3
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %16, ptr %17, align 8, !tbaa !9
-  %18 = call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef 1) #13
+  %18 = call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef 1) #12
   %.not59 = icmp eq i32 %18, 0
   br i1 %.not59, label %19, label %20
 
@@ -534,7 +534,7 @@ define dso_local ptr @grabbag__picture_from_specification(i32 noundef %0, ptr no
   br i1 %.not60, label %24, label %21
 
 21:                                               ; preds = %20
-  %22 = call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef 1) #13
+  %22 = call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef 1) #12
   %.not61 = icmp eq i32 %22, 0
   br i1 %.not61, label %23, label %24
 
@@ -577,14 +577,14 @@ define dso_local ptr @grabbag__picture_from_specification(i32 noundef %0, ptr no
   store i32 %.sink, ptr %42, align 4, !tbaa !9
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !9
-  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(4) @.str.1) #14
+  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(4) @.str.1) #13
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %63
 
 47:                                               ; preds = %41
-  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
+  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
   %49 = trunc i64 %48 to i32
-  %50 = call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef %49, i32 noundef 1) #13
+  %50 = call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef %49, i32 noundef 1) #12
   %.not62 = icmp eq i32 %50, 0
   br i1 %.not62, label %.thread.thread.sink.split, label %51
 
@@ -627,12 +627,12 @@ thread-pre-split:                                 ; preds = %59
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %43, align 8, !tbaa !9
-  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(10) @.str.2) #14
+  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(10) @.str.2) #13
   %.not63 = icmp eq i32 %72, 0
   br i1 %.not63, label %75, label %73
 
 73:                                               ; preds = %70
-  %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(4) @.str.1) #14
+  %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(4) @.str.1) #13
   %.not64 = icmp eq i32 %74, 0
   br i1 %.not64, label %75, label %.thread.thread.sink.split
 
@@ -654,30 +654,30 @@ thread-pre-split:                                 ; preds = %59
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread.thread.sink.split, %65
-  call void @FLAC__metadata_object_delete(ptr noundef nonnull %11) #13
+  call void @FLAC__metadata_object_delete(ptr noundef nonnull %11) #12
   br label %.thread.thread74
 
 .thread.thread74:                                 ; preds = %78, %67, %.thread.thread, %6, %23, %19, %13
   %.054 = phi ptr [ null, %13 ], [ %11, %23 ], [ %11, %19 ], [ null, %6 ], [ null, %.thread.thread ], [ %11, %67 ], [ %11, %78 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #12
   ret ptr %.054
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 declare i64 @grabbag__file_get_filesize(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: alwaysinline nobuiltin nounwind sspstrong uwtable
 declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -731,7 +731,7 @@ define internal fastcc i32 @local__extract_mime_type_(ptr noundef nonnull %0) un
 
 .sink.split:                                      ; preds = %.thread10, %.thread, %13, %5
   %.str.22.sink = phi ptr [ @.str.2, %5 ], [ @.str.20, %13 ], [ @.str.20, %.thread ], [ @.str.22, %.thread10 ]
-  %19 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %0, ptr noundef nonnull %.str.22.sink, i32 noundef 1) #13
+  %19 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %0, ptr noundef nonnull %.str.22.sink, i32 noundef 1) #12
   br label %20
 
 20:                                               ; preds = %.sink.split, %15, %.thread10
@@ -739,7 +739,7 @@ define internal fastcc i32 @local__extract_mime_type_(ptr noundef nonnull %0) un
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info_(ptr noundef nonnull captures(none) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !29
@@ -747,7 +747,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   %5 = load i32, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !31
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(10) @.str.2) #14
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(10) @.str.2) #13
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %110
 
@@ -914,7 +914,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   br i1 %109, label %20, label %.thread182
 
 110:                                              ; preds = %1
-  %111 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(11) @.str.22) #14
+  %111 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(11) @.str.22) #13
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %186
 
@@ -972,7 +972,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
 
 126:                                              ; preds = %125
   %127 = zext i8 %.pr to i32
-  %128 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %127, i64 noundef 13) #14
+  %128 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %127, i64 noundef 13) #13
   %.not166 = icmp eq ptr %128, null
   %129 = icmp ult i32 %124, 3
   br i1 %.not166, label %170, label %130
@@ -1051,7 +1051,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   br i1 %or.cond231, label %.thread182, label %.lr.ph.backedge
 
 186:                                              ; preds = %110
-  %187 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(10) @.str.20) #14
+  %187 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(10) @.str.20) #13
   %188 = icmp ne i32 %187, 0
   %189 = icmp ult i32 %5, 14
   %or.cond189 = select i1 %188, i1 true, i1 %189
@@ -1099,37 +1099,36 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   ret i32 %.5
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: readwrite)
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strncpy(ptr noalias returned writeonly, ptr noalias readonly captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { alwaysinline nobuiltin nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nofree norecurse nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { nounwind allocsize(0) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

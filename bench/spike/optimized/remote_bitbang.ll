@@ -46,42 +46,42 @@ define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr noundef nonnull align 8 
   store i32 0, ptr %8, align 4, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 131088
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %10 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #12
+  %10 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #13
   store i32 %10, ptr %7, align 8, !tbaa !11
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %14 = tail call ptr @__errno_location() #13
+  %14 = tail call ptr @__errno_location() #14
   %15 = load i32, ptr %14, align 4, !tbaa !15
-  %16 = tail call ptr @strerror(i32 noundef %15) #12
+  %16 = tail call ptr @strerror(i32 noundef %15) #13
   %17 = load i32, ptr %14, align 4, !tbaa !15
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef %16, i32 noundef %17) #14
-  tail call void @abort() #15
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef %16, i32 noundef %17) #15
+  tail call void @abort() #16
   unreachable
 
 19:                                               ; preds = %3
   %20 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %10, i32 noundef 4, i32 noundef 2048)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 1, ptr %4, align 4, !tbaa !15
   %21 = load i32, ptr %7, align 8, !tbaa !11
-  %22 = call i32 @setsockopt(i32 noundef %21, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 4) #12
+  %22 = call i32 @setsockopt(i32 noundef %21, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 4) #13
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %26 = tail call ptr @__errno_location() #13
+  %26 = tail call ptr @__errno_location() #14
   %27 = load i32, ptr %26, align 4, !tbaa !15
-  %28 = call ptr @strerror(i32 noundef %27) #12
+  %28 = call ptr @strerror(i32 noundef %27) #13
   %29 = load i32, ptr %26, align 4, !tbaa !15
-  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.1, ptr noundef %28, i32 noundef %29) #14
-  call void @abort() #15
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.1, ptr noundef %28, i32 noundef %29) #15
+  call void @abort() #16
   unreachable
 
 31:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %32, align 4
   store i16 2, ptr %5, align 4, !tbaa !16
@@ -91,52 +91,52 @@ define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr noundef nonnull align 8 
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %rev.i, ptr %34, align 2, !tbaa !21
   %35 = load i32, ptr %7, align 8, !tbaa !11
-  %36 = call i32 @bind(i32 noundef %35, ptr noundef nonnull %5, i32 noundef 16) #12
+  %36 = call i32 @bind(i32 noundef %35, ptr noundef nonnull %5, i32 noundef 16) #13
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %40 = tail call ptr @__errno_location() #13
+  %40 = tail call ptr @__errno_location() #14
   %41 = load i32, ptr %40, align 4, !tbaa !15
-  %42 = call ptr @strerror(i32 noundef %41) #12
+  %42 = call ptr @strerror(i32 noundef %41) #13
   %43 = load i32, ptr %40, align 4, !tbaa !15
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.2, ptr noundef %42, i32 noundef %43) #14
-  call void @abort() #15
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.2, ptr noundef %42, i32 noundef %43) #15
+  call void @abort() #16
   unreachable
 
 45:                                               ; preds = %31
   %46 = load i32, ptr %7, align 8, !tbaa !11
-  %47 = call i32 @listen(i32 noundef %46, i32 noundef 1) #12
+  %47 = call i32 @listen(i32 noundef %46, i32 noundef 1) #13
   %48 = icmp eq i32 %47, -1
   br i1 %48, label %49, label %56
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %51 = tail call ptr @__errno_location() #13
+  %51 = tail call ptr @__errno_location() #14
   %52 = load i32, ptr %51, align 4, !tbaa !15
-  %53 = call ptr @strerror(i32 noundef %52) #12
+  %53 = call ptr @strerror(i32 noundef %52) #13
   %54 = load i32, ptr %51, align 4, !tbaa !15
-  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.3, ptr noundef %53, i32 noundef %54) #14
-  call void @abort() #15
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.3, ptr noundef %53, i32 noundef %54) #15
+  call void @abort() #16
   unreachable
 
 56:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
   store i32 16, ptr %6, align 4, !tbaa !15
   %57 = load i32, ptr %7, align 8, !tbaa !11
-  %58 = call i32 @getsockname(i32 noundef %57, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
+  %58 = call i32 @getsockname(i32 noundef %57, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
   %59 = icmp eq i32 %58, -1
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %62 = tail call ptr @__errno_location() #13
+  %62 = tail call ptr @__errno_location() #14
   %63 = load i32, ptr %62, align 4, !tbaa !15
-  %64 = call ptr @strerror(i32 noundef %63) #12
+  %64 = call ptr @strerror(i32 noundef %63) #13
   %65 = load i32, ptr %62, align 4, !tbaa !15
-  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.4, ptr noundef %64, i32 noundef %65) #14
-  call void @abort() #15
+  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.4, ptr noundef %64, i32 noundef %65) #15
+  call void @abort() #16
   unreachable
 
 67:                                               ; preds = %56
@@ -146,16 +146,16 @@ define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr noundef nonnull align 8 
   %70 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %69)
   %71 = load ptr, ptr @stdout, align 8, !tbaa !13
   %72 = call i32 @fflush(ptr noundef %71)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   ret void
 }
 
 ; Function Attrs: nounwind
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
@@ -164,7 +164,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
 
-; Function Attrs: cold nofree noreturn nounwind
+; Function Attrs: cold nocallback nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #6
 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #0
@@ -187,10 +187,10 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind
 declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -207,17 +207,17 @@ define void @_ZN16remote_bitbang_t6acceptEv(ptr noundef nonnull align 8 captures
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @__errno_location() #13
+  %8 = tail call ptr @__errno_location() #14
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %13 = tail call ptr @strerror(i32 noundef %9) #12
+  %13 = tail call ptr @strerror(i32 noundef %9) #13
   %14 = load i32, ptr %8, align 4, !tbaa !15
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef %13, i32 noundef %14) #14
-  tail call void @abort() #15
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef %13, i32 noundef %14) #15
+  tail call void @abort() #16
   unreachable
 
 16:                                               ; preds = %1
@@ -250,17 +250,17 @@ define void @_ZN16remote_bitbang_t4tickEv(ptr noundef nonnull align 8 captures(n
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %6
-  %12 = tail call ptr @__errno_location() #13
+  %12 = tail call ptr @__errno_location() #14
   %13 = load i32, ptr %12, align 4, !tbaa !15
   %14 = icmp eq i32 %13, 11
   br i1 %14, label %_ZN16remote_bitbang_t6acceptEv.exit, label %15
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %17 = tail call ptr @strerror(i32 noundef %13) #12
+  %17 = tail call ptr @strerror(i32 noundef %13) #13
   %18 = load i32, ptr %12, align 4, !tbaa !15
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.6, ptr noundef %17, i32 noundef %18) #14
-  tail call void @abort() #15
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.6, ptr noundef %17, i32 noundef %18) #15
+  tail call void @abort() #16
   unreachable
 
 20:                                               ; preds = %6
@@ -379,7 +379,7 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
 45:                                               ; preds = %.lr.ph
   %46 = zext i8 %17 to i32
   %47 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.7, i32 noundef %46) #14
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.7, i32 noundef %46) #15
   br label %49
 
 49:                                               ; preds = %45, %44, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %.lr.ph, %.lr.ph
@@ -429,12 +429,12 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
 
 72:                                               ; preds = %66
   %73 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %74 = tail call ptr @__errno_location() #13
+  %74 = tail call ptr @__errno_location() #14
   %75 = load i32, ptr %74, align 4, !tbaa !15
-  %76 = tail call ptr @strerror(i32 noundef %75) #12
+  %76 = tail call ptr @strerror(i32 noundef %75) #13
   %77 = load i32, ptr %74, align 4, !tbaa !15
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.8, ptr noundef %76, i32 noundef %77) #14
-  tail call void @abort() #15
+  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.8, ptr noundef %76, i32 noundef %77) #15
+  tail call void @abort() #16
   unreachable
 
 ._crit_edge:                                      ; preds = %62, %.thread
@@ -456,22 +456,22 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   ]
 
 82:                                               ; preds = %.thread62
-  %83 = tail call ptr @__errno_location() #13
+  %83 = tail call ptr @__errno_location() #14
   %84 = load i32, ptr %83, align 4, !tbaa !15
   %85 = icmp eq i32 %84, 11
   br i1 %85, label %.loopexit, label %86
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %88 = tail call ptr @strerror(i32 noundef %84) #12
+  %88 = tail call ptr @strerror(i32 noundef %84) #13
   %89 = load i32, ptr %83, align 4, !tbaa !15
-  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.9, ptr noundef %88, i32 noundef %89) #14
-  tail call void @abort() #15
+  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.9, ptr noundef %88, i32 noundef %89) #15
+  tail call void @abort() #16
   unreachable
 
 91:                                               ; preds = %.thread62
   %92 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %93 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 28, i64 1, ptr %92) #16
+  %93 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 28, i64 1, ptr %92) #17
   %94 = load i32, ptr %10, align 4, !tbaa !12
   %95 = tail call i32 @close(i32 noundef %94)
   store i32 0, ptr %10, align 4, !tbaa !12
@@ -485,10 +485,10 @@ declare void @_ZN10jtag_dtm_t5resetEv(ptr noundef nonnull align 8 dereferenceabl
 
 declare void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72), i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
-; Function Attrs: nofree
+; Function Attrs: nocallback nofree
 declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
-; Function Attrs: nofree
+; Function Attrs: nocallback nofree
 declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @close(i32 noundef) local_unnamed_addr #0
@@ -496,33 +496,34 @@ declare i32 @close(i32 noundef) local_unnamed_addr #0
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_remote_bitbang.cc() #10 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #11
 
-; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+; Function Attrs: nocallback nofree nounwind
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nocallback nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { cold nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { cold }
+attributes #12 = { nocallback nofree nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { cold nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { cold }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2}

@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tr2_sysenv_load() local_unnamed_addr #0 {
-  tail call void @read_very_early_config(ptr noundef nonnull @tr2_sysenv_cb, ptr noundef null) #6
+  tail call void @read_very_early_config(ptr noundef nonnull @tr2_sysenv_cb, ptr noundef null) #7
   ret void
 }
 
@@ -42,7 +42,7 @@ declare void @read_very_early_config(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @tr2_sysenv_cb(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.2) #6
+  %5 = tail call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.2) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -56,7 +56,7 @@ define internal range(i32 -1, 1) i32 @tr2_sysenv_cb(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds nuw [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !6
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #7
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #8
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %11, label %6
 
@@ -65,14 +65,14 @@ define internal range(i32 -1, 1) i32 @tr2_sysenv_cb(ptr noundef %0, ptr noundef 
   br i1 %.not14, label %12, label %14
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @config_error_nonbool(ptr noundef nonnull %0) #6
+  %13 = tail call i32 @config_error_nonbool(ptr noundef nonnull %0) #7
   br label %.loopexit
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %16 = load ptr, ptr %15, align 16, !tbaa !13
-  tail call void @free(ptr noundef %16) #6
-  %17 = tail call ptr @xstrdup(ptr noundef nonnull %1) #6
+  tail call void @free(ptr noundef %16) #7
+  %17 = tail call ptr @xstrdup(ptr noundef nonnull %1) #7
   store ptr %17, ptr %15, align 16, !tbaa !13
   br label %.loopexit
 
@@ -87,7 +87,7 @@ define dso_local ptr @tr2_sysenv_get(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.1, i32 noundef %0) #8
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.1, i32 noundef %0) #9
   unreachable
 
 4:                                                ; preds = %1
@@ -101,7 +101,7 @@ define dso_local ptr @tr2_sysenv_get(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %6, align 16, !tbaa !14
-  %12 = tail call ptr @getenv(ptr noundef %11) #6
+  %12 = tail call ptr @getenv(ptr noundef %11) #7
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %19, label %13
 
@@ -113,8 +113,8 @@ define dso_local ptr @tr2_sysenv_get(i32 noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 16, !tbaa !13
-  tail call void @free(ptr noundef %17) #6
-  %18 = tail call ptr @xstrdup(ptr noundef nonnull %12) #6
+  tail call void @free(ptr noundef %17) #7
+  %18 = tail call ptr @xstrdup(ptr noundef nonnull %12) #7
   store ptr %18, ptr %16, align 16, !tbaa !13
   %.pre = load i8, ptr %7, align 8
   br label %19
@@ -134,10 +134,10 @@ define dso_local ptr @tr2_sysenv_get(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: noreturn
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: nocallback nofree nounwind memory(read)
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
@@ -148,7 +148,7 @@ define dso_local ptr @tr2_sysenv_display_name(i32 noundef %0) local_unnamed_addr
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @.str.1, i32 noundef %0) #8
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @.str.1, i32 noundef %0) #9
   unreachable
 
 4:                                                ; preds = %1
@@ -158,15 +158,15 @@ define dso_local ptr @tr2_sysenv_display_name(i32 noundef %0) local_unnamed_addr
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local void @tr2_sysenv_release() local_unnamed_addr #0 {
+; Function Attrs: norecurse nounwind uwtable
+define dso_local void @tr2_sysenv_release() local_unnamed_addr #5 {
   br label %1
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = getelementptr inbounds nuw [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %indvars.iv, i32 2
   %3 = load ptr, ptr %2, align 16, !tbaa !13
-  tail call void @free(ptr noundef %3) #6
+  tail call void @free(ptr noundef %3) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond.not, label %4, label %1, !llvm.loop !16
@@ -177,20 +177,21 @@ define dso_local void @tr2_sysenv_release() local_unnamed_addr #0 {
 
 declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @config_error_nonbool(ptr noundef) local_unnamed_addr #1
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { noreturn nounwind }
+attributes #3 = { nocallback nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

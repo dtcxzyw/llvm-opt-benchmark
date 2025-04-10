@@ -142,14 +142,14 @@ _ZN7MinisatL5matchIPKcEEbRT_S2_.exit:             ; preds = %_ZN7MinisatL5matchI
   br i1 %44, label %45, label %_ZN7Minisat6Option13getOptionListEv.exit, !prof !16
 
 45:                                               ; preds = %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit
-  %46 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %46 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   %.not.i61 = icmp eq i32 %46, 0
   br i1 %.not.i61, label %_ZN7Minisat6Option13getOptionListEv.exit, label %47
 
 47:                                               ; preds = %45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %48 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %48 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   br label %_ZN7Minisat6Option13getOptionListEv.exit
 
 _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit, %45, %47
@@ -164,14 +164,14 @@ _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %_ZN7MinisatL5matchI
   br i1 %54, label %55, label %_ZN7Minisat6Option13getOptionListEv.exit63, !prof !16
 
 55:                                               ; preds = %52
-  %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   %.not.i62 = icmp eq i32 %56, 0
   br i1 %.not.i62, label %_ZN7Minisat6Option13getOptionListEv.exit63, label %57
 
 57:                                               ; preds = %55
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %58 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %58 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   br label %_ZN7Minisat6Option13getOptionListEv.exit63
 
 _ZN7Minisat6Option13getOptionListEv.exit63:       ; preds = %52, %55, %57
@@ -200,8 +200,8 @@ _ZN7Minisat6Option13getOptionListEv.exit63:       ; preds = %52, %55, %57
   store ptr %70, ptr %6, align 8, !tbaa !10
   %71 = load ptr, ptr @stderr, align 8, !tbaa !27
   %72 = load ptr, ptr @_ZZN7Minisat6Option19getHelpPrefixStringEvE15help_prefix_str, align 8, !tbaa !10
-  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.4, ptr noundef nonnull %70, ptr noundef %72) #11
-  tail call void @exit(i32 noundef 1) #12
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.4, ptr noundef nonnull %70, ptr noundef %72) #12
+  tail call void @exit(i32 noundef 1) #13
   unreachable
 
 _ZN7MinisatL5matchIPcEEbRT_PKc.exit:              ; preds = %67, %.critedge
@@ -242,7 +242,7 @@ define void @_ZN7Minisat17printUsageAndExitEiPPcb(i32 %0, ptr noundef readonly c
 5:                                                ; preds = %3
   %6 = load ptr, ptr @stderr, align 8, !tbaa !27
   %7 = load ptr, ptr %1, align 8, !tbaa !10
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %7) #11
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %7) #12
   br label %9
 
 9:                                                ; preds = %5, %3
@@ -251,14 +251,14 @@ define void @_ZN7Minisat17printUsageAndExitEiPPcb(i32 %0, ptr noundef readonly c
   br i1 %11, label %12, label %_ZN7Minisat6Option13getOptionListEv.exit, !prof !16
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %_ZN7Minisat6Option13getOptionListEv.exit, label %14
 
 14:                                               ; preds = %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   br label %_ZN7Minisat6Option13getOptionListEv.exit
 
 _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %9, %12, %14
@@ -276,14 +276,14 @@ _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %9, %12, %14
   br i1 %20, label %21, label %_ZN7Minisat6Option13getOptionListEv.exit23, !prof !16
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   %.not.i22 = icmp eq i32 %22, 0
   br i1 %.not.i22, label %_ZN7Minisat6Option13getOptionListEv.exit23, label %23
 
 23:                                               ; preds = %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %24 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %24 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   br label %_ZN7Minisat6Option13getOptionListEv.exit23
 
 _ZN7Minisat6Option13getOptionListEv.exit23:       ; preds = %18, %21, %23
@@ -294,16 +294,16 @@ _ZN7Minisat6Option13getOptionListEv.exit23:       ; preds = %18, %21, %23
 
 28:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit23
   %29 = load ptr, ptr @stderr, align 8, !tbaa !27
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 16, i64 1, ptr %29) #13
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 16, i64 1, ptr %29) #14
   %31 = load ptr, ptr @stderr, align 8, !tbaa !27
   %32 = load ptr, ptr @_ZZN7Minisat6Option19getHelpPrefixStringEvE15help_prefix_str, align 8, !tbaa !10
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.8, ptr noundef %32) #11
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.8, ptr noundef %32) #12
   %34 = load ptr, ptr @stderr, align 8, !tbaa !27
   %35 = load ptr, ptr @_ZZN7Minisat6Option19getHelpPrefixStringEvE15help_prefix_str, align 8, !tbaa !10
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.9, ptr noundef %35) #11
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.9, ptr noundef %35) #12
   %37 = load ptr, ptr @stderr, align 8, !tbaa !27
   %fputc = tail call i32 @fputc(i32 10, ptr %37)
-  tail call void @exit(i32 noundef 0) #14
+  tail call void @exit(i32 noundef 0) #15
   unreachable
 
 38:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit23
@@ -312,14 +312,14 @@ _ZN7Minisat6Option13getOptionListEv.exit23:       ; preds = %18, %21, %23
   br i1 %40, label %41, label %_ZN7Minisat6Option13getOptionListEv.exit25, !prof !16
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   %.not.i24 = icmp eq i32 %42, 0
   br i1 %.not.i24, label %_ZN7Minisat6Option13getOptionListEv.exit25, label %43
 
 43:                                               ; preds = %41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %44 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %44 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   br label %_ZN7Minisat6Option13getOptionListEv.exit25
 
 _ZN7Minisat6Option13getOptionListEv.exit25:       ; preds = %38, %41, %43
@@ -333,14 +333,14 @@ _ZN7Minisat6Option13getOptionListEv.exit25:       ; preds = %38, %41, %43
   br i1 %51, label %52, label %_ZN7Minisat6Option13getOptionListEv.exit27, !prof !16
 
 52:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit25
-  %53 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %53 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   %.not.i26 = icmp eq i32 %53, 0
   br i1 %.not.i26, label %_ZN7Minisat6Option13getOptionListEv.exit27, label %54
 
 54:                                               ; preds = %52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %55 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %55 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   br label %_ZN7Minisat6Option13getOptionListEv.exit27
 
 _ZN7Minisat6Option13getOptionListEv.exit27:       ; preds = %_ZN7Minisat6Option13getOptionListEv.exit25, %52, %54
@@ -349,7 +349,7 @@ _ZN7Minisat6Option13getOptionListEv.exit27:       ; preds = %_ZN7Minisat6Option1
 
 56:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit27
   %57 = load ptr, ptr @stderr, align 8, !tbaa !27
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.5, ptr noundef %49) #11
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.5, ptr noundef %49) #12
   br label %67
 
 59:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit27
@@ -372,14 +372,14 @@ _ZN7Minisat6Option13getOptionListEv.exit27:       ; preds = %_ZN7Minisat6Option1
   br i1 %69, label %70, label %_ZN7Minisat6Option13getOptionListEv.exit29, !prof !16
 
 70:                                               ; preds = %67
-  %71 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %71 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   %.not.i28 = icmp eq i32 %71, 0
   br i1 %.not.i28, label %_ZN7Minisat6Option13getOptionListEv.exit29, label %72
 
 72:                                               ; preds = %70
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %73 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %73 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   br label %_ZN7Minisat6Option13getOptionListEv.exit29
 
 _ZN7Minisat6Option13getOptionListEv.exit29:       ; preds = %67, %70, %72
@@ -395,14 +395,14 @@ _ZN7Minisat6Option13getOptionListEv.exit29:       ; preds = %67, %70, %72
   br i1 %81, label %82, label %_ZN7Minisat6Option13getOptionListEv.exit31, !prof !16
 
 82:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit29
-  %83 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %83 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   %.not.i30 = icmp eq i32 %83, 0
   br i1 %.not.i30, label %_ZN7Minisat6Option13getOptionListEv.exit31, label %84
 
 84:                                               ; preds = %82
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %85 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %85 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   br label %_ZN7Minisat6Option13getOptionListEv.exit31
 
 _ZN7Minisat6Option13getOptionListEv.exit31:       ; preds = %_ZN7Minisat6Option13getOptionListEv.exit29, %82, %84
@@ -416,14 +416,14 @@ _ZN7Minisat6Option13getOptionListEv.exit31:       ; preds = %_ZN7Minisat6Option1
   br i1 %92, label %93, label %_ZN7Minisat6Option13getOptionListEv.exit33, !prof !16
 
 93:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit31
-  %94 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %94 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   %.not.i32 = icmp eq i32 %94, 0
   br i1 %.not.i32, label %_ZN7Minisat6Option13getOptionListEv.exit33, label %95
 
 95:                                               ; preds = %93
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %96 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
+  %96 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7Minisat3vecIPNS_6OptionEiED2Ev, ptr nonnull @_ZZN7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #11
   br label %_ZN7Minisat6Option13getOptionListEv.exit33
 
 _ZN7Minisat6Option13getOptionListEv.exit33:       ; preds = %_ZN7Minisat6Option13getOptionListEv.exit31, %93, %95
@@ -436,7 +436,7 @@ _ZN7Minisat6Option13getOptionListEv.exit33:       ; preds = %_ZN7Minisat6Option1
   br label %18, !llvm.loop !33
 }
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
@@ -468,7 +468,7 @@ define linkonce_odr void @_ZN7Minisat3vecIPNS_6OptionEiED2Ev(ptr noundef nonnull
 .preheader.i:                                     ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8, !tbaa !17
-  tail call void @free(ptr noundef nonnull %2) #10
+  tail call void @free(ptr noundef nonnull %2) #11
   store ptr null, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4, !tbaa !34
@@ -484,7 +484,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #5
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
@@ -522,7 +522,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !30
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #15
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #16
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread.i, label %18
 
@@ -535,7 +535,7 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.i:    ; preds = %18
   %21 = load ptr, ptr %20, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !32
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %23) #15
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %23) #16
   %.fr.i = freeze i32 %24
   %25 = icmp slt i32 %.fr.i, 0
   br i1 %25, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread.i, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i
@@ -589,7 +589,7 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN7Minisat6O
   %43 = load ptr, ptr %42, align 8, !tbaa !22
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !30
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %38) #15
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %38) #16
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %.critedge.backedge, label %48
 
@@ -601,7 +601,7 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN7Minisat6O
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load ptr, ptr %51, align 8, !tbaa !32
   %53 = load ptr, ptr %39, align 8, !tbaa !32
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %53) #15
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %53) #16
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %.critedge.backedge, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.preheader
 
@@ -620,7 +620,7 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit:      ; preds = %_ZN7Minisat6Option8
   %59 = load ptr, ptr %58, align 8, !tbaa !22
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !30
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %61) #15
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %61) #16
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.backedge, label %64
 
@@ -632,7 +632,7 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit:      ; preds = %_ZN7Minisat6Option8
   %67 = load ptr, ptr %39, align 8, !tbaa !32
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %69 = load ptr, ptr %68, align 8, !tbaa !32
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %69) #15
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %69) #16
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.backedge, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit37.thread
 
@@ -661,34 +661,35 @@ _ZN7Minisat13selectionSortIPNS_6OptionENS1_8OptionLtEEEvPT_iT0_.exit: ; preds = 
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+; Function Attrs: nocallback nofree nounwind
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+; Function Attrs: nocallback nofree nounwind
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind }
 attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { cold noreturn nounwind }
-attributes #13 = { cold }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #7 = { mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { cold noreturn nounwind }
+attributes #14 = { cold }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

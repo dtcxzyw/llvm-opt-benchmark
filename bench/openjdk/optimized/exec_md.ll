@@ -19,7 +19,7 @@ define hidden range(i32 -5, 1) i32 @dbgsysExec(ptr noundef readonly captures(non
   br i1 %.not5.i, label %skipWhitespace.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %3 = tail call ptr @__ctype_b_loc() #9
+  %3 = tail call ptr @__ctype_b_loc() #10
   %4 = load ptr, ptr %3, align 8
   br label %5
 
@@ -41,21 +41,21 @@ define hidden range(i32 -5, 1) i32 @dbgsysExec(ptr noundef readonly captures(non
 
 skipWhitespace.exit:                              ; preds = %5, %11, %1
   %.0.lcssa.i = phi ptr [ %0, %1 ], [ %.06.i, %5 ], [ %12, %11 ]
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i) #10
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i) #11
   %15 = trunc i64 %14 to i32
   %16 = add nsw i32 %15, 1
-  %17 = tail call ptr @jvmtiAllocate(i32 noundef %16) #11
+  %17 = tail call ptr @jvmtiAllocate(i32 noundef %16) #12
   %18 = icmp eq ptr %17, null
   br i1 %18, label %142, label %19
 
 19:                                               ; preds = %skipWhitespace.exit
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %.0.lcssa.i) #11
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %.0.lcssa.i) #12
   %21 = load i8, ptr %17, align 1
   %.not73 = icmp eq i8 %21, 0
   br i1 %.not73, label %.loopexit, label %.lr.ph.i43.lr.ph
 
 .lr.ph.i43.lr.ph:                                 ; preds = %19
-  %22 = tail call ptr @__ctype_b_loc() #9
+  %22 = tail call ptr @__ctype_b_loc() #10
   %23 = load ptr, ptr %22, align 8
   br label %.lr.ph.i43
 
@@ -109,7 +109,7 @@ skipNonWhitespace.exit.thread:                    ; preds = %31
   %.137 = phi i32 [ %34, %skipNonWhitespace.exit.thread ], [ 0, %19 ], [ %35, %42 ]
   %45 = shl i32 %.137, 3
   %46 = add i32 %45, 8
-  %47 = tail call ptr @jvmtiAllocate(i32 noundef %46) #11
+  %47 = tail call ptr @jvmtiAllocate(i32 noundef %46) #12
   %48 = icmp eq ptr %47, null
   br i1 %48, label %50, label %.preheader
 
@@ -122,7 +122,7 @@ skipNonWhitespace.exit.thread:                    ; preds = %31
   br label %.lr.ph
 
 50:                                               ; preds = %.loopexit
-  tail call void @jvmtiDeallocate(ptr noundef nonnull %17) #11
+  tail call void @jvmtiDeallocate(ptr noundef nonnull %17) #12
   br label %142
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %skipNonWhitespace.exit68
@@ -133,7 +133,7 @@ skipNonWhitespace.exit.thread:                    ; preds = %31
   br i1 %.not5.i55, label %skipWhitespace.exit61, label %.lr.ph.i56
 
 .lr.ph.i56:                                       ; preds = %.lr.ph
-  %52 = tail call ptr @__ctype_b_loc() #9
+  %52 = tail call ptr @__ctype_b_loc() #10
   %53 = load ptr, ptr %52, align 8
   br label %54
 
@@ -162,7 +162,7 @@ skipWhitespace.exit61:                            ; preds = %54, %60, %.lr.ph
   br i1 %.not5.i62, label %skipNonWhitespace.exit68, label %.lr.ph.i63
 
 .lr.ph.i63:                                       ; preds = %skipWhitespace.exit61
-  %65 = tail call ptr @__ctype_b_loc() #9
+  %65 = tail call ptr @__ctype_b_loc() #10
   %66 = load ptr, ptr %65, align 8
   br label %67
 
@@ -198,25 +198,25 @@ skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhite
   %.035.lcssa = phi i64 [ %77, %._crit_edge.loopexit ], [ 0, %.preheader ]
   %78 = getelementptr inbounds nuw ptr, ptr %47, i64 %.035.lcssa
   store ptr null, ptr %78, align 8
-  %79 = tail call i32 @fork() #11
+  %79 = tail call i32 @fork() #12
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %140
 
 81:                                               ; preds = %._crit_edge
   %82 = load ptr, ptr %47, align 8
-  %83 = tail call i32 @close(i32 noundef 3) #11
-  %84 = tail call i32 @close(i32 noundef 4) #11
+  %83 = tail call i32 @close(i32 noundef 3) #12
+  %84 = tail call i32 @close(i32 noundef 4) #12
   %85 = tail call ptr @opendir(ptr noundef nonnull @.str.6)
   %86 = icmp eq ptr %85, null
   br i1 %86, label %89, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %81
-  %87 = tail call ptr @readdir64(ptr noundef nonnull %85) #11
+  %87 = tail call ptr @readdir64(ptr noundef nonnull %85) #12
   %.not15.i.i = icmp eq ptr %87, null
   br i1 %.not15.i.i, label %closeDescriptors.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %88 = tail call ptr @__ctype_b_loc() #9
+  %88 = tail call ptr @__ctype_b_loc() #10
   br label %96
 
 89:                                               ; preds = %81
@@ -228,9 +228,9 @@ skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhite
   br i1 %.not14.i.i, label %113, label %94
 
 94:                                               ; preds = %89
-  tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 96) #11
-  %95 = tail call i32 @getpid() #11
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef %95) #11
+  tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 96) #12
+  %95 = tail call i32 @getpid() #12
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef %95) #12
   br label %113
 
 96:                                               ; preds = %.backedge.i.i, %.lr.ph.i.i
@@ -246,18 +246,18 @@ skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhite
   br i1 %.not13.i.i, label %.backedge.i.i, label %105
 
 105:                                              ; preds = %96
-  %106 = tail call i64 @strtol(ptr noundef nonnull captures(none) %99, ptr noundef null, i32 noundef 10) #11
+  %106 = tail call i64 @strtol(ptr noundef nonnull captures(none) %99, ptr noundef null, i32 noundef 10) #12
   %107 = add i64 %106, -5
   %or.cond.i.i = icmp ult i64 %107, 2147483643
   br i1 %or.cond.i.i, label %108, label %.backedge.i.i
 
 108:                                              ; preds = %105
   %109 = trunc nuw nsw i64 %106 to i32
-  %110 = tail call i32 @close(i32 noundef %109) #11
+  %110 = tail call i32 @close(i32 noundef %109) #12
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %108, %105, %96
-  %111 = tail call ptr @readdir64(ptr noundef nonnull %85) #11
+  %111 = tail call ptr @readdir64(ptr noundef nonnull %85) #12
   %.not.i.i = icmp eq ptr %111, null
   br i1 %.not.i.i, label %closeDescriptors.exit.i, label %96, !llvm.loop !11
 
@@ -266,9 +266,9 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
   br label %.loopexit.i
 
 113:                                              ; preds = %94, %89
-  %114 = tail call i32 @getpid() #11
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef %114) #11
-  %115 = tail call i64 @sysconf(i32 noundef 4) #11
+  %114 = tail call i32 @getpid() #12
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef %114) #12
+  %115 = tail call i64 @sysconf(i32 noundef 4) #12
   %116 = load ptr, ptr @gdata, align 8, !nonnull !12, !noundef !12
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 17
   %118 = load i8, ptr %117, align 1
@@ -278,7 +278,7 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
   br i1 %or.cond.i, label %.thread23.i, label %121
 
 121:                                              ; preds = %113
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @.str.2) #11
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @.str.2) #12
   %.pr.pre.i = load ptr, ptr @gdata, align 8, !nonnull !12, !noundef !12
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr.pre.i, i64 17
   %.pre = load i8, ptr %.phi.trans.insert, align 1
@@ -293,7 +293,7 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
   br i1 %or.cond3.i, label %.thread.i, label %125
 
 125:                                              ; preds = %.thread23.i
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @.str.3) #11
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @.str.3) #12
   %.pre.i = load ptr, ptr @gdata, align 8
   br label %.thread.i
 
@@ -310,35 +310,35 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
   br label %132
 
 130:                                              ; preds = %.thread.i
-  tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 135) #11
+  tail call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 135) #12
   %131 = add i64 %115, -2
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.5, i64 noundef %131) #11
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.5, i64 noundef %131) #12
   br label %132
 
 132:                                              ; preds = %130, %.thread._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre22.i, %.thread._crit_edge.i ], [ %131, %130 ]
-  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.5, i64 noundef %.pre-phi.i) #11
+  tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.5, i64 noundef %.pre-phi.i) #12
   %133 = icmp ugt i64 %115, 3
   br i1 %133, label %.lr.ph.i69, label %.loopexit.i
 
 .lr.ph.i69:                                       ; preds = %132, %.lr.ph.i69
   %.020.i = phi i64 [ %136, %.lr.ph.i69 ], [ 3, %132 ]
   %134 = trunc i64 %.020.i to i32
-  %135 = tail call i32 @close(i32 noundef %134) #11
+  %135 = tail call i32 @close(i32 noundef %134) #12
   %136 = add nuw i64 %.020.i, 1
   %exitcond.not.i = icmp eq i64 %136, %115
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i69, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %.lr.ph.i69, %132, %closeDescriptors.exit.i
-  %137 = tail call i32 @execvp(ptr noundef %82, ptr noundef nonnull %47) #11
-  %138 = tail call ptr @__errno_location() #9
+  %137 = tail call i32 @execvp(ptr noundef %82, ptr noundef nonnull %47) #12
+  %138 = tail call ptr @__errno_location() #10
   %139 = load i32, ptr %138, align 4
-  tail call void @exit(i32 noundef %139) #12
+  tail call void @exit(i32 noundef %139) #13
   unreachable
 
 140:                                              ; preds = %._crit_edge
-  tail call void @jvmtiDeallocate(ptr noundef nonnull %17) #11
-  tail call void @jvmtiDeallocate(ptr noundef nonnull %47) #11
+  tail call void @jvmtiDeallocate(ptr noundef nonnull %17) #12
+  tail call void @jvmtiDeallocate(ptr noundef nonnull %47) #12
   %141 = icmp eq i32 %79, -1
   %. = sext i1 %141 to i32
   br label %142
@@ -350,10 +350,10 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
 
 declare ptr @jvmtiAllocate(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #1
@@ -386,33 +386,34 @@ declare void @exit(i32 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #4
+; Function Attrs: nocallback nofree nounwind
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #6
 
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #4
+; Function Attrs: nocallback nofree nounwind
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #8 = { nocallback nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -247,7 +247,7 @@ _ZL12get_cpucountv.exit.i:                        ; preds = %.thread.i.i, %7
   %18 = ptrtoint ptr %.sroa.14.1.i.i to i64
   %19 = ptrtoint ptr %.sroa.0.1.i.i to i64
   %20 = sub i64 %18, %19
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i.i, i64 noundef %20) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i.i, i64 noundef %20) #26
   %.pr.i = load i32, ptr @_ZL10g_cpucount, align 4, !tbaa !10
   br label %_ZL21get_physical_cpucountv.exit.i
 
@@ -310,7 +310,7 @@ _ZL12get_cpucountv.exit.i:                        ; preds = %.thread.i.i, %7
   br i1 %37, label %38, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 38:                                               ; preds = %36
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #27
           to label %.noexc.i.i unwind label %.thread86.i.i
 
 .noexc.i.i:                                       ; preds = %38
@@ -325,7 +325,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %36, %.critedge
   %.not.i.i.i20.i.i = icmp ne i64 %42, 0
   call void @llvm.assume(i1 %.not.i.i.i20.i.i)
   %43 = shl nuw nsw i64 %42, 2
-  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #27
+  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #28
           to label %.noexc21.i.i unwind label %.loopexit34.i.i
 
 .noexc21.i.i:                                     ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -343,7 +343,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i: ; preds = %47, %.
   br i1 %.not.i17.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, label %48
 
 48:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.059.i.i, i64 noundef %26) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.059.i.i, i64 noundef %26) #26
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i: ; preds = %48, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
@@ -392,7 +392,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiE
   %.pn89.i.i = phi { ptr, i32 } [ %.pn.i.i, %._crit_edge.i ], [ %lpad.loopexit.split-lp.i.i, %.thread86.i.i ]
   %56 = ptrtoint ptr %.sroa.14.058.i.i to i64
   %57 = sub i64 %56, %.pre-phi121.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.059.i.i, i64 noundef %57) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.059.i.i, i64 noundef %57) #26
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit58.i.i, %55, %54
@@ -416,7 +416,7 @@ _ZL21get_physical_cpucountv.exit.i:               ; preds = %17, %._crit_edge.i.
   br i1 %62, label %.noexc.i13.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
 .noexc.i13.i:                                     ; preds = %._crit_edge.i4.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #26
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #27
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %._crit_edge.i4.i
@@ -425,7 +425,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %._crit_edg
 
 .noexc49.i.i:                                     ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %63 = shl nuw nsw i64 %wide.trip.count.i.i, 2
-  %64 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #27
+  %64 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #28
   store i32 0, ptr %64, align 4, !tbaa !10
   %65 = icmp eq i32 %58, 1
   br i1 %65, label %.lr.ph27.i.i.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i
@@ -528,7 +528,7 @@ _ZN4ncnn6CpuSet6enableEi.exit.i.i:                ; preds = %69, %.lr.ph.i15.i
 
 96:                                               ; preds = %.noexc51.i.i
   %97 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.16, i32 noundef %95) #28
+  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.16, i32 noundef %95) #29
   %99 = load ptr, ptr @stderr, align 8, !tbaa !15
   %fputc.i.i.i = call i32 @fputc(i32 10, ptr %99)
   br label %100
@@ -663,18 +663,18 @@ _ZN4ncnn6CpuSet6enableEi.exit54.i.i:              ; preds = %_ZN4ncnn6CpuSet6ena
   br label %.loopexit.thread.i.i
 
 .loopexit.thread.i.i:                             ; preds = %_ZN4ncnn6CpuSet6enableEi.exit54.i.i, %.loopexit.i11.i, %.preheader.i8.i
-  call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %63) #25
+  call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %63) #26
   br label %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit58.i.i:              ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit11.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i12.i, %.loopexit11.i.i ], [ %lpad.loopexit12.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp13.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
-  call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %63) #25
+  call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %63) #26
   br label %common.resume.i
 
 _ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i: ; preds = %.loopexit.thread.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   call fastcc void @_ZL13get_elf_hwcapj(i32 noundef 16)
   call fastcc void @_ZL13get_elf_hwcapj(i32 noundef 26)
-  %144 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 0) #29, !srcloc !22
+  %144 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 0) #30, !srcloc !22
   %145 = extractvalue { i32, i32, i32, i32 } %144, 0
   %146 = icmp slt i32 %145, 1
   br i1 %146, label %_ZL23get_cpu_support_x86_avxv.exit.thread.i, label %_ZL9x86_cpuidiPj.exit6.i.i
@@ -684,14 +684,14 @@ _ZL23get_cpu_support_x86_avxv.exit.thread.i:      ; preds = %_ZL35initialize_cpu
   br label %_ZL23get_cpu_support_x86_fmav.exit.i
 
 _ZL9x86_cpuidiPj.exit6.i.i:                       ; preds = %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i
-  %147 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #29
+  %147 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #30
   %148 = extractvalue { i32, i32, i32, i32 } %147, 2
   %149 = and i32 %148, 469762048
   %or.cond5.not.i.i = icmp eq i32 %149, 469762048
   br i1 %or.cond5.not.i.i, label %_ZL23get_cpu_support_x86_avxv.exit.i, label %_ZL23get_cpu_support_x86_avxv.exit.thread122.i
 
 _ZL23get_cpu_support_x86_avxv.exit.i:             ; preds = %_ZL9x86_cpuidiPj.exit6.i.i
-  %150 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #29, !srcloc !23
+  %150 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #30, !srcloc !23
   %151 = and i32 %150, 6
   %.not4.i.i = icmp eq i32 %151, 6
   %..i.i = zext i1 %.not4.i.i to i32
@@ -713,13 +713,13 @@ _ZL23get_cpu_support_x86_fmav.exit.i:             ; preds = %_ZL9x86_cpuidiPj.ex
   %155 = phi i1 [ true, %_ZL23get_cpu_support_x86_avxv.exit.i ], [ false, %_ZL9x86_cpuidiPj.exit6.i18.i ], [ true, %_ZL23get_cpu_support_x86_avxv.exit.thread.i ], [ %153, %_ZL23get_cpu_support_x86_avxv.exit.thread122.i ]
   %.0.i20.i = phi i32 [ 0, %_ZL23get_cpu_support_x86_avxv.exit.i ], [ %spec.select.i22.i, %_ZL9x86_cpuidiPj.exit6.i18.i ], [ 0, %_ZL23get_cpu_support_x86_avxv.exit.thread.i ], [ 0, %_ZL23get_cpu_support_x86_avxv.exit.thread122.i ]
   store i32 %.0.i20.i, ptr @_ZL21g_cpu_support_x86_fma, align 4, !tbaa !10
-  %156 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) -2147483648) #29, !srcloc !22
+  %156 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) -2147483648) #30, !srcloc !22
   %157 = extractvalue { i32, i32, i32, i32 } %156, 0
   %or.cond.i.i = icmp ult i32 %157, -2147483647
   br i1 %or.cond.i.i, label %_ZL23get_cpu_support_x86_xopv.exit.i, label %_ZL9x86_cpuidiPj.exit1.i.i
 
 _ZL9x86_cpuidiPj.exit1.i.i:                       ; preds = %_ZL23get_cpu_support_x86_fmav.exit.i
-  %158 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) -2147483647) #29, !srcloc !24
+  %158 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) -2147483647) #30, !srcloc !24
   %159 = extractvalue { i32, i32, i32, i32 } %158, 2
   %160 = and i32 %159, 2048
   br label %_ZL23get_cpu_support_x86_xopv.exit.i
@@ -730,7 +730,7 @@ _ZL23get_cpu_support_x86_xopv.exit.i:             ; preds = %_ZL9x86_cpuidiPj.ex
   br i1 %146, label %_ZL24get_cpu_support_x86_f16cv.exit.i, label %_ZL9x86_cpuidiPj.exit2.i.i
 
 _ZL9x86_cpuidiPj.exit2.i.i:                       ; preds = %_ZL23get_cpu_support_x86_xopv.exit.i
-  %161 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #29, !srcloc !24
+  %161 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #30, !srcloc !24
   %162 = extractvalue { i32, i32, i32, i32 } %161, 2
   %163 = and i32 %162, 536870912
   br label %_ZL24get_cpu_support_x86_f16cv.exit.i
@@ -741,23 +741,23 @@ _ZL24get_cpu_support_x86_f16cv.exit.i:            ; preds = %_ZL9x86_cpuidiPj.ex
   br i1 %155, label %_ZL31get_cpu_support_x86_avx512_bf16v.exit.i, label %_ZL9x86_cpuidiPj.exit6.i25.i
 
 _ZL9x86_cpuidiPj.exit6.i25.i:                     ; preds = %_ZL24get_cpu_support_x86_f16cv.exit.i
-  %164 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #29
+  %164 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #30
   %165 = extractvalue { i32, i32, i32, i32 } %164, 2
   %166 = and i32 %165, 469762048
   %or.cond5.not.i26.i = icmp eq i32 %166, 469762048
   br i1 %or.cond5.not.i26.i, label %167, label %_ZL9x86_cpuidiPj.exit7.i51.i
 
 167:                                              ; preds = %_ZL9x86_cpuidiPj.exit6.i25.i
-  %168 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #29, !srcloc !23
+  %168 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #30, !srcloc !23
   %169 = and i32 %168, 6
   %.not4.i28.i = icmp eq i32 %169, 6
   br i1 %.not4.i28.i, label %170, label %181
 
 170:                                              ; preds = %167
-  %171 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #29, !srcloc !25
+  %171 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #30, !srcloc !25
   %172 = extractvalue { i32, i32, i32, i32 } %171, 1
   %173 = and i32 %172, 32
-  %174 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #29
+  %174 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #30
   %175 = extractvalue { i32, i32, i32, i32 } %174, 0
   %176 = and i32 %175, 16
   %177 = extractvalue { i32, i32, i32, i32 } %174, 3
@@ -782,7 +782,7 @@ _ZL9x86_cpuidiPj.exit6.i25.i:                     ; preds = %_ZL24get_cpu_suppor
   br i1 %or.cond19.i.i, label %183, label %190
 
 183:                                              ; preds = %181
-  %184 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #29
+  %184 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #30
   %185 = extractvalue { i32, i32, i32, i32 } %184, 1
   %186 = and i32 %185, 1342373888
   %or.cond13.not.i.i = icmp eq i32 %186, 1342373888
@@ -800,7 +800,7 @@ _ZL9x86_cpuidiPj.exit6.i25.i:                     ; preds = %_ZL24get_cpu_suppor
   br i1 %.not4.i28.i, label %191, label %195
 
 191:                                              ; preds = %190
-  %192 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #29, !srcloc !25
+  %192 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #30, !srcloc !25
   %193 = extractvalue { i32, i32, i32, i32 } %192, 0
   %194 = and i32 %193, 32
   br label %195
@@ -833,7 +833,7 @@ _ZL9x86_cpuidiPj.exit7.i51.i:                     ; preds = %_ZL9x86_cpuidiPj.ex
   br i1 %or.cond19.i.i, label %196, label %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i
 
 196:                                              ; preds = %195
-  %197 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #29, !srcloc !25
+  %197 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #30, !srcloc !25
   %198 = extractvalue { i32, i32, i32, i32 } %197, 3
   %199 = and i32 %198, 8388608
   br label %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i
@@ -997,7 +997,7 @@ _ZL26initialize_global_cpu_infov.exit:            ; preds = %_ZL27get_big_cpu_da
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define internal fastcc void @_ZL13get_elf_hwcapj(i32 noundef range(i32 16, 27) %0) unnamed_addr #7 {
   %2 = alloca %struct.anon, align 4
   %3 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.3)
@@ -1006,7 +1006,7 @@ define internal fastcc void @_ZL13get_elf_hwcapj(i32 noundef range(i32 16, 27) %
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %6 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 28, i64 1, ptr %5) #30
+  %6 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 28, i64 1, ptr %5) #31
   %7 = load ptr, ptr @stderr, align 8, !tbaa !15
   %fputc.i = tail call i32 @fputc(i32 10, ptr %7)
   br label %_ZL33get_elf_hwcap_from_proc_self_auxvj.exit
@@ -1046,16 +1046,16 @@ _ZL33get_elf_hwcap_from_proc_self_auxvj.exit:     ; preds = %4, %.thread.i
   ret void
 }
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
@@ -1132,7 +1132,7 @@ define internal fastcc noundef i32 @_ZL19get_thread_siblingsi(i32 noundef %0) un
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
@@ -1152,13 +1152,13 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: nofree nounwind
+; Function Attrs: nocallback nofree nounwind
 declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
@@ -1241,7 +1241,7 @@ define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.28, i32 noundef %30) #28
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.28, i32 noundef %30) #29
   %35 = load ptr, ptr @stderr, align 8, !tbaa !15
   %fputc = call i32 @fputc(i32 10, ptr %35)
   br label %.critedge
@@ -1263,14 +1263,14 @@ define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_
 
 .thread144:                                       ; preds = %38
   %41 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.31, i32 noundef %39) #28
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.31, i32 noundef %39) #29
   %43 = load ptr, ptr @stderr, align 8, !tbaa !15
   %fputc106 = call i32 @fputc(i32 10, ptr %43)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #18
   br label %.critedge113
 
 44:                                               ; preds = %38
-  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #31
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #32
   %46 = trunc i64 %45 to i32
   %47 = load i8, ptr %8, align 16, !tbaa !21
   %48 = icmp eq i8 %47, 48
@@ -1404,7 +1404,7 @@ _ZNK4ncnn6CpuSet11num_enabledEv.exit:             ; preds = %_ZNK4ncnn6CpuSet10i
   %105 = ptrtoint ptr %.sroa.14.1 to i64
   %106 = ptrtoint ptr %.sroa.0.1 to i64
   %107 = sub i64 %105, %106
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1, i64 noundef %107) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1, i64 noundef %107) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge186, %104
@@ -1489,7 +1489,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit:              ; preds = %.lr.ph185
   br i1 %138, label %139, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
 139:                                              ; preds = %137
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #27
           to label %.noexc unwind label %.thread213
 
 .noexc:                                           ; preds = %139
@@ -1504,7 +1504,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %.critedge115.threa
   %.not.i.i.i120 = icmp ne i64 %143, 0
   call void @llvm.assume(i1 %.not.i.i.i120)
   %144 = shl nuw nsw i64 %143, 2
-  %145 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %144) #27
+  %145 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %144) #28
           to label %.noexc121 unwind label %.loopexit
 
 .noexc121:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -1522,7 +1522,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %148, %.noe
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %149
 
 149:                                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0182, i64 noundef %127) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0182, i64 noundef %127) #26
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %149, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
@@ -1568,7 +1568,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.thread:       ; preds = %.lr.ph178, %.lr.ph1
   %157 = ptrtoint ptr %.sroa.14.0181 to i64
   %158 = ptrtoint ptr %.sroa.0.0182 to i64
   %159 = sub i64 %157, %158
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0182, i64 noundef %159) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0182, i64 noundef %159) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit123
 
 _ZNSt6vectorIiSaIiEED2Ev.exit123:                 ; preds = %155, %156
@@ -1594,7 +1594,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit123:                 ; preds = %155, %156
   ret i32 %.069
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
@@ -1860,7 +1860,7 @@ define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN4ncnn28get_cp
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.32, i32 noundef %0) #28
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.32, i32 noundef %0) #29
   %6 = load ptr, ptr @stderr, align 8, !tbaa !15
   %fputc = tail call i32 @fputc(i32 10, ptr %6)
   br label %8
@@ -2021,7 +2021,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn17set_cpu_powersaveEi(i32 no
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.32, i32 noundef %0) #28
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.32, i32 noundef %0) #29
   %5 = load ptr, ptr @stderr, align 8, !tbaa !15
   %fputc = tail call i32 @fputc(i32 10, ptr %5)
   br label %9
@@ -2082,7 +2082,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
 .noexc11:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %12 = zext nneg i32 %spec.select.i to i64
   %13 = shl nuw nsw i64 %12, 2
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #27
+  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #28
   store ptr %14, ptr %3, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i32, ptr %14, i64 %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2128,7 +2128,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %.pr.pre to i64
   %27 = sub i64 %25, %26
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.pre, i64 noundef %27) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.pre, i64 noundef %27) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %.thread
@@ -2188,7 +2188,7 @@ define internal void @_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.omp_outlin
 
 23:                                               ; preds = %.lr.ph
   %24 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.33, i32 noundef %22) #28
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.33, i32 noundef %22) #29
   %26 = load ptr, ptr @stderr, align 8, !tbaa !15
   %fputc.i = call i32 @fputc(i32 10, ptr %26)
   br label %_ZL18set_sched_affinityRKN4ncnn6CpuSetE.exit
@@ -2316,14 +2316,14 @@ define hidden noundef i32 @_ZN4ncnn19get_flush_denormalsEv() local_unnamed_addr 
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn19set_flush_denormalsEi(i32 noundef %0) local_unnamed_addr #7 {
   %or.cond = icmp ugt i32 %0, 3
   br i1 %or.cond, label %2, label %6
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.35, i32 noundef %0) #28
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.35, i32 noundef %0) #29
   %5 = load ptr, ptr @stderr, align 8, !tbaa !15
   %fputc = tail call i32 @fputc(i32 10, ptr %5)
   br label %6
@@ -2343,17 +2343,17 @@ define internal void @_GLOBAL__sub_I_cpu.cpp() #21 section ".text.startup" {
   ret void
 }
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23
 
-; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
+; Function Attrs: nocallback nofree nounwind
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #19
+; Function Attrs: nocallback nofree nounwind
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #23
@@ -2365,7 +2365,7 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #24
+declare void @llvm.assume(i1 noundef) #25
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
@@ -2374,31 +2374,32 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #5 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #6 = { inlinehint mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #7 = { mustprogress nofree nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #8 = { nofree nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
+attributes #7 = { mustprogress nofree norecurse nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
+attributes #8 = { nocallback nofree nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #9 = { "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #10 = { noreturn "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #11 = { nobuiltin allocsize(0) "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #14 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #16 = { mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #17 = { alwaysinline norecurse nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #18 = { nounwind }
 attributes #19 = { nofree nounwind }
 attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #21 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #25 = { builtin nounwind }
-attributes #26 = { noreturn }
-attributes #27 = { builtin allocsize(0) }
-attributes #28 = { cold nounwind }
-attributes #29 = { nounwind memory(none) }
-attributes #30 = { cold }
-attributes #31 = { nounwind willreturn memory(read) }
+attributes #24 = { nocallback nofree nounwind }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #26 = { builtin nounwind }
+attributes #27 = { noreturn }
+attributes #28 = { builtin allocsize(0) }
+attributes #29 = { cold nounwind }
+attributes #30 = { nounwind memory(none) }
+attributes #31 = { cold }
+attributes #32 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

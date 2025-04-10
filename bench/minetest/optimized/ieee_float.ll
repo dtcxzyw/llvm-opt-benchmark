@@ -17,7 +17,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef float @_Z12u32Tof32Slowj(i32 noundef %i) local_unnamed_addr #3 {
 entry:
   %shr = lshr i32 %i, 23
@@ -41,7 +41,7 @@ if.then7:                                         ; preds = %if.then
 if.then12:                                        ; preds = %entry
   %tobool13.not = icmp eq i32 %and1, 0
   %conv17 = uitofp nneg i32 %0 to float
-  %call18 = tail call nsz float @ldexpf(float noundef %conv17, i32 noundef -149) #10
+  %call18 = tail call nsz float @ldexpf(float noundef %conv17, i32 noundef -149) #9
   br i1 %tobool13.not, label %cleanup, label %cond.true
 
 cond.true:                                        ; preds = %if.then12
@@ -54,7 +54,7 @@ if.end20:                                         ; preds = %entry
   %1 = or disjoint i32 %0, 8388608
   %conv30 = uitofp nneg i32 %1 to float
   %sub31 = add nsw i32 %and, -150
-  %call32 = tail call nsz float @ldexpf(float noundef %conv30, i32 noundef %sub31) #10
+  %call32 = tail call nsz float @ldexpf(float noundef %conv30, i32 noundef %sub31) #9
   br i1 %tobool21.not, label %cleanup, label %cond.true22
 
 cond.true22:                                      ; preds = %if.end20
@@ -69,13 +69,13 @@ cleanup:                                          ; preds = %cond.true22, %if.en
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare float @ldexpf(float noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_Z12f32Tou32Slowf(float noundef %f) local_unnamed_addr #3 {
 entry:
   %exp = alloca i32, align 4
@@ -103,9 +103,9 @@ if.then8:                                         ; preds = %if.end6
   br label %cleanup36
 
 if.end12:                                         ; preds = %if.end6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exp) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exp) #10
   store i32 0, ptr %exp, align 4, !tbaa !4
-  %call13 = call nsz float @frexpf(float noundef %f, ptr noundef nonnull %exp) #11
+  %call13 = call nsz float @frexpf(float noundef %f, ptr noundef nonnull %exp) #10
   %cond14 = select nsz i1 %cmp, float 0x4170000000000000, float 0xC170000000000000
   %mul = fmul nsz float %cond14, %call13
   %6 = tail call nsz noundef float @llvm.floor.f32(float %mul)
@@ -140,7 +140,7 @@ if.end28:                                         ; preds = %if.end22
 
 cleanup:                                          ; preds = %if.end28, %if.then24, %if.then18
   %retval.0 = phi i32 [ %or21, %if.then18 ], [ %8, %if.then24 ], [ %or3248, %if.end28 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %exp) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %exp) #10
   br label %cleanup36
 
 cleanup36:                                        ; preds = %cleanup, %if.then8, %if.then3, %entry
@@ -148,44 +148,43 @@ cleanup36:                                        ; preds = %cleanup, %if.then8,
   ret i32 %retval.1
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare float @frexpf(float noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_Z25getFloatSerializationTypev() local_unnamed_addr #7 {
+define dso_local noundef i32 @_Z25getFloatSerializationTypev() local_unnamed_addr #3 {
 entry:
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.copysign.f32(float, float) #8
+declare float @llvm.copysign.f32(float, float) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #8
+declare float @llvm.floor.f32(float) #7
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ieee_float.cpp() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ieee_float.cpp() #8 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #8
+declare float @llvm.fabs.f32(float) #7
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: write) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind willreturn memory(none) }
-attributes #11 = { nounwind }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

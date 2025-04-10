@@ -5,26 +5,26 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @cuddLevelQueueInit(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #9
+  %4 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %31, label %6
 
 6:                                                ; preds = %3
   %7 = sext i32 %0 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #9
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #10
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !3
   %11 = icmp eq ptr %9, null
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call void @free(ptr noundef nonnull %4) #10
+  tail call void @free(ptr noundef nonnull %4) #11
   br label %31
 
 13:                                               ; preds = %6
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 2)
-  %14 = tail call i32 @cuddComputeFloorLog2(i32 noundef %spec.store.select) #10
+  %14 = tail call i32 @cuddComputeFloorLog2(i32 noundef %spec.store.select) #11
   %15 = shl nuw i32 1, %14
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %15, ptr %16, align 8, !tbaa !11
@@ -40,8 +40,8 @@ define noalias noundef ptr @cuddLevelQueueInit(i32 noundef %0, i32 noundef %1, i
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %13
-  tail call void @free(ptr noundef nonnull %9) #10
-  tail call void @free(ptr noundef nonnull %4) #10
+  tail call void @free(ptr noundef nonnull %9) #11
+  tail call void @free(ptr noundef nonnull %4) #11
   br label %31
 
 24:                                               ; preds = %13
@@ -65,10 +65,10 @@ define noalias noundef ptr @cuddLevelQueueInit(i32 noundef %0, i32 noundef %1, i
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @cuddComputeFloorLog2(i32 noundef) local_unnamed_addr #3
@@ -76,8 +76,8 @@ declare i32 @cuddComputeFloorLog2(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-; Function Attrs: nounwind uwtable
-define void @cuddLevelQueueQuit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: norecurse nounwind uwtable
+define void @cuddLevelQueueQuit(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not26 = icmp eq ptr %3, null
@@ -92,7 +92,7 @@ define void @cuddLevelQueueQuit(ptr noundef captures(none) %0) local_unnamed_add
   %5 = phi ptr [ %7, %.lr.ph ], [ %3, %1 ]
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   store ptr %6, ptr %2, align 8, !tbaa !15
-  tail call void @free(ptr noundef nonnull %5) #10
+  tail call void @free(ptr noundef nonnull %5) #11
   %7 = load ptr, ptr %2, align 8, !tbaa !15
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !22
@@ -101,7 +101,7 @@ define void @cuddLevelQueueQuit(ptr noundef captures(none) %0) local_unnamed_add
   %8 = phi ptr [ %10, %.lr.ph28 ], [ %4, %.preheader ]
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   store ptr %9, ptr %0, align 8, !tbaa !14
-  tail call void @free(ptr noundef nonnull %8) #10
+  tail call void @free(ptr noundef nonnull %8) #11
   %10 = load ptr, ptr %0, align 8, !tbaa !14
   %.not23 = icmp eq ptr %10, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph28, !llvm.loop !24
@@ -113,7 +113,7 @@ define void @cuddLevelQueueQuit(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %.not24, label %14, label %13
 
 13:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %12) #10
+  tail call void @free(ptr noundef nonnull %12) #11
   store ptr null, ptr %11, align 8, !tbaa !13
   br label %14
 
@@ -124,16 +124,16 @@ define void @cuddLevelQueueQuit(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %.not25, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %16) #10
+  tail call void @free(ptr noundef nonnull %16) #11
   br label %18
 
 18:                                               ; preds = %17, %14
-  tail call void @free(ptr noundef nonnull %0) #10
+  tail call void @free(ptr noundef nonnull %0) #11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+; Function Attrs: norecurse nounwind uwtable
+define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %4, align 8, !tbaa !13
   %5 = getelementptr i8, ptr %0, i64 52
@@ -171,7 +171,7 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %22 = load i32, ptr %21, align 4, !tbaa !17
   %23 = sext i32 %22 to i64
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #9
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #10
   %25 = icmp eq ptr %24, null
   br i1 %25, label %hashLookup.exit, label %28
 
@@ -315,7 +315,7 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
   br i1 %.not.i.i, label %hashInsert.exit, label %._crit_edge41.thread.i.i
 
 ._crit_edge41.thread.i.i:                         ; preds = %._crit_edge.i.i, %._crit_edge41.i.i
-  tail call void @free(ptr noundef nonnull %.pre67) #10
+  tail call void @free(ptr noundef nonnull %.pre67) #11
   %.pre65 = load ptr, ptr %29, align 8, !tbaa !26
   %.pre66 = load ptr, ptr %4, align 8, !tbaa !13
   %.pre69 = ptrtoint ptr %.pre65 to i64
@@ -342,7 +342,7 @@ hashLookup.exit:                                  ; preds = %.lr.ph.i, %20, %has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @cuddLevelQueueDequeue(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @cuddLevelQueueDequeue(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8, !tbaa !14
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %4, align 8, !tbaa !13
@@ -416,25 +416,26 @@ hashDelete.exit:                                  ; preds = %.preheader.i, %2, %
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.smax.i32(i32, i32) #7
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+; Function Attrs: nocallback nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind }
+attributes #5 = { norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

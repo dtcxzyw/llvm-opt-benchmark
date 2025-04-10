@@ -22,7 +22,7 @@ define hidden void @_ZN4LIEF2PE21init_c_import_entriesEP11Pe_Import_tRNS0_6Impor
   %10 = sdiv exact i64 %9, 104
   %11 = shl nsw i64 %10, 3
   %12 = add nsw i64 %11, 8
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #4
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !13
   %.not = icmp eq ptr %6, %4
@@ -40,23 +40,23 @@ _ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE11ImportEntryESaIS3_EES3_N9__gnu_cxx17__
   %18 = phi ptr [ %67, %47 ], [ %4, %2 ]
   %.036 = phi i64 [ %65, %47 ], [ 0, %2 ]
   %19 = getelementptr inbounds %"class.LIEF::PE::ImportEntry", ptr %18, i64 %.036
-  %20 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #4
+  %20 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #5
   %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %.036
   store ptr %20, ptr %21, align 8, !tbaa !19
-  %22 = tail call noundef zeroext i1 @_ZNK4LIEF2PE11ImportEntry10is_ordinalEv(ptr noundef nonnull align 8 dereferenceable(98) %19) #5
+  %22 = tail call noundef zeroext i1 @_ZNK4LIEF2PE11ImportEntry10is_ordinalEv(ptr noundef nonnull align 8 dereferenceable(98) %19) #6
   %23 = load ptr, ptr %14, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.036
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %26 = zext i1 %22 to i8
   store i8 %26, ptr %25, align 8, !tbaa !21
-  %27 = tail call noundef zeroext i1 @_ZNK4LIEF2PE11ImportEntry10is_ordinalEv(ptr noundef nonnull align 8 dereferenceable(98) %19) #5
+  %27 = tail call noundef zeroext i1 @_ZNK4LIEF2PE11ImportEntry10is_ordinalEv(ptr noundef nonnull align 8 dereferenceable(98) %19) #6
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE11ImportEntryESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit
   %29 = load ptr, ptr %19, align 8, !tbaa !26
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef nonnull align 8 dereferenceable(32) ptr %31(ptr noundef nonnull align 8 dereferenceable(56) %19) #5
+  %32 = tail call noundef nonnull align 8 dereferenceable(32) ptr %31(ptr noundef nonnull align 8 dereferenceable(56) %19) #6
   %33 = load ptr, ptr %32, align 8, !tbaa !28
   br label %34
 
@@ -67,7 +67,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE11ImportEntryESaIS3_EES3_N9__gnu_cxx17__
   %38 = load ptr, ptr %37, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %35, ptr %39, align 8, !tbaa !31
-  %40 = tail call noundef zeroext i1 @_ZNK4LIEF2PE11ImportEntry10is_ordinalEv(ptr noundef nonnull align 8 dereferenceable(98) %19) #5
+  %40 = tail call noundef zeroext i1 @_ZNK4LIEF2PE11ImportEntry10is_ordinalEv(ptr noundef nonnull align 8 dereferenceable(98) %19) #6
   br i1 %40, label %41, label %._crit_edge38
 
 ._crit_edge38:                                    ; preds = %34
@@ -76,7 +76,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE11ImportEntryESaIS3_EES3_N9__gnu_cxx17__
   br label %47
 
 41:                                               ; preds = %34
-  %42 = tail call noundef zeroext i1 @_ZNK4LIEF2PE11ImportEntry10is_ordinalEv(ptr noundef nonnull align 8 dereferenceable(98) %19) #5
+  %42 = tail call noundef zeroext i1 @_ZNK4LIEF2PE11ImportEntry10is_ordinalEv(ptr noundef nonnull align 8 dereferenceable(98) %19) #6
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %44 = load i64, ptr %43, align 8
   %45 = trunc i64 %44 to i16
@@ -118,13 +118,13 @@ _ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE11ImportEntryESaIS3_EES3_N9__gnu_cxx17__
   br i1 %72, label %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE11ImportEntryESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit, label %._crit_edge, !llvm.loop !47
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 declare noundef zeroext i1 @_ZNK4LIEF2PE11ImportEntry10is_ordinalEv(ptr noundef nonnull align 8 dereferenceable(98)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4LIEF2PE22destroy_import_entriesEP11Pe_Import_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: mustprogress norecurse nounwind uwtable
+define hidden void @_ZN4LIEF2PE22destroy_import_entriesEP11Pe_Import_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   %4 = load ptr, ptr %3, align 8, !tbaa !19
@@ -137,13 +137,13 @@ define hidden void @_ZN4LIEF2PE22destroy_import_entriesEP11Pe_Import_t(ptr nound
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %5 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %3, %1 ]
-  tail call void @free(ptr noundef %5) #5
+  tail call void @free(ptr noundef %5) #6
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %6 = phi ptr [ %9, %.lr.ph ], [ %4, %1 ]
   %.08 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
-  tail call void @free(ptr noundef nonnull %6) #5
+  tail call void @free(ptr noundef nonnull %6) #6
   %7 = add i64 %.08, 1
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !19
@@ -151,15 +151,16 @@ define hidden void @_ZN4LIEF2PE22destroy_import_entriesEP11Pe_Import_t(ptr nound
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) }
-attributes #5 = { nounwind }
+attributes #3 = { mustprogress norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(0) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
