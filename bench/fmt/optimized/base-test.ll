@@ -138298,43 +138298,43 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail15iterator_bufferISt20back_in
   br label %7
 
 7:                                                ; preds = %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i, %.lr.ph.i
-  %.06.i.idx = phi i64 [ 40, %.lr.ph.i ], [ %.06.i.add, %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i ]
-  %.06.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.06.i.idx
+  %.06.i = phi i64 [ 40, %.lr.ph.i ], [ %.06.i.add, %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.06.i
   %.06.i.add = add nuw nsw i64 %.06.i.idx, 1
   %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8
-  %8 = load i8, ptr %.06.i.ptr, align 1, !tbaa !4
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !45
-  %11 = add i64 %10, 1
-  %12 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !40
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 16
-  %14 = icmp eq ptr %12, %13
-  br i1 %14, label %15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
+  %9 = load i8, ptr %.06.i.ptr, align 1, !tbaa !4
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
+  %11 = load i64, ptr %10, align 8, !tbaa !45
+  %12 = add i64 %11, 1
+  %13 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !40
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 16
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
 
-15:                                               ; preds = %7
-  %16 = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %16)
+16:                                               ; preds = %7
+  %17 = icmp ult i64 %11, 16
+  tail call void @llvm.assume(i1 %17)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; preds = %15, %7
-  %17 = load i64, ptr %13, align 8
-  %18 = select i1 %14, i64 15, i64 %17
-  %19 = icmp ugt i64 %11, %18
-  br i1 %19, label %20, label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; preds = %16, %7
+  %18 = load i64, ptr %14, align 8
+  %19 = select i1 %15, i64 15, i64 %18
+  %20 = icmp ugt i64 %12, %19
+  br i1 %20, label %21, label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i
 
-20:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.copyload.i.i, i64 noundef %10, i64 noundef 0, ptr noundef null, i64 noundef 1)
+21:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.copyload.i.i, i64 noundef %11, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !40
   br label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i
 
-_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i: ; preds = %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
-  %21 = phi ptr [ %.pre.i.i.i, %20 ], [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %10
-  store i8 %8, ptr %22, align 1, !tbaa !4
-  store i64 %11, ptr %9, align 8, !tbaa !45
-  %23 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !40
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %11
-  store i8 0, ptr %24, align 1, !tbaa !4
+_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i: ; preds = %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
+  %22 = phi ptr [ %.pre.i.i.i, %21 ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i ]
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %11
+  store i8 %9, ptr %23, align 1, !tbaa !4
+  store i64 %12, ptr %10, align 8, !tbaa !45
+  %24 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %12
+  store i8 0, ptr %25, align 1, !tbaa !4
   %.not.i = icmp eq i64 %.06.i.add, 296
   br i1 %.not.i, label %_ZN3fmt3v116detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEE5flushEv.exit, label %7, !llvm.loop !3299
 
