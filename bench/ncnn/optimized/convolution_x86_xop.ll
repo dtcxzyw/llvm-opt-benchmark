@@ -5657,7 +5657,7 @@ define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i
   %.0 = phi i32 [ %13, %12 ], [ %6, %7 ]
   %15 = uitofp i64 %10 to float
   %16 = fmul fast float %15, 0x3FD5555560000000
-  %17 = tail call fast noundef float @llvm.sqrt.f32(float %16)
+  %17 = tail call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %16)
   %18 = fptosi float %17 to i32
   %19 = sdiv i32 %18, 4
   %20 = shl nsw i32 %19, 2
@@ -5690,7 +5690,7 @@ define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i
 37:                                               ; preds = %33, %14
   %storemerge = phi i32 [ %.sroa.speculated74, %33 ], [ %.sroa.speculated78, %14 ]
   store i32 %storemerge, ptr %3, align 4, !tbaa !4
-  %38 = tail call fast noundef float @llvm.sqrt.f32(float %15)
+  %38 = tail call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %15)
   %39 = sitofp i32 %storemerge to float
   %40 = fsub fast float %38, %39
   %41 = fptosi float %40 to i32
@@ -12094,16 +12094,16 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
   %197 = add <4 x i32> %196, %195
   %198 = sitofp <4 x i32> %190 to <4 x float>
   %199 = fmul fast <4 x float> %198, splat (float 0x3F5C71C720000000)
-  %200 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %199)
+  %200 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %199)
   %201 = sitofp <4 x i32> %192 to <4 x float>
   %202 = fmul fast <4 x float> %201, splat (float 0x3F5C71C720000000)
-  %203 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %202)
+  %203 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %202)
   %204 = sitofp <4 x i32> %194 to <4 x float>
   %205 = fmul fast <4 x float> %204, splat (float 0x3F5C71C720000000)
-  %206 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %205)
+  %206 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %205)
   %207 = sitofp <4 x i32> %197 to <4 x float>
   %208 = fmul fast <4 x float> %207, splat (float 0x3F5C71C720000000)
-  %209 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %208)
+  %209 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %208)
   switch i32 %127, label %240 [
     i32 4, label %231
     i32 1, label %210

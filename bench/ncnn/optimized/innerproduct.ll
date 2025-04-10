@@ -2382,7 +2382,7 @@ define internal void @_ZNK4ncnn12InnerProduct7forwardERKNS_3MatERS1_RKNS_6Option
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 74:                                               ; preds = %._crit_edge.us
-  %75 = call fast float @llvm.exp.f32(float %.1.lcssa.us)
+  %75 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.1.lcssa.us)
   %76 = fadd fast float %75, 1.000000e+00
   %77 = call fast float @llvm.log.f32(float %76)
   %78 = call fast float @llvm.tanh.f32(float %77)
@@ -2422,7 +2422,7 @@ define internal void @_ZNK4ncnn12InnerProduct7forwardERKNS_3MatERS1_RKNS_6Option
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 101:                                              ; preds = %._crit_edge.us
-  %102 = call fast float @llvm.maxnum.f32(float %.1.lcssa.us, float 0.000000e+00)
+  %102 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.1.lcssa.us, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %101, %95, %94, %87, %80, %74, %70, %66, %58, %._crit_edge.us
@@ -2600,7 +2600,7 @@ define internal void @_ZNK4ncnn12InnerProduct7forwardERKNS_3MatERS1_RKNS_6Option
   ]
 
 61:                                               ; preds = %._crit_edge59
-  %62 = call fast float @llvm.maxnum.f32(float %.1.lcssa, float 0.000000e+00)
+  %62 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.1.lcssa, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 63:                                               ; preds = %._crit_edge59
@@ -2636,7 +2636,7 @@ define internal void @_ZNK4ncnn12InnerProduct7forwardERKNS_3MatERS1_RKNS_6Option
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 84:                                               ; preds = %._crit_edge59
-  %85 = call fast float @llvm.exp.f32(float %.1.lcssa)
+  %85 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.1.lcssa)
   %86 = fadd fast float %85, 1.000000e+00
   %87 = call fast float @llvm.log.f32(float %86)
   %88 = call fast float @llvm.tanh.f32(float %87)
@@ -2850,7 +2850,7 @@ define internal void @_ZNK4ncnn12InnerProduct12forward_int8ERKNS_3MatERS1_RKNS_6
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 89:                                               ; preds = %72
-  %90 = call fast float @llvm.exp.f32(float %.0.us)
+  %90 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.0.us)
   %91 = fadd fast float %90, 1.000000e+00
   %92 = call fast float @llvm.log.f32(float %91)
   %93 = call fast float @llvm.tanh.f32(float %92)
@@ -2890,7 +2890,7 @@ define internal void @_ZNK4ncnn12InnerProduct12forward_int8ERKNS_3MatERS1_RKNS_6
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 116:                                              ; preds = %72
-  %117 = call fast float @llvm.maxnum.f32(float %.0.us, float 0.000000e+00)
+  %117 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.0.us, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %116, %110, %109, %102, %95, %89, %85, %81, %73, %72
@@ -3078,7 +3078,7 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   ]
 
 78:                                               ; preds = %77
-  %79 = call fast float @llvm.maxnum.f32(float %.0, float 0.000000e+00)
+  %79 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.0, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 80:                                               ; preds = %77
@@ -3114,7 +3114,7 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 101:                                              ; preds = %77
-  %102 = call fast float @llvm.exp.f32(float %.0)
+  %102 = call fast float @llvm.exp.f32(float nofpclass(nan inf) %.0)
   %103 = fadd fast float %102, 1.000000e+00
   %104 = call fast float @llvm.log.f32(float %103)
   %105 = call fast float @llvm.tanh.f32(float %104)

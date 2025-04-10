@@ -717,17 +717,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit446.us.us: ; preds = %304, %300
   br i1 %.not.i445.us, label %_ZN4ncnnL13compute_coordEfiii.exit.thread.us.us, label %_ZN4ncnnL13compute_coordEfiii.exit.thread757.us.us
 
 _ZN4ncnnL13compute_coordEfiii.exit.thread757.us.us: ; preds = %308
-  %309 = call fast noundef float @llvm.fabs.f32(float %307)
+  %309 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %307)
   %310 = fsub fast float %309, %279
-  %311 = call fast noundef float @llvm.fabs.f32(float %310)
+  %311 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %310)
   %312 = fsub fast float %279, %311
   br label %324
 
 _ZN4ncnnL13compute_coordEfiii.exit.thread.us.us:  ; preds = %308
   %313 = fadd fast float %307, 5.000000e-01
-  %314 = call fast noundef float @llvm.fabs.f32(float %313)
+  %314 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %313)
   %315 = fsub fast float %314, %280
-  %316 = call fast noundef float @llvm.fabs.f32(float %315)
+  %316 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %315)
   %317 = fsub fast float %280, %316
   %318 = fadd fast float %317, -5.000000e-01
   %319 = fcmp fast olt float %318, 0.000000e+00
@@ -774,17 +774,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit449.us.us: ; preds = %328, %324
   br i1 %.not.i445.us, label %_ZN4ncnnL13compute_coordEfiii.exit456.thread.us.us, label %_ZN4ncnnL13compute_coordEfiii.exit456.thread763.us.us
 
 _ZN4ncnnL13compute_coordEfiii.exit456.thread763.us.us: ; preds = %334
-  %335 = call fast noundef float @llvm.fabs.f32(float %333)
+  %335 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %333)
   %336 = fsub fast float %335, %288
-  %337 = call fast noundef float @llvm.fabs.f32(float %336)
+  %337 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %336)
   %338 = fsub fast float %288, %337
   br label %350
 
 _ZN4ncnnL13compute_coordEfiii.exit456.thread.us.us: ; preds = %334
   %339 = fadd fast float %333, 5.000000e-01
-  %340 = call fast noundef float @llvm.fabs.f32(float %339)
+  %340 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %339)
   %341 = fsub fast float %340, %289
-  %342 = call fast noundef float @llvm.fabs.f32(float %341)
+  %342 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %341)
   %343 = fsub fast float %289, %342
   %344 = fadd fast float %343, -5.000000e-01
   %345 = fcmp fast olt float %344, 0.000000e+00
@@ -830,17 +830,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit458.us.us: ; preds = %354, %350
   br i1 %.not.i445.us, label %365, label %360
 
 360:                                              ; preds = %359
-  %361 = call fast noundef float @llvm.fabs.f32(float %358)
+  %361 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %358)
   %362 = fsub fast float %361, %267
-  %363 = call fast noundef float @llvm.fabs.f32(float %362)
+  %363 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %362)
   %364 = fsub fast float %267, %363
   br label %_ZN4ncnnL13compute_coordEfiii.exit465.us.us
 
 365:                                              ; preds = %359
   %366 = fadd fast float %358, 5.000000e-01
-  %367 = call fast noundef float @llvm.fabs.f32(float %366)
+  %367 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %366)
   %368 = fsub fast float %367, %268
-  %369 = call fast noundef float @llvm.fabs.f32(float %368)
+  %369 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %368)
   %370 = fsub fast float %268, %369
   %371 = fadd fast float %370, -5.000000e-01
   %372 = fcmp fast olt float %371, 0.000000e+00
@@ -993,17 +993,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit467.us.us: ; preds = %433, %429
   br i1 %.not.i466.us, label %_ZN4ncnnL13compute_coordEfiii.exit474.thread.us.us, label %_ZN4ncnnL13compute_coordEfiii.exit474.thread769.us.us
 
 _ZN4ncnnL13compute_coordEfiii.exit474.thread769.us.us: ; preds = %437
-  %438 = call fast noundef float @llvm.fabs.f32(float %436)
+  %438 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %436)
   %439 = fsub fast float %438, %410
-  %440 = call fast noundef float @llvm.fabs.f32(float %439)
+  %440 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %439)
   %441 = fsub fast float %410, %440
   br label %453
 
 _ZN4ncnnL13compute_coordEfiii.exit474.thread.us.us: ; preds = %437
   %442 = fadd fast float %436, 5.000000e-01
-  %443 = call fast noundef float @llvm.fabs.f32(float %442)
+  %443 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %442)
   %444 = fsub fast float %443, %411
-  %445 = call fast noundef float @llvm.fabs.f32(float %444)
+  %445 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %444)
   %446 = fsub fast float %411, %445
   %447 = fadd fast float %446, -5.000000e-01
   %448 = fcmp fast olt float %447, 0.000000e+00
@@ -1050,17 +1050,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit476.us.us: ; preds = %457, %453
   br i1 %.not.i466.us, label %_ZN4ncnnL13compute_coordEfiii.exit483.thread.us.us, label %_ZN4ncnnL13compute_coordEfiii.exit483.thread775.us.us
 
 _ZN4ncnnL13compute_coordEfiii.exit483.thread775.us.us: ; preds = %463
-  %464 = call fast noundef float @llvm.fabs.f32(float %462)
+  %464 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %462)
   %465 = fsub fast float %464, %419
-  %466 = call fast noundef float @llvm.fabs.f32(float %465)
+  %466 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %465)
   %467 = fsub fast float %419, %466
   br label %479
 
 _ZN4ncnnL13compute_coordEfiii.exit483.thread.us.us: ; preds = %463
   %468 = fadd fast float %462, 5.000000e-01
-  %469 = call fast noundef float @llvm.fabs.f32(float %468)
+  %469 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %468)
   %470 = fsub fast float %469, %420
-  %471 = call fast noundef float @llvm.fabs.f32(float %470)
+  %471 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %470)
   %472 = fsub fast float %420, %471
   %473 = fadd fast float %472, -5.000000e-01
   %474 = fcmp fast olt float %473, 0.000000e+00
@@ -1106,17 +1106,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit485.us.us: ; preds = %483, %479
   br i1 %.not.i466.us, label %494, label %489
 
 489:                                              ; preds = %488
-  %490 = call fast noundef float @llvm.fabs.f32(float %487)
+  %490 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %487)
   %491 = fsub fast float %490, %388
-  %492 = call fast noundef float @llvm.fabs.f32(float %491)
+  %492 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %491)
   %493 = fsub fast float %388, %492
   br label %_ZN4ncnnL13compute_coordEfiii.exit492.us.us
 
 494:                                              ; preds = %488
   %495 = fadd fast float %487, 5.000000e-01
-  %496 = call fast noundef float @llvm.fabs.f32(float %495)
+  %496 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %495)
   %497 = fsub fast float %496, %389
-  %498 = call fast noundef float @llvm.fabs.f32(float %497)
+  %498 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %497)
   %499 = fsub fast float %389, %498
   %500 = fadd fast float %499, -5.000000e-01
   %501 = fcmp fast olt float %500, 0.000000e+00
@@ -1476,21 +1476,21 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   br i1 %.not.i98.us.us.us, label %80, label %71
 
 71:                                               ; preds = %70
-  %72 = call fast noundef float @llvm.fabs.f32(float %68)
+  %72 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %68)
   %73 = fsub fast float %72, %61
-  %74 = call fast noundef float @llvm.fabs.f32(float %73)
+  %74 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %73)
   %75 = fsub fast float %61, %74
-  %76 = call fast noundef float @llvm.fabs.f32(float %69)
+  %76 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %69)
   %77 = fsub fast float %76, %65
-  %78 = call fast noundef float @llvm.fabs.f32(float %77)
+  %78 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %77)
   %79 = fsub fast float %65, %78
   br label %_ZN4ncnnL13compute_coordEfiii.exit105.us.us.us
 
 80:                                               ; preds = %70
   %81 = fadd fast float %68, 5.000000e-01
-  %82 = call fast noundef float @llvm.fabs.f32(float %81)
+  %82 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %81)
   %83 = fsub fast float %82, %62
-  %84 = call fast noundef float @llvm.fabs.f32(float %83)
+  %84 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %83)
   %85 = fsub fast float %62, %84
   %86 = fadd fast float %85, -5.000000e-01
   %87 = fcmp fast olt float %86, 0.000000e+00
@@ -1498,9 +1498,9 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   %88 = fcmp fast olt float %.sroa.speculated4.i12.i.us.us.us, %61
   %.sroa.speculated.i13.i.us.us.us = select i1 %88, float %.sroa.speculated4.i12.i.us.us.us, float %61
   %89 = fadd fast float %69, 5.000000e-01
-  %90 = call fast noundef float @llvm.fabs.f32(float %89)
+  %90 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %89)
   %91 = fsub fast float %90, %66
-  %92 = call fast noundef float @llvm.fabs.f32(float %91)
+  %92 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %91)
   %93 = fsub fast float %66, %92
   %94 = fadd fast float %93, -5.000000e-01
   %95 = fcmp fast olt float %94, 0.000000e+00
@@ -1523,9 +1523,9 @@ _ZN4ncnnL13compute_coordEfiii.exit.thread187.us.us.us: ; preds = %67
 _ZN4ncnnL13compute_coordEfiii.exit105.us.us.us:   ; preds = %_ZN4ncnnL13compute_coordEfiii.exit.thread187.us.us.us, %80, %71, %67
   %.0.i186.us.us.us = phi float [ %.sroa.speculated.i.i.us.us.us, %_ZN4ncnnL13compute_coordEfiii.exit.thread187.us.us.us ], [ %75, %71 ], [ %.sroa.speculated.i13.i.us.us.us, %80 ], [ %68, %67 ]
   %.0.i100.us.us.us = phi nsz float [ %.sroa.speculated.i.i104.us.us.us, %_ZN4ncnnL13compute_coordEfiii.exit.thread187.us.us.us ], [ %79, %71 ], [ %.sroa.speculated.i13.i102.us.us.us, %80 ], [ %69, %67 ]
-  %101 = call fast noundef float @llvm.floor.f32(float %.0.i186.us.us.us)
+  %101 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %.0.i186.us.us.us)
   %102 = fptosi float %101 to i32
-  %103 = call fast noundef float @llvm.floor.f32(float %.0.i100.us.us.us)
+  %103 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %.0.i100.us.us.us)
   %104 = fptosi float %103 to i32
   %105 = add nsw i32 %102, 1
   %106 = add nsw i32 %104, 1
@@ -1784,21 +1784,21 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   br i1 %.not.i74.us.us.us, label %80, label %71
 
 71:                                               ; preds = %70
-  %72 = call fast noundef float @llvm.fabs.f32(float %68)
+  %72 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %68)
   %73 = fsub fast float %72, %61
-  %74 = call fast noundef float @llvm.fabs.f32(float %73)
+  %74 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %73)
   %75 = fsub fast float %61, %74
-  %76 = call fast noundef float @llvm.fabs.f32(float %69)
+  %76 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %69)
   %77 = fsub fast float %76, %65
-  %78 = call fast noundef float @llvm.fabs.f32(float %77)
+  %78 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %77)
   %79 = fsub fast float %65, %78
   br label %_ZN4ncnnL13compute_coordEfiii.exit81.us.us.us
 
 80:                                               ; preds = %70
   %81 = fadd fast float %68, 5.000000e-01
-  %82 = call fast noundef float @llvm.fabs.f32(float %81)
+  %82 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %81)
   %83 = fsub fast float %82, %62
-  %84 = call fast noundef float @llvm.fabs.f32(float %83)
+  %84 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %83)
   %85 = fsub fast float %62, %84
   %86 = fadd fast float %85, -5.000000e-01
   %87 = fcmp fast olt float %86, 0.000000e+00
@@ -1806,9 +1806,9 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   %88 = fcmp fast olt float %.sroa.speculated4.i12.i.us.us.us, %61
   %.sroa.speculated.i13.i.us.us.us = select i1 %88, float %.sroa.speculated4.i12.i.us.us.us, float %61
   %89 = fadd fast float %69, 5.000000e-01
-  %90 = call fast noundef float @llvm.fabs.f32(float %89)
+  %90 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %89)
   %91 = fsub fast float %90, %66
-  %92 = call fast noundef float @llvm.fabs.f32(float %91)
+  %92 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %91)
   %93 = fsub fast float %66, %92
   %94 = fadd fast float %93, -5.000000e-01
   %95 = fcmp fast olt float %94, 0.000000e+00
@@ -1832,10 +1832,10 @@ _ZN4ncnnL13compute_coordEfiii.exit81.us.us.us:    ; preds = %_ZN4ncnnL13compute_
   %.0.i132.us.us.us = phi float [ %.sroa.speculated.i.i.us.us.us, %_ZN4ncnnL13compute_coordEfiii.exit.thread133.us.us.us ], [ %75, %71 ], [ %.sroa.speculated.i13.i.us.us.us, %80 ], [ %68, %67 ]
   %.0.i76.us.us.us = phi nsz float [ %.sroa.speculated.i.i80.us.us.us, %_ZN4ncnnL13compute_coordEfiii.exit.thread133.us.us.us ], [ %79, %71 ], [ %.sroa.speculated.i13.i78.us.us.us, %80 ], [ %69, %67 ]
   %101 = fadd fast float %.0.i132.us.us.us, 5.000000e-01
-  %102 = call fast noundef float @llvm.floor.f32(float %101)
+  %102 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %101)
   %103 = fptosi float %102 to i32
   %104 = fadd fast float %.0.i76.us.us.us, 5.000000e-01
-  %105 = call fast noundef float @llvm.floor.f32(float %104)
+  %105 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %104)
   %106 = fptosi float %105 to i32
   %107 = or i32 %106, %103
   %or.cond.i.i.us.us.us = icmp sgt i32 %107, -1
@@ -2007,22 +2007,22 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   br i1 %.not.i.i.us.us.us, label %88, label %78
 
 78:                                               ; preds = %77
-  %79 = call fast noundef float @llvm.fabs.f32(float %76)
+  %79 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %76)
   %80 = fsub fast float %79, %48
-  %81 = call fast noundef float @llvm.fabs.f32(float %80)
+  %81 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %80)
   %82 = fsub fast float %48, %81
   %83 = sitofp i32 %71 to float
-  %84 = call fast noundef float @llvm.fabs.f32(float %83)
+  %84 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %83)
   %85 = fsub fast float %84, %50
-  %86 = call fast noundef float @llvm.fabs.f32(float %85)
+  %86 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %85)
   %87 = fsub fast float %50, %86
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i.us.us.us
 
 88:                                               ; preds = %77
   %89 = fadd fast float %76, 5.000000e-01
-  %90 = call fast noundef float @llvm.fabs.f32(float %89)
+  %90 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %89)
   %91 = fsub fast float %90, %51
-  %92 = call fast noundef float @llvm.fabs.f32(float %91)
+  %92 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %91)
   %93 = fsub fast float %51, %92
   %94 = fadd fast float %93, -5.000000e-01
   %95 = fcmp fast olt float %94, 0.000000e+00
@@ -2031,9 +2031,9 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   %.sroa.speculated.i13.i.i.us.us.us = select i1 %96, float %.sroa.speculated4.i12.i.i.us.us.us, float %48
   %97 = sitofp i32 %71 to float
   %98 = fadd fast float %97, 5.000000e-01
-  %99 = call fast noundef float @llvm.fabs.f32(float %98)
+  %99 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %98)
   %100 = fsub fast float %99, %52
-  %101 = call fast noundef float @llvm.fabs.f32(float %100)
+  %101 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %100)
   %102 = fsub fast float %52, %101
   %103 = fadd fast float %102, -5.000000e-01
   %104 = fcmp fast olt float %103, 0.000000e+00
@@ -2092,22 +2092,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit.us.us.us: ; preds = %117, %_ZN4
   br i1 %.not.i.i.us.us.us, label %137, label %127
 
 127:                                              ; preds = %126
-  %128 = call fast noundef float @llvm.fabs.f32(float %125)
+  %128 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %125)
   %129 = fsub fast float %128, %48
-  %130 = call fast noundef float @llvm.fabs.f32(float %129)
+  %130 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %129)
   %131 = fsub fast float %48, %130
   %132 = sitofp i32 %71 to float
-  %133 = call fast noundef float @llvm.fabs.f32(float %132)
+  %133 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %132)
   %134 = fsub fast float %133, %50
-  %135 = call fast noundef float @llvm.fabs.f32(float %134)
+  %135 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %134)
   %136 = fsub fast float %50, %135
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i131.us.us.us
 
 137:                                              ; preds = %126
   %138 = fadd fast float %125, 5.000000e-01
-  %139 = call fast noundef float @llvm.fabs.f32(float %138)
+  %139 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %138)
   %140 = fsub fast float %139, %51
-  %141 = call fast noundef float @llvm.fabs.f32(float %140)
+  %141 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %140)
   %142 = fsub fast float %51, %141
   %143 = fadd fast float %142, -5.000000e-01
   %144 = fcmp fast olt float %143, 0.000000e+00
@@ -2116,9 +2116,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit.us.us.us: ; preds = %117, %_ZN4
   %.sroa.speculated.i13.i.i138.us.us.us = select i1 %145, float %.sroa.speculated4.i12.i.i137.us.us.us, float %48
   %146 = sitofp i32 %71 to float
   %147 = fadd fast float %146, 5.000000e-01
-  %148 = call fast noundef float @llvm.fabs.f32(float %147)
+  %148 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %147)
   %149 = fsub fast float %148, %52
-  %150 = call fast noundef float @llvm.fabs.f32(float %149)
+  %150 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %149)
   %151 = fsub fast float %52, %150
   %152 = fadd fast float %151, -5.000000e-01
   %153 = fcmp fast olt float %152, 0.000000e+00
@@ -2177,22 +2177,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit147.us.us.us: ; preds = %166, %_
   br i1 %.not.i.i.us.us.us, label %186, label %176
 
 176:                                              ; preds = %175
-  %177 = call fast noundef float @llvm.fabs.f32(float %174)
+  %177 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %174)
   %178 = fsub fast float %177, %48
-  %179 = call fast noundef float @llvm.fabs.f32(float %178)
+  %179 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %178)
   %180 = fsub fast float %48, %179
   %181 = sitofp i32 %71 to float
-  %182 = call fast noundef float @llvm.fabs.f32(float %181)
+  %182 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %181)
   %183 = fsub fast float %182, %50
-  %184 = call fast noundef float @llvm.fabs.f32(float %183)
+  %184 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %183)
   %185 = fsub fast float %50, %184
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i149.us.us.us
 
 186:                                              ; preds = %175
   %187 = fadd fast float %174, 5.000000e-01
-  %188 = call fast noundef float @llvm.fabs.f32(float %187)
+  %188 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %187)
   %189 = fsub fast float %188, %51
-  %190 = call fast noundef float @llvm.fabs.f32(float %189)
+  %190 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %189)
   %191 = fsub fast float %51, %190
   %192 = fadd fast float %191, -5.000000e-01
   %193 = fcmp fast olt float %192, 0.000000e+00
@@ -2201,9 +2201,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit147.us.us.us: ; preds = %166, %_
   %.sroa.speculated.i13.i.i156.us.us.us = select i1 %194, float %.sroa.speculated4.i12.i.i155.us.us.us, float %48
   %195 = sitofp i32 %71 to float
   %196 = fadd fast float %195, 5.000000e-01
-  %197 = call fast noundef float @llvm.fabs.f32(float %196)
+  %197 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %196)
   %198 = fsub fast float %197, %52
-  %199 = call fast noundef float @llvm.fabs.f32(float %198)
+  %199 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %198)
   %200 = fsub fast float %52, %199
   %201 = fadd fast float %200, -5.000000e-01
   %202 = fcmp fast olt float %201, 0.000000e+00
@@ -2262,22 +2262,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit165.us.us.us: ; preds = %215, %_
   br i1 %.not.i.i.us.us.us, label %235, label %225
 
 225:                                              ; preds = %224
-  %226 = call fast noundef float @llvm.fabs.f32(float %223)
+  %226 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %223)
   %227 = fsub fast float %226, %48
-  %228 = call fast noundef float @llvm.fabs.f32(float %227)
+  %228 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %227)
   %229 = fsub fast float %48, %228
   %230 = sitofp i32 %71 to float
-  %231 = call fast noundef float @llvm.fabs.f32(float %230)
+  %231 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %230)
   %232 = fsub fast float %231, %50
-  %233 = call fast noundef float @llvm.fabs.f32(float %232)
+  %233 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %232)
   %234 = fsub fast float %50, %233
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i167.us.us.us
 
 235:                                              ; preds = %224
   %236 = fadd fast float %223, 5.000000e-01
-  %237 = call fast noundef float @llvm.fabs.f32(float %236)
+  %237 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %236)
   %238 = fsub fast float %237, %51
-  %239 = call fast noundef float @llvm.fabs.f32(float %238)
+  %239 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %238)
   %240 = fsub fast float %51, %239
   %241 = fadd fast float %240, -5.000000e-01
   %242 = fcmp fast olt float %241, 0.000000e+00
@@ -2286,9 +2286,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit165.us.us.us: ; preds = %215, %_
   %.sroa.speculated.i13.i.i174.us.us.us = select i1 %243, float %.sroa.speculated4.i12.i.i173.us.us.us, float %48
   %244 = sitofp i32 %71 to float
   %245 = fadd fast float %244, 5.000000e-01
-  %246 = call fast noundef float @llvm.fabs.f32(float %245)
+  %246 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %245)
   %247 = fsub fast float %246, %52
-  %248 = call fast noundef float @llvm.fabs.f32(float %247)
+  %248 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %247)
   %249 = fsub fast float %52, %248
   %250 = fadd fast float %249, -5.000000e-01
   %251 = fcmp fast olt float %250, 0.000000e+00
@@ -2346,22 +2346,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit183.us.us.us: ; preds = %264, %_
   br i1 %.not.i.i.us.us.us, label %283, label %273
 
 273:                                              ; preds = %272
-  %274 = call fast noundef float @llvm.fabs.f32(float %76)
+  %274 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %76)
   %275 = fsub fast float %274, %48
-  %276 = call fast noundef float @llvm.fabs.f32(float %275)
+  %276 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %275)
   %277 = fsub fast float %48, %276
   %278 = sitofp i32 %69 to float
-  %279 = call fast noundef float @llvm.fabs.f32(float %278)
+  %279 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %278)
   %280 = fsub fast float %279, %50
-  %281 = call fast noundef float @llvm.fabs.f32(float %280)
+  %281 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %280)
   %282 = fsub fast float %50, %281
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i185.us.us.us
 
 283:                                              ; preds = %272
   %284 = fadd fast float %76, 5.000000e-01
-  %285 = call fast noundef float @llvm.fabs.f32(float %284)
+  %285 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %284)
   %286 = fsub fast float %285, %51
-  %287 = call fast noundef float @llvm.fabs.f32(float %286)
+  %287 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %286)
   %288 = fsub fast float %51, %287
   %289 = fadd fast float %288, -5.000000e-01
   %290 = fcmp fast olt float %289, 0.000000e+00
@@ -2370,9 +2370,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit183.us.us.us: ; preds = %264, %_
   %.sroa.speculated.i13.i.i192.us.us.us = select i1 %291, float %.sroa.speculated4.i12.i.i191.us.us.us, float %48
   %292 = sitofp i32 %69 to float
   %293 = fadd fast float %292, 5.000000e-01
-  %294 = call fast noundef float @llvm.fabs.f32(float %293)
+  %294 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %293)
   %295 = fsub fast float %294, %52
-  %296 = call fast noundef float @llvm.fabs.f32(float %295)
+  %296 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %295)
   %297 = fsub fast float %52, %296
   %298 = fadd fast float %297, -5.000000e-01
   %299 = fcmp fast olt float %298, 0.000000e+00
@@ -2430,22 +2430,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit201.us.us.us: ; preds = %312, %_
   br i1 %.not.i.i.us.us.us, label %331, label %321
 
 321:                                              ; preds = %320
-  %322 = call fast noundef float @llvm.fabs.f32(float %125)
+  %322 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %125)
   %323 = fsub fast float %322, %48
-  %324 = call fast noundef float @llvm.fabs.f32(float %323)
+  %324 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %323)
   %325 = fsub fast float %48, %324
   %326 = sitofp i32 %69 to float
-  %327 = call fast noundef float @llvm.fabs.f32(float %326)
+  %327 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %326)
   %328 = fsub fast float %327, %50
-  %329 = call fast noundef float @llvm.fabs.f32(float %328)
+  %329 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %328)
   %330 = fsub fast float %50, %329
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i203.us.us.us
 
 331:                                              ; preds = %320
   %332 = fadd fast float %125, 5.000000e-01
-  %333 = call fast noundef float @llvm.fabs.f32(float %332)
+  %333 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %332)
   %334 = fsub fast float %333, %51
-  %335 = call fast noundef float @llvm.fabs.f32(float %334)
+  %335 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %334)
   %336 = fsub fast float %51, %335
   %337 = fadd fast float %336, -5.000000e-01
   %338 = fcmp fast olt float %337, 0.000000e+00
@@ -2454,9 +2454,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit201.us.us.us: ; preds = %312, %_
   %.sroa.speculated.i13.i.i210.us.us.us = select i1 %339, float %.sroa.speculated4.i12.i.i209.us.us.us, float %48
   %340 = sitofp i32 %69 to float
   %341 = fadd fast float %340, 5.000000e-01
-  %342 = call fast noundef float @llvm.fabs.f32(float %341)
+  %342 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %341)
   %343 = fsub fast float %342, %52
-  %344 = call fast noundef float @llvm.fabs.f32(float %343)
+  %344 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %343)
   %345 = fsub fast float %52, %344
   %346 = fadd fast float %345, -5.000000e-01
   %347 = fcmp fast olt float %346, 0.000000e+00
@@ -2514,22 +2514,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit219.us.us.us: ; preds = %360, %_
   br i1 %.not.i.i.us.us.us, label %379, label %369
 
 369:                                              ; preds = %368
-  %370 = call fast noundef float @llvm.fabs.f32(float %174)
+  %370 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %174)
   %371 = fsub fast float %370, %48
-  %372 = call fast noundef float @llvm.fabs.f32(float %371)
+  %372 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %371)
   %373 = fsub fast float %48, %372
   %374 = sitofp i32 %69 to float
-  %375 = call fast noundef float @llvm.fabs.f32(float %374)
+  %375 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %374)
   %376 = fsub fast float %375, %50
-  %377 = call fast noundef float @llvm.fabs.f32(float %376)
+  %377 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %376)
   %378 = fsub fast float %50, %377
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i221.us.us.us
 
 379:                                              ; preds = %368
   %380 = fadd fast float %174, 5.000000e-01
-  %381 = call fast noundef float @llvm.fabs.f32(float %380)
+  %381 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %380)
   %382 = fsub fast float %381, %51
-  %383 = call fast noundef float @llvm.fabs.f32(float %382)
+  %383 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %382)
   %384 = fsub fast float %51, %383
   %385 = fadd fast float %384, -5.000000e-01
   %386 = fcmp fast olt float %385, 0.000000e+00
@@ -2538,9 +2538,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit219.us.us.us: ; preds = %360, %_
   %.sroa.speculated.i13.i.i228.us.us.us = select i1 %387, float %.sroa.speculated4.i12.i.i227.us.us.us, float %48
   %388 = sitofp i32 %69 to float
   %389 = fadd fast float %388, 5.000000e-01
-  %390 = call fast noundef float @llvm.fabs.f32(float %389)
+  %390 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %389)
   %391 = fsub fast float %390, %52
-  %392 = call fast noundef float @llvm.fabs.f32(float %391)
+  %392 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %391)
   %393 = fsub fast float %52, %392
   %394 = fadd fast float %393, -5.000000e-01
   %395 = fcmp fast olt float %394, 0.000000e+00
@@ -2598,22 +2598,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit237.us.us.us: ; preds = %408, %_
   br i1 %.not.i.i.us.us.us, label %427, label %417
 
 417:                                              ; preds = %416
-  %418 = call fast noundef float @llvm.fabs.f32(float %223)
+  %418 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %223)
   %419 = fsub fast float %418, %48
-  %420 = call fast noundef float @llvm.fabs.f32(float %419)
+  %420 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %419)
   %421 = fsub fast float %48, %420
   %422 = sitofp i32 %69 to float
-  %423 = call fast noundef float @llvm.fabs.f32(float %422)
+  %423 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %422)
   %424 = fsub fast float %423, %50
-  %425 = call fast noundef float @llvm.fabs.f32(float %424)
+  %425 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %424)
   %426 = fsub fast float %50, %425
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i239.us.us.us
 
 427:                                              ; preds = %416
   %428 = fadd fast float %223, 5.000000e-01
-  %429 = call fast noundef float @llvm.fabs.f32(float %428)
+  %429 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %428)
   %430 = fsub fast float %429, %51
-  %431 = call fast noundef float @llvm.fabs.f32(float %430)
+  %431 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %430)
   %432 = fsub fast float %51, %431
   %433 = fadd fast float %432, -5.000000e-01
   %434 = fcmp fast olt float %433, 0.000000e+00
@@ -2622,9 +2622,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit237.us.us.us: ; preds = %408, %_
   %.sroa.speculated.i13.i.i246.us.us.us = select i1 %435, float %.sroa.speculated4.i12.i.i245.us.us.us, float %48
   %436 = sitofp i32 %69 to float
   %437 = fadd fast float %436, 5.000000e-01
-  %438 = call fast noundef float @llvm.fabs.f32(float %437)
+  %438 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %437)
   %439 = fsub fast float %438, %52
-  %440 = call fast noundef float @llvm.fabs.f32(float %439)
+  %440 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %439)
   %441 = fsub fast float %52, %440
   %442 = fadd fast float %441, -5.000000e-01
   %443 = fcmp fast olt float %442, 0.000000e+00
@@ -2682,22 +2682,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit255.us.us.us: ; preds = %456, %_
   br i1 %.not.i.i.us.us.us, label %475, label %465
 
 465:                                              ; preds = %464
-  %466 = call fast noundef float @llvm.fabs.f32(float %76)
+  %466 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %76)
   %467 = fsub fast float %466, %48
-  %468 = call fast noundef float @llvm.fabs.f32(float %467)
+  %468 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %467)
   %469 = fsub fast float %48, %468
   %470 = sitofp i32 %73 to float
-  %471 = call fast noundef float @llvm.fabs.f32(float %470)
+  %471 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %470)
   %472 = fsub fast float %471, %50
-  %473 = call fast noundef float @llvm.fabs.f32(float %472)
+  %473 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %472)
   %474 = fsub fast float %50, %473
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i257.us.us.us
 
 475:                                              ; preds = %464
   %476 = fadd fast float %76, 5.000000e-01
-  %477 = call fast noundef float @llvm.fabs.f32(float %476)
+  %477 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %476)
   %478 = fsub fast float %477, %51
-  %479 = call fast noundef float @llvm.fabs.f32(float %478)
+  %479 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %478)
   %480 = fsub fast float %51, %479
   %481 = fadd fast float %480, -5.000000e-01
   %482 = fcmp fast olt float %481, 0.000000e+00
@@ -2706,9 +2706,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit255.us.us.us: ; preds = %456, %_
   %.sroa.speculated.i13.i.i264.us.us.us = select i1 %483, float %.sroa.speculated4.i12.i.i263.us.us.us, float %48
   %484 = sitofp i32 %73 to float
   %485 = fadd fast float %484, 5.000000e-01
-  %486 = call fast noundef float @llvm.fabs.f32(float %485)
+  %486 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %485)
   %487 = fsub fast float %486, %52
-  %488 = call fast noundef float @llvm.fabs.f32(float %487)
+  %488 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %487)
   %489 = fsub fast float %52, %488
   %490 = fadd fast float %489, -5.000000e-01
   %491 = fcmp fast olt float %490, 0.000000e+00
@@ -2766,22 +2766,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit273.us.us.us: ; preds = %504, %_
   br i1 %.not.i.i.us.us.us, label %523, label %513
 
 513:                                              ; preds = %512
-  %514 = call fast noundef float @llvm.fabs.f32(float %125)
+  %514 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %125)
   %515 = fsub fast float %514, %48
-  %516 = call fast noundef float @llvm.fabs.f32(float %515)
+  %516 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %515)
   %517 = fsub fast float %48, %516
   %518 = sitofp i32 %73 to float
-  %519 = call fast noundef float @llvm.fabs.f32(float %518)
+  %519 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %518)
   %520 = fsub fast float %519, %50
-  %521 = call fast noundef float @llvm.fabs.f32(float %520)
+  %521 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %520)
   %522 = fsub fast float %50, %521
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i275.us.us.us
 
 523:                                              ; preds = %512
   %524 = fadd fast float %125, 5.000000e-01
-  %525 = call fast noundef float @llvm.fabs.f32(float %524)
+  %525 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %524)
   %526 = fsub fast float %525, %51
-  %527 = call fast noundef float @llvm.fabs.f32(float %526)
+  %527 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %526)
   %528 = fsub fast float %51, %527
   %529 = fadd fast float %528, -5.000000e-01
   %530 = fcmp fast olt float %529, 0.000000e+00
@@ -2790,9 +2790,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit273.us.us.us: ; preds = %504, %_
   %.sroa.speculated.i13.i.i282.us.us.us = select i1 %531, float %.sroa.speculated4.i12.i.i281.us.us.us, float %48
   %532 = sitofp i32 %73 to float
   %533 = fadd fast float %532, 5.000000e-01
-  %534 = call fast noundef float @llvm.fabs.f32(float %533)
+  %534 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %533)
   %535 = fsub fast float %534, %52
-  %536 = call fast noundef float @llvm.fabs.f32(float %535)
+  %536 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %535)
   %537 = fsub fast float %52, %536
   %538 = fadd fast float %537, -5.000000e-01
   %539 = fcmp fast olt float %538, 0.000000e+00
@@ -2850,22 +2850,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit291.us.us.us: ; preds = %552, %_
   br i1 %.not.i.i.us.us.us, label %571, label %561
 
 561:                                              ; preds = %560
-  %562 = call fast noundef float @llvm.fabs.f32(float %174)
+  %562 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %174)
   %563 = fsub fast float %562, %48
-  %564 = call fast noundef float @llvm.fabs.f32(float %563)
+  %564 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %563)
   %565 = fsub fast float %48, %564
   %566 = sitofp i32 %73 to float
-  %567 = call fast noundef float @llvm.fabs.f32(float %566)
+  %567 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %566)
   %568 = fsub fast float %567, %50
-  %569 = call fast noundef float @llvm.fabs.f32(float %568)
+  %569 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %568)
   %570 = fsub fast float %50, %569
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i293.us.us.us
 
 571:                                              ; preds = %560
   %572 = fadd fast float %174, 5.000000e-01
-  %573 = call fast noundef float @llvm.fabs.f32(float %572)
+  %573 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %572)
   %574 = fsub fast float %573, %51
-  %575 = call fast noundef float @llvm.fabs.f32(float %574)
+  %575 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %574)
   %576 = fsub fast float %51, %575
   %577 = fadd fast float %576, -5.000000e-01
   %578 = fcmp fast olt float %577, 0.000000e+00
@@ -2874,9 +2874,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit291.us.us.us: ; preds = %552, %_
   %.sroa.speculated.i13.i.i300.us.us.us = select i1 %579, float %.sroa.speculated4.i12.i.i299.us.us.us, float %48
   %580 = sitofp i32 %73 to float
   %581 = fadd fast float %580, 5.000000e-01
-  %582 = call fast noundef float @llvm.fabs.f32(float %581)
+  %582 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %581)
   %583 = fsub fast float %582, %52
-  %584 = call fast noundef float @llvm.fabs.f32(float %583)
+  %584 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %583)
   %585 = fsub fast float %52, %584
   %586 = fadd fast float %585, -5.000000e-01
   %587 = fcmp fast olt float %586, 0.000000e+00
@@ -2934,22 +2934,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit309.us.us.us: ; preds = %600, %_
   br i1 %.not.i.i.us.us.us, label %619, label %609
 
 609:                                              ; preds = %608
-  %610 = call fast noundef float @llvm.fabs.f32(float %223)
+  %610 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %223)
   %611 = fsub fast float %610, %48
-  %612 = call fast noundef float @llvm.fabs.f32(float %611)
+  %612 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %611)
   %613 = fsub fast float %48, %612
   %614 = sitofp i32 %73 to float
-  %615 = call fast noundef float @llvm.fabs.f32(float %614)
+  %615 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %614)
   %616 = fsub fast float %615, %50
-  %617 = call fast noundef float @llvm.fabs.f32(float %616)
+  %617 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %616)
   %618 = fsub fast float %50, %617
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i311.us.us.us
 
 619:                                              ; preds = %608
   %620 = fadd fast float %223, 5.000000e-01
-  %621 = call fast noundef float @llvm.fabs.f32(float %620)
+  %621 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %620)
   %622 = fsub fast float %621, %51
-  %623 = call fast noundef float @llvm.fabs.f32(float %622)
+  %623 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %622)
   %624 = fsub fast float %51, %623
   %625 = fadd fast float %624, -5.000000e-01
   %626 = fcmp fast olt float %625, 0.000000e+00
@@ -2958,9 +2958,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit309.us.us.us: ; preds = %600, %_
   %.sroa.speculated.i13.i.i318.us.us.us = select i1 %627, float %.sroa.speculated4.i12.i.i317.us.us.us, float %48
   %628 = sitofp i32 %73 to float
   %629 = fadd fast float %628, 5.000000e-01
-  %630 = call fast noundef float @llvm.fabs.f32(float %629)
+  %630 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %629)
   %631 = fsub fast float %630, %52
-  %632 = call fast noundef float @llvm.fabs.f32(float %631)
+  %632 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %631)
   %633 = fsub fast float %52, %632
   %634 = fadd fast float %633, -5.000000e-01
   %635 = fcmp fast olt float %634, 0.000000e+00
@@ -3018,22 +3018,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit327.us.us.us: ; preds = %648, %_
   br i1 %.not.i.i.us.us.us, label %667, label %657
 
 657:                                              ; preds = %656
-  %658 = call fast noundef float @llvm.fabs.f32(float %76)
+  %658 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %76)
   %659 = fsub fast float %658, %48
-  %660 = call fast noundef float @llvm.fabs.f32(float %659)
+  %660 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %659)
   %661 = fsub fast float %48, %660
   %662 = sitofp i32 %75 to float
-  %663 = call fast noundef float @llvm.fabs.f32(float %662)
+  %663 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %662)
   %664 = fsub fast float %663, %50
-  %665 = call fast noundef float @llvm.fabs.f32(float %664)
+  %665 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %664)
   %666 = fsub fast float %50, %665
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i329.us.us.us
 
 667:                                              ; preds = %656
   %668 = fadd fast float %76, 5.000000e-01
-  %669 = call fast noundef float @llvm.fabs.f32(float %668)
+  %669 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %668)
   %670 = fsub fast float %669, %51
-  %671 = call fast noundef float @llvm.fabs.f32(float %670)
+  %671 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %670)
   %672 = fsub fast float %51, %671
   %673 = fadd fast float %672, -5.000000e-01
   %674 = fcmp fast olt float %673, 0.000000e+00
@@ -3042,9 +3042,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit327.us.us.us: ; preds = %648, %_
   %.sroa.speculated.i13.i.i336.us.us.us = select i1 %675, float %.sroa.speculated4.i12.i.i335.us.us.us, float %48
   %676 = sitofp i32 %75 to float
   %677 = fadd fast float %676, 5.000000e-01
-  %678 = call fast noundef float @llvm.fabs.f32(float %677)
+  %678 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %677)
   %679 = fsub fast float %678, %52
-  %680 = call fast noundef float @llvm.fabs.f32(float %679)
+  %680 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %679)
   %681 = fsub fast float %52, %680
   %682 = fadd fast float %681, -5.000000e-01
   %683 = fcmp fast olt float %682, 0.000000e+00
@@ -3102,22 +3102,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit345.us.us.us: ; preds = %696, %_
   br i1 %.not.i.i.us.us.us, label %715, label %705
 
 705:                                              ; preds = %704
-  %706 = call fast noundef float @llvm.fabs.f32(float %125)
+  %706 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %125)
   %707 = fsub fast float %706, %48
-  %708 = call fast noundef float @llvm.fabs.f32(float %707)
+  %708 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %707)
   %709 = fsub fast float %48, %708
   %710 = sitofp i32 %75 to float
-  %711 = call fast noundef float @llvm.fabs.f32(float %710)
+  %711 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %710)
   %712 = fsub fast float %711, %50
-  %713 = call fast noundef float @llvm.fabs.f32(float %712)
+  %713 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %712)
   %714 = fsub fast float %50, %713
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i347.us.us.us
 
 715:                                              ; preds = %704
   %716 = fadd fast float %125, 5.000000e-01
-  %717 = call fast noundef float @llvm.fabs.f32(float %716)
+  %717 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %716)
   %718 = fsub fast float %717, %51
-  %719 = call fast noundef float @llvm.fabs.f32(float %718)
+  %719 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %718)
   %720 = fsub fast float %51, %719
   %721 = fadd fast float %720, -5.000000e-01
   %722 = fcmp fast olt float %721, 0.000000e+00
@@ -3126,9 +3126,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit345.us.us.us: ; preds = %696, %_
   %.sroa.speculated.i13.i.i354.us.us.us = select i1 %723, float %.sroa.speculated4.i12.i.i353.us.us.us, float %48
   %724 = sitofp i32 %75 to float
   %725 = fadd fast float %724, 5.000000e-01
-  %726 = call fast noundef float @llvm.fabs.f32(float %725)
+  %726 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %725)
   %727 = fsub fast float %726, %52
-  %728 = call fast noundef float @llvm.fabs.f32(float %727)
+  %728 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %727)
   %729 = fsub fast float %52, %728
   %730 = fadd fast float %729, -5.000000e-01
   %731 = fcmp fast olt float %730, 0.000000e+00
@@ -3186,22 +3186,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit363.us.us.us: ; preds = %744, %_
   br i1 %.not.i.i.us.us.us, label %763, label %753
 
 753:                                              ; preds = %752
-  %754 = call fast noundef float @llvm.fabs.f32(float %174)
+  %754 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %174)
   %755 = fsub fast float %754, %48
-  %756 = call fast noundef float @llvm.fabs.f32(float %755)
+  %756 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %755)
   %757 = fsub fast float %48, %756
   %758 = sitofp i32 %75 to float
-  %759 = call fast noundef float @llvm.fabs.f32(float %758)
+  %759 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %758)
   %760 = fsub fast float %759, %50
-  %761 = call fast noundef float @llvm.fabs.f32(float %760)
+  %761 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %760)
   %762 = fsub fast float %50, %761
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i365.us.us.us
 
 763:                                              ; preds = %752
   %764 = fadd fast float %174, 5.000000e-01
-  %765 = call fast noundef float @llvm.fabs.f32(float %764)
+  %765 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %764)
   %766 = fsub fast float %765, %51
-  %767 = call fast noundef float @llvm.fabs.f32(float %766)
+  %767 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %766)
   %768 = fsub fast float %51, %767
   %769 = fadd fast float %768, -5.000000e-01
   %770 = fcmp fast olt float %769, 0.000000e+00
@@ -3210,9 +3210,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit363.us.us.us: ; preds = %744, %_
   %.sroa.speculated.i13.i.i372.us.us.us = select i1 %771, float %.sroa.speculated4.i12.i.i371.us.us.us, float %48
   %772 = sitofp i32 %75 to float
   %773 = fadd fast float %772, 5.000000e-01
-  %774 = call fast noundef float @llvm.fabs.f32(float %773)
+  %774 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %773)
   %775 = fsub fast float %774, %52
-  %776 = call fast noundef float @llvm.fabs.f32(float %775)
+  %776 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %775)
   %777 = fsub fast float %52, %776
   %778 = fadd fast float %777, -5.000000e-01
   %779 = fcmp fast olt float %778, 0.000000e+00
@@ -3270,22 +3270,22 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit381.us.us.us: ; preds = %792, %_
   br i1 %.not.i.i.us.us.us, label %811, label %801
 
 801:                                              ; preds = %800
-  %802 = call fast noundef float @llvm.fabs.f32(float %223)
+  %802 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %223)
   %803 = fsub fast float %802, %48
-  %804 = call fast noundef float @llvm.fabs.f32(float %803)
+  %804 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %803)
   %805 = fsub fast float %48, %804
   %806 = sitofp i32 %75 to float
-  %807 = call fast noundef float @llvm.fabs.f32(float %806)
+  %807 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %806)
   %808 = fsub fast float %807, %50
-  %809 = call fast noundef float @llvm.fabs.f32(float %808)
+  %809 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %808)
   %810 = fsub fast float %50, %809
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i383.us.us.us
 
 811:                                              ; preds = %800
   %812 = fadd fast float %223, 5.000000e-01
-  %813 = call fast noundef float @llvm.fabs.f32(float %812)
+  %813 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %812)
   %814 = fsub fast float %813, %51
-  %815 = call fast noundef float @llvm.fabs.f32(float %814)
+  %815 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %814)
   %816 = fsub fast float %51, %815
   %817 = fadd fast float %816, -5.000000e-01
   %818 = fcmp fast olt float %817, 0.000000e+00
@@ -3294,9 +3294,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit381.us.us.us: ; preds = %792, %_
   %.sroa.speculated.i13.i.i390.us.us.us = select i1 %819, float %.sroa.speculated4.i12.i.i389.us.us.us, float %48
   %820 = sitofp i32 %75 to float
   %821 = fadd fast float %820, 5.000000e-01
-  %822 = call fast noundef float @llvm.fabs.f32(float %821)
+  %822 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %821)
   %823 = fsub fast float %822, %52
-  %824 = call fast noundef float @llvm.fabs.f32(float %823)
+  %824 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %823)
   %825 = fsub fast float %52, %824
   %826 = fadd fast float %825, -5.000000e-01
   %827 = fcmp fast olt float %826, 0.000000e+00
@@ -3588,11 +3588,11 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   %65 = load float, ptr %.2102295.us.us.us.us.us, align 4, !tbaa !53
   %66 = load float, ptr %.2105294.us.us.us.us.us, align 4, !tbaa !53
   %67 = load float, ptr %.2108293.us.us.us.us.us, align 4, !tbaa !53
-  %68 = call fast noundef float @llvm.floor.f32(float %65)
+  %68 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %65)
   %69 = fptosi float %68 to i32
-  %70 = call fast noundef float @llvm.floor.f32(float %66)
+  %70 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %66)
   %71 = fptosi float %70 to i32
-  %72 = call fast noundef float @llvm.floor.f32(float %67)
+  %72 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %67)
   %73 = fptosi float %72 to i32
   %74 = add nsw i32 %69, 1
   %75 = add nsw i32 %71, 1
@@ -3963,13 +3963,13 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   %66 = load float, ptr %.247158.us.us.us.us.us, align 4, !tbaa !53
   %67 = load float, ptr %.250157.us.us.us.us.us, align 4, !tbaa !53
   %68 = fadd fast float %65, 5.000000e-01
-  %69 = call fast noundef float @llvm.floor.f32(float %68)
+  %69 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %68)
   %70 = fptosi float %69 to i32
   %71 = fadd fast float %66, 5.000000e-01
-  %72 = call fast noundef float @llvm.floor.f32(float %71)
+  %72 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %71)
   %73 = fptosi float %72 to i32
   %74 = fadd fast float %67, 5.000000e-01
-  %75 = call fast noundef float @llvm.floor.f32(float %74)
+  %75 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %74)
   %76 = fptosi float %75 to i32
   %77 = or i32 %73, %70
   %78 = or i32 %77, %76
