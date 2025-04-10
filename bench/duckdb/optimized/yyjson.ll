@@ -2534,8 +2534,7 @@ _ZN13duckdb_yyjsonL12ptr_token_eqEPvPKcmm.exit.thread: ; preds = %55, %61, %44, 
   br i1 %81, label %_ZN13duckdb_yyjsonL16ptr_token_to_idxEPKcmPm.exit.thread, label %82, !prof !3
 
 82:                                               ; preds = %78
-  %83 = getelementptr i8, ptr %.050, i64 %.149
-  %.ptr122 = getelementptr i8, ptr %83, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.050, i64 %.149
   %84 = add i64 %.149, -20
   %85 = icmp ult i64 %84, -19
   br i1 %85, label %_ZN13duckdb_yyjsonL16ptr_token_to_idxEPKcmPm.exit.thread, label %86, !prof !3
@@ -2564,7 +2563,7 @@ _ZN13duckdb_yyjsonL12ptr_token_eqEPvPKcmm.exit.thread: ; preds = %55, %61, %44, 
   %95 = mul i64 %.021.i100, 10
   %96 = add i64 %92, %95
   %97 = getelementptr inbounds nuw i8, ptr %.022.i99, i64 1
-  %98 = icmp ult ptr %97, %.ptr122
+  %98 = icmp ult ptr %.022.i99, %83
   br i1 %98, label %.lr.ph101, label %.critedge.i37, !llvm.loop !103
 
 .critedge.i37:                                    ; preds = %94
@@ -2847,8 +2846,7 @@ _ZN13duckdb_yyjsonL12ptr_token_eqEPvPKcmm.exit.thread: ; preds = %63, %69, %48, 
   br label %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit
 
 91:                                               ; preds = %81
-  %92 = getelementptr i8, ptr %.074, i64 %.173
-  %.ptr175 = getelementptr i8, ptr %92, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.074, i64 %.173
   %93 = add i64 %.173, -20
   %94 = icmp ult i64 %93, -19
   br i1 %94, label %_ZN13duckdb_yyjsonL16ptr_token_to_idxEPKcmPm.exit.thread, label %95, !prof !3
@@ -2881,7 +2879,7 @@ _ZN13duckdb_yyjsonL12ptr_token_eqEPvPKcmm.exit.thread: ; preds = %63, %69, %48, 
   %106 = mul i64 %.021.i153, 10
   %107 = add i64 %103, %106
   %108 = getelementptr inbounds nuw i8, ptr %.022.i152, i64 1
-  %109 = icmp ult ptr %108, %.ptr175
+  %109 = icmp ult ptr %.022.i152, %92
   br i1 %109, label %.lr.ph154, label %.critedge.i53, !llvm.loop !103
 
 .critedge.i53:                                    ; preds = %105
@@ -3194,8 +3192,7 @@ _ZN13duckdb_yyjsonL12ptr_token_eqEPvPKcmm.exit.thread: ; preds = %70, %76, %55, 
   br label %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread
 
 94:                                               ; preds = %84
-  %95 = getelementptr i8, ptr %.0432, i64 %.6431
-  %.ptr811 = getelementptr i8, ptr %95, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.0432, i64 %.6431
   %96 = add i64 %.6431, -20
   %97 = icmp ult i64 %96, -19
   br i1 %97, label %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread, label %98, !prof !3
@@ -3228,7 +3225,7 @@ _ZN13duckdb_yyjsonL12ptr_token_eqEPvPKcmm.exit.thread: ; preds = %70, %76, %55, 
   %109 = mul i64 %.021.i710, 10
   %110 = add i64 %106, %109
   %111 = getelementptr inbounds nuw i8, ptr %.022.i337709, i64 1
-  %112 = icmp ult ptr %111, %.ptr811
+  %112 = icmp ult ptr %.022.i337709, %95
   br i1 %112, label %.lr.ph711, label %.critedge.i338, !llvm.loop !103
 
 .critedge.i338:                                   ; preds = %108

@@ -28551,8 +28551,8 @@ sljit_emit_op1.exit305:                           ; preds = %emit_mov.exit526, %
 229:                                              ; preds = %226, %225, %218, %215, %200, %196, %194
   %.0.i312 = phi i32 [ %206, %200 ], [ 1, %196 ], [ 1, %194 ], [ %224, %218 ], [ 1, %215 ], [ 1, %225 ], [ %spec.select.i, %226 ]
   %230 = zext nneg i32 %.0.i312 to i64
-  %231 = getelementptr i8, ptr %.041.i, i64 %230
-  %232 = getelementptr i8, ptr %231, i64 1
+  %231 = getelementptr inbounds nuw i8, ptr %.041.i, i64 %230
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 1
   %233 = add nsw i32 %.0.i312, %191
   %234 = icmp ne i32 %.0.i312, 0
   %235 = icmp slt i32 %233, 129
@@ -154099,13 +154099,13 @@ define internal fastcc nonnull ptr @get_iterator_parameters(ptr noundef nonnull 
   br label %145
 
 62:                                               ; preds = %54
-  %63 = getelementptr i8, ptr %45, i64 %42
-  %64 = getelementptr i8, ptr %63, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %45, i64 %42
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %65 = load i8, ptr %64, align 1, !tbaa !75
   %66 = zext i8 %65 to i32
   %67 = shl nuw nsw i32 %66, 8
-  %68 = getelementptr i8, ptr %45, i64 %42
-  %69 = getelementptr i8, ptr %68, i64 3
+  %68 = getelementptr inbounds nuw i8, ptr %45, i64 %42
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 3
   %70 = load i8, ptr %69, align 1, !tbaa !75
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %67, %71
@@ -154113,7 +154113,7 @@ define internal fastcc nonnull ptr @get_iterator_parameters(ptr noundef nonnull 
   %73 = load i8, ptr %68, align 1, !tbaa !75
   %74 = zext i8 %73 to i32
   %75 = shl nuw nsw i32 %74, 8
-  %76 = getelementptr i8, ptr %68, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !75
   %78 = zext i8 %77 to i32
   %79 = or disjoint i32 %75, %78

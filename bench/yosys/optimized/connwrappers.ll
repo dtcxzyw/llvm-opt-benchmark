@@ -445,11 +445,11 @@ define internal void @_ZN12_GLOBAL__N_116ConnwrappersPass7executeESt6vectorINSt7
   br i1 %134, label %135, label %228
 
 135:                                              ; preds = %127
-  %136 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.01488
-  %137 = getelementptr i8, ptr %136, i64 32
+  %136 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.01488
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
   store ptr %116, ptr %52, align 8, !tbaa !23
   %138 = load ptr, ptr %137, align 8, !tbaa !26
-  %139 = getelementptr i8, ptr %136, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 40
   %140 = load i64, ptr %139, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #24
   store i64 %140, ptr %50, align 8, !tbaa !29
@@ -725,11 +725,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
   br i1 %239, label %240, label %333
 
 240:                                              ; preds = %232
-  %241 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre1693, i64 %.01488
-  %242 = getelementptr i8, ptr %241, i64 32
+  %241 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre1693, i64 %.01488
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 32
   store ptr %110, ptr %55, align 8, !tbaa !23
   %243 = load ptr, ptr %242, align 8, !tbaa !26
-  %244 = getelementptr i8, ptr %241, i64 40
+  %244 = getelementptr inbounds nuw i8, ptr %241, i64 40
   %245 = load i64, ptr %244, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #24
   store i64 %245, ptr %47, align 8, !tbaa !29
@@ -995,11 +995,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br i1 %343, label %344, label %._crit_edge.loopexit
 
 344:                                              ; preds = %337
-  %345 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre1695.pre, i64 %.01488
-  %346 = getelementptr i8, ptr %345, i64 32
+  %345 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre1695.pre, i64 %.01488
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 32
   store ptr %81, ptr %58, align 8, !tbaa !23
   %347 = load ptr, ptr %346, align 8, !tbaa !26
-  %348 = getelementptr i8, ptr %345, i64 40
+  %348 = getelementptr inbounds nuw i8, ptr %345, i64 40
   %349 = load i64, ptr %348, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #24
   store i64 %349, ptr %44, align 8, !tbaa !29

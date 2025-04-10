@@ -46318,8 +46318,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit556:                 ; preds = %1135, %1174, %_ZNK3
 
 1199:                                             ; preds = %1197
   %1200 = zext nneg i32 %.1209 to i64
-  %1201 = getelementptr i32, ptr %1127, i64 %1200
-  %1202 = getelementptr i8, ptr %1201, i64 8
+  %1201 = getelementptr inbounds nuw i32, ptr %1127, i64 %1200
+  %1202 = getelementptr inbounds nuw i8, ptr %1201, i64 8
   %1203 = load i32, ptr %1202, align 4
   %1204 = getelementptr inbounds nuw i8, ptr %13, i64 36
   store i32 %1203, ptr %1204, align 4
@@ -46341,8 +46341,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit556:                 ; preds = %1135, %1174, %_ZNK3
   %1215 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %1214, ptr %1215, align 4
   %1216 = zext nneg i32 %.2210 to i64
-  %1217 = getelementptr i32, ptr %1127, i64 %1216
-  %1218 = getelementptr i8, ptr %1217, i64 12
+  %1217 = getelementptr inbounds nuw i32, ptr %1127, i64 %1216
+  %1218 = getelementptr inbounds nuw i8, ptr %1217, i64 12
   %1219 = load i32, ptr %1218, align 4
   %1220 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i32 %1219, ptr %1220, align 4
@@ -46364,8 +46364,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit556:                 ; preds = %1135, %1174, %_ZNK3
 .sink.split:                                      ; preds = %1225, %1221
   %.sink1062.sroa.phi = phi ptr [ %.sink1062.sroa.gep, %1221 ], [ %.sink1062.sroa.gep1090, %1225 ]
   %1229 = zext nneg i32 %.3211 to i64
-  %1230 = getelementptr i32, ptr %1127, i64 %1229
-  %1231 = getelementptr i8, ptr %1230, i64 8
+  %1230 = getelementptr inbounds nuw i32, ptr %1127, i64 %1229
+  %1231 = getelementptr inbounds nuw i8, ptr %1230, i64 8
   %1232 = load i32, ptr %1231, align 4
   store i32 %1232, ptr %.sink1062.sroa.phi, align 4
   %1233 = add nuw nsw i32 %.3211, 1
@@ -46380,8 +46380,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit556:                 ; preds = %1135, %1174, %_ZNK3
 
 1238:                                             ; preds = %1234
   %1239 = zext nneg i32 %.4 to i64
-  %1240 = getelementptr i32, ptr %1127, i64 %1239
-  %1241 = getelementptr i8, ptr %1240, i64 8
+  %1240 = getelementptr inbounds nuw i32, ptr %1127, i64 %1239
+  %1241 = getelementptr inbounds nuw i8, ptr %1240, i64 8
   %1242 = load i32, ptr %1241, align 4
   %1243 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 %1242, ptr %1243, align 4
@@ -46394,8 +46394,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit556:                 ; preds = %1135, %1174, %_ZNK3
 
 1246:                                             ; preds = %1245
   %1247 = zext nneg i32 %.5 to i64
-  %1248 = getelementptr i32, ptr %1127, i64 %1247
-  %1249 = getelementptr i8, ptr %1248, i64 8
+  %1248 = getelementptr inbounds nuw i32, ptr %1127, i64 %1247
+  %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 8
   %1250 = load i32, ptr %1249, align 4
   %1251 = getelementptr inbounds nuw i8, ptr %13, i64 44
   store i32 %1250, ptr %1251, align 4
@@ -46442,8 +46442,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit556:                 ; preds = %1135, %1174, %_ZNK3
 
 1276:                                             ; preds = %1275
   %1277 = zext nneg i32 %.7 to i64
-  %1278 = getelementptr i32, ptr %1127, i64 %1277
-  %1279 = getelementptr i8, ptr %1278, i64 8
+  %1278 = getelementptr inbounds nuw i32, ptr %1127, i64 %1277
+  %1279 = getelementptr inbounds nuw i8, ptr %1278, i64 8
   %1280 = load i32, ptr %1279, align 4
   %1281 = getelementptr inbounds nuw i8, ptr %13, i64 52
   store i32 %1280, ptr %1281, align 4
@@ -46453,7 +46453,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit556:                 ; preds = %1135, %1174, %_ZNK3
   %1285 = load i32, ptr %1284, align 4
   %1286 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i32 %1285, ptr %1286, align 4
-  %1287 = getelementptr i8, ptr %1278, i64 16
+  %1287 = getelementptr inbounds nuw i8, ptr %1278, i64 16
   %1288 = load i32, ptr %1287, align 4
   br label %1289
 
@@ -46464,8 +46464,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit556:                 ; preds = %1135, %1174, %_ZNK3
 
 1290:                                             ; preds = %1289
   %1291 = zext nneg i32 %.8 to i64
-  %1292 = getelementptr i32, ptr %1127, i64 %1291
-  %1293 = getelementptr i8, ptr %1292, i64 8
+  %1292 = getelementptr inbounds nuw i32, ptr %1127, i64 %1291
+  %1293 = getelementptr inbounds nuw i8, ptr %1292, i64 8
   %1294 = load i32, ptr %1293, align 4
   %1295 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %1294, ptr %1295, align 4

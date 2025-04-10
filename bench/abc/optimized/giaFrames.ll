@@ -1421,7 +1421,7 @@ Vec_IntStart.exit154:                             ; preds = %Vec_IntAlloc.exit.t
 
 .preheader:                                       ; preds = %.lr.ph188.split
   %93 = getelementptr inbounds nuw i32, ptr %.val135, i64 %indvars.iv203
-  %.idx = shl nsw i64 %indvars.iv203, 3
+  %.idx = shl nuw nsw i64 %indvars.iv203, 3
   %invariant.gep = getelementptr inbounds nuw i8, ptr %.val144, i64 %.idx
   br label %94
 

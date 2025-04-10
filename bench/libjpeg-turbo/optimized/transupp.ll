@@ -2287,14 +2287,14 @@ define internal fastcc void @adjust_exif_parameters(ptr noundef %0, i32 noundef 
 
 61:                                               ; preds = %.thread197
   %62 = zext nneg i32 %58 to i64
-  %63 = getelementptr i8, ptr %0, i64 %62
-  %64 = getelementptr i8, ptr %63, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   br label %69
 
 65:                                               ; preds = %40
   %66 = zext nneg i32 %48 to i64
-  %67 = getelementptr i8, ptr %0, i64 %66
-  %68 = getelementptr i8, ptr %67, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
   br label %69
 
 69:                                               ; preds = %65, %61
@@ -2435,14 +2435,14 @@ define internal fastcc void @adjust_exif_parameters(ptr noundef %0, i32 noundef 
 
 .thread215:                                       ; preds = %.thread212
   %150 = zext nneg i32 %148 to i64
-  %151 = getelementptr i8, ptr %0, i64 %150
-  %152 = getelementptr i8, ptr %151, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
   br label %157
 
 153:                                              ; preds = %123
   %154 = zext nneg i32 %135 to i64
-  %155 = getelementptr i8, ptr %0, i64 %154
-  %156 = getelementptr i8, ptr %155, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 %154
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
   br label %157
 
 157:                                              ; preds = %153, %.thread215
@@ -3314,7 +3314,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 
 .preheader.i:                                     ; preds = %428, %418
   %indvars.iv84.i = phi i64 [ 0, %418 ], [ %indvars.iv.next85.i, %428 ]
-  %.idx.i = shl nsw i64 %indvars.iv84.i, 4
+  %.idx.i = shl nuw nsw i64 %indvars.iv84.i, 4
   %invariant.gep.i155 = getelementptr inbounds nuw i8, ptr %425, i64 %.idx.i
   %invariant.gep102.i = getelementptr inbounds nuw i16, ptr %422, i64 %indvars.iv84.i
   br label %426
@@ -3323,7 +3323,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %indvars.iv.i156 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i158, %426 ]
   %gep.i157 = getelementptr inbounds nuw i16, ptr %invariant.gep.i155, i64 %indvars.iv.i156
   %427 = load i16, ptr %gep.i157, align 2, !tbaa !19
-  %.idx100.i = shl nsw i64 %indvars.iv.i156, 4
+  %.idx100.i = shl nuw nsw i64 %indvars.iv.i156, 4
   %gep103.i = getelementptr inbounds nuw i8, ptr %invariant.gep102.i, i64 %.idx100.i
   store i16 %427, ptr %gep103.i, align 2, !tbaa !19
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i156, 1
@@ -3503,7 +3503,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 .preheader189.us.us.i.us:                         ; preds = %533, %.lr.ph.split.us.split.us223.i.us
   %indvars.iv269.i.us = phi i64 [ %indvars.iv.next270.i.us, %533 ], [ 0, %.lr.ph.split.us.split.us223.i.us ]
   %521 = shl nuw nsw i64 %indvars.iv269.i.us, 3
-  %invariant.gep330.i.us = getelementptr i16, ptr %517, i64 %indvars.iv269.i.us
+  %invariant.gep330.i.us = getelementptr inbounds nuw i16, ptr %517, i64 %indvars.iv269.i.us
   br label %522
 
 522:                                              ; preds = %522, %.preheader189.us.us.i.us
@@ -3512,14 +3512,14 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %524 = getelementptr inbounds nuw i16, ptr %520, i64 %523
   %525 = load i16, ptr %524, align 2, !tbaa !19
   %526 = shl nuw nsw i64 %indvars.iv266.i.us, 3
-  %gep331.i.us = getelementptr i16, ptr %invariant.gep330.i.us, i64 %526
+  %gep331.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep330.i.us, i64 %526
   store i16 %525, ptr %gep331.i.us, align 2, !tbaa !19
   %527 = or disjoint i64 %523, 1
   %528 = getelementptr inbounds nuw i16, ptr %520, i64 %527
   %529 = load i16, ptr %528, align 2, !tbaa !19
   %530 = sub i16 0, %529
   %531 = or disjoint i64 %526, 8
-  %gep333.i.us = getelementptr i16, ptr %invariant.gep330.i.us, i64 %531
+  %gep333.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep330.i.us, i64 %531
   store i16 %530, ptr %gep333.i.us, align 2, !tbaa !19
   %indvars.iv.next267.i.us = add nuw nsw i64 %indvars.iv266.i.us, 2
   %532 = icmp samesign ult i64 %indvars.iv266.i.us, 6
@@ -3564,7 +3564,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 .preheader.us.us.us.i.us:                         ; preds = %577, %.lr.ph.split.us.split.us.us.i.us
   %indvars.iv285.i.us = phi i64 [ %indvars.iv.next286.i.us, %577 ], [ 0, %.lr.ph.split.us.split.us.us.i.us ]
   %551 = shl nuw nsw i64 %indvars.iv285.i.us, 3
-  %invariant.gep334.i.us = getelementptr i16, ptr %546, i64 %indvars.iv285.i.us
+  %invariant.gep334.i.us = getelementptr inbounds nuw i16, ptr %546, i64 %indvars.iv285.i.us
   br label %552
 
 552:                                              ; preds = %552, %.preheader.us.us.us.i.us
@@ -3573,14 +3573,14 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %554 = getelementptr inbounds nuw i16, ptr %550, i64 %553
   %555 = load i16, ptr %554, align 2, !tbaa !19
   %556 = shl nuw nsw i64 %indvars.iv279.i.us, 3
-  %gep335.i.us = getelementptr i16, ptr %invariant.gep334.i.us, i64 %556
+  %gep335.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep334.i.us, i64 %556
   store i16 %555, ptr %gep335.i.us, align 2, !tbaa !19
   %557 = or disjoint i64 %553, 1
   %558 = getelementptr inbounds nuw i16, ptr %550, i64 %557
   %559 = load i16, ptr %558, align 2, !tbaa !19
   %560 = sub i16 0, %559
   %561 = or disjoint i64 %556, 8
-  %gep337.i.us = getelementptr i16, ptr %invariant.gep334.i.us, i64 %561
+  %gep337.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep334.i.us, i64 %561
   store i16 %560, ptr %gep337.i.us, align 2, !tbaa !19
   %indvars.iv.next280.i.us = add nuw nsw i64 %indvars.iv279.i.us, 2
   %562 = icmp samesign ult i64 %indvars.iv279.i.us, 6
@@ -3589,7 +3589,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 563:                                              ; preds = %552
   %564 = or disjoint i64 %indvars.iv285.i.us, 1
   %565 = shl nuw nsw i64 %564, 3
-  %invariant.gep338.i.us = getelementptr i16, ptr %546, i64 %564
+  %invariant.gep338.i.us = getelementptr inbounds nuw i16, ptr %546, i64 %564
   br label %566
 
 566:                                              ; preds = %566, %563
@@ -3599,13 +3599,13 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %569 = load i16, ptr %568, align 2, !tbaa !19
   %570 = sub i16 0, %569
   %571 = shl nuw nsw i64 %indvars.iv282.i.us, 3
-  %gep339.i.us = getelementptr i16, ptr %invariant.gep338.i.us, i64 %571
+  %gep339.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep338.i.us, i64 %571
   store i16 %570, ptr %gep339.i.us, align 2, !tbaa !19
   %572 = or disjoint i64 %567, 1
   %573 = getelementptr inbounds nuw i16, ptr %550, i64 %572
   %574 = load i16, ptr %573, align 2, !tbaa !19
   %575 = or disjoint i64 %571, 8
-  %gep341.i.us = getelementptr i16, ptr %invariant.gep338.i.us, i64 %575
+  %gep341.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep338.i.us, i64 %575
   store i16 %574, ptr %gep341.i.us, align 2, !tbaa !19
   %indvars.iv.next283.i.us = add nuw nsw i64 %indvars.iv282.i.us, 2
   %576 = icmp samesign ult i64 %indvars.iv282.i.us, 6
@@ -3720,7 +3720,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %gep327.i = getelementptr inbounds nuw i16, ptr %invariant.gep326.i, i64 %indvars.iv254.i
   %626 = load i16, ptr %gep327.i, align 2, !tbaa !19
   %627 = sub i16 0, %626
-  %.idx305.i = shl nsw i64 %indvars.iv254.i, 4
+  %.idx305.i = shl nuw nsw i64 %indvars.iv254.i, 4
   %gep329.i = getelementptr inbounds nuw i8, ptr %invariant.gep328.i, i64 %.idx305.i
   store i16 %627, ptr %gep329.i, align 2, !tbaa !19
   %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
@@ -3731,7 +3731,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %indvars.iv250.i = phi i64 [ 0, %.preheader190.us.i ], [ %indvars.iv.next251.i, %628 ]
   %gep323.i = getelementptr inbounds nuw i16, ptr %invariant.gep322.i, i64 %indvars.iv250.i
   %629 = load i16, ptr %gep323.i, align 2, !tbaa !19
-  %.idx303.i = shl nsw i64 %indvars.iv250.i, 4
+  %.idx303.i = shl nuw nsw i64 %indvars.iv250.i, 4
   %gep325.i = getelementptr inbounds nuw i8, ptr %invariant.gep324.i, i64 %.idx303.i
   store i16 %629, ptr %gep325.i, align 2, !tbaa !19
   %indvars.iv.next251.i = add nuw nsw i64 %indvars.iv250.i, 1
@@ -3763,7 +3763,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 
 .preheader191.i:                                  ; preds = %639, %.lr.ph.split.split.i
   %indvars.iv242.i = phi i64 [ 0, %.lr.ph.split.split.i ], [ %indvars.iv.next243.i, %639 ]
-  %.idx.i165 = shl nsw i64 %indvars.iv242.i, 4
+  %.idx.i165 = shl nuw nsw i64 %indvars.iv242.i, 4
   %invariant.gep.i166 = getelementptr inbounds nuw i8, ptr %636, i64 %.idx.i165
   %invariant.gep320.i = getelementptr inbounds nuw i16, ptr %633, i64 %indvars.iv242.i
   br label %637
@@ -3772,7 +3772,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %indvars.iv.i167 = phi i64 [ 0, %.preheader191.i ], [ %indvars.iv.next.i169, %637 ]
   %gep.i168 = getelementptr inbounds nuw i16, ptr %invariant.gep.i166, i64 %indvars.iv.i167
   %638 = load i16, ptr %gep.i168, align 2, !tbaa !19
-  %.idx301.i = shl nsw i64 %indvars.iv.i167, 4
+  %.idx301.i = shl nuw nsw i64 %indvars.iv.i167, 4
   %gep321.i = getelementptr inbounds nuw i8, ptr %invariant.gep320.i, i64 %.idx301.i
   store i16 %638, ptr %gep321.i, align 2, !tbaa !19
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i167, 1
@@ -3968,7 +3968,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %gep191.i = getelementptr inbounds nuw i16, ptr %invariant.gep190.i, i64 %indvars.iv154.i
   %738 = load i16, ptr %gep191.i, align 2, !tbaa !19
   %739 = sub i16 0, %738
-  %.idx177.i = shl nsw i64 %indvars.iv154.i, 4
+  %.idx177.i = shl nuw nsw i64 %indvars.iv154.i, 4
   %gep193.i = getelementptr inbounds nuw i8, ptr %invariant.gep192.i, i64 %.idx177.i
   store i16 %739, ptr %gep193.i, align 2, !tbaa !19
   %indvars.iv.next155.i = add nuw nsw i64 %indvars.iv154.i, 1
@@ -3979,7 +3979,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %indvars.iv150.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next151.i, %740 ]
   %gep187.i = getelementptr inbounds nuw i16, ptr %invariant.gep186.i, i64 %indvars.iv150.i
   %741 = load i16, ptr %gep187.i, align 2, !tbaa !19
-  %.idx175.i = shl nsw i64 %indvars.iv150.i, 4
+  %.idx175.i = shl nuw nsw i64 %indvars.iv150.i, 4
   %gep189.i = getelementptr inbounds nuw i8, ptr %invariant.gep188.i, i64 %.idx175.i
   store i16 %741, ptr %gep189.i, align 2, !tbaa !19
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
@@ -4011,7 +4011,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 
 .preheader113.i:                                  ; preds = %751, %.lr.ph.split.i
   %indvars.iv142.i = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next143.i, %751 ]
-  %.idx.i177 = shl nsw i64 %indvars.iv142.i, 4
+  %.idx.i177 = shl nuw nsw i64 %indvars.iv142.i, 4
   %invariant.gep.i178 = getelementptr inbounds nuw i8, ptr %748, i64 %.idx.i177
   %invariant.gep184.i = getelementptr inbounds nuw i16, ptr %745, i64 %indvars.iv142.i
   br label %749
@@ -4020,7 +4020,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %indvars.iv.i179 = phi i64 [ 0, %.preheader113.i ], [ %indvars.iv.next.i181, %749 ]
   %gep.i180 = getelementptr inbounds nuw i16, ptr %invariant.gep.i178, i64 %indvars.iv.i179
   %750 = load i16, ptr %gep.i180, align 2, !tbaa !19
-  %.idx173.i = shl nsw i64 %indvars.iv.i179, 4
+  %.idx173.i = shl nuw nsw i64 %indvars.iv.i179, 4
   %gep185.i = getelementptr inbounds nuw i8, ptr %invariant.gep184.i, i64 %.idx173.i
   store i16 %750, ptr %gep185.i, align 2, !tbaa !19
   %indvars.iv.next.i181 = add nuw nsw i64 %indvars.iv.i179, 1
@@ -4505,7 +4505,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 .preheader.us.us.i208.us:                         ; preds = %1015, %995
   %indvars.iv134.i209.us = phi i64 [ %indvars.iv.next135.i211.us, %1015 ], [ 0, %995 ]
   %1003 = shl nuw nsw i64 %indvars.iv134.i209.us, 3
-  %invariant.gep158.i.us = getelementptr i16, ptr %999, i64 %indvars.iv134.i209.us
+  %invariant.gep158.i.us = getelementptr inbounds nuw i16, ptr %999, i64 %indvars.iv134.i209.us
   br label %1004
 
 1004:                                             ; preds = %1004, %.preheader.us.us.i208.us
@@ -4514,14 +4514,14 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %1006 = getelementptr inbounds nuw i16, ptr %1002, i64 %1005
   %1007 = load i16, ptr %1006, align 2, !tbaa !19
   %1008 = shl nuw nsw i64 %indvars.iv131.i.us, 3
-  %gep159.i.us = getelementptr i16, ptr %invariant.gep158.i.us, i64 %1008
+  %gep159.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep158.i.us, i64 %1008
   store i16 %1007, ptr %gep159.i.us, align 2, !tbaa !19
   %1009 = or disjoint i64 %1005, 1
   %1010 = getelementptr inbounds nuw i16, ptr %1002, i64 %1009
   %1011 = load i16, ptr %1010, align 2, !tbaa !19
   %1012 = sub i16 0, %1011
   %1013 = or disjoint i64 %1008, 8
-  %gep161.i.us = getelementptr i16, ptr %invariant.gep158.i.us, i64 %1013
+  %gep161.i.us = getelementptr inbounds nuw i16, ptr %invariant.gep158.i.us, i64 %1013
   store i16 %1012, ptr %gep161.i.us, align 2, !tbaa !19
   %indvars.iv.next132.i.us = add nuw nsw i64 %indvars.iv131.i.us, 2
   %1014 = icmp samesign ult i64 %indvars.iv131.i.us, 6
@@ -4601,7 +4601,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 
 .preheader94.i:                                   ; preds = %1049, %1039
   %indvars.iv123.i = phi i64 [ 0, %1039 ], [ %indvars.iv.next124.i, %1049 ]
-  %.idx.i201 = shl nsw i64 %indvars.iv123.i, 4
+  %.idx.i201 = shl nuw nsw i64 %indvars.iv123.i, 4
   %invariant.gep.i202 = getelementptr inbounds nuw i8, ptr %1046, i64 %.idx.i201
   %invariant.gep156.i = getelementptr inbounds nuw i16, ptr %1043, i64 %indvars.iv123.i
   br label %1047
@@ -4610,7 +4610,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   %indvars.iv.i203 = phi i64 [ 0, %.preheader94.i ], [ %indvars.iv.next.i205, %1047 ]
   %gep.i204 = getelementptr inbounds nuw i16, ptr %invariant.gep.i202, i64 %indvars.iv.i203
   %1048 = load i16, ptr %gep.i204, align 2, !tbaa !19
-  %.idx152.i = shl nsw i64 %indvars.iv.i203, 4
+  %.idx152.i = shl nuw nsw i64 %indvars.iv.i203, 4
   %gep157.i = getelementptr inbounds nuw i8, ptr %invariant.gep156.i, i64 %.idx152.i
   store i16 %1048, ptr %gep157.i, align 2, !tbaa !19
   %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i203, 1
