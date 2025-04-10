@@ -331,7 +331,7 @@ if.end.i:                                         ; preds = %entry
   %0 = tail call nsz noundef float @llvm.cos.f32(float %div.i)
   %sub3.i = fsub nsz float 1.000000e+00, %0
   %div4.i = fdiv nsz float 0x3FD797EAC0000000, %sub3.i
-  %call.i.i = tail call nsz noundef float @cbrtf(float noundef %div4.i) #10
+  %call.i.i = tail call nsz noundef float @cbrtf(float noundef %div4.i) #11
   %mul.i = fmul nsz float %call.i.i, %conv
   br label %_Z10adjustDistff.exit
 
@@ -415,7 +415,7 @@ entry:
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %m, i64 20
   %1 = load float, ptr %arrayidx1, align 4, !tbaa !9
   %conv2 = fpext float %1 to double
-  %call3 = tail call nsz double @atan2(double noundef %conv, double noundef %conv2) #10
+  %call3 = tail call nsz double @atan2(double noundef %conv, double noundef %conv2) #11
   %arrayidx4 = getelementptr inbounds nuw i8, ptr %m, i64 40
   %2 = load float, ptr %arrayidx4, align 4, !tbaa !9
   %conv5 = fpext float %2 to double
@@ -429,7 +429,7 @@ entry:
   %arrayidx14 = getelementptr inbounds nuw i8, ptr %m, i64 36
   %6 = load float, ptr %arrayidx14, align 4, !tbaa !9
   %fneg = fneg nsz float %6
-  %call15 = tail call nsz float @atan2f(float noundef %fneg, float noundef %conv13) #10
+  %call15 = tail call nsz float @atan2f(float noundef %fneg, float noundef %conv13) #11
   %7 = tail call nsz double @llvm.cos.f64(double %call3)
   %8 = tail call nsz double @llvm.sin.f64(double %call3)
   %arrayidx16 = getelementptr inbounds nuw i8, ptr %m, i64 24
@@ -451,7 +451,7 @@ entry:
   %neg27 = fmul nsz double %15, %conv25
   %16 = tail call nsz double @llvm.fmuladd.f64(double %7, double %conv23, double %neg27)
   %conv28 = fptrunc double %16 to float
-  %call29 = tail call nsz float @atan2f(float noundef %conv21, float noundef %conv28) #10
+  %call29 = tail call nsz float @atan2f(float noundef %conv21, float noundef %conv28) #11
   %conv30 = fptrunc double %call3 to float
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call15, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call29, i64 1
@@ -461,13 +461,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #8
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #8
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.cos.f32(float) #4
@@ -476,7 +476,7 @@ declare float @llvm.cos.f32(float) #4
 declare float @llvm.round.f32(float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare float @cbrtf(float noundef) local_unnamed_addr #8
+declare float @cbrtf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #4
@@ -485,7 +485,7 @@ declare float @llvm.sqrt.f32(float) #4
 define internal void @_GLOBAL__sub_I_numeric.cpp() #9 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   tail call void @_ZN9PcgRandomC1Emm(ptr noundef nonnull align 8 dereferenceable(16) @_ZL9g_pcgrand, i64 noundef -8846114313915602277, i64 noundef -2720673578348880933)
   ret void
 }

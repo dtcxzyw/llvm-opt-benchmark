@@ -22,13 +22,13 @@ define range(i32 -26, 1) i32 @pmix_fd_read(i32 noundef %0, i32 noundef %1, ptr n
   %.0.ph26 = phi ptr [ %18, %.outer ], [ %2, %3 ]
   %.013.ph25 = phi i32 [ %16, %.outer ], [ %1, %3 ]
   %5 = zext nneg i32 %.013.ph25 to i64
-  %6 = tail call i64 @read(i32 noundef %0, ptr noundef %.0.ph26, i64 noundef %5) #11
+  %6 = tail call i64 @read(i32 noundef %0, ptr noundef %.0.ph26, i64 noundef %5) #10
   %7 = trunc i64 %6 to i32
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %.lr.ph23, label %.split.us
 
 .lr.ph23:                                         ; preds = %.lr.ph.split.us
-  %9 = tail call ptr @__errno_location() #12
+  %9 = tail call ptr @__errno_location() #11
   br label %10
 
 10:                                               ; preds = %.lr.ph23, %12
@@ -39,7 +39,7 @@ define range(i32 -26, 1) i32 @pmix_fd_read(i32 noundef %0, i32 noundef %1, ptr n
   ]
 
 12:                                               ; preds = %10, %10
-  %13 = tail call i64 @read(i32 noundef %0, ptr noundef %.0.ph26, i64 noundef %5) #11
+  %13 = tail call i64 @read(i32 noundef %0, ptr noundef %.0.ph26, i64 noundef %5) #10
   %14 = trunc i64 %13 to i32
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %10, label %.split.us
@@ -83,13 +83,13 @@ define range(i32 -26, 1) i32 @pmix_fd_write(i32 noundef %0, i32 noundef %1, ptr 
   %.0.ph26 = phi ptr [ %18, %.outer ], [ %2, %3 ]
   %.012.ph25 = phi i32 [ %16, %.outer ], [ %1, %3 ]
   %5 = zext nneg i32 %.012.ph25 to i64
-  %6 = tail call i64 @write(i32 noundef %0, ptr noundef %.0.ph26, i64 noundef %5) #11
+  %6 = tail call i64 @write(i32 noundef %0, ptr noundef %.0.ph26, i64 noundef %5) #10
   %7 = trunc i64 %6 to i32
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %.lr.ph22, label %.split.us
 
 .lr.ph22:                                         ; preds = %.lr.ph.split.us
-  %9 = tail call ptr @__errno_location() #12
+  %9 = tail call ptr @__errno_location() #11
   br label %10
 
 10:                                               ; preds = %.lr.ph22, %12
@@ -100,7 +100,7 @@ define range(i32 -26, 1) i32 @pmix_fd_write(i32 noundef %0, i32 noundef %1, ptr 
   ]
 
 12:                                               ; preds = %10, %10
-  %13 = tail call i64 @write(i32 noundef %0, ptr noundef %.0.ph26, i64 noundef %5) #11
+  %13 = tail call i64 @write(i32 noundef %0, ptr noundef %.0.ph26, i64 noundef %5) #10
   %14 = trunc i64 %13 to i32
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %10, label %.split.us
@@ -128,13 +128,13 @@ declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -26, 1) i32 @pmix_fd_set_cloexec(i32 noundef %0) local_unnamed_addr #4 {
-  %2 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 1, i32 noundef 0) #11
+  %2 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 1, i32 noundef 0) #10
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = or i32 %2, 1
-  %6 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 2, i32 noundef %5) #11
+  %6 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 2, i32 noundef %5) #10
   %7 = icmp eq i32 %6, -1
   %. = select i1 %7, i32 -26, i32 0
   br label %8
@@ -149,48 +149,48 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #5
 ; Function Attrs: nofree norecurse nounwind uwtable
 define zeroext i1 @pmix_fd_is_regular(i32 noundef %0) local_unnamed_addr #6 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #11
-  %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #10
+  %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #10
   %.not = icmp eq i32 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 61440
   %7 = icmp eq i32 %6, 32768
   %.0 = select i1 %.not, i1 %7, i1 false
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #10
   ret i1 %.0
 }
 
 ; Function Attrs: nocallback nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nounwind uwtable
 define zeroext i1 @pmix_fd_is_chardev(i32 noundef %0) local_unnamed_addr #6 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #11
-  %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #10
+  %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #10
   %.not = icmp eq i32 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 61440
   %7 = icmp eq i32 %6, 8192
   %.0 = select i1 %.not, i1 %7, i1 false
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #10
   ret i1 %.0
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
 define zeroext i1 @pmix_fd_is_blkdev(i32 noundef %0) local_unnamed_addr #6 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #11
-  %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #10
+  %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #10
   %.not = icmp eq i32 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 61440
   %7 = icmp eq i32 %6, 24576
   %.0 = select i1 %.not, i1 %7, i1 false
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #10
   ret i1 %.0
 }
 
@@ -198,16 +198,16 @@ define zeroext i1 @pmix_fd_is_blkdev(i32 noundef %0) local_unnamed_addr #6 {
 define ptr @pmix_fd_get_peer_name(i32 noundef %0) local_unnamed_addr #4 {
   %2 = alloca %struct.sockaddr, align 2
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   store i32 16, ptr %3, align 4, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @str, i8 0, i64 16, i1 false)
-  %4 = call i32 @getpeername(i32 noundef %0, ptr nonnull %2, ptr noundef nonnull %3) #11
+  %4 = call i32 @getpeername(i32 noundef %0, ptr nonnull %2, ptr noundef nonnull %3) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @pmix_string_copy(ptr noundef nonnull @str, ptr noundef nonnull @.str, i64 noundef 15) #11
+  call void @pmix_string_copy(ptr noundef nonnull @str, ptr noundef nonnull @.str, i64 noundef 15) #10
   br label %13
 
 6:                                                ; preds = %1
@@ -217,31 +217,31 @@ define ptr @pmix_fd_get_peer_name(i32 noundef %0) local_unnamed_addr #4 {
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %11 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull @str, i32 noundef 16) #11
+  %11 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull @str, i32 noundef 16) #10
   br label %13
 
 12:                                               ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @str, i8 0, i64 16, i1 false)
-  call void @pmix_string_copy(ptr noundef nonnull @str, ptr noundef nonnull @.str, i64 noundef 15) #11
+  call void @pmix_string_copy(ptr noundef nonnull @str, ptr noundef nonnull @.str, i64 noundef 15) #10
   br label %13
 
 13:                                               ; preds = %9, %12, %5
   %.0 = phi ptr [ @str, %5 ], [ %11, %9 ], [ @str, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
-declare i32 @getpeername(i32 noundef, ptr, ptr noundef) local_unnamed_addr #9
+declare i32 @getpeername(i32 noundef, ptr, ptr noundef) local_unnamed_addr #8
 
 declare void @pmix_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr #4 {
@@ -250,17 +250,17 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
   br i1 %3, label %32, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @dirfd(ptr noundef nonnull %2) #11
+  %5 = tail call i32 @dirfd(ptr noundef nonnull %2) #10
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %32, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %7 = tail call ptr @readdir(ptr noundef nonnull %2) #11
+  %7 = tail call ptr @readdir(ptr noundef nonnull %2) #10
   %.not37 = icmp eq ptr %7, null
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = tail call ptr @__ctype_b_loc() #12
+  %8 = tail call ptr @__ctype_b_loc() #11
   %9 = icmp ne i32 %0, -1
   br label %10
 
@@ -277,14 +277,14 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
   br i1 %.not27, label %.backedge, label %20
 
 .backedge:                                        ; preds = %28, %29, %26, %10
-  %19 = tail call ptr @readdir(ptr noundef nonnull %2) #11
+  %19 = tail call ptr @readdir(ptr noundef nonnull %2) #10
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !18
 
 20:                                               ; preds = %10
-  %21 = tail call i64 @strtol(ptr noundef nonnull captures(none) %13, ptr noundef null, i32 noundef 10) #11
+  %21 = tail call i64 @strtol(ptr noundef nonnull captures(none) %13, ptr noundef null, i32 noundef 10) #10
   %22 = trunc i64 %21 to i32
-  %23 = tail call ptr @__errno_location() #12
+  %23 = tail call ptr @__errno_location() #11
   %24 = load i32, ptr %23, align 4, !tbaa !3
   switch i32 %24, label %26 [
     i32 22, label %.thread
@@ -307,7 +307,7 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
   br i1 %or.cond31, label %.backedge, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call i32 @close(i32 noundef %22) #11
+  %30 = tail call i32 @close(i32 noundef %22) #10
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
@@ -320,7 +320,7 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
-  %36 = tail call i64 @sysconf(i32 noundef 4) #11
+  %36 = tail call i64 @sysconf(i32 noundef 4) #10
   %37 = trunc i64 %36 to i32
   store i32 %37, ptr @fdmax, align 4, !tbaa !3
   br label %38
@@ -349,7 +349,7 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
   br i1 %.not30, label %50, label %48
 
 48:                                               ; preds = %.lr.ph40
-  %49 = tail call i32 @close(i32 noundef %.038) #11
+  %49 = tail call i32 @close(i32 noundef %.038) #10
   %.pre = load i32, ptr @fdmax, align 4, !tbaa !3
   br label %50
 
@@ -364,10 +364,10 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nocallback nofree nounwind
-declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @dirfd(ptr noundef) local_unnamed_addr #9
+declare i32 @dirfd(ptr noundef) local_unnamed_addr #8
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #5
 
@@ -375,15 +375,15 @@ declare ptr @readdir(ptr noundef) local_unnamed_addr #5
 declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind
-declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @close(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #9
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #8
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

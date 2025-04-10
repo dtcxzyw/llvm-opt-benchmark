@@ -13,7 +13,7 @@ define hidden void @_ZN4LIEF5MachO15init_c_sectionsEP14Macho_Binary_tPNS0_6Binar
   %8 = ptrtoint ptr %4 to i64
   %reass.sub = sub i64 %7, %8
   %9 = add i64 %reass.sub, 8
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #6
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %10, ptr %11, align 8, !tbaa !14
   %.not = icmp eq ptr %6, %4
@@ -32,15 +32,15 @@ _ZN4LIEF12ref_iteratorIRSt6vectorIPNS_5MachO7SectionESaIS4_EES4_N9__gnu_cxx17__n
   %.057 = phi i64 [ %82, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit ], [ 0, %2 ]
   %16 = getelementptr inbounds ptr, ptr %15, i64 %.057
   %17 = load ptr, ptr %16, align 8, !tbaa !27
-  %18 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #6
+  %18 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #5
   %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %.057
   store ptr %18, ptr %19, align 8, !tbaa !25
   %20 = load ptr, ptr %17, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call { ptr, i64 } %22(ptr noundef nonnull align 8 dereferenceable(192) %17) #7
+  %23 = tail call { ptr, i64 } %22(ptr noundef nonnull align 8 dereferenceable(192) %17) #6
   %24 = extractvalue { ptr, i64 } %23, 1
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #6
+  %25 = tail call noalias ptr @malloc(i64 noundef %24) #5
   %.not.i.i.i.i.i = icmp samesign eq i64 %24, 0
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit, label %26
 
@@ -53,7 +53,7 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit:                 ; preds = %_ZN4LIEF12ref_itera
   %28 = load ptr, ptr %17, align 8, !tbaa !29
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef nonnull align 8 dereferenceable(32) ptr %30(ptr noundef nonnull align 8 dereferenceable(64) %17) #7
+  %31 = tail call noundef nonnull align 8 dereferenceable(32) ptr %30(ptr noundef nonnull align 8 dereferenceable(64) %17) #6
   %32 = load ptr, ptr %31, align 8, !tbaa !31
   %33 = load ptr, ptr %11, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.057
@@ -93,7 +93,7 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit:                 ; preds = %_ZN4LIEF12ref_itera
   %59 = load ptr, ptr %17, align 8, !tbaa !29
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 88
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef i64 %61(ptr noundef nonnull align 8 dereferenceable(64) %17) #7
+  %62 = tail call noundef i64 %61(ptr noundef nonnull align 8 dereferenceable(64) %17) #6
   %63 = load ptr, ptr %11, align 8, !tbaa !14
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %.057
   %65 = load ptr, ptr %64, align 8, !tbaa !25
@@ -102,7 +102,7 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit:                 ; preds = %_ZN4LIEF12ref_itera
   %67 = load ptr, ptr %17, align 8, !tbaa !29
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 80
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(64) %17) #7
+  %70 = tail call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(64) %17) #6
   %71 = load ptr, ptr %11, align 8, !tbaa !14
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %.057
   %73 = load ptr, ptr %72, align 8, !tbaa !25
@@ -112,7 +112,7 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit:                 ; preds = %_ZN4LIEF12ref_itera
   store i64 %24, ptr %75, align 8, !tbaa !69
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 64
   store ptr %25, ptr %76, align 8, !tbaa !70
-  %77 = tail call noundef double @_ZNK4LIEF7Section7entropyEv(ptr noundef nonnull align 8 dereferenceable(64) %17) #7
+  %77 = tail call noundef double @_ZNK4LIEF7Section7entropyEv(ptr noundef nonnull align 8 dereferenceable(64) %17) #6
   %78 = load ptr, ptr %11, align 8, !tbaa !14
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %.057
   %80 = load ptr, ptr %79, align 8, !tbaa !25
@@ -148,7 +148,7 @@ define hidden void @_ZN4LIEF5MachO16destroy_sectionsEP14Macho_Binary_t(ptr nound
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %5 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %3, %1 ]
-  tail call void @free(ptr noundef %5) #7
+  tail call void @free(ptr noundef %5) #6
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -157,9 +157,9 @@ define hidden void @_ZN4LIEF5MachO16destroy_sectionsEP14Macho_Binary_t(ptr nound
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %.010
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !70
-  tail call void @free(ptr noundef %9) #7
+  tail call void @free(ptr noundef %9) #6
   %10 = load ptr, ptr %7, align 8, !tbaa !25
-  tail call void @free(ptr noundef %10) #7
+  tail call void @free(ptr noundef %10) #6
   %11 = add i64 %.010, 1
   %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !25
@@ -168,16 +168,16 @@ define hidden void @_ZN4LIEF5MachO16destroy_sectionsEP14Macho_Binary_t(ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind allocsize(0) }
 attributes #7 = { nounwind }

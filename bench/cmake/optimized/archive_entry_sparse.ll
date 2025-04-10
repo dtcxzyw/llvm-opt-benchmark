@@ -13,7 +13,7 @@ define dso_local void @archive_entry_sparse_clear(ptr noundef captures(none) %0)
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %4 = phi ptr [ %5, %.lr.ph ], [ %3, %1 ]
   %5 = load ptr, ptr %4, align 8, !tbaa !23
-  tail call void @free(ptr noundef nonnull %4) #6
+  tail call void @free(ptr noundef nonnull %4) #5
   store ptr %5, ptr %2, align 8, !tbaa !4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
@@ -38,7 +38,7 @@ define dso_local void @archive_entry_sparse_add_entry(ptr noundef %0, i64 nounde
 
 7:                                                ; preds = %3
   %8 = add nuw nsw i64 %2, %1
-  %9 = tail call i64 @archive_entry_size(ptr noundef %0) #6
+  %9 = tail call i64 @archive_entry_size(ptr noundef %0) #5
   %10 = icmp sgt i64 %8, %9
   br i1 %10, label %38, label %11
 
@@ -67,7 +67,7 @@ define dso_local void @archive_entry_sparse_add_entry(ptr noundef %0, i64 nounde
   br label %38
 
 25:                                               ; preds = %21, %11
-  %26 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #7
+  %26 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #6
   %27 = icmp eq ptr %26, null
   br i1 %27, label %38, label %28
 
@@ -102,10 +102,10 @@ define dso_local void @archive_entry_sparse_add_entry(ptr noundef %0, i64 nounde
   ret void
 }
 
-declare i64 @archive_entry_size(ptr noundef) local_unnamed_addr #3
+declare i64 @archive_entry_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_entry_sparse_count(ptr noundef %0) local_unnamed_addr #2 {
@@ -134,7 +134,7 @@ define dso_local i32 @archive_entry_sparse_count(ptr noundef %0) local_unnamed_a
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !29
-  %15 = tail call i64 @archive_entry_size(ptr noundef nonnull %0) #6
+  %15 = tail call i64 @archive_entry_size(ptr noundef nonnull %0) #5
   %.not11 = icmp slt i64 %14, %15
   br i1 %.not11, label %21, label %16
 
@@ -146,7 +146,7 @@ define dso_local i32 @archive_entry_sparse_count(ptr noundef %0) local_unnamed_a
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %18 = phi ptr [ %19, %.lr.ph.i ], [ %17, %16 ]
   %19 = load ptr, ptr %18, align 8, !tbaa !23
-  tail call void @free(ptr noundef nonnull %18) #6
+  tail call void @free(ptr noundef nonnull %18) #5
   store ptr %19, ptr %2, align 8, !tbaa !4
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %archive_entry_sparse_clear.exit, label %.lr.ph.i, !llvm.loop !25
@@ -194,7 +194,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lr
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !29
-  %15 = tail call i64 @archive_entry_size(ptr noundef nonnull %0) #6
+  %15 = tail call i64 @archive_entry_size(ptr noundef nonnull %0) #5
   %.not11.i = icmp slt i64 %14, %15
   br i1 %.not11.i, label %archive_entry_sparse_count.exit, label %16
 
@@ -206,7 +206,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lr
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
   %18 = phi ptr [ %19, %.lr.ph.i.i ], [ %17, %16 ]
   %19 = load ptr, ptr %18, align 8, !tbaa !23
-  tail call void @free(ptr noundef nonnull %18) #6
+  tail call void @free(ptr noundef nonnull %18) #5
   store ptr %19, ptr %2, align 8, !tbaa !4
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %archive_entry_sparse_clear.exit.i, label %.lr.ph.i.i, !llvm.loop !25
@@ -250,10 +250,10 @@ define dso_local range(i32 -20, 1) i32 @archive_entry_sparse_next(ptr noundef ca
 }
 
 attributes #0 = { norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind allocsize(0) }

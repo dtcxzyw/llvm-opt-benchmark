@@ -15,7 +15,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @dtrestore(ptr noundef nonnull %0, ptr noundef null) #8
+  %8 = tail call i32 @dtrestore(ptr noundef nonnull %0, ptr noundef null) #7
   br label %9
 
 9:                                                ; preds = %3, %7
@@ -117,7 +117,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 52:                                               ; preds = %.lr.ph497.split.us
   %53 = getelementptr inbounds nuw i8, ptr %.0277495.us, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !28
-  tail call void %51(ptr noundef %54) #8
+  tail call void %51(ptr noundef %54) #7
   br label %55
 
 55:                                               ; preds = %52, %.lr.ph497.split.us
@@ -126,7 +126,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %.0277495.us) #8
+  tail call void @free(ptr noundef nonnull %.0277495.us) #7
   br label %59
 
 59:                                               ; preds = %58, %55
@@ -142,7 +142,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 62:                                               ; preds = %.lr.ph497.split
   %63 = getelementptr inbounds i8, ptr %.0277495, i64 %38
-  tail call void %61(ptr noundef nonnull %63) #8
+  tail call void %61(ptr noundef nonnull %63) #7
   br label %64
 
 64:                                               ; preds = %62, %.lr.ph497.split
@@ -151,7 +151,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %64
-  tail call void @free(ptr noundef nonnull %.0277495) #8
+  tail call void @free(ptr noundef nonnull %.0277495) #7
   br label %68
 
 68:                                               ; preds = %67, %64
@@ -249,7 +249,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 106:                                              ; preds = %100, %98, %104
   %107 = phi ptr [ %105, %104 ], [ %1, %98 ], [ %103, %100 ]
-  %108 = tail call i32 @dtstrhash(ptr noundef %107, i32 noundef %14) #8
+  %108 = tail call i32 @dtstrhash(ptr noundef %107, i32 noundef %14) #7
   br label %155
 
 109:                                              ; preds = %96
@@ -327,7 +327,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 152:                                              ; preds = %146, %150
   %153 = phi ptr [ %151, %150 ], [ %149, %146 ]
-  %154 = tail call i32 @dtstrhash(ptr noundef %153, i32 noundef %14) #8
+  %154 = tail call i32 @dtstrhash(ptr noundef %153, i32 noundef %14) #7
   br label %155
 
 155:                                              ; preds = %152, %127, %106
@@ -396,18 +396,18 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not349, label %193, label %191
 
 191:                                              ; preds = %189
-  %192 = tail call i32 %18(ptr noundef %.0296, ptr noundef %190) #8
+  %192 = tail call i32 %18(ptr noundef %.0296, ptr noundef %190) #7
   br label %198
 
 193:                                              ; preds = %189
   br i1 %172, label %194, label %196
 
 194:                                              ; preds = %193
-  %195 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0296, ptr noundef nonnull dereferenceable(1) %190) #9
+  %195 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0296, ptr noundef nonnull dereferenceable(1) %190) #8
   br label %198
 
 196:                                              ; preds = %193
-  %197 = tail call i32 @memcmp(ptr noundef %.0296, ptr noundef %190, i64 noundef %173) #9
+  %197 = tail call i32 @memcmp(ptr noundef %.0296, ptr noundef %190, i64 noundef %173) #8
   br label %198
 
 198:                                              ; preds = %194, %196, %191
@@ -535,7 +535,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not374, label %255, label %253
 
 253:                                              ; preds = %.thread434
-  %254 = tail call ptr %252(ptr noundef %.1274404421443, ptr noundef nonnull %11) #8
+  %254 = tail call ptr %252(ptr noundef %.1274404421443, ptr noundef nonnull %11) #7
   %.not375 = icmp eq ptr %254, null
   br i1 %.not375, label %dthtab.exit, label %255
 
@@ -550,7 +550,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %270
 
 260:                                              ; preds = %255
-  %261 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #10
+  %261 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #9
   %.not376 = icmp eq ptr %261, null
   br i1 %.not376, label %264, label %262
 
@@ -571,7 +571,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not378, label %dthtab.exit, label %269
 
 269:                                              ; preds = %266
-  tail call void %268(ptr noundef %.2275) #8
+  tail call void %268(ptr noundef %.2275) #7
   br label %dthtab.exit
 
 270:                                              ; preds = %262, %257
@@ -623,7 +623,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   br i1 %brmerge, label %292, label %291
 
 291:                                              ; preds = %286
-  tail call void %290(ptr noundef %.3276) #8
+  tail call void %290(ptr noundef %.3276) #7
   br label %292
 
 292:                                              ; preds = %286, %291
@@ -632,7 +632,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   br i1 %294, label %295, label %dthtab.exit
 
 295:                                              ; preds = %292
-  tail call void @free(ptr noundef %.3286) #8
+  tail call void @free(ptr noundef %.3286) #7
   br label %dthtab.exit
 
 296:                                              ; preds = %thread-pre-split
@@ -808,7 +808,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   %366 = phi ptr [ %364, %362 ], [ null, %361 ]
   %367 = sext i32 %.0.i to i64
   %368 = shl nsw i64 %367, 3
-  %369 = tail call ptr @realloc(ptr noundef %366, i64 noundef %368) #11
+  %369 = tail call ptr @realloc(ptr noundef %366, i64 noundef %368) #10
   %.not.i = icmp eq ptr %369, null
   br i1 %.not.i, label %dthtab.exit, label %370
 
@@ -911,7 +911,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   br i1 %.not361, label %410, label %409
 
 409:                                              ; preds = %406
-  tail call void %408(ptr noundef %.1274404422460) #8
+  tail call void %408(ptr noundef %.1274404422460) #7
   br label %410
 
 410:                                              ; preds = %409, %406
@@ -920,7 +920,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   br i1 %412, label %413, label %414
 
 413:                                              ; preds = %410
-  tail call void @free(ptr noundef %.1284401426457) #8
+  tail call void @free(ptr noundef %.1284401426457) #7
   br label %414
 
 414:                                              ; preds = %410, %413
@@ -1004,7 +1004,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   br i1 %or.cond386, label %454, label %453
 
 453:                                              ; preds = %444
-  tail call void %451(ptr noundef %445) #8
+  tail call void %451(ptr noundef %445) #7
   br label %454
 
 454:                                              ; preds = %453, %444
@@ -1013,7 +1013,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   br i1 %456, label %457, label %dthtab.exit
 
 457:                                              ; preds = %454
-  tail call void @free(ptr noundef nonnull %.5282403425458) #8
+  tail call void @free(ptr noundef nonnull %.5282403425458) #7
   br label %dthtab.exit
 
 dthtab.exit:                                      ; preds = %._crit_edge.i, %.thread390, %.preheader.i, %365, %359, %._crit_edge503.thread, %454, %457, %423, %419, %416, %396, %399, %343, %292, %295, %264, %266, %269, %253, %244, %247, %228, %231, %92, %89, %21, %307, %._crit_edge
@@ -1069,7 +1069,7 @@ define internal fastcc void @dthtab(ptr noundef captures(none) %0) unnamed_addr 
   %17 = phi ptr [ %15, %13 ], [ null, %12 ]
   %18 = sext i32 %.0 to i64
   %19 = shl nsw i64 %18, 3
-  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #11
+  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #10
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.loopexit, label %21
 
@@ -1142,16 +1142,16 @@ define internal fastcc void @dthtab(ptr noundef captures(none) %0) unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nocallback nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

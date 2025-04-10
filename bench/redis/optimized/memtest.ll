@@ -212,7 +212,7 @@ memtest_progress_step.exit:                       ; preds = %.lr.ph.i, %19
 
 34:                                               ; preds = %.split.us
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %.us-phi48, i64 noundef %.us-phi)
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 
 36:                                               ; preds = %.lr.ph47.split
@@ -256,7 +256,7 @@ memtest_progress_step.exit41:                     ; preds = %.lr.ph.i38, %40
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @memtest_fill_random(ptr noundef writeonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
@@ -369,18 +369,18 @@ memtest_progress_step.exit.us.us:                 ; preds = %.lr.ph.i.us.us, %23
   br i1 %exitcond58.not, label %.split.us, label %.lr.ph.us, !llvm.loop !23
 
 52:                                               ; preds = %3
-  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 135) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 135) #16
+  tail call void @abort() #17
   unreachable
 
 .split.us:                                        ; preds = %._crit_edge.split.us49.us, %._crit_edge.split.us.us, %.preheader
   ret void
 }
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nocallback nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @memtest_fill_value(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, i32 noundef %5) local_unnamed_addr #5 {
@@ -494,8 +494,8 @@ memtest_progress_step.exit.us.us:                 ; preds = %.lr.ph.i.us.us, %28
   br i1 %exitcond52.not, label %.split.us, label %.lr.ph.us, !llvm.loop !25
 
 58:                                               ; preds = %6
-  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 160) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 160) #16
+  tail call void @abort() #17
   unreachable
 
 .split.us:                                        ; preds = %._crit_edge.split.us45.us, %._crit_edge.split.us.us, %.preheader
@@ -510,8 +510,8 @@ define dso_local range(i32 0, 2) i32 @memtest_compare(ptr noundef %0, i64 nounde
   br i1 %6, label %8, label %7, !prof !21
 
 7:                                                ; preds = %3
-  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 187) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 187) #16
+  tail call void @abort() #17
   unreachable
 
 8:                                                ; preds = %3
@@ -557,7 +557,7 @@ define dso_local range(i32 0, 2) i32 @memtest_compare(ptr noundef %0, i64 nounde
 
 18:                                               ; preds = %.split.us
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %.us-phi36, ptr noundef nonnull %.us-phi37, i64 noundef %.us-phi, i64 noundef %.us-phi35)
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 
 20:                                               ; preds = %.lr.ph.split
@@ -660,8 +660,8 @@ memtest_compare.exit.thread15:                    ; preds = %.lr.ph, %memtest_co
   br i1 %exitcond.not, label %._crit_edge, label %memtest_compare.exit.thread15, !llvm.loop !27
 
 .split21.us:                                      ; preds = %.lr.ph.split.us
-  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 187) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 187) #16
+  tail call void @abort() #17
   unreachable
 
 ._crit_edge:                                      ; preds = %memtest_compare.exit.thread15, %memtest_compare.exit.us, %.lr.ph.split.us.split, %5
@@ -969,8 +969,8 @@ memtest_addressing.exit.thread134:                ; preds = %.lr.ph, %memtest_ad
   br i1 %.not, label %._crit_edge, label %memtest_addressing.exit.thread134, !llvm.loop !28
 
 .split153.us:                                     ; preds = %.lr.ph.split.us.i.us, %.split.us
-  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 135) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 135) #16
+  tail call void @abort() #17
   unreachable
 
 ._crit_edge:                                      ; preds = %memtest_addressing.exit.thread134, %memtest_compare_times.exit132.us.us, %4
@@ -1309,8 +1309,8 @@ memtest_compare_times.exit234.us:                 ; preds = %memtest_compare.exi
   br i1 %exitcond61.not.i, label %memtest_addressing.exit, label %.lr.ph.split.us.i, !llvm.loop !19
 
 memtest_addressing.exit:                          ; preds = %.lr.ph.split.us.i, %.lr.ph.split
-  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 135) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 135) #16
+  tail call void @abort() #17
   unreachable
 
 .loopexit:                                        ; preds = %.preheader.split, %.preheader.split.us, %3
@@ -1320,48 +1320,48 @@ memtest_addressing.exit:                          ; preds = %.lr.ph.split.us.i, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @memtest_alloc_and_test(i64 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = shl i64 %0, 20
-  %4 = tail call noalias ptr @malloc(i64 noundef %3) #19
+  %4 = tail call noalias ptr @malloc(i64 noundef %3) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   %9 = load i32, ptr %8, align 4, !tbaa !31
-  %10 = tail call ptr @strerror(i32 noundef %9) #17
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.16, i64 noundef %0, ptr noundef %10) #21
-  tail call void @exit(i32 noundef 1) #16
+  %10 = tail call ptr @strerror(i32 noundef %9) #16
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.16, i64 noundef %0, ptr noundef %10) #20
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 
 12:                                               ; preds = %2
   %13 = tail call i32 @memtest_test(ptr noundef nonnull %4, i64 noundef %3, i32 noundef %1, i32 noundef 1)
-  tail call void @free(ptr noundef nonnull %4) #17
+  tail call void @free(ptr noundef nonnull %4) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #10
+declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @memtest(i64 noundef %0, i32 noundef %1) local_unnamed_addr #13 {
-  %3 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull @ws) #17
+  %3 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull @ws) #16
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %6
 
@@ -1376,21 +1376,21 @@ define dso_local void @memtest(i64 noundef %0, i32 noundef %1) local_unnamed_add
   %puts2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %puts3 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %puts4 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  tail call void @exit(i32 noundef 0) #18
+  tail call void @exit(i32 noundef 0) #17
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #10
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1400,7 +1400,7 @@ attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-ma
 attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold nocallback nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

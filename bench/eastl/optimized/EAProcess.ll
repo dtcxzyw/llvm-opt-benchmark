@@ -15,7 +15,7 @@ entry:
 define dso_local noundef range(i64 -9223372036854775808, 2147483647) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPcii(ptr noundef captures(none) %pPath, i32 noundef %pathCapacity, i32 noundef %0) local_unnamed_addr #1 {
 entry:
   %conv = sext i32 %pathCapacity to i64
-  %call = tail call i64 @readlink(ptr noundef nonnull @.str, ptr noundef %pPath, i64 noundef %conv) #15
+  %call = tail call i64 @readlink(ptr noundef nonnull @.str, ptr noundef %pPath, i64 noundef %conv) #14
   %cmp.not = icmp eq i64 %call, -1
   br i1 %cmp.not, label %if.else, label %if.then
 
@@ -43,7 +43,7 @@ declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef c
 define dso_local noundef range(i64 0, 2147483647) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDsii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
-  %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #15
+  %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
   %cmp.not.i = icmp eq i64 %call.i, -1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -84,7 +84,7 @@ declare noundef i32 @_ZN2EA4StdC7StrlcpyEPDsPKcmm(ptr noundef, ptr noundef, i64 
 define dso_local noundef i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii(ptr noundef captures(none) %pDirectory, i32 noundef %pathCapacity, i32 noundef %0) local_unnamed_addr #1 {
 entry:
   %conv = sext i32 %pathCapacity to i64
-  %call = tail call i64 @readlink(ptr noundef nonnull @.str, ptr noundef %pDirectory, i64 noundef %conv) #15
+  %call = tail call i64 @readlink(ptr noundef nonnull @.str, ptr noundef %pDirectory, i64 noundef %conv) #14
   %cmp.not = icmp eq i64 %call, -1
   br i1 %cmp.not, label %if.else10, label %if.then
 
@@ -109,7 +109,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %if.then5, %for.body, %if.then
-  %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pDirectory) #16
+  %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pDirectory) #15
   br label %return
 
 if.else10:                                        ; preds = %entry
@@ -128,7 +128,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 define dso_local noundef range(i64 0, 2147483647) i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDsii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
-  %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #15
+  %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
   %cmp.not.i = icmp eq i64 %call.i, -1
   br i1 %cmp.not.i, label %if.else10.i, label %if.then.i
 
@@ -181,7 +181,7 @@ return:                                           ; preds = %if.end, %if.then
 define dso_local noundef range(i64 0, 2147483647) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDiii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
-  %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #15
+  %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
   %cmp.not.i = icmp eq i64 %call.i, -1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -222,7 +222,7 @@ declare noundef i32 @_ZN2EA4StdC7StrlcpyEPDiPKcmm(ptr noundef, ptr noundef, i64 
 define dso_local noundef range(i64 0, 2147483647) i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDiii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
-  %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #15
+  %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
   %cmp.not.i = icmp eq i64 %call.i, -1
   br i1 %cmp.not.i, label %if.else10.i, label %if.then.i
 
@@ -277,7 +277,7 @@ entry:
   %name8 = alloca [260 x i8], align 16
   %value8 = alloca [260 x i8], align 16
   %call = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef nonnull %name8, ptr noundef %pName, i64 noundef 260, i64 noundef -1)
-  %call.i = call ptr @getenv(ptr noundef nonnull readonly %name8) #15
+  %call.i = call ptr @getenv(ptr noundef nonnull readonly %name8) #14
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %_ZN2EA4StdC17GetEnvironmentVarEPKcPcm.exit
 
@@ -301,7 +301,7 @@ declare noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef, ptr noundef, i64 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN2EA4StdC17GetEnvironmentVarEPKcPcm(ptr noundef readonly captures(none) %pName, ptr noundef %pValue, i64 noundef %valueCapacity) local_unnamed_addr #3 {
 entry:
-  %call = tail call ptr @getenv(ptr noundef %pName) #15
+  %call = tail call ptr @getenv(ptr noundef %pName) #14
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.then
 
@@ -326,7 +326,7 @@ entry:
   %value8 = alloca [260 x i8], align 16
   %call = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef nonnull %name8, ptr noundef %pName, i64 noundef 260, i64 noundef -1)
   %call2 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef nonnull %value8, ptr noundef %pValue, i64 noundef 260, i64 noundef -1)
-  %call.i = call i32 @setenv(ptr noundef nonnull %name8, ptr noundef nonnull %value8, i32 noundef 1) #15
+  %call.i = call i32 @setenv(ptr noundef nonnull %name8, ptr noundef nonnull %value8, i32 noundef 1) #14
   %retval.0.i = icmp eq i32 %call.i, 0
   ret i1 %retval.0.i
 }
@@ -338,11 +338,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @setenv(ptr noundef %pName, ptr noundef nonnull %pValue, i32 noundef 1) #15
+  %call = tail call i32 @setenv(ptr noundef %pName, ptr noundef nonnull %pValue, i32 noundef 1) #14
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call i32 @unsetenv(ptr noundef %pName) #15
+  %call1 = tail call i32 @unsetenv(ptr noundef %pName) #14
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -367,15 +367,15 @@ entry:
 define dso_local noundef range(i32 -1, 256) i32 @_ZN2EA4StdC5SpawnEPKcPKS2_b(ptr noundef %pPath, ptr noundef %pArgumentArray, i1 noundef zeroext %wait) local_unnamed_addr #3 {
 entry:
   %status = alloca i32, align 4
-  %call = tail call i32 @fork() #15
+  %call = tail call i32 @fork() #14
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @execv(ptr noundef %pPath, ptr noundef %pArgumentArray) #15
-  %call2 = tail call ptr @__errno_location() #17
+  %call1 = tail call i32 @execv(ptr noundef %pPath, ptr noundef %pArgumentArray) #14
+  %call2 = tail call ptr @__errno_location() #16
   %0 = load i32, ptr %call2, align 4
-  tail call void @exit(i32 noundef %0) #18
+  tail call void @exit(i32 noundef %0) #17
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -399,16 +399,16 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @fork() local_unnamed_addr #9
+declare i32 @fork() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare i32 @execv(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @execv(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #10
+declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #10
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -429,7 +429,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree
-declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #13
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC21SearchEnvironmentPathEPKDsPDsS2_(ptr noundef %pFileName, ptr noundef %pPath, ptr noundef %pEnvironmentVar) local_unnamed_addr #3 {
@@ -472,14 +472,14 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #14
+declare i64 @llvm.smin.i64(i64, i64) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

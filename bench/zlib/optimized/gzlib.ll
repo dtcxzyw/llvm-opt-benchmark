@@ -22,7 +22,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   br i1 %4, label %87, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call noalias dereferenceable_or_null(240) ptr @malloc(i64 noundef 240) #13
+  %6 = tail call noalias dereferenceable_or_null(240) ptr @malloc(i64 noundef 240) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %87, label %8
 
@@ -89,7 +89,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   br label %35
 
 27:                                               ; preds = %23
-  tail call void @free(ptr noundef %6) #14
+  tail call void @free(ptr noundef %6) #13
   br label %87
 
 28:                                               ; preds = %23
@@ -139,7 +139,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   ]
 
 ._crit_edge.thread:                               ; preds = %8, %._crit_edge
-  tail call void @free(ptr noundef nonnull %6) #14
+  tail call void @free(ptr noundef nonnull %6) #13
   br label %87
 
 44:                                               ; preds = %._crit_edge
@@ -147,7 +147,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   br i1 %45, label %47, label %46
 
 46:                                               ; preds = %44
-  tail call void @free(ptr noundef nonnull %6) #14
+  tail call void @free(ptr noundef nonnull %6) #13
   br label %87
 
 47:                                               ; preds = %44
@@ -155,20 +155,20 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   br label %48
 
 48:                                               ; preds = %._crit_edge, %47
-  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %50 = add i64 %49, 1
-  %51 = tail call noalias ptr @malloc(i64 noundef %50) #13
+  %51 = tail call noalias ptr @malloc(i64 noundef %50) #12
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %51, ptr %52, align 8, !tbaa !23
   %53 = icmp eq ptr %51, null
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %48
-  tail call void @free(ptr noundef nonnull %6) #14
+  tail call void @free(ptr noundef nonnull %6) #13
   br label %87
 
 55:                                               ; preds = %48
-  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %51, i64 noundef %50, ptr noundef nonnull @.str.5, ptr noundef nonnull %0) #14
+  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %51, i64 noundef %50, ptr noundef nonnull @.str.5, ptr noundef nonnull %0) #13
   %57 = icmp eq i32 %37, 7247
   %58 = icmp eq i32 %1, -1
   br i1 %58, label %60, label %.thread92
@@ -184,15 +184,15 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   %63 = or disjoint i32 %62, %43
   %64 = select i1 %57, i32 0, i32 %63
   %65 = or disjoint i32 %64, %41
-  %66 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef %65, i32 noundef 438) #14
+  %66 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef %65, i32 noundef 438) #13
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %66, ptr %67, align 4, !tbaa !24
   %68 = icmp eq i32 %66, -1
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %60
-  tail call void @free(ptr noundef nonnull %51) #14
-  tail call void @free(ptr noundef nonnull %6) #14
+  tail call void @free(ptr noundef nonnull %51) #13
+  tail call void @free(ptr noundef nonnull %6) #13
   br label %87
 
 70:                                               ; preds = %.thread92, %60
@@ -201,7 +201,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   br i1 %71, label %.thread, label %73
 
 .thread:                                          ; preds = %70
-  %72 = tail call i64 @lseek64(i32 noundef %.sink94, i64 noundef 0, i32 noundef 2) #14
+  %72 = tail call i64 @lseek64(i32 noundef %.sink94, i64 noundef 0, i32 noundef 2) #13
   store i32 31153, ptr %12, align 8, !tbaa !16
   br label %81
 
@@ -209,7 +209,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   br i1 %57, label %74, label %81
 
 74:                                               ; preds = %73
-  %75 = tail call i64 @lseek64(i32 noundef %.sink94, i64 noundef 0, i32 noundef 1) #14
+  %75 = tail call i64 @lseek64(i32 noundef %.sink94, i64 noundef 0, i32 noundef 1) #13
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %77 = icmp eq i64 %75, -1
   %spec.store.select = select i1 %77, i64 0, i64 %75
@@ -257,14 +257,14 @@ define noalias noundef ptr @gzdopen(i32 noundef %0, ptr noundef readonly capture
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias dereferenceable_or_null(19) ptr @malloc(i64 noundef 19) #13
+  %5 = tail call noalias dereferenceable_or_null(19) ptr @malloc(i64 noundef 19) #12
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 19, ptr noundef nonnull @.str, i32 noundef %0) #14
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 19, ptr noundef nonnull @.str, i32 noundef %0) #13
   %9 = tail call fastcc ptr @gz_open(ptr noundef nonnull %5, i32 noundef %0, ptr noundef %1)
-  tail call void @free(ptr noundef nonnull %5) #14
+  tail call void @free(ptr noundef nonnull %5) #13
   br label %10
 
 10:                                               ; preds = %2, %4, %7
@@ -337,7 +337,7 @@ define range(i32 -1, 1) i32 @gzrewind(ptr noundef captures(address_is_null) %0) 
   %11 = load i32, ptr %10, align 4, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i64, ptr %12, align 8, !tbaa !34
-  %14 = tail call i64 @lseek64(i32 noundef %11, i64 noundef %13, i32 noundef 0) #14
+  %14 = tail call i64 @lseek64(i32 noundef %11, i64 noundef %13, i32 noundef 0) #13
   %15 = icmp eq i64 %14, -1
   br i1 %15, label %35, label %16
 
@@ -375,7 +375,7 @@ define range(i32 -1, 1) i32 @gzrewind(ptr noundef captures(address_is_null) %0) 
   br i1 %.not24.i.i, label %32, label %31
 
 31:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %28) #14
+  tail call void @free(ptr noundef nonnull %28) #13
   br label %32
 
 32:                                               ; preds = %31, %29
@@ -471,7 +471,7 @@ define i64 @gzseek64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i
   %40 = load i32, ptr %0, align 8, !tbaa !25
   %41 = zext i32 %40 to i64
   %42 = sub nsw i64 %.058, %41
-  %43 = tail call i64 @lseek64(i32 noundef %39, i64 noundef %42, i32 noundef 1) #14
+  %43 = tail call i64 @lseek64(i32 noundef %39, i64 noundef %42, i32 noundef 1) #13
   %44 = icmp eq i64 %43, -1
   br i1 %44, label %.thread69, label %45
 
@@ -493,7 +493,7 @@ define i64 @gzseek64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i
   br i1 %.not24.i, label %53, label %52
 
 52:                                               ; preds = %50
-  tail call void @free(ptr noundef nonnull %49) #14
+  tail call void @free(ptr noundef nonnull %49) #13
   br label %53
 
 53:                                               ; preds = %52, %50
@@ -589,7 +589,7 @@ define hidden void @gz_error(ptr noundef captures(none) %0, i32 noundef %1, ptr 
   br i1 %.not24, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %5) #14
+  tail call void @free(ptr noundef nonnull %5) #13
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -617,11 +617,11 @@ define hidden void @gz_error(ptr noundef captures(none) %0, i32 noundef %1, ptr 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !23
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #15
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #14
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %22 = add i64 %20, 3
   %23 = add i64 %22, %21
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #13
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #12
   store ptr %24, ptr %4, align 8, !tbaa !15
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
@@ -631,11 +631,11 @@ define hidden void @gz_error(ptr noundef captures(none) %0, i32 noundef %1, ptr 
   br label %33
 
 27:                                               ; preds = %17
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #15
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #14
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %30 = add i64 %28, 3
   %31 = add i64 %30, %29
-  %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %24, i64 noundef %31, ptr noundef nonnull @.str.3, ptr noundef nonnull %19, ptr noundef nonnull @.str.4, ptr noundef nonnull %2) #14
+  %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %24, i64 noundef %31, ptr noundef nonnull @.str.3, ptr noundef nonnull %19, ptr noundef nonnull @.str.4, ptr noundef nonnull %2) #13
   br label %33
 
 33:                                               ; preds = %13, %27, %26
@@ -736,7 +736,7 @@ define i64 @gzoffset64(ptr noundef readonly captures(address_is_null) %0) local_
 6:                                                ; preds = %3, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4, !tbaa !24
-  %9 = tail call i64 @lseek64(i32 noundef %8, i64 noundef 0, i32 noundef 1) #14
+  %9 = tail call i64 @lseek64(i32 noundef %8, i64 noundef 0, i32 noundef 1) #13
   %10 = icmp eq i64 %9, -1
   br i1 %10, label %19, label %11
 
@@ -773,7 +773,7 @@ define i64 @gzoffset(ptr noundef readonly captures(address_is_null) %0) local_un
 6:                                                ; preds = %3, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4, !tbaa !24
-  %9 = tail call i64 @lseek64(i32 noundef %8, i64 noundef 0, i32 noundef 1) #14
+  %9 = tail call i64 @lseek64(i32 noundef %8, i64 noundef 0, i32 noundef 1) #13
   %10 = icmp eq i64 %9, -1
   br i1 %10, label %gzoffset64.exit, label %11
 
@@ -887,7 +887,7 @@ define void @gzclearerr(ptr noundef captures(address_is_null) %0) local_unnamed_
   br i1 %.not24.i, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %11) #14
+  tail call void @free(ptr noundef nonnull %11) #13
   br label %16
 
 16:                                               ; preds = %15, %12
@@ -904,7 +904,7 @@ gz_error.exit:                                    ; preds = %9, %16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @gz_intmax() local_unnamed_addr #10 {
@@ -912,18 +912,18 @@ define hidden noundef i32 @gz_intmax() local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nocallback nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #11
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

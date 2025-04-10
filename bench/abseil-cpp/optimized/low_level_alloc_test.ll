@@ -65,7 +65,7 @@ define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 n
   %3 = alloca %"class.std::allocator.12", align 1
   %4 = alloca %class.anon.24, align 8
   %5 = alloca %"class.absl::node_hash_map", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
   store i64 1, ptr %5, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -121,12 +121,12 @@ define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 n
   br label %267
 
 25:                                               ; preds = %15, %20, %17
-  %26 = call i32 @rand() #24
+  %26 = call i32 @rand() #23
   %trunc = trunc i32 %26 to i1
   br i1 %trunc, label %160, label %27
 
 27:                                               ; preds = %25
-  %28 = call i32 @rand() #24
+  %28 = call i32 @rand() #23
   %29 = and i32 %28, 16383
   %30 = zext nneg i32 %29 to i64
   br i1 %12, label %31, label %33
@@ -141,7 +141,7 @@ define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 n
 
 35:                                               ; preds = %33, %31
   %36 = phi ptr [ %32, %31 ], [ %34, %33 ]
-  %37 = call i32 @rand() #24
+  %37 = call i32 @rand() #23
   %38 = and i32 %37, 255
   %.not7.i = icmp eq i32 %29, 0
   br i1 %.not7.i, label %_ZN4absl13base_internal12_GLOBAL__N_118RandomizeBlockDescEPNS1_9BlockDescE.exit, label %.lr.ph.i.preheader
@@ -162,7 +162,7 @@ define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 n
   br i1 %.not.i, label %_ZN4absl13base_internal12_GLOBAL__N_118RandomizeBlockDescEPNS1_9BlockDescE.exit, label %.lr.ph.i, !llvm.loop !15
 
 _ZN4absl13base_internal12_GLOBAL__N_118RandomizeBlockDescEPNS1_9BlockDescE.exit: ; preds = %.lr.ph.i, %35
-  %44 = call i32 @rand() #24
+  %44 = call i32 @rand() #23
   %.val.i = load i64, ptr %5, align 8, !tbaa !4
   %45 = icmp ne i64 %.val.i, 0
   call void @llvm.assume(i1 %45)
@@ -293,7 +293,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 
 103:                                              ; preds = %96
   %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.5, i32 noundef 54)
-  call void @abort() #25
+  call void @abort() #24
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; preds = %95, %88
@@ -418,7 +418,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; 
 
 156:                                              ; preds = %.noexc65, %.noexc64, %109
   %.sink83.i.sink.i.ph.i.i.i = phi ptr [ %152, %.noexc65 ], [ %13, %109 ], [ %118, %.noexc64 ]
-  %157 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %157 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %.noexc66 unwind label %23
 
 .noexc66:                                         ; preds = %156
@@ -507,7 +507,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; 
 
 194:                                              ; preds = %187
   %195 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.5, i32 noundef 54)
-  call void @abort() #25
+  call void @abort() #24
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit74: ; preds = %186, %.loopexit133
@@ -519,7 +519,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit74: 
   %197 = icmp ne i64 %.val.i75, 0
   call void @llvm.assume(i1 %197)
   %.val.val.val.i.i.i = load ptr, ptr %.sroa.6.0.i.ph, align 8, !tbaa !17
-  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i, i64 noundef 24) #27
+  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i, i64 noundef 24) #26
   %.val1.i76 = load i64, ptr %5, align 8, !tbaa !4
   %198 = icmp ne i64 %.val1.i76, 0
   call void @llvm.assume(i1 %198)
@@ -604,7 +604,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 
 237:                                              ; preds = %230
   %238 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.5, i32 noundef 54)
-  call void @abort() #25
+  call void @abort() #24
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit94: ; preds = %229, %.loopexit
@@ -616,7 +616,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit94: 
   %240 = icmp ne i64 %.val.i95, 0
   call void @llvm.assume(i1 %240)
   %.val.val.val.i.i.i96 = load ptr, ptr %.sroa.6.0.i83.ph, align 8, !tbaa !17
-  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i96, i64 noundef 24) #27
+  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i96, i64 noundef 24) #26
   %.val1.i97 = load i64, ptr %5, align 8, !tbaa !4
   %241 = icmp ne i64 %.val1.i97, 0
   call void @llvm.assume(i1 %241)
@@ -670,7 +670,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 
 252:                                              ; preds = %251
   %253 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.4, i32 noundef 143)
-  call void @abort() #25
+  call void @abort() #24
   unreachable
 
 254:                                              ; preds = %._crit_edge161, %._crit_edge
@@ -687,21 +687,21 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 
 258:                                              ; preds = %257
   %.val.val.val.i.i.i.i = load ptr, ptr %13, align 8, !tbaa !17
-  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i.i, i64 noundef 24) #27
+  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i.i, i64 noundef 24) #26
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev.exit
 
 259:                                              ; preds = %254
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   store ptr %5, ptr %4, align 8, !tbaa !53
   invoke void @_ZN4absl18container_internal20IterateOverFullSlotsERKNS0_12CommonFieldsEmNS_11FunctionRefIFvPKNS0_6ctrl_tEPvEEE(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 8, ptr nonnull %4, ptr nonnull @_ZN4absl19functional_internal12InvokeObjectIZNS_18container_internal12raw_hash_setINS2_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEE13destroy_slotsEvEUlPKNS2_6ctrl_tEPvE_vJSL_SM_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE)
           to label %.noexc.i unwind label %264
 
 .noexc.i:                                         ; preds = %259
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
   %.val2.i.i.i = load i64, ptr %5, align 8, !tbaa !4
   %260 = icmp ne i64 %.val2.i.i.i, 0
   call void @llvm.assume(i1 %260)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #23
   %.val3.i.i.i = load ptr, ptr %13, align 8, !tbaa !14
   %261 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !9
   %262 = and i64 %261, 1
@@ -710,24 +710,24 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
           to label %.noexc1.i unwind label %264
 
 .noexc1.i:                                        ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev.exit
 
 264:                                              ; preds = %.noexc.i, %259
   %265 = landingpad { ptr, i32 }
           catch ptr null
   %266 = extractvalue { ptr, i32 } %265, 0
-  call void @__clang_call_terminate(ptr %266) #25
+  call void @__clang_call_terminate(ptr %266) #24
   unreachable
 
 _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev.exit: ; preds = %257, %258, %.noexc1.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   ret void
 
 267:                                              ; preds = %.loopexit131, %.loopexit.split-lp, %23, %9
   %.pn27.pn = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %lpad.loopexit, %.loopexit131 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   resume { ptr, i32 } %.pn27.pn
 }
 
@@ -777,21 +777,21 @@ define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17No
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.val.val.i.i.i = load ptr, ptr %9, align 8, !tbaa !17
-  tail call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i, i64 noundef 24) #27
+  tail call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i, i64 noundef 24) #26
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE15destructor_implEv.exit
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
   store ptr %0, ptr %3, align 8, !tbaa !53
   invoke void @_ZN4absl18container_internal20IterateOverFullSlotsERKNS0_12CommonFieldsEmNS_11FunctionRefIFvPKNS0_6ctrl_tEPvEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 8, ptr nonnull %3, ptr nonnull @_ZN4absl19functional_internal12InvokeObjectIZNS_18container_internal12raw_hash_setINS2_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEE13destroy_slotsEvEUlPKNS2_6ctrl_tEPvE_vJSL_SM_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE)
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
   %.val2.i.i = load i64, ptr %0, align 8, !tbaa !4
   %11 = icmp ne i64 %.val2.i.i, 0
   call void @llvm.assume(i1 %11)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val3.i.i = load ptr, ptr %12, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -802,7 +802,7 @@ define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17No
           to label %.noexc1 unwind label %17
 
 .noexc1:                                          ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #23
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE15destructor_implEv.exit
 
 _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE15destructor_implEv.exit: ; preds = %.noexc1, %8, %6
@@ -812,14 +812,14 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #25
+  call void @__clang_call_terminate(ptr %19) #24
   unreachable
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #25
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
@@ -870,7 +870,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashM
 .thread:                                          ; preds = %3, %10
   %16 = phi i8 [ 1, %10 ], [ 0, %3 ]
   %17 = phi i64 [ %15, %10 ], [ 0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
   %18 = zext i1 %8 to i8
   %19 = zext i1 %2 to i8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -888,7 +888,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashM
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i8 1, ptr %27, align 4, !tbaa !63
   store i64 %1, ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #23
   %28 = call noundef zeroext i1 @_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsILm8ELb1ELb1EEEbRNS0_12CommonFieldsEPvmmmRKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(29) %4, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5, i64 noundef %17, i64 noundef 4, i64 noundef 24, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE18GetPolicyFunctionsEvE5value)
   %29 = load i64, ptr %20, align 8, !tbaa !56
   %30 = icmp eq i64 %29, 1
@@ -995,8 +995,8 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashM
   br label %_ZN4absl18container_internal19HashSetResizeHelper13DeallocateOldILm8ESaIcEEEvT0_m.exit
 
 _ZN4absl18container_internal19HashSetResizeHelper13DeallocateOldILm8ESaIcEEEvT0_m.exit: ; preds = %._crit_edge, %31, %.thread
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   ret void
 }
 
@@ -1175,12 +1175,12 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl18container_internal20Allocat
   br i1 %4, label %.noexc.i, label %_ZN4absl18container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit, !prof !22
 
 .noexc.i:                                         ; preds = %2
-  tail call void @_ZSt17__throw_bad_allocv() #28
+  tail call void @_ZSt17__throw_bad_allocv() #27
   unreachable
 
 _ZN4absl18container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit: ; preds = %2
   %5 = and i64 %3, 9223372036854775800
-  %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #26
+  %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #25
   ret ptr %6
 }
 
@@ -1198,7 +1198,7 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal22DeallocateBack
   %15 = add i64 %14, 7
   %16 = add i64 %15, %12
   %17 = and i64 %16, -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %17) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %17) #26
   ret void
 }
 
@@ -1223,14 +1223,14 @@ declare void @_ZN4absl18container_internal20IterateOverFullSlotsERKNS0_12CommonF
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_18container_internal12raw_hash_setINS2_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEE13destroy_slotsEvEUlPKNS2_6ctrl_tEPvE_vJSL_SM_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #8 personality ptr @__gxx_personality_v0 {
   %.val.val = load ptr, ptr %2, align 8, !tbaa !17
-  tail call void @_ZdlPvm(ptr noundef %.val.val, i64 noundef 24) #27
+  tail call void @_ZdlPvm(ptr noundef %.val.val, i64 noundef 24) #26
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_low_level_alloc_test.cc() #22 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
   tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 noundef zeroext false, i1 noundef zeroext false)
   tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 noundef zeroext true, i1 noundef zeroext false)
   tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 noundef zeroext true, i1 noundef zeroext true)
@@ -1238,10 +1238,10 @@ define internal void @_GLOBAL__sub_I_low_level_alloc_test.cc() #22 section ".tex
 }
 
 ; Function Attrs: nocallback nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #23
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #23
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

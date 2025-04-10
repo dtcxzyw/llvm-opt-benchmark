@@ -224,7 +224,7 @@ Llb_ManComputeCommonQuant.exit.thread:            ; preds = %Llb_ManComputeCommo
 define ptr @Llb_ManComputeQuant(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !22
-  %4 = tail call ptr @Extra_ArrayAlloc(i32 noundef %3, i32 noundef %3, i32 noundef 4) #6
+  %4 = tail call ptr @Extra_ArrayAlloc(i32 noundef %3, i32 noundef %3, i32 noundef 4) #5
   %5 = load i32, ptr %2, align 4, !tbaa !22
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.preheader29.us.preheader, label %._crit_edge
@@ -576,7 +576,7 @@ Llb_ManComputeCommonAttr.exit:                    ; preds = %51, %29
 define ptr @Llb_ManComputeAttr(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !22
-  %4 = tail call ptr @Extra_ArrayAlloc(i32 noundef %3, i32 noundef %3, i32 noundef 4) #6
+  %4 = tail call ptr @Extra_ArrayAlloc(i32 noundef %3, i32 noundef %3, i32 noundef 4) #5
   %5 = load i32, ptr %2, align 4, !tbaa !22
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.preheader29.us.preheader, label %._crit_edge
@@ -816,7 +816,7 @@ define void @Llb_ManClusterOne(ptr noundef readonly captures(none) %0, i32 nound
   %9 = sext i32 %2 to i64
   %10 = getelementptr inbounds ptr, ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !53
-  %12 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %8, ptr noundef %11) #6
+  %12 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %8, ptr noundef %11) #5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !3
   %15 = icmp sgt i32 %14, 0
@@ -943,7 +943,7 @@ define void @Llb_ManClusterCompress(ptr noundef captures(none) %0) local_unnamed
   br i1 %.not, label %29, label %17
 
 17:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %15) #6
+  tail call void @free(ptr noundef nonnull %15) #5
   %18 = load ptr, ptr %6, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   store ptr null, ptr %19, align 8, !tbaa !16
@@ -978,7 +978,7 @@ define void @Llb_ManClusterCompress(ptr noundef captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nocallback nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
@@ -1138,7 +1138,7 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
   %74 = zext nneg i32 %69 to i64
   %75 = getelementptr inbounds nuw ptr, ptr %70, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !53
-  %77 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %73, ptr noundef %76) #6
+  %77 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %73, ptr noundef %76) #5
   %78 = load i32, ptr %5, align 8, !tbaa !3
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %.lr.ph.i.i17, label %Llb_ManClusterOne.exit
@@ -1241,7 +1241,7 @@ Llb_ManClusterOne.exit:                           ; preds = %117, %67
   %137 = zext nneg i32 %132 to i64
   %138 = getelementptr inbounds nuw ptr, ptr %133, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !53
-  %140 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %136, ptr noundef %139) #6
+  %140 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %136, ptr noundef %139) #5
   %141 = load i32, ptr %5, align 8, !tbaa !3
   %142 = icmp sgt i32 %141, 0
   br i1 %142, label %.lr.ph.i.i20, label %Llb_ManClusterOne.exit27
@@ -1325,11 +1325,11 @@ Llb_ManClusterOne.exit27:                         ; preds = %180, %130
   store ptr %140, ptr %187, align 8, !tbaa !53
   %188 = getelementptr inbounds nuw ptr, ptr %186, i64 %137
   store ptr null, ptr %188, align 8, !tbaa !53
-  tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #6
+  tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #5
   br label %10, !llvm.loop !57
 
 .critedge16:                                      ; preds = %.critedge
-  tail call void @Llb_MtrVerifyMatrix(ptr noundef %0) #6
+  tail call void @Llb_MtrVerifyMatrix(ptr noundef %0) #5
   %189 = load i32, ptr %2, align 4, !tbaa !22
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %.lr.ph.i29, label %Llb_ManClusterCompress.exit
@@ -1355,7 +1355,7 @@ Llb_ManClusterOne.exit27:                         ; preds = %180, %130
   br i1 %.not.i, label %212, label %200
 
 200:                                              ; preds = %199
-  tail call void @free(ptr noundef nonnull %198) #6
+  tail call void @free(ptr noundef nonnull %198) #5
   %201 = load ptr, ptr %7, align 8, !tbaa !15
   %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv.i30
   store ptr null, ptr %202, align 8, !tbaa !16
@@ -1387,7 +1387,7 @@ Llb_ManClusterOne.exit27:                         ; preds = %180, %130
 Llb_ManClusterCompress.exit:                      ; preds = %212, %.critedge16
   %.0.lcssa.i28 = phi i32 [ 0, %.critedge16 ], [ %.1.i, %212 ]
   store i32 %.0.lcssa.i28, ptr %2, align 4, !tbaa !22
-  tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #6
+  tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #5
   ret void
 }
 

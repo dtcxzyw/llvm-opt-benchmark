@@ -10,7 +10,7 @@ define dso_local void @php_ini_builder_prepend(ptr noundef captures(none) %0, pt
   %6 = load i64, ptr %5, align 8, !tbaa !11
   %7 = add i64 %2, 1
   %8 = add i64 %7, %6
-  %9 = tail call ptr @realloc(ptr noundef %4, i64 noundef %8) #6
+  %9 = tail call ptr @realloc(ptr noundef %4, i64 noundef %8) #5
   store ptr %9, ptr %0, align 8, !tbaa !4
   %10 = load i64, ptr %5, align 8, !tbaa !11
   %.not = icmp eq i64 %10, 0
@@ -42,7 +42,7 @@ define dso_local void @php_ini_builder_unquoted(ptr noundef captures(none) %0, p
   %9 = add i64 %2, 3
   %10 = add i64 %9, %4
   %11 = add i64 %10, %8
-  %12 = tail call ptr @realloc(ptr noundef %6, i64 noundef %11) #6
+  %12 = tail call ptr @realloc(ptr noundef %6, i64 noundef %11) #5
   store ptr %12, ptr %0, align 8, !tbaa !4
   %13 = load i64, ptr %7, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
@@ -70,7 +70,7 @@ define dso_local void @php_ini_builder_quoted(ptr noundef captures(none) %0, ptr
   %9 = add i64 %2, 5
   %10 = add i64 %9, %4
   %11 = add i64 %10, %8
-  %12 = tail call ptr @realloc(ptr noundef %6, i64 noundef %11) #6
+  %12 = tail call ptr @realloc(ptr noundef %6, i64 noundef %11) #5
   store ptr %12, ptr %0, align 8, !tbaa !4
   %13 = load i64, ptr %7, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
@@ -98,14 +98,14 @@ define dso_local void @php_ini_builder_quoted(ptr noundef captures(none) %0, ptr
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @php_ini_builder_define(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
-  %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 61) #7
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
+  %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 61) #6
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %52, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %7 = tail call ptr @__ctype_b_loc() #8
+  %7 = tail call ptr @__ctype_b_loc() #7
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = load i8, ptr %6, align 1, !tbaa !12
   %10 = sext i8 %9 to i64
@@ -137,7 +137,7 @@ switch.early.test:                                ; preds = %5
   %25 = add i64 %18, 5
   %26 = add i64 %25, %21
   %27 = add i64 %26, %24
-  %28 = tail call ptr @realloc(ptr noundef %22, i64 noundef %27) #6
+  %28 = tail call ptr @realloc(ptr noundef %22, i64 noundef %27) #5
   store ptr %28, ptr %0, align 8, !tbaa !4
   %29 = load i64, ptr %23, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
@@ -166,7 +166,7 @@ switch.early.test:                                ; preds = %5
   %43 = load i64, ptr %42, align 8, !tbaa !11
   %44 = add i64 %3, 2
   %45 = add i64 %44, %43
-  %46 = tail call ptr @realloc(ptr noundef %41, i64 noundef %45) #6
+  %46 = tail call ptr @realloc(ptr noundef %41, i64 noundef %45) #5
   store ptr %46, ptr %0, align 8, !tbaa !4
   %47 = load i64, ptr %42, align 8, !tbaa !11
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
@@ -184,7 +184,7 @@ switch.early.test:                                ; preds = %5
   %55 = load i64, ptr %54, align 8, !tbaa !11
   %56 = add i64 %3, 4
   %57 = add i64 %56, %55
-  %58 = tail call ptr @realloc(ptr noundef %53, i64 noundef %57) #6
+  %58 = tail call ptr @realloc(ptr noundef %53, i64 noundef %57) #5
   store ptr %58, ptr %0, align 8, !tbaa !4
   %59 = load i64, ptr %54, align 8, !tbaa !11
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
@@ -206,16 +206,16 @@ switch.early.test:                                ; preds = %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #4
+declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 attributes #0 = { mustprogress norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
