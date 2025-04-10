@@ -72691,7 +72691,7 @@ _ZN4llvm26LoopVectorizationCostModelC2ENS_22ScalarEpilogueLoweringEPNS_4LoopERNS
   br i1 %304, label %.critedge.i, label %305
 
 305:                                              ; preds = %_ZN4llvm26LoopVectorizationCostModelC2ENS_22ScalarEpilogueLoweringEPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_25LoopVectorizationLegalityERKNS_19TargetTransformInfoEPKNS_17TargetLibraryInfoEPNS_12DemandedBitsEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEPKNS_8FunctionEPKNS_18LoopVectorizeHintsERNS_21InterleavedAccessInfoE.exit.i
-  %306 = load i32, ptr %13, align 8, !tbaa !426
+  %306 = load i32, ptr %13, align 8
   %307 = icmp eq i32 %306, 1
   %308 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %309 = load i8, ptr %308, align 4, !range !48
@@ -72702,7 +72702,7 @@ _ZN4llvm26LoopVectorizationCostModelC2ENS_22ScalarEpilogueLoweringEPNS_4LoopERNS
 _ZNK4llvm19VectorizationFactoreqERKS0_.exit.i:    ; preds = %305
   %312 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %313 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %314 = load i32, ptr %313, align 8, !tbaa !1314
+  %314 = load i32, ptr %313, align 8
   %315 = icmp eq i32 %314, 0
   %316 = load i64, ptr %312, align 8
   %317 = icmp eq i64 %316, 0
@@ -73581,9 +73581,9 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %719, %_ZNK4llvm18Lo
 
 742:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
   %743 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.sroa.057.0.copyload = load i64, ptr %743, align 8, !tbaa !55
+  %.sroa.057.0.copyload = load i64, ptr %743, align 8
   %.sroa.258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.sroa.258.0.copyload = load i32, ptr %.sroa.258.0..sroa_idx, align 8, !tbaa !665
+  %.sroa.258.0.copyload = load i32, ptr %.sroa.258.0..sroa_idx, align 8
   %744 = call noundef i32 @_ZN4llvm26LoopVectorizationCostModel21selectInterleaveCountENS_12ElementCountENS_15InstructionCostE(ptr noundef nonnull align 8 dereferenceable(892) %23, i64 %.sroa.060.0.copyload, i64 %.sroa.057.0.copyload, i32 %.sroa.258.0.copyload)
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %744, i32 %.0.i108)
   %745 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -73627,7 +73627,7 @@ _ZNK4llvm18LoopVectorizeHints8getForceEv.exit116.thread: ; preds = %756, %_ZNK4l
   br i1 %763, label %_ZNK4llvm18LoopVectorizeHints8getForceEv.exit116.thread._crit_edge, label %.critedge97
 
 _ZNK4llvm18LoopVectorizeHints8getForceEv.exit116.thread._crit_edge: ; preds = %_ZNK4llvm18LoopVectorizeHints8getForceEv.exit116.thread
-  %.pre = load i8, ptr %745, align 4, !tbaa !320, !range !48
+  %.pre = load i8, ptr %745, align 4, !range !48
   %.pre185 = load i32, ptr %25, align 8
   br label %765
 

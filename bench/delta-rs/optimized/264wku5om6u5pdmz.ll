@@ -43808,7 +43808,7 @@ common.resume:                                    ; preds = %71, %102, %63, %41
 "_ZN4core6option15Option$LT$T$GT$7or_else17hc381e65275284446E.exit.thread": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h3402655f349c6cf8E.exit.thread22", %"_ZN4core6option15Option$LT$T$GT$7or_else17h3402655f349c6cf8E.exit"
   %65 = phi i8 [ 2, %"_ZN4core6option15Option$LT$T$GT$7or_else17h3402655f349c6cf8E.exit.thread22" ], [ %.pre, %"_ZN4core6option15Option$LT$T$GT$7or_else17h3402655f349c6cf8E.exit" ]
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx2, i64 7, i1 false), !alias.scope !4704
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx2, i64 7, i1 false)
   %.sroa.73.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.73.0.copyload5 = load ptr, ptr %.sroa.73.0..sroa_idx4, align 8, !alias.scope !4704, !noalias !4705
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hc381e65275284446E.exit"
@@ -44083,7 +44083,7 @@ common.resume:                                    ; preds = %43, %74, %35, %24
 
 37:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h0ab28eedb51b999fE.exit"
   %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx2, i64 7, i1 false), !alias.scope !4777
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx2, i64 7, i1 false)
   %.sroa.63.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.63.0.copyload5 = load ptr, ptr %.sroa.63.0..sroa_idx4, align 8, !alias.scope !4777, !noalias !4778
   br label %79

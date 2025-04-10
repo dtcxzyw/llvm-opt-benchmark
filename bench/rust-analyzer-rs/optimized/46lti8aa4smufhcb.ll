@@ -19513,7 +19513,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i.i: ; preds = %"_ZN4core6opti
 260:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3f0e61d99cd70bafE.exit.i.i.i.i", %.noexc92.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !6998
   %.sroa.717.4.copyload18.i.i.i = load i8, ptr %12, align 4, !alias.scope !7081, !noalias !7082
-  %.sroa.1120.i.sroa.0.0.copyload29.i.i = load i24, ptr %.sroa.480.0..sroa_idx.i.i.i, align 1, !alias.scope !7081, !noalias !6969
+  %.sroa.1120.i.sroa.0.0.copyload29.i.i = load i24, ptr %.sroa.480.0..sroa_idx.i.i.i, align 1, !noalias !6969
   %.sroa.12.4.copyload23.i.i.i = load i64, ptr %.sroa.581.0..sroa_idx.i.i.i, align 4, !alias.scope !7081, !noalias !7082
   %.sroa.17.4.copyload29.i.i.i = load ptr, ptr %.sroa.17.4..sroa_idx28.i.i.i, align 4, !alias.scope !7081, !noalias !7082
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12), !noalias !6969

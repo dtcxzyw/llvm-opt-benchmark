@@ -37783,7 +37783,7 @@ _ZN8wasmtime7runtime5types9TableType19from_wasmtime_table17h418fa25fbf033ddcE.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.6.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !alias.scope !4748, !noalias !4749
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !4750
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.i.i, i64 32, i1 false), !alias.scope !4750
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.i.i, i64 32, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %33, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !4750
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 41
@@ -40690,7 +40690,7 @@ _ZN8wasmtime7runtime5types7ValType14from_wasm_type17h4ef2a3f562136acfE.llvm.1485
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5423)
   store i64 %.sroa.0.0, ptr %0, align 8, !alias.scope !5426
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.i.i, i64 32, i1 false), !alias.scope !5426
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.i.i, i64 32, i1 false)
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !5426
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48

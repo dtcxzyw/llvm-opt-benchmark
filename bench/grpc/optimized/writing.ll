@@ -1332,7 +1332,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
 _ZNK9grpc_core5Slice3RefEv.exit.i.i.i.i.i.i.i.i:  ; preds = %445, %442
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = phi ptr [ %443, %442 ], [ %.sroa.0.0.copyload.pre.i.i.i.i.i.i.i.i, %445 ]
   %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %390, i64 432
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i.i, i64 24, i1 false), !tbaa.struct !416
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i.i, i64 24, i1 false)
   %447 = getelementptr inbounds nuw i8, ptr %391, i64 424
   %448 = load i16, ptr %391, align 2, !tbaa !399
   %storemerge.i.i.i.i.i.i.i.i14.i.i.i.i = or i16 %448, 8

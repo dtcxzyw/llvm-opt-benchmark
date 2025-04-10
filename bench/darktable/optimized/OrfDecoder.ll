@@ -500,7 +500,7 @@ define hidden void @_ZN8rawspeed10OrfDecoder17decodeRawInternalEv(ptr dead_on_un
   store i64 %.sroa.0.0.insert.insert, ptr %30, align 8
   call void @_ZNK8rawspeed10OrfDecoder12handleSlicesEv(ptr dead_on_unwind nonnull writable sret(%"class.rawspeed::ByteStream") align 8 %3, ptr noundef nonnull align 8 dereferenceable(104) %1)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !39
+  %32 = load i32, ptr %31, align 8
   %33 = tail call noundef zeroext i1 @_ZNK8rawspeed10OrfDecoder18decodeUncompressedENS_10ByteStreamEjjj(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %3, i32 noundef %16, i32 noundef %18, i32 noundef %32)
   br i1 %33, label %34, label %47
 

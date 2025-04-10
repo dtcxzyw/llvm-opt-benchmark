@@ -6693,7 +6693,7 @@ _ZNK2cv11_InputArray6getMatEi.exit35:             ; preds = %56, %59
 
 .critedge.i.i:                                    ; preds = %66
   %65 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv23.i.i
-  store double %72, ptr %65, align 8, !tbaa !101
+  store double %72, ptr %65, align 8
   %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
   %exitcond26.not.i.i = icmp eq i64 %indvars.iv.next24.i.i, 3
   br i1 %exitcond26.not.i.i, label %73, label %.preheader.i.i, !llvm.loop !213
@@ -6751,7 +6751,7 @@ _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit:                 ; preds = %75
 
 .critedge.i.i46:                                  ; preds = %87
   %86 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv23.i.i41
-  store double %93, ptr %86, align 8, !tbaa !101
+  store double %93, ptr %86, align 8
   %indvars.iv.next24.i.i47 = add nuw nsw i64 %indvars.iv23.i.i41, 1
   %exitcond26.not.i.i48 = icmp eq i64 %indvars.iv.next24.i.i47, 3
   br i1 %exitcond26.not.i.i48, label %94, label %.preheader.i.i40, !llvm.loop !213
@@ -6779,7 +6779,7 @@ _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit:                 ; preds = %75
   %96 = getelementptr inbounds nuw [3 x double], ptr %84, i64 0, i64 %indvars.iv.i
   %97 = load double, ptr %96, align 8, !tbaa !101
   %98 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv.i
-  %99 = load double, ptr %98, align 8, !tbaa !101
+  %99 = load double, ptr %98, align 8
   %100 = call double @llvm.fmuladd.f64(double %97, double %99, double %.078.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6793,7 +6793,7 @@ _ZNK2cv4MatxIdLi3ELi1EE3dotERKS1_.exit:           ; preds = %95
 101:                                              ; preds = %101, %_ZNK2cv4MatxIdLi3ELi1EE3dotERKS1_.exit
   %indvars.iv.i50 = phi i64 [ 0, %_ZNK2cv4MatxIdLi3ELi1EE3dotERKS1_.exit ], [ %indvars.iv.next.i51, %101 ]
   %102 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv.i50
-  %103 = load double, ptr %102, align 8, !tbaa !101
+  %103 = load double, ptr %102, align 8
   %104 = fmul double %103, %103
   %105 = getelementptr inbounds nuw [3 x double], ptr %13, i64 0, i64 %indvars.iv.i50
   store double %104, ptr %105, align 8, !tbaa !101, !alias.scope !227
@@ -6811,7 +6811,7 @@ _ZNK2cv3VecIdLi3EE3mulERKS1_.exit:                ; preds = %101
 106:                                              ; preds = %106, %_ZNK2cv3VecIdLi3EE3mulERKS1_.exit
   %indvars.iv.i53 = phi i64 [ 0, %_ZNK2cv3VecIdLi3EE3mulERKS1_.exit ], [ %indvars.iv.next.i54, %106 ]
   %107 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv.i53
-  %108 = load double, ptr %107, align 8, !tbaa !101
+  %108 = load double, ptr %107, align 8
   %109 = fmul double %108, %108
   %110 = getelementptr inbounds nuw [3 x double], ptr %14, i64 0, i64 %indvars.iv.i53
   store double %109, ptr %110, align 8, !tbaa !101, !alias.scope !231
@@ -6822,12 +6822,12 @@ _ZNK2cv3VecIdLi3EE3mulERKS1_.exit:                ; preds = %101
 _ZNK2cv3VecIdLi3EE3mulERKS1_.exit56:              ; preds = %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #22
-  %111 = load double, ptr %5, align 8, !tbaa !101
+  %111 = load double, ptr %5, align 8
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %113 = load double, ptr %112, align 8, !tbaa !101
-  %114 = load double, ptr %4, align 8, !tbaa !101
+  %113 = load double, ptr %112, align 8
+  %114 = load double, ptr %4, align 8
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %116 = load double, ptr %115, align 8, !tbaa !101
+  %116 = load double, ptr %115, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #22
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11) #22
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #22

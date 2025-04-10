@@ -75440,7 +75440,7 @@ _ZN5arrow6StatusC2ERKS0_.exit67:                  ; preds = %207
   br label %_ZNSt10shared_ptrIN5arrow6SchemaEEC2ERKS2_.exit.i.i.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow6SchemaEEC2ERKS2_.exit.i.i.i.i.i.i.i: ; preds = %246, %243, %.noexc72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.48.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(15) %.sroa.7, i64 15, i1 false), !tbaa.struct !2547, !noalias !2548
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.48.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(15) %.sroa.7, i64 15, i1 false), !noalias !2548
   %248 = load ptr, ptr %230, align 8, !tbaa !369, !noalias !2548
   %249 = load ptr, ptr %231, align 8, !tbaa !299, !noalias !2548
   store ptr %249, ptr %7, align 8, !tbaa !299, !noalias !2548

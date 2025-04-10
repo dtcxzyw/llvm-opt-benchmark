@@ -790,7 +790,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   %.sroa.4.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.436.0.copyload, ptr %.sroa.4.0..sroa_idx25, align 8, !alias.scope !15
   %.sroa.6.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %.sroa.6.0..sroa_idx27, ptr noundef nonnull align 4 dereferenceable(84) %.sroa.537, i64 84, i1 false), !alias.scope !15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %.sroa.6.0..sroa_idx27, ptr noundef nonnull align 4 dereferenceable(84) %.sroa.537, i64 84, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe4c4800df0ac209E.exit"
 
 .thread:                                          ; preds = %41, %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4read17h271566be96a97b1aE.exit"

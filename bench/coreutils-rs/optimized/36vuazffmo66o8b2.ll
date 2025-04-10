@@ -259,7 +259,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   %.sroa.039.0.ph = phi i128 [ %.sroa.0.i.i.sroa.0.0.copyload.i, %78 ], [ %.sroa.0.i.i3.sroa.0.0.copyload.i, %79 ]
   store i128 %.sroa.039.0.ph, ptr %0, align 16, !alias.scope !30
   %.sroa.741.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %.sroa.741.0..sroa_idx42, ptr noundef nonnull align 16 dereferenceable(144) %.sroa.4.i, i64 144, i1 false), !alias.scope !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %.sroa.741.0..sroa_idx42, ptr noundef nonnull align 16 dereferenceable(144) %.sroa.4.i, i64 144, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h43549bd68227a020E.exit"
 
 82:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17he9d64d829911a2d0E.exit"

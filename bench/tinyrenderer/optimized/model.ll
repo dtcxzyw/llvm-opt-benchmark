@@ -2441,11 +2441,11 @@ define dso_local void @_ZNK5Model6normalERK3vecILi2EE(ptr dead_on_unwind noalias
   %17 = uitofp i8 %.sroa.517.0.extract.trunc to double
   %18 = uitofp i8 %.sroa.416.0.extract.trunc to double
   %19 = uitofp i8 %.sroa.015.0.extract.trunc to double
-  store double %17, ptr %4, align 8, !tbaa !49
+  store double %17, ptr %4, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store double %18, ptr %.sroa.414.0..sroa_idx, align 8, !tbaa !49
+  store double %18, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store double %19, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !49
+  store double %19, ptr %.sroa.5.0..sroa_idx, align 8
   br label %20
 
 20:                                               ; preds = %20, %3
@@ -2456,10 +2456,10 @@ define dso_local void @_ZNK5Model6normalERK3vecILi2EE(ptr dead_on_unwind noalias
   %.v.i.i = select i1 %22, i64 8, i64 16
   %.idx.i.i = select i1 %.not.i.i, i64 0, i64 %.v.i.i
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
-  %24 = load double, ptr %23, align 8, !tbaa !49, !alias.scope !102
+  %24 = load double, ptr %23, align 8
   %25 = fmul double %24, 2.000000e+00
-  store double %25, ptr %23, align 8, !tbaa !49, !alias.scope !102
-  br i1 %.not.i.i, label %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit, label %20, !llvm.loop !105
+  store double %25, ptr %23, align 8
+  br i1 %.not.i.i, label %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit, label %20, !llvm.loop !102
 
 _ZmlILi3EE3vecIXT_EERKS1_RKd.exit:                ; preds = %20, %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit
   %.03.i3 = phi i32 [ %26, %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit ], [ 3, %20 ]
@@ -2469,13 +2469,13 @@ _ZmlILi3EE3vecIXT_EERKS1_RKd.exit:                ; preds = %20, %_ZmlILi3EE3vec
   %.v.i.i5 = select i1 %27, i64 8, i64 16
   %.idx.i.i6 = select i1 %.not.i.i4, i64 0, i64 %.v.i.i5
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i6
-  %29 = load double, ptr %28, align 8, !tbaa !49, !alias.scope !106
+  %29 = load double, ptr %28, align 8
   %30 = fdiv double %29, 2.550000e+02
-  store double %30, ptr %28, align 8, !tbaa !49, !alias.scope !106
+  store double %30, ptr %28, align 8
   br i1 %.not.i.i4, label %_ZdvILi3EE3vecIXT_EERKS1_RKd.exit, label %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit, !llvm.loop !65
 
 _ZdvILi3EE3vecIXT_EERKS1_RKd.exit:                ; preds = %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %_ZNK3vecILi3EEixEi.exit.i
 
 _ZNK3vecILi3EEixEi.exit.i:                        ; preds = %_ZNK3vecILi3EEixEi.exit.i, %_ZdvILi3EE3vecIXT_EERKS1_RKd.exit
@@ -2486,10 +2486,10 @@ _ZNK3vecILi3EEixEi.exit.i:                        ; preds = %_ZNK3vecILi3EEixEi.
   %.v.i.i8 = select i1 %32, i64 8, i64 16
   %.idx.i.i9 = select i1 %.not.i.i7, i64 0, i64 %.v.i.i8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i9
-  %34 = load double, ptr %33, align 8, !tbaa !49, !alias.scope !109
+  %34 = load double, ptr %33, align 8, !tbaa !49, !alias.scope !103
   %35 = fadd double %34, -1.000000e+00
-  store double %35, ptr %33, align 8, !tbaa !49, !alias.scope !109
-  br i1 %.not.i.i7, label %_ZmiILi3EE3vecIXT_EERKS1_S3_.exit, label %_ZNK3vecILi3EEixEi.exit.i, !llvm.loop !112
+  store double %35, ptr %33, align 8, !tbaa !49, !alias.scope !103
+  br i1 %.not.i.i7, label %_ZmiILi3EE3vecIXT_EERKS1_S3_.exit, label %_ZNK3vecILi3EEixEi.exit.i, !llvm.loop !106
 
 _ZmiILi3EE3vecIXT_EERKS1_S3_.exit:                ; preds = %_ZNK3vecILi3EEixEi.exit.i
   ret void
@@ -2695,14 +2695,8 @@ attributes #27 = { builtin nounwind }
 !99 = !{!100}
 !100 = distinct !{!100, !101, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_: argument 0"}
 !101 = distinct !{!101, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZmlILi3EE3vecIXT_EERKS1_RKd: argument 0"}
-!104 = distinct !{!104, !"_ZmlILi3EE3vecIXT_EERKS1_RKd"}
-!105 = distinct !{!105, !57}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZdvILi3EE3vecIXT_EERKS1_RKd: argument 0"}
-!108 = distinct !{!108, !"_ZdvILi3EE3vecIXT_EERKS1_RKd"}
-!109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZmiILi3EE3vecIXT_EERKS1_S3_: argument 0"}
-!111 = distinct !{!111, !"_ZmiILi3EE3vecIXT_EERKS1_S3_"}
-!112 = distinct !{!112, !57}
+!102 = distinct !{!102, !57}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZmiILi3EE3vecIXT_EERKS1_S3_: argument 0"}
+!105 = distinct !{!105, !"_ZmiILi3EE3vecIXT_EERKS1_S3_"}
+!106 = distinct !{!106, !57}

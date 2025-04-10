@@ -16545,7 +16545,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17he7205f4a8a5985
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4453)
   %.sroa.06.0.copyload9 = load i64, ptr %0, align 8, !alias.scope !4456
   %.sroa.9.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.0..sroa_idx11, i64 72, i1 false), !alias.scope !4456
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.0..sroa_idx11, i64 72, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !4458, !noalias !4453
   %.not5 = icmp eq i64 %.sroa.06.0.copyload9, -9223372036854775808
   br i1 %.not5, label %"_ZN4core3ptr119drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$lsp_types..ChangeAnnotation$RP$$GT$$GT$17h977aa8ee962c1320E.exit4", label %.lr.ph
@@ -16592,7 +16592,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17he7205f4a8a5985
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !4468
   call void @llvm.experimental.noalias.scope.decl(metadata !4477)
   %.sroa.06.0.copyload8 = load i64, ptr %0, align 8, !alias.scope !4479
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.0..sroa_idx11, i64 72, i1 false), !alias.scope !4479
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.0..sroa_idx11, i64 72, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !4458, !noalias !4477
   %.not = icmp eq i64 %.sroa.06.0.copyload8, -9223372036854775808
   br i1 %.not, label %"_ZN4core3ptr119drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$lsp_types..ChangeAnnotation$RP$$GT$$GT$17h977aa8ee962c1320E.exit4", label %11

@@ -1286,8 +1286,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9cons
   store i64 %72, ptr %9, align 8, !tbaa !45
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !alias.scope !116
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %75
 
@@ -1306,7 +1305,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9cons
   %85 = fmul float %84, 0x40615C71C0000000
   %86 = fsub float 5.380000e+02, %85
   %87 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv.i
-  store float %86, ptr %87, align 4, !tbaa !27, !alias.scope !116
+  store float %86, ptr %87, align 4
   %88 = fcmp olt float %86, 3.600000e+02
   %89 = fcmp ogt float %86, 8.300000e+02
   %or.cond.i.i = or i1 %88, %89
@@ -1323,7 +1322,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9cons
 _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i:         ; preds = %90, %75
   %.0.i.i = phi float [ %95, %90 ], [ 0.000000e+00, %75 ]
   %96 = getelementptr inbounds nuw [4 x float], ptr %74, i64 0, i64 %indvars.iv.i
-  store float %.0.i.i, ptr %96, align 4, !tbaa !27, !alias.scope !116
+  store float %.0.i.i, ptr %96, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %.lr.ph, label %75, !llvm.loop !119

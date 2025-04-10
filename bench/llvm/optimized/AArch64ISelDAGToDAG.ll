@@ -1173,7 +1173,7 @@ _ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1529: ; 
 383:                                              ; preds = %382, %345
   %.051.i = phi i32 [ %.152.i, %382 ], [ %349, %345 ]
   %384 = load ptr, ptr %288, align 8, !tbaa !209
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %384, i64 16, i1 false), !tbaa.struct !237
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %384, i64 16, i1 false)
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %386 = load ptr, ptr %385, align 8, !tbaa !239
   br i1 %314, label %393, label %387
@@ -2367,7 +2367,7 @@ _ZN4llvm5SDLocD2Ev.exit1589:                      ; preds = %_ZN4llvm5SDLocC2EPK
   %804 = icmp eq i32 %780, 554
   %805 = select i1 %804, i32 4552, i32 5016
   %806 = getelementptr inbounds nuw i8, ptr %770, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %806, i64 16, i1 false), !tbaa.struct !237
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %806, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77) #23
   %807 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %808 = load ptr, ptr %807, align 8, !tbaa !219

@@ -1697,7 +1697,7 @@ _ZN4core3ptr7replace17h971043547f213818E.exit6.i: ; preds = %134
   %.sroa.039.070 = phi i64 [ %.sroa.0.0.copyload1.i, %.thread68 ], [ %.sroa.03.0.copyload4.i, %151 ]
   store i64 %.sroa.039.070, ptr %0, align 8, !alias.scope !339
   %.sroa.741.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.741.0..sroa_idx42, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.i, i64 48, i1 false), !alias.scope !339
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.741.0..sroa_idx42, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.i, i64 48, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he494e4ce43393cd2E.exit"
 
 153:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h85a2e4b2806b991fE.llvm.3908343117159538111.exit"

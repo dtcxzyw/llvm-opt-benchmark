@@ -32208,7 +32208,7 @@ _ZN5image6codecs3pnm7encoder11FlatSamples11all_smaller17hbc2a65a2911c8527E.exit.
   br i1 %trunc.i23, label %73, label %72
 
 67:                                               ; preds = %_ZN5image6codecs3pnm7encoder11FlatSamples11all_smaller17hbc2a65a2911c8527E.exit.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !alias.scope !4184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.10.8.copyload = load i32, ptr %.sroa.10.8..sroa_idx, align 8, !alias.scope !4184, !noalias !4182
   %.sroa.11.8..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -32220,11 +32220,11 @@ _ZN5image6codecs3pnm7encoder11FlatSamples11all_smaller17hbc2a65a2911c8527E.exit.
   %70 = load i32, ptr %69, align 4, !alias.scope !4182, !noalias !4184, !noundef !19
   %.sroa.048.0.copyload49 = load i64, ptr %2, align 8, !alias.scope !4184, !noalias !4182
   %.sroa.6.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx50, i64 16, i1 false), !alias.scope !4184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx50, i64 16, i1 false)
   br label %_ZN5image6codecs3pnm7encoder11FlatSamples12encoding_for17h3d9102046ed9cef9E.exit
 
 71:                                               ; preds = %58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !alias.scope !4184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.10.8..sroa_idx55 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.10.8.copyload56 = load i32, ptr %.sroa.10.8..sroa_idx55, align 8, !alias.scope !4184, !noalias !4182
   %.sroa.11.8..sroa_idx61 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -32232,7 +32232,7 @@ _ZN5image6codecs3pnm7encoder11FlatSamples11all_smaller17hbc2a65a2911c8527E.exit.
   br label %_ZN5image6codecs3pnm7encoder11FlatSamples12encoding_for17h3d9102046ed9cef9E.exit
 
 72:                                               ; preds = %64, %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !alias.scope !4184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.10.8..sroa_idx51 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.10.8.copyload52 = load i32, ptr %.sroa.10.8..sroa_idx51, align 8, !alias.scope !4184, !noalias !4182
   %.sroa.11.8..sroa_idx57 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -32240,7 +32240,7 @@ _ZN5image6codecs3pnm7encoder11FlatSamples11all_smaller17hbc2a65a2911c8527E.exit.
   br label %_ZN5image6codecs3pnm7encoder11FlatSamples12encoding_for17h3d9102046ed9cef9E.exit
 
 73:                                               ; preds = %64, %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !alias.scope !4184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.10.8..sroa_idx53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.10.8.copyload54 = load i32, ptr %.sroa.10.8..sroa_idx53, align 8, !alias.scope !4184, !noalias !4182
   %.sroa.11.8..sroa_idx59 = getelementptr inbounds nuw i8, ptr %2, i64 20

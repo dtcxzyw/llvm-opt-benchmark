@@ -5026,11 +5026,11 @@ nsvg__duplicatePoints.exit.i:                     ; preds = %._crit_edge13.i.i, 
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pre355.i, i64 4
   %.sroa.10.0.copyload.i = load float, ptr %.sroa.10.0..sroa_idx.i, align 4, !tbaa !28
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pre355.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.13.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.13.0..sroa_idx.i, i64 20, i1 false), !tbaa.struct !152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.13.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.13.0..sroa_idx.i, i64 20, i1 false)
   %.sroa.13271.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pre355.i, i64 28
   %.sroa.13271.0.copyload.i = load i8, ptr %.sroa.13271.0..sroa_idx.i, align 4, !tbaa !4
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pre355.i, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.14.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.14.0..sroa_idx.i, i64 3, i1 false), !tbaa.struct !153
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.14.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.14.0..sroa_idx.i, i64 3, i1 false)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.7.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.13.0..sroa_idx.i, i64 20, i1 false)
@@ -5461,11 +5461,11 @@ nsvg__prepareStroke.exit.i:                       ; preds = %537, %469
 
 563:                                              ; preds = %.lr.ph337.i
   %.sroa.13.0..sroa_idx267.i = getelementptr inbounds nuw i8, ptr %389, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.13.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.13.0..sroa_idx267.i, i64 20, i1 false), !tbaa.struct !152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.13.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.13.0..sroa_idx267.i, i64 20, i1 false)
   %.sroa.13271.0..sroa_idx272.i = getelementptr inbounds nuw i8, ptr %389, i64 28
   %.sroa.13271.0.copyload273.i = load i8, ptr %.sroa.13271.0..sroa_idx272.i, align 4, !tbaa !4
   %.sroa.14.0..sroa_idx280.i = getelementptr inbounds nuw i8, ptr %389, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.14.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.14.0..sroa_idx280.i, i64 3, i1 false), !tbaa.struct !153
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.14.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.14.0..sroa_idx280.i, i64 3, i1 false)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.5292.i)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.7294.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5292.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.13.0..sroa_idx267.i, i64 20, i1 false)

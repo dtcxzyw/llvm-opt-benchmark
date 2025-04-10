@@ -78526,7 +78526,7 @@ define dso_local i64 @_ZN5clang4Sema28BuildCallToObjectOfClassTypeEPNS_5ScopeEPN
   %.sroa.0.0.copyload.i133 = load i64, ptr %98, align 8, !tbaa !23
   %141 = load ptr, ptr %94, align 8, !tbaa !492
   %142 = call i32 @_ZNK5clang4Expr12ClassifyImplERNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(23216) %141, ptr noundef null) #30
-  %.sroa.088.0.copyload = load ptr, ptr %17, align 8, !tbaa !1650
+  %.sroa.088.0.copyload = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
@@ -78926,7 +78926,7 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit162:       ; preds = %.critedge126, %303,
   store i32 %307, ptr %26, align 8, !tbaa !474
   %308 = getelementptr inbounds nuw i8, ptr %26, i64 8
   call void @_ZN5clang17PartialDiagnosticC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %308, ptr noundef nonnull align 8 dereferenceable(20) %23)
-  %.sroa.064.0.copyload = load ptr, ptr %17, align 8, !tbaa !1650
+  %.sroa.064.0.copyload = load ptr, ptr %17, align 8
   store ptr @.str.13, ptr %27, align 8, !tbaa !1482
   %309 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 0, ptr %309, align 8, !tbaa !1484
@@ -78993,7 +78993,7 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit166:       ; preds = %_ZNSt4pairIN5clang1
   store i32 %326, ptr %30, align 8, !tbaa !474
   %329 = getelementptr inbounds nuw i8, ptr %30, i64 8
   call void @_ZN5clang17PartialDiagnosticC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %329, ptr noundef nonnull align 8 dereferenceable(20) %31)
-  %.sroa.062.0.copyload = load ptr, ptr %17, align 8, !tbaa !1650
+  %.sroa.062.0.copyload = load ptr, ptr %17, align 8
   store ptr @.str.13, ptr %32, align 8, !tbaa !1482
   %330 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 0, ptr %330, align 8, !tbaa !1484
@@ -79233,8 +79233,8 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   store i32 %362, ptr %35, align 8, !tbaa !474
   %445 = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @_ZN5clang17PartialDiagnosticC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %445, ptr noundef nonnull align 8 dereferenceable(20) %36)
-  %.sroa.057.0.copyload = load ptr, ptr %17, align 8, !tbaa !1650
-  %.sroa.258.0.copyload = load i64, ptr %44, align 8, !tbaa !1148
+  %.sroa.057.0.copyload = load ptr, ptr %17, align 8
+  %.sroa.258.0.copyload = load i64, ptr %44, align 8
   store ptr @.str.13, ptr %37, align 8, !tbaa !1482
   %446 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 0, ptr %446, align 8, !tbaa !1484

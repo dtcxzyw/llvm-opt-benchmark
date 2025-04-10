@@ -2152,7 +2152,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !18
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, i64 40, i1 false), !tbaa.struct !133
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !124
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #25
@@ -2233,11 +2233,11 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   %.sroa.7.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx20, align 4, !tbaa !18
   %.sroa.8.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx25, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, i64 40, i1 false), !tbaa.struct !133
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx25, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, i64 40, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !33
   call void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_params_tEPmm(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %4, ptr noundef nonnull %47, i64 noundef %9, i64 noundef %48, ptr noundef %49, ptr noundef %51, i32 noundef %54, i64 noundef %53, i64 noundef %56, ptr noundef nonnull byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 %5, ptr noundef %58, i64 poison)
-  %.sroa.054.0.copyload = load ptr, ptr %4, align 8, !tbaa !134
+  %.sroa.054.0.copyload = load ptr, ptr %4, align 8, !tbaa !133
   %.sroa.7.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.7.0.copyload58 = load i64, ptr %.sroa.7.0..sroa_idx57, align 8, !tbaa !3
   %.sroa.863.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2326,7 +2326,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 36
   store i32 %.sroa.7.0.copyload, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !18
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, i64 40, i1 false), !tbaa.struct !133
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, i64 40, i1 false)
   store i64 %.sroa.863.0, ptr %75, align 8, !tbaa !62
   br label %_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE.exit
 
@@ -2638,5 +2638,4 @@ attributes #28 = { nounwind willreturn memory(read) }
 !130 = !{!121, !14, i64 60}
 !131 = distinct !{!131, !8}
 !132 = distinct !{!132, !8}
-!133 = !{i64 0, i64 4, !18, i64 4, i64 4, !18, i64 8, i64 8, !72, i64 16, i64 4, !18, i64 20, i64 4, !18, i64 24, i64 4, !18, i64 28, i64 4, !18, i64 32, i64 4, !18}
-!134 = !{!21, !21, i64 0}
+!133 = !{!21, !21, i64 0}

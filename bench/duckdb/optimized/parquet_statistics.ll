@@ -5054,7 +5054,7 @@ _ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit:        ; preds = %25, %28, %31, %34, 
   %85 = lshr i32 %84, 27
   %86 = trunc nuw nsw i32 %85 to i8
   %87 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i.i
-  store i8 %86, ptr %87, align 1, !tbaa !12
+  store i8 %86, ptr %87, align 1
   %88 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %88, 8
   br i1 %exitcond.not.i.i.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i, label %81, !llvm.loop !203
@@ -5068,7 +5068,7 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i:    ; preds = %_ZN6duckdb17Parquet
   %.079.i.i = phi i64 [ %98, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i ], [ 0, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i ]
   %91 = getelementptr inbounds nuw [8 x i32], ptr %90, i64 0, i64 %.079.i.i
   %92 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.079.i.i
-  %93 = load i8, ptr %92, align 1, !tbaa !12
+  %93 = load i8, ptr %92, align 1
   %94 = load i32, ptr %91, align 4, !tbaa !39
   %95 = zext nneg i8 %93 to i32
   %96 = shl nuw i32 1, %95
@@ -5304,7 +5304,7 @@ define void @_ZN6duckdb18ParquetBloomFilter12FilterInsertEm(ptr noundef nonnull 
   %16 = lshr i32 %15, 27
   %17 = trunc nuw nsw i32 %16 to i8
   %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i
-  store i8 %17, ptr %18, align 1, !tbaa !12
+  store i8 %17, ptr %18, align 1
   %19 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %19, 8
   br i1 %exitcond.not.i.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, label %12, !llvm.loop !203
@@ -5317,7 +5317,7 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i:      ; preds = %_ZN6duckdb17Parquet
   %.05.i = phi i64 [ %28, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i ], [ 0, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader ]
   %21 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.05.i
   %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i
-  %23 = load i8, ptr %22, align 1, !tbaa !12
+  %23 = load i8, ptr %22, align 1
   %24 = zext nneg i8 %23 to i32
   %25 = shl nuw i32 1, %24
   %26 = load i32, ptr %21, align 4, !tbaa !39
@@ -5355,7 +5355,7 @@ define noundef zeroext i1 @_ZN6duckdb18ParquetBloomFilter11FilterCheckEm(ptr nou
   %16 = lshr i32 %15, 27
   %17 = trunc nuw nsw i32 %16 to i8
   %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i
-  store i8 %17, ptr %18, align 1, !tbaa !12
+  store i8 %17, ptr %18, align 1
   %19 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %19, 8
   br i1 %exitcond.not.i.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, label %12, !llvm.loop !203
@@ -5368,7 +5368,7 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i:      ; preds = %_ZN6duckdb17Parquet
   %.079.i = phi i64 [ %28, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i ], [ 0, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader ]
   %21 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.079.i
   %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.079.i
-  %23 = load i8, ptr %22, align 1, !tbaa !12
+  %23 = load i8, ptr %22, align 1
   %24 = load i32, ptr %21, align 4, !tbaa !39
   %25 = zext nneg i8 %23 to i32
   %26 = shl nuw i32 1, %25

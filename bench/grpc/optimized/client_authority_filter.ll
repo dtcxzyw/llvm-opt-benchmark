@@ -1649,7 +1649,7 @@ _ZNK9grpc_core5Slice3RefEv.exit.i:                ; preds = %17, %13
   %19 = phi i16 [ %9, %13 ], [ %.pre.i, %17 ]
   %.sroa.0.0.copyload.i = phi ptr [ %15, %13 ], [ %.sroa.0.0.copyload.pre.i, %17 ]
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx.i, i64 24, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx.i, i64 24, i1 false)
   %storemerge.i.i.i.i.i = or i16 %19, 8192
   store i16 %storemerge.i.i.i.i.i, ptr %7, align 2, !tbaa !33
   %20 = and i16 %19, 8192
@@ -3886,7 +3886,7 @@ _ZNK9grpc_core5Slice3RefEv.exit.i:                ; preds = %21, %17
   %23 = phi i16 [ %13, %17 ], [ %.pre.i, %21 ]
   %.sroa.0.0.copyload.i = phi ptr [ %19, %17 ], [ %.sroa.0.0.copyload.pre.i, %21 ]
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx.i, i64 24, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx.i, i64 24, i1 false)
   %storemerge.i.i.i.i.i = or i16 %23, 8192
   store i16 %storemerge.i.i.i.i.i, ptr %12, align 2, !tbaa !33
   %24 = and i16 %23, 8192

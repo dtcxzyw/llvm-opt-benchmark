@@ -120718,13 +120718,13 @@ default.unreachable19:                            ; preds = %38, %3
   call void @llvm.experimental.noalias.scope.decl(metadata !32086)
   store i8 %.sroa.0.0.i, ptr %0, align 8, !alias.scope !32076
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.i, i64 7, i1 false), !alias.scope !32076
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.i, i64 7, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !32076
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.13.0.i, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !32076
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.i, i64 16, i1 false), !alias.scope !32076
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.i, i64 16, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h858bb7dcf7a27c6aE.llvm.4351852226057355877.exit"
 
 56:                                               ; preds = %3

@@ -160,7 +160,7 @@ define internal fastcc noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$
   %.sroa.0.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 %38, ptr %.sroa.0.sroa.524.0..sroa_idx.i, align 8, !alias.scope !40, !noalias !44
   %.sroa.0.sroa.625.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8.i, i64 39, i1 false), !alias.scope !40, !noalias !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8.i, i64 39, i1 false), !noalias !39
   %.sroa.0.sroa.726.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i8 %44, ptr %.sroa.0.sroa.726.0..sroa_idx.i, align 8, !alias.scope !40, !noalias !44
   %.sroa.0.sroa.827.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 57

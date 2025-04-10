@@ -6661,7 +6661,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i: ; preds = %8
   br i1 %or.cond31.i.i, label %_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit.i, label %817
 
 817:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i
-  %818 = load ptr, ptr %559, align 8, !tbaa !269, !noalias !1133
+  %818 = load ptr, ptr %559, align 8, !noalias !1133
   %.not28.i.i = icmp eq ptr %818, null
   %.sroa.0.0.copyload.i8.i.i = load i32, ptr %560, align 8, !noalias !1133
   %.not29.i.i = icmp eq i32 %.sroa.0.0.copyload.i8.i.i, 0
@@ -7410,7 +7410,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit86.i: ; preds = 
   br i1 %or.cond31.i89.i, label %_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit98.i, label %1131
 
 1131:                                             ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit86.i
-  %1132 = load ptr, ptr %559, align 8, !tbaa !269, !noalias !1133
+  %1132 = load ptr, ptr %559, align 8, !noalias !1133
   %.not28.i90.i = icmp eq ptr %1132, null
   %.sroa.0.0.copyload.i8.i91.i = load i32, ptr %560, align 8, !noalias !1133
   %.not29.i92.i = icmp eq i32 %.sroa.0.0.copyload.i8.i91.i, 0

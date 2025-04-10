@@ -1237,12 +1237,12 @@ _ZN4Luau7CodeGen14hasSideEffectsENS0_5IrCmdE.exit._crit_edge: ; preds = %_ZN4Lua
 80:                                               ; preds = %80, %79
   %.04.i.i.i.i = phi i64 [ 0, %79 ], [ %84, %80 ]
   %81 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.04.i.i.i.i
-  %82 = load i64, ptr %81, align 8, !tbaa !77, !noalias !74
+  %82 = load i64, ptr %81, align 8, !noalias !74
   %83 = xor i64 %82, -1
-  store i64 %83, ptr %81, align 8, !tbaa !77, !noalias !74
+  store i64 %83, ptr %81, align 8, !noalias !74
   %84 = add nuw nsw i64 %.04.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %84, 4
-  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt6bitsetILm256EEcoEv.exit.i, label %80, !llvm.loop !78
+  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt6bitsetILm256EEcoEv.exit.i, label %80, !llvm.loop !77
 
 _ZNKSt6bitsetILm256EEcoEv.exit.i:                 ; preds = %80
   %85 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterSet", ptr %.val.val, i64 %77
@@ -1252,11 +1252,11 @@ _ZNKSt6bitsetILm256EEcoEv.exit.i:                 ; preds = %80
 86:                                               ; preds = %86, %_ZNKSt6bitsetILm256EEcoEv.exit.i
   %.05.i.i.i.i = phi i64 [ 0, %_ZNKSt6bitsetILm256EEcoEv.exit.i ], [ %92, %86 ]
   %87 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.05.i.i.i.i
-  %88 = load i64, ptr %87, align 8, !tbaa !77, !noalias !74
+  %88 = load i64, ptr %87, align 8, !noalias !74
   %89 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %.05.i.i.i.i
-  %90 = load i64, ptr %89, align 8, !tbaa !77, !alias.scope !79, !noalias !74
+  %90 = load i64, ptr %89, align 8, !tbaa !78, !alias.scope !79, !noalias !74
   %91 = and i64 %90, %88
-  store i64 %91, ptr %89, align 8, !tbaa !77, !alias.scope !79, !noalias !74
+  store i64 %91, ptr %89, align 8, !tbaa !78, !alias.scope !79, !noalias !74
   %92 = add nuw nsw i64 %.05.i.i.i.i, 1
   %exitcond.not.i.i.i32.i = icmp eq i64 %92, 4
   br i1 %exitcond.not.i.i.i32.i, label %_ZStanILm256EESt6bitsetIXT_EERKS1_S3_.exit.i, label %86, !llvm.loop !82
@@ -1282,7 +1282,7 @@ _ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBl
 99:                                               ; preds = %99, %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit
   %.057.i.i = phi i64 [ 0, %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit ], [ %102, %99 ]
   %100 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %.057.i.i
-  %101 = load i64, ptr %100, align 8, !tbaa !77
+  %101 = load i64, ptr %100, align 8, !tbaa !78
   %.not.not.i.i = icmp ne i64 %101, 0
   %102 = add nuw nsw i64 %.057.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %102, 4
@@ -1370,7 +1370,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %3, %28
   %.01518 = phi i8 [ 0, %3 ], [ %.1, %28 ]
   %8 = lshr i64 %.019, 6
   %9 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %8
-  %10 = load i64, ptr %9, align 8, !tbaa !77
+  %10 = load i64, ptr %9, align 8, !tbaa !78
   %11 = and i64 %.019, 63
   %12 = shl nuw i64 1, %11
   %13 = and i64 %10, %12
@@ -1464,7 +1464,7 @@ define dso_local void @_ZN4Luau7CodeGen16toStringDetailedERNS0_17IrToStringConte
 16:                                               ; preds = %16, %12
   %.057.i.i = phi i64 [ 0, %12 ], [ %19, %16 ]
   %17 = getelementptr inbounds nuw [4 x i64], ptr %15, i64 0, i64 %.057.i.i
-  %18 = load i64, ptr %17, align 8, !tbaa !77
+  %18 = load i64, ptr %17, align 8, !tbaa !78
   %.not.not.i.i = icmp ne i64 %18, 0
   %19 = add nuw nsw i64 %.057.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %19, 4
@@ -1679,7 +1679,7 @@ _ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWr
 129:                                              ; preds = %129, %127
   %.057.i.i72 = phi i64 [ 0, %127 ], [ %132, %129 ]
   %130 = getelementptr inbounds nuw [4 x i64], ptr %128, i64 0, i64 %.057.i.i72
-  %131 = load i64, ptr %130, align 8, !tbaa !77
+  %131 = load i64, ptr %130, align 8, !tbaa !78
   %.not.not.i.i73 = icmp ne i64 %131, 0
   %132 = add nuw nsw i64 %.057.i.i72, 1
   %exitcond.not.i.i74 = icmp eq i64 %132, 4
@@ -1724,7 +1724,7 @@ _ZNKSt6bitsetILm256EE3anyEv.exit76:               ; preds = %129
 153:                                              ; preds = %153, %151
   %.057.i.i77 = phi i64 [ 0, %151 ], [ %156, %153 ]
   %154 = getelementptr inbounds nuw [4 x i64], ptr %152, i64 0, i64 %.057.i.i77
-  %155 = load i64, ptr %154, align 8, !tbaa !77
+  %155 = load i64, ptr %154, align 8, !tbaa !78
   %.not.not.i.i78 = icmp ne i64 %155, 0
   %156 = add nuw nsw i64 %.057.i.i77, 1
   %exitcond.not.i.i79 = icmp eq i64 %156, 4
@@ -2254,7 +2254,7 @@ switch.lookup:                                    ; preds = %.sink.split, %11
 34:                                               ; preds = %34, %32
   %.057.i.i.i = phi i64 [ 0, %32 ], [ %37, %34 ]
   %35 = getelementptr inbounds nuw [4 x i64], ptr %33, i64 0, i64 %.057.i.i.i
-  %36 = load i64, ptr %35, align 8, !tbaa !77
+  %36 = load i64, ptr %35, align 8, !tbaa !78
   %.not.not.i.i.i = icmp ne i64 %36, 0
   %37 = add nuw nsw i64 %.057.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %37, 4
@@ -2344,7 +2344,7 @@ _ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11
 74:                                               ; preds = %74, %72
   %.057.i.i.i50 = phi i64 [ 0, %72 ], [ %77, %74 ]
   %75 = getelementptr inbounds nuw [4 x i64], ptr %73, i64 0, i64 %.057.i.i.i50
-  %76 = load i64, ptr %75, align 8, !tbaa !77
+  %76 = load i64, ptr %75, align 8, !tbaa !78
   %.not.not.i.i.i51 = icmp ne i64 %76, 0
   %77 = add nuw nsw i64 %.057.i.i.i50, 1
   %exitcond.not.i.i.i52 = icmp eq i64 %77, 4
@@ -2391,7 +2391,7 @@ _ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11
 96:                                               ; preds = %96, %94
   %.057.i.i.i56 = phi i64 [ 0, %94 ], [ %99, %96 ]
   %97 = getelementptr inbounds nuw [4 x i64], ptr %95, i64 0, i64 %.057.i.i.i56
-  %98 = load i64, ptr %97, align 8, !tbaa !77
+  %98 = load i64, ptr %97, align 8, !tbaa !78
   %.not.not.i.i.i57 = icmp ne i64 %98, 0
   %99 = add nuw nsw i64 %.057.i.i.i56, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %99, 4
@@ -3004,8 +3004,8 @@ attributes #18 = { builtin nounwind }
 !74 = !{!75}
 !75 = distinct !{!75, !76, !"_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE: argument 0"}
 !76 = distinct !{!76, !"_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE"}
-!77 = !{!30, !30, i64 0}
-!78 = distinct !{!78, !62}
+!77 = distinct !{!77, !62}
+!78 = !{!30, !30, i64 0}
 !79 = !{!80}
 !80 = distinct !{!80, !81, !"_ZStanILm256EESt6bitsetIXT_EERKS1_S3_: argument 0"}
 !81 = distinct !{!81, !"_ZStanILm256EESt6bitsetIXT_EERKS1_S3_"}

@@ -7975,9 +7975,9 @@ _ZN4llvm5APIntD2Ev.exit1375:                      ; preds = %_ZN4llvm5APIntD2Ev.
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i32 0, ptr %.sroa.45.0..sroa_idx.i, align 8, !tbaa !66, !alias.scope !274
   %.sroa.4.i.i.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 16
-  store ptr %186, ptr %.sroa.4.i.i.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !133
+  store ptr %186, ptr %.sroa.4.i.i.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8
   %.sroa.4.i.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 24
-  store ptr %187, ptr %.sroa.4.i.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !tbaa !277
+  store ptr %187, ptr %.sroa.4.i.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8
   %3487 = getelementptr inbounds nuw i8, ptr %189, i64 32
   store i32 1, ptr %3487, align 8, !tbaa !66, !alias.scope !274
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 40

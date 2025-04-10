@@ -5880,7 +5880,7 @@ _ZN5folly11IPAddressV49fetchMaskEm.exit:          ; preds = %_ZNK5folly9IPAddres
   %72 = load i8, ptr %71, align 1, !tbaa !7
   %73 = and i8 %72, %70
   %74 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %.08.i.i
-  store i8 %73, ptr %74, align 1, !tbaa !7
+  store i8 %73, ptr %74, align 1
   %75 = add nuw nsw i64 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %75, 4
   br i1 %exitcond.not.i.i, label %_ZN5folly6detail5Bytes4maskILm4EEESt5arrayIhXT_EERKS4_S6_.exit.i, label %68, !llvm.loop !223
@@ -5901,7 +5901,7 @@ _ZN5folly6detail5Bytes4maskILm4EEESt5arrayIhXT_EERKS4_S6_.exit.i: ; preds = %68
   %81 = load i8, ptr %80, align 1, !tbaa !7
   %82 = and i8 %81, %79
   %83 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %.08.i2.i
-  store i8 %82, ptr %83, align 1, !tbaa !7
+  store i8 %82, ptr %83, align 1
   %84 = add nuw nsw i64 %.08.i2.i, 1
   %exitcond.not.i3.i = icmp eq i64 %84, 4
   br i1 %exitcond.not.i3.i, label %_ZNK5folly11IPAddressV416inSubnetWithMaskERKS0_St5arrayIhLm4EE.exit, label %77, !llvm.loop !223
@@ -5993,7 +5993,7 @@ define noundef zeroext i1 @_ZNK5folly11IPAddressV416inSubnetWithMaskERKS0_St5arr
   %14 = load i8, ptr %13, align 1, !tbaa !7
   %15 = and i8 %14, %12
   %16 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %.08.i
-  store i8 %15, ptr %16, align 1, !tbaa !7
+  store i8 %15, ptr %16, align 1
   %17 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %17, 4
   br i1 %exitcond.not.i, label %_ZN5folly6detail5Bytes4maskILm4EEESt5arrayIhXT_EERKS4_S6_.exit, label %10, !llvm.loop !223
@@ -6014,7 +6014,7 @@ _ZN5folly6detail5Bytes4maskILm4EEESt5arrayIhXT_EERKS4_S6_.exit: ; preds = %10
   %23 = load i8, ptr %22, align 1, !tbaa !7
   %24 = and i8 %23, %21
   %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %.08.i2
-  store i8 %24, ptr %25, align 1, !tbaa !7
+  store i8 %24, ptr %25, align 1
   %26 = add nuw nsw i64 %.08.i2, 1
   %exitcond.not.i3 = icmp eq i64 %26, 4
   br i1 %exitcond.not.i3, label %_ZN5folly6detail5Bytes4maskILm4EEESt5arrayIhXT_EERKS4_S6_.exit4, label %19, !llvm.loop !223
@@ -6150,7 +6150,7 @@ define noundef zeroext i1 @_ZNK5folly11IPAddressV410isLoopbackEv(ptr noundef non
   %19 = load i8, ptr %18, align 1, !tbaa !7
   %20 = and i8 %19, %17
   %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %.08.i.i
-  store i8 %20, ptr %21, align 1, !tbaa !7
+  store i8 %20, ptr %21, align 1
   %22 = add nuw nsw i64 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %22, 4
   br i1 %exitcond.not.i.i, label %_ZN5folly6detail5Bytes4maskILm4EEESt5arrayIhXT_EERKS4_S6_.exit.i, label %15, !llvm.loop !223
@@ -6171,7 +6171,7 @@ _ZN5folly6detail5Bytes4maskILm4EEESt5arrayIhXT_EERKS4_S6_.exit.i: ; preds = %15
   %28 = load i8, ptr %27, align 1, !tbaa !7
   %29 = and i8 %28, %26
   %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 0, i64 %.08.i2.i
-  store i8 %29, ptr %30, align 1, !tbaa !7
+  store i8 %29, ptr %30, align 1
   %31 = add nuw nsw i64 %.08.i2.i, 1
   %exitcond.not.i3.i = icmp eq i64 %31, 4
   br i1 %exitcond.not.i3.i, label %_ZNK5folly11IPAddressV416inSubnetWithMaskERKS0_St5arrayIhLm4EE.exit, label %24, !llvm.loop !223
@@ -6239,7 +6239,7 @@ define noundef zeroext i1 @_ZNK5folly11IPAddressV411isLinkLocalEv(ptr noundef no
   %19 = load i8, ptr %18, align 1, !tbaa !7
   %20 = and i8 %19, %17
   %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %.08.i.i
-  store i8 %20, ptr %21, align 1, !tbaa !7
+  store i8 %20, ptr %21, align 1
   %22 = add nuw nsw i64 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %22, 4
   br i1 %exitcond.not.i.i, label %_ZN5folly6detail5Bytes4maskILm4EEESt5arrayIhXT_EERKS4_S6_.exit.i, label %15, !llvm.loop !223
@@ -6260,7 +6260,7 @@ _ZN5folly6detail5Bytes4maskILm4EEESt5arrayIhXT_EERKS4_S6_.exit.i: ; preds = %15
   %28 = load i8, ptr %27, align 1, !tbaa !7
   %29 = and i8 %28, %26
   %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 0, i64 %.08.i2.i
-  store i8 %29, ptr %30, align 1, !tbaa !7
+  store i8 %29, ptr %30, align 1
   %31 = add nuw nsw i64 %.08.i2.i, 1
   %exitcond.not.i3.i = icmp eq i64 %31, 4
   br i1 %exitcond.not.i3.i, label %_ZNK5folly11IPAddressV416inSubnetWithMaskERKS0_St5arrayIhLm4EE.exit, label %24, !llvm.loop !223

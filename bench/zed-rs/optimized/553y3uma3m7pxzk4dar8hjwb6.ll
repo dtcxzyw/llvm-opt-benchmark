@@ -659,7 +659,7 @@ define hidden { i64, ptr } @"_ZN110_$LT$futures_util..future..try_maybe_done..Tr
   %.sroa.10.8..sroa.4.0..sroa_idx.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.10.8.copyload = load ptr, ptr %.sroa.10.8..sroa.4.0..sroa_idx.i.i.i.i.sroa_idx, align 8, !alias.scope !164, !noalias !165
   %.sroa.11.8..sroa.4.0..sroa_idx.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.8..sroa.4.0..sroa_idx.i.i.i.i.sroa_idx, i64 16, i1 false), !alias.scope !164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.8..sroa.4.0..sroa_idx.i.i.i.i.sroa_idx, i64 16, i1 false)
   br label %20
 
 "_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17h2e7e8bb56c5bffafE.llvm.10185040963944003897.exit": ; preds = %14
@@ -54615,10 +54615,10 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_e
   %.sroa.7.019 = phi i64 [ 0, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13272147b2139084E.exit.i.lr.ph" ], [ %34, %32 ]
   %.sroa.07.018 = phi ptr [ %0, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13272147b2139084E.exit.i.lr.ph" ], [ %33, %32 ]
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.018, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.018.48..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false), !alias.scope !12668, !noalias !12672
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.018.48..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false), !noalias !12668
   %.sroa.519.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.07.018, i64 88
-  %.sroa.519.48.copyload.i = load i8, ptr %.sroa.519.48..sroa_idx.i, align 8, !alias.scope !12668, !noalias !12676
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.018.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.07.018, i64 48, i1 false), !alias.scope !12668, !noalias !12672
+  %.sroa.519.48.copyload.i = load i8, ptr %.sroa.519.48..sroa_idx.i, align 8, !alias.scope !12672, !noalias !12676
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.018.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.07.018, i64 48, i1 false), !noalias !12668
   %29 = icmp eq i8 %.sroa.519.48.copyload.i, 2
   br i1 %29, label %._crit_edge, label %32
 
@@ -130177,14 +130177,14 @@ attributes #71 = { noreturn nounwind }
 !12666 = distinct !{!12666, !12616, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb374ca2d76691932E: argument 1:h.rot"}
 !12667 = distinct !{!12667, !12618, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6c8a55ba5777323E: argument 1:h.rot"}
 !12668 = !{!12669, !12671}
-!12669 = distinct !{!12669, !12670, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd10540b033a9e214E.llvm.16970626885041381125: argument 0"}
-!12670 = distinct !{!12670, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd10540b033a9e214E.llvm.16970626885041381125"}
-!12671 = distinct !{!12671, !12670, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd10540b033a9e214E.llvm.16970626885041381125: argument 1"}
+!12669 = distinct !{!12669, !12670, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2cf9ecd4b6cdd577E: argument 0"}
+!12670 = distinct !{!12670, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2cf9ecd4b6cdd577E"}
+!12671 = distinct !{!12671, !12670, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2cf9ecd4b6cdd577E: argument 1"}
 !12672 = !{!12673, !12675}
-!12673 = distinct !{!12673, !12674, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2cf9ecd4b6cdd577E: argument 0"}
-!12674 = distinct !{!12674, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2cf9ecd4b6cdd577E"}
-!12675 = distinct !{!12675, !12674, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2cf9ecd4b6cdd577E: argument 1"}
-!12676 = !{!12677, !12679, !12673, !12675}
+!12673 = distinct !{!12673, !12674, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd10540b033a9e214E.llvm.16970626885041381125: argument 0"}
+!12674 = distinct !{!12674, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd10540b033a9e214E.llvm.16970626885041381125"}
+!12675 = distinct !{!12675, !12674, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd10540b033a9e214E.llvm.16970626885041381125: argument 1"}
+!12676 = !{!12677, !12679, !12669, !12671}
 !12677 = distinct !{!12677, !12678, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13272147b2139084E: argument 0"}
 !12678 = distinct !{!12678, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13272147b2139084E"}
 !12679 = distinct !{!12679, !12678, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13272147b2139084E: argument 1"}

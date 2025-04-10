@@ -35083,7 +35083,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr39drop
   %.sroa.543.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i8 %565, ptr %.sroa.543.0..sroa_idx.i.i.i.i, align 8, !alias.scope !9324, !noalias !9328
   %.sroa.644.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.644.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i.i.i, i64 39, i1 false), !alias.scope !9324, !noalias !9323
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.644.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i.i.i, i64 39, i1 false), !noalias !9323
   %.sroa.745.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 56
   store i8 %572, ptr %.sroa.745.0..sroa_idx.i.i.i.i, align 8, !alias.scope !9324, !noalias !9328
   %.sroa.846.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 57

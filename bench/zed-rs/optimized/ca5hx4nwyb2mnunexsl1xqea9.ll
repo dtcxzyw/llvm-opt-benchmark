@@ -16767,7 +16767,7 @@ switch.lookup:                                    ; preds = %50
 
 56:                                               ; preds = %switch.lookup, %50
   %storemerge.i.i.i = phi i64 [ -9223372036854775808, %50 ], [ -9223372036854775805, %switch.lookup ]
-  store i64 %storemerge.i.i.i, ptr %3, align 8, !alias.scope !1035, !noalias !1040
+  store i64 %storemerge.i.i.i, ptr %3, align 8, !noalias !1035
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   invoke void @_ZN8schemars8_private8metadata11add_default17hdb4ef6456ffcbba8E(ptr noalias noundef nonnull sret([240 x i8]) align 8 captures(none) dereferenceable(240) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(240) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %6)
@@ -16814,7 +16814,7 @@ switch.lookup:                                    ; preds = %50
 66:                                               ; preds = %59
   %67 = landingpad { ptr, i32 }
           cleanup
-  %68 = load i64, ptr %7, align 8, !range !572, !alias.scope !1043, !noundef !4
+  %68 = load i64, ptr %7, align 8, !range !572, !alias.scope !1038, !noundef !4
   %69 = icmp eq i64 %68, -9223372036854775807
   br i1 %69, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.exit", label %70
 
@@ -16831,7 +16831,7 @@ switch.lookup:                                    ; preds = %50
 73:                                               ; preds = %switch.lookup
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %74 = load i64, ptr %9, align 8, !range !572, !alias.scope !1046, !noundef !4
+  %74 = load i64, ptr %9, align 8, !range !572, !alias.scope !1041, !noundef !4
   %75 = icmp eq i64 %74, -9223372036854775807
   br i1 %75, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.exit", label %76
 
@@ -16842,7 +16842,7 @@ switch.lookup:                                    ; preds = %50
 77:                                               ; preds = %44
   %78 = landingpad { ptr, i32 }
           cleanup
-  %79 = load i64, ptr %11, align 8, !range !572, !alias.scope !1049, !noundef !4
+  %79 = load i64, ptr %11, align 8, !range !572, !alias.scope !1044, !noundef !4
   %80 = icmp eq i64 %79, -9223372036854775807
   br i1 %80, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.exit", label %81
 
@@ -16853,7 +16853,7 @@ switch.lookup:                                    ; preds = %50
 82:                                               ; preds = %38
   %83 = landingpad { ptr, i32 }
           cleanup
-  %84 = load i64, ptr %13, align 8, !range !572, !alias.scope !1052, !noundef !4
+  %84 = load i64, ptr %13, align 8, !range !572, !alias.scope !1047, !noundef !4
   %85 = icmp eq i64 %84, -9223372036854775807
   br i1 %85, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.exit", label %86
 
@@ -18153,23 +18153,18 @@ attributes #23 = { cold noreturn nounwind }
 !1032 = distinct !{!1032, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102"}
 !1033 = distinct !{!1033, !1032, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102: argument 1"}
 !1034 = !{!1031}
-!1035 = !{!1036, !1038}
-!1036 = distinct !{!1036, !1037, !"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h6aee76d2cd10a842E.llvm.3612665634329711074: argument 0"}
-!1037 = distinct !{!1037, !"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h6aee76d2cd10a842E.llvm.3612665634329711074"}
-!1038 = distinct !{!1038, !1039, !"_ZN10serde_json5value8to_value17h40e7a6aa2aed543eE: argument 0"}
-!1039 = distinct !{!1039, !"_ZN10serde_json5value8to_value17h40e7a6aa2aed543eE"}
-!1040 = !{!1041}
-!1041 = distinct !{!1041, !1042, !"_ZN8schemars8_private30MaybeSerializeWrapper$LT$T$GT$14maybe_to_value17hd79e15ec9d53113fE: argument 0"}
-!1042 = distinct !{!1042, !"_ZN8schemars8_private30MaybeSerializeWrapper$LT$T$GT$14maybe_to_value17hd79e15ec9d53113fE"}
-!1043 = !{!1044}
-!1044 = distinct !{!1044, !1045, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE: argument 0"}
-!1045 = distinct !{!1045, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE"}
-!1046 = !{!1047}
-!1047 = distinct !{!1047, !1048, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE: argument 0"}
-!1048 = distinct !{!1048, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE"}
-!1049 = !{!1050}
-!1050 = distinct !{!1050, !1051, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE: argument 0"}
-!1051 = distinct !{!1051, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE"}
-!1052 = !{!1053}
-!1053 = distinct !{!1053, !1054, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE: argument 0"}
-!1054 = distinct !{!1054, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE"}
+!1035 = !{!1036}
+!1036 = distinct !{!1036, !1037, !"_ZN8schemars8_private30MaybeSerializeWrapper$LT$T$GT$14maybe_to_value17hd79e15ec9d53113fE: argument 0"}
+!1037 = distinct !{!1037, !"_ZN8schemars8_private30MaybeSerializeWrapper$LT$T$GT$14maybe_to_value17hd79e15ec9d53113fE"}
+!1038 = !{!1039}
+!1039 = distinct !{!1039, !1040, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE: argument 0"}
+!1040 = distinct !{!1040, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE"}
+!1041 = !{!1042}
+!1042 = distinct !{!1042, !1043, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE: argument 0"}
+!1043 = distinct !{!1043, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE"}
+!1044 = !{!1045}
+!1045 = distinct !{!1045, !1046, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE: argument 0"}
+!1046 = distinct !{!1046, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE"}
+!1047 = !{!1048}
+!1048 = distinct !{!1048, !1049, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE: argument 0"}
+!1049 = distinct !{!1049, !"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE"}

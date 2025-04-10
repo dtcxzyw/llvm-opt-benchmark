@@ -1253,7 +1253,7 @@ define internal void @_ZN11duckdb_zstdL23FASTCOVER_tryParametersEPv(ptr noundef 
   %4 = alloca %"struct.duckdb_zstd::COVER_dictSelection", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !54
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !tbaa.struct !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 68
@@ -1309,7 +1309,7 @@ define internal void @_ZN11duckdb_zstdL23FASTCOVER_tryParametersEPv(ptr noundef 
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !28
   call void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_params_tEPmm(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %4, ptr noundef nonnull %40, i64 noundef %8, i64 noundef %41, ptr noundef %42, ptr noundef %44, i32 noundef %39, i64 noundef %33, i64 noundef %46, ptr noundef nonnull byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 %2, ptr noundef %48, i64 noundef -1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   %49 = call noundef i32 @_ZN11duckdb_zstd26COVER_dictSelectionIsErrorENS_19COVER_dictSelectionE(ptr noundef nonnull byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %3)
   %.not = icmp ne i32 %49, 0
@@ -1464,6 +1464,5 @@ attributes #16 = { nounwind allocsize(0) }
 !69 = !{!68, !20, i64 24}
 !70 = !{!4, !5, i64 36}
 !71 = !{!68, !15, i64 16}
-!72 = !{i64 0, i64 4, !10, i64 4, i64 4, !10, i64 8, i64 4, !10, i64 12, i64 4, !10, i64 16, i64 8, !24, i64 24, i64 4, !10, i64 28, i64 4, !10, i64 32, i64 4, !10, i64 36, i64 4, !10, i64 40, i64 4, !10}
-!73 = !{i64 0, i64 8, !74, i64 8, i64 8, !35, i64 16, i64 8, !35}
-!74 = !{!18, !18, i64 0}
+!72 = !{i64 0, i64 8, !73, i64 8, i64 8, !35, i64 16, i64 8, !35}
+!73 = !{!18, !18, i64 0}

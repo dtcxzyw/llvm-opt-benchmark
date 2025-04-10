@@ -1227,38 +1227,37 @@ common.resume:                                    ; preds = %238, %135, %.thread
 
 106:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i.i", %83
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32), !noalias !210
-  call void @llvm.experimental.noalias.scope.decl(metadata !254)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22), !noalias !257
-  %107 = call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 @anon.48c20b3da6b9fff3a40eaa7ca298312c.26, i64 noundef 4), !noalias !257
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22), !noalias !254
+  %107 = call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 @anon.48c20b3da6b9fff3a40eaa7ca298312c.26, i64 noundef 4), !noalias !254
   %108 = extractvalue { ptr, i64 } %107, 0
   %109 = icmp ne ptr %108, null
   call void @llvm.assume(i1 %109)
   %110 = extractvalue { ptr, i64 } %107, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !257
-  store ptr %108, ptr %21, align 8, !noalias !259
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !254
+  store ptr %108, ptr %21, align 8, !noalias !258
   %111 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %110, ptr %111, align 8, !noalias !259
-  call void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count17h74ced05f82ee37ceE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21), !noalias !254
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !257
-  %112 = load i64, ptr %22, align 8, !range !5, !noalias !257, !noundef !4
+  store i64 %110, ptr %111, align 8, !noalias !258
+  call void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count17h74ced05f82ee37ceE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21), !noalias !263
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !254
+  %112 = load i64, ptr %22, align 8, !range !5, !noalias !254, !noundef !4
   %113 = icmp eq i64 %112, -9223372036854775798
   br i1 %113, label %"_ZN23all_about_inserts_mysql18explicit_returning28_$u7b$$u7b$closure$u7d$$u7d$17h946f62b3671c05fdE.exit", label %"_ZN23all_about_inserts_mysql18explicit_returning28_$u7b$$u7b$closure$u7d$$u7d$17h946f62b3671c05fdE.exit.thread"
 
 "_ZN23all_about_inserts_mysql18explicit_returning28_$u7b$$u7b$closure$u7d$$u7d$17h946f62b3671c05fdE.exit.thread": ; preds = %106
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sroa.48.0.copyload.i = load i64, ptr %.sroa.48.0..sroa_idx.i, align 8, !noalias !257
+  %.sroa.48.0.copyload.i = load i64, ptr %.sroa.48.0..sroa_idx.i, align 8, !noalias !254
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.312.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.312.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.59.0..sroa_idx.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !257
-  store i64 %112, ptr %36, align 8, !alias.scope !254
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !254
+  store i64 %112, ptr %36, align 8
   %.sroa.211.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %.sroa.48.0.copyload.i, ptr %.sroa.211.0..sroa_idx.i, align 8, !alias.scope !254
+  store i64 %.sroa.48.0.copyload.i, ptr %.sroa.211.0..sroa_idx.i, align 8
   br label %228
 
 "_ZN23all_about_inserts_mysql18explicit_returning28_$u7b$$u7b$closure$u7d$$u7d$17h946f62b3671c05fdE.exit": ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !257
-  %114 = call noundef i64 @"_ZN6diesel10type_impls10primitives13foreign_impls1_99_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..BigInt$GT$$u20$for$u20$i64$GT$13as_expression17h319f5a958ddd30bfE"(i64 noundef 1), !noalias !254
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !254
+  %114 = call noundef i64 @"_ZN6diesel10type_impls10primitives13foreign_impls1_99_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..BigInt$GT$$u20$for$u20$i64$GT$13as_expression17h319f5a958ddd30bfE"(i64 noundef 1), !noalias !263
   call void @_ZN6diesel9query_dsl11RunQueryDsl10get_result17hdafbf22de44579d9E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %36, i64 noundef %114, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %.pr = load i64, ptr %36, align 8
   %115 = icmp eq i64 %.pr, -9223372036854775798
@@ -2509,16 +2508,16 @@ attributes #22 = { nounwind }
 !251 = distinct !{!251, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hdbfa94c8db177262E"}
 !252 = distinct !{!252, !253, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E: argument 0"}
 !253 = distinct !{!253, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E"}
-!254 = !{!255}
+!254 = !{!255, !257}
 !255 = distinct !{!255, !256, !"_ZN23all_about_inserts_mysql18explicit_returning28_$u7b$$u7b$closure$u7d$$u7d$17h946f62b3671c05fdE: argument 0"}
 !256 = distinct !{!256, !"_ZN23all_about_inserts_mysql18explicit_returning28_$u7b$$u7b$closure$u7d$$u7d$17h946f62b3671c05fdE"}
-!257 = !{!255, !258}
-!258 = distinct !{!258, !256, !"_ZN23all_about_inserts_mysql18explicit_returning28_$u7b$$u7b$closure$u7d$$u7d$17h946f62b3671c05fdE: argument 1"}
-!259 = !{!260, !262, !263, !255, !258}
-!260 = distinct !{!260, !261, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h4e1135e0c23c49aaE: argument 0"}
-!261 = distinct !{!261, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h4e1135e0c23c49aaE"}
-!262 = distinct !{!262, !261, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h4e1135e0c23c49aaE: argument 1"}
-!263 = distinct !{!263, !261, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h4e1135e0c23c49aaE: argument 2"}
+!257 = distinct !{!257, !256, !"_ZN23all_about_inserts_mysql18explicit_returning28_$u7b$$u7b$closure$u7d$$u7d$17h946f62b3671c05fdE: argument 1"}
+!258 = !{!259, !261, !262, !255, !257}
+!259 = distinct !{!259, !260, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h4e1135e0c23c49aaE: argument 0"}
+!260 = distinct !{!260, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h4e1135e0c23c49aaE"}
+!261 = distinct !{!261, !260, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h4e1135e0c23c49aaE: argument 1"}
+!262 = distinct !{!262, !260, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h4e1135e0c23c49aaE: argument 2"}
+!263 = !{!255}
 !264 = !{!265, !267}
 !265 = distinct !{!265, !266, !"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE: argument 0"}
 !266 = distinct !{!266, !"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE"}

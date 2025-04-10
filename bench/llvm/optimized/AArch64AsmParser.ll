@@ -18374,8 +18374,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %105 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 268435456, ptr %105, align 8, !tbaa !65
   %106 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  call void @llvm.experimental.noalias.scope.decl(metadata !569)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %106, i64 40, i1 false), !tbaa.struct !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %106, i64 40, i1 false)
   br label %107
 
 107:                                              ; preds = %107, %.lr.ph.i
@@ -18383,16 +18382,16 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %108 = getelementptr inbounds nuw [5 x i64], ptr %16, i64 0, i64 %indvars.iv.i.i
   %109 = load i64, ptr %108, align 8, !tbaa !65, !noalias !569
   %110 = getelementptr inbounds nuw [5 x i64], ptr %15, i64 0, i64 %indvars.iv.i.i
-  %111 = load i64, ptr %110, align 8, !tbaa !65, !alias.scope !569
+  %111 = load i64, ptr %110, align 8
   %112 = or i64 %111, %109
-  store i64 %112, ptr %110, align 8, !tbaa !65, !alias.scope !569
+  store i64 %112, ptr %110, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
   br i1 %.not.i.i, label %_ZNK4llvm13FeatureBitsetorERKS0_.exit, label %107, !llvm.loop !572
 
 113:                                              ; preds = %99
   %114 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %114, i64 40, i1 false), !tbaa.struct !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %114, i64 40, i1 false)
   br label %_ZNK4llvm13FeatureBitsetorERKS0_.exit
 
 _ZNK4llvm13FeatureBitsetorERKS0_.exit:            ; preds = %107, %113

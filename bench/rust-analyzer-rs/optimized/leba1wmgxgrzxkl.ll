@@ -5464,13 +5464,13 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
           cleanup
   store i64 %.sroa.01.0, ptr %17, align 8, !alias.scope !1643, !noalias !1613
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false), !alias.scope !1643
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   resume { ptr, i32 } %29
 
 "_ZN4core6option15Option$LT$T$GT$6insert17h1355d53ad794d760E.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdcf7b889bac065f1E.exit.i.i.i.i.i.i", %"_ZN3ide5hover6render4path28_$u7b$$u7b$closure$u7d$$u7d$17h0f9516706c3df750E.llvm.3835216717863518526.exit"
   store i64 %.sroa.01.0, ptr %17, align 8, !alias.scope !1643, !noalias !1613
   %.sroa.0.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.5.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false), !alias.scope !1643
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.5.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   %30 = icmp ne i64 %.sroa.01.0, -9223372036854775807
   tail call void @llvm.assume(i1 %30)
   %.val.i = load ptr, ptr %15, align 8, !noalias !1644

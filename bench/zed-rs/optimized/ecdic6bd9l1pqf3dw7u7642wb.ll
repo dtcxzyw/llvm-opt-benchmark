@@ -11224,7 +11224,7 @@ define void @_ZN8language6buffer6Buffer12file_updated17h19165689e699cc37E(ptr no
   %.sroa.544.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 %106, ptr %.sroa.544.0..sroa_idx.i, align 8, !alias.scope !1846, !noalias !1850
   %.sroa.645.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.645.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i, i64 39, i1 false), !alias.scope !1846, !noalias !1840
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.645.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i, i64 39, i1 false), !noalias !1840
   %.sroa.746.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i8 %113, ptr %.sroa.746.0..sroa_idx.i, align 8, !alias.scope !1846, !noalias !1850
   %.sroa.847.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 57
@@ -16253,7 +16253,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5155de4c13d080e3E.exit.threa
 
 434:                                              ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5155de4c13d080e3E.exit.thread.i.i.i.i
   store i64 %432, ptr %.sroa.0.i.i.i.i, align 8, !alias.scope !2938, !noalias !2942
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.7.0..sroa_idx29.i.i.i.i, i64 120, i1 false), !alias.scope !2938, !noalias !2829
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.7.0..sroa_idx29.i.i.i.i, i64 120, i1 false), !noalias !2829
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb487d97eed340fa7E.exit.i.i.i.i"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb487d97eed340fa7E.exit.i.i.i.i": ; preds = %434, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5155de4c13d080e3E.exit.thread.i.i.i.i
@@ -17399,7 +17399,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5155de4c13d080e3E.exit.threa
 
 776:                                              ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5155de4c13d080e3E.exit.thread.i.i.i.i243
   store i64 %774, ptr %.sroa.0.i.i.i.i234, align 8, !alias.scope !3211, !noalias !3215
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.7.i.i.i.i235, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.7.0..sroa_idx29.i.i.i.i237, i64 120, i1 false), !alias.scope !3211, !noalias !3102
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.7.i.i.i.i235, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.7.0..sroa_idx29.i.i.i.i237, i64 120, i1 false), !noalias !3102
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb487d97eed340fa7E.exit.i.i.i.i244"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb487d97eed340fa7E.exit.i.i.i.i244": ; preds = %776, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5155de4c13d080e3E.exit.thread.i.i.i.i243

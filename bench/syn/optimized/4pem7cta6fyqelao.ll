@@ -751,9 +751,9 @@ define hidden void @_ZN3syn5group11parse_group17h126c213b77084173E(ptr noalias n
   %..sroa.0.0.copyload.i.i = select i1 %14, i32 0, i32 %.sroa.6.i.i.sroa.0.0.copyload12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.9.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.826, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.9.24..sroa_idx, i64 32, i1 false), !alias.scope !105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.9.24..sroa_idx, i64 32, i1 false)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %..sroa.0.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !107, !noalias !102
+  store i32 %..sroa.0.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !105, !noalias !102
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb353d9c26d6ac42fE.llvm.15435319159651575738.exit"
 
 16:                                               ; preds = %2
@@ -769,18 +769,18 @@ define hidden void @_ZN3syn5group11parse_group17h126c213b77084173E(ptr noalias n
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i.i.sroa.10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.6.i.i.sroa.0.0.copyload12, ptr %17, align 8, !alias.scope !105
+  store i32 %.sroa.6.i.i.sroa.0.0.copyload12, ptr %17, align 8, !alias.scope !107
   %.sroa.8.8..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.6.i.i.sroa.7.0.copyload16, ptr %.sroa.8.8..sroa_idx4, align 4, !alias.scope !105
+  store i32 %.sroa.6.i.i.sroa.7.0.copyload16, ptr %.sroa.8.8..sroa_idx4, align 4, !alias.scope !107
   %.sroa.86.8..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.6.i.i.sroa.8.0.copyload20, ptr %.sroa.86.8..sroa_idx8, align 8, !alias.scope !105
+  store i32 %.sroa.6.i.i.sroa.8.0.copyload20, ptr %.sroa.86.8..sroa_idx8, align 8, !alias.scope !107
   %.sroa.9.8..sroa_idx10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.8..sroa_idx10, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.826, i64 12, i1 false), !alias.scope !105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.8..sroa_idx10, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.826, i64 12, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb353d9c26d6ac42fE.llvm.15435319159651575738.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hb353d9c26d6ac42fE.llvm.15435319159651575738.exit": ; preds = %13, %16
   %.sink.i = phi i64 [ 1, %16 ], [ 0, %13 ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !107, !noalias !102
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !105, !noalias !102
   ret void
 }
 
@@ -12080,9 +12080,9 @@ attributes #17 = { cold noreturn nounwind }
 !102 = !{!103}
 !103 = distinct !{!103, !104, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb353d9c26d6ac42fE.llvm.15435319159651575738: argument 1"}
 !104 = distinct !{!104, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb353d9c26d6ac42fE.llvm.15435319159651575738"}
-!105 = !{!106, !103}
+!105 = !{!106}
 !106 = distinct !{!106, !104, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb353d9c26d6ac42fE.llvm.15435319159651575738: argument 0"}
-!107 = !{!106}
+!107 = !{!106, !103}
 !108 = !{!109}
 !109 = distinct !{!109, !110, !"_ZN3syn5parse11ParseBuffer4step17hcfb449fed2d8c124E: argument 0"}
 !110 = distinct !{!110, !"_ZN3syn5parse11ParseBuffer4step17hcfb449fed2d8c124E"}

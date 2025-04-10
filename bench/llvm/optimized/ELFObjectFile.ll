@@ -44950,7 +44950,7 @@ define linkonce_odr void @_ZN4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endi
   %3 = alloca %"class.llvm::MemoryBufferRef", align 8
   %4 = alloca %"class.llvm::object::ELFFile.149", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !2528
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 16, i1 false), !tbaa.struct !1398
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -54675,7 +54675,7 @@ define linkonce_odr void @_ZN4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endi
   %3 = alloca %"class.llvm::MemoryBufferRef", align 8
   %4 = alloca %"class.llvm::object::ELFFile.162", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !2528
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 16, i1 false), !tbaa.struct !1398
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16

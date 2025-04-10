@@ -301,7 +301,7 @@ define noundef zeroext i1 @"_ZN82_$LT$diesel_migrations..errors..MigrationError$
   %.sroa.0.sroa.524.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %53, ptr %.sroa.0.sroa.524.0..sroa_idx.i.i, align 8, !alias.scope !49, !noalias !53
   %.sroa.0.sroa.625.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8.i.i, i64 39, i1 false), !alias.scope !49, !noalias !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8.i.i, i64 39, i1 false), !noalias !48
   %.sroa.0.sroa.726.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i8 %59, ptr %.sroa.0.sroa.726.0..sroa_idx.i.i, align 8, !alias.scope !49, !noalias !53
   %.sroa.0.sroa.827.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 57

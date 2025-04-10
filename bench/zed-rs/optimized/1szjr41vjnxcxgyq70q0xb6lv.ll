@@ -6753,10 +6753,10 @@ split.i.i:                                        ; preds = %1173, %1169
   br label %1647
 
 1687:                                             ; preds = %1665
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx.i454, i64 7, i1 false), !alias.scope !672, !noalias !631
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx.i454, i64 7, i1 false), !noalias !631
   %.sroa.10.0.copyload.i = load ptr, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !672, !noalias !673
   %.sroa.11.0.copyload.i456 = load i64, ptr %.sroa.11.0..sroa_idx.i455, align 8, !alias.scope !672, !noalias !673
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.641.0..sroa_idx.i, i64 7, i1 false), !alias.scope !672, !noalias !631
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.641.0..sroa_idx.i, i64 7, i1 false), !noalias !631
   %cond.i.i3.i.i = icmp ne i8 %.sroa.030.0.copyload.i, 0
   %1688 = icmp eq i64 %.sroa.8.0.copyload.i, 0
   %or.cond.i457 = select i1 %cond.i.i3.i.i, i1 true, i1 %1688

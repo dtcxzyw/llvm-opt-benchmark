@@ -942,7 +942,7 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724.exit", label %30
 
 30:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.78, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.9, i64 44, i1 false), !alias.scope !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.78, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.9, i64 44, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724.exit": ; preds = %28, %30
@@ -980,20 +980,20 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17he21b38db8396aed1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
 __rust_try.llvm.1622313557807394724.exit:
-  %.val.i = load ptr, ptr %0, align 8, !alias.scope !31, !noundef !4
-  store i64 0, ptr %.val.i, align 8, !noalias !34
+  %.val.i = load ptr, ptr %0, align 8, !alias.scope !27, !noundef !4
+  store i64 0, ptr %.val.i, align 8, !noalias !30
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !34
+  store i8 2, ptr %1, align 1, !noalias !30
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN3std9panicking3try7do_call17h97ad023fecac69deE.llvm.1622313557807394724(ptr noundef readonly captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !11, !noundef !4
-  %.val = load ptr, ptr %2, align 8, !alias.scope !37, !noundef !4
-  store i64 0, ptr %.val, align 8, !noalias !40
+  %.val = load ptr, ptr %2, align 8, !alias.scope !33, !noundef !4
+  store i64 0, ptr %.val, align 8, !noalias !36
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !40
+  store i8 2, ptr %3, align 1, !noalias !36
   ret void
 }
 
@@ -1029,7 +1029,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = load i64, ptr %2, align 8, !alias.scope !43, !noalias !46, !noundef !4
+  %8 = load i64, ptr %2, align 8, !alias.scope !39, !noalias !42, !noundef !4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   br label %13
@@ -1183,25 +1183,21 @@ attributes #12 = { cold noreturn nounwind }
 !24 = !{!25}
 !25 = distinct !{!25, !23, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4989871e5bea53eE.llvm.1622313557807394724: argument 0"}
 !26 = !{!25, !22}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724: argument 0"}
-!29 = distinct !{!29, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724"}
-!30 = distinct !{!30, !29, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724: argument 1"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE: argument 0"}
-!33 = distinct !{!33, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE: argument 0"}
-!36 = distinct !{!36, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE: argument 0"}
-!39 = distinct !{!39, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE: argument 0"}
-!42 = distinct !{!42, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithOffsets$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfa91386e72fcc23fE.llvm.1622313557807394724: argument 1"}
-!45 = distinct !{!45, !"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithOffsets$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfa91386e72fcc23fE.llvm.1622313557807394724"}
-!46 = !{!47, !48}
-!47 = distinct !{!47, !45, !"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithOffsets$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfa91386e72fcc23fE.llvm.1622313557807394724: argument 0"}
-!48 = distinct !{!48, !45, !"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithOffsets$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfa91386e72fcc23fE.llvm.1622313557807394724: argument 2"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE: argument 0"}
+!29 = distinct !{!29, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE: argument 0"}
+!32 = distinct !{!32, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE: argument 0"}
+!35 = distinct !{!35, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE: argument 0"}
+!38 = distinct !{!38, !"_ZN4core3ops8function6FnOnce9call_once17he02620f9417141faE"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithOffsets$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfa91386e72fcc23fE.llvm.1622313557807394724: argument 1"}
+!41 = distinct !{!41, !"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithOffsets$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfa91386e72fcc23fE.llvm.1622313557807394724"}
+!42 = !{!43, !44}
+!43 = distinct !{!43, !41, !"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithOffsets$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfa91386e72fcc23fE.llvm.1622313557807394724: argument 0"}
+!44 = distinct !{!44, !41, !"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithOffsets$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfa91386e72fcc23fE.llvm.1622313557807394724: argument 2"}

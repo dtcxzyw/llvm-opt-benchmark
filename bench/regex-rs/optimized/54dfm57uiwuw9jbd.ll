@@ -1334,8 +1334,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 32
   %17 = add nuw nsw i64 %.sroa.7.053, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !295)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
-  %18 = load i32, ptr %.sroa.015.055, align 8, !range !300, !alias.scope !298, !noalias !295, !noundef !13
+  %18 = load i32, ptr %.sroa.015.055, align 8, !range !298, !alias.scope !295, !noalias !299, !noundef !13
   switch i32 %18, label %default.unreachable [
     i32 0, label %19
     i32 1, label %22
@@ -1354,14 +1353,14 @@ default.unreachable:                              ; preds = %15
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 4
-  %21 = load i32, ptr %20, align 4, !alias.scope !298, !noalias !295, !noundef !13
-  store i32 %21, ptr %.sroa.417, align 8, !alias.scope !295
+  %21 = load i32, ptr %20, align 4, !alias.scope !295, !noalias !299, !noundef !13
+  store i32 %21, ptr %.sroa.417, align 8
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 4
-  %24 = load i64, ptr %23, align 4, !alias.scope !298, !noalias !295
-  store i64 %24, ptr %.sroa.417, align 8, !alias.scope !295
+  %24 = load i64, ptr %23, align 4, !alias.scope !295, !noalias !299
+  store i64 %24, ptr %.sroa.417, align 8
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 25:                                               ; preds = %15
@@ -1380,40 +1379,40 @@ default.unreachable:                              ; preds = %15
   tail call void @llvm.assume(i1 %33)
   %34 = shl i64 %29, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull readonly align 4 %28, i64 %34, i1 false), !noalias !307
-  store i64 %31, ptr %.sroa.417.4..sroa_idx77, align 4, !alias.scope !295
+  store i64 %31, ptr %.sroa.417.4..sroa_idx77, align 4
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 35:                                               ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 8
-  %37 = load i32, ptr %36, align 8, !range !310, !alias.scope !298, !noalias !295, !noundef !13
+  %37 = load i32, ptr %36, align 8, !range !310, !alias.scope !295, !noalias !299, !noundef !13
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 4
-  %39 = load i32, ptr %38, align 4, !alias.scope !298, !noalias !295, !noundef !13
-  store i32 %37, ptr %.sroa.417.4..sroa_idx80, align 4, !alias.scope !295
-  store i32 %39, ptr %.sroa.417, align 8, !alias.scope !295
+  %39 = load i32, ptr %38, align 4, !alias.scope !295, !noalias !299, !noundef !13
+  store i32 %37, ptr %.sroa.417.4..sroa_idx80, align 4
+  store i32 %39, ptr %.sroa.417, align 8
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 40:                                               ; preds = %15
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 4
-  %42 = load i32, ptr %41, align 4, !alias.scope !298, !noalias !295, !noundef !13
+  %42 = load i32, ptr %41, align 4, !alias.scope !295, !noalias !299, !noundef !13
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 8
-  %44 = load i32, ptr %43, align 8, !alias.scope !298, !noalias !295, !noundef !13
+  %44 = load i32, ptr %43, align 8, !alias.scope !295, !noalias !299, !noundef !13
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 12
-  %46 = load i32, ptr %45, align 4, !alias.scope !298, !noalias !295, !noundef !13
-  store i32 %42, ptr %.sroa.417, align 8, !alias.scope !295
-  store i32 %44, ptr %.sroa.417.4..sroa_idx79, align 4, !alias.scope !295
-  store i32 %46, ptr %.sroa.417.8..sroa_idx81, align 8, !alias.scope !295
+  %46 = load i32, ptr %45, align 4, !alias.scope !295, !noalias !299, !noundef !13
+  store i32 %42, ptr %.sroa.417, align 8
+  store i32 %44, ptr %.sroa.417.4..sroa_idx79, align 4
+  store i32 %46, ptr %.sroa.417.8..sroa_idx81, align 8
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 47:                                               ; preds = %15
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 4
-  %49 = load i32, ptr %48, align 4, !alias.scope !298, !noalias !295, !noundef !13
+  %49 = load i32, ptr %48, align 4, !alias.scope !295, !noalias !299, !noundef !13
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 8
-  %51 = load i32, ptr %50, align 8, !alias.scope !298, !noalias !295, !noundef !13
+  %51 = load i32, ptr %50, align 8, !alias.scope !295, !noalias !299, !noundef !13
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 12
-  %53 = load i32, ptr %52, align 4, !alias.scope !298, !noalias !295, !noundef !13
-  store i32 %49, ptr %.sroa.417, align 8, !alias.scope !295
-  store i32 %51, ptr %.sroa.417.4..sroa_idx78, align 4, !alias.scope !295
-  store i32 %53, ptr %.sroa.417.8..sroa_idx, align 8, !alias.scope !295
+  %53 = load i32, ptr %52, align 4, !alias.scope !295, !noalias !299, !noundef !13
+  store i32 %49, ptr %.sroa.417, align 8
+  store i32 %51, ptr %.sroa.417.4..sroa_idx78, align 4
+  store i32 %53, ptr %.sroa.417.8..sroa_idx, align 8
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 54:                                               ; preds = %15
@@ -1432,7 +1431,7 @@ default.unreachable:                              ; preds = %15
   tail call void @llvm.assume(i1 %62)
   %63 = shl i64 %58, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %61, ptr nonnull readonly align 4 %57, i64 %63, i1 false), !noalias !317
-  store i64 %60, ptr %.sroa.417.4..sroa_idx76, align 4, !alias.scope !295
+  store i64 %60, ptr %.sroa.417.4..sroa_idx76, align 4
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 64:                                               ; preds = %15
@@ -1451,13 +1450,13 @@ default.unreachable:                              ; preds = %15
   tail call void @llvm.assume(i1 %72)
   %73 = shl i64 %68, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %71, ptr nonnull readonly align 4 %67, i64 %73, i1 false), !noalias !326
-  store i64 %70, ptr %.sroa.417.4..sroa_idx75, align 4, !alias.scope !295
+  store i64 %70, ptr %.sroa.417.4..sroa_idx75, align 4
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 74:                                               ; preds = %15
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.015.055, i64 4
-  %76 = load i32, ptr %75, align 4, !alias.scope !298, !noalias !295, !noundef !13
-  store i32 %76, ptr %.sroa.417, align 8, !alias.scope !295
+  %76 = load i32, ptr %75, align 4, !alias.scope !295, !noalias !299, !noundef !13
+  store i32 %76, ptr %.sroa.417, align 8
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 "_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit": ; preds = %74, %.noexc14, %.noexc13, %47, %40, %35, %.noexc, %22, %19, %15
@@ -6955,37 +6954,37 @@ attributes #20 = { noreturn }
 !293 = distinct !{!293, !294, !"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h5da65d6abf342dd8E: argument 0"}
 !294 = distinct !{!294, !"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h5da65d6abf342dd8E"}
 !295 = !{!296}
-!296 = distinct !{!296, !297, !"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E: argument 0"}
+!296 = distinct !{!296, !297, !"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E: argument 1"}
 !297 = distinct !{!297, !"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E"}
-!298 = !{!299}
-!299 = distinct !{!299, !297, !"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E: argument 1"}
-!300 = !{i32 0, i32 10}
+!298 = !{i32 0, i32 10}
+!299 = !{!300}
+!300 = distinct !{!300, !297, !"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E: argument 0"}
 !301 = !{!302}
 !302 = distinct !{!302, !303, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2b95045d5ac36ab3E: argument 1"}
 !303 = distinct !{!303, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2b95045d5ac36ab3E"}
-!304 = !{!302, !299}
-!305 = !{!306, !296}
+!304 = !{!302, !296}
+!305 = !{!306, !300}
 !306 = distinct !{!306, !303, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2b95045d5ac36ab3E: argument 0"}
-!307 = !{!308, !306, !302, !296, !299}
+!307 = !{!308, !306, !302, !300, !296}
 !308 = distinct !{!308, !309, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3afb4dd7f11084cE.llvm.3371294817895845771: argument 0"}
 !309 = distinct !{!309, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3afb4dd7f11084cE.llvm.3371294817895845771"}
 !310 = !{i32 1, i32 131073}
 !311 = !{!312}
 !312 = distinct !{!312, !313, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h08e0b074b978b7e7E: argument 1"}
 !313 = distinct !{!313, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h08e0b074b978b7e7E"}
-!314 = !{!312, !299}
-!315 = !{!316, !296}
+!314 = !{!312, !296}
+!315 = !{!316, !300}
 !316 = distinct !{!316, !313, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h08e0b074b978b7e7E: argument 0"}
-!317 = !{!318, !316, !312, !296, !299}
+!317 = !{!318, !316, !312, !300, !296}
 !318 = distinct !{!318, !319, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc71b74cc1cdb9a02E.llvm.3371294817895845771: argument 0"}
 !319 = distinct !{!319, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc71b74cc1cdb9a02E.llvm.3371294817895845771"}
 !320 = !{!321}
 !321 = distinct !{!321, !322, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h08e0b074b978b7e7E: argument 1"}
 !322 = distinct !{!322, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h08e0b074b978b7e7E"}
-!323 = !{!321, !299}
-!324 = !{!325, !296}
+!323 = !{!321, !296}
+!324 = !{!325, !300}
 !325 = distinct !{!325, !322, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h08e0b074b978b7e7E: argument 0"}
-!326 = !{!327, !325, !321, !296, !299}
+!326 = !{!327, !325, !321, !300, !296}
 !327 = distinct !{!327, !328, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc71b74cc1cdb9a02E.llvm.3371294817895845771: argument 0"}
 !328 = distinct !{!328, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc71b74cc1cdb9a02E.llvm.3371294817895845771"}
 !329 = !{!330}

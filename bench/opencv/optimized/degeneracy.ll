@@ -13287,7 +13287,7 @@ _ZNK2cv8internal14Matx_FastInvOpIdLi3ELi3EEclERKNS_4MatxIdLi3ELi3EEERS4_i.exit: 
 
 .critedge.i.i80:                                  ; preds = %252
   %251 = getelementptr inbounds nuw [3 x double], ptr %8, i64 0, i64 %indvars.iv23.i.i75
-  store double %258, ptr %251, align 8, !tbaa !3
+  store double %258, ptr %251, align 8
   %indvars.iv.next24.i.i81 = add nuw nsw i64 %indvars.iv23.i.i75, 1
   %exitcond26.not.i.i82 = icmp eq i64 %indvars.iv.next24.i.i81, 3
   br i1 %exitcond26.not.i.i82, label %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit83, label %.preheader.i.i74, !llvm.loop !389
@@ -13319,7 +13319,7 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
 .preheader.i.i84:                                 ; preds = %.preheader.i.i84, %.preheader19.i.i
   %indvars.iv.i.i85 = phi i64 [ 0, %.preheader19.i.i ], [ %indvars.iv.next.i.i86, %.preheader.i.i84 ]
   %262 = getelementptr inbounds nuw [3 x double], ptr %8, i64 0, i64 %indvars.iv.i.i85
-  %263 = load double, ptr %262, align 8, !tbaa !3
+  %263 = load double, ptr %262, align 8
   %264 = tail call double @llvm.fmuladd.f64(double %261, double %263, double 0.000000e+00)
   %265 = add nuw nsw i64 %indvars.iv.i.i85, %260
   %266 = getelementptr inbounds nuw [9 x double], ptr %26, i64 0, i64 %265

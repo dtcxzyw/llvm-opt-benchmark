@@ -2126,9 +2126,9 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %536 = call double @llvm.fmuladd.f64(double %517, double %530, double %535)
   %537 = fdiv double %536, %526
   %538 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %14, i64 0, i64 %indvars.iv452.i
-  store double %534, ptr %538, align 8, !tbaa !23
+  store double %534, ptr %538, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %538, i64 8
-  store double %537, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !23
+  store double %537, ptr %.sroa.5.0..sroa_idx.i, align 8
   %exitcond455.not.i = icmp eq i64 %indvars.iv.next453.i, 4
   br i1 %exitcond455.not.i, label %.split.us.i, label %512, !llvm.loop !88
 

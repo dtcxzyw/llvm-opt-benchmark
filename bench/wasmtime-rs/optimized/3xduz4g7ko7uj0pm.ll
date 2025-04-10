@@ -4769,7 +4769,7 @@ select.unfold.i.i:                                ; preds = %104, %87
   %.sroa.3.sroa.4.4..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %.sroa.5.0.i.i, ptr %.sroa.3.sroa.4.4..sroa_idx, align 8, !alias.scope !1292
   %.sroa.3.sroa.5.4..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.sroa.5.4..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.i.i, i64 12, i1 false), !alias.scope !1292
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.sroa.5.4..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.i.i, i64 12, i1 false)
   %.sroa.3.sroa.6.4..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 %131, ptr %.sroa.3.sroa.6.4..sroa_idx, align 8, !alias.scope !1292
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 40

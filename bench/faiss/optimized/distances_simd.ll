@@ -2118,13 +2118,13 @@ _ZN5faiss12_GLOBAL__N_116pq2_8cents_tableILb1EEEvPKNS_12simd8float32ES2_Pfmm.exi
   %298 = load float, ptr %297, align 4, !tbaa !4
   %299 = or disjoint i64 %.063107.us.us, 1
   %300 = getelementptr inbounds nuw [8 x float], ptr %23, i64 0, i64 %.063107.us.us
-  store float %298, ptr %300, align 8, !tbaa !4
+  store float %298, ptr %300, align 8
   %301 = or disjoint i64 %.062108.us.us, 1
   %302 = getelementptr inbounds nuw float, ptr %2, i64 %301
   %303 = load float, ptr %302, align 4, !tbaa !4
   %304 = add nuw nsw i64 %.063107.us.us, 2
   %305 = getelementptr inbounds nuw [8 x float], ptr %23, i64 0, i64 %299
-  store float %303, ptr %305, align 4, !tbaa !4
+  store float %303, ptr %305, align 4
   %306 = add i64 %.062108.us.us, %27
   %307 = add nsw i32 %.061109.us.us, 1
   %exitcond136.not = icmp eq i32 %307, %104

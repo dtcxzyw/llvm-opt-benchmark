@@ -21238,7 +21238,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   ret void
 
 29:                                               ; preds = %26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5883)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h5ea99bc4fcba1a0fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.015.024)
           to label %30 unwind label %39
 
@@ -21246,8 +21245,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %31 = add nuw nsw i64 %.sroa.7.023, 1
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 24
-  %34 = load double, ptr %33, align 8, !alias.scope !5886, !noalias !5883, !noundef !13
-  store double %34, ptr %25, align 8, !alias.scope !5883
+  %34 = load double, ptr %33, align 8, !alias.scope !5883, !noalias !5888, !noundef !13
+  store double %34, ptr %25, align 8
   %35 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %18, i64 0, i64 %.sroa.7.023
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %36 = icmp eq i64 %27, 0
@@ -43438,13 +43437,13 @@ attributes #34 = { nounwind }
 !5880 = !{!5881}
 !5881 = distinct !{!5881, !5882, !"_ZN5alloc7raw_vec14handle_reserve17hb232081ba50aa8d3E: argument 0"}
 !5882 = distinct !{!5882, !"_ZN5alloc7raw_vec14handle_reserve17hb232081ba50aa8d3E"}
-!5883 = !{!5884}
-!5884 = distinct !{!5884, !5885, !"_ZN4core5clone5Clone5clone17hf069e6fe2cb02d04E: argument 0"}
-!5885 = distinct !{!5885, !"_ZN4core5clone5Clone5clone17hf069e6fe2cb02d04E"}
-!5886 = !{!5887, !5889}
-!5887 = distinct !{!5887, !5888, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hedddb0da059855e1E: argument 0"}
-!5888 = distinct !{!5888, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hedddb0da059855e1E"}
-!5889 = distinct !{!5889, !5885, !"_ZN4core5clone5Clone5clone17hf069e6fe2cb02d04E: argument 1"}
+!5883 = !{!5884, !5886}
+!5884 = distinct !{!5884, !5885, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hedddb0da059855e1E: argument 0"}
+!5885 = distinct !{!5885, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hedddb0da059855e1E"}
+!5886 = distinct !{!5886, !5887, !"_ZN4core5clone5Clone5clone17hf069e6fe2cb02d04E: argument 1"}
+!5887 = distinct !{!5887, !"_ZN4core5clone5Clone5clone17hf069e6fe2cb02d04E"}
+!5888 = !{!5889}
+!5889 = distinct !{!5889, !5887, !"_ZN4core5clone5Clone5clone17hf069e6fe2cb02d04E: argument 0"}
 !5890 = !{!5891}
 !5891 = distinct !{!5891, !5892, !"_ZN5alloc7raw_vec14handle_reserve17he7d578cf291a4dacE: argument 0"}
 !5892 = distinct !{!5892, !"_ZN5alloc7raw_vec14handle_reserve17he7d578cf291a4dacE"}

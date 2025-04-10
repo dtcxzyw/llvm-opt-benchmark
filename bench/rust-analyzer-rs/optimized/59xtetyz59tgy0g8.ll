@@ -31457,32 +31457,30 @@ define hidden { i64, ptr } @_ZN3hir11diagnostics13AnyDiagnostic20inference_diagn
 135:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
   call void @_ZN7hir_def4body13BodySourceMap12field_syntax17h272cab712dd8a5a7E(ptr noalias noundef nonnull sret({ i32, { { { i32, i32 }, i16, [1 x i16] }, {} } }) align 4 captures(none) dereferenceable(16) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(336) %5, i32 noundef %52)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10533)
-  %136 = load i32, ptr %43, align 4, !alias.scope !10536, !noalias !10533, !noundef !212
+  %136 = load i32, ptr %43, align 4, !alias.scope !10533, !noalias !10536, !noundef !212
   %137 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.3, ptr noundef nonnull align 4 dereferenceable(12) %137, i64 12, i1 false), !alias.scope !10538
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.3, ptr noundef nonnull align 4 dereferenceable(12) %137, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
   br label %141
 
 138:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
   call void @_ZN7hir_def4body13BodySourceMap16pat_field_syntax17h55f37d2aba562b7dE(ptr noalias noundef nonnull sret({ i32, { { { i32, i32 }, i16, [1 x i16] }, {} } }) align 4 captures(none) dereferenceable(16) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(336) %5, i32 noundef %52)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10539)
-  %139 = load i32, ptr %42, align 4, !alias.scope !10542, !noalias !10539, !noundef !212
+  %139 = load i32, ptr %42, align 4, !alias.scope !10538, !noalias !10541, !noundef !212
   %140 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.3, ptr noundef nonnull align 4 dereferenceable(12) %140, i64 12, i1 false), !alias.scope !10544
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.3, ptr noundef nonnull align 4 dereferenceable(12) %140, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
   br label %141
 
 141:                                              ; preds = %138, %135
   %.sroa.0388.0 = phi i32 [ %136, %135 ], [ %139, %138 ]
-  %142 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10545
-  %143 = tail call noundef align 4 dereferenceable_or_null(20) ptr @__rust_alloc(i64 noundef 20, i64 noundef 4) #38, !noalias !10545
+  %142 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10543
+  %143 = tail call noundef align 4 dereferenceable_or_null(20) ptr @__rust_alloc(i64 noundef 20, i64 noundef 4) #38, !noalias !10543
   %144 = icmp eq ptr %143, null
   br i1 %144, label %145, label %"_ZN108_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..NoSuchField$GT$$GT$4from17h7239ae898032ea53E.exit"
 
 145:                                              ; preds = %141
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 20) #35, !noalias !10545
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 20) #35, !noalias !10543
   unreachable
 
 "_ZN108_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..NoSuchField$GT$$GT$4from17h7239ae898032ea53E.exit": ; preds = %141
@@ -31501,13 +31499,13 @@ switch.lookup:                                    ; preds = %55
   %146 = sext i32 %.sroa.0392.0.copyload to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @"switch.table._ZN83_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$6to_def17he8b192c24241a002E", i64 0, i64 %146
   %switch.load = load i32, ptr %switch.gep, align 4
-  %147 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10550
-  %148 = tail call noundef align 4 dereferenceable_or_null(28) ptr @__rust_alloc(i64 noundef 28, i64 noundef 4) #38, !noalias !10550
+  %147 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10548
+  %148 = tail call noundef align 4 dereferenceable_or_null(28) ptr @__rust_alloc(i64 noundef 28, i64 noundef 4) #38, !noalias !10548
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %"_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateField$GT$$GT$4from17hfd45bfe6b3489427E.exit"
 
 150:                                              ; preds = %switch.lookup
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 28) #35, !noalias !10550
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 28) #35, !noalias !10548
   unreachable
 
 "_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateField$GT$$GT$4from17hfd45bfe6b3489427E.exit": ; preds = %switch.lookup
@@ -31568,13 +31566,13 @@ switch.lookup:                                    ; preds = %55
   %.sroa.5414.0 = phi i16 [ %154, %160 ], [ %158, %167 ]
   %.sroa.3413.0 = phi i64 [ %.sroa.0268.sroa.4.0.copyload, %160 ], [ %.sroa.0265.sroa.4.0.copyload, %167 ]
   %.sroa.0412.0 = phi i32 [ %.sroa.0268.sroa.0.0.copyload, %160 ], [ %.sroa.0265.sroa.0.0.copyload, %167 ]
-  %163 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10555
-  %164 = tail call noundef align 4 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 4) #38, !noalias !10555
+  %163 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10553
+  %164 = tail call noundef align 4 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 4) #38, !noalias !10553
   %165 = icmp eq ptr %164, null
   br i1 %165, label %166, label %"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateAssocItem$GT$$GT$4from17h82ec06764d803d2fE.exit"
 
 166:                                              ; preds = %162
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 24) #35, !noalias !10555
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 24) #35, !noalias !10553
   unreachable
 
 "_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateAssocItem$GT$$GT$4from17h82ec06764d803d2fE.exit": ; preds = %162
@@ -31612,16 +31610,16 @@ switch.lookup:                                    ; preds = %55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39)
   %170 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10560)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10563)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10558)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10561)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6.i)
-  %171 = load i8, ptr %170, align 8, !range !7412, !alias.scope !10563, !noalias !10560, !noundef !212
+  %171 = load i8, ptr %170, align 8, !range !7412, !alias.scope !10561, !noalias !10558, !noundef !212
   %172 = icmp eq i8 %171, 26
   br i1 %172, label %190, label %173
 
 173:                                              ; preds = %169
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10565)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10568)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10563)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10566)
   %174 = add nsw i8 %171, -24
   %narrow.i.i = tail call i8 @llvm.umin.i8(i8 %174, i8 2)
   switch i8 %narrow.i.i, label %default.unreachable [
@@ -31635,10 +31633,10 @@ default.unreachable:                              ; preds = %225, %173
 
 175:                                              ; preds = %173
   %176 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.val.i.i = load ptr, ptr %176, align 8, !alias.scope !10570, !noalias !10571, !nonnull !212, !noundef !212
+  %.val.i.i = load ptr, ptr %176, align 8, !alias.scope !10568, !noalias !10569, !nonnull !212, !noundef !212
   %177 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.val1.i.i = load i64, ptr %177, align 8, !alias.scope !10570, !noalias !10571
-  %178 = atomicrmw add ptr %.val.i.i, i64 1 monotonic, align 8, !noalias !10572
+  %.val1.i.i = load i64, ptr %177, align 8, !alias.scope !10568, !noalias !10569
+  %178 = atomicrmw add ptr %.val.i.i, i64 1 monotonic, align 8, !noalias !10570
   %179 = icmp slt i64 %178, 0
   br i1 %179, label %180, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05c8c72edfb52aeeE.exit.i.i"
 
@@ -31652,42 +31650,42 @@ default.unreachable:                              ; preds = %225, %173
 
 182:                                              ; preds = %173
   %183 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %184 = load ptr, ptr %183, align 8, !alias.scope !10570, !noalias !10571, !nonnull !212, !align !384, !noundef !212
+  %184 = load ptr, ptr %183, align 8, !alias.scope !10568, !noalias !10569, !nonnull !212, !align !384, !noundef !212
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %186 = load i64, ptr %185, align 8, !alias.scope !10570, !noalias !10571, !noundef !212
+  %186 = load i64, ptr %185, align 8, !alias.scope !10568, !noalias !10569, !noundef !212
   %187 = ptrtoint ptr %184 to i64
   br label %"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.exit"
 
 188:                                              ; preds = %173
   %189 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %189, i64 7, i1 false), !alias.scope !10573, !noalias !10560
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %189, i64 7, i1 false), !noalias !10558
   %.sroa.8.1..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.8.1.copyload.i = load i64, ptr %.sroa.8.1..sroa_idx.i, align 8, !alias.scope !10574, !noalias !10560
+  %.sroa.8.1.copyload.i = load i64, ptr %.sroa.8.1..sroa_idx.i, align 8, !alias.scope !10571, !noalias !10558
   %.sroa.11.1..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.11.1.copyload.i = load i64, ptr %.sroa.11.1..sroa_idx.i, align 8, !alias.scope !10574, !noalias !10560
+  %.sroa.11.1.copyload.i = load i64, ptr %.sroa.11.1..sroa_idx.i, align 8, !alias.scope !10571, !noalias !10558
   br label %"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.exit"
 
 190:                                              ; preds = %169
   %191 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %192 = load i64, ptr %191, align 8, !alias.scope !10563, !noalias !10560, !noundef !212
+  %192 = load i64, ptr %191, align 8, !alias.scope !10561, !noalias !10558, !noundef !212
   br label %"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.exit"
 
 "_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05c8c72edfb52aeeE.exit.i.i", %182, %188, %190
   %.sroa.6.0.i = phi i64 [ undef, %190 ], [ %.sroa.11.1.copyload.i, %188 ], [ %186, %182 ], [ %.val1.i.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05c8c72edfb52aeeE.exit.i.i" ]
   %.sroa.53.0.i = phi i64 [ %192, %190 ], [ %.sroa.8.1.copyload.i, %188 ], [ %187, %182 ], [ %181, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05c8c72edfb52aeeE.exit.i.i" ]
   %.sroa.0.0.i = phi i8 [ 26, %190 ], [ %171, %188 ], [ 25, %182 ], [ 24, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05c8c72edfb52aeeE.exit.i.i" ]
-  store i8 %.sroa.0.0.i, ptr %39, align 8, !alias.scope !10560, !noalias !10563
+  store i8 %.sroa.0.0.i, ptr %39, align 8, !alias.scope !10558, !noalias !10561
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %39, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx2.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i, i64 7, i1 false), !noalias !10563
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx2.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i, i64 7, i1 false), !noalias !10561
   %.sroa.53.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i64 %.sroa.53.0.i, ptr %.sroa.53.0..sroa_idx4.i, align 8, !alias.scope !10560, !noalias !10563
+  store i64 %.sroa.53.0.i, ptr %.sroa.53.0..sroa_idx4.i, align 8, !alias.scope !10558, !noalias !10561
   %.sroa.6.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store i64 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx6.i, align 8, !alias.scope !10560, !noalias !10563
+  store i64 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx6.i, align 8, !alias.scope !10558, !noalias !10561
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6.i)
   %193 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10575)
-  %194 = load ptr, ptr %193, align 8, !alias.scope !10575, !nonnull !212, !noundef !212
-  %195 = atomicrmw add ptr %194, i64 1 monotonic, align 8, !noalias !10575
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10572)
+  %194 = load ptr, ptr %193, align 8, !alias.scope !10572, !nonnull !212, !noundef !212
+  %195 = atomicrmw add ptr %194, i64 1 monotonic, align 8, !noalias !10572
   %196 = icmp slt i64 %195, 0
   br i1 %196, label %197, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit"
 
@@ -31731,14 +31729,14 @@ default.unreachable:                              ; preds = %225, %173
   %210 = getelementptr inbounds nuw i8, ptr %40, i64 56
   store i8 %206, ptr %210, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39)
-  %211 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10578
-  %212 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #38, !noalias !10578
+  %211 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10575
+  %212 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #38, !noalias !10575
   %213 = icmp eq ptr %212, null
   br i1 %213, label %214, label %"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedField$GT$$GT$4from17hfcedf1611a1f9102E.exit"
 
 214:                                              ; preds = %202
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #35
-          to label %.noexc.i unwind label %215, !noalias !10583
+          to label %.noexc.i unwind label %215, !noalias !10580
 
 .noexc.i:                                         ; preds = %214
   unreachable
@@ -31778,16 +31776,16 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37)
   %222 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10581)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10584)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10587)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6.i362)
-  %223 = load i8, ptr %222, align 8, !range !7412, !alias.scope !10587, !noalias !10584, !noundef !212
+  %223 = load i8, ptr %222, align 8, !range !7412, !alias.scope !10584, !noalias !10581, !noundef !212
   %224 = icmp eq i8 %223, 26
   br i1 %224, label %242, label %225
 
 225:                                              ; preds = %221
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10586)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10589)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10592)
   %226 = add nsw i8 %223, -24
   %narrow.i.i363 = tail call i8 @llvm.umin.i8(i8 %226, i8 2)
   switch i8 %narrow.i.i363, label %default.unreachable [
@@ -31798,10 +31796,10 @@ common.resume:                                    ; preds = %377, %357, %282, %1
 
 227:                                              ; preds = %225
   %228 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.val.i.i374 = load ptr, ptr %228, align 8, !alias.scope !10594, !noalias !10595, !nonnull !212, !noundef !212
+  %.val.i.i374 = load ptr, ptr %228, align 8, !alias.scope !10591, !noalias !10592, !nonnull !212, !noundef !212
   %229 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.val1.i.i375 = load i64, ptr %229, align 8, !alias.scope !10594, !noalias !10595
-  %230 = atomicrmw add ptr %.val.i.i374, i64 1 monotonic, align 8, !noalias !10596
+  %.val1.i.i375 = load i64, ptr %229, align 8, !alias.scope !10591, !noalias !10592
+  %230 = atomicrmw add ptr %.val.i.i374, i64 1 monotonic, align 8, !noalias !10593
   %231 = icmp slt i64 %230, 0
   br i1 %231, label %232, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05c8c72edfb52aeeE.exit.i.i376"
 
@@ -31815,43 +31813,43 @@ common.resume:                                    ; preds = %377, %357, %282, %1
 
 234:                                              ; preds = %225
   %235 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %236 = load ptr, ptr %235, align 8, !alias.scope !10594, !noalias !10595, !nonnull !212, !align !384, !noundef !212
+  %236 = load ptr, ptr %235, align 8, !alias.scope !10591, !noalias !10592, !nonnull !212, !align !384, !noundef !212
   %237 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %238 = load i64, ptr %237, align 8, !alias.scope !10594, !noalias !10595, !noundef !212
+  %238 = load i64, ptr %237, align 8, !alias.scope !10591, !noalias !10592, !noundef !212
   %239 = ptrtoint ptr %236 to i64
   br label %"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.exit378"
 
 240:                                              ; preds = %225
   %241 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i362, ptr noundef nonnull readonly align 1 dereferenceable(7) %241, i64 7, i1 false), !alias.scope !10597, !noalias !10584
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i362, ptr noundef nonnull readonly align 1 dereferenceable(7) %241, i64 7, i1 false), !noalias !10581
   %.sroa.8.1..sroa_idx.i364 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.8.1.copyload.i365 = load i64, ptr %.sroa.8.1..sroa_idx.i364, align 8, !alias.scope !10598, !noalias !10584
+  %.sroa.8.1.copyload.i365 = load i64, ptr %.sroa.8.1..sroa_idx.i364, align 8, !alias.scope !10594, !noalias !10581
   %.sroa.11.1..sroa_idx.i366 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.11.1.copyload.i367 = load i64, ptr %.sroa.11.1..sroa_idx.i366, align 8, !alias.scope !10598, !noalias !10584
+  %.sroa.11.1.copyload.i367 = load i64, ptr %.sroa.11.1..sroa_idx.i366, align 8, !alias.scope !10594, !noalias !10581
   br label %"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.exit378"
 
 242:                                              ; preds = %221
   %243 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %244 = load i64, ptr %243, align 8, !alias.scope !10587, !noalias !10584, !noundef !212
+  %244 = load i64, ptr %243, align 8, !alias.scope !10584, !noalias !10581, !noundef !212
   br label %"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.exit378"
 
 "_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.exit378": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05c8c72edfb52aeeE.exit.i.i376", %234, %240, %242
   %.sroa.6.0.i368 = phi i64 [ undef, %242 ], [ %.sroa.11.1.copyload.i367, %240 ], [ %238, %234 ], [ %.val1.i.i375, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05c8c72edfb52aeeE.exit.i.i376" ]
   %.sroa.53.0.i369 = phi i64 [ %244, %242 ], [ %.sroa.8.1.copyload.i365, %240 ], [ %239, %234 ], [ %233, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05c8c72edfb52aeeE.exit.i.i376" ]
   %.sroa.0.0.i370 = phi i8 [ 26, %242 ], [ %223, %240 ], [ 25, %234 ], [ 24, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h05c8c72edfb52aeeE.exit.i.i376" ]
-  store i8 %.sroa.0.0.i370, ptr %37, align 8, !alias.scope !10584, !noalias !10587
+  store i8 %.sroa.0.0.i370, ptr %37, align 8, !alias.scope !10581, !noalias !10584
   %.sroa.5.0..sroa_idx2.i371 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx2.i371, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i362, i64 7, i1 false), !noalias !10587
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx2.i371, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i362, i64 7, i1 false), !noalias !10584
   %.sroa.53.0..sroa_idx4.i372 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 %.sroa.53.0.i369, ptr %.sroa.53.0..sroa_idx4.i372, align 8, !alias.scope !10584, !noalias !10587
+  store i64 %.sroa.53.0.i369, ptr %.sroa.53.0..sroa_idx4.i372, align 8, !alias.scope !10581, !noalias !10584
   %.sroa.6.0..sroa_idx6.i373 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i64 %.sroa.6.0.i368, ptr %.sroa.6.0..sroa_idx6.i373, align 8, !alias.scope !10584, !noalias !10587
+  store i64 %.sroa.6.0.i368, ptr %.sroa.6.0..sroa_idx6.i373, align 8, !alias.scope !10581, !noalias !10584
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6.i362)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
   %245 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10599)
-  %246 = load ptr, ptr %245, align 8, !alias.scope !10599, !nonnull !212, !noundef !212
-  %247 = atomicrmw add ptr %246, i64 1 monotonic, align 8, !noalias !10599
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10595)
+  %246 = load ptr, ptr %245, align 8, !alias.scope !10595, !nonnull !212, !noundef !212
+  %247 = atomicrmw add ptr %246, i64 1 monotonic, align 8, !noalias !10595
   %248 = icmp slt i64 %247, 0
   br i1 %248, label %249, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit380"
 
@@ -31892,7 +31890,7 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   br i1 %261, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit382.thread", label %262
 
 262:                                              ; preds = %255
-  %263 = atomicrmw add ptr %260, i64 1 monotonic, align 8, !noalias !10602
+  %263 = atomicrmw add ptr %260, i64 1 monotonic, align 8, !noalias !10598
   %264 = icmp slt i64 %263, 0
   br i1 %264, label %265, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit382"
 
@@ -31939,14 +31937,14 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   store i32 %270, ptr %277, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
-  %278 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10605
-  %279 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #38, !noalias !10605
+  %278 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10601
+  %279 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #38, !noalias !10601
   %280 = icmp eq ptr %279, null
   br i1 %280, label %281, label %"_ZN117_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedMethodCall$GT$$GT$4from17hc5472e25cac80b10E.exit"
 
 281:                                              ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit382.thread"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 80) #35
-          to label %.noexc.i383 unwind label %282, !noalias !10610
+          to label %.noexc.i383 unwind label %282, !noalias !10606
 
 .noexc.i383:                                      ; preds = %281
   unreachable
@@ -32013,13 +32011,13 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   %.sroa.3426.0 = phi i64 [ %.sroa.0299.sroa.4.0.copyload, %297 ], [ %.sroa.0296.sroa.4.0.copyload, %304 ]
   %.sroa.5427.0 = phi i16 [ %291, %297 ], [ %295, %304 ]
   %.sroa.7428.0 = phi i16 [ %.sroa.5301.0.copyload, %297 ], [ %.sroa.5298.0.copyload, %304 ]
-  %300 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10611
-  %301 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !10611
+  %300 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10607
+  %301 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !10607
   %302 = icmp eq ptr %301, null
   br i1 %302, label %303, label %"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedAssocItem$GT$$GT$4from17h744c6965c9d4d955E.exit"
 
 303:                                              ; preds = %299
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !10611
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !10607
   unreachable
 
 "_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedAssocItem$GT$$GT$4from17h744c6965c9d4d955E.exit": ; preds = %299
@@ -32051,13 +32049,13 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   %.sroa.5310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 14
   %.sroa.5310.0.copyload = load i16, ptr %.sroa.5310.0..sroa_idx, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  %307 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10616
-  %308 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !10616
+  %307 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10612
+  %308 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !10612
   %309 = icmp eq ptr %308, null
   br i1 %309, label %310, label %"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedIdent$GT$$GT$4from17h6a83cd6d5d3cabd5E.exit"
 
 310:                                              ; preds = %306
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !10616
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !10612
   unreachable
 
 "_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedIdent$GT$$GT$4from17h6a83cd6d5d3cabd5E.exit": ; preds = %306
@@ -32079,13 +32077,13 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   %.sroa.5316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 14
   %.sroa.5316.0.copyload = load i16, ptr %.sroa.5316.0..sroa_idx, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  %313 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10621
-  %314 = tail call noundef align 4 dereferenceable_or_null(20) ptr @__rust_alloc(i64 noundef 20, i64 noundef 4) #38, !noalias !10621
+  %313 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10617
+  %314 = tail call noundef align 4 dereferenceable_or_null(20) ptr @__rust_alloc(i64 noundef 20, i64 noundef 4) #38, !noalias !10617
   %315 = icmp eq ptr %314, null
   br i1 %315, label %316, label %"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..BreakOutsideOfLoop$GT$$GT$4from17hb24f498dade41ca8E.exit"
 
 316:                                              ; preds = %312
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 20) #35, !noalias !10621
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 20) #35, !noalias !10617
   unreachable
 
 "_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..BreakOutsideOfLoop$GT$$GT$4from17hb24f498dade41ca8E.exit": ; preds = %312
@@ -32110,13 +32108,13 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   %.sroa.5255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 14
   %.sroa.5255.0.copyload = load i16, ptr %.sroa.5255.0..sroa_idx, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  %319 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10626
-  %320 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !10626
+  %319 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10622
+  %320 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !10622
   %321 = icmp eq ptr %320, null
   br i1 %321, label %322, label %"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedArgCount$GT$$GT$4from17habeb1d7a73b3a33cE.exit"
 
 322:                                              ; preds = %318
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #35, !noalias !10626
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #35, !noalias !10622
   unreachable
 
 "_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedArgCount$GT$$GT$4from17habeb1d7a73b3a33cE.exit": ; preds = %318
@@ -32181,13 +32179,13 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   %.sroa.3457.0 = phi i64 [ %.sroa.0329.sroa.4.0.copyload, %332 ], [ %.sroa.0326.sroa.4.0.copyload, %339 ], [ %.sroa.0326.sroa.4.0.copyload, %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17he507d01fd7e1475bE.exit.i" ]
   %.sroa.5458.0 = phi i16 [ %326, %332 ], [ %330, %339 ], [ %330, %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17he507d01fd7e1475bE.exit.i" ]
   %.sroa.7459.0 = phi i16 [ %.sroa.5331.0.copyload, %332 ], [ %.sroa.5328.0.copyload, %339 ], [ %.sroa.5328.0.copyload, %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17he507d01fd7e1475bE.exit.i" ]
-  %335 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10631
-  %336 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !10631
+  %335 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10627
+  %336 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !10627
   %337 = icmp eq ptr %336, null
   br i1 %337, label %338, label %"_ZN129_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedTupleStructPatArgCount$GT$$GT$4from17hb16e95cca215d85aE.exit"
 
 338:                                              ; preds = %334
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #35, !noalias !10631
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #35, !noalias !10627
   unreachable
 
 "_ZN129_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedTupleStructPatArgCount$GT$$GT$4from17hb16e95cca215d85aE.exit": ; preds = %334
@@ -32211,11 +32209,11 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   %.sroa.5328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 14
   %.sroa.5328.0.copyload = load i16, ptr %.sroa.5328.0..sroa_idx, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %340 = tail call noundef zeroext i1 @"_ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17h58271c06b0890007E"(i16 noundef %330), !noalias !10636
+  %340 = tail call noundef zeroext i1 @"_ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17h58271c06b0890007E"(i16 noundef %330), !noalias !10632
   br i1 %340, label %334, label %"_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17he507d01fd7e1475bE.exit.i"
 
 "_ZN68_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17he507d01fd7e1475bE.exit.i": ; preds = %339
-  %341 = tail call noundef zeroext i1 @"_ZN75_$LT$syntax..ast..generated..nodes..Pat$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17hc43a7e2dc46db1ecE"(i16 noundef %330), !noalias !10636
+  %341 = tail call noundef zeroext i1 @"_ZN75_$LT$syntax..ast..generated..nodes..Pat$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17hc43a7e2dc46db1ecE"(i16 noundef %330), !noalias !10632
   br i1 %341, label %334, label %"_ZN6syntax3ptr15AstPtr$LT$N$GT$12try_from_raw17h5877bceea0387f97E.exit.thread"
 
 342:                                              ; preds = %123
@@ -32225,14 +32223,14 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)
   %343 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10640)
-  %344 = load ptr, ptr %343, align 8, !alias.scope !10640, !nonnull !212, !noundef !212
-  %345 = atomicrmw add ptr %344, i64 1 monotonic, align 8, !noalias !10640
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10636)
+  %344 = load ptr, ptr %343, align 8, !alias.scope !10636, !nonnull !212, !noundef !212
+  %345 = atomicrmw add ptr %344, i64 1 monotonic, align 8, !noalias !10636
   %346 = icmp slt i64 %345, 0
   br i1 %346, label %347, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit384"
 
 347:                                              ; preds = %342
-  tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #35, !noalias !10640
+  tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #35, !noalias !10636
   unreachable
 
 "_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit384": ; preds = %342
@@ -32248,14 +32246,14 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   store ptr %349, ptr %41, align 8
   %352 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %350, ptr %352, align 8
-  %353 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10643
-  %354 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !10643
+  %353 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10639
+  %354 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !10639
   %355 = icmp eq ptr %354, null
   br i1 %355, label %356, label %"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..ExpectedFunction$GT$$GT$4from17h2aa82f35236b7a34E.exit"
 
 356:                                              ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit384"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #35
-          to label %.noexc.i385 unwind label %357, !noalias !10648
+          to label %.noexc.i385 unwind label %357, !noalias !10644
 
 .noexc.i385:                                      ; preds = %356
   unreachable
@@ -32288,14 +32286,14 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
   %363 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10649)
-  %364 = load ptr, ptr %363, align 8, !alias.scope !10649, !nonnull !212, !noundef !212
-  %365 = atomicrmw add ptr %364, i64 1 monotonic, align 8, !noalias !10649
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10645)
+  %364 = load ptr, ptr %363, align 8, !alias.scope !10645, !nonnull !212, !noundef !212
+  %365 = atomicrmw add ptr %364, i64 1 monotonic, align 8, !noalias !10645
   %366 = icmp slt i64 %365, 0
   br i1 %366, label %367, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit386"
 
 367:                                              ; preds = %362
-  tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #35, !noalias !10649
+  tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #35, !noalias !10645
   unreachable
 
 "_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit386": ; preds = %362
@@ -32311,14 +32309,14 @@ common.resume:                                    ; preds = %377, %357, %282, %1
   store ptr %369, ptr %35, align 8
   %372 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %370, ptr %372, align 8
-  %373 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10652
-  %374 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !10652
+  %373 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10648
+  %374 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !10648
   %375 = icmp eq ptr %374, null
   br i1 %375, label %376, label %"_ZN106_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TypedHole$GT$$GT$4from17hd01779021b1c6a4fE.exit"
 
 376:                                              ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit386"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #35
-          to label %.noexc.i387 unwind label %377, !noalias !10657
+          to label %.noexc.i387 unwind label %377, !noalias !10653
 
 .noexc.i387:                                      ; preds = %376
   unreachable
@@ -32434,41 +32432,41 @@ define void @"_ZN79_$LT$syntax..ast..generated..nodes..Module$u20$as$u20$hir..se
   %6 = alloca { i32, [3 x i32] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !10658, !noundef !212
+  %8 = load i64, ptr %7, align 8, !noalias !10654, !noundef !212
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %14, label %21
 
 10:                                               ; preds = %14
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %7, align 8, !noalias !10661, !noundef !212
+  %12 = load i64, ptr %7, align 8, !noalias !10657, !noundef !212
   %13 = add i64 %12, 1
-  store i64 %13, ptr %7, align 8, !noalias !10661
+  store i64 %13, ptr %7, align 8, !noalias !10657
   br label %"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Module$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49466b3c7e4e7f17E.llvm.11762030844908852975.exit.i"
 
 14:                                               ; preds = %4
-  store i64 -1, ptr %7, align 8, !noalias !10658
+  store i64 -1, ptr %7, align 8, !noalias !10654
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !10658
-  %16 = load ptr, ptr %1, align 8, !noalias !10658, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !10654
+  %16 = load ptr, ptr %1, align 8, !noalias !10654, !nonnull !212, !align !384, !noundef !212
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !10658, !nonnull !212, !align !378, !noundef !212
-  store ptr %16, ptr %5, align 8, !noalias !10658
+  %18 = load ptr, ptr %17, align 8, !noalias !10654, !nonnull !212, !align !378, !noundef !212
+  store ptr %16, ptr %5, align 8, !noalias !10654
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8, !noalias !10658
+  store ptr %18, ptr %19, align 8, !noalias !10654
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %20, align 8, !noalias !10658
+  store ptr %15, ptr %20, align 8, !noalias !10654
   invoke void @_ZN3hir9semantics13source_to_def14SourceToDefCtx13module_to_def17h03b4af8d73c33fc1E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %2, i32 noundef %3)
           to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17ha0ef952b4c8c71eeE.exit unwind label %10
 
 21:                                               ; preds = %4
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %25, !noalias !10658
+          to label %24 unwind label %25, !noalias !10654
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !10658
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !10654
   unreachable
 
 24:                                               ; preds = %21
@@ -32482,21 +32480,21 @@ define void @"_ZN79_$LT$syntax..ast..generated..nodes..Module$u20$as$u20$hir..se
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load i32, ptr %27, align 4, !noalias !10668, !noundef !212
+  %28 = load i32, ptr %27, align 4, !noalias !10664, !noundef !212
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !10668
+  store i32 %29, ptr %27, align 4, !noalias !10664
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Module$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49466b3c7e4e7f17E.llvm.11762030844908852975.exit.i"
 
 31:                                               ; preds = %25
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Module$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49466b3c7e4e7f17E.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !10658
+          to label %"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Module$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49466b3c7e4e7f17E.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !10654
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17ha0ef952b4c8c71eeE.exit: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !10658
-  %32 = load i64, ptr %7, align 8, !noalias !10681, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !10654
+  %32 = load i64, ptr %7, align 8, !noalias !10677, !noundef !212
   %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8, !noalias !10681
+  store i64 %33, ptr %7, align 8, !noalias !10677
   %34 = load i32, ptr %6, align 4, !range !499, !noundef !212
   %trunc = trunc nuw i32 %34 to i1
   br i1 %trunc, label %35, label %38
@@ -32520,41 +32518,41 @@ define void @"_ZN83_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$hir
   %6 = alloca { i32, [3 x i32] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !10688, !noundef !212
+  %8 = load i64, ptr %7, align 8, !noalias !10684, !noundef !212
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %14, label %21
 
 10:                                               ; preds = %14
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %7, align 8, !noalias !10691, !noundef !212
+  %12 = load i64, ptr %7, align 8, !noalias !10687, !noundef !212
   %13 = add i64 %12, 1
-  store i64 %13, ptr %7, align 8, !noalias !10691
+  store i64 %13, ptr %7, align 8, !noalias !10687
   br label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17f8a5975d994c7cE.llvm.11762030844908852975.exit.i"
 
 14:                                               ; preds = %4
-  store i64 -1, ptr %7, align 8, !noalias !10688
+  store i64 -1, ptr %7, align 8, !noalias !10684
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !10688
-  %16 = load ptr, ptr %1, align 8, !noalias !10688, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !10684
+  %16 = load ptr, ptr %1, align 8, !noalias !10684, !nonnull !212, !align !384, !noundef !212
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !10688, !nonnull !212, !align !378, !noundef !212
-  store ptr %16, ptr %5, align 8, !noalias !10688
+  %18 = load ptr, ptr %17, align 8, !noalias !10684, !nonnull !212, !align !378, !noundef !212
+  store ptr %16, ptr %5, align 8, !noalias !10684
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8, !noalias !10688
+  store ptr %18, ptr %19, align 8, !noalias !10684
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %20, align 8, !noalias !10688
+  store ptr %15, ptr %20, align 8, !noalias !10684
   invoke void @_ZN3hir9semantics13source_to_def14SourceToDefCtx18source_file_to_def17h09d7346b4a83bce7E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noundef nonnull %2, i32 noundef %3)
           to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17hd1be71a102eb8469E.exit unwind label %10
 
 21:                                               ; preds = %4
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %25, !noalias !10688
+          to label %24 unwind label %25, !noalias !10684
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !10688
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !10684
   unreachable
 
 24:                                               ; preds = %21
@@ -32568,21 +32566,21 @@ define void @"_ZN83_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$hir
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load i32, ptr %27, align 4, !noalias !10698, !noundef !212
+  %28 = load i32, ptr %27, align 4, !noalias !10694, !noundef !212
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !10698
+  store i32 %29, ptr %27, align 4, !noalias !10694
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17f8a5975d994c7cE.llvm.11762030844908852975.exit.i"
 
 31:                                               ; preds = %25
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17f8a5975d994c7cE.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !10688
+          to label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17f8a5975d994c7cE.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !10684
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hd1be71a102eb8469E.exit: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !10688
-  %32 = load i64, ptr %7, align 8, !noalias !10711, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !10684
+  %32 = load i64, ptr %7, align 8, !noalias !10707, !noundef !212
   %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8, !noalias !10711
+  store i64 %33, ptr %7, align 8, !noalias !10707
   %34 = load i32, ptr %6, align 4, !range !499, !noundef !212
   %trunc = trunc nuw i32 %34 to i1
   br i1 %trunc, label %35, label %38
@@ -32611,9 +32609,9 @@ define noundef i32 @"_ZN79_$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !10718, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !10714, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !10718
+  store i64 %11, ptr %5, align 8, !noalias !10714
   br label %"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf49ceec78736da2eE.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -32652,9 +32650,9 @@ define noundef i32 @"_ZN79_$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !10725, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !10721, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !10725
+  store i32 %28, ptr %26, align 4, !noalias !10721
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf49ceec78736da2eE.llvm.11762030844908852975.exit.i"
 
@@ -32664,9 +32662,9 @@ define noundef i32 @"_ZN79_$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17h6ec54e7f0e5f1411E.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !10738, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !10734, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !10738
+  store i64 %32, ptr %5, align 8, !noalias !10734
   ret i32 %19
 }
 
@@ -32681,9 +32679,9 @@ define noundef i32 @"_ZN77_$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$hi
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !10745, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !10741, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !10745
+  store i64 %11, ptr %5, align 8, !noalias !10741
   br label %"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h638e0056ece3a389E.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -32722,9 +32720,9 @@ define noundef i32 @"_ZN77_$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$hi
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !10752, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !10748, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !10752
+  store i32 %28, ptr %26, align 4, !noalias !10748
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h638e0056ece3a389E.llvm.11762030844908852975.exit.i"
 
@@ -32734,9 +32732,9 @@ define noundef i32 @"_ZN77_$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$hi
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hb08ffefb7875f534E.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !10765, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !10761, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !10765
+  store i64 %32, ptr %5, align 8, !noalias !10761
   ret i32 %19
 }
 
@@ -32751,9 +32749,9 @@ define noundef i32 @"_ZN78_$LT$syntax..ast..generated..nodes..Union$u20$as$u20$h
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !10772, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !10768, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !10772
+  store i64 %11, ptr %5, align 8, !noalias !10768
   br label %"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Union$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc34c3219960193dE.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -32792,9 +32790,9 @@ define noundef i32 @"_ZN78_$LT$syntax..ast..generated..nodes..Union$u20$as$u20$h
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !10779, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !10775, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !10779
+  store i32 %28, ptr %26, align 4, !noalias !10775
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Union$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc34c3219960193dE.llvm.11762030844908852975.exit.i"
 
@@ -32804,9 +32802,9 @@ define noundef i32 @"_ZN78_$LT$syntax..ast..generated..nodes..Union$u20$as$u20$h
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17h68e23267b7fb068cE.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !10792, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !10788, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !10792
+  store i64 %32, ptr %5, align 8, !noalias !10788
   ret i32 %19
 }
 
@@ -32821,9 +32819,9 @@ define noundef i32 @"_ZN78_$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$h
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !10799, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !10795, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !10799
+  store i64 %11, ptr %5, align 8, !noalias !10795
   br label %"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h693fe79225ee8497E.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -32862,9 +32860,9 @@ define noundef i32 @"_ZN78_$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$h
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !10806, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !10802, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !10806
+  store i32 %28, ptr %26, align 4, !noalias !10802
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h693fe79225ee8497E.llvm.11762030844908852975.exit.i"
 
@@ -32874,9 +32872,9 @@ define noundef i32 @"_ZN78_$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$h
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17h5a2981cbc11da350E.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !10819, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !10815, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !10819
+  store i64 %32, ptr %5, align 8, !noalias !10815
   ret i32 %19
 }
 
@@ -32891,9 +32889,9 @@ define noundef i32 @"_ZN83_$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !10826, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !10822, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !10826
+  store i64 %11, ptr %5, align 8, !noalias !10822
   br label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd7b7cd649d0cfee9E.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -32932,9 +32930,9 @@ define noundef i32 @"_ZN83_$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !10833, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !10829, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !10833
+  store i32 %28, ptr %26, align 4, !noalias !10829
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd7b7cd649d0cfee9E.llvm.11762030844908852975.exit.i"
 
@@ -32944,9 +32942,9 @@ define noundef i32 @"_ZN83_$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17h4da3e2630e961a46E.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !10846, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !10842, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !10846
+  store i64 %32, ptr %5, align 8, !noalias !10842
   ret i32 %19
 }
 
@@ -32961,9 +32959,9 @@ define noundef i32 @"_ZN77_$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$hi
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !10853, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !10849, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !10853
+  store i64 %11, ptr %5, align 8, !noalias !10849
   br label %"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6086be2953d5fac6E.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -33002,9 +33000,9 @@ define noundef i32 @"_ZN77_$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$hi
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !10860, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !10856, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !10860
+  store i32 %28, ptr %26, align 4, !noalias !10856
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6086be2953d5fac6E.llvm.11762030844908852975.exit.i"
 
@@ -33014,9 +33012,9 @@ define noundef i32 @"_ZN77_$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$hi
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17h31d451cf5ef25199E.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !10873, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !10869, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !10873
+  store i64 %32, ptr %5, align 8, !noalias !10869
   ret i32 %19
 }
 
@@ -33031,9 +33029,9 @@ define noundef i32 @"_ZN82_$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !10880, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !10876, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !10880
+  store i64 %11, ptr %5, align 8, !noalias !10876
   br label %"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4af7cd0c09c27b5eE.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -33072,9 +33070,9 @@ define noundef i32 @"_ZN82_$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !10887, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !10883, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !10887
+  store i32 %28, ptr %26, align 4, !noalias !10883
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4af7cd0c09c27b5eE.llvm.11762030844908852975.exit.i"
 
@@ -33084,9 +33082,9 @@ define noundef i32 @"_ZN82_$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17h6156dc1e0248e3cdE.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !10900, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !10896, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !10900
+  store i64 %32, ptr %5, align 8, !noalias !10896
   ret i32 %19
 }
 
@@ -33101,9 +33099,9 @@ define noundef i32 @"_ZN78_$LT$syntax..ast..generated..nodes..Const$u20$as$u20$h
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !10907, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !10903, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !10907
+  store i64 %11, ptr %5, align 8, !noalias !10903
   br label %"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Const$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h71b1594949b5772eE.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -33142,9 +33140,9 @@ define noundef i32 @"_ZN78_$LT$syntax..ast..generated..nodes..Const$u20$as$u20$h
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !10914, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !10910, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !10914
+  store i32 %28, ptr %26, align 4, !noalias !10910
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Const$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h71b1594949b5772eE.llvm.11762030844908852975.exit.i"
 
@@ -33154,9 +33152,9 @@ define noundef i32 @"_ZN78_$LT$syntax..ast..generated..nodes..Const$u20$as$u20$h
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hce4aa7f70bf0c23fE.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !10927, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !10923, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !10927
+  store i64 %32, ptr %5, align 8, !noalias !10923
   ret i32 %19
 }
 
@@ -33171,9 +33169,9 @@ define noundef i32 @"_ZN79_$LT$syntax..ast..generated..nodes..Static$u20$as$u20$
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !10934, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !10930, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !10934
+  store i64 %11, ptr %5, align 8, !noalias !10930
   br label %"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Static$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aea9f940a6b949aE.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -33212,9 +33210,9 @@ define noundef i32 @"_ZN79_$LT$syntax..ast..generated..nodes..Static$u20$as$u20$
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !10941, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !10937, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !10941
+  store i32 %28, ptr %26, align 4, !noalias !10937
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Static$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aea9f940a6b949aE.llvm.11762030844908852975.exit.i"
 
@@ -33224,9 +33222,9 @@ define noundef i32 @"_ZN79_$LT$syntax..ast..generated..nodes..Static$u20$as$u20$
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17h252f8f4d0490a15dE.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !10954, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !10950, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !10954
+  store i64 %32, ptr %5, align 8, !noalias !10950
   ret i32 %19
 }
 
@@ -33241,9 +33239,9 @@ define noundef i32 @"_ZN75_$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$hir.
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !10961, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !10957, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !10961
+  store i64 %11, ptr %5, align 8, !noalias !10957
   br label %"_ZN4core3ptr132drop_in_place$LT$$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h501c6dc53e07907eE.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -33282,9 +33280,9 @@ define noundef i32 @"_ZN75_$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$hir.
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !10968, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !10964, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !10968
+  store i32 %28, ptr %26, align 4, !noalias !10964
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr132drop_in_place$LT$$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h501c6dc53e07907eE.llvm.11762030844908852975.exit.i"
 
@@ -33294,9 +33292,9 @@ define noundef i32 @"_ZN75_$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$hir.
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17h70dcf0a32d80be1fE.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !10981, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !10977, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !10981
+  store i64 %32, ptr %5, align 8, !noalias !10977
   ret i32 %19
 }
 
@@ -33306,41 +33304,41 @@ define void @"_ZN84_$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$hi
   %6 = alloca { i32, [2 x i32] }, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !10988, !noundef !212
+  %8 = load i64, ptr %7, align 8, !noalias !10984, !noundef !212
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %14, label %21
 
 10:                                               ; preds = %14
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %7, align 8, !noalias !10991, !noundef !212
+  %12 = load i64, ptr %7, align 8, !noalias !10987, !noundef !212
   %13 = add i64 %12, 1
-  store i64 %13, ptr %7, align 8, !noalias !10991
+  store i64 %13, ptr %7, align 8, !noalias !10987
   br label %"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9a9032beb64ae1fcE.llvm.11762030844908852975.exit.i"
 
 14:                                               ; preds = %4
-  store i64 -1, ptr %7, align 8, !noalias !10988
+  store i64 -1, ptr %7, align 8, !noalias !10984
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !10988
-  %16 = load ptr, ptr %1, align 8, !noalias !10988, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !10984
+  %16 = load ptr, ptr %1, align 8, !noalias !10984, !nonnull !212, !align !384, !noundef !212
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !10988, !nonnull !212, !align !378, !noundef !212
-  store ptr %16, ptr %5, align 8, !noalias !10988
+  %18 = load ptr, ptr %17, align 8, !noalias !10984, !nonnull !212, !align !378, !noundef !212
+  store ptr %16, ptr %5, align 8, !noalias !10984
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8, !noalias !10988
+  store ptr %18, ptr %19, align 8, !noalias !10984
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %20, align 8, !noalias !10988
+  store ptr %15, ptr %20, align 8, !noalias !10984
   invoke void @_ZN3hir9semantics13source_to_def14SourceToDefCtx6to_def17ha8b8ec7c53b61214E(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %2, i32 noundef %3)
           to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17hdba55c4135634660E.exit unwind label %10
 
 21:                                               ; preds = %4
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %25, !noalias !10988
+          to label %24 unwind label %25, !noalias !10984
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !10988
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !10984
   unreachable
 
 24:                                               ; preds = %21
@@ -33354,22 +33352,22 @@ define void @"_ZN84_$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$hi
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load i32, ptr %27, align 4, !noalias !10998, !noundef !212
+  %28 = load i32, ptr %27, align 4, !noalias !10994, !noundef !212
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !10998
+  store i32 %29, ptr %27, align 4, !noalias !10994
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9a9032beb64ae1fcE.llvm.11762030844908852975.exit.i"
 
 31:                                               ; preds = %25
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9a9032beb64ae1fcE.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !10988
+          to label %"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9a9032beb64ae1fcE.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !10984
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hdba55c4135634660E.exit: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !10988
-  %32 = load i64, ptr %7, align 8, !noalias !11011, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !10984
+  %32 = load i64, ptr %7, align 8, !noalias !11007, !noundef !212
   %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8, !noalias !11011
-  %34 = load i32, ptr %6, align 4, !range !11018, !noundef !212
+  store i64 %33, ptr %7, align 8, !noalias !11007
+  %34 = load i32, ptr %6, align 4, !range !11014, !noundef !212
   %35 = icmp eq i32 %34, 3
   br i1 %35, label %36, label %switch.lookup
 
@@ -33403,41 +33401,41 @@ define void @"_ZN83_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir
   %6 = alloca { i32, [2 x i32] }, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !11019, !noundef !212
+  %8 = load i64, ptr %7, align 8, !noalias !11015, !noundef !212
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %14, label %21
 
 10:                                               ; preds = %14
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %7, align 8, !noalias !11022, !noundef !212
+  %12 = load i64, ptr %7, align 8, !noalias !11018, !noundef !212
   %13 = add i64 %12, 1
-  store i64 %13, ptr %7, align 8, !noalias !11022
+  store i64 %13, ptr %7, align 8, !noalias !11018
   br label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc187c90ad373cb1dE.llvm.11762030844908852975.exit.i"
 
 14:                                               ; preds = %4
-  store i64 -1, ptr %7, align 8, !noalias !11019
+  store i64 -1, ptr %7, align 8, !noalias !11015
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11019
-  %16 = load ptr, ptr %1, align 8, !noalias !11019, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11015
+  %16 = load ptr, ptr %1, align 8, !noalias !11015, !nonnull !212, !align !384, !noundef !212
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !11019, !nonnull !212, !align !378, !noundef !212
-  store ptr %16, ptr %5, align 8, !noalias !11019
+  %18 = load ptr, ptr %17, align 8, !noalias !11015, !nonnull !212, !align !378, !noundef !212
+  store ptr %16, ptr %5, align 8, !noalias !11015
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8, !noalias !11019
+  store ptr %18, ptr %19, align 8, !noalias !11015
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %20, align 8, !noalias !11019
+  store ptr %15, ptr %20, align 8, !noalias !11015
   invoke void @_ZN3hir9semantics13source_to_def14SourceToDefCtx6to_def17h49367f18a1abc838E(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %2, i32 noundef %3)
           to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17hf0dd73a51bffda79E.exit unwind label %10
 
 21:                                               ; preds = %4
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %25, !noalias !11019
+          to label %24 unwind label %25, !noalias !11015
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11019
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11015
   unreachable
 
 24:                                               ; preds = %21
@@ -33451,22 +33449,22 @@ define void @"_ZN83_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load i32, ptr %27, align 4, !noalias !11029, !noundef !212
+  %28 = load i32, ptr %27, align 4, !noalias !11025, !noundef !212
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !11029
+  store i32 %29, ptr %27, align 4, !noalias !11025
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc187c90ad373cb1dE.llvm.11762030844908852975.exit.i"
 
 31:                                               ; preds = %25
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc187c90ad373cb1dE.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11019
+          to label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc187c90ad373cb1dE.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11015
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hf0dd73a51bffda79E.exit: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11019
-  %32 = load i64, ptr %7, align 8, !noalias !11042, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11015
+  %32 = load i64, ptr %7, align 8, !noalias !11038, !noundef !212
   %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8, !noalias !11042
-  %34 = load i32, ptr %6, align 4, !range !11018, !noundef !212
+  store i64 %33, ptr %7, align 8, !noalias !11038
+  %34 = load i32, ptr %6, align 4, !range !11014, !noundef !212
   %35 = icmp eq i32 %34, 3
   br i1 %35, label %36, label %switch.lookup
 
@@ -33505,9 +33503,9 @@ define noundef i32 @"_ZN80_$LT$syntax..ast..generated..nodes..Variant$u20$as$u20
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !11049, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !11045, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !11049
+  store i64 %11, ptr %5, align 8, !noalias !11045
   br label %"_ZN4core3ptr137drop_in_place$LT$$LT$syntax..ast..generated..nodes..Variant$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0d40d2314b9c8d80E.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -33546,9 +33544,9 @@ define noundef i32 @"_ZN80_$LT$syntax..ast..generated..nodes..Variant$u20$as$u20
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !11056, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !11052, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !11056
+  store i32 %28, ptr %26, align 4, !noalias !11052
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr137drop_in_place$LT$$LT$syntax..ast..generated..nodes..Variant$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0d40d2314b9c8d80E.llvm.11762030844908852975.exit.i"
 
@@ -33558,9 +33556,9 @@ define noundef i32 @"_ZN80_$LT$syntax..ast..generated..nodes..Variant$u20$as$u20
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hfba304637440f6fcE.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !11069, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !11065, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !11069
+  store i64 %32, ptr %5, align 8, !noalias !11065
   ret i32 %19
 }
 
@@ -33569,41 +33567,41 @@ define void @"_ZN82_$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$hir.
   %5 = alloca { { ptr, ptr }, ptr }, align 8
   %6 = alloca { i32, [2 x i32] }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !11076, !noundef !212
+  %8 = load i64, ptr %7, align 8, !noalias !11072, !noundef !212
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %14, label %21
 
 10:                                               ; preds = %14
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %7, align 8, !noalias !11079, !noundef !212
+  %12 = load i64, ptr %7, align 8, !noalias !11075, !noundef !212
   %13 = add i64 %12, 1
-  store i64 %13, ptr %7, align 8, !noalias !11079
+  store i64 %13, ptr %7, align 8, !noalias !11075
   br label %"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1508934ecdc90faE.llvm.11762030844908852975.exit.i"
 
 14:                                               ; preds = %4
-  store i64 -1, ptr %7, align 8, !noalias !11076
+  store i64 -1, ptr %7, align 8, !noalias !11072
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11076
-  %16 = load ptr, ptr %1, align 8, !noalias !11076, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11072
+  %16 = load ptr, ptr %1, align 8, !noalias !11072, !nonnull !212, !align !384, !noundef !212
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !11076, !nonnull !212, !align !378, !noundef !212
-  store ptr %16, ptr %5, align 8, !noalias !11076
+  %18 = load ptr, ptr %17, align 8, !noalias !11072, !nonnull !212, !align !378, !noundef !212
+  store ptr %16, ptr %5, align 8, !noalias !11072
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8, !noalias !11076
+  store ptr %18, ptr %19, align 8, !noalias !11072
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %20, align 8, !noalias !11076
+  store ptr %15, ptr %20, align 8, !noalias !11072
   invoke void @_ZN3hir9semantics13source_to_def14SourceToDefCtx17type_param_to_def17h0cba1cd45442df9eE(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %2, i32 noundef %3)
           to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17hae0c7509370623a1E.exit unwind label %10
 
 21:                                               ; preds = %4
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %25, !noalias !11076
+          to label %24 unwind label %25, !noalias !11072
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11076
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11072
   unreachable
 
 24:                                               ; preds = %21
@@ -33617,21 +33615,21 @@ define void @"_ZN82_$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$hir.
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load i32, ptr %27, align 4, !noalias !11086, !noundef !212
+  %28 = load i32, ptr %27, align 4, !noalias !11082, !noundef !212
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !11086
+  store i32 %29, ptr %27, align 4, !noalias !11082
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1508934ecdc90faE.llvm.11762030844908852975.exit.i"
 
 31:                                               ; preds = %25
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1508934ecdc90faE.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11076
+          to label %"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1508934ecdc90faE.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11072
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hae0c7509370623a1E.exit: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11076
-  %32 = load i64, ptr %7, align 8, !noalias !11099, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11072
+  %32 = load i64, ptr %7, align 8, !noalias !11095, !noundef !212
   %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8, !noalias !11099
+  store i64 %33, ptr %7, align 8, !noalias !11095
   %34 = load i32, ptr %6, align 8, !range !9041, !noundef !212
   %35 = icmp eq i32 %34, 11
   br i1 %35, label %36, label %37
@@ -33653,41 +33651,41 @@ define void @"_ZN86_$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$
   %5 = alloca { { ptr, ptr }, ptr }, align 8
   %6 = alloca { i32, [2 x i32] }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !11106, !noundef !212
+  %8 = load i64, ptr %7, align 8, !noalias !11102, !noundef !212
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %14, label %21
 
 10:                                               ; preds = %14
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %7, align 8, !noalias !11109, !noundef !212
+  %12 = load i64, ptr %7, align 8, !noalias !11105, !noundef !212
   %13 = add i64 %12, 1
-  store i64 %13, ptr %7, align 8, !noalias !11109
+  store i64 %13, ptr %7, align 8, !noalias !11105
   br label %"_ZN4core3ptr143drop_in_place$LT$$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h735b569ec53d6398E.llvm.11762030844908852975.exit.i"
 
 14:                                               ; preds = %4
-  store i64 -1, ptr %7, align 8, !noalias !11106
+  store i64 -1, ptr %7, align 8, !noalias !11102
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11106
-  %16 = load ptr, ptr %1, align 8, !noalias !11106, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11102
+  %16 = load ptr, ptr %1, align 8, !noalias !11102, !nonnull !212, !align !384, !noundef !212
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !11106, !nonnull !212, !align !378, !noundef !212
-  store ptr %16, ptr %5, align 8, !noalias !11106
+  %18 = load ptr, ptr %17, align 8, !noalias !11102, !nonnull !212, !align !378, !noundef !212
+  store ptr %16, ptr %5, align 8, !noalias !11102
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8, !noalias !11106
+  store ptr %18, ptr %19, align 8, !noalias !11102
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %20, align 8, !noalias !11106
+  store ptr %15, ptr %20, align 8, !noalias !11102
   invoke void @_ZN3hir9semantics13source_to_def14SourceToDefCtx21lifetime_param_to_def17h6bdfb057e283e1adE(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %2, i32 noundef %3)
           to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17hac306b48c4640be1E.exit unwind label %10
 
 21:                                               ; preds = %4
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %25, !noalias !11106
+          to label %24 unwind label %25, !noalias !11102
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11106
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11102
   unreachable
 
 24:                                               ; preds = %21
@@ -33701,21 +33699,21 @@ define void @"_ZN86_$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load i32, ptr %27, align 4, !noalias !11116, !noundef !212
+  %28 = load i32, ptr %27, align 4, !noalias !11112, !noundef !212
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !11116
+  store i32 %29, ptr %27, align 4, !noalias !11112
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr143drop_in_place$LT$$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h735b569ec53d6398E.llvm.11762030844908852975.exit.i"
 
 31:                                               ; preds = %25
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr143drop_in_place$LT$$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h735b569ec53d6398E.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11106
+          to label %"_ZN4core3ptr143drop_in_place$LT$$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h735b569ec53d6398E.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11102
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hac306b48c4640be1E.exit: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11106
-  %32 = load i64, ptr %7, align 8, !noalias !11129, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11102
+  %32 = load i64, ptr %7, align 8, !noalias !11125, !noundef !212
   %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8, !noalias !11129
+  store i64 %33, ptr %7, align 8, !noalias !11125
   %34 = load i32, ptr %6, align 8, !range !9041, !noundef !212
   %35 = icmp eq i32 %34, 11
   br i1 %35, label %36, label %37
@@ -33737,41 +33735,41 @@ define void @"_ZN83_$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$hir
   %5 = alloca { { ptr, ptr }, ptr }, align 8
   %6 = alloca { i32, [2 x i32] }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !11136, !noundef !212
+  %8 = load i64, ptr %7, align 8, !noalias !11132, !noundef !212
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %14, label %21
 
 10:                                               ; preds = %14
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %7, align 8, !noalias !11139, !noundef !212
+  %12 = load i64, ptr %7, align 8, !noalias !11135, !noundef !212
   %13 = add i64 %12, 1
-  store i64 %13, ptr %7, align 8, !noalias !11139
+  store i64 %13, ptr %7, align 8, !noalias !11135
   br label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04c95008026efbc5E.llvm.11762030844908852975.exit.i"
 
 14:                                               ; preds = %4
-  store i64 -1, ptr %7, align 8, !noalias !11136
+  store i64 -1, ptr %7, align 8, !noalias !11132
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11136
-  %16 = load ptr, ptr %1, align 8, !noalias !11136, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11132
+  %16 = load ptr, ptr %1, align 8, !noalias !11132, !nonnull !212, !align !384, !noundef !212
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !11136, !nonnull !212, !align !378, !noundef !212
-  store ptr %16, ptr %5, align 8, !noalias !11136
+  %18 = load ptr, ptr %17, align 8, !noalias !11132, !nonnull !212, !align !378, !noundef !212
+  store ptr %16, ptr %5, align 8, !noalias !11132
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8, !noalias !11136
+  store ptr %18, ptr %19, align 8, !noalias !11132
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %20, align 8, !noalias !11136
+  store ptr %15, ptr %20, align 8, !noalias !11132
   invoke void @_ZN3hir9semantics13source_to_def14SourceToDefCtx18const_param_to_def17hc971b4a785e7fcffE(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %2, i32 noundef %3)
           to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17h3a8b19d4e726a0efE.exit unwind label %10
 
 21:                                               ; preds = %4
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %25, !noalias !11136
+          to label %24 unwind label %25, !noalias !11132
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11136
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11132
   unreachable
 
 24:                                               ; preds = %21
@@ -33785,21 +33783,21 @@ define void @"_ZN83_$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$hir
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load i32, ptr %27, align 4, !noalias !11146, !noundef !212
+  %28 = load i32, ptr %27, align 4, !noalias !11142, !noundef !212
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !11146
+  store i32 %29, ptr %27, align 4, !noalias !11142
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04c95008026efbc5E.llvm.11762030844908852975.exit.i"
 
 31:                                               ; preds = %25
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04c95008026efbc5E.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11136
+          to label %"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04c95008026efbc5E.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11132
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17h3a8b19d4e726a0efE.exit: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11136
-  %32 = load i64, ptr %7, align 8, !noalias !11159, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11132
+  %32 = load i64, ptr %7, align 8, !noalias !11155, !noundef !212
   %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8, !noalias !11159
+  store i64 %33, ptr %7, align 8, !noalias !11155
   %34 = load i32, ptr %6, align 8, !range !9041, !noundef !212
   %35 = icmp eq i32 %34, 11
   br i1 %35, label %36, label %37
@@ -33825,7 +33823,7 @@ define void @"_ZN85_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$h
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @_ZN3hir9semantics13SemanticsImpl8with_ctx17hacc7a65bb7c7499bE(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %5, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %6 = load i32, ptr %5, align 4, !range !11018, !noundef !212
+  %6 = load i32, ptr %5, align 4, !range !11014, !noundef !212
   %7 = icmp eq i32 %6, 3
   br i1 %7, label %8, label %_ZN4core3ops8function6FnOnce9call_once17he6e8f079d82490f1E.exit
 
@@ -33849,38 +33847,38 @@ define { i32, i32 } @"_ZN70_$LT$syntax..ast..node_ext..Macro$u20$as$u20$hir..sem
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !noalias !11166, !noundef !212
+  %7 = load i64, ptr %6, align 8, !noalias !11162, !noundef !212
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %13, label %21
 
 9:                                                ; preds = %13
   %10 = landingpad { ptr, i32 }
           cleanup
-  %11 = load i64, ptr %6, align 8, !noalias !11169, !noundef !212
+  %11 = load i64, ptr %6, align 8, !noalias !11165, !noundef !212
   %12 = add i64 %11, 1
-  store i64 %12, ptr %6, align 8, !noalias !11169
+  store i64 %12, ptr %6, align 8, !noalias !11165
   br label %25
 
 13:                                               ; preds = %2
-  store i64 -1, ptr %6, align 8, !noalias !11166
+  store i64 -1, ptr %6, align 8, !noalias !11162
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !11166
-  %15 = load ptr, ptr %0, align 8, !noalias !11166, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !11162
+  %15 = load ptr, ptr %0, align 8, !noalias !11162, !nonnull !212, !align !384, !noundef !212
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !noalias !11166, !nonnull !212, !align !378, !noundef !212
-  store ptr %15, ptr %4, align 8, !noalias !11166
+  %17 = load ptr, ptr %16, align 8, !noalias !11162, !nonnull !212, !align !378, !noundef !212
+  store ptr %15, ptr %4, align 8, !noalias !11162
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %17, ptr %18, align 8, !noalias !11166
+  store ptr %17, ptr %18, align 8, !noalias !11162
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %14, ptr %19, align 8, !noalias !11166
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11176
+  store ptr %14, ptr %19, align 8, !noalias !11162
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %20 = invoke { i32, i32 } @_ZN3hir9semantics13source_to_def14SourceToDefCtx12macro_to_def17h54cf472c3eb84f00E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
-          to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17h2887a14ceaa3f08aE.exit unwind label %9, !noalias !11166
+          to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17h2887a14ceaa3f08aE.exit unwind label %9, !noalias !11162
 
 21:                                               ; preds = %2
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %26, !noalias !11166
+          to label %24 unwind label %26, !noalias !11162
 
 22:                                               ; preds = %26
   %23 = landingpad { ptr, i32 }
@@ -33902,11 +33900,11 @@ define { i32, i32 } @"_ZN70_$LT$syntax..ast..node_ext..Macro$u20$as$u20$hir..sem
           to label %25 unwind label %22
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17h2887a14ceaa3f08aE.exit: ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11176
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !11166
-  %28 = load i64, ptr %6, align 8, !noalias !11180, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11172
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !11162
+  %28 = load i64, ptr %6, align 8, !noalias !11176, !noundef !212
   %29 = add i64 %28, 1
-  store i64 %29, ptr %6, align 8, !noalias !11180
+  store i64 %29, ptr %6, align 8, !noalias !11176
   %30 = extractvalue { i32, i32 } %20, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %31 = icmp eq i32 %30, 3
@@ -33922,41 +33920,41 @@ define void @"_ZN81_$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$hir..
   %6 = alloca { i32, [2 x i32] }, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !11187, !noundef !212
+  %8 = load i64, ptr %7, align 8, !noalias !11183, !noundef !212
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %14, label %21
 
 10:                                               ; preds = %14
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %7, align 8, !noalias !11190, !noundef !212
+  %12 = load i64, ptr %7, align 8, !noalias !11186, !noundef !212
   %13 = add i64 %12, 1
-  store i64 %13, ptr %7, align 8, !noalias !11190
+  store i64 %13, ptr %7, align 8, !noalias !11186
   br label %"_ZN4core3ptr138drop_in_place$LT$$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd49a2cd535b7fe81E.llvm.11762030844908852975.exit.i"
 
 14:                                               ; preds = %4
-  store i64 -1, ptr %7, align 8, !noalias !11187
+  store i64 -1, ptr %7, align 8, !noalias !11183
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11187
-  %16 = load ptr, ptr %1, align 8, !noalias !11187, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11183
+  %16 = load ptr, ptr %1, align 8, !noalias !11183, !nonnull !212, !align !384, !noundef !212
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !11187, !nonnull !212, !align !378, !noundef !212
-  store ptr %16, ptr %5, align 8, !noalias !11187
+  %18 = load ptr, ptr %17, align 8, !noalias !11183, !nonnull !212, !align !378, !noundef !212
+  store ptr %16, ptr %5, align 8, !noalias !11183
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8, !noalias !11187
+  store ptr %18, ptr %19, align 8, !noalias !11183
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %20, align 8, !noalias !11187
+  store ptr %15, ptr %20, align 8, !noalias !11183
   invoke void @_ZN3hir9semantics13source_to_def14SourceToDefCtx15bind_pat_to_def17h67aa5b6dca62059bE(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %2, i32 noundef %3)
           to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17hfda306771cdcc73cE.exit unwind label %10
 
 21:                                               ; preds = %4
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %25, !noalias !11187
+          to label %24 unwind label %25, !noalias !11183
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11187
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11183
   unreachable
 
 24:                                               ; preds = %21
@@ -33970,22 +33968,22 @@ define void @"_ZN81_$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$hir..
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load i32, ptr %27, align 4, !noalias !11197, !noundef !212
+  %28 = load i32, ptr %27, align 4, !noalias !11193, !noundef !212
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !11197
+  store i32 %29, ptr %27, align 4, !noalias !11193
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr138drop_in_place$LT$$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd49a2cd535b7fe81E.llvm.11762030844908852975.exit.i"
 
 31:                                               ; preds = %25
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr138drop_in_place$LT$$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd49a2cd535b7fe81E.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11187
+          to label %"_ZN4core3ptr138drop_in_place$LT$$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd49a2cd535b7fe81E.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11183
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hfda306771cdcc73cE.exit: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11187
-  %32 = load i64, ptr %7, align 8, !noalias !11210, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11183
+  %32 = load i64, ptr %7, align 8, !noalias !11206, !noundef !212
   %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8, !noalias !11210
-  %34 = load i32, ptr %6, align 4, !range !11217, !noundef !212
+  store i64 %33, ptr %7, align 8, !noalias !11206
+  %34 = load i32, ptr %6, align 4, !range !11213, !noundef !212
   %35 = icmp eq i32 %34, 5
   br i1 %35, label %37, label %36
 
@@ -34012,41 +34010,41 @@ define void @"_ZN82_$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$hir.
   %6 = alloca { i32, [2 x i32] }, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !11218, !noundef !212
+  %8 = load i64, ptr %7, align 8, !noalias !11214, !noundef !212
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %14, label %21
 
 10:                                               ; preds = %14
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %7, align 8, !noalias !11221, !noundef !212
+  %12 = load i64, ptr %7, align 8, !noalias !11217, !noundef !212
   %13 = add i64 %12, 1
-  store i64 %13, ptr %7, align 8, !noalias !11221
+  store i64 %13, ptr %7, align 8, !noalias !11217
   br label %"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b007a3b40bb5a5eE.llvm.11762030844908852975.exit.i"
 
 14:                                               ; preds = %4
-  store i64 -1, ptr %7, align 8, !noalias !11218
+  store i64 -1, ptr %7, align 8, !noalias !11214
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11218
-  %16 = load ptr, ptr %1, align 8, !noalias !11218, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11214
+  %16 = load ptr, ptr %1, align 8, !noalias !11214, !nonnull !212, !align !384, !noundef !212
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !11218, !nonnull !212, !align !378, !noundef !212
-  store ptr %16, ptr %5, align 8, !noalias !11218
+  %18 = load ptr, ptr %17, align 8, !noalias !11214, !nonnull !212, !align !378, !noundef !212
+  store ptr %16, ptr %5, align 8, !noalias !11214
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8, !noalias !11218
+  store ptr %18, ptr %19, align 8, !noalias !11214
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %20, align 8, !noalias !11218
+  store ptr %15, ptr %20, align 8, !noalias !11214
   invoke void @_ZN3hir9semantics13source_to_def14SourceToDefCtx17self_param_to_def17h92f4ec165943ee33E(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %2, i32 noundef %3)
           to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17hd2a212629752976fE.exit unwind label %10
 
 21:                                               ; preds = %4
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %25, !noalias !11218
+          to label %24 unwind label %25, !noalias !11214
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11218
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11214
   unreachable
 
 24:                                               ; preds = %21
@@ -34060,22 +34058,22 @@ define void @"_ZN82_$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$hir.
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load i32, ptr %27, align 4, !noalias !11228, !noundef !212
+  %28 = load i32, ptr %27, align 4, !noalias !11224, !noundef !212
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !11228
+  store i32 %29, ptr %27, align 4, !noalias !11224
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b007a3b40bb5a5eE.llvm.11762030844908852975.exit.i"
 
 31:                                               ; preds = %25
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b007a3b40bb5a5eE.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11218
+          to label %"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b007a3b40bb5a5eE.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11214
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hd2a212629752976fE.exit: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11218
-  %32 = load i64, ptr %7, align 8, !noalias !11241, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11214
+  %32 = load i64, ptr %7, align 8, !noalias !11237, !noundef !212
   %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8, !noalias !11241
-  %34 = load i32, ptr %6, align 4, !range !11217, !noundef !212
+  store i64 %33, ptr %7, align 8, !noalias !11237
+  %34 = load i32, ptr %6, align 4, !range !11213, !noundef !212
   %35 = icmp eq i32 %34, 5
   br i1 %35, label %37, label %36
 
@@ -34102,41 +34100,41 @@ define void @"_ZN78_$LT$syntax..ast..generated..nodes..Label$u20$as$u20$hir..sem
   %6 = alloca { i32, [2 x i32] }, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !11248, !noundef !212
+  %8 = load i64, ptr %7, align 8, !noalias !11244, !noundef !212
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %14, label %21
 
 10:                                               ; preds = %14
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %7, align 8, !noalias !11251, !noundef !212
+  %12 = load i64, ptr %7, align 8, !noalias !11247, !noundef !212
   %13 = add i64 %12, 1
-  store i64 %13, ptr %7, align 8, !noalias !11251
+  store i64 %13, ptr %7, align 8, !noalias !11247
   br label %"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Label$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1550eafcaed6eb32E.llvm.11762030844908852975.exit.i"
 
 14:                                               ; preds = %4
-  store i64 -1, ptr %7, align 8, !noalias !11248
+  store i64 -1, ptr %7, align 8, !noalias !11244
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11248
-  %16 = load ptr, ptr %1, align 8, !noalias !11248, !nonnull !212, !align !384, !noundef !212
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !11244
+  %16 = load ptr, ptr %1, align 8, !noalias !11244, !nonnull !212, !align !384, !noundef !212
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !11248, !nonnull !212, !align !378, !noundef !212
-  store ptr %16, ptr %5, align 8, !noalias !11248
+  %18 = load ptr, ptr %17, align 8, !noalias !11244, !nonnull !212, !align !378, !noundef !212
+  store ptr %16, ptr %5, align 8, !noalias !11244
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8, !noalias !11248
+  store ptr %18, ptr %19, align 8, !noalias !11244
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %20, align 8, !noalias !11248
+  store ptr %15, ptr %20, align 8, !noalias !11244
   invoke void @_ZN3hir9semantics13source_to_def14SourceToDefCtx12label_to_def17hb618875f90880f39E(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %2, i32 noundef %3)
           to label %_ZN3hir9semantics13SemanticsImpl8with_ctx17hda2855d3b5c664a2E.exit unwind label %10
 
 21:                                               ; preds = %4
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7a3a3a985b166e624203793df682964b.352.llvm.11762030844908852975) #35
-          to label %24 unwind label %25, !noalias !11248
+          to label %24 unwind label %25, !noalias !11244
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11248
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !11244
   unreachable
 
 24:                                               ; preds = %21
@@ -34150,22 +34148,22 @@ define void @"_ZN78_$LT$syntax..ast..generated..nodes..Label$u20$as$u20$hir..sem
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load i32, ptr %27, align 4, !noalias !11258, !noundef !212
+  %28 = load i32, ptr %27, align 4, !noalias !11254, !noundef !212
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !11258
+  store i32 %29, ptr %27, align 4, !noalias !11254
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Label$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1550eafcaed6eb32E.llvm.11762030844908852975.exit.i"
 
 31:                                               ; preds = %25
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Label$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1550eafcaed6eb32E.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11248
+          to label %"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Label$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1550eafcaed6eb32E.llvm.11762030844908852975.exit.i" unwind label %22, !noalias !11244
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hda2855d3b5c664a2E.exit: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11248
-  %32 = load i64, ptr %7, align 8, !noalias !11271, !noundef !212
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11244
+  %32 = load i64, ptr %7, align 8, !noalias !11267, !noundef !212
   %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8, !noalias !11271
-  %34 = load i32, ptr %6, align 4, !range !11217, !noundef !212
+  store i64 %33, ptr %7, align 8, !noalias !11267
+  %34 = load i32, ptr %6, align 4, !range !11213, !noundef !212
   %35 = icmp eq i32 %34, 5
   br i1 %35, label %37, label %36
 
@@ -34212,9 +34210,9 @@ define noundef i32 @"_ZN84_$LT$syntax..ast..generated..nodes..ExternCrate$u20$as
 8:                                                ; preds = %12
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load i64, ptr %5, align 8, !noalias !11278, !noundef !212
+  %10 = load i64, ptr %5, align 8, !noalias !11274, !noundef !212
   %11 = add i64 %10, 1
-  store i64 %11, ptr %5, align 8, !noalias !11278
+  store i64 %11, ptr %5, align 8, !noalias !11274
   br label %"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..ExternCrate$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h142a3184cb995a53E.llvm.11762030844908852975.exit.i"
 
 12:                                               ; preds = %3
@@ -34253,9 +34251,9 @@ define noundef i32 @"_ZN84_$LT$syntax..ast..generated..nodes..ExternCrate$u20$as
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !11285, !noundef !212
+  %27 = load i32, ptr %26, align 4, !noalias !11281, !noundef !212
   %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !11285
+  store i32 %28, ptr %26, align 4, !noalias !11281
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..ExternCrate$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h142a3184cb995a53E.llvm.11762030844908852975.exit.i"
 
@@ -34265,21 +34263,21 @@ define noundef i32 @"_ZN84_$LT$syntax..ast..generated..nodes..ExternCrate$u20$as
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17hd1be5d3a93bb7e58E.exit: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = load i64, ptr %5, align 8, !noalias !11298, !noundef !212
+  %31 = load i64, ptr %5, align 8, !noalias !11294, !noundef !212
   %32 = add i64 %31, 1
-  store i64 %32, ptr %5, align 8, !noalias !11298
+  store i64 %32, ptr %5, align 8, !noalias !11294
   ret i32 %19
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..BreakOutsideOfLoop$GT$$GT$4from17hb24f498dade41ca8E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11305
-  %3 = tail call noundef align 4 dereferenceable_or_null(20) ptr @__rust_alloc(i64 noundef 20, i64 noundef 4) #38, !noalias !11305
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11301
+  %3 = tail call noundef align 4 dereferenceable_or_null(20) ptr @__rust_alloc(i64 noundef 20, i64 noundef 4) #38, !noalias !11301
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 20) #35, !noalias !11305
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 20) #35, !noalias !11301
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34290,8 +34288,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..ExpectedFunction$GT$$GT$4from17h2aa82f35236b7a34E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11308
-  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11308
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11304
+  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11304
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb93a90084b5155b9E.exit"
 
@@ -34325,8 +34323,8 @@ define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..InactiveCode$GT$$GT$4from17h0010f72233f01074E"(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11311
-  %3 = tail call noundef align 8 dereferenceable_or_null(96) ptr @__rust_alloc(i64 noundef 96, i64 noundef 8) #38, !noalias !11311
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11307
+  %3 = tail call noundef align 8 dereferenceable_or_null(96) ptr @__rust_alloc(i64 noundef 96, i64 noundef 8) #38, !noalias !11307
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7e7f745574bddbdE.llvm.6424288313766077374.exit"
 
@@ -34360,13 +34358,13 @@ define { i64, ptr } @"_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN111_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..IncoherentImpl$GT$$GT$4from17h44dc62850c302365E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11314
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11314
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11310
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11310
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11314
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11310
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34377,8 +34375,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN125_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir_ty..diagnostics..decl_check..IncorrectCase$GT$$GT$4from17h55b9d37ff67e1539E"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11317
-  %3 = tail call noundef align 8 dereferenceable_or_null(72) ptr @__rust_alloc(i64 noundef 72, i64 noundef 8) #38, !noalias !11317
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11313
+  %3 = tail call noundef align 8 dereferenceable_or_null(72) ptr @__rust_alloc(i64 noundef 72, i64 noundef 8) #38, !noalias !11313
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h808e12772ffb30fdE.llvm.6424288313766077374.exit"
 
@@ -34412,13 +34410,13 @@ define { i64, ptr } @"_ZN125_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..InvalidDeriveTarget$GT$$GT$4from17h0461ecf3367effe2E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11320
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11320
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11316
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11316
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11320
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11316
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34429,8 +34427,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN110_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MacroDefError$GT$$GT$4from17h44ac88f125153820E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11323
-  %3 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #38, !noalias !11323
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11319
+  %3 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #38, !noalias !11319
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc901bdde1e76b748E.llvm.6424288313766077374.exit"
 
@@ -34464,8 +34462,8 @@ define { i64, ptr } @"_ZN110_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN107_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MacroError$GT$$GT$4from17hee38db25d2fe09b4E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11326
-  %3 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #38, !noalias !11326
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11322
+  %3 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #38, !noalias !11322
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfc9eeb85f16f3156E.llvm.6424288313766077374.exit"
 
@@ -34499,8 +34497,8 @@ define { i64, ptr } @"_ZN107_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN121_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MacroExpansionParseError$GT$$GT$4from17ha60a291d19aba509E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11329
-  %3 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #38, !noalias !11329
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11325
+  %3 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #38, !noalias !11325
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h821cc15d65c9a38aE.llvm.6424288313766077374.exit"
 
@@ -34535,13 +34533,13 @@ define { i64, ptr } @"_ZN121_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MalformedDerive$GT$$GT$4from17hbd109c2707843b32E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11332
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11332
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11328
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11328
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11332
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11328
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34552,13 +34550,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedArgCount$GT$$GT$4from17habeb1d7a73b3a33cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11335
-  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11335
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11331
+  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11331
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #35, !noalias !11335
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #35, !noalias !11331
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34569,13 +34567,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN129_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedTupleStructPatArgCount$GT$$GT$4from17hb16e95cca215d85aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11338
-  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11338
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11334
+  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11334
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #35, !noalias !11338
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 32) #35, !noalias !11334
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34586,8 +34584,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN110_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MissingFields$GT$$GT$4from17h6de7af6703d5436cE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11341
-  %3 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #38, !noalias !11341
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11337
+  %3 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #38, !noalias !11337
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2f700b76f1c4a53fE.exit"
 
@@ -34621,8 +34619,8 @@ define { i64, ptr } @"_ZN110_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MissingMatchArms$GT$$GT$4from17hbf5ca42a9c621ec3E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11344
-  %3 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #38, !noalias !11344
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11340
+  %3 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #38, !noalias !11340
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h031a047c7515a06eE.exit"
 
@@ -34656,13 +34654,13 @@ define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN110_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MissingUnsafe$GT$$GT$4from17h6bff6e64dff739f9E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11347
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11347
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11343
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11343
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11347
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11343
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34673,8 +34671,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN110_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MovedOutOfRef$GT$$GT$4from17hfaf5a9aae12371b3E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11350
-  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11350
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11346
+  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11346
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3ed2bb4a71151437E.llvm.6424288313766077374.exit"
 
@@ -34708,13 +34706,13 @@ define { i64, ptr } @"_ZN110_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN104_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..NeedMut$GT$$GT$4from17h42025fc113fdf97bE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11353
-  %3 = tail call noundef align 4 dereferenceable_or_null(28) ptr @__rust_alloc(i64 noundef 28, i64 noundef 4) #38, !noalias !11353
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11349
+  %3 = tail call noundef align 4 dereferenceable_or_null(28) ptr @__rust_alloc(i64 noundef 28, i64 noundef 4) #38, !noalias !11349
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 28) #35, !noalias !11353
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 28) #35, !noalias !11349
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34725,8 +34723,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..NonExhaustiveLet$GT$$GT$4from17h0790b078241d51adE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11356
-  %3 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #38, !noalias !11356
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11352
+  %3 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #38, !noalias !11352
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc759be512a8a509cE.exit"
 
@@ -34760,13 +34758,13 @@ define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN108_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..NoSuchField$GT$$GT$4from17h7239ae898032ea53E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11359
-  %3 = tail call noundef align 4 dereferenceable_or_null(20) ptr @__rust_alloc(i64 noundef 20, i64 noundef 4) #38, !noalias !11359
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11355
+  %3 = tail call noundef align 4 dereferenceable_or_null(20) ptr @__rust_alloc(i64 noundef 20, i64 noundef 4) #38, !noalias !11355
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 20) #35, !noalias !11359
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 20) #35, !noalias !11355
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34777,13 +34775,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateAssocItem$GT$$GT$4from17h82ec06764d803d2fE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11362
-  %3 = tail call noundef align 4 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 4) #38, !noalias !11362
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11358
+  %3 = tail call noundef align 4 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 4) #38, !noalias !11358
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 24) #35, !noalias !11362
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 24) #35, !noalias !11358
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34794,13 +34792,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateField$GT$$GT$4from17hfd45bfe6b3489427E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11365
-  %3 = tail call noundef align 4 dereferenceable_or_null(28) ptr @__rust_alloc(i64 noundef 28, i64 noundef 4) #38, !noalias !11365
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11361
+  %3 = tail call noundef align 4 dereferenceable_or_null(28) ptr @__rust_alloc(i64 noundef 28, i64 noundef 4) #38, !noalias !11361
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 28) #35, !noalias !11365
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 28) #35, !noalias !11361
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34811,13 +34809,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN117_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..RemoveTrailingReturn$GT$$GT$4from17ha018ff4a1f3282deE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11368
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11368
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11364
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11364
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11368
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11364
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34828,13 +34826,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN118_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..RemoveUnnecessaryElse$GT$$GT$4from17hcc51d521526e101dE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11371
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11371
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11367
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11367
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11371
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11367
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34845,13 +34843,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN128_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..ReplaceFilterMapNextWithFindMap$GT$$GT$4from17h219bf8b9bfd6ecb2E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11374
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11374
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11370
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11370
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11374
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11370
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34862,13 +34860,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN121_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TraitImplIncorrectSafety$GT$$GT$4from17hb19db991ffdd436eE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11377
-  %3 = tail call noundef align 4 dereferenceable_or_null(20) ptr @__rust_alloc(i64 noundef 20, i64 noundef 4) #38, !noalias !11377
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11373
+  %3 = tail call noundef align 4 dereferenceable_or_null(20) ptr @__rust_alloc(i64 noundef 20, i64 noundef 4) #38, !noalias !11373
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 20) #35, !noalias !11377
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 20) #35, !noalias !11373
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34879,8 +34877,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN123_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TraitImplMissingAssocItems$GT$$GT$4from17h5117539e7ae8a621E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11380
-  %3 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #38, !noalias !11380
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11376
+  %3 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #38, !noalias !11376
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfe7bc64d2c4409ddE.llvm.6424288313766077374.exit"
 
@@ -34914,13 +34912,13 @@ define { i64, ptr } @"_ZN123_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TraitImplOrphan$GT$$GT$4from17h2bb64a6fd00df7acE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11383
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11383
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11379
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11379
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11383
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11379
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -34931,8 +34929,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN125_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TraitImplRedundantAssocItems$GT$$GT$4from17ha59daeeb883757dbE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11386
-  %3 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #38, !noalias !11386
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11382
+  %3 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #38, !noalias !11382
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha2c38657f5f6a919E.llvm.6424288313766077374.exit"
 
@@ -34966,8 +34964,8 @@ define { i64, ptr } @"_ZN125_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN106_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TypedHole$GT$$GT$4from17hd01779021b1c6a4fE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11389
-  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11389
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11385
+  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11385
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd0c8127be812cf5E.exit"
 
@@ -35001,8 +34999,8 @@ define { i64, ptr } @"_ZN106_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TypeMismatch$GT$$GT$4from17h7d3f7b99b7834196E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11392
-  %3 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #38, !noalias !11392
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11388
+  %3 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #38, !noalias !11388
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72a829fa55afcc3fE.llvm.6424288313766077374.exit"
 
@@ -35036,8 +35034,8 @@ define { i64, ptr } @"_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UndeclaredLabel$GT$$GT$4from17hc3755a2d0433f7bfE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11395
-  %3 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #38, !noalias !11395
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11391
+  %3 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #38, !noalias !11391
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2f6447a92dda2499E.llvm.6424288313766077374.exit"
 
@@ -35071,13 +35069,13 @@ define { i64, ptr } @"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN122_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnimplementedBuiltinMacro$GT$$GT$4from17h8f46d443442781e8E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11398
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11398
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11394
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11394
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11398
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11394
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -35088,8 +35086,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnreachableLabel$GT$$GT$4from17h17d16539bb3fd6e1E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11401
-  %3 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #38, !noalias !11401
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11397
+  %3 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #38, !noalias !11397
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h91b6eb2b1ff7cf4eE.llvm.6424288313766077374.exit"
 
@@ -35123,13 +35121,13 @@ define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedAssocItem$GT$$GT$4from17h744c6965c9d4d955E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11404
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11404
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11400
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11400
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11404
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11400
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -35140,13 +35138,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN118_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedExternCrate$GT$$GT$4from17hd60fd943edd3ca9aE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11407
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11407
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11403
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11403
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11407
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11403
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -35157,8 +35155,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedField$GT$$GT$4from17hfcedf1611a1f9102E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11410
-  %3 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #38, !noalias !11410
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11406
+  %3 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #38, !noalias !11406
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdff5dcef3679d9d9E.exit"
 
@@ -35192,13 +35190,13 @@ define { i64, ptr } @"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedImport$GT$$GT$4from17h1541eaaf35c43bd2E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11413
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11413
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11409
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11409
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11413
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11409
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -35209,8 +35207,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedMacroCall$GT$$GT$4from17h11438c9a0aa6fbb9E"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11416
-  %3 = tail call noundef align 8 dereferenceable_or_null(72) ptr @__rust_alloc(i64 noundef 72, i64 noundef 8) #38, !noalias !11416
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11412
+  %3 = tail call noundef align 8 dereferenceable_or_null(72) ptr @__rust_alloc(i64 noundef 72, i64 noundef 8) #38, !noalias !11412
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1cae8008e55067e4E.llvm.6424288313766077374.exit"
 
@@ -35245,8 +35243,8 @@ define { i64, ptr } @"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN117_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedMethodCall$GT$$GT$4from17hc5472e25cac80b10E"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11419
-  %3 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #38, !noalias !11419
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11415
+  %3 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #38, !noalias !11415
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fe22cb31865da8fE.exit"
 
@@ -35280,8 +35278,8 @@ define { i64, ptr } @"_ZN117_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedModule$GT$$GT$4from17h803a583ae64ddc82E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11422
-  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11422
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11418
+  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #38, !noalias !11418
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h52bf4867f29741e2E.llvm.6424288313766077374.exit"
 
@@ -35315,13 +35313,13 @@ define { i64, ptr } @"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedIdent$GT$$GT$4from17h6a83cd6d5d3cabd5E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11425
-  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11425
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11421
+  %3 = tail call noundef align 4 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 4) #38, !noalias !11421
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11425
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 16) #35, !noalias !11421
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -35332,8 +35330,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedProcMacro$GT$$GT$4from17h3c689662ee35e3afE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11428
-  %3 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #38, !noalias !11428
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11424
+  %3 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #38, !noalias !11424
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h986fc53adbe17172E.llvm.6424288313766077374.exit"
 
@@ -35367,13 +35365,13 @@ define { i64, ptr } @"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN106_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnusedMut$GT$$GT$4from17h56b25d1a7e19b3c0E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11431
-  %3 = tail call noundef align 4 dereferenceable_or_null(12) ptr @__rust_alloc(i64 noundef 12, i64 noundef 4) #38, !noalias !11431
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11427
+  %3 = tail call noundef align 4 dereferenceable_or_null(12) ptr @__rust_alloc(i64 noundef 12, i64 noundef 4) #38, !noalias !11427
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 12) #35, !noalias !11431
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 12) #35, !noalias !11427
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -35384,13 +35382,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.ex
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN111_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnusedVariable$GT$$GT$4from17h5f24f1efd44a431eE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11434
-  %3 = tail call noundef align 4 dereferenceable_or_null(12) ptr @__rust_alloc(i64 noundef 12, i64 noundef 4) #38, !noalias !11434
+  %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11430
+  %3 = tail call noundef align 4 dereferenceable_or_null(12) ptr @__rust_alloc(i64 noundef 12, i64 noundef 4) #38, !noalias !11430
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit
 
 5:                                                ; preds = %1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 12) #35, !noalias !11434
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 12) #35, !noalias !11430
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.6424288313766077374.exit: ; preds = %1
@@ -47119,906 +47117,902 @@ attributes #38 = { nounwind }
 !10531 = !{!10529, !10526, !10523, !10520}
 !10532 = !{i32 0, i32 16}
 !10533 = !{!10534}
-!10534 = distinct !{!10534, !10535, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h5edcfa8da8da9b4eE: argument 0"}
+!10534 = distinct !{!10534, !10535, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h5edcfa8da8da9b4eE: argument 1"}
 !10535 = distinct !{!10535, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h5edcfa8da8da9b4eE"}
 !10536 = !{!10537}
-!10537 = distinct !{!10537, !10535, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h5edcfa8da8da9b4eE: argument 1"}
-!10538 = !{!10534, !10537}
-!10539 = !{!10540}
-!10540 = distinct !{!10540, !10541, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h3ecc8e45387540e8E: argument 0"}
-!10541 = distinct !{!10541, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h3ecc8e45387540e8E"}
-!10542 = !{!10543}
-!10543 = distinct !{!10543, !10541, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h3ecc8e45387540e8E: argument 1"}
-!10544 = !{!10540, !10543}
-!10545 = !{!10546, !10548}
-!10546 = distinct !{!10546, !10547, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h10b7ae287aa1f64fE: argument 0"}
-!10547 = distinct !{!10547, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h10b7ae287aa1f64fE"}
-!10548 = distinct !{!10548, !10549, !"_ZN108_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..NoSuchField$GT$$GT$4from17h7239ae898032ea53E: argument 0"}
-!10549 = distinct !{!10549, !"_ZN108_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..NoSuchField$GT$$GT$4from17h7239ae898032ea53E"}
-!10550 = !{!10551, !10553}
-!10551 = distinct !{!10551, !10552, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd746ea5dc0f6c384E: argument 0"}
-!10552 = distinct !{!10552, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd746ea5dc0f6c384E"}
-!10553 = distinct !{!10553, !10554, !"_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateField$GT$$GT$4from17hfd45bfe6b3489427E: argument 0"}
-!10554 = distinct !{!10554, !"_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateField$GT$$GT$4from17hfd45bfe6b3489427E"}
-!10555 = !{!10556, !10558}
-!10556 = distinct !{!10556, !10557, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha34f59152f92559dE: argument 0"}
-!10557 = distinct !{!10557, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha34f59152f92559dE"}
-!10558 = distinct !{!10558, !10559, !"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateAssocItem$GT$$GT$4from17h82ec06764d803d2fE: argument 0"}
-!10559 = distinct !{!10559, !"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateAssocItem$GT$$GT$4from17h82ec06764d803d2fE"}
-!10560 = !{!10561}
-!10561 = distinct !{!10561, !10562, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E: argument 0"}
-!10562 = distinct !{!10562, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E"}
+!10537 = distinct !{!10537, !10535, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h5edcfa8da8da9b4eE: argument 0"}
+!10538 = !{!10539}
+!10539 = distinct !{!10539, !10540, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h3ecc8e45387540e8E: argument 1"}
+!10540 = distinct !{!10540, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h3ecc8e45387540e8E"}
+!10541 = !{!10542}
+!10542 = distinct !{!10542, !10540, !"_ZN10hir_expand5files33InFileWrapper$LT$FileKind$C$T$GT$3map17h3ecc8e45387540e8E: argument 0"}
+!10543 = !{!10544, !10546}
+!10544 = distinct !{!10544, !10545, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h10b7ae287aa1f64fE: argument 0"}
+!10545 = distinct !{!10545, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h10b7ae287aa1f64fE"}
+!10546 = distinct !{!10546, !10547, !"_ZN108_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..NoSuchField$GT$$GT$4from17h7239ae898032ea53E: argument 0"}
+!10547 = distinct !{!10547, !"_ZN108_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..NoSuchField$GT$$GT$4from17h7239ae898032ea53E"}
+!10548 = !{!10549, !10551}
+!10549 = distinct !{!10549, !10550, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd746ea5dc0f6c384E: argument 0"}
+!10550 = distinct !{!10550, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd746ea5dc0f6c384E"}
+!10551 = distinct !{!10551, !10552, !"_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateField$GT$$GT$4from17hfd45bfe6b3489427E: argument 0"}
+!10552 = distinct !{!10552, !"_ZN109_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateField$GT$$GT$4from17hfd45bfe6b3489427E"}
+!10553 = !{!10554, !10556}
+!10554 = distinct !{!10554, !10555, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha34f59152f92559dE: argument 0"}
+!10555 = distinct !{!10555, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha34f59152f92559dE"}
+!10556 = distinct !{!10556, !10557, !"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateAssocItem$GT$$GT$4from17h82ec06764d803d2fE: argument 0"}
+!10557 = distinct !{!10557, !"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..PrivateAssocItem$GT$$GT$4from17h82ec06764d803d2fE"}
+!10558 = !{!10559}
+!10559 = distinct !{!10559, !10560, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E: argument 0"}
+!10560 = distinct !{!10560, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E"}
+!10561 = !{!10562}
+!10562 = distinct !{!10562, !10560, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E: argument 1"}
 !10563 = !{!10564}
-!10564 = distinct !{!10564, !10562, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E: argument 1"}
-!10565 = !{!10566}
-!10566 = distinct !{!10566, !10567, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E: argument 0"}
-!10567 = distinct !{!10567, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E"}
-!10568 = !{!10569}
-!10569 = distinct !{!10569, !10567, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E: argument 1"}
-!10570 = !{!10569, !10564}
-!10571 = !{!10566, !10561}
-!10572 = !{!10566, !10569, !10561, !10564}
-!10573 = !{!10566, !10569}
-!10574 = !{!10566, !10569, !10564}
-!10575 = !{!10576}
-!10576 = distinct !{!10576, !10577, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
-!10577 = distinct !{!10577, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
-!10578 = !{!10579, !10581}
-!10579 = distinct !{!10579, !10580, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdff5dcef3679d9d9E: argument 0"}
-!10580 = distinct !{!10580, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdff5dcef3679d9d9E"}
-!10581 = distinct !{!10581, !10582, !"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedField$GT$$GT$4from17hfcedf1611a1f9102E: argument 0"}
-!10582 = distinct !{!10582, !"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedField$GT$$GT$4from17hfcedf1611a1f9102E"}
-!10583 = !{!10581}
+!10564 = distinct !{!10564, !10565, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E: argument 0"}
+!10565 = distinct !{!10565, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E"}
+!10566 = !{!10567}
+!10567 = distinct !{!10567, !10565, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E: argument 1"}
+!10568 = !{!10567, !10562}
+!10569 = !{!10564, !10559}
+!10570 = !{!10564, !10567, !10559, !10562}
+!10571 = !{!10564, !10567, !10562}
+!10572 = !{!10573}
+!10573 = distinct !{!10573, !10574, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
+!10574 = distinct !{!10574, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
+!10575 = !{!10576, !10578}
+!10576 = distinct !{!10576, !10577, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdff5dcef3679d9d9E: argument 0"}
+!10577 = distinct !{!10577, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdff5dcef3679d9d9E"}
+!10578 = distinct !{!10578, !10579, !"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedField$GT$$GT$4from17hfcedf1611a1f9102E: argument 0"}
+!10579 = distinct !{!10579, !"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedField$GT$$GT$4from17hfcedf1611a1f9102E"}
+!10580 = !{!10578}
+!10581 = !{!10582}
+!10582 = distinct !{!10582, !10583, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E: argument 0"}
+!10583 = distinct !{!10583, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E"}
 !10584 = !{!10585}
-!10585 = distinct !{!10585, !10586, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E: argument 0"}
-!10586 = distinct !{!10586, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E"}
-!10587 = !{!10588}
-!10588 = distinct !{!10588, !10586, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E: argument 1"}
+!10585 = distinct !{!10585, !10583, !"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E: argument 1"}
+!10586 = !{!10587}
+!10587 = distinct !{!10587, !10588, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E: argument 0"}
+!10588 = distinct !{!10588, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E"}
 !10589 = !{!10590}
-!10590 = distinct !{!10590, !10591, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E: argument 0"}
-!10591 = distinct !{!10591, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E"}
-!10592 = !{!10593}
-!10593 = distinct !{!10593, !10591, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E: argument 1"}
-!10594 = !{!10593, !10588}
-!10595 = !{!10590, !10585}
-!10596 = !{!10590, !10593, !10585, !10588}
-!10597 = !{!10590, !10593}
-!10598 = !{!10590, !10593, !10588}
-!10599 = !{!10600}
-!10600 = distinct !{!10600, !10601, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
-!10601 = distinct !{!10601, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
-!10602 = !{!10603}
-!10603 = distinct !{!10603, !10604, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
-!10604 = distinct !{!10604, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
-!10605 = !{!10606, !10608}
-!10606 = distinct !{!10606, !10607, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fe22cb31865da8fE: argument 0"}
-!10607 = distinct !{!10607, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fe22cb31865da8fE"}
-!10608 = distinct !{!10608, !10609, !"_ZN117_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedMethodCall$GT$$GT$4from17hc5472e25cac80b10E: argument 0"}
-!10609 = distinct !{!10609, !"_ZN117_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedMethodCall$GT$$GT$4from17hc5472e25cac80b10E"}
-!10610 = !{!10608}
-!10611 = !{!10612, !10614}
-!10612 = distinct !{!10612, !10613, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfce732d3b9cc0d5eE: argument 0"}
-!10613 = distinct !{!10613, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfce732d3b9cc0d5eE"}
-!10614 = distinct !{!10614, !10615, !"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedAssocItem$GT$$GT$4from17h744c6965c9d4d955E: argument 0"}
-!10615 = distinct !{!10615, !"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedAssocItem$GT$$GT$4from17h744c6965c9d4d955E"}
-!10616 = !{!10617, !10619}
-!10617 = distinct !{!10617, !10618, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h505d25b8cf10522dE: argument 0"}
-!10618 = distinct !{!10618, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h505d25b8cf10522dE"}
-!10619 = distinct !{!10619, !10620, !"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedIdent$GT$$GT$4from17h6a83cd6d5d3cabd5E: argument 0"}
-!10620 = distinct !{!10620, !"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedIdent$GT$$GT$4from17h6a83cd6d5d3cabd5E"}
-!10621 = !{!10622, !10624}
-!10622 = distinct !{!10622, !10623, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0a57e21d486f0ef4E: argument 0"}
-!10623 = distinct !{!10623, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0a57e21d486f0ef4E"}
-!10624 = distinct !{!10624, !10625, !"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..BreakOutsideOfLoop$GT$$GT$4from17hb24f498dade41ca8E: argument 0"}
-!10625 = distinct !{!10625, !"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..BreakOutsideOfLoop$GT$$GT$4from17hb24f498dade41ca8E"}
-!10626 = !{!10627, !10629}
-!10627 = distinct !{!10627, !10628, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb49454af209e728dE: argument 0"}
-!10628 = distinct !{!10628, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb49454af209e728dE"}
-!10629 = distinct !{!10629, !10630, !"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedArgCount$GT$$GT$4from17habeb1d7a73b3a33cE: argument 0"}
-!10630 = distinct !{!10630, !"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedArgCount$GT$$GT$4from17habeb1d7a73b3a33cE"}
-!10631 = !{!10632, !10634}
-!10632 = distinct !{!10632, !10633, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3735d854d6d69134E: argument 0"}
-!10633 = distinct !{!10633, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3735d854d6d69134E"}
-!10634 = distinct !{!10634, !10635, !"_ZN129_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedTupleStructPatArgCount$GT$$GT$4from17hb16e95cca215d85aE: argument 0"}
-!10635 = distinct !{!10635, !"_ZN129_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedTupleStructPatArgCount$GT$$GT$4from17hb16e95cca215d85aE"}
-!10636 = !{!10637, !10639}
-!10637 = distinct !{!10637, !10638, !"_ZN6syntax3ptr15AstPtr$LT$N$GT$12try_from_raw17h5877bceea0387f97E: argument 0"}
-!10638 = distinct !{!10638, !"_ZN6syntax3ptr15AstPtr$LT$N$GT$12try_from_raw17h5877bceea0387f97E"}
-!10639 = distinct !{!10639, !10638, !"_ZN6syntax3ptr15AstPtr$LT$N$GT$12try_from_raw17h5877bceea0387f97E: argument 1"}
-!10640 = !{!10641}
-!10641 = distinct !{!10641, !10642, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
-!10642 = distinct !{!10642, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
-!10643 = !{!10644, !10646}
-!10644 = distinct !{!10644, !10645, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb93a90084b5155b9E: argument 0"}
-!10645 = distinct !{!10645, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb93a90084b5155b9E"}
-!10646 = distinct !{!10646, !10647, !"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..ExpectedFunction$GT$$GT$4from17h2aa82f35236b7a34E: argument 0"}
-!10647 = distinct !{!10647, !"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..ExpectedFunction$GT$$GT$4from17h2aa82f35236b7a34E"}
-!10648 = !{!10646}
-!10649 = !{!10650}
-!10650 = distinct !{!10650, !10651, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
-!10651 = distinct !{!10651, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
-!10652 = !{!10653, !10655}
-!10653 = distinct !{!10653, !10654, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd0c8127be812cf5E: argument 0"}
-!10654 = distinct !{!10654, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd0c8127be812cf5E"}
-!10655 = distinct !{!10655, !10656, !"_ZN106_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TypedHole$GT$$GT$4from17hd01779021b1c6a4fE: argument 0"}
-!10656 = distinct !{!10656, !"_ZN106_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TypedHole$GT$$GT$4from17hd01779021b1c6a4fE"}
-!10657 = !{!10655}
-!10658 = !{!10659}
-!10659 = distinct !{!10659, !10660, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17ha0ef952b4c8c71eeE: argument 0"}
-!10660 = distinct !{!10660, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17ha0ef952b4c8c71eeE"}
-!10661 = !{!10662, !10664, !10666, !10659}
-!10662 = distinct !{!10662, !10663, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10663 = distinct !{!10663, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10664 = distinct !{!10664, !10665, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10665 = distinct !{!10665, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10666 = distinct !{!10666, !10667, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10667 = distinct !{!10667, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10668 = !{!10669, !10671, !10673, !10675, !10677, !10679, !10659}
-!10669 = distinct !{!10669, !10670, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10670 = distinct !{!10670, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10671 = distinct !{!10671, !10672, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10672 = distinct !{!10672, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10673 = distinct !{!10673, !10674, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10674 = distinct !{!10674, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10675 = distinct !{!10675, !10676, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Module$GT$17h3aed4b71792e6dcaE: argument 0"}
-!10676 = distinct !{!10676, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Module$GT$17h3aed4b71792e6dcaE"}
-!10677 = distinct !{!10677, !10678, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Module$GT$$GT$17h48d86b095b579b42E: argument 0"}
-!10678 = distinct !{!10678, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Module$GT$$GT$17h48d86b095b579b42E"}
-!10679 = distinct !{!10679, !10680, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Module$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49466b3c7e4e7f17E.llvm.11762030844908852975: argument 0"}
-!10680 = distinct !{!10680, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Module$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49466b3c7e4e7f17E.llvm.11762030844908852975"}
-!10681 = !{!10682, !10684, !10686, !10659}
-!10682 = distinct !{!10682, !10683, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10683 = distinct !{!10683, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10684 = distinct !{!10684, !10685, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10685 = distinct !{!10685, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10686 = distinct !{!10686, !10687, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10687 = distinct !{!10687, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10688 = !{!10689}
-!10689 = distinct !{!10689, !10690, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hd1be71a102eb8469E: argument 0"}
-!10690 = distinct !{!10690, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hd1be71a102eb8469E"}
-!10691 = !{!10692, !10694, !10696, !10689}
-!10692 = distinct !{!10692, !10693, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10693 = distinct !{!10693, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10694 = distinct !{!10694, !10695, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10695 = distinct !{!10695, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10696 = distinct !{!10696, !10697, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10697 = distinct !{!10697, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10698 = !{!10699, !10701, !10703, !10705, !10707, !10709, !10689}
-!10699 = distinct !{!10699, !10700, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10700 = distinct !{!10700, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10701 = distinct !{!10701, !10702, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10702 = distinct !{!10702, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10703 = distinct !{!10703, !10704, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10704 = distinct !{!10704, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10705 = distinct !{!10705, !10706, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h88e322edd2b2d194E: argument 0"}
-!10706 = distinct !{!10706, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h88e322edd2b2d194E"}
-!10707 = distinct !{!10707, !10708, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h88e736a81bcbc389E: argument 0"}
-!10708 = distinct !{!10708, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h88e736a81bcbc389E"}
-!10709 = distinct !{!10709, !10710, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17f8a5975d994c7cE.llvm.11762030844908852975: argument 0"}
-!10710 = distinct !{!10710, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17f8a5975d994c7cE.llvm.11762030844908852975"}
-!10711 = !{!10712, !10714, !10716, !10689}
-!10712 = distinct !{!10712, !10713, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10713 = distinct !{!10713, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10714 = distinct !{!10714, !10715, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10715 = distinct !{!10715, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10716 = distinct !{!10716, !10717, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10717 = distinct !{!10717, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10718 = !{!10719, !10721, !10723}
-!10719 = distinct !{!10719, !10720, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10720 = distinct !{!10720, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10721 = distinct !{!10721, !10722, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10722 = distinct !{!10722, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10723 = distinct !{!10723, !10724, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10724 = distinct !{!10724, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10725 = !{!10726, !10728, !10730, !10732, !10734, !10736}
-!10726 = distinct !{!10726, !10727, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10727 = distinct !{!10727, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10728 = distinct !{!10728, !10729, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10729 = distinct !{!10729, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10730 = distinct !{!10730, !10731, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10731 = distinct !{!10731, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10732 = distinct !{!10732, !10733, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Struct$GT$17h14def9cf9d8e5f75E: argument 0"}
-!10733 = distinct !{!10733, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Struct$GT$17h14def9cf9d8e5f75E"}
-!10734 = distinct !{!10734, !10735, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Struct$GT$$GT$17hfecb75cbcd25c96aE: argument 0"}
-!10735 = distinct !{!10735, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Struct$GT$$GT$17hfecb75cbcd25c96aE"}
-!10736 = distinct !{!10736, !10737, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf49ceec78736da2eE.llvm.11762030844908852975: argument 0"}
-!10737 = distinct !{!10737, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf49ceec78736da2eE.llvm.11762030844908852975"}
-!10738 = !{!10739, !10741, !10743}
-!10739 = distinct !{!10739, !10740, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10740 = distinct !{!10740, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10741 = distinct !{!10741, !10742, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10742 = distinct !{!10742, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10743 = distinct !{!10743, !10744, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10744 = distinct !{!10744, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10745 = !{!10746, !10748, !10750}
-!10746 = distinct !{!10746, !10747, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10747 = distinct !{!10747, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10748 = distinct !{!10748, !10749, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10749 = distinct !{!10749, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10750 = distinct !{!10750, !10751, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10751 = distinct !{!10751, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10752 = !{!10753, !10755, !10757, !10759, !10761, !10763}
-!10753 = distinct !{!10753, !10754, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10754 = distinct !{!10754, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10755 = distinct !{!10755, !10756, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10756 = distinct !{!10756, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10757 = distinct !{!10757, !10758, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10758 = distinct !{!10758, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10759 = distinct !{!10759, !10760, !"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Enum$GT$17h34e3bbdef45101dbE: argument 0"}
-!10760 = distinct !{!10760, !"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Enum$GT$17h34e3bbdef45101dbE"}
-!10761 = distinct !{!10761, !10762, !"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Enum$GT$$GT$17h60ac575c37985f5eE: argument 0"}
-!10762 = distinct !{!10762, !"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Enum$GT$$GT$17h60ac575c37985f5eE"}
-!10763 = distinct !{!10763, !10764, !"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h638e0056ece3a389E.llvm.11762030844908852975: argument 0"}
-!10764 = distinct !{!10764, !"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h638e0056ece3a389E.llvm.11762030844908852975"}
-!10765 = !{!10766, !10768, !10770}
-!10766 = distinct !{!10766, !10767, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10767 = distinct !{!10767, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10768 = distinct !{!10768, !10769, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10769 = distinct !{!10769, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10770 = distinct !{!10770, !10771, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10771 = distinct !{!10771, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10772 = !{!10773, !10775, !10777}
-!10773 = distinct !{!10773, !10774, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10774 = distinct !{!10774, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10775 = distinct !{!10775, !10776, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10776 = distinct !{!10776, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10777 = distinct !{!10777, !10778, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10778 = distinct !{!10778, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10779 = !{!10780, !10782, !10784, !10786, !10788, !10790}
-!10780 = distinct !{!10780, !10781, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10781 = distinct !{!10781, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10782 = distinct !{!10782, !10783, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10783 = distinct !{!10783, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10784 = distinct !{!10784, !10785, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10785 = distinct !{!10785, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10786 = distinct !{!10786, !10787, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Union$GT$17h5a5ddf0d4754df98E: argument 0"}
-!10787 = distinct !{!10787, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Union$GT$17h5a5ddf0d4754df98E"}
-!10788 = distinct !{!10788, !10789, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Union$GT$$GT$17h123ad22aafca7d73E: argument 0"}
-!10789 = distinct !{!10789, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Union$GT$$GT$17h123ad22aafca7d73E"}
-!10790 = distinct !{!10790, !10791, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Union$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc34c3219960193dE.llvm.11762030844908852975: argument 0"}
-!10791 = distinct !{!10791, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Union$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc34c3219960193dE.llvm.11762030844908852975"}
-!10792 = !{!10793, !10795, !10797}
-!10793 = distinct !{!10793, !10794, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10794 = distinct !{!10794, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10795 = distinct !{!10795, !10796, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10796 = distinct !{!10796, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10797 = distinct !{!10797, !10798, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10798 = distinct !{!10798, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10799 = !{!10800, !10802, !10804}
-!10800 = distinct !{!10800, !10801, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10801 = distinct !{!10801, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10802 = distinct !{!10802, !10803, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10803 = distinct !{!10803, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10804 = distinct !{!10804, !10805, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10805 = distinct !{!10805, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10806 = !{!10807, !10809, !10811, !10813, !10815, !10817}
-!10807 = distinct !{!10807, !10808, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10808 = distinct !{!10808, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10809 = distinct !{!10809, !10810, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10810 = distinct !{!10810, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10811 = distinct !{!10811, !10812, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10812 = distinct !{!10812, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10813 = distinct !{!10813, !10814, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Trait$GT$17hb450459b77dfd7fbE: argument 0"}
-!10814 = distinct !{!10814, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Trait$GT$17hb450459b77dfd7fbE"}
-!10815 = distinct !{!10815, !10816, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Trait$GT$$GT$17h7810cdf91ae6431fE: argument 0"}
-!10816 = distinct !{!10816, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Trait$GT$$GT$17h7810cdf91ae6431fE"}
-!10817 = distinct !{!10817, !10818, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h693fe79225ee8497E.llvm.11762030844908852975: argument 0"}
-!10818 = distinct !{!10818, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h693fe79225ee8497E.llvm.11762030844908852975"}
-!10819 = !{!10820, !10822, !10824}
-!10820 = distinct !{!10820, !10821, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10821 = distinct !{!10821, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10822 = distinct !{!10822, !10823, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10823 = distinct !{!10823, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10824 = distinct !{!10824, !10825, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10825 = distinct !{!10825, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10826 = !{!10827, !10829, !10831}
-!10827 = distinct !{!10827, !10828, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10828 = distinct !{!10828, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10829 = distinct !{!10829, !10830, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10830 = distinct !{!10830, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10831 = distinct !{!10831, !10832, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10832 = distinct !{!10832, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10833 = !{!10834, !10836, !10838, !10840, !10842, !10844}
-!10834 = distinct !{!10834, !10835, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10835 = distinct !{!10835, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10836 = distinct !{!10836, !10837, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10837 = distinct !{!10837, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10838 = distinct !{!10838, !10839, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10839 = distinct !{!10839, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10840 = distinct !{!10840, !10841, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..TraitAlias$GT$17h65056b5d7f0f1173E: argument 0"}
-!10841 = distinct !{!10841, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..TraitAlias$GT$17h65056b5d7f0f1173E"}
-!10842 = distinct !{!10842, !10843, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TraitAlias$GT$$GT$17hd4225ecf6ace70e5E: argument 0"}
-!10843 = distinct !{!10843, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TraitAlias$GT$$GT$17hd4225ecf6ace70e5E"}
-!10844 = distinct !{!10844, !10845, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd7b7cd649d0cfee9E.llvm.11762030844908852975: argument 0"}
-!10845 = distinct !{!10845, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd7b7cd649d0cfee9E.llvm.11762030844908852975"}
-!10846 = !{!10847, !10849, !10851}
-!10847 = distinct !{!10847, !10848, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10848 = distinct !{!10848, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10849 = distinct !{!10849, !10850, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10850 = distinct !{!10850, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10851 = distinct !{!10851, !10852, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10852 = distinct !{!10852, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10853 = !{!10854, !10856, !10858}
-!10854 = distinct !{!10854, !10855, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10855 = distinct !{!10855, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10856 = distinct !{!10856, !10857, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10857 = distinct !{!10857, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10858 = distinct !{!10858, !10859, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10859 = distinct !{!10859, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10860 = !{!10861, !10863, !10865, !10867, !10869, !10871}
-!10861 = distinct !{!10861, !10862, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10862 = distinct !{!10862, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10863 = distinct !{!10863, !10864, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10864 = distinct !{!10864, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10865 = distinct !{!10865, !10866, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10866 = distinct !{!10866, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10867 = distinct !{!10867, !10868, !"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Impl$GT$17hc7c5c2ba6f02e0c5E: argument 0"}
-!10868 = distinct !{!10868, !"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Impl$GT$17hc7c5c2ba6f02e0c5E"}
-!10869 = distinct !{!10869, !10870, !"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Impl$GT$$GT$17h86905a7d458b37bdE: argument 0"}
-!10870 = distinct !{!10870, !"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Impl$GT$$GT$17h86905a7d458b37bdE"}
-!10871 = distinct !{!10871, !10872, !"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6086be2953d5fac6E.llvm.11762030844908852975: argument 0"}
-!10872 = distinct !{!10872, !"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6086be2953d5fac6E.llvm.11762030844908852975"}
-!10873 = !{!10874, !10876, !10878}
-!10874 = distinct !{!10874, !10875, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10875 = distinct !{!10875, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10876 = distinct !{!10876, !10877, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10877 = distinct !{!10877, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10878 = distinct !{!10878, !10879, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10879 = distinct !{!10879, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10880 = !{!10881, !10883, !10885}
-!10881 = distinct !{!10881, !10882, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10882 = distinct !{!10882, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10883 = distinct !{!10883, !10884, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10884 = distinct !{!10884, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10885 = distinct !{!10885, !10886, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10886 = distinct !{!10886, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10887 = !{!10888, !10890, !10892, !10894, !10896, !10898}
-!10888 = distinct !{!10888, !10889, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10889 = distinct !{!10889, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10890 = distinct !{!10890, !10891, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10891 = distinct !{!10891, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10892 = distinct !{!10892, !10893, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10893 = distinct !{!10893, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10894 = distinct !{!10894, !10895, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeAlias$GT$17h9c99de2f2d0036acE: argument 0"}
-!10895 = distinct !{!10895, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeAlias$GT$17h9c99de2f2d0036acE"}
-!10896 = distinct !{!10896, !10897, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeAlias$GT$$GT$17h2413a1562bdecc7fE: argument 0"}
-!10897 = distinct !{!10897, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeAlias$GT$$GT$17h2413a1562bdecc7fE"}
-!10898 = distinct !{!10898, !10899, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4af7cd0c09c27b5eE.llvm.11762030844908852975: argument 0"}
-!10899 = distinct !{!10899, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4af7cd0c09c27b5eE.llvm.11762030844908852975"}
-!10900 = !{!10901, !10903, !10905}
-!10901 = distinct !{!10901, !10902, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10902 = distinct !{!10902, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10903 = distinct !{!10903, !10904, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10904 = distinct !{!10904, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10905 = distinct !{!10905, !10906, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10906 = distinct !{!10906, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10907 = !{!10908, !10910, !10912}
-!10908 = distinct !{!10908, !10909, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10909 = distinct !{!10909, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10910 = distinct !{!10910, !10911, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10911 = distinct !{!10911, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10912 = distinct !{!10912, !10913, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10913 = distinct !{!10913, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10914 = !{!10915, !10917, !10919, !10921, !10923, !10925}
-!10915 = distinct !{!10915, !10916, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10916 = distinct !{!10916, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10917 = distinct !{!10917, !10918, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10918 = distinct !{!10918, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10919 = distinct !{!10919, !10920, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10920 = distinct !{!10920, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10921 = distinct !{!10921, !10922, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Const$GT$17h4cc6e710f21b69ebE: argument 0"}
-!10922 = distinct !{!10922, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Const$GT$17h4cc6e710f21b69ebE"}
-!10923 = distinct !{!10923, !10924, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Const$GT$$GT$17h3edf2100f00ea4ddE: argument 0"}
-!10924 = distinct !{!10924, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Const$GT$$GT$17h3edf2100f00ea4ddE"}
-!10925 = distinct !{!10925, !10926, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Const$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h71b1594949b5772eE.llvm.11762030844908852975: argument 0"}
-!10926 = distinct !{!10926, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Const$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h71b1594949b5772eE.llvm.11762030844908852975"}
-!10927 = !{!10928, !10930, !10932}
-!10928 = distinct !{!10928, !10929, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10929 = distinct !{!10929, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10930 = distinct !{!10930, !10931, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10931 = distinct !{!10931, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10932 = distinct !{!10932, !10933, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10933 = distinct !{!10933, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10934 = !{!10935, !10937, !10939}
-!10935 = distinct !{!10935, !10936, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10936 = distinct !{!10936, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10937 = distinct !{!10937, !10938, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10938 = distinct !{!10938, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10939 = distinct !{!10939, !10940, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10940 = distinct !{!10940, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10941 = !{!10942, !10944, !10946, !10948, !10950, !10952}
-!10942 = distinct !{!10942, !10943, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10943 = distinct !{!10943, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10944 = distinct !{!10944, !10945, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10945 = distinct !{!10945, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10946 = distinct !{!10946, !10947, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10947 = distinct !{!10947, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10948 = distinct !{!10948, !10949, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Static$GT$17ha6c0411b35a557a2E: argument 0"}
-!10949 = distinct !{!10949, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Static$GT$17ha6c0411b35a557a2E"}
-!10950 = distinct !{!10950, !10951, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Static$GT$$GT$17h650fd64ce23f026aE: argument 0"}
-!10951 = distinct !{!10951, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Static$GT$$GT$17h650fd64ce23f026aE"}
-!10952 = distinct !{!10952, !10953, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Static$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aea9f940a6b949aE.llvm.11762030844908852975: argument 0"}
-!10953 = distinct !{!10953, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Static$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aea9f940a6b949aE.llvm.11762030844908852975"}
-!10954 = !{!10955, !10957, !10959}
-!10955 = distinct !{!10955, !10956, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10956 = distinct !{!10956, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10957 = distinct !{!10957, !10958, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10958 = distinct !{!10958, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10959 = distinct !{!10959, !10960, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10960 = distinct !{!10960, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10961 = !{!10962, !10964, !10966}
-!10962 = distinct !{!10962, !10963, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10963 = distinct !{!10963, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10964 = distinct !{!10964, !10965, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10965 = distinct !{!10965, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10966 = distinct !{!10966, !10967, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10967 = distinct !{!10967, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10968 = !{!10969, !10971, !10973, !10975, !10977, !10979}
-!10969 = distinct !{!10969, !10970, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!10970 = distinct !{!10970, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!10971 = distinct !{!10971, !10972, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!10972 = distinct !{!10972, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!10973 = distinct !{!10973, !10974, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!10974 = distinct !{!10974, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!10975 = distinct !{!10975, !10976, !"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17h0e7e14642510b72cE: argument 0"}
-!10976 = distinct !{!10976, !"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17h0e7e14642510b72cE"}
-!10977 = distinct !{!10977, !10978, !"_ZN4core3ptr112drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Fn$GT$$GT$17ha601cdedb35c28a9E: argument 0"}
-!10978 = distinct !{!10978, !"_ZN4core3ptr112drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Fn$GT$$GT$17ha601cdedb35c28a9E"}
-!10979 = distinct !{!10979, !10980, !"_ZN4core3ptr132drop_in_place$LT$$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h501c6dc53e07907eE.llvm.11762030844908852975: argument 0"}
-!10980 = distinct !{!10980, !"_ZN4core3ptr132drop_in_place$LT$$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h501c6dc53e07907eE.llvm.11762030844908852975"}
-!10981 = !{!10982, !10984, !10986}
-!10982 = distinct !{!10982, !10983, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10983 = distinct !{!10983, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10984 = distinct !{!10984, !10985, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10985 = distinct !{!10985, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10986 = distinct !{!10986, !10987, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10987 = distinct !{!10987, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10988 = !{!10989}
-!10989 = distinct !{!10989, !10990, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hdba55c4135634660E: argument 0"}
-!10990 = distinct !{!10990, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hdba55c4135634660E"}
-!10991 = !{!10992, !10994, !10996, !10989}
-!10992 = distinct !{!10992, !10993, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!10993 = distinct !{!10993, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!10994 = distinct !{!10994, !10995, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!10995 = distinct !{!10995, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!10996 = distinct !{!10996, !10997, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!10997 = distinct !{!10997, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!10998 = !{!10999, !11001, !11003, !11005, !11007, !11009, !10989}
-!10999 = distinct !{!10999, !11000, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!11000 = distinct !{!11000, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!11001 = distinct !{!11001, !11002, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!11002 = distinct !{!11002, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!11003 = distinct !{!11003, !11004, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!11004 = distinct !{!11004, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!11005 = distinct !{!11005, !11006, !"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..RecordField$GT$17hc52284518c40b79bE: argument 0"}
-!11006 = distinct !{!11006, !"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..RecordField$GT$17hc52284518c40b79bE"}
-!11007 = distinct !{!11007, !11008, !"_ZN4core3ptr121drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..RecordField$GT$$GT$17h2be22adfa4d7e8d6E: argument 0"}
-!11008 = distinct !{!11008, !"_ZN4core3ptr121drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..RecordField$GT$$GT$17h2be22adfa4d7e8d6E"}
-!11009 = distinct !{!11009, !11010, !"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9a9032beb64ae1fcE.llvm.11762030844908852975: argument 0"}
-!11010 = distinct !{!11010, !"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9a9032beb64ae1fcE.llvm.11762030844908852975"}
-!11011 = !{!11012, !11014, !11016, !10989}
-!11012 = distinct !{!11012, !11013, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11013 = distinct !{!11013, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11014 = distinct !{!11014, !11015, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11015 = distinct !{!11015, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11016 = distinct !{!11016, !11017, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11017 = distinct !{!11017, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11018 = !{i32 0, i32 4}
-!11019 = !{!11020}
-!11020 = distinct !{!11020, !11021, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hf0dd73a51bffda79E: argument 0"}
-!11021 = distinct !{!11021, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hf0dd73a51bffda79E"}
-!11022 = !{!11023, !11025, !11027, !11020}
-!11023 = distinct !{!11023, !11024, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11024 = distinct !{!11024, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11025 = distinct !{!11025, !11026, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11026 = distinct !{!11026, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11027 = distinct !{!11027, !11028, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11028 = distinct !{!11028, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11029 = !{!11030, !11032, !11034, !11036, !11038, !11040, !11020}
-!11030 = distinct !{!11030, !11031, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!11031 = distinct !{!11031, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!11032 = distinct !{!11032, !11033, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!11033 = distinct !{!11033, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!11034 = distinct !{!11034, !11035, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!11035 = distinct !{!11035, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!11036 = distinct !{!11036, !11037, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..TupleField$GT$17h62220d5dea802e32E: argument 0"}
-!11037 = distinct !{!11037, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..TupleField$GT$17h62220d5dea802e32E"}
-!11038 = distinct !{!11038, !11039, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TupleField$GT$$GT$17h07c0ba08787e6854E: argument 0"}
-!11039 = distinct !{!11039, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TupleField$GT$$GT$17h07c0ba08787e6854E"}
-!11040 = distinct !{!11040, !11041, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc187c90ad373cb1dE.llvm.11762030844908852975: argument 0"}
-!11041 = distinct !{!11041, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc187c90ad373cb1dE.llvm.11762030844908852975"}
-!11042 = !{!11043, !11045, !11047, !11020}
-!11043 = distinct !{!11043, !11044, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11044 = distinct !{!11044, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11045 = distinct !{!11045, !11046, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11046 = distinct !{!11046, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11047 = distinct !{!11047, !11048, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11048 = distinct !{!11048, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11049 = !{!11050, !11052, !11054}
-!11050 = distinct !{!11050, !11051, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11051 = distinct !{!11051, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11052 = distinct !{!11052, !11053, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11053 = distinct !{!11053, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11054 = distinct !{!11054, !11055, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11055 = distinct !{!11055, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11056 = !{!11057, !11059, !11061, !11063, !11065, !11067}
-!11057 = distinct !{!11057, !11058, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!11058 = distinct !{!11058, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!11059 = distinct !{!11059, !11060, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!11060 = distinct !{!11060, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!11061 = distinct !{!11061, !11062, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!11062 = distinct !{!11062, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!11063 = distinct !{!11063, !11064, !"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..Variant$GT$17h173ae72439fba160E: argument 0"}
-!11064 = distinct !{!11064, !"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..Variant$GT$17h173ae72439fba160E"}
-!11065 = distinct !{!11065, !11066, !"_ZN4core3ptr117drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Variant$GT$$GT$17hacbbefd4ad43b41fE: argument 0"}
-!11066 = distinct !{!11066, !"_ZN4core3ptr117drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Variant$GT$$GT$17hacbbefd4ad43b41fE"}
-!11067 = distinct !{!11067, !11068, !"_ZN4core3ptr137drop_in_place$LT$$LT$syntax..ast..generated..nodes..Variant$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0d40d2314b9c8d80E.llvm.11762030844908852975: argument 0"}
-!11068 = distinct !{!11068, !"_ZN4core3ptr137drop_in_place$LT$$LT$syntax..ast..generated..nodes..Variant$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0d40d2314b9c8d80E.llvm.11762030844908852975"}
-!11069 = !{!11070, !11072, !11074}
-!11070 = distinct !{!11070, !11071, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11071 = distinct !{!11071, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11072 = distinct !{!11072, !11073, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11073 = distinct !{!11073, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11074 = distinct !{!11074, !11075, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11075 = distinct !{!11075, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11076 = !{!11077}
-!11077 = distinct !{!11077, !11078, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hae0c7509370623a1E: argument 0"}
-!11078 = distinct !{!11078, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hae0c7509370623a1E"}
-!11079 = !{!11080, !11082, !11084, !11077}
-!11080 = distinct !{!11080, !11081, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11081 = distinct !{!11081, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11082 = distinct !{!11082, !11083, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11083 = distinct !{!11083, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11084 = distinct !{!11084, !11085, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11085 = distinct !{!11085, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11086 = !{!11087, !11089, !11091, !11093, !11095, !11097, !11077}
-!11087 = distinct !{!11087, !11088, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!11088 = distinct !{!11088, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!11089 = distinct !{!11089, !11090, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!11090 = distinct !{!11090, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!11091 = distinct !{!11091, !11092, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!11092 = distinct !{!11092, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!11093 = distinct !{!11093, !11094, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h3fc837ffe37bbeb2E: argument 0"}
-!11094 = distinct !{!11094, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h3fc837ffe37bbeb2E"}
-!11095 = distinct !{!11095, !11096, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeParam$GT$$GT$17he576de2071a4188dE: argument 0"}
-!11096 = distinct !{!11096, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeParam$GT$$GT$17he576de2071a4188dE"}
-!11097 = distinct !{!11097, !11098, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1508934ecdc90faE.llvm.11762030844908852975: argument 0"}
-!11098 = distinct !{!11098, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1508934ecdc90faE.llvm.11762030844908852975"}
-!11099 = !{!11100, !11102, !11104, !11077}
-!11100 = distinct !{!11100, !11101, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11101 = distinct !{!11101, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11102 = distinct !{!11102, !11103, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11103 = distinct !{!11103, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11104 = distinct !{!11104, !11105, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11105 = distinct !{!11105, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11106 = !{!11107}
-!11107 = distinct !{!11107, !11108, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hac306b48c4640be1E: argument 0"}
-!11108 = distinct !{!11108, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hac306b48c4640be1E"}
-!11109 = !{!11110, !11112, !11114, !11107}
-!11110 = distinct !{!11110, !11111, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11111 = distinct !{!11111, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11112 = distinct !{!11112, !11113, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11113 = distinct !{!11113, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11114 = distinct !{!11114, !11115, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11115 = distinct !{!11115, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11116 = !{!11117, !11119, !11121, !11123, !11125, !11127, !11107}
-!11117 = distinct !{!11117, !11118, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!11118 = distinct !{!11118, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!11119 = distinct !{!11119, !11120, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!11120 = distinct !{!11120, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!11121 = distinct !{!11121, !11122, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!11122 = distinct !{!11122, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!11123 = distinct !{!11123, !11124, !"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h58dd44b7869c4f3cE: argument 0"}
-!11124 = distinct !{!11124, !"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h58dd44b7869c4f3cE"}
-!11125 = distinct !{!11125, !11126, !"_ZN4core3ptr123drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..LifetimeParam$GT$$GT$17h1dc9a772c208417dE: argument 0"}
-!11126 = distinct !{!11126, !"_ZN4core3ptr123drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..LifetimeParam$GT$$GT$17h1dc9a772c208417dE"}
-!11127 = distinct !{!11127, !11128, !"_ZN4core3ptr143drop_in_place$LT$$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h735b569ec53d6398E.llvm.11762030844908852975: argument 0"}
-!11128 = distinct !{!11128, !"_ZN4core3ptr143drop_in_place$LT$$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h735b569ec53d6398E.llvm.11762030844908852975"}
-!11129 = !{!11130, !11132, !11134, !11107}
-!11130 = distinct !{!11130, !11131, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11131 = distinct !{!11131, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11132 = distinct !{!11132, !11133, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11133 = distinct !{!11133, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11134 = distinct !{!11134, !11135, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11135 = distinct !{!11135, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11136 = !{!11137}
-!11137 = distinct !{!11137, !11138, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17h3a8b19d4e726a0efE: argument 0"}
-!11138 = distinct !{!11138, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17h3a8b19d4e726a0efE"}
-!11139 = !{!11140, !11142, !11144, !11137}
-!11140 = distinct !{!11140, !11141, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11141 = distinct !{!11141, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11142 = distinct !{!11142, !11143, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11143 = distinct !{!11143, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11144 = distinct !{!11144, !11145, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11145 = distinct !{!11145, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11146 = !{!11147, !11149, !11151, !11153, !11155, !11157, !11137}
-!11147 = distinct !{!11147, !11148, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!11148 = distinct !{!11148, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!11149 = distinct !{!11149, !11150, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!11150 = distinct !{!11150, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!11151 = distinct !{!11151, !11152, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!11152 = distinct !{!11152, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!11153 = distinct !{!11153, !11154, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17h3e5305be29329bbdE: argument 0"}
-!11154 = distinct !{!11154, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17h3e5305be29329bbdE"}
-!11155 = distinct !{!11155, !11156, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..ConstParam$GT$$GT$17h9f010337f3d5bb18E: argument 0"}
-!11156 = distinct !{!11156, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..ConstParam$GT$$GT$17h9f010337f3d5bb18E"}
-!11157 = distinct !{!11157, !11158, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04c95008026efbc5E.llvm.11762030844908852975: argument 0"}
-!11158 = distinct !{!11158, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04c95008026efbc5E.llvm.11762030844908852975"}
-!11159 = !{!11160, !11162, !11164, !11137}
-!11160 = distinct !{!11160, !11161, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11161 = distinct !{!11161, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11162 = distinct !{!11162, !11163, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11163 = distinct !{!11163, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11164 = distinct !{!11164, !11165, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11165 = distinct !{!11165, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11166 = !{!11167}
-!11167 = distinct !{!11167, !11168, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17h2887a14ceaa3f08aE: argument 0"}
-!11168 = distinct !{!11168, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17h2887a14ceaa3f08aE"}
-!11169 = !{!11170, !11172, !11174, !11167}
-!11170 = distinct !{!11170, !11171, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11171 = distinct !{!11171, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11172 = distinct !{!11172, !11173, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11173 = distinct !{!11173, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11174 = distinct !{!11174, !11175, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11175 = distinct !{!11175, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11176 = !{!11177, !11179, !11167}
-!11177 = distinct !{!11177, !11178, !"_ZN70_$LT$syntax..ast..node_ext..Macro$u20$as$u20$hir..semantics..ToDef$GT$6to_def28_$u7b$$u7b$closure$u7d$$u7d$17h276fe700caa35512E.llvm.11762030844908852975: argument 0"}
-!11178 = distinct !{!11178, !"_ZN70_$LT$syntax..ast..node_ext..Macro$u20$as$u20$hir..semantics..ToDef$GT$6to_def28_$u7b$$u7b$closure$u7d$$u7d$17h276fe700caa35512E.llvm.11762030844908852975"}
-!11179 = distinct !{!11179, !11178, !"_ZN70_$LT$syntax..ast..node_ext..Macro$u20$as$u20$hir..semantics..ToDef$GT$6to_def28_$u7b$$u7b$closure$u7d$$u7d$17h276fe700caa35512E.llvm.11762030844908852975: argument 1"}
-!11180 = !{!11181, !11183, !11185, !11167}
-!11181 = distinct !{!11181, !11182, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11182 = distinct !{!11182, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11183 = distinct !{!11183, !11184, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11184 = distinct !{!11184, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11185 = distinct !{!11185, !11186, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11186 = distinct !{!11186, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11187 = !{!11188}
-!11188 = distinct !{!11188, !11189, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hfda306771cdcc73cE: argument 0"}
-!11189 = distinct !{!11189, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hfda306771cdcc73cE"}
-!11190 = !{!11191, !11193, !11195, !11188}
-!11191 = distinct !{!11191, !11192, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11192 = distinct !{!11192, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11193 = distinct !{!11193, !11194, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11194 = distinct !{!11194, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11195 = distinct !{!11195, !11196, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11196 = distinct !{!11196, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11197 = !{!11198, !11200, !11202, !11204, !11206, !11208, !11188}
-!11198 = distinct !{!11198, !11199, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!11199 = distinct !{!11199, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!11200 = distinct !{!11200, !11201, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!11201 = distinct !{!11201, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!11202 = distinct !{!11202, !11203, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!11203 = distinct !{!11203, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!11204 = distinct !{!11204, !11205, !"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h8a8990d7fe264993E: argument 0"}
-!11205 = distinct !{!11205, !"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h8a8990d7fe264993E"}
-!11206 = distinct !{!11206, !11207, !"_ZN4core3ptr118drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..IdentPat$GT$$GT$17h01e3fe128c89f96bE: argument 0"}
-!11207 = distinct !{!11207, !"_ZN4core3ptr118drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..IdentPat$GT$$GT$17h01e3fe128c89f96bE"}
-!11208 = distinct !{!11208, !11209, !"_ZN4core3ptr138drop_in_place$LT$$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd49a2cd535b7fe81E.llvm.11762030844908852975: argument 0"}
-!11209 = distinct !{!11209, !"_ZN4core3ptr138drop_in_place$LT$$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd49a2cd535b7fe81E.llvm.11762030844908852975"}
-!11210 = !{!11211, !11213, !11215, !11188}
-!11211 = distinct !{!11211, !11212, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11212 = distinct !{!11212, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11213 = distinct !{!11213, !11214, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11214 = distinct !{!11214, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11215 = distinct !{!11215, !11216, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11216 = distinct !{!11216, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11217 = !{i32 0, i32 6}
-!11218 = !{!11219}
-!11219 = distinct !{!11219, !11220, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hd2a212629752976fE: argument 0"}
-!11220 = distinct !{!11220, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hd2a212629752976fE"}
-!11221 = !{!11222, !11224, !11226, !11219}
-!11222 = distinct !{!11222, !11223, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11223 = distinct !{!11223, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11224 = distinct !{!11224, !11225, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11225 = distinct !{!11225, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11226 = distinct !{!11226, !11227, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11227 = distinct !{!11227, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11228 = !{!11229, !11231, !11233, !11235, !11237, !11239, !11219}
-!11229 = distinct !{!11229, !11230, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!11230 = distinct !{!11230, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!11231 = distinct !{!11231, !11232, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!11232 = distinct !{!11232, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!11233 = distinct !{!11233, !11234, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!11234 = distinct !{!11234, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!11235 = distinct !{!11235, !11236, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h4a740a03b116be3bE: argument 0"}
-!11236 = distinct !{!11236, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h4a740a03b116be3bE"}
-!11237 = distinct !{!11237, !11238, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..SelfParam$GT$$GT$17h91dfb9503c857145E: argument 0"}
-!11238 = distinct !{!11238, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..SelfParam$GT$$GT$17h91dfb9503c857145E"}
-!11239 = distinct !{!11239, !11240, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b007a3b40bb5a5eE.llvm.11762030844908852975: argument 0"}
-!11240 = distinct !{!11240, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b007a3b40bb5a5eE.llvm.11762030844908852975"}
-!11241 = !{!11242, !11244, !11246, !11219}
-!11242 = distinct !{!11242, !11243, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11243 = distinct !{!11243, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11244 = distinct !{!11244, !11245, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11245 = distinct !{!11245, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11246 = distinct !{!11246, !11247, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11247 = distinct !{!11247, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11248 = !{!11249}
-!11249 = distinct !{!11249, !11250, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hda2855d3b5c664a2E: argument 0"}
-!11250 = distinct !{!11250, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hda2855d3b5c664a2E"}
-!11251 = !{!11252, !11254, !11256, !11249}
-!11252 = distinct !{!11252, !11253, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11253 = distinct !{!11253, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11254 = distinct !{!11254, !11255, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11255 = distinct !{!11255, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11256 = distinct !{!11256, !11257, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11257 = distinct !{!11257, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11258 = !{!11259, !11261, !11263, !11265, !11267, !11269, !11249}
-!11259 = distinct !{!11259, !11260, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!11260 = distinct !{!11260, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!11261 = distinct !{!11261, !11262, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!11262 = distinct !{!11262, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!11263 = distinct !{!11263, !11264, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!11264 = distinct !{!11264, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!11265 = distinct !{!11265, !11266, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Label$GT$17hdba0fa00feadb3a3E: argument 0"}
-!11266 = distinct !{!11266, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Label$GT$17hdba0fa00feadb3a3E"}
-!11267 = distinct !{!11267, !11268, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Label$GT$$GT$17h2e0de338ef2b3994E: argument 0"}
-!11268 = distinct !{!11268, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Label$GT$$GT$17h2e0de338ef2b3994E"}
-!11269 = distinct !{!11269, !11270, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Label$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1550eafcaed6eb32E.llvm.11762030844908852975: argument 0"}
-!11270 = distinct !{!11270, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Label$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1550eafcaed6eb32E.llvm.11762030844908852975"}
-!11271 = !{!11272, !11274, !11276, !11249}
-!11272 = distinct !{!11272, !11273, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11273 = distinct !{!11273, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11274 = distinct !{!11274, !11275, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11275 = distinct !{!11275, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11276 = distinct !{!11276, !11277, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11277 = distinct !{!11277, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11278 = !{!11279, !11281, !11283}
-!11279 = distinct !{!11279, !11280, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11280 = distinct !{!11280, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11281 = distinct !{!11281, !11282, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11282 = distinct !{!11282, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11283 = distinct !{!11283, !11284, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11284 = distinct !{!11284, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11285 = !{!11286, !11288, !11290, !11292, !11294, !11296}
-!11286 = distinct !{!11286, !11287, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
-!11287 = distinct !{!11287, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
-!11288 = distinct !{!11288, !11289, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
-!11289 = distinct !{!11289, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
-!11290 = distinct !{!11290, !11291, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
-!11291 = distinct !{!11291, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
-!11292 = distinct !{!11292, !11293, !"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..ExternCrate$GT$17h2005bf774e38e0dbE: argument 0"}
-!11293 = distinct !{!11293, !"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..ExternCrate$GT$17h2005bf774e38e0dbE"}
-!11294 = distinct !{!11294, !11295, !"_ZN4core3ptr121drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..ExternCrate$GT$$GT$17h0e99c4cb8636ff78E: argument 0"}
-!11295 = distinct !{!11295, !"_ZN4core3ptr121drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..ExternCrate$GT$$GT$17h0e99c4cb8636ff78E"}
-!11296 = distinct !{!11296, !11297, !"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..ExternCrate$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h142a3184cb995a53E.llvm.11762030844908852975: argument 0"}
-!11297 = distinct !{!11297, !"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..ExternCrate$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h142a3184cb995a53E.llvm.11762030844908852975"}
-!11298 = !{!11299, !11301, !11303}
-!11299 = distinct !{!11299, !11300, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
-!11300 = distinct !{!11300, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
-!11301 = distinct !{!11301, !11302, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
-!11302 = distinct !{!11302, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
-!11303 = distinct !{!11303, !11304, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
-!11304 = distinct !{!11304, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
-!11305 = !{!11306}
-!11306 = distinct !{!11306, !11307, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0a57e21d486f0ef4E: argument 0"}
-!11307 = distinct !{!11307, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0a57e21d486f0ef4E"}
-!11308 = !{!11309}
-!11309 = distinct !{!11309, !11310, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb93a90084b5155b9E: argument 0"}
-!11310 = distinct !{!11310, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb93a90084b5155b9E"}
-!11311 = !{!11312}
-!11312 = distinct !{!11312, !11313, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7e7f745574bddbdE.llvm.6424288313766077374: argument 0"}
-!11313 = distinct !{!11313, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7e7f745574bddbdE.llvm.6424288313766077374"}
-!11314 = !{!11315}
-!11315 = distinct !{!11315, !11316, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3e5412561c3d0066E.llvm.6424288313766077374: argument 0"}
-!11316 = distinct !{!11316, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3e5412561c3d0066E.llvm.6424288313766077374"}
-!11317 = !{!11318}
-!11318 = distinct !{!11318, !11319, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h808e12772ffb30fdE.llvm.6424288313766077374: argument 0"}
-!11319 = distinct !{!11319, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h808e12772ffb30fdE.llvm.6424288313766077374"}
-!11320 = !{!11321}
-!11321 = distinct !{!11321, !11322, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h59a4abc4166c280bE.llvm.6424288313766077374: argument 0"}
-!11322 = distinct !{!11322, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h59a4abc4166c280bE.llvm.6424288313766077374"}
-!11323 = !{!11324}
-!11324 = distinct !{!11324, !11325, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc901bdde1e76b748E.llvm.6424288313766077374: argument 0"}
-!11325 = distinct !{!11325, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc901bdde1e76b748E.llvm.6424288313766077374"}
-!11326 = !{!11327}
-!11327 = distinct !{!11327, !11328, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfc9eeb85f16f3156E.llvm.6424288313766077374: argument 0"}
-!11328 = distinct !{!11328, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfc9eeb85f16f3156E.llvm.6424288313766077374"}
-!11329 = !{!11330}
-!11330 = distinct !{!11330, !11331, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h821cc15d65c9a38aE.llvm.6424288313766077374: argument 0"}
-!11331 = distinct !{!11331, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h821cc15d65c9a38aE.llvm.6424288313766077374"}
-!11332 = !{!11333}
-!11333 = distinct !{!11333, !11334, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h38cf2b6fdc981e47E.llvm.6424288313766077374: argument 0"}
-!11334 = distinct !{!11334, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h38cf2b6fdc981e47E.llvm.6424288313766077374"}
-!11335 = !{!11336}
-!11336 = distinct !{!11336, !11337, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb49454af209e728dE: argument 0"}
-!11337 = distinct !{!11337, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb49454af209e728dE"}
-!11338 = !{!11339}
-!11339 = distinct !{!11339, !11340, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3735d854d6d69134E: argument 0"}
-!11340 = distinct !{!11340, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3735d854d6d69134E"}
-!11341 = !{!11342}
-!11342 = distinct !{!11342, !11343, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2f700b76f1c4a53fE: argument 0"}
-!11343 = distinct !{!11343, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2f700b76f1c4a53fE"}
-!11344 = !{!11345}
-!11345 = distinct !{!11345, !11346, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h031a047c7515a06eE: argument 0"}
-!11346 = distinct !{!11346, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h031a047c7515a06eE"}
-!11347 = !{!11348}
-!11348 = distinct !{!11348, !11349, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0e56ccdc28c001afE.llvm.6424288313766077374: argument 0"}
-!11349 = distinct !{!11349, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0e56ccdc28c001afE.llvm.6424288313766077374"}
-!11350 = !{!11351}
-!11351 = distinct !{!11351, !11352, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3ed2bb4a71151437E.llvm.6424288313766077374: argument 0"}
-!11352 = distinct !{!11352, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3ed2bb4a71151437E.llvm.6424288313766077374"}
-!11353 = !{!11354}
-!11354 = distinct !{!11354, !11355, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7bb7a6d1faef11e9E.llvm.6424288313766077374: argument 0"}
-!11355 = distinct !{!11355, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7bb7a6d1faef11e9E.llvm.6424288313766077374"}
-!11356 = !{!11357}
-!11357 = distinct !{!11357, !11358, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc759be512a8a509cE: argument 0"}
-!11358 = distinct !{!11358, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc759be512a8a509cE"}
-!11359 = !{!11360}
-!11360 = distinct !{!11360, !11361, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h10b7ae287aa1f64fE: argument 0"}
-!11361 = distinct !{!11361, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h10b7ae287aa1f64fE"}
-!11362 = !{!11363}
-!11363 = distinct !{!11363, !11364, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha34f59152f92559dE: argument 0"}
-!11364 = distinct !{!11364, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha34f59152f92559dE"}
-!11365 = !{!11366}
-!11366 = distinct !{!11366, !11367, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd746ea5dc0f6c384E: argument 0"}
-!11367 = distinct !{!11367, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd746ea5dc0f6c384E"}
-!11368 = !{!11369}
-!11369 = distinct !{!11369, !11370, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h648d908626a7479eE: argument 0"}
-!11370 = distinct !{!11370, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h648d908626a7479eE"}
-!11371 = !{!11372}
-!11372 = distinct !{!11372, !11373, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc64f2c9976af54d8E: argument 0"}
-!11373 = distinct !{!11373, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc64f2c9976af54d8E"}
-!11374 = !{!11375}
-!11375 = distinct !{!11375, !11376, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fa21f2edd004948E: argument 0"}
-!11376 = distinct !{!11376, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fa21f2edd004948E"}
-!11377 = !{!11378}
-!11378 = distinct !{!11378, !11379, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h484f89e1142689c0E.llvm.6424288313766077374: argument 0"}
-!11379 = distinct !{!11379, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h484f89e1142689c0E.llvm.6424288313766077374"}
-!11380 = !{!11381}
-!11381 = distinct !{!11381, !11382, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfe7bc64d2c4409ddE.llvm.6424288313766077374: argument 0"}
-!11382 = distinct !{!11382, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfe7bc64d2c4409ddE.llvm.6424288313766077374"}
-!11383 = !{!11384}
-!11384 = distinct !{!11384, !11385, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6e21f19e2ea0c7b6E.llvm.6424288313766077374: argument 0"}
-!11385 = distinct !{!11385, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6e21f19e2ea0c7b6E.llvm.6424288313766077374"}
-!11386 = !{!11387}
-!11387 = distinct !{!11387, !11388, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha2c38657f5f6a919E.llvm.6424288313766077374: argument 0"}
-!11388 = distinct !{!11388, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha2c38657f5f6a919E.llvm.6424288313766077374"}
-!11389 = !{!11390}
-!11390 = distinct !{!11390, !11391, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd0c8127be812cf5E: argument 0"}
-!11391 = distinct !{!11391, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd0c8127be812cf5E"}
-!11392 = !{!11393}
-!11393 = distinct !{!11393, !11394, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72a829fa55afcc3fE.llvm.6424288313766077374: argument 0"}
-!11394 = distinct !{!11394, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72a829fa55afcc3fE.llvm.6424288313766077374"}
-!11395 = !{!11396}
-!11396 = distinct !{!11396, !11397, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2f6447a92dda2499E.llvm.6424288313766077374: argument 0"}
-!11397 = distinct !{!11397, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2f6447a92dda2499E.llvm.6424288313766077374"}
-!11398 = !{!11399}
-!11399 = distinct !{!11399, !11400, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hec15f78253a91fbaE.llvm.6424288313766077374: argument 0"}
-!11400 = distinct !{!11400, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hec15f78253a91fbaE.llvm.6424288313766077374"}
-!11401 = !{!11402}
-!11402 = distinct !{!11402, !11403, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h91b6eb2b1ff7cf4eE.llvm.6424288313766077374: argument 0"}
-!11403 = distinct !{!11403, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h91b6eb2b1ff7cf4eE.llvm.6424288313766077374"}
-!11404 = !{!11405}
-!11405 = distinct !{!11405, !11406, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfce732d3b9cc0d5eE: argument 0"}
-!11406 = distinct !{!11406, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfce732d3b9cc0d5eE"}
-!11407 = !{!11408}
-!11408 = distinct !{!11408, !11409, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb638b67c47871be8E.llvm.6424288313766077374: argument 0"}
-!11409 = distinct !{!11409, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb638b67c47871be8E.llvm.6424288313766077374"}
-!11410 = !{!11411}
-!11411 = distinct !{!11411, !11412, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdff5dcef3679d9d9E: argument 0"}
-!11412 = distinct !{!11412, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdff5dcef3679d9d9E"}
-!11413 = !{!11414}
-!11414 = distinct !{!11414, !11415, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc15bc8093df58092E.llvm.6424288313766077374: argument 0"}
-!11415 = distinct !{!11415, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc15bc8093df58092E.llvm.6424288313766077374"}
-!11416 = !{!11417}
-!11417 = distinct !{!11417, !11418, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1cae8008e55067e4E.llvm.6424288313766077374: argument 0"}
-!11418 = distinct !{!11418, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1cae8008e55067e4E.llvm.6424288313766077374"}
-!11419 = !{!11420}
-!11420 = distinct !{!11420, !11421, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fe22cb31865da8fE: argument 0"}
-!11421 = distinct !{!11421, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fe22cb31865da8fE"}
-!11422 = !{!11423}
-!11423 = distinct !{!11423, !11424, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h52bf4867f29741e2E.llvm.6424288313766077374: argument 0"}
-!11424 = distinct !{!11424, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h52bf4867f29741e2E.llvm.6424288313766077374"}
-!11425 = !{!11426}
-!11426 = distinct !{!11426, !11427, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h505d25b8cf10522dE: argument 0"}
-!11427 = distinct !{!11427, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h505d25b8cf10522dE"}
-!11428 = !{!11429}
-!11429 = distinct !{!11429, !11430, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h986fc53adbe17172E.llvm.6424288313766077374: argument 0"}
-!11430 = distinct !{!11430, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h986fc53adbe17172E.llvm.6424288313766077374"}
-!11431 = !{!11432}
-!11432 = distinct !{!11432, !11433, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h796b3ca5d2a4b81aE.llvm.6424288313766077374: argument 0"}
-!11433 = distinct !{!11433, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h796b3ca5d2a4b81aE.llvm.6424288313766077374"}
-!11434 = !{!11435}
-!11435 = distinct !{!11435, !11436, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h961f7076f699111eE.llvm.6424288313766077374: argument 0"}
-!11436 = distinct !{!11436, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h961f7076f699111eE.llvm.6424288313766077374"}
+!10590 = distinct !{!10590, !10588, !"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E: argument 1"}
+!10591 = !{!10590, !10585}
+!10592 = !{!10587, !10582}
+!10593 = !{!10587, !10590, !10582, !10585}
+!10594 = !{!10587, !10590, !10585}
+!10595 = !{!10596}
+!10596 = distinct !{!10596, !10597, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
+!10597 = distinct !{!10597, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
+!10598 = !{!10599}
+!10599 = distinct !{!10599, !10600, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
+!10600 = distinct !{!10600, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
+!10601 = !{!10602, !10604}
+!10602 = distinct !{!10602, !10603, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fe22cb31865da8fE: argument 0"}
+!10603 = distinct !{!10603, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fe22cb31865da8fE"}
+!10604 = distinct !{!10604, !10605, !"_ZN117_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedMethodCall$GT$$GT$4from17hc5472e25cac80b10E: argument 0"}
+!10605 = distinct !{!10605, !"_ZN117_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedMethodCall$GT$$GT$4from17hc5472e25cac80b10E"}
+!10606 = !{!10604}
+!10607 = !{!10608, !10610}
+!10608 = distinct !{!10608, !10609, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfce732d3b9cc0d5eE: argument 0"}
+!10609 = distinct !{!10609, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfce732d3b9cc0d5eE"}
+!10610 = distinct !{!10610, !10611, !"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedAssocItem$GT$$GT$4from17h744c6965c9d4d955E: argument 0"}
+!10611 = distinct !{!10611, !"_ZN116_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedAssocItem$GT$$GT$4from17h744c6965c9d4d955E"}
+!10612 = !{!10613, !10615}
+!10613 = distinct !{!10613, !10614, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h505d25b8cf10522dE: argument 0"}
+!10614 = distinct !{!10614, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h505d25b8cf10522dE"}
+!10615 = distinct !{!10615, !10616, !"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedIdent$GT$$GT$4from17h6a83cd6d5d3cabd5E: argument 0"}
+!10616 = distinct !{!10616, !"_ZN112_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..UnresolvedIdent$GT$$GT$4from17h6a83cd6d5d3cabd5E"}
+!10617 = !{!10618, !10620}
+!10618 = distinct !{!10618, !10619, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0a57e21d486f0ef4E: argument 0"}
+!10619 = distinct !{!10619, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0a57e21d486f0ef4E"}
+!10620 = distinct !{!10620, !10621, !"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..BreakOutsideOfLoop$GT$$GT$4from17hb24f498dade41ca8E: argument 0"}
+!10621 = distinct !{!10621, !"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..BreakOutsideOfLoop$GT$$GT$4from17hb24f498dade41ca8E"}
+!10622 = !{!10623, !10625}
+!10623 = distinct !{!10623, !10624, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb49454af209e728dE: argument 0"}
+!10624 = distinct !{!10624, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb49454af209e728dE"}
+!10625 = distinct !{!10625, !10626, !"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedArgCount$GT$$GT$4from17habeb1d7a73b3a33cE: argument 0"}
+!10626 = distinct !{!10626, !"_ZN115_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedArgCount$GT$$GT$4from17habeb1d7a73b3a33cE"}
+!10627 = !{!10628, !10630}
+!10628 = distinct !{!10628, !10629, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3735d854d6d69134E: argument 0"}
+!10629 = distinct !{!10629, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3735d854d6d69134E"}
+!10630 = distinct !{!10630, !10631, !"_ZN129_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedTupleStructPatArgCount$GT$$GT$4from17hb16e95cca215d85aE: argument 0"}
+!10631 = distinct !{!10631, !"_ZN129_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..MismatchedTupleStructPatArgCount$GT$$GT$4from17hb16e95cca215d85aE"}
+!10632 = !{!10633, !10635}
+!10633 = distinct !{!10633, !10634, !"_ZN6syntax3ptr15AstPtr$LT$N$GT$12try_from_raw17h5877bceea0387f97E: argument 0"}
+!10634 = distinct !{!10634, !"_ZN6syntax3ptr15AstPtr$LT$N$GT$12try_from_raw17h5877bceea0387f97E"}
+!10635 = distinct !{!10635, !10634, !"_ZN6syntax3ptr15AstPtr$LT$N$GT$12try_from_raw17h5877bceea0387f97E: argument 1"}
+!10636 = !{!10637}
+!10637 = distinct !{!10637, !10638, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
+!10638 = distinct !{!10638, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
+!10639 = !{!10640, !10642}
+!10640 = distinct !{!10640, !10641, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb93a90084b5155b9E: argument 0"}
+!10641 = distinct !{!10641, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb93a90084b5155b9E"}
+!10642 = distinct !{!10642, !10643, !"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..ExpectedFunction$GT$$GT$4from17h2aa82f35236b7a34E: argument 0"}
+!10643 = distinct !{!10643, !"_ZN113_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..ExpectedFunction$GT$$GT$4from17h2aa82f35236b7a34E"}
+!10644 = !{!10642}
+!10645 = !{!10646}
+!10646 = distinct !{!10646, !10647, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
+!10647 = distinct !{!10647, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
+!10648 = !{!10649, !10651}
+!10649 = distinct !{!10649, !10650, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd0c8127be812cf5E: argument 0"}
+!10650 = distinct !{!10650, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd0c8127be812cf5E"}
+!10651 = distinct !{!10651, !10652, !"_ZN106_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TypedHole$GT$$GT$4from17hd01779021b1c6a4fE: argument 0"}
+!10652 = distinct !{!10652, !"_ZN106_$LT$hir..diagnostics..AnyDiagnostic$u20$as$u20$core..convert..From$LT$hir..diagnostics..TypedHole$GT$$GT$4from17hd01779021b1c6a4fE"}
+!10653 = !{!10651}
+!10654 = !{!10655}
+!10655 = distinct !{!10655, !10656, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17ha0ef952b4c8c71eeE: argument 0"}
+!10656 = distinct !{!10656, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17ha0ef952b4c8c71eeE"}
+!10657 = !{!10658, !10660, !10662, !10655}
+!10658 = distinct !{!10658, !10659, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10659 = distinct !{!10659, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10660 = distinct !{!10660, !10661, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10661 = distinct !{!10661, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10662 = distinct !{!10662, !10663, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10663 = distinct !{!10663, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10664 = !{!10665, !10667, !10669, !10671, !10673, !10675, !10655}
+!10665 = distinct !{!10665, !10666, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10666 = distinct !{!10666, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10667 = distinct !{!10667, !10668, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10668 = distinct !{!10668, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10669 = distinct !{!10669, !10670, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10670 = distinct !{!10670, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10671 = distinct !{!10671, !10672, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Module$GT$17h3aed4b71792e6dcaE: argument 0"}
+!10672 = distinct !{!10672, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Module$GT$17h3aed4b71792e6dcaE"}
+!10673 = distinct !{!10673, !10674, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Module$GT$$GT$17h48d86b095b579b42E: argument 0"}
+!10674 = distinct !{!10674, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Module$GT$$GT$17h48d86b095b579b42E"}
+!10675 = distinct !{!10675, !10676, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Module$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49466b3c7e4e7f17E.llvm.11762030844908852975: argument 0"}
+!10676 = distinct !{!10676, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Module$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49466b3c7e4e7f17E.llvm.11762030844908852975"}
+!10677 = !{!10678, !10680, !10682, !10655}
+!10678 = distinct !{!10678, !10679, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10679 = distinct !{!10679, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10680 = distinct !{!10680, !10681, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10681 = distinct !{!10681, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10682 = distinct !{!10682, !10683, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10683 = distinct !{!10683, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10684 = !{!10685}
+!10685 = distinct !{!10685, !10686, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hd1be71a102eb8469E: argument 0"}
+!10686 = distinct !{!10686, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hd1be71a102eb8469E"}
+!10687 = !{!10688, !10690, !10692, !10685}
+!10688 = distinct !{!10688, !10689, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10689 = distinct !{!10689, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10690 = distinct !{!10690, !10691, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10691 = distinct !{!10691, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10692 = distinct !{!10692, !10693, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10693 = distinct !{!10693, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10694 = !{!10695, !10697, !10699, !10701, !10703, !10705, !10685}
+!10695 = distinct !{!10695, !10696, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10696 = distinct !{!10696, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10697 = distinct !{!10697, !10698, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10698 = distinct !{!10698, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10699 = distinct !{!10699, !10700, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10700 = distinct !{!10700, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10701 = distinct !{!10701, !10702, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h88e322edd2b2d194E: argument 0"}
+!10702 = distinct !{!10702, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h88e322edd2b2d194E"}
+!10703 = distinct !{!10703, !10704, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h88e736a81bcbc389E: argument 0"}
+!10704 = distinct !{!10704, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h88e736a81bcbc389E"}
+!10705 = distinct !{!10705, !10706, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17f8a5975d994c7cE.llvm.11762030844908852975: argument 0"}
+!10706 = distinct !{!10706, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17f8a5975d994c7cE.llvm.11762030844908852975"}
+!10707 = !{!10708, !10710, !10712, !10685}
+!10708 = distinct !{!10708, !10709, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10709 = distinct !{!10709, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10710 = distinct !{!10710, !10711, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10711 = distinct !{!10711, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10712 = distinct !{!10712, !10713, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10713 = distinct !{!10713, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10714 = !{!10715, !10717, !10719}
+!10715 = distinct !{!10715, !10716, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10716 = distinct !{!10716, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10717 = distinct !{!10717, !10718, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10718 = distinct !{!10718, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10719 = distinct !{!10719, !10720, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10720 = distinct !{!10720, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10721 = !{!10722, !10724, !10726, !10728, !10730, !10732}
+!10722 = distinct !{!10722, !10723, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10723 = distinct !{!10723, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10724 = distinct !{!10724, !10725, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10725 = distinct !{!10725, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10726 = distinct !{!10726, !10727, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10727 = distinct !{!10727, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10728 = distinct !{!10728, !10729, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Struct$GT$17h14def9cf9d8e5f75E: argument 0"}
+!10729 = distinct !{!10729, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Struct$GT$17h14def9cf9d8e5f75E"}
+!10730 = distinct !{!10730, !10731, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Struct$GT$$GT$17hfecb75cbcd25c96aE: argument 0"}
+!10731 = distinct !{!10731, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Struct$GT$$GT$17hfecb75cbcd25c96aE"}
+!10732 = distinct !{!10732, !10733, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf49ceec78736da2eE.llvm.11762030844908852975: argument 0"}
+!10733 = distinct !{!10733, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf49ceec78736da2eE.llvm.11762030844908852975"}
+!10734 = !{!10735, !10737, !10739}
+!10735 = distinct !{!10735, !10736, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10736 = distinct !{!10736, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10737 = distinct !{!10737, !10738, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10738 = distinct !{!10738, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10739 = distinct !{!10739, !10740, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10740 = distinct !{!10740, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10741 = !{!10742, !10744, !10746}
+!10742 = distinct !{!10742, !10743, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10743 = distinct !{!10743, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10744 = distinct !{!10744, !10745, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10745 = distinct !{!10745, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10746 = distinct !{!10746, !10747, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10747 = distinct !{!10747, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10748 = !{!10749, !10751, !10753, !10755, !10757, !10759}
+!10749 = distinct !{!10749, !10750, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10750 = distinct !{!10750, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10751 = distinct !{!10751, !10752, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10752 = distinct !{!10752, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10753 = distinct !{!10753, !10754, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10754 = distinct !{!10754, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10755 = distinct !{!10755, !10756, !"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Enum$GT$17h34e3bbdef45101dbE: argument 0"}
+!10756 = distinct !{!10756, !"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Enum$GT$17h34e3bbdef45101dbE"}
+!10757 = distinct !{!10757, !10758, !"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Enum$GT$$GT$17h60ac575c37985f5eE: argument 0"}
+!10758 = distinct !{!10758, !"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Enum$GT$$GT$17h60ac575c37985f5eE"}
+!10759 = distinct !{!10759, !10760, !"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h638e0056ece3a389E.llvm.11762030844908852975: argument 0"}
+!10760 = distinct !{!10760, !"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h638e0056ece3a389E.llvm.11762030844908852975"}
+!10761 = !{!10762, !10764, !10766}
+!10762 = distinct !{!10762, !10763, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10763 = distinct !{!10763, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10764 = distinct !{!10764, !10765, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10765 = distinct !{!10765, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10766 = distinct !{!10766, !10767, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10767 = distinct !{!10767, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10768 = !{!10769, !10771, !10773}
+!10769 = distinct !{!10769, !10770, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10770 = distinct !{!10770, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10771 = distinct !{!10771, !10772, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10772 = distinct !{!10772, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10773 = distinct !{!10773, !10774, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10774 = distinct !{!10774, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10775 = !{!10776, !10778, !10780, !10782, !10784, !10786}
+!10776 = distinct !{!10776, !10777, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10777 = distinct !{!10777, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10778 = distinct !{!10778, !10779, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10779 = distinct !{!10779, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10780 = distinct !{!10780, !10781, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10781 = distinct !{!10781, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10782 = distinct !{!10782, !10783, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Union$GT$17h5a5ddf0d4754df98E: argument 0"}
+!10783 = distinct !{!10783, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Union$GT$17h5a5ddf0d4754df98E"}
+!10784 = distinct !{!10784, !10785, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Union$GT$$GT$17h123ad22aafca7d73E: argument 0"}
+!10785 = distinct !{!10785, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Union$GT$$GT$17h123ad22aafca7d73E"}
+!10786 = distinct !{!10786, !10787, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Union$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc34c3219960193dE.llvm.11762030844908852975: argument 0"}
+!10787 = distinct !{!10787, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Union$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc34c3219960193dE.llvm.11762030844908852975"}
+!10788 = !{!10789, !10791, !10793}
+!10789 = distinct !{!10789, !10790, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10790 = distinct !{!10790, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10791 = distinct !{!10791, !10792, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10792 = distinct !{!10792, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10793 = distinct !{!10793, !10794, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10794 = distinct !{!10794, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10795 = !{!10796, !10798, !10800}
+!10796 = distinct !{!10796, !10797, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10797 = distinct !{!10797, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10798 = distinct !{!10798, !10799, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10799 = distinct !{!10799, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10800 = distinct !{!10800, !10801, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10801 = distinct !{!10801, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10802 = !{!10803, !10805, !10807, !10809, !10811, !10813}
+!10803 = distinct !{!10803, !10804, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10804 = distinct !{!10804, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10805 = distinct !{!10805, !10806, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10806 = distinct !{!10806, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10807 = distinct !{!10807, !10808, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10808 = distinct !{!10808, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10809 = distinct !{!10809, !10810, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Trait$GT$17hb450459b77dfd7fbE: argument 0"}
+!10810 = distinct !{!10810, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Trait$GT$17hb450459b77dfd7fbE"}
+!10811 = distinct !{!10811, !10812, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Trait$GT$$GT$17h7810cdf91ae6431fE: argument 0"}
+!10812 = distinct !{!10812, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Trait$GT$$GT$17h7810cdf91ae6431fE"}
+!10813 = distinct !{!10813, !10814, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h693fe79225ee8497E.llvm.11762030844908852975: argument 0"}
+!10814 = distinct !{!10814, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h693fe79225ee8497E.llvm.11762030844908852975"}
+!10815 = !{!10816, !10818, !10820}
+!10816 = distinct !{!10816, !10817, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10817 = distinct !{!10817, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10818 = distinct !{!10818, !10819, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10819 = distinct !{!10819, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10820 = distinct !{!10820, !10821, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10821 = distinct !{!10821, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10822 = !{!10823, !10825, !10827}
+!10823 = distinct !{!10823, !10824, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10824 = distinct !{!10824, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10825 = distinct !{!10825, !10826, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10826 = distinct !{!10826, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10827 = distinct !{!10827, !10828, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10828 = distinct !{!10828, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10829 = !{!10830, !10832, !10834, !10836, !10838, !10840}
+!10830 = distinct !{!10830, !10831, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10831 = distinct !{!10831, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10832 = distinct !{!10832, !10833, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10833 = distinct !{!10833, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10834 = distinct !{!10834, !10835, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10835 = distinct !{!10835, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10836 = distinct !{!10836, !10837, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..TraitAlias$GT$17h65056b5d7f0f1173E: argument 0"}
+!10837 = distinct !{!10837, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..TraitAlias$GT$17h65056b5d7f0f1173E"}
+!10838 = distinct !{!10838, !10839, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TraitAlias$GT$$GT$17hd4225ecf6ace70e5E: argument 0"}
+!10839 = distinct !{!10839, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TraitAlias$GT$$GT$17hd4225ecf6ace70e5E"}
+!10840 = distinct !{!10840, !10841, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd7b7cd649d0cfee9E.llvm.11762030844908852975: argument 0"}
+!10841 = distinct !{!10841, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd7b7cd649d0cfee9E.llvm.11762030844908852975"}
+!10842 = !{!10843, !10845, !10847}
+!10843 = distinct !{!10843, !10844, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10844 = distinct !{!10844, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10845 = distinct !{!10845, !10846, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10846 = distinct !{!10846, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10847 = distinct !{!10847, !10848, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10848 = distinct !{!10848, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10849 = !{!10850, !10852, !10854}
+!10850 = distinct !{!10850, !10851, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10851 = distinct !{!10851, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10852 = distinct !{!10852, !10853, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10853 = distinct !{!10853, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10854 = distinct !{!10854, !10855, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10855 = distinct !{!10855, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10856 = !{!10857, !10859, !10861, !10863, !10865, !10867}
+!10857 = distinct !{!10857, !10858, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10858 = distinct !{!10858, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10859 = distinct !{!10859, !10860, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10860 = distinct !{!10860, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10861 = distinct !{!10861, !10862, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10862 = distinct !{!10862, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10863 = distinct !{!10863, !10864, !"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Impl$GT$17hc7c5c2ba6f02e0c5E: argument 0"}
+!10864 = distinct !{!10864, !"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Impl$GT$17hc7c5c2ba6f02e0c5E"}
+!10865 = distinct !{!10865, !10866, !"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Impl$GT$$GT$17h86905a7d458b37bdE: argument 0"}
+!10866 = distinct !{!10866, !"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Impl$GT$$GT$17h86905a7d458b37bdE"}
+!10867 = distinct !{!10867, !10868, !"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6086be2953d5fac6E.llvm.11762030844908852975: argument 0"}
+!10868 = distinct !{!10868, !"_ZN4core3ptr134drop_in_place$LT$$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6086be2953d5fac6E.llvm.11762030844908852975"}
+!10869 = !{!10870, !10872, !10874}
+!10870 = distinct !{!10870, !10871, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10871 = distinct !{!10871, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10872 = distinct !{!10872, !10873, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10873 = distinct !{!10873, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10874 = distinct !{!10874, !10875, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10875 = distinct !{!10875, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10876 = !{!10877, !10879, !10881}
+!10877 = distinct !{!10877, !10878, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10878 = distinct !{!10878, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10879 = distinct !{!10879, !10880, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10880 = distinct !{!10880, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10881 = distinct !{!10881, !10882, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10882 = distinct !{!10882, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10883 = !{!10884, !10886, !10888, !10890, !10892, !10894}
+!10884 = distinct !{!10884, !10885, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10885 = distinct !{!10885, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10886 = distinct !{!10886, !10887, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10887 = distinct !{!10887, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10888 = distinct !{!10888, !10889, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10889 = distinct !{!10889, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10890 = distinct !{!10890, !10891, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeAlias$GT$17h9c99de2f2d0036acE: argument 0"}
+!10891 = distinct !{!10891, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeAlias$GT$17h9c99de2f2d0036acE"}
+!10892 = distinct !{!10892, !10893, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeAlias$GT$$GT$17h2413a1562bdecc7fE: argument 0"}
+!10893 = distinct !{!10893, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeAlias$GT$$GT$17h2413a1562bdecc7fE"}
+!10894 = distinct !{!10894, !10895, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4af7cd0c09c27b5eE.llvm.11762030844908852975: argument 0"}
+!10895 = distinct !{!10895, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4af7cd0c09c27b5eE.llvm.11762030844908852975"}
+!10896 = !{!10897, !10899, !10901}
+!10897 = distinct !{!10897, !10898, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10898 = distinct !{!10898, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10899 = distinct !{!10899, !10900, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10900 = distinct !{!10900, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10901 = distinct !{!10901, !10902, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10902 = distinct !{!10902, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10903 = !{!10904, !10906, !10908}
+!10904 = distinct !{!10904, !10905, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10905 = distinct !{!10905, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10906 = distinct !{!10906, !10907, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10907 = distinct !{!10907, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10908 = distinct !{!10908, !10909, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10909 = distinct !{!10909, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10910 = !{!10911, !10913, !10915, !10917, !10919, !10921}
+!10911 = distinct !{!10911, !10912, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10912 = distinct !{!10912, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10913 = distinct !{!10913, !10914, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10914 = distinct !{!10914, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10915 = distinct !{!10915, !10916, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10916 = distinct !{!10916, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10917 = distinct !{!10917, !10918, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Const$GT$17h4cc6e710f21b69ebE: argument 0"}
+!10918 = distinct !{!10918, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Const$GT$17h4cc6e710f21b69ebE"}
+!10919 = distinct !{!10919, !10920, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Const$GT$$GT$17h3edf2100f00ea4ddE: argument 0"}
+!10920 = distinct !{!10920, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Const$GT$$GT$17h3edf2100f00ea4ddE"}
+!10921 = distinct !{!10921, !10922, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Const$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h71b1594949b5772eE.llvm.11762030844908852975: argument 0"}
+!10922 = distinct !{!10922, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Const$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h71b1594949b5772eE.llvm.11762030844908852975"}
+!10923 = !{!10924, !10926, !10928}
+!10924 = distinct !{!10924, !10925, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10925 = distinct !{!10925, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10926 = distinct !{!10926, !10927, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10927 = distinct !{!10927, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10928 = distinct !{!10928, !10929, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10929 = distinct !{!10929, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10930 = !{!10931, !10933, !10935}
+!10931 = distinct !{!10931, !10932, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10932 = distinct !{!10932, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10933 = distinct !{!10933, !10934, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10934 = distinct !{!10934, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10935 = distinct !{!10935, !10936, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10936 = distinct !{!10936, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10937 = !{!10938, !10940, !10942, !10944, !10946, !10948}
+!10938 = distinct !{!10938, !10939, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10939 = distinct !{!10939, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10940 = distinct !{!10940, !10941, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10941 = distinct !{!10941, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10942 = distinct !{!10942, !10943, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10943 = distinct !{!10943, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10944 = distinct !{!10944, !10945, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Static$GT$17ha6c0411b35a557a2E: argument 0"}
+!10945 = distinct !{!10945, !"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Static$GT$17ha6c0411b35a557a2E"}
+!10946 = distinct !{!10946, !10947, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Static$GT$$GT$17h650fd64ce23f026aE: argument 0"}
+!10947 = distinct !{!10947, !"_ZN4core3ptr116drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Static$GT$$GT$17h650fd64ce23f026aE"}
+!10948 = distinct !{!10948, !10949, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Static$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aea9f940a6b949aE.llvm.11762030844908852975: argument 0"}
+!10949 = distinct !{!10949, !"_ZN4core3ptr136drop_in_place$LT$$LT$syntax..ast..generated..nodes..Static$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aea9f940a6b949aE.llvm.11762030844908852975"}
+!10950 = !{!10951, !10953, !10955}
+!10951 = distinct !{!10951, !10952, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10952 = distinct !{!10952, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10953 = distinct !{!10953, !10954, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10954 = distinct !{!10954, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10955 = distinct !{!10955, !10956, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10956 = distinct !{!10956, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10957 = !{!10958, !10960, !10962}
+!10958 = distinct !{!10958, !10959, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10959 = distinct !{!10959, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10960 = distinct !{!10960, !10961, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10961 = distinct !{!10961, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10962 = distinct !{!10962, !10963, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10963 = distinct !{!10963, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10964 = !{!10965, !10967, !10969, !10971, !10973, !10975}
+!10965 = distinct !{!10965, !10966, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10966 = distinct !{!10966, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10967 = distinct !{!10967, !10968, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10968 = distinct !{!10968, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10969 = distinct !{!10969, !10970, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!10970 = distinct !{!10970, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!10971 = distinct !{!10971, !10972, !"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17h0e7e14642510b72cE: argument 0"}
+!10972 = distinct !{!10972, !"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17h0e7e14642510b72cE"}
+!10973 = distinct !{!10973, !10974, !"_ZN4core3ptr112drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Fn$GT$$GT$17ha601cdedb35c28a9E: argument 0"}
+!10974 = distinct !{!10974, !"_ZN4core3ptr112drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Fn$GT$$GT$17ha601cdedb35c28a9E"}
+!10975 = distinct !{!10975, !10976, !"_ZN4core3ptr132drop_in_place$LT$$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h501c6dc53e07907eE.llvm.11762030844908852975: argument 0"}
+!10976 = distinct !{!10976, !"_ZN4core3ptr132drop_in_place$LT$$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h501c6dc53e07907eE.llvm.11762030844908852975"}
+!10977 = !{!10978, !10980, !10982}
+!10978 = distinct !{!10978, !10979, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10979 = distinct !{!10979, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10980 = distinct !{!10980, !10981, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10981 = distinct !{!10981, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10982 = distinct !{!10982, !10983, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10983 = distinct !{!10983, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10984 = !{!10985}
+!10985 = distinct !{!10985, !10986, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hdba55c4135634660E: argument 0"}
+!10986 = distinct !{!10986, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hdba55c4135634660E"}
+!10987 = !{!10988, !10990, !10992, !10985}
+!10988 = distinct !{!10988, !10989, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!10989 = distinct !{!10989, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!10990 = distinct !{!10990, !10991, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!10991 = distinct !{!10991, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!10992 = distinct !{!10992, !10993, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!10993 = distinct !{!10993, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!10994 = !{!10995, !10997, !10999, !11001, !11003, !11005, !10985}
+!10995 = distinct !{!10995, !10996, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!10996 = distinct !{!10996, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!10997 = distinct !{!10997, !10998, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!10998 = distinct !{!10998, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!10999 = distinct !{!10999, !11000, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!11000 = distinct !{!11000, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!11001 = distinct !{!11001, !11002, !"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..RecordField$GT$17hc52284518c40b79bE: argument 0"}
+!11002 = distinct !{!11002, !"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..RecordField$GT$17hc52284518c40b79bE"}
+!11003 = distinct !{!11003, !11004, !"_ZN4core3ptr121drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..RecordField$GT$$GT$17h2be22adfa4d7e8d6E: argument 0"}
+!11004 = distinct !{!11004, !"_ZN4core3ptr121drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..RecordField$GT$$GT$17h2be22adfa4d7e8d6E"}
+!11005 = distinct !{!11005, !11006, !"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9a9032beb64ae1fcE.llvm.11762030844908852975: argument 0"}
+!11006 = distinct !{!11006, !"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9a9032beb64ae1fcE.llvm.11762030844908852975"}
+!11007 = !{!11008, !11010, !11012, !10985}
+!11008 = distinct !{!11008, !11009, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11009 = distinct !{!11009, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11010 = distinct !{!11010, !11011, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11011 = distinct !{!11011, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11012 = distinct !{!11012, !11013, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11013 = distinct !{!11013, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11014 = !{i32 0, i32 4}
+!11015 = !{!11016}
+!11016 = distinct !{!11016, !11017, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hf0dd73a51bffda79E: argument 0"}
+!11017 = distinct !{!11017, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hf0dd73a51bffda79E"}
+!11018 = !{!11019, !11021, !11023, !11016}
+!11019 = distinct !{!11019, !11020, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11020 = distinct !{!11020, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11021 = distinct !{!11021, !11022, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11022 = distinct !{!11022, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11023 = distinct !{!11023, !11024, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11024 = distinct !{!11024, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11025 = !{!11026, !11028, !11030, !11032, !11034, !11036, !11016}
+!11026 = distinct !{!11026, !11027, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!11027 = distinct !{!11027, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!11028 = distinct !{!11028, !11029, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!11029 = distinct !{!11029, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!11030 = distinct !{!11030, !11031, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!11031 = distinct !{!11031, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!11032 = distinct !{!11032, !11033, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..TupleField$GT$17h62220d5dea802e32E: argument 0"}
+!11033 = distinct !{!11033, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..TupleField$GT$17h62220d5dea802e32E"}
+!11034 = distinct !{!11034, !11035, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TupleField$GT$$GT$17h07c0ba08787e6854E: argument 0"}
+!11035 = distinct !{!11035, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TupleField$GT$$GT$17h07c0ba08787e6854E"}
+!11036 = distinct !{!11036, !11037, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc187c90ad373cb1dE.llvm.11762030844908852975: argument 0"}
+!11037 = distinct !{!11037, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc187c90ad373cb1dE.llvm.11762030844908852975"}
+!11038 = !{!11039, !11041, !11043, !11016}
+!11039 = distinct !{!11039, !11040, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11040 = distinct !{!11040, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11041 = distinct !{!11041, !11042, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11042 = distinct !{!11042, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11043 = distinct !{!11043, !11044, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11044 = distinct !{!11044, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11045 = !{!11046, !11048, !11050}
+!11046 = distinct !{!11046, !11047, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11047 = distinct !{!11047, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11048 = distinct !{!11048, !11049, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11049 = distinct !{!11049, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11050 = distinct !{!11050, !11051, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11051 = distinct !{!11051, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11052 = !{!11053, !11055, !11057, !11059, !11061, !11063}
+!11053 = distinct !{!11053, !11054, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!11054 = distinct !{!11054, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!11055 = distinct !{!11055, !11056, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!11056 = distinct !{!11056, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!11057 = distinct !{!11057, !11058, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!11058 = distinct !{!11058, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!11059 = distinct !{!11059, !11060, !"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..Variant$GT$17h173ae72439fba160E: argument 0"}
+!11060 = distinct !{!11060, !"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..Variant$GT$17h173ae72439fba160E"}
+!11061 = distinct !{!11061, !11062, !"_ZN4core3ptr117drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Variant$GT$$GT$17hacbbefd4ad43b41fE: argument 0"}
+!11062 = distinct !{!11062, !"_ZN4core3ptr117drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Variant$GT$$GT$17hacbbefd4ad43b41fE"}
+!11063 = distinct !{!11063, !11064, !"_ZN4core3ptr137drop_in_place$LT$$LT$syntax..ast..generated..nodes..Variant$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0d40d2314b9c8d80E.llvm.11762030844908852975: argument 0"}
+!11064 = distinct !{!11064, !"_ZN4core3ptr137drop_in_place$LT$$LT$syntax..ast..generated..nodes..Variant$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0d40d2314b9c8d80E.llvm.11762030844908852975"}
+!11065 = !{!11066, !11068, !11070}
+!11066 = distinct !{!11066, !11067, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11067 = distinct !{!11067, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11068 = distinct !{!11068, !11069, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11069 = distinct !{!11069, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11070 = distinct !{!11070, !11071, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11071 = distinct !{!11071, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11072 = !{!11073}
+!11073 = distinct !{!11073, !11074, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hae0c7509370623a1E: argument 0"}
+!11074 = distinct !{!11074, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hae0c7509370623a1E"}
+!11075 = !{!11076, !11078, !11080, !11073}
+!11076 = distinct !{!11076, !11077, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11077 = distinct !{!11077, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11078 = distinct !{!11078, !11079, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11079 = distinct !{!11079, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11080 = distinct !{!11080, !11081, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11081 = distinct !{!11081, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11082 = !{!11083, !11085, !11087, !11089, !11091, !11093, !11073}
+!11083 = distinct !{!11083, !11084, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!11084 = distinct !{!11084, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!11085 = distinct !{!11085, !11086, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!11086 = distinct !{!11086, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!11087 = distinct !{!11087, !11088, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!11088 = distinct !{!11088, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!11089 = distinct !{!11089, !11090, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h3fc837ffe37bbeb2E: argument 0"}
+!11090 = distinct !{!11090, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h3fc837ffe37bbeb2E"}
+!11091 = distinct !{!11091, !11092, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeParam$GT$$GT$17he576de2071a4188dE: argument 0"}
+!11092 = distinct !{!11092, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeParam$GT$$GT$17he576de2071a4188dE"}
+!11093 = distinct !{!11093, !11094, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1508934ecdc90faE.llvm.11762030844908852975: argument 0"}
+!11094 = distinct !{!11094, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1508934ecdc90faE.llvm.11762030844908852975"}
+!11095 = !{!11096, !11098, !11100, !11073}
+!11096 = distinct !{!11096, !11097, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11097 = distinct !{!11097, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11098 = distinct !{!11098, !11099, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11099 = distinct !{!11099, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11100 = distinct !{!11100, !11101, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11101 = distinct !{!11101, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11102 = !{!11103}
+!11103 = distinct !{!11103, !11104, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hac306b48c4640be1E: argument 0"}
+!11104 = distinct !{!11104, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hac306b48c4640be1E"}
+!11105 = !{!11106, !11108, !11110, !11103}
+!11106 = distinct !{!11106, !11107, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11107 = distinct !{!11107, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11108 = distinct !{!11108, !11109, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11109 = distinct !{!11109, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11110 = distinct !{!11110, !11111, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11111 = distinct !{!11111, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11112 = !{!11113, !11115, !11117, !11119, !11121, !11123, !11103}
+!11113 = distinct !{!11113, !11114, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!11114 = distinct !{!11114, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!11115 = distinct !{!11115, !11116, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!11116 = distinct !{!11116, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!11117 = distinct !{!11117, !11118, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!11118 = distinct !{!11118, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!11119 = distinct !{!11119, !11120, !"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h58dd44b7869c4f3cE: argument 0"}
+!11120 = distinct !{!11120, !"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h58dd44b7869c4f3cE"}
+!11121 = distinct !{!11121, !11122, !"_ZN4core3ptr123drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..LifetimeParam$GT$$GT$17h1dc9a772c208417dE: argument 0"}
+!11122 = distinct !{!11122, !"_ZN4core3ptr123drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..LifetimeParam$GT$$GT$17h1dc9a772c208417dE"}
+!11123 = distinct !{!11123, !11124, !"_ZN4core3ptr143drop_in_place$LT$$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h735b569ec53d6398E.llvm.11762030844908852975: argument 0"}
+!11124 = distinct !{!11124, !"_ZN4core3ptr143drop_in_place$LT$$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h735b569ec53d6398E.llvm.11762030844908852975"}
+!11125 = !{!11126, !11128, !11130, !11103}
+!11126 = distinct !{!11126, !11127, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11127 = distinct !{!11127, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11128 = distinct !{!11128, !11129, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11129 = distinct !{!11129, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11130 = distinct !{!11130, !11131, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11131 = distinct !{!11131, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11132 = !{!11133}
+!11133 = distinct !{!11133, !11134, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17h3a8b19d4e726a0efE: argument 0"}
+!11134 = distinct !{!11134, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17h3a8b19d4e726a0efE"}
+!11135 = !{!11136, !11138, !11140, !11133}
+!11136 = distinct !{!11136, !11137, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11137 = distinct !{!11137, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11138 = distinct !{!11138, !11139, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11139 = distinct !{!11139, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11140 = distinct !{!11140, !11141, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11141 = distinct !{!11141, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11142 = !{!11143, !11145, !11147, !11149, !11151, !11153, !11133}
+!11143 = distinct !{!11143, !11144, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!11144 = distinct !{!11144, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!11145 = distinct !{!11145, !11146, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!11146 = distinct !{!11146, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!11147 = distinct !{!11147, !11148, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!11148 = distinct !{!11148, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!11149 = distinct !{!11149, !11150, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17h3e5305be29329bbdE: argument 0"}
+!11150 = distinct !{!11150, !"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17h3e5305be29329bbdE"}
+!11151 = distinct !{!11151, !11152, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..ConstParam$GT$$GT$17h9f010337f3d5bb18E: argument 0"}
+!11152 = distinct !{!11152, !"_ZN4core3ptr120drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..ConstParam$GT$$GT$17h9f010337f3d5bb18E"}
+!11153 = distinct !{!11153, !11154, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04c95008026efbc5E.llvm.11762030844908852975: argument 0"}
+!11154 = distinct !{!11154, !"_ZN4core3ptr140drop_in_place$LT$$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04c95008026efbc5E.llvm.11762030844908852975"}
+!11155 = !{!11156, !11158, !11160, !11133}
+!11156 = distinct !{!11156, !11157, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11157 = distinct !{!11157, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11158 = distinct !{!11158, !11159, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11159 = distinct !{!11159, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11160 = distinct !{!11160, !11161, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11161 = distinct !{!11161, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11162 = !{!11163}
+!11163 = distinct !{!11163, !11164, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17h2887a14ceaa3f08aE: argument 0"}
+!11164 = distinct !{!11164, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17h2887a14ceaa3f08aE"}
+!11165 = !{!11166, !11168, !11170, !11163}
+!11166 = distinct !{!11166, !11167, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11167 = distinct !{!11167, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11168 = distinct !{!11168, !11169, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11169 = distinct !{!11169, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11170 = distinct !{!11170, !11171, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11171 = distinct !{!11171, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11172 = !{!11173, !11175, !11163}
+!11173 = distinct !{!11173, !11174, !"_ZN70_$LT$syntax..ast..node_ext..Macro$u20$as$u20$hir..semantics..ToDef$GT$6to_def28_$u7b$$u7b$closure$u7d$$u7d$17h276fe700caa35512E.llvm.11762030844908852975: argument 0"}
+!11174 = distinct !{!11174, !"_ZN70_$LT$syntax..ast..node_ext..Macro$u20$as$u20$hir..semantics..ToDef$GT$6to_def28_$u7b$$u7b$closure$u7d$$u7d$17h276fe700caa35512E.llvm.11762030844908852975"}
+!11175 = distinct !{!11175, !11174, !"_ZN70_$LT$syntax..ast..node_ext..Macro$u20$as$u20$hir..semantics..ToDef$GT$6to_def28_$u7b$$u7b$closure$u7d$$u7d$17h276fe700caa35512E.llvm.11762030844908852975: argument 1"}
+!11176 = !{!11177, !11179, !11181, !11163}
+!11177 = distinct !{!11177, !11178, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11178 = distinct !{!11178, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11179 = distinct !{!11179, !11180, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11180 = distinct !{!11180, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11181 = distinct !{!11181, !11182, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11182 = distinct !{!11182, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11183 = !{!11184}
+!11184 = distinct !{!11184, !11185, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hfda306771cdcc73cE: argument 0"}
+!11185 = distinct !{!11185, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hfda306771cdcc73cE"}
+!11186 = !{!11187, !11189, !11191, !11184}
+!11187 = distinct !{!11187, !11188, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11188 = distinct !{!11188, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11189 = distinct !{!11189, !11190, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11190 = distinct !{!11190, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11191 = distinct !{!11191, !11192, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11192 = distinct !{!11192, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11193 = !{!11194, !11196, !11198, !11200, !11202, !11204, !11184}
+!11194 = distinct !{!11194, !11195, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!11195 = distinct !{!11195, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!11196 = distinct !{!11196, !11197, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!11197 = distinct !{!11197, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!11198 = distinct !{!11198, !11199, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!11199 = distinct !{!11199, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!11200 = distinct !{!11200, !11201, !"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h8a8990d7fe264993E: argument 0"}
+!11201 = distinct !{!11201, !"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h8a8990d7fe264993E"}
+!11202 = distinct !{!11202, !11203, !"_ZN4core3ptr118drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..IdentPat$GT$$GT$17h01e3fe128c89f96bE: argument 0"}
+!11203 = distinct !{!11203, !"_ZN4core3ptr118drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..IdentPat$GT$$GT$17h01e3fe128c89f96bE"}
+!11204 = distinct !{!11204, !11205, !"_ZN4core3ptr138drop_in_place$LT$$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd49a2cd535b7fe81E.llvm.11762030844908852975: argument 0"}
+!11205 = distinct !{!11205, !"_ZN4core3ptr138drop_in_place$LT$$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd49a2cd535b7fe81E.llvm.11762030844908852975"}
+!11206 = !{!11207, !11209, !11211, !11184}
+!11207 = distinct !{!11207, !11208, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11208 = distinct !{!11208, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11209 = distinct !{!11209, !11210, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11210 = distinct !{!11210, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11211 = distinct !{!11211, !11212, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11212 = distinct !{!11212, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11213 = !{i32 0, i32 6}
+!11214 = !{!11215}
+!11215 = distinct !{!11215, !11216, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hd2a212629752976fE: argument 0"}
+!11216 = distinct !{!11216, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hd2a212629752976fE"}
+!11217 = !{!11218, !11220, !11222, !11215}
+!11218 = distinct !{!11218, !11219, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11219 = distinct !{!11219, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11220 = distinct !{!11220, !11221, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11221 = distinct !{!11221, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11222 = distinct !{!11222, !11223, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11223 = distinct !{!11223, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11224 = !{!11225, !11227, !11229, !11231, !11233, !11235, !11215}
+!11225 = distinct !{!11225, !11226, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!11226 = distinct !{!11226, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!11227 = distinct !{!11227, !11228, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!11228 = distinct !{!11228, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!11229 = distinct !{!11229, !11230, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!11230 = distinct !{!11230, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!11231 = distinct !{!11231, !11232, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h4a740a03b116be3bE: argument 0"}
+!11232 = distinct !{!11232, !"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h4a740a03b116be3bE"}
+!11233 = distinct !{!11233, !11234, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..SelfParam$GT$$GT$17h91dfb9503c857145E: argument 0"}
+!11234 = distinct !{!11234, !"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..SelfParam$GT$$GT$17h91dfb9503c857145E"}
+!11235 = distinct !{!11235, !11236, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b007a3b40bb5a5eE.llvm.11762030844908852975: argument 0"}
+!11236 = distinct !{!11236, !"_ZN4core3ptr139drop_in_place$LT$$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b007a3b40bb5a5eE.llvm.11762030844908852975"}
+!11237 = !{!11238, !11240, !11242, !11215}
+!11238 = distinct !{!11238, !11239, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11239 = distinct !{!11239, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11240 = distinct !{!11240, !11241, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11241 = distinct !{!11241, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11242 = distinct !{!11242, !11243, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11243 = distinct !{!11243, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11244 = !{!11245}
+!11245 = distinct !{!11245, !11246, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hda2855d3b5c664a2E: argument 0"}
+!11246 = distinct !{!11246, !"_ZN3hir9semantics13SemanticsImpl8with_ctx17hda2855d3b5c664a2E"}
+!11247 = !{!11248, !11250, !11252, !11245}
+!11248 = distinct !{!11248, !11249, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11249 = distinct !{!11249, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11250 = distinct !{!11250, !11251, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11251 = distinct !{!11251, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11252 = distinct !{!11252, !11253, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11253 = distinct !{!11253, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11254 = !{!11255, !11257, !11259, !11261, !11263, !11265, !11245}
+!11255 = distinct !{!11255, !11256, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!11256 = distinct !{!11256, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!11257 = distinct !{!11257, !11258, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!11258 = distinct !{!11258, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!11259 = distinct !{!11259, !11260, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!11260 = distinct !{!11260, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!11261 = distinct !{!11261, !11262, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Label$GT$17hdba0fa00feadb3a3E: argument 0"}
+!11262 = distinct !{!11262, !"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Label$GT$17hdba0fa00feadb3a3E"}
+!11263 = distinct !{!11263, !11264, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Label$GT$$GT$17h2e0de338ef2b3994E: argument 0"}
+!11264 = distinct !{!11264, !"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Label$GT$$GT$17h2e0de338ef2b3994E"}
+!11265 = distinct !{!11265, !11266, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Label$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1550eafcaed6eb32E.llvm.11762030844908852975: argument 0"}
+!11266 = distinct !{!11266, !"_ZN4core3ptr135drop_in_place$LT$$LT$syntax..ast..generated..nodes..Label$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1550eafcaed6eb32E.llvm.11762030844908852975"}
+!11267 = !{!11268, !11270, !11272, !11245}
+!11268 = distinct !{!11268, !11269, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11269 = distinct !{!11269, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11270 = distinct !{!11270, !11271, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11271 = distinct !{!11271, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11272 = distinct !{!11272, !11273, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11273 = distinct !{!11273, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11274 = !{!11275, !11277, !11279}
+!11275 = distinct !{!11275, !11276, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11276 = distinct !{!11276, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11277 = distinct !{!11277, !11278, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11278 = distinct !{!11278, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11279 = distinct !{!11279, !11280, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11280 = distinct !{!11280, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11281 = !{!11282, !11284, !11286, !11288, !11290, !11292}
+!11282 = distinct !{!11282, !11283, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706: argument 0"}
+!11283 = distinct !{!11283, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.15963164601899926706"}
+!11284 = distinct !{!11284, !11285, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706: argument 0"}
+!11285 = distinct !{!11285, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706"}
+!11286 = distinct !{!11286, !11287, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE: argument 0"}
+!11287 = distinct !{!11287, !"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE"}
+!11288 = distinct !{!11288, !11289, !"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..ExternCrate$GT$17h2005bf774e38e0dbE: argument 0"}
+!11289 = distinct !{!11289, !"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..ExternCrate$GT$17h2005bf774e38e0dbE"}
+!11290 = distinct !{!11290, !11291, !"_ZN4core3ptr121drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..ExternCrate$GT$$GT$17h0e99c4cb8636ff78E: argument 0"}
+!11291 = distinct !{!11291, !"_ZN4core3ptr121drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..ExternCrate$GT$$GT$17h0e99c4cb8636ff78E"}
+!11292 = distinct !{!11292, !11293, !"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..ExternCrate$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h142a3184cb995a53E.llvm.11762030844908852975: argument 0"}
+!11293 = distinct !{!11293, !"_ZN4core3ptr141drop_in_place$LT$$LT$syntax..ast..generated..nodes..ExternCrate$u20$as$u20$hir..semantics..ToDef$GT$..to_def..$u7b$$u7b$closure$u7d$$u7d$$GT$17h142a3184cb995a53E.llvm.11762030844908852975"}
+!11294 = !{!11295, !11297, !11299}
+!11295 = distinct !{!11295, !11296, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706: argument 0"}
+!11296 = distinct !{!11296, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.15963164601899926706"}
+!11297 = distinct !{!11297, !11298, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706: argument 0"}
+!11298 = distinct !{!11298, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h69efc49b9d3fd17dE.llvm.15963164601899926706"}
+!11299 = distinct !{!11299, !11300, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE: argument 0"}
+!11300 = distinct !{!11300, !"_ZN4core3ptr250drop_in_place$LT$core..cell..RefMut$LT$std..collections..hash..map..HashMap$LT$$LP$hir..semantics..source_to_def..ChildContainer$C$span..HirFileId$RP$$C$hir_def..dyn_map..DynMap$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h8edef5ffe464954cE"}
+!11301 = !{!11302}
+!11302 = distinct !{!11302, !11303, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0a57e21d486f0ef4E: argument 0"}
+!11303 = distinct !{!11303, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0a57e21d486f0ef4E"}
+!11304 = !{!11305}
+!11305 = distinct !{!11305, !11306, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb93a90084b5155b9E: argument 0"}
+!11306 = distinct !{!11306, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb93a90084b5155b9E"}
+!11307 = !{!11308}
+!11308 = distinct !{!11308, !11309, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7e7f745574bddbdE.llvm.6424288313766077374: argument 0"}
+!11309 = distinct !{!11309, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7e7f745574bddbdE.llvm.6424288313766077374"}
+!11310 = !{!11311}
+!11311 = distinct !{!11311, !11312, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3e5412561c3d0066E.llvm.6424288313766077374: argument 0"}
+!11312 = distinct !{!11312, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3e5412561c3d0066E.llvm.6424288313766077374"}
+!11313 = !{!11314}
+!11314 = distinct !{!11314, !11315, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h808e12772ffb30fdE.llvm.6424288313766077374: argument 0"}
+!11315 = distinct !{!11315, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h808e12772ffb30fdE.llvm.6424288313766077374"}
+!11316 = !{!11317}
+!11317 = distinct !{!11317, !11318, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h59a4abc4166c280bE.llvm.6424288313766077374: argument 0"}
+!11318 = distinct !{!11318, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h59a4abc4166c280bE.llvm.6424288313766077374"}
+!11319 = !{!11320}
+!11320 = distinct !{!11320, !11321, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc901bdde1e76b748E.llvm.6424288313766077374: argument 0"}
+!11321 = distinct !{!11321, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc901bdde1e76b748E.llvm.6424288313766077374"}
+!11322 = !{!11323}
+!11323 = distinct !{!11323, !11324, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfc9eeb85f16f3156E.llvm.6424288313766077374: argument 0"}
+!11324 = distinct !{!11324, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfc9eeb85f16f3156E.llvm.6424288313766077374"}
+!11325 = !{!11326}
+!11326 = distinct !{!11326, !11327, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h821cc15d65c9a38aE.llvm.6424288313766077374: argument 0"}
+!11327 = distinct !{!11327, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h821cc15d65c9a38aE.llvm.6424288313766077374"}
+!11328 = !{!11329}
+!11329 = distinct !{!11329, !11330, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h38cf2b6fdc981e47E.llvm.6424288313766077374: argument 0"}
+!11330 = distinct !{!11330, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h38cf2b6fdc981e47E.llvm.6424288313766077374"}
+!11331 = !{!11332}
+!11332 = distinct !{!11332, !11333, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb49454af209e728dE: argument 0"}
+!11333 = distinct !{!11333, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb49454af209e728dE"}
+!11334 = !{!11335}
+!11335 = distinct !{!11335, !11336, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3735d854d6d69134E: argument 0"}
+!11336 = distinct !{!11336, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3735d854d6d69134E"}
+!11337 = !{!11338}
+!11338 = distinct !{!11338, !11339, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2f700b76f1c4a53fE: argument 0"}
+!11339 = distinct !{!11339, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2f700b76f1c4a53fE"}
+!11340 = !{!11341}
+!11341 = distinct !{!11341, !11342, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h031a047c7515a06eE: argument 0"}
+!11342 = distinct !{!11342, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h031a047c7515a06eE"}
+!11343 = !{!11344}
+!11344 = distinct !{!11344, !11345, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0e56ccdc28c001afE.llvm.6424288313766077374: argument 0"}
+!11345 = distinct !{!11345, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0e56ccdc28c001afE.llvm.6424288313766077374"}
+!11346 = !{!11347}
+!11347 = distinct !{!11347, !11348, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3ed2bb4a71151437E.llvm.6424288313766077374: argument 0"}
+!11348 = distinct !{!11348, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3ed2bb4a71151437E.llvm.6424288313766077374"}
+!11349 = !{!11350}
+!11350 = distinct !{!11350, !11351, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7bb7a6d1faef11e9E.llvm.6424288313766077374: argument 0"}
+!11351 = distinct !{!11351, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7bb7a6d1faef11e9E.llvm.6424288313766077374"}
+!11352 = !{!11353}
+!11353 = distinct !{!11353, !11354, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc759be512a8a509cE: argument 0"}
+!11354 = distinct !{!11354, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc759be512a8a509cE"}
+!11355 = !{!11356}
+!11356 = distinct !{!11356, !11357, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h10b7ae287aa1f64fE: argument 0"}
+!11357 = distinct !{!11357, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h10b7ae287aa1f64fE"}
+!11358 = !{!11359}
+!11359 = distinct !{!11359, !11360, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha34f59152f92559dE: argument 0"}
+!11360 = distinct !{!11360, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha34f59152f92559dE"}
+!11361 = !{!11362}
+!11362 = distinct !{!11362, !11363, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd746ea5dc0f6c384E: argument 0"}
+!11363 = distinct !{!11363, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd746ea5dc0f6c384E"}
+!11364 = !{!11365}
+!11365 = distinct !{!11365, !11366, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h648d908626a7479eE: argument 0"}
+!11366 = distinct !{!11366, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h648d908626a7479eE"}
+!11367 = !{!11368}
+!11368 = distinct !{!11368, !11369, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc64f2c9976af54d8E: argument 0"}
+!11369 = distinct !{!11369, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc64f2c9976af54d8E"}
+!11370 = !{!11371}
+!11371 = distinct !{!11371, !11372, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fa21f2edd004948E: argument 0"}
+!11372 = distinct !{!11372, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fa21f2edd004948E"}
+!11373 = !{!11374}
+!11374 = distinct !{!11374, !11375, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h484f89e1142689c0E.llvm.6424288313766077374: argument 0"}
+!11375 = distinct !{!11375, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h484f89e1142689c0E.llvm.6424288313766077374"}
+!11376 = !{!11377}
+!11377 = distinct !{!11377, !11378, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfe7bc64d2c4409ddE.llvm.6424288313766077374: argument 0"}
+!11378 = distinct !{!11378, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfe7bc64d2c4409ddE.llvm.6424288313766077374"}
+!11379 = !{!11380}
+!11380 = distinct !{!11380, !11381, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6e21f19e2ea0c7b6E.llvm.6424288313766077374: argument 0"}
+!11381 = distinct !{!11381, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6e21f19e2ea0c7b6E.llvm.6424288313766077374"}
+!11382 = !{!11383}
+!11383 = distinct !{!11383, !11384, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha2c38657f5f6a919E.llvm.6424288313766077374: argument 0"}
+!11384 = distinct !{!11384, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha2c38657f5f6a919E.llvm.6424288313766077374"}
+!11385 = !{!11386}
+!11386 = distinct !{!11386, !11387, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd0c8127be812cf5E: argument 0"}
+!11387 = distinct !{!11387, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbd0c8127be812cf5E"}
+!11388 = !{!11389}
+!11389 = distinct !{!11389, !11390, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72a829fa55afcc3fE.llvm.6424288313766077374: argument 0"}
+!11390 = distinct !{!11390, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72a829fa55afcc3fE.llvm.6424288313766077374"}
+!11391 = !{!11392}
+!11392 = distinct !{!11392, !11393, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2f6447a92dda2499E.llvm.6424288313766077374: argument 0"}
+!11393 = distinct !{!11393, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2f6447a92dda2499E.llvm.6424288313766077374"}
+!11394 = !{!11395}
+!11395 = distinct !{!11395, !11396, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hec15f78253a91fbaE.llvm.6424288313766077374: argument 0"}
+!11396 = distinct !{!11396, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hec15f78253a91fbaE.llvm.6424288313766077374"}
+!11397 = !{!11398}
+!11398 = distinct !{!11398, !11399, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h91b6eb2b1ff7cf4eE.llvm.6424288313766077374: argument 0"}
+!11399 = distinct !{!11399, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h91b6eb2b1ff7cf4eE.llvm.6424288313766077374"}
+!11400 = !{!11401}
+!11401 = distinct !{!11401, !11402, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfce732d3b9cc0d5eE: argument 0"}
+!11402 = distinct !{!11402, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfce732d3b9cc0d5eE"}
+!11403 = !{!11404}
+!11404 = distinct !{!11404, !11405, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb638b67c47871be8E.llvm.6424288313766077374: argument 0"}
+!11405 = distinct !{!11405, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb638b67c47871be8E.llvm.6424288313766077374"}
+!11406 = !{!11407}
+!11407 = distinct !{!11407, !11408, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdff5dcef3679d9d9E: argument 0"}
+!11408 = distinct !{!11408, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdff5dcef3679d9d9E"}
+!11409 = !{!11410}
+!11410 = distinct !{!11410, !11411, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc15bc8093df58092E.llvm.6424288313766077374: argument 0"}
+!11411 = distinct !{!11411, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc15bc8093df58092E.llvm.6424288313766077374"}
+!11412 = !{!11413}
+!11413 = distinct !{!11413, !11414, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1cae8008e55067e4E.llvm.6424288313766077374: argument 0"}
+!11414 = distinct !{!11414, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1cae8008e55067e4E.llvm.6424288313766077374"}
+!11415 = !{!11416}
+!11416 = distinct !{!11416, !11417, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fe22cb31865da8fE: argument 0"}
+!11417 = distinct !{!11417, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0fe22cb31865da8fE"}
+!11418 = !{!11419}
+!11419 = distinct !{!11419, !11420, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h52bf4867f29741e2E.llvm.6424288313766077374: argument 0"}
+!11420 = distinct !{!11420, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h52bf4867f29741e2E.llvm.6424288313766077374"}
+!11421 = !{!11422}
+!11422 = distinct !{!11422, !11423, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h505d25b8cf10522dE: argument 0"}
+!11423 = distinct !{!11423, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h505d25b8cf10522dE"}
+!11424 = !{!11425}
+!11425 = distinct !{!11425, !11426, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h986fc53adbe17172E.llvm.6424288313766077374: argument 0"}
+!11426 = distinct !{!11426, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h986fc53adbe17172E.llvm.6424288313766077374"}
+!11427 = !{!11428}
+!11428 = distinct !{!11428, !11429, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h796b3ca5d2a4b81aE.llvm.6424288313766077374: argument 0"}
+!11429 = distinct !{!11429, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h796b3ca5d2a4b81aE.llvm.6424288313766077374"}
+!11430 = !{!11431}
+!11431 = distinct !{!11431, !11432, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h961f7076f699111eE.llvm.6424288313766077374: argument 0"}
+!11432 = distinct !{!11432, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h961f7076f699111eE.llvm.6424288313766077374"}

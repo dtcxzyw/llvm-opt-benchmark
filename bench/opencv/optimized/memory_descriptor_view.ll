@@ -1393,7 +1393,6 @@ define hidden void @_ZN3ade16copyToViewMemoryEPKvRNS_20MemoryDescriptorViewE(ptr
   %3 = alloca %"struct.ade::util::DynMdView", align 8
   %4 = alloca %"struct.ade::util::DynMdSpan", align 8
   %5 = alloca %"struct.ade::util::DynMdView", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !20, !noalias !117
   %.not.i.i = icmp eq ptr %7, null
@@ -1417,84 +1416,94 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i: ; preds = %tailrecurse.i
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false), !alias.scope !117
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   br label %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit
 
 14:                                               ; preds = %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26, !noalias !117
   call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(96) %1), !noalias !117
-  call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !91, !noalias !123
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 48, i1 false), !alias.scope !123
+  %16 = load i64, ptr %15, align 8, !tbaa !91, !noalias !120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 48, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i64 %16, ptr %17, align 8, !tbaa !91, !alias.scope !123
+  store i64 %16, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !94, !noalias !120
+  %20 = sext i32 %19 to i64
   %.not3132.i.i = icmp eq i64 %16, 0
   br i1 %.not3132.i.i, label %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
-  %.01934.i.i = phi i64 [ %24, %.lr.ph.i.i ], [ 0, %14 ]
-  %.sroa.022.033.i.i = phi i64 [ %30, %.lr.ph.i.i ], [ 0, %14 ]
-  %18 = getelementptr inbounds nuw [6 x %"struct.ade::util::SliceDimension"], ptr %3, i64 0, i64 %.sroa.022.033.i.i, i32 1
-  %19 = load i32, ptr %18, align 4, !tbaa !94, !noalias !123
-  %20 = getelementptr inbounds nuw [6 x %"struct.ade::util::Span"], ptr %4, i64 0, i64 %.sroa.022.033.i.i
-  %21 = load i32, ptr %20, align 8, !tbaa !62, !noalias !123
-  %22 = mul nsw i32 %21, %19
-  %23 = sext i32 %22 to i64
-  %24 = add i64 %.01934.i.i, %23
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !68, !noalias !123
-  %27 = sub nsw i32 %26, %21
-  %28 = getelementptr inbounds nuw [6 x %"struct.ade::util::SliceDimension"], ptr %5, i64 0, i64 %.sroa.022.033.i.i
-  store i32 %27, ptr %28, align 8, !tbaa !96, !alias.scope !123
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  store i32 %19, ptr %29, align 4, !tbaa !94, !alias.scope !123
-  %30 = add nuw i64 %.sroa.022.033.i.i, 1
-  %.not31.i.i = icmp eq i64 %30, %16
+  %.035.i.i = phi i64 [ %36, %.lr.ph.i.i ], [ %20, %14 ]
+  %.01934.i.i = phi i64 [ %27, %.lr.ph.i.i ], [ 0, %14 ]
+  %.sroa.022.033.i.i = phi i64 [ %37, %.lr.ph.i.i ], [ 0, %14 ]
+  %21 = getelementptr inbounds nuw [6 x %"struct.ade::util::SliceDimension"], ptr %3, i64 0, i64 %.sroa.022.033.i.i, i32 1
+  %22 = load i32, ptr %21, align 4, !tbaa !94, !noalias !120
+  %23 = getelementptr inbounds nuw [6 x %"struct.ade::util::Span"], ptr %4, i64 0, i64 %.sroa.022.033.i.i
+  %24 = load i32, ptr %23, align 8, !tbaa !62, !noalias !120
+  %25 = mul nsw i32 %24, %22
+  %26 = sext i32 %25 to i64
+  %27 = add i64 %.01934.i.i, %26
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !68, !noalias !120
+  %30 = sub nsw i32 %29, %24
+  %31 = getelementptr inbounds nuw [6 x %"struct.ade::util::SliceDimension"], ptr %5, i64 0, i64 %.sroa.022.033.i.i
+  store i32 %30, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 %22, ptr %32, align 4
+  %33 = add nsw i32 %30, -1
+  %34 = mul nsw i32 %33, %22
+  %35 = sext i32 %34 to i64
+  %36 = add i64 %.035.i.i, %35
+  %37 = add nuw i64 %.sroa.022.033.i.i, 1
+  %.not31.i.i = icmp eq i64 %37, %16
   br i1 %.not31.i.i, label %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i, label %.lr.ph.i.i
 
 _ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i: ; preds = %.lr.ph.i.i, %14
-  %.019.lcssa.i.i = phi i64 [ 0, %14 ], [ %24, %.lr.ph.i.i ]
-  %31 = load ptr, ptr %10, align 8, !tbaa !86, !noalias !123
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.019.lcssa.i.i
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr %32, ptr %33, align 8, !tbaa !97, !alias.scope !123
+  %.019.lcssa.i.i = phi i64 [ 0, %14 ], [ %27, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi i64 [ %20, %14 ], [ %36, %.lr.ph.i.i ]
+  %38 = load ptr, ptr %10, align 8, !tbaa !86, !noalias !120
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.019.lcssa.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store ptr %39, ptr %40, align 8
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 %.0.lcssa.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26, !noalias !117
   br label %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit
 
 _ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit: ; preds = %13, %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #26, !noalias !117
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !94
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %38 = load i64, ptr %37, align 8, !tbaa !91
-  %.not10.i.i = icmp eq i64 %38, 0
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %45 = load i64, ptr %44, align 8
+  %.not10.i.i = icmp eq i64 %45, 0
   br i1 %.not10.i.i, label %_ZNK3ade4util9DynMdViewILm6EvE11sizeInBytesEv.exit.i, label %.lr.ph.i.i2
 
 .lr.ph.i.i2:                                      ; preds = %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit, %.lr.ph.i.i2
-  %.012.i.i = phi i64 [ %46, %.lr.ph.i.i2 ], [ %36, %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit ]
-  %.sroa.06.011.i.i = phi i64 [ %47, %.lr.ph.i.i2 ], [ 0, %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit ]
-  %39 = getelementptr inbounds nuw [6 x %"struct.ade::util::SliceDimension"], ptr %5, i64 0, i64 %.sroa.06.011.i.i
-  %40 = load i32, ptr %39, align 8, !tbaa !96
-  %41 = add nsw i32 %40, -1
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !94
-  %44 = mul nsw i32 %41, %43
-  %45 = sext i32 %44 to i64
-  %46 = add i64 %.012.i.i, %45
-  %47 = add nuw i64 %.sroa.06.011.i.i, 1
-  %.not.i.i3 = icmp eq i64 %47, %38
+  %.012.i.i = phi i64 [ %53, %.lr.ph.i.i2 ], [ %43, %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit ]
+  %.sroa.06.011.i.i = phi i64 [ %54, %.lr.ph.i.i2 ], [ 0, %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit ]
+  %46 = getelementptr inbounds nuw [6 x %"struct.ade::util::SliceDimension"], ptr %5, i64 0, i64 %.sroa.06.011.i.i
+  %47 = load i32, ptr %46, align 8
+  %48 = add nsw i32 %47, -1
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %50 = load i32, ptr %49, align 4
+  %51 = mul nsw i32 %48, %50
+  %52 = sext i32 %51 to i64
+  %53 = add i64 %.012.i.i, %52
+  %54 = add nuw i64 %.sroa.06.011.i.i, 1
+  %.not.i.i3 = icmp eq i64 %54, %45
   br i1 %.not.i.i3, label %_ZNK3ade4util9DynMdViewILm6EvE11sizeInBytesEv.exit.i, label %.lr.ph.i.i2
 
 _ZNK3ade4util9DynMdViewILm6EvE11sizeInBytesEv.exit.i: ; preds = %.lr.ph.i.i2, %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit
-  %.0.lcssa.i.i4 = phi i64 [ %36, %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit ], [ %46, %.lr.ph.i.i2 ]
-  %48 = icmp eq i64 %.0.lcssa.i.i4, 0
-  br i1 %48, label %_ZN3ade16copyToViewMemoryEPKvNS_4util9DynMdViewILm6EvEE.exit, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i
+  %.0.lcssa.i.i4 = phi i64 [ %43, %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit ], [ %53, %.lr.ph.i.i2 ]
+  %55 = icmp eq i64 %.0.lcssa.i.i4, 0
+  br i1 %55, label %_ZN3ade16copyToViewMemoryEPKvNS_4util9DynMdViewILm6EvEE.exit, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; preds = %_ZNK3ade4util9DynMdViewILm6EvE11sizeInBytesEv.exit.i
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %.sroa.01.0.copyload.i = load ptr, ptr %49, align 8, !tbaa !97
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %.sroa.01.0.copyload.i = load ptr, ptr %56, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.01.0.copyload.i, ptr readonly align 1 %0, i64 %.0.lcssa.i.i4, i1 false)
   br label %_ZN3ade16copyToViewMemoryEPKvNS_4util9DynMdViewILm6EvEE.exit
 
@@ -1695,7 +1704,7 @@ _ZN3ade4util7find_ifIRSt6vectorINS_20MemoryDescriptorView9Connector12ListenerDes
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
-  %50 = load ptr, ptr %49, align 8, !tbaa !124
+  %50 = load ptr, ptr %49, align 8, !tbaa !123
   %.not.i.i = icmp eq ptr %6, %50
   br i1 %.not.i.i, label %53, label %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE9push_backEOS3_.exit.thread
 
@@ -1753,7 +1762,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define linkonce_odr hidden void @_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !54
-  %6 = load ptr, ptr %0, align 8, !tbaa !125
+  %6 = load ptr, ptr %0, align 8, !tbaa !124
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -1799,27 +1808,27 @@ _ZNKSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE12_M_c
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %20, %_ZNKSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
-  %32 = load ptr, ptr %.0911.i.i.i.i, align 8, !tbaa !40, !alias.scope !129, !noalias !126
-  store ptr %32, ptr %.012.i.i.i.i, align 8, !tbaa !40, !alias.scope !126, !noalias !129
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
+  %32 = load ptr, ptr %.0911.i.i.i.i, align 8, !tbaa !40, !alias.scope !128, !noalias !125
+  store ptr %32, ptr %.012.i.i.i.i, align 8, !tbaa !40, !alias.scope !125, !noalias !128
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !51, !alias.scope !129, !noalias !126
-  store ptr %35, ptr %33, align 8, !tbaa !51, !alias.scope !126, !noalias !129
+  %35 = load ptr, ptr %34, align 8, !tbaa !51, !alias.scope !128, !noalias !125
+  store ptr %35, ptr %33, align 8, !tbaa !51, !alias.scope !125, !noalias !128
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !52, !alias.scope !129, !noalias !126
-  store ptr %38, ptr %36, align 8, !tbaa !52, !alias.scope !126, !noalias !129
+  %38 = load ptr, ptr %37, align 8, !tbaa !52, !alias.scope !128, !noalias !125
+  store ptr %38, ptr %36, align 8, !tbaa !52, !alias.scope !125, !noalias !128
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !53, !alias.scope !129, !noalias !126
-  store ptr %41, ptr %39, align 8, !tbaa !53, !alias.scope !126, !noalias !129
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false), !alias.scope !129, !noalias !126
+  %41 = load ptr, ptr %40, align 8, !tbaa !53, !alias.scope !128, !noalias !125
+  store ptr %41, ptr %39, align 8, !tbaa !53, !alias.scope !125, !noalias !128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false), !alias.scope !128, !noalias !125
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %42, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !131
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !130
 
 _ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %20, %_ZNKSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE12_M_check_lenEmPKc.exit ], [ %43, %.lr.ph.i.i.i.i ]
@@ -1830,27 +1839,27 @@ _ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_re
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %56, %.lr.ph.i.i.i.i17 ], [ %44, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %55, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
-  %45 = load ptr, ptr %.0911.i.i.i.i19, align 8, !tbaa !40, !alias.scope !135, !noalias !132
-  store ptr %45, ptr %.012.i.i.i.i18, align 8, !tbaa !40, !alias.scope !132, !noalias !135
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
+  %45 = load ptr, ptr %.0911.i.i.i.i19, align 8, !tbaa !40, !alias.scope !134, !noalias !131
+  store ptr %45, ptr %.012.i.i.i.i18, align 8, !tbaa !40, !alias.scope !131, !noalias !134
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !51, !alias.scope !135, !noalias !132
-  store ptr %48, ptr %46, align 8, !tbaa !51, !alias.scope !132, !noalias !135
+  %48 = load ptr, ptr %47, align 8, !tbaa !51, !alias.scope !134, !noalias !131
+  store ptr %48, ptr %46, align 8, !tbaa !51, !alias.scope !131, !noalias !134
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !52, !alias.scope !135, !noalias !132
-  store ptr %51, ptr %49, align 8, !tbaa !52, !alias.scope !132, !noalias !135
+  %51 = load ptr, ptr %50, align 8, !tbaa !52, !alias.scope !134, !noalias !131
+  store ptr %51, ptr %49, align 8, !tbaa !52, !alias.scope !131, !noalias !134
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 24
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !53, !alias.scope !135, !noalias !132
-  store ptr %54, ptr %52, align 8, !tbaa !53, !alias.scope !132, !noalias !135
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !135, !noalias !132
+  %54 = load ptr, ptr %53, align 8, !tbaa !53, !alias.scope !134, !noalias !131
+  store ptr %54, ptr %52, align 8, !tbaa !53, !alias.scope !131, !noalias !134
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !134, !noalias !131
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i20 = icmp eq ptr %55, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !131
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !130
 
 _ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %44, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %56, %.lr.ph.i.i.i.i17 ]
@@ -1863,10 +1872,10 @@ _ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_re
 
 _ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %57
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %20, ptr %0, align 8, !tbaa !125
+  store ptr %20, ptr %0, align 8, !tbaa !124
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !54
   %59 = getelementptr inbounds nuw %"struct.ade::MemoryDescriptorView::Connector::ListenerDesc", ptr %20, i64 %16
-  store ptr %59, ptr %58, align 8, !tbaa !124
+  store ptr %59, ptr %58, align 8, !tbaa !123
   ret void
 }
 
@@ -1893,7 +1902,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN3ade20MemoryDes
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN3ade20MemoryDescriptorView9ConnectorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !125
+  %3 = load ptr, ptr %2, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %3, %5
@@ -1913,10 +1922,10 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN3ade20MemoryDes
 _ZSt8_DestroyIN3ade20MemoryDescriptorView9Connector12ListenerDescEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, %5
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3ade20MemoryDescriptorView9Connector12ListenerDescES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !137
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3ade20MemoryDescriptorView9Connector12ListenerDescES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !136
 
 _ZSt8_DestroyIPN3ade20MemoryDescriptorView9Connector12ListenerDescES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i.i: ; preds = %_ZSt8_DestroyIN3ade20MemoryDescriptorView9Connector12ListenerDescEEvPT_.exit.i.i.i.i.i.i.i
-  %.pr.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !125
+  %.pr.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !124
   br label %_ZSt8_DestroyIPN3ade20MemoryDescriptorView9Connector12ListenerDescES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
 
 _ZSt8_DestroyIPN3ade20MemoryDescriptorView9Connector12ListenerDescES3_EvT_S5_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPN3ade20MemoryDescriptorView9Connector12ListenerDescES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i.i, %1
@@ -1947,7 +1956,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3ade20Me
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !138
+  %7 = load ptr, ptr %6, align 8, !tbaa !137
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -2138,24 +2147,23 @@ attributes #29 = { noreturn }
 !117 = !{!118}
 !118 = distinct !{!118, !119, !"_ZNK3ade20MemoryDescriptorView15getExternalViewEv: argument 0"}
 !119 = distinct !{!119, !"_ZNK3ade20MemoryDescriptorView15getExternalViewEv"}
-!120 = !{!121}
+!120 = !{!121, !118}
 !121 = distinct !{!121, !122, !"_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE: argument 0"}
 !122 = distinct !{!122, !"_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE"}
-!123 = !{!121, !118}
-!124 = !{!55, !39, i64 16}
-!125 = !{!55, !39, i64 0}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!128 = distinct !{!128, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_"}
-!129 = !{!130}
-!130 = distinct !{!130, !128, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!131 = distinct !{!131, !49}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!134 = distinct !{!134, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_"}
-!135 = !{!136}
-!136 = distinct !{!136, !134, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!137 = distinct !{!137, !49}
-!138 = !{!139, !140, i64 8}
-!139 = !{!"_ZTSSt9type_info", !140, i64 8}
-!140 = !{!"p1 omnipotent char", !6, i64 0}
+!123 = !{!55, !39, i64 16}
+!124 = !{!55, !39, i64 0}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!127 = distinct !{!127, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_"}
+!128 = !{!129}
+!129 = distinct !{!129, !127, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!130 = distinct !{!130, !49}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!133 = distinct !{!133, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_"}
+!134 = !{!135}
+!135 = distinct !{!135, !133, !"_ZSt19__relocate_object_aIN3ade20MemoryDescriptorView9Connector12ListenerDescES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!136 = distinct !{!136, !49}
+!137 = !{!138, !139, i64 8}
+!138 = !{!"_ZTSSt9type_info", !139, i64 8}
+!139 = !{!"p1 omnipotent char", !6, i64 0}

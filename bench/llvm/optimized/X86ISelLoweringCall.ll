@@ -7719,8 +7719,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %337 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_(ptr noundef nonnull align 8 dereferenceable(952) %7, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 1, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %61, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %46) #24
   %.fca.0.extract45 = extractvalue { ptr, i32 } %337, 0
   %.fca.1.extract46 = extractvalue { ptr, i32 } %337, 1
-  store ptr %.fca.0.extract45, ptr %46, align 8, !tbaa !625
-  store i32 %.fca.1.extract46, ptr %63, align 8, !tbaa !164
+  store ptr %.fca.0.extract45, ptr %46, align 8
+  store i32 %.fca.1.extract46, ptr %63, align 8
   br label %338
 
 338:                                              ; preds = %315, %317, %306
@@ -7824,8 +7824,8 @@ _ZNK4llvm18TargetLoweringBase12getPointerTyERKNS_10DataLayoutEj.exit: ; preds = 
   %376 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_(ptr noundef nonnull align 8 dereferenceable(952) %7, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 1, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %62, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %46) #24
   %.fca.0.extract = extractvalue { ptr, i32 } %376, 0
   %.fca.1.extract = extractvalue { ptr, i32 } %376, 1
-  store ptr %.fca.0.extract, ptr %46, align 8, !tbaa !625
-  store i32 %.fca.1.extract, ptr %63, align 8, !tbaa !164
+  store ptr %.fca.0.extract, ptr %46, align 8
+  store i32 %.fca.1.extract, ptr %63, align 8
   br label %.loopexit647
 
 377:                                              ; preds = %339, %338
@@ -8506,8 +8506,8 @@ _ZN4llvm11SmallVectorINS_7SDValueELj12EED2Ev.exit.i.i: ; preds = %672, %_ZN4llvm
   %679 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %7, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 1, ptr null, ptr noundef nonnull byval(%"class.llvm::ArrayRef.687") align 8 %36) #24
   %.fca.0.extract.i.i = extractvalue { ptr, i32 } %679, 0
   %.fca.1.extract.i.i = extractvalue { ptr, i32 } %679, 1
-  store ptr %.fca.0.extract.i.i, ptr %46, align 8, !tbaa !625
-  store i32 %.fca.1.extract.i.i, ptr %63, align 8, !tbaa !164
+  store ptr %.fca.0.extract.i.i, ptr %46, align 8
+  store i32 %.fca.1.extract.i.i, ptr %63, align 8
   br label %680
 
 680:                                              ; preds = %675, %673

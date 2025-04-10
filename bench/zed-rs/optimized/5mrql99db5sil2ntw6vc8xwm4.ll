@@ -703,7 +703,7 @@ common.resume:                                    ; preds = %165, %106, %.body.i
   %.sroa.1224.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %91, i64 144
   store i8 %42, ptr %.sroa.1224.0..sroa_idx25, align 8, !alias.scope !121, !noalias !122
   %.sroa.13.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %91, i64 145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.0..sroa_idx27, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i64 7, i1 false), !alias.scope !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.0..sroa_idx27, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i64 7, i1 false)
   %92 = add nuw nsw i32 %81, 1
   store i32 %92, ptr %19, align 8, !alias.scope !123, !noalias !128
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.0)

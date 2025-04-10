@@ -20036,7 +20036,7 @@ _ZN4core3ptr7replace17h2eb3297cf49141baE.exit5.i: ; preds = %90
   %.sroa.5.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.064, ptr %.sroa.5.0..sroa_idx33, align 8, !alias.scope !3954
   %.sroa.8.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx35, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.513.i, i64 16, i1 false), !alias.scope !3954
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx35, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.513.i, i64 16, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h63c39df0768cc749E.exit"
 
 117:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit"
@@ -20681,7 +20681,7 @@ _ZN4core3ptr7replace17h0289bf5fa6402c33E.exit5.i: ; preds = %88
   %.sroa.031.058 = phi i64 [ %.sroa.0.0.copyload1.i, %.thread56 ], [ %.sroa.03.0.copyload4.i, %111 ]
   store i64 %.sroa.031.058, ptr %0, align 8, !alias.scope !4086
   %.sroa.733.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.733.0..sroa_idx34, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false), !alias.scope !4086
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.733.0..sroa_idx34, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0d4c2c8ae660f1bE.exit"
 
 113:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit"

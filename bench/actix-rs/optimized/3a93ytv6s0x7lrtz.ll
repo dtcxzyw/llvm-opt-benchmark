@@ -811,11 +811,11 @@ common.ret:                                       ; preds = %161, %47
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.13.sroa.0.0.copyload18.i = load i64, ptr %49, align 8, !alias.scope !103, !noalias !95
   %.sroa.13.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sroa.13.sroa.9.i.sroa.0.0.copyload = load i64, ptr %.sroa.13.sroa.9.0..sroa_idx.i, align 8, !alias.scope !103, !noalias !95
+  %.sroa.13.sroa.9.i.sroa.0.0.copyload = load i64, ptr %.sroa.13.sroa.9.0..sroa_idx.i, align 8, !noalias !95
   %.sroa.13.sroa.9.i.sroa.6.0..sroa.13.sroa.9.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sroa.13.sroa.9.i.sroa.6.0.copyload = load i64, ptr %.sroa.13.sroa.9.i.sroa.6.0..sroa.13.sroa.9.0..sroa_idx.i.sroa_idx, align 8, !alias.scope !103, !noalias !95
+  %.sroa.13.sroa.9.i.sroa.6.0.copyload = load i64, ptr %.sroa.13.sroa.9.i.sroa.6.0..sroa.13.sroa.9.0..sroa_idx.i.sroa_idx, align 8, !noalias !95
   %.sroa.13.sroa.9.i.sroa.7.0..sroa.13.sroa.9.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sroa.13.sroa.9.i.sroa.7.0.copyload = load i64, ptr %.sroa.13.sroa.9.i.sroa.7.0..sroa.13.sroa.9.0..sroa_idx.i.sroa_idx, align 8, !alias.scope !103, !noalias !95
+  %.sroa.13.sroa.9.i.sroa.7.0.copyload = load i64, ptr %.sroa.13.sroa.9.i.sroa.7.0..sroa.13.sroa.9.0..sroa_idx.i.sroa_idx, align 8, !noalias !95
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !95
   %.not = icmp eq i64 %.sroa.13.sroa.0.0.copyload18.i, 0
   br i1 %.not, label %83, label %51
@@ -826,11 +826,11 @@ common.ret:                                       ; preds = %161, %47
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.13.sroa.0.0.copyload.i = load i64, ptr %.sroa.13.0..sroa_idx.i, align 8, !alias.scope !103, !noalias !95
   %.sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sroa.13.sroa.9.i.sroa.0.0.copyload86 = load i64, ptr %.sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !103, !noalias !95
+  %.sroa.13.sroa.9.i.sroa.0.0.copyload86 = load i64, ptr %.sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx.i, align 8, !noalias !95
   %.sroa.13.sroa.9.i.sroa.6.0..sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sroa.13.sroa.9.i.sroa.6.0.copyload88 = load i64, ptr %.sroa.13.sroa.9.i.sroa.6.0..sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx.i.sroa_idx, align 8, !alias.scope !103, !noalias !95
+  %.sroa.13.sroa.9.i.sroa.6.0.copyload88 = load i64, ptr %.sroa.13.sroa.9.i.sroa.6.0..sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx.i.sroa_idx, align 8, !noalias !95
   %.sroa.13.sroa.9.i.sroa.7.0..sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sroa.13.sroa.9.i.sroa.7.0.copyload90 = load i64, ptr %.sroa.13.sroa.9.i.sroa.7.0..sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx.i.sroa_idx, align 8, !alias.scope !103, !noalias !95
+  %.sroa.13.sroa.9.i.sroa.7.0.copyload90 = load i64, ptr %.sroa.13.sroa.9.i.sroa.7.0..sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx.i.sroa_idx, align 8, !noalias !95
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !95
   br label %79
 

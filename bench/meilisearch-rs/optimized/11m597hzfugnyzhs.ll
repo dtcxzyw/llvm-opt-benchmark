@@ -3118,8 +3118,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.015.025, i64 32
   %25 = add nuw nsw i64 %.sroa.7.024, 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !549)
-  %26 = load i64, ptr %.sroa.015.025, align 8, !range !552, !alias.scope !553, !noalias !549, !noundef !13
+  %26 = load i64, ptr %.sroa.015.025, align 8, !range !549, !alias.scope !550, !noalias !553, !noundef !13
   %switch = icmp samesign ult i64 %26, 6
   br i1 %switch, label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit", label %.invoke
 
@@ -3129,7 +3128,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
           to label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit" unwind label %32
 
 "_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit": ; preds = %23, %.invoke
-  store i64 %26, ptr %5, align 8, !alias.scope !549
+  store i64 %26, ptr %5, align 8
   %28 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %14, i64 0, i64 %.sroa.7.024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %29 = icmp eq i64 %21, 0
@@ -4998,12 +4997,12 @@ attributes #23 = { nounwind }
 !546 = distinct !{!546, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8b20f28a19ec170aE"}
 !547 = !{!548}
 !548 = distinct !{!548, !546, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8b20f28a19ec170aE: argument 0"}
-!549 = !{!550}
-!550 = distinct !{!550, !551, !"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E: argument 0"}
-!551 = distinct !{!551, !"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E"}
-!552 = !{i64 0, i64 8}
+!549 = !{i64 0, i64 8}
+!550 = !{!551}
+!551 = distinct !{!551, !552, !"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E: argument 1"}
+!552 = distinct !{!552, !"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E"}
 !553 = !{!554}
-!554 = distinct !{!554, !551, !"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E: argument 1"}
+!554 = distinct !{!554, !552, !"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E: argument 0"}
 !555 = !{!556, !558}
 !556 = distinct !{!556, !557, !"_ZN74_$LT$meilisearch_types..tasks..IndexSwap$u20$as$u20$core..clone..Clone$GT$5clone17hf34d869265b9a341E: argument 0"}
 !557 = distinct !{!557, !"_ZN74_$LT$meilisearch_types..tasks..IndexSwap$u20$as$u20$core..clone..Clone$GT$5clone17hf34d869265b9a341E"}

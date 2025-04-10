@@ -8372,11 +8372,10 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   ret void
 
 34:                                               ; preds = %31
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1425)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 72
-  %36 = load i64, ptr %35, align 8, !alias.scope !1428, !noalias !1425, !noundef !4
+  %36 = load i64, ptr %35, align 8, !alias.scope !1425, !noalias !1428, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 88
-  %38 = load i8, ptr %37, align 8, !range !653, !alias.scope !1428, !noalias !1425, !noundef !4
+  %38 = load i8, ptr %37, align 8, !range !653, !alias.scope !1425, !noalias !1428, !noundef !4
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 40
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %39)
           to label %40 unwind label %70
@@ -8385,49 +8384,49 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %41 = add nuw nsw i64 %.sroa.7.019, 1
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 96
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 80
-  %44 = load i64, ptr %43, align 8, !alias.scope !1428, !noalias !1425, !noundef !4
-  %45 = load i64, ptr %.sroa.011.020, align 8, !range !143, !alias.scope !1428, !noalias !1425, !noundef !4
+  %44 = load i64, ptr %43, align 8, !alias.scope !1425, !noalias !1428, !noundef !4
+  %45 = load i64, ptr %.sroa.011.020, align 8, !range !143, !alias.scope !1425, !noalias !1428, !noundef !4
   %trunc.i = trunc nuw i64 %45 to i1
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 8
-  %47 = load i64, ptr %46, align 8, !alias.scope !1428, !noalias !1425
+  %47 = load i64, ptr %46, align 8, !alias.scope !1425, !noalias !1428
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 16
-  %49 = load i32, ptr %48, align 8, !alias.scope !1428, !noalias !1425
+  %49 = load i32, ptr %48, align 8, !alias.scope !1425, !noalias !1428
   %.sroa.6.0.i = select i1 %trunc.i, i32 %49, i32 undef
   %.sroa.5.0.i = select i1 %trunc.i, i64 %47, i64 undef
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 89
-  %51 = load i8, ptr %50, align 1, !range !653, !alias.scope !1428, !noalias !1425, !noundef !4
+  %51 = load i8, ptr %50, align 1, !range !653, !alias.scope !1425, !noalias !1428, !noundef !4
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 90
-  %53 = load i8, ptr %52, align 2, !range !653, !alias.scope !1428, !noalias !1425, !noundef !4
+  %53 = load i8, ptr %52, align 2, !range !653, !alias.scope !1425, !noalias !1428, !noundef !4
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 91
-  %55 = load i8, ptr %54, align 1, !range !653, !alias.scope !1428, !noalias !1425, !noundef !4
+  %55 = load i8, ptr %54, align 1, !range !653, !alias.scope !1425, !noalias !1428, !noundef !4
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 64
-  %57 = load i32, ptr %56, align 8, !range !1430, !alias.scope !1428, !noalias !1425, !noundef !4
+  %57 = load i32, ptr %56, align 8, !range !1430, !alias.scope !1425, !noalias !1428, !noundef !4
   %trunc5.i = trunc nuw i32 %57 to i1
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 68
-  %59 = load i32, ptr %58, align 4, !alias.scope !1428, !noalias !1425
+  %59 = load i32, ptr %58, align 4, !alias.scope !1425, !noalias !1428
   %.sroa.52.0.i = select i1 %trunc5.i, i32 %59, i32 undef
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 92
-  %61 = load i8, ptr %60, align 4, !range !653, !alias.scope !1428, !noalias !1425, !noundef !4
+  %61 = load i8, ptr %60, align 4, !range !653, !alias.scope !1425, !noalias !1428, !noundef !4
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 24
-  %63 = load i64, ptr %62, align 8, !range !143, !alias.scope !1428, !noalias !1425, !noundef !4
+  %63 = load i64, ptr %62, align 8, !range !143, !alias.scope !1425, !noalias !1428, !noundef !4
   %trunc6.i = trunc nuw i64 %63 to i1
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 32
-  %65 = load i64, ptr %64, align 8, !alias.scope !1428, !noalias !1425
+  %65 = load i64, ptr %64, align 8, !alias.scope !1425, !noalias !1428
   %.sroa.54.0.i = select i1 %trunc6.i, i64 %65, i64 undef
-  store i64 %36, ptr %18, align 8, !alias.scope !1425
-  store i8 %38, ptr %19, align 8, !alias.scope !1425
-  store i64 %44, ptr %20, align 8, !alias.scope !1425
-  store i64 %45, ptr %5, align 8, !alias.scope !1425
-  store i64 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1425
-  store i32 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1425
-  store i8 %51, ptr %21, align 1, !alias.scope !1425
-  store i8 %53, ptr %22, align 2, !alias.scope !1425
-  store i8 %55, ptr %23, align 1, !alias.scope !1425
-  store i32 %57, ptr %24, align 8, !alias.scope !1425
-  store i32 %.sroa.52.0.i, ptr %25, align 4, !alias.scope !1425
-  store i8 %61, ptr %26, align 4, !alias.scope !1425
-  store i64 %63, ptr %27, align 8, !alias.scope !1425
-  store i64 %.sroa.54.0.i, ptr %28, align 8, !alias.scope !1425
+  store i64 %36, ptr %18, align 8
+  store i8 %38, ptr %19, align 8
+  store i64 %44, ptr %20, align 8
+  store i64 %45, ptr %5, align 8
+  store i64 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i32 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8
+  store i8 %51, ptr %21, align 1
+  store i8 %53, ptr %22, align 2
+  store i8 %55, ptr %23, align 1
+  store i32 %57, ptr %24, align 8
+  store i32 %.sroa.52.0.i, ptr %25, align 4
+  store i8 %61, ptr %26, align 4
+  store i64 %63, ptr %27, align 8
+  store i64 %.sroa.54.0.i, ptr %28, align 8
   %66 = getelementptr inbounds nuw [0 x { [12 x i64] }], ptr %12, i64 0, i64 %.sroa.7.019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %66, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   %67 = icmp eq i64 %32, 0
@@ -18310,10 +18309,10 @@ attributes #43 = { "function-inline-cost-multiplier"="2" }
 !1423 = !{!1419, !1417, !1413, !1411, !1311}
 !1424 = !{!1408, !1307}
 !1425 = !{!1426}
-!1426 = distinct !{!1426, !1427, !"_ZN51_$LT$proto..Entry$u20$as$u20$core..clone..Clone$GT$5clone17hf08efce4189e3609E: argument 0"}
+!1426 = distinct !{!1426, !1427, !"_ZN51_$LT$proto..Entry$u20$as$u20$core..clone..Clone$GT$5clone17hf08efce4189e3609E: argument 1"}
 !1427 = distinct !{!1427, !"_ZN51_$LT$proto..Entry$u20$as$u20$core..clone..Clone$GT$5clone17hf08efce4189e3609E"}
 !1428 = !{!1429}
-!1429 = distinct !{!1429, !1427, !"_ZN51_$LT$proto..Entry$u20$as$u20$core..clone..Clone$GT$5clone17hf08efce4189e3609E: argument 1"}
+!1429 = distinct !{!1429, !1427, !"_ZN51_$LT$proto..Entry$u20$as$u20$core..clone..Clone$GT$5clone17hf08efce4189e3609E: argument 0"}
 !1430 = !{i32 0, i32 2}
 !1431 = !{!1432}
 !1432 = distinct !{!1432, !1433, !"_ZN61_$LT$proto..RepositoryEntry$u20$as$u20$core..clone..Clone$GT$5clone17h5746878dded8800fE: argument 1"}

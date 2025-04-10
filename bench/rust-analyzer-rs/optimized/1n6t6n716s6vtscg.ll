@@ -616,7 +616,7 @@ default.unreachable:                              ; preds = %68
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i.i"
 
 77:                                               ; preds = %68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.633.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %18, i64 7, i1 false), !alias.scope !145, !noalias !102
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.633.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %18, i64 7, i1 false), !noalias !102
   %.sroa.8.1.copyload34.i.i.i = load ptr, ptr %.sroa.8.1..sroa_idx.i.i.i, align 1, !alias.scope !145, !noalias !102
   %.sroa.10.1.copyload35.i.i.i = load i64, ptr %.sroa.10.1..sroa_idx.i.i.i, align 1, !alias.scope !145, !noalias !102
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i.i"

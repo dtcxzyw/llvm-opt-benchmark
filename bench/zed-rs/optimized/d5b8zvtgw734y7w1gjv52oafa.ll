@@ -20326,10 +20326,10 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_e
   %.sroa.7.019 = phi i64 [ 0, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a0aa13ce5e9981dE.exit.i.lr.ph" ], [ %34, %32 ]
   %.sroa.07.018 = phi ptr [ %0, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a0aa13ce5e9981dE.exit.i.lr.ph" ], [ %33, %32 ]
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.018, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.018.48..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false), !alias.scope !5518, !noalias !5522
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.018.48..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false), !noalias !5518
   %.sroa.519.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.07.018, i64 88
-  %.sroa.519.48.copyload.i = load i8, ptr %.sroa.519.48..sroa_idx.i, align 8, !alias.scope !5518, !noalias !5526
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.018.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.07.018, i64 48, i1 false), !alias.scope !5518, !noalias !5522
+  %.sroa.519.48.copyload.i = load i8, ptr %.sroa.519.48..sroa_idx.i, align 8, !alias.scope !5522, !noalias !5526
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.018.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.07.018, i64 48, i1 false), !noalias !5518
   %29 = icmp eq i8 %.sroa.519.48.copyload.i, 2
   br i1 %29, label %._crit_edge, label %32
 
@@ -37648,14 +37648,14 @@ attributes #40 = { noreturn nounwind }
 !5516 = distinct !{!5516, !5517, !"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17h56b19f926e98a540E.llvm.2221560088564545942: argument 0"}
 !5517 = distinct !{!5517, !"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17h56b19f926e98a540E.llvm.2221560088564545942"}
 !5518 = !{!5519, !5521}
-!5519 = distinct !{!5519, !5520, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4911e24503b9a90fE.llvm.15813213850108364184: argument 0"}
-!5520 = distinct !{!5520, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4911e24503b9a90fE.llvm.15813213850108364184"}
-!5521 = distinct !{!5521, !5520, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4911e24503b9a90fE.llvm.15813213850108364184: argument 1"}
+!5519 = distinct !{!5519, !5520, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd4fee78db7709db8E: argument 0"}
+!5520 = distinct !{!5520, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd4fee78db7709db8E"}
+!5521 = distinct !{!5521, !5520, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd4fee78db7709db8E: argument 1"}
 !5522 = !{!5523, !5525}
-!5523 = distinct !{!5523, !5524, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd4fee78db7709db8E: argument 0"}
-!5524 = distinct !{!5524, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd4fee78db7709db8E"}
-!5525 = distinct !{!5525, !5524, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd4fee78db7709db8E: argument 1"}
-!5526 = !{!5527, !5529, !5523, !5525}
+!5523 = distinct !{!5523, !5524, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4911e24503b9a90fE.llvm.15813213850108364184: argument 0"}
+!5524 = distinct !{!5524, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4911e24503b9a90fE.llvm.15813213850108364184"}
+!5525 = distinct !{!5525, !5524, !"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4911e24503b9a90fE.llvm.15813213850108364184: argument 1"}
+!5526 = !{!5527, !5529, !5519, !5521}
 !5527 = distinct !{!5527, !5528, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a0aa13ce5e9981dE: argument 0"}
 !5528 = distinct !{!5528, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a0aa13ce5e9981dE"}
 !5529 = distinct !{!5529, !5528, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a0aa13ce5e9981dE: argument 1"}

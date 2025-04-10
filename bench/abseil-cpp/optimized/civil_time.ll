@@ -2330,17 +2330,17 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7d
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  store i64 1970, ptr %7, align 8, !tbaa !31
+  store i64 1970, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 1, ptr %18, align 8, !tbaa !33
+  store i8 1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  store i8 1, ptr %19, align 1, !tbaa !34
+  store i8 1, ptr %19, align 1
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  store i8 0, ptr %20, align 2, !tbaa !35
+  store i8 0, ptr %20, align 2
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 11
-  store i8 0, ptr %21, align 1, !tbaa !36
+  store i8 0, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i8 0, ptr %22, align 4, !tbaa !37
+  store i8 0, ptr %22, align 4
   %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %7)
   br i1 %23, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %24
 
@@ -2564,17 +2564,17 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9m
 38:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 1970, ptr %4, align 8, !tbaa !31
+  store i64 1970, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 1, ptr %39, align 8, !tbaa !33
+  store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 1, ptr %40, align 1, !tbaa !34
+  store i8 1, ptr %40, align 1
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 0, ptr %41, align 2, !tbaa !35
+  store i8 0, ptr %41, align 2
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 11
-  store i8 0, ptr %42, align 1, !tbaa !36
+  store i8 0, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i8 0, ptr %43, align 4, !tbaa !37
+  store i8 0, ptr %43, align 4
   %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %4)
   br i1 %44, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %45
 
@@ -2661,17 +2661,17 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 24:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store i64 1970, ptr %6, align 8, !tbaa !31
+  store i64 1970, ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 1, ptr %25, align 8, !tbaa !33
+  store i8 1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  store i8 1, ptr %26, align 1, !tbaa !34
+  store i8 1, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i8 0, ptr %27, align 2, !tbaa !35
+  store i8 0, ptr %27, align 2
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 11
-  store i8 0, ptr %28, align 1, !tbaa !36
+  store i8 0, ptr %28, align 1
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i8 0, ptr %29, align 4, !tbaa !37
+  store i8 0, ptr %29, align 4
   %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %6)
   br i1 %30, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %31
 
@@ -2758,17 +2758,17 @@ define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_s
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 1970, ptr %8, align 8, !tbaa !31
+  store i64 1970, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 1, ptr %11, align 8, !tbaa !33
+  store i8 1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i8 1, ptr %12, align 1, !tbaa !34
+  store i8 1, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  store i8 0, ptr %13, align 2, !tbaa !35
+  store i8 0, ptr %13, align 2
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 11
-  store i8 0, ptr %14, align 1, !tbaa !36
+  store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i8 0, ptr %15, align 4, !tbaa !37
+  store i8 0, ptr %15, align 4
   %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %8)
   br i1 %16, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %17
 
@@ -2998,17 +2998,17 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8h
 31:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store i64 1970, ptr %5, align 8, !tbaa !31
+  store i64 1970, ptr %5, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 1, ptr %32, align 8, !tbaa !33
+  store i8 1, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 1, ptr %33, align 1, !tbaa !34
+  store i8 1, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i8 0, ptr %34, align 2, !tbaa !35
+  store i8 0, ptr %34, align 2
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 11
-  store i8 0, ptr %35, align 1, !tbaa !36
+  store i8 0, ptr %35, align 1
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 0, ptr %36, align 4, !tbaa !37
+  store i8 0, ptr %36, align 4
   %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %5)
   br i1 %37, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %38
 
@@ -4259,17 +4259,17 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13t
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
-  store i64 1970, ptr %4, align 8, !tbaa !31
+  store i64 1970, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 1, ptr %5, align 8, !tbaa !33
+  store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 1, ptr %6, align 1, !tbaa !34
+  store i8 1, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 0, ptr %7, align 2, !tbaa !35
+  store i8 0, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 11
-  store i8 0, ptr %8, align 1, !tbaa !36
+  store i8 0, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i8 0, ptr %9, align 4, !tbaa !37
+  store i8 0, ptr %9, align 4
   %10 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %4)
   br i1 %10, label %11, label %12
 

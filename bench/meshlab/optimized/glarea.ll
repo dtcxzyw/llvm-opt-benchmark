@@ -40638,7 +40638,6 @@ define linkonce_odr void @_ZN6GLArea13track2ShotCPUIfEEN3vcg4ShotIT_NS1_8Matrix4
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx.i.i, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !377)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -40667,7 +40666,6 @@ define linkonce_odr void @_ZN6GLArea13track2ShotCPUIfEEN3vcg4ShotIT_NS1_8Matrix4
   store float %25, ptr %34, align 4, !noalias !377
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store float %28, ptr %35, align 4, !noalias !377
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
   br label %.preheader19.i.i
 
 .preheader19.i.i:                                 ; preds = %49, %4
@@ -40684,11 +40682,11 @@ define linkonce_odr void @_ZN6GLArea13track2ShotCPUIfEEN3vcg4ShotIT_NS1_8Matrix4
   %.01620.i.i = phi float [ 0.000000e+00, %.preheader.i.i ], [ %45, %37 ]
   %38 = add nuw nsw i64 %indvars.iv.i2.i, %36
   %39 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %38
-  %40 = load float, ptr %39, align 4, !noalias !383
+  %40 = load float, ptr %39, align 4, !noalias !380
   %41 = shl nuw nsw i64 %indvars.iv.i2.i, 2
   %42 = add nuw nsw i64 %41, %indvars.iv25.i.i
   %43 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %42
-  %44 = load float, ptr %43, align 4, !noalias !383
+  %44 = load float, ptr %43, align 4, !noalias !380
   %45 = tail call float @llvm.fmuladd.f32(float %40, float %44, float %.01620.i.i)
   %indvars.iv.next.i3.i = add nuw nsw i64 %indvars.iv.i2.i, 1
   %exitcond.not.i4.i = icmp eq i64 %indvars.iv.next.i3.i, 4
@@ -40697,7 +40695,7 @@ define linkonce_odr void @_ZN6GLArea13track2ShotCPUIfEEN3vcg4ShotIT_NS1_8Matrix4
 46:                                               ; preds = %37
   %47 = add nuw nsw i64 %indvars.iv25.i.i, %36
   %48 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %47
-  store float %45, ptr %48, align 4, !alias.scope !383
+  store float %45, ptr %48, align 4
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond28.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, 4
   br i1 %exitcond28.not.i.i, label %49, label %.preheader.i.i, !llvm.loop !77
@@ -40712,7 +40710,6 @@ _ZNK3vcg8Matrix44IfE8ToMatrixIS1_EEvRT_.exit:     ; preds = %49
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %10, ptr noundef nonnull align 8 dereferenceable(597) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %10, i64 64, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !384)
   br label %.preheader19.i
 
 .preheader19.i:                                   ; preds = %63, %_ZNK3vcg8Matrix44IfE8ToMatrixIS1_EEvRT_.exit
@@ -40733,7 +40730,7 @@ _ZNK3vcg8Matrix44IfE8ToMatrixIS1_EEvRT_.exit:     ; preds = %49
   %55 = shl nuw nsw i64 %indvars.iv.i27, 2
   %56 = add nuw nsw i64 %55, %indvars.iv25.i
   %57 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %56
-  %58 = load float, ptr %57, align 4, !noalias !384
+  %58 = load float, ptr %57, align 4, !noalias !383
   %59 = call float @llvm.fmuladd.f32(float %54, float %58, float %.01620.i)
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i27, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, 4
@@ -40742,7 +40739,7 @@ _ZNK3vcg8Matrix44IfE8ToMatrixIS1_EEvRT_.exit:     ; preds = %49
 60:                                               ; preds = %51
   %61 = add nuw nsw i64 %indvars.iv25.i, %50
   %62 = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %61
-  store float %59, ptr %62, align 4, !alias.scope !384
+  store float %59, ptr %62, align 4
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
   br i1 %exitcond28.not.i, label %63, label %.preheader.i, !llvm.loop !77
@@ -40778,7 +40775,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %63
   store float %78, ptr %76, align 4
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 16
-  br i1 %exitcond.not.i36, label %_ZN3vcg8Matrix44IfEmLEf.exit, label %75, !llvm.loop !387
+  br i1 %exitcond.not.i36, label %_ZN3vcg8Matrix44IfEmLEf.exit, label %75, !llvm.loop !386
 
 _ZN3vcg8Matrix44IfEmLEf.exit:                     ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 60
@@ -40805,12 +40802,12 @@ _ZN3vcg8Matrix44IfEmLEf.exit:                     ; preds = %75
   store float %87, ptr %86, align 4
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %indvars.iv15.i
-  br i1 %exitcond.not.i40, label %89, label %81, !llvm.loop !388
+  br i1 %exitcond.not.i40, label %89, label %81, !llvm.loop !387
 
 89:                                               ; preds = %81
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next16.i, 4
-  br i1 %exitcond18.not.i, label %_ZN3vcg9TransposeIfEERNS_8Matrix44IT_EES4_.exit, label %.preheader.i37, !llvm.loop !389
+  br i1 %exitcond18.not.i, label %_ZN3vcg9TransposeIfEERNS_8Matrix44IT_EES4_.exit, label %.preheader.i37, !llvm.loop !388
 
 _ZN3vcg9TransposeIfEERNS_8Matrix44IT_EES4_.exit:  ; preds = %89
   %90 = load float, ptr %12, align 4
@@ -44089,13 +44086,12 @@ attributes #38 = { noreturn }
 !377 = !{!378}
 !378 = distinct !{!378, !379, !"_ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv: argument 0"}
 !379 = distinct !{!379, !"_ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv"}
-!380 = !{!381}
+!380 = !{!381, !378}
 !381 = distinct !{!381, !382, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
 !382 = distinct !{!382, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
-!383 = !{!381, !378}
-!384 = !{!385}
-!385 = distinct !{!385, !386, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
-!386 = distinct !{!386, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
+!383 = !{!384}
+!384 = distinct !{!384, !385, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
+!385 = distinct !{!385, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
+!386 = distinct !{!386, !6}
 !387 = distinct !{!387, !6}
 !388 = distinct !{!388, !6}
-!389 = distinct !{!389, !6}

@@ -5400,14 +5400,10 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit46:              ; preds = %97
 111:                                              ; preds = %108
   %indvars.iv.next30.i57 = add nuw nsw i64 %indvars.iv29.i48, 1
   %exitcond32.not.i58 = icmp eq i64 %indvars.iv.next30.i57, 4
-  br i1 %exitcond32.not.i58, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit59, label %.preheader19.i47, !llvm.loop !40
+  br i1 %exitcond32.not.i58, label %.preheader19.i60, label %.preheader19.i47, !llvm.loop !40
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit59:              ; preds = %111
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  br label %.preheader19.i60
-
-.preheader19.i60:                                 ; preds = %125, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit59
-  %indvars.iv29.i61 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit59 ], [ %indvars.iv.next30.i70, %125 ]
+.preheader19.i60:                                 ; preds = %111, %125
+  %indvars.iv29.i61 = phi i64 [ %indvars.iv.next30.i70, %125 ], [ 0, %111 ]
   %112 = shl nuw nsw i64 %indvars.iv29.i61, 2
   br label %.preheader.i62
 
@@ -5433,7 +5429,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit59:              ; preds = %111
 122:                                              ; preds = %113
   %123 = add nuw nsw i64 %indvars.iv25.i63, %112
   %124 = getelementptr inbounds nuw [16 x float], ptr %21, i64 0, i64 %123
-  store float %121, ptr %124, align 4, !alias.scope !63
+  store float %121, ptr %124, align 4
   %indvars.iv.next26.i68 = add nuw nsw i64 %indvars.iv25.i63, 1
   %exitcond28.not.i69 = icmp eq i64 %indvars.iv.next26.i68, 4
   br i1 %exitcond28.not.i69, label %125, label %.preheader.i62, !llvm.loop !39

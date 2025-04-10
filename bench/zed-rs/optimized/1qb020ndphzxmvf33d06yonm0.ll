@@ -45835,7 +45835,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h208c7c95d87cdffeE.exit: ; preds = %4
 166:                                              ; preds = %159
   %.sroa.0.0.copyload45.i = load i32, ptr %23, align 8, !alias.scope !8394, !noalias !8377
   %.sroa.446.0..sroa_idx47.i = getelementptr inbounds nuw i8, ptr %23, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.446.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.446.0..sroa_idx47.i, i64 20, i1 false), !alias.scope !8394
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.446.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.446.0..sroa_idx47.i, i64 20, i1 false)
   br label %_ZN4gpui6window15AnyWindowHandle8downcast17he9d8977716404b50E.exit.i
 
 _ZN4gpui6window15AnyWindowHandle8downcast17he9d8977716404b50E.exit.i: ; preds = %166, %159

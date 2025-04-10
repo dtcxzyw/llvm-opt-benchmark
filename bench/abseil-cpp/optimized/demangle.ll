@@ -6553,7 +6553,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false)
   %18 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE(ptr noundef nonnull %0)
           to label %19 unwind label %24
 
@@ -6568,7 +6568,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
   br i1 %21, label %590, label %23
 
 23:                                               ; preds = %22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   br label %590
 
 24:                                               ; preds = %586, %581, %576, %571, %560, %.thread234, %.thread133, %62, %16
@@ -6582,7 +6582,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
   br label %.body
 
 28:                                               ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   %29 = load i32, ptr %8, align 4, !tbaa !17
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %8, align 4, !tbaa !17
@@ -6627,7 +6627,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
   br i1 %46, label %590, label %48
 
 48:                                               ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   br label %590
 
 49:                                               ; preds = %44
@@ -6636,7 +6636,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
   br label %.body
 
 .loopexit143:                                     ; preds = %40, %35, %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   store i32 %30, ptr %8, align 4, !tbaa !17
   %51 = add nsw i32 %31, 2
   store i32 %51, ptr %11, align 8, !tbaa !15
@@ -6683,7 +6683,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; 
   %.pre-phi = phi i32 [ %.pre176, %._crit_edge ], [ %30, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
   %67 = phi i32 [ %.pre154, %._crit_edge ], [ %51, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
   %68 = phi i32 [ %.pre, %._crit_edge ], [ %29, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   store i32 %.pre-phi, ptr %8, align 4, !tbaa !17
   %69 = add nsw i32 %67, 1
   store i32 %69, ptr %11, align 8, !tbaa !15
@@ -7886,7 +7886,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216:
   br i1 %561, label %590, label %563
 
 563:                                              ; preds = %562, %558
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   %564 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr noundef nonnull %0)
   br i1 %564, label %590, label %565
 
@@ -7910,7 +7910,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216:
   br i1 %572, label %590, label %574
 
 574:                                              ; preds = %573, %569, %567, %565
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   %575 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.48)
   br i1 %575, label %576, label %584
 
@@ -7933,7 +7933,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216:
   br i1 %582, label %590, label %584
 
 584:                                              ; preds = %583, %579, %578, %574
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   %585 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.49)
   br i1 %585, label %586, label %588
 
@@ -7945,7 +7945,7 @@ _ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit: ; preds = 
   br i1 %587, label %590, label %588
 
 588:                                              ; preds = %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit, %584
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   %589 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseLongTokenEPNS0_5StateEPKc(ptr noundef nonnull %0)
   br label %590
 
@@ -9257,7 +9257,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseT
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false)
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -9337,7 +9337,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
   %41 = phi i32 [ %14, %17 ], [ %14, %11 ], [ %29, %32 ], [ %29, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit ]
   %storemerge = phi i32 [ %5, %17 ], [ %5, %11 ], [ %26, %32 ], [ %26, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit ]
   store i32 %storemerge, ptr %3, align 4, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %42 = add nsw i32 %storemerge, 1
   %43 = add nsw i32 %41, 1
   store i32 %43, ptr %6, align 8, !tbaa !15
@@ -9395,7 +9395,7 @@ _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit: ; preds =
           to label %63 unwind label %.loopexit.split-lp
 
 63:                                               ; preds = %60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false)
   %64 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseExprCastValueAndTrailingEEPNS0_5StateE(ptr noundef nonnull %0)
   br i1 %64, label %94, label %.sink.split
 
@@ -9416,7 +9416,7 @@ _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread: ; 
   br i1 %68, label %94, label %70
 
 70:                                               ; preds = %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %71 = load i32, ptr %3, align 4, !tbaa !17
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %3, align 4, !tbaa !17
@@ -9456,7 +9456,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit37.thread: ; 
   br i1 %87, label %94, label %88
 
 88:                                               ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit37.thread, %86, %85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %89 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22ParseTemplateParamDeclEPNS0_5StateE(ptr noundef nonnull %0)
           to label %90 unwind label %.loopexit.split-lp
 

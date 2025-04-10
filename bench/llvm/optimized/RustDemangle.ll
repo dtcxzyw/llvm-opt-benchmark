@@ -1263,7 +1263,7 @@ _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit90: ; preds = %329,
   br label %378
 
 378:                                              ; preds = %376, %377, %375
-  %.val = load i64, ptr %5, align 8, !tbaa !22
+  %.val = load i64, ptr %5, align 8
   %379 = icmp eq i64 %.val, 0
   br i1 %379, label %381, label %380
 
@@ -1279,7 +1279,7 @@ _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit90: ; preds = %329,
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23
 
 382:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit90
-  %.val13 = load i64, ptr %5, align 8, !tbaa !22
+  %.val13 = load i64, ptr %5, align 8
   %383 = icmp eq i64 %.val13, 0
   br i1 %383, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23, label %384
 

@@ -2657,9 +2657,9 @@ _ZL20err_const_from_errnoi.exit.i.i:              ; preds = %736, %743
 
 774:                                              ; preds = %.lr.ph.i104.i.i
   %775 = getelementptr inbounds nuw [4 x double], ptr %13, i64 0, i64 %.01.i.i24.i
-  %776 = load double, ptr %775, align 8, !tbaa !23
+  %776 = load double, ptr %775, align 8
   %777 = call double @proj_torad(double noundef %776), !noalias !128
-  store double %777, ptr %775, align 8, !tbaa !23
+  store double %777, ptr %775, align 8
   br label %778
 
 778:                                              ; preds = %774, %.lr.ph.i104.i.i
@@ -2668,7 +2668,7 @@ _ZL20err_const_from_errnoi.exit.i.i:              ; preds = %736, %743
   br i1 %exitcond.not.i106.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i26.i, label %.lr.ph.i104.i.i, !llvm.loop !131
 
 780:                                              ; preds = %757
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false), !tbaa.struct !97
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
   br label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i26.i
 
 _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i26.i: ; preds = %778, %780, %762
@@ -3441,9 +3441,9 @@ _ZL6expectPKc.exit.i:                             ; preds = %1095, %1087, %1032,
 
 1165:                                             ; preds = %.lr.ph.i.i16.i
   %1166 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %.01.i.i.i
-  %1167 = load double, ptr %1166, align 8, !tbaa !23
+  %1167 = load double, ptr %1166, align 8
   %1168 = call double @proj_torad(double noundef %1167), !noalias !151
-  store double %1168, ptr %1166, align 8, !tbaa !23
+  store double %1168, ptr %1166, align 8
   br label %1169
 
 1169:                                             ; preds = %1165, %.lr.ph.i.i16.i
@@ -3452,11 +3452,11 @@ _ZL6expectPKc.exit.i:                             ; preds = %1095, %1087, %1032,
   br i1 %exitcond.not.i.i18.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i, label %.lr.ph.i.i16.i, !llvm.loop !131
 
 1171:                                             ; preds = %1145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false), !tbaa.struct !97
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
   br label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i
 
 _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1169, %1171, %1153
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !97
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
   %1172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30008), align 8, !tbaa !66
   %1173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30112), align 8, !tbaa !41
   %1174 = call double @proj_roundtrip(ptr noundef %1172, i32 noundef %1173, i32 noundef %.018.i.i, ptr noundef nonnull %30)

@@ -1102,8 +1102,8 @@ default.unreachable:                              ; preds = %3
 
 .thread309:                                       ; preds = %159, %158
   %.sroa.084.0 = phi ptr [ %.sroa.6438.0.copyload, %159 ], [ null, %158 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3434, i64 16, i1 false), !alias.scope !245
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6444, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false), !alias.scope !249
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3434, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6444, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   store i64 6, ptr %0, align 8
   %.sroa.2.0..sroa_idx441 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx441, align 8
@@ -1216,18 +1216,18 @@ define void @_ZN26iox_query_influxql_rewrite16parse_statements17h789fe3191c63cc8
   %5 = alloca { { ptr, i64, ptr, ptr, {}, { {} } }, {} }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN24influxdb_influxql_parser16parse_statements17h84c36fb2dd8c8c54E(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
-  %6 = load ptr, ptr %4, align 8, !alias.scope !256, !noalias !253, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !245)
+  %6 = load ptr, ptr %4, align 8, !alias.scope !248, !noalias !245, !noundef !4
   %7 = icmp eq ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.sroa.6.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.4.sroa.6.0.copyload24 = load i64, ptr %.sroa.4.sroa.6.0..sroa_idx23, align 8, !alias.scope !258
+  %.sroa.4.sroa.6.0.copyload24 = load i64, ptr %.sroa.4.sroa.6.0..sroa_idx23, align 8, !alias.scope !250
   %.sroa.4.sroa.7.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.4.sroa.7.0.copyload28 = load i64, ptr %.sroa.4.sroa.7.0..sroa_idx27, align 8, !alias.scope !258
+  %.sroa.4.sroa.7.0.copyload28 = load i64, ptr %.sroa.4.sroa.7.0..sroa_idx27, align 8, !alias.scope !250
   br i1 %7, label %9, label %11
 
 9:                                                ; preds = %3
-  %.sroa.4.sroa.0.0.copyload20 = load ptr, ptr %8, align 8, !alias.scope !258, !nonnull !4, !noundef !4
+  %.sroa.4.sroa.0.0.copyload20 = load ptr, ptr %8, align 8, !alias.scope !250, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %10 = getelementptr inbounds { i64, ptr }, ptr %.sroa.4.sroa.0.0.copyload20, i64 %.sroa.4.sroa.7.0.copyload28
   store ptr %.sroa.4.sroa.0.0.copyload20, ptr %5, align 8
@@ -1241,7 +1241,7 @@ define void @_ZN26iox_query_influxql_rewrite16parse_statements17h789fe3191c63cc8
   br label %13
 
 11:                                               ; preds = %3
-  %.sroa.4.sroa.6.0.copyload22 = load i64, ptr %8, align 8, !alias.scope !258
+  %.sroa.4.sroa.6.0.copyload22 = load i64, ptr %8, align 8, !alias.scope !250
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %12, align 8
@@ -1279,15 +1279,15 @@ define noundef zeroext i1 @"_ZN72_$LT$iox_query_influxql_rewrite..Error$u20$as$u
   store ptr %3, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h08efca73834f4ec1E", ptr %11, align 8
-  store ptr @anon.308865ba680f7ac200acd848c104eb90.26, ptr %5, align 8, !alias.scope !259, !noalias !262
+  store ptr @anon.308865ba680f7ac200acd848c104eb90.26, ptr %5, align 8, !alias.scope !251, !noalias !254
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %12, align 8, !alias.scope !259, !noalias !262
+  store i64 1, ptr %12, align 8, !alias.scope !251, !noalias !254
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %13, align 8, !alias.scope !259, !noalias !262
+  store ptr null, ptr %13, align 8, !alias.scope !251, !noalias !254
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %14, align 8, !alias.scope !259, !noalias !262
+  store ptr %4, ptr %14, align 8, !alias.scope !251, !noalias !254
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 1, ptr %15, align 8, !alias.scope !259, !noalias !262
+  store i64 1, ptr %15, align 8, !alias.scope !251, !noalias !254
   %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -1690,23 +1690,15 @@ attributes #18 = { noreturn }
 !242 = distinct !{!242, !"_ZN4core3ptr216drop_in_place$LT$hashbrown..set..IntoIter$LT$$LP$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$C$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$RP$$GT$$GT$17h0b3a8b65c1539406E.llvm.11290379560268722015"}
 !243 = distinct !{!243, !244, !"_ZN4core3ptr229drop_in_place$LT$std..collections..hash..set..IntoIter$LT$$LP$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$C$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$RP$$GT$$GT$17h3c8951a311726a25E: argument 0"}
 !244 = distinct !{!244, !"_ZN4core3ptr229drop_in_place$LT$std..collections..hash..set..IntoIter$LT$$LP$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$C$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$RP$$GT$$GT$17h3c8951a311726a25E"}
-!245 = !{!246, !248}
-!246 = distinct !{!246, !247, !"_ZN26iox_query_influxql_rewrite18RewrittenStatement13with_database17h9c9747a7d950ed99E: argument 0"}
-!247 = distinct !{!247, !"_ZN26iox_query_influxql_rewrite18RewrittenStatement13with_database17h9c9747a7d950ed99E"}
-!248 = distinct !{!248, !247, !"_ZN26iox_query_influxql_rewrite18RewrittenStatement13with_database17h9c9747a7d950ed99E: argument 1"}
-!249 = !{!250, !252}
-!250 = distinct !{!250, !251, !"_ZN26iox_query_influxql_rewrite18RewrittenStatement21with_retention_policy17h6e3d16c790366347E: argument 1"}
-!251 = distinct !{!251, !"_ZN26iox_query_influxql_rewrite18RewrittenStatement21with_retention_policy17h6e3d16c790366347E"}
-!252 = distinct !{!252, !251, !"_ZN26iox_query_influxql_rewrite18RewrittenStatement21with_retention_policy17h6e3d16c790366347E: argument 2"}
-!253 = !{!254}
-!254 = distinct !{!254, !255, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h145723fb6f5b925aE: argument 0"}
-!255 = distinct !{!255, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h145723fb6f5b925aE"}
-!256 = !{!257}
-!257 = distinct !{!257, !255, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h145723fb6f5b925aE: argument 1"}
-!258 = !{!254, !257}
-!259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZN4core3fmt9Arguments6new_v117h7b2f9a8eedcd04f0E: argument 0"}
-!261 = distinct !{!261, !"_ZN4core3fmt9Arguments6new_v117h7b2f9a8eedcd04f0E"}
-!262 = !{!263, !264}
-!263 = distinct !{!263, !261, !"_ZN4core3fmt9Arguments6new_v117h7b2f9a8eedcd04f0E: argument 1"}
-!264 = distinct !{!264, !261, !"_ZN4core3fmt9Arguments6new_v117h7b2f9a8eedcd04f0E: argument 2"}
+!245 = !{!246}
+!246 = distinct !{!246, !247, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h145723fb6f5b925aE: argument 0"}
+!247 = distinct !{!247, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h145723fb6f5b925aE"}
+!248 = !{!249}
+!249 = distinct !{!249, !247, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h145723fb6f5b925aE: argument 1"}
+!250 = !{!246, !249}
+!251 = !{!252}
+!252 = distinct !{!252, !253, !"_ZN4core3fmt9Arguments6new_v117h7b2f9a8eedcd04f0E: argument 0"}
+!253 = distinct !{!253, !"_ZN4core3fmt9Arguments6new_v117h7b2f9a8eedcd04f0E"}
+!254 = !{!255, !256}
+!255 = distinct !{!255, !253, !"_ZN4core3fmt9Arguments6new_v117h7b2f9a8eedcd04f0E: argument 1"}
+!256 = distinct !{!256, !253, !"_ZN4core3fmt9Arguments6new_v117h7b2f9a8eedcd04f0E: argument 2"}

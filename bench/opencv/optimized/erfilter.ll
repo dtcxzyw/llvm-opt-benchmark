@@ -40514,7 +40514,7 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit.preheader:         ; preds = %_ZSt13__adjust_heap
   %24 = sub nsw i64 %15, %indvar
   %25 = shl i64 %24, 4
   %scevgep = getelementptr i8, ptr %0, i64 %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(16) %scevgep, i64 16, i1 false), !tbaa !252
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(16) %scevgep, i64 16, i1 false)
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !820
   %26 = icmp slt i64 %.08, %17
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
@@ -42395,7 +42395,7 @@ _ZN2cv3VecIiLi3EEC2ERKS1_.exit.preheader:         ; preds = %_ZSt13__adjust_heap
   %.08 = phi i64 [ %46, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIiLi3EEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbS4_S4_EEEEvT_T0_SG_T1_T2_.exit ], [ %15, %12 ]
   %26 = mul i64 %indvar, -12
   %scevgep = getelementptr i8, ptr %22, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %scevgep, i64 12, i1 false), !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %scevgep, i64 12, i1 false)
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !820
   %27 = icmp slt i64 %.08, %17
   br i1 %27, label %.lr.ph.i, label %._crit_edge.i

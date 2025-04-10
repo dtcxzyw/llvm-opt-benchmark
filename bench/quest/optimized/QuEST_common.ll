@@ -2205,8 +2205,8 @@ define void @densmatr_mixKrausMap(ptr noundef readonly byval(%struct.Qureg) alig
   %6 = shl nuw nsw i64 %indvars.iv93.i, 5
   %gep = getelementptr i8, ptr %invariant.gep, i64 %6
   %scevgep = getelementptr nuw i8, ptr %5, i64 %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false), !tbaa !13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gep, i8 0, i64 32, i1 false), !tbaa !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gep, i8 0, i64 32, i1 false)
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 4
   br i1 %exitcond96.not.i, label %.preheader83.i, label %.preheader84.i
@@ -2273,16 +2273,16 @@ define void @densmatr_mixKrausMap(ptr noundef readonly byval(%struct.Qureg) alig
   %32 = tail call double @llvm.fmuladd.f64(double %18, double %28, double %31)
   %33 = or disjoint i64 %indvars.iv97.i, %17
   %34 = getelementptr inbounds nuw [4 x [4 x double]], ptr %5, i64 0, i64 %22, i64 %33
-  %35 = load double, ptr %34, align 8, !tbaa !13
+  %35 = load double, ptr %34, align 8
   %36 = fadd double %35, %32
-  store double %36, ptr %34, align 8, !tbaa !13
+  store double %36, ptr %34, align 8
   %37 = fneg double %28
   %38 = fmul double %19, %37
   %39 = tail call double @llvm.fmuladd.f64(double %18, double %30, double %38)
   %40 = getelementptr inbounds nuw [4 x [4 x double]], ptr %7, i64 0, i64 %22, i64 %33
-  %41 = load double, ptr %40, align 8, !tbaa !13
+  %41 = load double, ptr %40, align 8
   %42 = fadd double %39, %41
-  store double %42, ptr %40, align 8, !tbaa !13
+  store double %42, ptr %40, align 8
   br i1 %26, label %25, label %24
 
 populateKrausSuperOperator2.exit:                 ; preds = %13, %.preheader83.i
@@ -2698,16 +2698,16 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
   %47 = tail call double @llvm.fmuladd.f64(double %33, double %43, double %46)
   %48 = or disjoint i64 %indvars.iv97.i.i, %32
   %49 = getelementptr inbounds nuw [4 x [4 x double]], ptr %6, i64 0, i64 %37, i64 %48
-  %50 = load double, ptr %49, align 8, !tbaa !13
+  %50 = load double, ptr %49, align 8
   %51 = fadd double %50, %47
-  store double %51, ptr %49, align 8, !tbaa !13
+  store double %51, ptr %49, align 8
   %52 = fneg double %43
   %53 = fmul double %34, %52
   %54 = tail call double @llvm.fmuladd.f64(double %33, double %45, double %53)
   %55 = getelementptr inbounds nuw [4 x [4 x double]], ptr %invariant.gep.i, i64 0, i64 %37, i64 %48
-  %56 = load double, ptr %55, align 8, !tbaa !13
+  %56 = load double, ptr %55, align 8
   %57 = fadd double %54, %56
-  store double %57, ptr %55, align 8, !tbaa !13
+  store double %57, ptr %55, align 8
   br i1 %41, label %40, label %39
 
 densmatr_mixKrausMap.exit:                        ; preds = %28

@@ -7321,7 +7321,7 @@ define noundef ptr @_ZN11duckdb_zstd26ZSTD_createCDict_advanced2EPKvmNS_21ZSTD_d
   %8 = alloca %"struct.duckdb_zstd::ZSTD_compressionParameters", align 4
   %9 = alloca %"struct.duckdb_zstd::ZSTD_compressionParameters", align 4
   %10 = alloca %"struct.duckdb_zstd::ZSTD_compressionParameters", align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %4, i64 216, i1 false), !tbaa.struct !130
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %4, i64 216, i1 false)
   %11 = load ptr, ptr %5, align 8, !tbaa !59
   %.not = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7332,14 +7332,14 @@ define noundef ptr @_ZN11duckdb_zstd26ZSTD_createCDict_advanced2EPKvmNS_21ZSTD_d
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %17 = load i32, ptr %16, align 8, !tbaa !114
+  %17 = load i32, ptr %16, align 8
   %.not17 = icmp eq i32 %17, 0
   br i1 %.not17, label %39, label %_ZN11duckdb_zstdL35ZSTD_dedicatedDictSearch_getCParamsEim.exit
 
 _ZN11duckdb_zstdL35ZSTD_dedicatedDictSearch_getCParamsEim.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8) #28
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %19 = load i32, ptr %18, align 4, !tbaa !57
+  %19 = load i32, ptr %18, align 4
   call fastcc void @_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE(ptr dead_on_unwind noalias nonnull writable align 4 %8, i32 noundef %19, i64 noundef 0, i64 noundef %1, i32 noundef 2), !alias.scope !332
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load i32, ptr %20, align 4, !tbaa !98, !alias.scope !332
@@ -7360,31 +7360,31 @@ _ZN11duckdb_zstdL35ZSTD_dedicatedDictSearch_getCParamsEim.exit: ; preds = %15
   %.sroa.14.0.copyload = load i32, ptr %.sroa.14.0..sroa_idx, align 4, !tbaa !62
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #28
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !93
+  %26 = load i32, ptr %25, align 4
   %.not.i = icmp eq i32 %26, 0
   %spec.select = select i1 %.not.i, i32 %.sroa.0.0.copyload, i32 %26
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %28 = load i32, ptr %27, align 4, !tbaa !95
+  %28 = load i32, ptr %27, align 4
   %.not27.i = icmp eq i32 %28, 0
   %.sroa.10.2 = select i1 %.not27.i, i32 %.sroa.10.0.copyload, i32 %28
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !94
+  %30 = load i32, ptr %29, align 8
   %.not28.i = icmp eq i32 %30, 0
   %.sroa.8.2 = select i1 %.not28.i, i32 %.sroa.8.0.copyload, i32 %30
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !96
+  %32 = load i32, ptr %31, align 8
   %.not29.i = icmp eq i32 %32, 0
   %.sroa.12.2 = select i1 %.not29.i, i32 %.sroa.12.0.copyload, i32 %32
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %34 = load i32, ptr %33, align 4, !tbaa !97
+  %34 = load i32, ptr %33, align 4
   %.not30.i = icmp eq i32 %34, 0
   %.sroa.13.2 = select i1 %.not30.i, i32 %.sroa.13.0.copyload, i32 %34
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %36 = load i32, ptr %35, align 8, !tbaa !146
+  %36 = load i32, ptr %35, align 8
   %.not31.i = icmp eq i32 %36, 0
   %.sroa.14.2 = select i1 %.not31.i, i32 %.sroa.14.0.copyload, i32 %36
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %38 = load i32, ptr %37, align 4, !tbaa !98
+  %38 = load i32, ptr %37, align 4
   %.not32.i = icmp eq i32 %38, 0
   %spec.select85 = select i1 %.not32.i, i32 %21, i32 %38
   br label %_ZN11duckdb_zstdL20ZSTD_overrideCParamsEPNS_26ZSTD_compressionParametersEPKS0_.exit
@@ -7425,7 +7425,7 @@ _ZN11duckdb_zstdL20ZSTD_overrideCParamsEPNS_26ZSTD_compressionParametersEPKS0_.e
   br i1 %or.cond86, label %_ZN11duckdb_zstdL36ZSTD_dedicatedDictSearch_isSupportedEPKNS_26ZSTD_compressionParametersE.exit.thread, label %44
 
 _ZN11duckdb_zstdL36ZSTD_dedicatedDictSearch_isSupportedEPKNS_26ZSTD_compressionParametersE.exit.thread: ; preds = %_ZN11duckdb_zstdL20ZSTD_overrideCParamsEPNS_26ZSTD_compressionParametersEPKS0_.exit
-  store i32 0, ptr %16, align 8, !tbaa !114
+  store i32 0, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %10) #28
   call void @_ZN11duckdb_zstd29ZSTD_getCParamsFromCCtxParamsEPKNS_18ZSTD_CCtx_params_sEmmNS_17ZSTD_cParamMode_eE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb_zstd::ZSTD_compressionParameters") align 4 %10, ptr noundef nonnull %7, i64 noundef -1, i64 noundef %1, i32 noundef 2)
   %.sroa.0.0.copyload28 = load i32, ptr %10, align 4, !tbaa !62
@@ -7454,21 +7454,21 @@ _ZN11duckdb_zstdL36ZSTD_dedicatedDictSearch_isSupportedEPKNS_26ZSTD_compressionP
   %.sroa.8.1 = phi i32 [ %.sroa.8.0.copyload33, %_ZN11duckdb_zstdL36ZSTD_dedicatedDictSearch_isSupportedEPKNS_26ZSTD_compressionParametersE.exit.thread ], [ %.sroa.8.0, %_ZN11duckdb_zstdL20ZSTD_overrideCParamsEPNS_26ZSTD_compressionParametersEPKS0_.exit ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload28, %_ZN11duckdb_zstdL36ZSTD_dedicatedDictSearch_isSupportedEPKNS_26ZSTD_compressionParametersE.exit.thread ], [ %.sroa.0.0, %_ZN11duckdb_zstdL20ZSTD_overrideCParamsEPNS_26ZSTD_compressionParametersEPKS0_.exit ]
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %.sroa.0.1, ptr %46, align 4, !tbaa !62
+  store i32 %.sroa.0.1, ptr %46, align 4
   %.sroa.8.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx34, align 8, !tbaa !62
+  store i32 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx34, align 8
   %.sroa.10.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %.sroa.10.1, ptr %.sroa.10.0..sroa_idx40, align 4, !tbaa !62
+  store i32 %.sroa.10.1, ptr %.sroa.10.0..sroa_idx40, align 4
   %.sroa.12.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx46, align 8, !tbaa !62
+  store i32 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx46, align 8
   %.sroa.13.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %.sroa.13.1, ptr %.sroa.13.0..sroa_idx52, align 4, !tbaa !62
+  store i32 %.sroa.13.1, ptr %.sroa.13.0..sroa_idx52, align 4
   %.sroa.14.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %.sroa.14.1, ptr %.sroa.14.0..sroa_idx58, align 8, !tbaa !62
+  store i32 %.sroa.14.1, ptr %.sroa.14.0..sroa_idx58, align 8
   %.sroa.15.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 %.sroa.15.1, ptr %.sroa.15.0..sroa_idx64, align 4, !tbaa !85
+  store i32 %.sroa.15.1, ptr %.sroa.15.0..sroa_idx64, align 4
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %48 = load i32, ptr %47, align 8, !tbaa !88
+  %48 = load i32, ptr %47, align 8
   %.not.i21 = icmp eq i32 %48, 0
   br i1 %.not.i21, label %49, label %54
 
@@ -7484,7 +7484,7 @@ _ZN11duckdb_zstdL36ZSTD_dedicatedDictSearch_isSupportedEPKNS_26ZSTD_compressionP
 
 54:                                               ; preds = %52, %49, %44
   %.0.i = phi i32 [ %spec.select.i, %52 ], [ %48, %44 ], [ 2, %49 ]
-  store i32 %.0.i, ptr %47, align 8, !tbaa !88
+  store i32 %.0.i, ptr %47, align 8
   %.sroa.382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.382.0.copyload = load ptr, ptr %.sroa.382.0..sroa_idx, align 8, !tbaa !61
   %55 = icmp eq i32 %45, 0

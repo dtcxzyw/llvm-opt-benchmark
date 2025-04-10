@@ -11538,7 +11538,6 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i: ; 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !2833)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.3.sroa.0.i)
   %79 = invoke noundef align 8 ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.15403311311865522351(ptr noalias noundef align 8 dereferenceable_or_null(24) null)
@@ -11590,7 +11589,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i: ; 
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !2840
   %.sroa.3.sroa.0.7..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.3.sroa.0.i, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.3.sroa.0.7..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !2833
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.066, i8 0, i64 9, i1 false), !alias.scope !2833
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.066, i8 0, i64 9, i1 false)
   %.sroa.066.9..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.066, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.066.9..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.3.sroa.0.i, i64 39, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -17525,7 +17524,7 @@ define void @_ZN10tokenizers6models9wordpiece9WordPiece8from_bpe17h3b780745dbe61
 46:                                               ; preds = %.noexc1.i, %.noexc.i, %39
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !alias.scope !4007
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
   store i64 %16, ptr %40, align 8, !alias.scope !4007, !noalias !3980
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 112
   store i64 %18, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !4007, !noalias !3980
@@ -17539,7 +17538,7 @@ define void @_ZN10tokenizers6models9wordpiece9WordPiece8from_bpe17h3b780745dbe61
   unreachable
 
 50:                                               ; preds = %.noexc1.i, %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !alias.scope !4007
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
   %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %11, i64 104
   store i64 %16, ptr %.sroa.5.0..sroa_idx10, align 8, !alias.scope !4007, !noalias !3980
   %.sroa.6.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %11, i64 112

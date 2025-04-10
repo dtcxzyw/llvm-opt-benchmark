@@ -12506,7 +12506,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %47, 
   br label %57
 
 57:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) @yylval, i64 32, i1 false), !tbaa.struct !437
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) @yylval, i64 32, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -12597,7 +12597,7 @@ _ZN10V3ParseImp10tokenPeekpEm.exit:               ; preds = %99, %105
   %storemerge.i.i.i.i.i.i = phi ptr [ %111, %105 ], [ %79, %99 ]
   %112 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i.i, i64 16
   %113 = load i32, ptr %112, align 8, !tbaa !450
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @yylval, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !437
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @yylval, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   switch i32 %32, label %_ZN10V3ParseImp15isStrengthTokenEi.exit [
     i32 40, label %114
     i32 58, label %115

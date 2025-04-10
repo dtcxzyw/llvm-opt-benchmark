@@ -24457,7 +24457,7 @@ default.unreachable84:                            ; preds = %3
   %20 = load ptr, ptr %8, align 8, !alias.scope !3461, !noalias !3458, !noundef !10
   %21 = icmp eq ptr %20, null
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !alias.scope !3463
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   br i1 %21, label %29, label %23
 
 23:                                               ; preds = %19
@@ -30355,7 +30355,7 @@ default.unreachable271:                           ; preds = %3137, %3042, %2247,
   %675 = load ptr, ptr %271, align 8, !alias.scope !4107, !noalias !4109, !noundef !10
   %676 = icmp eq ptr %675, null
   %677 = getelementptr inbounds nuw i8, ptr %271, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8285.i.i, ptr noundef nonnull align 8 dereferenceable(24) %677, i64 24, i1 false), !alias.scope !4110, !noalias !4007
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8285.i.i, ptr noundef nonnull align 8 dereferenceable(24) %677, i64 24, i1 false), !noalias !4007
   br i1 %676, label %680, label %678
 
 678:                                              ; preds = %674

@@ -1935,7 +1935,7 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
   br i1 %760, label %761, label %.thread.i
 
 761:                                              ; preds = %758
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.015.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !109
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.015.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   %.b38.i = load i1, ptr @_ZL8prescale, align 4
   br i1 %.b38.i, label %762, label %767
 
@@ -2178,7 +2178,7 @@ _ZL7processP8_IO_FILE.exit:                       ; preds = %706, %708
 856:                                              ; preds = %549, %854
   %857 = getelementptr inbounds nuw i8, ptr %.1176437, i64 8
   %.not284 = icmp eq i32 %539, 0
-  br i1 %.not284, label %858, label %538, !llvm.loop !110
+  br i1 %.not284, label %858, label %538, !llvm.loop !109
 
 858:                                              ; preds = %856
   %859 = load ptr, ptr @_ZL14ProjForFactors, align 8, !tbaa !86
@@ -2354,7 +2354,7 @@ declare void @proj_context_use_proj4_init_rules(ptr noundef, i32 noundef) local_
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %0, align 8, !tbaa !111
+  store ptr %5, ptr %0, align 8, !tbaa !110
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %8
 
@@ -2365,14 +2365,14 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 8:                                                ; preds = %3
   %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  store i64 %9, ptr %4, align 8, !tbaa !112
+  store i64 %9, ptr %4, align 8, !tbaa !111
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc, label %._crit_edge.i
 
 .noexc:                                           ; preds = %8
   %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %11, ptr %0, align 8, !tbaa !44
-  %12 = load i64, ptr %4, align 8, !tbaa !112
+  %12 = load i64, ptr %4, align 8, !tbaa !111
   store i64 %12, ptr %5, align 8, !tbaa !14
   br label %._crit_edge.i
 
@@ -2393,7 +2393,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   br label %17
 
 17:                                               ; preds = %16, %14, %._crit_edge.i
-  %18 = load i64, ptr %4, align 8, !tbaa !112
+  %18 = load i64, ptr %4, align 8, !tbaa !111
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %18, ptr %19, align 8, !tbaa !87
   %20 = load ptr, ptr %0, align 8, !tbaa !44
@@ -2721,7 +2721,6 @@ attributes #26 = { builtin nounwind }
 !106 = !{!100, !33, i64 48}
 !107 = !{!100, !33, i64 56}
 !108 = distinct !{!108, !22}
-!109 = !{i64 0, i64 8, !36, i64 8, i64 8, !36}
-!110 = distinct !{!110, !22}
-!111 = !{!46, !5, i64 0}
-!112 = !{!47, !47, i64 0}
+!109 = distinct !{!109, !22}
+!110 = !{!46, !5, i64 0}
+!111 = !{!47, !47, i64 0}

@@ -5419,7 +5419,7 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit:       ; preds = %35
   %.sroa.013.0.copyload = load i64, ptr %139, align 8, !tbaa !47
   %.sroa.079.0.copyload80 = load ptr, ptr %10, align 8, !tbaa !88
   %.sroa.9.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9.0..sroa_idx85, i64 32, i1 false), !tbaa.struct !315
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9.0..sroa_idx85, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #20
   %.not169 = icmp eq i64 %.0156161, 0

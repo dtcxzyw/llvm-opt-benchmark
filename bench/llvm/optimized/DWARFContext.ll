@@ -19936,7 +19936,7 @@ define linkonce_odr hidden void @_ZN4llvm12DWARFContext4dumpERNS_11raw_ostreamEN
 7:                                                ; preds = %7, %3
   %.idx.i = phi i64 [ 0, %3 ], [ %.add.i, %7 ]
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
-  store i8 0, ptr %gep.i, align 8, !tbaa !282
+  store i8 0, ptr %gep.i, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 16
   %8 = icmp eq i64 %.add.i, 448
   br i1 %8, label %_ZNSt5arrayISt8optionalImELm28EEC2Ev.exit, label %7

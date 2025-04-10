@@ -5811,14 +5811,14 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit371:       ; preds = %_ZNK4llvm11CCValAss
 _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %397
   %399 = load i64, ptr %.0275645, align 8, !tbaa !782
   %400 = trunc i64 %399 to i32
-  store i32 0, ptr %30, align 8, !tbaa !224
-  store i32 1, ptr %317, align 8, !tbaa !228
-  store i32 0, ptr %318, align 4, !tbaa !229
-  store ptr null, ptr %320, align 8, !tbaa !231
-  store i32 0, ptr %321, align 8, !tbaa !232
+  store i32 0, ptr %30, align 8
+  store i32 1, ptr %317, align 8
+  store i32 0, ptr %318, align 4
+  store ptr null, ptr %320, align 8
+  store i32 0, ptr %321, align 8
   %401 = load i32, ptr %323, align 4, !tbaa !783
-  store i32 %401, ptr %322, align 4, !tbaa !233
-  store i32 %400, ptr %319, align 8, !tbaa !230
+  store i32 %401, ptr %322, align 4
+  store i32 %400, ptr %319, align 8
   %402 = load i32, ptr %329, align 8, !tbaa !461
   %403 = zext i32 %402 to i64
   %404 = load ptr, ptr %44, align 8, !tbaa !240

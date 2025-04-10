@@ -11639,31 +11639,30 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.012.023, i64 64
   %31 = add nuw nsw i64 %.sroa.7.022, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3261)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3264)
-  %32 = load i64, ptr %.sroa.012.023, align 8, !range !474, !alias.scope !3264, !noalias !3261, !noundef !15
+  %32 = load i64, ptr %.sroa.012.023, align 8, !range !474, !alias.scope !3261, !noalias !3264, !noundef !15
   %33 = icmp eq i64 %32, -9223372036854775808
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.012.023, i64 32
-  %36 = load i64, ptr %35, align 8, !alias.scope !3264, !noalias !3261, !noundef !15
+  %36 = load i64, ptr %35, align 8, !alias.scope !3261, !noalias !3264, !noundef !15
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.012.023, i64 40
-  %38 = load i64, ptr %37, align 8, !alias.scope !3264, !noalias !3261, !noundef !15
+  %38 = load i64, ptr %37, align 8, !alias.scope !3261, !noalias !3264, !noundef !15
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.012.023, i64 8
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %39)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %34
-  store i64 %36, ptr %22, align 8, !alias.scope !3261
-  store i64 %38, ptr %23, align 8, !alias.scope !3261
-  store i64 -9223372036854775808, ptr %6, align 8, !alias.scope !3261
+  store i64 %36, ptr %22, align 8
+  store i64 %38, ptr %23, align 8
+  store i64 -9223372036854775808, ptr %6, align 8
   br label %"_ZN83_$LT$runtimelib..messaging..content..HistoryEntry$u20$as$u20$core..clone..Clone$GT$5clone17h0115be3f385d5033E.exit"
 
 40:                                               ; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.012.023, i64 48
-  %42 = load i64, ptr %41, align 8, !alias.scope !3264, !noalias !3261, !noundef !15
+  %42 = load i64, ptr %41, align 8, !alias.scope !3261, !noalias !3264, !noundef !15
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.012.023, i64 56
-  %44 = load i64, ptr %43, align 8, !alias.scope !3264, !noalias !3261, !noundef !15
+  %44 = load i64, ptr %43, align 8, !alias.scope !3261, !noalias !3264, !noundef !15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !3266
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3267)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.012.023)
@@ -11672,7 +11671,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 .noexc11:                                         ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.012.023, i64 24
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
-          to label %_ZN4core5clone5Clone5clone17hf915cfa76344eebfE.exit.i unwind label %46, !noalias !3261
+          to label %_ZN4core5clone5Clone5clone17hf915cfa76344eebfE.exit.i unwind label %46, !noalias !3264
 
 46:                                               ; preds = %.noexc11
   %47 = landingpad { ptr, i32 }
@@ -11692,8 +11691,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br label %56
 
 _ZN4core5clone5Clone5clone17hf915cfa76344eebfE.exit.i: ; preds = %.noexc11
-  store i64 %42, ptr %19, align 8, !alias.scope !3261
-  store i64 %44, ptr %20, align 8, !alias.scope !3261
+  store i64 %42, ptr %19, align 8
+  store i64 %44, ptr %20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !3266
   br label %"_ZN83_$LT$runtimelib..messaging..content..HistoryEntry$u20$as$u20$core..clone..Clone$GT$5clone17h0115be3f385d5033E.exit"
@@ -11848,8 +11847,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.013.023, i64 40
   %27 = add nuw nsw i64 %.sroa.7.022, 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3289)
-  %28 = load i8, ptr %.sroa.013.023, align 8, !range !2408, !alias.scope !3292, !noalias !3289, !noundef !15
+  %28 = load i8, ptr %.sroa.013.023, align 8, !range !2408, !alias.scope !3289, !noalias !3292, !noundef !15
   switch i8 %28, label %default.unreachable [
     i8 0, label %29
     i8 1, label %36
@@ -11870,8 +11868,8 @@ default.unreachable:                              ; preds = %25
 
 .noexc:                                           ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.013.023, i64 8
-  %35 = load i64, ptr %34, align 8, !alias.scope !3292, !noalias !3289, !noundef !15
-  store i64 %35, ptr %19, align 8, !alias.scope !3289
+  %35 = load i64, ptr %34, align 8, !alias.scope !3289, !noalias !3292, !noundef !15
+  store i64 %35, ptr %19, align 8
   br label %"_ZN78_$LT$runtimelib..messaging..content..Payload$u20$as$u20$core..clone..Clone$GT$5clone17h5a91ac2be9739601E.exit"
 
 36:                                               ; preds = %25
@@ -11881,8 +11879,8 @@ default.unreachable:                              ; preds = %25
 
 .noexc11:                                         ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.013.023, i64 1
-  %39 = load i8, ptr %38, align 1, !range !2932, !alias.scope !3292, !noalias !3289, !noundef !15
-  store i8 %39, ptr %17, align 1, !alias.scope !3289
+  %39 = load i8, ptr %38, align 1, !range !2932, !alias.scope !3289, !noalias !3292, !noundef !15
+  store i8 %39, ptr %17, align 1
   br label %"_ZN78_$LT$runtimelib..messaging..content..Payload$u20$as$u20$core..clone..Clone$GT$5clone17h5a91ac2be9739601E.exit"
 
 40:                                               ; preds = %25
@@ -11892,18 +11890,18 @@ default.unreachable:                              ; preds = %25
 
 .noexc12:                                         ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.013.023, i64 8
-  %43 = load i64, ptr %42, align 8, !alias.scope !3292, !noalias !3289, !noundef !15
-  store i64 %43, ptr %19, align 8, !alias.scope !3289
+  %43 = load i64, ptr %42, align 8, !alias.scope !3289, !noalias !3292, !noundef !15
+  store i64 %43, ptr %19, align 8
   br label %"_ZN78_$LT$runtimelib..messaging..content..Payload$u20$as$u20$core..clone..Clone$GT$5clone17h5a91ac2be9739601E.exit"
 
 44:                                               ; preds = %25
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.013.023, i64 1
-  %46 = load i8, ptr %45, align 1, !range !2932, !alias.scope !3292, !noalias !3289, !noundef !15
-  store i8 %46, ptr %17, align 1, !alias.scope !3289
+  %46 = load i8, ptr %45, align 1, !range !2932, !alias.scope !3289, !noalias !3292, !noundef !15
+  store i8 %46, ptr %17, align 1
   br label %"_ZN78_$LT$runtimelib..messaging..content..Payload$u20$as$u20$core..clone..Clone$GT$5clone17h5a91ac2be9739601E.exit"
 
 "_ZN78_$LT$runtimelib..messaging..content..Payload$u20$as$u20$core..clone..Clone$GT$5clone17h5a91ac2be9739601E.exit": ; preds = %44, %.noexc12, %.noexc11, %.noexc
-  store i8 %28, ptr %5, align 8, !alias.scope !3289
+  store i8 %28, ptr %5, align 8
   %47 = getelementptr inbounds nuw [0 x { [5 x i64] }], ptr %12, i64 0, i64 %.sroa.7.022
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %48 = icmp eq i64 %23, 0
@@ -58356,11 +58354,11 @@ attributes #38 = { noreturn nounwind }
 !3259 = distinct !{!3259, !3260, !"_ZN58_$LT$bytes..bytes..Bytes$u20$as$u20$core..clone..Clone$GT$5clone17hea342b36303247a3E: argument 0"}
 !3260 = distinct !{!3260, !"_ZN58_$LT$bytes..bytes..Bytes$u20$as$u20$core..clone..Clone$GT$5clone17hea342b36303247a3E"}
 !3261 = !{!3262}
-!3262 = distinct !{!3262, !3263, !"_ZN83_$LT$runtimelib..messaging..content..HistoryEntry$u20$as$u20$core..clone..Clone$GT$5clone17h0115be3f385d5033E: argument 0"}
+!3262 = distinct !{!3262, !3263, !"_ZN83_$LT$runtimelib..messaging..content..HistoryEntry$u20$as$u20$core..clone..Clone$GT$5clone17h0115be3f385d5033E: argument 1"}
 !3263 = distinct !{!3263, !"_ZN83_$LT$runtimelib..messaging..content..HistoryEntry$u20$as$u20$core..clone..Clone$GT$5clone17h0115be3f385d5033E"}
 !3264 = !{!3265}
-!3265 = distinct !{!3265, !3263, !"_ZN83_$LT$runtimelib..messaging..content..HistoryEntry$u20$as$u20$core..clone..Clone$GT$5clone17h0115be3f385d5033E: argument 1"}
-!3266 = !{!3262, !3265}
+!3265 = distinct !{!3265, !3263, !"_ZN83_$LT$runtimelib..messaging..content..HistoryEntry$u20$as$u20$core..clone..Clone$GT$5clone17h0115be3f385d5033E: argument 0"}
+!3266 = !{!3265, !3262}
 !3267 = !{!3268}
 !3268 = distinct !{!3268, !3269, !"_ZN4core5clone5Clone5clone17hf915cfa76344eebfE: argument 0"}
 !3269 = distinct !{!3269, !"_ZN4core5clone5Clone5clone17hf915cfa76344eebfE"}
@@ -58379,19 +58377,19 @@ attributes #38 = { noreturn nounwind }
 !3282 = !{!3283, !3280, !3277, !3274, !3271, !3268}
 !3283 = distinct !{!3283, !3284, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hca590525d2f1c874E: argument 1"}
 !3284 = distinct !{!3284, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hca590525d2f1c874E"}
-!3285 = !{!3286, !3287, !3262, !3265}
+!3285 = !{!3286, !3287, !3265, !3262}
 !3286 = distinct !{!3286, !3284, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hca590525d2f1c874E: argument 0"}
 !3287 = distinct !{!3287, !3269, !"_ZN4core5clone5Clone5clone17hf915cfa76344eebfE: argument 1"}
-!3288 = !{!3280, !3277, !3274, !3271, !3268, !3262}
+!3288 = !{!3280, !3277, !3274, !3271, !3268, !3265}
 !3289 = !{!3290}
-!3290 = distinct !{!3290, !3291, !"_ZN78_$LT$runtimelib..messaging..content..Payload$u20$as$u20$core..clone..Clone$GT$5clone17h5a91ac2be9739601E: argument 0"}
+!3290 = distinct !{!3290, !3291, !"_ZN78_$LT$runtimelib..messaging..content..Payload$u20$as$u20$core..clone..Clone$GT$5clone17h5a91ac2be9739601E: argument 1"}
 !3291 = distinct !{!3291, !"_ZN78_$LT$runtimelib..messaging..content..Payload$u20$as$u20$core..clone..Clone$GT$5clone17h5a91ac2be9739601E"}
 !3292 = !{!3293}
-!3293 = distinct !{!3293, !3291, !"_ZN78_$LT$runtimelib..messaging..content..Payload$u20$as$u20$core..clone..Clone$GT$5clone17h5a91ac2be9739601E: argument 1"}
-!3294 = !{!3295, !3293}
+!3293 = distinct !{!3293, !3291, !"_ZN78_$LT$runtimelib..messaging..content..Payload$u20$as$u20$core..clone..Clone$GT$5clone17h5a91ac2be9739601E: argument 0"}
+!3294 = !{!3295, !3290}
 !3295 = distinct !{!3295, !3296, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8a4a06e3b7feab40E: argument 1"}
 !3296 = distinct !{!3296, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8a4a06e3b7feab40E"}
-!3297 = !{!3298, !3290}
+!3297 = !{!3298, !3293}
 !3298 = distinct !{!3298, !3296, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8a4a06e3b7feab40E: argument 0"}
 !3299 = !{!3300, !3302}
 !3300 = distinct !{!3300, !3301, !"_ZN79_$LT$runtimelib..messaging..content..HelpLink$u20$as$u20$core..clone..Clone$GT$5clone17h8c2849694ec5f5f6E: argument 0"}

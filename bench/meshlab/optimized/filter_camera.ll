@@ -13933,10 +13933,10 @@ _ZNK3vcg8Matrix44IfEmlEf.exit15:                  ; preds = %77
   %90 = shl i64 %indvars.iv.i.i, 2
   %91 = add nuw nsw i64 %90, %indvars.iv15.i.i
   %92 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %91
-  %93 = load float, ptr %89, align 4, !alias.scope !68
-  %94 = load float, ptr %92, align 4, !alias.scope !68
-  store float %94, ptr %89, align 4, !alias.scope !68
-  store float %93, ptr %92, align 4, !alias.scope !68
+  %93 = load float, ptr %89, align 4
+  %94 = load float, ptr %92, align 4
+  store float %94, ptr %89, align 4
+  store float %93, ptr %92, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv15.i.i
   br i1 %exitcond.not.i.i, label %95, label %87, !llvm.loop !56
@@ -13947,7 +13947,7 @@ _ZNK3vcg8Matrix44IfEmlEf.exit15:                  ; preds = %77
   br i1 %exitcond18.not.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit, label %.preheader.i.i, !llvm.loop !57
 
 _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %95
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
   br label %.preheader19.i
 
 .preheader19.i:                                   ; preds = %109, %_ZNK3vcg8Matrix44IfE9transposeEv.exit
@@ -13964,7 +13964,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %95
   %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %105, %97 ]
   %98 = add nuw nsw i64 %indvars.iv.i16, %96
   %99 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %98
-  %100 = load float, ptr %99, align 4, !noalias !71
+  %100 = load float, ptr %99, align 4, !noalias !68
   %101 = shl nuw nsw i64 %indvars.iv.i16, 2
   %102 = add nuw nsw i64 %101, %indvars.iv25.i
   %103 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %102
@@ -13977,7 +13977,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %95
 106:                                              ; preds = %97
   %107 = add nuw nsw i64 %indvars.iv25.i, %96
   %108 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %107
-  store float %105, ptr %108, align 4, !alias.scope !71
+  store float %105, ptr %108, align 4, !alias.scope !68
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
   br i1 %exitcond28.not.i, label %109, label %.preheader.i, !llvm.loop !25
@@ -14225,12 +14225,12 @@ _ZN3vcg8Matrix33IfEC2ERKNS_8Matrix44IfEERKi.exit: ; preds = %.preheader.i
 52:                                               ; preds = %50, %48
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 3
-  br i1 %exitcond.not.i12, label %53, label %46, !llvm.loop !74
+  br i1 %exitcond.not.i12, label %53, label %46, !llvm.loop !71
 
 53:                                               ; preds = %52
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 3
-  br i1 %exitcond19.not.i, label %_ZN3vcg8Matrix33IfE11SetDiagonalEPf.exit, label %.preheader.i9, !llvm.loop !75
+  br i1 %exitcond19.not.i, label %_ZN3vcg8Matrix33IfE11SetDiagonalEPf.exit, label %.preheader.i9, !llvm.loop !72
 
 _ZN3vcg8Matrix33IfE11SetDiagonalEPf.exit:         ; preds = %53
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
@@ -14265,12 +14265,12 @@ _ZN3vcg8Matrix33IfE11SetDiagonalEPf.exit:         ; preds = %53
   store float %73, ptr %74, align 4
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 3
-  br i1 %exitcond.not.i16, label %75, label %64, !llvm.loop !76
+  br i1 %exitcond.not.i16, label %75, label %64, !llvm.loop !73
 
 75:                                               ; preds = %64
   %indvars.iv.next26.i17 = add nuw nsw i64 %indvars.iv25.i13, 1
   %exitcond28.not.i18 = icmp eq i64 %indvars.iv.next26.i17, 3
-  br i1 %exitcond28.not.i18, label %_ZN3vcg8Matrix33IfEmLERKS1_.exit, label %.preheader20.i, !llvm.loop !77
+  br i1 %exitcond28.not.i18, label %_ZN3vcg8Matrix33IfEmLERKS1_.exit, label %.preheader20.i, !llvm.loop !74
 
 _ZN3vcg8Matrix33IfEmLERKS1_.exit:                 ; preds = %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %4, i64 36, i1 false)
@@ -14341,7 +14341,7 @@ _ZN3vcg8Matrix33IfEmLERKS1_.exit:                 ; preds = %75
   %120 = phi ptr [ %99, %98 ], [ %.pre, %103 ]
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.019.039, i64 48
   %.not = icmp eq ptr %121, %120
-  br i1 %.not, label %._crit_edge, label %98, !llvm.loop !78
+  br i1 %.not, label %._crit_edge, label %98, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %119, %76
   ret void
@@ -14469,7 +14469,7 @@ _ZN3vcg8Matrix33IfEC2ERKNS_8Matrix44IfEERKi.exit: ; preds = %.preheader.i
   %85 = phi ptr [ %64, %63 ], [ %.pre, %68 ]
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.010.030, i64 48
   %.not = icmp eq ptr %86, %85
-  br i1 %.not, label %._crit_edge, label %63, !llvm.loop !79
+  br i1 %.not, label %._crit_edge, label %63, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %84, %41
   ret void
@@ -14500,12 +14500,12 @@ define linkonce_odr noundef float @_ZNK3vcg8Matrix44IfE11DeterminantEv(ptr nound
   store double %9, ptr %10, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !80
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !77
 
 11:                                               ; preds = %6
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 4
-  br i1 %exitcond16.not.i, label %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit, label %.preheader.i, !llvm.loop !81
+  br i1 %exitcond16.not.i, label %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit, label %.preheader.i, !llvm.loop !78
 
 _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit: ; preds = %11
   %12 = load double, ptr %2, align 16
@@ -15034,7 +15034,7 @@ _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %.013, i64 %.sink
   %.1 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !82
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %28, %4
   %.08.lcssa = phi ptr [ %2, %4 ], [ %.19, %28 ]
@@ -15221,23 +15221,23 @@ _ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichPa
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i, %.lr.ph.i.i.i.i.i
   %.03.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i ], [ %27, %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i ]
   %.092.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i ], [ %.val, %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %30 = load ptr, ptr %.092.i.i.i.i.i, align 8, !alias.scope !86, !noalias !83
-  store ptr %30, ptr %.03.i.i.i.i.i, align 8, !alias.scope !83, !noalias !86
+  %30 = load ptr, ptr %.092.i.i.i.i.i, align 8, !alias.scope !83, !noalias !80
+  store ptr %30, ptr %.03.i.i.i.i.i, align 8, !alias.scope !80, !noalias !83
   %31 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 8
-  %33 = load ptr, ptr %32, align 8, !alias.scope !86, !noalias !83
-  store ptr %33, ptr %31, align 8, !alias.scope !83, !noalias !86
+  %33 = load ptr, ptr %32, align 8, !alias.scope !83, !noalias !80
+  store ptr %33, ptr %31, align 8, !alias.scope !80, !noalias !83
   %34 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 16
-  %36 = load ptr, ptr %35, align 8, !alias.scope !86, !noalias !83
-  store ptr %36, ptr %34, align 8, !alias.scope !83, !noalias !86
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.092.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !86, !noalias !83
+  %36 = load ptr, ptr %35, align 8, !alias.scope !83, !noalias !80
+  store ptr %36, ptr %34, align 8, !alias.scope !80, !noalias !83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.092.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !83, !noalias !80
   %37 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %37, %.val4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !88
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !85
 
 _ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i
   %.not.i34.i = icmp eq ptr %.val, null
@@ -15277,7 +15277,7 @@ _ZNSt12_Vector_baseISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QAct
 _ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i: ; preds = %46, %.lr.ph.i.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %47, %.val4
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !89
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !86
 
 _ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i
   store ptr %45, ptr %3, align 8
@@ -15308,7 +15308,7 @@ define internal fastcc void @_ZN3vcg9VectorNBWISt6vectorIZN18FilterCameraPlugin1
 _ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i: ; preds = %5, %.lr.ph.i.i.i.i
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %6, %4
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !89
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !86
 
 _ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i
   %.val.pr.i = load ptr, ptr %0, align 8
@@ -15350,7 +15350,7 @@ define internal void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE
 _ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i.i: ; preds = %6, %.lr.ph.i.i.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %7, %5
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !89
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !86
 
 _ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE5clearEv.exit: ; preds = %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i.i
   store ptr %3, ptr %4, align 8
@@ -15371,7 +15371,7 @@ _ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichPar
 _ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i.i5: ; preds = %8, %.lr.ph.i.i.i.i.i1
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2, i64 24
   %.not.i.i.i.i.i6 = icmp eq ptr %9, %3
-  br i1 %.not.i.i.i.i.i6, label %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i1, !llvm.loop !89
+  br i1 %.not.i.i.i.i.i6, label %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i1, !llvm.loop !86
 
 _ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i.i5
   %.val.pr.i.i = load ptr, ptr %2, align 8
@@ -15413,7 +15413,7 @@ define internal void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE
 _ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %6, %.lr.ph.i.i.i.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %7, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE5clearEv.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !89
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE5clearEv.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !86
 
 _ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE5clearEv.exit.i: ; preds = %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i.i.i
   store ptr %3, ptr %4, align 8
@@ -15434,7 +15434,7 @@ _ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichPar
 _ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i.i5.i: ; preds = %8, %.lr.ph.i.i.i.i.i1.i
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2.i, i64 24
   %.not.i.i.i.i.i6.i = icmp eq ptr %9, %3
-  br i1 %.not.i.i.i.i.i6.i, label %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i1.i, !llvm.loop !89
+  br i1 %.not.i.i.i.i.i6.i, label %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i1.i, !llvm.loop !86
 
 _ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i.i5.i
   %.val.pr.i.i.i = load ptr, ptr %2, align 8
@@ -15497,7 +15497,7 @@ define internal void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEE
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 24
   %18 = icmp ult i64 %13, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !90
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %12, %2
   ret void
@@ -15626,7 +15626,7 @@ _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %.02227, i64 %.sink
   %.022 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %.022, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !91
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %29
   br i1 %30, label %._crit_edge.thread, label %37
@@ -17596,26 +17596,23 @@ attributes #30 = { noreturn }
 !66 = distinct !{!66, !67, !"_ZNK3vcg8Matrix44IfEmlEf: argument 0"}
 !67 = distinct !{!67, !"_ZNK3vcg8Matrix44IfEmlEf"}
 !68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
-!70 = distinct !{!70, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
-!73 = distinct !{!73, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
+!69 = distinct !{!69, !70, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
+!70 = distinct !{!70, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
+!71 = distinct !{!71, !6}
+!72 = distinct !{!72, !6}
+!73 = distinct !{!73, !6}
 !74 = distinct !{!74, !6}
 !75 = distinct !{!75, !6}
 !76 = distinct !{!76, !6}
 !77 = distinct !{!77, !6}
 !78 = distinct !{!78, !6}
 !79 = distinct !{!79, !6}
-!80 = distinct !{!80, !6}
-!81 = distinct !{!81, !6}
-!82 = distinct !{!82, !6}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZSt19__relocate_object_aISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_SaISH_EEvPT_PT0_RT1_: argument 0"}
+!82 = distinct !{!82, !"_ZSt19__relocate_object_aISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_SaISH_EEvPT_PT0_RT1_"}
 !83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZSt19__relocate_object_aISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_SaISH_EEvPT_PT0_RT1_: argument 0"}
-!85 = distinct !{!85, !"_ZSt19__relocate_object_aISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_SaISH_EEvPT_PT0_RT1_"}
-!86 = !{!87}
-!87 = distinct !{!87, !85, !"_ZSt19__relocate_object_aISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_SaISH_EEvPT_PT0_RT1_: argument 1"}
+!84 = distinct !{!84, !82, !"_ZSt19__relocate_object_aISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_SaISH_EEvPT_PT0_RT1_: argument 1"}
+!85 = distinct !{!85, !6}
+!86 = distinct !{!86, !6}
+!87 = distinct !{!87, !6}
 !88 = distinct !{!88, !6}
-!89 = distinct !{!89, !6}
-!90 = distinct !{!90, !6}
-!91 = distinct !{!91, !6}

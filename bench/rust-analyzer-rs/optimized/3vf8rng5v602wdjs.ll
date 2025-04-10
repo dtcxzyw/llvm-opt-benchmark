@@ -2369,7 +2369,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17h1f2226d9a17cf469E.llvm.6093752533
   %.sroa.14.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sroa.14.0.copyload36 = load i64, ptr %.sroa.14.0..sroa_idx35, align 8, !alias.scope !649, !noalias !650
   %.sroa.15.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.15.0..sroa_idx37, i64 112, i1 false), !alias.scope !649
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.15.0..sroa_idx37, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9), !noalias !618
   br label %"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h944e3827a7ab1544E.exit.thread54"
 
@@ -2715,7 +2715,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17h1f2226d9a17cf469E.llvm.6093752533
   %.sroa.14.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.14.0.copyload32 = load i64, ptr %.sroa.14.0..sroa_idx31, align 8, !alias.scope !775, !noalias !776
   %.sroa.15.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.15.0..sroa_idx33, i64 136, i1 false), !alias.scope !775
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.15.0..sroa_idx33, i64 136, i1 false)
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8), !noalias !744
   br label %"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h351a85b679849699E.exit.thread50"
 

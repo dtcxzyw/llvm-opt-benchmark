@@ -5684,7 +5684,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN2cv7optflow9GPC
   %57 = getelementptr inbounds nuw [5 x i32], ptr %54, i64 0, i64 %indvars.iv.i.i.i.i.i
   %58 = load i32, ptr %57, align 4, !tbaa !78
   %59 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %60 = load i32, ptr %59, align 4, !tbaa !78
+  %60 = load i32, ptr %59, align 4
   %.not.i.i.i.i.i = icmp eq i32 %58, %60
   br i1 %.not.i.i.i.i.i, label %55, label %61
 

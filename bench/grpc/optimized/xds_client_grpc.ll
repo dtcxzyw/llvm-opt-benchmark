@@ -8873,11 +8873,11 @@ define internal void @_GLOBAL__sub_I_xds_client_grpc.cc() #18 section ".text.sta
   store i64 10, ptr %17, align 8
   %.sroa.10.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr @.str.3, ptr %.sroa.10.sroa.4.0..sroa_idx.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_coreL18kMetricLabelTargetE, i64 16, i1 false), !tbaa.struct !304, !noalias !322
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_coreL18kMetricLabelTargetE, i64 16, i1 false), !noalias !322
   %.sroa.0.16..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_121kMetricLabelXdsServerE, i64 16, i1 false), !tbaa.struct !304, !noalias !322
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_121kMetricLabelXdsServerE, i64 16, i1 false), !noalias !322
   %.sroa.0.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.32..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_127kMetricLabelXdsResourceTypeE, i64 16, i1 false), !tbaa.struct !304, !noalias !322
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.32..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_127kMetricLabelXdsResourceTypeE, i64 16, i1 false), !noalias !322
   store i64 38, ptr %15, align 8, !tbaa !10, !alias.scope !322
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @.str, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !12, !alias.scope !322
@@ -8888,13 +8888,13 @@ define internal void @_GLOBAL__sub_I_xds_client_grpc.cc() #18 section ".text.sta
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i8 0, ptr %19, align 8, !tbaa !325, !alias.scope !322
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i.i, i64 48, i1 false), !tbaa.struct !330
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i.i, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  store ptr %20, ptr %13, align 8, !tbaa !331
+  store ptr %20, ptr %13, align 8, !tbaa !330
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 3, ptr %21, align 8, !tbaa !334
+  store i64 3, ptr %21, align 8, !tbaa !333
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %22 = call noundef i32 @_ZN9grpc_core25GlobalInstrumentsRegistry18RegisterInstrumentENS0_9ValueTypeENS0_14InstrumentTypeESt17basic_string_viewIcSt11char_traitsIcEES6_S6_bN4absl12lts_202407224SpanIKS6_EESB_(i32 noundef 2, i32 noundef 1, i64 38, ptr nonnull @.str, i64 149, ptr nonnull @.str.2, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %17, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.absl::lts_20240722::Span") align 8 %13, ptr noundef nonnull byval(%"class.absl::lts_20240722::Span") align 8 %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -8903,34 +8903,34 @@ define internal void @_GLOBAL__sub_I_xds_client_grpc.cc() #18 section ".text.sta
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15) #33
   %23 = call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN9grpc_core12_GLOBAL__N_127kMetricResourceUpdatesValidE)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %12) #33
-  call void @llvm.experimental.noalias.scope.decl(metadata !335)
+  call void @llvm.experimental.noalias.scope.decl(metadata !334)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i.i1)
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 10, ptr %24, align 8
   %.sroa.10.sroa.4.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr @.str.3, ptr %.sroa.10.sroa.4.0..sroa_idx.i2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i1, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_coreL18kMetricLabelTargetE, i64 16, i1 false), !tbaa.struct !304, !noalias !335
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i1, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_coreL18kMetricLabelTargetE, i64 16, i1 false), !noalias !334
   %.sroa.0.16..sroa_idx.i.i3 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i3, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_121kMetricLabelXdsServerE, i64 16, i1 false), !tbaa.struct !304, !noalias !335
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i3, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_121kMetricLabelXdsServerE, i64 16, i1 false), !noalias !334
   %.sroa.0.32..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i1, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.32..sroa_idx.i.i4, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_127kMetricLabelXdsResourceTypeE, i64 16, i1 false), !tbaa.struct !304, !noalias !335
-  store i64 40, ptr %12, align 8, !tbaa !10, !alias.scope !335
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.32..sroa_idx.i.i4, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_127kMetricLabelXdsResourceTypeE, i64 16, i1 false), !noalias !334
+  store i64 40, ptr %12, align 8, !tbaa !10, !alias.scope !334
   %.sroa.23.0..sroa_idx.i.i.i5 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @.str.5, ptr %.sroa.23.0..sroa_idx.i.i.i5, align 8, !tbaa !12, !alias.scope !335
+  store ptr @.str.5, ptr %.sroa.23.0..sroa_idx.i.i.i5, align 8, !tbaa !12, !alias.scope !334
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 76, ptr %25, align 8, !tbaa !10, !alias.scope !335
+  store i64 76, ptr %25, align 8, !tbaa !10, !alias.scope !334
   %.sroa.2.0..sroa_idx.i.i1.i6 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr @.str.6, ptr %.sroa.2.0..sroa_idx.i.i1.i6, align 8, !tbaa !12, !alias.scope !335
+  store ptr @.str.6, ptr %.sroa.2.0..sroa_idx.i.i1.i6, align 8, !tbaa !12, !alias.scope !334
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store i8 0, ptr %26, align 8, !tbaa !325, !alias.scope !335
+  store i8 0, ptr %26, align 8, !tbaa !325, !alias.scope !334
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i.i1, i64 48, i1 false), !tbaa.struct !330
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i.i1, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i.i1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  store ptr %27, ptr %10, align 8, !tbaa !331
+  store ptr %27, ptr %10, align 8, !tbaa !330
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 3, ptr %28, align 8, !tbaa !334
+  store i64 3, ptr %28, align 8, !tbaa !333
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %29 = call noundef i32 @_ZN9grpc_core25GlobalInstrumentsRegistry18RegisterInstrumentENS0_9ValueTypeENS0_14InstrumentTypeESt17basic_string_viewIcSt11char_traitsIcEES6_S6_bN4absl12lts_202407224SpanIKS6_EESB_(i32 noundef 2, i32 noundef 1, i64 40, ptr nonnull @.str.5, i64 76, ptr nonnull @.str.6, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %24, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.absl::lts_20240722::Span") align 8 %10, ptr noundef nonnull byval(%"class.absl::lts_20240722::Span") align 8 %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -8939,32 +8939,32 @@ define internal void @_GLOBAL__sub_I_xds_client_grpc.cc() #18 section ".text.sta
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %12) #33
   %30 = call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN9grpc_core12_GLOBAL__N_129kMetricResourceUpdatesInvalidE)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #33
-  call void @llvm.experimental.noalias.scope.decl(metadata !338)
+  call void @llvm.experimental.noalias.scope.decl(metadata !337)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i7)
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 9, ptr %31, align 8
   %.sroa.10.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @.str.10, ptr %.sroa.10.sroa.4.0..sroa_idx.i8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i7, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_coreL18kMetricLabelTargetE, i64 16, i1 false), !tbaa.struct !304, !noalias !338
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i7, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_coreL18kMetricLabelTargetE, i64 16, i1 false), !noalias !337
   %.sroa.0.16..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i9, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_121kMetricLabelXdsServerE, i64 16, i1 false), !tbaa.struct !304, !noalias !338
-  store i64 30, ptr %9, align 8, !tbaa !10, !alias.scope !338
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i9, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_121kMetricLabelXdsServerE, i64 16, i1 false), !noalias !337
+  store i64 30, ptr %9, align 8, !tbaa !10, !alias.scope !337
   %.sroa.23.0..sroa_idx.i.i.i10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr @.str.8, ptr %.sroa.23.0..sroa_idx.i.i.i10, align 8, !tbaa !12, !alias.scope !338
+  store ptr @.str.8, ptr %.sroa.23.0..sroa_idx.i.i.i10, align 8, !tbaa !12, !alias.scope !337
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 214, ptr %32, align 8, !tbaa !10, !alias.scope !338
+  store i64 214, ptr %32, align 8, !tbaa !10, !alias.scope !337
   %.sroa.2.0..sroa_idx.i.i1.i11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i.i1.i11, align 8, !tbaa !12, !alias.scope !338
+  store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i.i1.i11, align 8, !tbaa !12, !alias.scope !337
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i8 0, ptr %33, align 8, !tbaa !341, !alias.scope !338
+  store i8 0, ptr %33, align 8, !tbaa !340, !alias.scope !337
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i7, i64 32, i1 false), !tbaa.struct !344
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store ptr %34, ptr %7, align 8, !tbaa !331
+  store ptr %34, ptr %7, align 8, !tbaa !330
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 2, ptr %35, align 8, !tbaa !334
+  store i64 2, ptr %35, align 8, !tbaa !333
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %36 = call noundef i32 @_ZN9grpc_core25GlobalInstrumentsRegistry18RegisterInstrumentENS0_9ValueTypeENS0_14InstrumentTypeESt17basic_string_viewIcSt11char_traitsIcEES6_S6_bN4absl12lts_202407224SpanIKS6_EESB_(i32 noundef 2, i32 noundef 1, i64 30, ptr nonnull @.str.8, i64 214, ptr nonnull @.str.9, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %31, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.absl::lts_20240722::Span") align 8 %7, ptr noundef nonnull byval(%"class.absl::lts_20240722::Span") align 8 %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -8973,32 +8973,32 @@ define internal void @_GLOBAL__sub_I_xds_client_grpc.cc() #18 section ".text.sta
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #33
   %37 = call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN9grpc_core12_GLOBAL__N_120kMetricServerFailureE)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #33
-  call void @llvm.experimental.noalias.scope.decl(metadata !345)
+  call void @llvm.experimental.noalias.scope.decl(metadata !343)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i12)
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 6, ptr %38, align 8
   %.sroa.10.sroa.4.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @.str.14, ptr %.sroa.10.sroa.4.0..sroa_idx.i13, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_coreL18kMetricLabelTargetE, i64 16, i1 false), !tbaa.struct !304, !noalias !345
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_coreL18kMetricLabelTargetE, i64 16, i1 false), !noalias !343
   %.sroa.0.16..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i12, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i14, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_121kMetricLabelXdsServerE, i64 16, i1 false), !tbaa.struct !304, !noalias !345
-  store i64 25, ptr %6, align 8, !tbaa !10, !alias.scope !345
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i14, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_121kMetricLabelXdsServerE, i64 16, i1 false), !noalias !343
+  store i64 25, ptr %6, align 8, !tbaa !10, !alias.scope !343
   %.sroa.23.0..sroa_idx.i.i.i15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @.str.12, ptr %.sroa.23.0..sroa_idx.i.i.i15, align 8, !tbaa !12, !alias.scope !345
+  store ptr @.str.12, ptr %.sroa.23.0..sroa_idx.i.i.i15, align 8, !tbaa !12, !alias.scope !343
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 332, ptr %39, align 8, !tbaa !10, !alias.scope !345
+  store i64 332, ptr %39, align 8, !tbaa !10, !alias.scope !343
   %.sroa.2.0..sroa_idx.i.i1.i16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr @.str.13, ptr %.sroa.2.0..sroa_idx.i.i1.i16, align 8, !tbaa !12, !alias.scope !345
+  store ptr @.str.13, ptr %.sroa.2.0..sroa_idx.i.i1.i16, align 8, !tbaa !12, !alias.scope !343
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i8 0, ptr %40, align 8, !tbaa !348, !alias.scope !345
+  store i8 0, ptr %40, align 8, !tbaa !346, !alias.scope !343
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i12, i64 32, i1 false), !tbaa.struct !344
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i12, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store ptr %41, ptr %4, align 8, !tbaa !331
+  store ptr %41, ptr %4, align 8, !tbaa !330
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %42, align 8, !tbaa !334
+  store i64 2, ptr %42, align 8, !tbaa !333
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %43 = call noundef i32 @_ZN9grpc_core25GlobalInstrumentsRegistry18RegisterInstrumentENS0_9ValueTypeENS0_14InstrumentTypeESt17basic_string_viewIcSt11char_traitsIcEES6_S6_bN4absl12lts_202407224SpanIKS6_EESB_(i32 noundef 1, i32 noundef 3, i64 25, ptr nonnull @.str.12, i64 332, ptr nonnull @.str.13, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %38, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.absl::lts_20240722::Span") align 8 %4, ptr noundef nonnull byval(%"class.absl::lts_20240722::Span") align 8 %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -9007,36 +9007,36 @@ define internal void @_GLOBAL__sub_I_xds_client_grpc.cc() #18 section ".text.sta
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #33
   %44 = call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN9grpc_core12_GLOBAL__N_116kMetricConnectedE)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #33
-  call void @llvm.experimental.noalias.scope.decl(metadata !350)
+  call void @llvm.experimental.noalias.scope.decl(metadata !348)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.0.i.i17)
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 10, ptr %45, align 8
   %.sroa.10.sroa.4.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @.str.3, ptr %.sroa.10.sroa.4.0..sroa_idx.i18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i17, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_coreL18kMetricLabelTargetE, i64 16, i1 false), !tbaa.struct !304, !noalias !350
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i17, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_coreL18kMetricLabelTargetE, i64 16, i1 false), !noalias !348
   %.sroa.0.16..sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i17, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i19, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_124kMetricLabelXdsAuthorityE, i64 16, i1 false), !tbaa.struct !304, !noalias !350
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i19, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_124kMetricLabelXdsAuthorityE, i64 16, i1 false), !noalias !348
   %.sroa.0.32..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i17, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.32..sroa_idx.i.i20, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_127kMetricLabelXdsResourceTypeE, i64 16, i1 false), !tbaa.struct !304, !noalias !350
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.32..sroa_idx.i.i20, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_127kMetricLabelXdsResourceTypeE, i64 16, i1 false), !noalias !348
   %.sroa.0.48..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i17, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.48..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_125kMetricLabelXdsCacheStateE, i64 16, i1 false), !tbaa.struct !304, !noalias !350
-  store i64 25, ptr %3, align 8, !tbaa !10, !alias.scope !350
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.48..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_125kMetricLabelXdsCacheStateE, i64 16, i1 false), !noalias !348
+  store i64 25, ptr %3, align 8, !tbaa !10, !alias.scope !348
   %.sroa.23.0..sroa_idx.i.i.i21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @.str.16, ptr %.sroa.23.0..sroa_idx.i.i.i21, align 8, !tbaa !12, !alias.scope !350
+  store ptr @.str.16, ptr %.sroa.23.0..sroa_idx.i.i.i21, align 8, !tbaa !12, !alias.scope !348
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 39, ptr %46, align 8, !tbaa !10, !alias.scope !350
+  store i64 39, ptr %46, align 8, !tbaa !10, !alias.scope !348
   %.sroa.2.0..sroa_idx.i.i1.i22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @.str.17, ptr %.sroa.2.0..sroa_idx.i.i1.i22, align 8, !tbaa !12, !alias.scope !350
+  store ptr @.str.17, ptr %.sroa.2.0..sroa_idx.i.i1.i22, align 8, !tbaa !12, !alias.scope !348
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i8 0, ptr %47, align 8, !tbaa !353, !alias.scope !350
+  store i8 0, ptr %47, align 8, !tbaa !351, !alias.scope !348
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i17, i64 64, i1 false), !tbaa.struct !356
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i17, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.0.i.i17)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  store ptr %48, ptr %1, align 8, !tbaa !331
+  store ptr %48, ptr %1, align 8, !tbaa !330
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 4, ptr %49, align 8, !tbaa !334
+  store i64 4, ptr %49, align 8, !tbaa !333
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %50 = call noundef i32 @_ZN9grpc_core25GlobalInstrumentsRegistry18RegisterInstrumentENS0_9ValueTypeENS0_14InstrumentTypeESt17basic_string_viewIcSt11char_traitsIcEES6_S6_bN4absl12lts_202407224SpanIKS6_EESB_(i32 noundef 1, i32 noundef 3, i64 25, ptr nonnull @.str.16, i64 39, ptr nonnull @.str.17, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %45, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.absl::lts_20240722::Span") align 8 %1, ptr noundef nonnull byval(%"class.absl::lts_20240722::Span") align 8 %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
@@ -9456,30 +9456,27 @@ attributes #40 = { nounwind willreturn memory(read) }
 !327 = !{!"_ZTSSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm3EE", !5, i64 0}
 !328 = !{!"_ZTSSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm0EE", !329, i64 0}
 !329 = !{!"_ZTSNSt14__array_traitsISt17basic_string_viewIcSt11char_traitsIcEELm0EE5_TypeE"}
-!330 = !{i64 0, i64 48, !66}
-!331 = !{!332, !333, i64 0}
-!332 = !{!"_ZTSN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEE", !333, i64 0, !11, i64 8}
-!333 = !{!"p1 _ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !14, i64 0}
-!334 = !{!332, !11, i64 8}
-!335 = !{!336}
-!336 = distinct !{!336, !337, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE2ELNS0_14InstrumentTypeE1ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_SB_EEENS1_ILS2_2ELS3_1EXsZT_ELm0EEEDpOT_: argument 0"}
-!337 = distinct !{!337, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE2ELNS0_14InstrumentTypeE1ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_SB_EEENS1_ILS2_2ELS3_1EXsZT_ELm0EEEDpOT_"}
-!338 = !{!339}
-!339 = distinct !{!339, !340, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE2ELNS0_14InstrumentTypeE1ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_EEENS1_ILS2_2ELS3_1EXsZT_ELm0EEEDpOT_: argument 0"}
-!340 = distinct !{!340, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE2ELNS0_14InstrumentTypeE1ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_EEENS1_ILS2_2ELS3_1EXsZT_ELm0EEEDpOT_"}
-!341 = !{!342, !7, i64 48}
-!342 = !{!"_ZTSN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE2ELNS0_14InstrumentTypeE1ELm2ELm0EEE", !50, i64 0, !50, i64 16, !50, i64 32, !7, i64 48, !343, i64 56, !328, i64 88}
-!343 = !{!"_ZTSSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm2EE", !5, i64 0}
-!344 = !{i64 0, i64 32, !66}
-!345 = !{!346}
-!346 = distinct !{!346, !347, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_EEENS1_ILS2_1ELS3_3EXsZT_ELm0EEEDpOT_: argument 0"}
-!347 = distinct !{!347, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_EEENS1_ILS2_1ELS3_3EXsZT_ELm0EEEDpOT_"}
-!348 = !{!349, !7, i64 48}
-!349 = !{!"_ZTSN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm2ELm0EEE", !50, i64 0, !50, i64 16, !50, i64 32, !7, i64 48, !343, i64 56, !328, i64 88}
-!350 = !{!351}
-!351 = distinct !{!351, !352, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_SB_SB_EEENS1_ILS2_1ELS3_3EXsZT_ELm0EEEDpOT_: argument 0"}
-!352 = distinct !{!352, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_SB_SB_EEENS1_ILS2_1ELS3_3EXsZT_ELm0EEEDpOT_"}
-!353 = !{!354, !7, i64 48}
-!354 = !{!"_ZTSN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm4ELm0EEE", !50, i64 0, !50, i64 16, !50, i64 32, !7, i64 48, !355, i64 56, !328, i64 120}
-!355 = !{!"_ZTSSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm4EE", !5, i64 0}
-!356 = !{i64 0, i64 64, !66}
+!330 = !{!331, !332, i64 0}
+!331 = !{!"_ZTSN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEE", !332, i64 0, !11, i64 8}
+!332 = !{!"p1 _ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !14, i64 0}
+!333 = !{!331, !11, i64 8}
+!334 = !{!335}
+!335 = distinct !{!335, !336, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE2ELNS0_14InstrumentTypeE1ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_SB_EEENS1_ILS2_2ELS3_1EXsZT_ELm0EEEDpOT_: argument 0"}
+!336 = distinct !{!336, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE2ELNS0_14InstrumentTypeE1ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_SB_EEENS1_ILS2_2ELS3_1EXsZT_ELm0EEEDpOT_"}
+!337 = !{!338}
+!338 = distinct !{!338, !339, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE2ELNS0_14InstrumentTypeE1ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_EEENS1_ILS2_2ELS3_1EXsZT_ELm0EEEDpOT_: argument 0"}
+!339 = distinct !{!339, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE2ELNS0_14InstrumentTypeE1ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_EEENS1_ILS2_2ELS3_1EXsZT_ELm0EEEDpOT_"}
+!340 = !{!341, !7, i64 48}
+!341 = !{!"_ZTSN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE2ELNS0_14InstrumentTypeE1ELm2ELm0EEE", !50, i64 0, !50, i64 16, !50, i64 32, !7, i64 48, !342, i64 56, !328, i64 88}
+!342 = !{!"_ZTSSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm2EE", !5, i64 0}
+!343 = !{!344}
+!344 = distinct !{!344, !345, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_EEENS1_ILS2_1ELS3_3EXsZT_ELm0EEEDpOT_: argument 0"}
+!345 = distinct !{!345, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_EEENS1_ILS2_1ELS3_3EXsZT_ELm0EEEDpOT_"}
+!346 = !{!347, !7, i64 48}
+!347 = !{!"_ZTSN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm2ELm0EEE", !50, i64 0, !50, i64 16, !50, i64 32, !7, i64 48, !342, i64 56, !328, i64 88}
+!348 = !{!349}
+!349 = distinct !{!349, !350, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_SB_SB_EEENS1_ILS2_1ELS3_3EXsZT_ELm0EEEDpOT_: argument 0"}
+!350 = distinct !{!350, !"_ZN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm0ELm0EE6LabelsIJRKSt17basic_string_viewIcSt11char_traitsIcEESB_SB_SB_EEENS1_ILS2_1ELS3_3EXsZT_ELm0EEEDpOT_"}
+!351 = !{!352, !7, i64 48}
+!352 = !{!"_ZTSN9grpc_core25GlobalInstrumentsRegistry19RegistrationBuilderILNS0_9ValueTypeE1ELNS0_14InstrumentTypeE3ELm4ELm0EEE", !50, i64 0, !50, i64 16, !50, i64 32, !7, i64 48, !353, i64 56, !328, i64 120}
+!353 = !{!"_ZTSSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm4EE", !5, i64 0}

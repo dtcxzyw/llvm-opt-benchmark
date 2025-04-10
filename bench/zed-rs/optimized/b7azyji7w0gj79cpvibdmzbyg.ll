@@ -18299,7 +18299,7 @@ _ZN8terminal8pty_info14PtyProcessInfo4load17hc5b4736f28166e90E.exit: ; preds = %
   %.sroa.543.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 %169, ptr %.sroa.543.0..sroa_idx.i.i, align 8, !alias.scope !6593, !noalias !6597
   %.sroa.644.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.644.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i, i64 39, i1 false), !alias.scope !6593, !noalias !6587
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.644.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i, i64 39, i1 false), !noalias !6587
   %.sroa.745.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i8 %176, ptr %.sroa.745.0..sroa_idx.i.i, align 8, !alias.scope !6593, !noalias !6597
   %.sroa.846.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 57

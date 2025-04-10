@@ -1009,11 +1009,11 @@ _ZN4core3ptr7replace17h5405c9ba407b40c3E.exit5.i: ; preds = %149
 
 176:                                              ; preds = %175, %.thread70
   %.sroa.5.072 = phi i8 [ %.sroa.4.0.copyload2.i, %.thread70 ], [ %.sroa.45.0.copyload7.i, %175 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.i, i64 16, i1 false), !alias.scope !162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.i, i64 16, i1 false)
   %.sroa.5.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sroa.5.072, ptr %.sroa.5.0..sroa_idx40, align 8, !alias.scope !162
   %.sroa.8.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx42, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.512.i, i64 7, i1 false), !alias.scope !162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx42, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.512.i, i64 7, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hff89fc02cbffc994E.exit"
 
 177:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h505f322124327294E.llvm.7101337052389852799.exit"

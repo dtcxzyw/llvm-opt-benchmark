@@ -63209,12 +63209,12 @@ define internal fastcc void @_ZL20handleDiagnoseIfAttrRN5clang4SemaEPNS_4DeclERK
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !1186
+  %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %36
-  %.sroa.03.0.copyload = load ptr, ptr %11, align 8, !tbaa !73
+  %.sroa.03.0.copyload = load ptr, ptr %11, align 8
   %41 = call i64 @_ZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefE(ptr %.sroa.03.0.copyload, i64 %38) #24
   %42 = and i64 %41, 4294967296
   %.not37 = icmp eq i64 %42, 0
@@ -63235,7 +63235,7 @@ define internal fastcc void @_ZL20handleDiagnoseIfAttrRN5clang4SemaEPNS_4DeclERK
 
 50:                                               ; preds = %.critedge
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %11, align 8, !tbaa !73
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %11, align 8
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(84) %51, ptr %.sroa.0.0.copyload.i.i.i, i64 %38)
   br label %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
 
@@ -63269,7 +63269,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %61, %
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %67, align 8, !tbaa !70
   %71 = getelementptr inbounds nuw %"struct.std::pair.1387", ptr %70, i64 %69, i32 2
-  %.sroa.0.0.copyload.i.i33 = load ptr, ptr %11, align 8, !tbaa !73
+  %.sroa.0.0.copyload.i.i33 = load ptr, ptr %11, align 8
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(20) %71, ptr %.sroa.0.0.copyload.i.i33, i64 %38)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   br label %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit

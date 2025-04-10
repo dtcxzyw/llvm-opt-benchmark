@@ -10395,7 +10395,7 @@ common.resume.i:                                  ; preds = %97, %.body.i.i.i
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !1422
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.14.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.i.sroa.4.i, i64 23, i1 false), !alias.scope !1422
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.14.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.i.sroa.4.i, i64 23, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8d1de503190b9e6fE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8d1de503190b9e6fE.exit": ; preds = %106, %.loopexit

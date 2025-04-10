@@ -2843,7 +2843,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   store ptr %101, ptr %19, align 8, !alias.scope !527, !noalias !531
   store i64 %102, ptr %.sroa.0.sroa.425.0..sroa_idx.i.i, align 8, !alias.scope !527, !noalias !531
   store i8 %119, ptr %.sroa.0.sroa.526.0..sroa_idx.i.i, align 8, !alias.scope !527, !noalias !531
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.627.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i10.i.i, i64 39, i1 false), !alias.scope !527, !noalias !526
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.627.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i10.i.i, i64 39, i1 false), !noalias !526
   store i8 %123, ptr %.sroa.0.sroa.728.0..sroa_idx.i.i, align 8, !alias.scope !527, !noalias !531
   store i8 %124, ptr %.sroa.0.sroa.829.0..sroa_idx.i.i, align 1, !alias.scope !527, !noalias !531
   store i8 %122, ptr %.sroa.0.sroa.930.0..sroa_idx.i.i, align 2, !alias.scope !527, !noalias !531

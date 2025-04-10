@@ -4950,7 +4950,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core.
   %.sroa.543.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %61, ptr %.sroa.543.0..sroa_idx.i, align 8, !alias.scope !1287, !noalias !1291
   %.sroa.644.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.644.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i, i64 39, i1 false), !alias.scope !1287, !noalias !1281
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.644.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i, i64 39, i1 false), !noalias !1281
   %.sroa.745.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i8 %68, ptr %.sroa.745.0..sroa_idx.i, align 8, !alias.scope !1287, !noalias !1291
   %.sroa.846.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 57

@@ -490,7 +490,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUlRKSt5arrayIS2_I
   br i1 %exitcond.not, label %._crit_edge224, label %.critedge, !llvm.loop !126
 
 ._crit_edge224:                                   ; preds = %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUlRKSt5arrayIS2_INS0_5YCbCrELm2EELm2EEiiE_clES7_ii.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, i8 0, i64 48, i1 false), !tbaa !113
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   %207 = getelementptr inbounds nuw i16, ptr %29, i64 %79
   %208 = mul nuw nsw i32 %74, 6
   %209 = zext nneg i32 %208 to i64
@@ -504,7 +504,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUlRKSt5arrayIS2_I
   %212 = getelementptr inbounds nuw i16, ptr %207, i64 %211
   %213 = load i16, ptr %212, align 2, !tbaa !114, !noalias !127
   %214 = zext i16 %213 to i32
-  store i32 %214, ptr %indvars.iv264.sroa.phi, align 4, !tbaa !116
+  store i32 %214, ptr %indvars.iv264.sroa.phi, align 4
   %215 = getelementptr inbounds nuw i8, ptr %indvars.iv264.sroa.phi, i64 12
   %216 = or disjoint i64 %211, 1
   %217 = icmp samesign ult i64 %216, %98
@@ -512,7 +512,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUlRKSt5arrayIS2_I
   %218 = getelementptr inbounds nuw i16, ptr %207, i64 %216
   %219 = load i16, ptr %218, align 2, !tbaa !114, !noalias !127
   %220 = zext i16 %219 to i32
-  store i32 %220, ptr %215, align 4, !tbaa !116
+  store i32 %220, ptr %215, align 4
   br i1 %210, label %.preheader209, label %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit62, !llvm.loop !118
 
 _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit62: ; preds = %.preheader209
@@ -524,38 +524,38 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit6
   %225 = load i16, ptr %224, align 2, !tbaa !114, !noalias !127
   %226 = zext i16 %225 to i32
   %227 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %226, ptr %227, align 4, !tbaa !119
+  store i32 %226, ptr %227, align 4
   %228 = getelementptr inbounds nuw i8, ptr %223, i64 10
   %229 = load i16, ptr %228, align 2, !tbaa !114, !noalias !127
   %230 = zext i16 %229 to i32
   %231 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %230, ptr %231, align 4, !tbaa !120
+  store i32 %230, ptr %231, align 4
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %233 = load i32, ptr %232, align 4, !tbaa !112
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %235 = load i32, ptr %234, align 4, !tbaa !119
+  %235 = load i32, ptr %234, align 4
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %237 = add i32 %233, -16384
   %238 = add i32 %237, %235
-  store i32 %238, ptr %234, align 4, !tbaa !119
+  store i32 %238, ptr %234, align 4
   %239 = add i32 %237, %230
-  store i32 %239, ptr %236, align 4, !tbaa !120
+  store i32 %239, ptr %236, align 4
   %240 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %238, ptr %240, align 4, !tbaa !119
+  store i32 %238, ptr %240, align 4
   %241 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %239, ptr %241, align 4, !tbaa !120
+  store i32 %239, ptr %241, align 4
   %242 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %238, ptr %242, align 4, !tbaa !119
+  store i32 %238, ptr %242, align 4
   %243 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %239, ptr %243, align 4, !tbaa !120
+  store i32 %239, ptr %243, align 4
   %244 = getelementptr inbounds nuw i8, ptr %indvars.iv270.sroa.gep308, i64 4
-  store i32 %238, ptr %244, align 4, !tbaa !119
+  store i32 %238, ptr %244, align 4
   %245 = getelementptr inbounds nuw i8, ptr %indvars.iv270.sroa.gep308, i64 8
-  store i32 %239, ptr %245, align 4, !tbaa !120
+  store i32 %239, ptr %245, align 4
   %246 = getelementptr inbounds nuw i8, ptr %indvars.iv270.sroa.gep308, i64 16
-  store i32 %238, ptr %246, align 4, !tbaa !119
+  store i32 %238, ptr %246, align 4
   %247 = getelementptr inbounds nuw i8, ptr %indvars.iv270.sroa.gep308, i64 20
-  store i32 %239, ptr %247, align 4, !tbaa !120
+  store i32 %239, ptr %247, align 4
   %248 = shl nuw nsw i32 %.051.lcssa, 1
   %invariant.op230 = add nuw i32 %208, 3
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -598,12 +598,12 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit6
   %272 = add nuw nsw i64 %271, %255
   %273 = icmp samesign ule i64 %272, %256
   tail call void @llvm.assume(i1 %273)
-  %274 = load i32, ptr %270, align 4, !tbaa !116
+  %274 = load i32, ptr %270, align 4
   %275 = getelementptr inbounds nuw i8, ptr %270, i64 4
-  %276 = load i32, ptr %275, align 4, !tbaa !119
+  %276 = load i32, ptr %275, align 4
   %277 = mul nsw i32 %276, 50
   %278 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  %279 = load i32, ptr %278, align 4, !tbaa !120
+  %279 = load i32, ptr %278, align 4
   %280 = mul nsw i32 %279, 22929
   %281 = add nsw i32 %280, %277
   %282 = ashr i32 %281, 12
@@ -969,7 +969,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUlRKSt5arrayIS2_I
   br i1 %exitcond.not, label %._crit_edge222, label %.critedge, !llvm.loop !141
 
 ._crit_edge222:                                   ; preds = %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUlRKSt5arrayIS2_INS0_5YCbCrELm2EELm2EEiiE_clES7_ii.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, i8 0, i64 48, i1 false), !tbaa !113
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   %201 = getelementptr inbounds nuw i16, ptr %29, i64 %79
   %202 = mul nuw nsw i32 %74, 6
   %203 = zext nneg i32 %202 to i64
@@ -983,7 +983,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUlRKSt5arrayIS2_I
   %206 = getelementptr inbounds nuw i16, ptr %201, i64 %205
   %207 = load i16, ptr %206, align 2, !tbaa !114, !noalias !142
   %208 = zext i16 %207 to i32
-  store i32 %208, ptr %indvars.iv262.sroa.phi, align 4, !tbaa !116
+  store i32 %208, ptr %indvars.iv262.sroa.phi, align 4
   %209 = getelementptr inbounds nuw i8, ptr %indvars.iv262.sroa.phi, i64 12
   %210 = or disjoint i64 %205, 1
   %211 = icmp samesign ult i64 %210, %98
@@ -991,7 +991,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUlRKSt5arrayIS2_I
   %212 = getelementptr inbounds nuw i16, ptr %201, i64 %210
   %213 = load i16, ptr %212, align 2, !tbaa !114, !noalias !142
   %214 = zext i16 %213 to i32
-  store i32 %214, ptr %209, align 4, !tbaa !116
+  store i32 %214, ptr %209, align 4
   br i1 %204, label %.preheader207, label %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit62, !llvm.loop !137
 
 _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit62: ; preds = %.preheader207
@@ -1003,38 +1003,38 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit6
   %219 = load i16, ptr %218, align 2, !tbaa !114, !noalias !142
   %220 = zext i16 %219 to i32
   %221 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %220, ptr %221, align 4, !tbaa !119
+  store i32 %220, ptr %221, align 4
   %222 = getelementptr inbounds nuw i8, ptr %217, i64 10
   %223 = load i16, ptr %222, align 2, !tbaa !114, !noalias !142
   %224 = zext i16 %223 to i32
   %225 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %224, ptr %225, align 4, !tbaa !120
+  store i32 %224, ptr %225, align 4
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %227 = load i32, ptr %226, align 4, !tbaa !112
   %228 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %229 = load i32, ptr %228, align 4, !tbaa !119
+  %229 = load i32, ptr %228, align 4
   %230 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %231 = add i32 %227, -16384
   %232 = add i32 %231, %229
-  store i32 %232, ptr %228, align 4, !tbaa !119
+  store i32 %232, ptr %228, align 4
   %233 = add i32 %231, %224
-  store i32 %233, ptr %230, align 4, !tbaa !120
+  store i32 %233, ptr %230, align 4
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %232, ptr %234, align 4, !tbaa !119
+  store i32 %232, ptr %234, align 4
   %235 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %233, ptr %235, align 4, !tbaa !120
+  store i32 %233, ptr %235, align 4
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %232, ptr %236, align 4, !tbaa !119
+  store i32 %232, ptr %236, align 4
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %233, ptr %237, align 4, !tbaa !120
+  store i32 %233, ptr %237, align 4
   %238 = getelementptr inbounds nuw i8, ptr %indvars.iv268.sroa.gep306, i64 4
-  store i32 %232, ptr %238, align 4, !tbaa !119
+  store i32 %232, ptr %238, align 4
   %239 = getelementptr inbounds nuw i8, ptr %indvars.iv268.sroa.gep306, i64 8
-  store i32 %233, ptr %239, align 4, !tbaa !120
+  store i32 %233, ptr %239, align 4
   %240 = getelementptr inbounds nuw i8, ptr %indvars.iv268.sroa.gep306, i64 16
-  store i32 %232, ptr %240, align 4, !tbaa !119
+  store i32 %232, ptr %240, align 4
   %241 = getelementptr inbounds nuw i8, ptr %indvars.iv268.sroa.gep306, i64 20
-  store i32 %233, ptr %241, align 4, !tbaa !120
+  store i32 %233, ptr %241, align 4
   %242 = shl nuw nsw i32 %.051.lcssa, 1
   %invariant.op228 = add nuw i32 %202, 3
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1077,13 +1077,13 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit6
   %266 = add nuw nsw i64 %265, %249
   %267 = icmp samesign ule i64 %266, %250
   tail call void @llvm.assume(i1 %267)
-  %268 = load i32, ptr %264, align 4, !tbaa !116
+  %268 = load i32, ptr %264, align 4
   %269 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  %270 = load i32, ptr %269, align 4, !tbaa !120
+  %270 = load i32, ptr %269, align 4
   %271 = add nsw i32 %270, %268
   %272 = mul nsw i32 %271, %244
   %273 = getelementptr inbounds nuw i8, ptr %264, i64 4
-  %274 = load i32, ptr %273, align 4, !tbaa !119
+  %274 = load i32, ptr %273, align 4
   %275 = mul nsw i32 %274, -778
   %276 = shl nsw i32 %270, 11
   %277 = sub nsw i32 %275, %276

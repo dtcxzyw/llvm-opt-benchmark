@@ -25344,7 +25344,7 @@ default.unreachable:                              ; preds = %35
   %.sroa.12.16..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 24
   %.sroa.12.16.copyload = load i8, ptr %.sroa.12.16..sroa_idx, align 8, !alias.scope !7035
   %.sroa.13.16..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i.sroa.0, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.16..sroa_idx, i64 7, i1 false), !alias.scope !7035
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i.sroa.0, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.16..sroa_idx, i64 7, i1 false)
   br label %"_ZN79_$LT$cranelift_codegen..machinst..abi..ABIArg$u20$as$u20$core..clone..Clone$GT$5clone17h7f260c7b9bf6380eE.llvm.17595789031839490487.exit"
 
 72:                                               ; preds = %58

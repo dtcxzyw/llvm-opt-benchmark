@@ -16123,7 +16123,7 @@ define hidden void @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..fu
   %.sroa.9.8..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.9.8.copyload = load ptr, ptr %.sroa.9.8..sroa.4.0..sroa_idx.i.sroa_idx, align 8, !alias.scope !4905, !noalias !4906
   %.sroa.10.8..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.8..sroa.4.0..sroa_idx.i.sroa_idx, i64 16, i1 false), !alias.scope !4905
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.8..sroa.4.0..sroa_idx.i.sroa_idx, i64 16, i1 false)
   br label %17
 
 17:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h5396de439d5148fcE.exit.thread26", %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h5396de439d5148fcE.exit.thread"

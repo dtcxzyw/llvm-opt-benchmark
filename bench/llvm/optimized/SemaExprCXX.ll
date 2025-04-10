@@ -91390,7 +91390,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_114TransformTyposEE26TransformTemplateArg
   call void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %.val37.i, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %11) #27
   %95 = load i64, ptr %9, align 8
   store i32 0, ptr %12, align 8
-  store i64 0, ptr %77, align 8, !tbaa !1770
+  store i64 0, ptr %77, align 8
   store i64 0, ptr %78, align 8
   %.val36.i = load ptr, ptr %0, align 8, !tbaa !1813
   %96 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 12696
@@ -99020,7 +99020,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__
   call void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %.val37, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %13) #27
   %37 = load i64, ptr %11, align 8
   store i32 0, ptr %14, align 8
-  store i64 0, ptr %26, align 8, !tbaa !1770
+  store i64 0, ptr %26, align 8
   store i64 0, ptr %27, align 8
   %.val36 = load ptr, ptr %0, align 8, !tbaa !1813
   %38 = getelementptr inbounds nuw i8, ptr %.val36, i64 12696
@@ -100684,7 +100684,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_114TransformTyposEE26TransformTemplateArg
   call void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %.val37.i, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %11) #27
   %49 = load i64, ptr %9, align 8
   store i32 0, ptr %12, align 8
-  store i64 0, ptr %32, align 8, !tbaa !1770
+  store i64 0, ptr %32, align 8
   store i64 0, ptr %33, align 8
   %.val36.i = load ptr, ptr %0, align 8, !tbaa !1813
   %50 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 12696
@@ -101049,7 +101049,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__
   call void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %.val37, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %12) #27
   %47 = load i64, ptr %10, align 8
   store i32 0, ptr %13, align 8
-  store i64 0, ptr %29, align 8, !tbaa !1770
+  store i64 0, ptr %29, align 8
   store i64 0, ptr %30, align 8
   %.val36 = load ptr, ptr %0, align 8, !tbaa !1813
   %48 = getelementptr inbounds nuw i8, ptr %.val36, i64 12696
@@ -104526,7 +104526,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__
   call void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %.val43, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #27
   %34 = load i64, ptr %8, align 8
   store i32 0, ptr %11, align 8
-  store i64 0, ptr %23, align 8, !tbaa !1770
+  store i64 0, ptr %23, align 8
   store i64 0, ptr %24, align 8
   %.val42 = load ptr, ptr %0, align 8, !tbaa !1813
   %35 = getelementptr inbounds nuw i8, ptr %.val42, i64 12696
@@ -111585,17 +111585,17 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_114TransformT
   %.sroa.8.0 = phi ptr [ %10, %7 ], [ null, %2 ]
   %.sroa.058.0 = phi ptr [ %9, %7 ], [ null, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa.struct !2456
-  %.sroa.0.0.copyload.i37 = load i64, ptr %3, align 8, !tbaa !722
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  %.sroa.0.0.copyload.i37 = load i64, ptr %3, align 8
   %.not65 = icmp eq i64 %.sroa.0.0.copyload.i37, 0
   br i1 %.not65, label %14, label %13
 
 13:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #27
   call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_114TransformTyposEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !2456
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
-  %.sroa.0.0.copyload.i38 = load i64, ptr %3, align 8, !tbaa !722
+  %.sroa.0.0.copyload.i38 = load i64, ptr %3, align 8
   %.not66 = icmp eq i64 %.sroa.0.0.copyload.i38, 0
   br i1 %.not66, label %85, label %14
 
@@ -122733,9 +122733,9 @@ _ZNK5clang22OMPExecutableDirective17hasAssociatedStmtEv.exit.thread: ; preds = %
   br i1 %.not43, label %131, label %153
 
 131:                                              ; preds = %_ZNK5clang22OMPExecutableDirective17hasAssociatedStmtEv.exit.thread
-  store i64 0, ptr %5, align 8, !tbaa !2494
+  store i64 0, ptr %5, align 8
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %132, align 8, !tbaa !679
+  store i32 0, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -122748,7 +122748,7 @@ _ZNK5clang22OMPExecutableDirective17hasAssociatedStmtEv.exit.thread: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %138, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #27
   call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_114TransformTyposEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !2456
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
   %.pr = load i32, ptr %134, align 8, !tbaa !3152
   br label %139
@@ -155948,7 +155948,7 @@ _ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7Var
   call void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %.val37.i, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %11) #27
   %95 = load i64, ptr %9, align 8
   store i32 0, ptr %12, align 8
-  store i64 0, ptr %77, align 8, !tbaa !1770
+  store i64 0, ptr %77, align 8
   store i64 0, ptr %78, align 8
   %.val36.i = load ptr, ptr %0, align 8, !tbaa !2449
   %96 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 12696
@@ -163520,7 +163520,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIZNS_4Sema25C
   call void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %.val37, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %13) #27
   %37 = load i64, ptr %11, align 8
   store i32 0, ptr %14, align 8
-  store i64 0, ptr %26, align 8, !tbaa !1770
+  store i64 0, ptr %26, align 8
   store i64 0, ptr %27, align 8
   %.val36 = load ptr, ptr %0, align 8, !tbaa !2449
   %38 = getelementptr inbounds nuw i8, ptr %.val36, i64 12696
@@ -164945,7 +164945,7 @@ _ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7Var
   call void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %.val37.i, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %11) #27
   %49 = load i64, ptr %9, align 8
   store i32 0, ptr %12, align 8
-  store i64 0, ptr %32, align 8, !tbaa !1770
+  store i64 0, ptr %32, align 8
   store i64 0, ptr %33, align 8
   %.val36.i = load ptr, ptr %0, align 8, !tbaa !2449
   %50 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 12696
@@ -165290,7 +165290,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIZNS_4Sema25C
   call void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %.val37, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %12) #27
   %47 = load i64, ptr %10, align 8
   store i32 0, ptr %13, align 8
-  store i64 0, ptr %29, align 8, !tbaa !1770
+  store i64 0, ptr %29, align 8
   store i64 0, ptr %30, align 8
   %.val36 = load ptr, ptr %0, align 8, !tbaa !2449
   %48 = getelementptr inbounds nuw i8, ptr %.val36, i64 12696
@@ -168216,7 +168216,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIZNS_4Sema25C
   call void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %.val43, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #27
   %34 = load i64, ptr %8, align 8
   store i32 0, ptr %11, align 8
-  store i64 0, ptr %23, align 8, !tbaa !1770
+  store i64 0, ptr %23, align 8
   store i64 0, ptr %24, align 8
   %.val42 = load ptr, ptr %0, align 8, !tbaa !2449
   %35 = getelementptr inbounds nuw i8, ptr %.val42, i64 12696
@@ -175235,17 +175235,17 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTy
   %.sroa.8.0 = phi ptr [ %10, %7 ], [ null, %2 ]
   %.sroa.058.0 = phi ptr [ %9, %7 ], [ null, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa.struct !2456
-  %.sroa.0.0.copyload.i37 = load i64, ptr %3, align 8, !tbaa !722
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  %.sroa.0.0.copyload.i37 = load i64, ptr %3, align 8
   %.not65 = icmp eq i64 %.sroa.0.0.copyload.i37, 0
   br i1 %.not65, label %14, label %13
 
 13:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #27
   call fastcc void @_ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS3_Lb1EEES3_EEEE12TyposReplaceE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !2456
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
-  %.sroa.0.0.copyload.i38 = load i64, ptr %3, align 8, !tbaa !722
+  %.sroa.0.0.copyload.i38 = load i64, ptr %3, align 8
   %.not66 = icmp eq i64 %.sroa.0.0.copyload.i38, 0
   br i1 %.not66, label %85, label %14
 
@@ -184731,9 +184731,9 @@ _ZNK5clang22OMPExecutableDirective17hasAssociatedStmtEv.exit.thread: ; preds = %
   br i1 %.not43, label %131, label %153
 
 131:                                              ; preds = %_ZNK5clang22OMPExecutableDirective17hasAssociatedStmtEv.exit.thread
-  store i64 0, ptr %5, align 8, !tbaa !2494
+  store i64 0, ptr %5, align 8
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %132, align 8, !tbaa !679
+  store i32 0, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -184746,7 +184746,7 @@ _ZNK5clang22OMPExecutableDirective17hasAssociatedStmtEv.exit.thread: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %138, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #27
   call fastcc void @_ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS3_Lb1EEES3_EEEE12TyposReplaceE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !2456
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
   %.pr = load i32, ptr %134, align 8, !tbaa !3152
   br label %139

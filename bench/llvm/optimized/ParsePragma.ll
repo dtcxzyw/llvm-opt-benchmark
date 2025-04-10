@@ -31344,7 +31344,7 @@ thread-pre-split:                                 ; preds = %349, %348, %339
   ]
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %125
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !1436
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %127 = load ptr, ptr %18, align 8, !tbaa !1104
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !1166

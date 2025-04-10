@@ -3000,7 +3000,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i.i: ; pred
   %.sroa.024.0.ph = phi ptr [ %.sroa.014.0.copyload.i, %84 ], [ %.sroa.015.0.copyload.i, %85 ]
   store ptr %.sroa.024.0.ph, ptr %0, align 8, !alias.scope !521
   %.sroa.726.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.726.0..sroa_idx27, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.417.i, i64 16, i1 false), !alias.scope !521
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.726.0..sroa_idx27, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.417.i, i64 16, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb5e4b1e2050b8283E.exit"
 
 88:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17hf025eae470359017E.llvm.10746823393314531435.exit"
@@ -3635,7 +3635,7 @@ _ZN4core3ptr7replace17hb4b01a3a05e580b5E.exit5.i: ; preds = %90
   %.sroa.027.054 = phi i8 [ %.sroa.0.0.copyload1.i, %.thread52 ], [ %.sroa.03.0.copyload4.i, %106 ]
   store i8 %.sroa.027.054, ptr %0, align 8, !alias.scope !685
   %.sroa.729.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.729.0..sroa_idx30, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.4.i, i64 55, i1 false), !alias.scope !685
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.729.0..sroa_idx30, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.4.i, i64 55, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf06a3ad4c6eb4e12E.exit"
 
 108:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17hf025eae470359017E.llvm.10746823393314531435.exit"

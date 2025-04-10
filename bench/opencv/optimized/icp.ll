@@ -3020,7 +3020,7 @@ _ZN2cvdvIdLi3EEENS_3VecIT_XT0_EEERKS3_d.exit:     ; preds = %1161
 
 .critedge.i.i:                                    ; preds = %1175
   %1174 = getelementptr inbounds nuw [3 x double], ptr %14, i64 0, i64 %indvars.iv23.i.i
-  store double %1181, ptr %1174, align 8, !tbaa !26
+  store double %1181, ptr %1174, align 8
   %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
   %exitcond26.not.i.i = icmp eq i64 %indvars.iv.next24.i.i, 3
   br i1 %exitcond26.not.i.i, label %1182, label %.preheader.i.i392, !llvm.loop !172
@@ -3047,7 +3047,7 @@ _ZN2cvdvIdLi3EEENS_3VecIT_XT0_EEERKS3_d.exit:     ; preds = %1161
   %1184 = getelementptr inbounds nuw [3 x double], ptr %147, i64 0, i64 %indvars.iv.i.i.i396
   %1185 = load double, ptr %1184, align 8, !tbaa !26, !noalias !177
   %1186 = getelementptr inbounds nuw [3 x double], ptr %14, i64 0, i64 %indvars.iv.i.i.i396
-  %1187 = load double, ptr %1186, align 8, !tbaa !26
+  %1187 = load double, ptr %1186, align 8
   %1188 = fsub double %1185, %1187
   %1189 = getelementptr inbounds nuw [3 x double], ptr %146, i64 0, i64 %indvars.iv.i.i.i396
   store double %1188, ptr %1189, align 8, !tbaa !26, !alias.scope !177

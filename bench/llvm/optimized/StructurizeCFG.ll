@@ -13268,7 +13268,7 @@ _ZN4llvm11GraphTraitsIPNS_10RegionNodeEE9child_endES2_.exit: ; preds = %_ZN4llvm
   %.sroa.8.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %.8.val, ptr %.sroa.8.sroa.9.0..sroa_idx, align 8, !noalias !691
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %53, ptr %55, align 8, !tbaa !656, !noalias !691
+  store ptr %53, ptr %55, align 8, !noalias !691
   call fastcc void @_ZN4llvm20filter_iterator_baseIN12_GLOBAL__N_114SubGraphTraits19WrappedSuccIteratorEPFbRKSt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS6_Lj4ENS_12DenseMapInfoIS6_vEEEEEESt20forward_iterator_tagE13findNextValidEv(ptr noundef nonnull align 8 dereferenceable(72) %2), !noalias !691
   store i64 %52, ptr %3, align 8, !noalias !691
   %.sroa.8.sroa.6.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13286,7 +13286,7 @@ _ZN4llvm11GraphTraitsIPNS_10RegionNodeEE9child_endES2_.exit: ; preds = %_ZN4llvm
   %.sroa.8.sroa.9.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %.8.val, ptr %.sroa.8.sroa.9.0..sroa_idx44, align 8, !noalias !691
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %53, ptr %57, align 8, !tbaa !656, !noalias !691
+  store ptr %53, ptr %57, align 8, !noalias !691
   call fastcc void @_ZN4llvm20filter_iterator_baseIN12_GLOBAL__N_114SubGraphTraits19WrappedSuccIteratorEPFbRKSt4pairIPNS_10RegionNodeEPNS_13SmallDenseSetIS6_Lj4ENS_12DenseMapInfoIS6_vEEEEEESt20forward_iterator_tagE13findNextValidEv(ptr noundef nonnull align 8 dereferenceable(72) %3), !noalias !691
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72

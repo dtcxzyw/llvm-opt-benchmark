@@ -17320,7 +17320,7 @@ _ZN7project6search11SearchQuery5regex17h2c794b6fc2131df4E.exit.i: ; preds = %162
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.04.i.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1299
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.04.i.sroa.5.i, i64 120, i1 false), !alias.scope !1300
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.04.i.sroa.5.i, i64 120, i1 false)
   %.sroa.83.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %153, ptr %.sroa.83.0..sroa_idx.i, align 8, !alias.scope !1299
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 144

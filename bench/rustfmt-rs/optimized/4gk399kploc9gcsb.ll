@@ -7832,7 +7832,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core.
   %.sroa.0.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %47, ptr %.sroa.0.sroa.524.0..sroa_idx.i, align 8, !alias.scope !1477, !noalias !1481
   %.sroa.0.sroa.625.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8.i, i64 39, i1 false), !alias.scope !1477, !noalias !1476
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8.i, i64 39, i1 false), !noalias !1476
   %.sroa.0.sroa.726.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i8 %53, ptr %.sroa.0.sroa.726.0..sroa_idx.i, align 8, !alias.scope !1477, !noalias !1481
   %.sroa.0.sroa.827.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 57
@@ -17647,7 +17647,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$co
   %.sroa.0.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %37, ptr %.sroa.0.sroa.524.0..sroa_idx, align 8, !alias.scope !2230, !noalias !2234
   %.sroa.0.sroa.625.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8, i64 39, i1 false), !alias.scope !2230
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8, i64 39, i1 false)
   %.sroa.0.sroa.726.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i8 %43, ptr %.sroa.0.sroa.726.0..sroa_idx, align 8, !alias.scope !2230, !noalias !2234
   %.sroa.0.sroa.827.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 57
@@ -18173,7 +18173,7 @@ _ZN6ignore8pathutil12strip_prefix17h7669a838dd6a2855E.exit: ; preds = %3, %"_ZN7
   %.sroa.0.sroa.524.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 %47, ptr %.sroa.0.sroa.524.0..sroa_idx.i.i, align 8, !alias.scope !2304, !noalias !2308
   %.sroa.0.sroa.625.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8.i.i, i64 39, i1 false), !alias.scope !2304, !noalias !2303
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8.i.i, i64 39, i1 false), !noalias !2303
   %.sroa.0.sroa.726.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i8 %53, ptr %.sroa.0.sroa.726.0..sroa_idx.i.i, align 8, !alias.scope !2304, !noalias !2308
   %.sroa.0.sroa.827.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 57

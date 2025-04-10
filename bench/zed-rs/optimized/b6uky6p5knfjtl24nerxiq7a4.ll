@@ -103,9 +103,8 @@ define internal fastcc void @"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT
   %.sroa.0.sroa.5 = alloca [48 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %10 = load i64, ptr %9, align 8, !alias.scope !10, !noalias !7, !noundef !12
+  %10 = load i64, ptr %9, align 8, !alias.scope !7, !noalias !10, !noundef !12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
@@ -140,14 +139,14 @@ define internal fastcc void @"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT
 24:                                               ; preds = %4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8, !alias.scope !20, !noalias !21, !noundef !12
-  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !noalias !7
+  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !noalias !10
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load i64, ptr %27, align 8, !alias.scope !20, !noalias !21, !noundef !12
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %26, ptr %29, align 8, !alias.scope !14, !noalias !22
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %28, ptr %30, align 8, !alias.scope !14, !noalias !22
-  %.sroa.0.sroa.0.0.copyload22.pre = load i64, ptr %5, align 8, !noalias !10
+  %.sroa.0.sroa.0.0.copyload22.pre = load i64, ptr %5, align 8, !noalias !7
   br label %"_ZN71_$LT$notifications..NotificationEntry$u20$as$u20$core..clone..Clone$GT$5clone17h80809424feb79ad4E.exit"
 
 31:                                               ; preds = %4
@@ -169,11 +168,11 @@ define internal fastcc void @"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT
   %.sroa.0.sroa.0.0.copyload22 = phi i64 [ -9223372036854775808, %16 ], [ -9223372036854775807, %20 ], [ %.sroa.0.sroa.0.0.copyload22.pre, %24 ], [ -9223372036854775805, %31 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.sroa.5.40..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.5.40..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !alias.scope !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.5.40..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %43 = load i8, ptr %42, align 8, !range !23, !alias.scope !10, !noalias !7, !noundef !12
+  %43 = load i8, ptr %42, align 8, !range !23, !alias.scope !7, !noalias !10, !noundef !12
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %45 = load i8, ptr %44, align 1, !range !24, !alias.scope !10, !noalias !7, !noundef !12
+  %45 = load i8, ptr %44, align 1, !range !24, !alias.scope !7, !noalias !10, !noundef !12
   %.sroa.0.sroa.5.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.5.0..sroa_idx23, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !13
@@ -188,7 +187,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h15d6a80f86bdbc0cE.exit.thre
   %50 = getelementptr inbounds nuw { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }, ptr %49, i64 %48
   store i64 %.sroa.0.sroa.0.0.copyload22, ptr %50, align 8, !alias.scope !34, !noalias !35
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.5, i64 48, i1 false), !alias.scope !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.5, i64 48, i1 false)
   %.sroa.6.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %50, i64 56
   store i64 %10, ptr %.sroa.6.0..sroa_idx1, align 8, !alias.scope !34, !noalias !35
   %.sroa.7.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %50, i64 64
@@ -2950,21 +2949,21 @@ attributes #19 = { cold noreturn nounwind }
 !5 = distinct !{!5, !6, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h095e114da815d656E: argument 0"}
 !6 = distinct !{!6, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h095e114da815d656E"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN71_$LT$notifications..NotificationEntry$u20$as$u20$core..clone..Clone$GT$5clone17h80809424feb79ad4E: argument 0"}
+!8 = distinct !{!8, !9, !"_ZN71_$LT$notifications..NotificationEntry$u20$as$u20$core..clone..Clone$GT$5clone17h80809424feb79ad4E: argument 1"}
 !9 = distinct !{!9, !"_ZN71_$LT$notifications..NotificationEntry$u20$as$u20$core..clone..Clone$GT$5clone17h80809424feb79ad4E"}
 !10 = !{!11}
-!11 = distinct !{!11, !9, !"_ZN71_$LT$notifications..NotificationEntry$u20$as$u20$core..clone..Clone$GT$5clone17h80809424feb79ad4E: argument 1"}
+!11 = distinct !{!11, !9, !"_ZN71_$LT$notifications..NotificationEntry$u20$as$u20$core..clone..Clone$GT$5clone17h80809424feb79ad4E: argument 0"}
 !12 = !{}
-!13 = !{!8, !11}
+!13 = !{!11, !8}
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN70_$LT$rpc..notification..Notification$u20$as$u20$core..clone..Clone$GT$5clone17hc1e050b5ebcf0a11E: argument 0"}
 !16 = distinct !{!16, !"_ZN70_$LT$rpc..notification..Notification$u20$as$u20$core..clone..Clone$GT$5clone17hc1e050b5ebcf0a11E"}
 !17 = !{!18}
 !18 = distinct !{!18, !16, !"_ZN70_$LT$rpc..notification..Notification$u20$as$u20$core..clone..Clone$GT$5clone17hc1e050b5ebcf0a11E: argument 1"}
 !19 = !{i64 0, i64 -9223372036854775804}
-!20 = !{!18, !11}
-!21 = !{!15, !8}
-!22 = !{!18, !8, !11}
+!20 = !{!18, !8}
+!21 = !{!15, !11}
+!22 = !{!18, !11, !8}
 !23 = !{i8 0, i8 2}
 !24 = !{i8 0, i8 3}
 !25 = !{!26}

@@ -1216,14 +1216,14 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %.loopexit
 
 29:                                               ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.8..sroa_idx9, i64 16, i1 false), !alias.scope !74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.8..sroa_idx9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3), !noalias !66
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !76
   %.not = icmp eq i64 %.sroa.9.8.copyload8, -9223372036854775807
   br i1 %.not, label %.loopexit, label %31
 
 30:                                               ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.12.8..sroa_idx9, i64 80, i1 false), !alias.scope !74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.12.8..sroa_idx9, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3), !noalias !66
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !76
   store i64 %25, ptr %0, align 8

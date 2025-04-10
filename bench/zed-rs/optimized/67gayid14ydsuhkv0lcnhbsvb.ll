@@ -8346,7 +8346,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hfa35faf444da5e76E.exit: ; preds = %.no
   store ptr %427, ptr %9, align 8, !alias.scope !1645, !noalias !1649
   store i64 %428, ptr %.sroa.442.0..sroa_idx.i.i, align 8, !alias.scope !1645, !noalias !1649
   store i8 %469, ptr %.sroa.543.0..sroa_idx.i.i, align 8, !alias.scope !1645, !noalias !1649
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.644.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i, i64 39, i1 false), !alias.scope !1645, !noalias !1644
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.644.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i, i64 39, i1 false), !noalias !1644
   store i8 %471, ptr %.sroa.745.0..sroa_idx.i.i, align 8, !alias.scope !1645, !noalias !1649
   store i8 %472, ptr %.sroa.846.0..sroa_idx.i.i, align 1, !alias.scope !1645, !noalias !1649
   store i8 %470, ptr %.sroa.947.0..sroa_idx.i.i, align 2, !alias.scope !1645, !noalias !1649

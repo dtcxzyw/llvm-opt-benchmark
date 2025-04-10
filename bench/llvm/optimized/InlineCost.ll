@@ -4662,9 +4662,9 @@ _ZNK4llvm8CallBase9hasFnAttrENS_9Attribute8AttrKindE.exit.thread: ; preds = %.cr
 72:                                               ; preds = %72, %70
   %.04.i.i.i.i.i = phi i64 [ 0, %70 ], [ %76, %72 ]
   %73 = getelementptr inbounds nuw [9 x i64], ptr %6, i64 0, i64 %.04.i.i.i.i.i
-  %74 = load i64, ptr %73, align 8, !tbaa !53
+  %74 = load i64, ptr %73, align 8
   %75 = xor i64 %74, -1
-  store i64 %75, ptr %73, align 8, !tbaa !53
+  store i64 %75, ptr %73, align 8
   %76 = add nuw nsw i64 %.04.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %76, 9
   br i1 %exitcond.not.i.i.i.i.i, label %_ZNKSt6bitsetILm523EEcoEv.exit.i.i, label %72, !llvm.loop !366
@@ -4672,16 +4672,16 @@ _ZNK4llvm8CallBase9hasFnAttrENS_9Attribute8AttrKindE.exit.thread: ; preds = %.cr
 _ZNKSt6bitsetILm523EEcoEv.exit.i.i:               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %79 = load i64, ptr %78, align 8, !tbaa !53
+  %79 = load i64, ptr %78, align 8
   %80 = and i64 %79, 2047
-  store i64 %80, ptr %78, align 8, !tbaa !53
+  store i64 %80, ptr %78, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %77, i64 72, i1 false)
   br label %81
 
 81:                                               ; preds = %81, %_ZNKSt6bitsetILm523EEcoEv.exit.i.i
   %.05.i.i.i.i.i = phi i64 [ 0, %_ZNKSt6bitsetILm523EEcoEv.exit.i.i ], [ %87, %81 ]
   %82 = getelementptr inbounds nuw [9 x i64], ptr %6, i64 0, i64 %.05.i.i.i.i.i
-  %83 = load i64, ptr %82, align 8, !tbaa !53
+  %83 = load i64, ptr %82, align 8
   %84 = getelementptr inbounds nuw [9 x i64], ptr %7, i64 0, i64 %.05.i.i.i.i.i
   %85 = load i64, ptr %84, align 8, !tbaa !53, !alias.scope !367
   %86 = and i64 %85, %83

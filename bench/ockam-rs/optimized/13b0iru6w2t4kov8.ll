@@ -9649,7 +9649,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17hf11f06d570c1028fE.llvm.6972814350
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %517, ptr nonnull readonly align 1 %513, i64 %514, i1 false), !noalias !1421
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.072.sroa.6, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.6, i64 224, i1 false)
   %.sroa.072.sroa.6.240..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.072.sroa.6, i64 224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.072.sroa.6.240..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false), !alias.scope !1424
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.072.sroa.6.240..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %32)
   br label %43
@@ -11944,7 +11944,3 @@ attributes #31 = { noreturn }
 !1421 = !{!1422, !1420, !1416, !1414, !1411}
 !1422 = distinct !{!1422, !1423, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h3e7197c0aa5fc3edE.llvm.15801386443151308984: argument 0"}
 !1423 = distinct !{!1423, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h3e7197c0aa5fc3edE.llvm.15801386443151308984"}
-!1424 = !{!1425, !1427}
-!1425 = distinct !{!1425, !1426, !"_ZN19ockam_transport_uds6router6handle15UdsRouterHandle3new17he5a7e944d25c19adE: argument 0"}
-!1426 = distinct !{!1426, !"_ZN19ockam_transport_uds6router6handle15UdsRouterHandle3new17he5a7e944d25c19adE"}
-!1427 = distinct !{!1427, !1426, !"_ZN19ockam_transport_uds6router6handle15UdsRouterHandle3new17he5a7e944d25c19adE: argument 2"}

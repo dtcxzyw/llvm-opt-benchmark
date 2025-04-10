@@ -653,9 +653,9 @@ _ZN3ue29CharReachC2Ehh.exit:
 3:                                                ; preds = %3, %_ZN3ue29CharReachC2Ehh.exit
   %.0.idx9.i.i.i = phi i64 [ 0, %_ZN3ue29CharReachC2Ehh.exit ], [ %.0.add.i.i.i, %3 ]
   %.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 %.0.idx9.i.i.i
-  %4 = load i64, ptr %.0.ptr.i.i.i, align 8, !alias.scope !20
+  %4 = load i64, ptr %.0.ptr.i.i.i, align 8
   %5 = xor i64 %4, -1
-  store i64 %5, ptr %.0.ptr.i.i.i, align 8, !alias.scope !20
+  store i64 %5, ptr %.0.ptr.i.i.i, align 8
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx9.i.i.i, 8
   %.not.i.i.i = icmp eq i64 %.0.add.i.i.i, 32
   br i1 %.not.i.i.i, label %_ZNK3ue29CharReachcoEv.exit, label %3
@@ -663,27 +663,27 @@ _ZN3ue29CharReachC2Ehh.exit:
 _ZNK3ue29CharReachcoEv.exit:                      ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %6 = load i64, ptr %.sroa.0, align 8
-  %7 = load i64, ptr %1, align 8, !alias.scope !23
+  %7 = load i64, ptr %1, align 8, !alias.scope !20
   %8 = and i64 %7, %6
-  store i64 %8, ptr %1, align 8, !alias.scope !23
+  store i64 %8, ptr %1, align 8, !alias.scope !20
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !alias.scope !23
+  %12 = load i64, ptr %11, align 8, !alias.scope !20
   %13 = and i64 %12, %10
-  store i64 %13, ptr %11, align 8, !alias.scope !23
+  store i64 %13, ptr %11, align 8, !alias.scope !20
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !alias.scope !23
+  %17 = load i64, ptr %16, align 8, !alias.scope !20
   %18 = and i64 %17, %15
-  store i64 %18, ptr %16, align 8, !alias.scope !23
+  store i64 %18, ptr %16, align 8, !alias.scope !20
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load i64, ptr %21, align 8, !alias.scope !23
+  %22 = load i64, ptr %21, align 8, !alias.scope !20
   %23 = and i64 %22, %20
-  store i64 %23, ptr %21, align 8, !alias.scope !23
+  store i64 %23, ptr %21, align 8, !alias.scope !20
   br label %24
 
 24:                                               ; preds = %24, %_ZNK3ue29CharReachcoEv.exit
@@ -708,7 +708,7 @@ _ZN3ue29CharReachC2Ehh.exit:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 24, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 0, ptr %2, align 8, !alias.scope !26
+  store i64 0, ptr %2, align 8, !alias.scope !23
   br label %3
 
 3:                                                ; preds = %3, %_ZN3ue29CharReachC2Ehh.exit
@@ -817,7 +817,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %25, %32
   %42 = or i8 %41, %38
   store i8 %42, ptr %40, align 1
   %.not.i.i7 = icmp samesign ult i64 %.sink25, 256
-  br i1 %.not.i.i7, label %.lr.ph34, label %._crit_edge, !llvm.loop !29
+  br i1 %.not.i.i7, label %.lr.ph34, label %._crit_edge, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -906,7 +906,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %24, %31
   %36 = or i8 %16, %35
   %37 = and i8 %15, %35
   %.not.i.i14 = icmp samesign ult i64 %.sink41, 256
-  br i1 %.not.i.i14, label %.lr.ph54, label %._crit_edge, !llvm.loop !30
+  br i1 %.not.i.i14, label %.lr.ph54, label %._crit_edge, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -977,13 +977,10 @@ attributes #17 = { nounwind }
 !18 = distinct !{!18, !"_ZNK3ue28bitfieldILm256EEanERKS1_"}
 !19 = distinct !{!19, !6}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK3ue29CharReachcoEv: argument 0"}
-!22 = distinct !{!22, !"_ZNK3ue29CharReachcoEv"}
+!21 = distinct !{!21, !22, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
+!22 = distinct !{!22, !"_ZNK3ue29CharReachanERKS0_"}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
 !25 = distinct !{!25, !"_ZNK3ue29CharReachanERKS0_"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
-!28 = distinct !{!28, !"_ZNK3ue29CharReachanERKS0_"}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}

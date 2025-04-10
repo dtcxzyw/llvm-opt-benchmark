@@ -7274,9 +7274,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.013.040, i64 48
   %32 = add nuw nsw i64 %.sroa.7.039, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1906)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1909)
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.013.040, i64 24
-  %34 = load i64, ptr %33, align 8, !range !229, !alias.scope !1909, !noalias !1906, !noundef !4
+  %34 = load i64, ptr %33, align 8, !range !229, !alias.scope !1906, !noalias !1909, !noundef !4
   %35 = icmp eq i64 %34, -9223372036854775808
   br i1 %35, label %36, label %37
 
@@ -7285,7 +7284,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %36
-  store i64 -9223372036854775808, ptr %24, align 8, !alias.scope !1906
+  store i64 -9223372036854775808, ptr %24, align 8
   br label %"_ZN80_$LT$markdown_preview..markdown_elements..Link$u20$as$u20$core..clone..Clone$GT$5clone17h9d8446e1cdd66324E.exit"
 
 37:                                               ; preds = %30
@@ -7363,9 +7362,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1929
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull readonly align 1 %49, i64 %50, i1 false), !noalias !1933
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  store i64 %52, ptr %24, align 8, !alias.scope !1906
-  store ptr %57, ptr %.sroa.422.0..sroa_idx.i, align 8, !alias.scope !1906
-  store i64 %50, ptr %.sroa.523.0..sroa_idx.i, align 8, !alias.scope !1906
+  store i64 %52, ptr %24, align 8
+  store ptr %57, ptr %.sroa.422.0..sroa_idx.i, align 8
+  store i64 %50, ptr %.sroa.523.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1911
   br label %"_ZN80_$LT$markdown_preview..markdown_elements..Link$u20$as$u20$core..clone..Clone$GT$5clone17h9d8446e1cdd66324E.exit"
 
@@ -13938,33 +13937,33 @@ attributes #32 = { nounwind }
 !1904 = !{!1905}
 !1905 = distinct !{!1905, !1903, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h366c869649d53bbeE.llvm.5033762893530266: argument 1"}
 !1906 = !{!1907}
-!1907 = distinct !{!1907, !1908, !"_ZN80_$LT$markdown_preview..markdown_elements..Link$u20$as$u20$core..clone..Clone$GT$5clone17h9d8446e1cdd66324E: argument 0"}
+!1907 = distinct !{!1907, !1908, !"_ZN80_$LT$markdown_preview..markdown_elements..Link$u20$as$u20$core..clone..Clone$GT$5clone17h9d8446e1cdd66324E: argument 1"}
 !1908 = distinct !{!1908, !"_ZN80_$LT$markdown_preview..markdown_elements..Link$u20$as$u20$core..clone..Clone$GT$5clone17h9d8446e1cdd66324E"}
 !1909 = !{!1910}
-!1910 = distinct !{!1910, !1908, !"_ZN80_$LT$markdown_preview..markdown_elements..Link$u20$as$u20$core..clone..Clone$GT$5clone17h9d8446e1cdd66324E: argument 1"}
-!1911 = !{!1907, !1910}
+!1910 = distinct !{!1910, !1908, !"_ZN80_$LT$markdown_preview..markdown_elements..Link$u20$as$u20$core..clone..Clone$GT$5clone17h9d8446e1cdd66324E: argument 0"}
+!1911 = !{!1910, !1907}
 !1912 = !{!1913}
 !1913 = distinct !{!1913, !1914, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7f186784ee2e6adcE: argument 1"}
 !1914 = distinct !{!1914, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7f186784ee2e6adcE"}
-!1915 = !{!1913, !1910}
-!1916 = !{!1917, !1907}
+!1915 = !{!1913, !1907}
+!1916 = !{!1917, !1910}
 !1917 = distinct !{!1917, !1914, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7f186784ee2e6adcE: argument 0"}
-!1918 = !{!1919, !1921, !1917, !1913, !1907, !1910}
+!1918 = !{!1919, !1921, !1917, !1913, !1910, !1907}
 !1919 = distinct !{!1919, !1920, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h408ccbeb7fb875acE.llvm.5033762893530266: argument 0"}
 !1920 = distinct !{!1920, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h408ccbeb7fb875acE.llvm.5033762893530266"}
 !1921 = distinct !{!1921, !1920, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h408ccbeb7fb875acE.llvm.5033762893530266: argument 1"}
-!1922 = !{!1919, !1917, !1913, !1907, !1910}
+!1922 = !{!1919, !1917, !1913, !1910, !1907}
 !1923 = !{!1924}
 !1924 = distinct !{!1924, !1925, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7f186784ee2e6adcE: argument 1"}
 !1925 = distinct !{!1925, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7f186784ee2e6adcE"}
-!1926 = !{!1924, !1910}
-!1927 = !{!1928, !1907}
+!1926 = !{!1924, !1907}
+!1927 = !{!1928, !1910}
 !1928 = distinct !{!1928, !1925, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7f186784ee2e6adcE: argument 0"}
-!1929 = !{!1930, !1932, !1928, !1924, !1907, !1910}
+!1929 = !{!1930, !1932, !1928, !1924, !1910, !1907}
 !1930 = distinct !{!1930, !1931, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h408ccbeb7fb875acE.llvm.5033762893530266: argument 0"}
 !1931 = distinct !{!1931, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h408ccbeb7fb875acE.llvm.5033762893530266"}
 !1932 = distinct !{!1932, !1931, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h408ccbeb7fb875acE.llvm.5033762893530266: argument 1"}
-!1933 = !{!1930, !1928, !1924, !1907, !1910}
+!1933 = !{!1930, !1928, !1924, !1910, !1907}
 !1934 = !{!1935}
 !1935 = distinct !{!1935, !1936, !"_ZN4core5clone5impls54_$LT$impl$u20$core..clone..Clone$u20$for$u20$usize$GT$5clone17h7dac73040191b8c2E.llvm.5033762893530266: argument 0"}
 !1936 = distinct !{!1936, !"_ZN4core5clone5impls54_$LT$impl$u20$core..clone..Clone$u20$for$u20$usize$GT$5clone17h7dac73040191b8c2E.llvm.5033762893530266"}

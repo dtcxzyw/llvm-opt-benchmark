@@ -26777,8 +26777,8 @@ default.unreachable44:                            ; preds = %2
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.sroa.026.sroa.0.0.copyload = load ptr, ptr %14, align 8, !alias.scope !3802, !noalias !3803
   %.sroa.026.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.026.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.026.sroa.7.0..sroa_idx, i64 16, i1 false), !alias.scope !3802
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1027, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i64 16, i1 false), !alias.scope !3802
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.026.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.026.sroa.7.0..sroa_idx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1027, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i64 16, i1 false)
   br label %27
 
 25:                                               ; preds = %24, %23, %20

@@ -8297,7 +8297,7 @@ _ZN3std2fs12canonicalize17h2341b874b4153c0fE.exit90.i: ; preds = %92
   store ptr %108, ptr %25, align 8, !alias.scope !1335, !noalias !1339
   store i64 %109, ptr %.sroa.0.sroa.426.0..sroa_idx.i.i.i, align 8, !alias.scope !1335, !noalias !1339
   store i8 %126, ptr %.sroa.0.sroa.527.0..sroa_idx.i.i.i, align 8, !alias.scope !1335, !noalias !1339
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.628.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i10.i.i.i, i64 39, i1 false), !alias.scope !1335, !noalias !1334
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.628.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i10.i.i.i, i64 39, i1 false), !noalias !1334
   store i8 %130, ptr %.sroa.0.sroa.729.0..sroa_idx.i.i.i, align 8, !alias.scope !1335, !noalias !1339
   store i8 %131, ptr %.sroa.0.sroa.830.0..sroa_idx.i.i.i, align 1, !alias.scope !1335, !noalias !1339
   store i8 %129, ptr %.sroa.0.sroa.931.0..sroa_idx.i.i.i, align 2, !alias.scope !1335, !noalias !1339

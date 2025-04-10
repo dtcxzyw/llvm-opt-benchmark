@@ -49909,7 +49909,7 @@ define hidden i32 @ma_decoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %ma_decoder_config_init_copy.exit
 
 8:                                                ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !alias.scope !202
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %7, %8
@@ -50125,7 +50125,7 @@ define hidden i32 @ma_decoder_init_memory(ptr noundef %0, i64 noundef %1, ptr no
   br label %ma_decoder_config_init_copy.exit
 
 12:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 144, i1 false), !alias.scope !205
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 144, i1 false), !alias.scope !202
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %11, %12
@@ -50902,7 +50902,7 @@ define hidden i32 @ma_decoder_init_vfs(ptr noundef %0, ptr noundef %1, ptr nound
   br label %ma_decoder_config_init_copy.exit
 
 11:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, i8 0, i64 144, i1 false), !alias.scope !208
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, i8 0, i64 144, i1 false), !alias.scope !205
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %10, %11
@@ -51285,7 +51285,7 @@ define hidden i32 @ma_decoder_init_vfs_w(ptr noundef %0, ptr noundef %1, ptr nou
   br label %ma_decoder_config_init_copy.exit
 
 12:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 144, i1 false), !alias.scope !211
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 144, i1 false), !alias.scope !208
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %11, %12
@@ -51614,7 +51614,7 @@ define hidden i32 @ma_decoder_init_file(ptr noundef %0, ptr noundef captures(add
   br label %ma_decoder_config_init_copy.exit
 
 8:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !alias.scope !214
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %7, %8
@@ -51814,7 +51814,7 @@ define hidden i32 @ma_decoder_init_file_w(ptr noundef %0, ptr noundef captures(a
   br label %ma_decoder_config_init_copy.exit
 
 8:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !alias.scope !217
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %7, %8
@@ -53067,7 +53067,7 @@ define hidden i32 @ma_decode_from_vfs(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %ma_decoder_config_init_copy.exit
 
 14:                                               ; preds = %12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false), !alias.scope !220
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false), !alias.scope !211
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %13, %14
@@ -53266,7 +53266,7 @@ define hidden i32 @ma_decode_file(ptr noundef %0, ptr noundef captures(address_i
   br label %ma_decoder_config_init_copy.exit.i
 
 13:                                               ; preds = %11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 144, i1 false), !alias.scope !223
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 144, i1 false), !alias.scope !214
   br label %ma_decoder_config_init_copy.exit.i
 
 ma_decoder_config_init_copy.exit.i:               ; preds = %13, %12
@@ -53325,7 +53325,7 @@ define hidden i32 @ma_decode_memory(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %ma_decoder_config_init_copy.exit
 
 17:                                               ; preds = %15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false), !alias.scope !226
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false), !alias.scope !217
   br label %ma_decoder_config_init_copy.exit
 
 ma_decoder_config_init_copy.exit:                 ; preds = %16, %17
@@ -65075,7 +65075,7 @@ setup_free.exit122:                               ; preds = %.lr.ph.split, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !229
+  br i1 %18, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !220
 
 ._crit_edge.loopexit:                             ; preds = %setup_free.exit122
   %.val99.pre = load ptr, ptr %2, align 8
@@ -65158,7 +65158,7 @@ setup_free.exit126:                               ; preds = %.lr.ph210.split, %4
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next231, %52
-  br i1 %53, label %.lr.ph210.split, label %._crit_edge211.loopexit, !llvm.loop !230
+  br i1 %53, label %.lr.ph210.split, label %._crit_edge211.loopexit, !llvm.loop !221
 
 ._crit_edge211.loopexit:                          ; preds = %setup_free.exit126
   %.val101.pre = load ptr, ptr %2, align 8
@@ -65264,7 +65264,7 @@ setup_free.exit140:                               ; preds = %setup_free.exit132,
   %82 = load i32, ptr %64, align 8
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next237, %83
-  br i1 %84, label %.lr.ph215.split, label %._crit_edge216.loopexit, !llvm.loop !231
+  br i1 %84, label %.lr.ph215.split, label %._crit_edge216.loopexit, !llvm.loop !222
 
 ._crit_edge216.loopexit:                          ; preds = %setup_free.exit140
   %.val108.pre = load ptr, ptr %2, align 8
@@ -65337,7 +65337,7 @@ setup_free.exit148:                               ; preds = %.lr.ph218.split, %9
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next240, %103
-  br i1 %104, label %.lr.ph218.split, label %._crit_edge219.loopexit, !llvm.loop !232
+  br i1 %104, label %.lr.ph218.split, label %._crit_edge219.loopexit, !llvm.loop !223
 
 ._crit_edge219.loopexit:                          ; preds = %setup_free.exit148
   %.val112.pre = load ptr, ptr %2, align 8
@@ -65417,7 +65417,7 @@ setup_free.exit156:                               ; preds = %.lr.ph221.split, %s
   %130 = icmp slt i64 %indvars.iv.next243, %129
   %131 = icmp samesign ult i64 %indvars.iv242, 15
   %132 = select i1 %130, i1 %131, i1 false
-  br i1 %132, label %.lr.ph221.split, label %.preheader.loopexit, !llvm.loop !233
+  br i1 %132, label %.lr.ph221.split, label %.preheader.loopexit, !llvm.loop !224
 
 .preheader.split:                                 ; preds = %.preheader, %setup_free.exit166
   %133 = phi i1 [ false, %setup_free.exit166 ], [ true, %.preheader ]
@@ -65465,7 +65465,7 @@ setup_free.exit164:                               ; preds = %setup_free.exit162
   br label %setup_free.exit166
 
 setup_free.exit166:                               ; preds = %setup_free.exit158, %.preheader.split, %setup_free.exit160, %setup_free.exit162, %setup_free.exit164, %142
-  br i1 %133, label %.preheader.split, label %.split.us, !llvm.loop !234
+  br i1 %133, label %.preheader.split, label %.split.us, !llvm.loop !225
 
 .split.us:                                        ; preds = %setup_free.exit166, %.lr.ph221, %.preheader
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -85441,14 +85441,14 @@ define hidden void @jar_xm_generate_samples(ptr noundef %0, ptr noundef captures
 51:                                               ; preds = %47
   tail call fastcc void @jar_xm_next_of_sample(ptr noundef nonnull %0, ptr noundef nonnull %41, i32 noundef -1)
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 152
-  %53 = load i8, ptr %52, align 8, !range !235, !noundef !192
+  %53 = load i8, ptr %52, align 8, !range !226, !noundef !192
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %78, label %55
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 256
-  %58 = load i8, ptr %57, align 8, !range !235, !noundef !192
+  %58 = load i8, ptr %57, align 8, !range !226, !noundef !192
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %78, label %60
 
@@ -88470,7 +88470,7 @@ define hidden zeroext i1 @jar_xm_mute_channel(ptr noundef readonly captures(none
   %7 = zext i16 %1 to i64
   %8 = getelementptr %struct.jar_xm_channel_context_s, ptr %6, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -104
-  %10 = load i8, ptr %9, align 8, !range !235, !noundef !192
+  %10 = load i8, ptr %9, align 8, !range !226, !noundef !192
   %11 = trunc nuw i8 %10 to i1
   store i8 %4, ptr %9, align 8
   ret i1 %11
@@ -88484,7 +88484,7 @@ define hidden zeroext i1 @jar_xm_mute_instrument(ptr noundef readonly captures(n
   %7 = zext i16 %1 to i64
   %8 = getelementptr %struct.jar_xm_instrument_s, ptr %6, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -16
-  %10 = load i8, ptr %9, align 8, !range !235, !noundef !192
+  %10 = load i8, ptr %9, align 8, !range !226, !noundef !192
   %11 = trunc nuw i8 %10 to i1
   store i8 %4, ptr %9, align 8
   ret i1 %11
@@ -88700,7 +88700,7 @@ define internal fastcc void @jar_xm_tick(ptr noundef %0) unnamed_addr #7 {
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %7 = load i8, ptr %6, align 8, !range !235, !noundef !192
+  %7 = load i8, ptr %6, align 8, !range !226, !noundef !192
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %24
 
@@ -88732,7 +88732,7 @@ define internal fastcc void @jar_xm_tick(ptr noundef %0) unnamed_addr #7 {
 
 24:                                               ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 393
-  %26 = load i8, ptr %25, align 1, !range !235, !noundef !192
+  %26 = load i8, ptr %25, align 1, !range !226, !noundef !192
   %27 = trunc nuw i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %29 = load i8, ptr %28, align 4
@@ -88886,13 +88886,13 @@ jar_xm_post_pattern_change.exit.i:                ; preds = %jar_xm_post_pattern
   %113 = load i8, ptr %112, align 1
   %114 = add i8 %113, 1
   store i8 %114, ptr %112, align 1
-  %115 = load i8, ptr %6, align 8, !range !235, !noundef !192
+  %115 = load i8, ptr %6, align 8, !range !226, !noundef !192
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %jar_xm_row.exit, label %117
 
 117:                                              ; preds = %111
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 393
-  %119 = load i8, ptr %118, align 1, !range !235, !noundef !192
+  %119 = load i8, ptr %118, align 1, !range !226, !noundef !192
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %jar_xm_row.exit, label %121
 
@@ -88978,13 +88978,13 @@ jar_xm_row.exit:                                  ; preds = %133, %125, %121, %1
 
 169:                                              ; preds = %163
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 174
-  %171 = load i8, ptr %170, align 2, !range !235, !noundef !192
+  %171 = load i8, ptr %170, align 2, !range !226, !noundef !192
   %172 = trunc nuw i8 %171 to i1
   br i1 %172, label %173, label %191
 
 173:                                              ; preds = %169
   %174 = getelementptr inbounds nuw i8, ptr %166, i64 62
-  %175 = load i8, ptr %174, align 2, !range !235, !noundef !192
+  %175 = load i8, ptr %174, align 2, !range !226, !noundef !192
   %176 = trunc nuw i8 %175 to i1
   br i1 %176, label %187, label %177
 
@@ -89015,7 +89015,7 @@ jar_xm_row.exit:                                  ; preds = %133, %125, %121, %1
 191:                                              ; preds = %187, %169
   %192 = phi ptr [ %.pre.i, %187 ], [ %168, %169 ]
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 230
-  %194 = load i8, ptr %193, align 2, !range !235, !noundef !192
+  %194 = load i8, ptr %193, align 2, !range !226, !noundef !192
   %195 = trunc nuw i8 %194 to i1
   br i1 %195, label %jar_xm_envelopes.exit, label %jar_xm_envelopes.exit.thread
 
@@ -89117,7 +89117,7 @@ jar_xm_waveform.exit.i:                           ; preds = %244, %235, %232, %2
 
 jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelopes.exit, %jar_xm_envelopes.exit.thread, %jar_xm_waveform.exit.i
   %256 = getelementptr inbounds nuw i8, ptr %166, i64 84
-  %257 = load i8, ptr %256, align 4, !range !235, !noundef !192
+  %257 = load i8, ptr %256, align 4, !range !226, !noundef !192
   %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %259, label %270
 
@@ -89144,7 +89144,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
 
 270:                                              ; preds = %268, %265, %jar_xm_autovibrato.exit
   %271 = getelementptr inbounds nuw i8, ptr %166, i64 108
-  %272 = load i8, ptr %271, align 4, !range !235, !noundef !192
+  %272 = load i8, ptr %271, align 4, !range !226, !noundef !192
   %273 = trunc nuw i8 %272 to i1
   br i1 %273, label %274, label %290
 
@@ -90089,13 +90089,13 @@ jar_xm_tremolo.exit:                              ; preds = %713, %724, %730, %7
 
 793:                                              ; preds = %791
   %794 = getelementptr inbounds nuw i8, ptr %792, i64 174
-  %795 = load i8, ptr %794, align 2, !range !235, !noundef !192
+  %795 = load i8, ptr %794, align 2, !range !226, !noundef !192
   %796 = trunc nuw i8 %795 to i1
   br i1 %796, label %797, label %815
 
 797:                                              ; preds = %793
   %798 = getelementptr inbounds nuw i8, ptr %166, i64 62
-  %799 = load i8, ptr %798, align 2, !range !235, !noundef !192
+  %799 = load i8, ptr %798, align 2, !range !226, !noundef !192
   %800 = trunc nuw i8 %799 to i1
   br i1 %800, label %811, label %801
 
@@ -90126,7 +90126,7 @@ jar_xm_tremolo.exit:                              ; preds = %713, %724, %730, %7
 815:                                              ; preds = %811, %793
   %816 = phi ptr [ %.pre.i270, %811 ], [ %792, %793 ]
   %817 = getelementptr inbounds nuw i8, ptr %816, i64 230
-  %818 = load i8, ptr %817, align 2, !range !235, !noundef !192
+  %818 = load i8, ptr %817, align 2, !range !226, !noundef !192
   %819 = trunc nuw i8 %818 to i1
   br i1 %819, label %820, label %jar_xm_tone_portamento.exit249
 
@@ -90165,13 +90165,13 @@ jar_xm_tremolo.exit:                              ; preds = %713, %724, %730, %7
 
 839:                                              ; preds = %837
   %840 = getelementptr inbounds nuw i8, ptr %838, i64 174
-  %841 = load i8, ptr %840, align 2, !range !235, !noundef !192
+  %841 = load i8, ptr %840, align 2, !range !226, !noundef !192
   %842 = trunc nuw i8 %841 to i1
   br i1 %842, label %843, label %861
 
 843:                                              ; preds = %839
   %844 = getelementptr inbounds nuw i8, ptr %166, i64 62
-  %845 = load i8, ptr %844, align 2, !range !235, !noundef !192
+  %845 = load i8, ptr %844, align 2, !range !226, !noundef !192
   %846 = trunc nuw i8 %845 to i1
   br i1 %846, label %857, label %847
 
@@ -90202,7 +90202,7 @@ jar_xm_tremolo.exit:                              ; preds = %713, %724, %730, %7
 861:                                              ; preds = %857, %839
   %862 = phi ptr [ %.pre.i273, %857 ], [ %838, %839 ]
   %863 = getelementptr inbounds nuw i8, ptr %862, i64 230
-  %864 = load i8, ptr %863, align 2, !range !235, !noundef !192
+  %864 = load i8, ptr %863, align 2, !range !226, !noundef !192
   %865 = trunc nuw i8 %864 to i1
   br i1 %865, label %866, label %jar_xm_tone_portamento.exit249
 
@@ -90268,7 +90268,7 @@ jar_xm_tremolo.exit:                              ; preds = %713, %724, %730, %7
 
 901:                                              ; preds = %897
   %902 = getelementptr inbounds nuw i8, ptr %899, i64 174
-  %903 = load i8, ptr %902, align 2, !range !235, !noundef !192
+  %903 = load i8, ptr %902, align 2, !range !226, !noundef !192
   %904 = trunc nuw i8 %903 to i1
   br i1 %904, label %jar_xm_tone_portamento.exit249, label %905
 
@@ -90397,7 +90397,7 @@ jar_xm_tone_portamento.exit249:                   ; preds = %923, %921, %905, %9
   %983 = tail call double @llvm.fmuladd.f64(double %982, double 2.000000e+00, double %973)
   %984 = fptrunc double %983 to float
   %985 = getelementptr inbounds nuw i8, ptr %166, i64 137
-  %986 = load i8, ptr %985, align 1, !range !235, !noundef !192
+  %986 = load i8, ptr %985, align 1, !range !226, !noundef !192
   %987 = trunc nuw i8 %986 to i1
   br i1 %987, label %1005, label %988
 
@@ -92772,7 +92772,7 @@ define void @InitAudioDevice() local_unnamed_addr #7 {
   %1 = alloca %struct.ma_context_config, align 8
   %2 = alloca %struct.ma_device_config, align 8
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %1) #71
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 0, i64 232, i1 false), !alias.scope !236
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 0, i64 232, i1 false), !alias.scope !227
   %3 = call i32 @ma_context_init(ptr noundef null, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @AUDIO)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -92784,12 +92784,12 @@ define void @InitAudioDevice() local_unnamed_addr #7 {
 5:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %2) #71
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %6, i8 0, i64 272, i1 false), !alias.scope !239
-  store i32 1, ptr %2, align 8, !alias.scope !239
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %6, i8 0, i64 272, i1 false), !alias.scope !230
+  store i32 1, ptr %2, align 8, !alias.scope !230
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.sroa.91.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !alias.scope !239
-  store i32 4, ptr %.sroa.91.0..sroa_idx.i, align 8, !alias.scope !239
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !alias.scope !230
+  store i32 4, ptr %.sroa.91.0..sroa_idx.i, align 8, !alias.scope !230
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 120
@@ -93035,13 +93035,13 @@ define internal void @OnSendAudioDataToDevice(ptr noundef readonly captures(none
 23:                                               ; preds = %.lr.ph102, %.loopexit72
   %.04999 = phi ptr [ %.04997, %.lr.ph102 ], [ %.049, %.loopexit72 ]
   %24 = getelementptr inbounds nuw i8, ptr %.04999, i64 340
-  %25 = load i8, ptr %24, align 4, !range !235, !noundef !192
+  %25 = load i8, ptr %24, align 4, !range !226, !noundef !192
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %.loopexit72
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %.04999, i64 341
-  %29 = load i8, ptr %28, align 1, !range !235, !noundef !192
+  %29 = load i8, ptr %28, align 1, !range !226, !noundef !192
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %.loopexit72, label %.preheader71
 
@@ -93166,9 +93166,9 @@ ma_data_converter_get_required_input_frame_count.exit.thread.i: ; preds = %78, %
 
 97:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #71
-  %98 = load i8, ptr %41, align 4, !range !235, !noundef !192
+  %98 = load i8, ptr %41, align 4, !range !226, !noundef !192
   store i8 %98, ptr %5, align 1
-  %99 = load i8, ptr %42, align 1, !range !235, !noundef !192
+  %99 = load i8, ptr %42, align 1, !range !226, !noundef !192
   store i8 %99, ptr %22, align 1
   %100 = load i32, ptr %.04999, align 8
   %101 = load i32, ptr %31, align 8
@@ -93217,7 +93217,7 @@ ma_data_converter_get_required_input_frame_count.exit.thread.i: ; preds = %78, %
   store i8 1, ptr %127, align 1
   %128 = and i32 %.072.i.us43.i, 1
   %129 = xor i32 %128, 1
-  %130 = load i8, ptr %45, align 2, !range !235, !noundef !192
+  %130 = load i8, ptr %45, align 2, !range !226, !noundef !192
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %StopAudioBufferInLockedState.exit.i.us.i, label %.split34.us.i
 
@@ -93229,7 +93229,7 @@ StopAudioBufferInLockedState.exit.i.us.i:         ; preds = %124, %.lr.ph.i
 .split.i:                                         ; preds = %97
   %132 = zext nneg i32 %95 to i64
   %133 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 0, i64 %132
-  %134 = load i8, ptr %133, align 1, !range !235, !noundef !192
+  %134 = load i8, ptr %133, align 1, !range !226, !noundef !192
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %StopAudioBufferInLockedState.exit.thread.i.i, label %.thread.i.i
 
@@ -93272,18 +93272,18 @@ StopAudioBufferInLockedState.exit.i.us.i:         ; preds = %124, %.lr.ph.i
   store i8 1, ptr %158, align 1
   %159 = and i32 %.072.i39.i, 1
   %160 = xor i32 %159, 1
-  %161 = load i8, ptr %45, align 2, !range !235, !noundef !192
+  %161 = load i8, ptr %45, align 2, !range !226, !noundef !192
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %StopAudioBufferInLockedState.exit.i.i, label %.split34.us.i
 
 .split34.us.i:                                    ; preds = %155, %124
   %.us-phi35.i = phi i32 [ %123, %124 ], [ %154, %155 ]
-  %163 = load i8, ptr %24, align 4, !range !235, !noundef !192
+  %163 = load i8, ptr %24, align 4, !range !226, !noundef !192
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %IsAudioBufferPlayingInLockedState.exit.i.i.i, label %StopAudioBufferInLockedState.exit.thread.i.i
 
 IsAudioBufferPlayingInLockedState.exit.i.i.i:     ; preds = %.split34.us.i
-  %165 = load i8, ptr %28, align 1, !range !235, !noundef !192
+  %165 = load i8, ptr %28, align 1, !range !226, !noundef !192
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %StopAudioBufferInLockedState.exit.thread.i.i, label %167
 
@@ -93300,7 +93300,7 @@ StopAudioBufferInLockedState.exit.i.i:            ; preds = %155, %137
   %.173.i.i = phi i32 [ %160, %155 ], [ %.072.i39.i, %137 ]
   %168 = zext nneg i32 %.173.i.i to i64
   %169 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 0, i64 %168
-  %170 = load i8, ptr %169, align 1, !range !235, !noundef !192
+  %170 = load i8, ptr %169, align 1, !range !226, !noundef !192
   %171 = trunc nuw i8 %170 to i1
   br i1 %171, label %StopAudioBufferInLockedState.exit.thread.i.i, label %.thread.i.i
 
@@ -93457,7 +93457,7 @@ MixAudioFrames.exit:                              ; preds = %222, %._crit_edge.u
 236:                                              ; preds = %MixAudioFrames.exit, %ReadAudioBufferFramesInMixingFormat.exit
   %.255 = phi i32 [ %234, %MixAudioFrames.exit ], [ %.05393, %ReadAudioBufferFramesInMixingFormat.exit ]
   %.3 = phi i32 [ %235, %MixAudioFrames.exit ], [ %.15294, %ReadAudioBufferFramesInMixingFormat.exit ]
-  %237 = load i8, ptr %24, align 4, !range !235, !noundef !192
+  %237 = load i8, ptr %24, align 4, !range !226, !noundef !192
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %239, label %StopAudioBufferInLockedState.exit.thread
 
@@ -93466,12 +93466,12 @@ MixAudioFrames.exit:                              ; preds = %222, %._crit_edge.u
   br i1 %240, label %241, label %StopAudioBufferInLockedState.exit
 
 241:                                              ; preds = %239
-  %242 = load i8, ptr %45, align 2, !range !235, !noundef !192
+  %242 = load i8, ptr %45, align 2, !range !226, !noundef !192
   %243 = trunc nuw i8 %242 to i1
   br i1 %243, label %247, label %IsAudioBufferPlayingInLockedState.exit.i
 
 IsAudioBufferPlayingInLockedState.exit.i:         ; preds = %241
-  %244 = load i8, ptr %28, align 1, !range !235, !noundef !192
+  %244 = load i8, ptr %28, align 1, !range !226, !noundef !192
   %245 = trunc nuw i8 %244 to i1
   br i1 %245, label %StopAudioBufferInLockedState.exit.thread, label %246
 
@@ -93526,7 +93526,7 @@ StopAudioBufferInLockedState.exit:                ; preds = %239, %247
 
 ; Function Attrs: nounwind uwtable
 define void @CloseAudioDevice() local_unnamed_addr #7 {
-  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4832), align 8, !range !235, !noundef !192
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4832), align 8, !range !226, !noundef !192
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %3, label %22
 
@@ -93585,7 +93585,7 @@ ma_context_uninit.exit:                           ; preds = %ma_free.exit.i, %19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsAudioDeviceReady() local_unnamed_addr #63 {
-  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4832), align 8, !range !235, !noundef !192
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4832), align 8, !range !226, !noundef !192
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
@@ -93646,18 +93646,18 @@ define hidden noundef ptr @LoadAudioBuffer(i32 noundef %0, i32 noundef %1, i32 n
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %23, i8 0, i64 96, i1 false)
-  store i32 1, ptr %25, align 8, !alias.scope !242
-  store i32 %0, ptr %7, align 8, !alias.scope !247
+  store i32 1, ptr %25, align 8, !alias.scope !233
+  store i32 %0, ptr %7, align 8, !alias.scope !238
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 5, ptr %26, align 4, !alias.scope !247
+  store i32 5, ptr %26, align 4, !alias.scope !238
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %1, ptr %27, align 8, !alias.scope !247
+  store i32 %1, ptr %27, align 8, !alias.scope !238
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 2, ptr %28, align 4, !alias.scope !247
+  store i32 2, ptr %28, align 4, !alias.scope !238
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %2, ptr %29, align 8, !alias.scope !247
+  store i32 %2, ptr %29, align 8, !alias.scope !238
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %22, ptr %30, align 4, !alias.scope !247
+  store i32 %22, ptr %30, align 4, !alias.scope !238
   store i32 1, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #71
   %31 = call fastcc i32 @ma_data_converter_get_heap_layout(ptr noundef nonnull %7, ptr noundef %6)
@@ -93956,13 +93956,13 @@ define hidden zeroext i1 @IsAudioBufferPlaying(ptr noundef readonly captures(add
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %5 = load i8, ptr %4, align 4, !range !235, !noundef !192
+  %5 = load i8, ptr %4, align 4, !range !226, !noundef !192
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %IsAudioBufferPlayingInLockedState.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 341
-  %9 = load i8, ptr %8, align 1, !range !235, !noundef !192
+  %9 = load i8, ptr %8, align 1, !range !226, !noundef !192
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   br label %IsAudioBufferPlayingInLockedState.exit
@@ -94001,13 +94001,13 @@ define hidden void @StopAudioBuffer(ptr noundef captures(address_is_null) %0) lo
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %5 = load i8, ptr %4, align 4, !range !235, !noundef !192
+  %5 = load i8, ptr %4, align 4, !range !226, !noundef !192
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %IsAudioBufferPlayingInLockedState.exit.i, label %StopAudioBufferInLockedState.exit
 
 IsAudioBufferPlayingInLockedState.exit.i:         ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 341
-  %8 = load i8, ptr %7, align 1, !range !235, !noundef !192
+  %8 = load i8, ptr %7, align 1, !range !226, !noundef !192
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %StopAudioBufferInLockedState.exit, label %10
 
@@ -94297,8 +94297,8 @@ drwav_init_memory.exit.thread:                    ; preds = %15, %drwav_init_mem
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %59 = load i32, ptr %58, align 4, !noalias !248
-  %60 = load i32, ptr %56, align 8, !noalias !248
+  %59 = load i32, ptr %58, align 4, !noalias !239
+  %60 = load i32, ptr %56, align 8, !noalias !239
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %60, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -94531,17 +94531,17 @@ define void @LoadSound(ptr dead_on_unwind noalias writable writeonly sret(%struc
   %3 = alloca i32, align 4
   %4 = alloca %struct.Wave, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #71
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !251
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #71, !noalias !251
-  store i32 0, ptr %3, align 4, !noalias !251
-  %5 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %3) #71, !noalias !251
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !242
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #71, !noalias !242
+  store i32 0, ptr %3, align 4, !noalias !242
+  %5 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %3) #71, !noalias !242
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %LoadWave.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = call ptr @GetFileExtension(ptr noundef %1) #71, !noalias !251
-  %8 = load i32, ptr %3, align 4, !noalias !251
+  %7 = call ptr @GetFileExtension(ptr noundef %1) #71, !noalias !242
+  %8 = load i32, ptr %3, align 4, !noalias !242
   call void @LoadWaveFromMemory(ptr dead_on_unwind nonnull writable sret(%struct.Wave) align 8 %4, ptr noundef %7, ptr noundef nonnull %5, i32 noundef %8)
   %.sroa.3.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.3.0.copyload.pre = load ptr, ptr %.sroa.3.0..sroa_idx.phi.trans.insert, align 8
@@ -94549,8 +94549,8 @@ define void @LoadSound(ptr dead_on_unwind noalias writable writeonly sret(%struc
 
 LoadWave.exit:                                    ; preds = %2, %6
   %.sroa.3.0.copyload = phi ptr [ null, %2 ], [ %.sroa.3.0.copyload.pre, %6 ]
-  call void @UnloadFileData(ptr noundef %5) #71, !noalias !251
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #71, !noalias !251
+  call void @UnloadFileData(ptr noundef %5) #71, !noalias !242
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #71, !noalias !242
   call void @LoadSoundFromWave(ptr dead_on_unwind writable sret(%struct.Sound) align 8 %0, ptr noundef nonnull byval(%struct.Wave) align 8 %4)
   call void @free(ptr noundef %.sroa.3.0.copyload) #71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #71
@@ -94909,13 +94909,13 @@ define void @UpdateSound(ptr noundef readonly byval(%struct.Sound) align 8 captu
 5:                                                ; preds = %3
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4792)) #71
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 340
-  %8 = load i8, ptr %7, align 4, !range !235, !noundef !192
+  %8 = load i8, ptr %7, align 4, !range !226, !noundef !192
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %IsAudioBufferPlayingInLockedState.exit.i.i, label %StopAudioBuffer.exit
 
 IsAudioBufferPlayingInLockedState.exit.i.i:       ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 341
-  %11 = load i8, ptr %10, align 1, !range !235, !noundef !192
+  %11 = load i8, ptr %10, align 1, !range !226, !noundef !192
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %StopAudioBuffer.exit, label %13
 
@@ -95488,13 +95488,13 @@ define void @StopSound(ptr noundef readonly byval(%struct.Sound) align 8 capture
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 340
-  %6 = load i8, ptr %5, align 4, !range !235, !noundef !192
+  %6 = load i8, ptr %5, align 4, !range !226, !noundef !192
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %IsAudioBufferPlayingInLockedState.exit.i.i, label %StopAudioBuffer.exit
 
 IsAudioBufferPlayingInLockedState.exit.i.i:       ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 341
-  %9 = load i8, ptr %8, align 1, !range !235, !noundef !192
+  %9 = load i8, ptr %8, align 1, !range !226, !noundef !192
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %StopAudioBuffer.exit, label %11
 
@@ -95525,13 +95525,13 @@ define zeroext i1 @IsSoundPlaying(ptr noundef readonly byval(%struct.Sound) alig
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 340
-  %6 = load i8, ptr %5, align 4, !range !235, !noundef !192
+  %6 = load i8, ptr %5, align 4, !range !226, !noundef !192
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %IsAudioBufferPlaying.exit
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 341
-  %10 = load i8, ptr %9, align 1, !range !235, !noundef !192
+  %10 = load i8, ptr %9, align 1, !range !226, !noundef !192
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   br label %IsAudioBufferPlaying.exit
@@ -95985,13 +95985,13 @@ drwav_init_file.exit:                             ; preds = %15
   %31 = icmp eq i16 %narrow, 16
   %32 = select i1 %31, i32 2, i32 5
   %33 = select i1 %30, i32 1, i32 %32
-  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !254
-  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !254
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !245
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !245
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %drwav_init_file.exit
-  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !254
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !245
   %39 = udiv i32 %38, 30
   br label %40
 
@@ -95999,20 +95999,20 @@ drwav_init_file.exit:                             ; preds = %15
   %41 = phi i32 [ %39, %37 ], [ %35, %drwav_init_file.exit ]
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %41, i32 %34)
   %42 = shl i32 %spec.select.i, 1
-  %43 = tail call ptr @LoadAudioBuffer(i32 noundef %33, i32 noundef %29, i32 noundef %26, i32 noundef %42, i32 noundef 1), !noalias !254
+  %43 = tail call ptr @LoadAudioBuffer(i32 noundef %33, i32 noundef %29, i32 noundef %26, i32 noundef %42, i32 noundef 1), !noalias !245
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %48, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 342
-  store i8 1, ptr %45, align 2, !noalias !254
+  store i8 1, ptr %45, align 2, !noalias !245
   %46 = icmp eq i16 %28, 1
   %47 = select i1 %46, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %26, i32 noundef %spec.store.select, ptr noundef nonnull %47) #71, !noalias !254
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %26, i32 noundef %spec.store.select, ptr noundef nonnull %47) #71, !noalias !245
   br label %LoadAudioStream.exit
 
 48:                                               ; preds = %40
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !254
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !245
   br label %LoadAudioStream.exit
 
 LoadAudioStream.exit:                             ; preds = %44, %48
@@ -96067,15 +96067,15 @@ stb_vorbis_open_filename.exit:                    ; preds = %57
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %66, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %71 = load i32, ptr %70, align 4, !noalias !257
-  %72 = load i32, ptr %66, align 8, !noalias !257
-  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !260
-  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !260
+  %71 = load i32, ptr %70, align 4, !noalias !248
+  %72 = load i32, ptr %66, align 8, !noalias !248
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !251
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !251
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %67
-  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !260
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !251
   %78 = udiv i32 %77, 30
   br label %79
 
@@ -96083,20 +96083,20 @@ stb_vorbis_open_filename.exit:                    ; preds = %57
   %80 = phi i32 [ %78, %76 ], [ %74, %67 ]
   %spec.select.i57 = tail call i32 @llvm.umax.i32(i32 %80, i32 %73)
   %81 = shl i32 %spec.select.i57, 1
-  %82 = tail call ptr @LoadAudioBuffer(i32 noundef 2, i32 noundef %71, i32 noundef %72, i32 noundef %81, i32 noundef 1), !noalias !260
+  %82 = tail call ptr @LoadAudioBuffer(i32 noundef 2, i32 noundef %71, i32 noundef %72, i32 noundef %81, i32 noundef 1), !noalias !251
   %.not.i58 = icmp eq ptr %82, null
   br i1 %.not.i58, label %87, label %83
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 342
-  store i8 1, ptr %84, align 2, !noalias !260
+  store i8 1, ptr %84, align 2, !noalias !251
   %85 = icmp eq i32 %71, 1
   %86 = select i1 %85, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %72, i32 noundef 16, ptr noundef nonnull %86) #71, !noalias !260
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %72, i32 noundef 16, ptr noundef nonnull %86) #71, !noalias !251
   br label %LoadAudioStream.exit59
 
 87:                                               ; preds = %79
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !260
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !251
   br label %LoadAudioStream.exit59
 
 LoadAudioStream.exit59:                           ; preds = %83, %87
@@ -96189,13 +96189,13 @@ drmp3_fopen.exit.i:                               ; preds = %97
   store i32 4, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %95, ptr %127, align 8
-  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !263
-  %129 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !263
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !254
+  %129 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !254
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %134
 
 131:                                              ; preds = %119
-  %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !263
+  %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !254
   %133 = udiv i32 %132, 30
   br label %134
 
@@ -96203,20 +96203,20 @@ drmp3_fopen.exit.i:                               ; preds = %97
   %135 = phi i32 [ %133, %131 ], [ %129, %119 ]
   %spec.select.i61 = tail call i32 @llvm.umax.i32(i32 %135, i32 %128)
   %136 = shl i32 %spec.select.i61, 1
-  %137 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %121, i32 noundef %124, i32 noundef %136, i32 noundef 1), !noalias !263
+  %137 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %121, i32 noundef %124, i32 noundef %136, i32 noundef 1), !noalias !254
   %.not.i62 = icmp eq ptr %137, null
   br i1 %.not.i62, label %142, label %138
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 342
-  store i8 1, ptr %139, align 2, !noalias !263
+  store i8 1, ptr %139, align 2, !noalias !254
   %140 = icmp eq i32 %121, 1
   %141 = select i1 %140, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %124, i32 noundef 32, ptr noundef nonnull %141) #71, !noalias !263
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %124, i32 noundef 32, ptr noundef nonnull %141) #71, !noalias !254
   br label %LoadAudioStream.exit63
 
 142:                                              ; preds = %134
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !263
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !254
   br label %LoadAudioStream.exit63
 
 LoadAudioStream.exit63:                           ; preds = %138, %142
@@ -96265,13 +96265,13 @@ LoadAudioStream.exit63:                           ; preds = %138, %142
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %158 = load i32, ptr %157, align 4
   %159 = load i32, ptr %153, align 8
-  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !266
-  %161 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !266
+  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !257
+  %161 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !257
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %154
-  %164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !266
+  %164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !257
   %165 = udiv i32 %164, 30
   br label %166
 
@@ -96279,20 +96279,20 @@ LoadAudioStream.exit63:                           ; preds = %138, %142
   %167 = phi i32 [ %165, %163 ], [ %161, %154 ]
   %spec.select.i66 = tail call i32 @llvm.umax.i32(i32 %167, i32 %160)
   %168 = shl i32 %spec.select.i66, 1
-  %169 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %159, i32 noundef %158, i32 noundef %168, i32 noundef 1), !noalias !266
+  %169 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %159, i32 noundef %158, i32 noundef %168, i32 noundef 1), !noalias !257
   %.not.i67 = icmp eq ptr %169, null
   br i1 %.not.i67, label %174, label %170
 
 170:                                              ; preds = %166
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 342
-  store i8 1, ptr %171, align 2, !noalias !266
+  store i8 1, ptr %171, align 2, !noalias !257
   %172 = icmp eq i32 %159, 1
   %173 = select i1 %172, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %158, i32 noundef 32, ptr noundef nonnull %173) #71, !noalias !266
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %158, i32 noundef 32, ptr noundef nonnull %173) #71, !noalias !257
   br label %LoadAudioStream.exit68
 
 174:                                              ; preds = %166
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !266
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !257
   br label %LoadAudioStream.exit68
 
 LoadAudioStream.exit68:                           ; preds = %170, %174
@@ -96544,13 +96544,13 @@ drwav_init_memory.exit:                           ; preds = %14
   %37 = icmp eq i16 %narrow, 16
   %38 = select i1 %37, i32 2, i32 5
   %39 = select i1 %36, i32 1, i32 %38
-  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !269
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !269
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !260
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !260
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %25
-  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !269
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !260
   %45 = udiv i32 %44, 30
   br label %46
 
@@ -96558,20 +96558,20 @@ drwav_init_memory.exit:                           ; preds = %14
   %47 = phi i32 [ %45, %43 ], [ %41, %25 ]
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %47, i32 %40)
   %48 = shl i32 %spec.select.i, 1
-  %49 = tail call ptr @LoadAudioBuffer(i32 noundef %39, i32 noundef %35, i32 noundef %32, i32 noundef %48, i32 noundef 1), !noalias !269
+  %49 = tail call ptr @LoadAudioBuffer(i32 noundef %39, i32 noundef %35, i32 noundef %32, i32 noundef %48, i32 noundef 1), !noalias !260
   %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %54, label %50
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 342
-  store i8 1, ptr %51, align 2, !noalias !269
+  store i8 1, ptr %51, align 2, !noalias !260
   %52 = icmp eq i16 %34, 1
   %53 = select i1 %52, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %32, i32 noundef %spec.store.select, ptr noundef nonnull %53) #71, !noalias !269
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %32, i32 noundef %spec.store.select, ptr noundef nonnull %53) #71, !noalias !260
   br label %LoadAudioStream.exit
 
 54:                                               ; preds = %46
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !269
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !260
   br label %LoadAudioStream.exit
 
 LoadAudioStream.exit:                             ; preds = %50, %54
@@ -96621,15 +96621,15 @@ drwav_init_memory.exit.thread:                    ; preds = %14, %drwav_init_mem
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %68, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %73 = load i32, ptr %72, align 4, !noalias !272
-  %74 = load i32, ptr %68, align 8, !noalias !272
-  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !275
-  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !275
+  %73 = load i32, ptr %72, align 4, !noalias !263
+  %74 = load i32, ptr %68, align 8, !noalias !263
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !266
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !266
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %69
-  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !275
+  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !266
   %80 = udiv i32 %79, 30
   br label %81
 
@@ -96637,20 +96637,20 @@ drwav_init_memory.exit.thread:                    ; preds = %14, %drwav_init_mem
   %82 = phi i32 [ %80, %78 ], [ %76, %69 ]
   %spec.select.i92 = tail call i32 @llvm.umax.i32(i32 %82, i32 %75)
   %83 = shl i32 %spec.select.i92, 1
-  %84 = tail call ptr @LoadAudioBuffer(i32 noundef 2, i32 noundef %73, i32 noundef %74, i32 noundef %83, i32 noundef 1), !noalias !275
+  %84 = tail call ptr @LoadAudioBuffer(i32 noundef 2, i32 noundef %73, i32 noundef %74, i32 noundef %83, i32 noundef 1), !noalias !266
   %.not.i93 = icmp eq ptr %84, null
   br i1 %.not.i93, label %89, label %85
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 342
-  store i8 1, ptr %86, align 2, !noalias !275
+  store i8 1, ptr %86, align 2, !noalias !266
   %87 = icmp eq i32 %73, 1
   %88 = select i1 %87, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %74, i32 noundef 16, ptr noundef nonnull %88) #71, !noalias !275
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %74, i32 noundef 16, ptr noundef nonnull %88) #71, !noalias !266
   br label %LoadAudioStream.exit94
 
 89:                                               ; preds = %81
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !275
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !266
   br label %LoadAudioStream.exit94
 
 LoadAudioStream.exit94:                           ; preds = %85, %89
@@ -96749,13 +96749,13 @@ LoadAudioStream.exit94:                           ; preds = %85, %89
   store i32 4, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %101, ptr %134, align 8
-  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !278
-  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !278
+  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !269
+  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !269
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %138, label %141
 
 138:                                              ; preds = %126
-  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !278
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !269
   %140 = udiv i32 %139, 30
   br label %141
 
@@ -96763,20 +96763,20 @@ LoadAudioStream.exit94:                           ; preds = %85, %89
   %142 = phi i32 [ %140, %138 ], [ %136, %126 ]
   %spec.select.i95 = tail call i32 @llvm.umax.i32(i32 %142, i32 %135)
   %143 = shl i32 %spec.select.i95, 1
-  %144 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %128, i32 noundef %131, i32 noundef %143, i32 noundef 1), !noalias !278
+  %144 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %128, i32 noundef %131, i32 noundef %143, i32 noundef 1), !noalias !269
   %.not.i96 = icmp eq ptr %144, null
   br i1 %.not.i96, label %149, label %145
 
 145:                                              ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 342
-  store i8 1, ptr %146, align 2, !noalias !278
+  store i8 1, ptr %146, align 2, !noalias !269
   %147 = icmp eq i32 %128, 1
   %148 = select i1 %147, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %131, i32 noundef 32, ptr noundef nonnull %148) #71, !noalias !278
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %131, i32 noundef 32, ptr noundef nonnull %148) #71, !noalias !269
   br label %LoadAudioStream.exit97
 
 149:                                              ; preds = %141
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !278
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !269
   br label %LoadAudioStream.exit97
 
 LoadAudioStream.exit97:                           ; preds = %145, %149
@@ -96872,13 +96872,13 @@ drmp3_uninit.exit:                                ; preds = %100, %165, %170, %1
   %189 = getelementptr inbounds nuw i8, ptr %185, i64 4
   %190 = load i32, ptr %189, align 4
   %191 = load i32, ptr %185, align 8
-  %192 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !281
-  %193 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !281
+  %192 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 2664), align 8, !noalias !272
+  %193 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4872), align 8, !noalias !272
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %195, label %198
 
 195:                                              ; preds = %186
-  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !281
+  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 1028), align 4, !noalias !272
   %197 = udiv i32 %196, 30
   br label %198
 
@@ -96886,20 +96886,20 @@ drmp3_uninit.exit:                                ; preds = %100, %165, %170, %1
   %199 = phi i32 [ %197, %195 ], [ %193, %186 ]
   %spec.select.i101 = tail call i32 @llvm.umax.i32(i32 %199, i32 %192)
   %200 = shl i32 %spec.select.i101, 1
-  %201 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %191, i32 noundef %190, i32 noundef %200, i32 noundef 1), !noalias !281
+  %201 = tail call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef %191, i32 noundef %190, i32 noundef %200, i32 noundef 1), !noalias !272
   %.not.i102 = icmp eq ptr %201, null
   br i1 %.not.i102, label %206, label %202
 
 202:                                              ; preds = %198
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 342
-  store i8 1, ptr %203, align 2, !noalias !281
+  store i8 1, ptr %203, align 2, !noalias !272
   %204 = icmp eq i32 %191, 1
   %205 = select i1 %204, ptr @.str.289, ptr @.str.290
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %190, i32 noundef 32, ptr noundef nonnull %205) #71, !noalias !281
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.298, i32 noundef %190, i32 noundef 32, ptr noundef nonnull %205) #71, !noalias !272
   br label %LoadAudioStream.exit103
 
 206:                                              ; preds = %198
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !281
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.299) #71, !noalias !272
   br label %LoadAudioStream.exit103
 
 LoadAudioStream.exit103:                          ; preds = %202, %206
@@ -97391,13 +97391,13 @@ define void @StopMusicStream(ptr noundef readonly byval(%struct.Music) align 8 c
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 340
-  %5 = load i8, ptr %4, align 4, !range !235, !noundef !192
+  %5 = load i8, ptr %4, align 4, !range !226, !noundef !192
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %IsAudioBufferPlayingInLockedState.exit.i.i.i, label %StopAudioStream.exit
 
 IsAudioBufferPlayingInLockedState.exit.i.i.i:     ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 341
-  %8 = load i8, ptr %7, align 1, !range !235, !noundef !192
+  %8 = load i8, ptr %7, align 1, !range !226, !noundef !192
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %StopAudioStream.exit, label %10
 
@@ -97665,13 +97665,13 @@ define void @StopAudioStream(ptr noundef readonly byval(%struct.AudioStream) ali
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 340
-  %6 = load i8, ptr %5, align 4, !range !235, !noundef !192
+  %6 = load i8, ptr %5, align 4, !range !226, !noundef !192
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %IsAudioBufferPlayingInLockedState.exit.i.i, label %StopAudioBuffer.exit
 
 IsAudioBufferPlayingInLockedState.exit.i.i:       ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 341
-  %9 = load i8, ptr %8, align 1, !range !235, !noundef !192
+  %9 = load i8, ptr %8, align 1, !range !226, !noundef !192
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %StopAudioBuffer.exit, label %11
 
@@ -97828,7 +97828,7 @@ define void @UpdateMusicStream(ptr noundef readonly byval(%struct.Music) align 8
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %28 = load i8, ptr %27, align 4, !range !235
+  %28 = load i8, ptr %27, align 4, !range !226
   %29 = trunc nuw i8 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8
@@ -97863,7 +97863,7 @@ define void @UpdateMusicStream(ptr noundef readonly byval(%struct.Music) align 8
   %.not109 = phi i1 [ true, %22 ], [ false, %213 ]
   %indvars.iv = phi i64 [ 0, %22 ], [ 1, %213 ]
   %58 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 0, i64 %indvars.iv
-  %59 = load i8, ptr %58, align 1, !range !235, !noundef !192
+  %59 = load i8, ptr %58, align 1, !range !226, !noundef !192
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %213
 
@@ -98091,9 +98091,9 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %155, %.lr.ph
 
 drwav_seek_to_first_pcm_frame.exit.thread:        ; preds = %drmp3_seek_to_start_of_stream.exit, %.lr.ph105, %drwav_seek_to_first_pcm_frame.exit85, %drwav_seek_to_first_pcm_frame.exit, %.preheader102, %.preheader100, %.preheader98, %.preheader, %168, %171, %174, %61, %75
   %177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %178 = load i8, ptr %23, align 4, !range !235, !noundef !192
+  %178 = load i8, ptr %23, align 4, !range !226, !noundef !192
   %179 = trunc nuw i8 %178 to i1
-  %180 = load i8, ptr %52, align 1, !range !235, !noundef !192
+  %180 = load i8, ptr %52, align 1, !range !226, !noundef !192
   %181 = trunc nuw i8 %180 to i1
   br i1 %179, label %183, label %182
 
@@ -98189,13 +98189,13 @@ define zeroext i1 @IsMusicStreamPlaying(ptr noundef readonly byval(%struct.Music
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 340
-  %5 = load i8, ptr %4, align 4, !range !235, !noundef !192
+  %5 = load i8, ptr %4, align 4, !range !226, !noundef !192
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %IsAudioStreamPlaying.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 341
-  %9 = load i8, ptr %8, align 1, !range !235, !noundef !192
+  %9 = load i8, ptr %8, align 1, !range !226, !noundef !192
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   br label %IsAudioStreamPlaying.exit
@@ -98215,13 +98215,13 @@ define zeroext i1 @IsAudioStreamPlaying(ptr noundef readonly byval(%struct.Audio
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 340
-  %6 = load i8, ptr %5, align 4, !range !235, !noundef !192
+  %6 = load i8, ptr %5, align 4, !range !226, !noundef !192
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %IsAudioBufferPlaying.exit
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 341
-  %10 = load i8, ptr %9, align 1, !range !235, !noundef !192
+  %10 = load i8, ptr %9, align 1, !range !226, !noundef !192
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   br label %IsAudioBufferPlaying.exit
@@ -98405,11 +98405,11 @@ define float @GetMusicTimePlayed(ptr noundef readonly byval(%struct.Music) align
   %22 = load i32, ptr %21, align 8
   %23 = sdiv i32 %22, 2
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 348
-  %25 = load i8, ptr %24, align 4, !range !235, !noundef !192
+  %25 = load i8, ptr %24, align 4, !range !226, !noundef !192
   %26 = trunc nuw i8 %25 to i1
   %27 = select i1 %26, i32 0, i32 %23
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 349
-  %29 = load i8, ptr %28, align 1, !range !235, !noundef !192
+  %29 = load i8, ptr %28, align 1, !range !226, !noundef !192
   %30 = trunc nuw i8 %29 to i1
   %31 = select i1 %30, i32 0, i32 %23
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 356
@@ -98475,10 +98475,10 @@ define void @UpdateAudioStream(ptr noundef readonly byval(%struct.AudioStream) a
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 348
-  %7 = load i8, ptr %6, align 4, !range !235, !noundef !192
+  %7 = load i8, ptr %6, align 4, !range !226, !noundef !192
   %8 = trunc nuw i8 %7 to i1
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 349
-  %10 = load i8, ptr %9, align 1, !range !235, !noundef !192
+  %10 = load i8, ptr %9, align 1, !range !226, !noundef !192
   %11 = trunc nuw i8 %10 to i1
   br i1 %8, label %13, label %12
 
@@ -98561,13 +98561,13 @@ define zeroext i1 @IsAudioStreamProcessed(ptr noundef readonly byval(%struct.Aud
 4:                                                ; preds = %1
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4792)) #71
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
-  %7 = load i8, ptr %6, align 4, !range !235, !noundef !192
+  %7 = load i8, ptr %6, align 4, !range !226, !noundef !192
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 349
-  %11 = load i8, ptr %10, align 1, !range !235, !noundef !192
+  %11 = load i8, ptr %10, align 1, !range !226, !noundef !192
   %12 = trunc nuw i8 %11 to i1
   br label %13
 
@@ -99840,7 +99840,7 @@ ma_device_get_context.exit.i370:                  ; preds = %ma_calculate_period
   %.0.i.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %ma_calculate_period_size_in_frames_from_descriptor__pulse.exit ]
   %200 = zext i8 %.val344 to i32
   %201 = getelementptr inbounds nuw [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %.0.i.i
-  %202 = load i32, ptr %201, align 4, !noalias !284
+  %202 = load i32, ptr %201, align 4, !noalias !275
   %203 = mul i32 %197, %.0.i369
   %204 = mul i32 %203, %200
   %205 = mul i32 %204, %202
@@ -107449,11 +107449,11 @@ declare double @sqrt(double noundef) local_unnamed_addr #72
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_heap_size__linear(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) #18 {
-  %4 = load i32, ptr %1, align 8, !noalias !287
+  %4 = load i32, ptr %1, align 8, !noalias !278
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !noalias !287
+  %6 = load i32, ptr %5, align 4, !noalias !278
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %8 = load i32, ptr %7, align 8, !noalias !287
+  %8 = load i32, ptr %7, align 8, !noalias !278
   %9 = icmp eq ptr %2, null
   br i1 %9, label %ma_linear_resampler_get_heap_size.exit, label %10
 
@@ -107515,15 +107515,15 @@ ma_linear_resampler_get_heap_size.exit:           ; preds = %3, %10, %11, %32
 define internal range(i32 -3, 1) i32 @ma_resampling_backend_init__linear(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #7 {
   %5 = alloca %struct.ma_linear_resampler_config, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #71
-  %6 = load i32, ptr %1, align 8, !noalias !290
+  %6 = load i32, ptr %1, align 8, !noalias !281
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4, !noalias !290
+  %8 = load i32, ptr %7, align 4, !noalias !281
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i32, ptr %9, align 8, !noalias !290
+  %10 = load i32, ptr %9, align 8, !noalias !281
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %12 = load i32, ptr %11, align 4, !noalias !290
+  %12 = load i32, ptr %11, align 4, !noalias !281
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %14 = load i32, ptr %13, align 8, !noalias !290
+  %14 = load i32, ptr %13, align 8, !noalias !281
   store i32 %6, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %8, ptr %.sroa.4.0..sroa_idx, align 4
@@ -120408,7 +120408,7 @@ define internal fastcc void @jar_xm_next_of_sample(ptr noundef readonly captures
 
 135:                                              ; preds = %74
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %137 = load i8, ptr %136, align 8, !range !235, !noundef !192
+  %137 = load i8, ptr %136, align 8, !range !226, !noundef !192
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %176
 
@@ -120993,7 +120993,7 @@ define internal fastcc void @jar_xm_trigger_note(ptr noundef readonly captures(n
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i16 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %30 = load i8, ptr %29, align 4, !range !235, !noundef !192
+  %30 = load i8, ptr %29, align 4, !range !226, !noundef !192
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %34
 
@@ -121004,7 +121004,7 @@ define internal fastcc void @jar_xm_trigger_note(ptr noundef readonly captures(n
 
 34:                                               ; preds = %32, %._crit_edge
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %36 = load i8, ptr %35, align 8, !range !235, !noundef !192
+  %36 = load i8, ptr %35, align 8, !range !226, !noundef !192
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %40
 
@@ -121187,7 +121187,7 @@ define internal fastcc void @jar_xm_handle_note_and_instrument(ptr noundef captu
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i16 0, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %39 = load i8, ptr %38, align 4, !range !235, !noundef !192
+  %39 = load i8, ptr %38, align 4, !range !226, !noundef !192
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %43
 
@@ -121198,7 +121198,7 @@ define internal fastcc void @jar_xm_handle_note_and_instrument(ptr noundef captu
 
 43:                                               ; preds = %41, %21
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %45 = load i8, ptr %44, align 8, !range !235, !noundef !192
+  %45 = load i8, ptr %44, align 8, !range !226, !noundef !192
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %49
 
@@ -121488,7 +121488,7 @@ jar_xm_period.exit:                               ; preds = %97, %111, %jar_xm_a
 
 210:                                              ; preds = %205
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 174
-  %212 = load i8, ptr %211, align 2, !range !235, !noundef !192
+  %212 = load i8, ptr %211, align 2, !range !226, !noundef !192
   %213 = trunc nuw i8 %212 to i1
   br i1 %213, label %jar_xm_key_off.exit, label %214
 
@@ -122304,7 +122304,7 @@ define internal fastcc void @jar_xm_envelope_tick(ptr noundef readonly captures(
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 54
-  %19 = load i8, ptr %18, align 2, !range !235, !noundef !192
+  %19 = load i8, ptr %18, align 2, !range !226, !noundef !192
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %.lr.ph
 
@@ -122410,7 +122410,7 @@ jar_xm_envelope_lerp.exit:                        ; preds = %52, %59, %63
 
 .loopexit:                                        ; preds = %80, %28, %jar_xm_envelope_lerp.exit
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  %85 = load i8, ptr %84, align 2, !range !235, !noundef !192
+  %85 = load i8, ptr %84, align 2, !range !226, !noundef !192
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %87, label %.loopexit._crit_edge
 
@@ -122420,7 +122420,7 @@ jar_xm_envelope_lerp.exit:                        ; preds = %52, %59, %63
 
 87:                                               ; preds = %.loopexit
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 53
-  %89 = load i8, ptr %88, align 1, !range !235, !noundef !192
+  %89 = load i8, ptr %88, align 1, !range !226, !noundef !192
   %90 = trunc nuw i8 %89 to i1
   %.pre49 = load i16, ptr %2, align 2
   br i1 %90, label %91, label %97
@@ -122905,52 +122905,52 @@ attributes #90 = { nounwind allocsize(0,1) }
 !217 = !{!218}
 !218 = distinct !{!218, !219, !"ma_decoder_config_init_copy: argument 0"}
 !219 = distinct !{!219, !"ma_decoder_config_init_copy"}
-!220 = !{!221}
-!221 = distinct !{!221, !222, !"ma_decoder_config_init_copy: argument 0"}
-!222 = distinct !{!222, !"ma_decoder_config_init_copy"}
-!223 = !{!224}
-!224 = distinct !{!224, !225, !"ma_decoder_config_init_copy: argument 0"}
-!225 = distinct !{!225, !"ma_decoder_config_init_copy"}
-!226 = !{!227}
-!227 = distinct !{!227, !228, !"ma_decoder_config_init_copy: argument 0"}
-!228 = distinct !{!228, !"ma_decoder_config_init_copy"}
-!229 = distinct !{!229, !31}
-!230 = distinct !{!230, !31}
-!231 = distinct !{!231, !31}
-!232 = distinct !{!232, !31}
-!233 = distinct !{!233, !31}
-!234 = distinct !{!234, !31}
-!235 = !{i8 0, i8 2}
-!236 = !{!237}
-!237 = distinct !{!237, !238, !"ma_context_config_init: argument 0"}
-!238 = distinct !{!238, !"ma_context_config_init"}
+!220 = distinct !{!220, !31}
+!221 = distinct !{!221, !31}
+!222 = distinct !{!222, !31}
+!223 = distinct !{!223, !31}
+!224 = distinct !{!224, !31}
+!225 = distinct !{!225, !31}
+!226 = !{i8 0, i8 2}
+!227 = !{!228}
+!228 = distinct !{!228, !229, !"ma_context_config_init: argument 0"}
+!229 = distinct !{!229, !"ma_context_config_init"}
+!230 = !{!231}
+!231 = distinct !{!231, !232, !"ma_device_config_init: argument 0"}
+!232 = distinct !{!232, !"ma_device_config_init"}
+!233 = !{!234, !236}
+!234 = distinct !{!234, !235, !"ma_data_converter_config_init_default: argument 0"}
+!235 = distinct !{!235, !"ma_data_converter_config_init_default"}
+!236 = distinct !{!236, !237, !"ma_data_converter_config_init: argument 0"}
+!237 = distinct !{!237, !"ma_data_converter_config_init"}
+!238 = !{!236}
 !239 = !{!240}
-!240 = distinct !{!240, !241, !"ma_device_config_init: argument 0"}
-!241 = distinct !{!241, !"ma_device_config_init"}
-!242 = !{!243, !245}
-!243 = distinct !{!243, !244, !"ma_data_converter_config_init_default: argument 0"}
-!244 = distinct !{!244, !"ma_data_converter_config_init_default"}
-!245 = distinct !{!245, !246, !"ma_data_converter_config_init: argument 0"}
-!246 = distinct !{!246, !"ma_data_converter_config_init"}
-!247 = !{!245}
+!240 = distinct !{!240, !241, !"stb_vorbis_get_info: argument 0"}
+!241 = distinct !{!241, !"stb_vorbis_get_info"}
+!242 = !{!243}
+!243 = distinct !{!243, !244, !"LoadWave: argument 0"}
+!244 = distinct !{!244, !"LoadWave"}
+!245 = !{!246}
+!246 = distinct !{!246, !247, !"LoadAudioStream: argument 0"}
+!247 = distinct !{!247, !"LoadAudioStream"}
 !248 = !{!249}
 !249 = distinct !{!249, !250, !"stb_vorbis_get_info: argument 0"}
 !250 = distinct !{!250, !"stb_vorbis_get_info"}
 !251 = !{!252}
-!252 = distinct !{!252, !253, !"LoadWave: argument 0"}
-!253 = distinct !{!253, !"LoadWave"}
+!252 = distinct !{!252, !253, !"LoadAudioStream: argument 0"}
+!253 = distinct !{!253, !"LoadAudioStream"}
 !254 = !{!255}
 !255 = distinct !{!255, !256, !"LoadAudioStream: argument 0"}
 !256 = distinct !{!256, !"LoadAudioStream"}
 !257 = !{!258}
-!258 = distinct !{!258, !259, !"stb_vorbis_get_info: argument 0"}
-!259 = distinct !{!259, !"stb_vorbis_get_info"}
+!258 = distinct !{!258, !259, !"LoadAudioStream: argument 0"}
+!259 = distinct !{!259, !"LoadAudioStream"}
 !260 = !{!261}
 !261 = distinct !{!261, !262, !"LoadAudioStream: argument 0"}
 !262 = distinct !{!262, !"LoadAudioStream"}
 !263 = !{!264}
-!264 = distinct !{!264, !265, !"LoadAudioStream: argument 0"}
-!265 = distinct !{!265, !"LoadAudioStream"}
+!264 = distinct !{!264, !265, !"stb_vorbis_get_info: argument 0"}
+!265 = distinct !{!265, !"stb_vorbis_get_info"}
 !266 = !{!267}
 !267 = distinct !{!267, !268, !"LoadAudioStream: argument 0"}
 !268 = distinct !{!268, !"LoadAudioStream"}
@@ -122958,23 +122958,14 @@ attributes #90 = { nounwind allocsize(0,1) }
 !270 = distinct !{!270, !271, !"LoadAudioStream: argument 0"}
 !271 = distinct !{!271, !"LoadAudioStream"}
 !272 = !{!273}
-!273 = distinct !{!273, !274, !"stb_vorbis_get_info: argument 0"}
-!274 = distinct !{!274, !"stb_vorbis_get_info"}
+!273 = distinct !{!273, !274, !"LoadAudioStream: argument 0"}
+!274 = distinct !{!274, !"LoadAudioStream"}
 !275 = !{!276}
-!276 = distinct !{!276, !277, !"LoadAudioStream: argument 0"}
-!277 = distinct !{!277, !"LoadAudioStream"}
+!276 = distinct !{!276, !277, !"ma_device__pa_buffer_attr_new: argument 0"}
+!277 = distinct !{!277, !"ma_device__pa_buffer_attr_new"}
 !278 = !{!279}
-!279 = distinct !{!279, !280, !"LoadAudioStream: argument 0"}
-!280 = distinct !{!280, !"LoadAudioStream"}
+!279 = distinct !{!279, !280, !"ma_resampling_backend_get_config__linear: argument 0"}
+!280 = distinct !{!280, !"ma_resampling_backend_get_config__linear"}
 !281 = !{!282}
-!282 = distinct !{!282, !283, !"LoadAudioStream: argument 0"}
-!283 = distinct !{!283, !"LoadAudioStream"}
-!284 = !{!285}
-!285 = distinct !{!285, !286, !"ma_device__pa_buffer_attr_new: argument 0"}
-!286 = distinct !{!286, !"ma_device__pa_buffer_attr_new"}
-!287 = !{!288}
-!288 = distinct !{!288, !289, !"ma_resampling_backend_get_config__linear: argument 0"}
-!289 = distinct !{!289, !"ma_resampling_backend_get_config__linear"}
-!290 = !{!291}
-!291 = distinct !{!291, !292, !"ma_resampling_backend_get_config__linear: argument 0"}
-!292 = distinct !{!292, !"ma_resampling_backend_get_config__linear"}
+!282 = distinct !{!282, !283, !"ma_resampling_backend_get_config__linear: argument 0"}
+!283 = distinct !{!283, !"ma_resampling_backend_get_config__linear"}

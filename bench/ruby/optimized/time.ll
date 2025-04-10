@@ -19772,7 +19772,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %rb_check_arity.exit
 
 time_set_timew.exit:                              ; preds = %RTYPEDDATA_GET_DATA.exit, %21, %26
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i64 40, i1 false)
   %28 = load i64, ptr %27, align 8, !tbaa !37
   %29 = icmp eq i64 %28, 0
   %30 = and i64 %28, 7

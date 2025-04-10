@@ -2270,7 +2270,7 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
   %4 = alloca %struct.COVER_dictSelection, align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !118
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !tbaa.struct !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
@@ -2279,9 +2279,9 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
   %11 = load i64, ptr %10, align 8, !tbaa !20
   %12 = shl i64 %11, 2
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #24
-  %14 = load i32, ptr %2, align 8, !tbaa !116
+  %14 = load i32, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !19
+  %16 = load i32, ptr %15, align 4
   %17 = add i32 %14, 1
   %18 = sub i32 %17, %16
   %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %18, i1 true)
@@ -2436,7 +2436,7 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
   %97 = getelementptr inbounds nuw i8, ptr %72, i64 104
   store i64 %.sroa.7.0, ptr %97, align 8, !tbaa !67
   %98 = getelementptr inbounds nuw i8, ptr %72, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %98, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false), !tbaa.struct !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %98, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
   store i64 %.sroa.745.0, ptr %78, align 8, !tbaa !58
   br label %99
 

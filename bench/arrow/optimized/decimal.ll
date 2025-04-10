@@ -7091,13 +7091,13 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i: ; p
   %.02431.us.i.i = phi i64 [ 0, %.critedge27.us.i.i ], [ %109, %98 ]
   %99 = phi i64 [ %.promoted.us.i.i, %.critedge27.us.i.i ], [ %108, %98 ]
   %100 = getelementptr inbounds nuw i64, ptr %16, i64 %.02431.us.i.i
-  %101 = load i64, ptr %100, align 8, !tbaa !155, !noalias !306
+  %101 = load i64, ptr %100, align 8, !noalias !306
   %102 = zext i64 %101 to i128
   %103 = mul nuw i128 %102, %97
   %104 = zext i64 %99 to i128
   %105 = add nuw i128 %103, %104
   %106 = trunc i128 %105 to i64
-  store i64 %106, ptr %100, align 8, !tbaa !155, !noalias !306
+  store i64 %106, ptr %100, align 8, !noalias !306
   %107 = lshr i128 %105, 64
   %108 = trunc nuw i128 %107 to i64
   %109 = add nuw nsw i64 %.02431.us.i.i, 1
@@ -7161,13 +7161,13 @@ _ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i: ; 
   %.02431.us.i45.i = phi i64 [ 0, %.critedge27.us.i43.i ], [ %132, %121 ]
   %122 = phi i64 [ %.promoted.us.i44.i, %.critedge27.us.i43.i ], [ %131, %121 ]
   %123 = getelementptr inbounds nuw i64, ptr %16, i64 %.02431.us.i45.i
-  %124 = load i64, ptr %123, align 8, !tbaa !155, !noalias !306
+  %124 = load i64, ptr %123, align 8, !noalias !306
   %125 = zext i64 %124 to i128
   %126 = mul nuw i128 %125, %120
   %127 = zext i64 %122 to i128
   %128 = add nuw i128 %126, %127
   %129 = trunc i128 %128 to i64
-  store i64 %129, ptr %123, align 8, !tbaa !155, !noalias !306
+  store i64 %129, ptr %123, align 8, !noalias !306
   %130 = lshr i128 %128, 64
   %131 = trunc nuw i128 %130 to i64
   %132 = add nuw nsw i64 %.02431.us.i45.i, 1
@@ -7571,7 +7571,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %10, %12, %16
 45:                                               ; preds = %30, %32, %27
   %.0.sink = phi i64 [ %29, %27 ], [ %44, %32 ], [ %20, %30 ]
   %46 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
-  store i64 %.0.sink, ptr %46, align 8, !tbaa !155
+  store i64 %.0.sink, ptr %46, align 8
   %47 = sub nsw i32 %25, %.sroa.speculated
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

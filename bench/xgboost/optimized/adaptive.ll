@@ -16678,41 +16678,41 @@ define internal fastcc void @"_ZZN7xgboost3obj6detail18UpdateTreeLeafHostEPKNS_7
   %23 = load i32, ptr %22, align 4, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !513
-  store ptr %25, ptr %12, align 8, !tbaa !120
+  store ptr %25, ptr %12, align 8
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !514
-  store ptr %28, ptr %26, align 8, !tbaa !122
+  store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !515
-  store ptr %31, ptr %29, align 8, !tbaa !124
+  store ptr %31, ptr %29, align 8
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !516
-  store ptr %34, ptr %32, align 8, !tbaa !124
+  store ptr %34, ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !517
-  store ptr %37, ptr %35, align 8, !tbaa !126
+  store ptr %37, ptr %35, align 8
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !518
-  store ptr %40, ptr %38, align 8, !tbaa !3
+  store ptr %40, ptr %38, align 8
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = load ptr, ptr %42, align 8, !tbaa !519
-  store ptr %43, ptr %41, align 8, !tbaa !128
+  store ptr %43, ptr %41, align 8
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %46 = load ptr, ptr %45, align 8, !tbaa !520
-  store ptr %46, ptr %44, align 8, !tbaa !130
+  store ptr %46, ptr %44, align 8
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = load ptr, ptr %48, align 8, !tbaa !521
-  store ptr %49, ptr %47, align 8, !tbaa !109
+  store ptr %49, ptr %47, align 8
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store ptr %13, ptr %50, align 8, !tbaa !118
+  store ptr %13, ptr %50, align 8
   %51 = icmp eq i32 %23, 1
   br i1 %51, label %.preheader.i.i, label %53
 

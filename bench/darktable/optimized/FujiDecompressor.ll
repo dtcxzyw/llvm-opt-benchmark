@@ -3864,8 +3864,6 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEi.exi
 
 1471:                                             ; preds = %1470
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3)
-  call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  call void @llvm.experimental.noalias.scope.decl(metadata !247)
   br label %.preheader.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %1479, %1471
@@ -3890,9 +3888,9 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEi.exi
   %1482 = urem i32 %1481, 6
   %1483 = zext nneg i32 %1482 to i64
   %1484 = getelementptr inbounds nuw i8, ptr %1476, i64 %1483
-  %1485 = load i8, ptr %1484, align 1, !tbaa !111, !noalias !250
+  %1485 = load i8, ptr %1484, align 1, !tbaa !111, !noalias !244
   %1486 = getelementptr inbounds nuw i8, ptr %1478, i64 %indvars.iv.i.i.i.i.i.i.i
-  store i8 %1485, ptr %1486, align 1, !tbaa !111, !alias.scope !250
+  store i8 %1485, ptr %1486, align 1
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 6
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %1479, label %1480, !llvm.loop !122
@@ -4010,18 +4008,18 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i: ; pr
 1554:                                             ; preds = %1555
   %indvars.iv.next73.i.i.i.i.i = add nuw nsw i64 %indvars.iv72.i.i.i.i.i, 1
   %.not.i.i146.i.i.i = icmp eq i64 %indvars.iv.next73.i.i.i.i.i, %1515
-  br i1 %.not.i.i146.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9FujiStripEi.exit.i.i.i, label %.preheader59.i.i.i.i.i, !llvm.loop !251
+  br i1 %.not.i.i146.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9FujiStripEi.exit.i.i.i, label %.preheader59.i.i.i.i.i, !llvm.loop !249
 
 1555:                                             ; preds = %1563
   %indvars.iv.next67.i.i.i.i.i = add nuw nsw i64 %indvars.iv66.i.i.i.i.i, 1
   %.not24.i.i.i.i.i = icmp eq i64 %indvars.iv.next67.i.i.i.i.i, 6
-  br i1 %.not24.i.i.i.i.i, label %1554, label %.preheader.i.i143.i.i.i, !llvm.loop !252
+  br i1 %.not24.i.i.i.i.i, label %1554, label %.preheader.i.i143.i.i.i, !llvm.loop !250
 
 1556:                                             ; preds = %1563, %.preheader.i.i143.i.i.i
   %indvars.iv.i.i144.i.i.i = phi i64 [ 0, %.preheader.i.i143.i.i.i ], [ %indvars.iv.next.i.i145.i.i.i, %1563 ]
   %1557 = add nuw nsw i64 %indvars.iv.i.i144.i.i.i, %1517
   %1558 = getelementptr inbounds nuw i8, ptr %1529, i64 %indvars.iv.i.i144.i.i.i
-  %1559 = load i8, ptr %1558, align 1, !tbaa !111
+  %1559 = load i8, ptr %1558, align 1
   switch i8 %1559, label %1562 [
     i8 0, label %1563
     i8 1, label %1560
@@ -4080,7 +4078,7 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i: ; pr
   store i16 %1583, ptr %1586, align 2, !tbaa !90
   %indvars.iv.next.i.i145.i.i.i = add nuw nsw i64 %indvars.iv.i.i144.i.i.i, 1
   %.not25.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i145.i.i.i, 6
-  br i1 %.not25.i.i.i.i.i, label %1555, label %1556, !llvm.loop !253
+  br i1 %.not25.i.i.i.i.i, label %1555, label %1556, !llvm.loop !251
 
 _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9FujiStripEi.exit.i.i.i: ; preds = %1554, %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3)
@@ -4212,12 +4210,12 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i148.i.i.i: ;
 1660:                                             ; preds = %1661
   %indvars.iv.next68.i.i.i.i.i = add nuw nsw i64 %indvars.iv67.i.i.i.i.i, 1
   %.not24.i.i156.i.i.i = icmp eq i64 %indvars.iv.next68.i.i.i.i.i, 3
-  br i1 %.not24.i.i156.i.i.i, label %1679, label %1618, !llvm.loop !254
+  br i1 %.not24.i.i156.i.i.i, label %1679, label %1618, !llvm.loop !252
 
 1661:                                             ; preds = %1668
   %indvars.iv.next65.i.i.i.i.i = add nuw nsw i64 %indvars.iv64.i.i.i.i.i, 1
   %.not25.i.i155.i.i.i = icmp eq i64 %indvars.iv.next65.i.i.i.i.i, 2
-  br i1 %.not25.i.i155.i.i.i, label %1660, label %.preheader.i.i151.i.i.i, !llvm.loop !255
+  br i1 %.not25.i.i155.i.i.i, label %1660, label %.preheader.i.i151.i.i.i, !llvm.loop !253
 
 1662:                                             ; preds = %1668, %.preheader.i.i151.i.i.i
   %indvars.iv.i.i152.i.i.i = phi i64 [ 0, %.preheader.i.i151.i.i.i ], [ %indvars.iv.next.i.i154.i.i.i, %1668 ]
@@ -4268,11 +4266,11 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i148.i.i.i: ;
   store i16 %1675, ptr %1678, align 2, !tbaa !90
   %indvars.iv.next.i.i154.i.i.i = add nuw nsw i64 %indvars.iv.i.i152.i.i.i, 1
   %.not26.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i154.i.i.i, 2
-  br i1 %.not26.i.i.i.i.i, label %1661, label %1662, !llvm.loop !256
+  br i1 %.not26.i.i.i.i.i, label %1661, label %1662, !llvm.loop !254
 
 1679:                                             ; preds = %1660
   %.not.i.i157.i.i.i = icmp eq i64 %indvars.iv.next72.i.i.i.i.i, %1616
-  br i1 %.not.i.i157.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9FujiStripEi.exit.i.i.i, label %.preheader57.i.i.i.i.i, !llvm.loop !257
+  br i1 %.not.i.i157.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9FujiStripEi.exit.i.i.i, label %.preheader57.i.i.i.i.i, !llvm.loop !255
 
 _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9FujiStripEi.exit.i.i.i: ; preds = %1679, %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i148.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #26
@@ -4432,7 +4430,7 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9Fu
   %1751 = getelementptr inbounds nuw i8, ptr %1750, i64 16
   %1752 = load ptr, ptr %1751, align 8
   %1753 = call noundef ptr %1752(ptr noundef nonnull align 8 dereferenceable(16) %1748) #26
-  store ptr %173, ptr %17, align 8, !tbaa !258
+  store ptr %173, ptr %17, align 8, !tbaa !256
   %1754 = icmp eq ptr %1753, null
   br i1 %1754, label %1755, label %1756
 
@@ -4476,7 +4474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i: 
           to label %.noexc8.i unwind label %.loopexit.i.loopexit.i
 
 .noexc8.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i
-  store ptr %1764, ptr %17, align 8, !tbaa !259
+  store ptr %1764, ptr %17, align 8, !tbaa !257
   store i64 %1757, ptr %173, align 8, !tbaa !92
   br label %._crit_edge.i.i.i
 
@@ -4497,7 +4495,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i: 
   br label %1769
 
 1769:                                             ; preds = %1768, %1766, %._crit_edge.i.i.i
-  store i64 %1757, ptr %174, align 8, !tbaa !260
+  store i64 %1757, ptr %174, align 8, !tbaa !258
   %1770 = getelementptr inbounds nuw i8, ptr %1765, i64 %1757
   store i8 0, ptr %1770, align 1, !tbaa !92
   %1771 = getelementptr inbounds nuw i8, ptr %1749, i64 8
@@ -4505,12 +4503,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i: 
           to label %1772 unwind label %.loopexit.i.loopexit.i
 
 1772:                                             ; preds = %1769
-  %1773 = load ptr, ptr %17, align 8, !tbaa !259
+  %1773 = load ptr, ptr %17, align 8, !tbaa !257
   %1774 = icmp eq ptr %1773, %173
   br i1 %1774, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %1772
-  %1775 = load i64, ptr %174, align 8, !tbaa !260
+  %1775 = load i64, ptr %174, align 8, !tbaa !258
   %1776 = icmp ult i64 %1775, 16
   call void @llvm.assume(i1 %1776)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
@@ -4533,7 +4531,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9Fuji
   %1781 = load i8, ptr %1780, align 2, !tbaa !153
   %1782 = zext i8 %1781 to i64
   %1783 = icmp samesign ult i64 %indvars.iv.next.i.i11, %1782
-  br i1 %1783, label %178, label %._crit_edge.i.i12, !llvm.loop !261
+  br i1 %1783, label %178, label %._crit_edge.i.i12, !llvm.loop !259
 
 .loopexit.i.loopexit.i:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %1769, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -4560,9 +4558,9 @@ _ZNK8rawspeed12_GLOBAL__N_120FujiDecompressorImpl16decompressThreadEv.exit.i: ; 
   call void @llvm.lifetime.end.p0(i64 2120, ptr nonnull %16) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #26
   %1785 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %1785, ptr %18, align 8, !tbaa !258
+  store ptr %1785, ptr %18, align 8, !tbaa !256
   %1786 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 0, ptr %1786, align 8, !tbaa !260
+  store i64 0, ptr %1786, align 8, !tbaa !258
   store i8 0, ptr %1785, align 8, !tbaa !92
   %1787 = load ptr, ptr %19, align 8, !tbaa !6
   %1788 = getelementptr inbounds nuw i8, ptr %1787, i64 8
@@ -4570,7 +4568,7 @@ _ZNK8rawspeed12_GLOBAL__N_120FujiDecompressorImpl16decompressThreadEv.exit.i: ; 
           to label %1790 unwind label %1794
 
 1790:                                             ; preds = %_ZNK8rawspeed12_GLOBAL__N_120FujiDecompressorImpl16decompressThreadEv.exit.i
-  %1791 = load ptr, ptr %18, align 8, !tbaa !259
+  %1791 = load ptr, ptr %18, align 8, !tbaa !257
   br i1 %1789, label %1792, label %1802
 
 1792:                                             ; preds = %1790
@@ -4583,12 +4581,12 @@ _ZNK8rawspeed12_GLOBAL__N_120FujiDecompressorImpl16decompressThreadEv.exit.i: ; 
 1794:                                             ; preds = %1792, %_ZNK8rawspeed12_GLOBAL__N_120FujiDecompressorImpl16decompressThreadEv.exit.i
   %1795 = landingpad { ptr, i32 }
           cleanup
-  %1796 = load ptr, ptr %18, align 8, !tbaa !259
+  %1796 = load ptr, ptr %18, align 8, !tbaa !257
   %1797 = icmp eq ptr %1796, %1785
   br i1 %1797, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %1794
-  %1798 = load i64, ptr %1786, align 8, !tbaa !260
+  %1798 = load i64, ptr %1786, align 8, !tbaa !258
   %1799 = icmp ult i64 %1798, 16
   call void @llvm.assume(i1 %1799)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
@@ -4609,7 +4607,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br i1 %1803, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i: ; preds = %1802
-  %1804 = load i64, ptr %1786, align 8, !tbaa !260
+  %1804 = load i64, ptr %1786, align 8, !tbaa !258
   %1805 = icmp ult i64 %1804, 16
   call void @llvm.assume(i1 %1805)
   br label %1808
@@ -4782,7 +4780,7 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
 
 _ZN8rawspeed10ByteStream6getU16Ev.exit:           ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %12 = load i16, ptr %11, align 4, !tbaa !262
+  %12 = load i16, ptr %11, align 4, !tbaa !260
   %13 = icmp eq i16 %12, -8531
   %14 = load ptr, ptr %1, align 8, !tbaa !145, !nonnull !132, !noundef !132
   %15 = icmp sgt i32 %8, -1
@@ -4812,7 +4810,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit:          ; preds = %_ZN8rawspeed10ByteS
   %.0.copyload.i.i.i.i.i.i11 = load i8, ptr %24, align 1
   %25 = add nuw nsw i32 %4, 3
   store i32 %25, ptr %3, align 8, !tbaa !133
-  store i8 %.0.copyload.i.i.i.i.i.i11, ptr %22, align 2, !tbaa !263
+  store i8 %.0.copyload.i.i.i.i.i.i11, ptr %22, align 2, !tbaa !261
   %.not.i.not.i.i.i.i.i12 = icmp samesign ult i32 %25, %8
   br i1 %.not.i.not.i.i.i.i.i12, label %_ZN8rawspeed10ByteStream7getByteEv.exit14, label %26
 
@@ -5460,23 +5458,21 @@ attributes #32 = { cold }
 !241 = distinct !{!241, !110}
 !242 = distinct !{!242, !110}
 !243 = distinct !{!243, !110}
-!244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE: argument 0"}
-!246 = distinct !{!246, !"_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE"}
-!247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZN8rawspeed15applyPhaseShiftINS_8CFAColorEEESt5arrayIT_Lm36EES4_NS_8iPoint2DES5_: argument 0"}
-!249 = distinct !{!249, !"_ZN8rawspeed15applyPhaseShiftINS_8CFAColorEEESt5arrayIT_Lm36EES4_NS_8iPoint2DES5_"}
-!250 = !{!248, !245}
+!244 = !{!245, !247}
+!245 = distinct !{!245, !246, !"_ZN8rawspeed15applyPhaseShiftINS_8CFAColorEEESt5arrayIT_Lm36EES4_NS_8iPoint2DES5_: argument 0"}
+!246 = distinct !{!246, !"_ZN8rawspeed15applyPhaseShiftINS_8CFAColorEEESt5arrayIT_Lm36EES4_NS_8iPoint2DES5_"}
+!247 = distinct !{!247, !248, !"_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE: argument 0"}
+!248 = distinct !{!248, !"_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE"}
+!249 = distinct !{!249, !110}
+!250 = distinct !{!250, !110}
 !251 = distinct !{!251, !110}
 !252 = distinct !{!252, !110}
 !253 = distinct !{!253, !110}
 !254 = distinct !{!254, !110}
 !255 = distinct !{!255, !110}
-!256 = distinct !{!256, !110}
-!257 = distinct !{!257, !110}
-!258 = !{!69, !59, i64 0}
-!259 = !{!68, !59, i64 0}
-!260 = !{!68, !70, i64 8}
-!261 = distinct !{!261, !110}
-!262 = !{!100, !88, i64 12}
-!263 = !{!98, !10, i64 2}
+!256 = !{!69, !59, i64 0}
+!257 = !{!68, !59, i64 0}
+!258 = !{!68, !70, i64 8}
+!259 = distinct !{!259, !110}
+!260 = !{!100, !88, i64 12}
+!261 = !{!98, !10, i64 2}

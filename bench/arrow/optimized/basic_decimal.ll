@@ -3104,10 +3104,10 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
   %.010.i.i = phi i64 [ 1, %2 ], [ %11, %4 ]
   %.089.i.i = phi i64 [ 0, %2 ], [ %12, %4 ]
   %5 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.089.i.i
-  %6 = load i64, ptr %5, align 8, !tbaa !7
+  %6 = load i64, ptr %5, align 8
   %7 = xor i64 %6, -1
   %8 = add i64 %.010.i.i, %7
-  store i64 %8, ptr %5, align 8, !tbaa !7
+  store i64 %8, ptr %5, align 8
   %9 = icmp eq i64 %8, 0
   %10 = and i64 %.010.i.i, 1
   %11 = select i1 %9, i64 %10, i64 0
@@ -3119,7 +3119,7 @@ _ZN5arrowngERKNS_15BasicDecimal256E.exit:         ; preds = %4, %_ZN5arrowngERKN
   %.021.i = phi i64 [ %.2.i, %_ZN5arrowngERKNS_15BasicDecimal256E.exit ], [ 0, %4 ]
   %.01620.i = phi i64 [ %22, %_ZN5arrowngERKNS_15BasicDecimal256E.exit ], [ 0, %4 ]
   %13 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.01620.i
-  %14 = load i64, ptr %13, align 8, !tbaa !7
+  %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %.021.i
   %16 = icmp ult i64 %15, %14
   %spec.select.i = zext i1 %16 to i64
@@ -3290,7 +3290,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 .lr.ph.i.i.i.i.i24:                               ; preds = %.lr.ph.i.i.i.i.i24, %12
   %.06.i.i.i.i.idx.i25 = phi i64 [ %.06.i.i.i.i.add.i27, %.lr.ph.i.i.i.i.i24 ], [ 0, %12 ]
   %.06.i.i.i.i.ptr.i26 = getelementptr inbounds nuw i8, ptr %4, i64 %.06.i.i.i.i.idx.i25
-  store i64 %9, ptr %.06.i.i.i.i.ptr.i26, align 8, !tbaa !7
+  store i64 %9, ptr %.06.i.i.i.i.ptr.i26, align 8
   %.06.i.i.i.i.add.i27 = add nuw nsw i64 %.06.i.i.i.i.idx.i25, 8
   %.not.i.i.i.i.i28 = icmp eq i64 %.06.i.i.i.i.add.i27, 32
   br i1 %.not.i.i.i.i.i28, label %.lr.ph, label %.lr.ph.i.i.i.i.i24, !llvm.loop !32
@@ -3319,11 +3319,11 @@ _ZNSt5arrayImLm4EE4fillERKm.exit29.us.preheader:  ; preds = %.lr.ph
   %24 = shl nuw nsw i32 %10, 3
   %narrow = sub nuw nsw i32 32, %24
   %25 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 8 %scevgep, i64 %25, i1 false), !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 8 %scevgep, i64 %25, i1 false)
   br label %_ZNSt5arrayImLm4EE4fillERKm.exit29._crit_edge
 
 _ZNSt5arrayImLm4EE4fillERKm.exit29._crit_edge:    ; preds = %_ZNSt5arrayImLm4EE4fillERKm.exit29, %_ZNSt5arrayImLm4EE4fillERKm.exit29.us.preheader
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
   br label %_ZNSt5arrayImLm4EE4fillERKm.exit
 
@@ -3348,7 +3348,7 @@ _ZNSt5arrayImLm4EE4fillERKm.exit29:               ; preds = %.lr.ph.split, %31
   %.in.sroa.speculated = phi i64 [ %.in.sroa.speculate.load., %31 ], [ %9, %.lr.ph.split ]
   %34 = shl i64 %.in.sroa.speculated, %16
   %35 = or i64 %34, %28
-  store i64 %35, ptr %30, align 8, !tbaa !7
+  store i64 %35, ptr %30, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count
   br i1 %exitcond.not, label %_ZNSt5arrayImLm4EE4fillERKm.exit29._crit_edge, label %.lr.ph.split, !llvm.loop !33
 
@@ -3369,7 +3369,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
   %isneg = icmp sgt i64 %10, -1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !7
+  %12 = load i64, ptr %11, align 8
   %13 = icmp slt i64 %12, 0
   br i1 %13, label %.preheader.i.i, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit
 
@@ -3377,10 +3377,10 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
   %.010.i.i.i = phi i64 [ %20, %.preheader.i.i ], [ 1, %2 ]
   %.089.i.i.i = phi i64 [ %21, %.preheader.i.i ], [ 0, %2 ]
   %14 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.089.i.i.i
-  %15 = load i64, ptr %14, align 8, !tbaa !7
+  %15 = load i64, ptr %14, align 8
   %16 = xor i64 %15, -1
   %17 = add i64 %.010.i.i.i, %16
-  store i64 %17, ptr %14, align 8, !tbaa !7
+  store i64 %17, ptr %14, align 8
   %18 = icmp eq i64 %17, 0
   %19 = and i64 %.010.i.i.i, 1
   %20 = select i1 %18, i64 %19, i64 0
@@ -3391,7 +3391,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 _ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %.preheader.i.i, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %23 = load i64, ptr %22, align 8, !tbaa !7
+  %23 = load i64, ptr %22, align 8
   %24 = icmp slt i64 %23, 0
   br i1 %24, label %.preheader.i.i3, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7
 
@@ -3399,10 +3399,10 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %.preheader.i.i, %2
   %.010.i.i.i4 = phi i64 [ %31, %.preheader.i.i3 ], [ 1, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit ]
   %.089.i.i.i5 = phi i64 [ %32, %.preheader.i.i3 ], [ 0, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit ]
   %25 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.089.i.i.i5
-  %26 = load i64, ptr %25, align 8, !tbaa !7
+  %26 = load i64, ptr %25, align 8
   %27 = xor i64 %26, -1
   %28 = add i64 %.010.i.i.i4, %27
-  store i64 %28, ptr %25, align 8, !tbaa !7
+  store i64 %28, ptr %25, align 8
   %29 = icmp eq i64 %28, 0
   %30 = and i64 %.010.i.i.i4, 1
   %31 = select i1 %29, i64 %30, i64 0
@@ -3419,7 +3419,7 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit7:       ; preds = %.preheader.i.i3, %_
   %indvars.iv39.i = phi i64 [ 0, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7 ], [ %indvars.iv.next40.i, %._crit_edge.i ]
   %indvars.iv37.i = phi i64 [ 4, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7 ], [ %indvars.iv.next38.i, %._crit_edge.i ]
   %33 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %indvars.iv39.i
-  %34 = load i64, ptr %33, align 8, !tbaa !7
+  %34 = load i64, ptr %33, align 8
   %35 = zext i64 %34 to i128
   br label %36
 
@@ -3433,7 +3433,7 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit7:       ; preds = %.preheader.i.i3, %_
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
   %.01431.i = phi i64 [ 0, %.lr.ph.i ], [ %50, %36 ]
   %37 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv.i
-  %38 = load i64, ptr %37, align 8, !tbaa !7
+  %38 = load i64, ptr %37, align 8
   %39 = zext i64 %38 to i128
   %40 = mul nuw i128 %35, %39
   %41 = add nuw nsw i64 %indvars.iv.i, %indvars.iv39.i
@@ -3687,7 +3687,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit116.i: ; preds = %62, %.
   %86 = shl nuw nsw i64 %.022.lcssa.i.i.i.i, 3
   %scevgep.i.i.i.i = getelementptr i8, ptr %7, i64 %86
   %87 = sub nuw nsw i64 32, %86
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i, i8 0, i64 %87, i1 false), !tbaa !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i, i8 0, i64 %87, i1 false)
   br label %117
 
 .lr.ph38.i.i.i.i:                                 ; preds = %.lr.ph38.i.i.i.i.preheader, %94
@@ -3701,7 +3701,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit116.i: ; preds = %62, %.
 
 .thread.i.i.i.i:                                  ; preds = %.lr.ph38.i.i.i.i
   %92 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.02236.i.i.i.i
-  store i64 %90, ptr %92, align 8, !tbaa !7
+  store i64 %90, ptr %92, align 8
   %93 = add nuw nsw i64 %.02236.i.i.i.i, 1
   br label %.preheader.i.i.i.i
 
@@ -3713,7 +3713,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit116.i: ; preds = %62, %.
   %99 = shl nuw i64 %98, 32
   %100 = or disjoint i64 %99, %90
   %101 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.02236.i.i.i.i
-  store i64 %100, ptr %101, align 8, !tbaa !7
+  store i64 %100, ptr %101, align 8
   %102 = add nuw nsw i64 %.02236.i.i.i.i, 1
   %103 = icmp samesign ult i64 %.02236.i.i.i.i, 3
   %104 = icmp ne i64 %.02435.i.i.i.i, 1
@@ -3932,7 +3932,7 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i131.i,
   %195 = shl nuw nsw i64 %.022.lcssa.i.i.i, 3
   %scevgep.i.i.i = getelementptr i8, ptr %6, i64 %195
   %196 = sub nuw nsw i64 32, %195
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i, i8 0, i64 %196, i1 false), !tbaa !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i, i8 0, i64 %196, i1 false)
   br label %282
 
 .lr.ph38.i.i.i:                                   ; preds = %203, %.lr.ph38.preheader.i.i.i
@@ -3946,7 +3946,7 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i131.i,
 
 .thread.i.i.i:                                    ; preds = %.lr.ph38.i.i.i
   %201 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %.02236.i.i.i
-  store i64 %199, ptr %201, align 8, !tbaa !7
+  store i64 %199, ptr %201, align 8
   %202 = add nuw nsw i64 %.02236.i.i.i, 1
   br label %.preheader.i.i135.i
 
@@ -3958,7 +3958,7 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i131.i,
   %208 = shl nuw i64 %207, 32
   %209 = or disjoint i64 %208, %199
   %210 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %.02236.i.i.i
-  store i64 %209, ptr %210, align 8, !tbaa !7
+  store i64 %209, ptr %210, align 8
   %211 = add nuw nsw i64 %.02236.i.i.i, 1
   %212 = icmp samesign ult i64 %.02236.i.i.i, 3
   %213 = icmp ne i64 %.02435.i.i.i, 1
@@ -4119,7 +4119,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
   %291 = shl nuw nsw i64 %.022.lcssa.i.i148.i, 3
   %scevgep.i.i141.i = getelementptr i8, ptr %5, i64 %291
   %292 = sub nuw nsw i64 32, %291
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i141.i, i8 0, i64 %292, i1 false), !tbaa !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i141.i, i8 0, i64 %292, i1 false)
   br label %311
 
 .lr.ph38.i.i144.i:                                ; preds = %.lr.ph38.i.i144.i.preheader, %299
@@ -4133,7 +4133,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
 
 .thread.i.i149.i:                                 ; preds = %.lr.ph38.i.i144.i
   %297 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.02236.i.i145.i
-  store i64 %295, ptr %297, align 8, !tbaa !7
+  store i64 %295, ptr %297, align 8
   %298 = add nuw nsw i64 %.02236.i.i145.i, 1
   br label %.preheader.i.i147.i
 
@@ -4145,7 +4145,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
   %304 = shl nuw i64 %303, 32
   %305 = or disjoint i64 %304, %295
   %306 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.02236.i.i145.i
-  store i64 %305, ptr %306, align 8, !tbaa !7
+  store i64 %305, ptr %306, align 8
   %307 = add nuw nsw i64 %.02236.i.i145.i, 1
   %308 = icmp samesign ult i64 %.02236.i.i145.i, 3
   %309 = icmp ne i64 %.02435.i.i146.i, 1

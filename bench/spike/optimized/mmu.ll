@@ -2414,9 +2414,9 @@ define void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull a
   %7 = alloca %struct.mem_access_info_t, align 8
   call void @_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t(ptr dead_on_unwind nonnull writable sret(%struct.mem_access_info_t) align 8 %6, ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i32 noundef 0, i8 %4)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !63
+  %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %11 = load i8, ptr %10, align 8, !tbaa !68, !range !69, !noundef !70
+  %11 = load i8, ptr %10, align 8, !range !69, !noundef !70
   %12 = trunc nuw i8 %11 to i1
   tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 2, i64 noundef %9, i1 noundef zeroext %12, i64 undef, i8 0)
   %13 = add i64 %2, -1
@@ -2770,13 +2770,13 @@ define void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnu
   %9 = alloca %struct.mem_access_info_t, align 8
   call void @_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t(ptr dead_on_unwind nonnull writable sret(%struct.mem_access_info_t) align 8 %8, ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i32 noundef 1, i8 %4)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !63
+  %11 = load i64, ptr %10, align 8
   br i1 %5, label %.preheader, label %32
 
 .preheader:                                       ; preds = %7
   %12 = icmp ugt i64 %2, 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %14 = load i8, ptr %13, align 8, !tbaa !68, !range !69
+  %14 = load i8, ptr %13, align 8, !range !69
   %15 = trunc nuw i8 %14 to i1
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -2836,7 +2836,7 @@ _Z14reg_from_bytesmPKh.exit:                      ; preds = %20, %23, %26, %29
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %37 = load i8, ptr %36, align 8, !tbaa !68, !range !69, !noundef !70
+  %37 = load i8, ptr %36, align 8, !range !69, !noundef !70
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load ptr, ptr %38, align 8, !tbaa !39
   %.not.i = icmp eq ptr %39, null

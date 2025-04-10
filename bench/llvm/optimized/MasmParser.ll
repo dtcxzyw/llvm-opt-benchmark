@@ -23329,12 +23329,12 @@ _ZN4llvm16MCDwarfLineTable14resetFileTableEv.exit: ; preds = %_ZN4llvm11MCDwarfF
   %278 = lshr i64 %.0112.lcssa, %277
   %279 = trunc i64 %278 to i8
   %280 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 0, i64 %indvars.iv
-  store i8 %279, ptr %280, align 1, !tbaa !287
+  store i8 %279, ptr %280, align 1
   %281 = lshr i64 %.0117.lcssa, %277
   %282 = trunc i64 %281 to i8
   %283 = add nuw nsw i64 %indvars.iv, 8
   %284 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 0, i64 %283
-  store i8 %282, ptr %284, align 1, !tbaa !287
+  store i8 %282, ptr %284, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %.not, label %_ZNSt8optionalIN4llvm3MD59MD5ResultEEaSIRS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS2_ES8_IS2_NSt5decayISB_E4typeEEEEESt16is_constructibleIS2_JSB_EESt13is_assignableIS5_SB_EEERS3_E4typeEOSB_.exit, label %.preheader, !llvm.loop !1120

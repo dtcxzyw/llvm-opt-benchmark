@@ -13014,11 +13014,11 @@ define void @"_ZN93_$LT$ui..components..numeric_stepper..NumericStepper$u20$as$u
 197:                                              ; preds = %195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %.sroa.060, ptr noundef nonnull align 8 dereferenceable(872) %23, i64 872, i1 false)
   call void @llvm.lifetime.end.p0(i64 872, ptr nonnull %23)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %28, ptr noundef nonnull align 8 dereferenceable(872) %.sroa.060, i64 872, i1 false), !alias.scope !2213
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %28, ptr noundef nonnull align 8 dereferenceable(872) %.sroa.060, i64 872, i1 false)
   %.sroa.053.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 872
   store i32 0, ptr %.sroa.053.sroa.4.0..sroa_idx, align 8, !alias.scope !2213
   %.sroa.053.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 876
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.053.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3, i64 16, i1 false), !alias.scope !2213
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.053.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   %.sroa.053.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 892
   store i8 0, ptr %.sroa.053.sroa.6.0..sroa_idx, align 4, !alias.scope !2213
   %.sroa.454.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %28, i64 893

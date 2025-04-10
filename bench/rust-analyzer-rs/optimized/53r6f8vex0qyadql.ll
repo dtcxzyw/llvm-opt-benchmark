@@ -1186,8 +1186,8 @@ define hidden void @"_ZN3mbe8expander7matcher14match_meta_var28_$u7b$$u7b$closur
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.58.0.copyload9 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !alias.scope !259
   %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.610, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.610.0..sroa_idx, i64 40, i1 false), !alias.scope !259
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.67.0..sroa_idx.i, i64 7, i1 false), !alias.scope !259
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.610, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.610.0..sroa_idx, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.67.0..sroa_idx.i, i64 7, i1 false)
   br label %23
 
 11:                                               ; preds = %7

@@ -1598,7 +1598,7 @@ common.resume.i.i:                                ; preds = %50, %36, %28
   store i64 %60, ptr %.val3, align 8, !noalias !565
   store i64 %48, ptr %0, align 8, !alias.scope !606
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.4.i.i.i, i64 144, i1 false), !alias.scope !606
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.4.i.i.i, i64 144, i1 false)
   br label %61
 
 61:                                               ; preds = %._crit_edge, %58

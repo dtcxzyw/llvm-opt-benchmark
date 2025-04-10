@@ -26949,8 +26949,8 @@ default.unreachable79:                            ; preds = %3
 
 86:                                               ; preds = %85, %41
   %87 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, i64 24, i1 false), !alias.scope !3810
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull readonly align 8 dereferenceable(40) %15, i64 40, i1 false), !alias.scope !3814
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull readonly align 8 dereferenceable(40) %15, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -27052,11 +27052,11 @@ common.ret:                                       ; preds = %"_ZN4core3ptr120dro
 define void @"_ZN137_$LT$deltalake_aws..credentials..ConfiguredCredentialChain$u20$as$u20$aws_credential_types..provider..credentials..ProvideCredentials$GT$19provide_credentials17h569afaf346b2d027E"(ptr noalias noundef writeonly sret({ { { i64, [2 x i64] } } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [64 x i8], i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
-  store ptr %1, ptr %3, align 8, !alias.scope !3816, !noalias !3819
+  store ptr %1, ptr %3, align 8, !alias.scope !3810, !noalias !3813
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i8 0, ptr %4, align 8, !alias.scope !3816, !noalias !3819
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3821
-  %6 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #35, !noalias !3821
+  store i8 0, ptr %4, align 8, !alias.scope !3810, !noalias !3813
+  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3815
+  %6 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #35, !noalias !3815
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h34efb4f2c2b08c2bE.exit"
 
@@ -27098,8 +27098,8 @@ define void @"_ZN127_$LT$deltalake_aws..credentials..NoOpCredentials$u20$as$u20$
   %3 = alloca { { i64, [2 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3824
-  %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #35, !noalias !3824
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3818
+  %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #35, !noalias !3818
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h023f619b1f897981E.exit"
 
@@ -27147,8 +27147,8 @@ define void @"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
 .critedge:                                        ; preds = %2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3827
-  %7 = tail call noundef align 8 dereferenceable_or_null(128) ptr @__rust_alloc(i64 noundef 128, i64 noundef 8) #35, !noalias !3827
+  %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3821
+  %7 = tail call noundef align 8 dereferenceable_or_null(128) ptr @__rust_alloc(i64 noundef 128, i64 noundef 8) #35, !noalias !3821
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568.exit"
 
@@ -27206,8 +27206,8 @@ define void @"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
 .critedge:                                        ; preds = %2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3830
-  %7 = tail call noundef align 8 dereferenceable_or_null(128) ptr @__rust_alloc(i64 noundef 128, i64 noundef 8) #35, !noalias !3830
+  %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3824
+  %7 = tail call noundef align 8 dereferenceable_or_null(128) ptr @__rust_alloc(i64 noundef 128, i64 noundef 8) #35, !noalias !3824
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568.exit"
 
@@ -27278,8 +27278,8 @@ define void @"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 168, i1 false)
-  %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3833
-  %15 = tail call noundef align 8 dereferenceable_or_null(168) ptr @__rust_alloc(i64 noundef 168, i64 noundef 8) #35, !noalias !3833
+  %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3827
+  %15 = tail call noundef align 8 dereferenceable_or_null(168) ptr @__rust_alloc(i64 noundef 168, i64 noundef 8) #35, !noalias !3827
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %31
 
@@ -27321,15 +27321,15 @@ define void @"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
 
 25:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.528, ptr %7, align 8, !alias.scope !3836, !noalias !3839
+  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.528, ptr %7, align 8, !alias.scope !3830, !noalias !3833
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %26, align 8, !alias.scope !3836, !noalias !3839
+  store i64 1, ptr %26, align 8, !alias.scope !3830, !noalias !3833
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %27, align 8, !alias.scope !3836, !noalias !3839
+  store ptr null, ptr %27, align 8, !alias.scope !3830, !noalias !3833
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %3, ptr %28, align 8, !alias.scope !3836, !noalias !3839
+  store ptr %3, ptr %28, align 8, !alias.scope !3830, !noalias !3833
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %29, align 8, !alias.scope !3836, !noalias !3839
+  store i64 0, ptr %29, align 8, !alias.scope !3830, !noalias !3833
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ef876e9a40f6761df4fa1e2b544b5407.530) #36
           to label %30 unwind label %35
 
@@ -27398,8 +27398,8 @@ define void @"_ZN143_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 168, i1 false)
-  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3842
-  %16 = tail call noundef align 8 dereferenceable_or_null(168) ptr @__rust_alloc(i64 noundef 168, i64 noundef 8) #35, !noalias !3842
+  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3836
+  %16 = tail call noundef align 8 dereferenceable_or_null(168) ptr @__rust_alloc(i64 noundef 168, i64 noundef 8) #35, !noalias !3836
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %33
 
@@ -27448,15 +27448,15 @@ define void @"_ZN143_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
 
 27:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.532, ptr %8, align 8, !alias.scope !3845, !noalias !3848
+  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.532, ptr %8, align 8, !alias.scope !3839, !noalias !3842
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1, ptr %28, align 8, !alias.scope !3845, !noalias !3848
+  store i64 1, ptr %28, align 8, !alias.scope !3839, !noalias !3842
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %29, align 8, !alias.scope !3845, !noalias !3848
+  store ptr null, ptr %29, align 8, !alias.scope !3839, !noalias !3842
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %3, ptr %30, align 8, !alias.scope !3845, !noalias !3848
+  store ptr %3, ptr %30, align 8, !alias.scope !3839, !noalias !3842
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 0, ptr %31, align 8, !alias.scope !3845, !noalias !3848
+  store i64 0, ptr %31, align 8, !alias.scope !3839, !noalias !3842
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ef876e9a40f6761df4fa1e2b544b5407.533) #36
           to label %32 unwind label %37
 
@@ -27545,15 +27545,15 @@ define noundef zeroext i1 @"_ZN81_$LT$deltalake_aws..errors..DynamoDbConfigError
   store ptr %6, ptr %7, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hb03977d7e835bd1fE", ptr %15, align 8
-  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.547, ptr %8, align 8, !alias.scope !3851, !noalias !3854
+  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.547, ptr %8, align 8, !alias.scope !3845, !noalias !3848
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 2, ptr %16, align 8, !alias.scope !3851, !noalias !3854
+  store i64 2, ptr %16, align 8, !alias.scope !3845, !noalias !3848
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %17, align 8, !alias.scope !3851, !noalias !3854
+  store ptr null, ptr %17, align 8, !alias.scope !3845, !noalias !3848
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %7, ptr %18, align 8, !alias.scope !3851, !noalias !3854
+  store ptr %7, ptr %18, align 8, !alias.scope !3845, !noalias !3848
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 1, ptr %19, align 8, !alias.scope !3851, !noalias !3854
+  store i64 1, ptr %19, align 8, !alias.scope !3845, !noalias !3848
   %20 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -27569,15 +27569,15 @@ define noundef zeroext i1 @"_ZN81_$LT$deltalake_aws..errors..DynamoDbConfigError
   store ptr %3, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h17b647a2d17a298bE", ptr %23, align 8
-  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.549, ptr %5, align 8, !alias.scope !3857, !noalias !3860
+  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.549, ptr %5, align 8, !alias.scope !3851, !noalias !3854
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %24, align 8, !alias.scope !3857, !noalias !3860
+  store i64 1, ptr %24, align 8, !alias.scope !3851, !noalias !3854
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %25, align 8, !alias.scope !3857, !noalias !3860
+  store ptr null, ptr %25, align 8, !alias.scope !3851, !noalias !3854
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %26, align 8, !alias.scope !3857, !noalias !3860
+  store ptr %4, ptr %26, align 8, !alias.scope !3851, !noalias !3854
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 1, ptr %27, align 8, !alias.scope !3857, !noalias !3860
+  store i64 1, ptr %27, align 8, !alias.scope !3851, !noalias !3854
   %28 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -27673,15 +27673,15 @@ default.unreachable16:                            ; preds = %2
   store ptr %14, ptr %15, align 8
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hb03977d7e835bd1fE", ptr %20, align 8
-  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.557, ptr %16, align 8, !alias.scope !3863, !noalias !3866
+  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.557, ptr %16, align 8, !alias.scope !3857, !noalias !3860
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 2, ptr %21, align 8, !alias.scope !3863, !noalias !3866
+  store i64 2, ptr %21, align 8, !alias.scope !3857, !noalias !3860
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !3863, !noalias !3866
+  store ptr null, ptr %22, align 8, !alias.scope !3857, !noalias !3860
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %15, ptr %23, align 8, !alias.scope !3863, !noalias !3866
+  store ptr %15, ptr %23, align 8, !alias.scope !3857, !noalias !3860
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !3863, !noalias !3866
+  store i64 1, ptr %24, align 8, !alias.scope !3857, !noalias !3860
   %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -27704,15 +27704,15 @@ default.unreachable16:                            ; preds = %2
   store ptr %10, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4493255e7d81b015E", ptr %31, align 8
-  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.560, ptr %13, align 8, !alias.scope !3869, !noalias !3872
+  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.560, ptr %13, align 8, !alias.scope !3863, !noalias !3866
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 2, ptr %32, align 8, !alias.scope !3869, !noalias !3872
+  store i64 2, ptr %32, align 8, !alias.scope !3863, !noalias !3866
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr null, ptr %33, align 8, !alias.scope !3869, !noalias !3872
+  store ptr null, ptr %33, align 8, !alias.scope !3863, !noalias !3866
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %12, ptr %34, align 8, !alias.scope !3869, !noalias !3872
+  store ptr %12, ptr %34, align 8, !alias.scope !3863, !noalias !3866
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 2, ptr %35, align 8, !alias.scope !3869, !noalias !3872
+  store i64 2, ptr %35, align 8, !alias.scope !3863, !noalias !3866
   %36 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -27736,15 +27736,15 @@ default.unreachable16:                            ; preds = %2
   store ptr %6, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4a30299f64139536E", ptr %42, align 8
-  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.564, ptr %9, align 8, !alias.scope !3875, !noalias !3878
+  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.564, ptr %9, align 8, !alias.scope !3869, !noalias !3872
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 3, ptr %43, align 8, !alias.scope !3875, !noalias !3878
+  store i64 3, ptr %43, align 8, !alias.scope !3869, !noalias !3872
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %44, align 8, !alias.scope !3875, !noalias !3878
+  store ptr null, ptr %44, align 8, !alias.scope !3869, !noalias !3872
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %8, ptr %45, align 8, !alias.scope !3875, !noalias !3878
+  store ptr %8, ptr %45, align 8, !alias.scope !3869, !noalias !3872
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 2, ptr %46, align 8, !alias.scope !3875, !noalias !3878
+  store i64 2, ptr %46, align 8, !alias.scope !3869, !noalias !3872
   %47 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -27773,15 +27773,15 @@ default.unreachable16:                            ; preds = %2
   store ptr %3, ptr %4, align 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h17e2ce2b1a64cc1bE", ptr %56, align 8
-  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.569, ptr %5, align 8, !alias.scope !3881, !noalias !3884
+  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.569, ptr %5, align 8, !alias.scope !3875, !noalias !3878
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %57, align 8, !alias.scope !3881, !noalias !3884
+  store i64 1, ptr %57, align 8, !alias.scope !3875, !noalias !3878
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %58, align 8, !alias.scope !3881, !noalias !3884
+  store ptr null, ptr %58, align 8, !alias.scope !3875, !noalias !3878
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %59, align 8, !alias.scope !3881, !noalias !3884
+  store ptr %4, ptr %59, align 8, !alias.scope !3875, !noalias !3878
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 1, ptr %60, align 8, !alias.scope !3881, !noalias !3884
+  store i64 1, ptr %60, align 8, !alias.scope !3875, !noalias !3878
   %61 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -27811,8 +27811,8 @@ define hidden void @"_ZN197_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %3, ptr noundef nonnull align 8 dereferenceable(336) %1, i64 336, i1 false)
-  %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3887
-  %9 = tail call noundef align 8 dereferenceable_or_null(336) ptr @__rust_alloc(i64 noundef 336, i64 noundef 8) #35, !noalias !3887
+  %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3881
+  %9 = tail call noundef align 8 dereferenceable_or_null(336) ptr @__rust_alloc(i64 noundef 336, i64 noundef 8) #35, !noalias !3881
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %.thread
 
@@ -27864,24 +27864,24 @@ define hidden void @"_ZN201_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
   call void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http..response..Response$GT$17hca532aad0990147bE"(ptr noalias noundef nonnull align 8 dereferenceable(208) %4)
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4)
-  call void @llvm.experimental.noalias.scope.decl(metadata !3890)
-  call void @llvm.experimental.noalias.scope.decl(metadata !3893)
-  %7 = load i64, ptr %5, align 8, !range !1918, !alias.scope !3893, !noalias !3890, !noundef !5
+  call void @llvm.experimental.noalias.scope.decl(metadata !3884)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3887)
+  %7 = load i64, ptr %5, align 8, !range !1918, !alias.scope !3887, !noalias !3884, !noundef !5
   %switch.tableidx = add nsw i64 %7, -2
   %8 = icmp ult i64 %switch.tableidx, 3
   br i1 %8, label %switch.lookup, label %.critedge.i
 
 .critedge.i:                                      ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3), !noalias !3895
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3), !noalias !3889
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
-  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3896
-  %10 = call noundef align 8 dereferenceable_or_null(128) ptr @__rust_alloc(i64 noundef 128, i64 noundef 8) #35, !noalias !3896
+  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3890
+  %10 = call noundef align 8 dereferenceable_or_null(128) ptr @__rust_alloc(i64 noundef 128, i64 noundef 8) #35, !noalias !3890
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568.exit.i"
 
 12:                                               ; preds = %.critedge.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 128) #36
-          to label %.noexc.i unwind label %13, !noalias !3895
+          to label %.noexc.i unwind label %13, !noalias !3889
 
 .noexc.i:                                         ; preds = %12
   unreachable
@@ -27890,12 +27890,12 @@ define hidden void @"_ZN201_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$17hac5a8dbc66e41031E.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(128) %3) #33
-          to label %17 unwind label %15, !noalias !3895
+          to label %17 unwind label %15, !noalias !3889
 
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34, !noalias !3895
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34, !noalias !3889
   unreachable
 
 17:                                               ; preds = %13
@@ -27903,19 +27903,19 @@ define hidden void @"_ZN201_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568.exit.i": ; preds = %.critedge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !3895
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !3889
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %18, align 8, !alias.scope !3890, !noalias !3893
+  store ptr %10, ptr %18, align 8, !alias.scope !3884, !noalias !3887
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.7.llvm.11792392190407745568, ptr %19, align 8, !alias.scope !3890, !noalias !3893
-  store i64 5, ptr %0, align 8, !alias.scope !3890, !noalias !3893
+  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.7.llvm.11792392190407745568, ptr %19, align 8, !alias.scope !3884, !noalias !3887
+  store i64 5, ptr %0, align 8, !alias.scope !3884, !noalias !3887
   br label %"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$$GT$4from17hb4d335ac18e44451E.exit"
 
 switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$R$GT$$GT$$GT$4from17hc905857accca37deE.llvm.11792392190407745568", i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
-  store i64 %switch.load, ptr %0, align 8, !alias.scope !3890, !noalias !3893
-  call void @"_ZN4core3ptr72drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$17hac5a8dbc66e41031E.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(128) %5), !noalias !3890
+  store i64 %switch.load, ptr %0, align 8, !alias.scope !3884, !noalias !3887
+  call void @"_ZN4core3ptr72drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$17hac5a8dbc66e41031E.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(128) %5), !noalias !3884
   br label %"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$$GT$4from17hb4d335ac18e44451E.exit"
 
 "_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$$GT$4from17hb4d335ac18e44451E.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568.exit.i", %switch.lookup
@@ -27933,8 +27933,8 @@ define hidden void @"_ZN197_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4), !noalias !3899
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3), !noalias !3899
+  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4), !noalias !3893
+  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3), !noalias !3893
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %3, ptr noundef nonnull align 8 dereferenceable(376) %1, i64 376, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) %9, i64 168, i1 false)
@@ -27942,15 +27942,15 @@ define hidden void @"_ZN197_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
           to label %.noexc unwind label %.body
 
 .noexc:                                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3), !noalias !3899
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3), !noalias !3893
   invoke void @"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$GT$$GT$4from17h004dd96488e19ef0E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %4)
           to label %22 unwind label %.body
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %5, ptr noundef nonnull align 8 dereferenceable(376) %1, i64 376, i1 false)
-  %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3903
-  %12 = tail call noundef align 8 dereferenceable_or_null(376) ptr @__rust_alloc(i64 noundef 376, i64 noundef 8) #35, !noalias !3903
+  %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3897
+  %12 = tail call noundef align 8 dereferenceable_or_null(376) ptr @__rust_alloc(i64 noundef 376, i64 noundef 8) #35, !noalias !3897
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %.thread
 
@@ -27981,7 +27981,7 @@ define hidden void @"_ZN197_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   br i1 %21, label %.body.thread, label %29
 
 22:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4), !noalias !3899
+  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4), !noalias !3893
   %23 = load i64, ptr %1, align 8, !range !4
   %24 = icmp samesign ult i64 %23, 3
   br i1 %24, label %27, label %28
@@ -28048,8 +28048,8 @@ define hidden void @"_ZN192_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %3, ptr noundef nonnull align 8 dereferenceable(336) %1, i64 336, i1 false)
-  %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3906
-  %9 = tail call noundef align 8 dereferenceable_or_null(336) ptr @__rust_alloc(i64 noundef 336, i64 noundef 8) #35, !noalias !3906
+  %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3900
+  %9 = tail call noundef align 8 dereferenceable_or_null(336) ptr @__rust_alloc(i64 noundef 336, i64 noundef 8) #35, !noalias !3900
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %.thread
 
@@ -28101,24 +28101,24 @@ define hidden void @"_ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
   call void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http..response..Response$GT$17hca532aad0990147bE"(ptr noalias noundef nonnull align 8 dereferenceable(208) %4)
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4)
-  call void @llvm.experimental.noalias.scope.decl(metadata !3909)
-  call void @llvm.experimental.noalias.scope.decl(metadata !3912)
-  %7 = load i64, ptr %5, align 8, !range !1918, !alias.scope !3912, !noalias !3909, !noundef !5
+  call void @llvm.experimental.noalias.scope.decl(metadata !3903)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3906)
+  %7 = load i64, ptr %5, align 8, !range !1918, !alias.scope !3906, !noalias !3903, !noundef !5
   %switch.tableidx = add nsw i64 %7, -2
   %8 = icmp ult i64 %switch.tableidx, 3
   br i1 %8, label %switch.lookup, label %.critedge.i
 
 .critedge.i:                                      ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3), !noalias !3914
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3), !noalias !3908
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
-  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3915
-  %10 = call noundef align 8 dereferenceable_or_null(128) ptr @__rust_alloc(i64 noundef 128, i64 noundef 8) #35, !noalias !3915
+  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3909
+  %10 = call noundef align 8 dereferenceable_or_null(128) ptr @__rust_alloc(i64 noundef 128, i64 noundef 8) #35, !noalias !3909
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568.exit.i"
 
 12:                                               ; preds = %.critedge.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 128) #36
-          to label %.noexc.i unwind label %13, !noalias !3914
+          to label %.noexc.i unwind label %13, !noalias !3908
 
 .noexc.i:                                         ; preds = %12
   unreachable
@@ -28127,12 +28127,12 @@ define hidden void @"_ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$17hc4986e1e699a468eE.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(128) %3) #33
-          to label %17 unwind label %15, !noalias !3914
+          to label %17 unwind label %15, !noalias !3908
 
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34, !noalias !3914
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34, !noalias !3908
   unreachable
 
 17:                                               ; preds = %13
@@ -28140,19 +28140,19 @@ define hidden void @"_ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568.exit.i": ; preds = %.critedge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !3914
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !3908
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %18, align 8, !alias.scope !3909, !noalias !3912
+  store ptr %10, ptr %18, align 8, !alias.scope !3903, !noalias !3906
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.11.llvm.11792392190407745568, ptr %19, align 8, !alias.scope !3909, !noalias !3912
-  store i64 5, ptr %0, align 8, !alias.scope !3909, !noalias !3912
+  store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.11.llvm.11792392190407745568, ptr %19, align 8, !alias.scope !3903, !noalias !3906
+  store i64 5, ptr %0, align 8, !alias.scope !3903, !noalias !3906
   br label %"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$$GT$4from17hc64da102dc3fbb36E.exit"
 
 switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$R$GT$$GT$$GT$4from17hc905857accca37deE.llvm.11792392190407745568", i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
-  store i64 %switch.load, ptr %0, align 8, !alias.scope !3909, !noalias !3912
-  call void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$17hc4986e1e699a468eE.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(128) %5), !noalias !3909
+  store i64 %switch.load, ptr %0, align 8, !alias.scope !3903, !noalias !3906
+  call void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$17hc4986e1e699a468eE.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(128) %5), !noalias !3903
   br label %"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$$GT$4from17hc64da102dc3fbb36E.exit"
 
 "_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$$GT$4from17hc64da102dc3fbb36E.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568.exit.i", %switch.lookup
@@ -28170,8 +28170,8 @@ define hidden void @"_ZN203_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4), !noalias !3918
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3), !noalias !3918
+  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4), !noalias !3912
+  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3), !noalias !3912
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %3, ptr noundef nonnull align 8 dereferenceable(376) %1, i64 376, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) %9, i64 168, i1 false)
@@ -28179,15 +28179,15 @@ define hidden void @"_ZN203_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
           to label %.noexc unwind label %.body
 
 .noexc:                                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3), !noalias !3918
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3), !noalias !3912
   invoke void @"_ZN143_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$GT$$GT$4from17hcedf15a3ca4df6d6E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %4)
           to label %22 unwind label %.body
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %5, ptr noundef nonnull align 8 dereferenceable(376) %1, i64 376, i1 false)
-  %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3922
-  %12 = tail call noundef align 8 dereferenceable_or_null(376) ptr @__rust_alloc(i64 noundef 376, i64 noundef 8) #35, !noalias !3922
+  %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3916
+  %12 = tail call noundef align 8 dereferenceable_or_null(376) ptr @__rust_alloc(i64 noundef 376, i64 noundef 8) #35, !noalias !3916
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %.thread
 
@@ -28218,7 +28218,7 @@ define hidden void @"_ZN203_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   br i1 %21, label %.body.thread, label %29
 
 22:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4), !noalias !3918
+  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4), !noalias !3912
   %23 = load i64, ptr %1, align 8, !range !4
   %24 = icmp samesign ult i64 %23, 3
   br i1 %24, label %27, label %28
@@ -33238,41 +33238,41 @@ attributes #36 = { noreturn }
 !3807 = !{!3808, !3809}
 !3808 = distinct !{!3808, !3806, !"_ZN12tracing_core5field8FieldSet9value_set17hbfbe332e3660623eE: argument 1"}
 !3809 = distinct !{!3809, !3806, !"_ZN12tracing_core5field8FieldSet9value_set17hbfbe332e3660623eE: argument 2"}
-!3810 = !{!3811, !3813}
-!3811 = distinct !{!3811, !3812, !"_ZN7tracing10instrument10Instrument10instrument17h16e0cb78e6fb7bf0E: argument 0"}
-!3812 = distinct !{!3812, !"_ZN7tracing10instrument10Instrument10instrument17h16e0cb78e6fb7bf0E"}
-!3813 = distinct !{!3813, !3812, !"_ZN7tracing10instrument10Instrument10instrument17h16e0cb78e6fb7bf0E: argument 1"}
-!3814 = !{!3811, !3815}
-!3815 = distinct !{!3815, !3812, !"_ZN7tracing10instrument10Instrument10instrument17h16e0cb78e6fb7bf0E: argument 2"}
-!3816 = !{!3817}
-!3817 = distinct !{!3817, !3818, !"_ZN13deltalake_aws11credentials25ConfiguredCredentialChain11credentials17h0be7b50f8df113b8E: argument 0"}
-!3818 = distinct !{!3818, !"_ZN13deltalake_aws11credentials25ConfiguredCredentialChain11credentials17h0be7b50f8df113b8E"}
-!3819 = !{!3820}
-!3820 = distinct !{!3820, !3818, !"_ZN13deltalake_aws11credentials25ConfiguredCredentialChain11credentials17h0be7b50f8df113b8E: argument 1"}
+!3810 = !{!3811}
+!3811 = distinct !{!3811, !3812, !"_ZN13deltalake_aws11credentials25ConfiguredCredentialChain11credentials17h0be7b50f8df113b8E: argument 0"}
+!3812 = distinct !{!3812, !"_ZN13deltalake_aws11credentials25ConfiguredCredentialChain11credentials17h0be7b50f8df113b8E"}
+!3813 = !{!3814}
+!3814 = distinct !{!3814, !3812, !"_ZN13deltalake_aws11credentials25ConfiguredCredentialChain11credentials17h0be7b50f8df113b8E: argument 1"}
+!3815 = !{!3816}
+!3816 = distinct !{!3816, !3817, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h34efb4f2c2b08c2bE: argument 0"}
+!3817 = distinct !{!3817, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h34efb4f2c2b08c2bE"}
+!3818 = !{!3819}
+!3819 = distinct !{!3819, !3820, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h023f619b1f897981E: argument 0"}
+!3820 = distinct !{!3820, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h023f619b1f897981E"}
 !3821 = !{!3822}
-!3822 = distinct !{!3822, !3823, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h34efb4f2c2b08c2bE: argument 0"}
-!3823 = distinct !{!3823, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h34efb4f2c2b08c2bE"}
+!3822 = distinct !{!3822, !3823, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568: argument 0"}
+!3823 = distinct !{!3823, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568"}
 !3824 = !{!3825}
-!3825 = distinct !{!3825, !3826, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h023f619b1f897981E: argument 0"}
-!3826 = distinct !{!3826, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h023f619b1f897981E"}
+!3825 = distinct !{!3825, !3826, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568: argument 0"}
+!3826 = distinct !{!3826, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568"}
 !3827 = !{!3828}
-!3828 = distinct !{!3828, !3829, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568: argument 0"}
-!3829 = distinct !{!3829, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568"}
+!3828 = distinct !{!3828, !3829, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb33bcc3e5f21db4bE: argument 0"}
+!3829 = distinct !{!3829, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb33bcc3e5f21db4bE"}
 !3830 = !{!3831}
-!3831 = distinct !{!3831, !3832, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568: argument 0"}
-!3832 = distinct !{!3832, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568"}
-!3833 = !{!3834}
-!3834 = distinct !{!3834, !3835, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb33bcc3e5f21db4bE: argument 0"}
-!3835 = distinct !{!3835, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb33bcc3e5f21db4bE"}
+!3831 = distinct !{!3831, !3832, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!3832 = distinct !{!3832, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!3833 = !{!3834, !3835}
+!3834 = distinct !{!3834, !3832, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!3835 = distinct !{!3835, !3832, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !3836 = !{!3837}
-!3837 = distinct !{!3837, !3838, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!3838 = distinct !{!3838, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!3839 = !{!3840, !3841}
-!3840 = distinct !{!3840, !3838, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!3841 = distinct !{!3841, !3838, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!3842 = !{!3843}
-!3843 = distinct !{!3843, !3844, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha59d10f4c8a0cc92E: argument 0"}
-!3844 = distinct !{!3844, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha59d10f4c8a0cc92E"}
+!3837 = distinct !{!3837, !3838, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha59d10f4c8a0cc92E: argument 0"}
+!3838 = distinct !{!3838, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha59d10f4c8a0cc92E"}
+!3839 = !{!3840}
+!3840 = distinct !{!3840, !3841, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!3841 = distinct !{!3841, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!3842 = !{!3843, !3844}
+!3843 = distinct !{!3843, !3841, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!3844 = distinct !{!3844, !3841, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !3845 = !{!3846}
 !3846 = distinct !{!3846, !3847, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
 !3847 = distinct !{!3847, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
@@ -33310,46 +33310,40 @@ attributes #36 = { noreturn }
 !3879 = distinct !{!3879, !3877, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !3880 = distinct !{!3880, !3877, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !3881 = !{!3882}
-!3882 = distinct !{!3882, !3883, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!3883 = distinct !{!3883, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!3884 = !{!3885, !3886}
-!3885 = distinct !{!3885, !3883, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!3886 = distinct !{!3886, !3883, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!3882 = distinct !{!3882, !3883, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he51ba312e0324e3bE.llvm.11792392190407745568: argument 0"}
+!3883 = distinct !{!3883, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he51ba312e0324e3bE.llvm.11792392190407745568"}
+!3884 = !{!3885}
+!3885 = distinct !{!3885, !3886, !"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$$GT$4from17hb4d335ac18e44451E: argument 0"}
+!3886 = distinct !{!3886, !"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$$GT$4from17hb4d335ac18e44451E"}
 !3887 = !{!3888}
-!3888 = distinct !{!3888, !3889, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he51ba312e0324e3bE.llvm.11792392190407745568: argument 0"}
-!3889 = distinct !{!3889, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he51ba312e0324e3bE.llvm.11792392190407745568"}
-!3890 = !{!3891}
-!3891 = distinct !{!3891, !3892, !"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$$GT$4from17hb4d335ac18e44451E: argument 0"}
-!3892 = distinct !{!3892, !"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$$GT$4from17hb4d335ac18e44451E"}
-!3893 = !{!3894}
-!3894 = distinct !{!3894, !3892, !"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$$GT$4from17hb4d335ac18e44451E: argument 1"}
-!3895 = !{!3891, !3894}
-!3896 = !{!3897, !3891, !3894}
-!3897 = distinct !{!3897, !3898, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568: argument 0"}
-!3898 = distinct !{!3898, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568"}
-!3899 = !{!3900, !3902}
-!3900 = distinct !{!3900, !3901, !"_ZN201_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$C$R$GT$$GT$$GT$4from17hb95236d0de599983E.llvm.11792392190407745568: argument 0"}
-!3901 = distinct !{!3901, !"_ZN201_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$C$R$GT$$GT$$GT$4from17hb95236d0de599983E.llvm.11792392190407745568"}
-!3902 = distinct !{!3902, !3901, !"_ZN201_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$C$R$GT$$GT$$GT$4from17hb95236d0de599983E.llvm.11792392190407745568: argument 1"}
+!3888 = distinct !{!3888, !3886, !"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$$GT$4from17hb4d335ac18e44451E: argument 1"}
+!3889 = !{!3885, !3888}
+!3890 = !{!3891, !3885, !3888}
+!3891 = distinct !{!3891, !3892, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568: argument 0"}
+!3892 = distinct !{!3892, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9233b3b96888d7e3E.llvm.11792392190407745568"}
+!3893 = !{!3894, !3896}
+!3894 = distinct !{!3894, !3895, !"_ZN201_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$C$R$GT$$GT$$GT$4from17hb95236d0de599983E.llvm.11792392190407745568: argument 0"}
+!3895 = distinct !{!3895, !"_ZN201_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$C$R$GT$$GT$$GT$4from17hb95236d0de599983E.llvm.11792392190407745568"}
+!3896 = distinct !{!3896, !3895, !"_ZN201_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$C$R$GT$$GT$$GT$4from17hb95236d0de599983E.llvm.11792392190407745568: argument 1"}
+!3897 = !{!3898}
+!3898 = distinct !{!3898, !3899, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he38e64559b3d1ad6E.llvm.11792392190407745568: argument 0"}
+!3899 = distinct !{!3899, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he38e64559b3d1ad6E.llvm.11792392190407745568"}
+!3900 = !{!3901}
+!3901 = distinct !{!3901, !3902, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he933a8ac8a3373beE.llvm.11792392190407745568: argument 0"}
+!3902 = distinct !{!3902, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he933a8ac8a3373beE.llvm.11792392190407745568"}
 !3903 = !{!3904}
-!3904 = distinct !{!3904, !3905, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he38e64559b3d1ad6E.llvm.11792392190407745568: argument 0"}
-!3905 = distinct !{!3905, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he38e64559b3d1ad6E.llvm.11792392190407745568"}
+!3904 = distinct !{!3904, !3905, !"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$$GT$4from17hc64da102dc3fbb36E: argument 0"}
+!3905 = distinct !{!3905, !"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$$GT$4from17hc64da102dc3fbb36E"}
 !3906 = !{!3907}
-!3907 = distinct !{!3907, !3908, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he933a8ac8a3373beE.llvm.11792392190407745568: argument 0"}
-!3908 = distinct !{!3908, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he933a8ac8a3373beE.llvm.11792392190407745568"}
-!3909 = !{!3910}
-!3910 = distinct !{!3910, !3911, !"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$$GT$4from17hc64da102dc3fbb36E: argument 0"}
-!3911 = distinct !{!3911, !"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$$GT$4from17hc64da102dc3fbb36E"}
-!3912 = !{!3913}
-!3913 = distinct !{!3913, !3911, !"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$$GT$4from17hc64da102dc3fbb36E: argument 1"}
-!3914 = !{!3910, !3913}
-!3915 = !{!3916, !3910, !3913}
-!3916 = distinct !{!3916, !3917, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568: argument 0"}
-!3917 = distinct !{!3917, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568"}
-!3918 = !{!3919, !3921}
-!3919 = distinct !{!3919, !3920, !"_ZN207_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$C$R$GT$$GT$$GT$4from17hd225c863da87b507E.llvm.11792392190407745568: argument 0"}
-!3920 = distinct !{!3920, !"_ZN207_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$C$R$GT$$GT$$GT$4from17hd225c863da87b507E.llvm.11792392190407745568"}
-!3921 = distinct !{!3921, !3920, !"_ZN207_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$C$R$GT$$GT$$GT$4from17hd225c863da87b507E.llvm.11792392190407745568: argument 1"}
-!3922 = !{!3923}
-!3923 = distinct !{!3923, !3924, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h122fb82a27e5555aE.llvm.11792392190407745568: argument 0"}
-!3924 = distinct !{!3924, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h122fb82a27e5555aE.llvm.11792392190407745568"}
+!3907 = distinct !{!3907, !3905, !"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$$GT$4from17hc64da102dc3fbb36E: argument 1"}
+!3908 = !{!3904, !3907}
+!3909 = !{!3910, !3904, !3907}
+!3910 = distinct !{!3910, !3911, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568: argument 0"}
+!3911 = distinct !{!3911, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221e1557e88d6554E.llvm.11792392190407745568"}
+!3912 = !{!3913, !3915}
+!3913 = distinct !{!3913, !3914, !"_ZN207_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$C$R$GT$$GT$$GT$4from17hd225c863da87b507E.llvm.11792392190407745568: argument 0"}
+!3914 = distinct !{!3914, !"_ZN207_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$C$R$GT$$GT$$GT$4from17hd225c863da87b507E.llvm.11792392190407745568"}
+!3915 = distinct !{!3915, !3914, !"_ZN207_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$C$R$GT$$GT$$GT$4from17hd225c863da87b507E.llvm.11792392190407745568: argument 1"}
+!3916 = !{!3917}
+!3917 = distinct !{!3917, !3918, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h122fb82a27e5555aE.llvm.11792392190407745568: argument 0"}
+!3918 = distinct !{!3918, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h122fb82a27e5555aE.llvm.11792392190407745568"}

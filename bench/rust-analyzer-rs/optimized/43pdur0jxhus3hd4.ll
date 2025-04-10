@@ -24631,7 +24631,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 38:                                               ; preds = %34
   %.sroa.10.0.copyload20 = load ptr, ptr %37, align 8, !alias.scope !6645, !noalias !6646
   %.sroa.14.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.0..sroa_idx23, i64 24, i1 false), !alias.scope !6645
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.0..sroa_idx23, i64 24, i1 false)
   br label %_ZN5serde2de7Visitor18visit_borrowed_str17h861f2450ca99677cE.exit
 
 39:                                               ; preds = %34
@@ -24657,7 +24657,7 @@ _ZN5serde2de7Visitor18visit_borrowed_str17h861f2450ca99677cE.exit: ; preds = %38
 45:                                               ; preds = %41
   %.sroa.10.0.copyload22 = load ptr, ptr %44, align 8, !alias.scope !6659, !noalias !6660
   %.sroa.14.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.0..sroa_idx24, i64 24, i1 false), !alias.scope !6659
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.0..sroa_idx24, i64 24, i1 false)
   br label %"_ZN150_$LT$semver..serde..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$semver..Version$GT$..deserialize..VersionVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h2dd72a597a8204feE.exit"
 
 46:                                               ; preds = %41

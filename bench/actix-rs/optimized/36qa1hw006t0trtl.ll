@@ -12097,7 +12097,7 @@ define hidden void @"_ZN89_$LT$awc..client..h1proto..PlStream$LT$Io$GT$$u20$as$u
   %.sroa.13.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.13.8.copyload26 = load ptr, ptr %.sroa.13.8..sroa_idx, align 8, !alias.scope !2520
   %.sroa.15.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.8..sroa_idx, i64 24, i1 false), !alias.scope !2520
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.8..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   store i64 %.sroa.8.8.copyload25, ptr %0, align 8
   %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12120,7 +12120,7 @@ define hidden void @"_ZN89_$LT$awc..client..h1proto..PlStream$LT$Io$GT$$u20$as$u
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.13.16.copyload = load ptr, ptr %12, align 8, !alias.scope !2520
   %.sroa.15.16..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.16..sroa_idx, i64 24, i1 false), !alias.scope !2520
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.16..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %13 = icmp eq ptr %.sroa.13.16.copyload, null
   br i1 %13, label %14, label %31
@@ -12220,7 +12220,7 @@ define hidden void @"_ZN89_$LT$awc..client..h1proto..PlStream$LT$Io$GT$$u20$as$u
   %.sroa.13.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.13.8.copyload26 = load ptr, ptr %.sroa.13.8..sroa_idx, align 8, !alias.scope !2538
   %.sroa.15.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.8..sroa_idx, i64 24, i1 false), !alias.scope !2538
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.8..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   store i64 %.sroa.8.8.copyload25, ptr %0, align 8
   %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12243,7 +12243,7 @@ define hidden void @"_ZN89_$LT$awc..client..h1proto..PlStream$LT$Io$GT$$u20$as$u
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.13.16.copyload = load ptr, ptr %12, align 8, !alias.scope !2538
   %.sroa.15.16..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.16..sroa_idx, i64 24, i1 false), !alias.scope !2538
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.16..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %13 = icmp eq ptr %.sroa.13.16.copyload, null
   br i1 %13, label %14, label %40

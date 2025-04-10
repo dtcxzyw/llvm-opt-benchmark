@@ -12234,7 +12234,7 @@ _ZN3std2fs11OpenOptions4open17hebf7f92c6dcec5ebE.llvm.6082948530530484711.exit.i
   store ptr %367, ptr %58, align 8, !alias.scope !2481, !noalias !2485
   store i64 %349, ptr %.sroa.0.sroa.423.0..sroa_idx.i.i, align 8, !alias.scope !2481, !noalias !2485
   store i8 %368, ptr %.sroa.0.sroa.524.0..sroa_idx.i.i, align 8, !alias.scope !2481, !noalias !2485
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8.i.i, i64 39, i1 false), !alias.scope !2481, !noalias !2480
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.625.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i8.i.i, i64 39, i1 false), !noalias !2480
   store i8 %372, ptr %.sroa.0.sroa.726.0..sroa_idx.i.i, align 8, !alias.scope !2481, !noalias !2485
   store i8 %373, ptr %.sroa.0.sroa.827.0..sroa_idx.i.i, align 1, !alias.scope !2481, !noalias !2485
   store i8 %371, ptr %.sroa.0.sroa.928.0..sroa_idx.i.i, align 2, !alias.scope !2481, !noalias !2485

@@ -13282,7 +13282,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIllumi
   br i1 %.not, label %_ZN4pbrt15SampledSpectrumC2Ef.exit, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !74
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %9 = load float, ptr %0, align 8, !tbaa !534
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -13346,9 +13346,9 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
   %38 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i6
   %39 = load float, ptr %38, align 4, !tbaa !74
   %40 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i6
-  %41 = load float, ptr %40, align 4, !tbaa !74
+  %41 = load float, ptr %40, align 4
   %42 = fmul float %39, %41
-  store float %42, ptr %40, align 4, !tbaa !74
+  store float %42, ptr %40, align 4
   %indvars.iv.next.i.i7 = add nuw nsw i64 %indvars.iv.i.i6, 1
   %exitcond.not.i.i8 = icmp eq i64 %indvars.iv.next.i.i7, 4
   br i1 %exitcond.not.i.i8, label %_ZNK4pbrt15SampledSpectrummlERKS0_.exit, label %37, !llvm.loop !538
@@ -13356,7 +13356,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %37
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !35
+  %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #24
   br label %_ZN4pbrt15SampledSpectrumC2Ef.exit
 
@@ -13388,7 +13388,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit:         ; preds = %50, %53
   %.0.i.i = phi float [ %52, %50 ], [ %58, %53 ]
   %59 = fmul float %9, %.0.i.i
   %60 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv
-  store float %59, ptr %60, align 4, !tbaa !74
+  store float %59, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %16, label %43, !llvm.loop !539
@@ -22233,13 +22233,13 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !tbaa !74
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   br label %80
 
 80:                                               ; preds = %80, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit
   %indvars.iv.i.i27 = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i.i28, %80 ]
   %81 = getelementptr inbounds nuw [4 x float], ptr %26, i64 0, i64 %indvars.iv.i.i27
-  store float 1.000000e+00, ptr %81, align 4, !tbaa !74
+  store float 1.000000e+00, ptr %81, align 4
   %indvars.iv.next.i.i28 = add nuw nsw i64 %indvars.iv.i.i27, 1
   %exitcond.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i28, 4
   br i1 %exitcond.not.i.i29, label %_ZN4pbrt15SampledSpectrumC2Ef.exit30, label %80, !llvm.loop !823
@@ -22249,9 +22249,9 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit30:             ; preds = %80, %_ZN4pbrt15Samp
   %82 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %indvars.iv.i.i31
   %83 = load float, ptr %82, align 4, !tbaa !74
   %84 = getelementptr inbounds nuw [4 x float], ptr %26, i64 0, i64 %indvars.iv.i.i31
-  %85 = load float, ptr %84, align 4, !tbaa !74
+  %85 = load float, ptr %84, align 4
   %86 = fsub float %85, %83
-  store float %86, ptr %84, align 4, !tbaa !74
+  store float %86, ptr %84, align 4
   %indvars.iv.next.i.i32 = add nuw nsw i64 %indvars.iv.i.i31, 1
   %exitcond.not.i.i33 = icmp eq i64 %indvars.iv.next.i.i32, 4
   br i1 %exitcond.not.i.i33, label %_ZNK4pbrt15SampledSpectrummiERKS0_.exit, label %_ZN4pbrt15SampledSpectrumC2Ef.exit30, !llvm.loop !825
@@ -22259,7 +22259,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit30:             ; preds = %80, %_ZN4pbrt15Samp
 _ZNK4pbrt15SampledSpectrummiERKS0_.exit:          ; preds = %_ZN4pbrt15SampledSpectrumC2Ef.exit30
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %26, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !35
+  %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8
   store <2 x float> %.sroa.0.0.copyload.i, ptr %25, align 8
   %87 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store <2 x float> %.sroa.2.0.copyload.i, ptr %87, align 8
@@ -24774,7 +24774,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt18SubsurfaceMaterial9GetBSSRDFINS_2
   %33 = alloca %"class.pbrt::SpectrumTexture", align 8
   %34 = alloca %"struct.pbrt::TextureEvalContext", align 8
   %35 = alloca %"class.pbrt::SampledWavelengths", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !tbaa !74
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !tbaa !74
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -24846,7 +24846,7 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   store <2 x float> %.fca.0.load.i, ptr %16, align 8
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store <2 x float> %.fca.1.load.i, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !35
+  store <2 x float> %.fca.1.load.i, ptr %.sroa.413.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #24
   %59 = load float, ptr %44, align 8, !tbaa !878
@@ -25031,7 +25031,7 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %99
   %122 = fsub float 1.000000e+00, %117
   %123 = fdiv float %122, %119
   %124 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %indvars.iv.i71
-  store float %123, ptr %124, align 4, !tbaa !74
+  store float %123, ptr %124, align 4
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, 4
   br i1 %exitcond.not.i73, label %_ZN4pbrt21SubsurfaceFromDiffuseERKNS_11BSSRDFTableERKNS_15SampledSpectrumES5_PS3_S6_.exit, label %110, !llvm.loop !879
@@ -25079,9 +25079,9 @@ _ZN4pbrt21SubsurfaceFromDiffuseERKNS_11BSSRDFTableERKNS_15SampledSpectrumES5_PS3
   %137 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %indvars.iv.i.i.i
   %138 = load float, ptr %137, align 4, !tbaa !74
   %139 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %indvars.iv.i.i.i
-  %140 = load float, ptr %139, align 4, !tbaa !74
+  %140 = load float, ptr %139, align 4
   %141 = fadd float %138, %140
-  store float %141, ptr %139, align 4, !tbaa !74
+  store float %141, ptr %139, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
   br i1 %exitcond.not.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit.i, label %136, !llvm.loop !886
@@ -25089,7 +25089,7 @@ _ZN4pbrt21SubsurfaceFromDiffuseERKNS_11BSSRDFTableERKNS_15SampledSpectrumES5_PS3
 _ZNK4pbrt15SampledSpectrumplERKS0_.exit.i:        ; preds = %136
   %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %16, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.2.0.copyload.i.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !35
+  %.sroa.2.0.copyload.i.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %134, align 8
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   store <2 x float> %.sroa.2.0.copyload.i.i, ptr %.sroa.45.0..sroa_idx.i, align 8, !tbaa !35

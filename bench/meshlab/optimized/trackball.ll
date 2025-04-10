@@ -1813,10 +1813,10 @@ define void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind noalias writable wri
   %77 = shl i64 %indvars.iv.i.i, 2
   %78 = add nuw nsw i64 %77, %indvars.iv15.i.i
   %79 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %78
-  %80 = load float, ptr %76, align 4, !alias.scope !51
-  %81 = load float, ptr %79, align 4, !alias.scope !51
-  store float %81, ptr %76, align 4, !alias.scope !51
-  store float %80, ptr %79, align 4, !alias.scope !51
+  %80 = load float, ptr %76, align 4
+  %81 = load float, ptr %79, align 4
+  store float %81, ptr %76, align 4
+  store float %80, ptr %79, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv15.i.i
   br i1 %exitcond.not.i.i, label %82, label %74, !llvm.loop !18
@@ -1827,7 +1827,7 @@ define void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind noalias writable wri
   br i1 %exitcond18.not.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit, label %.preheader.i.i, !llvm.loop !19
 
 _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %82
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   br label %.preheader19.i21
 
 .preheader19.i21:                                 ; preds = %96, %_ZNK3vcg8Matrix44IfE9transposeEv.exit
@@ -1844,7 +1844,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %82
   %.01620.i26 = phi float [ 0.000000e+00, %.preheader.i23 ], [ %92, %84 ]
   %85 = add nuw nsw i64 %indvars.iv.i25, %83
   %86 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %85
-  %87 = load float, ptr %86, align 4, !noalias !54
+  %87 = load float, ptr %86, align 4, !noalias !51
   %88 = shl nuw nsw i64 %indvars.iv.i25, 2
   %89 = add nuw nsw i64 %88, %indvars.iv25.i24
   %90 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %89
@@ -1857,7 +1857,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %82
 93:                                               ; preds = %84
   %94 = add nuw nsw i64 %indvars.iv25.i24, %83
   %95 = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %94
-  store float %92, ptr %95, align 4, !alias.scope !54
+  store float %92, ptr %95, align 4, !alias.scope !51
   %indvars.iv.next26.i29 = add nuw nsw i64 %indvars.iv25.i24, 1
   %exitcond28.not.i30 = icmp eq i64 %indvars.iv.next26.i29, 4
   br i1 %exitcond28.not.i30, label %96, label %.preheader.i23, !llvm.loop !27
@@ -1974,7 +1974,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit33:              ; preds = %96
   store float %167, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.864.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 60
   store float 1.000000e+00, ptr %.sroa.864.0..sroa_idx, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   br label %.preheader19.i42
 
 .preheader19.i42:                                 ; preds = %181, %155
@@ -1991,11 +1991,11 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit33:              ; preds = %96
   %.01620.i47 = phi float [ 0.000000e+00, %.preheader.i44 ], [ %177, %169 ]
   %170 = add nuw nsw i64 %indvars.iv.i46, %168
   %171 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %170
-  %172 = load float, ptr %171, align 4, !noalias !57
+  %172 = load float, ptr %171, align 4, !noalias !54
   %173 = shl nuw nsw i64 %indvars.iv.i46, 2
   %174 = add nuw nsw i64 %173, %indvars.iv25.i45
   %175 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %174
-  %176 = load float, ptr %175, align 4, !noalias !57
+  %176 = load float, ptr %175, align 4, !noalias !54
   %177 = tail call float @llvm.fmuladd.f32(float %172, float %176, float %.01620.i47)
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 4
@@ -2004,7 +2004,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit33:              ; preds = %96
 178:                                              ; preds = %169
   %179 = add nuw nsw i64 %indvars.iv25.i45, %168
   %180 = getelementptr inbounds nuw [16 x float], ptr %0, i64 0, i64 %179
-  store float %177, ptr %180, align 4, !alias.scope !57
+  store float %177, ptr %180, align 4, !alias.scope !54
   %indvars.iv.next26.i50 = add nuw nsw i64 %indvars.iv25.i45, 1
   %exitcond28.not.i51 = icmp eq i64 %indvars.iv.next26.i50, 4
   br i1 %exitcond28.not.i51, label %181, label %.preheader.i44, !llvm.loop !27
@@ -2191,7 +2191,7 @@ define void @_ZN3vcg9Trackball9MouseDownEi(ptr noundef nonnull align 8 dereferen
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %16 = icmp eq ptr %.19.i.i.i.i, %12
@@ -2273,7 +2273,7 @@ define void @_ZN3vcg9Trackball16SetCurrentActionEv(ptr noundef nonnull align 8 d
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %13 = icmp eq ptr %.19.i.i.i, %9
@@ -2347,7 +2347,7 @@ define void @_ZN3vcg9Trackball9MouseDownEiii(ptr noundef nonnull align 8 derefer
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %18 = icmp eq ptr %.19.i.i.i.i, %14
@@ -2618,7 +2618,7 @@ define void @_ZN3vcg9Trackball8ButtonUpENS0_6ButtonE(ptr noundef nonnull align 8
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %20 = icmp eq ptr %.19.i.i.i, %14
@@ -2669,7 +2669,7 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit: ; pr
   %.1.in.i.i.i21 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 %.1.in.v.i.i.i20
   %.1.i.i.i22 = load ptr, ptr %.1.in.i.i.i21, align 8
   %.not.i.i.i23 = icmp eq ptr %.1.i.i.i22, null
-  br i1 %.not.i.i.i23, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i24, label %.lr.ph.i.i.i16, !llvm.loop !60
+  br i1 %.not.i.i.i23, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i24, label %.lr.ph.i.i.i16, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i24: ; preds = %.lr.ph.i.i.i16
   %40 = icmp eq ptr %.19.i.i.i19, %14
@@ -2723,7 +2723,7 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit27: ; 
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %60 = icmp eq ptr %.19.i.i.i.i, %14
@@ -2802,7 +2802,7 @@ define void @_ZN3vcg9Trackball10MouseWheelEf(ptr noundef nonnull align 8 derefer
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %17 = icmp eq ptr %.19.i.i.i.i, %13
@@ -2889,7 +2889,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %21
   %.1.in.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i5, i64 %.1.in.v.i.i.i.i8
   %.1.i.i.i.i10 = load ptr, ptr %.1.in.i.i.i.i9, align 8
   %.not.i.i.i.i11 = icmp eq ptr %.1.i.i.i.i10, null
-  br i1 %.not.i.i.i.i11, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i12, label %.lr.ph.i.i.i.i4, !llvm.loop !60
+  br i1 %.not.i.i.i.i11, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i12, label %.lr.ph.i.i.i.i4, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i12: ; preds = %.lr.ph.i.i.i.i4
   %46 = icmp eq ptr %.19.i.i.i.i7, %13
@@ -2960,7 +2960,7 @@ define void @_ZN3vcg9Trackball10MouseWheelEfi(ptr noundef nonnull align 8 derefe
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %19 = icmp eq ptr %.19.i.i.i.i, %15
@@ -3062,7 +3062,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %23
   %.1.in.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i8, i64 %.1.in.v.i.i.i.i11
   %.1.i.i.i.i13 = load ptr, ptr %.1.in.i.i.i.i12, align 8
   %.not.i.i.i.i14 = icmp eq ptr %.1.i.i.i.i13, null
-  br i1 %.not.i.i.i.i14, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i15, label %.lr.ph.i.i.i.i7, !llvm.loop !60
+  br i1 %.not.i.i.i.i14, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i15, label %.lr.ph.i.i.i.i7, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i15: ; preds = %.lr.ph.i.i.i.i7
   %57 = icmp eq ptr %.19.i.i.i.i10, %15
@@ -3171,7 +3171,7 @@ _ZN3vcg9Trackball4SyncEj.exit:                    ; preds = %3, %18, %24
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %40 = icmp eq ptr %.19.i.i.i, %35
@@ -3221,7 +3221,7 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit: ; pr
   %.1.in.i.i.i22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 %.1.in.v.i.i.i21
   %.1.i.i.i23 = load ptr, ptr %.1.in.i.i.i22, align 8
   %.not.i.i.i24 = icmp eq ptr %.1.i.i.i23, null
-  br i1 %.not.i.i.i24, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25, label %.lr.ph.i.i.i17, !llvm.loop !60
+  br i1 %.not.i.i.i24, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25, label %.lr.ph.i.i.i17, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25: ; preds = %.lr.ph.i.i.i17
   %59 = icmp eq ptr %.19.i.i.i20, %35
@@ -3275,7 +3275,7 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28: ; 
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %79 = icmp eq ptr %.19.i.i.i.i, %35
@@ -3497,12 +3497,9 @@ attributes #30 = { nounwind willreturn memory(read) }
 !49 = distinct !{!49, !50, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
 !50 = distinct !{!50, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
-!53 = distinct !{!53, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
+!52 = distinct !{!52, !53, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
+!53 = distinct !{!53, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
 !56 = distinct !{!56, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
-!59 = distinct !{!59, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
-!60 = distinct !{!60, !6}
+!57 = distinct !{!57, !6}

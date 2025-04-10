@@ -10046,7 +10046,7 @@ _ZN4llvm5APIntC2Ejmbb.exit146:                    ; preds = %300, %301
   %.sroa.8213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.8213.0.copyload = load i64, ptr %.sroa.8213.0..sroa_idx, align 8, !tbaa !53
   %.sroa.11218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218.0..sroa_idx, i64 32, i1 false), !tbaa.struct !378
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218.0..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #18
   %321 = load i8, ptr %237, align 8, !tbaa !229, !range !54, !noundef !55
   %322 = trunc nuw i8 %321 to i1
@@ -10066,7 +10066,7 @@ _ZN4llvm5APIntC2Ejmbb.exit146:                    ; preds = %300, %301
   %.sroa.8213.0..sroa_idx214 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.8213.0.copyload215 = load i64, ptr %.sroa.8213.0..sroa_idx214, align 8, !tbaa !53
   %.sroa.11218.0..sroa_idx219 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218.0..sroa_idx219, i64 32, i1 false), !tbaa.struct !378
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218.0..sroa_idx219, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #18
   br label %329
 
@@ -10097,8 +10097,8 @@ _ZN4llvm5APIntC2Ejmbb.exit146:                    ; preds = %300, %301
 336:                                              ; preds = %333
   store ptr %.sroa.0210.0, ptr %13, align 8, !tbaa !155
   store i64 %.sroa.8213.0, ptr %.sroa.8213.0..sroa_idx216, align 8, !tbaa !53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218.0..sroa_idx220, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218, i64 32, i1 false), !tbaa.struct !378
-  store i8 1, ptr %332, align 8, !tbaa !379
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218.0..sroa_idx220, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11218, i64 32, i1 false)
+  store i8 1, ptr %332, align 8, !tbaa !378
   %337 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %334, ptr noundef nonnull align 8 dereferenceable(56) %13)
   %338 = and i8 %337, 2
   %.not358 = icmp eq i8 %338, 0
@@ -10223,14 +10223,14 @@ thread-pre-split348:                              ; preds = %348, %.critedge123
   br label %.critedge125
 
 .critedge125:                                     ; preds = %386, %384
-  call void @llvm.experimental.noalias.scope.decl(metadata !381)
-  %387 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntmIERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(12) %7) #18, !noalias !381
+  call void @llvm.experimental.noalias.scope.decl(metadata !380)
+  %387 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntmIERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(12) %7) #18, !noalias !380
   %388 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %389 = load i32, ptr %381, align 8, !tbaa !122, !noalias !381
-  store i32 %389, ptr %388, align 8, !tbaa !122, !alias.scope !381
-  %390 = load i64, ptr %16, align 8, !noalias !381
-  store i64 %390, ptr %15, align 8, !alias.scope !381
-  store i32 0, ptr %381, align 8, !tbaa !122, !noalias !381
+  %389 = load i32, ptr %381, align 8, !tbaa !122, !noalias !380
+  store i32 %389, ptr %388, align 8, !tbaa !122, !alias.scope !380
+  %390 = load i64, ptr %16, align 8, !noalias !380
+  store i64 %390, ptr %15, align 8, !alias.scope !380
+  store i32 0, ptr %381, align 8, !tbaa !122, !noalias !380
   %391 = call noundef zeroext i1 @_ZNK4llvm5APIntneEm(ptr noundef nonnull align 8 dereferenceable(12) %15, i64 noundef %378)
   %392 = load i32, ptr %388, align 8, !tbaa !122
   %393 = icmp ugt i32 %392, 64
@@ -10266,7 +10266,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge125, %394,
 404:                                              ; preds = %.critedge126
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #18
   %405 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %405, i64 32, i1 false), !tbaa.struct !378
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %405, i64 32, i1 false), !tbaa.struct !383
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #18
   call void @_ZNK4llvm11Instruction13getAAMetadataEv(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::AAMDNodes") align 8 %18, ptr noundef nonnull align 8 dereferenceable(72) %.0319) #18
   %406 = load i8, ptr %237, align 8, !tbaa !229, !range !54, !noundef !55
@@ -10285,7 +10285,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge125, %394,
   store ptr %.0324, ptr %318, align 8, !tbaa !236
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #18
   call void @_ZNK4llvm9AAMDNodes6concatERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::AAMDNodes") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %405, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !378
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %405, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !383
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #18
   store ptr %.1318, ptr %1, align 8, !tbaa !233
   store ptr %spec.select385, ptr %238, align 8, !tbaa !240
@@ -12648,12 +12648,12 @@ attributes #21 = { builtin nounwind allocsize(0) }
 !375 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !11, i64 0}
 !376 = !{!"_ZTSN4llvm5AlignE", !9, i64 0}
 !377 = !{!231, !231, i64 0}
-!378 = !{i64 0, i64 8, !220, i64 8, i64 8, !220, i64 16, i64 8, !220, i64 24, i64 8, !220}
-!379 = !{!380, !24, i64 48}
-!380 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm14MemoryLocationEE", !9, i64 0, !24, i64 48}
-!381 = !{!382}
-!382 = distinct !{!382, !383, !"_ZN4llvmmiENS_5APIntERKS0_: argument 0"}
-!383 = distinct !{!383, !"_ZN4llvmmiENS_5APIntERKS0_"}
+!378 = !{!379, !24, i64 48}
+!379 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm14MemoryLocationEE", !9, i64 0, !24, i64 48}
+!380 = !{!381}
+!381 = distinct !{!381, !382, !"_ZN4llvmmiENS_5APIntERKS0_: argument 0"}
+!382 = distinct !{!382, !"_ZN4llvmmiENS_5APIntERKS0_"}
+!383 = !{i64 0, i64 8, !220, i64 8, i64 8, !220, i64 16, i64 8, !220, i64 24, i64 8, !220}
 !384 = !{!385, !385, i64 0}
 !385 = !{!"p1 _ZTSN4llvm9AAResultsE", !12, i64 0}
 !386 = !{!387, !19, i64 4}

@@ -115,14 +115,13 @@ define void @_ZN12actix_router6quoter6Quoter3new17hf566b934358ec82cE(ptr noalias
 .lr.ph:                                           ; preds = %5, %_ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E.exit
   %.sroa.0.06 = phi ptr [ %14, %_ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E.exit ], [ %3, %5 ]
   %9 = load i8, ptr %.sroa.0.06, align 1, !noundef !5
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %10 = lshr i8 %9, 3
   %11 = zext nneg i8 %10 to i64
   %12 = icmp sgt i8 %9, -1
-  br i1 %12, label %_ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E.exit, label %13, !prof !12
+  br i1 %12, label %_ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E.exit, label %13, !prof !9
 
 13:                                               ; preds = %.lr.ph
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %11, i64 noundef 16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.84fd7598a9219390f98210afab096d30.21) #11, !noalias !9
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %11, i64 noundef 16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.84fd7598a9219390f98210afab096d30.21) #11, !noalias !10
   unreachable
 
 _ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E.exit: ; preds = %.lr.ph
@@ -130,9 +129,9 @@ _ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E.exit: ; preds 
   %15 = and i8 %9, 7
   %16 = shl nuw i8 1, %15
   %17 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %11
-  %18 = load i8, ptr %17, align 1, !alias.scope !9, !noundef !5
+  %18 = load i8, ptr %17, align 1, !noundef !5
   %19 = or i8 %18, %16
-  store i8 %19, ptr %17, align 1, !alias.scope !9
+  store i8 %19, ptr %17, align 1
   %20 = icmp eq ptr %14, %7
   br i1 %20, label %._crit_edge, label %.lr.ph
 }
@@ -661,10 +660,10 @@ attributes #14 = { nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h1ea73517d30b74bdE.llvm.10269372283281669187: argument 0"}
 !8 = distinct !{!8, !"_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h1ea73517d30b74bdE.llvm.10269372283281669187"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E: argument 0"}
-!11 = distinct !{!11, !"_ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E"}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E: argument 0"}
+!12 = distinct !{!12, !"_ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E"}
 !13 = !{!14, !16}
 !14 = distinct !{!14, !15, !"_ZN12actix_router6quoter6Quoter11decode_next17h07944c162894f4ebE: argument 0"}
 !15 = distinct !{!15, !"_ZN12actix_router6quoter6Quoter11decode_next17h07944c162894f4ebE"}

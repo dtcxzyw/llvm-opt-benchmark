@@ -1449,7 +1449,7 @@ _ZN4core3ptr7replace17h5b3e09118cf11db2E.exit6.i: ; preds = %86
   %.sroa.031.058 = phi i64 [ %.sroa.0.0.copyload1.i, %.thread56 ], [ %.sroa.03.0.copyload4.i, %102 ]
   store i64 %.sroa.031.058, ptr %0, align 8, !alias.scope !134
   %.sroa.733.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.733.0..sroa_idx34, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.4.i, i64 112, i1 false), !alias.scope !134
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.733.0..sroa_idx34, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.4.i, i64 112, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3e44c07bc1f7c06eE.exit"
 
 104:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h7bb7e841ebd1d950E.llvm.3794930749485918955.exit"
@@ -2070,7 +2070,7 @@ _ZN4core3ptr7replace17h628404e779140e68E.exit6.i: ; preds = %88
   %.sroa.5.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.065, ptr %.sroa.5.0..sroa_idx34, align 8, !alias.scope !255
   %.sroa.8.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.8.0..sroa_idx36, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.513.i, i64 112, i1 false), !alias.scope !255
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.8.0..sroa_idx36, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.513.i, i64 112, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h589deae8ec630b42E.exit"
 
 107:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h7bb7e841ebd1d950E.llvm.3794930749485918955.exit"

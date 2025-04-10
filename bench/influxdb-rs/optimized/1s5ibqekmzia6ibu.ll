@@ -376,7 +376,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..try_stream..try_next..TryN
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.13.sroa.0.0.copyload20 = load i64, ptr %14, align 8, !alias.scope !43
   %.sroa.13.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.sroa.9.0..sroa_idx, i64 32, i1 false), !alias.scope !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.sroa.9.0..sroa_idx, i64 32, i1 false)
   br label %16
 
 15:                                               ; preds = %3
@@ -385,7 +385,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..try_stream..try_next..TryN
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.13.sroa.0.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 8, !alias.scope !43
   %.sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx, i64 32, i1 false), !alias.scope !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx, i64 32, i1 false)
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.15.0..sroa_idx, i64 56, i1 false)

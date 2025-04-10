@@ -4502,7 +4502,7 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_
 _ZNK9grpc_core5Slice3RefEv.exit.i:                ; preds = %24, %4
   %.sroa.0.0.copyload.i = phi ptr [ %22, %4 ], [ %.sroa.0.0.copyload.pre.i, %24 ]
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx.i, i64 24, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx.i, i64 24, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %27 = load i16, ptr %7, align 2, !tbaa !18
   %storemerge.i.i.i.i18.i = or i16 %27, 4096

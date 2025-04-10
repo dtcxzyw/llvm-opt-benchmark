@@ -10706,15 +10706,15 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleJSONCommandERKSt6ve
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !4
-  store ptr %40, ptr %9, align 8, !tbaa !4
+  store ptr %40, ptr %9, align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %42, ptr %43, align 8, !tbaa !4
+  store ptr %42, ptr %43, align 8
   %44 = invoke fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_14Args8PopFrontB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 24, ptr nonnull @.str.127)
           to label %45 unwind label %59
 
 45:                                               ; preds = %2
-  %46 = load ptr, ptr %9, align 8, !tbaa !4
-  %47 = load ptr, ptr %43, align 8, !tbaa !4
+  %46 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %43, align 8
   %48 = icmp eq ptr %46, %47
   br i1 %48, label %.critedge, label %49
 
@@ -13697,8 +13697,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZN12_GL
   %.024102 = phi ptr [ %0, %.lr.ph ], [ %.125, %97 ]
   %.sroa.065.0101 = phi ptr [ %1, %.lr.ph ], [ %19, %97 ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.065.0101, i64 32
-  store ptr %1, ptr %4, align 8, !tbaa !4
-  store ptr %19, ptr %16, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8
+  store ptr %19, ptr %16, align 8
   %20 = tail call noundef zeroext i1 @_ZNK4Json5Value7isArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %.024102)
   br i1 %20, label %21, label %25
 

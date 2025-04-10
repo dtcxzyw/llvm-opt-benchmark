@@ -958,7 +958,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit.i.i18: ; pr
 131:                                              ; preds = %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4read17hc806189baff7eff3E.exit"
   store i64 %.sroa.036.0.copyload, ptr %0, align 8, !alias.scope !57
   %.sroa.6.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.0..sroa_idx29, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.437, i64 48, i1 false), !alias.scope !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.0..sroa_idx29, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.437, i64 48, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17haf0264b40683e9c1E.exit"
 
 .thread:                                          ; preds = %45, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4read17hc806189baff7eff3E.exit"

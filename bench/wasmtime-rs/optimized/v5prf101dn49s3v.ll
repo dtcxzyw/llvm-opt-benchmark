@@ -21044,7 +21044,7 @@ common.ret:                                       ; preds = %8, %8, %8, %8, %8, 
   %.sroa.917.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.917.0.copyload19 = load ptr, ptr %.sroa.917.0..sroa_idx18, align 8, !alias.scope !3745, !noalias !3746
   %.sroa.10.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.0..sroa_idx20, i64 16, i1 false), !alias.scope !3745
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.0..sroa_idx20, i64 16, i1 false)
   br label %59
 
 54:                                               ; preds = %.noexc

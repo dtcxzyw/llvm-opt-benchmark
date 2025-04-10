@@ -14145,7 +14145,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %_ZN15ide_diagnostic
   store i8 0, ptr %.sroa.538.0..sroa_idx.i, align 1, !alias.scope !3388, !noalias !3078
   store ptr @anon.cd07c770e97e7b2c0709ac777d543a38.122.llvm.6948074339591148053, ptr %.sroa.740.0..sroa_idx.i, align 8, !alias.scope !3388, !noalias !3078
   store i64 15, ptr %.sroa.841.0..sroa_idx.i, align 8, !alias.scope !3388, !noalias !3078
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %247, ptr noundef nonnull align 8 dereferenceable(12) %64, i64 12, i1 false), !alias.scope !3384, !noalias !3078
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %247, ptr noundef nonnull align 8 dereferenceable(12) %64, i64 12, i1 false), !noalias !3078
   store i8 0, ptr %249, align 4, !alias.scope !3388, !noalias !3078
   store i8 1, ptr %250, align 1, !alias.scope !3388, !noalias !3078
   store i8 0, ptr %248, align 2, !alias.scope !3388, !noalias !3078
@@ -14195,7 +14195,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %_ZN15ide_diagnostic
   store i8 0, ptr %.sroa.538.0..sroa_idx.i, align 1, !alias.scope !3405, !noalias !3404
   store ptr @anon.cd07c770e97e7b2c0709ac777d543a38.121.llvm.6948074339591148053, ptr %.sroa.740.0..sroa_idx.i, align 8, !alias.scope !3405, !noalias !3404
   store i64 11, ptr %.sroa.841.0..sroa_idx.i, align 8, !alias.scope !3405, !noalias !3404
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %247, ptr noundef nonnull align 8 dereferenceable(12) %58, i64 12, i1 false), !alias.scope !3400, !noalias !3404
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %247, ptr noundef nonnull align 8 dereferenceable(12) %58, i64 12, i1 false), !noalias !3404
   store i8 0, ptr %249, align 4, !alias.scope !3405, !noalias !3404
   store i8 1, ptr %250, align 1, !alias.scope !3405, !noalias !3404
   store i8 0, ptr %248, align 2, !alias.scope !3405, !noalias !3404

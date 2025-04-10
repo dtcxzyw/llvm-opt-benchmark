@@ -353,7 +353,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i15.i.i: ; preds = %_ZN4llvm9StringRef
   %115 = add i64 %111, -1
   store ptr %114, ptr %11, align 8, !tbaa !19, !noalias !25
   store i64 %115, ptr %21, align 8, !tbaa !21, !noalias !25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !34, !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !noalias !25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !noalias !25
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit18.thread.i.i
 
@@ -427,7 +427,7 @@ _ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm9Stri
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %.sroa.38)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.48)
   %130 = trunc nuw i8 %.sroa.43.0 to i1
-  br i1 %130, label %131, label %_ZN4llvm15SmallVectorImplINS_15ReplacementItemEE12emplace_backIJRS1_EEES4_DpOT_.exit, !llvm.loop !35
+  br i1 %130, label %131, label %_ZN4llvm15SmallVectorImplINS_15ReplacementItemEE12emplace_backIJRS1_EEES4_DpOT_.exit, !llvm.loop !34
 
 131:                                              ; preds = %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
   %132 = icmp eq i32 %.sroa.18.0, -1
@@ -436,7 +436,7 @@ _ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm9Stri
 
 133:                                              ; preds = %131
   %134 = add i32 %.08, 1
-  store i32 %.08, ptr %.sroa.18.0..sroa.4.8..sroa_idx, align 8, !tbaa !36
+  store i32 %.08, ptr %.sroa.18.0..sroa.4.8..sroa_idx, align 8, !tbaa !35
   br label %135
 
 135:                                              ; preds = %133, %131
@@ -444,7 +444,7 @@ _ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm9Stri
   %136 = load i32, ptr %15, align 8, !tbaa !9
   %137 = load i32, ptr %16, align 4, !tbaa !10
   %.not.i1 = icmp ult i32 %136, %137
-  br i1 %.not.i1, label %140, label %138, !prof !40
+  br i1 %.not.i1, label %140, label %138, !prof !39
 
 138:                                              ; preds = %135
   %139 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_15ReplacementItemELb1EE18growAndEmplaceBackIJRS1_EEES4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %13)
@@ -454,7 +454,7 @@ _ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm9Stri
   %141 = zext i32 %136 to i64
   %142 = load ptr, ptr %0, align 8, !tbaa !3
   %143 = getelementptr inbounds nuw %"struct.llvm::ReplacementItem", ptr %142, i64 %141
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %143, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false), !tbaa.struct !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %143, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false), !tbaa.struct !40
   %144 = load i32, ptr %15, align 8, !tbaa !9
   %145 = add i32 %144, 1
   store i32 %145, ptr %15, align 8, !tbaa !9
@@ -516,7 +516,7 @@ declare void @llvm.trap() #7
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_15ReplacementItemELb1EE18growAndEmplaceBackIJRS1_EEES4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %"struct.llvm::ReplacementItem", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false), !tbaa.struct !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false), !tbaa.struct !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !9
   %6 = zext i32 %5 to i64
@@ -525,14 +525,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %9 = load i32, ptr %8, align 4, !tbaa !10
   %.not.i.i.not.i = icmp ult i32 %5, %9
   %.pre3.i = load ptr, ptr %0, align 8, !tbaa !3
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15ReplacementItemELb1EE9push_backERKS1_.exit, label %10, !prof !40
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15ReplacementItemELb1EE9push_backERKS1_.exit, label %10, !prof !39
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw %"struct.llvm::ReplacementItem", ptr %.pre3.i, i64 %6
   %12 = icmp uge ptr %3, %.pre3.i
   %13 = icmp ult ptr %3, %11
   %spec.select.i.i.i.i.i = and i1 %12, %13
-  br i1 %spec.select.i.i.i.i.i, label %16, label %14, !prof !45
+  br i1 %spec.select.i.i.i.i.i, label %16, label %14, !prof !44
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -627,15 +627,14 @@ attributes #10 = { noreturn nounwind }
 !31 = !{!30, !20, i64 0}
 !32 = !{!33, !33, i64 0}
 !33 = !{!"long long", !6, i64 0}
-!34 = !{i64 0, i64 8, !19, i64 8, i64 8, !21}
-!35 = distinct !{!35, !24}
-!36 = !{!37, !8, i64 24}
-!37 = !{!"_ZTSN4llvm15ReplacementItemE", !38, i64 0, !30, i64 8, !8, i64 24, !8, i64 28, !39, i64 32, !6, i64 36, !30, i64 40}
-!38 = !{!"_ZTSN4llvm15ReplacementTypeE", !6, i64 0}
-!39 = !{!"_ZTSN4llvm10AlignStyleE", !6, i64 0}
-!40 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!41 = !{i64 0, i64 4, !42, i64 8, i64 8, !19, i64 16, i64 8, !21, i64 24, i64 4, !43, i64 28, i64 4, !43, i64 32, i64 4, !44, i64 36, i64 1, !14, i64 40, i64 8, !19, i64 48, i64 8, !21}
-!42 = !{!38, !38, i64 0}
-!43 = !{!8, !8, i64 0}
-!44 = !{!39, !39, i64 0}
-!45 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!34 = distinct !{!34, !24}
+!35 = !{!36, !8, i64 24}
+!36 = !{!"_ZTSN4llvm15ReplacementItemE", !37, i64 0, !30, i64 8, !8, i64 24, !8, i64 28, !38, i64 32, !6, i64 36, !30, i64 40}
+!37 = !{!"_ZTSN4llvm15ReplacementTypeE", !6, i64 0}
+!38 = !{!"_ZTSN4llvm10AlignStyleE", !6, i64 0}
+!39 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!40 = !{i64 0, i64 4, !41, i64 8, i64 8, !19, i64 16, i64 8, !21, i64 24, i64 4, !42, i64 28, i64 4, !42, i64 32, i64 4, !43, i64 36, i64 1, !14, i64 40, i64 8, !19, i64 48, i64 8, !21}
+!41 = !{!37, !37, i64 0}
+!42 = !{!8, !8, i64 0}
+!43 = !{!38, !38, i64 0}
+!44 = !{!"branch_weights", !"expected", i32 1, i32 2000}

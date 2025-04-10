@@ -4270,7 +4270,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd2a26ab069
 13:                                               ; preds = %12, %11
   store i64 %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !1152
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.29.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.5, i64 184, i1 false), !alias.scope !1152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.29.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.5, i64 184, i1 false)
   br label %14
 
 14:                                               ; preds = %"_ZN4core3ptr662drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$$GT$17hb62962c12d9258bdE.exit", %13
@@ -4308,7 +4308,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17he531476411
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.5.8.copyload, ptr %16, align 8, !alias.scope !1165
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.28.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !1165
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.28.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   br label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$17h4cd37b3054b920f1E.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$17h4cd37b3054b920f1E.exit": ; preds = %4, %15

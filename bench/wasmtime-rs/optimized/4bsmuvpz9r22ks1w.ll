@@ -18537,14 +18537,13 @@ define hidden void @"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelif
 define hidden void @"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$5cmove17hfcaa8098f5c659b6E"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, i8 noundef %1, i8 noundef %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %3, i32 noundef %4) unnamed_addr #2 {
   %.sroa.7 = alloca [15 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2027)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2030)
-  %6 = load i8, ptr %3, align 4, !range !1653, !alias.scope !2030, !noalias !2027, !noundef !4
+  %6 = load i8, ptr %3, align 4, !range !1653, !alias.scope !2027, !noalias !2030, !noundef !4
   %7 = icmp eq i8 %6, 6
   br i1 %7, label %8, label %_ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit.i
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !2030, !noalias !2027, !noundef !4
+  %10 = load i32, ptr %9, align 4, !alias.scope !2027, !noalias !2030, !noundef !4
   %11 = and i32 %10, 3
   switch i32 %11, label %default.unreachable [
     i32 0, label %_ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit.i
@@ -18566,7 +18565,7 @@ _ZN17cranelift_codegen3isa3x644inst4args6GprMem3new17h77481058b332a47bE.exit: ; 
 
 _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit.i: ; preds = %8, %5
   %.sroa.7.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.0..sroa_idx12, i64 15, i1 false), !alias.scope !2032
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.0..sroa_idx12, i64 15, i1 false)
   %13 = and i32 %4, 3
   switch i32 %13, label %default.unreachable [
     i32 0, label %16
@@ -60255,11 +60254,11 @@ attributes #39 = { nounwind }
 !2025 = distinct !{!2025, !"_ZN17cranelift_codegen3isa3x644inst4args9GprMemImm3new17hf5ad6f1f11c2a7cdE"}
 !2026 = distinct !{!2026, !2025, !"_ZN17cranelift_codegen3isa3x644inst4args9GprMemImm3new17hf5ad6f1f11c2a7cdE: argument 1"}
 !2027 = !{!2028}
-!2028 = distinct !{!2028, !2029, !"_ZN17cranelift_codegen3isa3x644inst4args6GprMem3new17h77481058b332a47bE: argument 0"}
+!2028 = distinct !{!2028, !2029, !"_ZN17cranelift_codegen3isa3x644inst4args6GprMem3new17h77481058b332a47bE: argument 1"}
 !2029 = distinct !{!2029, !"_ZN17cranelift_codegen3isa3x644inst4args6GprMem3new17h77481058b332a47bE"}
 !2030 = !{!2031}
-!2031 = distinct !{!2031, !2029, !"_ZN17cranelift_codegen3isa3x644inst4args6GprMem3new17h77481058b332a47bE: argument 1"}
-!2032 = !{!2028, !2031}
+!2031 = distinct !{!2031, !2029, !"_ZN17cranelift_codegen3isa3x644inst4args6GprMem3new17h77481058b332a47bE: argument 0"}
+!2032 = !{!2031, !2028}
 !2033 = !{!2034, !2036}
 !2034 = distinct !{!2034, !2035, !"_ZN17cranelift_codegen3isa3x644inst4args9GprMemImm3new17hf5ad6f1f11c2a7cdE: argument 0"}
 !2035 = distinct !{!2035, !"_ZN17cranelift_codegen3isa3x644inst4args9GprMemImm3new17hf5ad6f1f11c2a7cdE"}
