@@ -151,25 +151,21 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Softmax_x86_avx51215for
   %84 = load i32, ptr %83, align 4, !tbaa !31
   %85 = load ptr, ptr %1, align 8, !tbaa !32
   %86 = icmp sgt i32 %84, 0
-  br i1 %86, label %.lr.ph4480.preheader, label %._crit_edge4481
+  br i1 %86, label %.lr.ph4480.preheader, label %.loopexit4253.thread
 
 .lr.ph4480.preheader:                             ; preds = %82
   %wide.trip.count5061 = zext nneg i32 %84 to i64
   br label %.lr.ph4480
 
-._crit_edge4481:                                  ; preds = %.lr.ph4480, %82
-  %.01541.lcssa = phi <16 x float> [ splat (float 0xC7EFFFFFE0000000), %82 ], [ %113, %.lr.ph4480 ]
-  %87 = shufflevector <16 x float> %.01541.lcssa, <16 x float> poison, <16 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14>
-  %88 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> nofpclass(nan inf) %.01541.lcssa, <16 x float> nofpclass(nan inf) %87, i32 4)
+._crit_edge4481:                                  ; preds = %.lr.ph4480
+  %87 = shufflevector <16 x float> %113, <16 x float> poison, <16 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14>
+  %88 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> nofpclass(nan inf) %113, <16 x float> nofpclass(nan inf) %87, i32 4)
   %89 = shufflevector <16 x float> %88, <16 x float> poison, <16 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5, i32 10, i32 11, i32 8, i32 9, i32 14, i32 15, i32 12, i32 13>
   %90 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> nofpclass(nan inf) %88, <16 x float> nofpclass(nan inf) %89, i32 4)
   %91 = shufflevector <16 x float> %90, <16 x float> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 11>
   %92 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> nofpclass(nan inf) %90, <16 x float> nofpclass(nan inf) %91, i32 4)
   %93 = shufflevector <16 x float> %92, <16 x float> poison, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %94 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> nofpclass(nan inf) %92, <16 x float> nofpclass(nan inf) %93, i32 4)
-  br i1 %86, label %.lr.ph4486, label %._crit_edge4487
-
-.lr.ph4486:                                       ; preds = %._crit_edge4481
   %95 = load <16 x float>, ptr @_ZL8_ps512_1, align 64, !tbaa !33
   %96 = load <16 x float>, ptr @_ZL13_ps512_exp_hi, align 64, !tbaa !33
   %97 = load <16 x float>, ptr @_ZL13_ps512_exp_lo, align 64, !tbaa !33
@@ -200,13 +196,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Softmax_x86_avx51215for
   %exitcond5062.not = icmp eq i64 %indvars.iv.next5059, %wide.trip.count5061
   br i1 %exitcond5062.not, label %._crit_edge4481, label %.lr.ph4480, !llvm.loop !34
 
-._crit_edge4487:                                  ; preds = %123, %._crit_edge4481
-  %.01543.lcssa = phi <16 x float> [ zeroinitializer, %._crit_edge4481 ], [ %149, %123 ]
-  br i1 %86, label %.lr.ph4491.preheader, label %.loopexit4253.thread
-
-.lr.ph4491.preheader:                             ; preds = %._crit_edge4487
-  %114 = shufflevector <16 x float> %.01543.lcssa, <16 x float> poison, <16 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14>
-  %115 = fadd fast <16 x float> %114, %.01543.lcssa
+.lr.ph4491.preheader:                             ; preds = %123
+  %114 = shufflevector <16 x float> %149, <16 x float> poison, <16 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14>
+  %115 = fadd fast <16 x float> %114, %149
   %116 = shufflevector <16 x float> %115, <16 x float> poison, <16 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5, i32 10, i32 11, i32 8, i32 9, i32 14, i32 15, i32 12, i32 13>
   %117 = fadd fast <16 x float> %116, %115
   %118 = shufflevector <16 x float> %117, <16 x float> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 11>
@@ -217,9 +209,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Softmax_x86_avx51215for
   %122 = fdiv fast <16 x float> splat (float 1.000000e+00), %121
   br label %.lr.ph4491
 
-123:                                              ; preds = %.lr.ph4486, %123
-  %indvars.iv5063 = phi i64 [ 0, %.lr.ph4486 ], [ %indvars.iv.next5064, %123 ]
-  %.015434484 = phi <16 x float> [ zeroinitializer, %.lr.ph4486 ], [ %149, %123 ]
+123:                                              ; preds = %._crit_edge4481, %123
+  %indvars.iv5063 = phi i64 [ 0, %._crit_edge4481 ], [ %indvars.iv.next5064, %123 ]
+  %.015434484 = phi <16 x float> [ zeroinitializer, %._crit_edge4481 ], [ %149, %123 ]
   %.idx5201 = shl nsw i64 %indvars.iv5063, 6
   %124 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx5201
   %125 = load <16 x float>, ptr %124, align 64, !tbaa !33
@@ -250,7 +242,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Softmax_x86_avx51215for
   %149 = fadd fast <16 x float> %148, %.015434484
   %indvars.iv.next5064 = add nuw nsw i64 %indvars.iv5063, 1
   %exitcond5067.not = icmp eq i64 %indvars.iv.next5064, %wide.trip.count5066
-  br i1 %exitcond5067.not, label %._crit_edge4487, label %123, !llvm.loop !36
+  br i1 %exitcond5067.not, label %.lr.ph4491.preheader, label %123, !llvm.loop !36
 
 .lr.ph4491:                                       ; preds = %.lr.ph4491.preheader, %.lr.ph4491
   %indvars.iv5068 = phi i64 [ 0, %.lr.ph4491.preheader ], [ %indvars.iv.next5069, %.lr.ph4491 ]
@@ -263,7 +255,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Softmax_x86_avx51215for
   %exitcond5072.not = icmp eq i64 %indvars.iv.next5069, %wide.trip.count5071
   br i1 %exitcond5072.not, label %.loopexit4253.thread, label %.lr.ph4491, !llvm.loop !37
 
-.loopexit4253.thread:                             ; preds = %.lr.ph4491, %._crit_edge4487
+.loopexit4253.thread:                             ; preds = %.lr.ph4491, %82
   %153 = icmp eq i32 %79, 0
   br label %1072
 
@@ -7065,11 +7057,11 @@ _ZN4ncnn3MatD2Ev.exit2152:                        ; preds = %4352, %4350, %4358,
   %4582 = fadd fast <4 x float> %4581, %.01756.lcssa
   %shift = shufflevector <4 x float> %4501, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %4583 = fadd fast <4 x float> %4501, %shift
-  %shift5388 = shufflevector <4 x float> %4542, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %4584 = fadd fast <4 x float> %4583, %shift5388
+  %shift5389 = shufflevector <4 x float> %4542, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %4584 = fadd fast <4 x float> %4583, %shift5389
   %4585 = fadd fast <4 x float> %4584, %4542
-  %shift5389 = shufflevector <4 x float> %4582, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %4586 = fadd fast <4 x float> %4585, %shift5389
+  %shift5390 = shufflevector <4 x float> %4582, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %4586 = fadd fast <4 x float> %4585, %shift5390
   %4587 = fadd fast <4 x float> %4586, %4582
   %4588 = extractelement <4 x float> %4587, i64 0
   %4589 = icmp slt i32 %.21768.lcssa, %4381

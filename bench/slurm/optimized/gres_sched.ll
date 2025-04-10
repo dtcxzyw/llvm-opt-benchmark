@@ -181,12 +181,12 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
   store ptr null, ptr %14, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %164, label %15
+  br i1 %.not, label %163, label %15
 
 15:                                               ; preds = %12
   %16 = load i16, ptr %0, align 2
   %.not88 = icmp eq i16 %16, 0
-  br i1 %.not88, label %164, label %17
+  br i1 %.not88, label %163, label %17
 
 17:                                               ; preds = %15
   %18 = tail call ptr @slurm_list_iterator_create(ptr noundef nonnull %4) #4
@@ -215,7 +215,7 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %31 = phi ptr [ %19, %.lr.ph.lr.ph ], [ %159, %.outer ]
+  %31 = phi ptr [ %19, %.lr.ph.lr.ph ], [ %158, %.outer ]
   %.070.ph134 = phi i16 [ 0, %.lr.ph.lr.ph ], [ %.1, %.outer ]
   %.0108.ph133 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.1109, %.outer ]
   br label %32
@@ -445,79 +445,79 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   %143 = phi i16 [ %141, %140 ], [ %137, %.thread.i ]
   %144 = load i16, ptr %43, align 2
   %.not71.i = icmp eq i16 %144, 0
-  br i1 %.not71.i, label %151, label %145
+  br i1 %.not71.i, label %.critedge.i, label %145
 
 145:                                              ; preds = %142
   %146 = udiv i16 %143, %144
   %147 = zext i16 %146 to i64
   %148 = icmp ugt i64 %.4114, %147
-  br i1 %148, label %149, label %151
+  br i1 %148, label %149, label %.critedge.i
 
 149:                                              ; preds = %145
   %150 = mul nuw nsw i64 %147, %28
-  br label %.preheader.i, !llvm.loop !15
+  br label %.preheader.i
 
-151:                                              ; preds = %145, %142
+.critedge.i:                                      ; preds = %145, %142
   %.not70.i = icmp eq ptr %105, null
   br i1 %.not70.i, label %_gres_per_job_reduce_res_cores.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %151, %109
-  %.3113 = phi i64 [ %.4114, %151 ], [ %74, %109 ]
-  %.4 = phi i64 [ %.6, %151 ], [ %.2, %109 ]
+.sink.split.i:                                    ; preds = %.critedge.i, %109
+  %.3113 = phi i64 [ %.4114, %.critedge.i ], [ %74, %109 ]
+  %.4 = phi i64 [ %.6, %.critedge.i ], [ %.2, %109 ]
   call void @slurm_bit_free(ptr noundef nonnull %13) #4
   br label %_gres_per_job_reduce_res_cores.exit
 
 _gres_per_job_reduce_res_cores.exit.thread:       ; preds = %97, %100, %109, %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
-  br label %153
+  br label %152
 
-_gres_per_job_reduce_res_cores.exit:              ; preds = %151, %.sink.split.i
-  %.5115 = phi i64 [ %.4114, %151 ], [ %.3113, %.sink.split.i ]
-  %.8 = phi i64 [ %.6, %151 ], [ %.4, %.sink.split.i ]
+_gres_per_job_reduce_res_cores.exit:              ; preds = %.critedge.i, %.sink.split.i
+  %.5115 = phi i64 [ %.4114, %.critedge.i ], [ %.3113, %.sink.split.i ]
+  %.8 = phi i64 [ %.6, %.critedge.i ], [ %.4, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
-  %152 = icmp ult i64 %.5115, %.072
-  br i1 %152, label %.sink.split, label %153
+  %151 = icmp ult i64 %.5115, %.072
+  br i1 %151, label %.sink.split, label %152
 
-153:                                              ; preds = %_gres_per_job_reduce_res_cores.exit.thread, %_gres_per_job_reduce_res_cores.exit
+152:                                              ; preds = %_gres_per_job_reduce_res_cores.exit.thread, %_gres_per_job_reduce_res_cores.exit
   %.8119 = phi i64 [ %.2, %_gres_per_job_reduce_res_cores.exit.thread ], [ %.8, %_gres_per_job_reduce_res_cores.exit ]
   %.5115118 = phi i64 [ %74, %_gres_per_job_reduce_res_cores.exit.thread ], [ %.5115, %_gres_per_job_reduce_res_cores.exit ]
-  %154 = load i16, ptr %0, align 2
-  %155 = icmp ugt i16 %10, %154
-  br i1 %155, label %.sink.split, label %.outer
+  %153 = load i16, ptr %0, align 2
+  %154 = icmp ugt i16 %10, %153
+  br i1 %154, label %.sink.split, label %.outer
 
-.outer:                                           ; preds = %153, %68
-  %.2112 = phi i64 [ %.5115118, %153 ], [ %74, %68 ]
-  %.1109 = phi i64 [ %.8119, %153 ], [ %.0108.ph133, %68 ]
-  %156 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  store i64 %.2112, ptr %156, align 8
-  %157 = load i64, ptr %70, align 8
-  %158 = add i64 %157, %.2112
-  store i64 %158, ptr %70, align 8
-  %159 = call ptr @slurm_list_next(ptr noundef %18) #4
-  %.not89125 = icmp eq ptr %159, null
+.outer:                                           ; preds = %152, %68
+  %.2112 = phi i64 [ %.5115118, %152 ], [ %74, %68 ]
+  %.1109 = phi i64 [ %.8119, %152 ], [ %.0108.ph133, %68 ]
+  %155 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  store i64 %.2112, ptr %155, align 8
+  %156 = load i64, ptr %70, align 8
+  %157 = add i64 %156, %.2112
+  store i64 %157, ptr %70, align 8
+  %158 = call ptr @slurm_list_next(ptr noundef %18) #4
+  %.not89125 = icmp eq ptr %158, null
   br i1 %.not89125, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
   %.070.ph.lcssa124 = phi i16 [ %.070.ph134, %.backedge ], [ %.1, %.outer ]
   call void @slurm_list_iterator_destroy(ptr noundef %18) #4
   %.not90 = icmp eq i16 %.070.ph.lcssa124, 0
-  br i1 %.not90, label %.sink.split, label %160
+  br i1 %.not90, label %.sink.split, label %159
 
-160:                                              ; preds = %.outer._crit_edge
-  %161 = load i16, ptr %0, align 2
-  %162 = icmp ult i16 %.070.ph.lcssa124, %161
-  br i1 %162, label %163, label %.sink.split
+159:                                              ; preds = %.outer._crit_edge
+  %160 = load i16, ptr %0, align 2
+  %161 = icmp ult i16 %.070.ph.lcssa124, %160
+  br i1 %161, label %162, label %.sink.split
 
-163:                                              ; preds = %160
+162:                                              ; preds = %159
   store i16 %.070.ph.lcssa124, ptr %0, align 2
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_gres_per_job_reduce_res_cores.exit, %153, %.outer._crit_edge, %160, %163, %.outer._crit_edge.thread
-  %.0.ph = phi i1 [ true, %.outer._crit_edge.thread ], [ true, %163 ], [ true, %160 ], [ true, %.outer._crit_edge ], [ false, %153 ], [ false, %_gres_per_job_reduce_res_cores.exit ]
+.sink.split:                                      ; preds = %_gres_per_job_reduce_res_cores.exit, %152, %.outer._crit_edge, %159, %162, %.outer._crit_edge.thread
+  %.0.ph = phi i1 [ true, %.outer._crit_edge.thread ], [ true, %162 ], [ true, %159 ], [ true, %.outer._crit_edge ], [ false, %152 ], [ false, %_gres_per_job_reduce_res_cores.exit ]
   call void @slurm_xfree(ptr noundef nonnull %14) #4
-  br label %164
+  br label %163
 
-164:                                              ; preds = %.sink.split, %12, %15
+163:                                              ; preds = %.sink.split, %12, %15
   %.0 = phi i1 [ true, %15 ], [ true, %12 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
   ret i1 %.0
@@ -597,7 +597,7 @@ define dso_local void @gres_sched_consec(ptr noundef captures(none) %0, ptr noun
 .backedge:                                        ; preds = %26, %.lr.ph, %12
   %32 = tail call ptr @slurm_list_next(ptr noundef %5) #4
   %.not24 = icmp eq ptr %32, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.backedge, %4
   tail call void @slurm_list_iterator_destroy(ptr noundef %5) #4
@@ -640,7 +640,7 @@ define dso_local noundef zeroext i1 @gres_sched_sufficient(ptr noundef %0, ptr n
 .backedge:                                        ; preds = %.lr.ph, %13, %18
   %12 = tail call ptr @slurm_list_next(ptr noundef %5) #4
   %.not23 = icmp eq ptr %12, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
@@ -718,4 +718,3 @@ attributes #4 = { nounwind }
 !14 = distinct !{!14, !9, !10}
 !15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}

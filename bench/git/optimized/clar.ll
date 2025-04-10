@@ -526,57 +526,53 @@ clar_print_init.exit:                             ; preds = %clar_parse_args.exi
 .thread:                                          ; preds = %clar_print_init.exit
   %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @_clar, i64 56), align 8, !tbaa !37
   %121 = icmp eq i32 %.pr, 0
-  br i1 %121, label %142, label %.thread.thread
+  br i1 %121, label %.critedge, label %.thread.thread
 
 122:                                              ; preds = %115
   %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_clar, i64 56), align 8, !tbaa !37
   %124 = icmp eq i32 %123, 0
-  br i1 %124, label %thread-pre-split, label %125
+  br i1 %124, label %.critedge, label %125
 
 125:                                              ; preds = %122
   %126 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str.3) #31
   store ptr %126, ptr getelementptr inbounds nuw (i8, ptr @_clar, i64 64), align 8, !tbaa !38
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %128, label %thread-pre-split
+  br i1 %127, label %128, label %.thread.thread
 
 128:                                              ; preds = %125
   tail call void (ptr, ...) @clar_abort(ptr noundef nonnull @.str.2)
   unreachable
 
-thread-pre-split:                                 ; preds = %125, %122
-  %129 = phi ptr [ null, %122 ], [ %126, %125 ]
-  br i1 %124, label %142, label %.thread.thread
+.thread.thread:                                   ; preds = %125, %117, %.thread
+  %129 = phi ptr [ %114, %.thread ], [ %118, %117 ], [ %126, %125 ]
+  %130 = tail call noalias ptr @fopen(ptr noundef nonnull %129, ptr noundef nonnull @.str.171)
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %132, label %136
 
-.thread.thread:                                   ; preds = %117, %.thread, %thread-pre-split
-  %130 = phi ptr [ %114, %.thread ], [ %129, %thread-pre-split ], [ %118, %117 ]
-  %131 = tail call noalias ptr @fopen(ptr noundef %130, ptr noundef nonnull @.str.171)
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %133, label %137
-
-133:                                              ; preds = %.thread.thread
-  %134 = tail call ptr @__errno_location() #32
-  %135 = load i32, ptr %134, align 4, !tbaa !40
-  %136 = tail call ptr @strerror(i32 noundef %135) #31
-  tail call void (ptr, ...) @clar_abort(ptr noundef nonnull @.str.172, ptr noundef %130, ptr noundef %136)
+132:                                              ; preds = %.thread.thread
+  %133 = tail call ptr @__errno_location() #32
+  %134 = load i32, ptr %133, align 4, !tbaa !40
+  %135 = tail call ptr @strerror(i32 noundef %134) #31
+  tail call void (ptr, ...) @clar_abort(ptr noundef nonnull @.str.172, ptr noundef nonnull %129, ptr noundef %135)
   unreachable
 
-137:                                              ; preds = %.thread.thread
-  %138 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %140, label %clar_summary_init.exit
+136:                                              ; preds = %.thread.thread
+  %137 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %139, label %clar_summary_init.exit
 
-140:                                              ; preds = %137
+139:                                              ; preds = %136
   tail call void (ptr, ...) @clar_abort(ptr noundef nonnull @.str.173)
   unreachable
 
-clar_summary_init.exit:                           ; preds = %137
-  store ptr %130, ptr %138, align 8, !tbaa !41
-  %141 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  store ptr %131, ptr %141, align 8, !tbaa !44
-  store ptr %138, ptr getelementptr inbounds nuw (i8, ptr @_clar, i64 72), align 8, !tbaa !45
-  br label %142
+clar_summary_init.exit:                           ; preds = %136
+  store ptr %129, ptr %137, align 8, !tbaa !41
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  store ptr %130, ptr %140, align 8, !tbaa !44
+  store ptr %137, ptr getelementptr inbounds nuw (i8, ptr @_clar, i64 72), align 8, !tbaa !45
+  br label %.critedge
 
-142:                                              ; preds = %.thread, %clar_summary_init.exit, %thread-pre-split
+.critedge:                                        ; preds = %122, %.thread, %clar_summary_init.exit
   tail call fastcc void @clar_sandbox()
   ret void
 }

@@ -2371,10 +2371,8 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.thread: ; preds = %23, %40, %_ZNK5
   br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
 
 84:                                               ; preds = %66
-  %.not122 = icmp eq i32 %53, 3
-  br i1 %.not122, label %85, label %101
-
-85:                                               ; preds = %84
+  %85 = icmp eq i32 %53, 3
+  tail call void @llvm.assume(i1 %85)
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %87 = load ptr, ptr %86, align 8, !tbaa !120
   %88 = tail call { ptr, i8 } @_ZN5clang4ento11SValBuilder13makeSymbolValEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(412) %57, ptr noundef %87)
@@ -2384,9 +2382,9 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.thread: ; preds = %23, %40, %_ZNK5
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr %.fca.0.extract9, i8 %.fca.1.extract10) #21
-  br i1 %92, label %93, label %101
+  br i1 %92, label %93, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
 
-93:                                               ; preds = %85
+93:                                               ; preds = %84
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %95 = load ptr, ptr %94, align 8, !tbaa !122
   %96 = tail call { ptr, i8 } @_ZN5clang4ento11SValBuilder13makeSymbolValEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(412) %57, ptr noundef %95)
@@ -2396,15 +2394,10 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.thread: ; preds = %23, %40, %_ZNK5
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 88
   %99 = load ptr, ptr %98, align 8
   %100 = tail call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr %.fca.0.extract, i8 %.fca.1.extract) #21
-  br label %101
-
-101:                                              ; preds = %84, %85, %93
-  %.8 = phi i1 [ false, %85 ], [ %100, %93 ], [ undef, %84 ]
-  tail call void @llvm.assume(i1 %.not122)
   br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
 
-_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit: ; preds = %56, %44, %20, %11, %40, %35, %51, %58, %76, %68, %101, %3
-  %.0 = phi i1 [ true, %3 ], [ %50, %44 ], [ false, %20 ], [ false, %11 ], [ false, %40 ], [ false, %35 ], [ true, %51 ], [ %65, %58 ], [ %.8, %101 ], [ %83, %76 ], [ %75, %68 ], [ false, %56 ]
+_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit: ; preds = %56, %44, %20, %11, %40, %35, %51, %58, %93, %84, %76, %68, %3
+  %.0 = phi i1 [ true, %3 ], [ %50, %44 ], [ false, %20 ], [ false, %11 ], [ false, %40 ], [ false, %35 ], [ true, %51 ], [ %65, %58 ], [ %83, %76 ], [ %75, %68 ], [ false, %84 ], [ %100, %93 ], [ false, %56 ]
   ret i1 %.0
 }
 

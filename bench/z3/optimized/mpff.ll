@@ -6452,12 +6452,12 @@ _ZN12mpff_manager8allocateER4mpff.exit.i:         ; preds = %_ZN6vectorIjLb0EjE4
   %62 = or disjoint i32 %61, %60
   store i32 %62, ptr %3, align 4
   %.pre = load i32, ptr %1, align 4
-  %.pre30 = load i32, ptr %2, align 4
+  %.pre31 = load i32, ptr %2, align 4
   br label %_ZN12mpff_manager18allocate_if_neededER4mpff.exit
 
 _ZN12mpff_manager18allocate_if_neededER4mpff.exit: ; preds = %44, %_ZN12mpff_manager8allocateER4mpff.exit.i
   %63 = phi i32 [ %9, %44 ], [ %62, %_ZN12mpff_manager8allocateER4mpff.exit.i ]
-  %64 = phi i32 [ %7, %44 ], [ %.pre30, %_ZN12mpff_manager8allocateER4mpff.exit.i ]
+  %64 = phi i32 [ %7, %44 ], [ %.pre31, %_ZN12mpff_manager8allocateER4mpff.exit.i ]
   %65 = phi i32 [ %5, %44 ], [ %.pre, %_ZN12mpff_manager8allocateER4mpff.exit.i ]
   %66 = xor i32 %64, %65
   %67 = and i32 %66, 1
@@ -6500,61 +6500,69 @@ _ZN12mpff_manager18allocate_if_neededER4mpff.exit: ; preds = %44, %_ZN12mpff_man
   %103 = load i8, ptr %102, align 4, !tbaa !20, !range !50, !noundef !51
   %104 = zext nneg i8 %103 to i32
   %.not = icmp eq i32 %101, %104
-  br i1 %.not, label %109, label %105
+  br i1 %.not, label %.critedge, label %105
 
 105:                                              ; preds = %_ZN12mpff_manager18allocate_if_neededER4mpff.exit
   %106 = load i32, ptr %0, align 8, !tbaa !13
   %107 = shl i32 %106, 1
   %108 = tail call noundef zeroext i1 @_Z23has_one_at_first_k_bitsjPKjj(i32 noundef %107, ptr noundef %78, i32 noundef %99)
-  %.pre31 = load i32, ptr %3, align 4
-  br label %109
+  %109 = zext i32 %99 to i64
+  %110 = add nsw i64 %76, %109
+  %111 = load ptr, ptr %80, align 8, !tbaa !3
+  %112 = load i32, ptr %3, align 4
+  %113 = lshr i32 %112, 1
+  %114 = load i32, ptr %0, align 8, !tbaa !13
+  %115 = mul i32 %113, %114
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds nuw i32, ptr %111, i64 %116
+  %118 = shl i32 %114, 1
+  tail call void @_Z3shrjPKjjjPj(i32 noundef %118, ptr noundef %78, i32 noundef %99, i32 noundef %114, ptr noundef %117)
+  br i1 %108, label %119, label %_ZN12mpff_manager15inc_significandEPjRl.exit
 
-109:                                              ; preds = %105, %_ZN12mpff_manager18allocate_if_neededER4mpff.exit
-  %110 = phi i32 [ %100, %_ZN12mpff_manager18allocate_if_neededER4mpff.exit ], [ %.pre31, %105 ]
-  %111 = phi i1 [ false, %_ZN12mpff_manager18allocate_if_neededER4mpff.exit ], [ %108, %105 ]
-  %112 = zext i32 %99 to i64
-  %113 = add nsw i64 %76, %112
-  %114 = load ptr, ptr %80, align 8, !tbaa !3
-  %115 = lshr i32 %110, 1
-  %116 = load i32, ptr %0, align 8, !tbaa !13
-  %117 = mul i32 %115, %116
-  %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %114, i64 %118
-  %120 = shl i32 %116, 1
-  tail call void @_Z3shrjPKjjjPj(i32 noundef %120, ptr noundef %78, i32 noundef %99, i32 noundef %116, ptr noundef %119)
-  br i1 %111, label %121, label %_ZN12mpff_manager15inc_significandEPjRl.exit
+119:                                              ; preds = %105
+  %120 = load i32, ptr %0, align 8, !tbaa !13
+  %121 = tail call noundef zeroext i1 @_Z3incjPj(i32 noundef %120, ptr noundef %117)
+  br i1 %121, label %_ZN12mpff_manager15inc_significandEPjRl.exit, label %122
 
-121:                                              ; preds = %109
-  %122 = load i32, ptr %0, align 8, !tbaa !13
-  %123 = tail call noundef zeroext i1 @_Z3incjPj(i32 noundef %122, ptr noundef %119)
-  br i1 %123, label %_ZN12mpff_manager15inc_significandEPjRl.exit, label %124
-
-124:                                              ; preds = %121
-  %125 = load i32, ptr %0, align 8, !tbaa !13
-  %126 = add i32 %125, -1
-  %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %119, i64 %127
-  store i32 -2147483648, ptr %128, align 4, !tbaa !21
-  %129 = add nsw i64 %113, 1
+122:                                              ; preds = %119
+  %123 = load i32, ptr %0, align 8, !tbaa !13
+  %124 = add i32 %123, -1
+  %125 = zext i32 %124 to i64
+  %126 = getelementptr inbounds nuw i32, ptr %117, i64 %125
+  store i32 -2147483648, ptr %126, align 4, !tbaa !21
+  %127 = add nsw i64 %110, 1
   br label %_ZN12mpff_manager15inc_significandEPjRl.exit
 
-_ZN12mpff_manager15inc_significandEPjRl.exit:     ; preds = %124, %121, %109
-  %.0 = phi i64 [ %113, %109 ], [ %113, %121 ], [ %129, %124 ]
-  %130 = add nsw i64 %.0, -2147483648
-  %or.cond.i = icmp ult i64 %130, -4294967296
-  br i1 %or.cond.i, label %131, label %132
+.critedge:                                        ; preds = %_ZN12mpff_manager18allocate_if_neededER4mpff.exit
+  %128 = zext i32 %99 to i64
+  %129 = add nsw i64 %76, %128
+  %130 = load ptr, ptr %80, align 8, !tbaa !3
+  %131 = lshr i32 %100, 1
+  %132 = load i32, ptr %0, align 8, !tbaa !13
+  %133 = mul i32 %132, %131
+  %134 = zext i32 %133 to i64
+  %135 = getelementptr inbounds nuw i32, ptr %130, i64 %134
+  %136 = shl i32 %132, 1
+  tail call void @_Z3shrjPKjjjPj(i32 noundef %136, ptr noundef %78, i32 noundef %99, i32 noundef %132, ptr noundef %135)
+  br label %_ZN12mpff_manager15inc_significandEPjRl.exit
 
-131:                                              ; preds = %_ZN12mpff_manager15inc_significandEPjRl.exit
+_ZN12mpff_manager15inc_significandEPjRl.exit:     ; preds = %122, %119, %.critedge, %105
+  %.0 = phi i64 [ %129, %.critedge ], [ %110, %105 ], [ %110, %119 ], [ %127, %122 ]
+  %137 = add nsw i64 %.0, -2147483648
+  %or.cond.i = icmp ult i64 %137, -4294967296
+  br i1 %or.cond.i, label %138, label %139
+
+138:                                              ; preds = %_ZN12mpff_manager15inc_significandEPjRl.exit
   tail call void @_ZN12mpff_manager16set_big_exponentER4mpffl(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 4 dereferenceable(8) %3, i64 noundef %.0)
   br label %_ZN12mpff_manager12set_exponentER4mpffl.exit
 
-132:                                              ; preds = %_ZN12mpff_manager15inc_significandEPjRl.exit
-  %133 = trunc nsw i64 %.0 to i32
-  %134 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %133, ptr %134, align 4, !tbaa !35
+139:                                              ; preds = %_ZN12mpff_manager15inc_significandEPjRl.exit
+  %140 = trunc nsw i64 %.0 to i32
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %140, ptr %141, align 4, !tbaa !35
   br label %_ZN12mpff_manager12set_exponentER4mpffl.exit
 
-_ZN12mpff_manager12set_exponentER4mpffl.exit:     ; preds = %132, %131, %_ZN12mpff_manager5resetER4mpff.exit
+_ZN12mpff_manager12set_exponentER4mpffl.exit:     ; preds = %139, %138, %_ZN12mpff_manager5resetER4mpff.exit
   ret void
 }
 

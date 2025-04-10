@@ -33,33 +33,25 @@ define void @_ZN6uu_seq6number13PreciseNumber3one17hd7a2be22786c7e4fE(ptr noalia
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i2.i.i, align 8, !noalias !4
   %.sroa.5.0..sroa_idx.i3.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i3.i.i, align 8, !noalias !4
-  br label %3
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd2273d509b2626aaE.llvm.15755512314762197099"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 1)
+          to label %_ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h5436f43a4d59a023E.exit unwind label %3, !noalias !4
 
-common.resume.i.i:                                ; preds = %6
-  resume { ptr, i32 } %7
+common.resume.i.i:                                ; preds = %3
+  resume { ptr, i32 } %4
 
-3:                                                ; preds = %5, %1
-  %4 = phi i1 [ false, %1 ], [ true, %5 ]
-  %.0.i4.i.i = phi i64 [ 1, %1 ], [ 0, %5 ]
-  br i1 %4, label %_ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h5436f43a4d59a023E.exit, label %5
-
-5:                                                ; preds = %3
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd2273d509b2626aaE.llvm.15755512314762197099"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.0.i4.i.i)
-          to label %3 unwind label %6, !noalias !4
-
-6:                                                ; preds = %5
-  %7 = landingpad { ptr, i32 }
+3:                                                ; preds = %1
+  %4 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17he76c3e43c8e1702dE.llvm.6590528771756919200"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %common.resume.i.i unwind label %8, !noalias !4
+          to label %common.resume.i.i unwind label %5, !noalias !4
 
-8:                                                ; preds = %6
-  %9 = landingpad { ptr, i32 }
+5:                                                ; preds = %3
+  %6 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11, !noalias !4
   unreachable
 
-_ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h5436f43a4d59a023E.exit: ; preds = %3
+_ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h5436f43a4d59a023E.exit: ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !4
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -68,10 +60,10 @@ _ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h5436f43a4d59a023E.exit:
   store i8 2, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !14
   %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %.sroa.51.0..sroa_idx, align 8, !alias.scope !14
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 1, ptr %10, align 8, !alias.scope !16, !noalias !11
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %11, align 8, !alias.scope !16, !noalias !11
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 1, ptr %7, align 8, !alias.scope !16, !noalias !11
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 0, ptr %8, align 8, !alias.scope !16, !noalias !11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   ret void
 }

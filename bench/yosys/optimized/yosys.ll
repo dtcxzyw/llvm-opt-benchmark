@@ -100885,13 +100885,13 @@ define linkonce_odr void @_ZN5Yosys13ScriptCmdPass7executeESt6vectorINSt7__cxx11
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %23 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.577) #39
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.lr.ph183, label %._crit_edge
+  br i1 %24, label %.lr.ph183, label %._crit_edge.thread155
 
 .lr.ph:                                           ; preds = %.lr.ph183
   %25 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %28
   %26 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.577) #39
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.lr.ph183, label %._crit_edge, !llvm.loop !755
+  br i1 %27, label %.lr.ph183, label %._crit_edge.thread, !llvm.loop !755
 
 .lr.ph183:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.028128182 = phi i64 [ %28, %.lr.ph ], [ 1, %.lr.ph.preheader ]
@@ -100905,12 +100905,7 @@ define linkonce_odr void @_ZN5Yosys13ScriptCmdPass7executeESt6vectorINSt7__cxx11
   %35 = icmp ult i64 %28, %34
   br i1 %35, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !755
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader
-  %.028128.lcssa = phi i64 [ 1, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  br i1 %24, label %._crit_edge.thread, label %._crit_edge.thread155
-
-._crit_edge.thread:                               ; preds = %.lr.ph183, %._crit_edge
-  %.028.lcssa154 = phi i64 [ %.028128.lcssa, %._crit_edge ], [ %28, %.lr.ph183 ]
+._crit_edge.thread:                               ; preds = %.lr.ph183, %.lr.ph
   %36 = load ptr, ptr %15, align 8, !tbaa !64
   %37 = load ptr, ptr %1, align 8, !tbaa !68
   %38 = ptrtoint ptr %36 to i64
@@ -100963,7 +100958,7 @@ common.resume:                                    ; preds = %88, %_ZNSt6vectorIP
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit: ; preds = %44
   store ptr %49, ptr %46, align 8, !tbaa !64
-  invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %6, i64 noundef %.028.lcssa154, ptr noundef %2, i1 noundef zeroext true)
+  invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %6, i64 noundef %28, ptr noundef %2, i1 noundef zeroext true)
           to label %58 unwind label %88
 
 58:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit
@@ -101241,7 +101236,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit57: ; preds = %146, %148
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #39
   br label %common.resume
 
-._crit_edge.thread155:                            ; preds = %3, %._crit_edge
+._crit_edge.thread155:                            ; preds = %.lr.ph.preheader, %3
   %154 = load ptr, ptr %15, align 8, !tbaa !64
   %155 = load ptr, ptr %1, align 8, !tbaa !68
   %156 = ptrtoint ptr %154 to i64

@@ -2404,18 +2404,18 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
   %42 = getelementptr [8 x i64], ptr %40, i64 0, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.split7.us, label %45
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %.split.us
   %46 = load i32, ptr %39, align 8
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %.split7.us
+  br i1 %47, label %48, label %.critedge
 
 48:                                               ; preds = %45
   %49 = load i64, ptr %38, align 8
   %50 = load i64, ptr %37, align 8
   %51 = icmp ugt i64 %49, %50
-  br i1 %51, label %.split7.us, label %52
+  br i1 %51, label %.critedge, label %52
 
 52:                                               ; preds = %48
   tail call void @trace_seq_puts(ptr noundef nonnull %5, ptr noundef nonnull @.str.56) #10
@@ -2431,7 +2431,7 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @trace_seq_putc(ptr noundef nonnull %5, i8 noundef zeroext 10) #10
   %57 = add nuw nsw i64 %41, 1
   %58 = icmp eq i64 %57, 8
-  br i1 %58, label %.split7.us, label %.split.us, !llvm.loop !68
+  br i1 %58, label %.critedge, label %.split.us, !llvm.loop !68
 
 .split:                                           ; preds = %27, %107
   %59 = phi i64 [ %108, %107 ], [ 0, %27 ]
@@ -2538,18 +2538,13 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
   %109 = icmp eq i64 %108, 8
   br i1 %109, label %.split7.us, label %.split, !llvm.loop !68
 
-.split7.us:                                       ; preds = %.split, %63, %66, %107, %.split.us, %45, %48, %56
-  %110 = phi i1 [ true, %56 ], [ true, %48 ], [ true, %45 ], [ true, %.split.us ], [ false, %107 ], [ false, %66 ], [ false, %63 ], [ false, %.split ]
-  %.fr812 = phi ptr [ null, %56 ], [ null, %48 ], [ null, %45 ], [ null, %.split.us ], [ %28, %107 ], [ %28, %66 ], [ %28, %63 ], [ %28, %.split ]
-  br i1 %110, label %112, label %111
+.split7.us:                                       ; preds = %107, %66, %63, %.split
+  tail call void @mmput(ptr noundef nonnull %28) #10
+  br label %.critedge
 
-111:                                              ; preds = %.split7.us
-  tail call void @mmput(ptr noundef nonnull %.fr812) #10
-  br label %112
-
-112:                                              ; preds = %111, %.split7.us
-  %113 = tail call i32 @trace_handle_return(ptr noundef nonnull %5) #10
-  ret i32 %113
+.critedge:                                        ; preds = %56, %48, %45, %.split.us, %.split7.us
+  %110 = tail call i32 @trace_handle_return(ptr noundef nonnull %5) #10
+  ret i32 %110
 }
 
 ; Function Attrs: null_pointer_is_valid

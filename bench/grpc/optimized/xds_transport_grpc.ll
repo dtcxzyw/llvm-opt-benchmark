@@ -2724,7 +2724,7 @@ define void @_ZN9grpc_core23GrpcXdsTransportFactory16GrpcXdsTransport28StopConne
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(144) %4)
-  br i1 %8, label %107, label %9
+  br i1 %8, label %_ZN4absl12lts_202407229MutexLockD2Ev.exit9, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2835,13 +2835,13 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %.pn.i = phi { ptr, ptr } [ %.fca.1.insert.i.i, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core13RefCountedPtrINS4_19XdsTransportFactory12XdsTransport26ConnectivityFailureWatcherEEEPNS4_23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherEEENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaISt4pairIKS9_SD_EEE12find_non_sooIS9_EENSO_8iteratorERSL_m.exit.i ], [ { ptr null, ptr undef }, %15 ], [ %spec.select.i.i, %18 ]
   %71 = extractvalue { ptr, ptr } %.pn.i, 0
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core13RefCountedPtrINS4_19XdsTransportFactory12XdsTransport26ConnectivityFailureWatcherEEEPNS4_23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherEEENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaISt4pairIKS9_SD_EEE5eraseENSO_8iteratorE.exit, label %75
+  br i1 %72, label %.critedge, label %75
 
 73:                                               ; preds = %93
   %74 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit9 unwind label %108
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit10 unwind label %109
 
 75:                                               ; preds = %70
   %76 = extractvalue { ptr, ptr } %.pn.i, 1
@@ -2885,8 +2885,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   invoke void @_ZN4absl12lts_2024072218container_internal13EraseMetaOnlyERNS1_12CommonFieldsEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %98, i64 noundef 16)
           to label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core13RefCountedPtrINS4_19XdsTransportFactory12XdsTransport26ConnectivityFailureWatcherEEEPNS4_23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherEEENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaISt4pairIKS9_SD_EEE5eraseENSO_8iteratorE.exit unwind label %73
 
-_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core13RefCountedPtrINS4_19XdsTransportFactory12XdsTransport26ConnectivityFailureWatcherEEEPNS4_23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherEEENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaISt4pairIKS9_SD_EEE5eraseENSO_8iteratorE.exit: ; preds = %91, %93, %70
-  %.0 = phi ptr [ null, %70 ], [ %78, %93 ], [ %78, %91 ]
+_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core13RefCountedPtrINS4_19XdsTransportFactory12XdsTransport26ConnectivityFailureWatcherEEEPNS4_23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherEEENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaISt4pairIKS9_SD_EEE5eraseENSO_8iteratorE.exit: ; preds = %91, %93
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %99
 
@@ -2898,27 +2897,35 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   unreachable
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core13RefCountedPtrINS4_19XdsTransportFactory12XdsTransport26ConnectivityFailureWatcherEEEPNS4_23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherEEENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaISt4pairIKS9_SD_EEE5eraseENSO_8iteratorE.exit
-  br i1 %72, label %107, label %102
+  %102 = load ptr, ptr %3, align 8, !tbaa !119
+  %103 = load ptr, ptr %102, align 8, !tbaa !8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 88
+  %105 = load ptr, ptr %104, align 8
+  tail call void %105(ptr noundef nonnull align 8 dereferenceable(144) %102, ptr noundef %78)
+  br label %_ZN4absl12lts_202407229MutexLockD2Ev.exit9
 
-102:                                              ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit
-  %103 = load ptr, ptr %3, align 8, !tbaa !119
-  %104 = load ptr, ptr %103, align 8, !tbaa !8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 88
-  %106 = load ptr, ptr %105, align 8
-  tail call void %106(ptr noundef nonnull align 8 dereferenceable(144) %103, ptr noundef %.0)
-  br label %107
+.critedge:                                        ; preds = %70
+  invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit9 unwind label %106
 
-107:                                              ; preds = %102, %_ZN4absl12lts_202407229MutexLockD2Ev.exit, %2
-  ret void
-
-108:                                              ; preds = %73
-  %109 = landingpad { ptr, i32 }
+106:                                              ; preds = %.critedge
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %110 = extractvalue { ptr, i32 } %109, 0
-  tail call void @__clang_call_terminate(ptr %110) #36
+  %108 = extractvalue { ptr, i32 } %107, 0
+  tail call void @__clang_call_terminate(ptr %108) #36
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit9:       ; preds = %73
+_ZN4absl12lts_202407229MutexLockD2Ev.exit9:       ; preds = %.critedge, %_ZN4absl12lts_202407229MutexLockD2Ev.exit, %2
+  ret void
+
+109:                                              ; preds = %73
+  %110 = landingpad { ptr, i32 }
+          catch ptr null
+  %111 = extractvalue { ptr, i32 } %110, 0
+  tail call void @__clang_call_terminate(ptr %111) #36
+  unreachable
+
+_ZN4absl12lts_202407229MutexLockD2Ev.exit10:      ; preds = %73
   resume { ptr, i32 } %74
 }
 

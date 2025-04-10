@@ -105345,14 +105345,19 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %148
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %160 = load ptr, ptr %159, align 8, !tbaa !268
   %.not229252 = icmp eq ptr %158, %160
-  br i1 %.not229252, label %._crit_edge257.thread, label %.lr.ph256
+  br i1 %.not229252, label %.critedge, label %.lr.ph256
 
 .lr.ph256:                                        ; preds = %157
   %161 = load ptr, ptr %4, align 8
+  br label %.outer
+
+.outer:                                           ; preds = %.thread290, %.lr.ph256
+  %.065254.ph = phi i1 [ true, %.thread290 ], [ false, %.lr.ph256 ]
+  %.sroa.0172.0253.ph = phi ptr [ %176, %.thread290 ], [ %158, %.lr.ph256 ]
   br label %166
 
 ._crit_edge257:                                   ; preds = %174
-  br i1 %.166, label %176, label %._crit_edge257.thread
+  br i1 %.065254.ph, label %._crit_edge257.thread, label %.critedge
 
 162:                                              ; preds = %._crit_edge251
   %163 = landingpad { ptr, i32 }
@@ -105364,9 +105369,8 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %148
           cleanup
   br label %381
 
-166:                                              ; preds = %.lr.ph256, %174
-  %.065254 = phi i1 [ false, %.lr.ph256 ], [ %.166, %174 ]
-  %.sroa.0172.0253 = phi ptr [ %158, %.lr.ph256 ], [ %175, %174 ]
+166:                                              ; preds = %.outer, %174
+  %.sroa.0172.0253 = phi ptr [ %175, %174 ], [ %.sroa.0172.0253.ph, %.outer ]
   %167 = load i64, ptr %.sroa.0172.0253, align 8, !tbaa !174
   %168 = icmp sgt i64 %167, -1
   br i1 %168, label %169, label %174
@@ -105375,19 +105379,23 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %148
   %170 = getelementptr inbounds nuw i64, ptr %161, i64 %167
   %171 = load i64, ptr %170, align 8, !tbaa !174
   %172 = icmp sgt i64 %171, -1
-  br i1 %172, label %174, label %173
+  br i1 %172, label %.thread290, label %173
 
 173:                                              ; preds = %169
   store i64 -1, ptr %.sroa.0172.0253, align 8, !tbaa !174
   br label %174
 
-174:                                              ; preds = %169, %166, %173
-  %.166 = phi i1 [ %.065254, %173 ], [ %.065254, %166 ], [ true, %169 ]
+174:                                              ; preds = %166, %173
   %175 = getelementptr inbounds nuw i8, ptr %.sroa.0172.0253, i64 8
   %.not229 = icmp eq ptr %175, %160
   br i1 %.not229, label %._crit_edge257, label %166, !llvm.loop !1332
 
-176:                                              ; preds = %._crit_edge257
+.thread290:                                       ; preds = %169
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.0172.0253, i64 8
+  %.not229292 = icmp eq ptr %176, %160
+  br i1 %.not229292, label %._crit_edge257.thread, label %.outer, !llvm.loop !1332
+
+._crit_edge257.thread:                            ; preds = %.thread290, %._crit_edge257
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %178 = load ptr, ptr %177, align 8, !tbaa !287
   %179 = load ptr, ptr %7, align 8, !tbaa !289
@@ -105405,7 +105413,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %148
   %191 = icmp ugt i64 %183, %190
   br i1 %191, label %192, label %226
 
-192:                                              ; preds = %176
+192:                                              ; preds = %._crit_edge257.thread
   %193 = sub nuw nsw i64 %183, %190
   %194 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %195 = load ptr, ptr %194, align 8, !tbaa !290
@@ -105495,7 +105503,7 @@ _ZNSt12_Vector_baseIxSaIxEE13_M_deallocateEPxm.exit35.i156: ; preds = %222, %_ZN
   store ptr %225, ptr %194, align 8, !tbaa !290
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit96
 
-226:                                              ; preds = %176
+226:                                              ; preds = %._crit_edge257.thread
   %227 = icmp ult i64 %183, %190
   br i1 %227, label %228, label %_ZNSt6vectorIxSaIxEE6resizeEm.exit96
 
@@ -105736,14 +105744,14 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
 _ZN6casadi2MXaSERKS0_.exit103:                    ; preds = %324
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #34
-  br label %._crit_edge257.thread
+  br label %.critedge
 
-._crit_edge257.thread:                            ; preds = %157, %._crit_edge257, %_ZN6casadi2MXaSERKS0_.exit103
+.critedge:                                        ; preds = %157, %._crit_edge257, %_ZN6casadi2MXaSERKS0_.exit103
   %327 = load ptr, ptr %9, align 8, !tbaa !289
   %.not.i.i.i104 = icmp eq ptr %327, null
   br i1 %.not.i.i.i104, label %_ZNSt6vectorIxSaIxEED2Ev.exit, label %328
 
-328:                                              ; preds = %._crit_edge257.thread
+328:                                              ; preds = %.critedge
   %329 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %330 = load ptr, ptr %329, align 8, !tbaa !290
   %331 = ptrtoint ptr %330 to i64
@@ -105752,7 +105760,7 @@ _ZN6casadi2MXaSERKS0_.exit103:                    ; preds = %324
   call void @_ZdlPvm(ptr noundef nonnull %327, i64 noundef %333) #35
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit
 
-_ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %._crit_edge257.thread, %328
+_ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %.critedge, %328
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #34
   %334 = load ptr, ptr %8, align 8, !tbaa !289
   %.not.i.i.i105 = icmp eq ptr %334, null

@@ -31424,7 +31424,7 @@ do.body.i:                                        ; preds = %do.end124
 if.end.i35.i:                                     ; preds = %do.body.i
   %permission_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 1312
   %call.i36.i = call noundef zeroext i1 @_ZNK4node10permission10Permission16is_scope_grantedENS0_15PermissionScopeERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(57) %permission_.i.i, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %pathView.i) #34
-  br i1 %call.i36.i, label %if.end8.i, label %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit
+  br i1 %call.i36.i, label %if.end8.i, label %cleanup275.critedge
 
 if.end8.i:                                        ; preds = %if.end.i35.i, %do.body.i, %do.end124
   %60 = and i32 %call53, 1603
@@ -31440,13 +31440,7 @@ do.body11.i:                                      ; preds = %if.end8.i
 if.end.i.i100:                                    ; preds = %do.body11.i
   %permission_.i6.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 1312
   %call.i.i = call noundef zeroext i1 @_ZNK4node10permission10Permission16is_scope_grantedENS0_15PermissionScopeERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(57) %permission_.i6.i, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %pathView.i) #34
-  br i1 %call.i.i, label %if.end130, label %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit
-
-_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit: ; preds = %if.end.i35.i, %if.end.i.i100
-  %.sink.i = phi i32 [ 1, %if.end.i35.i ], [ 2, %if.end.i.i100 ]
-  call void @_ZN4node10permission10Permission17ThrowAccessDeniedEPNS_11EnvironmentENS0_15PermissionScopeERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull %retval.0.i.i, i32 noundef %.sink.i, ptr noundef nonnull align 8 dereferenceable(16) %pathView.i) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pathView.i)
-  br label %cleanup173
+  br i1 %call.i.i, label %if.end130, label %cleanup275.critedge
 
 if.end130:                                        ; preds = %do.body11.i, %if.end.i.i100, %if.end8.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pathView.i)
@@ -31668,11 +31662,6 @@ _ZNKSt14default_deleteIN4node2fs18FSContinuationDataEEclEPS2_.exit.i.i: ; preds 
 
 _ZN4node2fs13FSReqWrapSyncD2Ev.exit:              ; preds = %if.end169, %_ZNKSt14default_deleteIN4node2fs18FSContinuationDataEEclEPS2_.exit.i.i
   store ptr null, ptr %continuation_data_.i, align 8
-  br label %cleanup173
-
-cleanup173:                                       ; preds = %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit
-  %file.1 = phi i32 [ %call.i.i114, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit ], [ undef, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ]
-  %cleanup.dest.slot.0 = phi i1 [ %cmp.i.i, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit ], [ false, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ]
   %92 = load ptr, ptr %buf_.i99, align 8
   %cmp.i.i.i.i153 = icmp ne ptr %92, null
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %path, i64 24
@@ -31680,15 +31669,15 @@ cleanup173:                                       ; preds = %_ZN4node2fsL20Check
   %93 = select i1 %cmp.i.i.i.i153, i1 %cmp.i.i.i154, i1 false
   br i1 %93, label %if.then.i.i155, label %_ZN4node11BufferValueD2Ev.exit
 
-if.then.i.i155:                                   ; preds = %cleanup173
+if.then.i.i155:                                   ; preds = %_ZN4node2fs13FSReqWrapSyncD2Ev.exit
   call void @free(ptr noundef nonnull %92) #30
   br label %_ZN4node11BufferValueD2Ev.exit
 
-_ZN4node11BufferValueD2Ev.exit:                   ; preds = %cleanup173, %if.then.i.i155
-  br i1 %cleanup.dest.slot.0, label %if.end174, label %cleanup275
+_ZN4node11BufferValueD2Ev.exit:                   ; preds = %_ZN4node2fs13FSReqWrapSyncD2Ev.exit, %if.then.i.i155
+  br i1 %cmp.i.i, label %if.end174, label %cleanup275
 
 if.end174:                                        ; preds = %_ZN4node11BufferValueD2Ev.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit295
-  %file.0 = phi i32 [ %call103, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit295 ], [ %file.1, %_ZN4node11BufferValueD2Ev.exit ]
+  %file.0 = phi i32 [ %call103, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit295 ], [ %call.i.i114, %_ZN4node11BufferValueD2Ev.exit ]
   %94 = load i64, ptr %value, align 8
   %95 = load ptr, ptr %buf_.i, align 8
   %conv177 = trunc i64 %94 to i32
@@ -32157,19 +32146,34 @@ _ZN4node2fs13FSReqWrapSyncD2Ev.exit339:           ; preds = %if.end267, %_ZNKSt1
   store ptr null, ptr %continuation_data_.i251, align 8
   br label %cleanup275
 
-cleanup275:                                       ; preds = %_ZN4node2fs13FSReqWrapSyncD2Ev.exit339, %if.end226, %_ZN4node11BufferValueD2Ev.exit
-  %157 = load ptr, ptr %buf_.i, align 8
+cleanup275.critedge:                              ; preds = %if.end.i.i100, %if.end.i35.i
+  %.sink.i = phi i32 [ 1, %if.end.i35.i ], [ 2, %if.end.i.i100 ]
+  call void @_ZN4node10permission10Permission17ThrowAccessDeniedEPNS_11EnvironmentENS0_15PermissionScopeERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull %retval.0.i.i, i32 noundef %.sink.i, ptr noundef nonnull align 8 dereferenceable(16) %pathView.i) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pathView.i)
+  %157 = load ptr, ptr %buf_.i99, align 8
   %cmp.i.i.i.i341 = icmp ne ptr %157, null
-  %buf_st_.i.i.i342 = getelementptr inbounds nuw i8, ptr %value, i64 24
+  %buf_st_.i.i.i342 = getelementptr inbounds nuw i8, ptr %path, i64 24
   %cmp.i.i.i343 = icmp ne ptr %157, %buf_st_.i.i.i342
   %158 = select i1 %cmp.i.i.i.i341, i1 %cmp.i.i.i343, i1 false
-  br i1 %158, label %if.then.i.i344, label %_ZN4node11BufferValueD2Ev.exit345
+  br i1 %158, label %if.then.i.i344, label %cleanup275
 
-if.then.i.i344:                                   ; preds = %cleanup275
+if.then.i.i344:                                   ; preds = %cleanup275.critedge
   call void @free(ptr noundef nonnull %157) #30
-  br label %_ZN4node11BufferValueD2Ev.exit345
+  br label %cleanup275
 
-_ZN4node11BufferValueD2Ev.exit345:                ; preds = %cleanup275, %if.then.i.i344
+cleanup275:                                       ; preds = %if.then.i.i344, %cleanup275.critedge, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit339, %if.end226, %_ZN4node11BufferValueD2Ev.exit
+  %159 = load ptr, ptr %buf_.i, align 8
+  %cmp.i.i.i.i347 = icmp ne ptr %159, null
+  %buf_st_.i.i.i348 = getelementptr inbounds nuw i8, ptr %value, i64 24
+  %cmp.i.i.i349 = icmp ne ptr %159, %buf_st_.i.i.i348
+  %160 = select i1 %cmp.i.i.i.i347, i1 %cmp.i.i.i349, i1 false
+  br i1 %160, label %if.then.i.i350, label %_ZN4node11BufferValueD2Ev.exit351
+
+if.then.i.i350:                                   ; preds = %cleanup275
+  call void @free(ptr noundef nonnull %159) #30
+  br label %_ZN4node11BufferValueD2Ev.exit351
+
+_ZN4node11BufferValueD2Ev.exit351:                ; preds = %cleanup275, %if.then.i.i350
   ret void
 }
 

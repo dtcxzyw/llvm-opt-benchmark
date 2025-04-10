@@ -1523,7 +1523,8 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
 
 .thread:                                          ; preds = %54, %70
   %71 = call i32 @inflateEnd(ptr noundef nonnull %5) #13
-  br label %.loopexit156
+  call void @free(ptr noundef %8) #13
+  br label %83
 
 .loopexit:                                        ; preds = %59, %69
   %.585.ph = phi i64 [ %2, %69 ], [ %60, %59 ]
@@ -1537,18 +1538,16 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
   %.070.ph = phi i64 [ %1, %.preheader ], [ %48, %.loopexit ]
   br label %25
 
-.loopexit156:                                     ; preds = %25, %.thread
-  %.181 = phi i64 [ %.383, %.thread ], [ %.080.ph, %25 ]
-  %.178 = phi i1 [ true, %.thread ], [ %.077, %25 ]
+.loopexit156:                                     ; preds = %25
   call void @free(ptr noundef %8) #13
-  br i1 %.178, label %83, label %74
+  br i1 %.077, label %83, label %74
 
 74:                                               ; preds = %.loopexit156
-  %.not108 = icmp eq i64 %.181, %2
+  %.not108 = icmp eq i64 %.080.ph, %2
   br i1 %.not108, label %76, label %75
 
 75:                                               ; preds = %74
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.55, i64 noundef %.181, ptr noundef nonnull %13, i64 noundef %2) #13
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.55, i64 noundef %.080.ph, ptr noundef nonnull %13, i64 noundef %2) #13
   br label %77
 
 76:                                               ; preds = %74
@@ -1568,9 +1567,9 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
   %82 = call i32 @cli_magic_scan_desc(i32 noundef %16, ptr noundef nonnull %13, ptr noundef %0, ptr noundef null, i32 noundef 0) #13
   br label %83
 
-83:                                               ; preds = %.thread130, %81, %.loopexit156
-  %.not107134 = phi i1 [ false, %81 ], [ true, %.loopexit156 ], [ true, %.thread130 ]
-  %.075 = phi i32 [ %82, %81 ], [ 0, %.loopexit156 ], [ 0, %.thread130 ]
+83:                                               ; preds = %.thread, %.thread130, %81, %.loopexit156
+  %.not107134 = phi i1 [ false, %81 ], [ true, %.loopexit156 ], [ true, %.thread130 ], [ true, %.thread ]
+  %.075 = phi i32 [ %82, %81 ], [ 0, %.loopexit156 ], [ 0, %.thread130 ], [ 0, %.thread ]
   %84 = call i32 @close(i32 noundef %16) #13
   %85 = load ptr, ptr %22, align 8, !tbaa !29
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 40

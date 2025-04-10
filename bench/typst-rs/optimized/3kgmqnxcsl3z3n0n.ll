@@ -1410,27 +1410,19 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hcc671b4c73e83bb1E.exit.i.i.
   br i1 %exitcond.not.i.i2128.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcc671b4c73e83bb1E.exit.thread.i.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %68
-  %69 = icmp eq ptr %.promoted.i.i18.i.i, null
+  %69 = icmp ne ptr %.promoted.i.i18.i.i, null
   store ptr null, ptr %57, align 8, !alias.scope !244
-  br label %72
+  %exitcond.not.i.i21.i.i = icmp eq i64 %.0.i.i, 1
+  %or.cond.i.i = and i1 %exitcond.not.i.i21.i.i, %69
+  br i1 %or.cond.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcc671b4c73e83bb1E.exit.thread.i.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d7b6e2d46630115E.exit"
 
-70:                                               ; preds = %72
-  %71 = add nuw i64 %.sroa.01.0.i.i2030.i.i, 1
-  %exitcond.not.i.i21.i.i = icmp eq i64 %71, %.0.i.i
-  br i1 %exitcond.not.i.i21.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcc671b4c73e83bb1E.exit.thread.i.i.i, label %72
-
-72:                                               ; preds = %70, %.lr.ph.i.i
-  %.sroa.01.0.i.i2030.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %71, %70 ]
-  %.not.i.i1929.i.i = phi i1 [ %69, %.lr.ph.i.i ], [ true, %70 ]
-  br i1 %.not.i.i1929.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d7b6e2d46630115E.exit", label %70
-
-_ZN4core4iter6traits8iterator8Iterator10advance_by17hcc671b4c73e83bb1E.exit.thread.i.i.i: ; preds = %70, %68
-  %.lcssa.i.i = phi ptr [ %.promoted.i.i18.i.i, %68 ], [ null, %70 ]
+_ZN4core4iter6traits8iterator8Iterator10advance_by17hcc671b4c73e83bb1E.exit.thread.i.i.i: ; preds = %.lr.ph.i.i, %68
+  %.lcssa.i.i = phi ptr [ %.promoted.i.i18.i.i, %68 ], [ null, %.lr.ph.i.i ]
   store ptr null, ptr %57, align 8, !alias.scope !247
   br label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d7b6e2d46630115E.exit"
 
-"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d7b6e2d46630115E.exit": ; preds = %72, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcc671b4c73e83bb1E.exit.thread.i.i.i, %66, %55, %29, %27, %25, %14, %1
-  %.0 = phi ptr [ null, %1 ], [ %31, %29 ], [ null, %27 ], [ %16, %14 ], [ %20, %25 ], [ null, %55 ], [ %.lcssa.i.i, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcc671b4c73e83bb1E.exit.thread.i.i.i ], [ %61, %66 ], [ null, %72 ]
+"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d7b6e2d46630115E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcc671b4c73e83bb1E.exit.thread.i.i.i, %.lr.ph.i.i, %66, %55, %29, %27, %25, %14, %1
+  %.0 = phi ptr [ null, %1 ], [ %31, %29 ], [ null, %27 ], [ %16, %14 ], [ %20, %25 ], [ null, %55 ], [ %.lcssa.i.i, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcc671b4c73e83bb1E.exit.thread.i.i.i ], [ %61, %66 ], [ null, %.lr.ph.i.i ]
   ret ptr %.0
 }
 

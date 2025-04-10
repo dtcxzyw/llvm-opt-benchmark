@@ -516,7 +516,7 @@ define internal fastcc void @timing_setup(ptr noundef readonly captures(none) %0
   ]
 
 113:                                              ; preds = %106
-  br i1 %112, label %146, label %114
+  br i1 %112, label %.critedge, label %114
 
 114:                                              ; preds = %113
   %115 = icmp ugt i16 %111, 4
@@ -530,7 +530,7 @@ define internal fastcc void @timing_setup(ptr noundef readonly captures(none) %0
   br label %146
 
 121:                                              ; preds = %106
-  br i1 %112, label %146, label %122
+  br i1 %112, label %.critedge, label %122
 
 122:                                              ; preds = %121
   %123 = icmp ugt i16 %111, 9
@@ -549,7 +549,7 @@ define internal fastcc void @timing_setup(ptr noundef readonly captures(none) %0
   br label %146
 
 132:                                              ; preds = %106
-  br i1 %112, label %146, label %133
+  br i1 %112, label %.critedge, label %133
 
 133:                                              ; preds = %132
   %134 = call i16 @llvm.umin.i16(i16 %111, i16 10)
@@ -560,7 +560,7 @@ define internal fastcc void @timing_setup(ptr noundef readonly captures(none) %0
   br label %146
 
 139:                                              ; preds = %106
-  br i1 %112, label %146, label %140
+  br i1 %112, label %.critedge, label %140
 
 140:                                              ; preds = %139
   %141 = call i16 @llvm.umin.i16(i16 %111, i16 15)
@@ -573,8 +573,8 @@ define internal fastcc void @timing_setup(ptr noundef readonly captures(none) %0
 default.unreachable5:                             ; preds = %106
   unreachable
 
-146:                                              ; preds = %139, %140, %132, %133, %121, %127, %113, %114, %116
-  %.sink = phi i8 [ 3, %113 ], [ %120, %116 ], [ -61, %114 ], [ %131, %127 ], [ 3, %121 ], [ %138, %133 ], [ 3, %132 ], [ %145, %140 ], [ 3, %139 ]
+146:                                              ; preds = %140, %133, %127, %114, %116
+  %.sink = phi i8 [ %120, %116 ], [ -61, %114 ], [ %131, %127 ], [ %138, %133 ], [ %145, %140 ]
   store i8 %.sink, ptr %8, align 1
   br i1 %112, label %150, label %147
 
@@ -583,7 +583,11 @@ default.unreachable5:                             ; preds = %106
   %149 = call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef %148, i8 noundef zeroext %.sink) #8
   br label %150
 
-150:                                              ; preds = %147, %146, %26
+.critedge:                                        ; preds = %113, %121, %132, %139
+  store i8 3, ptr %8, align 1
+  br label %150
+
+150:                                              ; preds = %.critedge, %147, %146, %26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #8

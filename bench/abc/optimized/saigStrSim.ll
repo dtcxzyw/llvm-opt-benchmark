@@ -1535,7 +1535,7 @@ define void @Saig_StrSimPrepareAig(ptr noundef %0) local_unnamed_addr #2 {
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #21
   %8 = getelementptr inbounds ptr, ptr %7, i64 %5
   %9 = icmp sgt i32 %.val28.val, 0
-  br i1 %9, label %.lr.ph.preheader.i, label %Vec_PtrAllocSimInfo.exit
+  br i1 %9, label %.lr.ph.preheader.i, label %.critedge.critedge
 
 .lr.ph.preheader.i:                               ; preds = %1
   %wide.trip.count.i = zext nneg i32 %.val28.val to i64
@@ -1551,7 +1551,7 @@ define void @Saig_StrSimPrepareAig(ptr noundef %0) local_unnamed_addr #2 {
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit, label %.lr.ph.i, !llvm.loop !62
 
-Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %1
+Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
   %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %.val28.val, ptr %13, align 4, !tbaa !32
@@ -1560,7 +1560,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %1
   store ptr %7, ptr %14, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %12, ptr %15, align 8, !tbaa !64
-  br i1 %9, label %.lr.ph, label %.critedge
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Vec_PtrAllocSimInfo.exit, %27
   %16 = phi ptr [ %28, %27 ], [ %.val28, %Vec_PtrAllocSimInfo.exit ]
@@ -1592,41 +1592,52 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %1
   %31 = icmp slt i64 %indvars.iv.next, %30
   br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !65
 
-.critedge:                                        ; preds = %27, %Vec_PtrAllocSimInfo.exit
-  %32 = getelementptr i8, ptr %0, i64 48
-  %.val30 = load ptr, ptr %32, align 8, !tbaa !66
-  %33 = getelementptr inbounds nuw i8, ptr %.val30, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %34, i8 -1, i64 64, i1 false), !tbaa !6
-  %35 = getelementptr i8, ptr %0, i64 104
-  %.val2633 = load i32, ptr %35, align 8, !tbaa !40
-  %36 = icmp sgt i32 %.val2633, 0
-  br i1 %36, label %.lr.ph35, label %.critedge2
+.critedge.critedge:                               ; preds = %1
+  %32 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  store i32 %.val28.val, ptr %33, align 4, !tbaa !32
+  store i32 %.val28.val, ptr %32, align 8, !tbaa !63
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr %7, ptr %34, align 8, !tbaa !34
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store ptr %32, ptr %35, align 8, !tbaa !64
+  br label %.critedge
+
+.critedge:                                        ; preds = %27, %.critedge.critedge
+  %36 = getelementptr i8, ptr %0, i64 48
+  %.val30 = load ptr, ptr %36, align 8, !tbaa !66
+  %37 = getelementptr inbounds nuw i8, ptr %.val30, i64 40
+  %38 = load ptr, ptr %37, align 8, !tbaa !3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %38, i8 -1, i64 64, i1 false), !tbaa !6
+  %39 = getelementptr i8, ptr %0, i64 104
+  %.val2633 = load i32, ptr %39, align 8, !tbaa !40
+  %40 = icmp sgt i32 %.val2633, 0
+  br i1 %40, label %.lr.ph35, label %.critedge2
 
 .lr.ph35:                                         ; preds = %.critedge
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !45
-  %39 = getelementptr i8, ptr %0, i64 108
-  %40 = getelementptr i8, ptr %38, i64 8
-  %.val23 = load ptr, ptr %40, align 8, !tbaa !34
-  br label %41
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !45
+  %43 = getelementptr i8, ptr %0, i64 108
+  %44 = getelementptr i8, ptr %42, i64 8
+  %.val23 = load ptr, ptr %44, align 8, !tbaa !34
+  br label %45
 
-41:                                               ; preds = %.lr.ph35, %41
-  %.134 = phi i32 [ 0, %.lr.ph35 ], [ %48, %41 ]
-  %.val27 = load i32, ptr %39, align 4, !tbaa !46
-  %42 = add nsw i32 %.val27, %.134
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %.val23, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !35
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %47 = load ptr, ptr %46, align 8, !tbaa !3
-  store i32 0, ptr %47, align 4, !tbaa !6
-  %48 = add nuw nsw i32 %.134, 1
-  %.val26 = load i32, ptr %35, align 8, !tbaa !40
-  %49 = icmp slt i32 %48, %.val26
-  br i1 %49, label %41, label %.critedge2, !llvm.loop !67
+45:                                               ; preds = %.lr.ph35, %45
+  %.134 = phi i32 [ 0, %.lr.ph35 ], [ %52, %45 ]
+  %.val27 = load i32, ptr %43, align 4, !tbaa !46
+  %46 = add nsw i32 %.val27, %.134
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds ptr, ptr %.val23, i64 %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !35
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %51 = load ptr, ptr %50, align 8, !tbaa !3
+  store i32 0, ptr %51, align 4, !tbaa !6
+  %52 = add nuw nsw i32 %.134, 1
+  %.val26 = load i32, ptr %39, align 8, !tbaa !40
+  %53 = icmp slt i32 %52, %.val26
+  br i1 %53, label %45, label %.critedge2, !llvm.loop !67
 
-.critedge2:                                       ; preds = %41, %.critedge
+.critedge2:                                       ; preds = %45, %.critedge
   ret void
 }
 

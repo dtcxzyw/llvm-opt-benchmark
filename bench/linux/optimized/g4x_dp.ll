@@ -75,35 +75,34 @@ define dso_local void @g4x_dp_set_clock(ptr noundef readonly captures(none) %0, 
 16:                                               ; preds = %13
   %17 = and i64 %6, 2097152
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %.loopexit, label %19
+  br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %16, %2, %9, %13
-  %.ph = phi ptr [ @chv_dpll, %13 ], [ @pch_dpll, %9 ], [ @g4x_dpll, %2 ], [ @vlv_dpll, %16 ]
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1448
-  %21 = load i32, ptr %20, align 8
-  br label %25
+  %20 = phi ptr [ @g4x_dpll, %2 ], [ @pch_dpll, %9 ], [ @chv_dpll, %13 ], [ @vlv_dpll, %16 ]
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1448
+  %22 = load i32, ptr %21, align 8
+  br label %24
 
-22:                                               ; preds = %25
-  %23 = add nuw nsw i64 %26, 1
-  %24 = icmp eq i64 %23, 2
-  br i1 %24, label %.loopexit, label %25, !llvm.loop !5
+23:                                               ; preds = %24
+  br i1 %25, label %.critedge, label %24, !llvm.loop !5
 
-25:                                               ; preds = %22, %19
-  %26 = phi i64 [ 0, %19 ], [ %23, %22 ]
-  %27 = getelementptr %struct.dpll, ptr %.ph, i64 %26
+24:                                               ; preds = %23, %19
+  %25 = phi i1 [ false, %19 ], [ true, %23 ]
+  %26 = phi i64 [ 0, %19 ], [ 1, %23 ]
+  %27 = getelementptr %struct.dpll, ptr %20, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %21, %29
-  br i1 %30, label %31, label %22
+  %30 = icmp eq i32 %22, %29
+  br i1 %30, label %31, label %23
 
-31:                                               ; preds = %25
+31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 884
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %32, ptr noundef align 4 dereferenceable(36) %27, i64 36, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 880
   store i8 1, ptr %33, align 8
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %22, %16, %31
+.critedge:                                        ; preds = %23, %16, %31
   ret void
 }
 

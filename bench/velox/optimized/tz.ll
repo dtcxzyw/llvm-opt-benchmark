@@ -4296,7 +4296,7 @@ for.end28:                                        ; preds = %for.body21, %for.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4date4tzdb12current_zoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK4date4tzdb12current_zoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sb = alloca %struct.stat, align 8
   %rp = alloca [4097 x i8], align 16
@@ -4678,7 +4678,7 @@ while.cond:                                       ; preds = %invoke.cont128, %cl
           to label %invoke.cont126 unwind label %lpad125.loopexit
 
 invoke.cont126:                                   ; preds = %while.cond
-  br i1 %call127, label %while.body, label %cleanup144
+  br i1 %call127, label %while.body, label %cleanup.cont148
 
 while.body:                                       ; preds = %invoke.cont126
   %call129 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %timezone_file123, ptr noundef nonnull align 8 dereferenceable(32) %result124)
@@ -4727,13 +4727,14 @@ lpad125:                                          ; preds = %lpad125.loopexit.sp
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %timezone_file123) #27
   br label %eh.resume
 
-cleanup144:                                       ; preds = %invoke.cont126, %invoke.cont137
-  %retval.7 = phi ptr [ %call142, %invoke.cont137 ], [ undef, %invoke.cont126 ]
+cleanup144:                                       ; preds = %invoke.cont137
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result124) #27
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %timezone_file123) #27
-  br i1 %call127, label %return, label %cleanup.cont148
+  br label %return
 
-cleanup.cont148:                                  ; preds = %cleanup144
+cleanup.cont148:                                  ; preds = %invoke.cont126
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result124) #27
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %timezone_file123) #27
   %exception150 = call ptr @__cxa_allocate_exception(i64 16) #27
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception150, ptr noundef nonnull @.str.16)
           to label %invoke.cont152 unwind label %lpad151
@@ -4748,8 +4749,8 @@ lpad151:                                          ; preds = %cleanup.cont148
   call void @__cxa_free_exception(ptr nonnull %exception150) #27
   br label %eh.resume
 
-return:                                           ; preds = %cleanup119, %cleanup94, %cleanup144, %invoke.cont74, %if.end25
-  %retval.0 = phi ptr [ %call28, %if.end25 ], [ %call75, %invoke.cont74 ], [ %call90, %cleanup94 ], [ %call112, %cleanup119 ], [ %retval.7, %cleanup144 ]
+return:                                           ; preds = %cleanup144, %cleanup119, %cleanup94, %invoke.cont74, %if.end25
+  %retval.0 = phi ptr [ %call28, %if.end25 ], [ %call75, %invoke.cont74 ], [ %call90, %cleanup94 ], [ %call112, %cleanup119 ], [ %call142, %cleanup144 ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad151, %lpad125, %ehcleanup122, %ehcleanup97, %ehcleanup, %lpad22, %lpad13, %lpad
@@ -4970,7 +4971,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfin
 declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4date12current_zoneEv() local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN4date12current_zoneEv() local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4date13get_tzdb_listEvE5tz_db acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0

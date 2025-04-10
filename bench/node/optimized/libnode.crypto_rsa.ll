@@ -81,8 +81,6 @@ $_ZN4node6crypto14ManagedEVPPKeyD2Ev = comdat any
 
 $_ZN4node28THROW_ERR_CRYPTO_INVALID_JWKIJEEEvPNS_11EnvironmentEPKcDpOT_ = comdat any
 
-$_ZN4node13OneByteStringEPN2v87IsolateEPKci = comdat any
-
 $_ZN4node6crypto15RSACipherConfigD2Ev = comdat any
 
 $_ZN4node6crypto15RSACipherConfigD0Ev = comdat any
@@ -3890,8 +3888,8 @@ if.then197:                                       ; preds = %if.then193
   %call198 = call i32 @OBJ_obj2nid(ptr noundef %43) #20
   br label %if.then202
 
-if.then202:                                       ; preds = %if.then197, %if.end191
-  %mgf1_hash_nid.0.ph = phi i32 [ 64, %if.end191 ], [ %call198, %if.then197 ]
+if.then202:                                       ; preds = %if.end191, %if.then197
+  %mgf1_hash_nid.0 = phi i32 [ %call198, %if.then197 ], [ 64, %if.end191 ]
   %44 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i54 = load ptr, ptr %44, align 8
   %vfn.i55 = getelementptr inbounds nuw i8, ptr %vtable.i54, i64 64
@@ -3901,13 +3899,21 @@ if.then202:                                       ; preds = %if.then197, %if.end
   %mgf1_hash_algorithm_string_.i.i = getelementptr inbounds nuw i8, ptr %46, i64 1472
   %47 = load ptr, ptr %mgf1_hash_algorithm_string_.i.i, align 8
   %48 = load ptr, ptr %isolate_.i, align 8
-  %call222 = call ptr @OBJ_nid2ln(i32 noundef %mgf1_hash_nid.0.ph) #20
-  %call223 = call ptr @_ZN4node13OneByteStringEPN2v87IsolateEPKci(ptr noundef %48, ptr noundef %call222, i32 noundef -1)
-  %call239 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr %call2.i56, ptr %47, ptr %call223) #20
+  %call222 = call ptr @OBJ_nid2ln(i32 noundef %mgf1_hash_nid.0) #20
+  %call.i59 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %48, ptr noundef %call222, i32 noundef 0, i32 noundef -1) #20
+  %cmp.i.i.i60 = icmp eq ptr %call.i59, null
+  br i1 %cmp.i.i.i60, label %if.then.i.i61, label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit62
+
+if.then.i.i61:                                    ; preds = %if.then202
+  call void @_ZN2v812api_internal12ToLocalEmptyEv() #20
+  br label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit62
+
+_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit62: ; preds = %if.then202, %if.then.i.i61
+  %call239 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr %call2.i56, ptr %47, ptr %call.i59) #20
   %tobool.i337 = trunc i16 %call239 to i1
   br i1 %tobool.i337, label %if.end244, label %cleanup
 
-if.end244:                                        ; preds = %if.then193, %if.then202
+if.end244:                                        ; preds = %if.then193, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit62
   %saltLength = getelementptr inbounds nuw i8, ptr %call143, i64 16
   %49 = load ptr, ptr %saltLength, align 8
   %cmp245.not = icmp eq ptr %49, null
@@ -3925,10 +3931,10 @@ if.then250:                                       ; preds = %if.then246
 
 if.end254:                                        ; preds = %if.then246, %if.end244
   %50 = load ptr, ptr %principal_realm_.i.i, align 8
-  %vtable.i60 = load ptr, ptr %50, align 8
-  %vfn.i61 = getelementptr inbounds nuw i8, ptr %vtable.i60, i64 64
-  %51 = load ptr, ptr %vfn.i61, align 8
-  %call2.i62 = call ptr %51(ptr noundef nonnull align 8 dereferenceable(872) %50) #20
+  %vtable.i64 = load ptr, ptr %50, align 8
+  %vfn.i65 = getelementptr inbounds nuw i8, ptr %vtable.i64, i64 64
+  %51 = load ptr, ptr %vfn.i65, align 8
+  %call2.i66 = call ptr %51(ptr noundef nonnull align 8 dereferenceable(872) %50) #20
   %52 = load ptr, ptr %isolate_data_.i.i, align 8
   %salt_length_string_.i.i = getelementptr inbounds nuw i8, ptr %52, i64 2056
   %53 = load ptr, ptr %salt_length_string_.i.i, align 8
@@ -3936,45 +3942,45 @@ if.end254:                                        ; preds = %if.then246, %if.end
   %55 = load i64, ptr %salt_length, align 8
   %conv274 = sitofp i64 %55 to double
   %call275 = call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %54, double noundef %conv274) #20
-  %call291 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr %call2.i62, ptr %53, ptr %call275) #20
+  %call291 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr %call2.i66, ptr %53, ptr %call275) #20
   %tobool.i = trunc i16 %call291 to i1
   br i1 %tobool.i, label %if.end297, label %cleanup
 
 if.end297:                                        ; preds = %if.then142, %if.end254, %if.end140
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end254, %if.then202, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit, %if.end297, %if.then250
-  %retval.sroa.0.1 = phi i16 [ 0, %if.then250 ], [ 257, %if.end297 ], [ 0, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ 0, %if.then202 ], [ 0, %if.end254 ]
+cleanup:                                          ; preds = %if.end254, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit62, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit, %if.end297, %if.then250
+  %retval.sroa.0.1 = phi i16 [ 0, %if.then250 ], [ 257, %if.end297 ], [ 0, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit62 ], [ 0, %if.end254 ]
   %56 = load ptr, ptr %public_exponent, align 8
-  %cmp.not.i65 = icmp eq ptr %56, null
-  br i1 %cmp.not.i65, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit67, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i66
+  %cmp.not.i69 = icmp eq ptr %56, null
+  br i1 %cmp.not.i69, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit71, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i70
 
-_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i66: ; preds = %cleanup
+_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i70: ; preds = %cleanup
   call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #20
   call void @_ZdlPv(ptr noundef nonnull %56) #20
-  br label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit67
+  br label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit71
 
-_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit67: ; preds = %cleanup, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i66
+_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit71: ; preds = %cleanup, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i70
   store ptr null, ptr %public_exponent, align 8
   br label %cleanup300
 
-cleanup300:                                       ; preds = %do.end31, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit67
-  %retval.sroa.0.0 = phi i16 [ %retval.sroa.0.1, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit67 ], [ 0, %do.end31 ]
+cleanup300:                                       ; preds = %do.end31, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit71
+  %retval.sroa.0.0 = phi i16 [ %retval.sroa.0.1, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit71 ], [ 0, %do.end31 ]
   call void @uv_mutex_unlock(ptr noundef nonnull %call3) #20
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %m_pkey, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %m_pkey, i64 24
   %57 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %57, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i, label %if.then.i.i.i.i68
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i, label %if.then.i.i.i.i72
 
-if.then.i.i.i.i68:                                ; preds = %cleanup300
+if.then.i.i.i.i72:                                ; preds = %cleanup300
   %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %58 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %58, 4294967297
   %59 = trunc i64 %58 to i32
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i70, label %if.end.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i74, label %if.end.i.i.i.i.i
 
-if.then.i.i.i.i.i70:                              ; preds = %if.then.i.i.i.i68
+if.then.i.i.i.i.i74:                              ; preds = %if.then.i.i.i.i72
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
@@ -3984,7 +3990,7 @@ if.then.i.i.i.i.i70:                              ; preds = %if.then.i.i.i.i68
   call void %60(ptr noundef nonnull align 8 dereferenceable(16) %57) #20
   br label %if.end8.sink.split.i.i.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i68
+if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i72
   %61 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %61, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4028,7 +4034,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i
 
-if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i70
+if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i74
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %57, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %67 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
@@ -4039,13 +4045,13 @@ _ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i: ; pred
   %pkey_.i = getelementptr inbounds nuw i8, ptr %m_pkey, i64 8
   %68 = load ptr, ptr %pkey_.i, align 8
   %cmp.not.i.i = icmp eq ptr %68, null
-  br i1 %cmp.not.i.i, label %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit, label %if.then.i.i69
+  br i1 %cmp.not.i.i, label %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit, label %if.then.i.i73
 
-if.then.i.i69:                                    ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i
+if.then.i.i73:                                    ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i
   call void @EVP_PKEY_free(ptr noundef nonnull %68) #20
   br label %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit
 
-_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit:         ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i, %if.then.i.i69
+_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit:         ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i, %if.then.i.i73
   ret i16 %retval.sroa.0.0
 }
 
@@ -4068,21 +4074,6 @@ declare ptr @RSA_get0_pss_params(ptr noundef) local_unnamed_addr #0
 declare void @X509_ALGOR_get0(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local ptr @_ZN4node13OneByteStringEPN2v87IsolateEPKci(ptr noundef %isolate, ptr noundef %data, i32 noundef %length) local_unnamed_addr #3 comdat {
-entry:
-  %call = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %isolate, ptr noundef %data, i32 noundef 0, i32 noundef %length) #20
-  %cmp.i.i = icmp eq ptr %call, null
-  br i1 %cmp.i.i, label %if.then.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-
-if.then.i:                                        ; preds = %entry
-  tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #20
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %if.then.i, %entry
-  ret ptr %call
-}
 
 declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #0
 

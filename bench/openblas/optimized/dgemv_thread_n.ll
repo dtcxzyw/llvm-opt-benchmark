@@ -195,50 +195,55 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
 
 .loopexit112:                                     ; preds = %60, %._crit_edge
   %.not = icmp eq i64 %.0100.lcssa, 0
-  br i1 %.not, label %.loopexit, label %.loopexit112.thread134
+  br i1 %.not, label %.loopexit, label %.loopexit.critedge
 
-.loopexit112.thread134:                           ; preds = %blas_quickdivide.exit110, %.loopexit112
-  %103 = phi i1 [ false, %.loopexit112 ], [ true, %blas_quickdivide.exit110 ]
-  %.3137 = phi i64 [ %.0100.lcssa, %.loopexit112 ], [ %90, %blas_quickdivide.exit110 ]
-  %104 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store ptr null, ptr %104, align 16, !tbaa !35
-  %105 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store ptr %9, ptr %105, align 8, !tbaa !36
-  %106 = add nsw i64 %.3137, -1
-  %107 = getelementptr inbounds [16 x %struct.blas_queue], ptr %16, i64 0, i64 %106, i32 8
-  store ptr null, ptr %107, align 8, !tbaa !29
-  %108 = call i32 @exec_blas(i64 noundef %.3137, ptr noundef nonnull %16) #6
-  br i1 %103, label %.preheader.lr.ph, label %.loopexit
-
-.preheader.lr.ph:                                 ; preds = %.loopexit112.thread134
-  %109 = call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @y_dummy)
+.loopexit112.thread134:                           ; preds = %blas_quickdivide.exit110
+  %103 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store ptr null, ptr %103, align 16, !tbaa !35
+  %104 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  store ptr %9, ptr %104, align 8, !tbaa !36
+  %105 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %16, i64 0, i64 %.2102115, i32 8
+  store ptr null, ptr %105, align 8, !tbaa !29
+  %106 = call i32 @exec_blas(i64 noundef %90, ptr noundef nonnull %16) #6
+  %107 = call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @y_dummy)
   br i1 %26, label %.preheader.us, label %.loopexit
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge122.us
-  %.2123.us = phi i64 [ %119, %._crit_edge122.us ], [ 0, %.preheader.lr.ph ]
-  %110 = mul nuw nsw i64 %.2123.us, %0
-  br label %111
+.preheader.us:                                    ; preds = %.loopexit112.thread134, %._crit_edge122.us
+  %.2123.us = phi i64 [ %117, %._crit_edge122.us ], [ 0, %.loopexit112.thread134 ]
+  %108 = mul nuw nsw i64 %.2123.us, %0
+  br label %109
 
-111:                                              ; preds = %.preheader.us, %111
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %111 ]
-  %112 = add nuw nsw i64 %indvars.iv, %110
-  %113 = getelementptr inbounds nuw [1024 x double], ptr %109, i64 0, i64 %112
-  %114 = load double, ptr %113, align 8, !tbaa !3
-  %115 = mul nsw i64 %indvars.iv, %8
-  %116 = getelementptr inbounds double, ptr %7, i64 %115
-  %117 = load double, ptr %116, align 8, !tbaa !3
-  %118 = fadd double %114, %117
-  store double %118, ptr %116, align 8, !tbaa !3
+109:                                              ; preds = %.preheader.us, %109
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %109 ]
+  %110 = add nuw nsw i64 %indvars.iv, %108
+  %111 = getelementptr inbounds nuw [1024 x double], ptr %107, i64 0, i64 %110
+  %112 = load double, ptr %111, align 8, !tbaa !3
+  %113 = mul nsw i64 %indvars.iv, %8
+  %114 = getelementptr inbounds double, ptr %7, i64 %113
+  %115 = load double, ptr %114, align 8, !tbaa !3
+  %116 = fadd double %112, %115
+  store double %116, ptr %114, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond.not, label %._crit_edge122.us, label %111, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge122.us, label %109, !llvm.loop !37
 
-._crit_edge122.us:                                ; preds = %111
-  %119 = add nuw nsw i64 %.2123.us, 1
-  %exitcond128.not = icmp eq i64 %119, %.3137
+._crit_edge122.us:                                ; preds = %109
+  %117 = add nuw nsw i64 %.2123.us, 1
+  %exitcond128.not = icmp eq i64 %.2123.us, %.2102115
   br i1 %exitcond128.not, label %.loopexit, label %.preheader.us, !llvm.loop !38
 
-.loopexit:                                        ; preds = %._crit_edge122.us, %67, %.loopexit112, %.preheader.lr.ph, %.loopexit112.thread134
+.loopexit.critedge:                               ; preds = %.loopexit112
+  %118 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store ptr null, ptr %118, align 16, !tbaa !35
+  %119 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  store ptr %9, ptr %119, align 8, !tbaa !36
+  %120 = add nsw i64 %.0100.lcssa, -1
+  %121 = getelementptr inbounds [16 x %struct.blas_queue], ptr %16, i64 0, i64 %120, i32 8
+  store ptr null, ptr %121, align 8, !tbaa !29
+  %122 = call i32 @exec_blas(i64 noundef %.0100.lcssa, ptr noundef nonnull %16) #6
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %._crit_edge122.us, %.loopexit.critedge, %67, %.loopexit112, %.loopexit112.thread134
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %17) #6
   call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %16) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %15) #6

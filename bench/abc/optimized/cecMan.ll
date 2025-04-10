@@ -658,7 +658,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %2
   %56 = tail call noalias ptr @malloc(i64 noundef %55) #17
   %57 = getelementptr inbounds ptr, ptr %56, i64 %54
   %58 = icmp sgt i32 %.val26.val, 0
-  br i1 %58, label %.lr.ph.preheader.i29, label %Vec_PtrAllocSimInfo.exit35
+  br i1 %58, label %.lr.ph.preheader.i29, label %Vec_PtrCleanSimInfo.exit.critedge
 
 .lr.ph.preheader.i29:                             ; preds = %51
   %wide.trip.count.i30 = zext nneg i32 %.val26.val to i64
@@ -674,7 +674,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %2
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, %wide.trip.count.i30
   br i1 %exitcond.not.i34, label %Vec_PtrAllocSimInfo.exit35, label %.lr.ph.i31, !llvm.loop !104
 
-Vec_PtrAllocSimInfo.exit35:                       ; preds = %.lr.ph.i31, %51
+Vec_PtrAllocSimInfo.exit35:                       ; preds = %.lr.ph.i31
   %62 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 %.val26.val, ptr %63, align 4, !tbaa !35
@@ -683,15 +683,12 @@ Vec_PtrAllocSimInfo.exit35:                       ; preds = %.lr.ph.i31, %51
   store ptr %56, ptr %64, align 8, !tbaa !38
   %65 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
   store ptr %62, ptr %65, align 8, !tbaa !109
-  br i1 %58, label %.lr.ph.i36, label %Vec_PtrCleanSimInfo.exit
-
-.lr.ph.i36:                                       ; preds = %Vec_PtrAllocSimInfo.exit35
   %66 = shl nsw i32 %4, 2
   %67 = sext i32 %66 to i64
   br label %68
 
-68:                                               ; preds = %68, %.lr.ph.i36
-  %indvars.iv.i37 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i38, %68 ]
+68:                                               ; preds = %68, %Vec_PtrAllocSimInfo.exit35
+  %indvars.iv.i37 = phi i64 [ 0, %Vec_PtrAllocSimInfo.exit35 ], [ %indvars.iv.next.i38, %68 ]
   %.val.i = load ptr, ptr %64, align 8, !tbaa !38
   %69 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i37
   %70 = load ptr, ptr %69, align 8, !tbaa !103
@@ -702,9 +699,20 @@ Vec_PtrAllocSimInfo.exit35:                       ; preds = %.lr.ph.i31, %51
   %73 = icmp slt i64 %indvars.iv.next.i38, %72
   br i1 %73, label %68, label %Vec_PtrCleanSimInfo.exit, !llvm.loop !110
 
-Vec_PtrCleanSimInfo.exit:                         ; preds = %68, %Vec_PtrAllocSimInfo.exit35, %49
-  %74 = getelementptr inbounds nuw i8, ptr %calloc, i64 88
-  store i32 -1, ptr %74, align 8, !tbaa !111
+Vec_PtrCleanSimInfo.exit.critedge:                ; preds = %51
+  %74 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store i32 %.val26.val, ptr %75, align 4, !tbaa !35
+  store i32 %.val26.val, ptr %74, align 8, !tbaa !37
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store ptr %56, ptr %76, align 8, !tbaa !38
+  %77 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
+  store ptr %74, ptr %77, align 8, !tbaa !109
+  br label %Vec_PtrCleanSimInfo.exit
+
+Vec_PtrCleanSimInfo.exit:                         ; preds = %68, %Vec_PtrCleanSimInfo.exit.critedge, %49
+  %78 = getelementptr inbounds nuw i8, ptr %calloc, i64 88
+  store i32 -1, ptr %78, align 8, !tbaa !111
   ret ptr %calloc
 }
 

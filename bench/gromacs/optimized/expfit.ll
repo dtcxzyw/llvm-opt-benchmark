@@ -1623,38 +1623,35 @@ define internal fastcc void @_ZL17print_chi2_paramsP8_IO_FILEiPKdPKciS2_S2_(ptr 
 ._crit_edge:                                      ; preds = %11, %7
   %.022.lcssa = phi double [ 0.000000e+00, %7 ], [ %20, %11 ]
   %or.cond.i = icmp ult i32 %1, 11
-  br i1 %or.cond.i, label %_Z11effnNparamsi.exit.split.us, label %_Z11effnNparamsi.exit
+  br i1 %or.cond.i, label %_Z11effnNparamsi.exit, label %_Z11effnNparamsi.exit.split.critedge
 
 _Z11effnNparamsi.exit:                            ; preds = %._crit_edge
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %4, i32 noundef -1, ptr noundef %3, double noundef %.022.lcssa) #18
-  br label %.split.us
-
-_Z11effnNparamsi.exit.split.us:                   ; preds = %._crit_edge
-  %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !4
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %4, i32 noundef %24, ptr noundef %3, double noundef %.022.lcssa) #18
+  %21 = zext nneg i32 %1 to i64
+  %22 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !4
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %4, i32 noundef %23, ptr noundef %3, double noundef %.022.lcssa) #18
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.split.us, label %_Z11effnNparamsi.exit26.us.preheader
 
-_Z11effnNparamsi.exit26.us.preheader:             ; preds = %_Z11effnNparamsi.exit.split.us
-  %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !4
-  %smax = tail call i32 @llvm.smax.i32(i32 %28, i32 1)
+_Z11effnNparamsi.exit26.us.preheader:             ; preds = %_Z11effnNparamsi.exit
+  %smax = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
   %wide.trip.count37 = zext nneg i32 %smax to i64
   br label %_Z11effnNparamsi.exit26.us
 
 _Z11effnNparamsi.exit26.us:                       ; preds = %_Z11effnNparamsi.exit26.us.preheader, %_Z11effnNparamsi.exit26.us
   %indvars.iv34 = phi i64 [ 0, %_Z11effnNparamsi.exit26.us.preheader ], [ %indvars.iv.next35, %_Z11effnNparamsi.exit26.us ]
-  %29 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv34
-  %30 = load double, ptr %29, align 8, !tbaa !13
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, double noundef %30) #18
+  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv34
+  %26 = load double, ptr %25, align 8, !tbaa !13
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, double noundef %26) #18
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
   br i1 %exitcond38.not, label %.split.us, label %_Z11effnNparamsi.exit26.us, !llvm.loop !36
 
-.split.us:                                        ; preds = %_Z11effnNparamsi.exit26.us, %_Z11effnNparamsi.exit, %_Z11effnNparamsi.exit.split.us
+_Z11effnNparamsi.exit.split.critedge:             ; preds = %._crit_edge
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %4, i32 noundef -1, ptr noundef %3, double noundef %.022.lcssa) #18
+  br label %.split.us
+
+.split.us:                                        ; preds = %_Z11effnNparamsi.exit26.us, %_Z11effnNparamsi.exit.split.critedge, %_Z11effnNparamsi.exit
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   ret void
 }

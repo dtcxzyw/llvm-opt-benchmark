@@ -161,7 +161,7 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
   br label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit
 
 23:                                               ; preds = %8
-  br i1 %9, label %.preheader.preheader.i, label %._crit_edge.i
+  br i1 %9, label %.preheader.preheader.i, label %._crit_edge47.critedge.i
 
 .preheader.preheader.i:                           ; preds = %23
   %wide.trip.count.i = zext nneg i32 %2 to i64
@@ -192,11 +192,10 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
   br i1 %exitcond52.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !14
 
-._crit_edge.i:                                    ; preds = %33, %23
-  %.0.lcssa.i = phi double [ 0.000000e+00, %23 ], [ %32, %33 ]
-  %34 = mul nsw i32 %2, 6
-  %35 = sitofp i32 %34 to double
-  %36 = fdiv double %.0.lcssa.i, %35
+._crit_edge.i:                                    ; preds = %33
+  %34 = mul nuw nsw i32 %2, 6
+  %35 = uitofp nneg i32 %34 to double
+  %36 = fdiv double %32, %35
   %37 = tail call double @sqrt(double noundef %36) #6, !tbaa !8
   %38 = fpext float %6 to double
   %39 = fmul double %37, %38
@@ -204,23 +203,30 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
   %41 = fcmp olt double %39, %40
   %42 = fptrunc double %39 to float
   %.038.i = select i1 %41, float %42, float %7
-  br i1 %9, label %.lr.ph.preheader.i, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit
-
-.lr.ph.preheader.i:                               ; preds = %._crit_edge.i
-  %wide.trip.count56.i = zext nneg i32 %2 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv53.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next54.i, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %._crit_edge.i
+  %indvars.iv53.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next54.i, %.lr.ph.i ]
   %43 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv53.i
   %44 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv53.i
   %45 = trunc nuw nsw i64 %indvars.iv53.i to i32
   tail call void @_Z8cmp_rvecP8_IO_FILEPKciPKfS4_ff(ptr noundef %0, ptr noundef %1, i32 noundef %45, ptr noundef readonly %43, ptr noundef readonly %44, float noundef 0.000000e+00, float noundef %.038.i)
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
-  %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count56.i
+  %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
   br i1 %exitcond57.not.i, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit, label %.lr.ph.i, !llvm.loop !15
 
-_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit: ; preds = %.lr.ph.i, %._crit_edge.i, %._crit_edge
+._crit_edge47.critedge.i:                         ; preds = %23
+  %46 = mul nsw i32 %2, 6
+  %47 = sitofp i32 %46 to double
+  %48 = fdiv double 0.000000e+00, %47
+  %49 = fcmp olt double %48, 0.000000e+00
+  br i1 %49, label %cdce.call, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit, !prof !16
+
+cdce.call:                                        ; preds = %._crit_edge47.critedge.i
+  %50 = tail call double @sqrt(double noundef %48) #6, !tbaa !8
+  br label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit
+
+_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit: ; preds = %.lr.ph.i, %cdce.call, %._crit_edge47.critedge.i, %._crit_edge
   ret void
 }
 
@@ -270,3 +276,4 @@ attributes #6 = { nounwind }
 !13 = distinct !{!13, !11}
 !14 = distinct !{!14, !11}
 !15 = distinct !{!15, !11}
+!16 = !{!"branch_weights", i32 1, i32 1048575}

@@ -43,8 +43,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %3, align 8
-  %.not4.i = icmp eq ptr %.val4, %.val
-  br i1 %.not4.i, label %.loopexit33, label %.lr.ph.preheader.i
+  %.not2.i = icmp eq ptr %.val4, %.val
+  br i1 %.not2.i, label %.loopexit33, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
   %4 = ptrtoint ptr %.val4 to i64
@@ -55,29 +55,29 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   br label %.lr.ph.i
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = add nuw i64 %.0166.i, 1
+  %9 = add nuw i64 %.0164.i, 1
   %exitcond.not.i = icmp eq i64 %9, %umax.i
   br i1 %exitcond.not.i, label %.loopexit33, label %.lr.ph.i, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
-  %.0166.i = phi i64 [ %9, %8 ], [ 0, %.lr.ph.preheader.i ]
-  %.0175.i = phi float [ %11, %8 ], [ -1.000000e+00, %.lr.ph.preheader.i ]
-  %10 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %.val, i64 %.0166.i
+  %.0164.i = phi i64 [ %9, %8 ], [ 0, %.lr.ph.preheader.i ]
+  %.0173.i = phi float [ %11, %8 ], [ -1.000000e+00, %.lr.ph.preheader.i ]
+  %10 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %.val, i64 %.0164.i
   %11 = load float, ptr %10, align 4, !tbaa !24
   %12 = fcmp uge float %11, 0.000000e+00
   %13 = fcmp ule float %11, %1
-  %or.cond.not12.i = and i1 %12, %13
-  %14 = fcmp ugt float %11, %.0175.i
-  %or.cond3.i = and i1 %14, %or.cond.not12.i
-  br i1 %or.cond3.i, label %8, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit
+  %or.cond.not10.i = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.0173.i
+  %or.cond1.i = and i1 %14, %or.cond.not10.i
+  br i1 %or.cond1.i, label %8, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit
 
 .loopexit33:                                      ; preds = %8, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val5 = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val6 = load ptr, ptr %16, align 8
-  %.not4.i9 = icmp eq ptr %.val6, %.val5
-  br i1 %.not4.i9, label %.loopexit, label %.lr.ph.preheader.i10
+  %.not2.i9 = icmp eq ptr %.val6, %.val5
+  br i1 %.not2.i9, label %.loopexit, label %.lr.ph.preheader.i10
 
 .lr.ph.preheader.i10:                             ; preds = %.loopexit33
   %17 = ptrtoint ptr %.val6 to i64
@@ -88,29 +88,29 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   br label %.lr.ph.i12
 
 21:                                               ; preds = %.lr.ph.i12
-  %22 = add nuw i64 %.0166.i13, 1
+  %22 = add nuw i64 %.0164.i13, 1
   %exitcond.not.i18 = icmp eq i64 %22, %umax.i11
   br i1 %exitcond.not.i18, label %.loopexit, label %.lr.ph.i12, !llvm.loop !27
 
 .lr.ph.i12:                                       ; preds = %21, %.lr.ph.preheader.i10
-  %.0166.i13 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader.i10 ]
-  %.0175.i14 = phi float [ %24, %21 ], [ -1.000000e+00, %.lr.ph.preheader.i10 ]
-  %23 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %.val5, i64 %.0166.i13
+  %.0164.i13 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader.i10 ]
+  %.0173.i14 = phi float [ %24, %21 ], [ -1.000000e+00, %.lr.ph.preheader.i10 ]
+  %23 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %.val5, i64 %.0164.i13
   %24 = load float, ptr %23, align 4, !tbaa !28
   %25 = fcmp uge float %24, 0.000000e+00
   %26 = fcmp ule float %24, %1
-  %or.cond.not12.i15 = and i1 %25, %26
-  %27 = fcmp ugt float %24, %.0175.i14
-  %or.cond3.i16 = and i1 %27, %or.cond.not12.i15
-  br i1 %or.cond3.i16, label %21, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit
+  %or.cond.not10.i15 = and i1 %25, %26
+  %27 = fcmp ugt float %24, %.0173.i14
+  %or.cond1.i16 = and i1 %27, %or.cond.not10.i15
+  br i1 %or.cond1.i16, label %21, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit
 
 .loopexit:                                        ; preds = %21, %.loopexit33
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val7 = load ptr, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val8 = load ptr, ptr %29, align 8
-  %.not4.i19 = icmp eq ptr %.val8, %.val7
-  br i1 %.not4.i19, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit, label %.lr.ph.preheader.i20
+  %.not2.i19 = icmp eq ptr %.val8, %.val7
+  br i1 %.not2.i19, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit, label %.lr.ph.preheader.i20
 
 .lr.ph.preheader.i20:                             ; preds = %.loopexit
   %30 = ptrtoint ptr %.val8 to i64
@@ -121,22 +121,22 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   br label %.lr.ph.i22
 
 .lr.ph.i22:                                       ; preds = %.lr.ph.i22, %.lr.ph.preheader.i20
-  %.0166.i23 = phi i64 [ 0, %.lr.ph.preheader.i20 ], [ %39, %.lr.ph.i22 ]
-  %.0175.i24 = phi float [ -1.000000e+00, %.lr.ph.preheader.i20 ], [ %35, %.lr.ph.i22 ]
-  %34 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %.val7, i64 %.0166.i23
+  %.0164.i23 = phi i64 [ 0, %.lr.ph.preheader.i20 ], [ %39, %.lr.ph.i22 ]
+  %.0173.i24 = phi float [ -1.000000e+00, %.lr.ph.preheader.i20 ], [ %35, %.lr.ph.i22 ]
+  %34 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %.val7, i64 %.0164.i23
   %35 = load float, ptr %34, align 4, !tbaa !31
   %36 = fcmp uge float %35, 0.000000e+00
   %37 = fcmp ule float %35, %1
-  %or.cond.not12.i25 = and i1 %36, %37
-  %38 = fcmp ugt float %35, %.0175.i24
-  %or.cond3.i26 = and i1 %38, %or.cond.not12.i25
-  %39 = add nuw i64 %.0166.i23, 1
+  %or.cond.not10.i25 = and i1 %36, %37
+  %38 = fcmp ugt float %35, %.0173.i24
+  %or.cond1.i26 = and i1 %38, %or.cond.not10.i25
+  %39 = add nuw i64 %.0164.i23, 1
   %exitcond.not.i28 = icmp ne i64 %39, %umax.i21
-  %or.cond.not = select i1 %or.cond3.i26, i1 %exitcond.not.i28, i1 false
+  %or.cond.not = select i1 %or.cond1.i26, i1 %exitcond.not.i28, i1 false
   br i1 %or.cond.not, label %.lr.ph.i22, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit, !llvm.loop !33
 
 _ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit: ; preds = %.lr.ph.i, %.lr.ph.i12, %.lr.ph.i22, %.loopexit
-  %40 = phi i1 [ true, %.loopexit ], [ %or.cond3.i26, %.lr.ph.i22 ], [ false, %.lr.ph.i12 ], [ false, %.lr.ph.i ]
+  %40 = phi i1 [ true, %.loopexit ], [ %or.cond1.i26, %.lr.ph.i22 ], [ false, %.lr.ph.i12 ], [ false, %.lr.ph.i ]
   ret i1 %40
 }
 
@@ -159,17 +159,17 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   br i1 %13, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %5
-  %exitcond.not22 = icmp eq ptr %7, %8
-  br i1 %exitcond.not22, label %.critedge, label %.lr.ph
+  %exitcond.not19 = icmp eq ptr %7, %8
+  br i1 %exitcond.not19, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit
-  %.01023 = phi i64 [ %53, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit ], [ 0, %.preheader.preheader ]
-  %14 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %8, i64 %.01023
+  %.01020 = phi i64 [ %53, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit ], [ 0, %.preheader.preheader ]
+  %14 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %8, i64 %.01020
   %.val.i = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.val4.i = load ptr, ptr %15, align 8
-  %.not4.i.i = icmp eq ptr %.val4.i, %.val.i
-  br i1 %.not4.i.i, label %.loopexit33.i, label %.lr.ph.preheader.i.i
+  %.not2.i.i = icmp eq ptr %.val4.i, %.val.i
+  br i1 %.not2.i.i, label %.loopexit33.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph
   %16 = ptrtoint ptr %.val4.i to i64
@@ -180,29 +180,29 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   br label %.lr.ph.i.i
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = add nuw i64 %.0166.i.i, 1
+  %21 = add nuw i64 %.0164.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %21, %umax.i.i
   br i1 %exitcond.not.i.i, label %.loopexit33.i, label %.lr.ph.i.i, !llvm.loop !22
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.preheader.i.i
-  %.0166.i.i = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.0175.i.i = phi float [ %23, %20 ], [ -1.000000e+00, %.lr.ph.preheader.i.i ]
-  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %.val.i, i64 %.0166.i.i
+  %.0164.i.i = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.0173.i.i = phi float [ %23, %20 ], [ -1.000000e+00, %.lr.ph.preheader.i.i ]
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %.val.i, i64 %.0164.i.i
   %23 = load float, ptr %22, align 4, !tbaa !24
   %24 = fcmp uge float %23, 0.000000e+00
   %25 = fcmp ule float %23, %3
-  %or.cond.not12.i.i = and i1 %24, %25
-  %26 = fcmp ugt float %23, %.0175.i.i
-  %or.cond3.i.i = and i1 %26, %or.cond.not12.i.i
-  br i1 %or.cond3.i.i, label %20, label %.critedge
+  %or.cond.not10.i.i = and i1 %24, %25
+  %26 = fcmp ugt float %23, %.0173.i.i
+  %or.cond1.i.i = and i1 %26, %or.cond.not10.i.i
+  br i1 %or.cond1.i.i, label %20, label %.critedge
 
 .loopexit33.i:                                    ; preds = %20, %.lr.ph
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %.val5.i = load ptr, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.val6.i = load ptr, ptr %28, align 8
-  %.not4.i9.i = icmp eq ptr %.val6.i, %.val5.i
-  br i1 %.not4.i9.i, label %.loopexit.i, label %.lr.ph.preheader.i10.i
+  %.not2.i9.i = icmp eq ptr %.val6.i, %.val5.i
+  br i1 %.not2.i9.i, label %.loopexit.i, label %.lr.ph.preheader.i10.i
 
 .lr.ph.preheader.i10.i:                           ; preds = %.loopexit33.i
   %29 = ptrtoint ptr %.val6.i to i64
@@ -213,29 +213,29 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   br label %.lr.ph.i12.i
 
 33:                                               ; preds = %.lr.ph.i12.i
-  %34 = add nuw i64 %.0166.i13.i, 1
+  %34 = add nuw i64 %.0164.i13.i, 1
   %exitcond.not.i18.i = icmp eq i64 %34, %umax.i11.i
   br i1 %exitcond.not.i18.i, label %.loopexit.i, label %.lr.ph.i12.i, !llvm.loop !27
 
 .lr.ph.i12.i:                                     ; preds = %33, %.lr.ph.preheader.i10.i
-  %.0166.i13.i = phi i64 [ %34, %33 ], [ 0, %.lr.ph.preheader.i10.i ]
-  %.0175.i14.i = phi float [ %36, %33 ], [ -1.000000e+00, %.lr.ph.preheader.i10.i ]
-  %35 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %.val5.i, i64 %.0166.i13.i
+  %.0164.i13.i = phi i64 [ %34, %33 ], [ 0, %.lr.ph.preheader.i10.i ]
+  %.0173.i14.i = phi float [ %36, %33 ], [ -1.000000e+00, %.lr.ph.preheader.i10.i ]
+  %35 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %.val5.i, i64 %.0164.i13.i
   %36 = load float, ptr %35, align 4, !tbaa !28
   %37 = fcmp uge float %36, 0.000000e+00
   %38 = fcmp ule float %36, %3
-  %or.cond.not12.i15.i = and i1 %37, %38
-  %39 = fcmp ugt float %36, %.0175.i14.i
-  %or.cond3.i16.i = and i1 %39, %or.cond.not12.i15.i
-  br i1 %or.cond3.i16.i, label %33, label %.critedge
+  %or.cond.not10.i15.i = and i1 %37, %38
+  %39 = fcmp ugt float %36, %.0173.i14.i
+  %or.cond1.i16.i = and i1 %39, %or.cond.not10.i15.i
+  br i1 %or.cond1.i16.i, label %33, label %.critedge
 
 .loopexit.i:                                      ; preds = %33, %.loopexit33.i
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %.val7.i = load ptr, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %.val8.i = load ptr, ptr %41, align 8
-  %.not4.i19.i = icmp eq ptr %.val8.i, %.val7.i
-  br i1 %.not4.i19.i, label %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit, label %.lr.ph.preheader.i20.i
+  %.not2.i19.i = icmp eq ptr %.val8.i, %.val7.i
+  br i1 %.not2.i19.i, label %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit, label %.lr.ph.preheader.i20.i
 
 .lr.ph.preheader.i20.i:                           ; preds = %.loopexit.i
   %42 = ptrtoint ptr %.val8.i to i64
@@ -246,26 +246,26 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   br label %.lr.ph.i22.i
 
 46:                                               ; preds = %.lr.ph.i22.i
-  %47 = add nuw i64 %.0166.i23.i, 1
+  %47 = add nuw i64 %.0164.i23.i, 1
   %exitcond.not.i28.i = icmp eq i64 %47, %umax.i21.i
   br i1 %exitcond.not.i28.i, label %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit, label %.lr.ph.i22.i, !llvm.loop !33
 
 .lr.ph.i22.i:                                     ; preds = %46, %.lr.ph.preheader.i20.i
-  %.0166.i23.i = phi i64 [ %47, %46 ], [ 0, %.lr.ph.preheader.i20.i ]
-  %.0175.i24.i = phi float [ %49, %46 ], [ -1.000000e+00, %.lr.ph.preheader.i20.i ]
-  %48 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %.val7.i, i64 %.0166.i23.i
+  %.0164.i23.i = phi i64 [ %47, %46 ], [ 0, %.lr.ph.preheader.i20.i ]
+  %.0173.i24.i = phi float [ %49, %46 ], [ -1.000000e+00, %.lr.ph.preheader.i20.i ]
+  %48 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %.val7.i, i64 %.0164.i23.i
   %49 = load float, ptr %48, align 4, !tbaa !31
   %50 = fcmp uge float %49, 0.000000e+00
   %51 = fcmp ule float %49, %3
-  %or.cond.not12.i25.i = and i1 %50, %51
-  %52 = fcmp ugt float %49, %.0175.i24.i
-  %or.cond3.i26.i = and i1 %52, %or.cond.not12.i25.i
-  br i1 %or.cond3.i26.i, label %46, label %.critedge
+  %or.cond.not10.i25.i = and i1 %50, %51
+  %52 = fcmp ugt float %49, %.0173.i24.i
+  %or.cond1.i26.i = and i1 %52, %or.cond.not10.i25.i
+  br i1 %or.cond1.i26.i, label %46, label %.critedge
 
 _ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit: ; preds = %46, %.loopexit.i
-  %53 = add i64 %.01023, 1
+  %53 = add i64 %.01020, 1
   %exitcond.not = icmp eq i64 %53, %12
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !36
 
 .critedge:                                        ; preds = %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit, %.lr.ph.i.i, %.lr.ph.i12.i, %.lr.ph.i22.i, %.preheader.preheader, %5, %1
   %.07 = phi i1 [ false, %1 ], [ false, %5 ], [ true, %.preheader.preheader ], [ false, %.lr.ph.i22.i ], [ false, %.lr.ph.i12.i ], [ false, %.lr.ph.i.i ], [ true, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit ]
@@ -301,20 +301,20 @@ define dso_local noundef i64 @_ZNK3ozz9animation7offline12RawAnimation4sizeEv(pt
   %.01317 = phi i64 [ %36, %.lr.ph ], [ 64, %.lr.ph.preheader ]
   %13 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %4, i64 %.018
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !36
-  %16 = load ptr, ptr %13, align 8, !tbaa !39
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
+  %16 = load ptr, ptr %13, align 8, !tbaa !40
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !40
-  %22 = load ptr, ptr %19, align 8, !tbaa !43
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  %22 = load ptr, ptr %19, align 8, !tbaa !44
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !44
-  %28 = load ptr, ptr %25, align 8, !tbaa !47
+  %27 = load ptr, ptr %26, align 8, !tbaa !45
+  %28 = load ptr, ptr %25, align 8, !tbaa !48
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = add i64 %.01317, %17
@@ -325,7 +325,7 @@ define dso_local noundef i64 @_ZNK3ozz9animation7offline12RawAnimation4sizeEv(pt
   %36 = sub i64 %34, %35
   %37 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %37, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -379,16 +379,17 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !33 = distinct !{!33, !23}
 !34 = !{!9, !10, i64 8}
 !35 = !{!9, !10, i64 0}
-!36 = !{!37, !38, i64 8}
-!37 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE17_Vector_impl_dataE", !38, i64 0, !38, i64 8, !38, i64 16}
-!38 = !{!"p1 _ZTSN3ozz9animation7offline12RawAnimation14TranslationKeyE", !11, i64 0}
-!39 = !{!37, !38, i64 0}
-!40 = !{!41, !42, i64 8}
-!41 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE17_Vector_impl_dataE", !42, i64 0, !42, i64 8, !42, i64 16}
-!42 = !{!"p1 _ZTSN3ozz9animation7offline12RawAnimation11RotationKeyE", !11, i64 0}
-!43 = !{!41, !42, i64 0}
-!44 = !{!45, !46, i64 8}
-!45 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE17_Vector_impl_dataE", !46, i64 0, !46, i64 8, !46, i64 16}
-!46 = !{!"p1 _ZTSN3ozz9animation7offline12RawAnimation8ScaleKeyE", !11, i64 0}
-!47 = !{!45, !46, i64 0}
-!48 = distinct !{!48, !23}
+!36 = distinct !{!36, !23}
+!37 = !{!38, !39, i64 8}
+!38 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE17_Vector_impl_dataE", !39, i64 0, !39, i64 8, !39, i64 16}
+!39 = !{!"p1 _ZTSN3ozz9animation7offline12RawAnimation14TranslationKeyE", !11, i64 0}
+!40 = !{!38, !39, i64 0}
+!41 = !{!42, !43, i64 8}
+!42 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE17_Vector_impl_dataE", !43, i64 0, !43, i64 8, !43, i64 16}
+!43 = !{!"p1 _ZTSN3ozz9animation7offline12RawAnimation11RotationKeyE", !11, i64 0}
+!44 = !{!42, !43, i64 0}
+!45 = !{!46, !47, i64 8}
+!46 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE17_Vector_impl_dataE", !47, i64 0, !47, i64 8, !47, i64 16}
+!47 = !{!"p1 _ZTSN3ozz9animation7offline12RawAnimation8ScaleKeyE", !11, i64 0}
+!48 = !{!46, !47, i64 0}
+!49 = distinct !{!49, !23}

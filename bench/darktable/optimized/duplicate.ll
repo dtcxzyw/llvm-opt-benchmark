@@ -583,7 +583,7 @@ define internal void @_lib_duplicate_init_callback(ptr readnone captures(none) %
   %63 = load ptr, ptr %3, align 8, !tbaa !103
   %64 = call i32 @sqlite3_step(ptr noundef %63) #10
   %65 = icmp eq i32 %64, 100
-  br i1 %65, label %.lr.ph, label %._crit_edge
+  br i1 %65, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %18, i64 1544
@@ -685,25 +685,27 @@ define internal void @_lib_duplicate_init_callback(ptr readnone captures(none) %
 
 ._crit_edge.loopexit:                             ; preds = %98
   %126 = icmp eq i32 %.072, 0
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %62
-  %.062.lcssa = phi ptr [ null, %62 ], [ %106, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i1 [ false, %62 ], [ %126, %._crit_edge.loopexit ]
   %127 = load ptr, ptr %3, align 8, !tbaa !103
   %128 = call i32 @sqlite3_finalize(ptr noundef %127) #10
   %129 = load ptr, ptr %7, align 8, !tbaa !66
   call void @gtk_widget_show(ptr noundef %129) #10
-  br i1 %.0.lcssa, label %130, label %131
+  br i1 %126, label %130, label %134
 
-130:                                              ; preds = %._crit_edge
-  call void @gtk_widget_set_sensitive(ptr noundef %.062.lcssa, i32 noundef 0) #10
-  call void @gtk_widget_set_visible(ptr noundef %.062.lcssa, i32 noundef 0) #10
-  br label %131
+130:                                              ; preds = %._crit_edge.loopexit
+  call void @gtk_widget_set_sensitive(ptr noundef %106, i32 noundef 0) #10
+  call void @gtk_widget_set_visible(ptr noundef %106, i32 noundef 0) #10
+  br label %134
 
-131:                                              ; preds = %130, %._crit_edge
-  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
-  call void @dt_control_signal_unblock_by_func(ptr noundef %132, ptr noundef nonnull @_lib_duplicate_init_callback, ptr noundef %1) #10
+.critedge:                                        ; preds = %62
+  %131 = load ptr, ptr %3, align 8, !tbaa !103
+  %132 = call i32 @sqlite3_finalize(ptr noundef %131) #10
+  %133 = load ptr, ptr %7, align 8, !tbaa !66
+  call void @gtk_widget_show(ptr noundef %133) #10
+  br label %134
+
+134:                                              ; preds = %.critedge, %130, %._crit_edge.loopexit
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
+  call void @dt_control_signal_unblock_by_func(ptr noundef %135, ptr noundef nonnull @_lib_duplicate_init_callback, ptr noundef %1) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   ret void
 }

@@ -5447,7 +5447,7 @@ define internal noundef ptr @zend_default_exception_new(ptr noundef %0) #0 {
   call void @zend_fetch_debug_backtrace(ptr noundef nonnull %3, i32 noundef 0, i32 noundef %9, i32 noundef 0) #15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 9
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !16
-  %.pre40 = load ptr, ptr %3, align 8, !tbaa !16
+  %.pre39 = load ptr, ptr %3, align 8, !tbaa !16
   %10 = icmp ne i8 %.pre, 0
   br label %14
 
@@ -5459,7 +5459,7 @@ define internal noundef ptr @zend_default_exception_new(ptr noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %11, %6
-  %15 = phi ptr [ %12, %11 ], [ %.pre40, %6 ]
+  %15 = phi ptr [ %12, %11 ], [ %.pre39, %6 ]
   %16 = phi i1 [ true, %11 ], [ %10, %6 ]
   call void @llvm.assume(i1 %16)
   store i32 0, ptr %15, align 4, !tbaa !15
@@ -5484,14 +5484,14 @@ i_get_exception_base.exit:                        ; preds = %14, %instanceof_fun
   %25 = load ptr, ptr @zend_ce_compile_error, align 8
   %.not36 = icmp eq ptr %0, %25
   %or.cond = select i1 %.not35, i1 true, i1 %.not36
-  br i1 %or.cond, label %26, label %.thread
+  br i1 %or.cond, label %26, label %.critedge
 
 26:                                               ; preds = %i_get_exception_base.exit
   %27 = call ptr @zend_get_compiled_filename() #15
   %.not37 = icmp eq ptr %27, null
-  br i1 %.not37, label %.thread, label %43, !prof !111
+  br i1 %.not37, label %.critedge, label %43, !prof !61
 
-.thread:                                          ; preds = %i_get_exception_base.exit, %26
+.critedge:                                        ; preds = %i_get_exception_base.exit, %26
   %28 = call ptr @zend_get_executed_filename() #15
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #17
   %30 = and i64 %29, -8
@@ -5539,7 +5539,7 @@ i_get_exception_base.exit:                        ; preds = %14, %instanceof_fun
   store i32 4, ptr %48, align 8, !tbaa !16
   br label %53
 
-53:                                               ; preds = %43, %.thread
+53:                                               ; preds = %43, %.critedge
   %54 = load ptr, ptr @zend_known_strings, align 8, !tbaa !18
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !20
@@ -5709,4 +5709,3 @@ attributes #18 = { nounwind allocsize(0) }
 !108 = !{!107, !7, i64 8}
 !109 = !{!66, !7, i64 28}
 !110 = !{!23, !29, i64 724}
-!111 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}

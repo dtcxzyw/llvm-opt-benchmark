@@ -1090,14 +1090,10 @@ define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr noundef 
   %39 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %38) #27
   store ptr %39, ptr %14, align 8
   %.not = icmp eq i32 %36, 0
-  br i1 %.not, label %.preheader265, label %.lr.ph
+  br i1 %.not, label %._crit_edge369, label %.lr.ph
 
 .preheader265.loopexit:                           ; preds = %.lr.ph
   %40 = icmp eq i32 %50, 0
-  br label %.preheader265
-
-.preheader265:                                    ; preds = %.preheader265.loopexit, %2
-  %.not370 = phi i1 [ true, %2 ], [ %40, %.preheader265.loopexit ]
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1105,7 +1101,7 @@ define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr noundef 
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  br i1 %.not370, label %._crit_edge369, label %.lr.ph368
+  br i1 %40, label %._crit_edge369, label %.lr.ph368
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
@@ -1118,11 +1114,11 @@ define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr noundef 
   %52 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %52, label %.lr.ph, label %.preheader265.loopexit, !llvm.loop !5
 
-._crit_edge369:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.preheader265
+._crit_edge369:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %2, %.preheader265.loopexit
   ret void
 
-.lr.ph368:                                        ; preds = %.preheader265, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %indvars.iv342367 = phi i64 [ %indvars.iv.next343, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %.preheader265 ]
+.lr.ph368:                                        ; preds = %.preheader265.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %indvars.iv342367 = phi i64 [ %indvars.iv.next343, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %.preheader265.loopexit ]
   %53 = load ptr, ptr %28, align 8
   %54 = getelementptr inbounds nuw %"struct.Assimp::BVHLoader::Node", ptr %53, i64 %indvars.iv342367
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24

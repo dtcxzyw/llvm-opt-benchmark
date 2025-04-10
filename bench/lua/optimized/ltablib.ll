@@ -230,27 +230,27 @@ define internal i32 @tunpack(ptr noundef %0) #0 {
 12:                                               ; preds = %9
   %13 = sub i64 %10, %2
   %14 = icmp ugt i64 %13, 2147483646
-  br i1 %14, label %.thread, label %15, !prof !10
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %12
   %16 = trunc nuw nsw i64 %13 to i32
   %17 = add nuw nsw i32 %16, 1
   %18 = tail call i32 @lua_checkstack(ptr noundef %0, i32 noundef %17) #3
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.thread, label %.preheader, !prof !11
+  br i1 %.not, label %.critedge, label %.preheader, !prof !4
 
 .preheader:                                       ; preds = %15
   %19 = icmp slt i64 %2, %10
   br i1 %19, label %.lr.ph, label %._crit_edge
 
-.thread:                                          ; preds = %12, %15
+.critedge:                                        ; preds = %12, %15
   %20 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.17) #3
   br label %24
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.02026 = phi i64 [ %22, %.lr.ph ], [ %2, %.preheader ]
-  %21 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %.02026) #3
-  %22 = add i64 %.02026, 1
+  %.02025 = phi i64 [ %22, %.lr.ph ], [ %2, %.preheader ]
+  %21 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %.02025) #3
+  %22 = add i64 %.02025, 1
   %exitcond.not = icmp eq i64 %22, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -258,8 +258,8 @@ define internal i32 @tunpack(ptr noundef %0) #0 {
   %23 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %10) #3
   br label %24
 
-24:                                               ; preds = %9, %._crit_edge, %.thread
-  %.0 = phi i32 [ %20, %.thread ], [ %17, %._crit_edge ], [ 0, %9 ]
+24:                                               ; preds = %9, %._crit_edge, %.critedge
+  %.0 = phi i32 [ %20, %.critedge ], [ %17, %._crit_edge ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -272,7 +272,7 @@ define internal noundef i32 @tremove(ptr noundef %0) #0 {
   %4 = add i64 %3, -1
   %.not22 = icmp ugt i64 %4, %2
   %or.cond = and i1 %.not, %.not22
-  br i1 %or.cond, label %5, label %7, !prof !12
+  br i1 %or.cond, label %5, label %7, !prof !10
 
 5:                                                ; preds = %1
   %6 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.14) #3
@@ -863,6 +863,4 @@ attributes #3 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!11 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!12 = !{!"branch_weights", i32 1, i32 4001}
+!10 = !{!"branch_weights", i32 1, i32 4001}

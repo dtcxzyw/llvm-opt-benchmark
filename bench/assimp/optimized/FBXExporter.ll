@@ -54091,7 +54091,7 @@ define hidden void @_Z15WritePropDoublePK7aiSceneRN6Assimp3FBX4NodeERKNSt7__cxx1
   store i8 0, ptr %17, align 1
   %18 = load i32, ptr %8, align 8
   %.not14.not.i.i = icmp eq i32 %18, 0
-  br i1 %.not14.not.i.i, label %.thread36, label %.lr.ph.i.i
+  br i1 %.not14.not.i.i, label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -54132,7 +54132,7 @@ _ZNK8aiStringeqERKS_.exit.thread.i.i:             ; preds = %_ZNK8aiStringeqERKS
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %6) #34
   br label %.thread
 
-.thread36:                                        ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i, %27, %9
+.thread36:                                        ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i, %27
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %6) #34
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %5) #34
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -54140,16 +54140,13 @@ _ZNK8aiStringeqERKS_.exit.thread.i.i:             ; preds = %_ZNK8aiStringeqERKS
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 1 %15, i64 %16, i1 false)
   %37 = getelementptr inbounds nuw [1024 x i8], ptr %36, i64 0, i64 %16
   store i8 0, ptr %37, align 1
-  br i1 %.not14.not.i.i, label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, label %.lr.ph.i.i18
-
-.lr.ph.i.i18:                                     ; preds = %.thread36
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %39 = load ptr, ptr %38, align 8
   %wide.trip.count.i.i19 = zext i32 %18 to i64
   br label %40
 
-40:                                               ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i21, %.lr.ph.i.i18
-  %indvars.iv.i.i20 = phi i64 [ 0, %.lr.ph.i.i18 ], [ %indvars.iv.next.i.i22, %_ZNK8aiStringeqERKS_.exit.thread.i.i21 ]
+40:                                               ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i21, %.thread36
+  %indvars.iv.i.i20 = phi i64 [ 0, %.thread36 ], [ %indvars.iv.next.i.i22, %_ZNK8aiStringeqERKS_.exit.thread.i.i21 ]
   %41 = getelementptr inbounds nuw %struct.aiString, ptr %39, i64 %indvars.iv.i.i20
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, %spec.select.i.i
@@ -54167,27 +54164,37 @@ _ZNK8aiStringeqERKS_.exit.i.i27:                  ; preds = %40
   %49 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %48, i64 %indvars.iv.i.i20
   %50 = load i32, ptr %49, align 8
   %.not7.i.i.i29 = icmp eq i32 %50, 3
-  br i1 %.not7.i.i.i29, label %51, label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread
+  br i1 %.not7.i.i.i29, label %53, label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread
 
 _ZNK8aiStringeqERKS_.exit.thread.i.i21:           ; preds = %_ZNK8aiStringeqERKS_.exit.i.i27, %40
   %indvars.iv.next.i.i22 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %exitcond.not.i.i23 = icmp eq i64 %indvars.iv.next.i.i22, %wide.trip.count.i.i19
   br i1 %exitcond.not.i.i23, label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, label %40, !llvm.loop !248
 
-_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread: ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i21, %.thread36, %46
+_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread.critedge: ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %6) #34
+  call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %5) #34
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %51, i8 0, i64 1024, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %51, ptr align 1 %15, i64 %16, i1 false)
+  %52 = getelementptr inbounds nuw [1024 x i8], ptr %51, i64 0, i64 %16
+  store i8 0, ptr %52, align 1
+  br label %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread
+
+_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread: ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i21, %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread.critedge, %46
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %5) #34
   br label %.thread
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = load float, ptr %53, align 4
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = load float, ptr %55, align 4
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %5) #34
-  %55 = fpext float %54 to double
+  %57 = fpext float %56 to double
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, %4, %51, %32
-  %.sink = phi double [ %55, %51 ], [ %35, %32 ], [ %3, %4 ], [ %3, %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread ]
+.thread:                                          ; preds = %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, %4, %53, %32
+  %.sink = phi double [ %57, %53 ], [ %35, %32 ], [ %3, %4 ], [ %3, %_ZNK10aiMetadata3GetIfEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread ]
   tail call void @_ZN6Assimp3FBX4Node12AddP70doubleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, double noundef %.sink)
   ret void
 }
