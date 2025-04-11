@@ -178,7 +178,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_c8_8(ptr noundef readonly cap
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @_pcre2_strlen_8(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1, !tbaa !4
   %.not3 = icmp eq i8 %2, 0
@@ -187,21 +187,11 @@ define hidden i64 @_pcre2_strlen_8(ptr noundef readonly captures(none) %0) local
 .lr.ph.preheader:                                 ; preds = %1
   %scevgep = getelementptr i8, ptr %0, i64 1
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.024 = phi ptr [ %3, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %3 = getelementptr inbounds nuw i8, ptr %.024, i64 1
-  %4 = load i8, ptr %3, align 1, !tbaa !4
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %5 = add i64 %strlen, 1
+  %3 = add i64 %strlen, 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.0.lcssa = phi i64 [ 0, %1 ], [ %5, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %1
+  %.0.lcssa = phi i64 [ 0, %1 ], [ %3, %.lr.ph.preheader ]
   ret i64 %.0.lcssa
 }
 
@@ -236,7 +226,7 @@ declare i64 @strlen(ptr captures(none)) local_unnamed_addr #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind willreturn memory(argmem: read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -1608,31 +1608,21 @@ define hidden noundef ptr @file_strtrim(ptr noundef captures(ret: address, prove
 
 .preheader13:                                     ; preds = %4
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.010)
-  br label %11
-
-11:                                               ; preds = %11, %.preheader13
-  %.0 = phi ptr [ %13, %11 ], [ %.010, %.preheader13 ]
-  %12 = load i8, ptr %.0, align 1, !tbaa !4
-  %.not11 = icmp eq i8 %12, 0
-  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br i1 %.not11, label %.preheader.preheader, label %11
-
-.preheader.preheader:                             ; preds = %11
   %scevgep = getelementptr i8, ptr %.010, i64 %strlen
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.0.pn = phi ptr [ %.1, %.preheader ], [ %scevgep, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader13, %.preheader
+  %.0.pn = phi ptr [ %.1, %.preheader ], [ %scevgep, %.preheader13 ]
   %.1 = getelementptr inbounds i8, ptr %.0.pn, i64 -1
-  %14 = load i8, ptr %.1, align 1, !tbaa !4
-  %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %3, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !10
-  %18 = and i16 %17, 8192
-  %.not12 = icmp eq i16 %18, 0
-  br i1 %.not12, label %19, label %.preheader
+  %11 = load i8, ptr %.1, align 1, !tbaa !4
+  %12 = zext i8 %11 to i64
+  %13 = getelementptr inbounds nuw i16, ptr %3, i64 %12
+  %14 = load i16, ptr %13, align 2, !tbaa !10
+  %15 = and i16 %14, 8192
+  %.not12 = icmp eq i16 %15, 0
+  br i1 %.not12, label %16, label %.preheader
 
-19:                                               ; preds = %.preheader
+16:                                               ; preds = %.preheader
   store i8 0, ptr %.0.pn, align 1, !tbaa !4
   ret ptr %.010
 }

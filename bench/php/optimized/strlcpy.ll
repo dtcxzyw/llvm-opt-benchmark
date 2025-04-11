@@ -31,27 +31,17 @@ define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @php_s
 .thread25:                                        ; preds = %3, %10
   %.013.ph28 = phi ptr [ %.114, %10 ], [ %1, %3 ]
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.ph28)
-  br label %11
-
-11:                                               ; preds = %11, %.thread25
-  %.3 = phi ptr [ %.013.ph28, %.thread25 ], [ %12, %11 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  %13 = load i8, ptr %.3, align 1, !tbaa !4
-  %.not20 = icmp eq i8 %13, 0
-  br i1 %.not20, label %.loopexit.loopexit, label %11
-
-.loopexit.loopexit:                               ; preds = %11
-  %14 = getelementptr i8, ptr %.013.ph28, i64 %strlen
-  %scevgep = getelementptr i8, ptr %14, i64 1
+  %11 = getelementptr i8, ptr %.013.ph28, i64 %strlen
+  %scevgep = getelementptr i8, ptr %11, i64 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %5, %.loopexit.loopexit
-  %.2 = phi ptr [ %scevgep, %.loopexit.loopexit ], [ %6, %5 ]
-  %15 = ptrtoint ptr %.2 to i64
-  %16 = ptrtoint ptr %1 to i64
-  %17 = xor i64 %16, -1
-  %18 = add i64 %15, %17
-  ret i64 %18
+.loopexit:                                        ; preds = %5, %.thread25
+  %.2 = phi ptr [ %scevgep, %.thread25 ], [ %6, %5 ]
+  %12 = ptrtoint ptr %.2 to i64
+  %13 = ptrtoint ptr %1 to i64
+  %14 = xor i64 %13, -1
+  %15 = add i64 %12, %14
+  ret i64 %15
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
