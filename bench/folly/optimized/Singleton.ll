@@ -11564,39 +11564,38 @@ define internal void @"_ZN5folly6detail8function5call_IZNS_14SingletonVault14doE
   br i1 %22, label %23, label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit"
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !423
-  %25 = load ptr, ptr %24, align 8, !tbaa !425
-  %.not.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit", label %26
+  %24 = load ptr, ptr %3, align 16, !tbaa !423
+  %.not.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i, label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit", label %25
 
-26:                                               ; preds = %23
-  %27 = load atomic i32, ptr %25 acquire, align 4
-  switch i32 %27, label %33 [
-    i32 0, label %28
+25:                                               ; preds = %23
+  %26 = load atomic i32, ptr %24 acquire, align 4
+  switch i32 %26, label %32 [
+    i32 0, label %27
     i32 4, label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit"
   ]
 
-28:                                               ; preds = %26
-  %29 = cmpxchg ptr %25, i32 0, i32 1 release monotonic, align 4
-  %30 = extractvalue { i32, i1 } %29, 1
-  %31 = extractvalue { i32, i1 } %29, 0
-  %32 = icmp eq i32 %31, 4
-  %or.cond.i.i.i.i.i = select i1 %30, i1 true, i1 %32
-  br i1 %or.cond.i.i.i.i.i, label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit", label %33
+27:                                               ; preds = %25
+  %28 = cmpxchg ptr %24, i32 0, i32 1 release monotonic, align 4
+  %29 = extractvalue { i32, i1 } %28, 1
+  %30 = extractvalue { i32, i1 } %28, 0
+  %31 = icmp eq i32 %30, 4
+  %or.cond.i.i.i.i.i = select i1 %29, i1 true, i1 %31
+  br i1 %or.cond.i.i.i.i.i, label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit", label %32
 
-33:                                               ; preds = %28, %26
-  store atomic i32 3, ptr %25 release, align 4
-  %34 = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %25, i32 noundef 1, i32 noundef -1)
-          to label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit" unwind label %35
+32:                                               ; preds = %27, %25
+  store atomic i32 3, ptr %24 release, align 4
+  %33 = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %24, i32 noundef 1, i32 noundef -1)
+          to label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit" unwind label %34
 
-35:                                               ; preds = %33
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %32
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #48
+  %36 = extractvalue { ptr, i32 } %35, 0
+  tail call void @__clang_call_terminate(ptr %36) #48
   unreachable
 
-"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit": ; preds = %19, %23, %26, %28, %33
+"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit": ; preds = %19, %23, %25, %27, %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #31
   ret void
 }
@@ -11685,7 +11684,7 @@ define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZZNS_14SingletonV
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !426
+  %6 = load ptr, ptr %5, align 8, !tbaa !424
   %7 = load ptr, ptr %6, align 8, !tbaa !408
   %8 = atomicrmw sub ptr %7, i64 1 seq_cst, align 8
   %9 = icmp eq i64 %8, 1
@@ -11693,8 +11692,8 @@ define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZZNS_14SingletonV
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !423
-  %13 = load ptr, ptr %12, align 8, !tbaa !425
+  %12 = load ptr, ptr %11, align 8, !tbaa !426
+  %13 = load ptr, ptr %12, align 8, !tbaa !423
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZZNS_14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEvEUlvE_Lb1EE7executeEv.exit", label %14
 
@@ -25053,10 +25052,10 @@ attributes #54 = { nounwind willreturn memory(none) }
 !420 = !{!"_ZTSZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEE3$_0", !421, i64 0, !422, i64 16, !241, i64 24}
 !421 = !{!"_ZTSSt10shared_ptrISt6atomicImEE", !409, i64 0}
 !422 = !{!"p1 _ZTSN5folly5BatonILb1ESt6atomicEE", !10, i64 0}
-!423 = !{!424, !418, i64 8}
-!424 = !{!"_ZTSZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEvEUlvE_", !416, i64 0, !418, i64 8}
-!425 = !{!422, !422, i64 0}
-!426 = !{!424, !416, i64 0}
+!423 = !{!422, !422, i64 0}
+!424 = !{!425, !416, i64 0}
+!425 = !{!"_ZTSZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEvEUlvE_", !416, i64 0, !418, i64 8}
+!426 = !{!425, !418, i64 8}
 !427 = !{!428, !34, i64 8}
 !428 = !{!"_ZTSSt11unique_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEE", !429, i64 0, !34, i64 8}
 !429 = !{!"p1 _ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEE", !10, i64 0}

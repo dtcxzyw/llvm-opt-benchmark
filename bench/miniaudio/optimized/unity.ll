@@ -66544,14 +66544,15 @@ ma_malloc.exit:                                   ; preds = %1
   store i32 %21, ptr %22, align 4, !tbaa !1444
   %23 = icmp eq i32 %17, 5
   %spec.select = select i1 %23, i32 3, i32 1
+  %spec.select19 = select i1 %23, i16 3, i16 1
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %spec.select, ptr %24, align 4, !tbaa !1445
-  %25 = load ptr, ptr %4, align 8, !tbaa !1446
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !1447
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !1448
-  %30 = load ptr, ptr %3, align 8, !tbaa !1449
+  %25 = load ptr, ptr %3, align 8, !tbaa !1446
+  %26 = load ptr, ptr %4, align 8, !tbaa !1447
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = load ptr, ptr %27, align 8, !tbaa !1448
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = load ptr, ptr %29, align 8, !tbaa !1449
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %7, i8 0, i64 400, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @ma_encoder__internal_on_write_wav, ptr %31, align 8, !tbaa !1149
@@ -66560,56 +66561,55 @@ ma_malloc.exit:                                   ; preds = %1
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %33, align 8, !tbaa !1143
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %30, ptr %34, align 8, !tbaa !27
+  store ptr %25, ptr %34, align 8, !tbaa !27
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %25, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !27
+  store ptr %26, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !27
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %27, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !27
+  store ptr %28, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !27
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %29, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !tbaa !27
-  %35 = icmp eq ptr %29, null
+  store ptr %30, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !tbaa !27
+  %35 = icmp eq ptr %30, null
   br i1 %35, label %ma_malloc.exit.thread, label %36
 
 36:                                               ; preds = %9
-  %37 = icmp eq ptr %25, null
-  %38 = icmp eq ptr %27, null
+  %37 = icmp eq ptr %26, null
+  %38 = icmp eq ptr %28, null
   %or.cond55.i.i = select i1 %37, i1 %38, i1 false
   br i1 %or.cond55.i.i, label %ma_malloc.exit.thread, label %ma_dr_wav_init_write.exit
 
 ma_dr_wav_init_write.exit:                        ; preds = %36
-  %39 = trunc nuw nsw i32 %spec.select to i16
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  store i16 %39, ptr %40, align 4, !tbaa !1450
-  %41 = trunc i32 %11 to i16
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 70
-  store i16 %41, ptr %42, align 2, !tbaa !1162
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store i32 %14, ptr %43, align 4, !tbaa !1451
-  %44 = mul i32 %21, %11
-  %45 = mul i32 %44, %14
-  %46 = lshr exact i32 %45, 3
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 76
-  store i32 %46, ptr %47, align 4, !tbaa !1452
-  %48 = lshr exact i32 %44, 3
-  %49 = trunc i32 %48 to i16
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 %49, ptr %50, align 4, !tbaa !1163
-  %51 = trunc i32 %21 to i16
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 82
-  store i16 %51, ptr %52, align 2, !tbaa !1453
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  store i32 0, ptr %53, align 8, !tbaa !1152
-  %54 = call fastcc i32 @ma_dr_wav_init_write__internal(ptr noundef nonnull %7, ptr noundef nonnull readonly %2, i64 noundef 0)
-  %.not = icmp eq i32 %54, 0
-  br i1 %.not, label %ma_malloc.exit.thread, label %55
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 68
+  store i16 %spec.select19, ptr %39, align 4, !tbaa !1450
+  %40 = trunc i32 %11 to i16
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 70
+  store i16 %40, ptr %41, align 2, !tbaa !1162
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store i32 %14, ptr %42, align 4, !tbaa !1451
+  %43 = mul i32 %21, %11
+  %44 = mul i32 %43, %14
+  %45 = lshr exact i32 %44, 3
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 76
+  store i32 %45, ptr %46, align 4, !tbaa !1452
+  %47 = lshr exact i32 %43, 3
+  %48 = trunc i32 %47 to i16
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i16 %48, ptr %49, align 4, !tbaa !1163
+  %50 = trunc i32 %21 to i16
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 82
+  store i16 %50, ptr %51, align 2, !tbaa !1453
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  store i32 0, ptr %52, align 8, !tbaa !1152
+  %53 = call fastcc i32 @ma_dr_wav_init_write__internal(ptr noundef nonnull %7, ptr noundef nonnull readonly %2, i64 noundef 0)
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %ma_malloc.exit.thread, label %54
 
-55:                                               ; preds = %ma_dr_wav_init_write.exit
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %7, ptr %56, align 8, !tbaa !1454
+54:                                               ; preds = %ma_dr_wav_init_write.exit
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %7, ptr %55, align 8, !tbaa !1454
   br label %ma_malloc.exit.thread
 
-ma_malloc.exit.thread:                            ; preds = %36, %9, %1, %ma_dr_wav_init_write.exit, %ma_malloc.exit, %55
-  %.0 = phi i32 [ 0, %55 ], [ -4, %ma_malloc.exit ], [ -1, %ma_dr_wav_init_write.exit ], [ -4, %1 ], [ -1, %9 ], [ -1, %36 ]
+ma_malloc.exit.thread:                            ; preds = %36, %9, %1, %ma_dr_wav_init_write.exit, %ma_malloc.exit, %54
+  %.0 = phi i32 [ 0, %54 ], [ -4, %ma_malloc.exit ], [ -1, %ma_dr_wav_init_write.exit ], [ -4, %1 ], [ -1, %9 ], [ -1, %36 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #68
   ret i32 %.0
 }
@@ -151119,10 +151119,10 @@ attributes #81 = { nounwind allocsize(1) }
 !1443 = !{!1430, !4, i64 4}
 !1444 = !{!1438, !4, i64 16}
 !1445 = !{!1438, !4, i64 4}
-!1446 = !{!1430, !20, i64 24}
-!1447 = !{!1430, !20, i64 32}
-!1448 = !{!1430, !20, i64 40}
-!1449 = !{!1430, !20, i64 16}
+!1446 = !{!1430, !20, i64 16}
+!1447 = !{!1430, !20, i64 24}
+!1448 = !{!1430, !20, i64 32}
+!1449 = !{!1430, !20, i64 40}
 !1450 = !{!1129, !335, i64 68}
 !1451 = !{!1129, !4, i64 72}
 !1452 = !{!1129, !4, i64 76}

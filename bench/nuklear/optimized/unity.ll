@@ -22758,17 +22758,17 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %24, %26
   br label %72
 
 72:                                               ; preds = %._crit_edge, %63, %69
-  %73 = phi ptr [ null, %._crit_edge ], [ null, %63 ], [ %68, %69 ]
-  %74 = phi ptr [ %.pre, %._crit_edge ], [ %.pre63, %63 ], [ %.pre63, %69 ]
+  %73 = phi ptr [ %.pre63, %63 ], [ %.pre63, %69 ], [ %.pre, %._crit_edge ]
+  %74 = phi ptr [ null, %63 ], [ %68, %69 ], [ null, %._crit_edge ]
   %75 = load ptr, ptr %0, align 8, !tbaa !417
   %.val47 = load ptr, ptr %75, align 8
   %76 = getelementptr i8, ptr %75, i64 16
   %.val48 = load ptr, ptr %76, align 8, !tbaa !429
-  call void %.val48(ptr %.val47, ptr noundef %74) #55
+  call void %.val48(ptr %.val47, ptr noundef %73) #55
   br label %77
 
 77:                                               ; preds = %72, %20
-  %.0 = phi ptr [ null, %20 ], [ %73, %72 ]
+  %.0 = phi ptr [ null, %20 ], [ %74, %72 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #55
   ret ptr %.0

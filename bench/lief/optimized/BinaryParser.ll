@@ -43283,7 +43283,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @_ZN6spdlog6logger4log_IJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %159, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %3, i32 noundef 4, ptr nonnull @.str.235, i64 65, ptr noundef nonnull align 8 dereferenceable(32) %158)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !417
   br label %172
 
 160:                                              ; preds = %137
@@ -43310,20 +43309,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %172
 
 172:                                              ; preds = %156, %160, %34, %105, %129
-  %173 = phi ptr [ %.lcssa97, %129 ], [ %.lcssa97, %105 ], [ %.lcssa97, %34 ], [ %.pre, %156 ], [ %.lcssa97, %160 ]
   %.sroa.077.sroa.0.0 = phi i64 [ %136, %129 ], [ 0, %105 ], [ 0, %34 ], [ 7, %156 ], [ %171, %160 ]
   %.sroa.077.sroa.4.0 = phi i64 [ %.sroa.077.sroa.4.0.extract.shift94, %129 ], [ 4294967296, %105 ], [ 4294967296, %34 ], [ 0, %156 ], [ %.sroa.077.sroa.4.0.extract.shift8093, %160 ]
-  %.not.i.i.i = icmp eq ptr %173, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit, label %174
+  %.not.i.i.i = icmp eq ptr %.lcssa97, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit, label %173
 
-174:                                              ; preds = %172
-  %175 = ptrtoint ptr %35 to i64
-  %176 = ptrtoint ptr %173 to i64
-  %177 = sub i64 %175, %176
-  call void @_ZdlPvm(ptr noundef nonnull %173, i64 noundef %177) #27
+173:                                              ; preds = %172
+  %174 = ptrtoint ptr %35 to i64
+  %175 = ptrtoint ptr %.lcssa97 to i64
+  %176 = sub i64 %174, %175
+  call void @_ZdlPvm(ptr noundef nonnull %.lcssa97, i64 noundef %176) #27
   br label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit: ; preds = %172, %174
+_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit: ; preds = %172, %173
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
   %.sroa.077.sroa.0.0.insert.ext = and i64 %.sroa.077.sroa.0.0, 4294967295
   %.sroa.077.sroa.0.0.insert.insert = or disjoint i64 %.sroa.077.sroa.4.0, %.sroa.077.sroa.0.0.insert.ext
@@ -63447,7 +63445,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @_ZN6spdlog6logger4log_IJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %159, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %3, i32 noundef 4, ptr nonnull @.str.235, i64 65, ptr noundef nonnull align 8 dereferenceable(32) %158)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !417
   br label %172
 
 160:                                              ; preds = %137
@@ -63474,20 +63471,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %172
 
 172:                                              ; preds = %156, %160, %34, %105, %129
-  %173 = phi ptr [ %.lcssa97, %129 ], [ %.lcssa97, %105 ], [ %.lcssa97, %34 ], [ %.pre, %156 ], [ %.lcssa97, %160 ]
   %.sroa.077.sroa.0.0 = phi i64 [ %136, %129 ], [ 0, %105 ], [ 0, %34 ], [ 7, %156 ], [ %171, %160 ]
   %.sroa.077.sroa.4.0 = phi i64 [ %.sroa.077.sroa.4.0.extract.shift94, %129 ], [ 4294967296, %105 ], [ 4294967296, %34 ], [ 0, %156 ], [ %.sroa.077.sroa.4.0.extract.shift8093, %160 ]
-  %.not.i.i.i = icmp eq ptr %173, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit, label %174
+  %.not.i.i.i = icmp eq ptr %.lcssa97, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit, label %173
 
-174:                                              ; preds = %172
-  %175 = ptrtoint ptr %35 to i64
-  %176 = ptrtoint ptr %173 to i64
-  %177 = sub i64 %175, %176
-  call void @_ZdlPvm(ptr noundef nonnull %173, i64 noundef %177) #27
+173:                                              ; preds = %172
+  %174 = ptrtoint ptr %35 to i64
+  %175 = ptrtoint ptr %.lcssa97 to i64
+  %176 = sub i64 %174, %175
+  call void @_ZdlPvm(ptr noundef nonnull %.lcssa97, i64 noundef %176) #27
   br label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit: ; preds = %172, %174
+_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit: ; preds = %172, %173
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
   %.sroa.077.sroa.0.0.insert.ext = and i64 %.sroa.077.sroa.0.0, 4294967295
   %.sroa.077.sroa.0.0.insert.insert = or disjoint i64 %.sroa.077.sroa.4.0, %.sroa.077.sroa.0.0.insert.ext

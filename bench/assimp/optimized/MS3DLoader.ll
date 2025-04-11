@@ -1308,8 +1308,8 @@ define hidden void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0
   br label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
 
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %13, %3
-  %30 = phi ptr [ %23, %13 ], [ null, %3 ]
-  %31 = phi ptr [ %21, %13 ], [ null, %3 ]
+  %30 = phi ptr [ null, %3 ], [ %23, %13 ]
+  %31 = phi ptr [ null, %3 ], [ %21, %13 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #26
   store float 1.000000e+00, ptr %5, align 4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 4

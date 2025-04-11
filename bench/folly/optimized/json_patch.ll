@@ -3445,11 +3445,11 @@ define void @_ZNK5folly10json_patch5applyERNS_7dynamicE(ptr dead_on_unwind noali
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.510.0..sroa_idx.i96 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.6.0..sroa_idx.i97 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.513.0..sroa_idx.i99 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.412.0..sroa_idx.i100 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.614.0..sroa_idx.i101 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 40
   br label %24
 
 24:                                               ; preds = %.lr.ph, %119
@@ -3645,12 +3645,12 @@ _ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit: ; preds = %77
 _ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit108: ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit
   %86 = load ptr, ptr %5, align 8, !tbaa !128, !noalias !145
   %87 = load ptr, ptr %20, align 8, !tbaa !131, !noalias !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i97, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  %88 = load i64, ptr %23, align 8, !tbaa !132, !noalias !145
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.513.0..sroa_idx.i99, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
+  %88 = load i64, ptr %22, align 8, !tbaa !132, !noalias !145
   store ptr %86, ptr %8, align 8, !tbaa !14, !alias.scope !145
-  store ptr %87, ptr %.sroa.510.0..sroa_idx.i96, align 8, !tbaa !14, !alias.scope !145
+  store ptr %87, ptr %.sroa.412.0..sroa_idx.i100, align 8, !tbaa !14, !alias.scope !145
   store i64 %88, ptr %.sroa.614.0..sroa_idx.i101, align 8, !tbaa !61, !alias.scope !145
-  store i8 1, ptr %22, align 8, !tbaa !133, !alias.scope !145
+  store i8 1, ptr %23, align 8, !tbaa !133, !alias.scope !145
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #27, !noalias !145
   %89 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly12json_pointer6tokensB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8

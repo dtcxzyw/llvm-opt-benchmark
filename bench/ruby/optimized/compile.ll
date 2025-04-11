@@ -112538,7 +112538,7 @@ define internal fastcc void @pm_compile_branch_condition(ptr noundef %0, ptr nou
   %37 = load i32, ptr %36, align 8, !tbaa !189
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8, !tbaa !189
-  br label %116
+  br label %112
 
 39:                                               ; preds = %21, %21, %21, %21, %21, %21, %21, %21, %21
   %40 = ptrtoint ptr %3 to i64
@@ -112554,18 +112554,16 @@ define internal fastcc void @pm_compile_branch_condition(ptr noundef %0, ptr nou
   %47 = load i32, ptr %46, align 8, !tbaa !189
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 8, !tbaa !189
-  br label %116
+  br label %112
 
 49:                                               ; preds = %21
   tail call fastcc void @pm_compile_flip_flop(ptr noundef nonnull %.0, ptr noundef %4, ptr noundef %3, ptr noundef %0, ptr noundef %1, i1 noundef zeroext %5, ptr noundef %6)
-  br label %116
+  br label %112
 
 50:                                               ; preds = %21
   %51 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %52 = load ptr, ptr %51, align 8, !tbaa !526
   call fastcc void @pm_compile_defined_expr(ptr noundef %0, ptr noundef %52, ptr noundef %8, ptr noundef %1, i1 noundef zeroext %5, ptr noundef %6, i1 noundef zeroext true)
-  %.pre = load i32, ptr %8, align 4, !tbaa !469
-  %.pre89 = load i32, ptr %18, align 4, !tbaa !472
   br label %94
 
 53:                                               ; preds = %21
@@ -112651,7 +112649,7 @@ ELEM_FIRST_INSN.exit:                             ; preds = %.lr.ph.i, %LIST_INS
   %87 = add i32 %86, 1
   store i32 %87, ptr %85, align 8, !tbaa !189
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #38
-  br label %116
+  br label %112
 
 .critedge69:                                      ; preds = %60, %.lr.ph.i5.i, %ELEM_FIRST_INSN.exit
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -112670,38 +112668,34 @@ APPEND_LIST.exit:                                 ; preds = %53, %.critedge69
   br label %94
 
 94:                                               ; preds = %APPEND_LIST.exit, %50
-  %95 = phi i32 [ %20, %APPEND_LIST.exit ], [ %.pre89, %50 ]
-  %96 = phi i32 [ %17, %APPEND_LIST.exit ], [ %.pre, %50 ]
-  %97 = ptrtoint ptr %4 to i64
-  %98 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %96, i32 noundef %95, i32 noundef 73, i32 noundef 1, i64 noundef %97)
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %100 = load ptr, ptr %99, align 8, !tbaa !7
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  store ptr %100, ptr %101, align 8, !tbaa !35
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store ptr %98, ptr %102, align 8, !tbaa !36
-  store ptr %98, ptr %99, align 8, !tbaa !7
-  %103 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %104 = load i32, ptr %103, align 8, !tbaa !189
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %103, align 8, !tbaa !189
-  %106 = load i32, ptr %8, align 4, !tbaa !469
-  %107 = load i32, ptr %18, align 4, !tbaa !472
-  %108 = ptrtoint ptr %3 to i64
-  %109 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %106, i32 noundef %107, i32 noundef 71, i32 noundef 1, i64 noundef %108)
-  %110 = load ptr, ptr %99, align 8, !tbaa !7
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  store ptr %110, ptr %111, align 8, !tbaa !35
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store ptr %109, ptr %112, align 8, !tbaa !36
-  store ptr %109, ptr %99, align 8, !tbaa !7
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %114 = load i32, ptr %113, align 8, !tbaa !189
-  %115 = add i32 %114, 1
-  store i32 %115, ptr %113, align 8, !tbaa !189
-  br label %116
+  %95 = ptrtoint ptr %4 to i64
+  %96 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %17, i32 noundef %20, i32 noundef 73, i32 noundef 1, i64 noundef %95)
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %98 = load ptr, ptr %97, align 8, !tbaa !7
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  store ptr %98, ptr %99, align 8, !tbaa !35
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store ptr %96, ptr %100, align 8, !tbaa !36
+  store ptr %96, ptr %97, align 8, !tbaa !7
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %102 = load i32, ptr %101, align 8, !tbaa !189
+  %103 = add i32 %102, 1
+  store i32 %103, ptr %101, align 8, !tbaa !189
+  %104 = ptrtoint ptr %3 to i64
+  %105 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %17, i32 noundef %20, i32 noundef 71, i32 noundef 1, i64 noundef %104)
+  %106 = load ptr, ptr %97, align 8, !tbaa !7
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  store ptr %106, ptr %107, align 8, !tbaa !35
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  store ptr %105, ptr %108, align 8, !tbaa !36
+  store ptr %105, ptr %97, align 8, !tbaa !7
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %110 = load i32, ptr %109, align 8, !tbaa !189
+  %111 = add i32 %110, 1
+  store i32 %111, ptr %109, align 8, !tbaa !189
+  br label %112
 
-116:                                              ; preds = %74, %94, %49, %39, %29
+112:                                              ; preds = %74, %94, %49, %39, %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #38
   ret void
 }

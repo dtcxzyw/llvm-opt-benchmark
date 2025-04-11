@@ -23833,7 +23833,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit: ; preds = %2
 23:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %69
+  br label %68
 
 25:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit
   %26 = extractvalue { ptr, ptr } %22, 0
@@ -23866,7 +23866,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit: ; preds = %2
 38:                                               ; preds = %54, %37, %25
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %69
+  br label %68
 
 "_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h091d6e240211365bE.exit": ; preds = %.noexc6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4646)
@@ -23912,7 +23912,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit: ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4671)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4674)
   %57 = icmp eq i64 %41, 0
-  br i1 %57, label %69, label %58
+  br i1 %57, label %68, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -23921,12 +23921,12 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit: ; preds = %2
   %60 = load ptr, ptr %59, align 8, !alias.scope !4683, !noalias !4652, !nonnull !5, !noundef !5
   %61 = atomicrmw sub ptr %60, i64 1 release, align 8, !noalias !4684
   %62 = icmp eq i64 %61, 1
-  br i1 %62, label %63, label %69
+  br i1 %62, label %63, label %68
 
 63:                                               ; preds = %58
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha8060cba057c4121E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %59)
-          to label %69 unwind label %64, !noalias !4655
+          to label %68 unwind label %64, !noalias !4655
 
 64:                                               ; preds = %63
   %65 = landingpad { ptr, i32 }
@@ -23936,28 +23936,27 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit: ; preds = %2
 
 66:                                               ; preds = %49, %47, %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h091d6e240211365bE.exit", %54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !4652
-  %67 = load ptr, ptr %5, align 8, !nonnull !5, !align !6, !noundef !5
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 656
+  %67 = getelementptr inbounds nuw i8, ptr %26, i64 656
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @_ZN4gpui3app10entity_map9EntityMap9end_lease17h30685379db5ebe88E(ptr noalias noundef nonnull align 8 dereferenceable(40) %68, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
+  call void @_ZN4gpui3app10entity_map9EntityMap9end_lease17h30685379db5ebe88E(ptr noalias noundef nonnull align 8 dereferenceable(40) %67, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
-69:                                               ; preds = %23, %38, %63, %58, %55
+68:                                               ; preds = %23, %38, %63, %58, %55
   %.pn.ph = phi { ptr, i32 } [ %24, %23 ], [ %39, %38 ], [ %56, %63 ], [ %56, %58 ], [ %56, %55 ]
   invoke void @"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..Lease$LT$recent_projects..ssh_connections..SshPrompt$GT$$GT$17heaece228fe351abdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #49
-          to label %72 unwind label %70
+          to label %71 unwind label %69
 
-70:                                               ; preds = %69
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %68
+  %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
   unreachable
 
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   resume { ptr, i32 } %.pn.ph
 }
 
@@ -28673,7 +28672,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit: ; preds = %2
 23:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %69
+  br label %68
 
 25:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit
   %26 = extractvalue { ptr, ptr } %22, 0
@@ -28706,7 +28705,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit: ; preds = %2
 38:                                               ; preds = %54, %37, %25
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %69
+  br label %68
 
 "_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h091d6e240211365bE.exit": ; preds = %.noexc6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5503)
@@ -28752,7 +28751,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit: ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5528)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5531)
   %57 = icmp eq i64 %41, 0
-  br i1 %57, label %69, label %58
+  br i1 %57, label %68, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -28761,12 +28760,12 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit: ; preds = %2
   %60 = load ptr, ptr %59, align 8, !alias.scope !5540, !noalias !5509, !nonnull !5, !noundef !5
   %61 = atomicrmw sub ptr %60, i64 1 release, align 8, !noalias !5541
   %62 = icmp eq i64 %61, 1
-  br i1 %62, label %63, label %69
+  br i1 %62, label %63, label %68
 
 63:                                               ; preds = %58
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha8060cba057c4121E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %59)
-          to label %69 unwind label %64, !noalias !5512
+          to label %68 unwind label %64, !noalias !5512
 
 64:                                               ; preds = %63
   %65 = landingpad { ptr, i32 }
@@ -28776,28 +28775,27 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h09e83ab6182cbc49E.exit: ; preds = %2
 
 66:                                               ; preds = %49, %47, %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h091d6e240211365bE.exit", %54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !5509
-  %67 = load ptr, ptr %5, align 8, !nonnull !5, !align !6, !noundef !5
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 656
+  %67 = getelementptr inbounds nuw i8, ptr %26, i64 656
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @_ZN4gpui3app10entity_map9EntityMap9end_lease17h30685379db5ebe88E(ptr noalias noundef nonnull align 8 dereferenceable(40) %68, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
+  call void @_ZN4gpui3app10entity_map9EntityMap9end_lease17h30685379db5ebe88E(ptr noalias noundef nonnull align 8 dereferenceable(40) %67, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
-69:                                               ; preds = %23, %38, %63, %58, %55
+68:                                               ; preds = %23, %38, %63, %58, %55
   %.pn.ph = phi { ptr, i32 } [ %24, %23 ], [ %39, %38 ], [ %56, %63 ], [ %56, %58 ], [ %56, %55 ]
   invoke void @"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..Lease$LT$recent_projects..ssh_connections..SshPrompt$GT$$GT$17heaece228fe351abdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #49
-          to label %72 unwind label %70
+          to label %71 unwind label %69
 
-70:                                               ; preds = %69
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %68
+  %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
   unreachable
 
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   resume { ptr, i32 } %.pn.ph
 }
 

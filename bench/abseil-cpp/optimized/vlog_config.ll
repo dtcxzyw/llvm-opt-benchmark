@@ -539,12 +539,12 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %_ZN4absl9MutexLockC
 69:                                               ; preds = %61
   %70 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %102
 
 71:                                               ; preds = %64
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %102
 
 73:                                               ; preds = %64, %.lr.ph
   %.119 = phi ptr [ %.01848, %.lr.ph ], [ %63, %64 ]
@@ -596,12 +596,12 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %85
 .loopexit44:                                      ; preds = %85
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %102
 
 .loopexit.split-lp:                               ; preds = %84
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %102
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFvvEEclEv.exit, %78, %._crit_edge
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_119GetUpdateSitesMutexEvE18update_sites_mutex)
@@ -615,66 +615,60 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %85
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %.loopexit
-  %92 = load ptr, ptr %2, align 8, !tbaa !40
-  %93 = load ptr, ptr %17, align 8, !tbaa !42
-  %.not4.i.i.i.i = icmp eq ptr %92, %93
+  %.not4.i.i.i.i = icmp eq ptr %16, %.0.lcssa.i.i.i.i.i
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4absl9MutexLockD2Ev.exit, %_ZSt8_DestroyIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %102, %_ZSt8_DestroyIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEvPT_.exit.i.i.i.i ], [ %92, %_ZN4absl9MutexLockD2Ev.exit ]
-  %94 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !37
-  %95 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %96 = icmp eq ptr %94, %95
-  br i1 %96, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %100, %_ZSt8_DestroyIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEvPT_.exit.i.i.i.i ], [ %16, %_ZN4absl9MutexLockD2Ev.exit ]
+  %92 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !37
+  %93 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
+  %94 = icmp eq ptr %92, %93
+  br i1 %94, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %98 = load i64, ptr %97, align 8, !tbaa !38
-  %99 = icmp ult i64 %98, 16
-  call void @llvm.assume(i1 %99)
+  %95 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %96 = load i64, ptr %95, align 8, !tbaa !38
+  %97 = icmp ult i64 %96, 16
+  call void @llvm.assume(i1 %97)
   br label %_ZSt8_DestroyIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEvPT_.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %100 = load i64, ptr %95, align 8, !tbaa !27
-  %101 = add i64 %100, 1
-  call void @_ZdlPvm(ptr noundef %94, i64 noundef %101) #26
+  %98 = load i64, ptr %93, align 8, !tbaa !27
+  %99 = add i64 %98, 1
+  call void @_ZdlPvm(ptr noundef %92, i64 noundef %99) #26
   br label %_ZSt8_DestroyIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
-  %102 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40
-  %.not.i.i.i.i32 = icmp eq ptr %102, %93
+  %100 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40
+  %.not.i.i.i.i32 = icmp eq ptr %100, %.0.lcssa.i.i.i.i.i
   br i1 %.not.i.i.i.i32, label %_ZSt8_DestroyIPN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !59
 
 _ZSt8_DestroyIPN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEvPT_.exit.i.i.i.i, %_ZN4absl9MutexLockD2Ev.exit
-  %.not.i.i.i34 = icmp eq ptr %92, null
-  br i1 %.not.i.i.i34, label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.exit, label %103
+  %.not.i.i.i34 = icmp eq ptr %16, null
+  br i1 %.not.i.i.i34, label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.exit, label %101
 
-103:                                              ; preds = %_ZSt8_DestroyIPN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_EvT_S5_RSaIT0_E.exit.i
-  %.val1.i = load ptr, ptr %19, align 8, !tbaa !43
-  %104 = ptrtoint ptr %.val1.i to i64
-  %105 = ptrtoint ptr %92 to i64
-  %106 = sub i64 %104, %105
-  call void @_ZdlPvm(ptr noundef nonnull %92, i64 noundef %106) #26
+101:                                              ; preds = %_ZSt8_DestroyIPN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_EvT_S5_RSaIT0_E.exit.i
+  call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %10) #26
   br label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_EvT_S5_RSaIT0_E.exit.i, %103
+_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4absl12log_internal12_GLOBAL__N_111VModuleInfoES3_EvT_S5_RSaIT0_E.exit.i, %101
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #21
   ret void
 
-107:                                              ; preds = %.loopexit44, %.loopexit.split-lp, %71, %69
+102:                                              ; preds = %.loopexit44, %.loopexit.split-lp, %71, %69
   %.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %72, %71 ], [ %lpad.loopexit, %.loopexit44 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_119GetUpdateSitesMutexEvE18update_sites_mutex)
-          to label %_ZN4absl9MutexLockD2Ev.exit36 unwind label %108
+          to label %_ZN4absl9MutexLockD2Ev.exit36 unwind label %103
 
-108:                                              ; preds = %107
-  %109 = landingpad { ptr, i32 }
+103:                                              ; preds = %102
+  %104 = landingpad { ptr, i32 }
           catch ptr null
-  %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #23
+  %105 = extractvalue { ptr, i32 } %104, 0
+  call void @__clang_call_terminate(ptr %105) #23
   unreachable
 
-_ZN4absl9MutexLockD2Ev.exit36:                    ; preds = %107, %67
-  %.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn, %107 ]
+_ZN4absl9MutexLockD2Ev.exit36:                    ; preds = %102, %67
+  %.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn, %102 ]
   call fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #21
   br label %common.resume
