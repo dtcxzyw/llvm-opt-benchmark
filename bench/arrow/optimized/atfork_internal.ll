@@ -1370,16 +1370,16 @@ _ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i: ; preds = %9, %6, %0
   %21 = load ptr, ptr %20, align 8, !tbaa !67
   store ptr %21, ptr %19, align 8, !tbaa !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %.not18.i.i = icmp eq ptr %18, %15
-  br i1 %.not18.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE0_clEv.exit", label %.lr.ph.i.i
+  %.not19.i.i = icmp eq ptr %18, %15
+  br i1 %.not19.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE0_clEv.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %23
 
 23:                                               ; preds = %_ZNSt3anyD2Ev.exit.i.i, %.lr.ph.i.i
-  %.sroa.017.019.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %24, %_ZNSt3anyD2Ev.exit.i.i ]
-  %24 = getelementptr inbounds i8, ptr %.sroa.017.019.i.i, i64 -32
+  %.sroa.017.020.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %24, %_ZNSt3anyD2Ev.exit.i.i ]
+  %24 = getelementptr inbounds i8, ptr %.sroa.017.020.i.i, i64 -32
   %25 = load ptr, ptr %24, align 8, !tbaa !63
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 48
@@ -1388,7 +1388,7 @@ _ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i: ; preds = %9, %6, %0
   br i1 %.not.i.i13.not.i.i, label %_ZNSt3anyD2Ev.exit.i.i, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %.sroa.017.019.i.i, i64 -16
+  %30 = getelementptr inbounds i8, ptr %.sroa.017.020.i.i, i64 -16
   store ptr null, ptr %22, align 8, !tbaa !20
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   %.not.i.i.i = icmp eq ptr %31, null
@@ -1639,16 +1639,16 @@ _ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i: ; preds = %9, %6, %0
   %21 = load ptr, ptr %20, align 8, !tbaa !67
   store ptr %21, ptr %19, align 8, !tbaa !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %.not16.i.i = icmp eq ptr %18, %15
-  br i1 %.not16.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE1_clEv.exit", label %.lr.ph.i.i
+  %.not17.i.i = icmp eq ptr %18, %15
+  br i1 %.not17.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE1_clEv.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %23
 
 23:                                               ; preds = %_ZNSt3anyD2Ev.exit.i.i, %.lr.ph.i.i
-  %.sroa.015.017.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %24, %_ZNSt3anyD2Ev.exit.i.i ]
-  %24 = getelementptr inbounds i8, ptr %.sroa.015.017.i.i, i64 -32
+  %.sroa.015.018.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %24, %_ZNSt3anyD2Ev.exit.i.i ]
+  %24 = getelementptr inbounds i8, ptr %.sroa.015.018.i.i, i64 -32
   %25 = load ptr, ptr %24, align 8, !tbaa !63
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 80
@@ -1657,7 +1657,7 @@ _ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i: ; preds = %9, %6, %0
   br i1 %.not.i.i11.not.i.i, label %_ZNSt3anyD2Ev.exit.i.i, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %.sroa.015.017.i.i, i64 -16
+  %30 = getelementptr inbounds i8, ptr %.sroa.015.018.i.i, i64 -16
   store ptr null, ptr %22, align 8, !tbaa !20
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   %.not.i.i.i = icmp eq ptr %31, null

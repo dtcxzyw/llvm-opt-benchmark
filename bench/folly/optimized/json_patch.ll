@@ -3445,9 +3445,9 @@ define void @_ZNK5folly10json_patch5applyERNS_7dynamicE(ptr dead_on_unwind noali
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.513.0..sroa_idx.i99 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sroa.412.0..sroa_idx.i100 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.510.0..sroa_idx.i96 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.6.0..sroa_idx.i97 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.614.0..sroa_idx.i101 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 40
   br label %24

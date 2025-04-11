@@ -641,9 +641,9 @@ define internal noundef zeroext i1 @ngsniffer_read(ptr noundef readonly captures
 ._crit_edge:                                      ; preds = %40, %5
   %16 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %.thread27, label %read_rec_header.exit.thread
+  br i1 %.not.i, label %.thread52, label %read_rec_header.exit.thread
 
-.thread27:                                        ; preds = %._crit_edge
+.thread52:                                        ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #12
   br label %35
@@ -664,7 +664,7 @@ define internal noundef zeroext i1 @ngsniffer_read(ptr noundef readonly captures
 read_rec_header.exit.thread:                      ; preds = %._crit_edge, %19, %22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #12
-  br label %.loopexit
+  br label %.loopexit27
 
 23:                                               ; preds = %17
   %.val14.i = load i16, ptr %6, align 2
@@ -682,7 +682,7 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %19, %
   store i16 %.val.i, ptr %15, align 2
   store i16 %.val14.i, ptr %8, align 2
   %25 = call fastcc zeroext i1 @process_frame_record(ptr noundef %0, i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br i1 %25, label %26, label %.loopexit
+  br i1 %25, label %26, label %.loopexit27
 
 26:                                               ; preds = %24
   %27 = load i32, ptr %9, align 4
@@ -691,10 +691,10 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %19, %
 
 28:                                               ; preds = %26
   %29 = call fastcc zeroext i1 @ng_skip_bytes_seq(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3)
-  br i1 %29, label %30, label %.loopexit
+  br i1 %29, label %30, label %.loopexit27
 
 30:                                               ; preds = %28, %26
-  br label %.loopexit
+  br label %.loopexit27
 
 31:                                               ; preds = %23
   %.not = icmp eq i16 %.val.i, 0
@@ -703,11 +703,11 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %19, %
 32:                                               ; preds = %31
   %33 = zext i16 %.val.i to i32
   %34 = call fastcc zeroext i1 @ng_skip_bytes_seq(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %3)
-  br i1 %34, label %35, label %.loopexit
+  br i1 %34, label %35, label %.loopexit27
 
-35:                                               ; preds = %.thread27, %32, %31
+35:                                               ; preds = %.thread52, %32, %31
   store i32 0, ptr %2, align 4
-  br label %.loopexit
+  br label %.loopexit27
 
 36:                                               ; preds = %23
   %.not25 = icmp eq i16 %.val.i, 0
@@ -716,7 +716,7 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %19, %
 37:                                               ; preds = %36
   %38 = zext i16 %.val.i to i32
   %39 = call fastcc zeroext i1 @ng_skip_bytes_seq(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %3)
-  br i1 %39, label %40, label %.loopexit
+  br i1 %39, label %40, label %.loopexit27
 
 40:                                               ; preds = %36, %37
   %41 = load i64, ptr %12, align 8
@@ -726,7 +726,7 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %19, %
   %42 = call fastcc zeroext i1 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef nonnull %6, i32 noundef 2, i1 noundef zeroext false, ptr noundef %2, ptr noundef %3)
   br i1 %42, label %17, label %._crit_edge
 
-.loopexit:                                        ; preds = %37, %read_rec_header.exit.thread, %32, %28, %24, %35, %30
+.loopexit27:                                      ; preds = %37, %read_rec_header.exit.thread, %32, %28, %24, %35, %30
   %.0 = phi i1 [ false, %35 ], [ true, %30 ], [ false, %24 ], [ false, %28 ], [ false, %32 ], [ false, %read_rec_header.exit.thread ], [ false, %37 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12

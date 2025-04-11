@@ -24458,7 +24458,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %16, %15 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #44
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #44
-  br label %116
+  br label %126
 
 30:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #44
@@ -24513,7 +24513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           cleanup
   call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #44
-  br label %116
+  br label %126
 
 55:                                               ; preds = %2, %38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #44
@@ -24629,7 +24629,7 @@ _ZNK4Json5Value8CZStringeqERKS1_.exit:            ; preds = %84
 _ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit: ; preds = %.noexc
   %98 = load ptr, ptr %0, align 8, !tbaa !17
   %99 = invoke ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRS5_EEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %98, ptr %.08.lcssa.i.i.i32, ptr noundef nonnull align 8 dereferenceable(48) %8)
-          to label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit unwind label %114
+          to label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit unwind label %.body
 
 _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit: ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
   %100 = load ptr, ptr %0, align 8, !tbaa !17
@@ -24663,26 +24663,26 @@ _ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit:  ; preds = %_ZNSt3mapIN4Json5Va
           cleanup
   br label %.body
 
-114:                                              ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
-  %115 = landingpad { ptr, i32 }
+.body:                                            ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
+  %114 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #44
-  br label %.body
+  br label %114
 
-.body:                                            ; preds = %112, %97, %92, %89, %114
+115:                                              ; preds = %112, %97, %92, %89, %.body
   %.pn13 = phi { ptr, i32 } [ %115, %114 ], [ %113, %112 ], [ %90, %97 ], [ %90, %92 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #44
   br label %116
 
-_ZN4Json5Value8CZStringD2Ev.exit:                 ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, %82, %_ZNK4Json5Value8CZStringeqERKS1_.exit
-  %.pn17 = phi ptr [ %103, %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit ], [ %78, %82 ], [ %78, %_ZNK4Json5Value8CZStringeqERKS1_.exit ]
+_ZN4Json5Value8CZStringD2Ev.exit23:               ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, %82, %_ZNK4Json5Value8CZStringeqERKS1_.exit
+  %.pn1338 = phi ptr [ %103, %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit ], [ %78, %82 ], [ %78, %_ZNK4Json5Value8CZStringeqERKS1_.exit ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn17, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #44
   ret ptr %.0
 
-116:                                              ; preds = %.body, %53, %29
-  %.pn13.pn.pn = phi { ptr, i32 } [ %.pn13, %.body ], [ %54, %53 ], [ %.pn.pn, %29 ]
+126:                                              ; preds = %115, %53, %29
+  %.pn13.pn.pn = phi { ptr, i32 } [ %.pn13, %115 ], [ %54, %53 ], [ %.pn.pn, %29 ]
   resume { ptr, i32 } %.pn13.pn.pn
 }
 
@@ -24995,7 +24995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %16, %15 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #44
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #44
-  br label %119
+  br label %127
 
 30:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #44
@@ -25050,7 +25050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           cleanup
   call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #44
-  br label %119
+  br label %127
 
 55:                                               ; preds = %2, %38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #44
@@ -25124,7 +25124,7 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boun
 
 85:                                               ; preds = %80
   %86 = icmp eq i32 %84, %59
-  br i1 %86, label %_ZN4Json5Value8CZStringD2Ev.exit, label %.critedge
+  br i1 %86, label %120, label %.critedge
 
 87:                                               ; preds = %80
   %88 = lshr i32 %84, 2
@@ -25135,7 +25135,7 @@ _ZNK4Json5Value8CZStringeqERKS1_.exit:            ; preds = %87
   %89 = and i64 %56, 1073741823
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %82, ptr nonnull %1, i64 %89)
   %90 = icmp eq i32 %bcmp.i, 0
-  br i1 %90, label %_ZN4Json5Value8CZStringD2Ev.exit, label %.critedge
+  br i1 %90, label %120, label %.critedge
 
 .critedge:                                        ; preds = %87, %55, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit, %85, %_ZNK4Json5Value8CZStringeqERKS1_.exit
   %.08.lcssa.i.i.i34 = phi ptr [ %.19.i.i.i, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %.19.i.i.i, %85 ], [ %.19.i.i.i, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit ], [ %63, %55 ], [ %.19.i.i.i, %87 ]
@@ -25196,7 +25196,7 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_
 
 _ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit:  ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit, %109, %114
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #44
-  br label %_ZN4Json5Value8CZStringD2Ev.exit
+  br label %120
 
 115:                                              ; preds = %.critedge
   %116 = landingpad { ptr, i32 }
@@ -25213,16 +25213,16 @@ _ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit:  ; preds = %_ZNSt3mapIN4Json5Va
   %.pn16 = phi { ptr, i32 } [ %118, %117 ], [ %116, %115 ], [ %93, %100 ], [ %93, %95 ], [ %93, %92 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #44
-  br label %119
+  br label %127
 
-_ZN4Json5Value8CZStringD2Ev.exit:                 ; preds = %_ZNK4Json5Value8CZStringeqERKS1_.exit, %85, %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
+120:                                              ; preds = %_ZNK4Json5Value8CZStringeqERKS1_.exit, %85, %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
   %.pn20 = phi ptr [ %103, %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit ], [ %81, %85 ], [ %81, %_ZNK4Json5Value8CZStringeqERKS1_.exit ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn20, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #44
   ret ptr %.0
 
-119:                                              ; preds = %.body, %53, %29
-  %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16, %.body ], [ %54, %53 ], [ %.pn.pn, %29 ]
+127:                                              ; preds = %.body, %53, %29
+  %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16, %115 ], [ %54, %53 ], [ %.pn.pn, %29 ]
   resume { ptr, i32 } %.pn16.pn.pn
 }
 
@@ -25432,7 +25432,7 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boun
 
 89:                                               ; preds = %84
   %90 = icmp eq i32 %88, %63
-  br i1 %90, label %_ZN4Json5Value8CZStringD2Ev.exit, label %.critedge
+  br i1 %90, label %124, label %.critedge
 
 91:                                               ; preds = %84
   %92 = lshr i32 %88, 2
@@ -25443,7 +25443,7 @@ _ZNK4Json5Value8CZStringeqERKS1_.exit:            ; preds = %91
   %93 = and i64 %59, 1073741823
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %86, ptr %1, i64 %93)
   %94 = icmp eq i32 %bcmp.i, 0
-  br i1 %94, label %_ZN4Json5Value8CZStringD2Ev.exit, label %.critedge
+  br i1 %94, label %124, label %.critedge
 
 .critedge:                                        ; preds = %91, %56, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit, %89, %_ZNK4Json5Value8CZStringeqERKS1_.exit
   %.08.lcssa.i.i.i35 = phi ptr [ %.19.i.i.i, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %.19.i.i.i, %89 ], [ %.19.i.i.i, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit ], [ %67, %56 ], [ %.19.i.i.i, %91 ]
@@ -25504,7 +25504,7 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_
 
 _ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit:  ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit, %113, %118
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #44
-  br label %_ZN4Json5Value8CZStringD2Ev.exit
+  br label %120
 
 119:                                              ; preds = %.critedge
   %120 = landingpad { ptr, i32 }
@@ -25521,16 +25521,16 @@ _ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit:  ; preds = %_ZNSt3mapIN4Json5Va
   %.pn17 = phi { ptr, i32 } [ %122, %121 ], [ %120, %119 ], [ %97, %104 ], [ %97, %99 ], [ %97, %96 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #44
-  br label %123
+  br label %131
 
-_ZN4Json5Value8CZStringD2Ev.exit:                 ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, %89, %_ZNK4Json5Value8CZStringeqERKS1_.exit
+124:                                              ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, %89, %_ZNK4Json5Value8CZStringeqERKS1_.exit
   %.pn21 = phi ptr [ %107, %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit ], [ %85, %89 ], [ %85, %_ZNK4Json5Value8CZStringeqERKS1_.exit ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn21, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #44
   ret ptr %.0
 
-123:                                              ; preds = %.body, %54, %30
-  %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17, %.body ], [ %55, %54 ], [ %.pn.pn, %30 ]
+131:                                              ; preds = %.body, %54, %30
+  %.pn17.pn.pn = phi { ptr, i32 } [ %.pn1338, %115 ], [ %55, %54 ], [ %.pn.pn, %30 ]
   resume { ptr, i32 } %.pn17.pn.pn
 }
 

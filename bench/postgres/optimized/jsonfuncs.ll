@@ -8507,7 +8507,7 @@ define internal fastcc i64 @populate_composite(ptr noundef %0, i32 noundef %1, p
 update_cached_tupdesc.exit:                       ; preds = %17, %29, %35
   %36 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %118, label %38
+  br i1 %37, label %119, label %38
 
 38:                                               ; preds = %update_cached_tupdesc.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
@@ -8637,77 +8637,77 @@ get_json_object_as_hash.exit.i:                   ; preds = %70, %50
 95:                                               ; preds = %92, %90, %82, %get_json_object_as_hash.exit.i
   %96 = phi ptr [ undef, %92 ], [ undef, %90 ], [ %79, %82 ], [ %.0.i.i, %get_json_object_as_hash.exit.i ]
   %.not27.i = icmp eq ptr %6, null
-  br i1 %.not27.i, label %.thread1, label %99
+  br i1 %.not27.i, label %.thread1, label %98
 
 .thread1:                                         ; preds = %95
-  %97 = load ptr, ptr %10, align 8
-  %98 = call fastcc ptr @populate_record(ptr noundef %97, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef null)
-  br label %113
+  %96 = load ptr, ptr %10, align 8
+  %97 = call fastcc ptr @populate_record(ptr noundef %96, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef null)
+  br label %112
 
-99:                                               ; preds = %95
-  %100 = load i32, ptr %6, align 4
-  %101 = icmp eq i32 %100, 446
-  br i1 %101, label %JsValueToJsObject.exit, label %.thread
+98:                                               ; preds = %95
+  %99 = load i32, ptr %6, align 4
+  %100 = icmp eq i32 %99, 446
+  br i1 %100, label %JsValueToJsObject.exit, label %.thread
 
-JsValueToJsObject.exit:                           ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %103 = load i8, ptr %102, align 4, !range !4, !noundef !5
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %117, label %.thread
+JsValueToJsObject.exit:                           ; preds = %98
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %102 = load i8, ptr %101, align 4, !range !4, !noundef !5
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %118, label %.thread
 
-.thread:                                          ; preds = %99, %JsValueToJsObject.exit
-  %105 = load ptr, ptr %10, align 8
-  %106 = call fastcc ptr @populate_record(ptr noundef %105, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef nonnull %6)
-  %107 = load i32, ptr %6, align 4
-  %108 = icmp eq i32 %107, 446
-  br i1 %108, label %109, label %113
+.thread:                                          ; preds = %98, %JsValueToJsObject.exit
+  %104 = load ptr, ptr %10, align 8
+  %105 = call fastcc ptr @populate_record(ptr noundef %104, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef nonnull %6)
+  %106 = load i32, ptr %6, align 4
+  %107 = icmp eq i32 %106, 446
+  br i1 %107, label %108, label %112
 
-109:                                              ; preds = %.thread
-  %110 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %111 = load i8, ptr %110, align 4, !range !4, !noundef !5
-  %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %117, label %113
+108:                                              ; preds = %.thread
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %110 = load i8, ptr %109, align 4, !range !4, !noundef !5
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %118, label %112
 
-113:                                              ; preds = %.thread1, %109, %.thread
-  %114 = phi ptr [ %106, %109 ], [ %106, %.thread ], [ %98, %.thread1 ]
-  %115 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %114) #15
-  br i1 %40, label %116, label %.thread2
+112:                                              ; preds = %.thread1, %108, %.thread
+  %113 = phi ptr [ %105, %108 ], [ %105, %.thread ], [ %97, %.thread1 ]
+  %114 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %113) #15
+  br i1 %40, label %115, label %.thread2
 
-116:                                              ; preds = %113
+115:                                              ; preds = %112
   call void @hash_destroy(ptr noundef %96) #15
   br label %.thread2
 
-.thread2:                                         ; preds = %116, %113
+.thread2:                                         ; preds = %115, %112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
-  br label %118
+  br label %119
 
-117:                                              ; preds = %109, %JsValueToJsObject.exit
+118:                                              ; preds = %108, %JsValueToJsObject.exit
   store i8 1, ptr %5, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
-  br label %129
+  br label %130
 
-118:                                              ; preds = %.thread2, %update_cached_tupdesc.exit
-  %.030 = phi i64 [ 0, %update_cached_tupdesc.exit ], [ %115, %.thread2 ]
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %120 = load i32, ptr %119, align 8
-  %121 = icmp ne i32 %1, %120
-  %122 = icmp ne i32 %1, 2249
-  %or.cond = and i1 %122, %121
-  br i1 %or.cond, label %123, label %129
+119:                                              ; preds = %.thread2, %update_cached_tupdesc.exit
+  %.030 = phi i64 [ 0, %update_cached_tupdesc.exit ], [ %114, %.thread2 ]
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %121 = load i32, ptr %120, align 8
+  %122 = icmp ne i32 %1, %121
+  %123 = icmp ne i32 %1, 2249
+  %or.cond = and i1 %123, %122
+  br i1 %or.cond, label %124, label %130
 
-123:                                              ; preds = %118
-  %124 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %125 = trunc nuw i8 %124 to i1
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %127 = call zeroext i1 @domain_check_safe(i64 noundef %.030, i1 noundef zeroext %125, i32 noundef %1, ptr noundef nonnull %126, ptr noundef %2, ptr noundef %6) #15
-  br i1 %127, label %129, label %128
+124:                                              ; preds = %119
+  %125 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %126 = trunc nuw i8 %125 to i1
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %128 = call zeroext i1 @domain_check_safe(i64 noundef %.030, i1 noundef zeroext %126, i32 noundef %1, ptr noundef nonnull %127, ptr noundef %2, ptr noundef %6) #15
+  br i1 %128, label %130, label %129
 
-128:                                              ; preds = %123
+129:                                              ; preds = %124
   store i8 1, ptr %5, align 1
-  br label %129
+  br label %130
 
-129:                                              ; preds = %117, %118, %123, %128
-  %.1 = phi i64 [ 0, %128 ], [ 0, %117 ], [ %.030, %123 ], [ %.030, %118 ]
+130:                                              ; preds = %118, %119, %124, %129
+  %.1 = phi i64 [ 0, %129 ], [ 0, %118 ], [ %.030, %124 ], [ %.030, %119 ]
   ret i64 %.1
 }
 

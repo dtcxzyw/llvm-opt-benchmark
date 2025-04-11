@@ -922,7 +922,7 @@ define hidden range(i32 0, 2) i32 @rb_block_pair_yield_optimizable() local_unnam
   %12 = and i64 %7, 3
   switch i64 %12, label %13 [
     i64 1, label %block_setup.exit.thread
-    i64 3, label %38
+    i64 3, label %40
   ]
 
 13:                                               ; preds = %11
@@ -941,7 +941,7 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %16
   %.fr11.i.i = freeze i64 %19
   %20 = and i64 %.fr11.i.i, 31
   %21 = icmp eq i64 %20, 20
-  br i1 %21, label %block_setup.exit.thread19, label %._crit_edge
+  br i1 %21, label %block_setup.exit.thread19, label %28
 
 block_setup.exit.thread:                          ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -959,11 +959,11 @@ block_setup.exit.thread19:                        ; preds = %13, %RB_SYMBOL_P.ex
   %27 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %2, ptr noundef nonnull %1)
   br label %50
 
-._crit_edge:                                      ; preds = %16, %RB_SYMBOL_P.exit.i.i
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 3, ptr %28, align 8, !tbaa !14
+28:                                               ; preds = %16, %RB_SYMBOL_P.exit.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 3, ptr %29, align 8, !tbaa !14
   store i64 %7, ptr %2, align 8, !tbaa !35
-  %29 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %2, ptr noundef nonnull %1)
+  %30 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %2, ptr noundef nonnull %1)
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !7
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -971,19 +971,19 @@ block_setup.exit.thread19:                        ; preds = %13, %RB_SYMBOL_P.ex
   %34 = and i8 %33, 2
   %.not15 = icmp eq i8 %34, 0
   %35 = load i32, ptr %1, align 4
-  %.not16 = icmp eq i32 %29, %35
+  %.not15 = icmp eq i32 %30, %35
   %36 = icmp sgt i32 %29, 1
   %37 = and i1 %.not16, %36
   %spec.select = select i1 %.not15, i1 %37, i1 false
   br label %50
 
-38:                                               ; preds = %11
+38:; preds = %11
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 1, ptr %39, align 8, !tbaa !14
+  store i32 1, ptr %41, align 8, !tbaa !14
   %40 = and i64 %7, -4
-  %41 = inttoptr i64 %40 to ptr
+  %43 = inttoptr i64 %40 to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false), !tbaa.struct !82
-  %42 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %2, ptr noundef nonnull %1)
+  %44 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %2, ptr noundef nonnull %1)
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !35
   %45 = load i64, ptr %44, align 8, !tbaa !83
@@ -991,12 +991,12 @@ block_setup.exit.thread19:                        ; preds = %13, %RB_SYMBOL_P.ex
   %.not = icmp eq i64 %46, 0
   br i1 %.not, label %47, label %50
 
-47:                                               ; preds = %block_setup.exit.thread, %38
+47:; preds = %block_setup.exit.thread, %38
   %48 = phi i32 [ %25, %block_setup.exit.thread ], [ %42, %38 ]
   %49 = icmp sgt i32 %48, 1
   br label %50
 
-50:                                               ; preds = %._crit_edge, %block_setup.exit.thread19, %38, %47
+50:; preds = %28, %block_setup.exit.thread19, %38, %47
   %.0.shrunk = phi i1 [ %49, %47 ], [ true, %38 ], [ false, %block_setup.exit.thread19 ], [ %spec.select, %._crit_edge ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #21
@@ -1029,7 +1029,7 @@ define hidden i32 @rb_block_arity() local_unnamed_addr #0 {
 12:                                               ; preds = %0
   %13 = and i64 %8, 3
   switch i64 %13, label %14 [
-    i64 1, label %37
+    i64 1, label %39
     i64 3, label %23
   ]
 
@@ -1049,20 +1049,20 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %17
   %.fr11.i.i = freeze i64 %20
   %21 = and i64 %.fr11.i.i, 31
   %22 = icmp eq i64 %21, 20
-  br i1 %22, label %block_setup.exit.thread10, label %._crit_edge
+  br i1 %22, label %block_setup.exit.thread10, label %24
 
 23:                                               ; preds = %12
-  br label %37
+  br label %39
 
-._crit_edge:                                      ; preds = %17, %RB_SYMBOL_P.exit.i.i
+24:                                               ; preds = %17, %RB_SYMBOL_P.exit.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #21
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !7
   %26 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef %25, ptr noundef nonnull %1)
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 2
-  %.not.i = icmp eq i8 %29, 0
+  %29 = load i8, ptr %27, align 8
+  %30 = and i8 %29, 2
+  %.not.i = icmp eq i8 %30, 0
   %30 = load i32, ptr %1, align 4, !tbaa !41
   br i1 %.not.i, label %33, label %31
 
@@ -1079,26 +1079,26 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %17
   br label %rb_proc_arity.exit
 
 rb_proc_arity.exit:                               ; preds = %31, %33, %34
-  %36 = phi i32 [ %35, %34 ], [ %26, %33 ], [ %26, %31 ]
+  %38 = phi i32 [ %35, %34 ], [ %26, %33 ], [ %26, %31 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #21
   br label %block_setup.exit.thread10
 
-37:                                               ; preds = %12, %23
+39:                                               ; preds = %12, %23
   %.sink = phi i32 [ 1, %23 ], [ 0, %12 ]
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %.sink, ptr %38, align 8, !tbaa !14
-  %39 = and i64 %8, -4
-  %40 = inttoptr i64 %39 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
-  %41 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %3, ptr noundef nonnull %2)
-  %42 = load i32, ptr %2, align 4, !tbaa !41
-  %.not = icmp eq i32 %42, -1
-  %43 = sext i1 %.not to i32
-  %44 = xor i32 %41, %43
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 %.sink, ptr %40, align 8, !tbaa !14
+  %41 = and i64 %8, -4
+  %42 = inttoptr i64 %41 to ptr
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
+  %43 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %3, ptr noundef nonnull %2)
+  %44 = load i32, ptr %2, align 4, !tbaa !41
+  %.not = icmp eq i32 %44, -1
+  %45 = sext i1 %.not to i32
+  %46 = xor i32 %43, %45
   br label %block_setup.exit.thread10
 
-block_setup.exit.thread10:                        ; preds = %RB_SYMBOL_P.exit.i.i, %14, %37, %rb_proc_arity.exit
-  %.0 = phi i32 [ %44, %37 ], [ %36, %rb_proc_arity.exit ], [ -1, %14 ], [ -1, %RB_SYMBOL_P.exit.i.i ]
+block_setup.exit.thread10:                        ; preds = %RB_SYMBOL_P.exit.i.i, %14, %39, %rb_proc_arity.exit
+  %.0 = phi i32 [ %46, %39 ], [ %38, %rb_proc_arity.exit ], [ -1, %14 ], [ -1, %RB_SYMBOL_P.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #21
   ret i32 %.0

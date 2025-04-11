@@ -1375,7 +1375,7 @@ _ZNSt10shared_ptrIN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInte
   store i64 %23, ptr %22, align 8, !tbaa !48
   store i64 55, ptr %2, align 8, !tbaa !48
   %24 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
-          to label %25 unwind label %32
+          to label %25 unwind label %34
 
 25:                                               ; preds = %_ZNSt10shared_ptrIN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceEEC2ERKS3_.exit
   store ptr %9, ptr %24, align 8, !tbaa !154
@@ -1383,39 +1383,39 @@ _ZNSt10shared_ptrIN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInte
   store ptr null, ptr %10, align 8, !tbaa !28
   store ptr %12, ptr %26, align 8, !tbaa !28
   store ptr null, ptr %5, align 8, !tbaa !154
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i32 %1, ptr %27, align 8, !tbaa !157
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %23, ptr %28, align 8, !tbaa !48
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i32 %1, ptr %29, align 8, !tbaa !157
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 %23, ptr %30, align 8, !tbaa !48
   store i64 55, ptr %22, align 8, !tbaa !48
   store ptr %24, ptr %4, align 16, !tbaa !29
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable23RemoteManagerNontrivialIZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateNS0_6StatusEE3$_0EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateESA_", ptr %29, align 16, !tbaa !160
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInvokerILb0EvRZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateNS0_6StatusEE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %30, align 8, !tbaa !162
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable23RemoteManagerNontrivialIZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateNS0_6StatusEE3$_0EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateESA_", ptr %31, align 16, !tbaa !160
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInvokerILb0EvRZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateNS0_6StatusEE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %32, align 8, !tbaa !162
   invoke void @_ZN9grpc_core14WorkSerializer3RunEN4absl12lts_2024072212AnyInvocableIFvvEEENS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %4)
-          to label %"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202407226StatusEEN3$_0D2Ev.exit" unwind label %34
+          to label %"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202407226StatusEEN3$_0D2Ev.exit" unwind label %36
 
 "_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202407226StatusEEN3$_0D2Ev.exit": ; preds = %25
-  %31 = load ptr, ptr %29, align 16, !tbaa !160
+  %33 = load ptr, ptr %31, align 16, !tbaa !160
   call void %31(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %4) #29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #29
   ret void
 
-32:                                               ; preds = %_ZNSt10shared_ptrIN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceEEC2ERKS3_.exit
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  br label %37
-
-34:                                               ; preds = %25
+34:                                               ; preds = %_ZNSt10shared_ptrIN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceEEC2ERKS3_.exit
   %35 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %29, align 16, !tbaa !160
-  call void %36(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %4) #29
-  br label %37
+  br label %39
 
-37:                                               ; preds = %34, %32
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
+36:                                               ; preds = %25
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = load ptr, ptr %31, align 16, !tbaa !160
+  call void %36(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %4) #29
+  br label %39
+
+39:                                               ; preds = %36, %34
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   call fastcc void @"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202407226StatusEEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #29
   resume { ptr, i32 } %.pn

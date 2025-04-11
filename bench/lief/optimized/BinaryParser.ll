@@ -43312,16 +43312,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.sroa.077.sroa.0.0 = phi i64 [ %136, %129 ], [ 0, %105 ], [ 0, %34 ], [ 7, %156 ], [ %171, %160 ]
   %.sroa.077.sroa.4.0 = phi i64 [ %.sroa.077.sroa.4.0.extract.shift94, %129 ], [ 4294967296, %105 ], [ 4294967296, %34 ], [ 0, %156 ], [ %.sroa.077.sroa.4.0.extract.shift8093, %160 ]
   %.not.i.i.i = icmp eq ptr %.lcssa97, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit, label %173
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit, label %174
 
-173:                                              ; preds = %172
-  %174 = ptrtoint ptr %35 to i64
-  %175 = ptrtoint ptr %.lcssa97 to i64
-  %176 = sub i64 %174, %175
-  call void @_ZdlPvm(ptr noundef nonnull %.lcssa97, i64 noundef %176) #27
+174:                                              ; preds = %172
+  %175 = ptrtoint ptr %35 to i64
+  %176 = ptrtoint ptr %.lcssa97 to i64
+  %177 = sub i64 %175, %176
+  call void @_ZdlPvm(ptr noundef nonnull %.lcssa97, i64 noundef %177) #27
   br label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit: ; preds = %172, %173
+_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit: ; preds = %172, %174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
   %.sroa.077.sroa.0.0.insert.ext = and i64 %.sroa.077.sroa.0.0, 4294967295
   %.sroa.077.sroa.0.0.insert.insert = or disjoint i64 %.sroa.077.sroa.4.0, %.sroa.077.sroa.0.0.insert.ext
@@ -63474,16 +63474,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.sroa.077.sroa.0.0 = phi i64 [ %136, %129 ], [ 0, %105 ], [ 0, %34 ], [ 7, %156 ], [ %171, %160 ]
   %.sroa.077.sroa.4.0 = phi i64 [ %.sroa.077.sroa.4.0.extract.shift94, %129 ], [ 4294967296, %105 ], [ 4294967296, %34 ], [ 0, %156 ], [ %.sroa.077.sroa.4.0.extract.shift8093, %160 ]
   %.not.i.i.i = icmp eq ptr %.lcssa97, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit, label %173
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit, label %174
 
-173:                                              ; preds = %172
-  %174 = ptrtoint ptr %35 to i64
-  %175 = ptrtoint ptr %.lcssa97 to i64
-  %176 = sub i64 %174, %175
-  call void @_ZdlPvm(ptr noundef nonnull %.lcssa97, i64 noundef %176) #27
+174:                                              ; preds = %172
+  %175 = ptrtoint ptr %35 to i64
+  %176 = ptrtoint ptr %.lcssa97 to i64
+  %177 = sub i64 %175, %176
+  call void @_ZdlPvm(ptr noundef nonnull %.lcssa97, i64 noundef %177) #27
   br label %_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit: ; preds = %172, %173
+_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev.exit: ; preds = %172, %174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
   %.sroa.077.sroa.0.0.insert.ext = and i64 %.sroa.077.sroa.0.0, 4294967295
   %.sroa.077.sroa.0.0.insert.insert = or disjoint i64 %.sroa.077.sroa.4.0, %.sroa.077.sroa.0.0.insert.ext

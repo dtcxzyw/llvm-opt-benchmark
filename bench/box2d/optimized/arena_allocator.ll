@@ -128,7 +128,7 @@ define hidden ptr @b2AllocateArenaItem(ptr noundef captures(none) %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %15, %13
-  %.sroa.7.0 = phi i8 [ 1, %13 ], [ 0, %15 ]
+  %.sroa.8.0 = phi i8 [ 1, %13 ], [ 0, %15 ]
   %.sroa.0.0 = phi ptr [ %14, %13 ], [ %18, %15 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8, !tbaa !15
@@ -182,10 +182,10 @@ b2ArenaEntryArray_Push.exit:                      ; preds = %.b2ArenaEntryArray_
   store ptr %.sroa.0.0, ptr %46, align 8, !tbaa !20
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !20
-  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i32 %6, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !21
-  %.sroa.619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 20
-  store i8 %.sroa.7.0, ptr %.sroa.619.0..sroa_idx, align 4, !tbaa !22
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 16
+  store i32 %6, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !21
+  %.sroa.618.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 20
+  store i8 %.sroa.8.0, ptr %.sroa.618.0..sroa_idx, align 4, !tbaa !22
   %47 = load i32, ptr %29, align 8, !tbaa !19
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %29, align 8, !tbaa !19

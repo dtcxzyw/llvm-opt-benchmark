@@ -9398,49 +9398,49 @@ rb_num2int_inline.exit:                           ; preds = %82, %84
 
 104:                                              ; preds = %94, %79, %72, %66, %59, %53, %47
   %.val39 = phi i64 [ 1000000000, %94 ], [ 1000000, %79 ], [ %74, %72 ], [ 1000000000, %66 ], [ %61, %59 ], [ 1000000000, %53 ], [ 1000000000, %47 ]
-  %105 = phi double [ %101, %94 ], [ 1.000000e+00, %79 ], [ 1.000000e+00, %72 ], [ 1.000000e+03, %66 ], [ 1.000000e+00, %59 ], [ 0.000000e+00, %53 ], [ 1.000000e+03, %47 ]
-  %106 = phi double [ %100, %94 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %72 ], [ 0.000000e+00, %66 ], [ 0.000000e+00, %59 ], [ 1.000000e+00, %53 ], [ 0.000000e+00, %47 ]
-  %107 = load i64, ptr @id_hertz, align 8, !tbaa !43
-  %108 = call i64 @rb_id2sym(i64 noundef %107) #27
-  %109 = icmp eq i64 %15, %108
-  br i1 %109, label %110, label %128
+  %.val38 = phi double [ %101, %94 ], [ 1.000000e+00, %79 ], [ 1.000000e+00, %72 ], [ 1.000000e+03, %66 ], [ 1.000000e+00, %59 ], [ 0.000000e+00, %53 ], [ 1.000000e+03, %47 ]
+  %.val = phi double [ %100, %94 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %72 ], [ 0.000000e+00, %66 ], [ 0.000000e+00, %59 ], [ 1.000000e+00, %53 ], [ 0.000000e+00, %47 ]
+  %105 = load i64, ptr @id_hertz, align 8, !tbaa !43
+  %106 = call i64 @rb_id2sym(i64 noundef %105) #27
+  %107 = icmp eq i64 %15, %106
+  br i1 %107, label %108, label %126
 
-110:                                              ; preds = %104
-  %111 = sitofp i64 %.val39 to double
-  %112 = call double @llvm.fmuladd.f64(double %106, double 1.000000e+09, double %105)
-  %113 = fdiv double %111, %112
-  %114 = bitcast double %113 to i64
-  %cond.i.i = icmp eq i64 %114, 3458764513820540928
-  br i1 %cond.i.i, label %126, label %115
+108:                                              ; preds = %104
+  %109 = sitofp i64 %.val39 to double
+  %110 = call double @llvm.fmuladd.f64(double %.val, double 1.000000e+09, double %.val38)
+  %111 = fdiv double %109, %110
+  %112 = bitcast double %111 to i64
+  %cond.i.i = icmp eq i64 %112, 3458764513820540928
+  br i1 %cond.i.i, label %124, label %113
 
-115:                                              ; preds = %110
-  %116 = lshr i64 %114, 60
-  %117 = trunc nuw nsw i64 %116 to i32
-  %118 = and i32 %117, 7
-  %119 = add nsw i32 %118, -3
-  %.not7.i.i = icmp ult i32 %119, 2
-  br i1 %.not7.i.i, label %120, label %124
+113:                                              ; preds = %108
+  %114 = lshr i64 %112, 60
+  %115 = trunc nuw nsw i64 %114 to i32
+  %116 = and i32 %115, 7
+  %117 = add nsw i32 %116, -3
+  %.not7.i.i = icmp ult i32 %117, 2
+  br i1 %.not7.i.i, label %118, label %122
 
-120:                                              ; preds = %115
-  %121 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %114, i64 range(i64 3458764513820540929, 3458764513820540928) %114, i64 3)
-  %122 = and i64 %121, -4
-  %123 = or disjoint i64 %122, 2
+118:                                              ; preds = %113
+  %119 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %112, i64 range(i64 3458764513820540929, 3458764513820540928) %112, i64 3)
+  %120 = and i64 %119, -4
+  %121 = or disjoint i64 %120, 2
   br label %timetick2dblnum_reciprocal.exit
 
-124:                                              ; preds = %115
-  %125 = icmp eq i64 %114, 0
-  br i1 %125, label %timetick2dblnum_reciprocal.exit, label %126
+122:                                              ; preds = %113
+  %123 = icmp eq i64 %112, 0
+  br i1 %123, label %timetick2dblnum_reciprocal.exit, label %124
 
-126:                                              ; preds = %124, %110
-  %127 = call i64 @rb_float_new_in_heap(double noundef %113) #27
+124:                                              ; preds = %122, %108
+  %125 = call i64 @rb_float_new_in_heap(double noundef %111) #27
   br label %timetick2dblnum_reciprocal.exit
 
-128:                                              ; preds = %104
-  %129 = call fastcc i64 @make_clock_result(ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %15)
+126:                                              ; preds = %104
+  %127 = call fastcc i64 @make_clock_result(ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %15)
   br label %timetick2dblnum_reciprocal.exit
 
-timetick2dblnum_reciprocal.exit:                  ; preds = %126, %124, %120, %128
-  %.0 = phi i64 [ %129, %128 ], [ %127, %126 ], [ %123, %120 ], [ -9223372036854775806, %124 ]
+timetick2dblnum_reciprocal.exit:                  ; preds = %124, %122, %118, %126
+  %.0 = phi i64 [ %127, %126 ], [ %125, %124 ], [ %121, %118 ], [ -9223372036854775806, %122 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27

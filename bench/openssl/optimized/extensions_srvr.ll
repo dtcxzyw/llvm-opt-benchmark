@@ -170,8 +170,8 @@ PACKET_get_1.exit:                                ; preds = %17
   %21 = load i8, ptr %18, align 1, !tbaa !11
   %22 = icmp ne i8 %21, 0
   %23 = icmp samesign ult i64 %15, 3
-  %or.cond55 = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond55, label %PACKET_as_length_prefixed_2.exit40.thread, label %24
+  %or.cond51 = select i1 %22, i1 true, i1 %23
+  br i1 %or.cond51, label %PACKET_as_length_prefixed_2.exit40.thread, label %24
 
 24:                                               ; preds = %PACKET_get_1.exit
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 3
@@ -221,8 +221,8 @@ PACKET_as_length_prefixed_2.exit40.thread:        ; preds = %24, %PACKET_get_1.e
   br i1 %or.cond28, label %62, label %50
 
 50:                                               ; preds = %47, %34
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %52, label %51
+  %.not52 = icmp eq i8 %26, 0
+  br i1 %.not52, label %52, label %51
 
 51:                                               ; preds = %50
   tail call void @ERR_new() #12
@@ -232,8 +232,8 @@ PACKET_as_length_prefixed_2.exit40.thread:        ; preds = %24, %PACKET_get_1.e
 
 52:                                               ; preds = %50
   %53 = tail call ptr @memchr(ptr noundef nonnull readonly %35, i32 noundef 0, i64 noundef %32) #13
-  %.not56 = icmp eq ptr %53, null
-  br i1 %.not56, label %55, label %54
+  %.not = icmp eq ptr %53, null
+  br i1 %.not, label %55, label %54
 
 54:                                               ; preds = %52
   tail call void @ERR_new() #12

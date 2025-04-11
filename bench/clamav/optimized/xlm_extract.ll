@@ -1530,8 +1530,8 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   %5 = alloca %struct.OfficeArtRecordHeader_Unpacked, align 2
   %6 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #11
-  %.not99 = icmp eq i64 %1, 0
-  br i1 %.not99, label %.loopexit, label %.lr.ph
+  %.not96 = icmp eq i64 %1, 0
+  br i1 %.not96, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -1542,12 +1542,12 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 6
   br label %13
 
-13:                                               ; preds = %.lr.ph, %.thread87
-  %.044102 = phi i32 [ 3, %.lr.ph ], [ %.5, %.thread87 ]
-  %.046101 = phi i64 [ %1, %.lr.ph ], [ %spec.select96, %.thread87 ]
-  %.048100 = phi ptr [ %0, %.lr.ph ], [ %spec.select, %.thread87 ]
-  %14 = icmp eq ptr %.048100, null
-  %15 = icmp ult i64 %.046101, 8
+13:                                               ; preds = %.lr.ph, %.thread84
+  %.04499 = phi i32 [ 3, %.lr.ph ], [ %.5, %.thread84 ]
+  %.04698 = phi i64 [ %1, %.lr.ph ], [ %spec.select93, %.thread84 ]
+  %.04897 = phi ptr [ %0, %.lr.ph ], [ %spec.select, %.thread84 ]
+  %14 = icmp eq ptr %.04897, null
+  %15 = icmp ult i64 %.04698, 8
   %or.cond.i = or i1 %14, %15
   br i1 %or.cond.i, label %read_office_art_record_header.exit, label %16
 
@@ -1556,15 +1556,15 @@ read_office_art_record_header.exit:               ; preds = %13
   br label %.loopexit
 
 16:                                               ; preds = %13
-  %17 = load i16, ptr %.048100, align 1, !tbaa !51
+  %17 = load i16, ptr %.04897, align 1, !tbaa !51
   %18 = and i16 %17, 15
   store i16 %18, ptr %4, align 2, !tbaa !10
   %19 = lshr i16 %17, 4
   store i16 %19, ptr %7, align 2, !tbaa !14
-  %20 = getelementptr inbounds nuw i8, ptr %.048100, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.04897, i64 2
   %21 = load i16, ptr %20, align 1, !tbaa !53
   store i16 %21, ptr %8, align 2, !tbaa !13
-  %22 = getelementptr inbounds nuw i8, ptr %.048100, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.04897, i64 4
   %23 = load i32, ptr %22, align 1, !tbaa !54
   store i32 %23, ptr %9, align 2, !tbaa !15
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1218) #11
@@ -1585,9 +1585,9 @@ read_office_art_record_header.exit:               ; preds = %13
 
 .thread:                                          ; preds = %16
   %29 = icmp eq i16 %21, -4089
-  br i1 %29, label %.thread77, label %71
+  br i1 %29, label %.thread105, label %71
 
-.thread77:                                        ; preds = %.thread
+.thread105:                                       ; preds = %.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1147) #11
   br label %31
 
@@ -1596,22 +1596,22 @@ read_office_art_record_header.exit:               ; preds = %13
   %.not65 = icmp eq i16 %18, 2
   br i1 %.not65, label %32, label %31
 
-31:                                               ; preds = %.thread77, %30
+31:                                               ; preds = %.thread105, %30
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1148, i32 noundef %24) #11
   br label %32
 
 32:                                               ; preds = %31, %30
-  %33 = add i64 %.046101, -8
+  %33 = add i64 %.04698, -8
   %34 = icmp ult i64 %33, 36
-  br i1 %34, label %.thread87.sink.split, label %35
+  br i1 %34, label %.thread84.sink.split, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %.048100, i64 41
+  %36 = getelementptr inbounds nuw i8, ptr %.04897, i64 41
   %37 = load i8, ptr %36, align 1, !tbaa !55
   %38 = zext i8 %37 to i64
-  %39 = add i64 %.046101, -44
+  %39 = add i64 %.04698, -44
   %40 = icmp ult i64 %39, %38
-  br i1 %40, label %.thread87.sink.split, label %41
+  br i1 %40, label %.thread84.sink.split, label %41
 
 41:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #11
@@ -1621,7 +1621,7 @@ read_office_art_record_header.exit:               ; preds = %13
   br i1 %.not66, label %46, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %.048100, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %.04897, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %43, i64 %38, i1 false)
   %44 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %38
   store i8 0, ptr %44, align 1, !tbaa !57
@@ -1632,10 +1632,10 @@ read_office_art_record_header.exit:               ; preds = %13
 
 46:                                               ; preds = %42, %41
   %47 = phi i64 [ %45, %42 ], [ 0, %41 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.048100, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %.04897, i64 44
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %47
   %50 = sub i64 %39, %47
-  %51 = getelementptr inbounds nuw i8, ptr %.048100, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.04897, i64 28
   %52 = load i32, ptr %51, align 1, !tbaa !58
   %53 = zext i32 %52 to i64
   %54 = icmp ult i64 %50, %53
@@ -1650,9 +1650,9 @@ read_office_art_record_header.exit:               ; preds = %13
 57:                                               ; preds = %46, %55
   %.042 = phi i64 [ %50, %55 ], [ %53, %46 ]
   %58 = icmp samesign ult i64 %.042, 8
-  br i1 %58, label %.thread91, label %59
+  br i1 %58, label %.thread88, label %59
 
-.thread91:                                        ; preds = %57
+.thread88:                                        ; preds = %57
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1146) #11
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #11
@@ -1683,37 +1683,37 @@ read_office_art_record_header.exit:               ; preds = %13
   %.not68 = icmp eq i32 %.fr, 0
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #11
-  br i1 %.not68, label %.thread87, label %.loopexit
+  br i1 %.not68, label %.thread84, label %.loopexit
 
 71:                                               ; preds = %.thread, %27
   %72 = add i16 %21, 4072
   %or.cond = icmp ult i16 %72, 256
-  br i1 %or.cond, label %73, label %.thread87.sink.split
+  br i1 %or.cond, label %73, label %.thread84.sink.split
 
 73:                                               ; preds = %71
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1154) #11
-  %74 = call i32 @process_blip_record(ptr noundef nonnull %4, ptr noundef nonnull %.048100, i64 noundef %.046101, ptr noundef %2)
+  %74 = call i32 @process_blip_record(ptr noundef nonnull %4, ptr noundef nonnull %.04897, i64 noundef %.04698, ptr noundef %2)
   %.not64 = icmp eq i32 %74, 0
-  br i1 %.not64, label %.thread87, label %.loopexit
+  br i1 %.not64, label %.thread84, label %.loopexit
 
-.thread87.sink.split:                             ; preds = %71, %35, %32
+.thread84.sink.split:                             ; preds = %71, %35, %32
   %.str.1150.sink = phi ptr [ @.str.1149, %32 ], [ @.str.1150, %35 ], [ @.str.1155, %71 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.1150.sink) #11
-  br label %.thread87
+  br label %.thread84
 
-.thread87:                                        ; preds = %.thread87.sink.split, %59, %73
-  %.5 = phi i32 [ 0, %73 ], [ 0, %59 ], [ %.044102, %.thread87.sink.split ]
+.thread84:                                        ; preds = %.thread84.sink.split, %59, %73
+  %.5 = phi i32 [ 0, %73 ], [ 0, %59 ], [ %.04499, %.thread84.sink.split ]
   %75 = zext i32 %23 to i64
   %76 = add nuw nsw i64 %75, 8
-  %77 = icmp ult i64 %.046101, %76
+  %77 = icmp ult i64 %.04698, %76
   %spec.select.idx = select i1 %77, i64 0, i64 %76
-  %spec.select = getelementptr inbounds nuw i8, ptr %.048100, i64 %spec.select.idx
-  %spec.select96 = call i64 @llvm.usub.sat.i64(i64 %.046101, i64 %76)
-  %.not.not = icmp ugt i64 %.046101, %76
+  %spec.select = getelementptr inbounds nuw i8, ptr %.04897, i64 %spec.select.idx
+  %spec.select93 = call i64 @llvm.usub.sat.i64(i64 %.04698, i64 %76)
+  %.not.not = icmp ugt i64 %.04698, %76
   br i1 %.not.not, label %13, label %.loopexit
 
-.loopexit:                                        ; preds = %.thread87, %73, %59, %3, %.thread91, %read_office_art_record_header.exit
-  %.043 = phi i32 [ %.044102, %read_office_art_record_header.exit ], [ %.044102, %.thread91 ], [ 0, %3 ], [ 0, %.thread87 ], [ %74, %73 ], [ %.fr, %59 ]
+.loopexit:                                        ; preds = %.thread84, %73, %59, %3, %.thread88, %read_office_art_record_header.exit
+  %.043 = phi i32 [ %.04499, %read_office_art_record_header.exit ], [ %.04499, %.thread88 ], [ 0, %3 ], [ 0, %.thread84 ], [ %74, %73 ], [ %.fr, %59 ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #11
   ret i32 %.043
 }

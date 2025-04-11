@@ -6299,9 +6299,9 @@ define hidden void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noal
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %18
   %21 = icmp eq ptr %17, null
   %22 = select i1 %19, i1 true, i1 %21
-  br i1 %22, label %.thread121, label %25
+  br i1 %22, label %.thread128, label %25
 
-.thread121:                                       ; preds = %15
+.thread128:                                       ; preds = %15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %13, ptr %23, align 8
@@ -6375,8 +6375,8 @@ define hidden void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noal
   %or.cond.not = icmp eq i64 %44, 0
   br i1 %or.cond.not, label %47, label %49
 
-45:                                               ; preds = %.thread121, %25
-  %46 = phi ptr [ %23, %.thread121 ], [ %30, %25 ]
+45:                                               ; preds = %.thread128, %25
+  %46 = phi ptr [ %23, %.thread128 ], [ %30, %25 ]
   %.sroa.588.0.copyload = load ptr, ptr %46, align 8
   %.sroa.790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.790.0..sroa_idx, i64 40, i1 false)
@@ -6442,9 +6442,9 @@ define hidden void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noal
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %18
   %21 = icmp eq ptr %17, null
   %22 = select i1 %19, i1 true, i1 %21
-  br i1 %22, label %.thread121, label %25
+  br i1 %22, label %.thread128, label %25
 
-.thread121:                                       ; preds = %15
+.thread128:                                       ; preds = %15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %13, ptr %23, align 8
@@ -6518,8 +6518,8 @@ define hidden void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noal
   %or.cond.not = icmp eq i64 %44, 0
   br i1 %or.cond.not, label %47, label %49
 
-45:                                               ; preds = %.thread121, %25
-  %46 = phi ptr [ %23, %.thread121 ], [ %30, %25 ]
+45:                                               ; preds = %.thread128, %25
+  %46 = phi ptr [ %23, %.thread128 ], [ %30, %25 ]
   %.sroa.588.0.copyload = load ptr, ptr %46, align 8
   %.sroa.790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.790.0..sroa_idx, i64 40, i1 false)
@@ -6585,9 +6585,9 @@ define hidden void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noal
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %18
   %21 = icmp eq ptr %17, null
   %22 = select i1 %19, i1 true, i1 %21
-  br i1 %22, label %.thread121, label %25
+  br i1 %22, label %.thread128, label %25
 
-.thread121:                                       ; preds = %15
+.thread128:                                       ; preds = %15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %13, ptr %23, align 8
@@ -6661,8 +6661,8 @@ define hidden void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noal
   %or.cond.not = icmp eq i64 %44, 0
   br i1 %or.cond.not, label %47, label %49
 
-45:                                               ; preds = %.thread121, %25
-  %46 = phi ptr [ %23, %.thread121 ], [ %30, %25 ]
+45:                                               ; preds = %.thread128, %25
+  %46 = phi ptr [ %23, %.thread128 ], [ %30, %25 ]
   %.sroa.588.0.copyload = load ptr, ptr %46, align 8
   %.sroa.790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.790.0..sroa_idx, i64 40, i1 false)

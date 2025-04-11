@@ -11568,34 +11568,34 @@ define internal void @"_ZN5folly6detail8function5call_IZNS_14SingletonVault14doE
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit", label %25
 
-25:                                               ; preds = %23
-  %26 = load atomic i32, ptr %24 acquire, align 4
-  switch i32 %26, label %32 [
-    i32 0, label %27
+26:                                               ; preds = %23
+  %27 = load atomic i32, ptr %24 acquire, align 4
+  switch i32 %27, label %32 [
+    i32 0, label %28
     i32 4, label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit"
   ]
 
-27:                                               ; preds = %25
-  %28 = cmpxchg ptr %24, i32 0, i32 1 release monotonic, align 4
-  %29 = extractvalue { i32, i1 } %28, 1
-  %30 = extractvalue { i32, i1 } %28, 0
-  %31 = icmp eq i32 %30, 4
-  %or.cond.i.i.i.i.i = select i1 %29, i1 true, i1 %31
+28:                                               ; preds = %26
+  %29 = cmpxchg ptr %24, i32 0, i32 1 release monotonic, align 4
+  %30 = extractvalue { i32, i1 } %29, 1
+  %31 = extractvalue { i32, i1 } %29, 0
+  %32 = icmp eq i32 %31, 4
+  %or.cond.i.i.i.i.i = select i1 %30, i1 true, i1 %32
   br i1 %or.cond.i.i.i.i.i, label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit", label %32
 
-32:                                               ; preds = %27, %25
-  store atomic i32 3, ptr %24 release, align 4
+35:                                               ; preds = %27, %25
+  store atomic i35 3, ptr %24 release, align 4
   %33 = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %24, i32 noundef 1, i32 noundef -1)
           to label %"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit" unwind label %34
 
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #48
+  %37 = extractvalue { ptr, i32 } %35, 0
+  tail call void @__clang_call_terminate(ptr %37) #48
   unreachable
 
-"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit": ; preds = %19, %23, %25, %27, %32
+"_ZZN5folly14SingletonVault14doEagerInitViaERNS_8ExecutorEPNS_5BatonILb1ESt6atomicEEENK3$_0clEv.exit": ; preds = %19, %23, %26, %28, %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #31
   ret void
 }

@@ -26163,12 +26163,12 @@ _ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i: ; pre
 122:                                              ; preds = %_ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit.i.i.i
   %123 = landingpad { ptr, i32 }
           cleanup
-  br label %253
+  br label %257
 
 124:                                              ; preds = %53
   %125 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %256
 
 126:                                              ; preds = %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit43.i.i.i", %59
   %.064.i.i.i = phi i64 [ 0, %59 ], [ %149, %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit43.i.i.i" ]
@@ -26243,7 +26243,7 @@ _ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i: ; preds = %136, %133, %126
 
 151:                                              ; preds = %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit.i.i.i"
   invoke fastcc void @"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_clEv"(ptr noundef nonnull align 8 dereferenceable(105) %5)
-          to label %"_ZN2tf7Runtime12silent_asyncIRZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESH_EUlvE0_EEvOSB_.exit.i.i.i" unwind label %250
+          to label %"_ZN2tf7Runtime12silent_asyncIRZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESH_EUlvE0_EEvOSB_.exit.i.i.i" unwind label %254
 
 152:                                              ; preds = %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit.i.i.i"
   %153 = load ptr, ptr %45, align 8, !tbaa !515
@@ -26254,7 +26254,7 @@ _ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i: ; preds = %136, %133, %126
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !375
   %160 = invoke noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #35
-          to label %.noexc.i.i.i unwind label %250
+          to label %.noexc.i.i.i unwind label %254
 
 .noexc.i.i.i:                                     ; preds = %152
   store i32 0, ptr %160, align 8, !tbaa !64
@@ -26289,7 +26289,7 @@ _ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i: ; preds = %136, %133, %126
   store ptr %176, ptr %175, align 8, !tbaa !98
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %176, i8 0, i64 40, i1 false)
   %177 = invoke noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #35
-          to label %.noexc.i.i.i.i.i.i unwind label %199
+          to label %.noexc.i.i.i.i.i.i unwind label %201
 
 .noexc.i.i.i.i.i.i:                               ; preds = %.noexc.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %177, ptr noundef nonnull readonly align 8 dereferenceable(105) %5, i64 40, i1 false)
@@ -26318,61 +26318,61 @@ _ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i: ; preds = %136, %133, %126
 _ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %186, %183, %.noexc.i.i.i.i.i.i
   %188 = getelementptr inbounds nuw i8, ptr %177, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef nonnull readonly align 8 dereferenceable(32) %66, i64 32, i1 false)
-  %189 = getelementptr inbounds nuw i8, ptr %177, i64 88
+  %190 = getelementptr inbounds nuw i8, ptr %177, i64 88
   store ptr %139, ptr %189, align 8, !tbaa !895
-  %190 = getelementptr inbounds nuw i8, ptr %177, i64 96
-  store ptr %140, ptr %190, align 8, !tbaa !47
+  %191 = getelementptr inbounds nuw i8, ptr %177, i64 96
+  store ptr %140, ptr %191, align 8, !tbaa !47
   br i1 %.not.i.i.i29.i.i.i, label %"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i.i.i.i", label %191
 
-191:                                              ; preds = %_ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+191:; preds = %_ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %192 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %193 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %.not.i.i.i.i6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %193, 0
   br i1 %.not.i.i.i.i6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %197, label %194
 
-194:                                              ; preds = %191
+194:; preds = %191
   %195 = load i32, ptr %192, align 4, !tbaa !34
   %196 = add nsw i32 %195, 1
   store i32 %196, ptr %192, align 4, !tbaa !34
   br label %"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i.i.i.i"
 
-197:                                              ; preds = %191
-  %198 = atomicrmw volatile add ptr %192, i32 1 acq_rel, align 4
+199:                                              ; preds = %191
+  %200 = atomicrmw volatile add ptr %192, i32 1 acq_rel, align 4
   br label %"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i.i.i.i"
 
-199:                                              ; preds = %.noexc.i.i.i
-  %200 = landingpad { ptr, i32 }
+201:                                              ; preds = %.noexc.i.i.i
+  %202 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %160, i64 noundef 232) #36
   br label %.body.i.i.i
 
-"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i.i.i.i": ; preds = %197, %194, %_ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %201 = getelementptr inbounds nuw i8, ptr %160, i64 152
-  %202 = getelementptr inbounds nuw i8, ptr %160, i64 176
-  %203 = getelementptr inbounds nuw i8, ptr %160, i64 168
-  store ptr %177, ptr %201, align 8, !tbaa !99
-  store ptr @"_ZNSt17_Function_handlerIFvvEZZN2tf25make_reduce_by_index_taskINS1_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS1_17GuidedPartitionerINS1_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS1_7RuntimeEE_clESI_EUlvE0_E9_M_invokeERKSt9_Any_data", ptr %202, align 8, !tbaa !378
-  store ptr @"_ZNSt17_Function_handlerIFvvEZZN2tf25make_reduce_by_index_taskINS1_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS1_17GuidedPartitionerINS1_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS1_7RuntimeEE_clESI_EUlvE0_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %203, align 8, !tbaa !103
-  %204 = getelementptr inbounds nuw i8, ptr %160, i64 184
-  store i8 0, ptr %204, align 8, !tbaa !306
-  %205 = getelementptr inbounds nuw i8, ptr %160, i64 208
-  store i8 7, ptr %205, align 8, !tbaa !104
-  %206 = getelementptr inbounds nuw i8, ptr %160, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %206, i8 0, i64 16, i1 false)
+"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i.i.i.i": ; preds = %199, %194, %_ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %203 = getelementptr inbounds nuw i8, ptr %160, i64 152
+  %204 = getelementptr inbounds nuw i8, ptr %160, i64 176
+  %205 = getelementptr inbounds nuw i8, ptr %160, i64 168
+  store ptr %177, ptr %203, align 8, !tbaa !99
+  store ptr @"_ZNSt17_Function_handlerIFvvEZZN2tf25make_reduce_by_index_taskINS1_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS1_17GuidedPartitionerINS1_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS1_7RuntimeEE_clESI_EUlvE0_E9_M_invokeERKSt9_Any_data", ptr %204, align 8, !tbaa !378
+  store ptr @"_ZNSt17_Function_handlerIFvvEZZN2tf25make_reduce_by_index_taskINS1_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS1_17GuidedPartitionerINS1_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS1_7RuntimeEE_clESI_EUlvE0_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %205, align 8, !tbaa !103
+  %206 = getelementptr inbounds nuw i8, ptr %160, i64 184
+  store i8 0, ptr %206, align 8, !tbaa !306
+  %207 = getelementptr inbounds nuw i8, ptr %160, i64 208
+  store i8 7, ptr %207, align 8, !tbaa !104
+  %208 = getelementptr inbounds nuw i8, ptr %160, i64 216
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %208, i8 0, i64 16, i1 false)
   invoke void @_ZN2tf8Executor20_schedule_async_taskEPNS_4NodeE(ptr noundef nonnull align 128 dereferenceable(712) %156, ptr noundef nonnull %160)
-          to label %"_ZN2tf7Runtime12silent_asyncIRZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESH_EUlvE0_EEvOSB_.exit.i.i.i" unwind label %250
+          to label %"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i._ZN2tf7Runtime12silent_asyncIRZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESH_EUlvE0_EEvOSB_.exit_crit_edge.i.i.i" unwind label %254
 
-"_ZN2tf7Runtime12silent_asyncIRZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESH_EUlvE0_EEvOSB_.exit.i.i.i": ; preds = %"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i.i.i.i", %151
+"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i._ZN2tf7Runtime12silent_asyncIRZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESH_EUlvE0_EEvOSB_.exit_crit_edge.i.i.i": ; preds = %"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i.i.i.i", %151
   br i1 %.not.i.i.i29.i.i.i, label %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i, label %207
 
 207:                                              ; preds = %"_ZN2tf7Runtime12silent_asyncIRZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESH_EUlvE0_EEvOSB_.exit.i.i.i"
   %208 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %209 = load atomic i64, ptr %208 acquire, align 8
-  %210 = icmp eq i64 %209, 4294967297
+  %.not.i.i.i34.i.i.i = icmp eq i64 %209, 4294967297
   %211 = trunc i64 %209 to i32
   br i1 %210, label %212, label %220
 
-212:                                              ; preds = %207
+212: ; preds = %207
   store i32 0, ptr %208, align 8, !tbaa !50
   %213 = getelementptr inbounds nuw i8, ptr %140, i64 12
   store i32 0, ptr %213, align 4, !tbaa !52
@@ -26386,117 +26386,117 @@ _ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   tail call void %219(ptr noundef nonnull align 8 dereferenceable(16) %140) #34
   br label %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i
 
-220:                                              ; preds = %207
-  %221 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
-  %.not.i.i.i.i35.i.i.i = icmp eq i8 %221, 0
-  br i1 %.not.i.i.i.i35.i.i.i, label %224, label %222
+223:                                              ; preds = %207
+  %224 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
+  %.not.i.i.i.i35.i.i.i = icmp eq i8 %224, 0
+  br i1 %.not.i.i.i.i35.i.i.i, label %227, label %225
 
-222:                                              ; preds = %220
-  %223 = add nsw i32 %211, -1
-  store i32 %223, ptr %208, align 4, !tbaa !34
+225:                                              ; preds = %223
+  %226 = add nsw i32 %211, -1
+  store i32 %226, ptr %208, align 4, !tbaa !34
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36.i.i.i
 
-224:                                              ; preds = %220
-  %225 = atomicrmw volatile add ptr %208, i32 -1 acq_rel, align 4
+227:                                              ; preds = %223
+  %228 = atomicrmw volatile add ptr %208, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36.i.i.i: ; preds = %224, %222
-  %.0.i.i.i.i.i37.i.i.i = phi i32 [ %211, %222 ], [ %225, %224 ]
-  %226 = icmp eq i32 %.0.i.i.i.i.i37.i.i.i, 1
-  br i1 %226, label %227, label %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i, !prof !53
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36.i.i.i: ; preds = %227, %225
+  %.0.i.i.i.i.i37.i.i.i = phi i32 [ %211, %225 ], [ %228, %227 ]
+  %229 = icmp eq i32 %.0.i.i.i.i.i37.i.i.i, 1
+  br i1 %229, label %230, label %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i, !prof !53
 
-227:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36.i.i.i
+230:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %140) #34
   br label %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i
 
-_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i: ; preds = %227, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36.i.i.i, %212, %"_ZN2tf7Runtime12silent_asyncIRZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESH_EUlvE0_EEvOSB_.exit.i.i.i"
+_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i: ; preds = %230, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36.i.i.i, %212, %"_ZN2tf7Runtime12silent_asyncIRZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESH_EUlvE0_EEvOSB_.exit.i.i.i"
   br i1 %.not.i.i.i28.i.i.i, label %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit43.i.i.i", label %228
 
-228:                                              ; preds = %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i
+228:; preds = %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i
   %229 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %230 = load atomic i64, ptr %229 acquire, align 8
   %231 = icmp eq i64 %230, 4294967297
   %232 = trunc i64 %230 to i32
   br i1 %231, label %233, label %241
 
-233:                                              ; preds = %228
+233:; preds = %228
   store i32 0, ptr %229, align 8, !tbaa !50
   %234 = getelementptr inbounds nuw i8, ptr %129, i64 12
   store i32 0, ptr %234, align 4, !tbaa !52
   %235 = load ptr, ptr %129, align 8, !tbaa !4
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  %237 = load ptr, ptr %236, align 8
+  %239 = load ptr, ptr %236, align 8
   tail call void %237(ptr noundef nonnull align 8 dereferenceable(16) %129) #34
-  %238 = load ptr, ptr %129, align 8, !tbaa !4
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 24
-  %240 = load ptr, ptr %239, align 8
+  %241 = load ptr, ptr %129, align 8, !tbaa !4
+  %239 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %242 = load ptr, ptr %239, align 8
   tail call void %240(ptr noundef nonnull align 8 dereferenceable(16) %129) #34
   br label %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit43.i.i.i"
 
-241:                                              ; preds = %228
-  %242 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
-  %.not.i.i.i2.i40.i.i.i = icmp eq i8 %242, 0
-  br i1 %.not.i.i.i2.i40.i.i.i, label %245, label %243
+245:                                              ; preds = %228
+  %246 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
+  %.not.i.i.i2.i40.i.i.i = icmp eq i8 %246, 0
+  br i1 %.not.i.i.i2.i40.i.i.i, label %249, label %247
 
-243:                                              ; preds = %241
-  %244 = add nsw i32 %232, -1
-  store i32 %244, ptr %229, align 4, !tbaa !34
+247:                                              ; preds = %245
+  %248 = add nsw i32 %232, -1
+  store i32 %248, ptr %229, align 4, !tbaa !34
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i41.i.i.i
 
-245:                                              ; preds = %241
-  %246 = atomicrmw volatile add ptr %229, i32 -1 acq_rel, align 4
+249:                                              ; preds = %245
+  %250 = atomicrmw volatile add ptr %229, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i41.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i41.i.i.i: ; preds = %245, %243
-  %.0.i.i.i.i4.i42.i.i.i = phi i32 [ %232, %243 ], [ %246, %245 ]
-  %247 = icmp eq i32 %.0.i.i.i.i4.i42.i.i.i, 1
-  br i1 %247, label %248, label %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit43.i.i.i", !prof !53
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i41.i.i.i: ; preds = %249, %247
+  %.0.i.i.i.i4.i42.i.i.i = phi i32 [ %232, %247 ], [ %250, %249 ]
+  %251 = icmp eq i32 %.0.i.i.i.i4.i42.i.i.i, 1
+  br i1 %251, label %252, label %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit43.i.i.i", !prof !53
 
-248:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i41.i.i.i
+252:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i41.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %129) #34
   br label %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit43.i.i.i"
 
-"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit43.i.i.i": ; preds = %248, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i41.i.i.i, %233, %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i
+"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit43.i.i.i": ; preds = %252, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i41.i.i.i, %233, %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i38.i.i.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #34
-  %249 = icmp ult i64 %149, %spec.select.i.i.i
-  br i1 %249, label %126, label %69, !llvm.loop !946
+  %253 = icmp ult i64 %149, %spec.select.i.i.i
+  br i1 %253, label %126, label %69, !llvm.loop !946
 
-250:                                              ; preds = %"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i.i.i.i", %152, %151
-  %251 = landingpad { ptr, i32 }
+254:                                              ; preds = %"_ZN2tf7Runtime12silent_asyncINS_17DefaultTaskParamsERZZNS_25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRS0_E_clESI_EUlvE0_EEvOSC_OSD_.exit.i.i.i.i", %152, %151
+  %255 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
 
-.body.i.i.i:                                      ; preds = %250, %199
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %251, %250 ], [ %200, %199 ]
+.body.i.i.i:                                      ; preds = %254, %201
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %255, %254 ], [ %202, %201 ]
   call fastcc void @"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev"(ptr noundef nonnull align 8 dereferenceable(105) %5) #34
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #34
   call void @_ZNSt12__shared_ptrISt6atomicImELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #34
-  br label %252
+  br label %256
 
-252:                                              ; preds = %.body.i.i.i, %124
+256:                                              ; preds = %.body.i.i.i, %124
   %.pn.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %125, %124 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #34
   call void @_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #34
-  br label %253
+  br label %257
 
-253:                                              ; preds = %252, %122
-  %.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %252 ], [ %123, %122 ]
+257:                                              ; preds = %256, %122
+  %.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %256 ], [ %123, %122 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #34
-  %254 = load ptr, ptr %45, align 8, !tbaa !515
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 144
-  %256 = atomicrmw sub ptr %255, i64 1 acq_rel, align 8
-  %257 = icmp eq i64 %256, 1
-  br i1 %257, label %258, label %_ZN2tf15PreemptionGuardD2Ev.exit44.i.i.i
+  %258 = load ptr, ptr %45, align 8, !tbaa !515
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 144
+  %260 = atomicrmw sub ptr %259, i64 1 acq_rel, align 8
+  %261 = icmp eq i64 %260, 1
+  br i1 %261, label %262, label %_ZN2tf15PreemptionGuardD2Ev.exit44.i.i.i
 
-258:                                              ; preds = %253
+262:                                              ; preds = %257
   store i8 0, ptr %41, align 8, !tbaa !517
-  %259 = load ptr, ptr %45, align 8, !tbaa !515
-  %260 = load i32, ptr %259, align 8, !tbaa !64
-  %261 = and i32 %260, -1073741825
-  store i32 %261, ptr %259, align 8, !tbaa !64
+  %263 = load ptr, ptr %45, align 8, !tbaa !515
+  %264 = load i32, ptr %263, align 8, !tbaa !64
+  %265 = and i32 %264, -1073741825
+  store i32 %265, ptr %263, align 8, !tbaa !64
   br label %_ZN2tf15PreemptionGuardD2Ev.exit44.i.i.i
 
-_ZN2tf15PreemptionGuardD2Ev.exit44.i.i.i:         ; preds = %258, %253
+_ZN2tf15PreemptionGuardD2Ev.exit44.i.i.i:         ; preds = %262, %257
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 "_ZSt10__invoke_rIvRZN2tf25make_reduce_by_index_taskINS0_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS0_17GuidedPartitionerINS0_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_EUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vISA_SB_DpT1_EESA_E4typeEOSB_DpOSL_.exit": ; preds = %2, %_ZN2tf22is_index_range_invalidImmmEENSt9enable_ifIXaaaasr3stdE13is_integral_vINSt5decayIT_E4typeEEsr3stdE13is_integral_vINS2_IT0_E4typeEEsr3stdE13is_integral_vINS2_IT1_E4typeEEEbE4typeES3_S6_S9_.exit.i.i.i, %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENKUlvE_clEv.exit.i.i.i", %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i, %118

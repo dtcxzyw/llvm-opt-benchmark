@@ -404,13 +404,13 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h46af07da94ab62ddE.llvm.8559575631518112565.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %.promoted13.i = load ptr, ptr %11, align 8, !alias.scope !133
+  %.promoted14.i = load ptr, ptr %11, align 8, !alias.scope !133
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %16 = phi ptr [ %30, %29 ], [ %2, %.lr.ph.preheader ]
   %17 = phi ptr [ %19, %29 ], [ %.promoted.i, %.lr.ph.preheader ]
-  %18 = phi ptr [ %22, %29 ], [ %.promoted13.i, %.lr.ph.preheader ]
+  %18 = phi ptr [ %22, %29 ], [ %.promoted14.i, %.lr.ph.preheader ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
@@ -901,13 +901,13 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h46
   br i1 %16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %.promoted13 = load ptr, ptr %12, align 8
+  %.promoted14 = load ptr, ptr %12, align 8
   br label %17
 
 17:                                               ; preds = %.lr.ph, %31
   %18 = phi ptr [ %2, %.lr.ph ], [ %32, %31 ]
   %19 = phi ptr [ %.promoted, %.lr.ph ], [ %21, %31 ]
-  %20 = phi ptr [ %.promoted13, %.lr.ph ], [ %24, %31 ]
+  %20 = phi ptr [ %.promoted14, %.lr.ph ], [ %24, %31 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
