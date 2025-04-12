@@ -957,7 +957,7 @@ define hidden noundef zeroext i1 @_ZN8rawspeed10RawDecoder19handleCameraSupportE
     i8 4, label %18
     i8 0, label %18
     i8 2, label %.thread26
-    i8 5, label %26
+    i8 5, label %23
   ]
 
 .thread:                                          ; preds = %5, %8
@@ -998,15 +998,15 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %or.cond31 = select i1 %switch, i1 %25, i1 false
   br i1 %or.cond31, label %27, label %31
 
-26:                                               ; preds = %8
+23:                                               ; preds = %8
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed10RawDecoder19handleCameraSupportEPKNS_14CameraMetaDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_) #23
   unreachable
 
 .thread26:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread, %8
-  %.old28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.old29 = load i8, ptr %.old28, align 8, !tbaa !30, !range !163, !noundef !149
-  %.old30 = trunc nuw i8 %.old29 to i1
-  br i1 %.old30, label %27, label %31
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = load i8, ptr %24, align 8, !tbaa !30, !range !163, !noundef !149
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %27, label %31
 
 27:                                               ; preds = %18, %.thread26
   %28 = load ptr, ptr %2, align 8, !tbaa !162

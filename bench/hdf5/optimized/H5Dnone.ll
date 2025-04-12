@@ -423,9 +423,9 @@ define internal noundef i32 @H5D__none_idx_reset(ptr noundef writeonly captures(
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %6 = trunc nuw i8 %5 to i1
-  %7 = xor i1 %6, true
-  %8 = select i1 %4, i1 true, i1 %7
-  %or.cond = and i1 %1, %8
+  %not. = xor i1 %6, true
+  %.not = select i1 %4, i1 true, i1 %7
+  %or.cond = and i1 %1, %.not
   br i1 %or.cond, label %9, label %11, !prof !45
 
 9:                                                ; preds = %2

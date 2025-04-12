@@ -493,7 +493,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load i64, ptr %13, align 8
   %15 = tail call i64 @qemu_plugin_u64_sum(ptr %12, i64 %14) #8
-  %16 = icmp ne i64 %15, 0
+  %.not43 = icmp ne i64 %15, 0
   %17 = load i8, ptr @verbose, align 1, !range !10
   %18 = trunc nuw i8 %17 to i1
   %or.cond = select i1 %16, i1 true, i1 %18
@@ -530,25 +530,25 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
 31:                                               ; preds = %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load ptr, ptr %32, align 8
-  %.not41 = icmp eq ptr %33, null
-  br i1 %.not41, label %58, label %34
+  %.not39 = icmp eq ptr %33, null
+  br i1 %.not39, label %58, label %34
 
 34:                                               ; preds = %31
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.123) #8
   %35 = tail call ptr @g_list_sort(ptr noundef nonnull %30, ptr noundef nonnull @cmp_exec_count) #8
-  %.not4253 = icmp eq ptr %35, null
-  br i1 %.not4253, label %.critedge, label %.lr.ph57
+  %.not4051 = icmp eq ptr %35, null
+  br i1 %.not4051, label %.critedge, label %.lr.ph55
 
-.lr.ph57:                                         ; preds = %34, %53
-  %.155 = phi i32 [ %55, %53 ], [ 0, %34 ]
-  %.03754 = phi ptr [ %56, %53 ], [ %35, %34 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.03754, i64 8
+.lr.ph55:                                         ; preds = %34, %53
+  %.153 = phi i32 [ %55, %53 ], [ 0, %34 ]
+  %.03552 = phi ptr [ %56, %53 ], [ %35, %34 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.03552, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge, label %39
 
-39:                                               ; preds = %.lr.ph57
-  %40 = load ptr, ptr %.03754, align 8
+39:                                               ; preds = %.lr.ph55
+  %40 = load ptr, ptr %.03552, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load ptr, ptr %42, align 8
@@ -559,8 +559,8 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %48 = load i32, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %50 = load ptr, ptr %49, align 8
-  %.not44 = icmp eq ptr %50, null
-  br i1 %.not44, label %53, label %51
+  %.not42 = icmp eq ptr %50, null
+  br i1 %.not42, label %53, label %51
 
 51:                                               ; preds = %39
   %52 = load ptr, ptr %50, align 8
@@ -569,16 +569,16 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
 53:                                               ; preds = %39, %51
   %54 = phi ptr [ %52, %51 ], [ @.str.125, %39 ]
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.124, ptr noundef %41, i64 noundef %46, i32 noundef %48, ptr noundef %54) #8
-  %55 = add nuw nsw i32 %.155, 1
+  %55 = add nuw nsw i32 %.153, 1
   %56 = load ptr, ptr %36, align 8
-  %57 = icmp samesign ugt i32 %.155, 48
-  %.not42 = icmp eq ptr %56, null
-  %or.cond46 = select i1 %57, i1 true, i1 %.not42
-  br i1 %or.cond46, label %.critedge, label %.lr.ph57, !llvm.loop !14
+  %57 = icmp samesign ugt i32 %.153, 48
+  %.not40 = icmp eq ptr %56, null
+  %or.cond = select i1 %57, i1 true, i1 %.not40
+  br i1 %or.cond, label %.critedge, label %.lr.ph55, !llvm.loop !14
 
-.critedge:                                        ; preds = %.lr.ph57, %53, %34
-  %.037.lcssa = phi ptr [ null, %34 ], [ %56, %53 ], [ %.03754, %.lr.ph57 ]
-  tail call void @g_list_free(ptr noundef %.037.lcssa) #8
+.critedge:                                        ; preds = %.lr.ph55, %53, %34
+  %.035.lcssa = phi ptr [ null, %34 ], [ %56, %53 ], [ %.03552, %.lr.ph55 ]
+  tail call void @g_list_free(ptr noundef %.035.lcssa) #8
   br label %58
 
 58:                                               ; preds = %.critedge, %31, %._crit_edge
@@ -586,35 +586,35 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   tail call void @g_hash_table_destroy(ptr noundef %59) #8
   br label %.preheader
 
-.preheader:                                       ; preds = %58, %._crit_edge62
-  %indvars.iv68 = phi i64 [ 0, %58 ], [ %indvars.iv.next69, %._crit_edge62 ]
-  %60 = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv68
+.preheader:                                       ; preds = %58, %._crit_edge60
+  %indvars.iv66 = phi i64 [ 0, %58 ], [ %indvars.iv.next67, %._crit_edge60 ]
+  %60 = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv66
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph61, label %._crit_edge62
+  br i1 %63, label %.lr.ph59, label %._crit_edge60
 
-.lr.ph61:                                         ; preds = %.preheader
+.lr.ph59:                                         ; preds = %.preheader
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %65 = load ptr, ptr %64, align 8
   %wide.trip.count = zext nneg i32 %62 to i64
   br label %66
 
-._crit_edge62:                                    ; preds = %66, %.preheader
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next69, 4
-  br i1 %exitcond71.not, label %glib_autoptr_cleanup_GString.exit, label %.preheader, !llvm.loop !15
+._crit_edge60:                                    ; preds = %66, %.preheader
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
+  br i1 %exitcond69.not, label %glib_autoptr_cleanup_GString.exit, label %.preheader, !llvm.loop !15
 
-66:                                               ; preds = %.lr.ph61, %66
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next66, %66 ]
-  %67 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %65, i64 %indvars.iv65, i32 5
+66:                                               ; preds = %.lr.ph59, %66
+  %indvars.iv63 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next64, %66 ]
+  %67 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %65, i64 %indvars.iv63, i32 5
   %68 = load ptr, ptr %67, align 8
   tail call void @qemu_plugin_scoreboard_free(ptr noundef %68) #8
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge62, label %66, !llvm.loop !16
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge60, label %66, !llvm.loop !16
 
-glib_autoptr_cleanup_GString.exit:                ; preds = %._crit_edge62
+glib_autoptr_cleanup_GString.exit:                ; preds = %._crit_edge60
   %69 = load ptr, ptr %3, align 8
   tail call void @qemu_plugin_outs(ptr noundef %69) #8
   %70 = tail call ptr @g_string_free(ptr noundef nonnull %3, i32 noundef 1) #8

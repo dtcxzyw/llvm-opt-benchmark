@@ -564,15 +564,15 @@ define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr 
   %or.cond = select i1 %.not, i1 true, i1 %5
   br i1 %or.cond, label %6, label %10
 
-6:                                                ; preds = %2
+3:                                                ; preds = %2
   store i8 0, ptr %3, align 4, !tbaa !67
-  %7 = load ptr, ptr %0, align 8, !tbaa !62
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %5 = load ptr, ptr %0, align 8, !tbaa !62
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(13) %0) #17
-  br label %10
+  br label %12
 
-10:                                               ; preds = %2, %6
+12:                                               ; preds = %2, %6
   ret void
 }
 

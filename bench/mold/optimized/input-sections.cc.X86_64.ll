@@ -939,87 +939,87 @@ _ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit: ; preds = %16, %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %34, i64 %35, i1 false)
   br label %76
 
-36:                                               ; preds = %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit
+37:                                               ; preds = %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit
   %37 = load i64, ptr %31, align 8, !tbaa !23
   %38 = icmp ult i64 %37, 24
   br i1 %38, label %39, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
-39:                                               ; preds = %36
+41:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %4) #15
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEEC2ERS3_(ptr noundef nonnull align 8 dereferenceable(408) %4, ptr noundef nonnull align 8 dereferenceable(4520) %1)
-  %40 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_12InputSectionIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %4, ptr noundef nonnull align 8 dereferenceable(94) %0)
-  %41 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRA31_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %40, ptr noundef nonnull align 1 dereferenceable(31) @.str)
+  %42 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_12InputSectionIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %4, ptr noundef nonnull align 8 dereferenceable(94) %0)
+  %43 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRA31_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %42, ptr noundef nonnull align 1 dereferenceable(31) @.str)
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %4) #27
   unreachable
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !24
-  %44 = add i64 %37, -24
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %46 = load i32, ptr %43, align 1
-  switch i32 %46, label %63 [
-    i32 1, label %47
-    i32 2, label %55
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %37
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %45 = load ptr, ptr %44, align 8, !tbaa !24
+  %46 = add i64 %37, -24
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %48 = load i32, ptr %45, align 1
+  switch i32 %48, label %65 [
+    i32 1, label %49
+    i32 2, label %57
   ]
 
-47:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+49:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !43
-  store i64 %49, ptr %5, align 8, !tbaa !80
-  %50 = call i32 @uncompress(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %45, i64 noundef %44) #15
-  %.not11 = icmp eq i32 %50, 0
-  br i1 %.not11, label %54, label %51
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %51 = load i64, ptr %50, align 8, !tbaa !43
+  store i64 %51, ptr %5, align 8, !tbaa !80
+  %52 = call i32 @uncompress(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %47, i64 noundef %46) #15
+  %.not11 = icmp eq i32 %52, 0
+  br i1 %.not11, label %56, label %53
 
-51:                                               ; preds = %47
+53:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %6) #15
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEEC2ERS3_(ptr noundef nonnull align 8 dereferenceable(408) %6, ptr noundef nonnull align 8 dereferenceable(4520) %1)
-  %52 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_12InputSectionIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %6, ptr noundef nonnull align 8 dereferenceable(94) %0)
-  %53 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRA20_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %52, ptr noundef nonnull align 1 dereferenceable(20) @.str.2)
+  %54 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_12InputSectionIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %6, ptr noundef nonnull align 8 dereferenceable(94) %0)
+  %55 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRA20_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %54, ptr noundef nonnull align 1 dereferenceable(20) @.str.2)
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %6) #27
   unreachable
 
-54:                                               ; preds = %47
+56:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  br label %76
+  br label %78
 
-55:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load i64, ptr %56, align 8, !tbaa !43
-  %58 = tail call i64 @ZSTD_decompress(ptr noundef %2, i64 noundef %57, ptr noundef nonnull %45, i64 noundef %44) #15
-  %59 = load i64, ptr %56, align 8, !tbaa !43
-  %.not10 = icmp eq i64 %58, %59
-  br i1 %.not10, label %76, label %60
+57:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %59 = load i64, ptr %58, align 8, !tbaa !43
+  %60 = tail call i64 @ZSTD_decompress(ptr noundef %2, i64 noundef %59, ptr noundef nonnull %47, i64 noundef %46) #15
+  %61 = load i64, ptr %58, align 8, !tbaa !43
+  %.not10 = icmp eq i64 %60, %61
+  br i1 %.not10, label %78, label %62
 
-60:                                               ; preds = %55
+62:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %7) #15
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEEC2ERS3_(ptr noundef nonnull align 8 dereferenceable(408) %7, ptr noundef nonnull align 8 dereferenceable(4520) %1)
-  %61 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_12InputSectionIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %7, ptr noundef nonnull align 8 dereferenceable(94) %0)
-  %62 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRA25_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %61, ptr noundef nonnull align 1 dereferenceable(25) @.str.3)
+  %63 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_12InputSectionIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %7, ptr noundef nonnull align 8 dereferenceable(94) %0)
+  %64 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRA25_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %63, ptr noundef nonnull align 1 dereferenceable(25) @.str.3)
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %7) #27
   unreachable
 
-63:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+65:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %8) #15
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEEC2ERS3_(ptr noundef nonnull align 8 dereferenceable(408) %8, ptr noundef nonnull align 8 dereferenceable(4520) %1)
-  %64 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_12InputSectionIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %8, ptr noundef nonnull align 8 dereferenceable(94) %0)
-  %65 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRA35_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %64, ptr noundef nonnull align 1 dereferenceable(35) @.str.4)
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %67 = load ptr, ptr %66, align 8, !tbaa !90
-  %68 = getelementptr i8, ptr %67, i64 -24
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %66, i64 %69
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load i32, ptr %71, align 8, !tbaa !92
-  %73 = and i32 %72, -75
-  %74 = or disjoint i32 %73, 8
-  store i32 %74, ptr %71, align 4, !tbaa !101
-  %75 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_7IntegerIjLb1ELi4EEEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %65, ptr noundef nonnull align 1 dereferenceable(4) %43)
+  %66 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_12InputSectionIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %8, ptr noundef nonnull align 8 dereferenceable(94) %0)
+  %67 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRA35_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %66, ptr noundef nonnull align 1 dereferenceable(35) @.str.4)
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %69 = load ptr, ptr %68, align 8, !tbaa !90
+  %70 = getelementptr i8, ptr %69, i64 -24
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %68, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %74 = load i32, ptr %73, align 8, !tbaa !92
+  %75 = and i32 %74, -75
+  %76 = or disjoint i32 %75, 8
+  store i32 %76, ptr %73, align 4, !tbaa !101
+  %77 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_7IntegerIjLb1ELi4EEEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %67, ptr noundef nonnull align 1 dereferenceable(4) %45)
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %8) #27
   unreachable
 
-76:                                               ; preds = %54, %55, %32
+78:                                               ; preds = %56, %57, %32
   ret void
 }
 

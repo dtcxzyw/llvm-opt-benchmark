@@ -96,13 +96,13 @@ define void @_ZN8BitInput17SetExternalBufferEPh(ptr noundef nonnull align 8 capt
   %or.cond = select i1 %.not, i1 true, i1 %7
   br i1 %or.cond, label %9, label %8
 
-8:                                                ; preds = %2
+5:                                                ; preds = %2
   tail call void @_ZdaPv(ptr noundef nonnull %4) #9
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %2
+10:                                               ; preds = %5, %2
   store ptr %1, ptr %3, align 8, !tbaa !11
-  store i8 1, ptr %5, align 8, !tbaa !3
+  store i5 1, ptr %5, align 8, !tbaa !3
   ret void
 }
 

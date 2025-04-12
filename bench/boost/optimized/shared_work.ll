@@ -245,7 +245,7 @@ define void @_ZN5boost6fibers4algo11shared_work13suspend_untilERKNSt6chrono10tim
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 121
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !75, !noundef !76
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %37
+  br i1 %7, label %8, label %39
 
 8:                                                ; preds = %2
   %.sroa.0.0.copyload.i2.i = load i64, ptr %1, align 8, !tbaa !77
@@ -300,7 +300,7 @@ define void @_ZN5boost6fibers4algo11shared_work13suspend_untilERKNSt6chrono10tim
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_variable4waitIZN5boost6fibers4algo11shared_work13suspend_untilERKNSt6chrono10time_pointINS5_3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", %20, %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
-  br label %37
+  br label %39
 
 24:                                               ; preds = %8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -324,11 +324,11 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit7:        ; preds = %24
   %.old = trunc nuw i8 %.val.val.i8.old to i1
   br i1 %.old, label %_ZNSt11unique_lockISt5mutexED2Ev.exit11, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit7
+.preheader.preheader:; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit7
   %.sroa.0.0.copyload.i.i.i.i.i.pre = load i64, ptr %1, align 8, !tbaa !77
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %.noexc9
+.preheader:; preds = %.preheader.preheader, %.noexc9
   %.sroa.0.0.copyload.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.pre, %.preheader.preheader ], [ %.sroa.0.0.copyload.i2.i7.i.i.i, %.noexc9 ]
   %31 = sdiv i64 %.sroa.0.0.copyload.i.i.i.i.i, 1000000000
   %.neg.i.i.i.i.i = mul nsw i64 %31, -1000000000
@@ -336,13 +336,13 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit7:        ; preds = %24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
   store i64 %31, ptr %3, align 8, !tbaa !84
   store i64 %32, ptr %30, align 8, !tbaa !86
-  %33 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %36 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc9 unwind label %.loopexit.split-lp.loopexit
 
 .noexc9:                                          ; preds = %.preheader
-  %34 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #16
+  %37 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #16
   %.sroa.0.0.copyload.i2.i7.i.i.i = load i64, ptr %1, align 8, !tbaa !77
-  %.not.i = icmp sge i64 %34, %.sroa.0.0.copyload.i2.i7.i.i.i
+  %.not.i = icmp sge i64 %37, %.sroa.0.0.copyload.i2.i7.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   %.val.val.i8 = load i8, ptr %29, align 8, !range !75
   %35 = trunc nuw i8 %.val.val.i8 to i1
@@ -351,10 +351,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit7:        ; preds = %24
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit11:          ; preds = %.noexc9, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit7
   store i8 0, ptr %29, align 8, !tbaa !81
-  %36 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %25) #16
-  br label %37
+  %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %25) #16
+  br label %39
 
-37:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %_ZNSt11unique_lockISt5mutexED2Ev.exit11, %2
+39:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %_ZNSt11unique_lockISt5mutexED2Ev.exit11, %2
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i
@@ -374,8 +374,8 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit11:          ; preds = %.noexc9, %_ZNSt11un
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit14, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp15, %.loopexit.split-lp.loopexit.split-lp ]
-  %38 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %38) #18
+  %40 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %40) #18
   unreachable
 }
 

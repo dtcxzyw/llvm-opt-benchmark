@@ -22174,7 +22174,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail5lexerINS_10basic_jso
   store ptr %.str.145.sink, ptr %30, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %.preheader, %.loopexit.sink.split
+switch.hole_check:                                ; preds = %12, %.preheader, %.loopexit.sink.split
   %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.preheader ], [ true, %12 ]
   ret i1 %.0
 }

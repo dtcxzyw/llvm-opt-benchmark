@@ -1014,7 +1014,7 @@ mbedtls_cipher_get_block_size.exit61:             ; preds = %79, %81
   store i64 %.0.i60, ptr %2, align 8, !tbaa !37
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %15, %48, %20, %mbedtls_cipher_get_block_size.exit59, %mbedtls_cipher_get_block_size.exit61, %32, %mbedtls_cipher_get_block_size.exit57, %21, %11, %3
+switch.hole_check:                                ; preds = %15, %48, %20, %mbedtls_cipher_get_block_size.exit59, %mbedtls_cipher_get_block_size.exit61, %32, %mbedtls_cipher_get_block_size.exit57, %21, %11, %3
   %.0 = phi i32 [ -24832, %3 ], [ -24832, %11 ], [ %., %21 ], [ %78, %mbedtls_cipher_get_block_size.exit59 ], [ 0, %mbedtls_cipher_get_block_size.exit61 ], [ %.50, %32 ], [ %65, %mbedtls_cipher_get_block_size.exit57 ], [ -24704, %20 ], [ %spec.select, %48 ], [ 0, %15 ]
   ret i32 %.0
 }

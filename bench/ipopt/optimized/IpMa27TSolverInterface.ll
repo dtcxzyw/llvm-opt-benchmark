@@ -3485,7 +3485,7 @@ define noundef range(i32 0, 5) i32 @_ZN5Ipopt20Ma27TSolverInterface10MultiSolveE
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 110
   store i8 1, ptr %14, align 2, !tbaa !31
-  br label %23
+  br label %24
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 110
@@ -3494,22 +3494,22 @@ define noundef range(i32 0, 5) i32 @_ZN5Ipopt20Ma27TSolverInterface10MultiSolveE
   %or.cond = select i1 %1, i1 true, i1 %18
   br i1 %or.cond, label %.critedge, label %21
 
-.critedge:                                        ; preds = %12, %15
+16:                                               ; preds = %12, %15
   %19 = tail call noundef i32 @_ZN5Ipopt20Ma27TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(370) %0, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %6, i32 noundef %7)
   %.not.not = icmp eq i32 %19, 0
   br i1 %.not.not, label %.thread, label %23
 
 .thread:                                          ; preds = %.critedge
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 110
-  store i8 0, ptr %20, align 2, !tbaa !31
-  br label %21
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 110
+  store i8 0, ptr %21, align 2, !tbaa !31
+  br label %22
 
-21:                                               ; preds = %.thread, %15
-  %22 = tail call noundef i32 @_ZN5Ipopt20Ma27TSolverInterface9BacksolveEiPd(ptr noundef nonnull align 8 dereferenceable(370) %0, i32 noundef %4, ptr noundef %5)
-  br label %23
+22:                                               ; preds = %.thread, %15
+  %23 = tail call noundef i32 @_ZN5Ipopt20Ma27TSolverInterface9BacksolveEiPd(ptr noundef nonnull align 8 dereferenceable(370) %0, i32 noundef %4, ptr noundef %5)
+  br label %24
 
-23:                                               ; preds = %.critedge, %21, %13
-  %.012 = phi i32 [ 0, %21 ], [ 3, %13 ], [ %19, %.critedge ]
+24:                                               ; preds = %.critedge, %22, %13
+  %.012 = phi i32 [ 0, %22 ], [ 3, %13 ], [ %19, %.critedge ]
   ret i32 %.012
 }
 
@@ -3520,8 +3520,8 @@ define noundef range(i32 0, 5) i32 @_ZN5Ipopt20Ma27TSolverInterface13Factorizati
   %8 = alloca [20 x i32], align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !40
-  %.not72 = icmp eq ptr %10, null
-  br i1 %.not72, label %_ZN5Ipopt9TimedTask5StartEv.exit, label %11
+  %.not70 = icmp eq ptr %10, null
+  br i1 %.not70, label %_ZN5Ipopt9TimedTask5StartEv.exit, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1176
@@ -3644,7 +3644,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
   %75 = trunc nuw i8 %74 to i1
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %77 = load ptr, ptr %76, align 8, !tbaa !37
-  br i1 %75, label %78, label %._crit_edge81
+  br i1 %75, label %78, label %._crit_edge78
 
 78:                                               ; preds = %72
   %79 = icmp eq ptr %77, null
@@ -3681,7 +3681,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
 100:                                              ; preds = %81
   store ptr %99, ptr %76, align 8, !tbaa !37
   store i8 0, ptr %73, align 1, !tbaa !36
-  br label %._crit_edge81
+  br label %._crit_edge78
 
 101:                                              ; preds = %81
   %102 = landingpad { ptr, i32 }
@@ -3712,7 +3712,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
   invoke void @__cxa_end_catch()
           to label %367 unwind label %368
 
-._crit_edge81:                                    ; preds = %72, %100
+._crit_edge78:                                    ; preds = %72, %100
   %116 = phi ptr [ %99, %100 ], [ %77, %72 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #27
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3769,7 +3769,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
   %or.cond = icmp eq i32 %158, -4
   br i1 %or.cond, label %159, label %249
 
-159:                                              ; preds = %._crit_edge81
+159:                                              ; preds = %._crit_edge78
   %160 = load ptr, ptr %135, align 8, !tbaa !37
   %161 = icmp eq ptr %160, null
   br i1 %161, label %163, label %162
@@ -3813,9 +3813,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
 
 181:                                              ; preds = %177, %172
   %.sink = phi i32 [ %180, %177 ], [ %176, %172 ]
-  %.sink82 = load double, ptr %170, align 8, !tbaa !75
+  %.sink79 = load double, ptr %170, align 8, !tbaa !75
   %182 = sitofp i32 %.sink to double
-  %183 = fmul double %.sink82, %182
+  %183 = fmul double %.sink79, %182
   call void @_ZN5Ipopt18ComputeMemIncreaseIiEEvRT_dS1_PKc(ptr noundef nonnull align 4 dereferenceable(4) %134, double noundef %183, i32 noundef 0, ptr noundef nonnull @.str.48)
   %184 = load ptr, ptr %151, align 8, !tbaa !42
   %185 = load i32, ptr %136, align 8, !tbaa !32
@@ -3845,8 +3845,8 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
 203:                                              ; preds = %196
   store ptr %202, ptr %132, align 8, !tbaa !34
   %204 = load ptr, ptr %9, align 8, !tbaa !40
-  %.not78 = icmp eq ptr %204, null
-  br i1 %.not78, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %220
+  %.not75 = icmp eq ptr %204, null
+  br i1 %.not75, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %220
 
 205:                                              ; preds = %196, %181
   %206 = landingpad { ptr, i32 }
@@ -3915,13 +3915,13 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
   br label %_ZN5Ipopt9TimedTask3EndEv.exit
 
 248:                                              ; preds = %218, %205
-  %.merged77 = phi { ptr, i32 } [ %206, %205 ], [ %219, %218 ]
+  %.merged74 = phi { ptr, i32 } [ %206, %205 ], [ %219, %218 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #27
   br label %367
 
-249:                                              ; preds = %._crit_edge81
+249:                                              ; preds = %._crit_edge78
   %250 = icmp eq i32 %142, -5
   br i1 %250, label %256, label %251
 
@@ -3935,8 +3935,8 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
 
 256:                                              ; preds = %251, %249
   %257 = load ptr, ptr %9, align 8, !tbaa !40
-  %.not76 = icmp eq ptr %257, null
-  br i1 %.not76, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %258
+  %.not73 = icmp eq ptr %257, null
+  br i1 %.not73, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %258
 
 258:                                              ; preds = %256
   %259 = getelementptr inbounds nuw i8, ptr %257, i64 1176
@@ -3998,8 +3998,8 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
 
 298:                                              ; preds = %297
   %299 = load ptr, ptr %9, align 8, !tbaa !40
-  %.not73 = icmp eq ptr %299, null
-  br i1 %.not73, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %300
+  %.not71 = icmp eq ptr %299, null
+  br i1 %.not71, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %300
 
 300:                                              ; preds = %298
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 1128
@@ -4048,14 +4048,14 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
   %328 = load ptr, ptr %327, align 8
   call void (ptr, i32, i32, ptr, ...) %328(ptr noundef nonnull align 8 dereferenceable(40) %323, i32 noundef 6, i32 noundef 7, ptr noundef nonnull @.str.62, i32 noundef %325)
   %329 = load ptr, ptr %9, align 8, !tbaa !40
-  %.not74 = icmp eq ptr %329, null
-  br i1 %.not74, label %_ZN5Ipopt9TimedTask3EndEv.exit71, label %330
+  %.not72 = icmp eq ptr %329, null
+  br i1 %.not72, label %_ZN5Ipopt9TimedTask3EndEv.exit69, label %330
 
 330:                                              ; preds = %316
   %331 = getelementptr inbounds nuw i8, ptr %329, i64 1176
   %332 = load i8, ptr %331, align 8, !tbaa !68, !range !64, !noundef !65
   %333 = trunc nuw i8 %332 to i1
-  br i1 %333, label %334, label %_ZN5Ipopt9TimedTask3EndEv.exit71
+  br i1 %333, label %334, label %_ZN5Ipopt9TimedTask3EndEv.exit69
 
 334:                                              ; preds = %330
   %335 = getelementptr inbounds nuw i8, ptr %329, i64 1128
@@ -4086,20 +4086,20 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
   %356 = load double, ptr %355, align 8, !tbaa !82
   %357 = fadd double %356, %354
   store double %357, ptr %355, align 8, !tbaa !82
-  br label %_ZN5Ipopt9TimedTask3EndEv.exit71
+  br label %_ZN5Ipopt9TimedTask3EndEv.exit69
 
-_ZN5Ipopt9TimedTask3EndEv.exit71:                 ; preds = %334, %330, %316
+_ZN5Ipopt9TimedTask3EndEv.exit69:                 ; preds = %334, %330, %316
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 153
   %359 = load i8, ptr %358, align 1, !tbaa !84, !range !64, !noundef !65
   %360 = trunc nuw i8 %359 to i1
-  %.not75 = xor i1 %3, true
-  %or.cond6.not = or i1 %.not75, %360
+  %.not66 = xor i1 %3, true
+  %brmerge = or i1 %.not66, %360
   %361 = load i32, ptr %150, align 8
-  %.not68 = icmp eq i32 %4, %361
-  %or.cond69 = select i1 %or.cond6.not, i1 true, i1 %.not68
-  br i1 %or.cond69, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %362
+  %.not65 = icmp eq i32 %4, %361
+  %or.cond67 = select i1 %brmerge, i1 true, i1 %.not65
+  br i1 %or.cond67, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %362
 
-362:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit71
+362:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit69
   %363 = load ptr, ptr %151, align 8, !tbaa !42
   %364 = load ptr, ptr %363, align 8, !tbaa !8
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 16
@@ -4107,15 +4107,15 @@ _ZN5Ipopt9TimedTask3EndEv.exit71:                 ; preds = %334, %330, %316
   call void (ptr, i32, i32, ptr, ...) %366(ptr noundef nonnull align 8 dereferenceable(40) %363, i32 noundef 6, i32 noundef 7, ptr noundef nonnull @.str.63, i32 noundef %361, i32 noundef %4)
   br label %_ZN5Ipopt9TimedTask3EndEv.exit
 
-_ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %262, %258, %224, %220, %_ZN5Ipopt9TimedTask3EndEv.exit71, %298, %300, %256, %203, %362
-  %.0 = phi i32 [ 2, %362 ], [ 3, %203 ], [ 1, %256 ], [ 4, %300 ], [ 4, %298 ], [ 0, %_ZN5Ipopt9TimedTask3EndEv.exit71 ], [ 3, %220 ], [ 3, %224 ], [ 1, %258 ], [ 1, %262 ]
+_ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %262, %258, %224, %220, %_ZN5Ipopt9TimedTask3EndEv.exit69, %298, %300, %256, %203, %362
+  %.0 = phi i32 [ 2, %362 ], [ 3, %203 ], [ 1, %256 ], [ 4, %300 ], [ 4, %298 ], [ 0, %_ZN5Ipopt9TimedTask3EndEv.exit69 ], [ 3, %220 ], [ 3, %224 ], [ 1, %258 ], [ 1, %262 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #27
   ret i32 %.0
 
 367:                                              ; preds = %114, %65, %101, %52, %248
-  %.merged = phi { ptr, i32 } [ %.merged77, %248 ], [ %53, %52 ], [ %102, %101 ], [ %66, %65 ], [ %115, %114 ]
+  %.merged = phi { ptr, i32 } [ %.merged74, %248 ], [ %53, %52 ], [ %102, %101 ], [ %66, %65 ], [ %115, %114 ]
   resume { ptr, i32 } %.merged
 
 368:                                              ; preds = %218, %114, %65

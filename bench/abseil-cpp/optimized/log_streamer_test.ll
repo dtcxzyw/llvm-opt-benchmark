@@ -35024,12 +35024,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(424) ptr @
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !126
   %16 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage10AtLocationESt17basic_string_viewIcSt11char_traitsIcEEi(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %13, ptr %11, i32 noundef %15)
-          to label %17 unwind label %121
+          to label %17 unwind label %120
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %.critedge21 unwind label %121
+          to label %.critedge21 unwind label %120
 
 .critedge21:                                      ; preds = %17
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #35
@@ -35242,10 +35242,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit31: ; preds = %
   %111 = call noundef nonnull align 8 dereferenceable(344) ptr @_ZN4absl16strings_internal13OStringStreamaSEOS1_(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %104)
   br label %_ZNSt8optionalIN4absl16strings_internal13OStringStreamEEaSEOS3_.exit
 
-112:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit31
+.thread.i.i.i.i.i:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit31
   br i1 %109, label %113, label %114
 
-113:                                              ; preds = %112
+113:                                              ; preds = %.thread.i.i.i.i.i
   call void @_ZN4absl16strings_internal13OStringStreamC1EOS1_(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %104)
   store i8 1, ptr %4, align 8, !tbaa !114
   br label %_ZNSt8optionalIN4absl16strings_internal13OStringStreamEEaSEOS3_.exit
@@ -35255,47 +35255,47 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit31: ; preds = %
 
 115:                                              ; preds = %114
   store i8 0, ptr %4, align 8, !tbaa !114
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %116, align 8, !tbaa !4
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %117) #29
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %118) #29
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %115, align 8, !tbaa !4
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %116) #29
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %117) #29
   br label %_ZNSt8optionalIN4absl16strings_internal13OStringStreamEEaSEOS3_.exit
 
 _ZNSt8optionalIN4absl16strings_internal13OStringStreamEEaSEOS3_.exit: ; preds = %110, %113, %114, %115
-  %119 = load i8, ptr %4, align 8, !tbaa !114, !range !117, !noundef !118
-  %120 = trunc nuw i8 %119 to i1
-  br i1 %120, label %123, label %125
+  %118 = load i8, ptr %4, align 8, !tbaa !114, !range !117, !noundef !118
+  %119 = trunc nuw i8 %118 to i1
+  br i1 %119, label %122, label %124
 
-121:                                              ; preds = %17, %7
-  %122 = landingpad { ptr, i32 }
+120:                                              ; preds = %17, %7
+  %121 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
-  resume { ptr, i32 } %122
+  resume { ptr, i32 } %121
 
-123:                                              ; preds = %_ZNSt8optionalIN4absl16strings_internal13OStringStreamEEaSEOS3_.exit
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %65, ptr %124, align 8, !tbaa !372
-  br label %125
+122:                                              ; preds = %_ZNSt8optionalIN4absl16strings_internal13OStringStreamEEaSEOS3_.exit
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %65, ptr %123, align 8, !tbaa !372
+  br label %124
 
-125:                                              ; preds = %123, %_ZNSt8optionalIN4absl16strings_internal13OStringStreamEEaSEOS3_.exit
-  %126 = load i8, ptr %107, align 8, !tbaa !114, !range !117, !noundef !118
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %127, label %128, label %_ZNSt8optionalIN4absl16strings_internal13OStringStreamEE5resetEv.exit
+124:                                              ; preds = %122, %_ZNSt8optionalIN4absl16strings_internal13OStringStreamEEaSEOS3_.exit
+  %125 = load i8, ptr %107, align 8, !tbaa !114, !range !117, !noundef !118
+  %126 = trunc nuw i8 %125 to i1
+  br i1 %126, label %127, label %_ZNSt8optionalIN4absl16strings_internal13OStringStreamEE5resetEv.exit
 
-128:                                              ; preds = %125
+127:                                              ; preds = %124
   store i8 0, ptr %107, align 8, !tbaa !114
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %129, align 8, !tbaa !4
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %130) #29
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %131) #29
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %128, align 8, !tbaa !4
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %129) #29
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %130) #29
   br label %_ZNSt8optionalIN4absl16strings_internal13OStringStreamEE5resetEv.exit
 
-_ZNSt8optionalIN4absl16strings_internal13OStringStreamEE5resetEv.exit: ; preds = %125, %128
+_ZNSt8optionalIN4absl16strings_internal13OStringStreamEE5resetEv.exit: ; preds = %124, %127
   ret ptr %0
 }
 

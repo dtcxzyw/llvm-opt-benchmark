@@ -626,12 +626,12 @@ declare noundef i32 @_ZN13Probabilities13pname_to_typeE8ProbName(i32 noundef) lo
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK15StatementFilter6filterEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK6Filter12valid_filterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br i1 %3, label %4, label %38
+  br i1 %3, label %4, label %36
 
 4:                                                ; preds = %2
   %5 = tail call noundef i32 @_ZN9Statement14number_to_typeEj(i32 noundef %1)
   %6 = tail call noundef zeroext i1 @_ZN15PartialExpander12expand_checkE14eStatementType(i32 noundef %5)
-  br i1 %6, label %7, label %38
+  br i1 %6, label %7, label %36
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -657,40 +657,40 @@ define dso_local noundef zeroext i1 @_ZNK15StatementFilter6filterEi(ptr noundef 
   %or.cond18 = select i1 %21, i1 true, i1 %or.cond
   br i1 %or.cond18, label %38, label %23
 
-23:                                               ; preds = %19
-  %24 = and i32 %5, -2
-  %or.cond3 = icmp eq i32 %24, 6
-  br i1 %or.cond3, label %25, label %29
+22:                                               ; preds = %19
+  %23 = and i32 %5, -2
+  %or.cond = icmp eq i32 %23, 6
+  br i1 %or.cond, label %24, label %.thread
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !119
-  %28 = and i32 %27, 2
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %38, label %29
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %26 = load i32, ptr %25, align 8, !tbaa !119
+  %27 = and i32 %26, 2
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %36, label %.thread
 
-29:                                               ; preds = %23, %25
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !120
-  %32 = tail call noundef i32 @_ZN9CGOptions13max_blk_depthEv()
-  %.not16 = icmp slt i32 %31, %32
-  br i1 %.not16, label %36, label %33
+.thread:                                          ; preds = %22, %24
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !120
+  %30 = tail call noundef i32 @_ZN9CGOptions13max_blk_depthEv()
+  %.not14 = icmp slt i32 %29, %30
+  br i1 %.not14, label %34, label %31
 
-33:                                               ; preds = %29
-  %34 = add i32 %5, -1
-  %or.cond3.i = icmp ult i32 %34, 3
-  %35 = icmp eq i32 %5, 9
-  %spec.select.i = or i1 %35, %or.cond3.i
-  br label %38
+31:                                               ; preds = %.thread
+  %32 = add i32 %5, -1
+  %or.cond3.i = icmp ult i32 %32, 3
+  %33 = icmp eq i32 %5, 9
+  %spec.select.i = or i1 %33, %or.cond3.i
+  br label %36
 
-36:                                               ; preds = %29
-  %37 = tail call noundef zeroext i1 @_ZN8Function23reach_max_functions_cntEv()
-  %.not17 = icmp eq i32 %5, 4
-  %spec.select = and i1 %.not17, %37
-  br label %38
+34:                                               ; preds = %.thread
+  %35 = tail call noundef zeroext i1 @_ZN8Function23reach_max_functions_cntEv()
+  %.not15 = icmp eq i32 %5, 4
+  %spec.select = and i1 %.not15, %35
+  br label %36
 
-38:                                               ; preds = %36, %4, %25, %19, %33, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %4 ], [ %spec.select.i, %33 ], [ true, %19 ], [ true, %25 ], [ %spec.select, %36 ]
+36:                                               ; preds = %34, %4, %24, %19, %31, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %4 ], [ %spec.select.i, %31 ], [ true, %19 ], [ true, %24 ], [ %spec.select, %34 ]
   ret i1 %.0
 }
 

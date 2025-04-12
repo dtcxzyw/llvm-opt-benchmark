@@ -260384,24 +260384,24 @@ define linkonce_odr void @_ZN8LightGBM10LeafSplits4InitEiPKNS_13DataPartitionEPK
   %or.cond = select i1 %30, i1 true, i1 %32
   br i1 %or.cond, label %34, label %33
 
-33:                                               ; preds = %5
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN8LightGBM10LeafSplits4InitEiPKNS_13DataPartitionEPKfS5_.omp_outlined, ptr nonnull %0, ptr nonnull %8, ptr nonnull %6, ptr nonnull %9, ptr nonnull %7)
-  br label %35
-
 34:                                               ; preds = %5
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN8LightGBM10LeafSplits4InitEiPKNS_13DataPartitionEPKfS5_.omp_outlined, ptr nonnull %0, ptr nonnull %8, ptr nonnull %6, ptr nonnull %9, ptr nonnull %7)
+  br label %36
+
+35:                                               ; preds = %5
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %11)
   store i32 %11, ptr %10, align 4, !tbaa !191
   call void @_ZN8LightGBM10LeafSplits4InitEiPKNS_13DataPartitionEPKfS5_.omp_outlined(ptr nonnull %10, ptr nonnull poison, ptr nonnull %0, ptr %8, ptr %6, ptr %9, ptr %7) #21
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %11)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %34, %33
-  %36 = load double, ptr %8, align 8, !tbaa !310
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %36, ptr %37, align 8, !tbaa !288
-  %38 = load double, ptr %9, align 8, !tbaa !310
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %38, ptr %39, align 8, !tbaa !289
+36:                                               ; preds = %35, %34
+  %37 = load double, ptr %8, align 8, !tbaa !310
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %37, ptr %38, align 8, !tbaa !288
+  %39 = load double, ptr %9, align 8, !tbaa !310
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double %39, ptr %40, align 8, !tbaa !289
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
   ret void

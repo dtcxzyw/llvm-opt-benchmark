@@ -4315,7 +4315,7 @@ define hidden i32 @phpdbg_interactive(i1 noundef zeroext %0, ptr noundef %1) loc
 
 10:                                               ; preds = %2, %52
   %11 = phi ptr [ %1, %2 ], [ null, %52 ]
-  %.019 = phi i32 [ 0, %2 ], [ %.1, %52 ]
+  %.018 = phi i32 [ 0, %2 ], [ %.1, %52 ]
   %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %13 = and i64 %12, 327680
   %.not = icmp eq i64 %13, 0
@@ -4326,14 +4326,14 @@ define hidden i32 @phpdbg_interactive(i1 noundef zeroext %0, ptr noundef %1) loc
   unreachable
 
 15:                                               ; preds = %10
-  %.not8 = icmp eq ptr %11, null
-  br i1 %.not8, label %16, label %18
+  %.not7 = icmp eq ptr %11, null
+  br i1 %.not7, label %16, label %18
 
 16:                                               ; preds = %15
   %17 = call ptr @phpdbg_read_input(ptr noundef null) #26
   store ptr %17, ptr %3, align 8, !tbaa !67
-  %.not9 = icmp eq ptr %17, null
-  br i1 %.not9, label %.thread, label %18
+  %.not8 = icmp eq ptr %17, null
+  br i1 %.not8, label %.thread, label %18
 
 18:                                               ; preds = %15, %16
   %19 = phi ptr [ %11, %15 ], [ %17, %16 ]
@@ -4374,28 +4374,28 @@ define hidden i32 @phpdbg_interactive(i1 noundef zeroext %0, ptr noundef %1) loc
 29:                                               ; preds = %26
   %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %31 = and i64 %30, 327680
-  %.not12 = icmp eq i64 %31, 0
-  br i1 %.not12, label %32, label %51
+  %.not11 = icmp eq i64 %31, 0
+  br i1 %.not11, label %32, label %51
 
 32:                                               ; preds = %29
-  br i1 %0, label %33, label %38
+  br i1 %0, label %33, label %36
 
 33:                                               ; preds = %32
   %.val = load i32, ptr %4, align 8, !tbaa !105
-  %.val13 = load ptr, ptr %9, align 8
-  %34 = call fastcc i32 @phpdbg_call_register(i32 %.val, ptr %.val13)
+  %.val12 = load ptr, ptr %9, align 8
+  %34 = call fastcc i32 @phpdbg_call_register(i32 %.val, ptr %.val12)
   %35 = icmp eq i32 %34, -1
   %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1528), align 8, !range !47
   %37 = trunc nuw i8 %36 to i1
   %or.cond = select i1 %35, i1 %37, i1 false
   br i1 %or.cond, label %39, label %51
 
-38:                                               ; preds = %32
-  %.old = load i8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1528), align 8, !tbaa !225, !range !47, !noundef !48
-  %.old1 = trunc nuw i8 %.old to i1
-  br i1 %.old1, label %39, label %51
+36:                                               ; preds = %32
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1528), align 8, !tbaa !225, !range !47, !noundef !48
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %39, label %51
 
-39:                                               ; preds = %33, %38
+39:                                               ; preds = %33, %36
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1544), align 8, !tbaa !202
   %41 = call i32 (ptr, ...) @phpdbg_output_err_buf(ptr noundef nonnull @.str.133, ptr noundef %40) #26
   br label %51
@@ -4410,21 +4410,21 @@ define hidden i32 @phpdbg_interactive(i1 noundef zeroext %0, ptr noundef %1) loc
 45:                                               ; preds = %42
   %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %47 = and i64 %46, 327680
-  %.not11 = icmp eq i64 %47, 0
-  br i1 %.not11, label %48, label %51
+  %.not10 = icmp eq i64 %47, 0
+  br i1 %.not10, label %48, label %51
 
 48:                                               ; preds = %45
   %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !49
   %50 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %49, ptr noundef nonnull @.str.172) #26
   br label %51
 
-51:                                               ; preds = %42, %45, %48, %29, %38, %39, %33, %26
+51:                                               ; preds = %42, %45, %48, %29, %36, %39, %33, %26
   call void @phpdbg_activate_err_buf(i1 noundef zeroext false) #26
   call void @phpdbg_free_err_buf() #26
   br label %52
 
 52:                                               ; preds = %51, %18
-  %.1 = phi i32 [ %27, %51 ], [ %.019, %18 ]
+  %.1 = phi i32 [ %27, %51 ], [ %.018, %18 ]
   call void @phpdbg_stack_free(ptr noundef nonnull %4) #26
   call void @phpdbg_destroy_input(ptr noundef nonnull %3) #26
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1560), align 8, !tbaa !226
@@ -4434,7 +4434,7 @@ define hidden i32 @phpdbg_interactive(i1 noundef zeroext %0, ptr noundef %1) loc
   br i1 %54, label %10, label %.thread
 
 .thread:                                          ; preds = %16, %52
-  %.018 = phi i32 [ %.1, %52 ], [ %.019, %16 ]
+  %.017 = phi i32 [ %.1, %52 ], [ %.018, %16 ]
   %55 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1392), align 8, !tbaa !46, !range !47, !noundef !48
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %58
@@ -4449,7 +4449,7 @@ define hidden i32 @phpdbg_interactive(i1 noundef zeroext %0, ptr noundef %1) loc
   store i64 %60, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %61 = call i32 @phpdbg_print_changed_zvals() #26
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #26
-  ret i32 %.018
+  ret i32 %.017
 }
 
 declare ptr @phpdbg_read_input(ptr noundef) local_unnamed_addr #3

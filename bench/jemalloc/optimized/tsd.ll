@@ -833,9 +833,9 @@ tsd_fetch_impl.exit:                              ; preds = %0, %4
 
 atomic_exchange_u8.exit.i:                        ; preds = %16, %9, %7
   %.0.i5.i = phi i8 [ 1, %9 ], [ %spec.select.i.i, %16 ], [ %.val.i.i, %7 ]
-  %18 = atomicrmw xchg ptr %2, i8 %.0.i5.i acquire, align 1
-  %19 = icmp eq i8 %18, 2
-  br i1 %19, label %7, label %je_tsd_slow_update.exit, !llvm.loop !48
+  %19 = atomicrmw xchg ptr %2, i8 %.0.i5.i acquire, align 1
+  %20 = icmp eq i8 %19, 2
+  br i1 %20, label %7, label %je_tsd_slow_update.exit, !llvm.loop !48
 
 je_tsd_slow_update.exit:                          ; preds = %atomic_exchange_u8.exit.i
   tail call void @je_te_recompute_fast_threshold(ptr noundef nonnull %1) #7

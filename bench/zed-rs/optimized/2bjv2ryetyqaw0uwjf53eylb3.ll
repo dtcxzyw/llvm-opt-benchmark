@@ -37505,7 +37505,7 @@ define { ptr, i64 } @_ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E(ptr noa
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfae85451d85cf72f2eced67e2a83e68.183.llvm.1856919498638270738) #39
   unreachable
 
-switch.lookup:                                    ; preds = %1
+switch.hole_check:                                ; preds = %1
   %12 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E, i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -37549,7 +37549,7 @@ define noundef range(i8 27, -92) i8 @_ZN6search13SearchOptions4icon17ha8dc6192c2
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfae85451d85cf72f2eced67e2a83e68.184.llvm.1856919498638270738) #39
   unreachable
 
-switch.lookup:                                    ; preds = %1
+switch.hole_check:                                ; preds = %1
   %12 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %12 to i64
   %switch.downshift = lshr i64 8142508128567565219, %switch.shiftamt
@@ -37589,7 +37589,7 @@ define { ptr, ptr } @_ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfae85451d85cf72f2eced67e2a83e68.189.llvm.1856919498638270738) #39
   unreachable
 
-switch.lookup:                                    ; preds = %1
+switch.hole_check:                                ; preds = %1
   %12 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e799E, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8

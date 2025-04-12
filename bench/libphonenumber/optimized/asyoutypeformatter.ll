@@ -903,10 +903,10 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
-  %or.cond19 = select i1 %5, i1 %8, i1 false
+  %or.cond = select i1 %5, i1 %8, i1 false
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %10 = load ptr, ptr %9, align 8, !tbaa !61
-  br i1 %or.cond19, label %11, label %.critedge
+  br i1 %or.cond, label %11, label %.critedge
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -924,8 +924,8 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !81
-  %.not2024 = icmp eq i32 %21, 0
-  br i1 %.not2024, label %._crit_edge, label %.lr.ph
+  %.not21 = icmp eq i32 %21, 0
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %22 = load ptr, ptr %19, align 8, !tbaa !82
@@ -942,35 +942,35 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   ret void
 
 27:                                               ; preds = %.lr.ph, %69
-  %.sroa.07.025 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %70, %69 ]
+  %.sroa.06.022 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %70, %69 ]
   %28 = load i64, ptr %6, align 8, !tbaa !15
   %29 = icmp eq i64 %28, 0
-  %.pre27.pre29 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
+  %.pre28.pre = load ptr, ptr %.sroa.06.022, align 8, !tbaa !83
   br i1 %29, label %43, label %30
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %24, align 8, !tbaa !69
-  %32 = getelementptr inbounds nuw i8, ptr %.pre27.pre29, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %.pre28.pre, i64 64
   %33 = load ptr, ptr %32, align 8, !tbaa !72
   %34 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(32) %33)
-  %.pre27.pre = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
+  %.pre28.pre30.pre = load ptr, ptr %.sroa.06.022, align 8, !tbaa !83
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i8, ptr %.pre27.pre, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %.pre28.pre30.pre, i64 80
   %37 = load i8, ptr %36, align 8, !tbaa !84, !range !79, !noundef !80
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %.pre27.pre, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.pre28.pre30.pre, i64 16
   %41 = load i32, ptr %40, align 4, !tbaa !87
   %42 = and i32 %41, 8
-  %.not21 = icmp eq i32 %42, 0
-  br i1 %.not21, label %69, label %43
+  %.not18 = icmp eq i32 %42, 0
+  br i1 %.not18, label %69, label %43
 
 43:                                               ; preds = %39, %35, %30, %27
-  %.pre27 = phi ptr [ %.pre27.pre, %39 ], [ %.pre27.pre, %35 ], [ %.pre27.pre, %30 ], [ %.pre27.pre29, %27 ]
+  %.pre27 = phi ptr [ %.pre27.pre, %39 ], [ %.pre27.pre, %35 ], [ %.pre27.pre, %30 ], [ %.pre28.pre, %27 ]
   %44 = load i64, ptr %6, align 8, !tbaa !15
   %45 = icmp ne i64 %44, 0
   %46 = load i8, ptr %3, align 2, !range !79
@@ -978,29 +978,29 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %or.cond = select i1 %45, i1 true, i1 %47
   br i1 %or.cond, label %57, label %48
 
-48:                                               ; preds = %43
+48:; preds = %43
   %49 = load ptr, ptr %24, align 8, !tbaa !69
   %50 = getelementptr inbounds nuw i8, ptr %.pre27, i64 64
-  %51 = load ptr, ptr %50, align 8, !tbaa !72
-  %52 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(32) %51)
-  %.pre28 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
+  %48 = load ptr, ptr %50, align 8, !tbaa !72
+  %52 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(32) %48)
+  %50 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
   br i1 %52, label %57, label %53
 
-53:                                               ; preds = %48
+53: ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %.pre28, i64 80
   %55 = load i8, ptr %54, align 8, !tbaa !84, !range !79, !noundef !80
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %69
 
-57:                                               ; preds = %43, %48, %53
+57:; preds = %43, %48, %53
   %58 = phi ptr [ %.pre27, %43 ], [ %.pre28, %48 ], [ %.pre28, %53 ]
   %59 = load ptr, ptr %24, align 8, !tbaa !69
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  %61 = load ptr, ptr %60, align 8, !tbaa !72
+  %57 = load ptr, ptr %60, align 8, !tbaa !72
   %62 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil37IsFormatEligibleForAsYouTypeFormatterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(32) %61)
   br i1 %62, label %63, label %69
 
-63:                                               ; preds = %57
+63:; preds = %57
   %64 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
   %65 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -1011,7 +1011,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   store i64 %68, ptr %26, align 8, !tbaa !88
   br label %69
 
-69:                                               ; preds = %57, %63, %53, %39
+69:; preds = %57, %63, %53, %39
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.07.025, i64 8
   %71 = load ptr, ptr %19, align 8, !tbaa !82
   %.not.i.i5 = icmp eq ptr %71, null

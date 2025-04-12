@@ -1025,8 +1025,8 @@ entry:
   %label_.i.i = getelementptr inbounds nuw i8, ptr %f, i64 60
   %1 = load i32, ptr %label_.i.i, align 4
   %cmp.i = icmp ne i32 %1, 3
-  %or.cond = or i1 %ignore_repeated, %cmp.i
-  br i1 %or.cond, label %if.else, label %if.end13
+  %brmerge = or i1 %ignore_repeated, %cmp.i
+  br i1 %brmerge, label %if.else, label %if.end13
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
@@ -1204,7 +1204,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i35: ; preds = %_ZN6google8pro
 21:                                               ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i35, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i35, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i35
   br label %if.end13
 
-if.end13:                                         ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18, %21, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i35, %entry
+switch.hole_check:                                ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18, %21, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i35, %entry
   %wire_type.0 = phi i32 [ 2, %entry ], [ 5, %21 ], [ 2, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i35 ], [ 1, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18 ], [ 1, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18 ], [ 1, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18 ], [ 0, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i ]
   %shl = shl i32 %0, 3
   %or = or disjoint i32 %wire_type.0, %shl

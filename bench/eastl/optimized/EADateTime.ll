@@ -174,8 +174,8 @@ entry:
   %2 = load i32, ptr %tm_isdst, align 8
   store i32 %2, ptr %spec.select.v.sroa.sel.v.sroa.sel, align 4
   %cmp7 = select i1 %cmp.not, i1 true, i1 %cmp5
-  %or.cond1 = or i1 %bUTC, %cmp7
-  br i1 %or.cond1, label %if.end20, label %if.then11
+  %brmerge = or i1 %bUTC, %cmp7
+  br i1 %brmerge, label %if.end20, label %if.then11
 
 if.then11:                                        ; preds = %entry
   %3 = load i32, ptr %spec.select.v, align 4
@@ -815,9 +815,9 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZNK2EA4StdC8DateTime7CompareERKS
 entry:
   %0 = load i64, ptr %this, align 8
   %1 = load i64, ptr %dateTime, align 8
-  %tobool.not = xor i1 %bCompareDate, true
-  %or.cond = or i1 %bCompareTime, %tobool.not
-  br i1 %or.cond, label %if.else, label %if.then
+  %bCompareDate.not = xor i1 %bCompareDate, true
+  %brmerge = or i1 %bCompareTime, %bCompareDate.not
+  br i1 %brmerge, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div = sdiv i64 %0, 86400
@@ -825,7 +825,7 @@ if.then:                                          ; preds = %entry
   br label %if.end10
 
 if.else:                                          ; preds = %entry
-  %or.cond1 = and i1 %bCompareTime, %tobool.not
+  %brmerge = and i1 %bCompareTime, %tobool.not
   br i1 %or.cond1, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.else
@@ -837,15 +837,15 @@ if.end10:                                         ; preds = %if.else, %if.then8,
   %nValueA.0 = phi i64 [ %rem, %if.then8 ], [ %0, %if.else ], [ %div, %if.then ]
   %nValueB.0 = phi i64 [ %rem9, %if.then8 ], [ %1, %if.else ], [ %div4, %if.then ]
   %cmp = icmp eq i64 %nValueA.0, %nValueB.0
-  %or.cond13 = select i1 %or.cond, i1 %cmp, i1 false
+  %or.cond = select i1 %brmerge, i1 %cmp, i1 false
   %mnNanosecond = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %mnNanosecond, align 8
   %conv = zext i32 %2 to i64
   %mnNanosecond14 = getelementptr inbounds nuw i8, ptr %dateTime, i64 8
   %3 = load i32, ptr %mnNanosecond14, align 8
   %conv15 = zext i32 %3 to i64
-  %nValueA.1 = select i1 %or.cond13, i64 %conv, i64 %nValueA.0
-  %nValueB.1 = select i1 %or.cond13, i64 %conv15, i64 %nValueB.0
+  %nValueA.1 = select i1 %or.cond, i64 %conv, i64 %nValueA.0
+  %nValueB.1 = select i1 %or.cond, i64 %conv15, i64 %nValueB.0
   %retval.0 = tail call i32 @llvm.scmp.i32.i64(i64 %nValueA.1, i64 %nValueB.1)
   ret i32 %retval.0
 }

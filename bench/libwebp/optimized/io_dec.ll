@@ -121,8 +121,8 @@ WebPIsAlphaMode.exit:                             ; preds = %1
 24:                                               ; preds = %21
   %25 = load ptr, ptr %3, align 8, !tbaa !23
   %26 = load i32, ptr %25, align 8, !tbaa !24
-  %switch.tableidx80 = add i32 %26, -1
-  %27 = icmp ult i32 %switch.tableidx80, 12
+  %switch.tableidx79 = add i32 %26, -1
+  %27 = icmp ult i32 %switch.tableidx79, 12
   %switch.maskindex81 = trunc i32 %switch.tableidx80 to i16
   %switch.shifted82 = lshr i16 2077, %switch.maskindex81
   %switch.lobit83 = trunc i16 %switch.shifted82 to i1
@@ -130,14 +130,14 @@ WebPIsAlphaMode.exit:                             ; preds = %1
   br i1 %6, label %98, label %28
 
 28:                                               ; preds = %24
-  br i1 %or.cond84, label %WebPIsAlphaMode.exit.i, label %29
+  br i1 %or.cond84, label %switch.hole_check, label %29
 
 29:                                               ; preds = %28
   %30 = add i32 %26, -11
   %narrow.i.i.i = icmp ult i32 %30, -4
   br label %WebPIsAlphaMode.exit.i
 
-WebPIsAlphaMode.exit.i:                           ; preds = %28, %29
+switch.hole_check:                                ; preds = %28, %29
   %.not.i = phi i1 [ %narrow.i.i.i, %29 ], [ false, %28 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %32 = load i32, ptr %31, align 4, !tbaa !28
@@ -241,14 +241,14 @@ WebPIsAlphaMode.exit.i:                           ; preds = %28, %29
   br label %.critedge
 
 98:                                               ; preds = %24
-  br i1 %or.cond84, label %WebPIsAlphaMode.exit.i59, label %99
+  br i1 %or.cond84, label %switch.hole_check80, label %99
 
 99:                                               ; preds = %98
   %100 = add i32 %26, -11
   %narrow.i.i.i65 = icmp ult i32 %100, -4
   br label %WebPIsAlphaMode.exit.i59
 
-WebPIsAlphaMode.exit.i59:                         ; preds = %98, %99
+switch.hole_check80:                              ; preds = %98, %99
   %.not.i60 = phi i1 [ %narrow.i.i.i65, %99 ], [ false, %98 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %102 = load i32, ptr %101, align 4, !tbaa !28

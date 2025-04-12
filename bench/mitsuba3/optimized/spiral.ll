@@ -176,7 +176,7 @@ define void @_ZN7mitsuba6Spiral10next_blockEv(ptr dead_on_unwind noalias writabl
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 -1, ptr %26, align 4
-  br label %96
+  br label %97
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %13
   %.promoted213 = phi i32 [ %21, %13 ], [ %.pre218, %..critedge_crit_edge ]
@@ -217,13 +217,13 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader: ; preds = %.c
   %.promoted212 = load i32, ptr %47, align 4
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.promoted214 = load i32, ptr %52, align 8
-  %.promoted231 = load i32, ptr %35, align 4
-  %.promoted232 = load i32, ptr %33, align 8
+  %.promoted232 = load i32, ptr %35, align 4
+  %.promoted233 = load i32, ptr %33, align 8
   br label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader, %.critedge221
-  %53 = phi i32 [ %.promoted232, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %69, %.critedge221 ]
-  %54 = phi i32 [ %.promoted231, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %70, %.critedge221 ]
+  %53 = phi i32 [ %.promoted233, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %69, %.critedge221 ]
+  %54 = phi i32 [ %.promoted232, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %70, %.critedge221 ]
   %55 = phi i32 [ %.promoted214, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %80, %.critedge221 ]
   %56 = phi i32 [ %.promoted213, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %71, %.critedge221 ]
   %57 = phi i32 [ %.promoted212, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %81, %.critedge221 ]
@@ -287,7 +287,7 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %_ZNK5drjit9A
   %84 = icmp uge i32 %71, %51
   %.sroa.0142.0.extract.trunc = icmp slt i32 %69, 0
   %.sroa.2143.0.extract.trunc = icmp slt i32 %70, 0
-  %85 = or i1 %83, %.sroa.0142.0.extract.trunc
+  %87 = or i1 %83, %.sroa.0142.0.extract.trunc
   %86 = or i1 %84, %.sroa.2143.0.extract.trunc
   %or.cond = select i1 %85, i1 true, i1 %86
   br i1 %or.cond, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit, label %.critedge208.loopexit, !llvm.loop !4
@@ -297,26 +297,26 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %_ZNK5drjit9A
   br label %.critedge208
 
 .critedge208:                                     ; preds = %.critedge208.loopexit, %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %88 = load i32, ptr %87, align 8
-  %89 = add i32 %88, %37
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %91 = load i32, ptr %90, align 4
-  %92 = add i32 %91, %38
-  store i32 %89, ptr %0, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %92, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %89 = load i32, ptr %88, align 8
+  %90 = add i32 %89, %37
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %92 = load i32, ptr %91, align 4
+  %93 = add i32 %92, %38
+  store i32 %90, ptr %0, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %93, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0152.sroa.2.0.insert.ext = zext i32 %..i.i.c to i64
   %.sroa.0152.sroa.2.0.insert.shift = shl nuw i64 %.sroa.0152.sroa.2.0.insert.ext, 32
   %.sroa.0152.sroa.0.0.insert.ext = zext i32 %..i.i to i64
   %.sroa.0152.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0152.sroa.2.0.insert.shift, %.sroa.0152.sroa.0.0.insert.ext
-  store i64 %.sroa.0152.sroa.0.0.insert.insert, ptr %94, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %32, ptr %95, align 4
-  br label %96
+  store i64 %.sroa.0152.sroa.0.0.insert.insert, ptr %95, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %32, ptr %96, align 4
+  br label %97
 
-96:                                               ; preds = %.critedge208, %25
+97:                                               ; preds = %.critedge208, %25
   tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   ret void
 }

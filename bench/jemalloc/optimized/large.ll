@@ -184,8 +184,8 @@ sz_sa2u.exit:                                     ; preds = %sz_s2u.exit, %.thre
   br i1 %.not.i.i, label %84, label %82
 
 82:                                               ; preds = %77
-  %.not43.i.i = icmp eq ptr %81, %74
-  br i1 %.not43.i.i, label %85, label %83
+  %.not42.i.i = icmp eq ptr %81, %74
+  br i1 %.not42.i.i, label %85, label %83
 
 83:                                               ; preds = %82
   tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %78, ptr noundef nonnull %79, ptr noundef %74) #11
@@ -202,7 +202,7 @@ sz_sa2u.exit:                                     ; preds = %sz_s2u.exit, %.thre
 
 percpu_arena_ind_limit.exit.i.i:                  ; preds = %85
   %88 = getelementptr i8, ptr %74, i64 79016
-  %.037.val.i.i = load i32, ptr %88, align 8, !tbaa !32
+  %.036.val.i.i = load i32, ptr %88, align 8, !tbaa !32
   %89 = icmp eq i32 %86, 4
   %90 = load i32, ptr @je_ncpus, align 4
   %91 = icmp ugt i32 %90, 1
@@ -211,14 +211,14 @@ percpu_arena_ind_limit.exit.i.i:                  ; preds = %85
   %93 = lshr i32 %90, 1
   %spec.select.i.i = add nuw i32 %93, %92
   %.0.i.i.i = select i1 %or.cond.i.i.i, i32 %spec.select.i.i, i32 %90
-  %94 = icmp ult i32 %.037.val.i.i, %.0.i.i.i
+  %94 = icmp ult i32 %.036.val.i.i, %.0.i.i.i
   br i1 %94, label %95, label %atomic_load_zu.exit
 
 95:                                               ; preds = %percpu_arena_ind_limit.exit.i.i
   %96 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %97 = load ptr, ptr %96, align 16, !tbaa !81
-  %.not44.i.i = icmp eq ptr %97, %0
-  br i1 %.not44.i.i, label %atomic_load_zu.exit, label %98
+  %.not43.i.i = icmp eq ptr %97, %0
+  br i1 %.not43.i.i, label %atomic_load_zu.exit, label %98
 
 98:                                               ; preds = %95
   %99 = tail call i32 @sched_getcpu() #11
@@ -235,20 +235,20 @@ percpu_arena_ind_limit.exit.i.i:                  ; preds = %85
   br label %percpu_arena_choose.exit.i.i
 
 percpu_arena_choose.exit.i.i:                     ; preds = %102, %98
-  %.0.i46.i.i = phi i32 [ %99, %98 ], [ %spec.select.i.i.i, %102 ]
-  %.037.val47.i.i = load i32, ptr %88, align 8, !tbaa !32
-  %.not45.i.i = icmp eq i32 %.037.val47.i.i, %.0.i46.i.i
-  br i1 %.not45.i.i, label %123, label %107
+  %.0.i45.i.i = phi i32 [ %99, %98 ], [ %spec.select.i.i.i, %102 ]
+  %.036.val46.i.i = load i32, ptr %88, align 8, !tbaa !32
+  %.not44.i.i = icmp eq i32 %.036.val46.i.i, %.0.i45.i.i
+  br i1 %.not44.i.i, label %123, label %107
 
 107:                                              ; preds = %percpu_arena_choose.exit.i.i
   %108 = load ptr, ptr %61, align 8, !tbaa !13
   %109 = getelementptr i8, ptr %108, i64 79016
   %.val.i.i.i = load i32, ptr %109, align 8, !tbaa !32
-  %.not.i49.i.i = icmp eq i32 %.val.i.i.i, %.0.i46.i.i
-  br i1 %.not.i49.i.i, label %percpu_arena_update.exit.i.i, label %110
+  %.not.i48.i.i = icmp eq i32 %.val.i.i.i, %.0.i45.i.i
+  br i1 %.not.i48.i.i, label %percpu_arena_update.exit.i.i, label %110
 
 110:                                              ; preds = %107
-  %111 = zext i32 %.0.i46.i.i to i64
+  %111 = zext i32 %.0.i45.i.i to i64
   %112 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %111
   %113 = load atomic i64, ptr %112 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %113 to ptr
@@ -256,7 +256,7 @@ percpu_arena_choose.exit.i.i:                     ; preds = %102, %98
   br i1 %114, label %115, label %arena_get.exit.i.i.i, !prof !10
 
 115:                                              ; preds = %110
-  %116 = tail call ptr @je_arena_init(ptr noundef nonnull %0, i32 noundef %.0.i46.i.i, ptr noundef nonnull @je_arena_config_default) #11
+  %116 = tail call ptr @je_arena_init(ptr noundef nonnull %0, i32 noundef %.0.i45.i.i, ptr noundef nonnull @je_arena_config_default) #11
   br label %arena_get.exit.i.i.i
 
 arena_get.exit.i.i.i:                             ; preds = %115, %110
@@ -763,15 +763,15 @@ arena_decay_ticks.exit:                           ; preds = %163, %108, %83, %53
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @large_ralloc_no_move_expand(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
-  %.val31 = load i64, ptr %1, align 8, !tbaa !93
-  %6 = and i64 %.val31, 4095
+  %.val30 = load i64, ptr %1, align 8, !tbaa !93
+  %6 = and i64 %.val30, 4095
   %7 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %6
   %8 = load atomic i64, ptr %7 monotonic, align 8
   %.0.i.i = inttoptr i64 %8 to ptr
   %9 = getelementptr i8, ptr %1, i64 16
-  %.val32 = load i64, ptr %9, align 8, !tbaa !5
-  %10 = and i64 %.val32, -4096
-  %11 = lshr i64 %.val31, 20
+  %.val31 = load i64, ptr %9, align 8, !tbaa !5
+  %10 = and i64 %.val31, -4096
+  %11 = lshr i64 %.val30, 20
   %12 = and i64 %11, 255
   %13 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !8
@@ -825,7 +825,7 @@ sz_size2index.exit:                               ; preds = %26, %24, %18
   br label %47
 
 47:                                               ; preds = %46, %sz_size2index.exit
-  br i1 %43, label %63, label %48
+  br i1 %43, label %64, label %48
 
 48:                                               ; preds = %47
   %49 = load i8, ptr @je_opt_cache_oblivious, align 1, !range !18
@@ -833,7 +833,7 @@ sz_size2index.exit:                               ; preds = %26, %24, %18
   %or.cond = select i1 %3, i1 %50, i1 false
   br i1 %or.cond, label %51, label %62
 
-51:                                               ; preds = %48
+51:; preds = %48
   %52 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %52, align 8, !tbaa !91
   %53 = getelementptr inbounds nuw i8, ptr %.val, i64 %14
@@ -848,11 +848,11 @@ sz_size2index.exit:                               ; preds = %26, %24, %18
   call void @llvm.memset.p0.i64(ptr align 1 %53, i8 0, i64 %61, i1 false)
   br label %62
 
-62:                                               ; preds = %51, %48
+62:; preds = %51, %48
   call void @je_arena_extent_ralloc_large_expand(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %1, i64 noundef %14) #11
-  br label %63
+  br label %64
 
-63:                                               ; preds = %47, %62
+64:                                               ; preds = %47, %62
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
   ret i1 %43
 }

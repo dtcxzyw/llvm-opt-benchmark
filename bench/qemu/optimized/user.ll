@@ -495,21 +495,21 @@ define dso_local void @gdb_signalled(ptr noundef readnone captures(none) %0, i32
   %5 = trunc nuw i8 %4 to i1
   %6 = load i32, ptr @gdbserver_user_state, align 8
   %7 = icmp sgt i32 %6, -1
-  %or.cond.not5 = select i1 %5, i1 %7, i1 false
+  %or.cond.not = select i1 %5, i1 %7, i1 false
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !7
   %9 = trunc nuw i8 %8 to i1
-  %or.cond3 = select i1 %or.cond.not5, i1 %9, i1 false
+  %or.cond3 = select i1 %or.cond.not, i1 %9, i1 false
   br i1 %or.cond3, label %10, label %14
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   store i32 0, ptr %3, align 4, !annotation !4
-  %11 = tail call i32 @gdb_target_signal_to_gdb(i32 noundef %1) #16
-  %12 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %3, i64 noundef 4, i32 noundef 1, i64 noundef 4, ptr noundef nonnull @.str.2, i32 noundef %11) #16
-  %13 = call i32 @gdb_put_packet(ptr noundef nonnull %3) #16
+  %12 = tail call i32 @gdb_target_signal_to_gdb(i32 noundef %1) #16
+  %13 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %3, i64 noundef 4, i32 noundef 1, i64 noundef 4, ptr noundef nonnull @.str.2, i32 noundef %12) #16
+  %14 = call i32 @gdb_put_packet(ptr noundef nonnull %3) #16
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8
-  br label %14
+  br label %15
 
-14:                                               ; preds = %2, %10
+15:                                               ; preds = %2, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   ret void
 }

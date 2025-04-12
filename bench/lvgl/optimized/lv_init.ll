@@ -107,7 +107,7 @@ define void @lv_deinit() local_unnamed_addr #1 {
   %or.cond = select i1 %.not, i1 true, i1 %4
   br i1 %or.cond, label %6, label %5
 
-5:                                                ; preds = %0
+3:                                                ; preds = %0
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 1), align 1, !tbaa !37
   tail call void @lv_display_set_default(ptr noundef null) #3
   tail call void @lv_ll_clear_custom(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 128), ptr noundef nonnull @lv_indev_delete) #3
@@ -129,9 +129,9 @@ define void @lv_deinit() local_unnamed_addr #1 {
   tail call void @lv_timer_core_deinit() #3
   tail call void @lv_mem_deinit() #3
   store i8 0, ptr @lv_global, align 8, !tbaa !3
-  br label %6
+  br label %7
 
-6:                                                ; preds = %0, %5
+7:                                                ; preds = %0, %5
   ret void
 }
 

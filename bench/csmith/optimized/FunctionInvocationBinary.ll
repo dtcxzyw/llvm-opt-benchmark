@@ -1129,7 +1129,7 @@ define dso_local noundef zeroext i1 @_ZNK24FunctionInvocationBinary6equalsEi(ptr
 54:                                               ; preds = %42, %53, %2
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %33, %12, %53, %42, %24, %24, %24, %54
+switch.hole_check:                                ; preds = %33, %12, %53, %42, %24, %24, %24, %54
   %.0 = phi i1 [ false, %54 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %42 ], [ true, %53 ], [ true, %12 ], [ true, %33 ]
   ret i1 %.0
 }
@@ -1262,7 +1262,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   resume { ptr, i32 } %7
 
-switch.lookup:                                    ; preds = %2
+switch.hole_check:                                ; preds = %2
   %14 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8

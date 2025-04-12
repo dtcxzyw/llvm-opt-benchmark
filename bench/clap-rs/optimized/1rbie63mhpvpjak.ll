@@ -1596,7 +1596,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.1374
   %25 = trunc i8 %.0.i to i1
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit
+switch.hole_check:                                ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit
   %.0 = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0
 }
@@ -1653,7 +1653,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.1374
   %25 = trunc i8 %.0.i to i1
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit
+switch.hole_check:                                ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit
   %.0 = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0
 }
@@ -1775,7 +1775,7 @@ define hidden noundef zeroext i1 @_ZN4core3str7pattern7Pattern15is_contained_in1
   %67 = icmp eq ptr %.sink18.i.i, %3
   br i1 %67, label %_ZN4core3str7pattern8Searcher10next_match17h3f5c7d813f1a6575E.llvm.13747326498558855189.exit, label %.lr.ph.i
 
-_ZN4core3str7pattern8Searcher10next_match17h3f5c7d813f1a6575E.llvm.13747326498558855189.exit: ; preds = %66, %31, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h2ac35194725a8323E.exit.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.llvm.13747326498558855189.exit.thread11.i.i", %2
+switch.hole_check:                                ; preds = %66, %31, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h2ac35194725a8323E.exit.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.llvm.13747326498558855189.exit.thread11.i.i", %2
   %68 = phi i1 [ false, %2 ], [ true, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.llvm.13747326498558855189.exit.thread11.i.i" ], [ false, %66 ], [ false, %31 ], [ true, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h2ac35194725a8323E.exit.i.i" ]
   ret i1 %68
 }
@@ -2115,7 +2115,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.1374
   %25 = trunc i8 %.0.i.i to i1
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$8trim_end28_$u7b$$u7b$closure$u7d$$u7d$17hcaedfbb183228522E.llvm.13747326498558855189.exit"
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$8trim_end28_$u7b$$u7b$closure$u7d$$u7d$17hcaedfbb183228522E.llvm.13747326498558855189.exit": ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit.i
+switch.hole_check:                                ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit.i
   %.0.i = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit.i ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0.i
 }
@@ -2172,7 +2172,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.1374
   %25 = trunc i8 %.0.i.i to i1
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17had65ed997b7e5aa6E.llvm.13747326498558855189.exit"
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17had65ed997b7e5aa6E.llvm.13747326498558855189.exit": ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit.i
+switch.hole_check:                                ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit.i
   %.0.i = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.llvm.13747326498558855189.exit.i ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0.i
 }

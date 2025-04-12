@@ -1183,7 +1183,7 @@ switch.early.test.i:                              ; preds = %PyUnicode_READ.exit
   %48 = select i1 %47, i64 12, i64 6
   br label %switch.lookup37
 
-switch.lookup37:                                  ; preds = %44, %46, %switch.early.test.i
+switch.hole_check:                                ; preds = %44, %46, %switch.early.test.i
   %.056.i = phi i64 [ %48, %46 ], [ %43, %switch.early.test.i ], [ 2, %44 ]
   %49 = xor i64 %.056.i, 9223372036854775807
   %.not.i = icmp sgt i64 %.05981.i, %49
@@ -2443,14 +2443,14 @@ PyUnicode_READ.exit173:                           ; preds = %68, %72, %76
 PyUnicode_READ.exit175:                           ; preds = %92, %96, %100
   %.0.i174 = phi i32 [ %95, %92 ], [ %99, %96 ], [ %102, %100 ]
   %switch.tableidx = add i32 %.0.i174, -48
-  %103 = icmp ult i32 %switch.tableidx, 55
+  %104 = icmp ult i32 %switch.tableidx, 55
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 35465847073801215, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
   %or.cond447 = select i1 %103, i1 %switch.lobit, i1 false
   br i1 %or.cond447, label %switch.lookup, label %104
 
-104:                                              ; preds = %PyUnicode_READ.exit175
+switch.lookup:                                    ; preds = %PyUnicode_READ.exit175
   tail call fastcc void @raise_errmsg(ptr noundef nonnull @.str.12, ptr noundef %0, i64 noundef %63)
   br label %.thread210
 

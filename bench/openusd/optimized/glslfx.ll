@@ -3745,14 +3745,14 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9HioGlslfx7IsVa
   %or.cond = select i1 %.not, i1 true, i1 %5
   br i1 %or.cond, label %9, label %6
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 408
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %.pre = load i8, ptr %3, align 8
   %.pre5 = trunc i8 %.pre to i1
   br label %9
 
-9:                                                ; preds = %6, %2
+9: ; preds = %6, %2
   %.pre-phi = phi i1 [ %.pre5, %6 ], [ %5, %2 ]
   ret i1 %.pre-phi
 }

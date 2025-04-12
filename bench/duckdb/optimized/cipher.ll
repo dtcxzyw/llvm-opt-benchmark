@@ -476,7 +476,7 @@ define hidden range(i32 -25216, 1) i32 @mbedtls_cipher_finish(ptr noundef readon
   %. = select i1 %.not, i32 0, i32 -25216
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %6, %10, %13, %15, %3
+switch.hole_check:                                ; preds = %6, %10, %13, %15, %3
   %.0 = phi i32 [ -24832, %3 ], [ 0, %10 ], [ %., %15 ], [ -24704, %13 ], [ 0, %6 ]
   ret i32 %.0
 }
@@ -725,7 +725,7 @@ mbedtls_cipher_update.exit:                       ; preds = %45, %55
   %spec.select = select i1 %.not.i28, i32 0, i32 -25216
   br label %mbedtls_cipher_reset.exit
 
-mbedtls_cipher_reset.exit:                        ; preds = %69, %78, %61, %63, %44, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i, %65, %16, %10, %7, %73, %76, %66, %mbedtls_cipher_set_iv.exit.thread32, %mbedtls_cipher_update.exit, %mbedtls_cipher_set_iv.exit
+switch.hole_check:                                ; preds = %69, %78, %61, %63, %44, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i, %65, %16, %10, %7, %73, %76, %66, %mbedtls_cipher_set_iv.exit.thread32, %mbedtls_cipher_update.exit, %mbedtls_cipher_set_iv.exit
   %.0 = phi i32 [ %33, %mbedtls_cipher_set_iv.exit ], [ %.0.i25, %mbedtls_cipher_update.exit ], [ -24832, %mbedtls_cipher_set_iv.exit.thread32 ], [ -24832, %66 ], [ -24704, %76 ], [ 0, %73 ], [ -24832, %16 ], [ -24704, %10 ], [ -24832, %7 ], [ -24832, %61 ], [ -24832, %63 ], [ -25216, %44 ], [ -25472, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i ], [ -24704, %65 ], [ %spec.select, %78 ], [ 0, %69 ]
   ret i32 %.0
 }

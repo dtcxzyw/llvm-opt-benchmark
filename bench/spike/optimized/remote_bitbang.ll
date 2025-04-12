@@ -286,19 +286,19 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   br label %11
 
 11:                                               ; preds = %80, %1
-  %12 = phi i64 [ %.pre, %1 ], [ %82, %80 ]
-  %.037 = phi i1 [ %5, %1 ], [ %.138, %80 ]
+  %12 = phi i64 [ %.pre, %1 ], [ %81, %80 ]
+  %.032 = phi i1 [ %5, %1 ], [ %.138, %80 ]
   %.0 = phi i32 [ 0, %1 ], [ %.1, %80 ]
   %13 = load i64, ptr %6, align 8, !tbaa !28
   %14 = icmp slt i64 %13, %12
-  br i1 %14, label %.lr.ph, label %.loopexit
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %58
   %15 = phi i64 [ %51, %58 ], [ %13, %11 ]
-  %.255 = phi i32 [ %52, %58 ], [ %.0, %11 ]
-  %.22754 = phi i1 [ %.4, %58 ], [ false, %11 ]
-  %.02953 = phi i32 [ %.231, %58 ], [ 0, %11 ]
-  %.23952 = phi i1 [ false, %58 ], [ %.037, %11 ]
+  %.277 = phi i32 [ %52, %58 ], [ %.0, %11 ]
+  %.22276 = phi i1 [ %.4, %58 ], [ false, %11 ]
+  %.02475 = phi i32 [ %.226, %58 ], [ 0, %11 ]
+  %.23474 = phi i1 [ false, %58 ], [ %.032, %11 ]
   %16 = getelementptr inbounds [65536 x i8], ptr %8, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !29
   switch i8 %17, label %45 [
@@ -367,8 +367,8 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 15
   %39 = load i8, ptr %38, align 1, !tbaa !30, !range !31, !noundef !32
   %40 = or disjoint i8 %39, 48
-  %41 = add i32 %.02953, 1
-  %42 = zext i32 %.02953 to i64
+  %41 = add i32 %.02475, 1
+  %42 = zext i32 %.02475 to i64
   %43 = getelementptr inbounds nuw [65536 x i8], ptr %9, i64 0, i64 %42
   store i8 %40, ptr %43, align 1, !tbaa !29
   br label %49
@@ -383,13 +383,13 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   br label %49
 
 49:                                               ; preds = %45, %44, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %.lr.ph, %.lr.ph
-  %.231 = phi i32 [ %.02953, %45 ], [ %.02953, %44 ], [ %41, %36 ], [ %.02953, %34 ], [ %.02953, %32 ], [ %.02953, %30 ], [ %.02953, %28 ], [ %.02953, %26 ], [ %.02953, %24 ], [ %.02953, %22 ], [ %.02953, %20 ], [ %.02953, %18 ], [ %.02953, %.lr.ph ], [ %.02953, %.lr.ph ]
-  %.4 = phi i1 [ %.22754, %45 ], [ true, %44 ], [ %.22754, %36 ], [ %.22754, %34 ], [ %.22754, %32 ], [ %.22754, %30 ], [ %.22754, %28 ], [ %.22754, %26 ], [ %.22754, %24 ], [ %.22754, %22 ], [ %.22754, %20 ], [ %.22754, %18 ], [ %.22754, %.lr.ph ], [ %.22754, %.lr.ph ]
+  %.226 = phi i32 [ %.02475, %45 ], [ %.02475, %44 ], [ %41, %36 ], [ %.02475, %34 ], [ %.02475, %32 ], [ %.02475, %30 ], [ %.02475, %28 ], [ %.02475, %26 ], [ %.02475, %24 ], [ %.02475, %22 ], [ %.02475, %20 ], [ %.02475, %18 ], [ %.02475, %.lr.ph ], [ %.02475, %.lr.ph ]
+  %.4 = phi i1 [ %.22276, %45 ], [ true, %44 ], [ %.22276, %36 ], [ %.22276, %34 ], [ %.22276, %32 ], [ %.22276, %30 ], [ %.22276, %28 ], [ %.22276, %26 ], [ %.22276, %24 ], [ %.22276, %22 ], [ %.22276, %20 ], [ %.22276, %18 ], [ %.22276, %.lr.ph ], [ %.22276, %.lr.ph ]
   %50 = load i64, ptr %6, align 8, !tbaa !28
   %51 = add nsw i64 %50, 1
   store i64 %51, ptr %6, align 8, !tbaa !28
-  %52 = add i32 %.255, 1
-  br i1 %.23952, label %58, label %53
+  %52 = add i32 %.277, 1
+  br i1 %.23474, label %58, label %53
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %0, align 8, !tbaa !3
@@ -405,23 +405,23 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
 
 .thread:                                          ; preds = %58, %53
   %.lcssa.ph = phi i1 [ false, %58 ], [ true, %53 ]
-  %.not = icmp eq i32 %.231, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph67
+  %.not = icmp eq i32 %.226, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph89
 
-.lr.ph67:                                         ; preds = %.thread
-  %61 = zext i32 %.231 to i64
+.lr.ph89:                                         ; preds = %.thread
+  %61 = zext i32 %.226 to i64
   br label %66
 
 62:                                               ; preds = %66
   %63 = trunc i64 %70 to i32
-  %64 = add i32 %.02366, %63
-  %65 = icmp ult i32 %64, %.231
-  br i1 %65, label %66, label %.loopexit, !llvm.loop !33
+  %64 = add i32 %.01888, %63
+  %65 = icmp ult i32 %64, %.226
+  br i1 %65, label %66, label %._crit_edge, !llvm.loop !33
 
-66:                                               ; preds = %.lr.ph67, %62
-  %.02366 = phi i32 [ 0, %.lr.ph67 ], [ %64, %62 ]
+66:                                               ; preds = %.lr.ph89, %62
+  %.01888 = phi i32 [ 0, %.lr.ph89 ], [ %64, %62 ]
   %67 = load i32, ptr %10, align 4, !tbaa !12
-  %68 = zext i32 %.02366 to i64
+  %68 = zext i32 %.01888 to i64
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 %68
   %70 = tail call i64 @write(i32 noundef %67, ptr noundef nonnull %69, i64 noundef %61)
   %71 = icmp eq i64 %70, -1
@@ -437,49 +437,49 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   tail call void @abort() #15
   unreachable
 
-.loopexit:                                        ; preds = %62, %.thread, %11
-  %.138 = phi i1 [ %.037, %11 ], [ false, %.thread ], [ false, %62 ]
+._crit_edge:                                      ; preds = %62, %.thread, %11
+  %.138 = phi i1 [ %.032, %11 ], [ false, %.thread ], [ false, %62 ]
   %.133 = phi i1 [ false, %11 ], [ %.lcssa.ph, %.thread ], [ %.lcssa.ph, %62 ]
   %.126 = phi i1 [ false, %11 ], [ %.4, %.thread ], [ %.4, %62 ]
   %.1 = phi i32 [ %.0, %11 ], [ %52, %.thread ], [ %52, %62 ]
   %79 = icmp ugt i32 %.1, 65536
   %or.cond = select i1 %79, i1 true, i1 %.126
   %or.cond3 = or i1 %.133, %or.cond
-  br i1 %or.cond3, label %.loopexit49, label %80
+  br i1 %or.cond3, label %._crit_edge, label %80
 
 80:                                               ; preds = %.loopexit
   store i64 0, ptr %6, align 8, !tbaa !28
-  %81 = load i32, ptr %10, align 4, !tbaa !12
-  %82 = tail call i64 @read(i32 noundef %81, ptr noundef nonnull %8, i64 noundef 65536)
-  store i64 %82, ptr %7, align 8, !tbaa !27
-  switch i64 %82, label %11 [
-    i64 -1, label %83
-    i64 0, label %92
+  %80 = load i32, ptr %10, align 4, !tbaa !12
+  %81 = tail call i64 @read(i32 noundef %80, ptr noundef nonnull %8, i64 noundef 65536)
+  store i64 %81, ptr %7, align 8, !tbaa !27
+  switch i64 %81, label %11 [
+    i64 -1, label %82
+    i64 0, label %91
   ]
 
-83:                                               ; preds = %80
-  %84 = tail call ptr @__errno_location() #13
-  %85 = load i32, ptr %84, align 4, !tbaa !15
-  %86 = icmp eq i32 %85, 11
-  br i1 %86, label %.loopexit49, label %87
+82:                                               ; preds = %80
+  %83 = tail call ptr @__errno_location() #13
+  %84 = load i32, ptr %83, align 4, !tbaa !15
+  %85 = icmp eq i32 %84, 11
+  br i1 %85, label %.loopexit, label %86
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %89 = tail call ptr @strerror(i32 noundef %85) #12
-  %90 = load i32, ptr %84, align 4, !tbaa !15
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.9, ptr noundef %89, i32 noundef %90) #14
+86:                                               ; preds = %82
+  %87 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %88 = tail call ptr @strerror(i32 noundef %84) #12
+  %89 = load i32, ptr %83, align 4, !tbaa !15
+  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.9, ptr noundef %88, i32 noundef %89) #14
   tail call void @abort() #15
   unreachable
 
-92:                                               ; preds = %80
-  %93 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %94 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 28, i64 1, ptr %93) #16
-  %95 = load i32, ptr %10, align 4, !tbaa !12
-  %96 = tail call i32 @close(i32 noundef %95)
+91:                                               ; preds = %80
+  %92 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %93 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 28, i64 1, ptr %92) #16
+  %94 = load i32, ptr %10, align 4, !tbaa !12
+  %95 = tail call i32 @close(i32 noundef %94)
   store i32 0, ptr %10, align 4, !tbaa !12
-  br label %.loopexit49
+  br label %.loopexit
 
-.loopexit49:                                      ; preds = %.loopexit, %83, %92
+.loopexit:                                        ; preds = %._crit_edge, %82, %91
   ret void
 }
 

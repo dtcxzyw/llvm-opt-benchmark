@@ -4247,15 +4247,15 @@ define linkonce_odr dso_local void @_ZN13BenchmarkRain4StepER8Settings(ptr nound
   %or.cond = select i1 %5, i1 true, i1 %8
   br i1 %or.cond, label %9, label %14
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %.sroa.0.0.copyload = load i32, ptr %10, align 4
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %8 = load i32, ptr %7, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !92
   %13 = tail call float @StepRain(i32 %.sroa.0.0.copyload, i32 noundef %12)
   br label %14
 
-14:                                               ; preds = %2, %9
+15:                                               ; preds = %2, %6
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   ret void
 }

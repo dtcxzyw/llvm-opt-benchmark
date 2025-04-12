@@ -233,7 +233,7 @@ define void @_ZN6google8RawLog__ENS_11LogSeverityEPKciS2_z(i32 noundef %0, ptr n
   %or.cond = select i1 %13, i1 true, i1 %15
   br i1 %or.cond, label %23, label %16
 
-16:                                               ; preds = %4
+16:; preds = %4
   %17 = load i32, ptr @_ZN3fLI21FLAGS_stderrthresholdE, align 4, !tbaa !42
   %18 = icmp sge i32 %0, %17
   %19 = load i8, ptr @_ZN3fLB21FLAGS_alsologtostderrE, align 1, !range !40

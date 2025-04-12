@@ -1892,11 +1892,11 @@ define void @_ZN3gmx13TextInputFileD2Ev(ptr noundef nonnull align 8 captures(non
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %8, i1 false
   br i1 %or.cond.i.i.i, label %9, label %_ZNKSt14default_deleteIN3gmx8internal14FileStreamImplEEclEPS2_.exit.i
 
-9:                                                ; preds = %4
+6:                                                ; preds = %4
   %10 = tail call i32 @fclose(ptr noundef nonnull %5)
   br label %_ZNKSt14default_deleteIN3gmx8internal14FileStreamImplEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN3gmx8internal14FileStreamImplEEclEPS2_.exit.i: ; preds = %9, %4
+_ZNKSt14default_deleteIN3gmx8internal14FileStreamImplEEclEPS2_.exit.i: ; preds = %6, %4
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #21
   br label %_ZNSt10unique_ptrIN3gmx8internal14FileStreamImplESt14default_deleteIS2_EED2Ev.exit
 
@@ -2119,11 +2119,11 @@ define void @_ZN3gmx14TextOutputFileD2Ev(ptr noundef nonnull align 8 captures(no
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %8, i1 false
   br i1 %or.cond.i.i.i, label %9, label %_ZNKSt14default_deleteIN3gmx8internal14FileStreamImplEEclEPS2_.exit.i
 
-9:                                                ; preds = %4
+6:                                                ; preds = %4
   %10 = tail call i32 @fclose(ptr noundef nonnull %5)
   br label %_ZNKSt14default_deleteIN3gmx8internal14FileStreamImplEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN3gmx8internal14FileStreamImplEEclEPS2_.exit.i: ; preds = %9, %4
+_ZNKSt14default_deleteIN3gmx8internal14FileStreamImplEEclEPS2_.exit.i: ; preds = %6, %4
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #21
   br label %_ZNSt10unique_ptrIN3gmx8internal14FileStreamImplESt14default_deleteIS2_EED2Ev.exit
 

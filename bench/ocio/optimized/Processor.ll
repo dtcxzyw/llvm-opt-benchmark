@@ -2723,7 +2723,7 @@ define void @_ZNK19OpenColorIO_v2_5dev9Processor4Impl24getOptimizedCPUProcessorE
   %17 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev10OpRcPtrVec9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #29
   %not. = xor i1 %17, true
   %18 = select i1 %not., i1 true, i1 %15
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %21 = load i8, ptr %20, align 8, !tbaa !37, !range !116, !noundef !117
   %22 = trunc nuw i8 %21 to i1
@@ -2735,7 +2735,7 @@ define void @_ZNK19OpenColorIO_v2_5dev9Processor4Impl24getOptimizedCPUProcessorE
   %or.cond = select i1 %26, i1 %18, i1 false
   br i1 %or.cond, label %27, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32
 
-27:                                               ; preds = %5
+27: ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %29 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %28) #29
   %.not.i.i = icmp eq i32 %29, 0

@@ -3137,12 +3137,12 @@ define hidden i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1, i1 no
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds [2 x ptr], ptr %8, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !224
-  %.not4759 = icmp eq ptr %11, null
-  br i1 %.not4759, label %.loopexit, label %.lr.ph
+  %.not4761 = icmp eq ptr %11, null
+  br i1 %.not4761, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %95
-  %.04260 = phi ptr [ %97, %95 ], [ %11, %7 ]
-  %12 = load ptr, ptr %.04260, align 8, !tbaa !166
+  %.03962 = phi ptr [ %97, %95 ], [ %11, %7 ]
+  %12 = load ptr, ptr %.03962, align 8, !tbaa !166
   %13 = icmp eq ptr %12, @Curl_cft_ssl
   br i1 %13, label %14, label %95
 
@@ -3175,18 +3175,18 @@ define hidden i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1, i1 no
 
 28:                                               ; preds = %19
   %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_cft_ssl, i64 12), align 4, !tbaa !167
-  %.old72 = icmp sgt i32 %.old, 0
-  br i1 %.old72, label %29, label %30
+  %.old74 = icmp sgt i32 %.old, 0
+  br i1 %.old74, label %29, label %30
 
 29:                                               ; preds = %22, %28
-  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %.04260, ptr noundef nonnull @.str.9) #18
+  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %.03962, ptr noundef nonnull @.str.9) #18
   br label %30
 
 30:                                               ; preds = %29, %28, %22, %15, %14
   tail call void @Curl_shutdown_start(ptr noundef %0, i32 noundef %1, ptr noundef null) #18
-  %31 = getelementptr inbounds nuw i8, ptr %.04260, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.03962, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !151
-  %33 = getelementptr inbounds nuw i8, ptr %.04260, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %.03962, i64 36
   %34 = load i8, ptr %33, align 4
   %35 = and i8 %34, 2
   %.not.i = icmp eq i8 %35, 0
@@ -3201,13 +3201,13 @@ define hidden i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1, i1 no
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8, !tbaa !197
   store ptr %0, ptr %37, align 8, !tbaa !198
   store i8 0, ptr %4, align 1, !tbaa !204
-  %38 = getelementptr inbounds nuw i8, ptr %.04260, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.04260, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.03962, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.03962, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 196
   br label %41
 
 41:                                               ; preds = %.lr.ph.i, %.backedge.i
-  %42 = phi i32 [ 9, %.lr.ph.i ], [ %66, %.backedge.i ]
+  %42 = phi i32 [ 9, %.lr.ph.i ], [ %67, %.backedge.i ]
   %43 = load ptr, ptr %38, align 8, !tbaa !195
   %44 = load i32, ptr %39, align 8, !tbaa !230
   %45 = call i64 @Curl_shutdown_timeleft(ptr noundef %43, i32 noundef %44, ptr noundef null) #18
@@ -3222,7 +3222,7 @@ define hidden i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1, i1 no
   %49 = load ptr, ptr %32, align 8, !tbaa !199
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !215
-  %52 = call i32 %51(ptr noundef nonnull %.04260, ptr noundef %0, i1 noundef zeroext %2, ptr noundef nonnull %4) #18
+  %52 = call i32 %51(ptr noundef nonnull %.03962, ptr noundef %0, i1 noundef zeroext %2, ptr noundef nonnull %4) #18
   %.not42.i = icmp eq i32 %52, 0
   br i1 %.not42.i, label %53, label %.critedge.i
 
@@ -3247,59 +3247,59 @@ define hidden i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1, i1 no
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %63) #18
   br label %.critedge.i
 
-64:                                               ; preds = %58
-  %65 = icmp eq i32 %59, 0
-  br i1 %65, label %67, label %._crit_edge56.i
+65:                                               ; preds = %58
+  %66 = icmp eq i32 %59, 0
+  br i1 %66, label %68, label %._crit_edge56.i
 
-._crit_edge56.i:                                  ; preds = %64
+._crit_edge56.i:                                  ; preds = %65
   %.pre.i = load i8, ptr %4, align 1, !tbaa !204, !range !207
   %.pre58.i = trunc nuw i8 %.pre.i to i1
   br i1 %.pre58.i, label %.critedge.i, label %.backedge.i
 
 .backedge.i:                                      ; preds = %._crit_edge56.i, %56
-  %66 = add nsw i32 %42, -1
+  %67 = add nsw i32 %42, -1
   %.not41.i = icmp eq i32 %42, 0
   br i1 %.not41.i, label %.critedge.i, label %41, !llvm.loop !231
 
-67:                                               ; preds = %64
+68:                                               ; preds = %65
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.38) #18
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.backedge.i, %53, %._crit_edge56.i, %48, %61, %67
-  %.147.i = phi i32 [ 56, %61 ], [ 28, %67 ], [ %52, %48 ], [ 0, %._crit_edge56.i ], [ 0, %53 ], [ 0, %.backedge.i ]
-  %68 = phi i8 [ 2, %61 ], [ 2, %67 ], [ 2, %48 ], [ 2, %._crit_edge56.i ], [ 2, %53 ], [ 0, %.backedge.i ]
+.critedge.i:                                      ; preds = %.backedge.i, %53, %._crit_edge56.i, %48, %61, %68
+  %.147.i = phi i32 [ 56, %61 ], [ 28, %68 ], [ %52, %48 ], [ 0, %._crit_edge56.i ], [ 0, %53 ], [ 0, %.backedge.i ]
+  %69 = phi i8 [ 2, %61 ], [ 2, %68 ], [ 2, %48 ], [ 2, %._crit_edge56.i ], [ 2, %53 ], [ 0, %.backedge.i ]
   %.pre57.i = load ptr, ptr %31, align 8, !tbaa !151
-  %69 = getelementptr inbounds nuw i8, ptr %.pre57.i, i64 72
-  store ptr %.sroa.0.0.copyload.i, ptr %69, align 8, !tbaa !197
-  %70 = load i8, ptr %33, align 4
-  %71 = and i8 %70, -3
-  %72 = or disjoint i8 %71, %68
-  store i8 %72, ptr %33, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %.pre57.i, i64 72
+  store ptr %.sroa.0.0.copyload.i, ptr %70, align 8, !tbaa !197
+  %71 = load i8, ptr %33, align 4
+  %72 = and i8 %71, -3
+  %73 = or disjoint i8 %72, %69
+  store i8 %73, ptr %33, align 4
   br label %vtls_shutdown_blocking.exit
 
 vtls_shutdown_blocking.exit:                      ; preds = %36, %47, %.critedge.i
   %.035.i = phi i32 [ 0, %36 ], [ %.147.i, %.critedge.i ], [ 28, %47 ]
   call void @Curl_shutdown_clear(ptr noundef %0, i32 noundef %1) #18
-  %73 = icmp ne i32 %.035.i, 0
+  %.not51 = icmp ne i32 %.035.i, 0
   %74 = load i8, ptr %4, align 1, !range !207
   %75 = trunc nuw i8 %74 to i1
-  %or.cond4 = select i1 %73, i1 true, i1 %75
-  %spec.store.select = select i1 %or.cond4, i32 %.035.i, i32 80
-  %76 = call zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef nonnull %11, ptr noundef nonnull %.04260, ptr noundef %0, i1 noundef zeroext false) #18
+  %spec.select = select i1 %73, i1 true, i1 %75
+  %spec.select75 = select i1 %spec.select, i32 %.035.i, i32 80
+  %76 = call zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef nonnull %11, ptr noundef nonnull %.03962, ptr noundef %0, i1 noundef zeroext false) #18
   br i1 %.not48, label %94, label %77
 
 77:                                               ; preds = %vtls_shutdown_blocking.exit
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %79 = load i64, ptr %78, align 2
   %80 = and i64 %79, 2147483648
-  %.not51 = icmp eq i64 %80, 0
-  br i1 %.not51, label %94, label %81
+  %.not52 = icmp eq i64 %80, 0
+  br i1 %.not52, label %94, label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 4864
   %83 = load ptr, ptr %82, align 8, !tbaa !163
-  %.not52 = icmp eq ptr %83, null
-  br i1 %.not52, label %88, label %84
+  %.not53 = icmp eq ptr %83, null
+  br i1 %.not53, label %88, label %84
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -3308,14 +3308,14 @@ vtls_shutdown_blocking.exit:                      ; preds = %36, %47, %.critedge
   br i1 %87, label %88, label %94
 
 88:                                               ; preds = %81, %84
-  %89 = load ptr, ptr %.04260, align 8, !tbaa !166
+  %89 = load ptr, ptr %.03962, align 8, !tbaa !166
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %91 = load i32, ptr %90, align 4, !tbaa !167
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %88
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %.04260, ptr noundef nonnull @.str.10, i32 noundef %spec.store.select) #18
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %.03962, ptr noundef nonnull @.str.10, i32 noundef %spec.select75) #18
   br label %94
 
 94:                                               ; preds = %93, %88, %84, %77, %vtls_shutdown_blocking.exit
@@ -3323,13 +3323,13 @@ vtls_shutdown_blocking.exit:                      ; preds = %36, %47, %.critedge
   br label %.loopexit
 
 95:                                               ; preds = %.lr.ph
-  %96 = getelementptr inbounds nuw i8, ptr %.04260, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.03962, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !162
   %.not47 = icmp eq ptr %97, null
   br i1 %.not47, label %.loopexit, label %.lr.ph, !llvm.loop !232
 
 .loopexit:                                        ; preds = %95, %3, %7, %94
-  %.0 = phi i32 [ %spec.store.select, %94 ], [ 0, %7 ], [ 0, %3 ], [ 0, %95 ]
+  %.0 = phi i32 [ %spec.select75, %94 ], [ 0, %7 ], [ 0, %3 ], [ 0, %95 ]
   ret i32 %.0
 }
 

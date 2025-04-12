@@ -4308,19 +4308,19 @@ _ZNRSt8optionalIN4node14SnapshotConfigEE5valueEv.exit: ; preds = %if.then
   %or.cond.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i, i1 %tobool3.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNRSt8optionalIN4node14SnapshotConfigEE5valueEv.exit
+land.lhs.true.i.i.i.i.i.i:                        ; preds = %_ZNRSt8optionalIN4node14SnapshotConfigEE5valueEv.exit
   %call5.i.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(40) %builder_script_path.i, ptr noundef nonnull align 8 dereferenceable(40) %builder_script_path3.i) #22
   br label %_ZN4node14SnapshotConfigaSEOS0_.exit
 
-if.else.i.i.i.i.i.i:                              ; preds = %_ZNRSt8optionalIN4node14SnapshotConfigEE5valueEv.exit
+if.else.thread.i.i.i.i.i.i:                       ; preds = %_ZNRSt8optionalIN4node14SnapshotConfigEE5valueEv.exit
   br i1 %tobool3.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i, label %if.else10.i.i.i.i.i.i
 
-if.then8.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
+if.then8.i.i.i.i.i.i:                             ; preds = %if.else.thread.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %builder_script_path.i, ptr noundef nonnull align 8 dereferenceable(40) %builder_script_path3.i) #22
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i, align 8
   br label %_ZN4node14SnapshotConfigaSEOS0_.exit
 
-if.else10.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i
+if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i
   br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN4node14SnapshotConfigaSEOS0_.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else10.i.i.i.i.i.i

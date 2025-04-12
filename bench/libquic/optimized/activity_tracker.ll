@@ -544,7 +544,7 @@ _ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit: ; preds = %36, %_ZNS
   br label %67
 
 67:                                               ; preds = %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit, %186
-  %.03265 = phi i32 [ 0, %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit ], [ %187, %186 ]
+  %.03260 = phi i32 [ 0, %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit ], [ %187, %186 ]
   %68 = load ptr, ptr %5, align 8, !tbaa !26
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load atomic i64, ptr %69 acquire, align 8
@@ -786,21 +786,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 179:                                              ; preds = %174
   %180 = load ptr, ptr %37, align 8, !tbaa !56
   %181 = load ptr, ptr %58, align 8, !tbaa !56
-  %.not6166 = icmp eq ptr %180, %181
-  br i1 %.not6166, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %.lr.ph
+  %.not5661 = icmp eq ptr %180, %181
+  br i1 %.not5661, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %179, %.lr.ph
-  %.sroa.043.067 = phi ptr [ %185, %.lr.ph ], [ %180, %179 ]
-  %182 = load i64, ptr %.sroa.043.067, align 8, !tbaa !8
+  %.sroa.043.062 = phi ptr [ %185, %.lr.ph ], [ %180, %179 ]
+  %182 = load i64, ptr %.sroa.043.062, align 8, !tbaa !8
   %183 = sub nsw i64 %182, %168
   %184 = call noundef i64 @_ZN4base13time_internal12SaturatedAddENS_9TimeDeltaEl(i64 %183, i64 noundef %164)
-  store i64 %184, ptr %.sroa.043.067, align 8, !tbaa !8
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.043.067, i64 112
-  %.not61 = icmp eq ptr %185, %181
-  br i1 %.not61, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %.lr.ph
+  store i64 %184, ptr %.sroa.043.062, align 8, !tbaa !8
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.043.062, i64 112
+  %.not56 = icmp eq ptr %185, %181
+  br i1 %.not56, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %.lr.ph
 
 186:                                              ; preds = %98, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %187 = add nuw nsw i32 %.03265, 1
+  %187 = add nuw nsw i32 %.03260, 1
   %exitcond.not = icmp eq i32 %187, 10
   br i1 %exitcond.not, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %67, !llvm.loop !57
 

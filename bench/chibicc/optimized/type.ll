@@ -70,7 +70,7 @@ define dso_local noundef zeroext i1 @is_numeric(ptr noundef readonly captures(no
   %switch.i = icmp ult i32 %.off.i, 3
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %1, %4
+switch.hole_check:                                ; preds = %1, %4
   %5 = phi i1 [ %switch.i, %4 ], [ true, %1 ]
   ret i1 %5
 }

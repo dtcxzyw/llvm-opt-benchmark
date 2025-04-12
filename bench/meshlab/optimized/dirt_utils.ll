@@ -25146,8 +25146,8 @@ _ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex2
 
 38:                                               ; preds = %38, %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE5clearEv.exit
   %39 = tail call noundef zeroext i1 @_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE10_NextShellEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  %40 = load i8, ptr %24, align 8
-  %41 = trunc i8 %40 to i1
+  %.pre = load i8, ptr %24, align 8
+  %.pre7 = trunc i8 %.pre to i1
   %or.cond = select i1 %39, i1 true, i1 %41
   br i1 %or.cond, label %.critedge.preheader, label %38, !llvm.loop !319
 
@@ -25169,7 +25169,7 @@ _ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex2
   %or.cond6.i = select i1 %or.cond.i, i1 %49, i1 false
   br i1 %or.cond6.i, label %50, label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit
 
-50:                                               ; preds = %43
+40:                                               ; preds = %43
   %51 = load ptr, ptr %25, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 36
   %53 = load i32, ptr %6, align 4
@@ -25177,36 +25177,36 @@ _ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex2
   %55 = icmp eq i32 %53, %54
   br i1 %55, label %56, label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit
 
-56:                                               ; preds = %50
+56:     ; preds = %50
   %57 = load i32, ptr %8, align 8
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp eq i32 %57, %59
+  %43 = load i32, ptr %58, align 4
+  %44 = icmp eq i32 %57, %59
   br i1 %60, label %_ZNK3vcg6Point3IiEeqERKS1_.exit1.i, label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit
 
 _ZNK3vcg6Point3IiEeqERKS1_.exit1.i:               ; preds = %56
-  %61 = load i32, ptr %10, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %51, i64 44
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp eq i32 %61, %63
-  br i1 %64, label %65, label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit
+  %60 = load i32, ptr %10, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 44
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp eq i32 %60, %62
+  br i1 %63, label %64, label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit
 
-65:                                               ; preds = %_ZNK3vcg6Point3IiEeqERKS1_.exit1.i
+64:                                               ; preds = %_ZNK3vcg6Point3IiEeqERKS1_.exit1.i
   store i8 1, ptr %24, align 8
   br label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit
 
-_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit: ; preds = %43, %50, %56, %_ZNK3vcg6Point3IiEeqERKS1_.exit1.i, %65
-  %66 = load i8, ptr %24, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %.critedge2, label %.critedge
+_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit: ; preds = %43, %40, %56, %_ZNK3vcg6Point3IiEeqERKS1_.exit1.i, %64
+  %65 = load i8, ptr %24, align 8
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %.critedge2, label %67
 
-.critedge:                                        ; preds = %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit
+67:                                               ; preds = %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit
   %68 = tail call noundef zeroext i1 @_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE10_NextShellEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
   %69 = load i8, ptr %24, align 8
   %70 = trunc i8 %69 to i1
   br i1 %70, label %.critedge2, label %.lr.ph, !llvm.loop !320
 
-.critedge2:                                       ; preds = %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit, %.critedge, %.lr.ph, %.critedge.preheader
+.critedge2:                                       ; preds = %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit, %67, %.lr.ph, %.critedge.preheader
   ret void
 }
 

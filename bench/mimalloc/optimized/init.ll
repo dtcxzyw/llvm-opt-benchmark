@@ -325,8 +325,8 @@ _mi_thread_heap_init.exit.thread1:                ; preds = %_mi_is_main_thread.
 
 25:                                               ; preds = %.preheader.i
   %26 = atomicrmw xchg ptr %23, i64 0 acq_rel, align 8
-  %.not27.i.i = icmp eq i64 %26, 0
-  br i1 %.not27.i.i, label %27, label %28
+  %.not26.i.i = icmp eq i64 %26, 0
+  br i1 %.not26.i.i, label %27, label %28
 
 27:                                               ; preds = %25, %.preheader.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -370,38 +370,38 @@ _mi_thread_heap_init.exit.thread1:                ; preds = %_mi_is_main_thread.
 42:                                               ; preds = %41, %28
   %.3.i.i = phi ptr [ %.434.i.i, %41 ], [ %29, %28 ]
   %.0.i.i = phi i1 [ %.1.i.i, %41 ], [ false, %28 ]
-  %43 = icmp eq ptr %.3.i.i, null
-  %or.cond.i.i = select i1 %43, i1 true, i1 %.0.i.i
-  br i1 %or.cond.i.i, label %mi_thread_data_zalloc.exit.i, label %mi_thread_data_zalloc.exit.thread.i
+  %.not28.i.i = icmp eq ptr %.3.i.i, null
+  %brmerge.i.i = select i1 %.not28.i.i, i1 true, i1 %.0.i.i
+  br i1 %brmerge.i.i, label %mi_thread_data_zalloc.exit.i, label %mi_thread_data_zalloc.exit.thread.i
 
 mi_thread_data_zalloc.exit.thread.i:              ; preds = %42
   call void @llvm.assume(i1 true) [ "align"(ptr %.3.i.i, i64 8) ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3896) %.3.i.i, i8 0, i64 range(i64 832, 3897) 3064, i1 false)
-  br label %44
+  br label %43
 
 mi_thread_data_zalloc.exit.i:                     ; preds = %42
-  br i1 %43, label %_mi_thread_heap_init.exit, label %44
+  br i1 %.not28.i.i, label %_mi_thread_heap_init.exit, label %43
 
-44:                                               ; preds = %mi_thread_data_zalloc.exit.i, %mi_thread_data_zalloc.exit.thread.i
-  %45 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3064
-  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(832) %45, i8 0, i64 range(i64 832, 3897) 832, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3080
-  store ptr %.3.i.i, ptr %46, align 8, !tbaa !44
-  %47 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3192
-  store ptr @mi_subproc_default, ptr %47, align 8, !tbaa !30
-  %48 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3208
-  %49 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3200
-  store ptr %48, ptr %49, align 8, !tbaa !45
-  %50 = call i32 @_mi_arena_id_none() #14
-  call void @_mi_heap_init(ptr noundef nonnull %.3.i.i, ptr noundef nonnull %45, i32 noundef %50, i1 noundef zeroext false, i8 noundef zeroext 0) #14
+43:                                               ; preds = %mi_thread_data_zalloc.exit.i, %mi_thread_data_zalloc.exit.thread.i
+  %44 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3064
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(832) %44, i8 0, i64 range(i64 832, 3897) 832, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3080
+  store ptr %.3.i.i, ptr %45, align 8, !tbaa !44
+  %46 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3192
+  store ptr @mi_subproc_default, ptr %46, align 8, !tbaa !30
+  %47 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3208
+  %48 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3200
+  store ptr %47, ptr %48, align 8, !tbaa !45
+  %49 = call i32 @_mi_arena_id_none() #14
+  call void @_mi_heap_init(ptr noundef nonnull %.3.i.i, ptr noundef nonnull %44, i32 noundef %49, i1 noundef zeroext false, i8 noundef zeroext 0) #14
   store ptr %.3.i.i, ptr %2, align 8, !tbaa !46
   call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull %.3.i.i) #14
   br label %_mi_thread_heap_init.exit
 
-_mi_thread_heap_init.exit:                        ; preds = %44, %mi_thread_data_zalloc.exit.i, %_mi_thread_heap_init.exit.thread1
+_mi_thread_heap_init.exit:                        ; preds = %43, %mi_thread_data_zalloc.exit.i, %_mi_thread_heap_init.exit.thread1
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 noundef 1) #14
-  %51 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
+  %50 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %_mi_thread_heap_init.exit.thread
 
 _mi_thread_heap_init.exit.thread:                 ; preds = %0, %_mi_thread_heap_init.exit
@@ -790,40 +790,40 @@ define hidden void @_mi_process_done() local_unnamed_addr #1 {
 
 3:                                                ; preds = %0
   store i1 true, ptr @_mi_process_done.process_done, align 1
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
   tail call void @_mi_prim_thread_done_auto_done() #14
-  tail call void @mi_heap_collect(ptr noundef %5, i1 noundef zeroext true) #14
-  %6 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 22) #14
-  br i1 %6, label %7, label %8
+  tail call void @mi_heap_collect(ptr noundef %6, i1 noundef zeroext true) #14
+  %7 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 22) #14
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %3
-  tail call void @mi_heap_collect(ptr noundef %5, i1 noundef zeroext true) #14
-  tail call void @_mi_heap_unsafe_destroy_all(ptr noundef %5) #14
+8:                                                ; preds = %3
+  tail call void @mi_heap_collect(ptr noundef %6, i1 noundef zeroext true) #14
+  tail call void @_mi_heap_unsafe_destroy_all(ptr noundef %6) #14
   tail call void @_mi_arena_unsafe_destroy_all() #14
   tail call void @_mi_segment_map_unsafe_destroy() #14
-  br label %8
+  br label %9
 
-8:                                                ; preds = %7, %3
-  %9 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 1) #14
-  br i1 %9, label %12, label %10
+9:                                                ; preds = %8, %3
+  %10 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 1) #14
+  br i1 %10, label %13, label %11
 
-10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 2) #14
-  br i1 %11, label %12, label %13
+11:                                               ; preds = %9
+  %12 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 2) #14
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %10, %8
+13:                                               ; preds = %11, %9
   tail call void @mi_stats_print(ptr noundef null) #14
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %10
+14:                                               ; preds = %13, %11
   tail call void @_mi_allocator_done() #14
-  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 16), align 16, !tbaa !14
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.5, i64 noundef %14) #14
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 16), align 16, !tbaa !14
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.5, i64 noundef %15) #14
   store i1 false, ptr @os_preloading, align 1
-  br label %15
+  br label %16
 
-15:                                               ; preds = %0, %13
+16:                                               ; preds = %0, %14
   ret void
 }
 

@@ -4259,8 +4259,8 @@ define linkonce_odr dso_local void @_ZN13PremitVisitor9checkNodeEP11AstNodeExpr(
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 4294967295
-  %.not.i15 = icmp eq i64 %12, 0
-  %.not.i = select i1 %9, i1 true, i1 %.not.i15
+  %.not.i10 = icmp eq i64 %12, 0
+  %.not.i = select i1 %9, i1 true, i1 %.not.i10
   br i1 %.not.i, label %13, label %_ZN7AstNode12user1SetOnceEv.exit
 
 13:                                               ; preds = %5
@@ -4281,33 +4281,33 @@ _ZNK7AstNode6isWideEv.exit:                       ; preds = %13
   %or.cond = select i1 %18, i1 true, i1 %21
   br i1 %or.cond, label %_ZN7AstNode12user1SetOnceEv.exit, label %22
 
-22:                                               ; preds = %_ZNK7AstNode6isWideEv.exit
+22:; preds = %_ZNK7AstNode6isWideEv.exit
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !135
   %.not.i10 = icmp eq ptr %24, null
   br i1 %.not.i10, label %_ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit.thread, label %25
 
-25:                                               ; preds = %22
+25:   ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !100
   %.not1.i = icmp eq ptr %27, %1
   br i1 %.not1.i, label %_ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit.thread, label %_ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit
 
 _ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit: ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %.sroa.0.0.copyload.i.i.i = load i16, ptr %28, align 8, !tbaa !101
-  %29 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 229
-  br i1 %29, label %30, label %_ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit.thread, !prof !136
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %.sroa.0.0.copyload.i.i.i = load i16, ptr %29, align 8, !tbaa !101
+  %30 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 229
+  br i1 %30, label %31, label %_ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit.thread, !prof !136
 
-30:                                               ; preds = %_ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit
-  %31 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.1, i32 noundef 64)
-  %32 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.17)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %33) #27
+31:                                               ; preds = %_ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit
+  %32 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.1, i32 noundef 64)
+  %33 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.17)
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %34) #27
   unreachable
 
 _ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit.thread: ; preds = %22, %25, %_ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit
-  %34 = tail call noundef ptr @_ZN13PremitVisitor14createWideTempEP11AstNodeExpr(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1)
+  %35 = tail call noundef ptr @_ZN13PremitVisitor14createWideTempEP11AstNodeExpr(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1)
   br label %_ZN7AstNode12user1SetOnceEv.exit
 
 _ZN7AstNode12user1SetOnceEv.exit:                 ; preds = %13, %5, %_ZNK7AstNode6isWideEv.exit, %2, %_ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit.thread

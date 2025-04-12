@@ -50,30 +50,30 @@ define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef
   %22 = load i32, ptr %3, align 4, !tbaa !3
   %23 = call i64 @read(i32 noundef %22, ptr noundef nonnull %4, i64 noundef 4096)
   %24 = icmp slt i64 %23, 2
-  br i1 %24, label %_ZL10fork_xtermPi.exit.thread15, label %25
+  br i1 %24, label %_ZL10fork_xtermPi.exit.thread14, label %25
 
 25:                                               ; preds = %21
   %26 = add nsw i64 %23, -1
   %27 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !7
   %.not.i = icmp eq i8 %28, 10
-  br i1 %.not.i, label %29, label %_ZL10fork_xtermPi.exit.thread15
+  br i1 %.not.i, label %29, label %_ZL10fork_xtermPi.exit.thread14
 
 29:                                               ; preds = %25
   store i8 0, ptr %27, align 1, !tbaa !7
   %30 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 2)
   %.inv.i = icmp sgt i32 %30, -1
-  br i1 %.inv.i, label %33, label %_ZL10fork_xtermPi.exit.thread15
+  br i1 %.inv.i, label %33, label %_ZL10fork_xtermPi.exit.thread14
 
-_ZL10fork_xtermPi.exit.thread15:                  ; preds = %25, %21, %29
+_ZL10fork_xtermPi.exit.thread14:                  ; preds = %25, %21, %29
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #8
   br label %_ZL10fork_xtermPi.exit.thread
 
-_ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %8, %19, %2, %_ZL10fork_xtermPi.exit.thread15
+_ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %8, %19, %2, %_ZL10fork_xtermPi.exit.thread14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   %31 = load ptr, ptr @stderr, align 8, !tbaa !8
   %32 = call i64 @fwrite(ptr nonnull @.str, i64 21, i64 1, ptr %31) #9
-  br label %66
+  br label %64
 
 33:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #8
@@ -104,7 +104,7 @@ _ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %8, %19, %2, %_
 47:                                               ; preds = %45, %33, %42, %39
   %48 = load ptr, ptr @stderr, align 8, !tbaa !8
   %49 = call i64 @fwrite(ptr nonnull @.str.1, i64 21, i64 1, ptr %48) #9
-  br label %63
+  br label %61
 
 _ZL10fork_spikeiPPc.exit:                         ; preds = %37, %_ZL10fork_spikeiPPc.exit
   %50 = call i32 @waitpid(i32 noundef %35, ptr noundef nonnull %5, i32 noundef 0)
@@ -115,29 +115,29 @@ _ZL10fork_spikeiPPc.exit:                         ; preds = %37, %_ZL10fork_spik
 
 52:                                               ; preds = %_ZL10fork_spikeiPPc.exit
   %53 = icmp slt i32 %50, 0
-  br i1 %53, label %54, label %56
+  br i1 %53, label %53, label %.critedge
 
-54:                                               ; preds = %52
-  %55 = call i32 @kill(i32 noundef %35, i32 noundef 15) #8
-  br label %63
+53:                                               ; preds = %52
+  %54 = call i32 @kill(i32 noundef %35, i32 noundef 15) #8
+  br label %61
 
-56:                                               ; preds = %52
-  %57 = load i32, ptr %5, align 4, !tbaa !3
-  %58 = and i32 %57, 127
-  %59 = icmp eq i32 %58, 0
-  %60 = lshr i32 %57, 8
-  %61 = and i32 %60, 255
-  %62 = select i1 %59, i32 %61, i32 -1
-  br label %63
+.critedge:                                        ; preds = %52
+  %55 = load i32, ptr %5, align 4, !tbaa !3
+  %56 = and i32 %55, 127
+  %57 = icmp eq i32 %56, 0
+  %58 = lshr i32 %55, 8
+  %59 = and i32 %58, 255
+  %60 = select i1 %57, i32 %59, i32 -1
+  br label %61
 
-63:                                               ; preds = %54, %56, %47
-  %.1 = phi i32 [ -1, %47 ], [ %50, %54 ], [ %62, %56 ]
-  %64 = sub nsw i32 0, %9
-  %65 = call i32 @kill(i32 noundef %64, i32 noundef 15) #8
-  br label %66
+61:                                               ; preds = %53, %.critedge, %47
+  %.1 = phi i32 [ -1, %47 ], [ %50, %53 ], [ %60, %.critedge ]
+  %62 = sub nsw i32 0, %9
+  %63 = call i32 @kill(i32 noundef %62, i32 noundef 15) #8
+  br label %64
 
-66:                                               ; preds = %63, %_ZL10fork_xtermPi.exit.thread
-  %.0 = phi i32 [ -1, %_ZL10fork_xtermPi.exit.thread ], [ %.1, %63 ]
+64:                                               ; preds = %61, %_ZL10fork_xtermPi.exit.thread
+  %.0 = phi i32 [ -1, %_ZL10fork_xtermPi.exit.thread ], [ %.1, %61 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   ret i32 %.0
 }

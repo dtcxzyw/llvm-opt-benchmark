@@ -1891,7 +1891,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10bargaining15BargainingState10IsTerm
   %or.cond = select i1 %4, i1 true, i1 %7
   br i1 %or.cond, label %23, label %8
 
-8:                                                ; preds = %1
+8:; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load ptr, ptr %10, align 8
@@ -1908,9 +1908,9 @@ define noundef zeroext i1 @_ZNK10open_spiel10bargaining15BargainingState10IsTerm
   %22 = icmp uge i64 %16, %21
   br label %23
 
-23:                                               ; preds = %8, %1
-  %24 = phi i1 [ true, %1 ], [ %22, %8 ]
-  ret i1 %24
+24:                                               ; preds = %8, %1
+  %25 = phi i1 [ true, %1 ], [ %22, %8 ]
+  ret i1 %25
 }
 
 ; Function Attrs: mustprogress uwtable

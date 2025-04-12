@@ -111676,7 +111676,7 @@ ma_device_get_log.exit362:                        ; preds = %ma_device_get_conte
   %148 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i361, i32 noundef 3, ptr noundef nonnull @.str.273)
   br label %ma_format_from_pulse.exit.thread
 
-ma_format_from_pulse.exit.thread:                 ; preds = %140, %ma_device_get_log.exit362
+switch.hole_check:                                ; preds = %140, %ma_device_get_log.exit362
   %.0252 = phi i32 [ 8257, %ma_device_get_log.exit362 ], [ 8193, %140 ]
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %150 = load i32, ptr %149, align 4, !tbaa !2091
@@ -111903,8 +111903,8 @@ ma_device_get_log.exit380:                        ; preds = %ma_device_get_conte
   %259 = call i32 @ma_log_post(ptr noundef %.0.i1.i379, i32 noundef 1, ptr noundef nonnull @.str.278)
   %260 = icmp sge i32 %253, 0
   %261 = icmp ult i32 %253, 6
-  %or.cond581 = and i1 %260, %261
-  br i1 %or.cond581, label %switch.lookup540, label %ma_result_from_pulse.exit
+  %or.cond580 = and i1 %260, %261
+  br i1 %or.cond580, label %switch.lookup539, label %ma_result_from_pulse.exit
 
 262:                                              ; preds = %237
   %263 = load ptr, ptr %11, align 8, !tbaa !7
@@ -111937,16 +111937,16 @@ ma_device_get_log.exit384:                        ; preds = %ma_device_get_conte
   %.0.i1.i383 = phi ptr [ %276, %274 ], [ null, %ma_device_get_context.exit.i382 ]
   %277 = load i32, ptr %8, align 4, !tbaa !2092
   %278 = icmp ult i32 %277, 10
-  br i1 %278, label %switch.lookup543, label %ma_get_format_name.exit
+  br i1 %278, label %switch.lookup542, label %ma_get_format_name.exit
 
-switch.lookup543:                                 ; preds = %ma_device_get_log.exit384
+switch.lookup542:                                 ; preds = %ma_device_get_log.exit384
   %279 = zext nneg i32 %277 to i64
-  %switch.gep544 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.ma_device_init__pulse.61, i64 0, i64 %279
-  %switch.load545 = load ptr, ptr %switch.gep544, align 8
+  %switch.gep543 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.ma_device_init__pulse.61, i64 0, i64 %279
+  %switch.load544 = load ptr, ptr %switch.gep543, align 8
   br label %ma_get_format_name.exit
 
-ma_get_format_name.exit:                          ; preds = %ma_device_get_log.exit384, %switch.lookup543
-  %.0.i387 = phi ptr [ %switch.load545, %switch.lookup543 ], [ @.str.9, %ma_device_get_log.exit384 ]
+ma_get_format_name.exit:                          ; preds = %ma_device_get_log.exit384, %switch.lookup542
+  %.0.i387 = phi ptr [ %switch.load544, %switch.lookup542 ], [ @.str.9, %ma_device_get_log.exit384 ]
   %280 = load i8, ptr %133, align 4, !tbaa !2090
   %281 = zext i8 %280 to i32
   %282 = load i32, ptr %149, align 4, !tbaa !2091
@@ -111987,7 +111987,7 @@ ma_format_from_pulse.exit392:                     ; preds = %290
   store i32 %296, ptr %136, align 4, !tbaa !101
   br label %ma_device_get_context.exit.i393
 
-switch.lookup547:                                 ; preds = %290
+switch.hole_check546:                             ; preds = %290
   %297 = zext nneg i32 %291 to i64
   %switch.gep551 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.ma_device_init__pulse.62, i64 0, i64 %297
   %switch.load552 = load i32, ptr %switch.gep551, align 4
@@ -112009,19 +112009,19 @@ ma_device_get_context.exit.i393:                  ; preds = %switch.lookup547, %
   %.0.i391487 = phi i32 [ %switch.load552, %switch.lookup547 ], [ 0, %ma_format_from_pulse.exit392 ]
   %306 = load ptr, ptr %0, align 8, !tbaa !130
   %307 = icmp eq ptr %306, null
-  br i1 %307, label %switch.lookup554, label %308
+  br i1 %307, label %switch.lookup553, label %308
 
 308:                                              ; preds = %ma_device_get_context.exit.i393
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 112
   %310 = load ptr, ptr %309, align 8, !tbaa !205
-  br label %switch.lookup554
+  br label %switch.lookup553
 
-switch.lookup554:                                 ; preds = %308, %ma_device_get_context.exit.i393
+switch.lookup553:                                 ; preds = %308, %ma_device_get_context.exit.i393
   %.0.i1.i394 = phi ptr [ %310, %308 ], [ null, %ma_device_get_context.exit.i393 ]
   %311 = sext i32 %.0.i391487 to i64
-  %switch.gep555 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.63, i64 0, i64 %311
-  %switch.load556 = load ptr, ptr %switch.gep555, align 8
-  %312 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i394, i32 noundef 1, ptr noundef nonnull @.str.281, ptr noundef nonnull %switch.load556, i32 noundef %305, i32 noundef %304)
+  %switch.gep554 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.63, i64 0, i64 %311
+  %switch.load555 = load ptr, ptr %switch.gep554, align 8
+  %312 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i394, i32 noundef 1, ptr noundef nonnull @.str.281, ptr noundef nonnull %switch.load555, i32 noundef %305, i32 noundef %304)
   br label %630
 
 313:                                              ; preds = %switch.lookup547
@@ -112268,7 +112268,7 @@ ma_device_get_log.exit421:                        ; preds = %ma_device_get_conte
   %431 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i420, i32 noundef 3, ptr noundef nonnull @.str.273)
   br label %ma_format_from_pulse.exit418.thread
 
-ma_format_from_pulse.exit418.thread:              ; preds = %423, %ma_device_get_log.exit421
+switch.hole_check557:                             ; preds = %423, %ma_device_get_log.exit421
   %.4256 = phi i32 [ 8257, %ma_device_get_log.exit421 ], [ 8193, %423 ]
   %432 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %433 = load i32, ptr %432, align 4, !tbaa !2091
@@ -112413,8 +112413,8 @@ ma_device_get_log.exit436:                        ; preds = %ma_device_get_conte
   %507 = call i32 @ma_log_post(ptr noundef %.0.i1.i435, i32 noundef 1, ptr noundef nonnull @.str.286)
   %508 = icmp sge i32 %501, 0
   %509 = icmp ult i32 %501, 6
-  %or.cond582 = and i1 %508, %509
-  br i1 %or.cond582, label %switch.lookup563, label %ma_result_from_pulse.exit438thread-pre-split
+  %or.cond581 = and i1 %508, %509
+  br i1 %or.cond581, label %switch.lookup562, label %ma_result_from_pulse.exit438thread-pre-split
 
 510:                                              ; preds = %485
   %511 = load ptr, ptr %11, align 8, !tbaa !7
@@ -112447,16 +112447,16 @@ ma_device_get_log.exit441:                        ; preds = %ma_device_get_conte
   %.0.i1.i440 = phi ptr [ %524, %522 ], [ null, %ma_device_get_context.exit.i439 ]
   %525 = load i32, ptr %8, align 4, !tbaa !2092
   %526 = icmp ult i32 %525, 10
-  br i1 %526, label %switch.lookup567, label %ma_get_format_name.exit445
+  br i1 %526, label %switch.lookup566, label %ma_get_format_name.exit445
 
-switch.lookup567:                                 ; preds = %ma_device_get_log.exit441
+switch.lookup566:                                 ; preds = %ma_device_get_log.exit441
   %527 = zext nneg i32 %525 to i64
-  %switch.gep568 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.ma_device_init__pulse.61, i64 0, i64 %527
-  %switch.load569 = load ptr, ptr %switch.gep568, align 8
+  %switch.gep567 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.ma_device_init__pulse.61, i64 0, i64 %527
+  %switch.load568 = load ptr, ptr %switch.gep567, align 8
   br label %ma_get_format_name.exit445
 
-ma_get_format_name.exit445:                       ; preds = %ma_device_get_log.exit441, %switch.lookup567
-  %.0.i444 = phi ptr [ %switch.load569, %switch.lookup567 ], [ @.str.9, %ma_device_get_log.exit441 ]
+ma_get_format_name.exit445:                       ; preds = %ma_device_get_log.exit441, %switch.lookup566
+  %.0.i444 = phi ptr [ %switch.load568, %switch.lookup566 ], [ @.str.9, %ma_device_get_log.exit441 ]
   %528 = load i8, ptr %416, align 4, !tbaa !2090
   %529 = zext i8 %528 to i32
   %530 = load i32, ptr %432, align 4, !tbaa !2091
@@ -112497,7 +112497,7 @@ ma_format_from_pulse.exit450:                     ; preds = %538
   store i32 %544, ptr %419, align 4, !tbaa !101
   br label %ma_device_get_context.exit.i451
 
-switch.lookup571:                                 ; preds = %538
+switch.hole_check570:                             ; preds = %538
   %545 = zext nneg i32 %539 to i64
   %switch.gep575 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.ma_device_init__pulse.62, i64 0, i64 %545
   %switch.load576 = load i32, ptr %switch.gep575, align 4
@@ -112519,19 +112519,19 @@ ma_device_get_context.exit.i451:                  ; preds = %switch.lookup571, %
   %.0.i449513 = phi i32 [ %switch.load576, %switch.lookup571 ], [ 0, %ma_format_from_pulse.exit450 ]
   %554 = load ptr, ptr %0, align 8, !tbaa !130
   %555 = icmp eq ptr %554, null
-  br i1 %555, label %switch.lookup578, label %556
+  br i1 %555, label %switch.lookup577, label %556
 
 556:                                              ; preds = %ma_device_get_context.exit.i451
   %557 = getelementptr inbounds nuw i8, ptr %554, i64 112
   %558 = load ptr, ptr %557, align 8, !tbaa !205
-  br label %switch.lookup578
+  br label %switch.lookup577
 
-switch.lookup578:                                 ; preds = %556, %ma_device_get_context.exit.i451
+switch.lookup577:                                 ; preds = %556, %ma_device_get_context.exit.i451
   %.0.i1.i452 = phi ptr [ %558, %556 ], [ null, %ma_device_get_context.exit.i451 ]
   %559 = sext i32 %.0.i449513 to i64
-  %switch.gep579 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.63, i64 0, i64 %559
-  %switch.load580 = load ptr, ptr %switch.gep579, align 8
-  %560 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i452, i32 noundef 1, ptr noundef nonnull @.str.289, ptr noundef nonnull %switch.load580, i32 noundef %553, i32 noundef %552)
+  %switch.gep578 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.63, i64 0, i64 %559
+  %switch.load579 = load ptr, ptr %switch.gep578, align 8
+  %560 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i452, i32 noundef 1, ptr noundef nonnull @.str.289, ptr noundef nonnull %switch.load579, i32 noundef %553, i32 noundef %552)
   br label %630
 
 561:                                              ; preds = %switch.lookup571
@@ -112674,8 +112674,8 @@ ma_device_get_context.exit.i459:                  ; preds = %613
   %629 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i460, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull %628)
   br label %630
 
-630:                                              ; preds = %.thread514, %switch.lookup578, %switch.lookup554
-  %.3 = phi i32 [ -1, %switch.lookup554 ], [ -1, %switch.lookup578 ], [ %622, %.thread514 ]
+630:                                              ; preds = %.thread514, %switch.lookup577, %switch.lookup553
+  %.3 = phi i32 [ -1, %switch.lookup553 ], [ -1, %switch.lookup577 ], [ %622, %.thread514 ]
   %631 = load i32, ptr %1, align 8, !tbaa !246
   switch i32 %631, label %ma_result_from_pulse.exit438 [
     i32 1, label %632
@@ -112691,15 +112691,15 @@ ma_device_get_context.exit.i459:                  ; preds = %613
   %638 = call i32 %635(ptr noundef %637) #66
   br label %ma_result_from_pulse.exit438thread-pre-split
 
-switch.lookup563:                                 ; preds = %ma_device_get_log.exit436
-  %switch.tableidx564 = add nsw i32 %501, -1
-  %639 = sext i32 %switch.tableidx564 to i64
-  %switch.gep565 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %639
-  %switch.load566 = load i32, ptr %switch.gep565, align 4
+switch.lookup562:                                 ; preds = %ma_device_get_log.exit436
+  %switch.tableidx563 = add nsw i32 %501, -1
+  %639 = sext i32 %switch.tableidx563 to i64
+  %switch.gep564 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %639
+  %switch.load565 = load i32, ptr %switch.gep564, align 4
   br label %ma_result_from_pulse.exit438thread-pre-split
 
-ma_result_from_pulse.exit438thread-pre-split:     ; preds = %switch.lookup563, %510, %632, %ma_device_get_log.exit436
-  %.4.ph = phi i32 [ -1, %ma_device_get_log.exit436 ], [ -1, %510 ], [ %.3, %632 ], [ %switch.load566, %switch.lookup563 ]
+ma_result_from_pulse.exit438thread-pre-split:     ; preds = %switch.lookup562, %510, %632, %ma_device_get_log.exit436
+  %.4.ph = phi i32 [ -1, %ma_device_get_log.exit436 ], [ -1, %510 ], [ %.3, %632 ], [ %switch.load565, %switch.lookup562 ]
   %.pr517 = load i32, ptr %1, align 8, !tbaa !246
   br label %ma_result_from_pulse.exit438
 
@@ -112736,15 +112736,15 @@ ma_log_post.exit416:                              ; preds = %376, %ma_device_get
   %655 = call i32 %652(ptr noundef %654) #66
   br label %ma_result_from_pulse.exit
 
-switch.lookup540:                                 ; preds = %ma_device_get_log.exit380
+switch.lookup539:                                 ; preds = %ma_device_get_log.exit380
   %switch.tableidx = add nsw i32 %253, -1
   %656 = sext i32 %switch.tableidx to i64
-  %switch.gep541 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %656
-  %switch.load542 = load i32, ptr %switch.gep541, align 4
+  %switch.gep540 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %656
+  %switch.load541 = load i32, ptr %switch.gep540, align 4
   br label %ma_result_from_pulse.exit
 
-ma_result_from_pulse.exit:                        ; preds = %switch.lookup540, %ma_device_get_log.exit380, %ma_log_post.exit416, %649
-  %.1 = phi i32 [ %.2, %649 ], [ %.2, %ma_log_post.exit416 ], [ -1, %ma_device_get_log.exit380 ], [ %switch.load542, %switch.lookup540 ]
+ma_result_from_pulse.exit:                        ; preds = %switch.lookup539, %ma_device_get_log.exit380, %ma_log_post.exit416, %649
+  %.1 = phi i32 [ %.2, %649 ], [ %.2, %ma_log_post.exit416 ], [ -1, %ma_device_get_log.exit380 ], [ %switch.load541, %switch.lookup539 ]
   %657 = load i32, ptr %1, align 8, !tbaa !246
   %658 = and i32 %657, -2
   %switch343 = icmp eq i32 %658, 2

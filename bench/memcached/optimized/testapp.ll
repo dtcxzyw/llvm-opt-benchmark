@@ -4833,31 +4833,31 @@ define internal fastcc noundef zeroext i1 @safe_recv(ptr noundef nonnull %0, i64
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %2, %24
-  %.015 = phi i64 [ %.217, %24 ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %21
+  %.014 = phi i64 [ %.216, %21 ], [ 0, %2 ]
   %4 = load ptr, ptr @con, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !47
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.015
-  %8 = sub nsw i64 %1, %.015
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.014
+  %8 = sub nsw i64 %1, %.014
   %9 = tail call i64 %6(ptr noundef %4, ptr noundef nonnull %7, i64 noundef %8) #21
   %10 = icmp eq i64 %9, -1
-  br i1 %10, label %11, label %18
+  br i1 %10, label %10, label %18
 
-11:                                               ; preds = %.preheader
-  %12 = tail call ptr @__errno_location() #25
-  %13 = load i32, ptr %12, align 4, !tbaa !9
-  %.not22 = icmp eq i32 %13, 4
-  br i1 %.not22, label %24, label %14
+10:                                               ; preds = %.preheader
+  %11 = tail call ptr @__errno_location() #25
+  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %.not21 = icmp eq i32 %12, 4
+  br i1 %.not21, label %21, label %13
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !44
-  %16 = tail call ptr @strerror(i32 noundef %13) #21
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.239, ptr noundef %16) #26
+13:                                               ; preds = %10
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !44
+  %15 = tail call ptr @strerror(i32 noundef %12) #21
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.239, ptr noundef %15) #26
   tail call void @abort() #22
   unreachable
 
-18:                                               ; preds = %.preheader
+17:                                               ; preds = %.preheader
   %19 = icmp eq i64 %9, 0
   %.b21 = load i1, ptr @allow_closed_read, align 1
   %or.cond = select i1 %19, i1 %.b21, i1 false
@@ -4866,22 +4866,22 @@ define internal fastcc noundef zeroext i1 @safe_recv(ptr noundef nonnull %0, i64
 20:                                               ; preds = %18
   br i1 %19, label %21, label %22
 
-21:                                               ; preds = %20
+18:                                               ; preds = %20
   tail call void @__assert_fail(ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.62, i32 noundef 1029, ptr noundef nonnull @__PRETTY_FUNCTION__.safe_recv) #22
   unreachable
 
-22:                                               ; preds = %20
-  %23 = add nsw i64 %9, %.015
-  br label %24
+19:                                               ; preds = %20
+  %20 = add nsw i64 %9, %.014
+  br label %21
 
-24:                                               ; preds = %22, %11
-  %.217 = phi i64 [ %.015, %11 ], [ %23, %22 ]
-  %25 = icmp ult i64 %.217, %1
-  br i1 %25, label %.preheader, label %.thread, !llvm.loop !76
+21:                                               ; preds = %19, %10
+  %.216 = phi i64 [ %.014, %10 ], [ %20, %19 ]
+  %22 = icmp ult i64 %.216, %1
+  br i1 %22, label %.preheader, label %.thread, !llvm.loop !76
 
-.thread:                                          ; preds = %18, %24, %2
-  %.014 = phi i1 [ true, %2 ], [ false, %18 ], [ true, %24 ]
-  ret i1 %.014
+.thread:                                          ; preds = %17, %24, %2
+  %.013 = phi i1 [ true, %2 ], [ false, %17 ], [ true, %21 ]
+  ret i1 %.013
 }
 
 ; Function Attrs: nounwind uwtable

@@ -45,7 +45,7 @@ define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr 
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(13) %0) #4
   br label %10
 
-10:                                               ; preds = %2, %6
+10:; preds = %2, %6
   ret void
 }
 

@@ -884,7 +884,7 @@ store_fp.exit.i:                                  ; preds = %238, %236
   %exitcond.not.i.i = icmp eq i32 %251, %spec.select.i21
   br i1 %exitcond.not.i.i, label %store_gp.exit.i, label %248, !llvm.loop !64
 
-switch.lookup:                                    ; preds = %240
+switch.hole_check:                                ; preds = %240
   %252 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %252
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -954,12 +954,12 @@ store_fp.exit95.i:                                ; preds = %264, %262
   %exitcond.not.i101.i = icmp eq i32 %.016.i100.i, %273
   br i1 %exitcond.not.i101.i, label %store_gp.exit102.i, label %274, !llvm.loop !64
 
-switch.lookup31:                                  ; preds = %266
+switch.hole_check31:                              ; preds = %266
   %278 = zext nneg i32 %switch.tableidx30 to i64
-  %switch.gep35 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %278
-  %switch.load36 = load ptr, ptr %switch.gep35, align 8
+  %switch.gep36 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %278
+  %switch.load37 = load ptr, ptr %switch.gep36, align 8
   %279 = sext i32 %.280.i to i64
-  %280 = getelementptr inbounds [6 x ptr], ptr %switch.load36, i64 0, i64 %279
+  %280 = getelementptr inbounds [6 x ptr], ptr %switch.load37, i64 0, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef %281, i32 noundef %261)
   br label %store_gp.exit102.i
@@ -1018,12 +1018,12 @@ store_fp.exit104.i:                               ; preds = %286, %282
   %exitcond.not.i110.i = icmp eq i32 %301, %291
   br i1 %exitcond.not.i110.i, label %store_gp.exit102.i, label %298, !llvm.loop !64
 
-switch.lookup40:                                  ; preds = %288
+switch.hole_check40:                              ; preds = %288
   %302 = zext nneg i32 %switch.tableidx39 to i64
-  %switch.gep44 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %302
-  %switch.load45 = load ptr, ptr %switch.gep44, align 8
+  %switch.gep45 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %302
+  %switch.load46 = load ptr, ptr %switch.gep45, align 8
   %303 = sext i32 %.078121.i to i64
-  %304 = getelementptr inbounds [6 x ptr], ptr %switch.load45, i64 0, i64 %303
+  %304 = getelementptr inbounds [6 x ptr], ptr %switch.load46, i64 0, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef %305, i32 noundef %226)
   br label %store_gp.exit102.i
@@ -2818,7 +2818,7 @@ push_args.exit:                                   ; preds = %405, %409, %415
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 66) #15
   unreachable
 
-switch.lookup:                                    ; preds = %525
+switch.hole_check:                                ; preds = %525
   %554 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.gen_expr, i64 0, i64 %554
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2867,11 +2867,11 @@ switch.lookup:                                    ; preds = %525
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 76) #15
   unreachable
 
-switch.lookup385:                                 ; preds = %556
+switch.hole_check385:                             ; preds = %556
   %574 = zext nneg i32 %switch.tableidx384 to i64
-  %switch.gep389 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.gen_expr.4, i64 0, i64 %574
-  %switch.load390 = load ptr, ptr %switch.gep389, align 8
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.155, ptr noundef nonnull %switch.load390)
+  %switch.gep390 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.gen_expr.4, i64 0, i64 %574
+  %switch.load391 = load ptr, ptr %switch.gep390, align 8
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.155, ptr noundef nonnull %switch.load391)
   br label %common.ret437
 
 575:                                              ; preds = %tailrecurse

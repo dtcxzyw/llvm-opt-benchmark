@@ -1346,7 +1346,7 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %10
   %or.cond = select i1 %17, i1 true, i1 %19
   br i1 %or.cond, label %20, label %25
 
-20:                                               ; preds = %15
+20:; preds = %15
   %21 = load ptr, ptr %1, align 8, !tbaa !8
   %.not10 = icmp eq ptr %21, null
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1355,7 +1355,7 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %10
   %24 = select i1 %.not10, i1 %.not11, i1 false
   br label %25
 
-25:                                               ; preds = %15, %10, %_ZNK4Luau7AstNameeqEPKc.exit, %20, %4
+25:; preds = %15, %10, %_ZNK4Luau7AstNameeqEPKc.exit, %20, %4
   %.0 = phi i1 [ %6, %4 ], [ %24, %20 ], [ false, %10 ], [ %14, %_ZNK4Luau7AstNameeqEPKc.exit ], [ false, %15 ]
   ret i1 %.0
 }

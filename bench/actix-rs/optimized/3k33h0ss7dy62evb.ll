@@ -1524,7 +1524,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.9066
   %25 = trunc i8 %.0.i to i1
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.906605461179275197.exit
+switch.hole_check:                                ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.906605461179275197.exit
   %.0 = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.906605461179275197.exit ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0
 }
@@ -1996,7 +1996,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.9066
   %25 = trunc i8 %.0.i.i to i1
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17h2f84e1becbf1918eE.llvm.906605461179275197.exit"
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17h2f84e1becbf1918eE.llvm.906605461179275197.exit": ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.906605461179275197.exit.i
+switch.hole_check:                                ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.906605461179275197.exit.i
   %.0.i = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.906605461179275197.exit.i ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0.i
 }

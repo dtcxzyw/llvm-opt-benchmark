@@ -2589,7 +2589,7 @@ define dso_local void @llvm_emit_break(ptr noundef %0, ptr noundef readonly capt
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_break, ptr noundef nonnull @.str.11, i32 noundef 920) #10
   unreachable
 
-switch.lookup:                                    ; preds = %._crit_edge
+switch.hole_check:                                ; preds = %._crit_edge
   %19 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table.llvm_emit_break, i64 0, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8

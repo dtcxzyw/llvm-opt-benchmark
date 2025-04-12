@@ -378,24 +378,24 @@ define linkonce_odr dso_local void @_ZN11btRigidBodyD2Ev(ptr noundef nonnull ali
   %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i, label %7, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit
 
-7:                                                ; preds = %1
+7:   ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit unwind label %8
+          to label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit unwind label %9
 
-8:                                                ; preds = %7
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %7
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #19
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #19
   unreachable
 
 _ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %1, %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 604
-  store i8 1, ptr %4, align 8, !tbaa !58
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 604
+  store i9 1, ptr %4, align 8, !tbaa !58
   store ptr null, ptr %2, align 8, !tbaa !52
-  store i32 0, ptr %11, align 4, !tbaa !48
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store i32 0, ptr %12, align 8, !tbaa !59
+  store i32 0, ptr %12, align 4, !tbaa !48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  store i32 0, ptr %14, align 8, !tbaa !59
   tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %0) #18
   ret void
 }

@@ -1637,7 +1637,7 @@ define void @_ZN15AlignPairWidget19createRenderingDataEP9MeshModelR15MLRendering
   %4 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts.213", align 1
   %5 = alloca %struct.MLPerViewGLOptions, align 8
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %199, label %7
+  br i1 %6, label %203, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1912,29 +1912,29 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %.noexc, %7
   %189 = trunc i8 %188 to i1
   %or.cond = select i1 %186, i1 true, i1 %189
   %190 = xor i8 %45, 1
-  %191 = trunc nuw i8 %46 to i1
-  %192 = select i1 %191, i8 0, i8 %45
+  %190 = trunc nuw i8 %46 to i1
+  %192 = select i1 %190, i8 0, i8 %45
   br i1 %or.cond, label %193, label %195
 
-193:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
+193: ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
   %194 = getelementptr inbounds nuw i8, ptr %5, i64 30
   store i8 %190, ptr %194, align 2
   store i8 %192, ptr %15, align 2
   br label %197
 
-195:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
+195:; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 %190, ptr %196, align 8
   store i8 %192, ptr %17, align 4
   br label %197
 
-197:                                              ; preds = %193, %195
+197:; preds = %193, %195
   %.sink = phi i32 [ 0, %193 ], [ 3, %195 ]
   %198 = call noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.sink, ptr noundef nonnull align 1 dereferenceable(7) %4)
   call void @_ZN15MLRenderingData3setERK18MLPerViewGLOptions(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(90) %5)
-  br label %199
+  br label %203
 
-199:                                              ; preds = %197, %3
+203:                                              ; preds = %197, %3
   ret void
 }
 

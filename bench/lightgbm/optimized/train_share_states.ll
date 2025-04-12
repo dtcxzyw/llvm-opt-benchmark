@@ -2559,7 +2559,7 @@ define void @_ZN8LightGBM18MultiValBinWrapper9InitTrainERKSt6vectorIiSaIiEERKS1_
 19:                                               ; preds = %9
   %20 = load ptr, ptr %18, align 8, !tbaa !92
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8
+  %19 = load ptr, ptr %21, align 8
   %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(8) %18)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 %23, ptr %24, align 4, !tbaa !44
@@ -2586,7 +2586,7 @@ define void @_ZN8LightGBM18MultiValBinWrapper9InitTrainERKSt6vectorIiSaIiEERKS1_
   store i32 %.sroa.speculated, ptr %41, align 4, !tbaa !95
   br label %43
 
-43:                                               ; preds = %9, %19, %6
+43:; preds = %9, %19, %6
   ret void
 }
 

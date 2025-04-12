@@ -1535,16 +1535,16 @@ define internal fastcc range(i32 -1, 1) i32 @dialect_check_char(ptr noundef %0, 
   %or.cond3 = or i1 %6, %3
   br i1 %or.cond3, label %7, label %.sink.split
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
-  %10 = getelementptr i8, ptr %9, i64 16
+7:; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %.val = load ptr, ptr %9, align 8, !tbaa !27
+  %10 = getelementptr i8, ptr %.val, i64 16
   %.val = load i64, ptr %10, align 8, !tbaa !43
   %11 = tail call i64 @PyUnicode_FindChar(ptr noundef %9, i32 noundef %1, i64 noundef 0, i64 noundef %.val, i32 noundef 1) #5
   %12 = icmp sgt i64 %11, -1
   br i1 %12, label %.sink.split, label %15
 
-.sink.split:                                      ; preds = %7, %5, %4, %4
+.sink.split:; preds = %7, %5, %4, %4
   %.str.37.sink = phi ptr [ @.str.36, %4 ], [ @.str.36, %4 ], [ @.str.36, %5 ], [ @.str.37, %7 ]
   %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
   %14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull %.str.37.sink, ptr noundef %0) #5

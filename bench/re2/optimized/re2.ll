@@ -2512,14 +2512,14 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit113: ; preds = %for.inc.i, %i
   %add.ptr.i110 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call81
   %sub.i111 = sub nuw i64 %sub.i95, %call81
   %cmp103.not = icmp eq i32 %re_anchor.addr.0, 2
-  %spec.select231 = select i1 %cmp103.not, i32 2, i32 1
+  %spec.select227 = select i1 %cmp103.not, i32 2, i32 1
   br label %if.end106
 
 if.end106:                                        ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit113, %if.end74
   %subtext.sroa.0.0 = phi ptr [ %add.ptr.i, %if.end74 ], [ %add.ptr.i110, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
   %subtext.sroa.11.0 = phi i64 [ %sub.i95, %if.end74 ], [ %sub.i111, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
   %prefixlen.0 = phi i64 [ 0, %if.end74 ], [ %call81, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
-  %re_anchor.addr.1 = phi i32 [ %re_anchor.addr.0, %if.end74 ], [ %spec.select231, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
+  %re_anchor.addr.1 = phi i32 [ %re_anchor.addr.0, %if.end74 ], [ %spec.select227, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
   %bf.load107 = load i32, ptr %error_code_.i.i, align 4
   %15 = lshr i32 %bf.load107, 29
   %.lobit = and i32 %15, 1
@@ -2530,7 +2530,7 @@ if.end106:                                        ; preds = %_ZN4absl7debian211s
   %18 = load ptr, ptr %prog_, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 96
   %19 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.i114.not224 = icmp eq ptr %19, null
+  %cmp.i114.not220 = icmp eq ptr %19, null
   %bit_state_text_max_size_.i = getelementptr inbounds nuw i8, ptr %18, i64 104
   %20 = load i64, ptr %bit_state_text_max_size_.i, align 8
   %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN3re25hooks7contextE)
@@ -2854,7 +2854,7 @@ land.lhs.true310:                                 ; preds = %if.end305
   br i1 %or.cond218, label %if.end388, label %if.end316
 
 if.end316:                                        ; preds = %land.lhs.true310, %if.end305
-  br i1 %cmp.i114.not224, label %if.end324, label %land.lhs.true318
+  br i1 %cmp.i114.not220, label %if.end324, label %land.lhs.true318
 
 land.lhs.true318:                                 ; preds = %if.end316
   %cmp320 = icmp ule i64 %text.coerce1, %20
@@ -3010,9 +3010,9 @@ if.else411:                                       ; preds = %if.else411.sink.spl
   %subtext1.sroa.0.0211 = phi ptr [ %subtext1.sroa.0.0, %if.end388 ], [ %subtext.sroa.0.0, %if.then249 ], [ %subtext.sroa.0.0, %if.end238 ], [ %subtext.sroa.0.0, %if.then190 ], [ %subtext.sroa.0.0, %if.then138 ], [ %subtext.sroa.0.0, %if.then130 ], [ %subtext.sroa.0.0, %if.else411.sink.split ]
   %skipped_test.0193201210 = phi i1 [ %skipped_test.0193201, %if.end388 ], [ true, %if.then249 ], [ true, %if.end238 ], [ true, %if.then190 ], [ true, %if.then138 ], [ true, %if.then130 ], [ true, %if.else411.sink.split ]
   %cmp415.not = icmp ugt i64 %subtext1.sroa.6.0212, %20
-  %or.cond220 = select i1 %cmp.i114.not224, i1 true, i1 %cmp415.not
+  %or.cond219 = select i1 %cmp.i114.not220, i1 true, i1 %cmp415.not
   %62 = load ptr, ptr %prog_, align 8
-  br i1 %or.cond220, label %if.else435, label %if.then416
+  br i1 %or.cond219, label %if.else435, label %if.then416
 
 if.then416:                                       ; preds = %if.else411
   %call420 = call noundef zeroext i1 @_ZN3re24Prog14SearchBitStateEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432) %62, ptr %subtext1.sroa.0.0211, i64 %subtext1.sroa.6.0212, ptr %text.coerce0, i64 %text.coerce1, i32 noundef %anchor.1214, i32 noundef %kind.2213, ptr noundef %submatch, i32 noundef %spec.select)
@@ -3088,8 +3088,8 @@ _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %if.then460
   br label %if.end468
 
 if.end468:                                        ; preds = %_ZN4absl7debian211string_viewC2EPKcm.exit, %if.end456
-  %cmp469226 = icmp slt i32 %spec.select, %nsubmatch
-  br i1 %cmp469226, label %for.body.preheader, label %return
+  %cmp469222 = icmp slt i32 %spec.select, %nsubmatch
+  br i1 %cmp469222, label %for.body.preheader, label %return
 
 for.body.preheader:                               ; preds = %if.end468
   %69 = sext i32 %spec.select to i64

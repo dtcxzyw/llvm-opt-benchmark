@@ -606,24 +606,24 @@ define internal void @mi_process_done() #0 {
 3:                                                ; preds = %0
   store i1 true, ptr @mi_process_done.process_done, align 1
   tail call void @mi_collect(i1 noundef zeroext true) #12
-  %4 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 1) #12
-  br i1 %4, label %7, label %5
+  %5 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 1) #12
+  br i1 %5, label %8, label %6
 
-5:                                                ; preds = %3
-  %6 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 2) #12
-  br i1 %6, label %7, label %8
+6:                                                ; preds = %3
+  %7 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 2) #12
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %5, %3
+8:                                                ; preds = %6, %3
   tail call void @mi_stats_print(ptr noundef null) #12
-  br label %8
+  br label %9
 
-8:                                                ; preds = %7, %5
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8, !tbaa !15
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.6, i64 noundef %9) #12
+9:                                                ; preds = %8, %6
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8, !tbaa !15
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.6, i64 noundef %10) #12
   store i1 false, ptr @os_preloading, align 1
-  br label %10
+  br label %11
 
-10:                                               ; preds = %0, %8
+11:                                               ; preds = %0, %9
   ret void
 }
 

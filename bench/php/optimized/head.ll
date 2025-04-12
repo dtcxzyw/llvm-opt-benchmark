@@ -2015,19 +2015,19 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
 
 16:                                               ; preds = %zend_parse_arg_long_ex.exit, %.thread71
   %.078 = phi i32 [ 0, %.thread71 ], [ 1, %zend_parse_arg_long_ex.exit ]
-  %.05077 = phi ptr [ null, %.thread71 ], [ %10, %zend_parse_arg_long_ex.exit ]
-  %.05376 = phi i32 [ 1, %.thread71 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05376, i32 noundef %.078, ptr noundef null, i32 noundef 0, ptr noundef %.05077) #10
+  %.04977 = phi ptr [ null, %.thread71 ], [ %10, %zend_parse_arg_long_ex.exit ]
+  %.05276 = phi i32 [ 1, %.thread71 ], [ 9, %zend_parse_arg_long_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05276, i32 noundef %.078, ptr noundef null, i32 noundef 0, ptr noundef %.04977) #10
   br label %44
 
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge, %zend_parse_arg_long_ex.exit.thread
   %17 = phi i64 [ %14, %zend_parse_arg_long_ex.exit.thread ], [ %.pr.pre, %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge ]
-  %.not58 = icmp eq i64 %17, 0
-  br i1 %.not58, label %.critedge.thread, label %18
+  %.not57 = icmp eq i64 %17, 0
+  br i1 %.not57, label %.critedge.thread, label %18
 
 18:                                               ; preds = %.critedge
   %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 249), align 1, !tbaa !69
-  %20 = icmp eq i8 %19, 0
+  %.not59 = icmp eq i8 %19, 0
   %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 73), align 1, !range !27
   %22 = trunc nuw i8 %21 to i1
   %or.cond = select i1 %20, i1 true, i1 %22
@@ -2073,8 +2073,8 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
 
 .critedge.thread:                                 ; preds = %7, %.critedge
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8, !tbaa !87
-  %.not59 = icmp eq i32 %38, 0
-  br i1 %.not59, label %39, label %41
+  %.not58 = icmp eq i32 %38, 0
+  br i1 %.not58, label %39, label %41
 
 39:                                               ; preds = %.critedge.thread
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8

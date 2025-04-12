@@ -1917,9 +1917,9 @@ define void @_ZN11tree_sitter6Parser10set_logger17h8321483bacc9785eE(ptr noalias
 .body:                                            ; preds = %6, %33
   %.0.lpad-body = phi i1 [ %8, %6 ], [ true, %33 ]
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %33 ]
-  %9 = icmp ne ptr %1, null
-  %or.cond3 = select i1 %9, i1 %.0.lpad-body, i1 false
-  br i1 %or.cond3, label %73, label %common.resume
+  %.not13 = icmp ne ptr %1, null
+  %brmerge = select i1 %.not13, i1 %.0.lpad-body, i1 false
+  br i1 %brmerge, label %73, label %common.resume
 
 10:                                               ; preds = %3
   %.fca.0.extract = extractvalue { i64, i64 } %5, 0

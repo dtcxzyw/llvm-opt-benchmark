@@ -156,9 +156,9 @@ define dso_local { i64, i8 } @_ZN4llvm17AArch64GISelUtils27getAArch64VectorSplat
   %9 = trunc nuw i8 %8 to i1
   %or.cond = select i1 %.not, i1 true, i1 %9
   %10 = load i64, ptr %3, align 8
-  %.sroa.0.0 = select i1 %or.cond, i64 undef, i64 %10
-  %not.or.cond = xor i1 %or.cond, true
-  %.sroa.2.0 = zext i1 %not.or.cond to i8
+  %spec.select = select i1 %or.cond, i64 undef, i64 %10
+  %not. = xor i1 %or.cond, true
+  %.sroa.2.0 = zext i1 %not. to i8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
